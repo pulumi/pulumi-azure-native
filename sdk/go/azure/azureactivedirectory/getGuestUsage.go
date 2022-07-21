@@ -11,7 +11,7 @@ import (
 )
 
 // Guest Usages Resource
-// API Version: 2020-05-01-preview.
+// API Version: 2021-04-01.
 func LookupGuestUsage(ctx *pulumi.Context, args *LookupGuestUsageArgs, opts ...pulumi.InvokeOption) (*LookupGuestUsageResult, error) {
 	var rv LookupGuestUsageResult
 	err := ctx.Invoke("azure-native:azureactivedirectory:getGuestUsage", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupGuestUsage(ctx *pulumi.Context, args *LookupGuestUsageArgs, opts ...p
 type LookupGuestUsageArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The initial domain name of the AAD tenant.
+	// The initial domain name of the Azure AD B2C tenant.
 	ResourceName string `pulumi:"resourceName"`
 }
 
@@ -36,6 +36,8 @@ type LookupGuestUsageResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the Guest Usages resource.
 	Name string `pulumi:"name"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// An identifier for the tenant for which the resource is being created
@@ -60,7 +62,7 @@ func LookupGuestUsageOutput(ctx *pulumi.Context, args LookupGuestUsageOutputArgs
 type LookupGuestUsageOutputArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// The initial domain name of the AAD tenant.
+	// The initial domain name of the Azure AD B2C tenant.
 	ResourceName pulumi.StringInput `pulumi:"resourceName"`
 }
 
@@ -96,6 +98,11 @@ func (o LookupGuestUsageResultOutput) Location() pulumi.StringPtrOutput {
 // The name of the Guest Usages resource.
 func (o LookupGuestUsageResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGuestUsageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupGuestUsageResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupGuestUsageResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Key-value pairs of additional resource provisioning properties.

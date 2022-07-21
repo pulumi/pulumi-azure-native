@@ -11,7 +11,7 @@ import (
 )
 
 // Domain ownership Identifier.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupDomainOwnershipIdentifierResult, error) {
 	var rv LookupDomainOwnershipIdentifierResult
 	err := ctx.Invoke("azure-native:domainregistration:getDomainOwnershipIdentifier", args, &rv, opts...)
@@ -40,8 +40,6 @@ type LookupDomainOwnershipIdentifierResult struct {
 	Name string `pulumi:"name"`
 	// Ownership Id.
 	OwnershipId *string `pulumi:"ownershipId"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -105,11 +103,6 @@ func (o LookupDomainOwnershipIdentifierResultOutput) Name() pulumi.StringOutput 
 // Ownership Id.
 func (o LookupDomainOwnershipIdentifierResultOutput) OwnershipId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) *string { return v.OwnershipId }).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LookupDomainOwnershipIdentifierResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.

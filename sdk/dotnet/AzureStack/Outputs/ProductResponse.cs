@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.AzureStack.Outputs
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse? SystemData;
+        /// <summary>
         /// Type of Resource.
         /// </summary>
         public readonly string Type;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.AzureStack.Outputs
 
             string? sku,
 
+            Outputs.SystemDataResponse? systemData,
+
             string type,
 
             string? vmExtensionType)
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.AzureStack.Outputs
             PublisherDisplayName = publisherDisplayName;
             PublisherIdentifier = publisherIdentifier;
             Sku = sku;
+            SystemData = systemData;
             Type = type;
             VmExtensionType = vmExtensionType;
         }

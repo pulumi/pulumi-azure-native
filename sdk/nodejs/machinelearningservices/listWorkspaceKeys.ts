@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
     if (!opts) {
@@ -22,7 +22,7 @@ export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.Inv
 
 export interface ListWorkspaceKeysArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -45,7 +45,7 @@ export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?
 
 export interface ListWorkspaceKeysOutputArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

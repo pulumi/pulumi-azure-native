@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : Pulumi.CustomResource

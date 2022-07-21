@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the gallery Application Definition that you want to create or update.
-// API Version: 2020-09-30.
+// API Version: 2021-10-01.
 func LookupGalleryApplication(ctx *pulumi.Context, args *LookupGalleryApplicationArgs, opts ...pulumi.InvokeOption) (*LookupGalleryApplicationResult, error) {
 	var rv LookupGalleryApplicationResult
 	err := ctx.Invoke("azure-native:compute:getGalleryApplication", args, &rv, opts...)

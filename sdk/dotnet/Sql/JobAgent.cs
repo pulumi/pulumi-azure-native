@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL job agent.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobAgent")]
     public partial class JobAgent : Pulumi.CustomResource

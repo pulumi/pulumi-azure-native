@@ -24,22 +24,15 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
         /// The IP ACL rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.IPRuleResponse> IpRules;
-        /// <summary>
-        /// The virtual network rules.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
 
         [OutputConstructor]
         private NetworkRuleSetResponse(
             string defaultAction,
 
-            ImmutableArray<Outputs.IPRuleResponse> ipRules,
-
-            ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
+            ImmutableArray<Outputs.IPRuleResponse> ipRules)
         {
             DefaultAction = defaultAction;
             IpRules = ipRules;
-            VirtualNetworkRules = virtualNetworkRules;
         }
     }
 }

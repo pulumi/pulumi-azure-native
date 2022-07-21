@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:ApiPortalCustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain"},
                 },

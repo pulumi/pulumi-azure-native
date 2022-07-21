@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SoftwarePlan
 {
     /// <summary>
     /// Response on GET of a hybrid use benefit
-    /// API Version: 2019-06-01-preview.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:softwareplan:HybridUseBenefit")]
     public partial class HybridUseBenefit : Pulumi.CustomResource

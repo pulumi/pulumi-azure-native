@@ -9,22 +9,18 @@ export * from "./agentPool";
 export * from "./getAgentPool";
 export * from "./getMaintenanceConfiguration";
 export * from "./getManagedCluster";
-export * from "./getManagedClusterSnapshot";
 export * from "./getOpenShiftManagedCluster";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSnapshot";
-export * from "./getTrustedAccessRoleBinding";
 export * from "./listManagedClusterAccessProfile";
 export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterMonitoringUserCredentials";
 export * from "./listManagedClusterUserCredentials";
 export * from "./maintenanceConfiguration";
 export * from "./managedCluster";
-export * from "./managedClusterSnapshot";
 export * from "./openShiftManagedCluster";
 export * from "./privateEndpointConnection";
 export * from "./snapshot";
-export * from "./trustedAccessRoleBinding";
 
 // Export enums:
 export * from "../types/enums/containerservice";
@@ -124,11 +120,9 @@ export {
 import { AgentPool } from "./agentPool";
 import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 import { ManagedCluster } from "./managedCluster";
-import { ManagedClusterSnapshot } from "./managedClusterSnapshot";
 import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Snapshot } from "./snapshot";
-import { TrustedAccessRoleBinding } from "./trustedAccessRoleBinding";
 
 const _module = {
     version: utilities.getVersion(),
@@ -140,16 +134,12 @@ const _module = {
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
-            case "azure-native:containerservice:ManagedClusterSnapshot":
-                return new ManagedClusterSnapshot(name, <any>undefined, { urn })
             case "azure-native:containerservice:OpenShiftManagedCluster":
                 return new OpenShiftManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerservice:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-native:containerservice:TrustedAccessRoleBinding":
-                return new TrustedAccessRoleBinding(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

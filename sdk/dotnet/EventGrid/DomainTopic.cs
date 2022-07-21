@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Domain Topic.
-    /// API Version: 2020-06-01.
+    /// API Version: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:DomainTopic")]
     public partial class DomainTopic : Pulumi.CustomResource

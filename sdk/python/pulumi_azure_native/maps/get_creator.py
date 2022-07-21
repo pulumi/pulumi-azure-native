@@ -110,7 +110,7 @@ def get_creator(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCreatorResult:
     """
     An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-    API Version: 2020-02-01-preview.
+    API Version: 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.
@@ -143,7 +143,7 @@ def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCreatorResult]:
     """
     An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-    API Version: 2020-02-01-preview.
+    API Version: 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.

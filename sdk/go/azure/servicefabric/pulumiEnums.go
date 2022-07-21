@@ -10,38 +10,88 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The activation Mode of the service package
-type ArmServicePackageActivationMode string
+// The network traffic is allowed or denied.
+type Access string
 
 const (
-	// Indicates the application package activation mode will use shared process.
-	ArmServicePackageActivationModeSharedProcess = ArmServicePackageActivationMode("SharedProcess")
-	// Indicates the application package activation mode will use exclusive process.
-	ArmServicePackageActivationModeExclusiveProcess = ArmServicePackageActivationMode("ExclusiveProcess")
+	AccessAllow = Access("allow")
+	AccessDeny  = Access("deny")
 )
 
-// The activation Mode of the service package
-type ArmUpgradeFailureAction string
+// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+type ClusterUpgradeCadence string
+
+const (
+	// Cluster upgrade starts immediately after a new version is rolled out. Recommended for Test/Dev clusters.
+	ClusterUpgradeCadenceWave0 = ClusterUpgradeCadence("Wave0")
+	// Cluster upgrade starts 7 days after a new version is rolled out. Recommended for Pre-prod clusters.
+	ClusterUpgradeCadenceWave1 = ClusterUpgradeCadence("Wave1")
+	// Cluster upgrade starts 14 days after a new version is rolled out. Recommended for Production clusters.
+	ClusterUpgradeCadenceWave2 = ClusterUpgradeCadence("Wave2")
+)
+
+// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+type ClusterUpgradeMode string
+
+const (
+	// The cluster will be automatically upgraded to the latest Service Fabric runtime version, **clusterUpgradeCadence** will determine when the upgrade starts after the new version becomes available.
+	ClusterUpgradeModeAutomatic = ClusterUpgradeMode("Automatic")
+	// The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+	ClusterUpgradeModeManual = ClusterUpgradeMode("Manual")
+)
+
+// Network security rule direction.
+type Direction string
+
+const (
+	DirectionInbound  = Direction("inbound")
+	DirectionOutbound = Direction("outbound")
+)
+
+// Managed data disk type. Specifies the storage account type for the managed disk
+type DiskType string
+
+const (
+	// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
+	DiskType_Standard_LRS = DiskType("Standard_LRS")
+	// Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
+	DiskType_StandardSSD_LRS = DiskType("StandardSSD_LRS")
+	// Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
+	DiskType_Premium_LRS = DiskType("Premium_LRS")
+)
+
+// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+type FailureAction string
 
 const (
 	// Indicates that a rollback of the upgrade will be performed by Service Fabric if the upgrade fails.
-	ArmUpgradeFailureActionRollback = ArmUpgradeFailureAction("Rollback")
+	FailureActionRollback = FailureAction("Rollback")
 	// Indicates that a manual repair will need to be performed by the administrator if the upgrade fails. Service Fabric will not proceed to the next upgrade domain automatically.
-	ArmUpgradeFailureActionManual = ArmUpgradeFailureAction("Manual")
+	FailureActionManual = FailureAction("Manual")
+)
+
+// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+type IPAddressType string
+
+const (
+	// IPv4 address type.
+	IPAddressTypeIPv4 = IPAddressType("IPv4")
+	// IPv6 address type.
+	IPAddressTypeIPv6 = IPAddressType("IPv6")
 )
 
 // The type of managed identity for the resource.
 type ManagedIdentityType string
 
 const (
+	// Indicates that no identity is associated with the resource.
+	ManagedIdentityTypeNone = ManagedIdentityType("None")
 	// Indicates that system assigned identity is associated with the resource.
 	ManagedIdentityTypeSystemAssigned = ManagedIdentityType("SystemAssigned")
 	// Indicates that user assigned identity is associated with the resource.
 	ManagedIdentityTypeUserAssigned = ManagedIdentityType("UserAssigned")
 	// Indicates that both system assigned and user assigned identity are associated with the resource.
 	ManagedIdentityType_SystemAssigned_UserAssigned = ManagedIdentityType("SystemAssigned, UserAssigned")
-	// Indicates that no identity is associated with the resource.
-	ManagedIdentityTypeNone = ManagedIdentityType("None")
 )
 
 func (ManagedIdentityType) ElementType() reflect.Type {
@@ -215,18 +265,45 @@ const (
 	MoveCostHigh = MoveCost("High")
 )
 
+// Network protocol this rule applies to.
+type NsgProtocol string
+
+const (
+	NsgProtocolHttp  = NsgProtocol("http")
+	NsgProtocolHttps = NsgProtocol("https")
+	NsgProtocolTcp   = NsgProtocol("tcp")
+	NsgProtocolUdp   = NsgProtocol("udp")
+	NsgProtocolIcmp  = NsgProtocol("icmp")
+	NsgProtocolAh    = NsgProtocol("ah")
+	NsgProtocolEsp   = NsgProtocol("esp")
+)
+
 // Specifies how the service is partitioned.
 type PartitionScheme string
 
 const (
-	// Indicates the partition kind is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-	PartitionSchemeInvalid = PartitionScheme("Invalid")
-	// Indicates that the partition is based on string names, and is a SingletonPartitionSchemeDescription object, The value is 1.
+	// Indicates that the partition is based on string names, and is a SingletonPartitionScheme object, The value is 0.
 	PartitionSchemeSingleton = PartitionScheme("Singleton")
-	// Indicates that the partition is based on Int64 key ranges, and is a UniformInt64RangePartitionSchemeDescription object. The value is 2.
+	// Indicates that the partition is based on Int64 key ranges, and is a UniformInt64RangePartitionScheme object. The value is 1.
 	PartitionSchemeUniformInt64Range = PartitionScheme("UniformInt64Range")
-	// Indicates that the partition is based on string names, and is a NamedPartitionSchemeDescription object. The value is 3
+	// Indicates that the partition is based on string names, and is a NamedPartitionScheme object. The value is 2.
 	PartitionSchemeNamed = PartitionScheme("Named")
+)
+
+// Enable or Disable apply network policies on private end point in the subnet.
+type PrivateEndpointNetworkPolicies string
+
+const (
+	PrivateEndpointNetworkPoliciesEnabled  = PrivateEndpointNetworkPolicies("enabled")
+	PrivateEndpointNetworkPoliciesDisabled = PrivateEndpointNetworkPolicies("disabled")
+)
+
+// Enable or Disable apply network policies on private link service in the subnet.
+type PrivateLinkServiceNetworkPolicies string
+
+const (
+	PrivateLinkServiceNetworkPoliciesEnabled  = PrivateLinkServiceNetworkPolicies("enabled")
+	PrivateLinkServiceNetworkPoliciesDisabled = PrivateLinkServiceNetworkPolicies("disabled")
 )
 
 // the reference to the load balancer probe used by the load balancing rule.
@@ -246,31 +323,23 @@ const (
 	ProtocolUdp = Protocol("udp")
 )
 
-// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 type RollingUpgradeMode string
 
 const (
-	// Indicates the upgrade mode is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-	RollingUpgradeModeInvalid = RollingUpgradeMode("Invalid")
-	// The upgrade will proceed automatically without performing any health monitoring. The value is 1
-	RollingUpgradeModeUnmonitoredAuto = RollingUpgradeMode("UnmonitoredAuto")
-	// The upgrade will stop after completing each upgrade domain, giving the opportunity to manually monitor health before proceeding. The value is 2
-	RollingUpgradeModeUnmonitoredManual = RollingUpgradeMode("UnmonitoredManual")
-	// The upgrade will stop after completing each upgrade domain and automatically monitor health before proceeding. The value is 3
+	// The upgrade will stop after completing each upgrade domain and automatically monitor health before proceeding. The value is 0.
 	RollingUpgradeModeMonitored = RollingUpgradeMode("Monitored")
+	// The upgrade will proceed automatically without performing any health monitoring. The value is 1.
+	RollingUpgradeModeUnmonitoredAuto = RollingUpgradeMode("UnmonitoredAuto")
 )
 
 // The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
 type ServiceCorrelationScheme string
 
 const (
-	// An invalid correlation scheme. Cannot be used. The value is zero.
-	ServiceCorrelationSchemeInvalid = ServiceCorrelationScheme("Invalid")
-	// Indicates that this service has an affinity relationship with another service. Provided for backwards compatibility, consider preferring the Aligned or NonAlignedAffinity options. The value is 1.
-	ServiceCorrelationSchemeAffinity = ServiceCorrelationScheme("Affinity")
-	// Aligned affinity ensures that the primaries of the partitions of the affinitized services are collocated on the same nodes. This is the default and is the same as selecting the Affinity scheme. The value is 2.
+	// Aligned affinity ensures that the primaries of the partitions of the affinitized services are collocated on the same nodes. This is the default and is the same as selecting the Affinity scheme. The value is 0.
 	ServiceCorrelationSchemeAlignedAffinity = ServiceCorrelationScheme("AlignedAffinity")
-	// Non-Aligned affinity guarantees that all replicas of each service will be placed on the same nodes. Unlike Aligned Affinity, this does not guarantee that replicas of particular role will be collocated. The value is 3.
+	// Non-Aligned affinity guarantees that all replicas of each service will be placed on the same nodes. Unlike Aligned Affinity, this does not guarantee that replicas of particular role will be collocated. The value is 1.
 	ServiceCorrelationSchemeNonAlignedAffinity = ServiceCorrelationScheme("NonAlignedAffinity")
 )
 
@@ -278,11 +347,9 @@ const (
 type ServiceKind string
 
 const (
-	// Indicates the service kind is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-	ServiceKindInvalid = ServiceKind("Invalid")
-	// Does not use Service Fabric to make its state highly available or reliable. The value is 1.
+	// Does not use Service Fabric to make its state highly available or reliable. The value is 0.
 	ServiceKindStateless = ServiceKind("Stateless")
-	// Uses Service Fabric to make its state or part of its state highly available and reliable. The value is 2.
+	// Uses Service Fabric to make its state or part of its state highly available and reliable. The value is 1.
 	ServiceKindStateful = ServiceKind("Stateful")
 )
 
@@ -300,22 +367,60 @@ const (
 	ServiceLoadMetricWeightHigh = ServiceLoadMetricWeight("High")
 )
 
+// The activation Mode of the service package
+type ServicePackageActivationMode string
+
+const (
+	// Indicates the application package activation mode will use shared process.
+	ServicePackageActivationModeSharedProcess = ServicePackageActivationMode("SharedProcess")
+	// Indicates the application package activation mode will use exclusive process.
+	ServicePackageActivationModeExclusiveProcess = ServicePackageActivationMode("ExclusiveProcess")
+)
+
 // The type of placement policy for a service fabric service. Following are the possible values.
 type ServicePlacementPolicyType string
 
 const (
-	// Indicates the type of the placement policy is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-	ServicePlacementPolicyTypeInvalid = ServicePlacementPolicyType("Invalid")
-	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementInvalidDomainPolicyDescription, which indicates that a particular fault or upgrade domain cannot be used for placement of this service. The value is 1.
+	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementInvalidDomainPolicyDescription, which indicates that a particular fault or upgrade domain cannot be used for placement of this service. The value is 0.
 	ServicePlacementPolicyTypeInvalidDomain = ServicePlacementPolicyType("InvalidDomain")
-	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription indicating that the replicas of the service must be placed in a specific domain. The value is 2.
+	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription indicating that the replicas of the service must be placed in a specific domain. The value is 1.
 	ServicePlacementPolicyTypeRequiredDomain = ServicePlacementPolicyType("RequiredDomain")
-	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementPreferPrimaryDomainPolicyDescription, which indicates that if possible the Primary replica for the partitions of the service should be located in a particular domain as an optimization. The value is 3.
+	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementPreferPrimaryDomainPolicyDescription, which indicates that if possible the Primary replica for the partitions of the service should be located in a particular domain as an optimization. The value is 2.
 	ServicePlacementPolicyTypePreferredPrimaryDomain = ServicePlacementPolicyType("PreferredPrimaryDomain")
-	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription, indicating that the system will disallow placement of any two replicas from the same partition in the same domain at any time. The value is 4.
+	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription, indicating that the system will disallow placement of any two replicas from the same partition in the same domain at any time. The value is 3.
 	ServicePlacementPolicyTypeRequiredDomainDistribution = ServicePlacementPolicyType("RequiredDomainDistribution")
-	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementNonPartiallyPlaceServicePolicyDescription, which indicates that if possible all replicas of a particular partition of the service should be placed atomically. The value is 5.
+	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementNonPartiallyPlaceServicePolicyDescription, which indicates that if possible all replicas of a particular partition of the service should be placed atomically. The value is 4.
 	ServicePlacementPolicyTypeNonPartiallyPlaceService = ServicePlacementPolicyType("NonPartiallyPlaceService")
+)
+
+// Specifies the mechanism associated with this scaling policy.
+type ServiceScalingMechanismKind string
+
+const (
+	// Represents a scaling mechanism for adding or removing instances of stateless service partition. The value is 0.
+	ServiceScalingMechanismKindScalePartitionInstanceCount = ServiceScalingMechanismKind("ScalePartitionInstanceCount")
+	// Represents a scaling mechanism for adding or removing named partitions of a stateless service. The value is 1.
+	ServiceScalingMechanismKindAddRemoveIncrementalNamedPartition = ServiceScalingMechanismKind("AddRemoveIncrementalNamedPartition")
+)
+
+// Specifies the trigger associated with this scaling policy.
+type ServiceScalingTriggerKind string
+
+const (
+	// Represents a scaling trigger related to an average load of a metric/resource of a partition. The value is 0.
+	ServiceScalingTriggerKindAveragePartitionLoadTrigger = ServiceScalingTriggerKind("AveragePartitionLoadTrigger")
+	// Represents a scaling policy related to an average load of a metric/resource of a service. The value is 1.
+	ServiceScalingTriggerKindAverageServiceLoadTrigger = ServiceScalingTriggerKind("AverageServiceLoadTrigger")
+)
+
+// Sku Name.
+type SkuName string
+
+const (
+	// Basic requires a minimum of 3 nodes and allows only 1 node type.
+	SkuNameBasic = SkuName("Basic")
+	// Requires a minimum of 5 nodes and allows 1 or more node type.
+	SkuNameStandard = SkuName("Standard")
 )
 
 func init() {

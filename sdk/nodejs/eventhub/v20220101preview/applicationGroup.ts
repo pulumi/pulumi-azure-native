@@ -104,8 +104,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:ApplicationGroup" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
- * API Version: 2018-01-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -42,11 +42,15 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -62,7 +66,11 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState?: string;
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// disk encryption set resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// disk encryption set resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDiskEncryptionSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskEncryptionSetName", required: true)]
         public string DiskEncryptionSetName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDiskEncryptionSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskEncryptionSetName", required: true)]
         public Input<string> DiskEncryptionSetName { get; set; } = null!;
@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.Compute
         /// The key vault key which is currently used by this disk encryption set.
         /// </summary>
         public readonly Outputs.KeyForDiskEncryptionSetResponse? ActiveKey;
+        /// <summary>
+        /// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+        /// </summary>
+        public readonly Outputs.ApiErrorResponse AutoKeyRotationError;
         /// <summary>
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Compute
         private GetDiskEncryptionSetResult(
             Outputs.KeyForDiskEncryptionSetResponse? activeKey,
 
+            Outputs.ApiErrorResponse autoKeyRotationError,
+
             string? encryptionType,
 
             string id,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.Compute
             string type)
         {
             ActiveKey = activeKey;
+            AutoKeyRotationError = autoKeyRotationError;
             EncryptionType = encryptionType;
             Id = id;
             Identity = identity;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// IoT Addon.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetIoTAddonResult> InvokeAsync(GetIoTAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT Addon.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Addon type
+        /// Metadata pertaining to creation and last modification of Addon
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

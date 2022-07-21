@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a database on the RedisEnterprise cluster
- * API Version: 2021-03-01.
+ * API Version: 2022-01-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
@@ -53,6 +53,10 @@ export interface GetDatabaseResult {
      * Redis eviction policy - default is VolatileLRU
      */
     readonly evictionPolicy?: string;
+    /**
+     * Optional set of properties to configure geo replication for this database.
+     */
+    readonly geoReplication?: outputs.cache.DatabasePropertiesResponseGeoReplication;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

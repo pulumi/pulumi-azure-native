@@ -194,7 +194,7 @@ def get_ip_allocation(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAllocationResult:
     """
     IpAllocation resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -234,7 +234,7 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAllocationResult]:
     """
     IpAllocation resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

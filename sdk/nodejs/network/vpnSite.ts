@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnSite Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class VpnSite extends pulumi.CustomResource {
     /**

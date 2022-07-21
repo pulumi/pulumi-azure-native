@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Topic
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     if (!opts) {
@@ -37,6 +37,14 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
+     * Data Residency Boundary of the resource.
+     */
+    readonly dataResidencyBoundary?: string;
+    /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
      * Endpoint for the topic.
      */
     readonly endpoint: string;
@@ -44,6 +52,10 @@ export interface GetTopicResult {
      * Fully qualified identifier of the resource.
      */
     readonly id: string;
+    /**
+     * Identity information for the resource.
+     */
+    readonly identity?: outputs.eventgrid.IdentityInfoResponse;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */

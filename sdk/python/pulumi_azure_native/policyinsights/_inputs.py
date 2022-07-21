@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'AttestationEvidenceArgs',
     'RemediationFiltersArgs',
+    'RemediationPropertiesFailureThresholdArgs',
 ]
 
 @pulumi.input_type
@@ -76,5 +77,29 @@ class RemediationFiltersArgs:
     @locations.setter
     def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
+
+
+@pulumi.input_type
+class RemediationPropertiesFailureThresholdArgs:
+    def __init__(__self__, *,
+                 percentage: Optional[pulumi.Input[float]] = None):
+        """
+        The remediation failure threshold settings
+        :param pulumi.Input[float] percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        """
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        """
+        return pulumi.get(self, "percentage")
+
+    @percentage.setter
+    def percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percentage", value)
 
 

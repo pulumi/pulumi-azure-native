@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Static Site Custom Domain Overview ARM resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteCustomDomain")]
     public partial class StaticSiteCustomDomain : Pulumi.CustomResource

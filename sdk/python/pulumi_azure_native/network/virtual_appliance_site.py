@@ -145,7 +145,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Appliance Site resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Appliance Site resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualApplianceSiteArgs args: The arguments to use to populate this resource's properties.

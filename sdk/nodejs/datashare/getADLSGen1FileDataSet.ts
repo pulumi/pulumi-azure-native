@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen 1 file data set.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getADLSGen1FileDataSet(args: GetADLSGen1FileDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen1FileDataSetResult> {
     if (!opts) {

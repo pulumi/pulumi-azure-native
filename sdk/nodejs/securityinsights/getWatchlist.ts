@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
     if (!opts) {
@@ -16,7 +16,6 @@ export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getWatchlist", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "watchlistAlias": args.watchlistAlias,
         "workspaceName": args.workspaceName,
@@ -25,15 +24,11 @@ export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions
 
 export interface GetWatchlistArgs {
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * Watchlist Alias
+     * The watchlist alias
      */
     watchlistAlias: string;
     /**
@@ -47,7 +42,7 @@ export interface GetWatchlistArgs {
  */
 export interface GetWatchlistResult {
     /**
-     * The content type of the raw content. Example : text/csv or text/tsv 
+     * The content type of the raw content. For now, only text/csv is valid
      */
     readonly contentType?: string;
     /**
@@ -75,7 +70,7 @@ export interface GetWatchlistResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -91,11 +86,11 @@ export interface GetWatchlistResult {
      */
     readonly labels?: string[];
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The number of lines in a csv/tsv content to skip before the header
+     * The number of lines in a csv content to skip before the header
      */
     readonly numberOfLinesToSkip?: number;
     /**
@@ -103,7 +98,9 @@ export interface GetWatchlistResult {
      */
     readonly provider: string;
     /**
-     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+     * The raw content that represents to watchlist items to create. Example : This line will be skipped
+     * header1,header2
+     * value1,value2
      */
     readonly rawContent?: string;
     /**
@@ -119,7 +116,7 @@ export interface GetWatchlistResult {
      */
     readonly tenantId?: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -131,7 +128,7 @@ export interface GetWatchlistResult {
      */
     readonly updatedBy?: outputs.securityinsights.WatchlistUserInfoResponse;
     /**
-     * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+     * The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
      */
     readonly uploadStatus?: string;
     /**
@@ -142,10 +139,6 @@ export interface GetWatchlistResult {
      * The id (a Guid) of the watchlist
      */
     readonly watchlistId?: string;
-    /**
-     * The number of Watchlist Items in the Watchlist
-     */
-    readonly watchlistItemsCount?: number;
     /**
      * The type of the watchlist
      */
@@ -158,15 +151,11 @@ export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.I
 
 export interface GetWatchlistOutputArgs {
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Watchlist Alias
+     * The watchlist alias
      */
     watchlistAlias: pulumi.Input<string>;
     /**

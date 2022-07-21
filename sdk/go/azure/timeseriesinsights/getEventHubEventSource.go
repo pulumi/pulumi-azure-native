@@ -11,7 +11,7 @@ import (
 )
 
 // An event source that receives its data from an Azure EventHub.
-// API Version: 2020-05-15.
+// API Version: 2021-06-30-preview.
 func LookupEventHubEventSource(ctx *pulumi.Context, args *LookupEventHubEventSourceArgs, opts ...pulumi.InvokeOption) (*LookupEventHubEventSourceResult, error) {
 	var rv LookupEventHubEventSourceResult
 	err := ctx.Invoke("azure-native:timeseriesinsights:getEventHubEventSource", args, &rv, opts...)

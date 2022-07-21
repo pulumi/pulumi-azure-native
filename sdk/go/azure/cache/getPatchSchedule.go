@@ -11,7 +11,7 @@ import (
 )
 
 // Response to put/get patch schedules for Redis cache.
-// API Version: 2020-06-01.
+// API Version: 2021-06-01.
 func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opts ...pulumi.InvokeOption) (*LookupPatchScheduleResult, error) {
 	var rv LookupPatchScheduleResult
 	err := ctx.Invoke("azure-native:cache:getPatchSchedule", args, &rv, opts...)
@@ -32,13 +32,15 @@ type LookupPatchScheduleArgs struct {
 
 // Response to put/get patch schedules for Redis cache.
 type LookupPatchScheduleResult struct {
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
 	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
-	// Resource type.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -83,12 +85,17 @@ func (o LookupPatchScheduleResultOutput) ToLookupPatchScheduleResultOutputWithCo
 	return o
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupPatchScheduleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o LookupPatchScheduleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupPatchScheduleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -98,7 +105,7 @@ func (o LookupPatchScheduleResultOutput) ScheduleEntries() ScheduleEntryResponse
 	return o.ApplyT(func(v LookupPatchScheduleResult) []ScheduleEntryResponse { return v.ScheduleEntries }).(ScheduleEntryResponseArrayOutput)
 }
 
-// Resource type.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupPatchScheduleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Type }).(pulumi.StringOutput)
 }

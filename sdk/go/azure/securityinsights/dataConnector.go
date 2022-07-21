@@ -12,7 +12,7 @@ import (
 )
 
 // Data connector.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 //
 // Deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.
 type DataConnector struct {
@@ -22,9 +22,11 @@ type DataConnector struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The data connector kind
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -116,7 +118,7 @@ type dataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The data connector kind
 	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -128,7 +130,7 @@ type DataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The data connector kind
 	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
@@ -181,12 +183,17 @@ func (o DataConnectorOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o DataConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o DataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o DataConnectorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

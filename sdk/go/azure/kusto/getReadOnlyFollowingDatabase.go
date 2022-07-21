@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing a read only following database.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupReadOnlyFollowingDatabase(ctx *pulumi.Context, args *LookupReadOnlyFollowingDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupReadOnlyFollowingDatabaseResult, error) {
 	var rv LookupReadOnlyFollowingDatabaseResult
 	err := ctx.Invoke("azure-native:kusto:getReadOnlyFollowingDatabase", args, &rv, opts...)

@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network information contract.
-// API Version: 2020-12-01.
+// Virtual Network information ARM resource.
+// API Version: 2021-03-01.
 type WebAppVnetConnectionSlot struct {
 	pulumi.CustomResourceState
 

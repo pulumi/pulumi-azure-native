@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getCodeVersion(args: GetCodeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeVersionResult> {
     if (!opts) {
@@ -25,7 +25,7 @@ export function getCodeVersion(args: GetCodeVersionArgs, opts?: pulumi.InvokeOpt
 
 export interface GetCodeVersionArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: string;
     /**
@@ -33,7 +33,7 @@ export interface GetCodeVersionArgs {
      */
     resourceGroupName: string;
     /**
-     * Version identifier.
+     * Version identifier. This is case-sensitive.
      */
     version: string;
     /**
@@ -47,6 +47,10 @@ export interface GetCodeVersionArgs {
  */
 export interface GetCodeVersionResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly codeVersionProperties: outputs.machinelearningservices.CodeVersionResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -55,11 +59,7 @@ export interface GetCodeVersionResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.CodeVersionResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -74,7 +74,7 @@ export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulu
 
 export interface GetCodeVersionOutputArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
     /**
@@ -82,7 +82,7 @@ export interface GetCodeVersionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Version identifier.
+     * Version identifier. This is case-sensitive.
      */
     version: pulumi.Input<string>;
     /**

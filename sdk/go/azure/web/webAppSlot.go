@@ -12,7 +12,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +42,8 @@ type WebAppSlot struct {
 	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
 	// the app is not served on those hostnames.
 	EnabledHostNames pulumi.StringArrayOutput `pulumi:"enabledHostNames"`
+	// Extended Location.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates HostNameSslStateResponseArrayOutput `pulumi:"hostNameSslStates"`
 	// Hostnames associated with the app.
@@ -244,6 +246,8 @@ type webAppSlotArgs struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
 	Enabled *bool `pulumi:"enabled"`
+	// Extended Location.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates []HostNameSslState `pulumi:"hostNameSslStates"`
 	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
@@ -280,7 +284,7 @@ type webAppSlotArgs struct {
 	ServerFarmId *string `pulumi:"serverFarmId"`
 	// Configuration of the app.
 	SiteConfig *SiteConfig `pulumi:"siteConfig"`
-	// Name of the deployment slot to create or update. The name 'production' is reserved.
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Slot *string `pulumi:"slot"`
 	// Checks if Customer provided storage account is required
 	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
@@ -314,6 +318,8 @@ type WebAppSlotArgs struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
 	Enabled pulumi.BoolPtrInput
+	// Extended Location.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates HostNameSslStateArrayInput
 	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
@@ -350,7 +356,7 @@ type WebAppSlotArgs struct {
 	ServerFarmId pulumi.StringPtrInput
 	// Configuration of the app.
 	SiteConfig SiteConfigPtrInput
-	// Name of the deployment slot to create or update. The name 'production' is reserved.
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Slot pulumi.StringPtrInput
 	// Checks if Customer provided storage account is required
 	StorageAccountRequired pulumi.BoolPtrInput
@@ -455,6 +461,11 @@ func (o WebAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 // the app is not served on those hostnames.
 func (o WebAppSlotOutput) EnabledHostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebAppSlot) pulumi.StringArrayOutput { return v.EnabledHostNames }).(pulumi.StringArrayOutput)
+}
+
+// Extended Location.
+func (o WebAppSlotOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppSlot) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
 }
 
 // Hostname SSL states are used to manage the SSL bindings for app's hostnames.

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
+        /// Gets or sets the Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -34,11 +38,14 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         private SqlElasticPoolResourceSettingsResponse(
             string resourceType,
 
+            ImmutableDictionary<string, string>? tags,
+
             string targetResourceName,
 
             string? zoneRedundant)
         {
             ResourceType = resourceType;
+            Tags = tags;
             TargetResourceName = targetResourceName;
             ZoneRedundant = zoneRedundant;
         }

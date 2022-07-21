@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Integration runtime resource type.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource

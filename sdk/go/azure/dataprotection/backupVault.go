@@ -12,7 +12,7 @@ import (
 )
 
 // Backup Vault Resource
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 type BackupVault struct {
 	pulumi.CustomResourceState
 

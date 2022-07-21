@@ -21,7 +21,10 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, default_identity=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, default_identity=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+        if analytical_storage_configuration and not isinstance(analytical_storage_configuration, dict):
+            raise TypeError("Expected argument 'analytical_storage_configuration' to be a dict")
+        pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         pulumi.set(__self__, "api_properties", api_properties)
@@ -31,6 +34,9 @@ class GetDatabaseAccountResult:
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
+        if capacity and not isinstance(capacity, dict):
+            raise TypeError("Expected argument 'capacity' to be a dict")
+        pulumi.set(__self__, "capacity", capacity)
         if connector_offer and not isinstance(connector_offer, str):
             raise TypeError("Expected argument 'connector_offer' to be a str")
         pulumi.set(__self__, "connector_offer", connector_offer)
@@ -40,6 +46,9 @@ class GetDatabaseAccountResult:
         if cors and not isinstance(cors, list):
             raise TypeError("Expected argument 'cors' to be a list")
         pulumi.set(__self__, "cors", cors)
+        if create_mode and not isinstance(create_mode, str):
+            raise TypeError("Expected argument 'create_mode' to be a str")
+        pulumi.set(__self__, "create_mode", create_mode)
         if database_account_offer_type and not isinstance(database_account_offer_type, str):
             raise TypeError("Expected argument 'database_account_offer_type' to be a str")
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
@@ -49,6 +58,9 @@ class GetDatabaseAccountResult:
         if disable_key_based_metadata_write_access and not isinstance(disable_key_based_metadata_write_access, bool):
             raise TypeError("Expected argument 'disable_key_based_metadata_write_access' to be a bool")
         pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if document_endpoint and not isinstance(document_endpoint, str):
             raise TypeError("Expected argument 'document_endpoint' to be a str")
         pulumi.set(__self__, "document_endpoint", document_endpoint)
@@ -76,6 +88,9 @@ class GetDatabaseAccountResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if instance_id and not isinstance(instance_id, str):
+            raise TypeError("Expected argument 'instance_id' to be a str")
+        pulumi.set(__self__, "instance_id", instance_id)
         if ip_rules and not isinstance(ip_rules, list):
             raise TypeError("Expected argument 'ip_rules' to be a list")
         pulumi.set(__self__, "ip_rules", ip_rules)
@@ -115,6 +130,12 @@ class GetDatabaseAccountResult:
         if read_locations and not isinstance(read_locations, list):
             raise TypeError("Expected argument 'read_locations' to be a list")
         pulumi.set(__self__, "read_locations", read_locations)
+        if restore_parameters and not isinstance(restore_parameters, dict):
+            raise TypeError("Expected argument 'restore_parameters' to be a dict")
+        pulumi.set(__self__, "restore_parameters", restore_parameters)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -127,6 +148,14 @@ class GetDatabaseAccountResult:
         if write_locations and not isinstance(write_locations, list):
             raise TypeError("Expected argument 'write_locations' to be a list")
         pulumi.set(__self__, "write_locations", write_locations)
+
+    @property
+    @pulumi.getter(name="analyticalStorageConfiguration")
+    def analytical_storage_configuration(self) -> Optional['outputs.AnalyticalStorageConfigurationResponse']:
+        """
+        Analytical storage specific properties.
+        """
+        return pulumi.get(self, "analytical_storage_configuration")
 
     @property
     @pulumi.getter(name="apiProperties")
@@ -153,6 +182,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "capabilities")
 
     @property
+    @pulumi.getter
+    def capacity(self) -> Optional['outputs.CapacityResponse']:
+        """
+        The object that represents all properties related to capacity enforcement on an account.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
     @pulumi.getter(name="connectorOffer")
     def connector_offer(self) -> Optional[str]:
         """
@@ -177,6 +214,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "cors")
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of account creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
     @pulumi.getter(name="databaseAccountOfferType")
     def database_account_offer_type(self) -> str:
         """
@@ -199,6 +244,14 @@ class GetDatabaseAccountResult:
         Disable write operations on metadata resources (databases, containers, throughput) via account keys
         """
         return pulumi.get(self, "disable_key_based_metadata_write_access")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="documentEndpoint")
@@ -271,6 +324,14 @@ class GetDatabaseAccountResult:
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> str:
+        """
+        A unique identifier assigned to the database account
+        """
+        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="ipRules")
@@ -377,6 +438,22 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "read_locations")
 
     @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.RestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore.
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -415,15 +492,19 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
         if False:
             yield self
         return GetDatabaseAccountResult(
+            analytical_storage_configuration=self.analytical_storage_configuration,
             api_properties=self.api_properties,
             backup_policy=self.backup_policy,
             capabilities=self.capabilities,
+            capacity=self.capacity,
             connector_offer=self.connector_offer,
             consistency_policy=self.consistency_policy,
             cors=self.cors,
+            create_mode=self.create_mode,
             database_account_offer_type=self.database_account_offer_type,
             default_identity=self.default_identity,
             disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
+            disable_local_auth=self.disable_local_auth,
             document_endpoint=self.document_endpoint,
             enable_analytical_storage=self.enable_analytical_storage,
             enable_automatic_failover=self.enable_automatic_failover,
@@ -433,6 +514,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             failover_policies=self.failover_policies,
             id=self.id,
             identity=self.identity,
+            instance_id=self.instance_id,
             ip_rules=self.ip_rules,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             key_vault_key_uri=self.key_vault_key_uri,
@@ -446,6 +528,8 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             read_locations=self.read_locations,
+            restore_parameters=self.restore_parameters,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             virtual_network_rules=self.virtual_network_rules,
@@ -457,7 +541,7 @@ def get_database_account(account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -473,15 +557,19 @@ def get_database_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb:getDatabaseAccount', __args__, opts=opts, typ=GetDatabaseAccountResult).value
 
     return AwaitableGetDatabaseAccountResult(
+        analytical_storage_configuration=__ret__.analytical_storage_configuration,
         api_properties=__ret__.api_properties,
         backup_policy=__ret__.backup_policy,
         capabilities=__ret__.capabilities,
+        capacity=__ret__.capacity,
         connector_offer=__ret__.connector_offer,
         consistency_policy=__ret__.consistency_policy,
         cors=__ret__.cors,
+        create_mode=__ret__.create_mode,
         database_account_offer_type=__ret__.database_account_offer_type,
         default_identity=__ret__.default_identity,
         disable_key_based_metadata_write_access=__ret__.disable_key_based_metadata_write_access,
+        disable_local_auth=__ret__.disable_local_auth,
         document_endpoint=__ret__.document_endpoint,
         enable_analytical_storage=__ret__.enable_analytical_storage,
         enable_automatic_failover=__ret__.enable_automatic_failover,
@@ -491,6 +579,7 @@ def get_database_account(account_name: Optional[str] = None,
         failover_policies=__ret__.failover_policies,
         id=__ret__.id,
         identity=__ret__.identity,
+        instance_id=__ret__.instance_id,
         ip_rules=__ret__.ip_rules,
         is_virtual_network_filter_enabled=__ret__.is_virtual_network_filter_enabled,
         key_vault_key_uri=__ret__.key_vault_key_uri,
@@ -504,6 +593,8 @@ def get_database_account(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         read_locations=__ret__.read_locations,
+        restore_parameters=__ret__.restore_parameters,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_network_rules=__ret__.virtual_network_rules,
@@ -516,7 +607,7 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAccountResult]:
     """
     An Azure Cosmos DB database account.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

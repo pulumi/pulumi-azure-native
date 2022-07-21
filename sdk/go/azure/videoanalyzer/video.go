@@ -11,22 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The representation of a single video in a Video Analyzer account.
-// API Version: 2021-05-01-preview.
+// Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+// API Version: 2021-11-01-preview.
 type Video struct {
 	pulumi.CustomResourceState
 
+	// Video archival properties.
+	Archival VideoArchivalResponsePtrOutput `pulumi:"archival"`
+	// Set of URLs to the video content.
+	ContentUrls VideoContentUrlsResponseOutput `pulumi:"contentUrls"`
 	// Optional video description provided by the user. Value can be up to 2048 characters long.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
 	Flags VideoFlagsResponseOutput `pulumi:"flags"`
 	// Contains information about the video and audio content.
-	MediaInfo VideoMediaInfoResponseOutput `pulumi:"mediaInfo"`
+	MediaInfo VideoMediaInfoResponsePtrOutput `pulumi:"mediaInfo"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Video streaming holds information about video streaming URLs.
-	Streaming VideoStreamingResponseOutput `pulumi:"streaming"`
-	// The system metadata relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Optional video title provided by the user. Value can be up to 256 characters long.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
@@ -90,13 +92,17 @@ func (VideoState) ElementType() reflect.Type {
 type videoArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName string `pulumi:"accountName"`
+	// Video archival properties.
+	Archival *VideoArchival `pulumi:"archival"`
 	// Optional video description provided by the user. Value can be up to 2048 characters long.
 	Description *string `pulumi:"description"`
+	// Contains information about the video and audio content.
+	MediaInfo *VideoMediaInfo `pulumi:"mediaInfo"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Optional video title provided by the user. Value can be up to 256 characters long.
 	Title *string `pulumi:"title"`
-	// The name of the video to create or update.
+	// The Video name.
 	VideoName *string `pulumi:"videoName"`
 }
 
@@ -104,13 +110,17 @@ type videoArgs struct {
 type VideoArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName pulumi.StringInput
+	// Video archival properties.
+	Archival VideoArchivalPtrInput
 	// Optional video description provided by the user. Value can be up to 2048 characters long.
 	Description pulumi.StringPtrInput
+	// Contains information about the video and audio content.
+	MediaInfo VideoMediaInfoPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Optional video title provided by the user. Value can be up to 256 characters long.
 	Title pulumi.StringPtrInput
-	// The name of the video to create or update.
+	// The Video name.
 	VideoName pulumi.StringPtrInput
 }
 
@@ -151,6 +161,16 @@ func (o VideoOutput) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 	return o
 }
 
+// Video archival properties.
+func (o VideoOutput) Archival() VideoArchivalResponsePtrOutput {
+	return o.ApplyT(func(v *Video) VideoArchivalResponsePtrOutput { return v.Archival }).(VideoArchivalResponsePtrOutput)
+}
+
+// Set of URLs to the video content.
+func (o VideoOutput) ContentUrls() VideoContentUrlsResponseOutput {
+	return o.ApplyT(func(v *Video) VideoContentUrlsResponseOutput { return v.ContentUrls }).(VideoContentUrlsResponseOutput)
+}
+
 // Optional video description provided by the user. Value can be up to 2048 characters long.
 func (o VideoOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Video) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -162,8 +182,8 @@ func (o VideoOutput) Flags() VideoFlagsResponseOutput {
 }
 
 // Contains information about the video and audio content.
-func (o VideoOutput) MediaInfo() VideoMediaInfoResponseOutput {
-	return o.ApplyT(func(v *Video) VideoMediaInfoResponseOutput { return v.MediaInfo }).(VideoMediaInfoResponseOutput)
+func (o VideoOutput) MediaInfo() VideoMediaInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Video) VideoMediaInfoResponsePtrOutput { return v.MediaInfo }).(VideoMediaInfoResponsePtrOutput)
 }
 
 // The name of the resource
@@ -171,12 +191,7 @@ func (o VideoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Video) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Video streaming holds information about video streaming URLs.
-func (o VideoOutput) Streaming() VideoStreamingResponseOutput {
-	return o.ApplyT(func(v *Video) VideoStreamingResponseOutput { return v.Streaming }).(VideoStreamingResponseOutput)
-}
-
-// The system metadata relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o VideoOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Video) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

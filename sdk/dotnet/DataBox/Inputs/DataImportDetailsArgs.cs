@@ -21,8 +21,15 @@ namespace Pulumi.AzureNative.DataBox.Inputs
         [Input("accountDetails", required: true)]
         public InputUnion<Inputs.ManagedDiskDetailsArgs, Inputs.StorageAccountDetailsArgs> AccountDetails { get; set; } = null!;
 
+        /// <summary>
+        /// Level of the logs to be collected.
+        /// </summary>
+        [Input("logCollectionLevel")]
+        public InputUnion<string, Pulumi.AzureNative.DataBox.LogCollectionLevel>? LogCollectionLevel { get; set; }
+
         public DataImportDetailsArgs()
         {
+            LogCollectionLevel = "Error";
         }
     }
 }

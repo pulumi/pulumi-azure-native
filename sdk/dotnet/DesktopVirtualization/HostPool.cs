@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a HostPool definition.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-07-12.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:HostPool")]
     public partial class HostPool : Pulumi.CustomResource

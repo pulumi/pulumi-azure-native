@@ -12,7 +12,7 @@ import (
 )
 
 // An object that represents a webhook for a container registry.
-// API Version: 2019-05-01.
+// API Version: 2021-09-01.
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type Webhook struct {
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// The status of the webhook at the time the operation was called.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -229,6 +231,11 @@ func (o WebhookOutput) Scope() pulumi.StringPtrOutput {
 // The status of the webhook at the time the operation was called.
 func (o WebhookOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o WebhookOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Webhook) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The tags of the resource.

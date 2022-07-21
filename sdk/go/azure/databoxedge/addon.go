@@ -12,7 +12,7 @@ import (
 )
 
 // Role Addon
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 //
 // Deprecated: Please use one of the variants: ArcAddon, IoTAddon.
 type Addon struct {
@@ -22,7 +22,7 @@ type Addon struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Addon type
+	// Metadata pertaining to creation and last modification of Addon
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -182,7 +182,7 @@ func (o AddonOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Addon type
+// Metadata pertaining to creation and last modification of Addon
 func (o AddonOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Addon) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// String list resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListStaticSiteConfiguredRolesResult> InvokeAsync(ListStaticSiteConfiguredRolesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteConfiguredRolesResult>("azure-native:web:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesArgs(), options.WithDefaults());
 
         /// <summary>
         /// String list resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListStaticSiteConfiguredRolesResult> Invoke(ListStaticSiteConfiguredRolesInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListStaticSiteConfiguredRolesResult>("azure-native:web:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesInvokeArgs(), options.WithDefaults());

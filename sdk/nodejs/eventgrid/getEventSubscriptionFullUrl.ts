@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Full endpoint url of an event subscription
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionFullUrlResult> {
     if (!opts) {

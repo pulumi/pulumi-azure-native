@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about a certificate.
- * API Version: 2021-01-01.
+ * API Version: 2022-06-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {

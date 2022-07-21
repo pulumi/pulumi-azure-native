@@ -11,7 +11,7 @@ import (
 )
 
 // Response on GET of a hybrid use benefit
-// API Version: 2019-06-01-preview.
+// API Version: 2019-12-01.
 func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArgs, opts ...pulumi.InvokeOption) (*LookupHybridUseBenefitResult, error) {
 	var rv LookupHybridUseBenefitResult
 	err := ctx.Invoke("azure-native:softwareplan:getHybridUseBenefit", args, &rv, opts...)

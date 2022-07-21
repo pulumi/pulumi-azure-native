@@ -192,7 +192,7 @@ class DriveStatusResponse(dict):
                  manifest_file: Optional[str] = None,
                  manifest_hash: Optional[str] = None,
                  manifest_uri: Optional[str] = None,
-                 percent_complete: Optional[int] = None,
+                 percent_complete: Optional[float] = None,
                  state: Optional[str] = None,
                  verbose_log_uri: Optional[str] = None):
         """
@@ -206,7 +206,7 @@ class DriveStatusResponse(dict):
         :param str manifest_file: The relative path of the manifest file on the drive. 
         :param str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
         :param str manifest_uri: A URI that points to the blob containing the drive manifest file. 
-        :param int percent_complete: Percentage completed for the drive. 
+        :param float percent_complete: Percentage completed for the drive. 
         :param str state: The drive's current state. 
         :param str verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
@@ -311,7 +311,7 @@ class DriveStatusResponse(dict):
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[int]:
+    def percent_complete(self) -> Optional[float]:
         """
         Percentage completed for the drive. 
         """
@@ -601,7 +601,7 @@ class JobDetailsResponse(dict):
                  incomplete_blob_list_uri: Optional[str] = None,
                  job_type: Optional[str] = None,
                  log_level: Optional[str] = None,
-                 percent_complete: Optional[int] = None,
+                 percent_complete: Optional[float] = None,
                  provisioning_state: Optional[str] = None,
                  return_address: Optional['outputs.ReturnAddressResponse'] = None,
                  return_package: Optional['outputs.PackageInformationResponse'] = None,
@@ -621,7 +621,7 @@ class JobDetailsResponse(dict):
         :param str incomplete_blob_list_uri: A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
         :param str job_type: The type of job
         :param str log_level: Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-        :param int percent_complete: Overall percentage completed for the job.
+        :param float percent_complete: Overall percentage completed for the job.
         :param str provisioning_state: Specifies the provisioning state of the job.
         :param 'ReturnAddressResponse' return_address: Specifies the return address information for the job. 
         :param 'PackageInformationResponse' return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
@@ -755,7 +755,7 @@ class JobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[int]:
+    def percent_complete(self) -> Optional[float]:
         """
         Overall percentage completed for the job.
         """

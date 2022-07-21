@@ -11,7 +11,7 @@ import (
 )
 
 // String list resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListStaticSiteConfiguredRoles(ctx *pulumi.Context, args *ListStaticSiteConfiguredRolesArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteConfiguredRolesResult, error) {
 	var rv ListStaticSiteConfiguredRolesResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteConfiguredRoles", args, &rv, opts...)

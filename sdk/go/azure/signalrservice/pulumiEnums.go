@@ -3,7 +3,7 @@
 
 package signalrservice
 
-// Default action when no other rule matches
+// Azure Networking ACL Action.
 type ACLAction string
 
 const (
@@ -14,12 +14,24 @@ const (
 // FeatureFlags is the supported features of Azure SignalR service.
 // - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
 // - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+// - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+// - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
 type FeatureFlags string
 
 const (
 	FeatureFlagsServiceMode            = FeatureFlags("ServiceMode")
 	FeatureFlagsEnableConnectivityLogs = FeatureFlags("EnableConnectivityLogs")
 	FeatureFlagsEnableMessagingLogs    = FeatureFlags("EnableMessagingLogs")
+	FeatureFlagsEnableLiveTrace        = FeatureFlags("EnableLiveTrace")
+)
+
+// Represents the identity type: systemAssigned, userAssigned, None
+type ManagedIdentityType string
+
+const (
+	ManagedIdentityTypeNone           = ManagedIdentityType("None")
+	ManagedIdentityTypeSystemAssigned = ManagedIdentityType("SystemAssigned")
+	ManagedIdentityTypeUserAssigned   = ManagedIdentityType("UserAssigned")
 )
 
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -32,7 +44,7 @@ const (
 	PrivateLinkServiceConnectionStatusDisconnected = PrivateLinkServiceConnectionStatus("Disconnected")
 )
 
-// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+// The kind of the service, it can be SignalR or RawWebSockets
 type ServiceKind string
 
 const (
@@ -40,7 +52,7 @@ const (
 	ServiceKindRawWebSockets = ServiceKind("RawWebSockets")
 )
 
-// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+// The incoming request type to the service
 type SignalRRequestType string
 
 const (
@@ -60,6 +72,14 @@ const (
 	SignalRSkuTierBasic    = SignalRSkuTier("Basic")
 	SignalRSkuTierStandard = SignalRSkuTier("Standard")
 	SignalRSkuTierPremium  = SignalRSkuTier("Premium")
+)
+
+// Upstream auth type enum.
+type UpstreamAuthType string
+
+const (
+	UpstreamAuthTypeNone            = UpstreamAuthType("None")
+	UpstreamAuthTypeManagedIdentity = UpstreamAuthType("ManagedIdentity")
 )
 
 func init() {

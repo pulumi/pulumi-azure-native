@@ -8,135 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
-    /// The recurrence type : weekly, monthly, etc.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessReviewRecurrencePatternType : IEquatable<AccessReviewRecurrencePatternType>
-    {
-        private readonly string _value;
-
-        private AccessReviewRecurrencePatternType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessReviewRecurrencePatternType Weekly { get; } = new AccessReviewRecurrencePatternType("weekly");
-        public static AccessReviewRecurrencePatternType AbsoluteMonthly { get; } = new AccessReviewRecurrencePatternType("absoluteMonthly");
-
-        public static bool operator ==(AccessReviewRecurrencePatternType left, AccessReviewRecurrencePatternType right) => left.Equals(right);
-        public static bool operator !=(AccessReviewRecurrencePatternType left, AccessReviewRecurrencePatternType right) => !left.Equals(right);
-
-        public static explicit operator string(AccessReviewRecurrencePatternType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessReviewRecurrencePatternType other && Equals(other);
-        public bool Equals(AccessReviewRecurrencePatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The recurrence range type. The possible values are: endDate, noEnd, numbered.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessReviewRecurrenceRangeType : IEquatable<AccessReviewRecurrenceRangeType>
-    {
-        private readonly string _value;
-
-        private AccessReviewRecurrenceRangeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessReviewRecurrenceRangeType EndDate { get; } = new AccessReviewRecurrenceRangeType("endDate");
-        public static AccessReviewRecurrenceRangeType NoEnd { get; } = new AccessReviewRecurrenceRangeType("noEnd");
-        public static AccessReviewRecurrenceRangeType Numbered { get; } = new AccessReviewRecurrenceRangeType("numbered");
-
-        public static bool operator ==(AccessReviewRecurrenceRangeType left, AccessReviewRecurrenceRangeType right) => left.Equals(right);
-        public static bool operator !=(AccessReviewRecurrenceRangeType left, AccessReviewRecurrenceRangeType right) => !left.Equals(right);
-
-        public static explicit operator string(AccessReviewRecurrenceRangeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessReviewRecurrenceRangeType other && Equals(other);
-        public bool Equals(AccessReviewRecurrenceRangeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Represents a reviewer's decision for a given review
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessReviewResult : IEquatable<AccessReviewResult>
-    {
-        private readonly string _value;
-
-        private AccessReviewResult(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessReviewResult Approve { get; } = new AccessReviewResult("Approve");
-        public static AccessReviewResult Deny { get; } = new AccessReviewResult("Deny");
-        public static AccessReviewResult NotReviewed { get; } = new AccessReviewResult("NotReviewed");
-        public static AccessReviewResult DontKnow { get; } = new AccessReviewResult("DontKnow");
-        public static AccessReviewResult NotNotified { get; } = new AccessReviewResult("NotNotified");
-
-        public static bool operator ==(AccessReviewResult left, AccessReviewResult right) => left.Equals(right);
-        public static bool operator !=(AccessReviewResult left, AccessReviewResult right) => !left.Equals(right);
-
-        public static explicit operator string(AccessReviewResult value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessReviewResult other && Equals(other);
-        public bool Equals(AccessReviewResult other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// This specifies the behavior for the autoReview feature when an access review completes.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultDecisionType : IEquatable<DefaultDecisionType>
-    {
-        private readonly string _value;
-
-        private DefaultDecisionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultDecisionType Approve { get; } = new DefaultDecisionType("Approve");
-        public static DefaultDecisionType Deny { get; } = new DefaultDecisionType("Deny");
-        public static DefaultDecisionType Recommendation { get; } = new DefaultDecisionType("Recommendation");
-
-        public static bool operator ==(DefaultDecisionType left, DefaultDecisionType right) => left.Equals(right);
-        public static bool operator !=(DefaultDecisionType left, DefaultDecisionType right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultDecisionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultDecisionType other && Equals(other);
-        public bool Equals(DefaultDecisionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
     /// </summary>
     [EnumType]
@@ -166,43 +37,6 @@ namespace Pulumi.AzureNative.Authorization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnforcementMode other && Equals(other);
         public bool Equals(EnforcementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The policy exemption category. Possible values are Waiver and Mitigated.
-    /// </summary>
-    [EnumType]
-    public readonly struct ExemptionCategory : IEquatable<ExemptionCategory>
-    {
-        private readonly string _value;
-
-        private ExemptionCategory(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// This category of exemptions usually means the scope is not applicable for the policy.
-        /// </summary>
-        public static ExemptionCategory Waiver { get; } = new ExemptionCategory("Waiver");
-        /// <summary>
-        /// This category of exemptions usually means the mitigation actions have been applied to the scope.
-        /// </summary>
-        public static ExemptionCategory Mitigated { get; } = new ExemptionCategory("Mitigated");
-
-        public static bool operator ==(ExemptionCategory left, ExemptionCategory right) => left.Equals(right);
-        public static bool operator !=(ExemptionCategory left, ExemptionCategory right) => !left.Equals(right);
-
-        public static explicit operator string(ExemptionCategory value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ExemptionCategory other && Equals(other);
-        public bool Equals(ExemptionCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -311,40 +145,6 @@ namespace Pulumi.AzureNative.Authorization
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The principal type of the assigned principal ID.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrincipalType : IEquatable<PrincipalType>
-    {
-        private readonly string _value;
-
-        private PrincipalType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrincipalType User { get; } = new PrincipalType("User");
-        public static PrincipalType Group { get; } = new PrincipalType("Group");
-        public static PrincipalType ServicePrincipal { get; } = new PrincipalType("ServicePrincipal");
-        public static PrincipalType ForeignGroup { get; } = new PrincipalType("ForeignGroup");
-        public static PrincipalType Device { get; } = new PrincipalType("Device");
-
-        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
-        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
-
-        public static explicit operator string(PrincipalType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
-        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct PublicNetworkAccessOptions : IEquatable<PublicNetworkAccessOptions>
     {
@@ -374,7 +174,7 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
-    /// The identity type. This is the only required field when adding a system assigned identity to a resource.
+    /// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -390,6 +190,10 @@ namespace Pulumi.AzureNative.Authorization
         /// Indicates that a system assigned identity is associated with the resource.
         /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// Indicates that a system assigned identity is associated with the resource.
+        /// </summary>
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
         /// <summary>
         /// Indicates that no identity is associated with the resource or that the existing identity should be removed.
         /// </summary>

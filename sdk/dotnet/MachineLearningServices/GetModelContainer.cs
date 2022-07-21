@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetModelContainerResult> InvokeAsync(GetModelContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelContainerResult>("azure-native:machinelearningservices:getModelContainer", args ?? new GetModelContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetModelContainerResult> Invoke(GetModelContainerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelContainerResult>("azure-native:machinelearningservices:getModelContainer", args ?? new GetModelContainerInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetModelContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetModelContainerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -86,15 +86,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.ModelContainerResponse ModelContainerProperties;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.ModelContainerResponse Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -106,17 +106,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetModelContainerResult(
             string id,
 
-            string name,
+            Outputs.ModelContainerResponse modelContainerProperties,
 
-            Outputs.ModelContainerResponse properties,
+            string name,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            ModelContainerProperties = modelContainerProperties;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

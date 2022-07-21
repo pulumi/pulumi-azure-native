@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AcceptedAudiencesArgs',
     'AzureSkuArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
@@ -19,6 +20,30 @@ __all__ = [
     'TrustedExternalTenantArgs',
     'VirtualNetworkConfigurationArgs',
 ]
+
+@pulumi.input_type
+class AcceptedAudiencesArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Represents an accepted audience trusted by the cluster.
+        :param pulumi.Input[str] value: GUID or valid URL representing an accepted audience.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        GUID or valid URL representing an accepted audience.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class AzureSkuArgs:
@@ -78,11 +103,11 @@ class AzureSkuArgs:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'IdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -102,22 +127,22 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[str],
-                 key_vault_uri: pulumi.Input[str],
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  user_identity: Optional[pulumi.Input[str]] = None):
         """
@@ -127,8 +152,10 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_version: The version of the key vault key.
         :param pulumi.Input[str] user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
         if user_identity is not None:
@@ -136,26 +163,26 @@ class KeyVaultPropertiesArgs:
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[str]:
+    def key_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the key vault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: pulumi.Input[str]):
+    def key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_name", value)
 
     @property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> pulumi.Input[str]:
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
         The Uri of the key vault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: pulumi.Input[str]):
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @property

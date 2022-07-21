@@ -37,25 +37,20 @@ const (
 	ClientPermissionTypeReadWrite = ClientPermissionType("ReadWrite")
 )
 
-// The status of the Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStatus string
-
-const (
-	DataBoxEdgeDeviceStatusReadyToSetup          = DataBoxEdgeDeviceStatus("ReadyToSetup")
-	DataBoxEdgeDeviceStatusOnline                = DataBoxEdgeDeviceStatus("Online")
-	DataBoxEdgeDeviceStatusOffline               = DataBoxEdgeDeviceStatus("Offline")
-	DataBoxEdgeDeviceStatusNeedsAttention        = DataBoxEdgeDeviceStatus("NeedsAttention")
-	DataBoxEdgeDeviceStatusDisconnected          = DataBoxEdgeDeviceStatus("Disconnected")
-	DataBoxEdgeDeviceStatusPartiallyDisconnected = DataBoxEdgeDeviceStatus("PartiallyDisconnected")
-	DataBoxEdgeDeviceStatusMaintenance           = DataBoxEdgeDeviceStatus("Maintenance")
-)
-
 // Data policy of the storage Account.
 type DataPolicy string
 
 const (
 	DataPolicyCloud = DataPolicy("Cloud")
 	DataPolicyLocal = DataPolicy("Local")
+)
+
+// DataResidencyType enum
+type DataResidencyType string
+
+const (
+	DataResidencyTypeGeoZoneReplication = DataResidencyType("GeoZoneReplication")
+	DataResidencyTypeZoneReplication    = DataResidencyType("ZoneReplication")
 )
 
 type DayOfWeek string
@@ -191,10 +186,18 @@ const (
 	SkuName_EdgeP_High           = SkuName("EdgeP_High")
 	SkuName_EdgePR_Base          = SkuName("EdgePR_Base")
 	SkuName_EdgePR_Base_UPS      = SkuName("EdgePR_Base_UPS")
+	SkuName_EP2_64_1VPU_W        = SkuName("EP2_64_1VPU_W")
+	SkuName_EP2_128_1T4_Mx1_W    = SkuName("EP2_128_1T4_Mx1_W")
+	SkuName_EP2_256_2T4_W        = SkuName("EP2_256_2T4_W")
 	SkuName_EdgeMR_Mini          = SkuName("EdgeMR_Mini")
 	SkuName_RCA_Small            = SkuName("RCA_Small")
 	SkuName_RCA_Large            = SkuName("RCA_Large")
 	SkuNameRDC                   = SkuName("RDC")
+	SkuNameManagement            = SkuName("Management")
+	SkuName_EP2_64_Mx1_W         = SkuName("EP2_64_Mx1_W")
+	SkuName_EP2_128_GPU1_Mx1_W   = SkuName("EP2_128_GPU1_Mx1_W")
+	SkuName_EP2_256_GPU2_Mx1     = SkuName("EP2_256_GPU2_Mx1")
+	SkuName_EdgeMR_TCP           = SkuName("EdgeMR_TCP")
 )
 
 // The SKU tier. This is based on the SKU name.

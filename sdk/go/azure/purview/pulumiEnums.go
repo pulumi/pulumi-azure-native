@@ -27,7 +27,9 @@ const (
 type Type string
 
 const (
+	TypeNone           = Type("None")
 	TypeSystemAssigned = Type("SystemAssigned")
+	TypeUserAssigned   = Type("UserAssigned")
 )
 
 func init() {

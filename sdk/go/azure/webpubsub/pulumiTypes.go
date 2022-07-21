@@ -229,446 +229,495 @@ func (o EventHandlerResponseArrayOutput) Index(i pulumi.IntInput) EventHandlerRe
 	}).(EventHandlerResponseOutput)
 }
 
-// The settings for event handler in webpubsub service
-type EventHandlerSettings struct {
-	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-	Items map[string][]EventHandlerTemplate `pulumi:"items"`
+// Live trace category configuration of a Microsoft.SignalRService resource.
+type LiveTraceCategory struct {
+	// Indicates whether or the live trace category is enabled.
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled *string `pulumi:"enabled"`
+	// Gets or sets the live trace category's name.
+	// Available values: ConnectivityLogs, MessagingLogs.
+	// Case insensitive.
+	Name *string `pulumi:"name"`
 }
 
-// EventHandlerSettingsInput is an input type that accepts EventHandlerSettingsArgs and EventHandlerSettingsOutput values.
-// You can construct a concrete instance of `EventHandlerSettingsInput` via:
+// LiveTraceCategoryInput is an input type that accepts LiveTraceCategoryArgs and LiveTraceCategoryOutput values.
+// You can construct a concrete instance of `LiveTraceCategoryInput` via:
 //
-//          EventHandlerSettingsArgs{...}
-type EventHandlerSettingsInput interface {
+//          LiveTraceCategoryArgs{...}
+type LiveTraceCategoryInput interface {
 	pulumi.Input
 
-	ToEventHandlerSettingsOutput() EventHandlerSettingsOutput
-	ToEventHandlerSettingsOutputWithContext(context.Context) EventHandlerSettingsOutput
+	ToLiveTraceCategoryOutput() LiveTraceCategoryOutput
+	ToLiveTraceCategoryOutputWithContext(context.Context) LiveTraceCategoryOutput
 }
 
-// The settings for event handler in webpubsub service
-type EventHandlerSettingsArgs struct {
-	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-	Items EventHandlerTemplateArrayMapInput `pulumi:"items"`
+// Live trace category configuration of a Microsoft.SignalRService resource.
+type LiveTraceCategoryArgs struct {
+	// Indicates whether or the live trace category is enabled.
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled pulumi.StringPtrInput `pulumi:"enabled"`
+	// Gets or sets the live trace category's name.
+	// Available values: ConnectivityLogs, MessagingLogs.
+	// Case insensitive.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (EventHandlerSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerSettings)(nil)).Elem()
+func (LiveTraceCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveTraceCategory)(nil)).Elem()
 }
 
-func (i EventHandlerSettingsArgs) ToEventHandlerSettingsOutput() EventHandlerSettingsOutput {
-	return i.ToEventHandlerSettingsOutputWithContext(context.Background())
+func (i LiveTraceCategoryArgs) ToLiveTraceCategoryOutput() LiveTraceCategoryOutput {
+	return i.ToLiveTraceCategoryOutputWithContext(context.Background())
 }
 
-func (i EventHandlerSettingsArgs) ToEventHandlerSettingsOutputWithContext(ctx context.Context) EventHandlerSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerSettingsOutput)
+func (i LiveTraceCategoryArgs) ToLiveTraceCategoryOutputWithContext(ctx context.Context) LiveTraceCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveTraceCategoryOutput)
 }
 
-func (i EventHandlerSettingsArgs) ToEventHandlerSettingsPtrOutput() EventHandlerSettingsPtrOutput {
-	return i.ToEventHandlerSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i EventHandlerSettingsArgs) ToEventHandlerSettingsPtrOutputWithContext(ctx context.Context) EventHandlerSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerSettingsOutput).ToEventHandlerSettingsPtrOutputWithContext(ctx)
-}
-
-// EventHandlerSettingsPtrInput is an input type that accepts EventHandlerSettingsArgs, EventHandlerSettingsPtr and EventHandlerSettingsPtrOutput values.
-// You can construct a concrete instance of `EventHandlerSettingsPtrInput` via:
+// LiveTraceCategoryArrayInput is an input type that accepts LiveTraceCategoryArray and LiveTraceCategoryArrayOutput values.
+// You can construct a concrete instance of `LiveTraceCategoryArrayInput` via:
 //
-//          EventHandlerSettingsArgs{...}
+//          LiveTraceCategoryArray{ LiveTraceCategoryArgs{...} }
+type LiveTraceCategoryArrayInput interface {
+	pulumi.Input
+
+	ToLiveTraceCategoryArrayOutput() LiveTraceCategoryArrayOutput
+	ToLiveTraceCategoryArrayOutputWithContext(context.Context) LiveTraceCategoryArrayOutput
+}
+
+type LiveTraceCategoryArray []LiveTraceCategoryInput
+
+func (LiveTraceCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveTraceCategory)(nil)).Elem()
+}
+
+func (i LiveTraceCategoryArray) ToLiveTraceCategoryArrayOutput() LiveTraceCategoryArrayOutput {
+	return i.ToLiveTraceCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i LiveTraceCategoryArray) ToLiveTraceCategoryArrayOutputWithContext(ctx context.Context) LiveTraceCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveTraceCategoryArrayOutput)
+}
+
+// Live trace category configuration of a Microsoft.SignalRService resource.
+type LiveTraceCategoryOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveTraceCategory)(nil)).Elem()
+}
+
+func (o LiveTraceCategoryOutput) ToLiveTraceCategoryOutput() LiveTraceCategoryOutput {
+	return o
+}
+
+func (o LiveTraceCategoryOutput) ToLiveTraceCategoryOutputWithContext(ctx context.Context) LiveTraceCategoryOutput {
+	return o
+}
+
+// Indicates whether or the live trace category is enabled.
+// Available values: true, false.
+// Case insensitive.
+func (o LiveTraceCategoryOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveTraceCategory) *string { return v.Enabled }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the live trace category's name.
+// Available values: ConnectivityLogs, MessagingLogs.
+// Case insensitive.
+func (o LiveTraceCategoryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveTraceCategory) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type LiveTraceCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveTraceCategory)(nil)).Elem()
+}
+
+func (o LiveTraceCategoryArrayOutput) ToLiveTraceCategoryArrayOutput() LiveTraceCategoryArrayOutput {
+	return o
+}
+
+func (o LiveTraceCategoryArrayOutput) ToLiveTraceCategoryArrayOutputWithContext(ctx context.Context) LiveTraceCategoryArrayOutput {
+	return o
+}
+
+func (o LiveTraceCategoryArrayOutput) Index(i pulumi.IntInput) LiveTraceCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveTraceCategory {
+		return vs[0].([]LiveTraceCategory)[vs[1].(int)]
+	}).(LiveTraceCategoryOutput)
+}
+
+// Live trace category configuration of a Microsoft.SignalRService resource.
+type LiveTraceCategoryResponse struct {
+	// Indicates whether or the live trace category is enabled.
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled *string `pulumi:"enabled"`
+	// Gets or sets the live trace category's name.
+	// Available values: ConnectivityLogs, MessagingLogs.
+	// Case insensitive.
+	Name *string `pulumi:"name"`
+}
+
+// Live trace category configuration of a Microsoft.SignalRService resource.
+type LiveTraceCategoryResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceCategoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveTraceCategoryResponse)(nil)).Elem()
+}
+
+func (o LiveTraceCategoryResponseOutput) ToLiveTraceCategoryResponseOutput() LiveTraceCategoryResponseOutput {
+	return o
+}
+
+func (o LiveTraceCategoryResponseOutput) ToLiveTraceCategoryResponseOutputWithContext(ctx context.Context) LiveTraceCategoryResponseOutput {
+	return o
+}
+
+// Indicates whether or the live trace category is enabled.
+// Available values: true, false.
+// Case insensitive.
+func (o LiveTraceCategoryResponseOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveTraceCategoryResponse) *string { return v.Enabled }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the live trace category's name.
+// Available values: ConnectivityLogs, MessagingLogs.
+// Case insensitive.
+func (o LiveTraceCategoryResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveTraceCategoryResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type LiveTraceCategoryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceCategoryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveTraceCategoryResponse)(nil)).Elem()
+}
+
+func (o LiveTraceCategoryResponseArrayOutput) ToLiveTraceCategoryResponseArrayOutput() LiveTraceCategoryResponseArrayOutput {
+	return o
+}
+
+func (o LiveTraceCategoryResponseArrayOutput) ToLiveTraceCategoryResponseArrayOutputWithContext(ctx context.Context) LiveTraceCategoryResponseArrayOutput {
+	return o
+}
+
+func (o LiveTraceCategoryResponseArrayOutput) Index(i pulumi.IntInput) LiveTraceCategoryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveTraceCategoryResponse {
+		return vs[0].([]LiveTraceCategoryResponse)[vs[1].(int)]
+	}).(LiveTraceCategoryResponseOutput)
+}
+
+// Live trace configuration of a Microsoft.SignalRService resource.
+type LiveTraceConfiguration struct {
+	// Gets or sets the list of category configurations.
+	Categories []LiveTraceCategory `pulumi:"categories"`
+	// Indicates whether or not enable live trace.
+	// When it's set to true, live trace client can connect to the service.
+	// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled *string `pulumi:"enabled"`
+}
+
+// Defaults sets the appropriate defaults for LiveTraceConfiguration
+func (val *LiveTraceConfiguration) Defaults() *LiveTraceConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := "false"
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+// LiveTraceConfigurationInput is an input type that accepts LiveTraceConfigurationArgs and LiveTraceConfigurationOutput values.
+// You can construct a concrete instance of `LiveTraceConfigurationInput` via:
+//
+//          LiveTraceConfigurationArgs{...}
+type LiveTraceConfigurationInput interface {
+	pulumi.Input
+
+	ToLiveTraceConfigurationOutput() LiveTraceConfigurationOutput
+	ToLiveTraceConfigurationOutputWithContext(context.Context) LiveTraceConfigurationOutput
+}
+
+// Live trace configuration of a Microsoft.SignalRService resource.
+type LiveTraceConfigurationArgs struct {
+	// Gets or sets the list of category configurations.
+	Categories LiveTraceCategoryArrayInput `pulumi:"categories"`
+	// Indicates whether or not enable live trace.
+	// When it's set to true, live trace client can connect to the service.
+	// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled pulumi.StringPtrInput `pulumi:"enabled"`
+}
+
+// Defaults sets the appropriate defaults for LiveTraceConfigurationArgs
+func (val *LiveTraceConfigurationArgs) Defaults() *LiveTraceConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.StringPtr("false")
+	}
+	return &tmp
+}
+func (LiveTraceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveTraceConfiguration)(nil)).Elem()
+}
+
+func (i LiveTraceConfigurationArgs) ToLiveTraceConfigurationOutput() LiveTraceConfigurationOutput {
+	return i.ToLiveTraceConfigurationOutputWithContext(context.Background())
+}
+
+func (i LiveTraceConfigurationArgs) ToLiveTraceConfigurationOutputWithContext(ctx context.Context) LiveTraceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveTraceConfigurationOutput)
+}
+
+func (i LiveTraceConfigurationArgs) ToLiveTraceConfigurationPtrOutput() LiveTraceConfigurationPtrOutput {
+	return i.ToLiveTraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LiveTraceConfigurationArgs) ToLiveTraceConfigurationPtrOutputWithContext(ctx context.Context) LiveTraceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveTraceConfigurationOutput).ToLiveTraceConfigurationPtrOutputWithContext(ctx)
+}
+
+// LiveTraceConfigurationPtrInput is an input type that accepts LiveTraceConfigurationArgs, LiveTraceConfigurationPtr and LiveTraceConfigurationPtrOutput values.
+// You can construct a concrete instance of `LiveTraceConfigurationPtrInput` via:
+//
+//          LiveTraceConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type EventHandlerSettingsPtrInput interface {
+type LiveTraceConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToEventHandlerSettingsPtrOutput() EventHandlerSettingsPtrOutput
-	ToEventHandlerSettingsPtrOutputWithContext(context.Context) EventHandlerSettingsPtrOutput
+	ToLiveTraceConfigurationPtrOutput() LiveTraceConfigurationPtrOutput
+	ToLiveTraceConfigurationPtrOutputWithContext(context.Context) LiveTraceConfigurationPtrOutput
 }
 
-type eventHandlerSettingsPtrType EventHandlerSettingsArgs
+type liveTraceConfigurationPtrType LiveTraceConfigurationArgs
 
-func EventHandlerSettingsPtr(v *EventHandlerSettingsArgs) EventHandlerSettingsPtrInput {
-	return (*eventHandlerSettingsPtrType)(v)
+func LiveTraceConfigurationPtr(v *LiveTraceConfigurationArgs) LiveTraceConfigurationPtrInput {
+	return (*liveTraceConfigurationPtrType)(v)
 }
 
-func (*eventHandlerSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHandlerSettings)(nil)).Elem()
+func (*liveTraceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveTraceConfiguration)(nil)).Elem()
 }
 
-func (i *eventHandlerSettingsPtrType) ToEventHandlerSettingsPtrOutput() EventHandlerSettingsPtrOutput {
-	return i.ToEventHandlerSettingsPtrOutputWithContext(context.Background())
+func (i *liveTraceConfigurationPtrType) ToLiveTraceConfigurationPtrOutput() LiveTraceConfigurationPtrOutput {
+	return i.ToLiveTraceConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *eventHandlerSettingsPtrType) ToEventHandlerSettingsPtrOutputWithContext(ctx context.Context) EventHandlerSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerSettingsPtrOutput)
+func (i *liveTraceConfigurationPtrType) ToLiveTraceConfigurationPtrOutputWithContext(ctx context.Context) LiveTraceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveTraceConfigurationPtrOutput)
 }
 
-// The settings for event handler in webpubsub service
-type EventHandlerSettingsOutput struct{ *pulumi.OutputState }
+// Live trace configuration of a Microsoft.SignalRService resource.
+type LiveTraceConfigurationOutput struct{ *pulumi.OutputState }
 
-func (EventHandlerSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerSettings)(nil)).Elem()
+func (LiveTraceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveTraceConfiguration)(nil)).Elem()
 }
 
-func (o EventHandlerSettingsOutput) ToEventHandlerSettingsOutput() EventHandlerSettingsOutput {
+func (o LiveTraceConfigurationOutput) ToLiveTraceConfigurationOutput() LiveTraceConfigurationOutput {
 	return o
 }
 
-func (o EventHandlerSettingsOutput) ToEventHandlerSettingsOutputWithContext(ctx context.Context) EventHandlerSettingsOutput {
+func (o LiveTraceConfigurationOutput) ToLiveTraceConfigurationOutputWithContext(ctx context.Context) LiveTraceConfigurationOutput {
 	return o
 }
 
-func (o EventHandlerSettingsOutput) ToEventHandlerSettingsPtrOutput() EventHandlerSettingsPtrOutput {
-	return o.ToEventHandlerSettingsPtrOutputWithContext(context.Background())
+func (o LiveTraceConfigurationOutput) ToLiveTraceConfigurationPtrOutput() LiveTraceConfigurationPtrOutput {
+	return o.ToLiveTraceConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o EventHandlerSettingsOutput) ToEventHandlerSettingsPtrOutputWithContext(ctx context.Context) EventHandlerSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHandlerSettings) *EventHandlerSettings {
+func (o LiveTraceConfigurationOutput) ToLiveTraceConfigurationPtrOutputWithContext(ctx context.Context) LiveTraceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveTraceConfiguration) *LiveTraceConfiguration {
 		return &v
-	}).(EventHandlerSettingsPtrOutput)
+	}).(LiveTraceConfigurationPtrOutput)
 }
 
-// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-func (o EventHandlerSettingsOutput) Items() EventHandlerTemplateArrayMapOutput {
-	return o.ApplyT(func(v EventHandlerSettings) map[string][]EventHandlerTemplate { return v.Items }).(EventHandlerTemplateArrayMapOutput)
+// Gets or sets the list of category configurations.
+func (o LiveTraceConfigurationOutput) Categories() LiveTraceCategoryArrayOutput {
+	return o.ApplyT(func(v LiveTraceConfiguration) []LiveTraceCategory { return v.Categories }).(LiveTraceCategoryArrayOutput)
 }
 
-type EventHandlerSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHandlerSettings)(nil)).Elem()
+// Indicates whether or not enable live trace.
+// When it's set to true, live trace client can connect to the service.
+// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+// Available values: true, false.
+// Case insensitive.
+func (o LiveTraceConfigurationOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveTraceConfiguration) *string { return v.Enabled }).(pulumi.StringPtrOutput)
 }
 
-func (o EventHandlerSettingsPtrOutput) ToEventHandlerSettingsPtrOutput() EventHandlerSettingsPtrOutput {
+type LiveTraceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveTraceConfiguration)(nil)).Elem()
+}
+
+func (o LiveTraceConfigurationPtrOutput) ToLiveTraceConfigurationPtrOutput() LiveTraceConfigurationPtrOutput {
 	return o
 }
 
-func (o EventHandlerSettingsPtrOutput) ToEventHandlerSettingsPtrOutputWithContext(ctx context.Context) EventHandlerSettingsPtrOutput {
+func (o LiveTraceConfigurationPtrOutput) ToLiveTraceConfigurationPtrOutputWithContext(ctx context.Context) LiveTraceConfigurationPtrOutput {
 	return o
 }
 
-func (o EventHandlerSettingsPtrOutput) Elem() EventHandlerSettingsOutput {
-	return o.ApplyT(func(v *EventHandlerSettings) EventHandlerSettings {
+func (o LiveTraceConfigurationPtrOutput) Elem() LiveTraceConfigurationOutput {
+	return o.ApplyT(func(v *LiveTraceConfiguration) LiveTraceConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret EventHandlerSettings
+		var ret LiveTraceConfiguration
 		return ret
-	}).(EventHandlerSettingsOutput)
+	}).(LiveTraceConfigurationOutput)
 }
 
-// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-func (o EventHandlerSettingsPtrOutput) Items() EventHandlerTemplateArrayMapOutput {
-	return o.ApplyT(func(v *EventHandlerSettings) map[string][]EventHandlerTemplate {
+// Gets or sets the list of category configurations.
+func (o LiveTraceConfigurationPtrOutput) Categories() LiveTraceCategoryArrayOutput {
+	return o.ApplyT(func(v *LiveTraceConfiguration) []LiveTraceCategory {
 		if v == nil {
 			return nil
 		}
-		return v.Items
-	}).(EventHandlerTemplateArrayMapOutput)
+		return v.Categories
+	}).(LiveTraceCategoryArrayOutput)
 }
 
-// The settings for event handler in webpubsub service
-type EventHandlerSettingsResponse struct {
-	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-	Items map[string][]EventHandlerTemplateResponse `pulumi:"items"`
+// Indicates whether or not enable live trace.
+// When it's set to true, live trace client can connect to the service.
+// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+// Available values: true, false.
+// Case insensitive.
+func (o LiveTraceConfigurationPtrOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveTraceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.StringPtrOutput)
 }
 
-// The settings for event handler in webpubsub service
-type EventHandlerSettingsResponseOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerSettingsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerSettingsResponse)(nil)).Elem()
+// Live trace configuration of a Microsoft.SignalRService resource.
+type LiveTraceConfigurationResponse struct {
+	// Gets or sets the list of category configurations.
+	Categories []LiveTraceCategoryResponse `pulumi:"categories"`
+	// Indicates whether or not enable live trace.
+	// When it's set to true, live trace client can connect to the service.
+	// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled *string `pulumi:"enabled"`
 }
 
-func (o EventHandlerSettingsResponseOutput) ToEventHandlerSettingsResponseOutput() EventHandlerSettingsResponseOutput {
+// Defaults sets the appropriate defaults for LiveTraceConfigurationResponse
+func (val *LiveTraceConfigurationResponse) Defaults() *LiveTraceConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := "false"
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+// Live trace configuration of a Microsoft.SignalRService resource.
+type LiveTraceConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveTraceConfigurationResponse)(nil)).Elem()
+}
+
+func (o LiveTraceConfigurationResponseOutput) ToLiveTraceConfigurationResponseOutput() LiveTraceConfigurationResponseOutput {
 	return o
 }
 
-func (o EventHandlerSettingsResponseOutput) ToEventHandlerSettingsResponseOutputWithContext(ctx context.Context) EventHandlerSettingsResponseOutput {
+func (o LiveTraceConfigurationResponseOutput) ToLiveTraceConfigurationResponseOutputWithContext(ctx context.Context) LiveTraceConfigurationResponseOutput {
 	return o
 }
 
-// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-func (o EventHandlerSettingsResponseOutput) Items() EventHandlerTemplateResponseArrayMapOutput {
-	return o.ApplyT(func(v EventHandlerSettingsResponse) map[string][]EventHandlerTemplateResponse { return v.Items }).(EventHandlerTemplateResponseArrayMapOutput)
+// Gets or sets the list of category configurations.
+func (o LiveTraceConfigurationResponseOutput) Categories() LiveTraceCategoryResponseArrayOutput {
+	return o.ApplyT(func(v LiveTraceConfigurationResponse) []LiveTraceCategoryResponse { return v.Categories }).(LiveTraceCategoryResponseArrayOutput)
 }
 
-type EventHandlerSettingsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerSettingsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHandlerSettingsResponse)(nil)).Elem()
+// Indicates whether or not enable live trace.
+// When it's set to true, live trace client can connect to the service.
+// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+// Available values: true, false.
+// Case insensitive.
+func (o LiveTraceConfigurationResponseOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveTraceConfigurationResponse) *string { return v.Enabled }).(pulumi.StringPtrOutput)
 }
 
-func (o EventHandlerSettingsResponsePtrOutput) ToEventHandlerSettingsResponsePtrOutput() EventHandlerSettingsResponsePtrOutput {
+type LiveTraceConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveTraceConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveTraceConfigurationResponse)(nil)).Elem()
+}
+
+func (o LiveTraceConfigurationResponsePtrOutput) ToLiveTraceConfigurationResponsePtrOutput() LiveTraceConfigurationResponsePtrOutput {
 	return o
 }
 
-func (o EventHandlerSettingsResponsePtrOutput) ToEventHandlerSettingsResponsePtrOutputWithContext(ctx context.Context) EventHandlerSettingsResponsePtrOutput {
+func (o LiveTraceConfigurationResponsePtrOutput) ToLiveTraceConfigurationResponsePtrOutputWithContext(ctx context.Context) LiveTraceConfigurationResponsePtrOutput {
 	return o
 }
 
-func (o EventHandlerSettingsResponsePtrOutput) Elem() EventHandlerSettingsResponseOutput {
-	return o.ApplyT(func(v *EventHandlerSettingsResponse) EventHandlerSettingsResponse {
+func (o LiveTraceConfigurationResponsePtrOutput) Elem() LiveTraceConfigurationResponseOutput {
+	return o.ApplyT(func(v *LiveTraceConfigurationResponse) LiveTraceConfigurationResponse {
 		if v != nil {
 			return *v
 		}
-		var ret EventHandlerSettingsResponse
+		var ret LiveTraceConfigurationResponse
 		return ret
-	}).(EventHandlerSettingsResponseOutput)
+	}).(LiveTraceConfigurationResponseOutput)
 }
 
-// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-func (o EventHandlerSettingsResponsePtrOutput) Items() EventHandlerTemplateResponseArrayMapOutput {
-	return o.ApplyT(func(v *EventHandlerSettingsResponse) map[string][]EventHandlerTemplateResponse {
+// Gets or sets the list of category configurations.
+func (o LiveTraceConfigurationResponsePtrOutput) Categories() LiveTraceCategoryResponseArrayOutput {
+	return o.ApplyT(func(v *LiveTraceConfigurationResponse) []LiveTraceCategoryResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Items
-	}).(EventHandlerTemplateResponseArrayMapOutput)
+		return v.Categories
+	}).(LiveTraceCategoryResponseArrayOutput)
 }
 
-// EventHandler template item settings.
-type EventHandlerTemplate struct {
-	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
-	Auth *UpstreamAuthSettings `pulumi:"auth"`
-	// Gets ot sets the system event pattern.
-	// There are 2 kind of patterns supported:
-	//     1. The single event name, for example, "connect", it matches "connect"
-	//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-	SystemEventPattern *string `pulumi:"systemEventPattern"`
-	// Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-	// For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-	UrlTemplate string `pulumi:"urlTemplate"`
-	// Gets or sets the matching pattern for event names.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-	//     3. The single event name, for example, "event1", it matches "event1"
-	UserEventPattern *string `pulumi:"userEventPattern"`
-}
-
-// EventHandlerTemplateInput is an input type that accepts EventHandlerTemplateArgs and EventHandlerTemplateOutput values.
-// You can construct a concrete instance of `EventHandlerTemplateInput` via:
-//
-//          EventHandlerTemplateArgs{...}
-type EventHandlerTemplateInput interface {
-	pulumi.Input
-
-	ToEventHandlerTemplateOutput() EventHandlerTemplateOutput
-	ToEventHandlerTemplateOutputWithContext(context.Context) EventHandlerTemplateOutput
-}
-
-// EventHandler template item settings.
-type EventHandlerTemplateArgs struct {
-	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
-	Auth UpstreamAuthSettingsPtrInput `pulumi:"auth"`
-	// Gets ot sets the system event pattern.
-	// There are 2 kind of patterns supported:
-	//     1. The single event name, for example, "connect", it matches "connect"
-	//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-	SystemEventPattern pulumi.StringPtrInput `pulumi:"systemEventPattern"`
-	// Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-	// For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
-	// Gets or sets the matching pattern for event names.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-	//     3. The single event name, for example, "event1", it matches "event1"
-	UserEventPattern pulumi.StringPtrInput `pulumi:"userEventPattern"`
-}
-
-func (EventHandlerTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplate)(nil)).Elem()
-}
-
-func (i EventHandlerTemplateArgs) ToEventHandlerTemplateOutput() EventHandlerTemplateOutput {
-	return i.ToEventHandlerTemplateOutputWithContext(context.Background())
-}
-
-func (i EventHandlerTemplateArgs) ToEventHandlerTemplateOutputWithContext(ctx context.Context) EventHandlerTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerTemplateOutput)
-}
-
-// EventHandlerTemplateArrayInput is an input type that accepts EventHandlerTemplateArray and EventHandlerTemplateArrayOutput values.
-// You can construct a concrete instance of `EventHandlerTemplateArrayInput` via:
-//
-//          EventHandlerTemplateArray{ EventHandlerTemplateArgs{...} }
-type EventHandlerTemplateArrayInput interface {
-	pulumi.Input
-
-	ToEventHandlerTemplateArrayOutput() EventHandlerTemplateArrayOutput
-	ToEventHandlerTemplateArrayOutputWithContext(context.Context) EventHandlerTemplateArrayOutput
-}
-
-type EventHandlerTemplateArray []EventHandlerTemplateInput
-
-func (EventHandlerTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventHandlerTemplate)(nil)).Elem()
-}
-
-func (i EventHandlerTemplateArray) ToEventHandlerTemplateArrayOutput() EventHandlerTemplateArrayOutput {
-	return i.ToEventHandlerTemplateArrayOutputWithContext(context.Background())
-}
-
-func (i EventHandlerTemplateArray) ToEventHandlerTemplateArrayOutputWithContext(ctx context.Context) EventHandlerTemplateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerTemplateArrayOutput)
-}
-
-// EventHandler template item settings.
-type EventHandlerTemplateOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplate)(nil)).Elem()
-}
-
-func (o EventHandlerTemplateOutput) ToEventHandlerTemplateOutput() EventHandlerTemplateOutput {
-	return o
-}
-
-func (o EventHandlerTemplateOutput) ToEventHandlerTemplateOutputWithContext(ctx context.Context) EventHandlerTemplateOutput {
-	return o
-}
-
-// Gets or sets the auth settings for an event handler. If not set, no auth is used.
-func (o EventHandlerTemplateOutput) Auth() UpstreamAuthSettingsPtrOutput {
-	return o.ApplyT(func(v EventHandlerTemplate) *UpstreamAuthSettings { return v.Auth }).(UpstreamAuthSettingsPtrOutput)
-}
-
-// Gets ot sets the system event pattern.
-// There are 2 kind of patterns supported:
-//     1. The single event name, for example, "connect", it matches "connect"
-//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-func (o EventHandlerTemplateOutput) SystemEventPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHandlerTemplate) *string { return v.SystemEventPattern }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-// For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-func (o EventHandlerTemplateOutput) UrlTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHandlerTemplate) string { return v.UrlTemplate }).(pulumi.StringOutput)
-}
-
-// Gets or sets the matching pattern for event names.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-//     3. The single event name, for example, "event1", it matches "event1"
-func (o EventHandlerTemplateOutput) UserEventPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHandlerTemplate) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
-}
-
-type EventHandlerTemplateArrayOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerTemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventHandlerTemplate)(nil)).Elem()
-}
-
-func (o EventHandlerTemplateArrayOutput) ToEventHandlerTemplateArrayOutput() EventHandlerTemplateArrayOutput {
-	return o
-}
-
-func (o EventHandlerTemplateArrayOutput) ToEventHandlerTemplateArrayOutputWithContext(ctx context.Context) EventHandlerTemplateArrayOutput {
-	return o
-}
-
-func (o EventHandlerTemplateArrayOutput) Index(i pulumi.IntInput) EventHandlerTemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHandlerTemplate {
-		return vs[0].([]EventHandlerTemplate)[vs[1].(int)]
-	}).(EventHandlerTemplateOutput)
-}
-
-// EventHandler template item settings.
-type EventHandlerTemplateResponse struct {
-	// Gets or sets the auth settings for an event handler. If not set, no auth is used.
-	Auth *UpstreamAuthSettingsResponse `pulumi:"auth"`
-	// Gets ot sets the system event pattern.
-	// There are 2 kind of patterns supported:
-	//     1. The single event name, for example, "connect", it matches "connect"
-	//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-	SystemEventPattern *string `pulumi:"systemEventPattern"`
-	// Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-	// For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-	UrlTemplate string `pulumi:"urlTemplate"`
-	// Gets or sets the matching pattern for event names.
-	// There are 3 kind of patterns supported:
-	//     1. "*", it to matches any event name
-	//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-	//     3. The single event name, for example, "event1", it matches "event1"
-	UserEventPattern *string `pulumi:"userEventPattern"`
-}
-
-// EventHandler template item settings.
-type EventHandlerTemplateResponseOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerTemplateResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplateResponse)(nil)).Elem()
-}
-
-func (o EventHandlerTemplateResponseOutput) ToEventHandlerTemplateResponseOutput() EventHandlerTemplateResponseOutput {
-	return o
-}
-
-func (o EventHandlerTemplateResponseOutput) ToEventHandlerTemplateResponseOutputWithContext(ctx context.Context) EventHandlerTemplateResponseOutput {
-	return o
-}
-
-// Gets or sets the auth settings for an event handler. If not set, no auth is used.
-func (o EventHandlerTemplateResponseOutput) Auth() UpstreamAuthSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EventHandlerTemplateResponse) *UpstreamAuthSettingsResponse { return v.Auth }).(UpstreamAuthSettingsResponsePtrOutput)
-}
-
-// Gets ot sets the system event pattern.
-// There are 2 kind of patterns supported:
-//     1. The single event name, for example, "connect", it matches "connect"
-//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-func (o EventHandlerTemplateResponseOutput) SystemEventPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHandlerTemplateResponse) *string { return v.SystemEventPattern }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-// For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-func (o EventHandlerTemplateResponseOutput) UrlTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHandlerTemplateResponse) string { return v.UrlTemplate }).(pulumi.StringOutput)
-}
-
-// Gets or sets the matching pattern for event names.
-// There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-//     3. The single event name, for example, "event1", it matches "event1"
-func (o EventHandlerTemplateResponseOutput) UserEventPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHandlerTemplateResponse) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
-}
-
-type EventHandlerTemplateResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerTemplateResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventHandlerTemplateResponse)(nil)).Elem()
-}
-
-func (o EventHandlerTemplateResponseArrayOutput) ToEventHandlerTemplateResponseArrayOutput() EventHandlerTemplateResponseArrayOutput {
-	return o
-}
-
-func (o EventHandlerTemplateResponseArrayOutput) ToEventHandlerTemplateResponseArrayOutputWithContext(ctx context.Context) EventHandlerTemplateResponseArrayOutput {
-	return o
-}
-
-func (o EventHandlerTemplateResponseArrayOutput) Index(i pulumi.IntInput) EventHandlerTemplateResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHandlerTemplateResponse {
-		return vs[0].([]EventHandlerTemplateResponse)[vs[1].(int)]
-	}).(EventHandlerTemplateResponseOutput)
+// Indicates whether or not enable live trace.
+// When it's set to true, live trace client can connect to the service.
+// Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+// Available values: true, false.
+// Case insensitive.
+func (o LiveTraceConfigurationResponsePtrOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveTraceConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.StringPtrOutput)
 }
 
 // A class represent managed identities used for request and response
 type ManagedIdentity struct {
-	// Represent the identity type: systemAssigned, userAssigned, None
+	// Represents the identity type: systemAssigned, userAssigned, None
 	Type *string `pulumi:"type"`
 	// Get or set the user assigned identities
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -684,10 +733,10 @@ type ManagedIdentityInput interface {
 
 // A class represent managed identities used for request and response
 type ManagedIdentityArgs struct {
-	// Represent the identity type: systemAssigned, userAssigned, None
+	// Represents the identity type: systemAssigned, userAssigned, None
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Get or set the user assigned identities
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -768,14 +817,14 @@ func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context
 	}).(ManagedIdentityPtrOutput)
 }
 
-// Represent the identity type: systemAssigned, userAssigned, None
+// Represents the identity type: systemAssigned, userAssigned, None
 func (o ManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Get or set the user assigned identities
-func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -802,7 +851,7 @@ func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
 	}).(ManagedIdentityOutput)
 }
 
-// Represent the identity type: systemAssigned, userAssigned, None
+// Represents the identity type: systemAssigned, userAssigned, None
 func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentity) *string {
 		if v == nil {
@@ -813,13 +862,13 @@ func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Get or set the user assigned identities
-func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedIdentity) map[string]interface{} {
+func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // A class represent managed identities used for request and response
@@ -830,7 +879,7 @@ type ManagedIdentityResponse struct {
 	// Get the tenant id for the system assigned identity.
 	// Only be used in response
 	TenantId string `pulumi:"tenantId"`
-	// Represent the identity type: systemAssigned, userAssigned, None
+	// Represents the identity type: systemAssigned, userAssigned, None
 	Type *string `pulumi:"type"`
 	// Get or set the user assigned identities
 	UserAssignedIdentities map[string]UserAssignedIdentityPropertyResponse `pulumi:"userAssignedIdentities"`
@@ -863,7 +912,7 @@ func (o ManagedIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Represent the identity type: systemAssigned, userAssigned, None
+// Represents the identity type: systemAssigned, userAssigned, None
 func (o ManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -921,7 +970,7 @@ func (o ManagedIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represent the identity type: systemAssigned, userAssigned, None
+// Represents the identity type: systemAssigned, userAssigned, None
 func (o ManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
 		if v == nil {
@@ -1704,15 +1753,17 @@ func (o PrivateEndpointACLResponseArrayOutput) Index(i pulumi.IntInput) PrivateE
 
 // A private endpoint connection to an azure resource
 type PrivateEndpointConnectionResponse struct {
+	// Group IDs
+	GroupIds []string `pulumi:"groupIds"`
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
+	// Private endpoint
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
+	// Connection state of the private endpoint connection
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
+	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -1735,6 +1786,11 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
+// Group IDs
+func (o PrivateEndpointConnectionResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
 // Fully qualified resource Id for the resource.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -1745,19 +1801,19 @@ func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint associated with the private endpoint connection
+// Private endpoint
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// Connection state
+// Connection state of the private endpoint connection
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint connection
+// Provisioning state of the resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -2122,6 +2178,388 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Resource log category configuration of a Microsoft.SignalRService resource.
+type ResourceLogCategory struct {
+	// Indicates whether or the resource log category is enabled.
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled *string `pulumi:"enabled"`
+	// Gets or sets the resource log category's name.
+	// Available values: ConnectivityLogs, MessagingLogs.
+	// Case insensitive.
+	Name *string `pulumi:"name"`
+}
+
+// ResourceLogCategoryInput is an input type that accepts ResourceLogCategoryArgs and ResourceLogCategoryOutput values.
+// You can construct a concrete instance of `ResourceLogCategoryInput` via:
+//
+//          ResourceLogCategoryArgs{...}
+type ResourceLogCategoryInput interface {
+	pulumi.Input
+
+	ToResourceLogCategoryOutput() ResourceLogCategoryOutput
+	ToResourceLogCategoryOutputWithContext(context.Context) ResourceLogCategoryOutput
+}
+
+// Resource log category configuration of a Microsoft.SignalRService resource.
+type ResourceLogCategoryArgs struct {
+	// Indicates whether or the resource log category is enabled.
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled pulumi.StringPtrInput `pulumi:"enabled"`
+	// Gets or sets the resource log category's name.
+	// Available values: ConnectivityLogs, MessagingLogs.
+	// Case insensitive.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ResourceLogCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLogCategory)(nil)).Elem()
+}
+
+func (i ResourceLogCategoryArgs) ToResourceLogCategoryOutput() ResourceLogCategoryOutput {
+	return i.ToResourceLogCategoryOutputWithContext(context.Background())
+}
+
+func (i ResourceLogCategoryArgs) ToResourceLogCategoryOutputWithContext(ctx context.Context) ResourceLogCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLogCategoryOutput)
+}
+
+// ResourceLogCategoryArrayInput is an input type that accepts ResourceLogCategoryArray and ResourceLogCategoryArrayOutput values.
+// You can construct a concrete instance of `ResourceLogCategoryArrayInput` via:
+//
+//          ResourceLogCategoryArray{ ResourceLogCategoryArgs{...} }
+type ResourceLogCategoryArrayInput interface {
+	pulumi.Input
+
+	ToResourceLogCategoryArrayOutput() ResourceLogCategoryArrayOutput
+	ToResourceLogCategoryArrayOutputWithContext(context.Context) ResourceLogCategoryArrayOutput
+}
+
+type ResourceLogCategoryArray []ResourceLogCategoryInput
+
+func (ResourceLogCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceLogCategory)(nil)).Elem()
+}
+
+func (i ResourceLogCategoryArray) ToResourceLogCategoryArrayOutput() ResourceLogCategoryArrayOutput {
+	return i.ToResourceLogCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceLogCategoryArray) ToResourceLogCategoryArrayOutputWithContext(ctx context.Context) ResourceLogCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLogCategoryArrayOutput)
+}
+
+// Resource log category configuration of a Microsoft.SignalRService resource.
+type ResourceLogCategoryOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLogCategory)(nil)).Elem()
+}
+
+func (o ResourceLogCategoryOutput) ToResourceLogCategoryOutput() ResourceLogCategoryOutput {
+	return o
+}
+
+func (o ResourceLogCategoryOutput) ToResourceLogCategoryOutputWithContext(ctx context.Context) ResourceLogCategoryOutput {
+	return o
+}
+
+// Indicates whether or the resource log category is enabled.
+// Available values: true, false.
+// Case insensitive.
+func (o ResourceLogCategoryOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLogCategory) *string { return v.Enabled }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the resource log category's name.
+// Available values: ConnectivityLogs, MessagingLogs.
+// Case insensitive.
+func (o ResourceLogCategoryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLogCategory) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ResourceLogCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceLogCategory)(nil)).Elem()
+}
+
+func (o ResourceLogCategoryArrayOutput) ToResourceLogCategoryArrayOutput() ResourceLogCategoryArrayOutput {
+	return o
+}
+
+func (o ResourceLogCategoryArrayOutput) ToResourceLogCategoryArrayOutputWithContext(ctx context.Context) ResourceLogCategoryArrayOutput {
+	return o
+}
+
+func (o ResourceLogCategoryArrayOutput) Index(i pulumi.IntInput) ResourceLogCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceLogCategory {
+		return vs[0].([]ResourceLogCategory)[vs[1].(int)]
+	}).(ResourceLogCategoryOutput)
+}
+
+// Resource log category configuration of a Microsoft.SignalRService resource.
+type ResourceLogCategoryResponse struct {
+	// Indicates whether or the resource log category is enabled.
+	// Available values: true, false.
+	// Case insensitive.
+	Enabled *string `pulumi:"enabled"`
+	// Gets or sets the resource log category's name.
+	// Available values: ConnectivityLogs, MessagingLogs.
+	// Case insensitive.
+	Name *string `pulumi:"name"`
+}
+
+// Resource log category configuration of a Microsoft.SignalRService resource.
+type ResourceLogCategoryResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogCategoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLogCategoryResponse)(nil)).Elem()
+}
+
+func (o ResourceLogCategoryResponseOutput) ToResourceLogCategoryResponseOutput() ResourceLogCategoryResponseOutput {
+	return o
+}
+
+func (o ResourceLogCategoryResponseOutput) ToResourceLogCategoryResponseOutputWithContext(ctx context.Context) ResourceLogCategoryResponseOutput {
+	return o
+}
+
+// Indicates whether or the resource log category is enabled.
+// Available values: true, false.
+// Case insensitive.
+func (o ResourceLogCategoryResponseOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLogCategoryResponse) *string { return v.Enabled }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the resource log category's name.
+// Available values: ConnectivityLogs, MessagingLogs.
+// Case insensitive.
+func (o ResourceLogCategoryResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLogCategoryResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ResourceLogCategoryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogCategoryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceLogCategoryResponse)(nil)).Elem()
+}
+
+func (o ResourceLogCategoryResponseArrayOutput) ToResourceLogCategoryResponseArrayOutput() ResourceLogCategoryResponseArrayOutput {
+	return o
+}
+
+func (o ResourceLogCategoryResponseArrayOutput) ToResourceLogCategoryResponseArrayOutputWithContext(ctx context.Context) ResourceLogCategoryResponseArrayOutput {
+	return o
+}
+
+func (o ResourceLogCategoryResponseArrayOutput) Index(i pulumi.IntInput) ResourceLogCategoryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceLogCategoryResponse {
+		return vs[0].([]ResourceLogCategoryResponse)[vs[1].(int)]
+	}).(ResourceLogCategoryResponseOutput)
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+type ResourceLogConfiguration struct {
+	// Gets or sets the list of category configurations.
+	Categories []ResourceLogCategory `pulumi:"categories"`
+}
+
+// ResourceLogConfigurationInput is an input type that accepts ResourceLogConfigurationArgs and ResourceLogConfigurationOutput values.
+// You can construct a concrete instance of `ResourceLogConfigurationInput` via:
+//
+//          ResourceLogConfigurationArgs{...}
+type ResourceLogConfigurationInput interface {
+	pulumi.Input
+
+	ToResourceLogConfigurationOutput() ResourceLogConfigurationOutput
+	ToResourceLogConfigurationOutputWithContext(context.Context) ResourceLogConfigurationOutput
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+type ResourceLogConfigurationArgs struct {
+	// Gets or sets the list of category configurations.
+	Categories ResourceLogCategoryArrayInput `pulumi:"categories"`
+}
+
+func (ResourceLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLogConfiguration)(nil)).Elem()
+}
+
+func (i ResourceLogConfigurationArgs) ToResourceLogConfigurationOutput() ResourceLogConfigurationOutput {
+	return i.ToResourceLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResourceLogConfigurationArgs) ToResourceLogConfigurationOutputWithContext(ctx context.Context) ResourceLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLogConfigurationOutput)
+}
+
+func (i ResourceLogConfigurationArgs) ToResourceLogConfigurationPtrOutput() ResourceLogConfigurationPtrOutput {
+	return i.ToResourceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLogConfigurationArgs) ToResourceLogConfigurationPtrOutputWithContext(ctx context.Context) ResourceLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLogConfigurationOutput).ToResourceLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResourceLogConfigurationPtrInput is an input type that accepts ResourceLogConfigurationArgs, ResourceLogConfigurationPtr and ResourceLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResourceLogConfigurationPtrInput` via:
+//
+//          ResourceLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResourceLogConfigurationPtrOutput() ResourceLogConfigurationPtrOutput
+	ToResourceLogConfigurationPtrOutputWithContext(context.Context) ResourceLogConfigurationPtrOutput
+}
+
+type resourceLogConfigurationPtrType ResourceLogConfigurationArgs
+
+func ResourceLogConfigurationPtr(v *ResourceLogConfigurationArgs) ResourceLogConfigurationPtrInput {
+	return (*resourceLogConfigurationPtrType)(v)
+}
+
+func (*resourceLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLogConfiguration)(nil)).Elem()
+}
+
+func (i *resourceLogConfigurationPtrType) ToResourceLogConfigurationPtrOutput() ResourceLogConfigurationPtrOutput {
+	return i.ToResourceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLogConfigurationPtrType) ToResourceLogConfigurationPtrOutputWithContext(ctx context.Context) ResourceLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLogConfigurationPtrOutput)
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+type ResourceLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLogConfiguration)(nil)).Elem()
+}
+
+func (o ResourceLogConfigurationOutput) ToResourceLogConfigurationOutput() ResourceLogConfigurationOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationOutput) ToResourceLogConfigurationOutputWithContext(ctx context.Context) ResourceLogConfigurationOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationOutput) ToResourceLogConfigurationPtrOutput() ResourceLogConfigurationPtrOutput {
+	return o.ToResourceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLogConfigurationOutput) ToResourceLogConfigurationPtrOutputWithContext(ctx context.Context) ResourceLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLogConfiguration) *ResourceLogConfiguration {
+		return &v
+	}).(ResourceLogConfigurationPtrOutput)
+}
+
+// Gets or sets the list of category configurations.
+func (o ResourceLogConfigurationOutput) Categories() ResourceLogCategoryArrayOutput {
+	return o.ApplyT(func(v ResourceLogConfiguration) []ResourceLogCategory { return v.Categories }).(ResourceLogCategoryArrayOutput)
+}
+
+type ResourceLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLogConfiguration)(nil)).Elem()
+}
+
+func (o ResourceLogConfigurationPtrOutput) ToResourceLogConfigurationPtrOutput() ResourceLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationPtrOutput) ToResourceLogConfigurationPtrOutputWithContext(ctx context.Context) ResourceLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationPtrOutput) Elem() ResourceLogConfigurationOutput {
+	return o.ApplyT(func(v *ResourceLogConfiguration) ResourceLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLogConfiguration
+		return ret
+	}).(ResourceLogConfigurationOutput)
+}
+
+// Gets or sets the list of category configurations.
+func (o ResourceLogConfigurationPtrOutput) Categories() ResourceLogCategoryArrayOutput {
+	return o.ApplyT(func(v *ResourceLogConfiguration) []ResourceLogCategory {
+		if v == nil {
+			return nil
+		}
+		return v.Categories
+	}).(ResourceLogCategoryArrayOutput)
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+type ResourceLogConfigurationResponse struct {
+	// Gets or sets the list of category configurations.
+	Categories []ResourceLogCategoryResponse `pulumi:"categories"`
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+type ResourceLogConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLogConfigurationResponse)(nil)).Elem()
+}
+
+func (o ResourceLogConfigurationResponseOutput) ToResourceLogConfigurationResponseOutput() ResourceLogConfigurationResponseOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationResponseOutput) ToResourceLogConfigurationResponseOutputWithContext(ctx context.Context) ResourceLogConfigurationResponseOutput {
+	return o
+}
+
+// Gets or sets the list of category configurations.
+func (o ResourceLogConfigurationResponseOutput) Categories() ResourceLogCategoryResponseArrayOutput {
+	return o.ApplyT(func(v ResourceLogConfigurationResponse) []ResourceLogCategoryResponse { return v.Categories }).(ResourceLogCategoryResponseArrayOutput)
+}
+
+type ResourceLogConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLogConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLogConfigurationResponse)(nil)).Elem()
+}
+
+func (o ResourceLogConfigurationResponsePtrOutput) ToResourceLogConfigurationResponsePtrOutput() ResourceLogConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationResponsePtrOutput) ToResourceLogConfigurationResponsePtrOutputWithContext(ctx context.Context) ResourceLogConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ResourceLogConfigurationResponsePtrOutput) Elem() ResourceLogConfigurationResponseOutput {
+	return o.ApplyT(func(v *ResourceLogConfigurationResponse) ResourceLogConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLogConfigurationResponse
+		return ret
+	}).(ResourceLogConfigurationResponseOutput)
+}
+
+// Gets or sets the list of category configurations.
+func (o ResourceLogConfigurationResponsePtrOutput) Categories() ResourceLogCategoryResponseArrayOutput {
+	return o.ApplyT(func(v *ResourceLogConfigurationResponse) []ResourceLogCategoryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Categories
+	}).(ResourceLogCategoryResponseArrayOutput)
 }
 
 // The billing information of the resource.
@@ -2496,7 +2934,7 @@ type SharedPrivateLinkResourceResponse struct {
 	Name string `pulumi:"name"`
 	// The resource id of the resource the shared private link resource is for
 	PrivateLinkResourceId string `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
+	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource
 	RequestMessage *string `pulumi:"requestMessage"`
@@ -2543,7 +2981,7 @@ func (o SharedPrivateLinkResourceResponseOutput) PrivateLinkResourceId() pulumi.
 	return o.ApplyT(func(v SharedPrivateLinkResourceResponse) string { return v.PrivateLinkResourceId }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the shared private link resource
+// Provisioning state of the resource.
 func (o SharedPrivateLinkResourceResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -2938,199 +3376,6 @@ func (o UserAssignedIdentityPropertyResponseMapOutput) MapIndex(k pulumi.StringI
 	}).(UserAssignedIdentityPropertyResponseOutput)
 }
 
-// Feature of a resource, which controls the runtime behavior.
-type WebPubSubFeature struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-	Flag string `pulumi:"flag"`
-	// Optional properties related to this feature.
-	Properties map[string]string `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value string `pulumi:"value"`
-}
-
-// WebPubSubFeatureInput is an input type that accepts WebPubSubFeatureArgs and WebPubSubFeatureOutput values.
-// You can construct a concrete instance of `WebPubSubFeatureInput` via:
-//
-//          WebPubSubFeatureArgs{...}
-type WebPubSubFeatureInput interface {
-	pulumi.Input
-
-	ToWebPubSubFeatureOutput() WebPubSubFeatureOutput
-	ToWebPubSubFeatureOutputWithContext(context.Context) WebPubSubFeatureOutput
-}
-
-// Feature of a resource, which controls the runtime behavior.
-type WebPubSubFeatureArgs struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-	Flag pulumi.StringInput `pulumi:"flag"`
-	// Optional properties related to this feature.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WebPubSubFeatureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubFeature)(nil)).Elem()
-}
-
-func (i WebPubSubFeatureArgs) ToWebPubSubFeatureOutput() WebPubSubFeatureOutput {
-	return i.ToWebPubSubFeatureOutputWithContext(context.Background())
-}
-
-func (i WebPubSubFeatureArgs) ToWebPubSubFeatureOutputWithContext(ctx context.Context) WebPubSubFeatureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureOutput)
-}
-
-// WebPubSubFeatureArrayInput is an input type that accepts WebPubSubFeatureArray and WebPubSubFeatureArrayOutput values.
-// You can construct a concrete instance of `WebPubSubFeatureArrayInput` via:
-//
-//          WebPubSubFeatureArray{ WebPubSubFeatureArgs{...} }
-type WebPubSubFeatureArrayInput interface {
-	pulumi.Input
-
-	ToWebPubSubFeatureArrayOutput() WebPubSubFeatureArrayOutput
-	ToWebPubSubFeatureArrayOutputWithContext(context.Context) WebPubSubFeatureArrayOutput
-}
-
-type WebPubSubFeatureArray []WebPubSubFeatureInput
-
-func (WebPubSubFeatureArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebPubSubFeature)(nil)).Elem()
-}
-
-func (i WebPubSubFeatureArray) ToWebPubSubFeatureArrayOutput() WebPubSubFeatureArrayOutput {
-	return i.ToWebPubSubFeatureArrayOutputWithContext(context.Background())
-}
-
-func (i WebPubSubFeatureArray) ToWebPubSubFeatureArrayOutputWithContext(ctx context.Context) WebPubSubFeatureArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureArrayOutput)
-}
-
-// Feature of a resource, which controls the runtime behavior.
-type WebPubSubFeatureOutput struct{ *pulumi.OutputState }
-
-func (WebPubSubFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubFeature)(nil)).Elem()
-}
-
-func (o WebPubSubFeatureOutput) ToWebPubSubFeatureOutput() WebPubSubFeatureOutput {
-	return o
-}
-
-func (o WebPubSubFeatureOutput) ToWebPubSubFeatureOutputWithContext(ctx context.Context) WebPubSubFeatureOutput {
-	return o
-}
-
-// FeatureFlags is the supported features of Azure SignalR service.
-//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-func (o WebPubSubFeatureOutput) Flag() pulumi.StringOutput {
-	return o.ApplyT(func(v WebPubSubFeature) string { return v.Flag }).(pulumi.StringOutput)
-}
-
-// Optional properties related to this feature.
-func (o WebPubSubFeatureOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebPubSubFeature) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-func (o WebPubSubFeatureOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WebPubSubFeature) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WebPubSubFeatureArrayOutput struct{ *pulumi.OutputState }
-
-func (WebPubSubFeatureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebPubSubFeature)(nil)).Elem()
-}
-
-func (o WebPubSubFeatureArrayOutput) ToWebPubSubFeatureArrayOutput() WebPubSubFeatureArrayOutput {
-	return o
-}
-
-func (o WebPubSubFeatureArrayOutput) ToWebPubSubFeatureArrayOutputWithContext(ctx context.Context) WebPubSubFeatureArrayOutput {
-	return o
-}
-
-func (o WebPubSubFeatureArrayOutput) Index(i pulumi.IntInput) WebPubSubFeatureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebPubSubFeature {
-		return vs[0].([]WebPubSubFeature)[vs[1].(int)]
-	}).(WebPubSubFeatureOutput)
-}
-
-// Feature of a resource, which controls the runtime behavior.
-type WebPubSubFeatureResponse struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-	Flag string `pulumi:"flag"`
-	// Optional properties related to this feature.
-	Properties map[string]string `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value string `pulumi:"value"`
-}
-
-// Feature of a resource, which controls the runtime behavior.
-type WebPubSubFeatureResponseOutput struct{ *pulumi.OutputState }
-
-func (WebPubSubFeatureResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubFeatureResponse)(nil)).Elem()
-}
-
-func (o WebPubSubFeatureResponseOutput) ToWebPubSubFeatureResponseOutput() WebPubSubFeatureResponseOutput {
-	return o
-}
-
-func (o WebPubSubFeatureResponseOutput) ToWebPubSubFeatureResponseOutputWithContext(ctx context.Context) WebPubSubFeatureResponseOutput {
-	return o
-}
-
-// FeatureFlags is the supported features of Azure SignalR service.
-//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-func (o WebPubSubFeatureResponseOutput) Flag() pulumi.StringOutput {
-	return o.ApplyT(func(v WebPubSubFeatureResponse) string { return v.Flag }).(pulumi.StringOutput)
-}
-
-// Optional properties related to this feature.
-func (o WebPubSubFeatureResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebPubSubFeatureResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-func (o WebPubSubFeatureResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WebPubSubFeatureResponse) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WebPubSubFeatureResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (WebPubSubFeatureResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebPubSubFeatureResponse)(nil)).Elem()
-}
-
-func (o WebPubSubFeatureResponseArrayOutput) ToWebPubSubFeatureResponseArrayOutput() WebPubSubFeatureResponseArrayOutput {
-	return o
-}
-
-func (o WebPubSubFeatureResponseArrayOutput) ToWebPubSubFeatureResponseArrayOutputWithContext(ctx context.Context) WebPubSubFeatureResponseArrayOutput {
-	return o
-}
-
-func (o WebPubSubFeatureResponseArrayOutput) Index(i pulumi.IntInput) WebPubSubFeatureResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebPubSubFeatureResponse {
-		return vs[0].([]WebPubSubFeatureResponse)[vs[1].(int)]
-	}).(WebPubSubFeatureResponseOutput)
-}
-
 // Properties of a hub.
 type WebPubSubHubProperties struct {
 	// The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
@@ -3267,25 +3512,12 @@ func (o WebPubSubHubPropertiesResponseOutput) EventHandlers() EventHandlerRespon
 
 // Network ACLs for the resource
 type WebPubSubNetworkACLs struct {
-	// Default action when no other rule matches
+	// Azure Networking ACL Action.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// ACLs for requests from private endpoints
 	PrivateEndpoints []PrivateEndpointACL `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
+	// Network ACL
 	PublicNetwork *NetworkACL `pulumi:"publicNetwork"`
-}
-
-// Defaults sets the appropriate defaults for WebPubSubNetworkACLs
-func (val *WebPubSubNetworkACLs) Defaults() *WebPubSubNetworkACLs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.DefaultAction) {
-		defaultAction_ := "Deny"
-		tmp.DefaultAction = &defaultAction_
-	}
-	return &tmp
 }
 
 // WebPubSubNetworkACLsInput is an input type that accepts WebPubSubNetworkACLsArgs and WebPubSubNetworkACLsOutput values.
@@ -3301,25 +3533,14 @@ type WebPubSubNetworkACLsInput interface {
 
 // Network ACLs for the resource
 type WebPubSubNetworkACLsArgs struct {
-	// Default action when no other rule matches
+	// Azure Networking ACL Action.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// ACLs for requests from private endpoints
 	PrivateEndpoints PrivateEndpointACLArrayInput `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
+	// Network ACL
 	PublicNetwork NetworkACLPtrInput `pulumi:"publicNetwork"`
 }
 
-// Defaults sets the appropriate defaults for WebPubSubNetworkACLsArgs
-func (val *WebPubSubNetworkACLsArgs) Defaults() *WebPubSubNetworkACLsArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.DefaultAction) {
-		tmp.DefaultAction = pulumi.StringPtr("Deny")
-	}
-	return &tmp
-}
 func (WebPubSubNetworkACLsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubNetworkACLs)(nil)).Elem()
 }
@@ -3398,7 +3619,7 @@ func (o WebPubSubNetworkACLsOutput) ToWebPubSubNetworkACLsPtrOutputWithContext(c
 	}).(WebPubSubNetworkACLsPtrOutput)
 }
 
-// Default action when no other rule matches
+// Azure Networking ACL Action.
 func (o WebPubSubNetworkACLsOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebPubSubNetworkACLs) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
@@ -3408,7 +3629,7 @@ func (o WebPubSubNetworkACLsOutput) PrivateEndpoints() PrivateEndpointACLArrayOu
 	return o.ApplyT(func(v WebPubSubNetworkACLs) []PrivateEndpointACL { return v.PrivateEndpoints }).(PrivateEndpointACLArrayOutput)
 }
 
-// ACL for requests from public network
+// Network ACL
 func (o WebPubSubNetworkACLsOutput) PublicNetwork() NetworkACLPtrOutput {
 	return o.ApplyT(func(v WebPubSubNetworkACLs) *NetworkACL { return v.PublicNetwork }).(NetworkACLPtrOutput)
 }
@@ -3437,7 +3658,7 @@ func (o WebPubSubNetworkACLsPtrOutput) Elem() WebPubSubNetworkACLsOutput {
 	}).(WebPubSubNetworkACLsOutput)
 }
 
-// Default action when no other rule matches
+// Azure Networking ACL Action.
 func (o WebPubSubNetworkACLsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebPubSubNetworkACLs) *string {
 		if v == nil {
@@ -3457,7 +3678,7 @@ func (o WebPubSubNetworkACLsPtrOutput) PrivateEndpoints() PrivateEndpointACLArra
 	}).(PrivateEndpointACLArrayOutput)
 }
 
-// ACL for requests from public network
+// Network ACL
 func (o WebPubSubNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 	return o.ApplyT(func(v *WebPubSubNetworkACLs) *NetworkACL {
 		if v == nil {
@@ -3469,25 +3690,12 @@ func (o WebPubSubNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 
 // Network ACLs for the resource
 type WebPubSubNetworkACLsResponse struct {
-	// Default action when no other rule matches
+	// Azure Networking ACL Action.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// ACLs for requests from private endpoints
 	PrivateEndpoints []PrivateEndpointACLResponse `pulumi:"privateEndpoints"`
-	// ACL for requests from public network
+	// Network ACL
 	PublicNetwork *NetworkACLResponse `pulumi:"publicNetwork"`
-}
-
-// Defaults sets the appropriate defaults for WebPubSubNetworkACLsResponse
-func (val *WebPubSubNetworkACLsResponse) Defaults() *WebPubSubNetworkACLsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.DefaultAction) {
-		defaultAction_ := "Deny"
-		tmp.DefaultAction = &defaultAction_
-	}
-	return &tmp
 }
 
 // Network ACLs for the resource
@@ -3505,7 +3713,7 @@ func (o WebPubSubNetworkACLsResponseOutput) ToWebPubSubNetworkACLsResponseOutput
 	return o
 }
 
-// Default action when no other rule matches
+// Azure Networking ACL Action.
 func (o WebPubSubNetworkACLsResponseOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebPubSubNetworkACLsResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
@@ -3515,7 +3723,7 @@ func (o WebPubSubNetworkACLsResponseOutput) PrivateEndpoints() PrivateEndpointAC
 	return o.ApplyT(func(v WebPubSubNetworkACLsResponse) []PrivateEndpointACLResponse { return v.PrivateEndpoints }).(PrivateEndpointACLResponseArrayOutput)
 }
 
-// ACL for requests from public network
+// Network ACL
 func (o WebPubSubNetworkACLsResponseOutput) PublicNetwork() NetworkACLResponsePtrOutput {
 	return o.ApplyT(func(v WebPubSubNetworkACLsResponse) *NetworkACLResponse { return v.PublicNetwork }).(NetworkACLResponsePtrOutput)
 }
@@ -3544,7 +3752,7 @@ func (o WebPubSubNetworkACLsResponsePtrOutput) Elem() WebPubSubNetworkACLsRespon
 	}).(WebPubSubNetworkACLsResponseOutput)
 }
 
-// Default action when no other rule matches
+// Azure Networking ACL Action.
 func (o WebPubSubNetworkACLsResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebPubSubNetworkACLsResponse) *string {
 		if v == nil {
@@ -3564,7 +3772,7 @@ func (o WebPubSubNetworkACLsResponsePtrOutput) PrivateEndpoints() PrivateEndpoin
 	}).(PrivateEndpointACLResponseArrayOutput)
 }
 
-// ACL for requests from public network
+// Network ACL
 func (o WebPubSubNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLResponsePtrOutput {
 	return o.ApplyT(func(v *WebPubSubNetworkACLsResponse) *NetworkACLResponse {
 		if v == nil {
@@ -3811,84 +4019,19 @@ func (o WebPubSubTlsSettingsResponsePtrOutput) ClientCertEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-type EventHandlerTemplateArrayMap map[string]EventHandlerTemplateArrayInput
-
-func (EventHandlerTemplateArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string][]EventHandlerTemplate)(nil)).Elem()
-}
-
-func (i EventHandlerTemplateArrayMap) ToEventHandlerTemplateArrayMapOutput() EventHandlerTemplateArrayMapOutput {
-	return i.ToEventHandlerTemplateArrayMapOutputWithContext(context.Background())
-}
-
-func (i EventHandlerTemplateArrayMap) ToEventHandlerTemplateArrayMapOutputWithContext(ctx context.Context) EventHandlerTemplateArrayMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerTemplateArrayMapOutput)
-}
-
-// EventHandlerTemplateArrayMapInput is an input type that accepts EventHandlerTemplateArrayMap and EventHandlerTemplateArrayMapOutput values.
-// You can construct a concrete instance of `EventHandlerTemplateArrayMapInput` via:
-//
-//          EventHandlerTemplateArrayMap{ "key": EventHandlerTemplateArray{ EventHandlerTemplateArgs{...} } }
-type EventHandlerTemplateArrayMapInput interface {
-	pulumi.Input
-
-	ToEventHandlerTemplateArrayMapOutput() EventHandlerTemplateArrayMapOutput
-	ToEventHandlerTemplateArrayMapOutputWithContext(context.Context) EventHandlerTemplateArrayMapOutput
-}
-
-type EventHandlerTemplateArrayMapOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerTemplateArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string][]EventHandlerTemplate)(nil)).Elem()
-}
-
-func (o EventHandlerTemplateArrayMapOutput) ToEventHandlerTemplateArrayMapOutput() EventHandlerTemplateArrayMapOutput {
-	return o
-}
-
-func (o EventHandlerTemplateArrayMapOutput) ToEventHandlerTemplateArrayMapOutputWithContext(ctx context.Context) EventHandlerTemplateArrayMapOutput {
-	return o
-}
-
-func (o EventHandlerTemplateArrayMapOutput) MapIndex(k pulumi.StringInput) EventHandlerTemplateArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []EventHandlerTemplate {
-		return vs[0].(map[string][]EventHandlerTemplate)[vs[1].(string)]
-	}).(EventHandlerTemplateArrayOutput)
-}
-
-type EventHandlerTemplateResponseArrayMapOutput struct{ *pulumi.OutputState }
-
-func (EventHandlerTemplateResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string][]EventHandlerTemplateResponse)(nil)).Elem()
-}
-
-func (o EventHandlerTemplateResponseArrayMapOutput) ToEventHandlerTemplateResponseArrayMapOutput() EventHandlerTemplateResponseArrayMapOutput {
-	return o
-}
-
-func (o EventHandlerTemplateResponseArrayMapOutput) ToEventHandlerTemplateResponseArrayMapOutputWithContext(ctx context.Context) EventHandlerTemplateResponseArrayMapOutput {
-	return o
-}
-
-func (o EventHandlerTemplateResponseArrayMapOutput) MapIndex(k pulumi.StringInput) EventHandlerTemplateResponseArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []EventHandlerTemplateResponse {
-		return vs[0].(map[string][]EventHandlerTemplateResponse)[vs[1].(string)]
-	}).(EventHandlerTemplateResponseArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(EventHandlerOutput{})
 	pulumi.RegisterOutputType(EventHandlerArrayOutput{})
 	pulumi.RegisterOutputType(EventHandlerResponseOutput{})
 	pulumi.RegisterOutputType(EventHandlerResponseArrayOutput{})
-	pulumi.RegisterOutputType(EventHandlerSettingsOutput{})
-	pulumi.RegisterOutputType(EventHandlerSettingsPtrOutput{})
-	pulumi.RegisterOutputType(EventHandlerSettingsResponseOutput{})
-	pulumi.RegisterOutputType(EventHandlerSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventHandlerTemplateOutput{})
-	pulumi.RegisterOutputType(EventHandlerTemplateArrayOutput{})
-	pulumi.RegisterOutputType(EventHandlerTemplateResponseOutput{})
-	pulumi.RegisterOutputType(EventHandlerTemplateResponseArrayOutput{})
+	pulumi.RegisterOutputType(LiveTraceCategoryOutput{})
+	pulumi.RegisterOutputType(LiveTraceCategoryArrayOutput{})
+	pulumi.RegisterOutputType(LiveTraceCategoryResponseOutput{})
+	pulumi.RegisterOutputType(LiveTraceCategoryResponseArrayOutput{})
+	pulumi.RegisterOutputType(LiveTraceConfigurationOutput{})
+	pulumi.RegisterOutputType(LiveTraceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LiveTraceConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(LiveTraceConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
@@ -3915,6 +4058,14 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceLogCategoryOutput{})
+	pulumi.RegisterOutputType(ResourceLogCategoryArrayOutput{})
+	pulumi.RegisterOutputType(ResourceLogCategoryResponseOutput{})
+	pulumi.RegisterOutputType(ResourceLogCategoryResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ResourceLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLogConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ResourceLogConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
@@ -3928,10 +4079,6 @@ func init() {
 	pulumi.RegisterOutputType(UpstreamAuthSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertyResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertyResponseMapOutput{})
-	pulumi.RegisterOutputType(WebPubSubFeatureOutput{})
-	pulumi.RegisterOutputType(WebPubSubFeatureArrayOutput{})
-	pulumi.RegisterOutputType(WebPubSubFeatureResponseOutput{})
-	pulumi.RegisterOutputType(WebPubSubFeatureResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebPubSubHubPropertiesOutput{})
 	pulumi.RegisterOutputType(WebPubSubHubPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsOutput{})
@@ -3942,6 +4089,4 @@ func init() {
 	pulumi.RegisterOutputType(WebPubSubTlsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WebPubSubTlsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(WebPubSubTlsSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventHandlerTemplateArrayMapOutput{})
-	pulumi.RegisterOutputType(EventHandlerTemplateResponseArrayMapOutput{})
 }

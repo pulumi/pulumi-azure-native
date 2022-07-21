@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The customer's prefix that is registered by the peering service provider.
- * API Version: 2021-01-01.
+ * API Version: 2022-01-01.
  */
 export class RegisteredPrefix extends pulumi.CustomResource {
     /**

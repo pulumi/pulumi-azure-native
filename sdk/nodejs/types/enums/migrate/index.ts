@@ -269,20 +269,6 @@ export const ProjectStatus = {
  */
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
-export const ProvisioningState = {
-    Accepted: "Accepted",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-    Moving: "Moving",
-    Succeeded: "Succeeded",
-} as const;
-
-/**
- * Provisioning state of the migrate project.
- */
-export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
-
 export const ReservedInstance = {
     None: "None",
     RI1Year: "RI1Year",
@@ -304,6 +290,18 @@ export const ResourceIdentityType = {
  * The type of identity used for the resource mover service.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const Status = {
+    Approved: "Approved",
+    Pending: "Pending",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Private link connection state.
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 export const TargetAvailabilityZone = {
     One: "1",

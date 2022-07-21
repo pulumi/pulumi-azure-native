@@ -11,16 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration assignment.
-// API Version: 2019-09-01.
+// The registration assignment.
+// API Version: 2022-01-01-preview.
 type RegistrationAssignment struct {
 	pulumi.CustomResourceState
 
-	// Name of the registration assignment.
+	// The name of the registration assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// Type of the resource.
+	// The metadata for the registration assignment resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -87,21 +89,21 @@ func (RegistrationAssignmentState) ElementType() reflect.Type {
 }
 
 type registrationAssignmentArgs struct {
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties *RegistrationAssignmentProperties `pulumi:"properties"`
-	// Guid of the registration assignment.
+	// The GUID of the registration assignment.
 	RegistrationAssignmentId *string `pulumi:"registrationAssignmentId"`
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RegistrationAssignment resource.
 type RegistrationAssignmentArgs struct {
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesPtrInput
-	// Guid of the registration assignment.
+	// The GUID of the registration assignment.
 	RegistrationAssignmentId pulumi.StringPtrInput
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope pulumi.StringInput
 }
 
@@ -142,17 +144,22 @@ func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutputWithContext(
 	return o
 }
 
-// Name of the registration assignment.
+// The name of the registration assignment.
 func (o RegistrationAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistrationAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of a registration assignment.
+// The properties of a registration assignment.
 func (o RegistrationAssignmentOutput) Properties() RegistrationAssignmentPropertiesResponseOutput {
 	return o.ApplyT(func(v *RegistrationAssignment) RegistrationAssignmentPropertiesResponseOutput { return v.Properties }).(RegistrationAssignmentPropertiesResponseOutput)
 }
 
-// Type of the resource.
+// The metadata for the registration assignment resource.
+func (o RegistrationAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 func (o RegistrationAssignmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistrationAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

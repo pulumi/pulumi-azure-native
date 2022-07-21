@@ -88,7 +88,7 @@ class GetSubvolumeResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -124,7 +124,7 @@ def get_subvolume(account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubvolumeResult:
     """
     Subvolume Information properties
-    API Version: 2021-10-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -164,7 +164,7 @@ def get_subvolume_output(account_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeResult]:
     """
     Subvolume Information properties
-    API Version: 2021-10-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account

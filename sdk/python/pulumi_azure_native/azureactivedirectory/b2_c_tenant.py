@@ -16,9 +16,10 @@ __all__ = ['B2CTenantArgs', 'B2CTenant']
 @pulumi.input_type
 class B2CTenantArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['CreateTenantRequestBodyPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['B2CResourceSKUArgs'],
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -26,28 +27,24 @@ class B2CTenantArgs:
         The set of arguments for constructing a B2CTenant resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['B2CResourceSKUArgs'] sku: SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-        :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
-        :param pulumi.Input[str] resource_name: The initial domain name of the B2C tenant.
+        :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        :param pulumi.Input[str] display_name: The display name of the Azure AD B2C tenant.
+        :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        :param pulumi.Input[str] resource_name: The initial domain name of the Azure AD B2C tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource Tags
         """
-        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['CreateTenantRequestBodyPropertiesArgs']:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['CreateTenantRequestBodyPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -74,10 +71,34 @@ class B2CTenantArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the Azure AD B2C tenant.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         """
         return pulumi.get(self, "location")
 
@@ -89,7 +110,7 @@ class B2CTenantArgs:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The initial domain name of the B2C tenant.
+        The initial domain name of the Azure AD B2C tenant.
         """
         return pulumi.get(self, "resource_name")
 
@@ -115,21 +136,24 @@ class B2CTenant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreateTenantRequestBodyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['B2CResourceSKUArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2019-01-01-preview.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        :param pulumi.Input[str] display_name: The display name of the Azure AD B2C tenant.
+        :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] resource_name_: The initial domain name of the B2C tenant.
+        :param pulumi.Input[str] resource_name_: The initial domain name of the Azure AD B2C tenant.
         :param pulumi.Input[pulumi.InputType['B2CResourceSKUArgs']] sku: SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource Tags
         """
@@ -140,7 +164,7 @@ class B2CTenant(pulumi.CustomResource):
                  args: B2CTenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2019-01-01-preview.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param B2CTenantArgs args: The arguments to use to populate this resource's properties.
@@ -157,8 +181,9 @@ class B2CTenant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreateTenantRequestBodyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['B2CResourceSKUArgs']]] = None,
@@ -175,10 +200,9 @@ class B2CTenant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = B2CTenantArgs.__new__(B2CTenantArgs)
 
+            __props__.__dict__["country_code"] = country_code
+            __props__.__dict__["display_name"] = display_name
             __props__.__dict__["location"] = location
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -189,6 +213,7 @@ class B2CTenant(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["billing_config"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureactivedirectory/v20190101preview:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20210401:B2CTenant")])
@@ -219,6 +244,7 @@ class B2CTenant(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
@@ -236,7 +262,7 @@ class B2CTenant(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         """
         return pulumi.get(self, "location")
 
@@ -244,7 +270,7 @@ class B2CTenant(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the B2C tenant resource.
+        The name of the Azure AD B2C tenant resource.
         """
         return pulumi.get(self, "name")
 
@@ -255,6 +281,14 @@ class B2CTenant(pulumi.CustomResource):
         SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -268,7 +302,7 @@ class B2CTenant(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
-        An identifier of the B2C tenant.
+        An identifier of the Azure AD B2C tenant.
         """
         return pulumi.get(self, "tenant_id")
 

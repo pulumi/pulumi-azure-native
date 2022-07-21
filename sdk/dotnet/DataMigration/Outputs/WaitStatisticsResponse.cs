@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Total no. of waits
         /// </summary>
-        public readonly double WaitCount;
+        public readonly double? WaitCount;
         /// <summary>
-        /// Total wait time in millisecond(s)
+        /// Total wait time in millisecond(s) 
         /// </summary>
-        public readonly double WaitTimeMs;
+        public readonly double? WaitTimeMs;
         /// <summary>
         /// Type of the Wait
         /// </summary>
-        public readonly string WaitType;
+        public readonly string? WaitType;
 
         [OutputConstructor]
         private WaitStatisticsResponse(
-            double waitCount,
+            double? waitCount,
 
-            double waitTimeMs,
+            double? waitTimeMs,
 
-            string waitType)
+            string? waitType)
         {
             WaitCount = waitCount;
             WaitTimeMs = waitTimeMs;

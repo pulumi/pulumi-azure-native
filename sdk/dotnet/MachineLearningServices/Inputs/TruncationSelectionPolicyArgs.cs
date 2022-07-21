@@ -42,6 +42,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public TruncationSelectionPolicyArgs()
         {
+            DelayEvaluation = 0;
+            EvaluationInterval = 0;
+            TruncationPercentage = 0;
         }
     }
 }

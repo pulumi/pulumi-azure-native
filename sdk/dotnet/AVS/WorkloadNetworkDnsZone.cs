@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX DNS Zone
-    /// API Version: 2020-07-17-preview.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDnsZone")]
     public partial class WorkloadNetworkDnsZone : Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// Peering Service
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Peering Service
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The Log Analytics Workspace Properties
+        /// </summary>
+        public readonly Outputs.LogAnalyticsWorkspacePropertiesResponse? LogAnalyticsWorkspaceProperties;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Peering
 
             string location,
 
+            Outputs.LogAnalyticsWorkspacePropertiesResponse? logAnalyticsWorkspaceProperties,
+
             string name,
 
             string? peeringServiceLocation,
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNative.Peering
         {
             Id = id;
             Location = location;
+            LogAnalyticsWorkspaceProperties = logAnalyticsWorkspaceProperties;
             Name = name;
             PeeringServiceLocation = peeringServiceLocation;
             PeeringServiceProvider = peeringServiceProvider;

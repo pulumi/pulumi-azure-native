@@ -66,7 +66,7 @@ class GetEdgeModuleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -98,11 +98,11 @@ def get_edge_module(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEdgeModuleResult:
     """
     The representation of an edge module.
-    API Version: 2021-05-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.
-    :param str edge_module_name: The name of the edge module to retrieve.
+    :param str edge_module_name: The Edge Module name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -130,11 +130,11 @@ def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEdgeModuleResult]:
     """
     The representation of an edge module.
-    API Version: 2021-05-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.
-    :param str edge_module_name: The name of the edge module to retrieve.
+    :param str edge_module_name: The Edge Module name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

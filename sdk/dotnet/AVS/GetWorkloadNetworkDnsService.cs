@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX DNS Service
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsServiceResult> InvokeAsync(GetWorkloadNetworkDnsServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX DNS Service
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithDefaults());

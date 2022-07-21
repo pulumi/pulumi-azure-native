@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// An application security group in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure-native:network:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// An application security group in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetApplicationSecurityGroupResult> Invoke(GetApplicationSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationSecurityGroupResult>("azure-native:network:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupInvokeArgs(), options.WithDefaults());

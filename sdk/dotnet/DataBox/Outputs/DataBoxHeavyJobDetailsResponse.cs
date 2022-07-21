@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
     public sealed class DataBoxHeavyJobDetailsResponse
     {
         /// <summary>
+        /// Available actions on the job.
+        /// </summary>
+        public readonly ImmutableArray<string> Actions;
+        /// <summary>
         /// Shared access key to download the chain of custody logs
         /// </summary>
         public readonly string ChainOfCustodySasKey;
@@ -33,6 +37,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.CopyProgressResponse> CopyProgress;
         /// <summary>
+        /// DataCenter code.
+        /// </summary>
+        public readonly string DataCenterCode;
+        /// <summary>
         /// Details of the data to be exported from azure.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataExportDetailsResponse> DataExportDetails;
@@ -41,9 +49,17 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataImportDetailsResponse> DataImportDetails;
         /// <summary>
+        /// Datacenter address to ship to, for the given sku and storage location.
+        /// </summary>
+        public readonly Union<Outputs.DatacenterAddressInstructionResponseResponse, Outputs.DatacenterAddressLocationResponseResponse> DatacenterAddress;
+        /// <summary>
         /// Delivery package shipping details.
         /// </summary>
         public readonly Outputs.PackageShippingDetailsResponse DeliveryPackage;
+        /// <summary>
+        /// Holds device data erasure details
+        /// </summary>
+        public readonly Outputs.DeviceErasureDetailsResponse DeviceErasureDetails;
         /// <summary>
         /// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         /// </summary>
@@ -66,6 +82,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly Outputs.KeyEncryptionKeyResponse? KeyEncryptionKey;
         /// <summary>
+        /// Last mitigation action performed on the job.
+        /// </summary>
+        public readonly Outputs.LastMitigationActionOnJobResponse LastMitigationActionOnJob;
+        /// <summary>
         /// Preferences for the order.
         /// </summary>
         public readonly Outputs.PreferencesResponse? Preferences;
@@ -84,6 +104,8 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
         [OutputConstructor]
         private DataBoxHeavyJobDetailsResponse(
+            ImmutableArray<string> actions,
+
             string chainOfCustodySasKey,
 
             Outputs.ContactDetailsResponse contactDetails,
@@ -92,11 +114,17 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             ImmutableArray<Outputs.CopyProgressResponse> copyProgress,
 
+            string dataCenterCode,
+
             ImmutableArray<Outputs.DataExportDetailsResponse> dataExportDetails,
 
             ImmutableArray<Outputs.DataImportDetailsResponse> dataImportDetails,
 
+            Union<Outputs.DatacenterAddressInstructionResponseResponse, Outputs.DatacenterAddressLocationResponseResponse> datacenterAddress,
+
             Outputs.PackageShippingDetailsResponse deliveryPackage,
+
+            Outputs.DeviceErasureDetailsResponse deviceErasureDetails,
 
             string? devicePassword,
 
@@ -108,6 +136,8 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             Outputs.KeyEncryptionKeyResponse? keyEncryptionKey,
 
+            Outputs.LastMitigationActionOnJobResponse lastMitigationActionOnJob,
+
             Outputs.PreferencesResponse? preferences,
 
             Outputs.PackageShippingDetailsResponse returnPackage,
@@ -116,18 +146,23 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             Outputs.ShippingAddressResponse? shippingAddress)
         {
+            Actions = actions;
             ChainOfCustodySasKey = chainOfCustodySasKey;
             ContactDetails = contactDetails;
             CopyLogDetails = copyLogDetails;
             CopyProgress = copyProgress;
+            DataCenterCode = dataCenterCode;
             DataExportDetails = dataExportDetails;
             DataImportDetails = dataImportDetails;
+            DatacenterAddress = datacenterAddress;
             DeliveryPackage = deliveryPackage;
+            DeviceErasureDetails = deviceErasureDetails;
             DevicePassword = devicePassword;
             ExpectedDataSizeInTeraBytes = expectedDataSizeInTeraBytes;
             JobDetailsType = jobDetailsType;
             JobStages = jobStages;
             KeyEncryptionKey = keyEncryptionKey;
+            LastMitigationActionOnJob = lastMitigationActionOnJob;
             Preferences = preferences;
             ReturnPackage = returnPackage;
             ReverseShipmentLabelSasKey = reverseShipmentLabelSasKey;

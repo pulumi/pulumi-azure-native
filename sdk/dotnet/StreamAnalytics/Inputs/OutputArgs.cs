@@ -33,6 +33,24 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         [Input("serialization")]
         public object? Serialization { get; set; }
 
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        [Input("sizeWindow")]
+        public Input<double>? SizeWindow { get; set; }
+
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        [Input("timeWindow")]
+        public Input<string>? TimeWindow { get; set; }
+
+        /// <summary>
+        /// Settings which determine whether to send watermarks to downstream.
+        /// </summary>
+        [Input("watermarkSettings")]
+        public Input<Inputs.OutputWatermarkPropertiesArgs>? WatermarkSettings { get; set; }
+
         public OutputArgs()
         {
         }

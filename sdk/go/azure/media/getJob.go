@@ -11,7 +11,7 @@ import (
 )
 
 // A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:media:getJob", args, &rv, opts...)

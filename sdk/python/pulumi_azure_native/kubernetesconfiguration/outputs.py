@@ -11,28 +11,309 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureBlobDefinitionResponse',
+    'BucketDefinitionResponse',
     'ComplianceStatusResponse',
-    'ConfigurationIdentityResponse',
-    'DependsOnDefinitionResponse',
-    'ErrorDefinitionResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
+    'ExtensionResponseAksAssignedIdentity',
     'ExtensionStatusResponse',
     'GitRepositoryDefinitionResponse',
     'HelmOperatorPropertiesResponse',
     'HelmReleasePropertiesDefinitionResponse',
-    'KubernetesConfigurationPrivateLinkScopePropertiesResponse',
+    'IdentityResponse',
     'KustomizationDefinitionResponse',
+    'ManagedIdentityDefinitionResponse',
     'ObjectReferenceDefinitionResponse',
     'ObjectStatusConditionDefinitionResponse',
     'ObjectStatusDefinitionResponse',
-    'PrivateEndpointConnectionResponse',
-    'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'RepositoryRefDefinitionResponse',
     'ScopeClusterResponse',
     'ScopeNamespaceResponse',
     'ScopeResponse',
+    'ServicePrincipalDefinitionResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AzureBlobDefinitionResponse(dict):
+    """
+    Parameters to reconcile to the AzureBlob source kind type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "localAuthRef":
+            suggest = "local_auth_ref"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "sasToken":
+            suggest = "sas_token"
+        elif key == "servicePrincipal":
+            suggest = "service_principal"
+        elif key == "syncIntervalInSeconds":
+            suggest = "sync_interval_in_seconds"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBlobDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBlobDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBlobDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_key: Optional[str] = None,
+                 container_name: Optional[str] = None,
+                 local_auth_ref: Optional[str] = None,
+                 managed_identity: Optional['outputs.ManagedIdentityDefinitionResponse'] = None,
+                 sas_token: Optional[str] = None,
+                 service_principal: Optional['outputs.ServicePrincipalDefinitionResponse'] = None,
+                 sync_interval_in_seconds: Optional[float] = None,
+                 timeout_in_seconds: Optional[float] = None,
+                 url: Optional[str] = None):
+        """
+        Parameters to reconcile to the AzureBlob source kind type.
+        :param str account_key: The account key (shared key) to access the storage account
+        :param str container_name: The Azure Blob container name to sync from the url endpoint for the flux configuration.
+        :param str local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        :param 'ManagedIdentityDefinitionResponse' managed_identity: Parameters to authenticate using a Managed Identity.
+        :param str sas_token: The Shared Access token to access the storage container
+        :param 'ServicePrincipalDefinitionResponse' service_principal: Parameters to authenticate using Service Principal.
+        :param float sync_interval_in_seconds: The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        :param float timeout_in_seconds: The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        :param str url: The URL to sync for the flux configuration Azure Blob storage account.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if local_auth_ref is not None:
+            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
+        if sync_interval_in_seconds is None:
+            sync_interval_in_seconds = 600
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is None:
+            timeout_in_seconds = 600
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[str]:
+        """
+        The account key (shared key) to access the storage account
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[str]:
+        """
+        The Azure Blob container name to sync from the url endpoint for the flux configuration.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="localAuthRef")
+    def local_auth_ref(self) -> Optional[str]:
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        return pulumi.get(self, "local_auth_ref")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional['outputs.ManagedIdentityDefinitionResponse']:
+        """
+        Parameters to authenticate using a Managed Identity.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[str]:
+        """
+        The Shared Access token to access the storage container
+        """
+        return pulumi.get(self, "sas_token")
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional['outputs.ServicePrincipalDefinitionResponse']:
+        """
+        Parameters to authenticate using Service Principal.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[float]:
+        """
+        The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[float]:
+        """
+        The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL to sync for the flux configuration Azure Blob storage account.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class BucketDefinitionResponse(dict):
+    """
+    Parameters to reconcile to the Bucket source kind type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "localAuthRef":
+            suggest = "local_auth_ref"
+        elif key == "syncIntervalInSeconds":
+            suggest = "sync_interval_in_seconds"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key: Optional[str] = None,
+                 bucket_name: Optional[str] = None,
+                 insecure: Optional[bool] = None,
+                 local_auth_ref: Optional[str] = None,
+                 sync_interval_in_seconds: Optional[float] = None,
+                 timeout_in_seconds: Optional[float] = None,
+                 url: Optional[str] = None):
+        """
+        Parameters to reconcile to the Bucket source kind type.
+        :param str access_key: Plaintext access key used to securely access the S3 bucket
+        :param str bucket_name: The bucket name to sync from the url endpoint for the flux configuration.
+        :param bool insecure: Specify whether to use insecure communication when puling data from the S3 bucket.
+        :param str local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        :param float sync_interval_in_seconds: The interval at which to re-reconcile the cluster bucket source with the remote.
+        :param float timeout_in_seconds: The maximum time to attempt to reconcile the cluster bucket source with the remote.
+        :param str url: The URL to sync for the flux configuration S3 bucket.
+        """
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if insecure is None:
+            insecure = True
+        if insecure is not None:
+            pulumi.set(__self__, "insecure", insecure)
+        if local_auth_ref is not None:
+            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+        if sync_interval_in_seconds is None:
+            sync_interval_in_seconds = 600
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is None:
+            timeout_in_seconds = 600
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[str]:
+        """
+        Plaintext access key used to securely access the S3 bucket
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[str]:
+        """
+        The bucket name to sync from the url endpoint for the flux configuration.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def insecure(self) -> Optional[bool]:
+        """
+        Specify whether to use insecure communication when puling data from the S3 bucket.
+        """
+        return pulumi.get(self, "insecure")
+
+    @property
+    @pulumi.getter(name="localAuthRef")
+    def local_auth_ref(self) -> Optional[str]:
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        return pulumi.get(self, "local_auth_ref")
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[float]:
+        """
+        The interval at which to re-reconcile the cluster bucket source with the remote.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[float]:
+        """
+        The maximum time to attempt to reconcile the cluster bucket source with the remote.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL to sync for the flux configuration S3 bucket.
+        """
+        return pulumi.get(self, "url")
+
 
 @pulumi.output_type
 class ComplianceStatusResponse(dict):
@@ -114,9 +395,125 @@ class ComplianceStatusResponse(dict):
 
 
 @pulumi.output_type
-class ConfigurationIdentityResponse(dict):
+class ErrorAdditionalInfoResponse(dict):
     """
-    Identity for the managed cluster.
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ExtensionResponseAksAssignedIdentity(dict):
+    """
+    Identity of the Extension resource in an AKS cluster
     """
     @staticmethod
     def __key_warning(key: str):
@@ -127,14 +524,14 @@ class ConfigurationIdentityResponse(dict):
             suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConfigurationIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionResponseAksAssignedIdentity. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConfigurationIdentityResponse.__key_warning(key)
+        ExtensionResponseAksAssignedIdentity.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConfigurationIdentityResponse.__key_warning(key)
+        ExtensionResponseAksAssignedIdentity.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -142,10 +539,10 @@ class ConfigurationIdentityResponse(dict):
                  tenant_id: str,
                  type: Optional[str] = None):
         """
-        Identity for the managed cluster.
-        :param str principal_id: The principal id of the system assigned identity which is used by the configuration.
-        :param str tenant_id: The tenant id of the system assigned identity which is used by the configuration.
-        :param str type: The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        Identity of the Extension resource in an AKS cluster
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -156,7 +553,7 @@ class ConfigurationIdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal id of the system assigned identity which is used by the configuration.
+        The principal ID of resource identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -164,7 +561,7 @@ class ConfigurationIdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant id of the system assigned identity which is used by the configuration.
+        The tenant ID of resource.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -172,88 +569,15 @@ class ConfigurationIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        The identity type.
         """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
-class DependsOnDefinitionResponse(dict):
-    """
-    Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "kustomizationName":
-            suggest = "kustomization_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DependsOnDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DependsOnDefinitionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DependsOnDefinitionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 kustomization_name: Optional[str] = None):
-        """
-        Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-        :param str kustomization_name: Name of the kustomization to claim dependency on
-        """
-        if kustomization_name is not None:
-            pulumi.set(__self__, "kustomization_name", kustomization_name)
-
-    @property
-    @pulumi.getter(name="kustomizationName")
-    def kustomization_name(self) -> Optional[str]:
-        """
-        Name of the kustomization to claim dependency on
-        """
-        return pulumi.get(self, "kustomization_name")
-
-
-@pulumi.output_type
-class ErrorDefinitionResponse(dict):
-    """
-    Error definition.
-    """
-    def __init__(__self__, *,
-                 code: str,
-                 message: str):
-        """
-        Error definition.
-        :param str code: Service specific error code which serves as the substatus for the HTTP error code.
-        :param str message: Description of the error.
-        """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-
-    @property
-    @pulumi.getter
-    def code(self) -> str:
-        """
-        Service specific error code which serves as the substatus for the HTTP error code.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        Description of the error.
-        """
-        return pulumi.get(self, "message")
-
-
-@pulumi.output_type
 class ExtensionStatusResponse(dict):
     """
-    Status from this instance of the extension.
+    Status from the extension.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -279,11 +603,11 @@ class ExtensionStatusResponse(dict):
                  message: Optional[str] = None,
                  time: Optional[str] = None):
         """
-        Status from this instance of the extension.
+        Status from the extension.
         :param str code: Status code provided by the Extension
-        :param str display_status: Short description of status of this instance of the extension.
+        :param str display_status: Short description of status of the extension.
         :param str level: Level of the status.
-        :param str message: Detailed message of the status from the Extension instance.
+        :param str message: Detailed message of the status from the Extension.
         :param str time: DateLiteral (per ISO8601) noting the time of installation status.
         """
         if code is not None:
@@ -311,7 +635,7 @@ class ExtensionStatusResponse(dict):
     @pulumi.getter(name="displayStatus")
     def display_status(self) -> Optional[str]:
         """
-        Short description of status of this instance of the extension.
+        Short description of status of the extension.
         """
         return pulumi.get(self, "display_status")
 
@@ -327,7 +651,7 @@ class ExtensionStatusResponse(dict):
     @pulumi.getter
     def message(self) -> Optional[str]:
         """
-        Detailed message of the status from the Extension instance.
+        Detailed message of the status from the Extension.
         """
         return pulumi.get(self, "message")
 
@@ -348,8 +672,8 @@ class GitRepositoryDefinitionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "httpsCAFile":
-            suggest = "https_ca_file"
+        if key == "httpsCACert":
+            suggest = "https_ca_cert"
         elif key == "httpsUser":
             suggest = "https_user"
         elif key == "localAuthRef":
@@ -375,7 +699,7 @@ class GitRepositoryDefinitionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 https_ca_file: Optional[str] = None,
+                 https_ca_cert: Optional[str] = None,
                  https_user: Optional[str] = None,
                  local_auth_ref: Optional[str] = None,
                  repository_ref: Optional['outputs.RepositoryRefDefinitionResponse'] = None,
@@ -385,8 +709,8 @@ class GitRepositoryDefinitionResponse(dict):
                  url: Optional[str] = None):
         """
         Parameters to reconcile to the GitRepository source kind type.
-        :param str https_ca_file: Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-        :param str https_user: Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        :param str https_ca_cert: Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
+        :param str https_user: Plaintext HTTPS username used to access private git repositories over HTTPS
         :param str local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         :param 'RepositoryRefDefinitionResponse' repository_ref: The source reference for the GitRepository object.
         :param str ssh_known_hosts: Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
@@ -394,8 +718,8 @@ class GitRepositoryDefinitionResponse(dict):
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the cluster git repository source with the remote.
         :param str url: The URL to sync for the flux configuration git repository.
         """
-        if https_ca_file is not None:
-            pulumi.set(__self__, "https_ca_file", https_ca_file)
+        if https_ca_cert is not None:
+            pulumi.set(__self__, "https_ca_cert", https_ca_cert)
         if https_user is not None:
             pulumi.set(__self__, "https_user", https_user)
         if local_auth_ref is not None:
@@ -416,18 +740,18 @@ class GitRepositoryDefinitionResponse(dict):
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter(name="httpsCAFile")
-    def https_ca_file(self) -> Optional[str]:
+    @pulumi.getter(name="httpsCACert")
+    def https_ca_cert(self) -> Optional[str]:
         """
         Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
         """
-        return pulumi.get(self, "https_ca_file")
+        return pulumi.get(self, "https_ca_cert")
 
     @property
     @pulumi.getter(name="httpsUser")
     def https_user(self) -> Optional[str]:
         """
-        Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        Plaintext HTTPS username used to access private git repositories over HTTPS
         """
         return pulumi.get(self, "https_user")
 
@@ -536,6 +860,9 @@ class HelmOperatorPropertiesResponse(dict):
 
 @pulumi.output_type
 class HelmReleasePropertiesDefinitionResponse(dict):
+    """
+    Properties for HelmRelease objects
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -568,6 +895,7 @@ class HelmReleasePropertiesDefinitionResponse(dict):
                  last_revision_applied: Optional[float] = None,
                  upgrade_failure_count: Optional[float] = None):
         """
+        Properties for HelmRelease objects
         :param float failure_count: Total number of times that the HelmRelease failed to install or upgrade
         :param 'ObjectReferenceDefinitionResponse' helm_chart_ref: The reference to the HelmChart object used as the source to this HelmRelease
         :param float install_failure_count: Number of times that the HelmRelease failed to install
@@ -627,95 +955,67 @@ class HelmReleasePropertiesDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class KubernetesConfigurationPrivateLinkScopePropertiesResponse(dict):
+class IdentityResponse(dict):
     """
-    Properties that define a Azure Arc PrivateLinkScope resource.
+    Identity for the resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clusterResourceId":
-            suggest = "cluster_resource_id"
-        elif key == "privateEndpointConnections":
-            suggest = "private_endpoint_connections"
-        elif key == "privateLinkScopeId":
-            suggest = "private_link_scope_id"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "publicNetworkAccess":
-            suggest = "public_network_access"
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesConfigurationPrivateLinkScopePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KubernetesConfigurationPrivateLinkScopePropertiesResponse.__key_warning(key)
+        IdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KubernetesConfigurationPrivateLinkScopePropertiesResponse.__key_warning(key)
+        IdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cluster_resource_id: str,
-                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
-                 private_link_scope_id: str,
-                 provisioning_state: str,
-                 public_network_access: Optional[str] = None):
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
         """
-        Properties that define a Azure Arc PrivateLinkScope resource.
-        :param str cluster_resource_id: Managed Cluster ARM ID for the private link scope  (Required)
-        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The collection of associated Private Endpoint Connections.
-        :param str private_link_scope_id: The Guid id of the private link scope.
-        :param str provisioning_state: Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        :param str public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
         """
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "private_link_scope_id", private_link_scope_id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> str:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
-        Managed Cluster ARM ID for the private link scope  (Required)
+        The principal ID of resource identity.
         """
-        return pulumi.get(self, "cluster_resource_id")
+        return pulumi.get(self, "principal_id")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
         """
-        The collection of associated Private Endpoint Connections.
+        The tenant ID of resource.
         """
-        return pulumi.get(self, "private_endpoint_connections")
+        return pulumi.get(self, "tenant_id")
 
     @property
-    @pulumi.getter(name="privateLinkScopeId")
-    def private_link_scope_id(self) -> str:
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
-        The Guid id of the private link scope.
+        The identity type.
         """
-        return pulumi.get(self, "private_link_scope_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-        return pulumi.get(self, "public_network_access")
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -747,25 +1047,26 @@ class KustomizationDefinitionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 depends_on: Optional[Sequence['outputs.DependsOnDefinitionResponse']] = None,
+                 name: str,
+                 depends_on: Optional[Sequence[str]] = None,
                  force: Optional[bool] = None,
                  path: Optional[str] = None,
                  prune: Optional[bool] = None,
                  retry_interval_in_seconds: Optional[float] = None,
                  sync_interval_in_seconds: Optional[float] = None,
-                 timeout_in_seconds: Optional[float] = None,
-                 validation: Optional[str] = None):
+                 timeout_in_seconds: Optional[float] = None):
         """
         The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
-        :param Sequence['DependsOnDefinitionResponse'] depends_on: Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
+        :param str name: Name of the Kustomization, matching the key in the Kustomizations object map.
+        :param Sequence[str] depends_on: Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         :param bool force: Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
         :param str path: The path in the source reference to reconcile on the cluster.
         :param bool prune: Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
         :param float retry_interval_in_seconds: The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
         :param float sync_interval_in_seconds: The interval at which to re-reconcile the Kustomization on the cluster.
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the Kustomization on the cluster.
-        :param str validation: Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
         """
+        pulumi.set(__self__, "name", name)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if force is None:
@@ -790,12 +1091,18 @@ class KustomizationDefinitionResponse(dict):
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
-        if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Kustomization, matching the key in the Kustomizations object map.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[Sequence['outputs.DependsOnDefinitionResponse']]:
+    def depends_on(self) -> Optional[Sequence[str]]:
         """
         Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         """
@@ -849,13 +1156,45 @@ class KustomizationDefinitionResponse(dict):
         """
         return pulumi.get(self, "timeout_in_seconds")
 
+
+@pulumi.output_type
+class ManagedIdentityDefinitionResponse(dict):
+    """
+    Parameters to authenticate using a Managed Identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None):
+        """
+        Parameters to authenticate using a Managed Identity.
+        :param str client_id: The client Id for authenticating a Managed Identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
     @property
-    @pulumi.getter
-    def validation(self) -> Optional[str]:
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
         """
-        Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+        The client Id for authenticating a Managed Identity.
         """
-        return pulumi.get(self, "validation")
+        return pulumi.get(self, "client_id")
 
 
 @pulumi.output_type
@@ -1100,204 +1439,6 @@ class ObjectStatusDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
-    """
-    The Private Endpoint Connection resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: str,
-                 system_data: 'outputs.SystemDataResponse',
-                 type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
-        """
-        The Private Endpoint Connection resource.
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The resource of private end point.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The Private Endpoint resource.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The Private Endpoint resource.
-        :param str id: The ARM identifier for Private Endpoint
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ARM identifier for Private Endpoint
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    A collection of information about the state of the connection between service consumer and provider.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions_required: Optional[str] = None,
-                 description: Optional[str] = None,
-                 status: Optional[str] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param str description: The reason for approval/rejection of the connection.
-        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[str]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
 class RepositoryRefDefinitionResponse(dict):
     """
     The source reference for the GitRepository object.
@@ -1359,7 +1500,7 @@ class RepositoryRefDefinitionResponse(dict):
 @pulumi.output_type
 class ScopeClusterResponse(dict):
     """
-    Specifies that the scope of the extensionInstance is Cluster
+    Specifies that the scope of the extension is Cluster
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1381,8 +1522,8 @@ class ScopeClusterResponse(dict):
     def __init__(__self__, *,
                  release_namespace: Optional[str] = None):
         """
-        Specifies that the scope of the extensionInstance is Cluster
-        :param str release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+        Specifies that the scope of the extension is Cluster
+        :param str release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
         if release_namespace is not None:
             pulumi.set(__self__, "release_namespace", release_namespace)
@@ -1391,7 +1532,7 @@ class ScopeClusterResponse(dict):
     @pulumi.getter(name="releaseNamespace")
     def release_namespace(self) -> Optional[str]:
         """
-        Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
         return pulumi.get(self, "release_namespace")
 
@@ -1399,7 +1540,7 @@ class ScopeClusterResponse(dict):
 @pulumi.output_type
 class ScopeNamespaceResponse(dict):
     """
-    Specifies that the scope of the extensionInstance is Namespace
+    Specifies that the scope of the extension is Namespace
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1421,8 +1562,8 @@ class ScopeNamespaceResponse(dict):
     def __init__(__self__, *,
                  target_namespace: Optional[str] = None):
         """
-        Specifies that the scope of the extensionInstance is Namespace
-        :param str target_namespace: Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+        Specifies that the scope of the extension is Namespace
+        :param str target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
         if target_namespace is not None:
             pulumi.set(__self__, "target_namespace", target_namespace)
@@ -1431,7 +1572,7 @@ class ScopeNamespaceResponse(dict):
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[str]:
         """
-        Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
         return pulumi.get(self, "target_namespace")
 
@@ -1439,15 +1580,15 @@ class ScopeNamespaceResponse(dict):
 @pulumi.output_type
 class ScopeResponse(dict):
     """
-    Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+    Scope of the extension. It can be either Cluster or Namespace; but not both.
     """
     def __init__(__self__, *,
                  cluster: Optional['outputs.ScopeClusterResponse'] = None,
                  namespace: Optional['outputs.ScopeNamespaceResponse'] = None):
         """
-        Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
-        :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extensionInstance is Cluster
-        :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extensionInstance is Namespace
+        Scope of the extension. It can be either Cluster or Namespace; but not both.
+        :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extension is Cluster
+        :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extension is Namespace
         """
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
@@ -1458,7 +1599,7 @@ class ScopeResponse(dict):
     @pulumi.getter
     def cluster(self) -> Optional['outputs.ScopeClusterResponse']:
         """
-        Specifies that the scope of the extensionInstance is Cluster
+        Specifies that the scope of the extension is Cluster
         """
         return pulumi.get(self, "cluster")
 
@@ -1466,9 +1607,121 @@ class ScopeResponse(dict):
     @pulumi.getter
     def namespace(self) -> Optional['outputs.ScopeNamespaceResponse']:
         """
-        Specifies that the scope of the extensionInstance is Namespace
+        Specifies that the scope of the extension is Namespace
         """
         return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ServicePrincipalDefinitionResponse(dict):
+    """
+    Parameters to authenticate using Service Principal.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificate":
+            suggest = "client_certificate"
+        elif key == "clientCertificatePassword":
+            suggest = "client_certificate_password"
+        elif key == "clientCertificateSendChain":
+            suggest = "client_certificate_send_chain"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate: Optional[str] = None,
+                 client_certificate_password: Optional[str] = None,
+                 client_certificate_send_chain: Optional[bool] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Parameters to authenticate using Service Principal.
+        :param str client_certificate: Base64-encoded certificate used to authenticate a Service Principal 
+        :param str client_certificate_password: The password for the certificate used to authenticate a Service Principal 
+        :param bool client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+        :param str client_id: The client Id for authenticating a Service Principal.
+        :param str client_secret: The client secret for authenticating a Service Principal
+        :param str tenant_id: The tenant Id for authenticating a Service Principal
+        """
+        if client_certificate is not None:
+            pulumi.set(__self__, "client_certificate", client_certificate)
+        if client_certificate_password is not None:
+            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+        if client_certificate_send_chain is None:
+            client_certificate_send_chain = False
+        if client_certificate_send_chain is not None:
+            pulumi.set(__self__, "client_certificate_send_chain", client_certificate_send_chain)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> Optional[str]:
+        """
+        Base64-encoded certificate used to authenticate a Service Principal 
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @property
+    @pulumi.getter(name="clientCertificatePassword")
+    def client_certificate_password(self) -> Optional[str]:
+        """
+        The password for the certificate used to authenticate a Service Principal 
+        """
+        return pulumi.get(self, "client_certificate_password")
+
+    @property
+    @pulumi.getter(name="clientCertificateSendChain")
+    def client_certificate_send_chain(self) -> Optional[bool]:
+        """
+        Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+        """
+        return pulumi.get(self, "client_certificate_send_chain")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client Id for authenticating a Service Principal.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret for authenticating a Service Principal
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant Id for authenticating a Service Principal
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

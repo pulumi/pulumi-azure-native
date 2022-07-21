@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
-// API Version: 2020-09-30.
+// API Version: 2021-10-01.
 type Gallery struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,10 @@ type Gallery struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Profile for gallery sharing to subscription or tenant
 	SharingProfile SharingProfileResponsePtrOutput `pulumi:"sharingProfile"`
+	// Sharing status of current gallery.
+	SharingStatus SharingStatusResponseOutput `pulumi:"sharingStatus"`
+	// Contains information about the soft deletion policy of the gallery.
+	SoftDeletePolicy SoftDeletePolicyResponsePtrOutput `pulumi:"softDeletePolicy"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -110,6 +114,8 @@ type galleryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Profile for gallery sharing to subscription or tenant
 	SharingProfile *SharingProfile `pulumi:"sharingProfile"`
+	// Contains information about the soft deletion policy of the gallery.
+	SoftDeletePolicy *SoftDeletePolicy `pulumi:"softDeletePolicy"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -126,6 +132,8 @@ type GalleryArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Profile for gallery sharing to subscription or tenant
 	SharingProfile SharingProfilePtrInput
+	// Contains information about the soft deletion policy of the gallery.
+	SoftDeletePolicy SoftDeletePolicyPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }
@@ -195,6 +203,16 @@ func (o GalleryOutput) ProvisioningState() pulumi.StringOutput {
 // Profile for gallery sharing to subscription or tenant
 func (o GalleryOutput) SharingProfile() SharingProfileResponsePtrOutput {
 	return o.ApplyT(func(v *Gallery) SharingProfileResponsePtrOutput { return v.SharingProfile }).(SharingProfileResponsePtrOutput)
+}
+
+// Sharing status of current gallery.
+func (o GalleryOutput) SharingStatus() SharingStatusResponseOutput {
+	return o.ApplyT(func(v *Gallery) SharingStatusResponseOutput { return v.SharingStatus }).(SharingStatusResponseOutput)
+}
+
+// Contains information about the soft deletion policy of the gallery.
+func (o GalleryOutput) SoftDeletePolicy() SoftDeletePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Gallery) SoftDeletePolicyResponsePtrOutput { return v.SoftDeletePolicy }).(SoftDeletePolicyResponsePtrOutput)
 }
 
 // Resource tags

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// Whether to encrypt the connection
+        /// </summary>
+        [Input("encryptConnection")]
+        public Input<bool>? EncryptConnection { get; set; }
+
+        /// <summary>
         /// Password credential.
         /// </summary>
         [Input("password")]
@@ -40,6 +46,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
+        /// Whether to trust the server certificate
+        /// </summary>
+        [Input("trustServerCertificate")]
+        public Input<bool>? TrustServerCertificate { get; set; }
+
+        /// <summary>
         /// Type of connection info
         /// Expected value is 'PostgreSqlConnectionInfo'.
         /// </summary>
@@ -54,6 +66,8 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
 
         public PostgreSqlConnectionInfoArgs()
         {
+            EncryptConnection = true;
+            TrustServerCertificate = false;
         }
     }
 }

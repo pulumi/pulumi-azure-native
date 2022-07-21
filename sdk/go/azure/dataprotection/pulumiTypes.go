@@ -102,6 +102,199 @@ type AzureBackupRuleResponse struct {
 	Trigger interface{} `pulumi:"trigger"`
 }
 
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettings struct {
+	AlertsForAllJobFailures *string `pulumi:"alertsForAllJobFailures"`
+}
+
+// AzureMonitorAlertSettingsInput is an input type that accepts AzureMonitorAlertSettingsArgs and AzureMonitorAlertSettingsOutput values.
+// You can construct a concrete instance of `AzureMonitorAlertSettingsInput` via:
+//
+//          AzureMonitorAlertSettingsArgs{...}
+type AzureMonitorAlertSettingsInput interface {
+	pulumi.Input
+
+	ToAzureMonitorAlertSettingsOutput() AzureMonitorAlertSettingsOutput
+	ToAzureMonitorAlertSettingsOutputWithContext(context.Context) AzureMonitorAlertSettingsOutput
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsArgs struct {
+	AlertsForAllJobFailures pulumi.StringPtrInput `pulumi:"alertsForAllJobFailures"`
+}
+
+func (AzureMonitorAlertSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsOutput() AzureMonitorAlertSettingsOutput {
+	return i.ToAzureMonitorAlertSettingsOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorAlertSettingsOutput)
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return i.ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorAlertSettingsOutput).ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx)
+}
+
+// AzureMonitorAlertSettingsPtrInput is an input type that accepts AzureMonitorAlertSettingsArgs, AzureMonitorAlertSettingsPtr and AzureMonitorAlertSettingsPtrOutput values.
+// You can construct a concrete instance of `AzureMonitorAlertSettingsPtrInput` via:
+//
+//          AzureMonitorAlertSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureMonitorAlertSettingsPtrInput interface {
+	pulumi.Input
+
+	ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput
+	ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Context) AzureMonitorAlertSettingsPtrOutput
+}
+
+type azureMonitorAlertSettingsPtrType AzureMonitorAlertSettingsArgs
+
+func AzureMonitorAlertSettingsPtr(v *AzureMonitorAlertSettingsArgs) AzureMonitorAlertSettingsPtrInput {
+	return (*azureMonitorAlertSettingsPtrType)(v)
+}
+
+func (*azureMonitorAlertSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (i *azureMonitorAlertSettingsPtrType) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return i.ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *azureMonitorAlertSettingsPtrType) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsOutput() AzureMonitorAlertSettingsOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return o.ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMonitorAlertSettings) *AzureMonitorAlertSettings {
+		return &v
+	}).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+func (o AzureMonitorAlertSettingsOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorAlertSettings) *string { return v.AlertsForAllJobFailures }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorAlertSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) Elem() AzureMonitorAlertSettingsOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettings) AzureMonitorAlertSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AzureMonitorAlertSettings
+		return ret
+	}).(AzureMonitorAlertSettingsOutput)
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllJobFailures
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsResponse struct {
+	AlertsForAllJobFailures *string `pulumi:"alertsForAllJobFailures"`
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorAlertSettingsResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsResponseOutput) ToAzureMonitorAlertSettingsResponseOutput() AzureMonitorAlertSettingsResponseOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponseOutput) ToAzureMonitorAlertSettingsResponseOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsResponseOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponseOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorAlertSettingsResponse) *string { return v.AlertsForAllJobFailures }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorAlertSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorAlertSettingsResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) ToAzureMonitorAlertSettingsResponsePtrOutput() AzureMonitorAlertSettingsResponsePtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) ToAzureMonitorAlertSettingsResponsePtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsResponsePtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) Elem() AzureMonitorAlertSettingsResponseOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettingsResponse) AzureMonitorAlertSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureMonitorAlertSettingsResponse
+		return ret
+	}).(AzureMonitorAlertSettingsResponseOutput)
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllJobFailures
+	}).(pulumi.StringPtrOutput)
+}
+
 // Parameters for Operational-Tier DataStore
 type AzureOperationalStoreParameters struct {
 	// type of datastore; Operational/Vault/Archive
@@ -309,11 +502,15 @@ type BackupInstanceType struct {
 	DataSourceInfo Datasource `pulumi:"dataSourceInfo"`
 	// Gets or sets the data source set information.
 	DataSourceSetInfo *DatasourceSet `pulumi:"dataSourceSetInfo"`
+	// Credentials to use to authenticate with data source provider.
+	DatasourceAuthCredentials *SecretStoreBasedAuthCredentials `pulumi:"datasourceAuthCredentials"`
 	// Gets or sets the Backup Instance friendly name.
 	FriendlyName *string `pulumi:"friendlyName"`
 	ObjectType   string  `pulumi:"objectType"`
 	// Gets or sets the policy information.
 	PolicyInfo PolicyInfo `pulumi:"policyInfo"`
+	// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+	ValidationType *string `pulumi:"validationType"`
 }
 
 // BackupInstanceTypeInput is an input type that accepts BackupInstanceTypeArgs and BackupInstanceTypeOutput values.
@@ -333,11 +530,15 @@ type BackupInstanceTypeArgs struct {
 	DataSourceInfo DatasourceInput `pulumi:"dataSourceInfo"`
 	// Gets or sets the data source set information.
 	DataSourceSetInfo DatasourceSetPtrInput `pulumi:"dataSourceSetInfo"`
+	// Credentials to use to authenticate with data source provider.
+	DatasourceAuthCredentials SecretStoreBasedAuthCredentialsPtrInput `pulumi:"datasourceAuthCredentials"`
 	// Gets or sets the Backup Instance friendly name.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
 	ObjectType   pulumi.StringInput    `pulumi:"objectType"`
 	// Gets or sets the policy information.
 	PolicyInfo PolicyInfoInput `pulumi:"policyInfo"`
+	// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+	ValidationType pulumi.StringPtrInput `pulumi:"validationType"`
 }
 
 func (BackupInstanceTypeArgs) ElementType() reflect.Type {
@@ -428,6 +629,11 @@ func (o BackupInstanceTypeOutput) DataSourceSetInfo() DatasourceSetPtrOutput {
 	return o.ApplyT(func(v BackupInstanceType) *DatasourceSet { return v.DataSourceSetInfo }).(DatasourceSetPtrOutput)
 }
 
+// Credentials to use to authenticate with data source provider.
+func (o BackupInstanceTypeOutput) DatasourceAuthCredentials() SecretStoreBasedAuthCredentialsPtrOutput {
+	return o.ApplyT(func(v BackupInstanceType) *SecretStoreBasedAuthCredentials { return v.DatasourceAuthCredentials }).(SecretStoreBasedAuthCredentialsPtrOutput)
+}
+
 // Gets or sets the Backup Instance friendly name.
 func (o BackupInstanceTypeOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupInstanceType) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
@@ -440,6 +646,11 @@ func (o BackupInstanceTypeOutput) ObjectType() pulumi.StringOutput {
 // Gets or sets the policy information.
 func (o BackupInstanceTypeOutput) PolicyInfo() PolicyInfoOutput {
 	return o.ApplyT(func(v BackupInstanceType) PolicyInfo { return v.PolicyInfo }).(PolicyInfoOutput)
+}
+
+// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+func (o BackupInstanceTypeOutput) ValidationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupInstanceType) *string { return v.ValidationType }).(pulumi.StringPtrOutput)
 }
 
 type BackupInstanceTypePtrOutput struct{ *pulumi.OutputState }
@@ -486,6 +697,16 @@ func (o BackupInstanceTypePtrOutput) DataSourceSetInfo() DatasourceSetPtrOutput 
 	}).(DatasourceSetPtrOutput)
 }
 
+// Credentials to use to authenticate with data source provider.
+func (o BackupInstanceTypePtrOutput) DatasourceAuthCredentials() SecretStoreBasedAuthCredentialsPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *SecretStoreBasedAuthCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceAuthCredentials
+	}).(SecretStoreBasedAuthCredentialsPtrOutput)
+}
+
 // Gets or sets the Backup Instance friendly name.
 func (o BackupInstanceTypePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupInstanceType) *string {
@@ -515,6 +736,16 @@ func (o BackupInstanceTypePtrOutput) PolicyInfo() PolicyInfoPtrOutput {
 	}).(PolicyInfoPtrOutput)
 }
 
+// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+func (o BackupInstanceTypePtrOutput) ValidationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Backup Instance
 type BackupInstanceResponse struct {
 	// Specifies the current protection state of the resource
@@ -523,6 +754,8 @@ type BackupInstanceResponse struct {
 	DataSourceInfo DatasourceResponse `pulumi:"dataSourceInfo"`
 	// Gets or sets the data source set information.
 	DataSourceSetInfo *DatasourceSetResponse `pulumi:"dataSourceSetInfo"`
+	// Credentials to use to authenticate with data source provider.
+	DatasourceAuthCredentials *SecretStoreBasedAuthCredentialsResponse `pulumi:"datasourceAuthCredentials"`
 	// Gets or sets the Backup Instance friendly name.
 	FriendlyName *string `pulumi:"friendlyName"`
 	ObjectType   string  `pulumi:"objectType"`
@@ -534,6 +767,8 @@ type BackupInstanceResponse struct {
 	ProtectionStatus ProtectionStatusDetailsResponse `pulumi:"protectionStatus"`
 	// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+	ValidationType *string `pulumi:"validationType"`
 }
 
 // Backup Instance
@@ -566,6 +801,13 @@ func (o BackupInstanceResponseOutput) DataSourceSetInfo() DatasourceSetResponseP
 	return o.ApplyT(func(v BackupInstanceResponse) *DatasourceSetResponse { return v.DataSourceSetInfo }).(DatasourceSetResponsePtrOutput)
 }
 
+// Credentials to use to authenticate with data source provider.
+func (o BackupInstanceResponseOutput) DatasourceAuthCredentials() SecretStoreBasedAuthCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) *SecretStoreBasedAuthCredentialsResponse {
+		return v.DatasourceAuthCredentials
+	}).(SecretStoreBasedAuthCredentialsResponsePtrOutput)
+}
+
 // Gets or sets the Backup Instance friendly name.
 func (o BackupInstanceResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupInstanceResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
@@ -593,6 +835,11 @@ func (o BackupInstanceResponseOutput) ProtectionStatus() ProtectionStatusDetails
 // Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
 func (o BackupInstanceResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupInstanceResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+func (o BackupInstanceResponseOutput) ValidationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) *string { return v.ValidationType }).(pulumi.StringPtrOutput)
 }
 
 // Rule based backup policy
@@ -817,16 +1064,22 @@ func (o BackupPolicyResponseOutput) PolicyRules() pulumi.ArrayOutput {
 type BackupSchedule struct {
 	// ISO 8601 repeating time interval format
 	RepeatingTimeIntervals []string `pulumi:"repeatingTimeIntervals"`
+	// Time zone for a schedule. Example: Pacific Standard Time
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // Schedule for backup
 type BackupScheduleResponse struct {
 	// ISO 8601 repeating time interval format
 	RepeatingTimeIntervals []string `pulumi:"repeatingTimeIntervals"`
+	// Time zone for a schedule. Example: Pacific Standard Time
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // Backup Vault
 type BackupVaultType struct {
+	// Monitoring Settings
+	MonitoringSettings *MonitoringSettings `pulumi:"monitoringSettings"`
 	// Storage Settings
 	StorageSettings []StorageSetting `pulumi:"storageSettings"`
 }
@@ -844,6 +1097,8 @@ type BackupVaultTypeInput interface {
 
 // Backup Vault
 type BackupVaultTypeArgs struct {
+	// Monitoring Settings
+	MonitoringSettings MonitoringSettingsPtrInput `pulumi:"monitoringSettings"`
 	// Storage Settings
 	StorageSettings StorageSettingArrayInput `pulumi:"storageSettings"`
 }
@@ -875,6 +1130,11 @@ func (o BackupVaultTypeOutput) ToBackupVaultTypeOutputWithContext(ctx context.Co
 	return o
 }
 
+// Monitoring Settings
+func (o BackupVaultTypeOutput) MonitoringSettings() MonitoringSettingsPtrOutput {
+	return o.ApplyT(func(v BackupVaultType) *MonitoringSettings { return v.MonitoringSettings }).(MonitoringSettingsPtrOutput)
+}
+
 // Storage Settings
 func (o BackupVaultTypeOutput) StorageSettings() StorageSettingArrayOutput {
 	return o.ApplyT(func(v BackupVaultType) []StorageSetting { return v.StorageSettings }).(StorageSettingArrayOutput)
@@ -882,8 +1142,14 @@ func (o BackupVaultTypeOutput) StorageSettings() StorageSettingArrayOutput {
 
 // Backup Vault
 type BackupVaultResponse struct {
+	// Monitoring Settings
+	MonitoringSettings *MonitoringSettingsResponse `pulumi:"monitoringSettings"`
 	// Provisioning state of the BackupVault resource
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource move details for backup vault
+	ResourceMoveDetails ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
+	// Resource move state for backup vault
+	ResourceMoveState string `pulumi:"resourceMoveState"`
 	// Storage Settings
 	StorageSettings []StorageSettingResponse `pulumi:"storageSettings"`
 }
@@ -903,9 +1169,24 @@ func (o BackupVaultResponseOutput) ToBackupVaultResponseOutputWithContext(ctx co
 	return o
 }
 
+// Monitoring Settings
+func (o BackupVaultResponseOutput) MonitoringSettings() MonitoringSettingsResponsePtrOutput {
+	return o.ApplyT(func(v BackupVaultResponse) *MonitoringSettingsResponse { return v.MonitoringSettings }).(MonitoringSettingsResponsePtrOutput)
+}
+
 // Provisioning state of the BackupVault resource
 func (o BackupVaultResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupVaultResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource move details for backup vault
+func (o BackupVaultResponseOutput) ResourceMoveDetails() ResourceMoveDetailsResponseOutput {
+	return o.ApplyT(func(v BackupVaultResponse) ResourceMoveDetailsResponse { return v.ResourceMoveDetails }).(ResourceMoveDetailsResponseOutput)
+}
+
+// Resource move state for backup vault
+func (o BackupVaultResponseOutput) ResourceMoveState() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupVaultResponse) string { return v.ResourceMoveState }).(pulumi.StringOutput)
 }
 
 // Storage Settings
@@ -2057,6 +2338,208 @@ func (o InnerErrorResponsePtrOutput) EmbeddedInnerError() InnerErrorResponsePtrO
 	}).(InnerErrorResponsePtrOutput)
 }
 
+// Monitoring Settings
+type MonitoringSettings struct {
+	// Settings for Azure Monitor based alerts
+	AzureMonitorAlertSettings *AzureMonitorAlertSettings `pulumi:"azureMonitorAlertSettings"`
+}
+
+// MonitoringSettingsInput is an input type that accepts MonitoringSettingsArgs and MonitoringSettingsOutput values.
+// You can construct a concrete instance of `MonitoringSettingsInput` via:
+//
+//          MonitoringSettingsArgs{...}
+type MonitoringSettingsInput interface {
+	pulumi.Input
+
+	ToMonitoringSettingsOutput() MonitoringSettingsOutput
+	ToMonitoringSettingsOutputWithContext(context.Context) MonitoringSettingsOutput
+}
+
+// Monitoring Settings
+type MonitoringSettingsArgs struct {
+	// Settings for Azure Monitor based alerts
+	AzureMonitorAlertSettings AzureMonitorAlertSettingsPtrInput `pulumi:"azureMonitorAlertSettings"`
+}
+
+func (MonitoringSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSettings)(nil)).Elem()
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsOutput() MonitoringSettingsOutput {
+	return i.ToMonitoringSettingsOutputWithContext(context.Background())
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsOutputWithContext(ctx context.Context) MonitoringSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSettingsOutput)
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return i.ToMonitoringSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSettingsOutput).ToMonitoringSettingsPtrOutputWithContext(ctx)
+}
+
+// MonitoringSettingsPtrInput is an input type that accepts MonitoringSettingsArgs, MonitoringSettingsPtr and MonitoringSettingsPtrOutput values.
+// You can construct a concrete instance of `MonitoringSettingsPtrInput` via:
+//
+//          MonitoringSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type MonitoringSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput
+	ToMonitoringSettingsPtrOutputWithContext(context.Context) MonitoringSettingsPtrOutput
+}
+
+type monitoringSettingsPtrType MonitoringSettingsArgs
+
+func MonitoringSettingsPtr(v *MonitoringSettingsArgs) MonitoringSettingsPtrInput {
+	return (*monitoringSettingsPtrType)(v)
+}
+
+func (*monitoringSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSettings)(nil)).Elem()
+}
+
+func (i *monitoringSettingsPtrType) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return i.ToMonitoringSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringSettingsPtrType) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSettingsPtrOutput)
+}
+
+// Monitoring Settings
+type MonitoringSettingsOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSettings)(nil)).Elem()
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsOutput() MonitoringSettingsOutput {
+	return o
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsOutputWithContext(ctx context.Context) MonitoringSettingsOutput {
+	return o
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return o.ToMonitoringSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSettings) *MonitoringSettings {
+		return &v
+	}).(MonitoringSettingsPtrOutput)
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsPtrOutput {
+	return o.ApplyT(func(v MonitoringSettings) *AzureMonitorAlertSettings { return v.AzureMonitorAlertSettings }).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+type MonitoringSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSettings)(nil)).Elem()
+}
+
+func (o MonitoringSettingsPtrOutput) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsPtrOutput) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsPtrOutput) Elem() MonitoringSettingsOutput {
+	return o.ApplyT(func(v *MonitoringSettings) MonitoringSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSettings
+		return ret
+	}).(MonitoringSettingsOutput)
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsPtrOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsPtrOutput {
+	return o.ApplyT(func(v *MonitoringSettings) *AzureMonitorAlertSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorAlertSettings
+	}).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+// Monitoring Settings
+type MonitoringSettingsResponse struct {
+	// Settings for Azure Monitor based alerts
+	AzureMonitorAlertSettings *AzureMonitorAlertSettingsResponse `pulumi:"azureMonitorAlertSettings"`
+}
+
+// Monitoring Settings
+type MonitoringSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSettingsResponse)(nil)).Elem()
+}
+
+func (o MonitoringSettingsResponseOutput) ToMonitoringSettingsResponseOutput() MonitoringSettingsResponseOutput {
+	return o
+}
+
+func (o MonitoringSettingsResponseOutput) ToMonitoringSettingsResponseOutputWithContext(ctx context.Context) MonitoringSettingsResponseOutput {
+	return o
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsResponseOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsResponsePtrOutput {
+	return o.ApplyT(func(v MonitoringSettingsResponse) *AzureMonitorAlertSettingsResponse {
+		return v.AzureMonitorAlertSettings
+	}).(AzureMonitorAlertSettingsResponsePtrOutput)
+}
+
+type MonitoringSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSettingsResponse)(nil)).Elem()
+}
+
+func (o MonitoringSettingsResponsePtrOutput) ToMonitoringSettingsResponsePtrOutput() MonitoringSettingsResponsePtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsResponsePtrOutput) ToMonitoringSettingsResponsePtrOutputWithContext(ctx context.Context) MonitoringSettingsResponsePtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsResponsePtrOutput) Elem() MonitoringSettingsResponseOutput {
+	return o.ApplyT(func(v *MonitoringSettingsResponse) MonitoringSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSettingsResponse
+		return ret
+	}).(MonitoringSettingsResponseOutput)
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsResponsePtrOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *MonitoringSettingsResponse) *AzureMonitorAlertSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorAlertSettings
+	}).(AzureMonitorAlertSettingsResponsePtrOutput)
+}
+
 // Policy Info in backupInstance
 type PolicyInfo struct {
 	PolicyId string `pulumi:"policyId"`
@@ -2483,6 +2966,143 @@ func (o ProtectionStatusDetailsResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionStatusDetailsResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+type ResourceGuardType struct {
+	// List of critical operations which are not protected by this resourceGuard
+	VaultCriticalOperationExclusionList []string `pulumi:"vaultCriticalOperationExclusionList"`
+}
+
+// ResourceGuardTypeInput is an input type that accepts ResourceGuardTypeArgs and ResourceGuardTypeOutput values.
+// You can construct a concrete instance of `ResourceGuardTypeInput` via:
+//
+//          ResourceGuardTypeArgs{...}
+type ResourceGuardTypeInput interface {
+	pulumi.Input
+
+	ToResourceGuardTypeOutput() ResourceGuardTypeOutput
+	ToResourceGuardTypeOutputWithContext(context.Context) ResourceGuardTypeOutput
+}
+
+type ResourceGuardTypeArgs struct {
+	// List of critical operations which are not protected by this resourceGuard
+	VaultCriticalOperationExclusionList pulumi.StringArrayInput `pulumi:"vaultCriticalOperationExclusionList"`
+}
+
+func (ResourceGuardTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardType)(nil)).Elem()
+}
+
+func (i ResourceGuardTypeArgs) ToResourceGuardTypeOutput() ResourceGuardTypeOutput {
+	return i.ToResourceGuardTypeOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardTypeArgs) ToResourceGuardTypeOutputWithContext(ctx context.Context) ResourceGuardTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardTypeOutput)
+}
+
+func (i ResourceGuardTypeArgs) ToResourceGuardTypePtrOutput() ResourceGuardTypePtrOutput {
+	return i.ToResourceGuardTypePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardTypeArgs) ToResourceGuardTypePtrOutputWithContext(ctx context.Context) ResourceGuardTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardTypeOutput).ToResourceGuardTypePtrOutputWithContext(ctx)
+}
+
+// ResourceGuardTypePtrInput is an input type that accepts ResourceGuardTypeArgs, ResourceGuardTypePtr and ResourceGuardTypePtrOutput values.
+// You can construct a concrete instance of `ResourceGuardTypePtrInput` via:
+//
+//          ResourceGuardTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceGuardTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceGuardTypePtrOutput() ResourceGuardTypePtrOutput
+	ToResourceGuardTypePtrOutputWithContext(context.Context) ResourceGuardTypePtrOutput
+}
+
+type resourceGuardTypePtrType ResourceGuardTypeArgs
+
+func ResourceGuardTypePtr(v *ResourceGuardTypeArgs) ResourceGuardTypePtrInput {
+	return (*resourceGuardTypePtrType)(v)
+}
+
+func (*resourceGuardTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGuardType)(nil)).Elem()
+}
+
+func (i *resourceGuardTypePtrType) ToResourceGuardTypePtrOutput() ResourceGuardTypePtrOutput {
+	return i.ToResourceGuardTypePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGuardTypePtrType) ToResourceGuardTypePtrOutputWithContext(ctx context.Context) ResourceGuardTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardTypePtrOutput)
+}
+
+type ResourceGuardTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardType)(nil)).Elem()
+}
+
+func (o ResourceGuardTypeOutput) ToResourceGuardTypeOutput() ResourceGuardTypeOutput {
+	return o
+}
+
+func (o ResourceGuardTypeOutput) ToResourceGuardTypeOutputWithContext(ctx context.Context) ResourceGuardTypeOutput {
+	return o
+}
+
+func (o ResourceGuardTypeOutput) ToResourceGuardTypePtrOutput() ResourceGuardTypePtrOutput {
+	return o.ToResourceGuardTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGuardTypeOutput) ToResourceGuardTypePtrOutputWithContext(ctx context.Context) ResourceGuardTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGuardType) *ResourceGuardType {
+		return &v
+	}).(ResourceGuardTypePtrOutput)
+}
+
+// List of critical operations which are not protected by this resourceGuard
+func (o ResourceGuardTypeOutput) VaultCriticalOperationExclusionList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceGuardType) []string { return v.VaultCriticalOperationExclusionList }).(pulumi.StringArrayOutput)
+}
+
+type ResourceGuardTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGuardType)(nil)).Elem()
+}
+
+func (o ResourceGuardTypePtrOutput) ToResourceGuardTypePtrOutput() ResourceGuardTypePtrOutput {
+	return o
+}
+
+func (o ResourceGuardTypePtrOutput) ToResourceGuardTypePtrOutputWithContext(ctx context.Context) ResourceGuardTypePtrOutput {
+	return o
+}
+
+func (o ResourceGuardTypePtrOutput) Elem() ResourceGuardTypeOutput {
+	return o.ApplyT(func(v *ResourceGuardType) ResourceGuardType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGuardType
+		return ret
+	}).(ResourceGuardTypeOutput)
+}
+
+// List of critical operations which are not protected by this resourceGuard
+func (o ResourceGuardTypePtrOutput) VaultCriticalOperationExclusionList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceGuardType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VaultCriticalOperationExclusionList
+	}).(pulumi.StringArrayOutput)
+}
+
 // This class contains all the details about a critical operation.
 type ResourceGuardOperationResponse struct {
 	// Type of resource request.
@@ -2588,6 +3208,60 @@ func (o ResourceGuardResponseOutput) VaultCriticalOperationExclusionList() pulum
 	return o.ApplyT(func(v ResourceGuardResponse) []string { return v.VaultCriticalOperationExclusionList }).(pulumi.StringArrayOutput)
 }
 
+// ResourceMoveDetails will be returned in response to GetResource call from ARM
+type ResourceMoveDetailsResponse struct {
+	// Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+	CompletionTimeUtc *string `pulumi:"completionTimeUtc"`
+	// CorrelationId of latest ResourceMove operation attempted
+	OperationId *string `pulumi:"operationId"`
+	// ARM resource path of source resource
+	SourceResourcePath *string `pulumi:"sourceResourcePath"`
+	// Start time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+	StartTimeUtc *string `pulumi:"startTimeUtc"`
+	// ARM resource path of target resource used in latest ResourceMove operation
+	TargetResourcePath *string `pulumi:"targetResourcePath"`
+}
+
+// ResourceMoveDetails will be returned in response to GetResource call from ARM
+type ResourceMoveDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveDetailsResponse)(nil)).Elem()
+}
+
+func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponseOutput() ResourceMoveDetailsResponseOutput {
+	return o
+}
+
+func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponseOutputWithContext(ctx context.Context) ResourceMoveDetailsResponseOutput {
+	return o
+}
+
+// Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+func (o ResourceMoveDetailsResponseOutput) CompletionTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.CompletionTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// CorrelationId of latest ResourceMove operation attempted
+func (o ResourceMoveDetailsResponseOutput) OperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.OperationId }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource path of source resource
+func (o ResourceMoveDetailsResponseOutput) SourceResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.SourceResourcePath }).(pulumi.StringPtrOutput)
+}
+
+// Start time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+func (o ResourceMoveDetailsResponseOutput) StartTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.StartTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource path of target resource used in latest ResourceMove operation
+func (o ResourceMoveDetailsResponseOutput) TargetResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *string { return v.TargetResourcePath }).(pulumi.StringPtrOutput)
+}
+
 // Retention tag
 type RetentionTag struct {
 	// Retention Tag Name to relate it to retention rule.
@@ -2664,6 +3338,523 @@ type ScheduleBasedTriggerContextResponse struct {
 	Schedule BackupScheduleResponse `pulumi:"schedule"`
 	// List of tags that can be applicable for given schedule.
 	TaggingCriteria []TaggingCriteriaResponse `pulumi:"taggingCriteria"`
+}
+
+// Secret store based authentication credentials.
+type SecretStoreBasedAuthCredentials struct {
+	// Type of the specific object - used for deserializing
+	// Expected value is 'SecretStoreBasedAuthCredentials'.
+	ObjectType string `pulumi:"objectType"`
+	// Secret store resource
+	SecretStoreResource *SecretStoreResource `pulumi:"secretStoreResource"`
+}
+
+// SecretStoreBasedAuthCredentialsInput is an input type that accepts SecretStoreBasedAuthCredentialsArgs and SecretStoreBasedAuthCredentialsOutput values.
+// You can construct a concrete instance of `SecretStoreBasedAuthCredentialsInput` via:
+//
+//          SecretStoreBasedAuthCredentialsArgs{...}
+type SecretStoreBasedAuthCredentialsInput interface {
+	pulumi.Input
+
+	ToSecretStoreBasedAuthCredentialsOutput() SecretStoreBasedAuthCredentialsOutput
+	ToSecretStoreBasedAuthCredentialsOutputWithContext(context.Context) SecretStoreBasedAuthCredentialsOutput
+}
+
+// Secret store based authentication credentials.
+type SecretStoreBasedAuthCredentialsArgs struct {
+	// Type of the specific object - used for deserializing
+	// Expected value is 'SecretStoreBasedAuthCredentials'.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+	// Secret store resource
+	SecretStoreResource SecretStoreResourcePtrInput `pulumi:"secretStoreResource"`
+}
+
+func (SecretStoreBasedAuthCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretStoreBasedAuthCredentials)(nil)).Elem()
+}
+
+func (i SecretStoreBasedAuthCredentialsArgs) ToSecretStoreBasedAuthCredentialsOutput() SecretStoreBasedAuthCredentialsOutput {
+	return i.ToSecretStoreBasedAuthCredentialsOutputWithContext(context.Background())
+}
+
+func (i SecretStoreBasedAuthCredentialsArgs) ToSecretStoreBasedAuthCredentialsOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretStoreBasedAuthCredentialsOutput)
+}
+
+func (i SecretStoreBasedAuthCredentialsArgs) ToSecretStoreBasedAuthCredentialsPtrOutput() SecretStoreBasedAuthCredentialsPtrOutput {
+	return i.ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SecretStoreBasedAuthCredentialsArgs) ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretStoreBasedAuthCredentialsOutput).ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(ctx)
+}
+
+// SecretStoreBasedAuthCredentialsPtrInput is an input type that accepts SecretStoreBasedAuthCredentialsArgs, SecretStoreBasedAuthCredentialsPtr and SecretStoreBasedAuthCredentialsPtrOutput values.
+// You can construct a concrete instance of `SecretStoreBasedAuthCredentialsPtrInput` via:
+//
+//          SecretStoreBasedAuthCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretStoreBasedAuthCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSecretStoreBasedAuthCredentialsPtrOutput() SecretStoreBasedAuthCredentialsPtrOutput
+	ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(context.Context) SecretStoreBasedAuthCredentialsPtrOutput
+}
+
+type secretStoreBasedAuthCredentialsPtrType SecretStoreBasedAuthCredentialsArgs
+
+func SecretStoreBasedAuthCredentialsPtr(v *SecretStoreBasedAuthCredentialsArgs) SecretStoreBasedAuthCredentialsPtrInput {
+	return (*secretStoreBasedAuthCredentialsPtrType)(v)
+}
+
+func (*secretStoreBasedAuthCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretStoreBasedAuthCredentials)(nil)).Elem()
+}
+
+func (i *secretStoreBasedAuthCredentialsPtrType) ToSecretStoreBasedAuthCredentialsPtrOutput() SecretStoreBasedAuthCredentialsPtrOutput {
+	return i.ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *secretStoreBasedAuthCredentialsPtrType) ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretStoreBasedAuthCredentialsPtrOutput)
+}
+
+// Secret store based authentication credentials.
+type SecretStoreBasedAuthCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreBasedAuthCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretStoreBasedAuthCredentials)(nil)).Elem()
+}
+
+func (o SecretStoreBasedAuthCredentialsOutput) ToSecretStoreBasedAuthCredentialsOutput() SecretStoreBasedAuthCredentialsOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsOutput) ToSecretStoreBasedAuthCredentialsOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsOutput) ToSecretStoreBasedAuthCredentialsPtrOutput() SecretStoreBasedAuthCredentialsPtrOutput {
+	return o.ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SecretStoreBasedAuthCredentialsOutput) ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretStoreBasedAuthCredentials) *SecretStoreBasedAuthCredentials {
+		return &v
+	}).(SecretStoreBasedAuthCredentialsPtrOutput)
+}
+
+// Type of the specific object - used for deserializing
+// Expected value is 'SecretStoreBasedAuthCredentials'.
+func (o SecretStoreBasedAuthCredentialsOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretStoreBasedAuthCredentials) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// Secret store resource
+func (o SecretStoreBasedAuthCredentialsOutput) SecretStoreResource() SecretStoreResourcePtrOutput {
+	return o.ApplyT(func(v SecretStoreBasedAuthCredentials) *SecretStoreResource { return v.SecretStoreResource }).(SecretStoreResourcePtrOutput)
+}
+
+type SecretStoreBasedAuthCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreBasedAuthCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretStoreBasedAuthCredentials)(nil)).Elem()
+}
+
+func (o SecretStoreBasedAuthCredentialsPtrOutput) ToSecretStoreBasedAuthCredentialsPtrOutput() SecretStoreBasedAuthCredentialsPtrOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsPtrOutput) ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsPtrOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsPtrOutput) Elem() SecretStoreBasedAuthCredentialsOutput {
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentials) SecretStoreBasedAuthCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SecretStoreBasedAuthCredentials
+		return ret
+	}).(SecretStoreBasedAuthCredentialsOutput)
+}
+
+// Type of the specific object - used for deserializing
+// Expected value is 'SecretStoreBasedAuthCredentials'.
+func (o SecretStoreBasedAuthCredentialsPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret store resource
+func (o SecretStoreBasedAuthCredentialsPtrOutput) SecretStoreResource() SecretStoreResourcePtrOutput {
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentials) *SecretStoreResource {
+		if v == nil {
+			return nil
+		}
+		return v.SecretStoreResource
+	}).(SecretStoreResourcePtrOutput)
+}
+
+// Secret store based authentication credentials.
+type SecretStoreBasedAuthCredentialsResponse struct {
+	// Type of the specific object - used for deserializing
+	// Expected value is 'SecretStoreBasedAuthCredentials'.
+	ObjectType string `pulumi:"objectType"`
+	// Secret store resource
+	SecretStoreResource *SecretStoreResourceResponse `pulumi:"secretStoreResource"`
+}
+
+// Secret store based authentication credentials.
+type SecretStoreBasedAuthCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreBasedAuthCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretStoreBasedAuthCredentialsResponse)(nil)).Elem()
+}
+
+func (o SecretStoreBasedAuthCredentialsResponseOutput) ToSecretStoreBasedAuthCredentialsResponseOutput() SecretStoreBasedAuthCredentialsResponseOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsResponseOutput) ToSecretStoreBasedAuthCredentialsResponseOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsResponseOutput {
+	return o
+}
+
+// Type of the specific object - used for deserializing
+// Expected value is 'SecretStoreBasedAuthCredentials'.
+func (o SecretStoreBasedAuthCredentialsResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretStoreBasedAuthCredentialsResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// Secret store resource
+func (o SecretStoreBasedAuthCredentialsResponseOutput) SecretStoreResource() SecretStoreResourceResponsePtrOutput {
+	return o.ApplyT(func(v SecretStoreBasedAuthCredentialsResponse) *SecretStoreResourceResponse {
+		return v.SecretStoreResource
+	}).(SecretStoreResourceResponsePtrOutput)
+}
+
+type SecretStoreBasedAuthCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreBasedAuthCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretStoreBasedAuthCredentialsResponse)(nil)).Elem()
+}
+
+func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) ToSecretStoreBasedAuthCredentialsResponsePtrOutput() SecretStoreBasedAuthCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) ToSecretStoreBasedAuthCredentialsResponsePtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) Elem() SecretStoreBasedAuthCredentialsResponseOutput {
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentialsResponse) SecretStoreBasedAuthCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretStoreBasedAuthCredentialsResponse
+		return ret
+	}).(SecretStoreBasedAuthCredentialsResponseOutput)
+}
+
+// Type of the specific object - used for deserializing
+// Expected value is 'SecretStoreBasedAuthCredentials'.
+func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret store resource
+func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) SecretStoreResource() SecretStoreResourceResponsePtrOutput {
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentialsResponse) *SecretStoreResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SecretStoreResource
+	}).(SecretStoreResourceResponsePtrOutput)
+}
+
+// Class representing a secret store resource.
+type SecretStoreResource struct {
+	// Gets or sets the type of secret store
+	SecretStoreType string `pulumi:"secretStoreType"`
+	// Uri to get to the resource
+	Uri *string `pulumi:"uri"`
+	// Gets or sets value stored in secret store resource
+	Value *string `pulumi:"value"`
+}
+
+// SecretStoreResourceInput is an input type that accepts SecretStoreResourceArgs and SecretStoreResourceOutput values.
+// You can construct a concrete instance of `SecretStoreResourceInput` via:
+//
+//          SecretStoreResourceArgs{...}
+type SecretStoreResourceInput interface {
+	pulumi.Input
+
+	ToSecretStoreResourceOutput() SecretStoreResourceOutput
+	ToSecretStoreResourceOutputWithContext(context.Context) SecretStoreResourceOutput
+}
+
+// Class representing a secret store resource.
+type SecretStoreResourceArgs struct {
+	// Gets or sets the type of secret store
+	SecretStoreType pulumi.StringInput `pulumi:"secretStoreType"`
+	// Uri to get to the resource
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	// Gets or sets value stored in secret store resource
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SecretStoreResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretStoreResource)(nil)).Elem()
+}
+
+func (i SecretStoreResourceArgs) ToSecretStoreResourceOutput() SecretStoreResourceOutput {
+	return i.ToSecretStoreResourceOutputWithContext(context.Background())
+}
+
+func (i SecretStoreResourceArgs) ToSecretStoreResourceOutputWithContext(ctx context.Context) SecretStoreResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretStoreResourceOutput)
+}
+
+func (i SecretStoreResourceArgs) ToSecretStoreResourcePtrOutput() SecretStoreResourcePtrOutput {
+	return i.ToSecretStoreResourcePtrOutputWithContext(context.Background())
+}
+
+func (i SecretStoreResourceArgs) ToSecretStoreResourcePtrOutputWithContext(ctx context.Context) SecretStoreResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretStoreResourceOutput).ToSecretStoreResourcePtrOutputWithContext(ctx)
+}
+
+// SecretStoreResourcePtrInput is an input type that accepts SecretStoreResourceArgs, SecretStoreResourcePtr and SecretStoreResourcePtrOutput values.
+// You can construct a concrete instance of `SecretStoreResourcePtrInput` via:
+//
+//          SecretStoreResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretStoreResourcePtrInput interface {
+	pulumi.Input
+
+	ToSecretStoreResourcePtrOutput() SecretStoreResourcePtrOutput
+	ToSecretStoreResourcePtrOutputWithContext(context.Context) SecretStoreResourcePtrOutput
+}
+
+type secretStoreResourcePtrType SecretStoreResourceArgs
+
+func SecretStoreResourcePtr(v *SecretStoreResourceArgs) SecretStoreResourcePtrInput {
+	return (*secretStoreResourcePtrType)(v)
+}
+
+func (*secretStoreResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretStoreResource)(nil)).Elem()
+}
+
+func (i *secretStoreResourcePtrType) ToSecretStoreResourcePtrOutput() SecretStoreResourcePtrOutput {
+	return i.ToSecretStoreResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *secretStoreResourcePtrType) ToSecretStoreResourcePtrOutputWithContext(ctx context.Context) SecretStoreResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretStoreResourcePtrOutput)
+}
+
+// Class representing a secret store resource.
+type SecretStoreResourceOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretStoreResource)(nil)).Elem()
+}
+
+func (o SecretStoreResourceOutput) ToSecretStoreResourceOutput() SecretStoreResourceOutput {
+	return o
+}
+
+func (o SecretStoreResourceOutput) ToSecretStoreResourceOutputWithContext(ctx context.Context) SecretStoreResourceOutput {
+	return o
+}
+
+func (o SecretStoreResourceOutput) ToSecretStoreResourcePtrOutput() SecretStoreResourcePtrOutput {
+	return o.ToSecretStoreResourcePtrOutputWithContext(context.Background())
+}
+
+func (o SecretStoreResourceOutput) ToSecretStoreResourcePtrOutputWithContext(ctx context.Context) SecretStoreResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretStoreResource) *SecretStoreResource {
+		return &v
+	}).(SecretStoreResourcePtrOutput)
+}
+
+// Gets or sets the type of secret store
+func (o SecretStoreResourceOutput) SecretStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretStoreResource) string { return v.SecretStoreType }).(pulumi.StringOutput)
+}
+
+// Uri to get to the resource
+func (o SecretStoreResourceOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretStoreResource) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets value stored in secret store resource
+func (o SecretStoreResourceOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretStoreResource) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecretStoreResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretStoreResource)(nil)).Elem()
+}
+
+func (o SecretStoreResourcePtrOutput) ToSecretStoreResourcePtrOutput() SecretStoreResourcePtrOutput {
+	return o
+}
+
+func (o SecretStoreResourcePtrOutput) ToSecretStoreResourcePtrOutputWithContext(ctx context.Context) SecretStoreResourcePtrOutput {
+	return o
+}
+
+func (o SecretStoreResourcePtrOutput) Elem() SecretStoreResourceOutput {
+	return o.ApplyT(func(v *SecretStoreResource) SecretStoreResource {
+		if v != nil {
+			return *v
+		}
+		var ret SecretStoreResource
+		return ret
+	}).(SecretStoreResourceOutput)
+}
+
+// Gets or sets the type of secret store
+func (o SecretStoreResourcePtrOutput) SecretStoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretStoreType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Uri to get to the resource
+func (o SecretStoreResourcePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets value stored in secret store resource
+func (o SecretStoreResourcePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class representing a secret store resource.
+type SecretStoreResourceResponse struct {
+	// Gets or sets the type of secret store
+	SecretStoreType string `pulumi:"secretStoreType"`
+	// Uri to get to the resource
+	Uri *string `pulumi:"uri"`
+	// Gets or sets value stored in secret store resource
+	Value *string `pulumi:"value"`
+}
+
+// Class representing a secret store resource.
+type SecretStoreResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretStoreResourceResponse)(nil)).Elem()
+}
+
+func (o SecretStoreResourceResponseOutput) ToSecretStoreResourceResponseOutput() SecretStoreResourceResponseOutput {
+	return o
+}
+
+func (o SecretStoreResourceResponseOutput) ToSecretStoreResourceResponseOutputWithContext(ctx context.Context) SecretStoreResourceResponseOutput {
+	return o
+}
+
+// Gets or sets the type of secret store
+func (o SecretStoreResourceResponseOutput) SecretStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretStoreResourceResponse) string { return v.SecretStoreType }).(pulumi.StringOutput)
+}
+
+// Uri to get to the resource
+func (o SecretStoreResourceResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretStoreResourceResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets value stored in secret store resource
+func (o SecretStoreResourceResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretStoreResourceResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecretStoreResourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretStoreResourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretStoreResourceResponse)(nil)).Elem()
+}
+
+func (o SecretStoreResourceResponsePtrOutput) ToSecretStoreResourceResponsePtrOutput() SecretStoreResourceResponsePtrOutput {
+	return o
+}
+
+func (o SecretStoreResourceResponsePtrOutput) ToSecretStoreResourceResponsePtrOutputWithContext(ctx context.Context) SecretStoreResourceResponsePtrOutput {
+	return o
+}
+
+func (o SecretStoreResourceResponsePtrOutput) Elem() SecretStoreResourceResponseOutput {
+	return o.ApplyT(func(v *SecretStoreResourceResponse) SecretStoreResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretStoreResourceResponse
+		return ret
+	}).(SecretStoreResourceResponseOutput)
+}
+
+// Gets or sets the type of secret store
+func (o SecretStoreResourceResponsePtrOutput) SecretStoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreResourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretStoreType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Uri to get to the resource
+func (o SecretStoreResourceResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreResourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets value stored in secret store resource
+func (o SecretStoreResourceResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretStoreResourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 // Source LifeCycle
@@ -3161,6 +4352,10 @@ func (o UserFacingErrorResponseArrayOutput) Index(i pulumi.IntInput) UserFacingE
 }
 
 func init() {
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsResponseOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureOperationalStoreParametersOutput{})
 	pulumi.RegisterOutputType(AzureOperationalStoreParametersArrayOutput{})
 	pulumi.RegisterOutputType(AzureOperationalStoreParametersResponseOutput{})
@@ -3186,6 +4381,10 @@ func init() {
 	pulumi.RegisterOutputType(DppIdentityDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(InnerErrorResponseOutput{})
 	pulumi.RegisterOutputType(InnerErrorResponsePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsResponseOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PolicyInfoOutput{})
 	pulumi.RegisterOutputType(PolicyInfoPtrOutput{})
 	pulumi.RegisterOutputType(PolicyInfoResponseOutput{})
@@ -3194,9 +4393,20 @@ func init() {
 	pulumi.RegisterOutputType(PolicyParametersResponseOutput{})
 	pulumi.RegisterOutputType(PolicyParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionStatusDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ResourceGuardTypeOutput{})
+	pulumi.RegisterOutputType(ResourceGuardTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceGuardOperationResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGuardOperationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceGuardResponseOutput{})
+	pulumi.RegisterOutputType(ResourceMoveDetailsResponseOutput{})
+	pulumi.RegisterOutputType(SecretStoreBasedAuthCredentialsOutput{})
+	pulumi.RegisterOutputType(SecretStoreBasedAuthCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SecretStoreBasedAuthCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(SecretStoreBasedAuthCredentialsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecretStoreResourceOutput{})
+	pulumi.RegisterOutputType(SecretStoreResourcePtrOutput{})
+	pulumi.RegisterOutputType(SecretStoreResourceResponseOutput{})
+	pulumi.RegisterOutputType(SecretStoreResourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageSettingOutput{})
 	pulumi.RegisterOutputType(StorageSettingArrayOutput{})
 	pulumi.RegisterOutputType(StorageSettingResponseOutput{})

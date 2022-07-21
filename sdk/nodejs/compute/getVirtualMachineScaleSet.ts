@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
     if (!opts) {
@@ -102,7 +102,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly proximityPlacementGroup?: outputs.compute.SubResourceResponse;
     /**
-     * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+     * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     readonly scaleInPolicy?: outputs.compute.ScaleInPolicyResponse;
     /**
@@ -114,9 +114,17 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly sku?: outputs.compute.SkuResponse;
     /**
+     * Specifies the Spot Restore properties for the virtual machine scale set.
+     */
+    readonly spotRestorePolicy?: outputs.compute.SpotRestorePolicyResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    readonly timeCreated: string;
     /**
      * Resource type
      */
@@ -134,7 +142,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly virtualMachineProfile?: outputs.compute.VirtualMachineScaleSetVMProfileResponse;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     readonly zoneBalance?: boolean;
     /**

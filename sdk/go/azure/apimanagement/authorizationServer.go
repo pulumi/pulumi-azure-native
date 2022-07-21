@@ -12,7 +12,7 @@ import (
 )
 
 // External OAuth authorization server settings.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type AuthorizationServer struct {
 	pulumi.CustomResourceState
 
@@ -38,7 +38,7 @@ type AuthorizationServer struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Form of an authorization grant, which the client uses to request the access token.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
 	ResourceOwnerPassword pulumi.StringPtrOutput `pulumi:"resourceOwnerPassword"`
@@ -50,7 +50,7 @@ type AuthorizationServer struct {
 	TokenBodyParameters TokenBodyParameterContractResponseArrayOutput `pulumi:"tokenBodyParameters"`
 	// OAuth token endpoint. Contains absolute URI to entity being referenced.
 	TokenEndpoint pulumi.StringPtrOutput `pulumi:"tokenEndpoint"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -333,7 +333,7 @@ func (o AuthorizationServerOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o AuthorizationServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -365,7 +365,7 @@ func (o AuthorizationServerOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o AuthorizationServerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -251,7 +251,7 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupStatusSecretsSlotResult:
     """
     Backup description.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str backup_id: ID of backup.
@@ -316,7 +316,7 @@ def list_web_app_backup_status_secrets_slot_output(backup_id: Optional[pulumi.In
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsSlotResult]:
     """
     Backup description.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str backup_id: ID of backup.

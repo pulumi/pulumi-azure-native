@@ -28,13 +28,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.PngLayer'.
-        /// </summary>
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
-
-        /// <summary>
         /// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         /// </summary>
         [Input("width")]

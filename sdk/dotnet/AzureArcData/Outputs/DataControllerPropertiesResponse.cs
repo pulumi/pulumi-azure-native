@@ -17,9 +17,21 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class DataControllerPropertiesResponse
     {
         /// <summary>
-        /// Username and password for basic login authentication.
+        /// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
         /// </summary>
         public readonly Outputs.BasicLoginInformationResponse? BasicLoginInformation;
+        /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        /// </summary>
+        public readonly string? ClusterId;
+        /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        /// </summary>
+        public readonly string? ExtensionId;
+        /// <summary>
+        /// The infrastructure the data controller is running on.
+        /// </summary>
+        public readonly string? Infrastructure;
         /// <summary>
         /// The raw kubernetes information
         /// </summary>
@@ -33,12 +45,20 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly Outputs.LogAnalyticsWorkspaceConfigResponse? LogAnalyticsWorkspaceConfig;
         /// <summary>
+        /// Login credential for logs dashboard on the Kubernetes cluster.
+        /// </summary>
+        public readonly Outputs.BasicLoginInformationResponse? LogsDashboardCredential;
+        /// <summary>
+        /// Login credential for metrics dashboard on the Kubernetes cluster.
+        /// </summary>
+        public readonly Outputs.BasicLoginInformationResponse? MetricsDashboardCredential;
+        /// <summary>
         /// Properties from the Kubernetes data controller
         /// </summary>
         public readonly Outputs.OnPremisePropertyResponse? OnPremiseProperty;
         public readonly string ProvisioningState;
         /// <summary>
-        /// Service principal for uploading billing, metrics and logs.
+        /// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
         /// </summary>
         public readonly Outputs.UploadServicePrincipalResponse? UploadServicePrincipal;
         /// <summary>
@@ -50,11 +70,21 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         private DataControllerPropertiesResponse(
             Outputs.BasicLoginInformationResponse? basicLoginInformation,
 
+            string? clusterId,
+
+            string? extensionId,
+
+            string? infrastructure,
+
             object? k8sRaw,
 
             string? lastUploadedDate,
 
             Outputs.LogAnalyticsWorkspaceConfigResponse? logAnalyticsWorkspaceConfig,
+
+            Outputs.BasicLoginInformationResponse? logsDashboardCredential,
+
+            Outputs.BasicLoginInformationResponse? metricsDashboardCredential,
 
             Outputs.OnPremisePropertyResponse? onPremiseProperty,
 
@@ -65,9 +95,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
             Outputs.UploadWatermarkResponse? uploadWatermark)
         {
             BasicLoginInformation = basicLoginInformation;
+            ClusterId = clusterId;
+            ExtensionId = extensionId;
+            Infrastructure = infrastructure;
             K8sRaw = k8sRaw;
             LastUploadedDate = lastUploadedDate;
             LogAnalyticsWorkspaceConfig = logAnalyticsWorkspaceConfig;
+            LogsDashboardCredential = logsDashboardCredential;
+            MetricsDashboardCredential = metricsDashboardCredential;
             OnPremiseProperty = onPremiseProperty;
             ProvisioningState = provisioningState;
             UploadServicePrincipal = uploadServicePrincipal;

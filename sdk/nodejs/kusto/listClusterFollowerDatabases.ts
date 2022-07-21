@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list Kusto database principals operation response.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function listClusterFollowerDatabases(args: ListClusterFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterFollowerDatabasesResult> {
     if (!opts) {

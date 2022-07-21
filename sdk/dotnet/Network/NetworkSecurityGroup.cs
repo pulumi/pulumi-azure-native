@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkSecurityGroup resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : Pulumi.CustomResource

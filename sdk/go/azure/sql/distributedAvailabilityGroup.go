@@ -12,7 +12,7 @@ import (
 )
 
 // Distributed availability group between box and Sql Managed Instance.
-// API Version: 2021-05-01-preview.
+// API Version: 2021-11-01-preview.
 type DistributedAvailabilityGroup struct {
 	pulumi.CustomResourceState
 

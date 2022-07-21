@@ -12,12 +12,14 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2018-10-31-preview.
+// API Version: 2021-11-30.
 type DedicatedHsm struct {
 	pulumi.CustomResourceState
 
 	// The supported Azure location where the dedicated HSM should be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies the management network interfaces of the dedicated hsm.
+	ManagementNetworkProfile NetworkProfileResponsePtrOutput `pulumi:"managementNetworkProfile"`
 	// The name of the dedicated HSM.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the network interfaces of the dedicated hsm.
@@ -30,6 +32,8 @@ type DedicatedHsm struct {
 	StampId pulumi.StringPtrOutput `pulumi:"stampId"`
 	// Resource Status Message.
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// Metadata pertaining to creation and last modification of the resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type of the dedicated HSM.
@@ -94,6 +98,8 @@ func (DedicatedHsmState) ElementType() reflect.Type {
 type dedicatedHsmArgs struct {
 	// The supported Azure location where the dedicated HSM should be created.
 	Location *string `pulumi:"location"`
+	// Specifies the management network interfaces of the dedicated hsm.
+	ManagementNetworkProfile *NetworkProfile `pulumi:"managementNetworkProfile"`
 	// Name of the dedicated Hsm
 	Name *string `pulumi:"name"`
 	// Specifies the network interfaces of the dedicated hsm.
@@ -114,6 +120,8 @@ type dedicatedHsmArgs struct {
 type DedicatedHsmArgs struct {
 	// The supported Azure location where the dedicated HSM should be created.
 	Location pulumi.StringPtrInput
+	// Specifies the management network interfaces of the dedicated hsm.
+	ManagementNetworkProfile NetworkProfilePtrInput
 	// Name of the dedicated Hsm
 	Name pulumi.StringPtrInput
 	// Specifies the network interfaces of the dedicated hsm.
@@ -172,6 +180,11 @@ func (o DedicatedHsmOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// Specifies the management network interfaces of the dedicated hsm.
+func (o DedicatedHsmOutput) ManagementNetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *DedicatedHsm) NetworkProfileResponsePtrOutput { return v.ManagementNetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
 // The name of the dedicated HSM.
 func (o DedicatedHsmOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -200,6 +213,11 @@ func (o DedicatedHsmOutput) StampId() pulumi.StringPtrOutput {
 // Resource Status Message.
 func (o DedicatedHsmOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o DedicatedHsmOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DedicatedHsm) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

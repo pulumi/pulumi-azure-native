@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service Environment ARM resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Dedicated Host Count
      */
-    public /*out*/ readonly dedicatedHostCount!: pulumi.Output<number>;
+    public readonly dedicatedHostCount!: pulumi.Output<number | undefined>;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -117,6 +117,10 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * Description of the Virtual Network.
      */
     public readonly virtualNetwork!: pulumi.Output<outputs.web.VirtualNetworkProfileResponse>;
+    /**
+     * Whether or not this App Service Environment is zone-redundant.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppServiceEnvironment resource with the given unique name, arguments, and options.
@@ -136,6 +140,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
             resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
             resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
             resourceInputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
             resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
@@ -148,7 +153,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
             resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["dedicatedHostCount"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["hasLinuxWorkers"] = undefined /*out*/;
             resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;
             resourceInputs["multiRoleCount"] = undefined /*out*/;
@@ -177,6 +182,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userWhitelistedIpRanges"] = undefined /*out*/;
             resourceInputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:AppServiceEnvironment" }, { type: "azure-native:web/v20160901:AppServiceEnvironment" }, { type: "azure-native:web/v20180201:AppServiceEnvironment" }, { type: "azure-native:web/v20190801:AppServiceEnvironment" }, { type: "azure-native:web/v20200601:AppServiceEnvironment" }, { type: "azure-native:web/v20200901:AppServiceEnvironment" }, { type: "azure-native:web/v20201001:AppServiceEnvironment" }, { type: "azure-native:web/v20201201:AppServiceEnvironment" }, { type: "azure-native:web/v20210101:AppServiceEnvironment" }, { type: "azure-native:web/v20210115:AppServiceEnvironment" }, { type: "azure-native:web/v20210201:AppServiceEnvironment" }, { type: "azure-native:web/v20210301:AppServiceEnvironment" }, { type: "azure-native:web/v20220301:AppServiceEnvironment" }] };
@@ -193,6 +199,10 @@ export interface AppServiceEnvironmentArgs {
      * Custom settings for changing the behavior of the App Service Environment.
      */
     clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
+    /**
+     * Dedicated Host Count
+     */
+    dedicatedHostCount?: pulumi.Input<number>;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -241,4 +251,8 @@ export interface AppServiceEnvironmentArgs {
      * Description of the Virtual Network.
      */
     virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfileArgs>;
+    /**
+     * Whether or not this App Service Environment is zone-redundant.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }

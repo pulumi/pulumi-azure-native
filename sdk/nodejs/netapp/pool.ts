@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capacity pool resource
- * API Version: 2020-12-01.
+ * API Version: 2022-01-01.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -37,11 +37,23 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location
+     * If enabled (true) the pool can contain cool Access enabled volumes.
+     */
+    public readonly coolAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+     */
+    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -61,11 +73,15 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+     * Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
      */
     public readonly size!: pulumi.Output<number>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -73,7 +89,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public /*out*/ readonly totalThroughputMibps!: pulumi.Output<number>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -105,20 +121,27 @@ export class Pool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'size'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
+            resourceInputs["encryptionType"] = (args ? args.encryptionType : undefined) ?? "Single";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["qosType"] = (args ? args.qosType : undefined) ?? "Auto";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
-            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            resourceInputs["size"] = (args ? args.size : undefined) ?? 4398046511104;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["poolId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalThroughputMibps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["utilizedThroughputMibps"] = undefined /*out*/;
         } else {
+            resourceInputs["coolAccess"] = undefined /*out*/;
+            resourceInputs["encryptionType"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["poolId"] = undefined /*out*/;
@@ -126,6 +149,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["qosType"] = undefined /*out*/;
             resourceInputs["serviceLevel"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["totalThroughputMibps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -147,7 +171,15 @@ export interface PoolArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Resource location
+     * If enabled (true) the pool can contain cool Access enabled volumes.
+     */
+    coolAccess?: pulumi.Input<boolean>;
+    /**
+     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+     */
+    encryptionType?: pulumi.Input<string | enums.netapp.EncryptionType>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -167,11 +199,11 @@ export interface PoolArgs {
      */
     serviceLevel: pulumi.Input<string | enums.netapp.ServiceLevel>;
     /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+     * Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
      */
     size: pulumi.Input<number>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// An Azure SQL Database server.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database server.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -86,9 +86,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The Azure Active Directory identity of the server.
+        /// The Azure Active Directory administrator of the server.
         /// </summary>
         public readonly Outputs.ServerExternalAdministratorResponse? Administrators;
+        /// <summary>
+        /// The Client id used for cross tenant CMK scenario
+        /// </summary>
+        public readonly string? FederatedClientId;
         /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
@@ -134,6 +138,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? RestrictOutboundNetworkAccess;
+        /// <summary>
         /// The state of the server.
         /// </summary>
         public readonly string State;
@@ -160,6 +168,8 @@ namespace Pulumi.AzureNative.Sql
 
             Outputs.ServerExternalAdministratorResponse? administrators,
 
+            string? federatedClientId,
+
             string fullyQualifiedDomainName,
 
             string id,
@@ -182,6 +192,8 @@ namespace Pulumi.AzureNative.Sql
 
             string? publicNetworkAccess,
 
+            string? restrictOutboundNetworkAccess,
+
             string state,
 
             ImmutableDictionary<string, string>? tags,
@@ -194,6 +206,7 @@ namespace Pulumi.AzureNative.Sql
         {
             AdministratorLogin = administratorLogin;
             Administrators = administrators;
+            FederatedClientId = federatedClientId;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;
@@ -205,6 +218,7 @@ namespace Pulumi.AzureNative.Sql
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             PrivateEndpointConnections = privateEndpointConnections;
             PublicNetworkAccess = publicNetworkAccess;
+            RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
             State = state;
             Tags = tags;
             Type = type;

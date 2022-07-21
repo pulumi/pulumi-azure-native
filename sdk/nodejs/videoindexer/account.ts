@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Video Analyzer for Media account.
- * API Version: 2021-10-18-preview.
+ * An Azure Video Indexer account.
+ * API Version: 2022-04-13-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -77,6 +77,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
+     * An integer representing the total seconds that have been indexed on the account
+     */
+    public /*out*/ readonly totalSecondsIndexed!: pulumi.Output<number>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["totalSecondsIndexed"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
@@ -118,6 +123,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["totalSecondsIndexed"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -136,7 +142,7 @@ export interface AccountArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The name of the Azure Video Analyzer for Media account.
+     * The name of the Azure Video Indexer account.
      */
     accountName?: pulumi.Input<string>;
     /**

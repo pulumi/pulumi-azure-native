@@ -11,7 +11,7 @@ import (
 )
 
 // disk access resource.
-// API Version: 2020-12-01.
+// API Version: 2021-12-01.
 func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessResult, error) {
 	var rv LookupDiskAccessResult
 	err := ctx.Invoke("azure-native:compute:getDiskAccess", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...p
 }
 
 type LookupDiskAccessArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskAccessName string `pulumi:"diskAccessName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -30,6 +30,8 @@ type LookupDiskAccessArgs struct {
 
 // disk access resource.
 type LookupDiskAccessResult struct {
+	// The extended location where the disk access will be created. Extended location cannot be changed.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
@@ -62,7 +64,7 @@ func LookupDiskAccessOutput(ctx *pulumi.Context, args LookupDiskAccessOutputArgs
 }
 
 type LookupDiskAccessOutputArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskAccessName pulumi.StringInput `pulumi:"diskAccessName"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -85,6 +87,11 @@ func (o LookupDiskAccessResultOutput) ToLookupDiskAccessResultOutput() LookupDis
 
 func (o LookupDiskAccessResultOutput) ToLookupDiskAccessResultOutputWithContext(ctx context.Context) LookupDiskAccessResultOutput {
 	return o
+}
+
+// The extended location where the disk access will be created. Extended location cannot be changed.
+func (o LookupDiskAccessResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
 }
 
 // Resource Id

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * disk access resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-12-01.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class DiskAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiskAccess.__pulumiType;
     }
 
+    /**
+     * The extended location where the disk access will be created. Extended location cannot be changed.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
      * Resource location
      */
@@ -80,6 +84,7 @@ export class DiskAccess extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["diskAccessName"] = args ? args.diskAccessName : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -89,6 +94,7 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -109,9 +115,13 @@ export class DiskAccess extends pulumi.CustomResource {
  */
 export interface DiskAccessArgs {
     /**
-     * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskAccessName?: pulumi.Input<string>;
+    /**
+     * The extended location where the disk access will be created. Extended location cannot be changed.
+     */
+    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
      * Resource location
      */

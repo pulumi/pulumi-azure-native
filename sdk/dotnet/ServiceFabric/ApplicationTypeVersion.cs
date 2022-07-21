@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// An application type version resource for the specified application type name resource.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ApplicationTypeVersion")]
     public partial class ApplicationTypeVersion : Pulumi.CustomResource
@@ -23,19 +23,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> AppPackageUrl { get; private set; } = null!;
 
         /// <summary>
-        /// List of application type parameters that can be overridden when creating or updating the application.
-        /// </summary>
-        [Output("defaultParameterList")]
-        public Output<ImmutableDictionary<string, string>> DefaultParameterList { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -51,6 +39,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -89,14 +83,13 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:ApplicationTypeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ApplicationTypeVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +132,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

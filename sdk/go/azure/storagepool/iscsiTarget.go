@@ -11,21 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for iSCSI target requests.
-// API Version: 2020-03-15-preview.
+// Response for iSCSI Target requests.
+// API Version: 2021-08-01.
 type IscsiTarget struct {
 	pulumi.CustomResourceState
 
+	// Mode for Target connectivity.
+	AclMode pulumi.StringOutput `pulumi:"aclMode"`
+	// List of private IPv4 addresses to connect to the iSCSI Target.
+	Endpoints pulumi.StringArrayOutput `pulumi:"endpoints"`
+	// List of LUNs to be exposed through iSCSI Target.
+	Luns IscsiLunResponseArrayOutput `pulumi:"luns"`
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
+	// List of Azure resource ids that manage this resource.
+	ManagedByExtended pulumi.StringArrayOutput `pulumi:"managedByExtended"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The port used by iSCSI Target portal group.
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// State of the operation on the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Operational status of the iSCSI target.
+	// List of identifiers for active sessions on the iSCSI target
+	Sessions pulumi.StringArrayOutput `pulumi:"sessions"`
+	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+	StaticAcls AclResponseArrayOutput `pulumi:"staticAcls"`
+	// Operational status of the iSCSI Target.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+	// Resource metadata required by ARM RPC
+	SystemData SystemMetadataResponseOutput `pulumi:"systemData"`
+	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
 	TargetIqn pulumi.StringOutput `pulumi:"targetIqn"`
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs TargetPortalGroupResponseArrayOutput `pulumi:"tpgs"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -37,14 +53,14 @@ func NewIscsiTarget(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AclMode == nil {
+		return nil, errors.New("invalid value for required argument 'AclMode'")
+	}
 	if args.DiskPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'DiskPoolName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.Tpgs == nil {
-		return nil, errors.New("invalid value for required argument 'Tpgs'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -90,30 +106,46 @@ func (IscsiTargetState) ElementType() reflect.Type {
 }
 
 type iscsiTargetArgs struct {
-	// The name of the Disk pool.
+	// Mode for Target connectivity.
+	AclMode string `pulumi:"aclMode"`
+	// The name of the Disk Pool.
 	DiskPoolName string `pulumi:"diskPoolName"`
-	// The name of the iSCSI target.
+	// The name of the iSCSI Target.
 	IscsiTargetName *string `pulumi:"iscsiTargetName"`
+	// List of LUNs to be exposed through iSCSI Target.
+	Luns []IscsiLun `pulumi:"luns"`
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy *string `pulumi:"managedBy"`
+	// List of Azure resource ids that manage this resource.
+	ManagedByExtended []string `pulumi:"managedByExtended"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+	StaticAcls []Acl `pulumi:"staticAcls"`
+	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
 	TargetIqn *string `pulumi:"targetIqn"`
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs []TargetPortalGroupCreate `pulumi:"tpgs"`
 }
 
 // The set of arguments for constructing a IscsiTarget resource.
 type IscsiTargetArgs struct {
-	// The name of the Disk pool.
+	// Mode for Target connectivity.
+	AclMode pulumi.StringInput
+	// The name of the Disk Pool.
 	DiskPoolName pulumi.StringInput
-	// The name of the iSCSI target.
+	// The name of the iSCSI Target.
 	IscsiTargetName pulumi.StringPtrInput
+	// List of LUNs to be exposed through iSCSI Target.
+	Luns IscsiLunArrayInput
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy pulumi.StringPtrInput
+	// List of Azure resource ids that manage this resource.
+	ManagedByExtended pulumi.StringArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+	StaticAcls AclArrayInput
+	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
 	TargetIqn pulumi.StringPtrInput
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs TargetPortalGroupCreateArrayInput
 }
 
 func (IscsiTargetArgs) ElementType() reflect.Type {
@@ -153,9 +185,39 @@ func (o IscsiTargetOutput) ToIscsiTargetOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// Mode for Target connectivity.
+func (o IscsiTargetOutput) AclMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.AclMode }).(pulumi.StringOutput)
+}
+
+// List of private IPv4 addresses to connect to the iSCSI Target.
+func (o IscsiTargetOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringArrayOutput { return v.Endpoints }).(pulumi.StringArrayOutput)
+}
+
+// List of LUNs to be exposed through iSCSI Target.
+func (o IscsiTargetOutput) Luns() IscsiLunResponseArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) IscsiLunResponseArrayOutput { return v.Luns }).(IscsiLunResponseArrayOutput)
+}
+
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o IscsiTargetOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// List of Azure resource ids that manage this resource.
+func (o IscsiTargetOutput) ManagedByExtended() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringArrayOutput { return v.ManagedByExtended }).(pulumi.StringArrayOutput)
+}
+
 // The name of the resource
 func (o IscsiTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The port used by iSCSI Target portal group.
+func (o IscsiTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // State of the operation on the resource.
@@ -163,19 +225,29 @@ func (o IscsiTargetOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Operational status of the iSCSI target.
+// List of identifiers for active sessions on the iSCSI target
+func (o IscsiTargetOutput) Sessions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringArrayOutput { return v.Sessions }).(pulumi.StringArrayOutput)
+}
+
+// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+func (o IscsiTargetOutput) StaticAcls() AclResponseArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) AclResponseArrayOutput { return v.StaticAcls }).(AclResponseArrayOutput)
+}
+
+// Operational status of the iSCSI Target.
 func (o IscsiTargetOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-func (o IscsiTargetOutput) TargetIqn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.TargetIqn }).(pulumi.StringOutput)
+// Resource metadata required by ARM RPC
+func (o IscsiTargetOutput) SystemData() SystemMetadataResponseOutput {
+	return o.ApplyT(func(v *IscsiTarget) SystemMetadataResponseOutput { return v.SystemData }).(SystemMetadataResponseOutput)
 }
 
-// List of iSCSI target portal groups. Can have 1 portal group at most.
-func (o IscsiTargetOutput) Tpgs() TargetPortalGroupResponseArrayOutput {
-	return o.ApplyT(func(v *IscsiTarget) TargetPortalGroupResponseArrayOutput { return v.Tpgs }).(TargetPortalGroupResponseArrayOutput)
+// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+func (o IscsiTargetOutput) TargetIqn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.TargetIqn }).(pulumi.StringOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

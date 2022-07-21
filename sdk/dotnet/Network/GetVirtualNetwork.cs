@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Virtual Network resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:network:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual Network resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:network:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? EnableVmProtection;
         /// <summary>
+        /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkEncryptionResponse? Encryption;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -113,6 +117,10 @@ namespace Pulumi.AzureNative.Network
         /// The extended location of the virtual network.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
+        /// The FlowTimeout value (in minutes) for the Virtual Network
+        /// </summary>
+        public readonly int? FlowTimeoutInMinutes;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -168,9 +176,13 @@ namespace Pulumi.AzureNative.Network
 
             bool? enableVmProtection,
 
+            Outputs.VirtualNetworkEncryptionResponse? encryption,
+
             string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
+
+            int? flowTimeoutInMinutes,
 
             string? id,
 
@@ -198,8 +210,10 @@ namespace Pulumi.AzureNative.Network
             DhcpOptions = dhcpOptions;
             EnableDdosProtection = enableDdosProtection;
             EnableVmProtection = enableVmProtection;
+            Encryption = encryption;
             Etag = etag;
             ExtendedLocation = extendedLocation;
+            FlowTimeoutInMinutes = flowTimeoutInMinutes;
             Id = id;
             IpAllocations = ipAllocations;
             Location = location;

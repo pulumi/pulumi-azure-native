@@ -11,7 +11,7 @@ import (
 )
 
 // Information about a domain.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
 	err := ctx.Invoke("azure-native:domainregistration:getDomain", args, &rv, opts...)
@@ -66,8 +66,6 @@ type LookupDomainResult struct {
 	ReadyForDnsRecordManagement bool `pulumi:"readyForDnsRecordManagement"`
 	// Domain registration status.
 	RegistrationStatus string `pulumi:"registrationStatus"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Target DNS type (would be used for migration)
@@ -216,11 +214,6 @@ func (o LookupDomainResultOutput) ReadyForDnsRecordManagement() pulumi.BoolOutpu
 // Domain registration status.
 func (o LookupDomainResultOutput) RegistrationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.RegistrationStatus }).(pulumi.StringOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LookupDomainResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupDomainResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

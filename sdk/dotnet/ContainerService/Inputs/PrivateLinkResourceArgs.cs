@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<string>? _requiredMembers;
 
         /// <summary>
-        /// RequiredMembers of the resource
+        /// The RequiredMembers of the resource
         /// </summary>
         public InputList<string> RequiredMembers
         {

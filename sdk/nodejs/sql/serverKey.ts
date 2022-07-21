@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A server key.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class ServerKey extends pulumi.CustomResource {
     /**
@@ -140,7 +140,7 @@ export interface ServerKeyArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+     * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
      */
     uri?: pulumi.Input<string>;
 }

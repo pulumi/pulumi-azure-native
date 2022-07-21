@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterLoadBalancerProfileResponse
     {
         /// <summary>
-        /// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        /// The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         /// </summary>
         public readonly int? AllocatedOutboundPorts;
         /// <summary>
@@ -25,7 +25,11 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceResponse> EffectiveOutboundIPs;
         /// <summary>
-        /// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+        /// Enable multiple standard load balancers per AKS cluster or not.
+        /// </summary>
+        public readonly bool? EnableMultipleStandardLoadBalancers;
+        /// <summary>
+        /// Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
         /// <summary>
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableArray<Outputs.ResourceReferenceResponse> effectiveOutboundIPs,
 
+            bool? enableMultipleStandardLoadBalancers,
+
             int? idleTimeoutInMinutes,
 
             Outputs.ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs? managedOutboundIPs,
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         {
             AllocatedOutboundPorts = allocatedOutboundPorts;
             EffectiveOutboundIPs = effectiveOutboundIPs;
+            EnableMultipleStandardLoadBalancers = enableMultipleStandardLoadBalancers;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             ManagedOutboundIPs = managedOutboundIPs;
             OutboundIPPrefixes = outboundIPPrefixes;

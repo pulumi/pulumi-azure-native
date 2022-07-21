@@ -298,7 +298,7 @@ class SimPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Sim policy resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,7 +327,7 @@ class SimPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sim policy resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SimPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -402,6 +402,7 @@ class SimPolicy(pulumi.CustomResource):
             __props__.__dict__["ue_ambr"] = ue_ambr
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:SimPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -440,6 +441,7 @@ class SimPolicy(pulumi.CustomResource):
         __props__.__dict__["registration_timer"] = None
         __props__.__dict__["rfsp_index"] = None
         __props__.__dict__["slice_configurations"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["ue_ambr"] = None
@@ -548,6 +550,14 @@ class SimPolicy(pulumi.CustomResource):
         The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         """
         return pulumi.get(self, "slice_configurations")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

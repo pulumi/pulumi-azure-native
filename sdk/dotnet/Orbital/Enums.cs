@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
-    /// Auto track configuration.
+    /// Auto-tracking configuration.
     /// </summary>
     [EnumType]
     public readonly struct AutoTrackingConfiguration : IEquatable<AutoTrackingConfiguration>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Orbital
     }
 
     /// <summary>
-    /// Direction (uplink or downlink)
+    /// Direction (uplink or downlink).
     /// </summary>
     [EnumType]
     public readonly struct Direction : IEquatable<Direction>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Orbital
     }
 
     /// <summary>
-    /// polarization. eg (RHCP, LHCP)
+    /// Polarization. e.g. (RHCP, LHCP).
     /// </summary>
     [EnumType]
     public readonly struct Polarization : IEquatable<Polarization>
@@ -85,7 +85,6 @@ namespace Pulumi.AzureNative.Orbital
 
         public static Polarization RHCP { get; } = new Polarization("RHCP");
         public static Polarization LHCP { get; } = new Polarization("LHCP");
-        public static Polarization DualRhcpLhcp { get; } = new Polarization("dualRhcpLhcp");
         public static Polarization LinearVertical { get; } = new Polarization("linearVertical");
         public static Polarization LinearHorizontal { get; } = new Polarization("linearHorizontal");
 

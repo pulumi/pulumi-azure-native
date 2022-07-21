@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Remote Private Endpoint Connection ARM resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentPrivateEndpointConnectionResult> InvokeAsync(GetAppServiceEnvironmentPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentPrivateEndpointConnectionResult>("azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection", args ?? new GetAppServiceEnvironmentPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Remote Private Endpoint Connection ARM resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> Invoke(GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentPrivateEndpointConnectionResult>("azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection", args ?? new GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

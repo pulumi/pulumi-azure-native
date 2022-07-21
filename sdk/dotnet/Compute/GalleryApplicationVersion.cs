@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery Application Version that you want to create or update.
-    /// API Version: 2020-09-30.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryApplicationVersion")]
     public partial class GalleryApplicationVersion : Pulumi.CustomResource

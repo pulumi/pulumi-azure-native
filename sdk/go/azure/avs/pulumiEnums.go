@@ -9,6 +9,7 @@ type AddonType string
 const (
 	AddonTypeSRM = AddonType("SRM")
 	AddonTypeVR  = AddonType("VR")
+	AddonTypeHCX = AddonType("HCX")
 )
 
 // placement policy affinity type
@@ -19,11 +20,20 @@ const (
 	AffinityTypeAntiAffinity = AffinityType("AntiAffinity")
 )
 
+// The availability strategy for the private cloud
+type AvailabilityStrategy string
+
+const (
+	AvailabilityStrategySingleZone = AvailabilityStrategy("SingleZone")
+	AvailabilityStrategyDualZone   = AvailabilityStrategy("DualZone")
+)
+
 // Type of DHCP: SERVER or RELAY.
 type DhcpTypeEnum string
 
 const (
-	DhcpTypeEnum_SERVER_RELAY = DhcpTypeEnum("SERVER, RELAY")
+	DhcpTypeEnumSERVER = DhcpTypeEnum("SERVER")
+	DhcpTypeEnumRELAY  = DhcpTypeEnum("RELAY")
 )
 
 // DNS Service log level.
@@ -37,12 +47,28 @@ const (
 	DnsServiceLogLevelEnumFATAL   = DnsServiceLogLevelEnum("FATAL")
 )
 
+// Status of customer managed encryption key
+type EncryptionState string
+
+const (
+	EncryptionStateEnabled  = EncryptionState("Enabled")
+	EncryptionStateDisabled = EncryptionState("Disabled")
+)
+
 // Connectivity to internet is enabled or disabled
 type InternetEnum string
 
 const (
 	InternetEnumEnabled  = InternetEnum("Enabled")
 	InternetEnumDisabled = InternetEnum("Disabled")
+)
+
+// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+type MountOptionEnum string
+
+const (
+	MountOptionEnumMOUNT  = MountOptionEnum("MOUNT")
+	MountOptionEnumATTACH = MountOptionEnum("ATTACH")
 )
 
 // Whether the placement policy is enabled or disabled
@@ -65,7 +91,17 @@ const (
 type PortMirroringDirectionEnum string
 
 const (
-	PortMirroringDirectionEnum_INGRESS_EGRESS_BIDIRECTIONAL = PortMirroringDirectionEnum("INGRESS, EGRESS, BIDIRECTIONAL")
+	PortMirroringDirectionEnumINGRESS       = PortMirroringDirectionEnum("INGRESS")
+	PortMirroringDirectionEnumEGRESS        = PortMirroringDirectionEnum("EGRESS")
+	PortMirroringDirectionEnumBIDIRECTIONAL = PortMirroringDirectionEnum("BIDIRECTIONAL")
+)
+
+// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone           = ResourceIdentityType("None")
 )
 
 // The type of execution parameter

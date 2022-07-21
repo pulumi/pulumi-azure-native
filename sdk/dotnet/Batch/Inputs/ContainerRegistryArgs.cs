@@ -12,8 +12,14 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
     public sealed class ContainerRegistryArgs : Pulumi.ResourceArgs
     {
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        /// <summary>
+        /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        /// </summary>
+        [Input("identityReference")]
+        public Input<Inputs.ComputeNodeIdentityReferenceArgs>? IdentityReference { get; set; }
+
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// If omitted, the default is "docker.io".
@@ -21,8 +27,8 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("registryServer")]
         public Input<string>? RegistryServer { get; set; }
 
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public ContainerRegistryArgs()
         {

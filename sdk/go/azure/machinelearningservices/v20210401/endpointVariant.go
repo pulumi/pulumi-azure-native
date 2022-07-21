@@ -52,9 +52,6 @@ func NewEndpointVariant(ctx *pulumi.Context,
 	args.ComputeType = pulumi.String("Custom")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:machinelearningservices:EndpointVariant"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:EndpointVariant"),
 		},
 		{

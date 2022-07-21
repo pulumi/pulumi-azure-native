@@ -11,7 +11,7 @@ import (
 )
 
 // Volume group resource for create
-// API Version: 2021-10-01.
+// API Version: 2022-01-01.
 func LookupVolumeGroup(ctx *pulumi.Context, args *LookupVolumeGroupArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupResult, error) {
 	var rv LookupVolumeGroupResult
 	err := ctx.Invoke("azure-native:netapp:getVolumeGroup", args, &rv, opts...)
@@ -42,8 +42,6 @@ type LookupVolumeGroupResult struct {
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// List of volumes from group
@@ -114,11 +112,6 @@ func (o LookupVolumeGroupResultOutput) Name() pulumi.StringOutput {
 // Azure lifecycle management
 func (o LookupVolumeGroupResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeGroupResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource tags
-func (o LookupVolumeGroupResultOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupVolumeGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Resource type

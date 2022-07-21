@@ -11,7 +11,7 @@ import (
 )
 
 // Resource for OuContainer.
-// API Version: 2021-03-01.
+// API Version: 2021-05-01.
 func LookupOuContainer(ctx *pulumi.Context, args *LookupOuContainerArgs, opts ...pulumi.InvokeOption) (*LookupOuContainerResult, error) {
 	var rv LookupOuContainerResult
 	err := ctx.Invoke("azure-native:aad:getOuContainer", args, &rv, opts...)

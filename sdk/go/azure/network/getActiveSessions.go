@@ -11,7 +11,7 @@ import (
 )
 
 // Response for GetActiveSessions.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func GetActiveSessions(ctx *pulumi.Context, args *GetActiveSessionsArgs, opts ...pulumi.InvokeOption) (*GetActiveSessionsResult, error) {
 	var rv GetActiveSessionsResult
 	err := ctx.Invoke("azure-native:network:getActiveSessions", args, &rv, opts...)

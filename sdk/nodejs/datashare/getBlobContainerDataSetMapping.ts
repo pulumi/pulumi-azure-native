@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Blob container data set mapping.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getBlobContainerDataSetMapping(args: GetBlobContainerDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetMappingResult> {
     if (!opts) {

@@ -12,7 +12,7 @@ import (
 )
 
 // A class representing a CommunicationService resource.
-// API Version: 2020-08-20.
+// API Version: 2021-10-01-preview.
 type CommunicationService struct {
 	pulumi.CustomResourceState
 
@@ -22,17 +22,19 @@ type CommunicationService struct {
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The immutable resource Id of the communication service.
 	ImmutableResourceId pulumi.StringOutput `pulumi:"immutableResourceId"`
-	// The Azure location where the CommunicationService is running.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// List of email Domain resource Ids.
+	LinkedDomains pulumi.StringArrayOutput `pulumi:"linkedDomains"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource ID of an Azure Notification Hub linked to this resource.
 	NotificationHubId pulumi.StringOutput `pulumi:"notificationHubId"`
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -104,11 +106,13 @@ type communicationServiceArgs struct {
 	CommunicationServiceName *string `pulumi:"communicationServiceName"`
 	// The location where the communication service stores its data at rest.
 	DataLocation string `pulumi:"dataLocation"`
-	// The Azure location where the CommunicationService is running.
+	// List of email Domain resource Ids.
+	LinkedDomains []string `pulumi:"linkedDomains"`
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -118,11 +122,13 @@ type CommunicationServiceArgs struct {
 	CommunicationServiceName pulumi.StringPtrInput
 	// The location where the communication service stores its data at rest.
 	DataLocation pulumi.StringInput
-	// The Azure location where the CommunicationService is running.
+	// List of email Domain resource Ids.
+	LinkedDomains pulumi.StringArrayInput
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
+	// Resource tags.
 	Tags pulumi.StringMapInput
 }
 
@@ -178,9 +184,14 @@ func (o CommunicationServiceOutput) ImmutableResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.ImmutableResourceId }).(pulumi.StringOutput)
 }
 
-// The Azure location where the CommunicationService is running.
-func (o CommunicationServiceOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CommunicationService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+// List of email Domain resource Ids.
+func (o CommunicationServiceOutput) LinkedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringArrayOutput { return v.LinkedDomains }).(pulumi.StringArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o CommunicationServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the resource
@@ -198,12 +209,12 @@ func (o CommunicationServiceOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o CommunicationServiceOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *CommunicationService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Tags of the service which is a list of key value pairs that describe the resource.
+// Resource tags.
 func (o CommunicationServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CommunicationService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

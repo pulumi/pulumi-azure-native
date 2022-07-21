@@ -43,12 +43,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:botservice:PrivateEndpointConnection"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azure-native:botservice/v20210501preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

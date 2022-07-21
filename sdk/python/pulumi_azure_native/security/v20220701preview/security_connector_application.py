@@ -192,8 +192,6 @@ class SecurityConnectorApplication(pulumi.CustomResource):
             __props__.__dict__["source_resource_type"] = source_resource_type
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:SecurityConnectorApplication")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityConnectorApplication, __self__).__init__(
             'azure-native:security/v20220701preview:SecurityConnectorApplication',
             resource_name,

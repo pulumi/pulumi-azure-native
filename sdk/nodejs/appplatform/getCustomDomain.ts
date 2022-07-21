@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom domain resource payload.
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
     if (!opts) {
@@ -58,6 +58,10 @@ export interface GetCustomDomainResult {
      * Properties of the custom domain resource.
      */
     readonly properties: outputs.appplatform.CustomDomainPropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
     /**
      * The type of the resource.
      */

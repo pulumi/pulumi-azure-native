@@ -5,56 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'AccessReviewRecurrencePatternType',
-    'AccessReviewRecurrenceRangeType',
-    'AccessReviewResult',
-    'DefaultDecisionType',
     'EnforcementMode',
-    'ExemptionCategory',
     'LockLevel',
     'ParameterType',
     'PolicyType',
-    'PrincipalType',
     'PublicNetworkAccessOptions',
     'ResourceIdentityType',
 ]
-
-
-class AccessReviewRecurrencePatternType(str, Enum):
-    """
-    The recurrence type : weekly, monthly, etc.
-    """
-    WEEKLY = "weekly"
-    ABSOLUTE_MONTHLY = "absoluteMonthly"
-
-
-class AccessReviewRecurrenceRangeType(str, Enum):
-    """
-    The recurrence range type. The possible values are: endDate, noEnd, numbered.
-    """
-    END_DATE = "endDate"
-    NO_END = "noEnd"
-    NUMBERED = "numbered"
-
-
-class AccessReviewResult(str, Enum):
-    """
-    Represents a reviewer's decision for a given review
-    """
-    APPROVE = "Approve"
-    DENY = "Deny"
-    NOT_REVIEWED = "NotReviewed"
-    DONT_KNOW = "DontKnow"
-    NOT_NOTIFIED = "NotNotified"
-
-
-class DefaultDecisionType(str, Enum):
-    """
-    This specifies the behavior for the autoReview feature when an access review completes.
-    """
-    APPROVE = "Approve"
-    DENY = "Deny"
-    RECOMMENDATION = "Recommendation"
 
 
 class EnforcementMode(str, Enum):
@@ -68,20 +25,6 @@ class EnforcementMode(str, Enum):
     DO_NOT_ENFORCE = "DoNotEnforce"
     """
     The policy effect is not enforced during resource creation or update.
-    """
-
-
-class ExemptionCategory(str, Enum):
-    """
-    The policy exemption category. Possible values are Waiver and Mitigated.
-    """
-    WAIVER = "Waiver"
-    """
-    This category of exemptions usually means the scope is not applicable for the policy.
-    """
-    MITIGATED = "Mitigated"
-    """
-    This category of exemptions usually means the mitigation actions have been applied to the scope.
     """
 
 
@@ -117,17 +60,6 @@ class PolicyType(str, Enum):
     STATIC = "Static"
 
 
-class PrincipalType(str, Enum):
-    """
-    The principal type of the assigned principal ID.
-    """
-    USER = "User"
-    GROUP = "Group"
-    SERVICE_PRINCIPAL = "ServicePrincipal"
-    FOREIGN_GROUP = "ForeignGroup"
-    DEVICE = "Device"
-
-
 class PublicNetworkAccessOptions(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -135,9 +67,13 @@ class PublicNetworkAccessOptions(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The identity type. This is the only required field when adding a system assigned identity to a resource.
+    The identity type. This is the only required field when adding a system or user assigned identity to a resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    Indicates that a system assigned identity is associated with the resource.
+    """
+    USER_ASSIGNED = "UserAssigned"
     """
     Indicates that a system assigned identity is associated with the resource.
     """

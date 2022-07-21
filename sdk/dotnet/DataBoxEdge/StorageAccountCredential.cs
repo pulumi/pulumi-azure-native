@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The storage account credential.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// StorageAccountCredential object
+        /// Metadata pertaining to creation and last modification of StorageAccountCredential
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

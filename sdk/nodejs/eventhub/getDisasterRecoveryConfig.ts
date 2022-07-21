@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
     if (!opts) {
@@ -49,6 +50,10 @@ export interface GetDisasterRecoveryConfigResult {
      */
     readonly id: string;
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -69,7 +74,11 @@ export interface GetDisasterRecoveryConfigResult {
      */
     readonly role: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }

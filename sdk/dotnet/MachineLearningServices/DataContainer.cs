@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:DataContainer")]
     public partial class DataContainer : Pulumi.CustomResource
     {
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("dataContainerProperties")]
+        public Output<Outputs.DataContainerResponse> DataContainerProperties { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -23,13 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataContainerResponse> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -92,16 +92,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class DataContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("dataContainerProperties", required: true)]
+        public Input<Inputs.DataContainerArgs> DataContainerProperties { get; set; } = null!;
+
+        /// <summary>
         /// Container name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DataContainerArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

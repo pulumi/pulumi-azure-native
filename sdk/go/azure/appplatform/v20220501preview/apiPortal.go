@@ -48,9 +48,6 @@ func NewApiPortal(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:appplatform:ApiPortal"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20220101preview:ApiPortal"),
 		},
 		{

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A managed database resource.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedDatabase")]
     public partial class ManagedDatabase : Pulumi.CustomResource

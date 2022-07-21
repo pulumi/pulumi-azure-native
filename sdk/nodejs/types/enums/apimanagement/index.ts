@@ -49,6 +49,8 @@ export type AlwaysLog = (typeof AlwaysLog)[keyof typeof AlwaysLog];
 export const ApiType = {
     Http: "http",
     Soap: "soap",
+    Websocket: "websocket",
+    Graphql: "graphql",
 } as const;
 
 /**
@@ -136,6 +138,29 @@ export const BearerTokenSendingMethods = {
  */
 export type BearerTokenSendingMethods = (typeof BearerTokenSendingMethods)[keyof typeof BearerTokenSendingMethods];
 
+export const CertificateSource = {
+    Managed: "Managed",
+    KeyVault: "KeyVault",
+    Custom: "Custom",
+    BuiltIn: "BuiltIn",
+} as const;
+
+/**
+ * Certificate Source.
+ */
+export type CertificateSource = (typeof CertificateSource)[keyof typeof CertificateSource];
+
+export const CertificateStatus = {
+    Completed: "Completed",
+    Failed: "Failed",
+    InProgress: "InProgress",
+} as const;
+
+/**
+ * Certificate Status.
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
+
 export const ClientAuthenticationMethod = {
     /**
      * Basic Client Authentication method.
@@ -206,6 +231,10 @@ export const ContentFormat = {
      * The OpenAPI 3.0 JSON document is hosted on a publicly accessible internet address.
      */
     Openapi_json_link: "openapi+json-link",
+    /**
+     * The GraphQL API endpoint hosted on a publicly accessible internet address.
+     */
+    Graphql_link: "graphql-link",
 } as const;
 
 /**
@@ -396,22 +425,6 @@ export const PolicyContentFormat = {
  */
 export type PolicyContentFormat = (typeof PolicyContentFormat)[keyof typeof PolicyContentFormat];
 
-export const PolicyFragmentContentFormat = {
-    /**
-     * The contents are inline and Content type is an XML document.
-     */
-    Xml: "xml",
-    /**
-     * The contents are inline and Content type is a non XML encoded policy document.
-     */
-    Rawxml: "rawxml",
-} as const;
-
-/**
- * Format of the policy fragment content.
- */
-export type PolicyFragmentContentFormat = (typeof PolicyFragmentContentFormat)[keyof typeof PolicyFragmentContentFormat];
-
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
@@ -436,6 +449,8 @@ export type ProductState = (typeof ProductState)[keyof typeof ProductState];
 export const Protocol = {
     Http: "http",
     Https: "https",
+    Ws: "ws",
+    Wss: "wss",
 } as const;
 
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
@@ -448,6 +463,16 @@ export const ProvisioningState = {
  * Provisioning state.
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SamplingType = {
     /**
@@ -515,15 +540,25 @@ export const SoapApiType = {
      */
     SoapToRest: "http",
     /**
-     * Imports the Soap API having a SOAP front end.
+     * Imports the SOAP API having a SOAP front end.
      */
     SoapPassThrough: "soap",
+    /**
+     * Imports the API having a Websocket front end.
+     */
+    WebSocket: "websocket",
+    /**
+     * Imports the API having a GraphQL front end.
+     */
+    GraphQL: "graphql",
 } as const;
 
 /**
- * Type of Api to create. 
- *  * `http` creates a SOAP to REST API 
- *  * `soap` creates a SOAP pass-through API .
+ * Type of API to create. 
+ *  * `http` creates a REST API 
+ *  * `soap` creates a SOAP pass-through API  
+ *  * `websocket` creates websocket API 
+ *  * `graphql` creates GraphQL API.
  */
 export type SoapApiType = (typeof SoapApiType)[keyof typeof SoapApiType];
 

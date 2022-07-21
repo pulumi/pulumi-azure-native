@@ -1714,6 +1714,16 @@ const (
 	DatabaseTypePostgreSql = DatabaseType("PostgreSql")
 )
 
+// State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+type EnterpriseGradeCdnStatus string
+
+const (
+	EnterpriseGradeCdnStatusEnabled   = EnterpriseGradeCdnStatus("Enabled")
+	EnterpriseGradeCdnStatusEnabling  = EnterpriseGradeCdnStatus("Enabling")
+	EnterpriseGradeCdnStatusDisabled  = EnterpriseGradeCdnStatus("Disabled")
+	EnterpriseGradeCdnStatusDisabling = EnterpriseGradeCdnStatus("Disabling")
+)
+
 // The convention used to determine the url of the request made.
 type ForwardProxyConvention string
 

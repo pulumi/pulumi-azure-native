@@ -13,9 +13,11 @@ from ._enums import *
 __all__ = [
     'AacAudioResponse',
     'AbsoluteClipTimeResponse',
+    'AccessControlResponse',
     'AccountEncryptionResponse',
     'AkamaiAccessControlResponse',
     'AkamaiSignatureHeaderAuthenticationKeyResponse',
+    'ArmStreamingEndpointCurrentSkuResponse',
     'AssetFileEncryptionMetadataResponse',
     'AssetStreamingLocatorResponse',
     'AudioAnalyzerPresetResponse',
@@ -85,6 +87,7 @@ __all__ = [
     'JpgFormatResponse',
     'JpgImageResponse',
     'JpgLayerResponse',
+    'KeyDeliveryResponse',
     'KeyVaultPropertiesResponse',
     'LiveEventEncodingResponse',
     'LiveEventEndpointResponse',
@@ -95,13 +98,6 @@ __all__ = [
     'LiveEventPreviewAccessControlResponse',
     'LiveEventPreviewResponse',
     'LiveEventTranscriptionResponse',
-    'MediaGraphAssetSinkResponse',
-    'MediaGraphClearEndpointResponse',
-    'MediaGraphPemCertificateListResponse',
-    'MediaGraphRtspSourceResponse',
-    'MediaGraphTlsEndpointResponse',
-    'MediaGraphTlsValidationOptionsResponse',
-    'MediaGraphUsernamePasswordCredentialsResponse',
     'MediaServiceIdentityResponse',
     'Mp4FormatResponse',
     'MultiBitrateFormatResponse',
@@ -111,9 +107,12 @@ __all__ = [
     'PngImageResponse',
     'PngLayerResponse',
     'PresentationTimeRangeResponse',
+    'PresetConfigurationsResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'RectangleResponse',
+    'ResourceIdentityResponse',
     'SelectAudioTrackByAttributeResponse',
     'SelectAudioTrackByIdResponse',
     'SelectVideoTrackByAttributeResponse',
@@ -134,6 +133,7 @@ __all__ = [
     'TrackSelectionResponse',
     'TransformOutputResponse',
     'TransportStreamFormatResponse',
+    'UserAssignedManagedIdentityResponse',
     'UtcClipTimeResponse',
     'VideoAnalyzerPresetResponse',
     'VideoOverlayResponse',
@@ -298,6 +298,56 @@ class AbsoluteClipTimeResponse(dict):
 
 
 @pulumi.output_type
+class AccessControlResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipAllowList":
+            suggest = "ip_allow_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessControlResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessControlResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessControlResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_action: Optional[str] = None,
+                 ip_allow_list: Optional[Sequence[str]] = None):
+        """
+        :param str default_action: The behavior for IP access control in Key Delivery.
+        :param Sequence[str] ip_allow_list: The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+        """
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_allow_list is not None:
+            pulumi.set(__self__, "ip_allow_list", ip_allow_list)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        The behavior for IP access control in Key Delivery.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipAllowList")
+    def ip_allow_list(self) -> Optional[Sequence[str]]:
+        """
+        The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+        """
+        return pulumi.get(self, "ip_allow_list")
+
+
+@pulumi.output_type
 class AccountEncryptionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -317,15 +367,30 @@ class AccountEncryptionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 status: str,
                  type: str,
+                 identity: Optional['outputs.ResourceIdentityResponse'] = None,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
+        :param str status: The current status of the Key Vault mapping.
         :param str type: The type of key used to encrypt the Account Key.
+        :param 'ResourceIdentityResponse' identity: The Key Vault identity.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: The properties of the key used to encrypt the account.
         """
+        pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "type", type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The current status of the Key Vault mapping.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -334,6 +399,14 @@ class AccountEncryptionResponse(dict):
         The type of key used to encrypt the Account Key.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+        """
+        The Key Vault identity.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -446,6 +519,40 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
         identifier of the key
         """
         return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class ArmStreamingEndpointCurrentSkuResponse(dict):
+    """
+    The streaming endpoint current sku.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None):
+        """
+        The streaming endpoint current sku.
+        :param str name: The streaming endpoint sku name.
+        :param int capacity: The streaming endpoint sku capacity.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The streaming endpoint sku name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The streaming endpoint sku capacity.
+        """
+        return pulumi.get(self, "capacity")
 
 
 @pulumi.output_type
@@ -1007,15 +1114,19 @@ class BuiltInStandardEncoderPresetResponse(dict):
 
     def __init__(__self__, *,
                  odata_type: str,
-                 preset_name: str):
+                 preset_name: str,
+                 configurations: Optional['outputs.PresetConfigurationsResponse'] = None):
         """
         Describes a built-in preset for encoding the input video with the Standard Encoder.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
         :param str preset_name: The built-in preset to be used for encoding videos.
+        :param 'PresetConfigurationsResponse' configurations: Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
         pulumi.set(__self__, "preset_name", preset_name)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1033,6 +1144,14 @@ class BuiltInStandardEncoderPresetResponse(dict):
         The built-in preset to be used for encoding videos.
         """
         return pulumi.get(self, "preset_name")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional['outputs.PresetConfigurationsResponse']:
+        """
+        Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
+        """
+        return pulumi.get(self, "configurations")
 
 
 @pulumi.output_type
@@ -3579,9 +3698,7 @@ class H264LayerResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-        elif key == "adaptiveBFrame":
+        if key == "adaptiveBFrame":
             suggest = "adaptive_b_frame"
         elif key == "bFrames":
             suggest = "b_frames"
@@ -3609,10 +3726,10 @@ class H264LayerResponse(dict):
 
     def __init__(__self__, *,
                  bitrate: int,
-                 odata_type: str,
                  adaptive_b_frame: Optional[bool] = None,
                  b_frames: Optional[int] = None,
                  buffer_window: Optional[str] = None,
+                 crf: Optional[float] = None,
                  entropy_mode: Optional[str] = None,
                  frame_rate: Optional[str] = None,
                  height: Optional[str] = None,
@@ -3626,11 +3743,10 @@ class H264LayerResponse(dict):
         """
         Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
         :param int bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.H264Layer'.
         :param bool adaptive_b_frame: Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
         :param int b_frames: The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
         :param str buffer_window: The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+        :param float crf: The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 23.
         :param str entropy_mode: The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         :param str frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
@@ -3643,13 +3759,14 @@ class H264LayerResponse(dict):
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
         pulumi.set(__self__, "bitrate", bitrate)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H264Layer')
         if adaptive_b_frame is not None:
             pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
         if b_frames is not None:
             pulumi.set(__self__, "b_frames", b_frames)
         if buffer_window is not None:
             pulumi.set(__self__, "buffer_window", buffer_window)
+        if crf is not None:
+            pulumi.set(__self__, "crf", crf)
         if entropy_mode is not None:
             pulumi.set(__self__, "entropy_mode", entropy_mode)
         if frame_rate is not None:
@@ -3680,15 +3797,6 @@ class H264LayerResponse(dict):
         return pulumi.get(self, "bitrate")
 
     @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.H264Layer'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
     @pulumi.getter(name="adaptiveBFrame")
     def adaptive_b_frame(self) -> Optional[bool]:
         """
@@ -3711,6 +3819,14 @@ class H264LayerResponse(dict):
         The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
         """
         return pulumi.get(self, "buffer_window")
+
+    @property
+    @pulumi.getter
+    def crf(self) -> Optional[float]:
+        """
+        The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 23.
+        """
+        return pulumi.get(self, "crf")
 
     @property
     @pulumi.getter(name="entropyMode")
@@ -3805,6 +3921,8 @@ class H264VideoResponse(dict):
             suggest = "odata_type"
         elif key == "keyFrameInterval":
             suggest = "key_frame_interval"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
         elif key == "sceneChangeDetection":
             suggest = "scene_change_detection"
         elif key == "stretchMode":
@@ -3829,6 +3947,7 @@ class H264VideoResponse(dict):
                  key_frame_interval: Optional[str] = None,
                  label: Optional[str] = None,
                  layers: Optional[Sequence['outputs.H264LayerResponse']] = None,
+                 rate_control_mode: Optional[str] = None,
                  scene_change_detection: Optional[bool] = None,
                  stretch_mode: Optional[str] = None,
                  sync_mode: Optional[str] = None):
@@ -3840,6 +3959,7 @@ class H264VideoResponse(dict):
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         :param Sequence['H264LayerResponse'] layers: The collection of output H.264 layers to be produced by the encoder.
+        :param str rate_control_mode: The video rate control mode
         :param bool scene_change_detection: Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
@@ -3853,6 +3973,8 @@ class H264VideoResponse(dict):
             pulumi.set(__self__, "label", label)
         if layers is not None:
             pulumi.set(__self__, "layers", layers)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
         if scene_change_detection is not None:
             pulumi.set(__self__, "scene_change_detection", scene_change_detection)
         if stretch_mode is not None:
@@ -3902,6 +4024,14 @@ class H264VideoResponse(dict):
         return pulumi.get(self, "layers")
 
     @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The video rate control mode
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @property
     @pulumi.getter(name="sceneChangeDetection")
     def scene_change_detection(self) -> Optional[bool]:
         """
@@ -3934,9 +4064,7 @@ class H265LayerResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-        elif key == "adaptiveBFrame":
+        if key == "adaptiveBFrame":
             suggest = "adaptive_b_frame"
         elif key == "bFrames":
             suggest = "b_frames"
@@ -3962,10 +4090,10 @@ class H265LayerResponse(dict):
 
     def __init__(__self__, *,
                  bitrate: int,
-                 odata_type: str,
                  adaptive_b_frame: Optional[bool] = None,
                  b_frames: Optional[int] = None,
                  buffer_window: Optional[str] = None,
+                 crf: Optional[float] = None,
                  frame_rate: Optional[str] = None,
                  height: Optional[str] = None,
                  label: Optional[str] = None,
@@ -3978,11 +4106,10 @@ class H265LayerResponse(dict):
         """
         Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.265 video codec.
         :param int bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer. For example: a target bitrate of 3000Kbps or 3Mbps means this value should be 3000000 This is a required field.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.H265Layer'.
         :param bool adaptive_b_frame: Specifies whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
         :param int b_frames: The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
         :param str buffer_window: The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+        :param float crf: The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 28.
         :param str frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
         :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
@@ -3994,13 +4121,14 @@ class H265LayerResponse(dict):
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
         pulumi.set(__self__, "bitrate", bitrate)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H265Layer')
         if adaptive_b_frame is not None:
             pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
         if b_frames is not None:
             pulumi.set(__self__, "b_frames", b_frames)
         if buffer_window is not None:
             pulumi.set(__self__, "buffer_window", buffer_window)
+        if crf is not None:
+            pulumi.set(__self__, "crf", crf)
         if frame_rate is not None:
             pulumi.set(__self__, "frame_rate", frame_rate)
         if height is not None:
@@ -4029,15 +4157,6 @@ class H265LayerResponse(dict):
         return pulumi.get(self, "bitrate")
 
     @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.H265Layer'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
     @pulumi.getter(name="adaptiveBFrame")
     def adaptive_b_frame(self) -> Optional[bool]:
         """
@@ -4060,6 +4179,14 @@ class H265LayerResponse(dict):
         The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
         """
         return pulumi.get(self, "buffer_window")
+
+    @property
+    @pulumi.getter
+    def crf(self) -> Optional[float]:
+        """
+        The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 28.
+        """
+        return pulumi.get(self, "crf")
 
     @property
     @pulumi.getter(name="frameRate")
@@ -4831,7 +4958,7 @@ class JobInputAssetResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputAsset'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-        :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         :param Sequence[Union['FromAllInputFileResponse', 'FromEachInputFileResponse', 'InputFileResponse']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
@@ -4878,7 +5005,7 @@ class JobInputAssetResponse(dict):
     @pulumi.getter
     def files(self) -> Optional[Sequence[str]]:
         """
-        List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         """
         return pulumi.get(self, "files")
 
@@ -4943,7 +5070,7 @@ class JobInputClipResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputClip'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-        :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         :param Sequence[Union['FromAllInputFileResponse', 'FromEachInputFileResponse', 'InputFileResponse']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
@@ -4981,7 +5108,7 @@ class JobInputClipResponse(dict):
     @pulumi.getter
     def files(self) -> Optional[Sequence[str]]:
         """
-        List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         """
         return pulumi.get(self, "files")
 
@@ -5048,9 +5175,9 @@ class JobInputHttpResponse(dict):
         Represents HTTPS job input.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputHttp'.
-        :param str base_uri: Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+        :param str base_uri: Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters. The query strings will not be returned in service responses to prevent sensitive data exposure.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-        :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param Sequence[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         :param Sequence[Union['FromAllInputFileResponse', 'FromEachInputFileResponse', 'InputFileResponse']] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
@@ -5082,7 +5209,7 @@ class JobInputHttpResponse(dict):
     @pulumi.getter(name="baseUri")
     def base_uri(self) -> Optional[str]:
         """
-        Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+        Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters. The query strings will not be returned in service responses to prevent sensitive data exposure.
         """
         return pulumi.get(self, "base_uri")
 
@@ -5098,7 +5225,7 @@ class JobInputHttpResponse(dict):
     @pulumi.getter
     def files(self) -> Optional[Sequence[str]]:
         """
-        List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         """
         return pulumi.get(self, "files")
 
@@ -5249,6 +5376,8 @@ class JobOutputAssetResponse(dict):
             suggest = "odata_type"
         elif key == "startTime":
             suggest = "start_time"
+        elif key == "presetOverride":
+            suggest = "preset_override"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in JobOutputAssetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -5269,7 +5398,8 @@ class JobOutputAssetResponse(dict):
                  progress: int,
                  start_time: str,
                  state: str,
-                 label: Optional[str] = None):
+                 label: Optional[str] = None,
+                 preset_override: Optional[Any] = None):
         """
         Represents an Asset used as a JobOutput.
         :param str asset_name: The name of the output Asset.
@@ -5281,6 +5411,7 @@ class JobOutputAssetResponse(dict):
         :param str start_time: The UTC date and time at which this Job Output began processing.
         :param str state: Describes the state of the JobOutput.
         :param str label: A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+        :param Union['AudioAnalyzerPresetResponse', 'BuiltInStandardEncoderPresetResponse', 'FaceDetectorPresetResponse', 'StandardEncoderPresetResponse', 'VideoAnalyzerPresetResponse'] preset_override: A preset used to override the preset in the corresponding transform output.
         """
         pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "end_time", end_time)
@@ -5291,6 +5422,8 @@ class JobOutputAssetResponse(dict):
         pulumi.set(__self__, "state", state)
         if label is not None:
             pulumi.set(__self__, "label", label)
+        if preset_override is not None:
+            pulumi.set(__self__, "preset_override", preset_override)
 
     @property
     @pulumi.getter(name="assetName")
@@ -5356,6 +5489,14 @@ class JobOutputAssetResponse(dict):
         A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
         """
         return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="presetOverride")
+    def preset_override(self) -> Optional[Any]:
+        """
+        A preset used to override the preset in the corresponding transform output.
+        """
+        return pulumi.get(self, "preset_override")
 
 
 @pulumi.output_type
@@ -5573,39 +5714,18 @@ class JpgLayerResponse(dict):
     """
     Describes the settings to produce a JPEG image from the input video.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JpgLayerResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JpgLayerResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JpgLayerResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 odata_type: str,
                  height: Optional[str] = None,
                  label: Optional[str] = None,
                  quality: Optional[int] = None,
                  width: Optional[str] = None):
         """
         Describes the settings to produce a JPEG image from the input video.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.JpgLayer'.
         :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
         :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param int quality: The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JpgLayer')
         if height is not None:
             pulumi.set(__self__, "height", height)
         if label is not None:
@@ -5614,15 +5734,6 @@ class JpgLayerResponse(dict):
             pulumi.set(__self__, "quality", quality)
         if width is not None:
             pulumi.set(__self__, "width", width)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.JpgLayer'.
-        """
-        return pulumi.get(self, "odata_type")
 
     @property
     @pulumi.getter
@@ -5655,6 +5766,42 @@ class JpgLayerResponse(dict):
         The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class KeyDeliveryResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControl":
+            suggest = "access_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyDeliveryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyDeliveryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyDeliveryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_control: Optional['outputs.AccessControlResponse'] = None):
+        """
+        :param 'AccessControlResponse' access_control: The access control properties for Key Delivery.
+        """
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional['outputs.AccessControlResponse']:
+        """
+        The access control properties for Key Delivery.
+        """
+        return pulumi.get(self, "access_control")
 
 
 @pulumi.output_type
@@ -5741,7 +5888,7 @@ class LiveEventEncodingResponse(dict):
                  stretch_mode: Optional[str] = None):
         """
         Specifies the live event type and optional encoding settings for encoding live events.
-        :param str encoding_type: Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        :param str encoding_type: Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         :param str key_frame_interval: Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
         :param str preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
         :param str stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
@@ -5759,7 +5906,7 @@ class LiveEventEncodingResponse(dict):
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> Optional[str]:
         """
-        Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         """
         return pulumi.get(self, "encoding_type")
 
@@ -6209,479 +6356,6 @@ class LiveEventTranscriptionResponse(dict):
 
 
 @pulumi.output_type
-class MediaGraphAssetSinkResponse(dict):
-    """
-    Asset sink.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "assetName":
-            suggest = "asset_name"
-        elif key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphAssetSinkResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphAssetSinkResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphAssetSinkResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 asset_name: str,
-                 inputs: Sequence[str],
-                 name: str,
-                 odata_type: str):
-        """
-        Asset sink.
-        :param str asset_name: Asset name.
-        :param Sequence[str] inputs: Sink inputs.
-        :param str name: Sink name.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-        """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphAssetSink')
-
-    @property
-    @pulumi.getter(name="assetName")
-    def asset_name(self) -> str:
-        """
-        Asset name.
-        """
-        return pulumi.get(self, "asset_name")
-
-    @property
-    @pulumi.getter
-    def inputs(self) -> Sequence[str]:
-        """
-        Sink inputs.
-        """
-        return pulumi.get(self, "inputs")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Sink name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-        """
-        return pulumi.get(self, "odata_type")
-
-
-@pulumi.output_type
-class MediaGraphClearEndpointResponse(dict):
-    """
-    An endpoint to connect to with no encryption in transit.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphClearEndpointResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphClearEndpointResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphClearEndpointResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 odata_type: str,
-                 url: str,
-                 credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse'] = None):
-        """
-        An endpoint to connect to with no encryption in transit.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-        :param str url: Url for the endpoint.
-        :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
-        """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
-        pulumi.set(__self__, "url", url)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
-    @pulumi.getter
-    def url(self) -> str:
-        """
-        Url for the endpoint.
-        """
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse']:
-        """
-        Polymorphic credentials to present to the endpoint.
-        """
-        return pulumi.get(self, "credentials")
-
-
-@pulumi.output_type
-class MediaGraphPemCertificateListResponse(dict):
-    """
-    A list of PEM formatted certificates.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphPemCertificateListResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphPemCertificateListResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphPemCertificateListResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 certificates: Sequence[str],
-                 odata_type: str):
-        """
-        A list of PEM formatted certificates.
-        :param Sequence[str] certificates: PEM formatted public certificates, one per entry.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-        """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
-
-    @property
-    @pulumi.getter
-    def certificates(self) -> Sequence[str]:
-        """
-        PEM formatted public certificates, one per entry.
-        """
-        return pulumi.get(self, "certificates")
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-        """
-        return pulumi.get(self, "odata_type")
-
-
-@pulumi.output_type
-class MediaGraphRtspSourceResponse(dict):
-    """
-    RTSP source.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphRtspSourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphRtspSourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphRtspSourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 endpoint: Any,
-                 name: str,
-                 odata_type: str,
-                 transport: str):
-        """
-        RTSP source.
-        :param Union['MediaGraphClearEndpointResponse', 'MediaGraphTlsEndpointResponse'] endpoint: RTSP endpoint of the stream being connected to.
-        :param str name: Source name.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-        :param str transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-        """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
-        pulumi.set(__self__, "transport", transport)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Any:
-        """
-        RTSP endpoint of the stream being connected to.
-        """
-        return pulumi.get(self, "endpoint")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Source name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
-    @pulumi.getter
-    def transport(self) -> str:
-        """
-        Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-        """
-        return pulumi.get(self, "transport")
-
-
-@pulumi.output_type
-class MediaGraphTlsEndpointResponse(dict):
-    """
-    An endpoint which must be connected over TLS/SSL.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-        elif key == "trustedCertificates":
-            suggest = "trusted_certificates"
-        elif key == "validationOptions":
-            suggest = "validation_options"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphTlsEndpointResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphTlsEndpointResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphTlsEndpointResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 odata_type: str,
-                 url: str,
-                 credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse'] = None,
-                 trusted_certificates: Optional['outputs.MediaGraphPemCertificateListResponse'] = None,
-                 validation_options: Optional['outputs.MediaGraphTlsValidationOptionsResponse'] = None):
-        """
-        An endpoint which must be connected over TLS/SSL.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-        :param str url: Url for the endpoint.
-        :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
-        :param 'MediaGraphPemCertificateListResponse' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-        :param 'MediaGraphTlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-        """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
-        pulumi.set(__self__, "url", url)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
-        if trusted_certificates is not None:
-            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
-        if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
-    @pulumi.getter
-    def url(self) -> str:
-        """
-        Url for the endpoint.
-        """
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse']:
-        """
-        Polymorphic credentials to present to the endpoint.
-        """
-        return pulumi.get(self, "credentials")
-
-    @property
-    @pulumi.getter(name="trustedCertificates")
-    def trusted_certificates(self) -> Optional['outputs.MediaGraphPemCertificateListResponse']:
-        """
-        What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-        """
-        return pulumi.get(self, "trusted_certificates")
-
-    @property
-    @pulumi.getter(name="validationOptions")
-    def validation_options(self) -> Optional['outputs.MediaGraphTlsValidationOptionsResponse']:
-        """
-        Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-        """
-        return pulumi.get(self, "validation_options")
-
-
-@pulumi.output_type
-class MediaGraphTlsValidationOptionsResponse(dict):
-    """
-    Options for controlling the authentication of TLS endpoints.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ignoreHostname":
-            suggest = "ignore_hostname"
-        elif key == "ignoreSignature":
-            suggest = "ignore_signature"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphTlsValidationOptionsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphTlsValidationOptionsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphTlsValidationOptionsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ignore_hostname: bool,
-                 ignore_signature: bool):
-        """
-        Options for controlling the authentication of TLS endpoints.
-        :param bool ignore_hostname: Ignore the host name (common name) during validation.
-        :param bool ignore_signature: Ignore the integrity of the certificate chain at the current time.
-        """
-        pulumi.set(__self__, "ignore_hostname", ignore_hostname)
-        pulumi.set(__self__, "ignore_signature", ignore_signature)
-
-    @property
-    @pulumi.getter(name="ignoreHostname")
-    def ignore_hostname(self) -> bool:
-        """
-        Ignore the host name (common name) during validation.
-        """
-        return pulumi.get(self, "ignore_hostname")
-
-    @property
-    @pulumi.getter(name="ignoreSignature")
-    def ignore_signature(self) -> bool:
-        """
-        Ignore the integrity of the certificate chain at the current time.
-        """
-        return pulumi.get(self, "ignore_signature")
-
-
-@pulumi.output_type
-class MediaGraphUsernamePasswordCredentialsResponse(dict):
-    """
-    Username/password credential pair.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaGraphUsernamePasswordCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaGraphUsernamePasswordCredentialsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaGraphUsernamePasswordCredentialsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 odata_type: str,
-                 password: str,
-                 username: str):
-        """
-        Username/password credential pair.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
-        :param str password: Password for a username/password pair.
-        :param str username: Username for a username/password pair.
-        """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        Password for a username/password pair.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        Username for a username/password pair.
-        """
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
 class MediaServiceIdentityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6690,6 +6364,8 @@ class MediaServiceIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MediaServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6705,15 +6381,19 @@ class MediaServiceIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
         :param str principal_id: The Principal ID of the identity.
         :param str tenant_id: The Tenant ID of the identity.
         :param str type: The identity type.
+        :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The user assigned managed identities.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -6738,6 +6418,14 @@ class MediaServiceIdentityResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']]:
+        """
+        The user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -7139,52 +6827,22 @@ class PngLayerResponse(dict):
     """
     Describes the settings to produce a PNG image from the input video.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PngLayerResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PngLayerResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PngLayerResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 odata_type: str,
                  height: Optional[str] = None,
                  label: Optional[str] = None,
                  width: Optional[str] = None):
         """
         Describes the settings to produce a PNG image from the input video.
-        :param str odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.PngLayer'.
         :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
         :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.PngLayer')
         if height is not None:
             pulumi.set(__self__, "height", height)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if width is not None:
             pulumi.set(__self__, "width", width)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.PngLayer'.
-        """
-        return pulumi.get(self, "odata_type")
 
     @property
     @pulumi.getter
@@ -7317,6 +6975,241 @@ class PresentationTimeRangeResponse(dict):
         The time scale of time stamps.
         """
         return pulumi.get(self, "timescale")
+
+
+@pulumi.output_type
+class PresetConfigurationsResponse(dict):
+    """
+    An object of optional configuration settings for encoder.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interleaveOutput":
+            suggest = "interleave_output"
+        elif key == "keyFrameIntervalInSeconds":
+            suggest = "key_frame_interval_in_seconds"
+        elif key == "maxBitrateBps":
+            suggest = "max_bitrate_bps"
+        elif key == "maxHeight":
+            suggest = "max_height"
+        elif key == "maxLayers":
+            suggest = "max_layers"
+        elif key == "minBitrateBps":
+            suggest = "min_bitrate_bps"
+        elif key == "minHeight":
+            suggest = "min_height"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PresetConfigurationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PresetConfigurationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PresetConfigurationsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 complexity: Optional[str] = None,
+                 interleave_output: Optional[str] = None,
+                 key_frame_interval_in_seconds: Optional[float] = None,
+                 max_bitrate_bps: Optional[int] = None,
+                 max_height: Optional[int] = None,
+                 max_layers: Optional[int] = None,
+                 min_bitrate_bps: Optional[int] = None,
+                 min_height: Optional[int] = None):
+        """
+        An object of optional configuration settings for encoder.
+        :param str complexity: Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+        :param str interleave_output: Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+        :param float key_frame_interval_in_seconds: The key frame interval in seconds. Example: set KeyFrameIntervalInSeconds as 2 to reduce the playback buffering for some players.
+        :param int max_bitrate_bps: The maximum bitrate in bits per second (threshold for the top video layer). Example: set MaxBitrateBps as 6000000 to avoid producing very high bitrate outputs for contents with high complexity.
+        :param int max_height: The maximum height of output video layers. Example: set MaxHeight as 720 to produce output layers up to 720P even if the input is 4K.
+        :param int max_layers: The maximum number of output video layers. Example: set MaxLayers as 4 to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+        :param int min_bitrate_bps: The minimum bitrate in bits per second (threshold for the bottom video layer). Example: set MinBitrateBps as 200000 to have a bottom layer that covers users with low network bandwidth.
+        :param int min_height: The minimum height of output video layers. Example: set MinHeight as 360 to avoid output layers of smaller resolutions like 180P.
+        """
+        if complexity is not None:
+            pulumi.set(__self__, "complexity", complexity)
+        if interleave_output is not None:
+            pulumi.set(__self__, "interleave_output", interleave_output)
+        if key_frame_interval_in_seconds is not None:
+            pulumi.set(__self__, "key_frame_interval_in_seconds", key_frame_interval_in_seconds)
+        if max_bitrate_bps is not None:
+            pulumi.set(__self__, "max_bitrate_bps", max_bitrate_bps)
+        if max_height is not None:
+            pulumi.set(__self__, "max_height", max_height)
+        if max_layers is not None:
+            pulumi.set(__self__, "max_layers", max_layers)
+        if min_bitrate_bps is not None:
+            pulumi.set(__self__, "min_bitrate_bps", min_bitrate_bps)
+        if min_height is not None:
+            pulumi.set(__self__, "min_height", min_height)
+
+    @property
+    @pulumi.getter
+    def complexity(self) -> Optional[str]:
+        """
+        Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+        """
+        return pulumi.get(self, "complexity")
+
+    @property
+    @pulumi.getter(name="interleaveOutput")
+    def interleave_output(self) -> Optional[str]:
+        """
+        Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+        """
+        return pulumi.get(self, "interleave_output")
+
+    @property
+    @pulumi.getter(name="keyFrameIntervalInSeconds")
+    def key_frame_interval_in_seconds(self) -> Optional[float]:
+        """
+        The key frame interval in seconds. Example: set KeyFrameIntervalInSeconds as 2 to reduce the playback buffering for some players.
+        """
+        return pulumi.get(self, "key_frame_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="maxBitrateBps")
+    def max_bitrate_bps(self) -> Optional[int]:
+        """
+        The maximum bitrate in bits per second (threshold for the top video layer). Example: set MaxBitrateBps as 6000000 to avoid producing very high bitrate outputs for contents with high complexity.
+        """
+        return pulumi.get(self, "max_bitrate_bps")
+
+    @property
+    @pulumi.getter(name="maxHeight")
+    def max_height(self) -> Optional[int]:
+        """
+        The maximum height of output video layers. Example: set MaxHeight as 720 to produce output layers up to 720P even if the input is 4K.
+        """
+        return pulumi.get(self, "max_height")
+
+    @property
+    @pulumi.getter(name="maxLayers")
+    def max_layers(self) -> Optional[int]:
+        """
+        The maximum number of output video layers. Example: set MaxLayers as 4 to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+        """
+        return pulumi.get(self, "max_layers")
+
+    @property
+    @pulumi.getter(name="minBitrateBps")
+    def min_bitrate_bps(self) -> Optional[int]:
+        """
+        The minimum bitrate in bits per second (threshold for the bottom video layer). Example: set MinBitrateBps as 200000 to have a bottom layer that covers users with low network bandwidth.
+        """
+        return pulumi.get(self, "min_bitrate_bps")
+
+    @property
+    @pulumi.getter(name="minHeight")
+    def min_height(self) -> Optional[int]:
+        """
+        The minimum height of output video layers. Example: set MinHeight as 360 to avoid output layers of smaller resolutions like 180P.
+        """
+        return pulumi.get(self, "min_height")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type
@@ -7462,6 +7355,55 @@ class RectangleResponse(dict):
         The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
         """
         return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class ResourceIdentityResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSystemAssignedIdentity":
+            suggest = "use_system_assigned_identity"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_system_assigned_identity: bool,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        :param bool use_system_assigned_identity: Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+        :param str user_assigned_identity: The user assigned managed identity's ARM ID to use when accessing a resource.
+        """
+        pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> bool:
+        """
+        Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user assigned managed identity's ARM ID to use when accessing a resource.
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type
@@ -7835,16 +7777,31 @@ class StorageAccountResponse(dict):
     The storage account details.
     """
     def __init__(__self__, *,
+                 status: str,
                  type: str,
-                 id: Optional[str] = None):
+                 id: Optional[str] = None,
+                 identity: Optional['outputs.ResourceIdentityResponse'] = None):
         """
         The storage account details.
+        :param str status: The current status of the storage account mapping.
         :param str type: The type of the storage account.
         :param str id: The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+        :param 'ResourceIdentityResponse' identity: The storage account identity.
         """
+        pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The current status of the storage account mapping.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -7861,6 +7818,14 @@ class StorageAccountResponse(dict):
         The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+        """
+        The storage account identity.
+        """
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -8742,6 +8707,54 @@ class TransportStreamFormatResponse(dict):
         The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         return pulumi.get(self, "output_files")
+
+
+@pulumi.output_type
+class UserAssignedManagedIdentityResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client ID.
+        :param str principal_id: The principal ID.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

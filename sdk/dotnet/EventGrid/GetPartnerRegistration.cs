@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Information about a partner registration.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about a partner registration.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());
@@ -70,17 +70,6 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPartnerRegistrationResult
     {
         /// <summary>
-        /// List of Azure subscription Ids that are authorized to create a partner namespace
-        /// associated with this partner registration. This is an optional property. Creating
-        /// partner namespaces is always permitted under the same Azure subscription as the one used
-        /// for creating the partner registration.
-        /// </summary>
-        public readonly ImmutableArray<string> AuthorizedAzureSubscriptionIds;
-        /// <summary>
-        /// The extension of the customer service URI of the publisher.
-        /// </summary>
-        public readonly string? CustomerServiceUri;
-        /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -89,54 +78,18 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// URI of the logo.
-        /// </summary>
-        public readonly string? LogoUri;
-        /// <summary>
-        /// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-        /// Length of this description should not exceed 2048 characters.
-        /// </summary>
-        public readonly string? LongDescription;
-        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+        /// The immutableId of the corresponding partner registration.
+        /// Note: This property is marked for deprecation and is not supported in any future GA API version
         /// </summary>
-        public readonly string? PartnerCustomerServiceExtension;
-        /// <summary>
-        /// The customer service number of the publisher. The expected phone format should start with a '+' sign 
-        /// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-        /// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-        /// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-        /// </summary>
-        public readonly string? PartnerCustomerServiceNumber;
-        /// <summary>
-        /// Official name of the partner name. For example: "Contoso".
-        /// </summary>
-        public readonly string? PartnerName;
-        /// <summary>
-        /// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-        /// </summary>
-        public readonly string? PartnerResourceTypeDescription;
-        /// <summary>
-        /// Display name of the partner resource type.
-        /// </summary>
-        public readonly string? PartnerResourceTypeDisplayName;
-        /// <summary>
-        /// Name of the partner resource type.
-        /// </summary>
-        public readonly string? PartnerResourceTypeName;
+        public readonly string? PartnerRegistrationImmutableId;
         /// <summary>
         /// Provisioning state of the partner registration.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// URI of the partner website that can be used by Azure customers to setup Event Grid
-        /// integration on an event source.
-        /// </summary>
-        public readonly string? SetupUri;
         /// <summary>
         /// The system metadata relating to Partner Registration resource.
         /// </summary>
@@ -149,70 +102,33 @@ namespace Pulumi.AzureNative.EventGrid
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Visibility state of the partner registration.
-        /// </summary>
-        public readonly string? VisibilityState;
 
         [OutputConstructor]
         private GetPartnerRegistrationResult(
-            ImmutableArray<string> authorizedAzureSubscriptionIds,
-
-            string? customerServiceUri,
-
             string id,
 
             string location,
 
-            string? logoUri,
-
-            string? longDescription,
-
             string name,
 
-            string? partnerCustomerServiceExtension,
-
-            string? partnerCustomerServiceNumber,
-
-            string? partnerName,
-
-            string? partnerResourceTypeDescription,
-
-            string? partnerResourceTypeDisplayName,
-
-            string? partnerResourceTypeName,
+            string? partnerRegistrationImmutableId,
 
             string provisioningState,
-
-            string? setupUri,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? visibilityState)
+            string type)
         {
-            AuthorizedAzureSubscriptionIds = authorizedAzureSubscriptionIds;
-            CustomerServiceUri = customerServiceUri;
             Id = id;
             Location = location;
-            LogoUri = logoUri;
-            LongDescription = longDescription;
             Name = name;
-            PartnerCustomerServiceExtension = partnerCustomerServiceExtension;
-            PartnerCustomerServiceNumber = partnerCustomerServiceNumber;
-            PartnerName = partnerName;
-            PartnerResourceTypeDescription = partnerResourceTypeDescription;
-            PartnerResourceTypeDisplayName = partnerResourceTypeDisplayName;
-            PartnerResourceTypeName = partnerResourceTypeName;
+            PartnerRegistrationImmutableId = partnerRegistrationImmutableId;
             ProvisioningState = provisioningState;
-            SetupUri = setupUri;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VisibilityState = visibilityState;
         }
     }
 }

@@ -11,7 +11,7 @@ import (
 )
 
 // Attached data network resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupAttachedDataNetwork(ctx *pulumi.Context, args *LookupAttachedDataNetworkArgs, opts ...pulumi.InvokeOption) (*LookupAttachedDataNetworkResult, error) {
 	var rv LookupAttachedDataNetworkResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getAttachedDataNetwork", args, &rv, opts...)
@@ -57,6 +57,8 @@ type LookupAttachedDataNetworkResult struct {
 	NaptConfiguration *NaptConfigurationResponse `pulumi:"naptConfiguration"`
 	// The provisioning state of the attached data network resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -180,6 +182,11 @@ func (o LookupAttachedDataNetworkResultOutput) NaptConfiguration() NaptConfigura
 // The provisioning state of the attached data network resource.
 func (o LookupAttachedDataNetworkResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAttachedDataNetworkResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupAttachedDataNetworkResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAttachedDataNetworkResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

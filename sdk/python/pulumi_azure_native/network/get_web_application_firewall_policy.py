@@ -205,7 +205,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebApplicationFirewallPolicyResult:
     """
     Defines web application firewall policy.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str policy_name: The name of the policy.
@@ -243,7 +243,7 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
     """
     Defines web application firewall policy.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str policy_name: The name of the policy.

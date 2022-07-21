@@ -92,7 +92,7 @@ class RegisteredPrefix(pulumi.CustomResource):
                  __props__=None):
         """
         The customer's prefix that is registered by the peering service provider.
-        API Version: 2021-01-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +109,7 @@ class RegisteredPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The customer's prefix that is registered by the peering service provider.
-        API Version: 2021-01-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param RegisteredPrefixArgs args: The arguments to use to populate this resource's properties.

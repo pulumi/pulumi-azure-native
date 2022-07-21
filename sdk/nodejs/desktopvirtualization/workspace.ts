@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Workspace definition.
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-07-12.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

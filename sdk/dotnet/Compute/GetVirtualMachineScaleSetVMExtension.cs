@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Describes a VMSS VM Extension.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a VMSS VM Extension.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMExtensionResult> Invoke(GetVirtualMachineScaleSetVMExtensionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionInvokeArgs(), options.WithDefaults());
@@ -134,6 +134,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly object? ProtectedSettings;
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        public readonly object? ProtectedSettingsFromKeyVault;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -145,6 +149,10 @@ namespace Pulumi.AzureNative.Compute
         /// Json formatted public settings for the extension.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        public readonly bool? SuppressFailures;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -170,11 +178,15 @@ namespace Pulumi.AzureNative.Compute
 
             object? protectedSettings,
 
+            object? protectedSettingsFromKeyVault,
+
             string provisioningState,
 
             string? publisher,
 
             object? settings,
+
+            bool? suppressFailures,
 
             string type,
 
@@ -187,9 +199,11 @@ namespace Pulumi.AzureNative.Compute
             InstanceView = instanceView;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SuppressFailures = suppressFailures;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }

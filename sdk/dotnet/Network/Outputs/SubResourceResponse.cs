@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 {
 
     /// <summary>
-    /// Reference to another ARM resource.
+    /// Reference to another subresource.
     /// </summary>
     [OutputType]
     public sealed class SubResourceResponse

@@ -10,26 +10,22 @@ export * from "./getAssessment";
 export * from "./getGroup";
 export * from "./getHyperVCollector";
 export * from "./getImportCollector";
-export * from "./getMigrateProject";
+export * from "./getMigrateProjectsControllerMigrateProject";
 export * from "./getMoveCollection";
 export * from "./getMoveResource";
-export * from "./getPrivateEndpointConnection";
+export * from "./getPrivateEndpointConnectionControllerPrivateEndpointConnection";
 export * from "./getProject";
-export * from "./getProjectKeys";
 export * from "./getServerCollector";
-export * from "./getSolution";
-export * from "./getSolutionConfig";
 export * from "./getVMwareCollector";
 export * from "./group";
 export * from "./hyperVCollector";
 export * from "./importCollector";
-export * from "./migrateProject";
+export * from "./migrateProjectsControllerMigrateProject";
 export * from "./moveCollection";
 export * from "./moveResource";
-export * from "./privateEndpointConnection";
+export * from "./privateEndpointConnectionControllerPrivateEndpointConnection";
 export * from "./project";
 export * from "./serverCollector";
-export * from "./solution";
 export * from "./vmwareCollector";
 
 // Export enums:
@@ -61,13 +57,12 @@ import { Assessment } from "./assessment";
 import { Group } from "./group";
 import { HyperVCollector } from "./hyperVCollector";
 import { ImportCollector } from "./importCollector";
-import { MigrateProject } from "./migrateProject";
+import { MigrateProjectsControllerMigrateProject } from "./migrateProjectsControllerMigrateProject";
 import { MoveCollection } from "./moveCollection";
 import { MoveResource } from "./moveResource";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { PrivateEndpointConnectionControllerPrivateEndpointConnection } from "./privateEndpointConnectionControllerPrivateEndpointConnection";
 import { Project } from "./project";
 import { ServerCollector } from "./serverCollector";
-import { Solution } from "./solution";
 import { VMwareCollector } from "./vmwareCollector";
 
 const _module = {
@@ -82,20 +77,18 @@ const _module = {
                 return new HyperVCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:ImportCollector":
                 return new ImportCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate:MigrateProject":
-                return new MigrateProject(name, <any>undefined, { urn })
+            case "azure-native:migrate:MigrateProjectsControllerMigrateProject":
+                return new MigrateProjectsControllerMigrateProject(name, <any>undefined, { urn })
             case "azure-native:migrate:MoveCollection":
                 return new MoveCollection(name, <any>undefined, { urn })
             case "azure-native:migrate:MoveResource":
                 return new MoveResource(name, <any>undefined, { urn })
-            case "azure-native:migrate:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection":
+                return new PrivateEndpointConnectionControllerPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:migrate:Project":
                 return new Project(name, <any>undefined, { urn })
             case "azure-native:migrate:ServerCollector":
                 return new ServerCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate:Solution":
-                return new Solution(name, <any>undefined, { urn })
             case "azure-native:migrate:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             default:

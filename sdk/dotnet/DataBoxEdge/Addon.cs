@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Role Addon
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [Obsolete(@"Please use one of the variants: ArcAddon, IoTAddon.")]
     [AzureNativeResourceType("azure-native:databoxedge:Addon")]
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Addon type
+        /// Metadata pertaining to creation and last modification of Addon
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

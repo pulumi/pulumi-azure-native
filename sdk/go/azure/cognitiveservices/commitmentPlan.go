@@ -12,7 +12,7 @@ import (
 )
 
 // Cognitive Services account commitment plan.
-// API Version: 2021-10-01.
+// API Version: 2022-03-01.
 type CommitmentPlan struct {
 	pulumi.CustomResourceState
 

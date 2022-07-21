@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-    /// API Version: 2020-02-14.
+    /// API Version: 2022-02-14.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>
-        /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        /// Maximum duration to wait while building the image template (includes all customizations, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         /// </summary>
         [Output("buildTimeoutInMinutes")]
         public Output<int?> BuildTimeoutInMinutes { get; private set; } = null!;
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Output<ImmutableArray<object>> Distribute { get; private set; } = null!;
 
         /// <summary>
+        /// The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
+        /// </summary>
+        [Output("exactStagingResourceGroup")]
+        public Output<string> ExactStagingResourceGroup { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
         [Output("identity")]
@@ -47,13 +53,13 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Output<Outputs.ImageTemplateLastRunStatusResponse> LastRunStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -77,16 +83,34 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Output<object> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        /// </summary>
+        [Output("stagingResourceGroup")]
+        public Output<string?> StagingResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration options and list of validations to be performed on the resulting image.
+        /// </summary>
+        [Output("validate")]
+        public Output<Outputs.ImageTemplatePropertiesResponseValidate?> Validate { get; private set; } = null!;
 
         /// <summary>
         /// Describes how virtual machine is set up to build images
@@ -149,7 +173,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     public sealed class VirtualMachineImageTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        /// Maximum duration to wait while building the image template (includes all customizations, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         /// </summary>
         [Input("buildTimeoutInMinutes")]
         public Input<int>? BuildTimeoutInMinutes { get; set; }
@@ -191,7 +215,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Input<string>? ImageTemplateName { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -208,17 +232,29 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         [Input("source", required: true)]
         public object Source { get; set; } = null!;
 
+        /// <summary>
+        /// The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        /// </summary>
+        [Input("stagingResourceGroup")]
+        public Input<string>? StagingResourceGroup { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Configuration options and list of validations to be performed on the resulting image.
+        /// </summary>
+        [Input("validate")]
+        public Input<Inputs.ImageTemplatePropertiesValidateArgs>? Validate { get; set; }
 
         /// <summary>
         /// Describes how virtual machine is set up to build images

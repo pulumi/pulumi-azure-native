@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a lab.
- * API Version: 2018-10-15.
+ * The lab resource.
+ * API Version: 2021-11-15-preview.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     if (!opts) {
@@ -16,8 +16,6 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices:getLab", {
-        "expand": args.expand,
-        "labAccountName": args.labAccountName,
         "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,91 +23,87 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
 
 export interface GetLabArgs {
     /**
-     * Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
-     */
-    expand?: string;
-    /**
-     * The name of the lab Account.
-     */
-    labAccountName: string;
-    /**
-     * The name of the lab.
+     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
      */
     labName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * Represents a lab.
+ * The lab resource.
  */
 export interface GetLabResult {
     /**
-     * Object id of the user that created the lab.
+     * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
      */
-    readonly createdByObjectId: string;
+    readonly autoShutdownProfile: outputs.labservices.AutoShutdownProfileResponse;
     /**
-     * Lab creator name
+     * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
      */
-    readonly createdByUserPrincipalName: string;
+    readonly connectionProfile: outputs.labservices.ConnectionProfileResponse;
     /**
-     * Creation date for the lab
+     * The description of the lab.
      */
-    readonly createdDate: string;
+    readonly description?: string;
     /**
-     * The identifier of the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Invitation code that users can use to join a lab.
+     * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
      */
-    readonly invitationCode: string;
+    readonly labPlanId?: string;
     /**
-     * The details of the latest operation. ex: status, error
+     * The geo-location where the resource lives
      */
-    readonly latestOperationResult: outputs.labservices.LatestOperationResultResponse;
+    readonly location: string;
     /**
-     * The location of the resource.
-     */
-    readonly location?: string;
-    /**
-     * Maximum number of users allowed in the lab.
-     */
-    readonly maxUsersInLab?: number;
-    /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
      */
-    readonly provisioningState?: string;
+    readonly networkProfile?: outputs.labservices.LabNetworkProfileResponse;
     /**
-     * The tags of the resource.
+     * Current provisioning state of the lab.
+     */
+    readonly provisioningState: string;
+    /**
+     * The lab user list management profile.
+     */
+    readonly rosterProfile?: outputs.labservices.RosterProfileResponse;
+    /**
+     * The lab security profile.
+     */
+    readonly securityProfile: outputs.labservices.SecurityProfileResponse;
+    /**
+     * The lab state.
+     */
+    readonly state: string;
+    /**
+     * Metadata pertaining to creation and last modification of the lab.
+     */
+    readonly systemData: outputs.labservices.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The title of the lab.
+     */
+    readonly title?: string;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * The unique immutable identifier of a resource (Guid).
+     * The profile used for creating lab virtual machines.
      */
-    readonly uniqueIdentifier?: string;
-    /**
-     * Maximum duration a user can use an environment for in the lab.
-     */
-    readonly usageQuota?: string;
-    /**
-     * Lab user access mode (open to all vs. restricted to those listed on the lab).
-     */
-    readonly userAccessMode?: string;
-    /**
-     * Maximum value MaxUsersInLab can be set to, as specified by the service
-     */
-    readonly userQuota: number;
+    readonly virtualMachineProfile: outputs.labservices.VirtualMachineProfileResponse;
 }
 
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
@@ -118,19 +112,11 @@ export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions
 
 export interface GetLabOutputArgs {
     /**
-     * Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
-     */
-    expand?: pulumi.Input<string>;
-    /**
-     * The name of the lab Account.
-     */
-    labAccountName: pulumi.Input<string>;
-    /**
-     * The name of the lab.
+     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

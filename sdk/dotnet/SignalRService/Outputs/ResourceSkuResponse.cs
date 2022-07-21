@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
 {
 
     /// <summary>
-    /// The billing information of the SignalR resource.
+    /// The billing information of the resource.
     /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {
         /// <summary>
-        /// Optional, integer. The unit count of SignalR resource. 1 by default.
+        /// Optional, integer. The unit count of the resource. 1 by default.
         /// 
         /// If present, following values are allowed:
         ///     Free: 1

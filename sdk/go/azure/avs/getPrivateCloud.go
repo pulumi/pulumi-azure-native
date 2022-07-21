@@ -11,7 +11,7 @@ import (
 )
 
 // A private cloud resource
-// API Version: 2020-03-20.
+// API Version: 2021-12-01.
 func LookupPrivateCloud(ctx *pulumi.Context, args *LookupPrivateCloudArgs, opts ...pulumi.InvokeOption) (*LookupPrivateCloudResult, error) {
 	var rv LookupPrivateCloudResult
 	err := ctx.Invoke("azure-native:avs:getPrivateCloud", args, &rv, opts...)
@@ -30,12 +30,20 @@ type LookupPrivateCloudArgs struct {
 
 // A private cloud resource
 type LookupPrivateCloudResult struct {
+	// Properties describing how the cloud is distributed across availability zones
+	Availability *AvailabilityPropertiesResponse `pulumi:"availability"`
 	// An ExpressRoute Circuit
 	Circuit *CircuitResponse `pulumi:"circuit"`
+	// Customer managed key encryption, can be enabled or disabled
+	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// The endpoints
 	Endpoints EndpointsResponse `pulumi:"endpoints"`
+	// Array of cloud link IDs from other clouds that connect to this one
+	ExternalCloudLinks []string `pulumi:"externalCloudLinks"`
 	// Resource ID.
 	Id string `pulumi:"id"`
+	// The identity of the private cloud, if configured.
+	Identity *PrivateCloudIdentityResponse `pulumi:"identity"`
 	// vCenter Single Sign On Identity Sources
 	IdentitySources []IdentitySourceResponse `pulumi:"identitySources"`
 	// Connectivity to internet is enabled or disabled
@@ -58,6 +66,8 @@ type LookupPrivateCloudResult struct {
 	ProvisioningNetwork string `pulumi:"provisioningNetwork"`
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
+	// A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+	SecondaryCircuit *CircuitResponse `pulumi:"secondaryCircuit"`
 	// The private cloud SKU
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags
@@ -124,9 +134,19 @@ func (o LookupPrivateCloudResultOutput) ToLookupPrivateCloudResultOutputWithCont
 	return o
 }
 
+// Properties describing how the cloud is distributed across availability zones
+func (o LookupPrivateCloudResultOutput) Availability() AvailabilityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateCloudResult) *AvailabilityPropertiesResponse { return v.Availability }).(AvailabilityPropertiesResponsePtrOutput)
+}
+
 // An ExpressRoute Circuit
 func (o LookupPrivateCloudResultOutput) Circuit() CircuitResponsePtrOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) *CircuitResponse { return v.Circuit }).(CircuitResponsePtrOutput)
+}
+
+// Customer managed key encryption, can be enabled or disabled
+func (o LookupPrivateCloudResultOutput) Encryption() EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateCloudResult) *EncryptionResponse { return v.Encryption }).(EncryptionResponsePtrOutput)
 }
 
 // The endpoints
@@ -134,9 +154,19 @@ func (o LookupPrivateCloudResultOutput) Endpoints() EndpointsResponseOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) EndpointsResponse { return v.Endpoints }).(EndpointsResponseOutput)
 }
 
+// Array of cloud link IDs from other clouds that connect to this one
+func (o LookupPrivateCloudResultOutput) ExternalCloudLinks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPrivateCloudResult) []string { return v.ExternalCloudLinks }).(pulumi.StringArrayOutput)
+}
+
 // Resource ID.
 func (o LookupPrivateCloudResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the private cloud, if configured.
+func (o LookupPrivateCloudResultOutput) Identity() PrivateCloudIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateCloudResult) *PrivateCloudIdentityResponse { return v.Identity }).(PrivateCloudIdentityResponsePtrOutput)
 }
 
 // vCenter Single Sign On Identity Sources
@@ -192,6 +222,11 @@ func (o LookupPrivateCloudResultOutput) ProvisioningNetwork() pulumi.StringOutpu
 // The provisioning state
 func (o LookupPrivateCloudResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+func (o LookupPrivateCloudResultOutput) SecondaryCircuit() CircuitResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateCloudResult) *CircuitResponse { return v.SecondaryCircuit }).(CircuitResponsePtrOutput)
 }
 
 // The private cloud SKU

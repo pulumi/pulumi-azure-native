@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * disk encryption set resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-12-01.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * The key vault key which is currently used by this disk encryption set.
      */
     public readonly activeKey!: pulumi.Output<outputs.compute.KeyForDiskEncryptionSetResponse | undefined>;
+    /**
+     * The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+     */
+    public /*out*/ readonly autoKeyRotationError!: pulumi.Output<outputs.compute.ApiErrorResponse>;
     /**
      * The type of key used to encrypt the data of the disk.
      */
@@ -103,6 +107,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rotationToLatestKeyVersionEnabled"] = args ? args.rotationToLatestKeyVersionEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoKeyRotationError"] = undefined /*out*/;
             resourceInputs["lastKeyRotationTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["previousKeys"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeKey"] = undefined /*out*/;
+            resourceInputs["autoKeyRotationError"] = undefined /*out*/;
             resourceInputs["encryptionType"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["lastKeyRotationTimestamp"] = undefined /*out*/;
@@ -137,7 +143,7 @@ export interface DiskEncryptionSetArgs {
      */
     activeKey?: pulumi.Input<inputs.compute.KeyForDiskEncryptionSetArgs>;
     /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskEncryptionSetName?: pulumi.Input<string>;
     /**

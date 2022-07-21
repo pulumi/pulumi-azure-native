@@ -128,7 +128,7 @@ class RoutingIntent(pulumi.CustomResource):
                  __props__=None):
         """
         The routing intent child resource of a Virtual hub.
-        API Version: 2022-01-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class RoutingIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The routing intent child resource of a Virtual hub.
-        API Version: 2022-01-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param RoutingIntentArgs args: The arguments to use to populate this resource's properties.

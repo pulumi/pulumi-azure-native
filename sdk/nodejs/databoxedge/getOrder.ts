@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
     if (!opts) {
@@ -53,6 +53,10 @@ export interface GetOrderResult {
      */
     readonly id: string;
     /**
+     * It specify the order api version.
+     */
+    readonly kind: string;
+    /**
      * The object name.
      */
     readonly name: string;
@@ -60,6 +64,10 @@ export interface GetOrderResult {
      * List of status changes in the order.
      */
     readonly orderHistory: outputs.databoxedge.OrderStatusResponse[];
+    /**
+     * It specify the order resource id.
+     */
+    readonly orderId: string;
     /**
      * Tracking information for the package returned from the customer whether it has an original or a replacement device.
      */
@@ -76,6 +84,10 @@ export interface GetOrderResult {
      * The shipping address.
      */
     readonly shippingAddress?: outputs.databoxedge.AddressResponse;
+    /**
+     * Metadata pertaining to creation and last modification of Order
+     */
+    readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

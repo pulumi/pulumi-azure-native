@@ -77,7 +77,7 @@ class GetGatewayHostnameConfigurationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -85,7 +85,7 @@ class GetGatewayHostnameConfigurationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -117,7 +117,7 @@ class GetGatewayHostnameConfigurationResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -146,7 +146,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -185,7 +185,7 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
     Gateway hostname configuration details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

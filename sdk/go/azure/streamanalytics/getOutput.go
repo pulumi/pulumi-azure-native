@@ -11,7 +11,7 @@ import (
 )
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-// API Version: 2016-03-01.
+// API Version: 2021-10-01-preview.
 func LookupOutput(ctx *pulumi.Context, args *LookupOutputArgs, opts ...pulumi.InvokeOption) (*LookupOutputResult, error) {
 	var rv LookupOutputResult
 	err := ctx.Invoke("azure-native:streamanalytics:getOutput", args, &rv, opts...)
@@ -26,7 +26,7 @@ type LookupOutputArgs struct {
 	JobName string `pulumi:"jobName"`
 	// The name of the output.
 	OutputName string `pulumi:"outputName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -40,12 +40,20 @@ type LookupOutputResult struct {
 	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+	LastOutputEventTimestamps []LastOutputEventTimestampResponse `pulumi:"lastOutputEventTimestamps"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization interface{} `pulumi:"serialization"`
+	// The size window to constrain a Stream Analytics output to.
+	SizeWindow *float64 `pulumi:"sizeWindow"`
+	// The time frame for filtering Stream Analytics job outputs.
+	TimeWindow *string `pulumi:"timeWindow"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings *OutputWatermarkPropertiesResponse `pulumi:"watermarkSettings"`
 }
 
 func LookupOutputOutput(ctx *pulumi.Context, args LookupOutputOutputArgs, opts ...pulumi.InvokeOption) LookupOutputResultOutput {
@@ -66,7 +74,7 @@ type LookupOutputOutputArgs struct {
 	JobName pulumi.StringInput `pulumi:"jobName"`
 	// The name of the output.
 	OutputName pulumi.StringInput `pulumi:"outputName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -109,6 +117,11 @@ func (o LookupOutputResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOutputResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+func (o LookupOutputResultOutput) LastOutputEventTimestamps() LastOutputEventTimestampResponseArrayOutput {
+	return o.ApplyT(func(v LookupOutputResult) []LastOutputEventTimestampResponse { return v.LastOutputEventTimestamps }).(LastOutputEventTimestampResponseArrayOutput)
+}
+
 // Resource name
 func (o LookupOutputResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOutputResult) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -119,9 +132,24 @@ func (o LookupOutputResultOutput) Serialization() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupOutputResult) interface{} { return v.Serialization }).(pulumi.AnyOutput)
 }
 
+// The size window to constrain a Stream Analytics output to.
+func (o LookupOutputResultOutput) SizeWindow() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupOutputResult) *float64 { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+}
+
+// The time frame for filtering Stream Analytics job outputs.
+func (o LookupOutputResultOutput) TimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOutputResult) *string { return v.TimeWindow }).(pulumi.StringPtrOutput)
+}
+
 // Resource type
 func (o LookupOutputResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOutputResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Settings which determine whether to send watermarks to downstream.
+func (o LookupOutputResultOutput) WatermarkSettings() OutputWatermarkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupOutputResult) *OutputWatermarkPropertiesResponse { return v.WatermarkSettings }).(OutputWatermarkPropertiesResponsePtrOutput)
 }
 
 func init() {

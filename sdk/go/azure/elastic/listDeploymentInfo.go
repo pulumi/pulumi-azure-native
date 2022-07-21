@@ -11,7 +11,7 @@ import (
 )
 
 // The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-// API Version: 2020-07-01.
+// API Version: 2021-10-01-preview.
 func ListDeploymentInfo(ctx *pulumi.Context, args *ListDeploymentInfoArgs, opts ...pulumi.InvokeOption) (*ListDeploymentInfoResult, error) {
 	var rv ListDeploymentInfoResult
 	err := ctx.Invoke("azure-native:elastic:listDeploymentInfo", args, &rv, opts...)

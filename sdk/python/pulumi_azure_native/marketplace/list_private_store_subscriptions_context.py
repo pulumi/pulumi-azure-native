@@ -44,7 +44,7 @@ def list_private_store_subscriptions_context(private_store_id: Optional[str] = N
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateStoreSubscriptionsContextResult:
     """
     List of subscription Ids in the private store
-    API Version: 2021-12-01.
+    API Version: 2022-03-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID
@@ -66,7 +66,7 @@ def list_private_store_subscriptions_context_output(private_store_id: Optional[p
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreSubscriptionsContextResult]:
     """
     List of subscription Ids in the private store
-    API Version: 2021-12-01.
+    API Version: 2022-03-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID

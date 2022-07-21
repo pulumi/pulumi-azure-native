@@ -22,7 +22,7 @@ class WorkspaceAadAdminArgs:
         """
         The set of arguments for constructing a WorkspaceAadAdmin resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] administrator_type: Workspace active directory administrator type
         :param pulumi.Input[str] login: Login of the workspace active directory administrator
         :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
@@ -55,7 +55,7 @@ class WorkspaceAadAdminArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -126,7 +126,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace active directory administrator
-        API Version: 2021-03-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
         :param pulumi.Input[str] tenant_id: Tenant ID of the workspace active directory administrator
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -145,7 +145,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
-        API Version: 2021-03-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceAadAdminArgs args: The arguments to use to populate this resource's properties.

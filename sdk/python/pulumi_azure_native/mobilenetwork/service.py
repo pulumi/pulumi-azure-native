@@ -263,7 +263,7 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         Service resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +290,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Service resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -357,6 +357,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:Service"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -394,6 +395,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["service_precedence"] = None
         __props__.__dict__["service_qos_policy"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
@@ -493,6 +495,14 @@ class Service(pulumi.CustomResource):
         The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
         """
         return pulumi.get(self, "service_qos_policy")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -10,6 +10,242 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Optional set of properties to configure geo replication for this database.
+type DatabasePropertiesGeoReplication struct {
+	// Name for the group of linked database resources
+	GroupNickname *string `pulumi:"groupNickname"`
+	// List of database resources to link with this database
+	LinkedDatabases []LinkedDatabase `pulumi:"linkedDatabases"`
+}
+
+// DatabasePropertiesGeoReplicationInput is an input type that accepts DatabasePropertiesGeoReplicationArgs and DatabasePropertiesGeoReplicationOutput values.
+// You can construct a concrete instance of `DatabasePropertiesGeoReplicationInput` via:
+//
+//          DatabasePropertiesGeoReplicationArgs{...}
+type DatabasePropertiesGeoReplicationInput interface {
+	pulumi.Input
+
+	ToDatabasePropertiesGeoReplicationOutput() DatabasePropertiesGeoReplicationOutput
+	ToDatabasePropertiesGeoReplicationOutputWithContext(context.Context) DatabasePropertiesGeoReplicationOutput
+}
+
+// Optional set of properties to configure geo replication for this database.
+type DatabasePropertiesGeoReplicationArgs struct {
+	// Name for the group of linked database resources
+	GroupNickname pulumi.StringPtrInput `pulumi:"groupNickname"`
+	// List of database resources to link with this database
+	LinkedDatabases LinkedDatabaseArrayInput `pulumi:"linkedDatabases"`
+}
+
+func (DatabasePropertiesGeoReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePropertiesGeoReplication)(nil)).Elem()
+}
+
+func (i DatabasePropertiesGeoReplicationArgs) ToDatabasePropertiesGeoReplicationOutput() DatabasePropertiesGeoReplicationOutput {
+	return i.ToDatabasePropertiesGeoReplicationOutputWithContext(context.Background())
+}
+
+func (i DatabasePropertiesGeoReplicationArgs) ToDatabasePropertiesGeoReplicationOutputWithContext(ctx context.Context) DatabasePropertiesGeoReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePropertiesGeoReplicationOutput)
+}
+
+func (i DatabasePropertiesGeoReplicationArgs) ToDatabasePropertiesGeoReplicationPtrOutput() DatabasePropertiesGeoReplicationPtrOutput {
+	return i.ToDatabasePropertiesGeoReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i DatabasePropertiesGeoReplicationArgs) ToDatabasePropertiesGeoReplicationPtrOutputWithContext(ctx context.Context) DatabasePropertiesGeoReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePropertiesGeoReplicationOutput).ToDatabasePropertiesGeoReplicationPtrOutputWithContext(ctx)
+}
+
+// DatabasePropertiesGeoReplicationPtrInput is an input type that accepts DatabasePropertiesGeoReplicationArgs, DatabasePropertiesGeoReplicationPtr and DatabasePropertiesGeoReplicationPtrOutput values.
+// You can construct a concrete instance of `DatabasePropertiesGeoReplicationPtrInput` via:
+//
+//          DatabasePropertiesGeoReplicationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabasePropertiesGeoReplicationPtrInput interface {
+	pulumi.Input
+
+	ToDatabasePropertiesGeoReplicationPtrOutput() DatabasePropertiesGeoReplicationPtrOutput
+	ToDatabasePropertiesGeoReplicationPtrOutputWithContext(context.Context) DatabasePropertiesGeoReplicationPtrOutput
+}
+
+type databasePropertiesGeoReplicationPtrType DatabasePropertiesGeoReplicationArgs
+
+func DatabasePropertiesGeoReplicationPtr(v *DatabasePropertiesGeoReplicationArgs) DatabasePropertiesGeoReplicationPtrInput {
+	return (*databasePropertiesGeoReplicationPtrType)(v)
+}
+
+func (*databasePropertiesGeoReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabasePropertiesGeoReplication)(nil)).Elem()
+}
+
+func (i *databasePropertiesGeoReplicationPtrType) ToDatabasePropertiesGeoReplicationPtrOutput() DatabasePropertiesGeoReplicationPtrOutput {
+	return i.ToDatabasePropertiesGeoReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *databasePropertiesGeoReplicationPtrType) ToDatabasePropertiesGeoReplicationPtrOutputWithContext(ctx context.Context) DatabasePropertiesGeoReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePropertiesGeoReplicationPtrOutput)
+}
+
+// Optional set of properties to configure geo replication for this database.
+type DatabasePropertiesGeoReplicationOutput struct{ *pulumi.OutputState }
+
+func (DatabasePropertiesGeoReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePropertiesGeoReplication)(nil)).Elem()
+}
+
+func (o DatabasePropertiesGeoReplicationOutput) ToDatabasePropertiesGeoReplicationOutput() DatabasePropertiesGeoReplicationOutput {
+	return o
+}
+
+func (o DatabasePropertiesGeoReplicationOutput) ToDatabasePropertiesGeoReplicationOutputWithContext(ctx context.Context) DatabasePropertiesGeoReplicationOutput {
+	return o
+}
+
+func (o DatabasePropertiesGeoReplicationOutput) ToDatabasePropertiesGeoReplicationPtrOutput() DatabasePropertiesGeoReplicationPtrOutput {
+	return o.ToDatabasePropertiesGeoReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o DatabasePropertiesGeoReplicationOutput) ToDatabasePropertiesGeoReplicationPtrOutputWithContext(ctx context.Context) DatabasePropertiesGeoReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabasePropertiesGeoReplication) *DatabasePropertiesGeoReplication {
+		return &v
+	}).(DatabasePropertiesGeoReplicationPtrOutput)
+}
+
+// Name for the group of linked database resources
+func (o DatabasePropertiesGeoReplicationOutput) GroupNickname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePropertiesGeoReplication) *string { return v.GroupNickname }).(pulumi.StringPtrOutput)
+}
+
+// List of database resources to link with this database
+func (o DatabasePropertiesGeoReplicationOutput) LinkedDatabases() LinkedDatabaseArrayOutput {
+	return o.ApplyT(func(v DatabasePropertiesGeoReplication) []LinkedDatabase { return v.LinkedDatabases }).(LinkedDatabaseArrayOutput)
+}
+
+type DatabasePropertiesGeoReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabasePropertiesGeoReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabasePropertiesGeoReplication)(nil)).Elem()
+}
+
+func (o DatabasePropertiesGeoReplicationPtrOutput) ToDatabasePropertiesGeoReplicationPtrOutput() DatabasePropertiesGeoReplicationPtrOutput {
+	return o
+}
+
+func (o DatabasePropertiesGeoReplicationPtrOutput) ToDatabasePropertiesGeoReplicationPtrOutputWithContext(ctx context.Context) DatabasePropertiesGeoReplicationPtrOutput {
+	return o
+}
+
+func (o DatabasePropertiesGeoReplicationPtrOutput) Elem() DatabasePropertiesGeoReplicationOutput {
+	return o.ApplyT(func(v *DatabasePropertiesGeoReplication) DatabasePropertiesGeoReplication {
+		if v != nil {
+			return *v
+		}
+		var ret DatabasePropertiesGeoReplication
+		return ret
+	}).(DatabasePropertiesGeoReplicationOutput)
+}
+
+// Name for the group of linked database resources
+func (o DatabasePropertiesGeoReplicationPtrOutput) GroupNickname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabasePropertiesGeoReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupNickname
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of database resources to link with this database
+func (o DatabasePropertiesGeoReplicationPtrOutput) LinkedDatabases() LinkedDatabaseArrayOutput {
+	return o.ApplyT(func(v *DatabasePropertiesGeoReplication) []LinkedDatabase {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedDatabases
+	}).(LinkedDatabaseArrayOutput)
+}
+
+// Optional set of properties to configure geo replication for this database.
+type DatabasePropertiesResponseGeoReplication struct {
+	// Name for the group of linked database resources
+	GroupNickname *string `pulumi:"groupNickname"`
+	// List of database resources to link with this database
+	LinkedDatabases []LinkedDatabaseResponse `pulumi:"linkedDatabases"`
+}
+
+// Optional set of properties to configure geo replication for this database.
+type DatabasePropertiesResponseGeoReplicationOutput struct{ *pulumi.OutputState }
+
+func (DatabasePropertiesResponseGeoReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePropertiesResponseGeoReplication)(nil)).Elem()
+}
+
+func (o DatabasePropertiesResponseGeoReplicationOutput) ToDatabasePropertiesResponseGeoReplicationOutput() DatabasePropertiesResponseGeoReplicationOutput {
+	return o
+}
+
+func (o DatabasePropertiesResponseGeoReplicationOutput) ToDatabasePropertiesResponseGeoReplicationOutputWithContext(ctx context.Context) DatabasePropertiesResponseGeoReplicationOutput {
+	return o
+}
+
+// Name for the group of linked database resources
+func (o DatabasePropertiesResponseGeoReplicationOutput) GroupNickname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePropertiesResponseGeoReplication) *string { return v.GroupNickname }).(pulumi.StringPtrOutput)
+}
+
+// List of database resources to link with this database
+func (o DatabasePropertiesResponseGeoReplicationOutput) LinkedDatabases() LinkedDatabaseResponseArrayOutput {
+	return o.ApplyT(func(v DatabasePropertiesResponseGeoReplication) []LinkedDatabaseResponse { return v.LinkedDatabases }).(LinkedDatabaseResponseArrayOutput)
+}
+
+type DatabasePropertiesResponseGeoReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabasePropertiesResponseGeoReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabasePropertiesResponseGeoReplication)(nil)).Elem()
+}
+
+func (o DatabasePropertiesResponseGeoReplicationPtrOutput) ToDatabasePropertiesResponseGeoReplicationPtrOutput() DatabasePropertiesResponseGeoReplicationPtrOutput {
+	return o
+}
+
+func (o DatabasePropertiesResponseGeoReplicationPtrOutput) ToDatabasePropertiesResponseGeoReplicationPtrOutputWithContext(ctx context.Context) DatabasePropertiesResponseGeoReplicationPtrOutput {
+	return o
+}
+
+func (o DatabasePropertiesResponseGeoReplicationPtrOutput) Elem() DatabasePropertiesResponseGeoReplicationOutput {
+	return o.ApplyT(func(v *DatabasePropertiesResponseGeoReplication) DatabasePropertiesResponseGeoReplication {
+		if v != nil {
+			return *v
+		}
+		var ret DatabasePropertiesResponseGeoReplication
+		return ret
+	}).(DatabasePropertiesResponseGeoReplicationOutput)
+}
+
+// Name for the group of linked database resources
+func (o DatabasePropertiesResponseGeoReplicationPtrOutput) GroupNickname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabasePropertiesResponseGeoReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupNickname
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of database resources to link with this database
+func (o DatabasePropertiesResponseGeoReplicationPtrOutput) LinkedDatabases() LinkedDatabaseResponseArrayOutput {
+	return o.ApplyT(func(v *DatabasePropertiesResponseGeoReplication) []LinkedDatabaseResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedDatabases
+	}).(LinkedDatabaseResponseArrayOutput)
+}
+
 // SKU parameters supplied to the create RedisEnterprise operation.
 type EnterpriseSku struct {
 	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
@@ -107,9 +343,434 @@ func (o EnterpriseSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterpriseSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies details of a linked database resource.
+type LinkedDatabase struct {
+	// Resource ID of a database resource to link with this database.
+	Id *string `pulumi:"id"`
+}
+
+// LinkedDatabaseInput is an input type that accepts LinkedDatabaseArgs and LinkedDatabaseOutput values.
+// You can construct a concrete instance of `LinkedDatabaseInput` via:
+//
+//          LinkedDatabaseArgs{...}
+type LinkedDatabaseInput interface {
+	pulumi.Input
+
+	ToLinkedDatabaseOutput() LinkedDatabaseOutput
+	ToLinkedDatabaseOutputWithContext(context.Context) LinkedDatabaseOutput
+}
+
+// Specifies details of a linked database resource.
+type LinkedDatabaseArgs struct {
+	// Resource ID of a database resource to link with this database.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (LinkedDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedDatabase)(nil)).Elem()
+}
+
+func (i LinkedDatabaseArgs) ToLinkedDatabaseOutput() LinkedDatabaseOutput {
+	return i.ToLinkedDatabaseOutputWithContext(context.Background())
+}
+
+func (i LinkedDatabaseArgs) ToLinkedDatabaseOutputWithContext(ctx context.Context) LinkedDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedDatabaseOutput)
+}
+
+// LinkedDatabaseArrayInput is an input type that accepts LinkedDatabaseArray and LinkedDatabaseArrayOutput values.
+// You can construct a concrete instance of `LinkedDatabaseArrayInput` via:
+//
+//          LinkedDatabaseArray{ LinkedDatabaseArgs{...} }
+type LinkedDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToLinkedDatabaseArrayOutput() LinkedDatabaseArrayOutput
+	ToLinkedDatabaseArrayOutputWithContext(context.Context) LinkedDatabaseArrayOutput
+}
+
+type LinkedDatabaseArray []LinkedDatabaseInput
+
+func (LinkedDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedDatabase)(nil)).Elem()
+}
+
+func (i LinkedDatabaseArray) ToLinkedDatabaseArrayOutput() LinkedDatabaseArrayOutput {
+	return i.ToLinkedDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedDatabaseArray) ToLinkedDatabaseArrayOutputWithContext(ctx context.Context) LinkedDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedDatabaseArrayOutput)
+}
+
+// Specifies details of a linked database resource.
+type LinkedDatabaseOutput struct{ *pulumi.OutputState }
+
+func (LinkedDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedDatabase)(nil)).Elem()
+}
+
+func (o LinkedDatabaseOutput) ToLinkedDatabaseOutput() LinkedDatabaseOutput {
+	return o
+}
+
+func (o LinkedDatabaseOutput) ToLinkedDatabaseOutputWithContext(ctx context.Context) LinkedDatabaseOutput {
+	return o
+}
+
+// Resource ID of a database resource to link with this database.
+func (o LinkedDatabaseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedDatabase) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type LinkedDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedDatabase)(nil)).Elem()
+}
+
+func (o LinkedDatabaseArrayOutput) ToLinkedDatabaseArrayOutput() LinkedDatabaseArrayOutput {
+	return o
+}
+
+func (o LinkedDatabaseArrayOutput) ToLinkedDatabaseArrayOutputWithContext(ctx context.Context) LinkedDatabaseArrayOutput {
+	return o
+}
+
+func (o LinkedDatabaseArrayOutput) Index(i pulumi.IntInput) LinkedDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedDatabase {
+		return vs[0].([]LinkedDatabase)[vs[1].(int)]
+	}).(LinkedDatabaseOutput)
+}
+
+// Specifies details of a linked database resource.
+type LinkedDatabaseResponse struct {
+	// Resource ID of a database resource to link with this database.
+	Id *string `pulumi:"id"`
+	// State of the link between the database resources.
+	State string `pulumi:"state"`
+}
+
+// Specifies details of a linked database resource.
+type LinkedDatabaseResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkedDatabaseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedDatabaseResponse)(nil)).Elem()
+}
+
+func (o LinkedDatabaseResponseOutput) ToLinkedDatabaseResponseOutput() LinkedDatabaseResponseOutput {
+	return o
+}
+
+func (o LinkedDatabaseResponseOutput) ToLinkedDatabaseResponseOutputWithContext(ctx context.Context) LinkedDatabaseResponseOutput {
+	return o
+}
+
+// Resource ID of a database resource to link with this database.
+func (o LinkedDatabaseResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedDatabaseResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// State of the link between the database resources.
+func (o LinkedDatabaseResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedDatabaseResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type LinkedDatabaseResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedDatabaseResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedDatabaseResponse)(nil)).Elem()
+}
+
+func (o LinkedDatabaseResponseArrayOutput) ToLinkedDatabaseResponseArrayOutput() LinkedDatabaseResponseArrayOutput {
+	return o
+}
+
+func (o LinkedDatabaseResponseArrayOutput) ToLinkedDatabaseResponseArrayOutputWithContext(ctx context.Context) LinkedDatabaseResponseArrayOutput {
+	return o
+}
+
+func (o LinkedDatabaseResponseArrayOutput) Index(i pulumi.IntInput) LinkedDatabaseResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedDatabaseResponse {
+		return vs[0].([]LinkedDatabaseResponse)[vs[1].(int)]
+	}).(LinkedDatabaseResponseOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentity struct {
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+type ManagedServiceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
+	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityArgs struct {
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
+	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
+}
+
+type managedServiceIdentityPtrType ManagedServiceIdentityArgs
+
+func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
+	return (*managedServiceIdentityPtrType)(v)
+}
+
+func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+		return &v
+	}).(ManagedServiceIdentityPtrOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityResponse struct {
+	// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
+}
+
+// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
 // Specifies configuration of a redis module
 type Module struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
 	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 	Name string `pulumi:"name"`
@@ -128,7 +789,7 @@ type ModuleInput interface {
 
 // Specifies configuration of a redis module
 type ModuleArgs struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 	Args pulumi.StringPtrInput `pulumi:"args"`
 	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 	Name pulumi.StringInput `pulumi:"name"`
@@ -186,7 +847,7 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 func (o ModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Module) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
@@ -218,7 +879,7 @@ func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
 
 // Specifies configuration of a redis module
 type ModuleResponse struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
 	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 	Name string `pulumi:"name"`
@@ -241,7 +902,7 @@ func (o ModuleResponseOutput) ToModuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 func (o ModuleResponseOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleResponse) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
@@ -875,10 +1536,14 @@ func (o RedisAccessKeysResponseOutput) SecondaryKey() pulumi.StringOutput {
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 type RedisCommonPropertiesRedisConfiguration struct {
+	// Specifies whether the aof backup is enabled
+	AofBackupEnabled *string `pulumi:"aofBackupEnabled"`
 	// First storage account connection string
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
 	// Second storage account connection string
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
+	// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+	Authnotrequired *string `pulumi:"authnotrequired"`
 	// Value in megabytes reserved for fragmentation per shard
 	MaxfragmentationmemoryReserved *string `pulumi:"maxfragmentationmemoryReserved"`
 	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
@@ -910,10 +1575,14 @@ type RedisCommonPropertiesRedisConfigurationInput interface {
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 type RedisCommonPropertiesRedisConfigurationArgs struct {
+	// Specifies whether the aof backup is enabled
+	AofBackupEnabled pulumi.StringPtrInput `pulumi:"aofBackupEnabled"`
 	// First storage account connection string
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
 	// Second storage account connection string
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
+	// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+	Authnotrequired pulumi.StringPtrInput `pulumi:"authnotrequired"`
 	// Value in megabytes reserved for fragmentation per shard
 	MaxfragmentationmemoryReserved pulumi.StringPtrInput `pulumi:"maxfragmentationmemoryReserved"`
 	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
@@ -1010,6 +1679,11 @@ func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRe
 	}).(RedisCommonPropertiesRedisConfigurationPtrOutput)
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesRedisConfigurationOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofBackupEnabled }).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
@@ -1018,6 +1692,11 @@ func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionStrin
 // Second storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesRedisConfigurationOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.Authnotrequired }).(pulumi.StringPtrOutput)
 }
 
 // Value in megabytes reserved for fragmentation per shard
@@ -1084,6 +1763,16 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Elem() RedisCommonProp
 	}).(RedisCommonPropertiesRedisConfigurationOutput)
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofBackupEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
@@ -1101,6 +1790,16 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionSt
 			return nil
 		}
 		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authnotrequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1186,10 +1885,14 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbStorageConnectionSt
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 type RedisCommonPropertiesResponseRedisConfiguration struct {
+	// Specifies whether the aof backup is enabled
+	AofBackupEnabled *string `pulumi:"aofBackupEnabled"`
 	// First storage account connection string
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
 	// Second storage account connection string
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
+	// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+	Authnotrequired *string `pulumi:"authnotrequired"`
 	// The max clients config
 	Maxclients string `pulumi:"maxclients"`
 	// Value in megabytes reserved for fragmentation per shard
@@ -1200,6 +1903,10 @@ type RedisCommonPropertiesResponseRedisConfiguration struct {
 	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
 	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
 	MaxmemoryReserved *string `pulumi:"maxmemoryReserved"`
+	// Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
+	PreferredDataArchiveAuthMethod string `pulumi:"preferredDataArchiveAuthMethod"`
+	// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+	PreferredDataPersistenceAuthMethod string `pulumi:"preferredDataPersistenceAuthMethod"`
 	// Specifies whether the rdb backup is enabled
 	RdbBackupEnabled *string `pulumi:"rdbBackupEnabled"`
 	// Specifies the frequency for creating rdb backup
@@ -1208,6 +1915,8 @@ type RedisCommonPropertiesResponseRedisConfiguration struct {
 	RdbBackupMaxSnapshotCount *string `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The storage account connection string for storing rdb file
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
+	// Zonal Configuration
+	ZonalConfiguration string `pulumi:"zonalConfiguration"`
 }
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
@@ -1225,6 +1934,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonProp
 	return o
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofBackupEnabled }).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
@@ -1233,6 +1947,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnect
 // Second storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.Authnotrequired }).(pulumi.StringPtrOutput)
 }
 
 // The max clients config
@@ -1262,6 +1981,20 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) MaxmemoryReserved
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.MaxmemoryReserved }).(pulumi.StringPtrOutput)
 }
 
+// Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) PreferredDataArchiveAuthMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) string {
+		return v.PreferredDataArchiveAuthMethod
+	}).(pulumi.StringOutput)
+}
+
+// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) PreferredDataPersistenceAuthMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) string {
+		return v.PreferredDataPersistenceAuthMethod
+	}).(pulumi.StringOutput)
+}
+
 // Specifies whether the rdb backup is enabled
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbBackupEnabled }).(pulumi.StringPtrOutput)
@@ -1280,6 +2013,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupMaxSnaps
 // The storage account connection string for storing rdb file
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Zonal Configuration
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ZonalConfiguration() pulumi.StringOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) string { return v.ZonalConfiguration }).(pulumi.StringOutput)
 }
 
 type RedisCommonPropertiesResponseRedisConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1306,6 +2044,16 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Elem() RedisCo
 	}).(RedisCommonPropertiesResponseRedisConfigurationOutput)
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofBackupEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
@@ -1323,6 +2071,16 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConn
 			return nil
 		}
 		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authnotrequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1376,6 +2134,26 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) MaxmemoryReser
 	}).(pulumi.StringPtrOutput)
 }
 
+// Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) PreferredDataArchiveAuthMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredDataArchiveAuthMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) PreferredDataPersistenceAuthMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredDataPersistenceAuthMethod
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies whether the rdb backup is enabled
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
@@ -1416,10 +2194,22 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbStorageConn
 	}).(pulumi.StringPtrOutput)
 }
 
+// Zonal Configuration
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) ZonalConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ZonalConfiguration
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of single instance of redis.
 type RedisInstanceDetailsResponse struct {
-	// Specifies whether the instance is a master node.
+	// Specifies whether the instance is a primary node.
 	IsMaster bool `pulumi:"isMaster"`
+	// Specifies whether the instance is a primary node.
+	IsPrimary bool `pulumi:"isPrimary"`
 	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
 	NonSslPort int `pulumi:"nonSslPort"`
 	// If clustering is enabled, the Shard ID of Redis Instance
@@ -1445,9 +2235,14 @@ func (o RedisInstanceDetailsResponseOutput) ToRedisInstanceDetailsResponseOutput
 	return o
 }
 
-// Specifies whether the instance is a master node.
+// Specifies whether the instance is a primary node.
 func (o RedisInstanceDetailsResponseOutput) IsMaster() pulumi.BoolOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsMaster }).(pulumi.BoolOutput)
+}
+
+// Specifies whether the instance is a primary node.
+func (o RedisInstanceDetailsResponseOutput) IsPrimary() pulumi.BoolOutput {
+	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
 // If enableNonSslPort is true, provides Redis instance Non-SSL port.
@@ -1827,9 +2622,74 @@ func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// User assigned identity properties
+type UserAssignedIdentityResponse struct {
+	// The client ID of the assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// User assigned identity properties
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client ID of the assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(DatabasePropertiesGeoReplicationOutput{})
+	pulumi.RegisterOutputType(DatabasePropertiesGeoReplicationPtrOutput{})
+	pulumi.RegisterOutputType(DatabasePropertiesResponseGeoReplicationOutput{})
+	pulumi.RegisterOutputType(DatabasePropertiesResponseGeoReplicationPtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseSkuOutput{})
 	pulumi.RegisterOutputType(EnterpriseSkuResponseOutput{})
+	pulumi.RegisterOutputType(LinkedDatabaseOutput{})
+	pulumi.RegisterOutputType(LinkedDatabaseArrayOutput{})
+	pulumi.RegisterOutputType(LinkedDatabaseResponseOutput{})
+	pulumi.RegisterOutputType(LinkedDatabaseResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ModuleOutput{})
 	pulumi.RegisterOutputType(ModuleArrayOutput{})
 	pulumi.RegisterOutputType(ModuleResponseOutput{})
@@ -1859,4 +2719,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

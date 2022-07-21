@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The Extension Instance object.
- * API Version: 2020-07-01-preview.
+ * The Extension object.
+ * API Version: 2022-07-01.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -37,71 +37,75 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /**
-     * Flag to note if this instance participates in auto upgrade of minor version, or not.
+     * Identity of the Extension resource in an AKS cluster
+     */
+    public readonly aksAssignedIdentity!: pulumi.Output<outputs.kubernetesconfiguration.ExtensionResponseAksAssignedIdentity | undefined>;
+    /**
+     * Flag to note if this extension participates in auto upgrade of minor version, or not.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
-     * Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+     * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
     public readonly configurationProtectedSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Configuration settings, as name-value pairs for configuring this instance of the extension.
+     * Configuration settings, as name-value pairs for configuring this extension.
      */
     public readonly configurationSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
+     * Custom Location settings properties.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly customLocationSettings!: pulumi.Output<{[key: string]: string}>;
     /**
      * Error information from the Agent - e.g. errors during installation.
      */
-    public /*out*/ readonly errorInfo!: pulumi.Output<outputs.kubernetesconfiguration.ErrorDefinitionResponse>;
+    public /*out*/ readonly errorInfo!: pulumi.Output<outputs.kubernetesconfiguration.ErrorDetailResponse>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
     public readonly extensionType!: pulumi.Output<string | undefined>;
     /**
-     * The identity of the configuration.
+     * Identity of the Extension resource
      */
-    public readonly identity!: pulumi.Output<outputs.kubernetesconfiguration.ConfigurationIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.kubernetesconfiguration.IdentityResponse | undefined>;
     /**
-     * Status of installation of this instance of the extension.
+     * Installed version of the extension.
      */
-    public /*out*/ readonly installState!: pulumi.Output<string>;
+    public /*out*/ readonly installedVersion!: pulumi.Output<string>;
     /**
-     * DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
-     */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
-    /**
-     * DateLiteral (per ISO8601) noting the time of last status from the agent.
-     */
-    public /*out*/ readonly lastStatusTime!: pulumi.Output<string>;
-    /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+     * Uri of the Helm package
+     */
+    public /*out*/ readonly packageUri!: pulumi.Output<string>;
+    /**
+     * Status of installation of this extension.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
     public readonly releaseTrain!: pulumi.Output<string | undefined>;
     /**
-     * Scope at which the extension instance is installed.
+     * Scope at which the extension is installed.
      */
     public readonly scope!: pulumi.Output<outputs.kubernetesconfiguration.ScopeResponse | undefined>;
     /**
-     * Status from this instance of the extension.
+     * Status from this extension.
      */
     public readonly statuses!: pulumi.Output<outputs.kubernetesconfiguration.ExtensionStatusResponse[] | undefined>;
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+     * User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -128,40 +132,42 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            resourceInputs["aksAssignedIdentity"] = args ? args.aksAssignedIdentity : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = (args ? args.autoUpgradeMinorVersion : undefined) ?? true;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
             resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
             resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
             resourceInputs["configurationSettings"] = args ? args.configurationSettings : undefined;
-            resourceInputs["extensionInstanceName"] = args ? args.extensionInstanceName : undefined;
+            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
             resourceInputs["extensionType"] = args ? args.extensionType : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["releaseTrain"] = args ? args.releaseTrain : undefined;
+            resourceInputs["releaseTrain"] = (args ? args.releaseTrain : undefined) ?? "Stable";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["statuses"] = args ? args.statuses : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["customLocationSettings"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;
-            resourceInputs["installState"] = undefined /*out*/;
-            resourceInputs["lastModifiedTime"] = undefined /*out*/;
-            resourceInputs["lastStatusTime"] = undefined /*out*/;
+            resourceInputs["installedVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageUri"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["aksAssignedIdentity"] = undefined /*out*/;
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
             resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
             resourceInputs["configurationSettings"] = undefined /*out*/;
-            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["customLocationSettings"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;
             resourceInputs["extensionType"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["installState"] = undefined /*out*/;
-            resourceInputs["lastModifiedTime"] = undefined /*out*/;
-            resourceInputs["lastStatusTime"] = undefined /*out*/;
+            resourceInputs["installedVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageUri"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["releaseTrain"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
@@ -181,7 +187,11 @@ export class Extension extends pulumi.CustomResource {
  */
 export interface ExtensionArgs {
     /**
-     * Flag to note if this instance participates in auto upgrade of minor version, or not.
+     * Identity of the Extension resource in an AKS cluster
+     */
+    aksAssignedIdentity?: pulumi.Input<inputs.kubernetesconfiguration.ExtensionAksAssignedIdentityArgs>;
+    /**
+     * Flag to note if this extension participates in auto upgrade of minor version, or not.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
@@ -189,51 +199,51 @@ export interface ExtensionArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: pulumi.Input<string>;
     /**
-     * Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+     * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
     configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration settings, as name-value pairs for configuring this instance of the extension.
+     * Configuration settings, as name-value pairs for configuring this extension.
      */
     configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Name of an instance of the Extension.
+     * Name of the Extension.
      */
-    extensionInstanceName?: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
     extensionType?: pulumi.Input<string>;
     /**
-     * The identity of the configuration.
+     * Identity of the Extension resource
      */
-    identity?: pulumi.Input<inputs.kubernetesconfiguration.ConfigurationIdentityArgs>;
+    identity?: pulumi.Input<inputs.kubernetesconfiguration.IdentityArgs>;
     /**
-     * ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+     * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
     releaseTrain?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Scope at which the extension instance is installed.
+     * Scope at which the extension is installed.
      */
     scope?: pulumi.Input<inputs.kubernetesconfiguration.ScopeArgs>;
     /**
-     * Status from this instance of the extension.
+     * Status from this extension.
      */
     statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.ExtensionStatusArgs>[]>;
     /**
-     * Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+     * User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
      */
     version?: pulumi.Input<string>;
 }

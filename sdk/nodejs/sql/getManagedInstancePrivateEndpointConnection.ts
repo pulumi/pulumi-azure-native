@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getManagedInstancePrivateEndpointConnection(args: GetManagedInstancePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstancePrivateEndpointConnectionResult> {
     if (!opts) {

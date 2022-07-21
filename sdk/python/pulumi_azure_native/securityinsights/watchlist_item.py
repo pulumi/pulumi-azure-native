@@ -16,7 +16,6 @@ __all__ = ['WatchlistItemArgs', 'WatchlistItem']
 class WatchlistItemArgs:
     def __init__(__self__, *,
                  items_key_value: Any,
-                 operational_insights_resource_provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  watchlist_alias: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
@@ -32,9 +31,8 @@ class WatchlistItemArgs:
         """
         The set of arguments for constructing a WatchlistItem resource.
         :param Any items_key_value: key-value pairs for a watchlist item
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] watchlist_alias: Watchlist Alias
+        :param pulumi.Input[str] watchlist_alias: The watchlist alias
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] created: The time the watchlist item was created
         :param pulumi.Input['WatchlistUserInfoArgs'] created_by: Describes a user that created the watchlist item
@@ -47,7 +45,6 @@ class WatchlistItemArgs:
         :param pulumi.Input[str] watchlist_item_type: The type of the watchlist item
         """
         pulumi.set(__self__, "items_key_value", items_key_value)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "watchlist_alias", watchlist_alias)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -83,18 +80,6 @@ class WatchlistItemArgs:
         pulumi.set(self, "items_key_value", value)
 
     @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -110,7 +95,7 @@ class WatchlistItemArgs:
     @pulumi.getter(name="watchlistAlias")
     def watchlist_alias(self) -> pulumi.Input[str]:
         """
-        Watchlist Alias
+        The watchlist alias
         """
         return pulumi.get(self, "watchlist_alias")
 
@@ -249,7 +234,6 @@ class WatchlistItem(pulumi.CustomResource):
                  entity_mapping: Optional[Any] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_key_value: Optional[Any] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
@@ -260,8 +244,8 @@ class WatchlistItem(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Represents a Watchlist item in Azure Security Insights.
-        API Version: 2021-03-01-preview.
+        Represents a Watchlist Item in Azure Security Insights.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,12 +254,11 @@ class WatchlistItem(pulumi.CustomResource):
         :param Any entity_mapping: key-value pairs for a watchlist item entity mapping
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist item is deleted or not
         :param Any items_key_value: key-value pairs for a watchlist item
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] tenant_id: The tenantId to which the watchlist item belongs to
         :param pulumi.Input[str] updated: The last time the watchlist item was updated
         :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] updated_by: Describes a user that updated the watchlist item
-        :param pulumi.Input[str] watchlist_alias: Watchlist Alias
+        :param pulumi.Input[str] watchlist_alias: The watchlist alias
         :param pulumi.Input[str] watchlist_item_id: The id (a Guid) of the watchlist item
         :param pulumi.Input[str] watchlist_item_type: The type of the watchlist item
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -287,8 +270,8 @@ class WatchlistItem(pulumi.CustomResource):
                  args: WatchlistItemArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a Watchlist item in Azure Security Insights.
-        API Version: 2021-03-01-preview.
+        Represents a Watchlist Item in Azure Security Insights.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param WatchlistItemArgs args: The arguments to use to populate this resource's properties.
@@ -310,7 +293,6 @@ class WatchlistItem(pulumi.CustomResource):
                  entity_mapping: Optional[Any] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_key_value: Optional[Any] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
@@ -338,9 +320,6 @@ class WatchlistItem(pulumi.CustomResource):
             if items_key_value is None and not opts.urn:
                 raise TypeError("Missing required property 'items_key_value'")
             __props__.__dict__["items_key_value"] = items_key_value
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -451,7 +430,7 @@ class WatchlistItem(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -475,7 +454,7 @@ class WatchlistItem(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

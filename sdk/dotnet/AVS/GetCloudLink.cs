@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A cloud link resource
-        /// API Version: 2021-06-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetCloudLinkResult> InvokeAsync(GetCloudLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// A cloud link resource
-        /// API Version: 2021-06-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());

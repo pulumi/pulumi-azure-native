@@ -12,7 +12,7 @@ import (
 )
 
 // NSX DNS Service
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 type WorkloadNetworkDnsService struct {
 	pulumi.CustomResourceState
 

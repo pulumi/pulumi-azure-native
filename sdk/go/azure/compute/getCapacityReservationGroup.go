@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-// API Version: 2021-04-01.
+// API Version: 2021-11-01.
 func LookupCapacityReservationGroup(ctx *pulumi.Context, args *LookupCapacityReservationGroupArgs, opts ...pulumi.InvokeOption) (*LookupCapacityReservationGroupResult, error) {
 	var rv LookupCapacityReservationGroupResult
 	err := ctx.Invoke("azure-native:compute:getCapacityReservationGroup", args, &rv, opts...)

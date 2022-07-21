@@ -47,34 +47,3 @@ export const ManagedIdentityType = {
  * Type of the managed identity
  */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
-
-export const RuntimeVersion = {
-    Java_8: "Java_8",
-    Java_11: "Java_11",
-    NetCore_31: "NetCore_31",
-} as const;
-
-/**
- * Runtime version
- */
-export type RuntimeVersion = (typeof RuntimeVersion)[keyof typeof RuntimeVersion];
-
-export const StorageType = {
-    StorageAccount: "StorageAccount",
-} as const;
-
-/**
- * The type of the storage.
- */
-export type StorageType = (typeof StorageType)[keyof typeof StorageType];
-
-export const UserSourceType = {
-    Jar: "Jar",
-    NetCoreZip: "NetCoreZip",
-    Source: "Source",
-} as const;
-
-/**
- * Type of the source uploaded
- */
-export type UserSourceType = (typeof UserSourceType)[keyof typeof UserSourceType];

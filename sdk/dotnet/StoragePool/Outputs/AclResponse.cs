@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
 {
 
     /// <summary>
-    /// Access Control List (ACL) for an iSCSI target portal group
+    /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
     /// </summary>
     [OutputType]
     public sealed class AclResponse
@@ -24,29 +24,15 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
         /// List of LUN names mapped to the ACL.
         /// </summary>
         public readonly ImmutableArray<string> MappedLuns;
-        /// <summary>
-        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
-        /// </summary>
-        public readonly string Username;
 
         [OutputConstructor]
         private AclResponse(
             string initiatorIqn,
 
-            ImmutableArray<string> mappedLuns,
-
-            string password,
-
-            string username)
+            ImmutableArray<string> mappedLuns)
         {
             InitiatorIqn = initiatorIqn;
             MappedLuns = mappedLuns;
-            Password = password;
-            Username = username;
         }
     }
 }

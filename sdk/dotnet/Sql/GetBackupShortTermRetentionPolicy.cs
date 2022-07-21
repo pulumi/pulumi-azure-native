@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A short term retention policy.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetBackupShortTermRetentionPolicyResult> InvokeAsync(GetBackupShortTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupShortTermRetentionPolicyResult>("azure-native:sql:getBackupShortTermRetentionPolicy", args ?? new GetBackupShortTermRetentionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A short term retention policy.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetBackupShortTermRetentionPolicyResult> Invoke(GetBackupShortTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBackupShortTermRetentionPolicyResult>("azure-native:sql:getBackupShortTermRetentionPolicy", args ?? new GetBackupShortTermRetentionPolicyInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetBackupShortTermRetentionPolicyResult
     {
         /// <summary>
+        /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        /// </summary>
+        public readonly int? DiffBackupIntervalInHours;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetBackupShortTermRetentionPolicyResult(
+            int? diffBackupIntervalInHours,
+
             string id,
 
             string name,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            DiffBackupIntervalInHours = diffBackupIntervalInHours;
             Id = id;
             Name = name;
             RetentionDays = retentionDays;

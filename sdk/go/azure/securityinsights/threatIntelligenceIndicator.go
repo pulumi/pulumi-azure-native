@@ -12,7 +12,7 @@ import (
 )
 
 // Threat intelligence information object.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-10-01.
 type ThreatIntelligenceIndicator struct {
 	pulumi.CustomResourceState
 
@@ -20,9 +20,11 @@ type ThreatIntelligenceIndicator struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The kind of the entity.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -36,15 +38,13 @@ func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	args.Kind = pulumi.String("indicator")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"),
@@ -136,7 +136,8 @@ type threatIntelligenceIndicatorArgs struct {
 	IndicatorTypes []string `pulumi:"indicatorTypes"`
 	// Kill chain phases
 	KillChainPhases []ThreatIntelligenceKillChainPhase `pulumi:"killChainPhases"`
-	// The kind of the entity.
+	// The kind of the threat intelligence entity
+	// Expected value is 'indicator'.
 	Kind string `pulumi:"kind"`
 	// Labels  of threat intelligence entity
 	Labels []string `pulumi:"labels"`
@@ -150,8 +151,6 @@ type threatIntelligenceIndicatorArgs struct {
 	Name *string `pulumi:"name"`
 	// Threat intelligence entity object marking references
 	ObjectMarkingRefs []string `pulumi:"objectMarkingRefs"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// Parsed patterns
 	ParsedPattern []ThreatIntelligenceParsedPattern `pulumi:"parsedPattern"`
 	// Pattern of a threat intelligence entity
@@ -160,7 +159,7 @@ type threatIntelligenceIndicatorArgs struct {
 	PatternType *string `pulumi:"patternType"`
 	// Pattern version of a threat intelligence entity
 	PatternVersion *string `pulumi:"patternVersion"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is threat intelligence entity revoked
 	Revoked *bool `pulumi:"revoked"`
@@ -206,7 +205,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	IndicatorTypes pulumi.StringArrayInput
 	// Kill chain phases
 	KillChainPhases ThreatIntelligenceKillChainPhaseArrayInput
-	// The kind of the entity.
+	// The kind of the threat intelligence entity
+	// Expected value is 'indicator'.
 	Kind pulumi.StringInput
 	// Labels  of threat intelligence entity
 	Labels pulumi.StringArrayInput
@@ -220,8 +220,6 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Name pulumi.StringPtrInput
 	// Threat intelligence entity object marking references
 	ObjectMarkingRefs pulumi.StringArrayInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput
 	// Parsed patterns
 	ParsedPattern ThreatIntelligenceParsedPatternArrayInput
 	// Pattern of a threat intelligence entity
@@ -230,7 +228,7 @@ type ThreatIntelligenceIndicatorArgs struct {
 	PatternType pulumi.StringPtrInput
 	// Pattern version of a threat intelligence entity
 	PatternVersion pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Is threat intelligence entity revoked
 	Revoked pulumi.BoolPtrInput
@@ -295,12 +293,17 @@ func (o ThreatIntelligenceIndicatorOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o ThreatIntelligenceIndicatorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ThreatIntelligenceIndicatorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ThreatIntelligenceIndicatorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

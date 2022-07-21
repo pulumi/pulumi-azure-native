@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double CapacityInBytes;
         /// <summary>
+        /// The DiskEncryptionSet ARM Id.
+        /// </summary>
+        public readonly string DiskEncryptionSetId;
+        /// <summary>
         /// The disk id.
         /// </summary>
         public readonly string DiskId;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string SeedManagedDiskId;
         /// <summary>
+        /// The name for the target managed disk.
+        /// </summary>
+        public readonly string? TargetDiskName;
+        /// <summary>
         /// The ARM Id of the target managed disk.
         /// </summary>
         public readonly string TargetManagedDiskId;
@@ -60,6 +68,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         [OutputConstructor]
         private VMwareCbtProtectedDiskDetailsResponse(
             double capacityInBytes,
+
+            string diskEncryptionSetId,
 
             string diskId,
 
@@ -77,9 +87,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string seedManagedDiskId,
 
+            string? targetDiskName,
+
             string targetManagedDiskId)
         {
             CapacityInBytes = capacityInBytes;
+            DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             DiskName = diskName;
             DiskPath = diskPath;
@@ -88,6 +101,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             LogStorageAccountId = logStorageAccountId;
             LogStorageAccountSasSecretName = logStorageAccountSasSecretName;
             SeedManagedDiskId = seedManagedDiskId;
+            TargetDiskName = targetDiskName;
             TargetManagedDiskId = targetManagedDiskId;
         }
     }

@@ -17,9 +17,21 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     public sealed class BackupVaultResponse
     {
         /// <summary>
+        /// Monitoring Settings
+        /// </summary>
+        public readonly Outputs.MonitoringSettingsResponse? MonitoringSettings;
+        /// <summary>
         /// Provisioning state of the BackupVault resource
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource move details for backup vault
+        /// </summary>
+        public readonly Outputs.ResourceMoveDetailsResponse ResourceMoveDetails;
+        /// <summary>
+        /// Resource move state for backup vault
+        /// </summary>
+        public readonly string ResourceMoveState;
         /// <summary>
         /// Storage Settings
         /// </summary>
@@ -27,11 +39,20 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
         [OutputConstructor]
         private BackupVaultResponse(
+            Outputs.MonitoringSettingsResponse? monitoringSettings,
+
             string provisioningState,
+
+            Outputs.ResourceMoveDetailsResponse resourceMoveDetails,
+
+            string resourceMoveState,
 
             ImmutableArray<Outputs.StorageSettingResponse> storageSettings)
         {
+            MonitoringSettings = monitoringSettings;
             ProvisioningState = provisioningState;
+            ResourceMoveDetails = resourceMoveDetails;
+            ResourceMoveState = resourceMoveState;
             StorageSettings = storageSettings;
         }
     }

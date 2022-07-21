@@ -12,7 +12,7 @@ import (
 )
 
 // Application Configuration Service resource
-// API Version: 2022-01-01-preview.
+// API Version: 2022-04-01.
 type ConfigurationService struct {
 	pulumi.CustomResourceState
 

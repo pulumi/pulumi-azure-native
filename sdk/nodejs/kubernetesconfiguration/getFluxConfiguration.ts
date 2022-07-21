@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Flux Configuration object returned in Get & Put response.
- * API Version: 2021-11-01-preview.
+ * API Version: 2022-07-01.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
     if (!opts) {
@@ -30,11 +30,11 @@ export interface GetFluxConfigurationArgs {
      */
     clusterName: string;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: string;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: string;
     /**
@@ -51,6 +51,14 @@ export interface GetFluxConfigurationArgs {
  * The Flux Configuration object returned in Get & Put response.
  */
 export interface GetFluxConfigurationResult {
+    /**
+     * Parameters to reconcile to the AzureBlob source kind type.
+     */
+    readonly azureBlob?: outputs.kubernetesconfiguration.AzureBlobDefinitionResponse;
+    /**
+     * Parameters to reconcile to the Bucket source kind type.
+     */
+    readonly bucket?: outputs.kubernetesconfiguration.BucketDefinitionResponse;
     /**
      * Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.
      */
@@ -76,14 +84,6 @@ export interface GetFluxConfigurationResult {
      */
     readonly kustomizations?: {[key: string]: outputs.kubernetesconfiguration.KustomizationDefinitionResponse};
     /**
-     * Datetime the fluxConfiguration last synced its source on the cluster.
-     */
-    readonly lastSourceSyncedAt: string;
-    /**
-     * Branch and SHA of the last source commit synced with the cluster.
-     */
-    readonly lastSourceSyncedCommitId: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
@@ -107,6 +107,18 @@ export interface GetFluxConfigurationResult {
      * Source Kind to pull the configuration data from.
      */
     readonly sourceKind?: string;
+    /**
+     * Branch and/or SHA of the source commit synced with the cluster.
+     */
+    readonly sourceSyncedCommitId: string;
+    /**
+     * Datetime the fluxConfiguration synced its source on the cluster.
+     */
+    readonly sourceUpdatedAt: string;
+    /**
+     * Datetime the fluxConfiguration synced its status on the cluster with Azure.
+     */
+    readonly statusUpdatedAt: string;
     /**
      * Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.
      */
@@ -135,11 +147,11 @@ export interface GetFluxConfigurationOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: pulumi.Input<string>;
     /**

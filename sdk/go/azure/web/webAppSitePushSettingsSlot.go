@@ -12,7 +12,7 @@ import (
 )
 
 // Push settings for the App.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type WebAppSitePushSettingsSlot struct {
 	pulumi.CustomResourceState
 

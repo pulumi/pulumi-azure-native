@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAddonResult',
@@ -20,33 +21,19 @@ class GetAddonResult:
     """
     An addon resource
     """
-    def __init__(__self__, addon_type=None, id=None, license_key=None, name=None, provisioning_state=None, type=None):
-        if addon_type and not isinstance(addon_type, str):
-            raise TypeError("Expected argument 'addon_type' to be a str")
-        pulumi.set(__self__, "addon_type", addon_type)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if license_key and not isinstance(license_key, str):
-            raise TypeError("Expected argument 'license_key' to be a str")
-        pulumi.set(__self__, "license_key", license_key)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> Optional[str]:
-        """
-        The type of private cloud addon
-        """
-        return pulumi.get(self, "addon_type")
 
     @property
     @pulumi.getter
@@ -57,14 +44,6 @@ class GetAddonResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional[str]:
-        """
-        The SRM license
-        """
-        return pulumi.get(self, "license_key")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -73,12 +52,12 @@ class GetAddonResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
-        The state of the addon provisioning
+        The properties of an addon resource
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -95,11 +74,9 @@ class AwaitableGetAddonResult(GetAddonResult):
         if False:
             yield self
         return GetAddonResult(
-            addon_type=self.addon_type,
             id=self.id,
-            license_key=self.license_key,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             type=self.type)
 
 
@@ -109,7 +86,7 @@ def get_addon(addon_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
     An addon resource
-    API Version: 2020-07-17-preview.
+    API Version: 2021-12-01.
 
 
     :param str addon_name: Name of the addon for the private cloud
@@ -127,11 +104,9 @@ def get_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getAddon', __args__, opts=opts, typ=GetAddonResult).value
 
     return AwaitableGetAddonResult(
-        addon_type=__ret__.addon_type,
         id=__ret__.id,
-        license_key=__ret__.license_key,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 
@@ -142,7 +117,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
     """
     An addon resource
-    API Version: 2020-07-17-preview.
+    API Version: 2021-12-01.
 
 
     :param str addon_name: Name of the addon for the private cloud

@@ -12,7 +12,7 @@ import (
 )
 
 // Packet core data plane resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 type PacketCoreDataPlane struct {
 	pulumi.CustomResourceState
 
@@ -34,6 +34,8 @@ type PacketCoreDataPlane struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the packet core data plane resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -233,6 +235,11 @@ func (o PacketCoreDataPlaneOutput) Name() pulumi.StringOutput {
 // The provisioning state of the packet core data plane resource.
 func (o PacketCoreDataPlaneOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PacketCoreDataPlaneOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

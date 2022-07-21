@@ -19,24 +19,36 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Location for the underlying compute
         /// </summary>
-        public readonly string? ComputeLocation;
+        public readonly string ComputeLocation;
         /// <summary>
         /// The type of compute
         /// Expected value is 'DataFactory'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>
+        /// The time at which the compute was created.
+        /// </summary>
+        public readonly string CreatedOn;
+        /// <summary>
         /// The description of the Machine Learning compute.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
         /// <summary>
         /// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         /// </summary>
         public readonly bool IsAttachedCompute;
         /// <summary>
+        /// The time at which the compute was last modified.
+        /// </summary>
+        public readonly string ModifiedOn;
+        /// <summary>
         /// Errors during provisioning
         /// </summary>
-        public readonly ImmutableArray<Outputs.MachineLearningServiceErrorResponse> ProvisioningErrors;
+        public readonly ImmutableArray<Outputs.ErrorResponseResponse> ProvisioningErrors;
         /// <summary>
         /// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         /// </summary>
@@ -48,15 +60,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private DataFactoryResponse(
-            string? computeLocation,
+            string computeLocation,
 
             string computeType,
 
+            string createdOn,
+
             string? description,
+
+            bool? disableLocalAuth,
 
             bool isAttachedCompute,
 
-            ImmutableArray<Outputs.MachineLearningServiceErrorResponse> provisioningErrors,
+            string modifiedOn,
+
+            ImmutableArray<Outputs.ErrorResponseResponse> provisioningErrors,
 
             string provisioningState,
 
@@ -64,8 +82,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         {
             ComputeLocation = computeLocation;
             ComputeType = computeType;
+            CreatedOn = createdOn;
             Description = description;
+            DisableLocalAuth = disableLocalAuth;
             IsAttachedCompute = isAttachedCompute;
+            ModifiedOn = modifiedOn;
             ProvisioningErrors = provisioningErrors;
             ProvisioningState = provisioningState;
             ResourceId = resourceId;

@@ -12,7 +12,7 @@ import (
 )
 
 // Diagnostic details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
 
@@ -28,13 +28,13 @@ type ApiDiagnostic struct {
 	LogClientIp pulumi.BoolPtrOutput `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringOutput `pulumi:"loggerId"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
 	Sampling SamplingSettingsResponsePtrOutput `pulumi:"sampling"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The verbosity level applied to traces emitted by trace policies.
 	Verbosity pulumi.StringPtrOutput `pulumi:"verbosity"`
@@ -255,7 +255,7 @@ func (o ApiDiagnosticOutput) LoggerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.LoggerId }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiDiagnosticOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -270,7 +270,7 @@ func (o ApiDiagnosticOutput) Sampling() SamplingSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) SamplingSettingsResponsePtrOutput { return v.Sampling }).(SamplingSettingsResponsePtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiDiagnosticOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

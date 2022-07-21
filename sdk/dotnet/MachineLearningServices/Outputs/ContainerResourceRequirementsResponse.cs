@@ -11,60 +11,28 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// The resource requirements for the container (cpu and memory).
+    /// Resource requirements for each container instance within an online deployment.
     /// </summary>
     [OutputType]
     public sealed class ContainerResourceRequirementsResponse
     {
         /// <summary>
-        /// The minimum amount of CPU cores to be used by the container. More info:
-        /// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        /// Container resource limit info:
         /// </summary>
-        public readonly double? Cpu;
+        public readonly Outputs.ContainerResourceSettingsResponse? ContainerResourceLimits;
         /// <summary>
-        /// The maximum amount of CPU cores allowed to be used by the container. More info:
-        /// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        /// Container resource request info:
         /// </summary>
-        public readonly double? CpuLimit;
-        /// <summary>
-        /// The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-        /// </summary>
-        public readonly int? Fpga;
-        /// <summary>
-        /// The number of GPU cores in the container.
-        /// </summary>
-        public readonly int? Gpu;
-        /// <summary>
-        /// The minimum amount of memory (in GB) to be used by the container. More info:
-        /// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-        /// </summary>
-        public readonly double? MemoryInGB;
-        /// <summary>
-        /// The maximum amount of memory (in GB) allowed to be used by the container. More info:
-        /// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-        /// </summary>
-        public readonly double? MemoryInGBLimit;
+        public readonly Outputs.ContainerResourceSettingsResponse? ContainerResourceRequests;
 
         [OutputConstructor]
         private ContainerResourceRequirementsResponse(
-            double? cpu,
+            Outputs.ContainerResourceSettingsResponse? containerResourceLimits,
 
-            double? cpuLimit,
-
-            int? fpga,
-
-            int? gpu,
-
-            double? memoryInGB,
-
-            double? memoryInGBLimit)
+            Outputs.ContainerResourceSettingsResponse? containerResourceRequests)
         {
-            Cpu = cpu;
-            CpuLimit = cpuLimit;
-            Fpga = fpga;
-            Gpu = gpu;
-            MemoryInGB = memoryInGB;
-            MemoryInGBLimit = memoryInGBLimit;
+            ContainerResourceLimits = containerResourceLimits;
+            ContainerResourceRequests = containerResourceRequests;
         }
     }
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The lock information.
- * API Version: 2017-04-01.
+ * API Version: 2020-05-01.
  */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
     if (!opts) {
@@ -76,6 +76,10 @@ export interface GetManagementLockAtResourceLevelResult {
      * The owners of the lock.
      */
     readonly owners?: outputs.authorization.ManagementLockOwnerResponse[];
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */

@@ -15,11 +15,23 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// </summary>
     public sealed class AppResourcePropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("addonConfigs")]
+        private InputMap<ImmutableDictionary<string, object>>? _addonConfigs;
+
         /// <summary>
-        /// Name of the active deployment of the App
+        /// Collection of addons
         /// </summary>
-        [Input("activeDeploymentName")]
-        public Input<string>? ActiveDeploymentName { get; set; }
+        public InputMap<ImmutableDictionary<string, object>> AddonConfigs
+        {
+            get => _addonConfigs ?? (_addonConfigs = new InputMap<ImmutableDictionary<string, object>>());
+            set => _addonConfigs = value;
+        }
+
+        /// <summary>
+        /// Indicate if end to end TLS is enabled.
+        /// </summary>
+        [Input("enableEndToEndTLS")]
+        public Input<bool>? EnableEndToEndTLS { get; set; }
 
         /// <summary>
         /// Fully qualified dns Name.
@@ -32,6 +44,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
+
+        [Input("loadedCertificates")]
+        private InputList<Inputs.LoadedCertificateArgs>? _loadedCertificates;
+
+        /// <summary>
+        /// Collection of loaded certificates
+        /// </summary>
+        public InputList<Inputs.LoadedCertificateArgs> LoadedCertificates
+        {
+            get => _loadedCertificates ?? (_loadedCertificates = new InputList<Inputs.LoadedCertificateArgs>());
+            set => _loadedCertificates = value;
+        }
 
         /// <summary>
         /// Persistent disk settings
@@ -53,6 +77,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public AppResourcePropertiesArgs()
         {
+            EnableEndToEndTLS = false;
             HttpsOnly = false;
         }
     }

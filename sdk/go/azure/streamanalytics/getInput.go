@@ -11,7 +11,7 @@ import (
 )
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-// API Version: 2016-03-01.
+// API Version: 2021-10-01-preview.
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	var rv LookupInputResult
 	err := ctx.Invoke("azure-native:streamanalytics:getInput", args, &rv, opts...)
@@ -26,7 +26,7 @@ type LookupInputArgs struct {
 	InputName string `pulumi:"inputName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -60,7 +60,7 @@ type LookupInputOutputArgs struct {
 	InputName pulumi.StringInput `pulumi:"inputName"`
 	// The name of the streaming job.
 	JobName pulumi.StringInput `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 

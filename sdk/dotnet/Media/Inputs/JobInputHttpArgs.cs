@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     public sealed class JobInputHttpArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+        /// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters. The query strings will not be returned in service responses to prevent sensitive data exposure.
         /// </summary>
         [Input("baseUri")]
         public Input<string>? BaseUri { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Media.Inputs
         private InputList<string>? _files;
 
         /// <summary>
-        /// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        /// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         /// </summary>
         public InputList<string> Files
         {

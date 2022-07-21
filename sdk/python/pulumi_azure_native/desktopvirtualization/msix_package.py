@@ -264,7 +264,7 @@ class MSIXPackage(pulumi.CustomResource):
                  __props__=None):
         """
         Schema for MSIX Package properties.
-        API Version: 2021-02-01-preview.
+        API Version: 2021-07-12.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,7 +291,7 @@ class MSIXPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for MSIX Package properties.
-        API Version: 2021-02-01-preview.
+        API Version: 2021-07-12.
 
         :param str resource_name: The name of the resource.
         :param MSIXPackageArgs args: The arguments to use to populate this resource's properties.

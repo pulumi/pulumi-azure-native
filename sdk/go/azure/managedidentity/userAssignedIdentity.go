@@ -12,7 +12,7 @@ import (
 )
 
 // Describes an identity resource.
-// API Version: 2018-11-30.
+// API Version: 2022-01-31-preview.
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 

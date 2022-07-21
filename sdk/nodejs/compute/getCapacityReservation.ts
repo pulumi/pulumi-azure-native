@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the capacity reservation.
- * API Version: 2021-04-01.
+ * API Version: 2021-11-01.
  */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
     if (!opts) {
@@ -82,6 +82,10 @@ export interface GetCapacityReservationResult {
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    readonly timeCreated: string;
     /**
      * Resource type
      */

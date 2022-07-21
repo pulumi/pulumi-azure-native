@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Cloud Endpoint object.
- * API Version: 2020-03-01.
+ * API Version: 2020-09-01.
  */
 export class CloudEndpoint extends pulumi.CustomResource {
     /**
@@ -44,6 +45,10 @@ export class CloudEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly backupEnabled!: pulumi.Output<string>;
     /**
+     * Cloud endpoint change enumeration status
+     */
+    public /*out*/ readonly changeEnumerationStatus!: pulumi.Output<outputs.storagesync.CloudEndpointChangeEnumerationStatusResponse>;
+    /**
      * Friendly Name
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
@@ -75,6 +80,10 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * Storage Account Tenant Id
      */
     public readonly storageAccountTenantId!: pulumi.Output<string | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -109,15 +118,18 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             resourceInputs["backupEnabled"] = undefined /*out*/;
+            resourceInputs["changeEnumerationStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnershipId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureFileShareName"] = undefined /*out*/;
             resourceInputs["backupEnabled"] = undefined /*out*/;
+            resourceInputs["changeEnumerationStatus"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;
@@ -126,6 +138,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["storageAccountResourceId"] = undefined /*out*/;
             resourceInputs["storageAccountTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

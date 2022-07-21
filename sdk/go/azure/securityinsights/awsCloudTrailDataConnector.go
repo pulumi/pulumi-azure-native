@@ -12,7 +12,7 @@ import (
 )
 
 // Represents Amazon Web Services CloudTrail data connector.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 type AwsCloudTrailDataConnector struct {
 	pulumi.CustomResourceState
 
@@ -25,9 +25,11 @@ type AwsCloudTrailDataConnector struct {
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesCloudTrail'.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -125,7 +127,7 @@ type awsCloudTrailDataConnectorArgs struct {
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesCloudTrail'.
 	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -142,7 +144,7 @@ type AwsCloudTrailDataConnectorArgs struct {
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesCloudTrail'.
 	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
@@ -208,12 +210,17 @@ func (o AwsCloudTrailDataConnectorOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o AwsCloudTrailDataConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AwsCloudTrailDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o AwsCloudTrailDataConnectorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

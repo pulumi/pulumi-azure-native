@@ -12,12 +12,16 @@ import (
 )
 
 // Customer subscription which can use a sku.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 type VendorSkuPreview struct {
 	pulumi.CustomResourceState
 
 	// The preview subscription ID.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The provisioning state of the PreviewSubscription resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -137,6 +141,16 @@ func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutputWithContext(ctx context.
 // The preview subscription ID.
 func (o VendorSkuPreviewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the PreviewSubscription resource.
+func (o VendorSkuPreviewOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o VendorSkuPreviewOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

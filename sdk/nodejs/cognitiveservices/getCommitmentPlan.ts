@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account commitment plan.
- * API Version: 2021-10-01.
+ * API Version: 2022-03-01.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
     if (!opts) {

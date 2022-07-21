@@ -11,7 +11,7 @@ import (
 )
 
 // The response to an account resource GET request.
-// API Version: 2014-04-01-preview.
+// API Version: 2017-11-01-preview.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:visualstudio:getAccount", args, &rv, opts...)

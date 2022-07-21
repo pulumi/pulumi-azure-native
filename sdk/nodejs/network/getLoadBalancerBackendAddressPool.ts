@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
     if (!opts) {
@@ -46,6 +46,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly backendIPConfigurations: outputs.network.NetworkInterfaceIPConfigurationResponse[];
     /**
+     * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+     */
+    readonly drainPeriodInSeconds?: number;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -54,6 +58,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly id?: string;
     /**
+     * An array of references to inbound NAT rules that use this backend address pool.
+     */
+    readonly inboundNatRules: outputs.network.SubResourceResponse[];
+    /**
      * An array of backend addresses.
      */
     readonly loadBalancerBackendAddresses?: outputs.network.LoadBalancerBackendAddressResponse[];
@@ -61,6 +69,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      * An array of references to load balancing rules that use this backend address pool.
      */
     readonly loadBalancingRules: outputs.network.SubResourceResponse[];
+    /**
+     * The location of the backend address pool.
+     */
+    readonly location?: string;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
@@ -77,6 +89,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      * The provisioning state of the backend address pool resource.
      */
     readonly provisioningState: string;
+    /**
+     * An array of gateway load balancer tunnel interfaces.
+     */
+    readonly tunnelInterfaces?: outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[];
     /**
      * Type of the resource.
      */

@@ -112,7 +112,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  __props__=None):
         """
         Private endpoint connection proxy details.
-        API Version: 2020-03-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint connection proxy details.
-        API Version: 2020-03-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionProxyArgs args: The arguments to use to populate this resource's properties.

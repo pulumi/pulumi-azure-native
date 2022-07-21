@@ -11,7 +11,7 @@ import (
 )
 
 // Details of a particular extension in HCI Cluster.
-// API Version: 2021-01-01-preview.
+// API Version: 2022-05-01.
 func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pulumi.InvokeOption) (*LookupExtensionResult, error) {
 	var rv LookupExtensionResult
 	err := ctx.Invoke("azure-native:azurestackhci:getExtension", args, &rv, opts...)

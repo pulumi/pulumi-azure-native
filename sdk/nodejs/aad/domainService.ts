@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain service.
- * API Version: 2021-03-01.
+ * API Version: 2021-05-01.
  */
 export class DomainService extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class DomainService extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainService.__pulumiType;
     }
 
+    /**
+     * Configuration diagnostics data containing latest execution from client.
+     */
+    public readonly configDiagnostics!: pulumi.Output<outputs.aad.ConfigDiagnosticsResponse | undefined>;
     /**
      * Deployment Id
      */
@@ -135,6 +139,7 @@ export class DomainService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
             resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
@@ -159,6 +164,7 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["configDiagnostics"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["domainConfigurationType"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -192,6 +198,10 @@ export class DomainService extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainService resource.
  */
 export interface DomainServiceArgs {
+    /**
+     * Configuration diagnostics data containing latest execution from client.
+     */
+    configDiagnostics?: pulumi.Input<inputs.aad.ConfigDiagnosticsArgs>;
     /**
      * Domain Configuration Type
      */

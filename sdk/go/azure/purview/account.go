@@ -12,7 +12,7 @@ import (
 )
 
 // Account resource
-// API Version: 2020-12-01-preview.
+// API Version: 2021-07-01.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,7 @@ type Account struct {
 	// Gets or sets the Sku.
 	Sku AccountResponseSkuOutput `pulumi:"sku"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData AccountPropertiesResponseSystemDataOutput `pulumi:"systemData"`
+	SystemData TrackedResourceResponseSystemDataOutput `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets or sets the type.
@@ -257,8 +257,8 @@ func (o AccountOutput) Sku() AccountResponseSkuOutput {
 }
 
 // Metadata pertaining to creation and last modification of the resource.
-func (o AccountOutput) SystemData() AccountPropertiesResponseSystemDataOutput {
-	return o.ApplyT(func(v *Account) AccountPropertiesResponseSystemDataOutput { return v.SystemData }).(AccountPropertiesResponseSystemDataOutput)
+func (o AccountOutput) SystemData() TrackedResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *Account) TrackedResourceResponseSystemDataOutput { return v.SystemData }).(TrackedResourceResponseSystemDataOutput)
 }
 
 // Tags on the azure resource.

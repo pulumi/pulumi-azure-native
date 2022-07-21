@@ -10,10 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func GetOnlineDeploymentLogs(ctx *pulumi.Context, args *GetOnlineDeploymentLogsArgs, opts ...pulumi.InvokeOption) (*GetOnlineDeploymentLogsResult, error) {
 	var rv GetOnlineDeploymentLogsResult
-	err := ctx.Invoke("azure-native:machinelearningservices:getOnlineDeploymentLogs", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices:getOnlineDeploymentLogs", args.Defaults(), &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -33,6 +33,19 @@ type GetOnlineDeploymentLogsArgs struct {
 	Tail *int `pulumi:"tail"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
+}
+
+// Defaults sets the appropriate defaults for GetOnlineDeploymentLogsArgs
+func (val *GetOnlineDeploymentLogsArgs) Defaults() *GetOnlineDeploymentLogsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ContainerType) {
+		containerType_ := "InferenceServer"
+		tmp.ContainerType = &containerType_
+	}
+	return &tmp
 }
 
 type GetOnlineDeploymentLogsResult struct {

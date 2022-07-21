@@ -49,7 +49,7 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterFollowerDatabasesResult:
     """
     The list Kusto database principals operation response.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -74,7 +74,7 @@ def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
     """
     The list Kusto database principals operation response.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

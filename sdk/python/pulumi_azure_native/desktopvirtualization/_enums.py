@@ -7,13 +7,11 @@ from enum import Enum
 __all__ = [
     'ApplicationGroupType',
     'CommandLineSetting',
-    'DayOfWeek',
     'HostPoolType',
     'LoadBalancerType',
     'Operation',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
     'RegistrationTokenOperation',
     'RemoteApplicationType',
     'ResourceIdentityType',
@@ -39,16 +37,6 @@ class CommandLineSetting(str, Enum):
     DO_NOT_ALLOW = "DoNotAllow"
     ALLOW = "Allow"
     REQUIRE = "Require"
-
-
-class DayOfWeek(str, Enum):
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
-    SUNDAY = "Sunday"
 
 
 class HostPoolType(str, Enum):
@@ -119,15 +107,6 @@ class PreferredAppGroupType(str, Enum):
     NONE = "None"
     DESKTOP = "Desktop"
     RAIL_APPLICATIONS = "RailApplications"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class RegistrationTokenOperation(str, Enum):

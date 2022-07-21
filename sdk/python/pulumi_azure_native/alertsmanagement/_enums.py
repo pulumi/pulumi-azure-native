@@ -5,31 +5,22 @@
 from enum import Enum
 
 __all__ = [
-    'ActionRuleStatus',
-    'ActionRuleType',
+    'ActionType',
     'AlertRuleState',
+    'DaysOfWeek',
+    'Field',
     'Operator',
-    'ScopeType',
+    'RecurrenceType',
     'Severity',
-    'SuppressionType',
 ]
 
 
-class ActionRuleStatus(str, Enum):
+class ActionType(str, Enum):
     """
-    Indicates if the given action rule is enabled or disabled
+    Action that should be applied.
     """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ActionRuleType(str, Enum):
-    """
-    Indicates type of action rule
-    """
-    SUPPRESSION = "Suppression"
-    ACTION_GROUP = "ActionGroup"
-    DIAGNOSTICS = "Diagnostics"
+    ADD_ACTION_GROUPS = "AddActionGroups"
+    REMOVE_ALL_ACTION_GROUPS = "RemoveAllActionGroups"
 
 
 class AlertRuleState(str, Enum):
@@ -40,9 +31,39 @@ class AlertRuleState(str, Enum):
     DISABLED = "Disabled"
 
 
+class DaysOfWeek(str, Enum):
+    """
+    Days of week.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+
+
+class Field(str, Enum):
+    """
+    Field for a given condition.
+    """
+    SEVERITY = "Severity"
+    MONITOR_SERVICE = "MonitorService"
+    MONITOR_CONDITION = "MonitorCondition"
+    SIGNAL_TYPE = "SignalType"
+    TARGET_RESOURCE_TYPE = "TargetResourceType"
+    TARGET_RESOURCE = "TargetResource"
+    TARGET_RESOURCE_GROUP = "TargetResourceGroup"
+    ALERT_RULE_ID = "AlertRuleId"
+    ALERT_RULE_NAME = "AlertRuleName"
+    DESCRIPTION = "Description"
+    ALERT_CONTEXT = "AlertContext"
+
+
 class Operator(str, Enum):
     """
-    operator for a given condition
+    Operator for a given condition.
     """
     EQUALS = "Equals"
     NOT_EQUALS = "NotEquals"
@@ -50,13 +71,13 @@ class Operator(str, Enum):
     DOES_NOT_CONTAIN = "DoesNotContain"
 
 
-class ScopeType(str, Enum):
+class RecurrenceType(str, Enum):
     """
-    type of target scope
+    Specifies when the recurrence should be applied.
     """
-    RESOURCE_GROUP = "ResourceGroup"
-    RESOURCE = "Resource"
-    SUBSCRIPTION = "Subscription"
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
+    MONTHLY = "Monthly"
 
 
 class Severity(str, Enum):
@@ -68,14 +89,3 @@ class Severity(str, Enum):
     SEV2 = "Sev2"
     SEV3 = "Sev3"
     SEV4 = "Sev4"
-
-
-class SuppressionType(str, Enum):
-    """
-    Specifies when the suppression should be applied
-    """
-    ALWAYS = "Always"
-    ONCE = "Once"
-    DAILY = "Daily"
-    WEEKLY = "Weekly"
-    MONTHLY = "Monthly"

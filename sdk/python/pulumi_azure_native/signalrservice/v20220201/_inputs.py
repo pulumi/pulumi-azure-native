@@ -159,11 +159,11 @@ class ManagedIdentitySettingsArgs:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A class represent managed identities used for request and response
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Represents the identity type: systemAssigned, userAssigned, None
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Get or set the user assigned identities
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Get or set the user assigned identities
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -184,14 +184,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Get or set the user assigned identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

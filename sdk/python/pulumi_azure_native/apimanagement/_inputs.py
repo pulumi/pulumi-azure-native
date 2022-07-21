@@ -11,7 +11,9 @@ from ._enums import *
 
 __all__ = [
     'AdditionalLocationArgs',
+    'ApiContactInformationArgs',
     'ApiCreateOrUpdatePropertiesWsdlSelectorArgs',
+    'ApiLicenseInformationArgs',
     'ApiManagementServiceIdentityArgs',
     'ApiManagementServiceSkuPropertiesArgs',
     'ApiVersionConstraintArgs',
@@ -35,9 +37,11 @@ __all__ = [
     'OAuth2AuthenticationSettingsContractArgs',
     'OpenIdAuthenticationSettingsContractArgs',
     'ParameterContractArgs',
+    'ParameterExampleContractArgs',
     'PipelineDiagnosticSettingsArgs',
     'PrivateEndpointConnectionRequestPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RemotePrivateEndpointConnectionWrapperArgs',
     'RepresentationContractArgs',
     'RequestContractArgs',
     'ResourceLocationDataContractArgs',
@@ -57,6 +61,7 @@ class AdditionalLocationArgs:
                  location: pulumi.Input[str],
                  sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
                  disable_gateway: Optional[pulumi.Input[bool]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -64,6 +69,7 @@ class AdditionalLocationArgs:
         :param pulumi.Input[str] location: The location name of the additional region among Azure Data center regions.
         :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
         :param pulumi.Input[bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        :param pulumi.Input[str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration for the location.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
@@ -73,6 +79,8 @@ class AdditionalLocationArgs:
             disable_gateway = False
         if disable_gateway is not None:
             pulumi.set(__self__, "disable_gateway", disable_gateway)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
@@ -115,6 +123,18 @@ class AdditionalLocationArgs:
         pulumi.set(self, "disable_gateway", value)
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
         """
@@ -137,6 +157,62 @@ class AdditionalLocationArgs:
     @zones.setter
     def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
+
+
+@pulumi.input_type
+class ApiContactInformationArgs:
+    def __init__(__self__, *,
+                 email: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        API contact information
+        :param pulumi.Input[str] email: The email address of the contact person/organization. MUST be in the format of an email address
+        :param pulumi.Input[str] name: The identifying name of the contact person/organization
+        :param pulumi.Input[str] url: The URL pointing to the contact information. MUST be in the format of a URL
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address of the contact person/organization. MUST be in the format of an email address
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifying name of the contact person/organization
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL pointing to the contact information. MUST be in the format of a URL
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
@@ -177,6 +253,46 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
     @wsdl_service_name.setter
     def wsdl_service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "wsdl_service_name", value)
+
+
+@pulumi.input_type
+class ApiLicenseInformationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        API license information
+        :param pulumi.Input[str] name: The license name used for the API
+        :param pulumi.Input[str] url: A URL to the license used for the API. MUST be in the format of a URL
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The license name used for the API
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        A URL to the license used for the API. MUST be in the format of a URL
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
@@ -1071,6 +1187,8 @@ class HostnameConfigurationArgs:
                  type: pulumi.Input[Union[str, 'HostnameType']],
                  certificate: Optional[pulumi.Input['CertificateInformationArgs']] = None,
                  certificate_password: Optional[pulumi.Input[str]] = None,
+                 certificate_source: Optional[pulumi.Input[Union[str, 'CertificateSource']]] = None,
+                 certificate_status: Optional[pulumi.Input[Union[str, 'CertificateStatus']]] = None,
                  default_ssl_binding: Optional[pulumi.Input[bool]] = None,
                  encoded_certificate: Optional[pulumi.Input[str]] = None,
                  identity_client_id: Optional[pulumi.Input[str]] = None,
@@ -1082,6 +1200,8 @@ class HostnameConfigurationArgs:
         :param pulumi.Input[Union[str, 'HostnameType']] type: Hostname type.
         :param pulumi.Input['CertificateInformationArgs'] certificate: Certificate information.
         :param pulumi.Input[str] certificate_password: Certificate Password.
+        :param pulumi.Input[Union[str, 'CertificateSource']] certificate_source: Certificate Source.
+        :param pulumi.Input[Union[str, 'CertificateStatus']] certificate_status: Certificate Status.
         :param pulumi.Input[bool] default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
         :param pulumi.Input[str] encoded_certificate: Base64 Encoded certificate.
         :param pulumi.Input[str] identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
@@ -1094,6 +1214,10 @@ class HostnameConfigurationArgs:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if default_ssl_binding is None:
             default_ssl_binding = False
         if default_ssl_binding is not None:
@@ -1156,6 +1280,30 @@ class HostnameConfigurationArgs:
     @certificate_password.setter
     def certificate_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_password", value)
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[pulumi.Input[Union[str, 'CertificateSource']]]:
+        """
+        Certificate Source.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @certificate_source.setter
+    def certificate_source(self, value: Optional[pulumi.Input[Union[str, 'CertificateSource']]]):
+        pulumi.set(self, "certificate_source", value)
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[pulumi.Input[Union[str, 'CertificateStatus']]]:
+        """
+        Certificate Status.
+        """
+        return pulumi.get(self, "certificate_status")
+
+    @certificate_status.setter
+    def certificate_status(self, value: Optional[pulumi.Input[Union[str, 'CertificateStatus']]]):
+        pulumi.set(self, "certificate_status", value)
 
     @property
     @pulumi.getter(name="defaultSslBinding")
@@ -1282,7 +1430,7 @@ class KeyVaultContractCreatePropertiesArgs:
         """
         Create keyVault contract details.
         :param pulumi.Input[str] identity_client_id: Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
-        :param pulumi.Input[str] secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        :param pulumi.Input[str] secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         if identity_client_id is not None:
             pulumi.set(__self__, "identity_client_id", identity_client_id)
@@ -1305,7 +1453,7 @@ class KeyVaultContractCreatePropertiesArgs:
     @pulumi.getter(name="secretIdentifier")
     def secret_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         return pulumi.get(self, "secret_identifier")
 
@@ -1401,7 +1549,10 @@ class ParameterContractArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 examples: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
+                 schema_id: Optional[pulumi.Input[str]] = None,
+                 type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Operation parameters details.
@@ -1409,7 +1560,10 @@ class ParameterContractArgs:
         :param pulumi.Input[str] type: Parameter type.
         :param pulumi.Input[str] default_value: Default parameter value.
         :param pulumi.Input[str] description: Parameter description.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]] examples: Exampled defined for the parameter.
         :param pulumi.Input[bool] required: Specifies whether parameter is required or not.
+        :param pulumi.Input[str] schema_id: Schema identifier.
+        :param pulumi.Input[str] type_name: Type name defined by the schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Parameter values.
         """
         pulumi.set(__self__, "name", name)
@@ -1418,8 +1572,14 @@ class ParameterContractArgs:
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if required is not None:
             pulumi.set(__self__, "required", required)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if type_name is not None:
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
             pulumi.set(__self__, "values", values)
 
@@ -1473,6 +1633,18 @@ class ParameterContractArgs:
 
     @property
     @pulumi.getter
+    def examples(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]:
+        """
+        Exampled defined for the parameter.
+        """
+        return pulumi.get(self, "examples")
+
+    @examples.setter
+    def examples(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]):
+        pulumi.set(self, "examples", value)
+
+    @property
+    @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether parameter is required or not.
@@ -1482,6 +1654,30 @@ class ParameterContractArgs:
     @required.setter
     def required(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "required", value)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Schema identifier.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_id", value)
+
+    @property
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type name defined by the schema.
+        """
+        return pulumi.get(self, "type_name")
+
+    @type_name.setter
+    def type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_name", value)
 
     @property
     @pulumi.getter
@@ -1494,6 +1690,78 @@ class ParameterContractArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ParameterExampleContractArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_value: Optional[pulumi.Input[str]] = None,
+                 summary: Optional[pulumi.Input[str]] = None,
+                 value: Optional[Any] = None):
+        """
+        Parameter example.
+        :param pulumi.Input[str] description: Long description for the example
+        :param pulumi.Input[str] external_value: A URL that points to the literal example
+        :param pulumi.Input[str] summary: Short description for the example
+        :param Any value: Example value. May be a primitive value, or an object.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_value is not None:
+            pulumi.set(__self__, "external_value", external_value)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Long description for the example
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="externalValue")
+    def external_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A URL that points to the literal example
+        """
+        return pulumi.get(self, "external_value")
+
+    @external_value.setter
+    def external_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_value", value)
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[pulumi.Input[str]]:
+        """
+        Short description for the example
+        """
+        return pulumi.get(self, "summary")
+
+    @summary.setter
+    def summary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "summary", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Example value. May be a primitive value, or an object.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[Any]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1617,26 +1885,97 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class RemotePrivateEndpointConnectionWrapperArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Remote Private Endpoint Connection resource.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] id: Private Endpoint connection resource id
+        :param pulumi.Input[str] name: Private Endpoint Connection Name
+        :param pulumi.Input[str] type: Private Endpoint Connection Resource Type
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private Endpoint connection resource id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private Endpoint Connection Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private Endpoint Connection Resource Type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class RepresentationContractArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
+                 examples: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]] = None,
                  form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
-                 sample: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         Operation request/response representation details.
         :param pulumi.Input[str] content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]] examples: Exampled defined for the representation.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-        :param pulumi.Input[str] sample: An example of the representation.
         :param pulumi.Input[str] schema_id: Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         :param pulumi.Input[str] type_name: Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         """
         pulumi.set(__self__, "content_type", content_type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
-        if sample is not None:
-            pulumi.set(__self__, "sample", sample)
         if schema_id is not None:
             pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
@@ -1655,6 +1994,18 @@ class RepresentationContractArgs:
         pulumi.set(self, "content_type", value)
 
     @property
+    @pulumi.getter
+    def examples(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]:
+        """
+        Exampled defined for the representation.
+        """
+        return pulumi.get(self, "examples")
+
+    @examples.setter
+    def examples(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]]]):
+        pulumi.set(self, "examples", value)
+
+    @property
     @pulumi.getter(name="formParameters")
     def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]:
         """
@@ -1665,18 +2016,6 @@ class RepresentationContractArgs:
     @form_parameters.setter
     def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]]):
         pulumi.set(self, "form_parameters", value)
-
-    @property
-    @pulumi.getter
-    def sample(self) -> Optional[pulumi.Input[str]]:
-        """
-        An example of the representation.
-        """
-        return pulumi.get(self, "sample")
-
-    @sample.setter
-    def sample(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sample", value)
 
     @property
     @pulumi.getter(name="schemaId")

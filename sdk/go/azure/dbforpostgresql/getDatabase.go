@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a Database.
-// API Version: 2017-12-01.
+// API Version: 2021-06-01.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:dbforpostgresql:getDatabase", args, &rv, opts...)
@@ -40,6 +40,8 @@ type LookupDatabaseResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -103,6 +105,11 @@ func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
 // The name of the resource
 func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupDatabaseResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Confidential Ledger. Contains the properties of Confidential Ledger Resource.
- * API Version: 2020-12-01-preview.
+ * API Version: 2022-05-13.
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
     if (!opts) {

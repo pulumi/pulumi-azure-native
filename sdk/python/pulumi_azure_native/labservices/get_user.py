@@ -19,134 +19,131 @@ __all__ = [
 @pulumi.output_type
 class GetUserResult:
     """
-    The User registered to a lab
+    User of a lab that can register for and use virtual machines within the lab.
     """
-    def __init__(__self__, email=None, family_name=None, given_name=None, id=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, tags=None, tenant_id=None, total_usage=None, type=None, unique_identifier=None):
+    def __init__(__self__, additional_usage_quota=None, display_name=None, email=None, id=None, invitation_sent=None, invitation_state=None, name=None, provisioning_state=None, registration_state=None, system_data=None, total_usage=None, type=None):
+        if additional_usage_quota and not isinstance(additional_usage_quota, str):
+            raise TypeError("Expected argument 'additional_usage_quota' to be a str")
+        pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
-        if family_name and not isinstance(family_name, str):
-            raise TypeError("Expected argument 'family_name' to be a str")
-        pulumi.set(__self__, "family_name", family_name)
-        if given_name and not isinstance(given_name, str):
-            raise TypeError("Expected argument 'given_name' to be a str")
-        pulumi.set(__self__, "given_name", given_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if latest_operation_result and not isinstance(latest_operation_result, dict):
-            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
-        pulumi.set(__self__, "latest_operation_result", latest_operation_result)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
+        if invitation_sent and not isinstance(invitation_sent, str):
+            raise TypeError("Expected argument 'invitation_sent' to be a str")
+        pulumi.set(__self__, "invitation_sent", invitation_sent)
+        if invitation_state and not isinstance(invitation_state, str):
+            raise TypeError("Expected argument 'invitation_state' to be a str")
+        pulumi.set(__self__, "invitation_state", invitation_state)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        if registration_state and not isinstance(registration_state, str):
+            raise TypeError("Expected argument 'registration_state' to be a str")
+        pulumi.set(__self__, "registration_state", registration_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if total_usage and not isinstance(total_usage, str):
             raise TypeError("Expected argument 'total_usage' to be a str")
         pulumi.set(__self__, "total_usage", total_usage)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="additionalUsageQuota")
+    def additional_usage_quota(self) -> Optional[str]:
+        """
+        The amount of usage quota time the user gets in addition to the lab usage quota.
+        """
+        return pulumi.get(self, "additional_usage_quota")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Display name of the user, for example user's full name.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def email(self) -> str:
         """
-        The user email address, as it was specified during registration.
+        Email address of the user.
         """
         return pulumi.get(self, "email")
-
-    @property
-    @pulumi.getter(name="familyName")
-    def family_name(self) -> str:
-        """
-        The user family name, as it was specified during registration.
-        """
-        return pulumi.get(self, "family_name")
-
-    @property
-    @pulumi.getter(name="givenName")
-    def given_name(self) -> str:
-        """
-        The user given name, as it was specified during registration.
-        """
-        return pulumi.get(self, "given_name")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    @pulumi.getter(name="invitationSent")
+    def invitation_sent(self) -> str:
         """
-        The details of the latest operation. ex: status, error
+        Date and time when the invitation message was sent to the user.
         """
-        return pulumi.get(self, "latest_operation_result")
+        return pulumi.get(self, "invitation_sent")
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
+    @pulumi.getter(name="invitationState")
+    def invitation_state(self) -> str:
         """
-        The location of the resource.
+        State of the invitation message for the user.
         """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "invitation_state")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
-        The provisioning status of the resource.
+        Current provisioning state of the user resource.
         """
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    @pulumi.getter(name="registrationState")
+    def registration_state(self) -> str:
         """
-        The tags of the resource.
+        State of the user's registration within the lab.
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "registration_state")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The user tenant ID, as it was specified during registration.
+        Metadata pertaining to creation and last modification of the user resource.
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="totalUsage")
     def total_usage(self) -> str:
         """
-        How long the user has used his VMs in this lab
+        How long the user has used their virtual machines in this lab.
         """
         return pulumi.get(self, "total_usage")
 
@@ -154,17 +151,9 @@ class GetUserResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetUserResult(GetUserResult):
@@ -173,41 +162,34 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            additional_usage_quota=self.additional_usage_quota,
+            display_name=self.display_name,
             email=self.email,
-            family_name=self.family_name,
-            given_name=self.given_name,
             id=self.id,
-            latest_operation_result=self.latest_operation_result,
-            location=self.location,
+            invitation_sent=self.invitation_sent,
+            invitation_state=self.invitation_state,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            tags=self.tags,
-            tenant_id=self.tenant_id,
+            registration_state=self.registration_state,
+            system_data=self.system_data,
             total_usage=self.total_usage,
-            type=self.type,
-            unique_identifier=self.unique_identifier)
+            type=self.type)
 
 
-def get_user(expand: Optional[str] = None,
-             lab_account_name: Optional[str] = None,
-             lab_name: Optional[str] = None,
+def get_user(lab_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    The User registered to a lab
-    API Version: 2018-10-15.
+    User of a lab that can register for and use virtual machines within the lab.
+    API Version: 2021-11-15-preview.
 
 
-    :param str expand: Specify the $expand query. Example: 'properties($select=email)'
-    :param str lab_account_name: The name of the lab Account.
-    :param str lab_name: The name of the lab.
-    :param str resource_group_name: The name of the resource group.
-    :param str user_name: The name of the user.
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
     """
     __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labAccountName'] = lab_account_name
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userName'] = user_name
@@ -218,37 +200,32 @@ def get_user(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        additional_usage_quota=__ret__.additional_usage_quota,
+        display_name=__ret__.display_name,
         email=__ret__.email,
-        family_name=__ret__.family_name,
-        given_name=__ret__.given_name,
         id=__ret__.id,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
+        invitation_sent=__ret__.invitation_sent,
+        invitation_state=__ret__.invitation_state,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
+        registration_state=__ret__.registration_state,
+        system_data=__ret__.system_data,
         total_usage=__ret__.total_usage,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_user)
-def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
-                    lab_account_name: Optional[pulumi.Input[str]] = None,
-                    lab_name: Optional[pulumi.Input[str]] = None,
+def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    The User registered to a lab
-    API Version: 2018-10-15.
+    User of a lab that can register for and use virtual machines within the lab.
+    API Version: 2021-11-15-preview.
 
 
-    :param str expand: Specify the $expand query. Example: 'properties($select=email)'
-    :param str lab_account_name: The name of the lab Account.
-    :param str lab_name: The name of the lab.
-    :param str resource_group_name: The name of the resource group.
-    :param str user_name: The name of the user.
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
     """
     ...

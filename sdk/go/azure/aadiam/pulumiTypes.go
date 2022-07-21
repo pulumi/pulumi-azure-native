@@ -10,30 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AzureADMetricsPropertiesFormatResponse struct {
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-type AzureADMetricsPropertiesFormatResponseOutput struct{ *pulumi.OutputState }
-
-func (AzureADMetricsPropertiesFormatResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureADMetricsPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponseOutput() AzureADMetricsPropertiesFormatResponseOutput {
-	return o
-}
-
-func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponseOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponseOutput {
-	return o
-}
-
-// The provisioning state of the resource.
-func (o AzureADMetricsPropertiesFormatResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
 // Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettings struct {
 	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
@@ -1061,7 +1037,6 @@ func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(LogSettingsOutput{})
 	pulumi.RegisterOutputType(LogSettingsArrayOutput{})
 	pulumi.RegisterOutputType(LogSettingsResponseOutput{})

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// String dictionary resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListWebAppMetadataResult> InvokeAsync(ListWebAppMetadataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataResult>("azure-native:web:listWebAppMetadata", args ?? new ListWebAppMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListWebAppMetadataResult> Invoke(ListWebAppMetadataInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataResult>("azure-native:web:listWebAppMetadata", args ?? new ListWebAppMetadataInvokeArgs(), options.WithDefaults());

@@ -8,29 +8,61 @@ using Pulumi;
 namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
-    /// The Map account key to use for signing.
+    /// Get or Set Kind property.
     /// </summary>
     [EnumType]
-    public readonly struct SigningKey : IEquatable<SigningKey>
+    public readonly struct Kind : IEquatable<Kind>
     {
         private readonly string _value;
 
-        private SigningKey(string value)
+        private Kind(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SigningKey PrimaryKey { get; } = new SigningKey("primaryKey");
-        public static SigningKey SecondaryKey { get; } = new SigningKey("secondaryKey");
+        public static Kind Gen1 { get; } = new Kind("Gen1");
+        public static Kind Gen2 { get; } = new Kind("Gen2");
 
-        public static bool operator ==(SigningKey left, SigningKey right) => left.Equals(right);
-        public static bool operator !=(SigningKey left, SigningKey right) => !left.Equals(right);
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
 
-        public static explicit operator string(SigningKey value) => value._value;
+        public static explicit operator string(Kind value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SigningKey other && Equals(other);
-        public bool Equals(SigningKey other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the SKU, in standard format (such as S0).
+    /// </summary>
+    [EnumType]
+    public readonly struct Name : IEquatable<Name>
+    {
+        private readonly string _value;
+
+        private Name(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Name S0 { get; } = new Name("S0");
+        public static Name S1 { get; } = new Name("S1");
+        public static Name G2 { get; } = new Name("G2");
+
+        public static bool operator ==(Name left, Name right) => left.Equals(right);
+        public static bool operator !=(Name left, Name right) => !left.Equals(right);
+
+        public static explicit operator string(Name value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Name other && Equals(other);
+        public bool Equals(Name other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

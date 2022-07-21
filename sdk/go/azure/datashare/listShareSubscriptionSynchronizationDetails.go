@@ -11,7 +11,7 @@ import (
 )
 
 // details of synchronization
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func ListShareSubscriptionSynchronizationDetails(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationDetailsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationDetailsResult, error) {
 	var rv ListShareSubscriptionSynchronizationDetailsResult
 	err := ctx.Invoke("azure-native:datashare:listShareSubscriptionSynchronizationDetails", args, &rv, opts...)

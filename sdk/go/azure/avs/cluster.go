@@ -12,14 +12,14 @@ import (
 )
 
 // A cluster resource
-// API Version: 2020-03-20.
+// API Version: 2021-12-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// The identity
 	ClusterId pulumi.IntOutput `pulumi:"clusterId"`
 	// The cluster size
-	ClusterSize pulumi.IntOutput `pulumi:"clusterSize"`
+	ClusterSize pulumi.IntPtrOutput `pulumi:"clusterSize"`
 	// The hosts
 	Hosts pulumi.StringArrayOutput `pulumi:"hosts"`
 	// Resource name.
@@ -39,9 +39,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterSize == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterSize'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -104,7 +101,9 @@ type clusterArgs struct {
 	// Name of the cluster in the private cloud
 	ClusterName *string `pulumi:"clusterName"`
 	// The cluster size
-	ClusterSize int `pulumi:"clusterSize"`
+	ClusterSize *int `pulumi:"clusterSize"`
+	// The hosts
+	Hosts []string `pulumi:"hosts"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
@@ -118,7 +117,9 @@ type ClusterArgs struct {
 	// Name of the cluster in the private cloud
 	ClusterName pulumi.StringPtrInput
 	// The cluster size
-	ClusterSize pulumi.IntInput
+	ClusterSize pulumi.IntPtrInput
+	// The hosts
+	Hosts pulumi.StringArrayInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
@@ -170,8 +171,8 @@ func (o ClusterOutput) ClusterId() pulumi.IntOutput {
 }
 
 // The cluster size
-func (o ClusterOutput) ClusterSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ClusterSize }).(pulumi.IntOutput)
+func (o ClusterOutput) ClusterSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ClusterSize }).(pulumi.IntPtrOutput)
 }
 
 // The hosts

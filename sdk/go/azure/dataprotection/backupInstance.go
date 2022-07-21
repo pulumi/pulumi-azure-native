@@ -12,17 +12,19 @@ import (
 )
 
 // BackupInstance Resource
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 type BackupInstance struct {
 	pulumi.CustomResourceState
 
-	// Resource name associated with the resource.
+	// Proxy Resource name associated with the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// BackupInstanceResource properties
 	Properties BackupInstanceResponseOutput `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	// Proxy Resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -116,6 +118,8 @@ type backupInstanceArgs struct {
 	Properties *BackupInstanceType `pulumi:"properties"`
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Proxy Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the backup vault.
 	VaultName string `pulumi:"vaultName"`
 }
@@ -128,6 +132,8 @@ type BackupInstanceArgs struct {
 	Properties BackupInstanceTypePtrInput
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName pulumi.StringInput
+	// Proxy Resource tags.
+	Tags pulumi.StringMapInput
 	// The name of the backup vault.
 	VaultName pulumi.StringInput
 }
@@ -169,7 +175,7 @@ func (o BackupInstanceOutput) ToBackupInstanceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Resource name associated with the resource.
+// Proxy Resource name associated with the resource.
 func (o BackupInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -184,7 +190,12 @@ func (o BackupInstanceOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *BackupInstance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+// Proxy Resource tags.
+func (o BackupInstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BackupInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 func (o BackupInstanceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

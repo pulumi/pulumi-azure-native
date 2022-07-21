@@ -11,7 +11,7 @@ import (
 )
 
 // VpnGateway Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult
 	err := ctx.Invoke("azure-native:network:getVpnGateway", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupVpnGatewayResult struct {
 	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
 	// List of all vpn connections to the gateway.
 	Connections []VpnConnectionResponse `pulumi:"connections"`
+	// Enable BGP routes translation for NAT on this VpnGateway.
+	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
@@ -107,6 +109,11 @@ func (o LookupVpnGatewayResultOutput) BgpSettings() BgpSettingsResponsePtrOutput
 // List of all vpn connections to the gateway.
 func (o LookupVpnGatewayResultOutput) Connections() VpnConnectionResponseArrayOutput {
 	return o.ApplyT(func(v LookupVpnGatewayResult) []VpnConnectionResponse { return v.Connections }).(VpnConnectionResponseArrayOutput)
+}
+
+// Enable BGP routes translation for NAT on this VpnGateway.
+func (o LookupVpnGatewayResultOutput) EnableBgpRouteTranslationForNat() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *bool { return v.EnableBgpRouteTranslationForNat }).(pulumi.BoolPtrOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.

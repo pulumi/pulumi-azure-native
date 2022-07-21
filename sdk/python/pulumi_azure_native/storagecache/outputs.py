@@ -18,9 +18,11 @@ __all__ = [
     'CacheEncryptionSettingsResponse',
     'CacheHealthResponse',
     'CacheIdentityResponse',
+    'CacheIdentityResponseUserAssignedIdentities',
     'CacheNetworkSettingsResponse',
     'CacheResponseSku',
     'CacheSecuritySettingsResponse',
+    'CacheUpgradeSettingsResponse',
     'CacheUpgradeStatusResponse',
     'CacheUsernameDownloadSettingsResponse',
     'CacheUsernameDownloadSettingsResponseCredentials',
@@ -32,6 +34,8 @@ __all__ = [
     'Nfs3TargetResponse',
     'NfsAccessPolicyResponse',
     'NfsAccessRuleResponse',
+    'PrimingJobResponse',
+    'StorageTargetSpaceAllocationResponse',
     'SystemDataResponse',
     'UnknownTargetResponse',
 ]
@@ -302,6 +306,8 @@ class CacheEncryptionSettingsResponse(dict):
         suggest = None
         if key == "keyEncryptionKey":
             suggest = "key_encryption_key"
+        elif key == "rotationToLatestKeyVersionEnabled":
+            suggest = "rotation_to_latest_key_version_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CacheEncryptionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -315,13 +321,17 @@ class CacheEncryptionSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
+                 key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None,
+                 rotation_to_latest_key_version_enabled: Optional[bool] = None):
         """
         Cache encryption settings.
         :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param bool rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -330,6 +340,14 @@ class CacheEncryptionSettingsResponse(dict):
         Specifies the location of the key encryption key in Key Vault.
         """
         return pulumi.get(self, "key_encryption_key")
+
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
 
 @pulumi.output_type
@@ -407,6 +425,8 @@ class CacheIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CacheIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -422,23 +442,27 @@ class CacheIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.CacheIdentityResponseUserAssignedIdentities']] = None):
         """
         Cache identity properties.
-        :param str principal_id: The principal id of the cache.
-        :param str tenant_id: The tenant id associated with the cache.
+        :param str principal_id: The principal ID for the system-assigned identity of the cache.
+        :param str tenant_id: The tenant ID associated with the cache.
         :param str type: The type of identity used for the cache
+        :param Mapping[str, 'CacheIdentityResponseUserAssignedIdentities'] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal id of the cache.
+        The principal ID for the system-assigned identity of the cache.
         """
         return pulumi.get(self, "principal_id")
 
@@ -446,7 +470,7 @@ class CacheIdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant id associated with the cache.
+        The tenant ID associated with the cache.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -457,6 +481,62 @@ class CacheIdentityResponse(dict):
         The type of identity used for the cache
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CacheIdentityResponseUserAssignedIdentities']]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class CacheIdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client ID of the user-assigned identity.
+        :param str principal_id: The principal ID of the user-assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -617,6 +697,60 @@ class CacheSecuritySettingsResponse(dict):
         NFS access policies defined for this cache.
         """
         return pulumi.get(self, "access_policies")
+
+
+@pulumi.output_type
+class CacheUpgradeSettingsResponse(dict):
+    """
+    Cache Upgrade Settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduledTime":
+            suggest = "scheduled_time"
+        elif key == "upgradeScheduleEnabled":
+            suggest = "upgrade_schedule_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheUpgradeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheUpgradeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scheduled_time: Optional[str] = None,
+                 upgrade_schedule_enabled: Optional[bool] = None):
+        """
+        Cache Upgrade Settings.
+        :param str scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        :param bool upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        if scheduled_time is not None:
+            pulumi.set(__self__, "scheduled_time", scheduled_time)
+        if upgrade_schedule_enabled is not None:
+            pulumi.set(__self__, "upgrade_schedule_enabled", upgrade_schedule_enabled)
+
+    @property
+    @pulumi.getter(name="scheduledTime")
+    def scheduled_time(self) -> Optional[str]:
+        """
+        When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        """
+        return pulumi.get(self, "scheduled_time")
+
+    @property
+    @pulumi.getter(name="upgradeScheduleEnabled")
+    def upgrade_schedule_enabled(self) -> Optional[bool]:
+        """
+        True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        return pulumi.get(self, "upgrade_schedule_enabled")
 
 
 @pulumi.output_type
@@ -1400,6 +1534,162 @@ class NfsAccessRuleResponse(dict):
         Allow SUID semantics.
         """
         return pulumi.get(self, "suid")
+
+
+@pulumi.output_type
+class PrimingJobResponse(dict):
+    """
+    A priming job instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primingJobDetails":
+            suggest = "priming_job_details"
+        elif key == "primingJobId":
+            suggest = "priming_job_id"
+        elif key == "primingJobName":
+            suggest = "priming_job_name"
+        elif key == "primingJobPercentComplete":
+            suggest = "priming_job_percent_complete"
+        elif key == "primingJobState":
+            suggest = "priming_job_state"
+        elif key == "primingJobStatus":
+            suggest = "priming_job_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrimingJobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrimingJobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrimingJobResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 priming_job_details: str,
+                 priming_job_id: str,
+                 priming_job_name: str,
+                 priming_job_percent_complete: float,
+                 priming_job_state: str,
+                 priming_job_status: str):
+        """
+        A priming job instance.
+        :param str priming_job_details: The job details or error information if any.
+        :param str priming_job_id: The unique identifier of the priming job.
+        :param str priming_job_name: The priming job name.
+        :param float priming_job_percent_complete: The current progress of the priming job, as a percentage.
+        :param str priming_job_state: The state of the priming operation.
+        :param str priming_job_status: The status code of the priming job.
+        """
+        pulumi.set(__self__, "priming_job_details", priming_job_details)
+        pulumi.set(__self__, "priming_job_id", priming_job_id)
+        pulumi.set(__self__, "priming_job_name", priming_job_name)
+        pulumi.set(__self__, "priming_job_percent_complete", priming_job_percent_complete)
+        pulumi.set(__self__, "priming_job_state", priming_job_state)
+        pulumi.set(__self__, "priming_job_status", priming_job_status)
+
+    @property
+    @pulumi.getter(name="primingJobDetails")
+    def priming_job_details(self) -> str:
+        """
+        The job details or error information if any.
+        """
+        return pulumi.get(self, "priming_job_details")
+
+    @property
+    @pulumi.getter(name="primingJobId")
+    def priming_job_id(self) -> str:
+        """
+        The unique identifier of the priming job.
+        """
+        return pulumi.get(self, "priming_job_id")
+
+    @property
+    @pulumi.getter(name="primingJobName")
+    def priming_job_name(self) -> str:
+        """
+        The priming job name.
+        """
+        return pulumi.get(self, "priming_job_name")
+
+    @property
+    @pulumi.getter(name="primingJobPercentComplete")
+    def priming_job_percent_complete(self) -> float:
+        """
+        The current progress of the priming job, as a percentage.
+        """
+        return pulumi.get(self, "priming_job_percent_complete")
+
+    @property
+    @pulumi.getter(name="primingJobState")
+    def priming_job_state(self) -> str:
+        """
+        The state of the priming operation.
+        """
+        return pulumi.get(self, "priming_job_state")
+
+    @property
+    @pulumi.getter(name="primingJobStatus")
+    def priming_job_status(self) -> str:
+        """
+        The status code of the priming job.
+        """
+        return pulumi.get(self, "priming_job_status")
+
+
+@pulumi.output_type
+class StorageTargetSpaceAllocationResponse(dict):
+    """
+    Storage Target space allocation properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationPercentage":
+            suggest = "allocation_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageTargetSpaceAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageTargetSpaceAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageTargetSpaceAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_percentage: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        Storage Target space allocation properties.
+        :param int allocation_percentage: The percentage of cache space allocated for this storage target
+        :param str name: Name of the storage target.
+        """
+        if allocation_percentage is not None:
+            pulumi.set(__self__, "allocation_percentage", allocation_percentage)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="allocationPercentage")
+    def allocation_percentage(self) -> Optional[int]:
+        """
+        The percentage of cache space allocated for this storage target
+        """
+        return pulumi.get(self, "allocation_percentage")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the storage target.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

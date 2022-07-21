@@ -11,7 +11,7 @@ import (
 )
 
 // Build result log resource properties payload
-// API Version: 2022-01-01-preview.
+// API Version: 2022-04-01.
 func GetBuildServiceBuildResultLog(ctx *pulumi.Context, args *GetBuildServiceBuildResultLogArgs, opts ...pulumi.InvokeOption) (*GetBuildServiceBuildResultLogResult, error) {
 	var rv GetBuildServiceBuildResultLogResult
 	err := ctx.Invoke("azure-native:appplatform:getBuildServiceBuildResultLog", args, &rv, opts...)

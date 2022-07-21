@@ -12,7 +12,7 @@ import (
 )
 
 // An Account Filter.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 type AccountFilter struct {
 	pulumi.CustomResourceState
 

@@ -11,7 +11,7 @@ import (
 )
 
 // A class represents the access keys of the resource.
-// API Version: 2021-04-01-preview.
+// API Version: 2021-10-01.
 func ListWebPubSubKeys(ctx *pulumi.Context, args *ListWebPubSubKeysArgs, opts ...pulumi.InvokeOption) (*ListWebPubSubKeysResult, error) {
 	var rv ListWebPubSubKeysResult
 	err := ctx.Invoke("azure-native:webpubsub:listWebPubSubKeys", args, &rv, opts...)

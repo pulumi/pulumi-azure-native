@@ -11,7 +11,7 @@ import (
 )
 
 // Contains the job information.
-// API Version: 2020-08-01.
+// API Version: 2021-01-01.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:importexport:getJob", args, &rv, opts...)

@@ -12,15 +12,15 @@ import (
 )
 
 // Recipient Email details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type NotificationRecipientEmail struct {
 	pulumi.CustomResourceState
 
 	// User Email subscribed to notification.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -175,12 +175,12 @@ func (o NotificationRecipientEmailOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationRecipientEmail) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o NotificationRecipientEmailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRecipientEmail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o NotificationRecipientEmailOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRecipientEmail) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

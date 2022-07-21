@@ -157,7 +157,7 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorTestResult:
     """
     The Connection Monitor Test class.
-    API Version: 2021-06-01.
+    API Version: 2022-01-01.
 
 
     :param str connection_monitor_test_name: The name of the connection monitor test
@@ -194,7 +194,7 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:
     """
     The Connection Monitor Test class.
-    API Version: 2021-06-01.
+    API Version: 2022-01-01.
 
 
     :param str connection_monitor_test_name: The name of the connection monitor test

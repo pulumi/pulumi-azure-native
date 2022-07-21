@@ -15,17 +15,21 @@ class AuthorizationArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 authorization_name: Optional[pulumi.Input[str]] = None):
+                 authorization_name: Optional[pulumi.Input[str]] = None,
+                 express_route_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authorization resource.
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
+        :param pulumi.Input[str] express_route_id: The ID of the ExpressRoute Circuit
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorization_name is not None:
             pulumi.set(__self__, "authorization_name", authorization_name)
+        if express_route_id is not None:
+            pulumi.set(__self__, "express_route_id", express_route_id)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -63,6 +67,18 @@ class AuthorizationArgs:
     def authorization_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authorization_name", value)
 
+    @property
+    @pulumi.getter(name="expressRouteId")
+    def express_route_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the ExpressRoute Circuit
+        """
+        return pulumi.get(self, "express_route_id")
+
+    @express_route_id.setter
+    def express_route_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "express_route_id", value)
+
 
 class Authorization(pulumi.CustomResource):
     @overload
@@ -70,16 +86,18 @@ class Authorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
+                 express_route_id: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         ExpressRoute Circuit Authorization
-        API Version: 2020-03-20.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
+        :param pulumi.Input[str] express_route_id: The ID of the ExpressRoute Circuit
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -91,7 +109,7 @@ class Authorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoute Circuit Authorization
-        API Version: 2020-03-20.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.
@@ -109,6 +127,7 @@ class Authorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
+                 express_route_id: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -124,6 +143,7 @@ class Authorization(pulumi.CustomResource):
             __props__ = AuthorizationArgs.__new__(AuthorizationArgs)
 
             __props__.__dict__["authorization_name"] = authorization_name
+            __props__.__dict__["express_route_id"] = express_route_id
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
@@ -161,6 +181,7 @@ class Authorization(pulumi.CustomResource):
 
         __props__.__dict__["express_route_authorization_id"] = None
         __props__.__dict__["express_route_authorization_key"] = None
+        __props__.__dict__["express_route_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
@@ -181,6 +202,14 @@ class Authorization(pulumi.CustomResource):
         The key of the ExpressRoute Circuit Authorization
         """
         return pulumi.get(self, "express_route_authorization_key")
+
+    @property
+    @pulumi.getter(name="expressRouteId")
+    def express_route_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the ExpressRoute Circuit
+        """
+        return pulumi.get(self, "express_route_id")
 
     @property
     @pulumi.getter

@@ -220,7 +220,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Represents a Workspace definition.
-    API Version: 2021-02-01-preview.
+    API Version: 2021-07-12.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,7 +260,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Represents a Workspace definition.
-    API Version: 2021-02-01-preview.
+    API Version: 2021-07-12.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

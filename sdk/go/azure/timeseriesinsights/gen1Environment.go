@@ -12,7 +12,7 @@ import (
 )
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-// API Version: 2020-05-15.
+// API Version: 2021-06-30-preview.
 type Gen1Environment struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +41,8 @@ type Gen1Environment struct {
 	Status EnvironmentStatusResponseOutput `pulumi:"status"`
 	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 	StorageLimitExceededBehavior pulumi.StringPtrOutput `pulumi:"storageLimitExceededBehavior"`
+	// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+	SupportsCustomerManagedKey pulumi.BoolOutput `pulumi:"supportsCustomerManagedKey"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -260,6 +262,11 @@ func (o Gen1EnvironmentOutput) Status() EnvironmentStatusResponseOutput {
 // The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 func (o Gen1EnvironmentOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gen1Environment) pulumi.StringPtrOutput { return v.StorageLimitExceededBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+func (o Gen1EnvironmentOutput) SupportsCustomerManagedKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.BoolOutput { return v.SupportsCustomerManagedKey }).(pulumi.BoolOutput)
 }
 
 // Resource tags

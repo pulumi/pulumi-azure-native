@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing a Kusto database.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:kusto:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a Kusto database.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:kusto:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());

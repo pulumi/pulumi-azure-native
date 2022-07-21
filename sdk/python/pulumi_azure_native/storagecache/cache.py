@@ -24,11 +24,12 @@ class CacheArgs:
                  identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_settings: Optional[pulumi.Input['CacheNetworkSettingsArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  security_settings: Optional[pulumi.Input['CacheSecuritySettingsArgs']] = None,
                  sku: Optional[pulumi.Input['CacheSkuArgs']] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input['CacheUpgradeSettingsArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
         :param pulumi.Input[str] resource_group_name: Target resource group.
@@ -39,11 +40,12 @@ class CacheArgs:
         :param pulumi.Input['CacheIdentityArgs'] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
         :param pulumi.Input['CacheNetworkSettingsArgs'] network_settings: Specifies network settings of the cache.
-        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input['CacheSecuritySettingsArgs'] security_settings: Specifies security settings of the cache.
         :param pulumi.Input['CacheSkuArgs'] sku: SKU for the Cache.
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['CacheUpgradeSettingsArgs'] upgrade_settings: Upgrade settings of the Cache.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cache_name is not None:
@@ -60,8 +62,6 @@ class CacheArgs:
             pulumi.set(__self__, "location", location)
         if network_settings is not None:
             pulumi.set(__self__, "network_settings", network_settings)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if security_settings is not None:
             pulumi.set(__self__, "security_settings", security_settings)
         if sku is not None:
@@ -70,6 +70,10 @@ class CacheArgs:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if upgrade_settings is not None:
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -168,18 +172,6 @@ class CacheArgs:
         pulumi.set(self, "network_settings", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]]:
-        """
-        ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="securitySettings")
     def security_settings(self) -> Optional[pulumi.Input['CacheSecuritySettingsArgs']]:
         """
@@ -227,6 +219,30 @@ class CacheArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional[pulumi.Input['CacheUpgradeSettingsArgs']]:
+        """
+        Upgrade settings of the Cache.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @upgrade_settings.setter
+    def upgrade_settings(self, value: Optional[pulumi.Input['CacheUpgradeSettingsArgs']]):
+        pulumi.set(self, "upgrade_settings", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Availability zones for resources. This field should only contain a single element in the array.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class Cache(pulumi.CustomResource):
     @overload
@@ -240,16 +256,17 @@ class Cache(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_settings: Optional[pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_settings: Optional[pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2021-03-01.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,12 +277,13 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
         :param pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']] network_settings: Specifies network settings of the cache.
-        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
         :param pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']] security_settings: Specifies security settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the Cache.
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']] upgrade_settings: Upgrade settings of the Cache.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
         ...
     @overload
@@ -275,7 +293,7 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2021-03-01.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.
@@ -299,12 +317,13 @@ class Cache(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_settings: Optional[pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_settings: Optional[pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -324,7 +343,6 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["network_settings"] = network_settings
-            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -332,9 +350,14 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_settings"] = upgrade_settings
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["health"] = None
             __props__.__dict__["mount_addresses"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["priming_jobs"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["space_allocation"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["upgrade_status"] = None
@@ -371,14 +394,18 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["mount_addresses"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_settings"] = None
+        __props__.__dict__["priming_jobs"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["security_settings"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["space_allocation"] = None
         __props__.__dict__["subnet"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_settings"] = None
         __props__.__dict__["upgrade_status"] = None
+        __props__.__dict__["zones"] = None
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -454,8 +481,16 @@ class Cache(pulumi.CustomResource):
         return pulumi.get(self, "network_settings")
 
     @property
+    @pulumi.getter(name="primingJobs")
+    def priming_jobs(self) -> pulumi.Output[Sequence['outputs.PrimingJobResponse']]:
+        """
+        Specifies the priming jobs defined in the cache.
+        """
+        return pulumi.get(self, "priming_jobs")
+
+    @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
@@ -476,6 +511,14 @@ class Cache(pulumi.CustomResource):
         SKU for the Cache.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="spaceAllocation")
+    def space_allocation(self) -> pulumi.Output[Sequence['outputs.StorageTargetSpaceAllocationResponse']]:
+        """
+        Specifies the space allocation percentage for each storage target in the cache.
+        """
+        return pulumi.get(self, "space_allocation")
 
     @property
     @pulumi.getter
@@ -510,10 +553,26 @@ class Cache(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> pulumi.Output[Optional['outputs.CacheUpgradeSettingsResponse']]:
+        """
+        Upgrade settings of the Cache.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @property
     @pulumi.getter(name="upgradeStatus")
-    def upgrade_status(self) -> pulumi.Output[Optional['outputs.CacheUpgradeStatusResponse']]:
+    def upgrade_status(self) -> pulumi.Output['outputs.CacheUpgradeStatusResponse']:
         """
         Upgrade status of the Cache.
         """
         return pulumi.get(self, "upgrade_status")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Availability zones for resources. This field should only contain a single element in the array.
+        """
+        return pulumi.get(self, "zones")
 

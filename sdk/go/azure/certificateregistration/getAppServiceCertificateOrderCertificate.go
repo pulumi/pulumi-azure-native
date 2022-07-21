@@ -11,7 +11,7 @@ import (
 )
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderCertificateArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderCertificateResult, error) {
 	var rv LookupAppServiceCertificateOrderCertificateResult
 	err := ctx.Invoke("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
@@ -46,8 +46,6 @@ type LookupAppServiceCertificateOrderCertificateResult struct {
 	Name string `pulumi:"name"`
 	// Status of the Key Vault secret.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -128,11 +126,6 @@ func (o LookupAppServiceCertificateOrderCertificateResultOutput) Name() pulumi.S
 // Status of the Key Vault secret.
 func (o LookupAppServiceCertificateOrderCertificateResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppServiceCertificateOrderCertificateResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LookupAppServiceCertificateOrderCertificateResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupAppServiceCertificateOrderCertificateResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

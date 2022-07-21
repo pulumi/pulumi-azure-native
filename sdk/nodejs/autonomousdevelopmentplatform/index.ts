@@ -10,6 +10,9 @@ export * from "./dataPool";
 export * from "./getAccount";
 export * from "./getDataPool";
 
+// Export enums:
+export * from "../types/enums/autonomousdevelopmentplatform";
+
 // Export sub-modules:
 import * as v20200701preview from "./v20200701preview";
 import * as v20210201preview from "./v20210201preview";

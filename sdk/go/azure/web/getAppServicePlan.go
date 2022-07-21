@@ -11,7 +11,7 @@ import (
 )
 
 // App Service plan.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, opts ...pulumi.InvokeOption) (*LookupAppServicePlanResult, error) {
 	var rv LookupAppServicePlanResult
 	err := ctx.Invoke("azure-native:web:getAppServicePlan", args, &rv, opts...)
@@ -30,6 +30,10 @@ type LookupAppServicePlanArgs struct {
 
 // App Service plan.
 type LookupAppServicePlanResult struct {
+	// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+	ElasticScaleEnabled *bool `pulumi:"elasticScaleEnabled"`
+	// Extended Location.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
 	// Geographical location for the App Service plan.
@@ -85,6 +89,9 @@ type LookupAppServicePlanResult struct {
 	Type string `pulumi:"type"`
 	// Target worker tier assigned to the App Service plan.
 	WorkerTierName *string `pulumi:"workerTierName"`
+	// If <code>true</code>, this App Service Plan will perform availability zone balancing.
+	// If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // Defaults sets the appropriate defaults for LookupAppServicePlanResult
@@ -108,6 +115,10 @@ func (val *LookupAppServicePlanResult) Defaults() *LookupAppServicePlanResult {
 	if isZero(tmp.Reserved) {
 		reserved_ := false
 		tmp.Reserved = &reserved_
+	}
+	if isZero(tmp.ZoneRedundant) {
+		zoneRedundant_ := false
+		tmp.ZoneRedundant = &zoneRedundant_
 	}
 	return &tmp
 }
@@ -149,6 +160,16 @@ func (o LookupAppServicePlanResultOutput) ToLookupAppServicePlanResultOutput() L
 
 func (o LookupAppServicePlanResultOutput) ToLookupAppServicePlanResultOutputWithContext(ctx context.Context) LookupAppServicePlanResultOutput {
 	return o
+}
+
+// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+func (o LookupAppServicePlanResultOutput) ElasticScaleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAppServicePlanResult) *bool { return v.ElasticScaleEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Extended Location.
+func (o LookupAppServicePlanResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupAppServicePlanResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
 }
 
 // The time when the server farm free offer expires.
@@ -287,6 +308,12 @@ func (o LookupAppServicePlanResultOutput) Type() pulumi.StringOutput {
 // Target worker tier assigned to the App Service plan.
 func (o LookupAppServicePlanResultOutput) WorkerTierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppServicePlanResult) *string { return v.WorkerTierName }).(pulumi.StringPtrOutput)
+}
+
+// If <code>true</code>, this App Service Plan will perform availability zone balancing.
+// If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+func (o LookupAppServicePlanResultOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAppServicePlanResult) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

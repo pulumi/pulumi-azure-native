@@ -29,12 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CassandraResourceCassandraKeyspace{}
 	case "azure-native:documentdb:CassandraResourceCassandraTable":
 		r = &CassandraResourceCassandraTable{}
-	case "azure-native:documentdb:CassandraResourceCassandraView":
-		r = &CassandraResourceCassandraView{}
 	case "azure-native:documentdb:DatabaseAccount":
 		r = &DatabaseAccount{}
-	case "azure-native:documentdb:GraphResourceGraph":
-		r = &GraphResourceGraph{}
 	case "azure-native:documentdb:GremlinResourceGremlinDatabase":
 		r = &GremlinResourceGremlinDatabase{}
 	case "azure-native:documentdb:GremlinResourceGremlinGraph":
@@ -43,16 +39,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MongoDBResourceMongoDBCollection{}
 	case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":
 		r = &MongoDBResourceMongoDBDatabase{}
-	case "azure-native:documentdb:MongoDBResourceMongoRoleDefinition":
-		r = &MongoDBResourceMongoRoleDefinition{}
-	case "azure-native:documentdb:MongoDBResourceMongoUserDefinition":
-		r = &MongoDBResourceMongoUserDefinition{}
 	case "azure-native:documentdb:NotebookWorkspace":
 		r = &NotebookWorkspace{}
 	case "azure-native:documentdb:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
-	case "azure-native:documentdb:Service":
-		r = &Service{}
 	case "azure-native:documentdb:SqlResourceSqlContainer":
 		r = &SqlResourceSqlContainer{}
 	case "azure-native:documentdb:SqlResourceSqlDatabase":

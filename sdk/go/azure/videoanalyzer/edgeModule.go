@@ -12,7 +12,7 @@ import (
 )
 
 // The representation of an edge module.
-// API Version: 2021-05-01-preview.
+// API Version: 2021-11-01-preview.
 type EdgeModule struct {
 	pulumi.CustomResourceState
 
@@ -20,7 +20,7 @@ type EdgeModule struct {
 	EdgeModuleId pulumi.StringOutput `pulumi:"edgeModuleId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -82,7 +82,7 @@ func (EdgeModuleState) ElementType() reflect.Type {
 type edgeModuleArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName string `pulumi:"accountName"`
-	// The name of the edge module to create or update.
+	// The Edge Module name.
 	EdgeModuleName *string `pulumi:"edgeModuleName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -92,7 +92,7 @@ type edgeModuleArgs struct {
 type EdgeModuleArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName pulumi.StringInput
-	// The name of the edge module to create or update.
+	// The Edge Module name.
 	EdgeModuleName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
@@ -145,7 +145,7 @@ func (o EdgeModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EdgeModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o EdgeModuleOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *EdgeModule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

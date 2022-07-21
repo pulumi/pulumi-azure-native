@@ -11,7 +11,7 @@ import (
 )
 
 // Represents MicrosoftSecurityIncidentCreation rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 func LookupMicrosoftSecurityIncidentCreationAlertRule(ctx *pulumi.Context, args *LookupMicrosoftSecurityIncidentCreationAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupMicrosoftSecurityIncidentCreationAlertRuleResult, error) {
 	var rv LookupMicrosoftSecurityIncidentCreationAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupMicrosoftSecurityIncidentCreationAlertRule(ctx *pulumi.Context, args 
 }
 
 type LookupMicrosoftSecurityIncidentCreationAlertRuleArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
@@ -46,20 +46,22 @@ type LookupMicrosoftSecurityIncidentCreationAlertRuleResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The kind of the alert rule
 	// Expected value is 'MicrosoftSecurityIncidentCreation'.
 	Kind string `pulumi:"kind"`
 	// The last time that this alert has been modified.
 	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The alerts' productName on which the cases will be generated
 	ProductFilter string `pulumi:"productFilter"`
 	// the alerts' severities on which the cases will be generated
 	SeveritiesFilter []string `pulumi:"severitiesFilter"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -77,7 +79,7 @@ func LookupMicrosoftSecurityIncidentCreationAlertRuleOutput(ctx *pulumi.Context,
 }
 
 type LookupMicrosoftSecurityIncidentCreationAlertRuleOutputArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
@@ -141,7 +143,7 @@ func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) Etag() pul
 	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -157,7 +159,7 @@ func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) LastModifi
 	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) string { return v.LastModifiedUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -172,7 +174,12 @@ func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) Severities
 	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) []string { return v.SeveritiesFilter }).(pulumi.StringArrayOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMicrosoftSecurityIncidentCreationAlertRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

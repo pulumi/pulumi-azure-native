@@ -11,7 +11,7 @@ import (
 )
 
 // The HDInsight cluster application
-// API Version: 2018-06-01-preview.
+// API Version: 2021-06-01.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:hdinsight:getApplication", args, &rv, opts...)
@@ -34,15 +34,17 @@ type LookupApplicationArgs struct {
 type LookupApplicationResult struct {
 	// The ETag for the application
 	Etag *string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of the application.
 	Properties ApplicationPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tags for the application.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -92,7 +94,7 @@ func (o LookupApplicationResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id for the resource.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -107,12 +109,17 @@ func (o LookupApplicationResultOutput) Properties() ApplicationPropertiesRespons
 	return o.ApplyT(func(v LookupApplicationResult) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApplicationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The tags for the application.
 func (o LookupApplicationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApplicationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Type }).(pulumi.StringOutput)
 }

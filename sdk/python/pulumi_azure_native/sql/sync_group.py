@@ -264,7 +264,7 @@ class SyncGroup(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure SQL Database sync group.
-        API Version: 2020-11-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,7 +291,7 @@ class SyncGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL Database sync group.
-        API Version: 2020-11-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SyncGroupArgs args: The arguments to use to populate this resource's properties.

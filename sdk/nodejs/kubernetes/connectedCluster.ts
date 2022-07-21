@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a connected cluster.
- * API Version: 2021-03-01.
+ * API Version: 2021-10-01.
  */
 export class ConnectedCluster extends pulumi.CustomResource {
     /**

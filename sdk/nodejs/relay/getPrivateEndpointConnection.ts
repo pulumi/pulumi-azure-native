@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Private endpoint connection resource.
- * API Version: 2018-01-01-preview.
+ * Properties of the PrivateEndpointConnection.
+ * API Version: 2021-11-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     namespaceName: string;
     /**
-     * The PrivateEndpointConnection name.
+     * The PrivateEndpointConnection name
      */
     privateEndpointConnectionName: string;
     /**
@@ -38,39 +38,39 @@ export interface GetPrivateEndpointConnectionArgs {
 }
 
 /**
- * Private endpoint connection resource.
+ * Properties of the PrivateEndpointConnection.
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Properties of the private endpoint object.
+     * The Private Endpoint resource for this Connection.
      */
     readonly privateEndpoint?: outputs.relay.PrivateEndpointResponse;
     /**
-     * Approval state of the private link connection.
+     * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.relay.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.relay.ConnectionStateResponse;
     /**
-     * Provisioning state of the private endpoint connection.
+     * Provisioning state of the Private Endpoint Connection.
      */
-    readonly provisioningState: string;
+    readonly provisioningState?: string;
     /**
-     * Resource tags.
+     * The system meta data relating to this resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly systemData: outputs.relay.SystemDataResponse;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }
@@ -85,7 +85,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The PrivateEndpointConnection name.
+     * The PrivateEndpointConnection name
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**

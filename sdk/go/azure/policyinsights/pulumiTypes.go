@@ -574,6 +574,206 @@ func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The remediation failure threshold settings
+type RemediationPropertiesFailureThreshold struct {
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	Percentage *float64 `pulumi:"percentage"`
+}
+
+// RemediationPropertiesFailureThresholdInput is an input type that accepts RemediationPropertiesFailureThresholdArgs and RemediationPropertiesFailureThresholdOutput values.
+// You can construct a concrete instance of `RemediationPropertiesFailureThresholdInput` via:
+//
+//          RemediationPropertiesFailureThresholdArgs{...}
+type RemediationPropertiesFailureThresholdInput interface {
+	pulumi.Input
+
+	ToRemediationPropertiesFailureThresholdOutput() RemediationPropertiesFailureThresholdOutput
+	ToRemediationPropertiesFailureThresholdOutputWithContext(context.Context) RemediationPropertiesFailureThresholdOutput
+}
+
+// The remediation failure threshold settings
+type RemediationPropertiesFailureThresholdArgs struct {
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	Percentage pulumi.Float64PtrInput `pulumi:"percentage"`
+}
+
+func (RemediationPropertiesFailureThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationPropertiesFailureThreshold)(nil)).Elem()
+}
+
+func (i RemediationPropertiesFailureThresholdArgs) ToRemediationPropertiesFailureThresholdOutput() RemediationPropertiesFailureThresholdOutput {
+	return i.ToRemediationPropertiesFailureThresholdOutputWithContext(context.Background())
+}
+
+func (i RemediationPropertiesFailureThresholdArgs) ToRemediationPropertiesFailureThresholdOutputWithContext(ctx context.Context) RemediationPropertiesFailureThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationPropertiesFailureThresholdOutput)
+}
+
+func (i RemediationPropertiesFailureThresholdArgs) ToRemediationPropertiesFailureThresholdPtrOutput() RemediationPropertiesFailureThresholdPtrOutput {
+	return i.ToRemediationPropertiesFailureThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i RemediationPropertiesFailureThresholdArgs) ToRemediationPropertiesFailureThresholdPtrOutputWithContext(ctx context.Context) RemediationPropertiesFailureThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationPropertiesFailureThresholdOutput).ToRemediationPropertiesFailureThresholdPtrOutputWithContext(ctx)
+}
+
+// RemediationPropertiesFailureThresholdPtrInput is an input type that accepts RemediationPropertiesFailureThresholdArgs, RemediationPropertiesFailureThresholdPtr and RemediationPropertiesFailureThresholdPtrOutput values.
+// You can construct a concrete instance of `RemediationPropertiesFailureThresholdPtrInput` via:
+//
+//          RemediationPropertiesFailureThresholdArgs{...}
+//
+//  or:
+//
+//          nil
+type RemediationPropertiesFailureThresholdPtrInput interface {
+	pulumi.Input
+
+	ToRemediationPropertiesFailureThresholdPtrOutput() RemediationPropertiesFailureThresholdPtrOutput
+	ToRemediationPropertiesFailureThresholdPtrOutputWithContext(context.Context) RemediationPropertiesFailureThresholdPtrOutput
+}
+
+type remediationPropertiesFailureThresholdPtrType RemediationPropertiesFailureThresholdArgs
+
+func RemediationPropertiesFailureThresholdPtr(v *RemediationPropertiesFailureThresholdArgs) RemediationPropertiesFailureThresholdPtrInput {
+	return (*remediationPropertiesFailureThresholdPtrType)(v)
+}
+
+func (*remediationPropertiesFailureThresholdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationPropertiesFailureThreshold)(nil)).Elem()
+}
+
+func (i *remediationPropertiesFailureThresholdPtrType) ToRemediationPropertiesFailureThresholdPtrOutput() RemediationPropertiesFailureThresholdPtrOutput {
+	return i.ToRemediationPropertiesFailureThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationPropertiesFailureThresholdPtrType) ToRemediationPropertiesFailureThresholdPtrOutputWithContext(ctx context.Context) RemediationPropertiesFailureThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationPropertiesFailureThresholdPtrOutput)
+}
+
+// The remediation failure threshold settings
+type RemediationPropertiesFailureThresholdOutput struct{ *pulumi.OutputState }
+
+func (RemediationPropertiesFailureThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationPropertiesFailureThreshold)(nil)).Elem()
+}
+
+func (o RemediationPropertiesFailureThresholdOutput) ToRemediationPropertiesFailureThresholdOutput() RemediationPropertiesFailureThresholdOutput {
+	return o
+}
+
+func (o RemediationPropertiesFailureThresholdOutput) ToRemediationPropertiesFailureThresholdOutputWithContext(ctx context.Context) RemediationPropertiesFailureThresholdOutput {
+	return o
+}
+
+func (o RemediationPropertiesFailureThresholdOutput) ToRemediationPropertiesFailureThresholdPtrOutput() RemediationPropertiesFailureThresholdPtrOutput {
+	return o.ToRemediationPropertiesFailureThresholdPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationPropertiesFailureThresholdOutput) ToRemediationPropertiesFailureThresholdPtrOutputWithContext(ctx context.Context) RemediationPropertiesFailureThresholdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationPropertiesFailureThreshold) *RemediationPropertiesFailureThreshold {
+		return &v
+	}).(RemediationPropertiesFailureThresholdPtrOutput)
+}
+
+// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+func (o RemediationPropertiesFailureThresholdOutput) Percentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RemediationPropertiesFailureThreshold) *float64 { return v.Percentage }).(pulumi.Float64PtrOutput)
+}
+
+type RemediationPropertiesFailureThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationPropertiesFailureThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationPropertiesFailureThreshold)(nil)).Elem()
+}
+
+func (o RemediationPropertiesFailureThresholdPtrOutput) ToRemediationPropertiesFailureThresholdPtrOutput() RemediationPropertiesFailureThresholdPtrOutput {
+	return o
+}
+
+func (o RemediationPropertiesFailureThresholdPtrOutput) ToRemediationPropertiesFailureThresholdPtrOutputWithContext(ctx context.Context) RemediationPropertiesFailureThresholdPtrOutput {
+	return o
+}
+
+func (o RemediationPropertiesFailureThresholdPtrOutput) Elem() RemediationPropertiesFailureThresholdOutput {
+	return o.ApplyT(func(v *RemediationPropertiesFailureThreshold) RemediationPropertiesFailureThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationPropertiesFailureThreshold
+		return ret
+	}).(RemediationPropertiesFailureThresholdOutput)
+}
+
+// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+func (o RemediationPropertiesFailureThresholdPtrOutput) Percentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RemediationPropertiesFailureThreshold) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Percentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The remediation failure threshold settings
+type RemediationPropertiesResponseFailureThreshold struct {
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	Percentage *float64 `pulumi:"percentage"`
+}
+
+// The remediation failure threshold settings
+type RemediationPropertiesResponseFailureThresholdOutput struct{ *pulumi.OutputState }
+
+func (RemediationPropertiesResponseFailureThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationPropertiesResponseFailureThreshold)(nil)).Elem()
+}
+
+func (o RemediationPropertiesResponseFailureThresholdOutput) ToRemediationPropertiesResponseFailureThresholdOutput() RemediationPropertiesResponseFailureThresholdOutput {
+	return o
+}
+
+func (o RemediationPropertiesResponseFailureThresholdOutput) ToRemediationPropertiesResponseFailureThresholdOutputWithContext(ctx context.Context) RemediationPropertiesResponseFailureThresholdOutput {
+	return o
+}
+
+// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+func (o RemediationPropertiesResponseFailureThresholdOutput) Percentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RemediationPropertiesResponseFailureThreshold) *float64 { return v.Percentage }).(pulumi.Float64PtrOutput)
+}
+
+type RemediationPropertiesResponseFailureThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationPropertiesResponseFailureThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationPropertiesResponseFailureThreshold)(nil)).Elem()
+}
+
+func (o RemediationPropertiesResponseFailureThresholdPtrOutput) ToRemediationPropertiesResponseFailureThresholdPtrOutput() RemediationPropertiesResponseFailureThresholdPtrOutput {
+	return o
+}
+
+func (o RemediationPropertiesResponseFailureThresholdPtrOutput) ToRemediationPropertiesResponseFailureThresholdPtrOutputWithContext(ctx context.Context) RemediationPropertiesResponseFailureThresholdPtrOutput {
+	return o
+}
+
+func (o RemediationPropertiesResponseFailureThresholdPtrOutput) Elem() RemediationPropertiesResponseFailureThresholdOutput {
+	return o.ApplyT(func(v *RemediationPropertiesResponseFailureThreshold) RemediationPropertiesResponseFailureThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationPropertiesResponseFailureThreshold
+		return ret
+	}).(RemediationPropertiesResponseFailureThresholdOutput)
+}
+
+// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+func (o RemediationPropertiesResponseFailureThresholdPtrOutput) Percentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RemediationPropertiesResponseFailureThreshold) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Percentage
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -702,6 +902,10 @@ func init() {
 	pulumi.RegisterOutputType(RemediationFiltersPtrOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersResponseOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersResponsePtrOutput{})
+	pulumi.RegisterOutputType(RemediationPropertiesFailureThresholdOutput{})
+	pulumi.RegisterOutputType(RemediationPropertiesFailureThresholdPtrOutput{})
+	pulumi.RegisterOutputType(RemediationPropertiesResponseFailureThresholdOutput{})
+	pulumi.RegisterOutputType(RemediationPropertiesResponseFailureThresholdPtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(TypedErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(TypedErrorInfoResponseArrayOutput{})

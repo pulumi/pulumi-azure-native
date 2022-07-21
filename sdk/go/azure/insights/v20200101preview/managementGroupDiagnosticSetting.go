@@ -47,9 +47,6 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:insights:ManagementGroupDiagnosticSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting"),
 		},
 	})

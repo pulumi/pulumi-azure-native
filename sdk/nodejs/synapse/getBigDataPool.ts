@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Big Data pool
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
     if (!opts) {
@@ -32,7 +32,7 @@ export interface GetBigDataPoolArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -56,7 +56,7 @@ export interface GetBigDataPoolResult {
     /**
      * The time when the Big Data pool was created.
      */
-    readonly creationDate?: string;
+    readonly creationDate: string;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
@@ -116,7 +116,7 @@ export interface GetBigDataPoolResult {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: outputs.synapse.LibraryRequirementsResponse;
+    readonly sparkConfigProperties?: outputs.synapse.SparkConfigPropertiesResponse;
     /**
      * The Spark events folder
      */
@@ -149,7 +149,7 @@ export interface GetBigDataPoolOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

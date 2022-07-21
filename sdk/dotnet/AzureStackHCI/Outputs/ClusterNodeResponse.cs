@@ -52,6 +52,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Immutable id of the cluster node.
         /// </summary>
         public readonly string SerialNumber;
+        /// <summary>
+        /// State of Windows Server Subscription.
+        /// </summary>
+        public readonly string WindowsServerSubscription;
 
         [OutputConstructor]
         private ClusterNodeResponse(
@@ -71,7 +75,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string osVersion,
 
-            string serialNumber)
+            string serialNumber,
+
+            string windowsServerSubscription)
         {
             CoreCount = coreCount;
             Id = id;
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             OsName = osName;
             OsVersion = osVersion;
             SerialNumber = serialNumber;
+            WindowsServerSubscription = windowsServerSubscription;
         }
     }
 }

@@ -21,25 +21,31 @@ class GetWebPubSubResult:
     """
     A class represent a resource.
     """
-    def __init__(__self__, event_handler=None, external_ip=None, features=None, host_name=None, id=None, identity=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, server_port=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, version=None):
-        if event_handler and not isinstance(event_handler, dict):
-            raise TypeError("Expected argument 'event_handler' to be a dict")
-        pulumi.set(__self__, "event_handler", event_handler)
+    def __init__(__self__, disable_aad_auth=None, disable_local_auth=None, external_ip=None, host_name=None, host_name_prefix=None, id=None, identity=None, live_trace_configuration=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, resource_log_configuration=None, server_port=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, version=None):
+        if disable_aad_auth and not isinstance(disable_aad_auth, bool):
+            raise TypeError("Expected argument 'disable_aad_auth' to be a bool")
+        pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if external_ip and not isinstance(external_ip, str):
             raise TypeError("Expected argument 'external_ip' to be a str")
         pulumi.set(__self__, "external_ip", external_ip)
-        if features and not isinstance(features, list):
-            raise TypeError("Expected argument 'features' to be a list")
-        pulumi.set(__self__, "features", features)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if host_name_prefix and not isinstance(host_name_prefix, str):
+            raise TypeError("Expected argument 'host_name_prefix' to be a str")
+        pulumi.set(__self__, "host_name_prefix", host_name_prefix)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if live_trace_configuration and not isinstance(live_trace_configuration, dict):
+            raise TypeError("Expected argument 'live_trace_configuration' to be a dict")
+        pulumi.set(__self__, "live_trace_configuration", live_trace_configuration)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +67,9 @@ class GetWebPubSubResult:
         if public_port and not isinstance(public_port, int):
             raise TypeError("Expected argument 'public_port' to be a int")
         pulumi.set(__self__, "public_port", public_port)
+        if resource_log_configuration and not isinstance(resource_log_configuration, dict):
+            raise TypeError("Expected argument 'resource_log_configuration' to be a dict")
+        pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
         if server_port and not isinstance(server_port, int):
             raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
@@ -87,12 +96,24 @@ class GetWebPubSubResult:
         pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="eventHandler")
-    def event_handler(self) -> Optional['outputs.EventHandlerSettingsResponse']:
+    @pulumi.getter(name="disableAadAuth")
+    def disable_aad_auth(self) -> Optional[bool]:
         """
-        The settings for event handler in webpubsub service.
+        DisableLocalAuth
+        Enable or disable aad auth
+        When set as true, connection with AuthType=aad won't work.
         """
-        return pulumi.get(self, "event_handler")
+        return pulumi.get(self, "disable_aad_auth")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        DisableLocalAuth
+        Enable or disable local auth with AccessKey
+        When set as true, connection with AccessKey=xxx won't work.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="externalIP")
@@ -103,25 +124,20 @@ class GetWebPubSubResult:
         return pulumi.get(self, "external_ip")
 
     @property
-    @pulumi.getter
-    def features(self) -> Optional[Sequence['outputs.WebPubSubFeatureResponse']]:
-        """
-        List of the featureFlags.
-        
-        FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
-        When a featureFlag is not explicitly set, its globally default value will be used
-        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        """
-        return pulumi.get(self, "features")
-
-    @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
         FQDN of the service instance.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="hostNamePrefix")
+    def host_name_prefix(self) -> str:
+        """
+        Deprecated.
+        """
+        return pulumi.get(self, "host_name_prefix")
 
     @property
     @pulumi.getter
@@ -135,9 +151,17 @@ class GetWebPubSubResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="liveTraceConfiguration")
+    def live_trace_configuration(self) -> Optional['outputs.LiveTraceConfigurationResponse']:
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "live_trace_configuration")
 
     @property
     @pulumi.getter
@@ -159,7 +183,7 @@ class GetWebPubSubResult:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional['outputs.WebPubSubNetworkACLsResponse']:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -198,6 +222,14 @@ class GetWebPubSubResult:
         return pulumi.get(self, "public_port")
 
     @property
+    @pulumi.getter(name="resourceLogConfiguration")
+    def resource_log_configuration(self) -> Optional['outputs.ResourceLogConfigurationResponse']:
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "resource_log_configuration")
+
+    @property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> int:
         """
@@ -217,7 +249,7 @@ class GetWebPubSubResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceSkuResponse']:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -241,7 +273,7 @@ class GetWebPubSubResult:
     @pulumi.getter
     def tls(self) -> Optional['outputs.WebPubSubTlsSettingsResponse']:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
@@ -268,12 +300,14 @@ class AwaitableGetWebPubSubResult(GetWebPubSubResult):
         if False:
             yield self
         return GetWebPubSubResult(
-            event_handler=self.event_handler,
+            disable_aad_auth=self.disable_aad_auth,
+            disable_local_auth=self.disable_local_auth,
             external_ip=self.external_ip,
-            features=self.features,
             host_name=self.host_name,
+            host_name_prefix=self.host_name_prefix,
             id=self.id,
             identity=self.identity,
+            live_trace_configuration=self.live_trace_configuration,
             location=self.location,
             name=self.name,
             network_acls=self.network_acls,
@@ -281,6 +315,7 @@ class AwaitableGetWebPubSubResult(GetWebPubSubResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             public_port=self.public_port,
+            resource_log_configuration=self.resource_log_configuration,
             server_port=self.server_port,
             shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
@@ -296,7 +331,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubResult:
     """
     A class represent a resource.
-    API Version: 2021-04-01-preview.
+    API Version: 2021-10-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -312,12 +347,14 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:webpubsub:getWebPubSub', __args__, opts=opts, typ=GetWebPubSubResult).value
 
     return AwaitableGetWebPubSubResult(
-        event_handler=__ret__.event_handler,
+        disable_aad_auth=__ret__.disable_aad_auth,
+        disable_local_auth=__ret__.disable_local_auth,
         external_ip=__ret__.external_ip,
-        features=__ret__.features,
         host_name=__ret__.host_name,
+        host_name_prefix=__ret__.host_name_prefix,
         id=__ret__.id,
         identity=__ret__.identity,
+        live_trace_configuration=__ret__.live_trace_configuration,
         location=__ret__.location,
         name=__ret__.name,
         network_acls=__ret__.network_acls,
@@ -325,6 +362,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         public_port=__ret__.public_port,
+        resource_log_configuration=__ret__.resource_log_configuration,
         server_port=__ret__.server_port,
         shared_private_link_resources=__ret__.shared_private_link_resources,
         sku=__ret__.sku,
@@ -341,7 +379,7 @@ def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubResult]:
     """
     A class represent a resource.
-    API Version: 2021-04-01-preview.
+    API Version: 2021-10-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

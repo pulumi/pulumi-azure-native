@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// The access keys for the cognitive services account.
-        /// API Version: 2017-04-18.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:cognitiveservices:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The access keys for the cognitive services account.
-        /// API Version: 2017-04-18.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:cognitiveservices:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());

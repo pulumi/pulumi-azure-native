@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Network watcher in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network watcher in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetNetworkWatcherResult> Invoke(GetNetworkWatcherInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure-native:network:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithDefaults());

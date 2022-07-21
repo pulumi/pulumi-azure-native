@@ -12,7 +12,7 @@ import (
 )
 
 // Represents Fusion alert rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 type FusionAlertRule struct {
 	pulumi.CustomResourceState
 
@@ -31,13 +31,15 @@ type FusionAlertRule struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The last time that this alert has been modified.
 	LastModifiedUtc pulumi.StringOutput `pulumi:"lastModifiedUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The severity for alerts created by this alert rule.
 	Severity pulumi.StringOutput `pulumi:"severity"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tactics of the alert rule
 	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -139,7 +141,7 @@ type fusionAlertRuleArgs struct {
 	// The kind of the alert rule
 	// Expected value is 'Fusion'.
 	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId *string `pulumi:"ruleId"`
@@ -156,7 +158,7 @@ type FusionAlertRuleArgs struct {
 	// The kind of the alert rule
 	// Expected value is 'Fusion'.
 	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Alert rule ID
 	RuleId pulumi.StringPtrInput
@@ -237,7 +239,7 @@ func (o FusionAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o FusionAlertRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -247,12 +249,17 @@ func (o FusionAlertRuleOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
 }
 
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o FusionAlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FusionAlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The tactics of the alert rule
 func (o FusionAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o FusionAlertRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

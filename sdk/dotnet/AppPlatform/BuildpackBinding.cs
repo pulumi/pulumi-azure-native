@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Buildpack Binding Resource object
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildpackBinding")]
     public partial class BuildpackBinding : Pulumi.CustomResource

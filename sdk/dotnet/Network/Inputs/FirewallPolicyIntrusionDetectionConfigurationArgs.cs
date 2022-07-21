@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _bypassTrafficSettings = value;
         }
 
+        [Input("privateRanges")]
+        private InputList<string>? _privateRanges;
+
+        /// <summary>
+        /// IDPS Private IP address ranges are used to identify traffic direction (i.e. inbound, outbound, etc.). By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. To modify default ranges, specify your Private IP address ranges with this property
+        /// </summary>
+        public InputList<string> PrivateRanges
+        {
+            get => _privateRanges ?? (_privateRanges = new InputList<string>());
+            set => _privateRanges = value;
+        }
+
         [Input("signatureOverrides")]
         private InputList<Inputs.FirewallPolicyIntrusionDetectionSignatureSpecificationArgs>? _signatureOverrides;
 

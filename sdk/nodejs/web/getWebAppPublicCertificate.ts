@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public certificate object
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateResult> {
     if (!opts) {

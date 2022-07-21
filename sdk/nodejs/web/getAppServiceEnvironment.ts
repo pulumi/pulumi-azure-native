@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service Environment ARM resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
     if (!opts) {
@@ -43,7 +43,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Dedicated Host Count
      */
-    readonly dedicatedHostCount: number;
+    readonly dedicatedHostCount?: number;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -121,6 +121,10 @@ export interface GetAppServiceEnvironmentResult {
      * Description of the Virtual Network.
      */
     readonly virtualNetwork: outputs.web.VirtualNetworkProfileResponse;
+    /**
+     * Whether or not this App Service Environment is zone-redundant.
+     */
+    readonly zoneRedundant?: boolean;
 }
 
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An instance of a script executed by a user - custom or AVS
-    /// API Version: 2021-06-01.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:ScriptExecution")]
     public partial class ScriptExecution : Pulumi.CustomResource

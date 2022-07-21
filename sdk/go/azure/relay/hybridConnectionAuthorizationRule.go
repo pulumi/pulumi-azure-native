@@ -11,16 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
-// API Version: 2017-04-01.
+// Single item in a List or Get AuthorizationRule operation
+// API Version: 2021-11-01.
 type HybridConnectionAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rights associated with the rule.
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -96,7 +100,7 @@ type hybridConnectionAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a HybridConnectionAuthorizationRule resource.
@@ -110,7 +114,7 @@ type HybridConnectionAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The rights associated with the rule.
-	Rights AccessRightsArrayInput
+	Rights pulumi.StringArrayInput
 }
 
 func (HybridConnectionAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -150,7 +154,12 @@ func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorization
 	return o
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o HybridConnectionAuthorizationRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o HybridConnectionAuthorizationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -160,7 +169,12 @@ func (o HybridConnectionAuthorizationRuleOutput) Rights() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// Resource type.
+// The system meta data relating to this resource.
+func (o HybridConnectionAuthorizationRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o HybridConnectionAuthorizationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

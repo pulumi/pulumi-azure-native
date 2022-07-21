@@ -72,6 +72,7 @@ export const ChannelProvisioningState = {
     Succeeded: "Succeeded",
     Canceled: "Canceled",
     Failed: "Failed",
+    IdleDueToMirroredPartnerTopicDeletion: "IdleDueToMirroredPartnerTopicDeletion",
 } as const;
 
 /**
@@ -81,13 +82,22 @@ export type ChannelProvisioningState = (typeof ChannelProvisioningState)[keyof t
 
 export const ChannelType = {
     PartnerTopic: "PartnerTopic",
-    PartnerDestination: "PartnerDestination",
 } as const;
 
 /**
- * The type of the event channel which represents the  direction flow of events.
+ * The type of the event channel which represents the direction flow of events.
  */
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+export const DataResidencyBoundary = {
+    WithinGeopair: "WithinGeopair",
+    WithinRegion: "WithinRegion",
+} as const;
+
+/**
+ * Data Residency Boundary of the resource.
+ */
+export type DataResidencyBoundary = (typeof DataResidencyBoundary)[keyof typeof DataResidencyBoundary];
 
 export const DeadLetterEndPointType = {
     StorageBlob: "StorageBlob",
@@ -116,7 +126,6 @@ export const EndpointType = {
     ServiceBusQueue: "ServiceBusQueue",
     ServiceBusTopic: "ServiceBusTopic",
     AzureFunction: "AzureFunction",
-    PartnerDestination: "PartnerDestination",
 } as const;
 
 /**
@@ -195,15 +204,6 @@ export const IpActionType = {
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
 
-export const PartnerClientAuthenticationType = {
-    AzureAD: "AzureAD",
-} as const;
-
-/**
- * Type of client authentication
- */
-export type PartnerClientAuthenticationType = (typeof PartnerClientAuthenticationType)[keyof typeof PartnerClientAuthenticationType];
-
 export const PartnerConfigurationProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -218,50 +218,6 @@ export const PartnerConfigurationProvisioningState = {
  */
 export type PartnerConfigurationProvisioningState = (typeof PartnerConfigurationProvisioningState)[keyof typeof PartnerConfigurationProvisioningState];
 
-export const PartnerDestinationActivationState = {
-    NeverActivated: "NeverActivated",
-    Activated: "Activated",
-} as const;
-
-/**
- * Activation state of the partner destination.
- */
-export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
-
-export const PartnerDestinationProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-} as const;
-
-/**
- * Provisioning state of the partner destination.
- */
-export type PartnerDestinationProvisioningState = (typeof PartnerDestinationProvisioningState)[keyof typeof PartnerDestinationProvisioningState];
-
-export const PartnerEndpointType = {
-    WebHook: "WebHook",
-} as const;
-
-/**
- * Type of the endpoint for the partner destination
- */
-export type PartnerEndpointType = (typeof PartnerEndpointType)[keyof typeof PartnerEndpointType];
-
-export const PartnerRegistrationVisibilityState = {
-    Hidden: "Hidden",
-    PublicPreview: "PublicPreview",
-    GenerallyAvailable: "GenerallyAvailable",
-} as const;
-
-/**
- * Visibility state of the partner registration.
- */
-export type PartnerRegistrationVisibilityState = (typeof PartnerRegistrationVisibilityState)[keyof typeof PartnerRegistrationVisibilityState];
-
 export const PartnerTopicActivationState = {
     NeverActivated: "NeverActivated",
     Activated: "Activated",
@@ -272,6 +228,17 @@ export const PartnerTopicActivationState = {
  * Activation state of the partner topic.
  */
 export type PartnerTopicActivationState = (typeof PartnerTopicActivationState)[keyof typeof PartnerTopicActivationState];
+
+export const PartnerTopicRoutingMode = {
+    SourceEventAttribute: "SourceEventAttribute",
+    ChannelNameHeader: "ChannelNameHeader",
+} as const;
+
+/**
+ * This determines if events published to this partner namespace should use the source attribute in the event payload
+ * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+ */
+export type PartnerTopicRoutingMode = (typeof PartnerTopicRoutingMode)[keyof typeof PartnerTopicRoutingMode];
 
 export const PersistedConnectionStatus = {
     Pending: "Pending",

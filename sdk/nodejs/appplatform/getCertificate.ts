@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate resource payload.
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
@@ -52,7 +52,11 @@ export interface GetCertificateResult {
     /**
      * Properties of the certificate resource payload.
      */
-    readonly properties: outputs.appplatform.CertificatePropertiesResponse;
+    readonly properties: outputs.appplatform.ContentCertificatePropertiesResponse | outputs.appplatform.KeyVaultCertificatePropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
     /**
      * The type of the resource.
      */

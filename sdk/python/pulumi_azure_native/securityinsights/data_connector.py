@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['DataConnectorArgs', 'DataConnector']
@@ -21,7 +22,7 @@ class DataConnectorArgs:
         """
         The set of arguments for constructing a DataConnector resource.
         :param pulumi.Input[Union[str, 'DataConnectorKind']] kind: The data connector kind
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         """
@@ -47,7 +48,7 @@ class DataConnectorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -97,13 +98,13 @@ class DataConnector(pulumi.CustomResource):
                  __props__=None):
         """
         Data connector.
-        API Version: 2020-01-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[Union[str, 'DataConnectorKind']] kind: The data connector kind
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -114,7 +115,7 @@ class DataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data connector.
-        API Version: 2020-01-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param DataConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -160,6 +161,7 @@ class DataConnector(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:DataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -188,6 +190,7 @@ class DataConnector(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DataConnector(resource_name, opts=opts, __props__=__props__)
 
@@ -211,15 +214,23 @@ class DataConnector(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

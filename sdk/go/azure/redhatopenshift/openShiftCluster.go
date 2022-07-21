@@ -12,7 +12,7 @@ import (
 )
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-// API Version: 2020-04-30.
+// API Version: 2022-04-01.
 type OpenShiftCluster struct {
 	pulumi.CustomResourceState
 
@@ -32,10 +32,12 @@ type OpenShiftCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The cluster network profile.
 	NetworkProfile NetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
-	// The cluster provisioning state (immutable).
+	// The cluster provisioning state.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The cluster service principal profile.
 	ServicePrincipalProfile ServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -112,7 +114,7 @@ type openShiftClusterArgs struct {
 	MasterProfile *MasterProfile `pulumi:"masterProfile"`
 	// The cluster network profile.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
-	// The cluster provisioning state (immutable).
+	// The cluster provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -142,7 +144,7 @@ type OpenShiftClusterArgs struct {
 	MasterProfile MasterProfilePtrInput
 	// The cluster network profile.
 	NetworkProfile NetworkProfilePtrInput
-	// The cluster provisioning state (immutable).
+	// The cluster provisioning state.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
@@ -233,7 +235,7 @@ func (o OpenShiftClusterOutput) NetworkProfile() NetworkProfileResponsePtrOutput
 	return o.ApplyT(func(v *OpenShiftCluster) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
 }
 
-// The cluster provisioning state (immutable).
+// The cluster provisioning state.
 func (o OpenShiftClusterOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftCluster) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -241,6 +243,11 @@ func (o OpenShiftClusterOutput) ProvisioningState() pulumi.StringPtrOutput {
 // The cluster service principal profile.
 func (o OpenShiftClusterOutput) ServicePrincipalProfile() ServicePrincipalProfileResponsePtrOutput {
 	return o.ApplyT(func(v *OpenShiftCluster) ServicePrincipalProfileResponsePtrOutput { return v.ServicePrincipalProfile }).(ServicePrincipalProfileResponsePtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o OpenShiftClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

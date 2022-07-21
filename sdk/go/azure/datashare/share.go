@@ -12,7 +12,7 @@ import (
 )
 
 // A share data transfer object.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type Share struct {
 	pulumi.CustomResourceState
 

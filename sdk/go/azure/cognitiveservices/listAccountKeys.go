@@ -11,7 +11,7 @@ import (
 )
 
 // The access keys for the cognitive services account.
-// API Version: 2017-04-18.
+// API Version: 2022-03-01.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
 	err := ctx.Invoke("azure-native:cognitiveservices:listAccountKeys", args, &rv, opts...)

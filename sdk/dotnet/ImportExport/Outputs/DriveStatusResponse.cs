@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ImportExport.Outputs
         /// <summary>
         /// Percentage completed for the drive. 
         /// </summary>
-        public readonly int? PercentComplete;
+        public readonly double? PercentComplete;
         /// <summary>
         /// The drive's current state. 
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.ImportExport.Outputs
 
             string? manifestUri,
 
-            int? percentComplete,
+            double? percentComplete,
 
             string? state,
 

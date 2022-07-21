@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy assignment.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -85,6 +85,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    /**
      * The type of the policy assignment.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -130,6 +135,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["policyDefinitionId"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

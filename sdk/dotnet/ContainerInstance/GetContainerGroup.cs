@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// A container group.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A container group.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
@@ -118,10 +118,6 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network profile information for a container group.
-        /// </summary>
-        public readonly Outputs.ContainerGroupNetworkProfileResponse? NetworkProfile;
-        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         public readonly string OsType;
@@ -141,6 +137,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> SubnetIds;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
+        /// <summary>
+        /// The zones for the container group.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetContainerGroupResult(
@@ -179,8 +183,6 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string name,
 
-            Outputs.ContainerGroupNetworkProfileResponse? networkProfile,
-
             string osType,
 
             string provisioningState,
@@ -189,11 +191,15 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string? sku,
 
+            ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> subnetIds,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponse> volumes)
+            ImmutableArray<Outputs.VolumeResponse> volumes,
+
+            ImmutableArray<string> zones)
         {
             Containers = containers;
             Diagnostics = diagnostics;
@@ -207,14 +213,15 @@ namespace Pulumi.AzureNative.ContainerInstance
             IpAddress = ipAddress;
             Location = location;
             Name = name;
-            NetworkProfile = networkProfile;
             OsType = osType;
             ProvisioningState = provisioningState;
             RestartPolicy = restartPolicy;
             Sku = sku;
+            SubnetIds = subnetIds;
             Tags = tags;
             Type = type;
             Volumes = volumes;
+            Zones = zones;
         }
     }
 }

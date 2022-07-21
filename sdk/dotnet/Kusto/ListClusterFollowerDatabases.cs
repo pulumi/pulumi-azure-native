@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// The list Kusto database principals operation response.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list Kusto database principals operation response.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<ListClusterFollowerDatabasesResult> Invoke(ListClusterFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithDefaults());

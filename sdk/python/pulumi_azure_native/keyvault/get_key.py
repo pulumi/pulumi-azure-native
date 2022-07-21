@@ -179,7 +179,7 @@ def get_key(key_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     The key resource.
-    API Version: 2019-09-01.
+    API Version: 2021-10-01.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -218,7 +218,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     The key resource.
-    API Version: 2019-09-01.
+    API Version: 2021-10-01.
 
 
     :param str key_name: The name of the key to be retrieved.

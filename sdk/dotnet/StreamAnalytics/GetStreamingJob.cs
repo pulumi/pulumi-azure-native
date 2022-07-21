@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// A streaming job object, containing all information associated with the named streaming job.
-        /// API Version: 2016-03-01.
+        /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// A streaming job object, containing all information associated with the named streaming job.
-        /// API Version: 2016-03-01.
+        /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Output<GetStreamingJobResult> Invoke(GetStreamingJobInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string JobName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -82,9 +82,17 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class GetStreamingJobResult
     {
         /// <summary>
+        /// The cluster which streaming jobs will run on.
+        /// </summary>
+        public readonly Outputs.ClusterInfoResponse? Cluster;
+        /// <summary>
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
         public readonly string? CompatibilityLevel;
+        /// <summary>
+        /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        /// </summary>
+        public readonly string? ContentStoragePolicy;
         /// <summary>
         /// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
         /// </summary>
@@ -110,6 +118,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly string? EventsOutOfOrderPolicy;
         /// <summary>
+        /// The storage account where the custom code artifacts are located.
+        /// </summary>
+        public readonly Outputs.ExternalResponse? Externals;
+        /// <summary>
         /// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
@@ -117,6 +129,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
@@ -129,6 +145,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Describes the state of the streaming job.
         /// </summary>
         public readonly string JobState;
+        /// <summary>
+        /// The properties that are associated with an Azure Storage account with MSI
+        /// </summary>
+        public readonly Outputs.JobStorageAccountResponse? JobStorageAccount;
+        /// <summary>
+        /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+        /// </summary>
+        public readonly string? JobType;
         /// <summary>
         /// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
         /// </summary>
@@ -180,7 +204,11 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         [OutputConstructor]
         private GetStreamingJobResult(
+            Outputs.ClusterInfoResponse? cluster,
+
             string? compatibilityLevel,
+
+            string? contentStoragePolicy,
 
             string createdDate,
 
@@ -194,15 +222,23 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string? eventsOutOfOrderPolicy,
 
+            Outputs.ExternalResponse? externals,
+
             ImmutableArray<Outputs.FunctionResponse> functions,
 
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             ImmutableArray<Outputs.InputResponse> inputs,
 
             string jobId,
 
             string jobState,
+
+            Outputs.JobStorageAccountResponse? jobStorageAccount,
+
+            string? jobType,
 
             string lastOutputEventTime,
 
@@ -228,18 +264,24 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string type)
         {
+            Cluster = cluster;
             CompatibilityLevel = compatibilityLevel;
+            ContentStoragePolicy = contentStoragePolicy;
             CreatedDate = createdDate;
             DataLocale = dataLocale;
             Etag = etag;
             EventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
             EventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
             EventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
+            Externals = externals;
             Functions = functions;
             Id = id;
+            Identity = identity;
             Inputs = inputs;
             JobId = jobId;
             JobState = jobState;
+            JobStorageAccount = jobStorageAccount;
+            JobType = jobType;
             LastOutputEventTime = lastOutputEventTime;
             Location = location;
             Name = name;

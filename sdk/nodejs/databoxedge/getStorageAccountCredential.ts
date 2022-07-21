@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The storage account credential.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
     if (!opts) {
@@ -78,7 +78,7 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly storageAccountId?: string;
     /**
-     * StorageAccountCredential object
+     * Metadata pertaining to creation and last modification of StorageAccountCredential
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of subscription resource.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     if (!opts) {
@@ -55,6 +55,10 @@ export interface GetSubscriptionResult {
      */
     readonly autoDeleteOnIdle?: string;
     /**
+     * Properties specific to client affine subscriptions.
+     */
+    readonly clientAffineProperties?: outputs.servicebus.SBClientAffinePropertiesResponse;
+    /**
      * Message count details
      */
     readonly countDetails: outputs.servicebus.MessageCountDetailsResponse;
@@ -91,9 +95,17 @@ export interface GetSubscriptionResult {
      */
     readonly forwardTo?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Value that indicates whether the subscription has an affinity to the client id.
+     */
+    readonly isClientAffine?: boolean;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
@@ -107,7 +119,7 @@ export interface GetSubscriptionResult {
      */
     readonly messageCount: number;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -119,7 +131,11 @@ export interface GetSubscriptionResult {
      */
     readonly status?: string;
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**

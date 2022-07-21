@@ -242,7 +242,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppInstanceFunctionSlotResult:
     """
     Function information.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str function_name: Function name.
@@ -289,7 +289,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
     """
     Function information.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str function_name: Function name.

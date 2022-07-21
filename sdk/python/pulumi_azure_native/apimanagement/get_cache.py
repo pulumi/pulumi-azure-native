@@ -63,7 +63,7 @@ class GetCacheResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -71,7 +71,7 @@ class GetCacheResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -87,7 +87,7 @@ class GetCacheResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -121,7 +121,7 @@ def get_cache(cache_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     Cache details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -155,7 +155,7 @@ def get_cache_output(cache_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
     Cache details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).

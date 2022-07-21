@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnGateway Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnGateway")]
     public partial class VpnGateway : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("connections")]
         public Output<ImmutableArray<Outputs.VpnConnectionResponse>> Connections { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable BGP routes translation for NAT on this VpnGateway.
+        /// </summary>
+        [Output("enableBgpRouteTranslationForNat")]
+        public Output<bool?> EnableBgpRouteTranslationForNat { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -186,6 +192,12 @@ namespace Pulumi.AzureNative.Network
             get => _connections ?? (_connections = new InputList<Inputs.VpnConnectionArgs>());
             set => _connections = value;
         }
+
+        /// <summary>
+        /// Enable BGP routes translation for NAT on this VpnGateway.
+        /// </summary>
+        [Input("enableBgpRouteTranslationForNat")]
+        public Input<bool>? EnableBgpRouteTranslationForNat { get; set; }
 
         /// <summary>
         /// The name of the gateway.

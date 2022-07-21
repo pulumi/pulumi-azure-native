@@ -11,7 +11,7 @@ import (
 )
 
 // Cognitive Services account commitment plan.
-// API Version: 2021-10-01.
+// API Version: 2022-03-01.
 func LookupCommitmentPlan(ctx *pulumi.Context, args *LookupCommitmentPlanArgs, opts ...pulumi.InvokeOption) (*LookupCommitmentPlanResult, error) {
 	var rv LookupCommitmentPlanResult
 	err := ctx.Invoke("azure-native:cognitiveservices:getCommitmentPlan", args, &rv, opts...)

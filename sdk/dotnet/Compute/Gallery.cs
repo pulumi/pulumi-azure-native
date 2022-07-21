@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
-    /// API Version: 2020-09-30.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Gallery")]
     public partial class Gallery : Pulumi.CustomResource
@@ -51,6 +51,18 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("sharingProfile")]
         public Output<Outputs.SharingProfileResponse?> SharingProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Sharing status of current gallery.
+        /// </summary>
+        [Output("sharingStatus")]
+        public Output<Outputs.SharingStatusResponse> SharingStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains information about the soft deletion policy of the gallery.
+        /// </summary>
+        [Output("softDeletePolicy")]
+        public Output<Outputs.SoftDeletePolicyResponse?> SoftDeletePolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -148,6 +160,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("sharingProfile")]
         public Input<Inputs.SharingProfileArgs>? SharingProfile { get; set; }
+
+        /// <summary>
+        /// Contains information about the soft deletion policy of the gallery.
+        /// </summary>
+        [Input("softDeletePolicy")]
+        public Input<Inputs.SoftDeletePolicyArgs>? SoftDeletePolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

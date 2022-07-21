@@ -12,7 +12,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type PeriodicTimerEventTrigger struct {
 	pulumi.CustomResourceState
 
@@ -27,7 +27,7 @@ type PeriodicTimerEventTrigger struct {
 	SinkInfo RoleSinkInfoResponseOutput `pulumi:"sinkInfo"`
 	// Periodic timer details.
 	SourceInfo PeriodicTimerSourceInfoResponseOutput `pulumi:"sourceInfo"`
-	// Trigger in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of Trigger
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -229,7 +229,7 @@ func (o PeriodicTimerEventTriggerOutput) SourceInfo() PeriodicTimerSourceInfoRes
 	return o.ApplyT(func(v *PeriodicTimerEventTrigger) PeriodicTimerSourceInfoResponseOutput { return v.SourceInfo }).(PeriodicTimerSourceInfoResponseOutput)
 }
 
-// Trigger in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of Trigger
 func (o PeriodicTimerEventTriggerOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *PeriodicTimerEventTrigger) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

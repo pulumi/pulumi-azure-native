@@ -33,6 +33,13 @@ namespace Pulumi.AzureNative.Devices.Inputs
             set => _authorizationPolicies = value;
         }
 
+        /// <summary>
+        /// Optional.
+        /// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+        /// </summary>
+        [Input("enableDataResidency")]
+        public Input<bool>? EnableDataResidency { get; set; }
+
         [Input("iotHubs")]
         private InputList<Inputs.IotHubDefinitionDescriptionArgs>? _iotHubs;
 

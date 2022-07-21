@@ -11,7 +11,7 @@ import (
 )
 
 // A Streaming Policy resource
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupStreamingPolicy(ctx *pulumi.Context, args *LookupStreamingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupStreamingPolicyResult, error) {
 	var rv LookupStreamingPolicyResult
 	err := ctx.Invoke("azure-native:media:getStreamingPolicy", args, &rv, opts...)

@@ -7,21 +7,14 @@ package peering
 type DirectPeeringType string
 
 const (
-	DirectPeeringTypeEdge     = DirectPeeringType("Edge")
-	DirectPeeringTypeTransit  = DirectPeeringType("Transit")
-	DirectPeeringTypeCdn      = DirectPeeringType("Cdn")
-	DirectPeeringTypeInternal = DirectPeeringType("Internal")
-	DirectPeeringTypeIx       = DirectPeeringType("Ix")
-	DirectPeeringTypeIxRs     = DirectPeeringType("IxRs")
-	DirectPeeringTypeVoice    = DirectPeeringType("Voice")
-)
-
-// The family of the peering SKU.
-type Family string
-
-const (
-	FamilyDirect   = Family("Direct")
-	FamilyExchange = Family("Exchange")
+	DirectPeeringTypeEdge                 = DirectPeeringType("Edge")
+	DirectPeeringTypeTransit              = DirectPeeringType("Transit")
+	DirectPeeringTypeCdn                  = DirectPeeringType("Cdn")
+	DirectPeeringTypeInternal             = DirectPeeringType("Internal")
+	DirectPeeringTypeIx                   = DirectPeeringType("Ix")
+	DirectPeeringTypeIxRs                 = DirectPeeringType("IxRs")
+	DirectPeeringTypeVoice                = DirectPeeringType("Voice")
+	DirectPeeringTypeEdgeZoneForOperators = DirectPeeringType("EdgeZoneForOperators")
 )
 
 // The kind of the peering.
@@ -50,33 +43,6 @@ type SessionAddressProvider string
 const (
 	SessionAddressProviderMicrosoft = SessionAddressProvider("Microsoft")
 	SessionAddressProviderPeer      = SessionAddressProvider("Peer")
-)
-
-// The size of the peering SKU.
-type Size string
-
-const (
-	SizeFree      = Size("Free")
-	SizeMetered   = Size("Metered")
-	SizeUnlimited = Size("Unlimited")
-)
-
-// The tier of the peering SKU.
-type Tier string
-
-const (
-	TierBasic   = Tier("Basic")
-	TierPremium = Tier("Premium")
-)
-
-// The validation state of the ASN associated with the peer.
-type ValidationState string
-
-const (
-	ValidationStateNone     = ValidationState("None")
-	ValidationStatePending  = ValidationState("Pending")
-	ValidationStateApproved = ValidationState("Approved")
-	ValidationStateFailed   = ValidationState("Failed")
 )
 
 func init() {

@@ -19,7 +19,14 @@ __all__ = [
 @pulumi.output_type
 class GetKubernetesRoleResult:
     """
-    Kubernetes role.
+    The limited preview of Kubernetes Cluster Management from the Azure supports:
+    1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device. 
+    2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal. 
+     Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+    3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data. 
+     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf 
+     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
     """
     def __init__(__self__, host_platform=None, host_platform_type=None, id=None, kind=None, kubernetes_cluster_info=None, kubernetes_role_resources=None, name=None, provisioning_state=None, role_status=None, system_data=None, type=None):
         if host_platform and not isinstance(host_platform, str):
@@ -133,7 +140,7 @@ class GetKubernetesRoleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 
@@ -170,8 +177,15 @@ def get_kubernetes_role(device_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesRoleResult:
     """
-    Kubernetes role.
-    API Version: 2020-12-01.
+    The limited preview of Kubernetes Cluster Management from the Azure supports:
+    1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+    2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+        Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+    3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+        For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+        Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+        By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+       API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -208,8 +222,15 @@ def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesRoleResult]:
     """
-    Kubernetes role.
-    API Version: 2020-12-01.
+    The limited preview of Kubernetes Cluster Management from the Azure supports:
+    1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+    2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+        Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+    3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+        For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+        Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+        By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+       API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

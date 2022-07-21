@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.Network.V20220701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:OutboundEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401preview:OutboundEndpoint"},
                 },
             };

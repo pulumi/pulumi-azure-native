@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? ProtectedItemsCount;
         /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
         /// List of sub-protection policies which includes schedule and retention
         /// </summary>
         public readonly ImmutableArray<Outputs.SubProtectionPolicyResponse> SubProtectionPolicy;
@@ -46,6 +50,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? protectedItemsCount,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
             ImmutableArray<Outputs.SubProtectionPolicyResponse> subProtectionPolicy,
 
             string? timeZone)
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             BackupManagementType = backupManagementType;
             FabricName = fabricName;
             ProtectedItemsCount = protectedItemsCount;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             SubProtectionPolicy = subProtectionPolicy;
             TimeZone = timeZone;
         }

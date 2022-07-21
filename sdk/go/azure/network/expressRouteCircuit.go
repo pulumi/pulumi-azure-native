@@ -12,12 +12,14 @@ import (
 )
 
 // ExpressRouteCircuit resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 
 	// Allow classic operations.
 	AllowClassicOperations pulumi.BoolPtrOutput `pulumi:"allowClassicOperations"`
+	// The authorizationKey.
+	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	// The list of authorizations.
 	Authorizations ExpressRouteCircuitAuthorizationResponseArrayOutput `pulumi:"authorizations"`
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
@@ -228,6 +230,8 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 type expressRouteCircuitArgs struct {
 	// Allow classic operations.
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// The authorizationKey.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The list of authorizations.
 	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
@@ -268,6 +272,8 @@ type expressRouteCircuitArgs struct {
 type ExpressRouteCircuitArgs struct {
 	// Allow classic operations.
 	AllowClassicOperations pulumi.BoolPtrInput
+	// The authorizationKey.
+	AuthorizationKey pulumi.StringPtrInput
 	// The list of authorizations.
 	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
@@ -344,6 +350,11 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx co
 // Allow classic operations.
 func (o ExpressRouteCircuitOutput) AllowClassicOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.BoolPtrOutput { return v.AllowClassicOperations }).(pulumi.BoolPtrOutput)
+}
+
+// The authorizationKey.
+func (o ExpressRouteCircuitOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
 // The list of authorizations.

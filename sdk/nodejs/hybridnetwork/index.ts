@@ -12,7 +12,6 @@ export * from "./getVendor";
 export * from "./getVendorSkuPreview";
 export * from "./getVendorSkus";
 export * from "./listDeviceRegistrationKey";
-export * from "./listVendorSkusCredential";
 export * from "./networkFunction";
 export * from "./vendor";
 export * from "./vendorSkuPreview";

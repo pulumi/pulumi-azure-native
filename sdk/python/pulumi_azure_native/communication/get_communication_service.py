@@ -21,7 +21,7 @@ class GetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
     """
-    def __init__(__self__, data_location=None, host_name=None, id=None, immutable_resource_id=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, data_location=None, host_name=None, id=None, immutable_resource_id=None, linked_domains=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -34,6 +34,9 @@ class GetCommunicationServiceResult:
         if immutable_resource_id and not isinstance(immutable_resource_id, str):
             raise TypeError("Expected argument 'immutable_resource_id' to be a str")
         pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
+        if linked_domains and not isinstance(linked_domains, list):
+            raise TypeError("Expected argument 'linked_domains' to be a list")
+        pulumi.set(__self__, "linked_domains", linked_domains)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -92,10 +95,18 @@ class GetCommunicationServiceResult:
         return pulumi.get(self, "immutable_resource_id")
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
+    @pulumi.getter(name="linkedDomains")
+    def linked_domains(self) -> Optional[Sequence[str]]:
         """
-        The Azure location where the CommunicationService is running.
+        List of email Domain resource Ids.
+        """
+        return pulumi.get(self, "linked_domains")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -127,7 +138,7 @@ class GetCommunicationServiceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -135,7 +146,7 @@ class GetCommunicationServiceResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -166,6 +177,7 @@ class AwaitableGetCommunicationServiceResult(GetCommunicationServiceResult):
             host_name=self.host_name,
             id=self.id,
             immutable_resource_id=self.immutable_resource_id,
+            linked_domains=self.linked_domains,
             location=self.location,
             name=self.name,
             notification_hub_id=self.notification_hub_id,
@@ -181,7 +193,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
-    API Version: 2020-08-20.
+    API Version: 2021-10-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -201,6 +213,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
         host_name=__ret__.host_name,
         id=__ret__.id,
         immutable_resource_id=__ret__.immutable_resource_id,
+        linked_domains=__ret__.linked_domains,
         location=__ret__.location,
         name=__ret__.name,
         notification_hub_id=__ret__.notification_hub_id,
@@ -217,7 +230,7 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationServiceResult]:
     """
     A class representing a CommunicationService resource.
-    API Version: 2020-08-20.
+    API Version: 2021-10-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

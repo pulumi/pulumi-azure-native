@@ -9,7 +9,6 @@ __all__ = [
     'EnterpriseChannelState',
     'Kind',
     'MsaAppType',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'SkuName',
 ]
@@ -64,15 +63,6 @@ class MsaAppType(str, Enum):
     USER_ASSIGNED_MSI = "UserAssignedMSI"
     SINGLE_TENANT = "SingleTenant"
     MULTI_TENANT = "MultiTenant"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class PublicNetworkAccess(str, Enum):

@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApplicationType{}
 	case "azure-native:servicefabric:ApplicationTypeVersion":
 		r = &ApplicationTypeVersion{}
-	case "azure-native:servicefabric:Cluster":
-		r = &Cluster{}
 	case "azure-native:servicefabric:ManagedCluster":
 		r = &ManagedCluster{}
 	case "azure-native:servicefabric:NodeType":

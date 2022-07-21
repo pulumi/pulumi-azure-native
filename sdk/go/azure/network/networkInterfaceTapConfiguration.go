@@ -12,7 +12,7 @@ import (
 )
 
 // Tap configuration in a Network Interface.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type NetworkInterfaceTapConfiguration struct {
 	pulumi.CustomResourceState
 

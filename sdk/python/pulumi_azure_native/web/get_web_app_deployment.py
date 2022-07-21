@@ -193,7 +193,7 @@ def get_web_app_deployment(id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentResult:
     """
     User credentials used for publishing activity.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str id: Deployment ID.
@@ -233,7 +233,7 @@ def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentResult]:
     """
     User credentials used for publishing activity.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str id: Deployment ID.

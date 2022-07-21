@@ -98,8 +98,6 @@ export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceEnvironmentAseCustomDnsSuffixConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

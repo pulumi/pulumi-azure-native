@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a HostPool definition.
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-07-12.
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
     if (!opts) {

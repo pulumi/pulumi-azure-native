@@ -11,7 +11,7 @@ import (
 )
 
 // Deployment information.
-// API Version: 2021-01-01.
+// API Version: 2021-04-01.
 func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDeploymentAtManagementGroupScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtManagementGroupScopeResult, error) {
 	var rv LookupDeploymentAtManagementGroupScopeResult
 	err := ctx.Invoke("azure-native:resources:getDeploymentAtManagementGroupScope", args, &rv, opts...)

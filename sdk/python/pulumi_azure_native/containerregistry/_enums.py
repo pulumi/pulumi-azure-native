@@ -8,18 +8,15 @@ __all__ = [
     'Action',
     'ActionsRequired',
     'Architecture',
-    'AuditLogStatus',
     'BaseImageTriggerType',
-    'ConnectedRegistryMode',
     'ConnectionStatus',
     'DefaultAction',
-    'LogLevel',
+    'EncryptionStatus',
+    'ExportPolicyStatus',
+    'NetworkRuleBypassOptions',
     'OS',
-    'PipelineOptions',
-    'PipelineRunSourceType',
-    'PipelineRunTargetType',
-    'PipelineSourceType',
     'PolicyStatus',
+    'PublicNetworkAccess',
     'ResourceIdentityType',
     'SecretObjectType',
     'SkuName',
@@ -28,22 +25,19 @@ __all__ = [
     'SourceTriggerEvent',
     'StepType',
     'TaskStatus',
-    'TokenCertificateName',
-    'TokenPasswordName',
-    'TokenStatus',
     'TokenType',
     'TriggerStatus',
     'TrustPolicyType',
-    'UpdateTriggerPayloadType',
     'Variant',
     'WebhookAction',
     'WebhookStatus',
+    'ZoneRedundancy',
 ]
 
 
 class Action(str, Enum):
     """
-    The action of virtual network rule.
+    The action of IP ACL rule.
     """
     ALLOW = "Allow"
 
@@ -62,17 +56,7 @@ class Architecture(str, Enum):
     """
     AMD64 = "amd64"
     X86 = "x86"
-    ARCHITECTURE_386 = "386"
     ARM = "arm"
-    ARM64 = "arm64"
-
-
-class AuditLogStatus(str, Enum):
-    """
-    Indicates whether audit logs are enabled on the connected registry.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class BaseImageTriggerType(str, Enum):
@@ -81,14 +65,6 @@ class BaseImageTriggerType(str, Enum):
     """
     ALL = "All"
     RUNTIME = "Runtime"
-
-
-class ConnectedRegistryMode(str, Enum):
-    """
-    The mode of the connected registry resource that indicates the permissions of the registry.
-    """
-    REGISTRY = "Registry"
-    MIRROR = "Mirror"
 
 
 class ConnectionStatus(str, Enum):
@@ -109,14 +85,27 @@ class DefaultAction(str, Enum):
     DENY = "Deny"
 
 
-class LogLevel(str, Enum):
+class EncryptionStatus(str, Enum):
     """
-    The verbosity of logs persisted on the connected registry.
+    Indicates whether or not the encryption is enabled for container registry.
     """
-    DEBUG = "Debug"
-    INFORMATION = "Information"
-    WARNING = "Warning"
-    ERROR = "Error"
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class ExportPolicyStatus(str, Enum):
+    """
+    The value that indicates whether the policy is enabled or not.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class NetworkRuleBypassOptions(str, Enum):
+    """
+    Whether to allow trusted Azure services to access a network restricted registry.
+    """
+    AZURE_SERVICES = "AzureServices"
     NONE = "None"
 
 
@@ -128,40 +117,20 @@ class OS(str, Enum):
     LINUX = "Linux"
 
 
-class PipelineOptions(str, Enum):
-    OVERWRITE_TAGS = "OverwriteTags"
-    OVERWRITE_BLOBS = "OverwriteBlobs"
-    DELETE_SOURCE_BLOB_ON_SUCCESS = "DeleteSourceBlobOnSuccess"
-    CONTINUE_ON_ERRORS = "ContinueOnErrors"
-
-
-class PipelineRunSourceType(str, Enum):
-    """
-    The type of the source.
-    """
-    AZURE_STORAGE_BLOB = "AzureStorageBlob"
-
-
-class PipelineRunTargetType(str, Enum):
-    """
-    The type of the target.
-    """
-    AZURE_STORAGE_BLOB = "AzureStorageBlob"
-
-
-class PipelineSourceType(str, Enum):
-    """
-    The type of source for the import pipeline.
-    """
-    AZURE_STORAGE_BLOB_CONTAINER = "AzureStorageBlobContainer"
-
-
 class PolicyStatus(str, Enum):
     """
     The value that indicates whether the policy is enabled or not.
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public network access is allowed for the container registry.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):
@@ -233,27 +202,6 @@ class TaskStatus(str, Enum):
     ENABLED = "Enabled"
 
 
-class TokenCertificateName(str, Enum):
-    CERTIFICATE1 = "certificate1"
-    CERTIFICATE2 = "certificate2"
-
-
-class TokenPasswordName(str, Enum):
-    """
-    The password name "password1" or "password2"
-    """
-    PASSWORD1 = "password1"
-    PASSWORD2 = "password2"
-
-
-class TokenStatus(str, Enum):
-    """
-    The status of the token example enabled or disabled.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
 class TokenType(str, Enum):
     """
     The type of Auth token.
@@ -275,14 +223,6 @@ class TrustPolicyType(str, Enum):
     The type of trust policy.
     """
     NOTARY = "Notary"
-
-
-class UpdateTriggerPayloadType(str, Enum):
-    """
-    Type of Payload body for Base image update triggers.
-    """
-    DEFAULT = "Default"
-    TOKEN = "Token"
 
 
 class Variant(str, Enum):
@@ -308,3 +248,11 @@ class WebhookStatus(str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class ZoneRedundancy(str, Enum):
+    """
+    Whether or not zone redundancy is enabled for this container registry replication
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

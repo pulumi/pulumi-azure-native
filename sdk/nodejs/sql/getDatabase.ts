@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
@@ -90,13 +90,29 @@ export interface GetDatabaseResult {
      */
     readonly failoverGroupId: string;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The Client id used for cross tenant per database CMK scenario
+     */
+    readonly federatedClientId?: string;
+    /**
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     readonly highAvailabilityReplicaCount?: number;
     /**
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * The Azure Active Directory identity of the database.
+     */
+    readonly identity?: outputs.sql.DatabaseIdentityResponse;
+    /**
+     * Infra encryption is enabled for this database.
+     */
+    readonly isInfraEncryptionEnabled: boolean;
+    /**
+     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+     */
+    readonly isLedgerOn?: boolean;
     /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */
@@ -138,7 +154,7 @@ export interface GetDatabaseResult {
      */
     readonly pausedDate: string;
     /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     readonly readScale?: string;
     /**

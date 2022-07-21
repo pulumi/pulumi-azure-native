@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         /// </summary>
         [Input("hasBgpOverride")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("nextHopType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Network.RouteNextHopType> NextHopType { get; set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The type of the resource.

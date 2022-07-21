@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Server Endpoint object.
-        /// API Version: 2020-03-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetServerEndpointResult> InvokeAsync(GetServerEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-native:storagesync:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Server Endpoint object.
-        /// API Version: 2020-03-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? InitialDownloadPolicy;
         /// <summary>
+        /// Policy for how the initial upload sync session is performed.
+        /// </summary>
+        public readonly string? InitialUploadPolicy;
+        /// <summary>
         /// Resource Last Operation Name
         /// </summary>
         public readonly string LastOperationName;
@@ -158,6 +162,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? ServerLocalPath;
         /// <summary>
+        /// Server name
+        /// </summary>
+        public readonly string ServerName;
+        /// <summary>
         /// Server Resource Id.
         /// </summary>
         public readonly string? ServerResourceId;
@@ -165,6 +173,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// Server Endpoint sync status
         /// </summary>
         public readonly Outputs.ServerEndpointSyncStatusResponse SyncStatus;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tier files older than days.
         /// </summary>
@@ -190,6 +202,8 @@ namespace Pulumi.AzureNative.StorageSync
 
             string? initialDownloadPolicy,
 
+            string? initialUploadPolicy,
+
             string lastOperationName,
 
             string lastWorkflowId,
@@ -212,9 +226,13 @@ namespace Pulumi.AzureNative.StorageSync
 
             string? serverLocalPath,
 
+            string serverName,
+
             string? serverResourceId,
 
             Outputs.ServerEndpointSyncStatusResponse syncStatus,
+
+            Outputs.SystemDataResponse systemData,
 
             int? tierFilesOlderThanDays,
 
@@ -227,6 +245,7 @@ namespace Pulumi.AzureNative.StorageSync
             FriendlyName = friendlyName;
             Id = id;
             InitialDownloadPolicy = initialDownloadPolicy;
+            InitialUploadPolicy = initialUploadPolicy;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;
             LocalCacheMode = localCacheMode;
@@ -238,8 +257,10 @@ namespace Pulumi.AzureNative.StorageSync
             ProvisioningState = provisioningState;
             RecallStatus = recallStatus;
             ServerLocalPath = serverLocalPath;
+            ServerName = serverName;
             ServerResourceId = serverResourceId;
             SyncStatus = syncStatus;
+            SystemData = systemData;
             TierFilesOlderThanDays = tierFilesOlderThanDays;
             Type = type;
             VolumeFreeSpacePercent = volumeFreeSpacePercent;

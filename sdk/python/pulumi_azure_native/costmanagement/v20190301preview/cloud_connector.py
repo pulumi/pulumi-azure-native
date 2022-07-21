@@ -258,7 +258,7 @@ class CloudConnector(pulumi.CustomResource):
             __props__.__dict__["provider_billing_account_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:CloudConnector"), pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:CloudConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:CloudConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudConnector, __self__).__init__(
             'azure-native:costmanagement/v20190301preview:CloudConnector',

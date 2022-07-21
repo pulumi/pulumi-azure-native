@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The local user associated with the storage accounts.
-    /// API Version: 2021-08-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:LocalUser")]
     public partial class LocalUser : Pulumi.CustomResource

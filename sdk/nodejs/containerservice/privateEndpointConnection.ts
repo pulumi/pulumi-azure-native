@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2021-03-01.
+ * API Version: 2022-04-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     privateLinkServiceConnectionState: pulumi.Input<inputs.containerservice.PrivateLinkServiceConnectionStateArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

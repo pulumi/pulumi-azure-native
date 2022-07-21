@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./actionRuleByName";
-export * from "./getActionRuleByName";
+export * from "./alertProcessingRuleByName";
+export * from "./getAlertProcessingRuleByName";
 export * from "./getSmartDetectorAlertRule";
 export * from "./smartDetectorAlertRule";
 
@@ -33,15 +33,15 @@ export {
 };
 
 // Import resources to register:
-import { ActionRuleByName } from "./actionRuleByName";
+import { AlertProcessingRuleByName } from "./alertProcessingRuleByName";
 import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:alertsmanagement:ActionRuleByName":
-                return new ActionRuleByName(name, <any>undefined, { urn })
+            case "azure-native:alertsmanagement:AlertProcessingRuleByName":
+                return new AlertProcessingRuleByName(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:SmartDetectorAlertRule":
                 return new SmartDetectorAlertRule(name, <any>undefined, { urn })
             default:

@@ -20,26 +20,15 @@ export {
     v20210808preview,
 };
 
-export const ActionRuleStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
+export const ActionType = {
+    AddActionGroups: "AddActionGroups",
+    RemoveAllActionGroups: "RemoveAllActionGroups",
 } as const;
 
 /**
- * Indicates if the given action rule is enabled or disabled
+ * Action that should be applied.
  */
-export type ActionRuleStatus = (typeof ActionRuleStatus)[keyof typeof ActionRuleStatus];
-
-export const ActionRuleType = {
-    Suppression: "Suppression",
-    ActionGroup: "ActionGroup",
-    Diagnostics: "Diagnostics",
-} as const;
-
-/**
- * Indicates type of action rule
- */
-export type ActionRuleType = (typeof ActionRuleType)[keyof typeof ActionRuleType];
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 export const AlertRuleState = {
     Enabled: "Enabled",
@@ -51,6 +40,40 @@ export const AlertRuleState = {
  */
 export type AlertRuleState = (typeof AlertRuleState)[keyof typeof AlertRuleState];
 
+export const DaysOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * Days of week.
+ */
+export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
+
+export const Field = {
+    Severity: "Severity",
+    MonitorService: "MonitorService",
+    MonitorCondition: "MonitorCondition",
+    SignalType: "SignalType",
+    TargetResourceType: "TargetResourceType",
+    TargetResource: "TargetResource",
+    TargetResourceGroup: "TargetResourceGroup",
+    AlertRuleId: "AlertRuleId",
+    AlertRuleName: "AlertRuleName",
+    Description: "Description",
+    AlertContext: "AlertContext",
+} as const;
+
+/**
+ * Field for a given condition.
+ */
+export type Field = (typeof Field)[keyof typeof Field];
+
 export const Operator = {
     Equals: "Equals",
     NotEquals: "NotEquals",
@@ -59,20 +82,20 @@ export const Operator = {
 } as const;
 
 /**
- * operator for a given condition
+ * Operator for a given condition.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
-export const ScopeType = {
-    ResourceGroup: "ResourceGroup",
-    Resource: "Resource",
-    Subscription: "Subscription",
+export const RecurrenceType = {
+    Daily: "Daily",
+    Weekly: "Weekly",
+    Monthly: "Monthly",
 } as const;
 
 /**
- * type of target scope
+ * Specifies when the recurrence should be applied.
  */
-export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];
 
 export const Severity = {
     Sev0: "Sev0",
@@ -86,16 +109,3 @@ export const Severity = {
  * The alert rule severity.
  */
 export type Severity = (typeof Severity)[keyof typeof Severity];
-
-export const SuppressionType = {
-    Always: "Always",
-    Once: "Once",
-    Daily: "Daily",
-    Weekly: "Weekly",
-    Monthly: "Monthly",
-} as const;
-
-/**
- * Specifies when the suppression should be applied
- */
-export type SuppressionType = (typeof SuppressionType)[keyof typeof SuppressionType];

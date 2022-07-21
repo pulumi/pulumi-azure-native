@@ -11,7 +11,7 @@ import (
 )
 
 // Site resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	var rv LookupSiteResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getSite", args, &rv, opts...)
@@ -54,6 +54,8 @@ type LookupSiteResult struct {
 	NetworkFunctions []SubResourceResponse `pulumi:"networkFunctions"`
 	// The provisioning state of the site resource. **TODO**: Confirm if this is needed
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -154,6 +156,11 @@ func (o LookupSiteResultOutput) NetworkFunctions() SubResourceResponseArrayOutpu
 // The provisioning state of the site resource. **TODO**: Confirm if this is needed
 func (o LookupSiteResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSiteResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSiteResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

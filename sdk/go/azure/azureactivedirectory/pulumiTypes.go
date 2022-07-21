@@ -13,9 +13,9 @@ import (
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKU struct {
 	// The name of the SKU for the tenant.
-	Name *B2CResourceSKUName `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tier of the tenant.
-	Tier *B2CResourceSKUTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // B2CResourceSKUInput is an input type that accepts B2CResourceSKUArgs and B2CResourceSKUOutput values.
@@ -32,9 +32,9 @@ type B2CResourceSKUInput interface {
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUArgs struct {
 	// The name of the SKU for the tenant.
-	Name B2CResourceSKUNamePtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The tier of the tenant.
-	Tier B2CResourceSKUTierPtrInput `pulumi:"tier"`
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (B2CResourceSKUArgs) ElementType() reflect.Type {
@@ -65,13 +65,13 @@ func (o B2CResourceSKUOutput) ToB2CResourceSKUOutputWithContext(ctx context.Cont
 }
 
 // The name of the SKU for the tenant.
-func (o B2CResourceSKUOutput) Name() B2CResourceSKUNamePtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKUName { return v.Name }).(B2CResourceSKUNamePtrOutput)
+func (o B2CResourceSKUOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKU) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The tier of the tenant.
-func (o B2CResourceSKUOutput) Tier() B2CResourceSKUTierPtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKUTier { return v.Tier }).(B2CResourceSKUTierPtrOutput)
+func (o B2CResourceSKUOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKU) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
@@ -184,65 +184,65 @@ func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) EffectiveStar
 	}).(pulumi.StringPtrOutput)
 }
 
-type CreateTenantRequestBodyProperties struct {
-	// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
-	CountryCode *string `pulumi:"countryCode"`
-	// The display name of the B2C tenant.
-	DisplayName *string `pulumi:"displayName"`
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-// CreateTenantRequestBodyPropertiesInput is an input type that accepts CreateTenantRequestBodyPropertiesArgs and CreateTenantRequestBodyPropertiesOutput values.
-// You can construct a concrete instance of `CreateTenantRequestBodyPropertiesInput` via:
-//
-//          CreateTenantRequestBodyPropertiesArgs{...}
-type CreateTenantRequestBodyPropertiesInput interface {
-	pulumi.Input
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
-	ToCreateTenantRequestBodyPropertiesOutput() CreateTenantRequestBodyPropertiesOutput
-	ToCreateTenantRequestBodyPropertiesOutputWithContext(context.Context) CreateTenantRequestBodyPropertiesOutput
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
 }
 
-type CreateTenantRequestBodyPropertiesArgs struct {
-	// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
-	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
-	// The display name of the B2C tenant.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-}
-
-func (CreateTenantRequestBodyPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateTenantRequestBodyProperties)(nil)).Elem()
-}
-
-func (i CreateTenantRequestBodyPropertiesArgs) ToCreateTenantRequestBodyPropertiesOutput() CreateTenantRequestBodyPropertiesOutput {
-	return i.ToCreateTenantRequestBodyPropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateTenantRequestBodyPropertiesArgs) ToCreateTenantRequestBodyPropertiesOutputWithContext(ctx context.Context) CreateTenantRequestBodyPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateTenantRequestBodyPropertiesOutput)
-}
-
-type CreateTenantRequestBodyPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateTenantRequestBodyPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateTenantRequestBodyProperties)(nil)).Elem()
-}
-
-func (o CreateTenantRequestBodyPropertiesOutput) ToCreateTenantRequestBodyPropertiesOutput() CreateTenantRequestBodyPropertiesOutput {
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
 	return o
 }
 
-func (o CreateTenantRequestBodyPropertiesOutput) ToCreateTenantRequestBodyPropertiesOutputWithContext(ctx context.Context) CreateTenantRequestBodyPropertiesOutput {
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
 }
 
-// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
-func (o CreateTenantRequestBodyPropertiesOutput) CountryCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateTenantRequestBodyProperties) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the B2C tenant.
-func (o CreateTenantRequestBodyPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateTenantRequestBodyProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -250,5 +250,5 @@ func init() {
 	pulumi.RegisterOutputType(B2CResourceSKUResponseOutput{})
 	pulumi.RegisterOutputType(B2CTenantResourcePropertiesResponseBillingConfigOutput{})
 	pulumi.RegisterOutputType(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput{})
-	pulumi.RegisterOutputType(CreateTenantRequestBodyPropertiesOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

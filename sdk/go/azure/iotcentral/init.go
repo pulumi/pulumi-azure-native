@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:iotcentral:App":
 		r = &App{}
-	case "azure-native:iotcentral:PrivateEndpointConnection":
-		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

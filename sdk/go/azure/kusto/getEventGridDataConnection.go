@@ -11,14 +11,14 @@ import (
 )
 
 // Class representing an Event Grid data connection.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupEventGridDataConnection(ctx *pulumi.Context, args *LookupEventGridDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEventGridDataConnectionResult, error) {
 	var rv LookupEventGridDataConnectionResult
 	err := ctx.Invoke("azure-native:kusto:getEventGridDataConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupEventGridDataConnectionArgs struct {
@@ -40,6 +40,10 @@ type LookupEventGridDataConnectionResult struct {
 	ConsumerGroup string `pulumi:"consumerGroup"`
 	// The data format of the message. Optionally the data format can be added to each message.
 	DataFormat *string `pulumi:"dataFormat"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed
+	DatabaseRouting *string `pulumi:"databaseRouting"`
+	// The resource ID of the event grid that is subscribed to the storage account events.
+	EventGridResourceId *string `pulumi:"eventGridResourceId"`
 	// The resource ID where the event grid is configured to send events.
 	EventHubResourceId string `pulumi:"eventHubResourceId"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -51,6 +55,10 @@ type LookupEventGridDataConnectionResult struct {
 	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The object ID of managedIdentityResourceId
+	ManagedIdentityObjectId string `pulumi:"managedIdentityObjectId"`
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the resource
@@ -63,6 +71,19 @@ type LookupEventGridDataConnectionResult struct {
 	TableName *string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupEventGridDataConnectionResult
+func (val *LookupEventGridDataConnectionResult) Defaults() *LookupEventGridDataConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DatabaseRouting) {
+		databaseRouting_ := "Single"
+		tmp.DatabaseRouting = &databaseRouting_
+	}
+	return &tmp
 }
 
 func LookupEventGridDataConnectionOutput(ctx *pulumi.Context, args LookupEventGridDataConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventGridDataConnectionResultOutput {
@@ -123,6 +144,16 @@ func (o LookupEventGridDataConnectionResultOutput) DataFormat() pulumi.StringPtr
 	return o.ApplyT(func(v LookupEventGridDataConnectionResult) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
 }
 
+// Indication for database routing information from the data connection, by default only database routing information is allowed
+func (o LookupEventGridDataConnectionResultOutput) DatabaseRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventGridDataConnectionResult) *string { return v.DatabaseRouting }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the event grid that is subscribed to the storage account events.
+func (o LookupEventGridDataConnectionResultOutput) EventGridResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventGridDataConnectionResult) *string { return v.EventGridResourceId }).(pulumi.StringPtrOutput)
+}
+
 // The resource ID where the event grid is configured to send events.
 func (o LookupEventGridDataConnectionResultOutput) EventHubResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventGridDataConnectionResult) string { return v.EventHubResourceId }).(pulumi.StringOutput)
@@ -147,6 +178,16 @@ func (o LookupEventGridDataConnectionResultOutput) Kind() pulumi.StringOutput {
 // Resource location.
 func (o LookupEventGridDataConnectionResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventGridDataConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The object ID of managedIdentityResourceId
+func (o LookupEventGridDataConnectionResultOutput) ManagedIdentityObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventGridDataConnectionResult) string { return v.ManagedIdentityObjectId }).(pulumi.StringOutput)
+}
+
+// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+func (o LookupEventGridDataConnectionResultOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventGridDataConnectionResult) *string { return v.ManagedIdentityResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.

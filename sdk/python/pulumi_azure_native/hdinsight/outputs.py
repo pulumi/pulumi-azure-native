@@ -23,7 +23,6 @@ __all__ = [
     'ClusterDefinitionResponse',
     'ClusterGetPropertiesResponse',
     'ClusterIdentityResponse',
-    'ClusterIdentityResponseUserAssignedIdentities',
     'ComputeIsolationPropertiesResponse',
     'ComputeProfileResponse',
     'ConnectivityEndpointResponse',
@@ -33,13 +32,17 @@ __all__ = [
     'ErrorsResponse',
     'ExcludedServicesConfigResponse',
     'HardwareProfileResponse',
+    'IPConfigurationResponse',
     'KafkaRestPropertiesResponse',
     'LinuxOperatingSystemProfileResponse',
     'NetworkPropertiesResponse',
     'OsProfileResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'PrivateLinkConfigurationResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'QuotaInfoResponse',
+    'ResourceIdResponse',
     'RoleResponse',
     'RuntimeScriptActionResponse',
     'ScriptActionResponse',
@@ -49,6 +52,7 @@ __all__ = [
     'StorageAccountResponse',
     'StorageProfileResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
     'VirtualNetworkProfileResponse',
 ]
 
@@ -150,8 +154,6 @@ class ApplicationGetHttpsEndpointResponse(dict):
             suggest = "disable_gateway_auth"
         elif key == "privateIPAddress":
             suggest = "private_ip_address"
-        elif key == "subDomainSuffix":
-            suggest = "sub_domain_suffix"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationGetHttpsEndpointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -170,8 +172,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
                  access_modes: Optional[Sequence[str]] = None,
                  destination_port: Optional[int] = None,
                  disable_gateway_auth: Optional[bool] = None,
-                 private_ip_address: Optional[str] = None,
-                 sub_domain_suffix: Optional[str] = None):
+                 private_ip_address: Optional[str] = None):
         """
         Gets the application HTTP endpoints.
         :param str location: The location of the endpoint.
@@ -180,7 +181,6 @@ class ApplicationGetHttpsEndpointResponse(dict):
         :param int destination_port: The destination port to connect to.
         :param bool disable_gateway_auth: The value indicates whether to disable GatewayAuth.
         :param str private_ip_address: The private ip address of the endpoint.
-        :param str sub_domain_suffix: The subdomain suffix of the application.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "public_port", public_port)
@@ -192,8 +192,6 @@ class ApplicationGetHttpsEndpointResponse(dict):
             pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if sub_domain_suffix is not None:
-            pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
 
     @property
     @pulumi.getter
@@ -243,14 +241,6 @@ class ApplicationGetHttpsEndpointResponse(dict):
         """
         return pulumi.get(self, "private_ip_address")
 
-    @property
-    @pulumi.getter(name="subDomainSuffix")
-    def sub_domain_suffix(self) -> Optional[str]:
-        """
-        The subdomain suffix of the application.
-        """
-        return pulumi.get(self, "sub_domain_suffix")
-
 
 @pulumi.output_type
 class ApplicationPropertiesResponse(dict):
@@ -276,6 +266,8 @@ class ApplicationPropertiesResponse(dict):
             suggest = "https_endpoints"
         elif key == "installScriptActions":
             suggest = "install_script_actions"
+        elif key == "privateLinkConfigurations":
+            suggest = "private_link_configurations"
         elif key == "sshEndpoints":
             suggest = "ssh_endpoints"
         elif key == "uninstallScriptActions":
@@ -302,6 +294,7 @@ class ApplicationPropertiesResponse(dict):
                  errors: Optional[Sequence['outputs.ErrorsResponse']] = None,
                  https_endpoints: Optional[Sequence['outputs.ApplicationGetHttpsEndpointResponse']] = None,
                  install_script_actions: Optional[Sequence['outputs.RuntimeScriptActionResponse']] = None,
+                 private_link_configurations: Optional[Sequence['outputs.PrivateLinkConfigurationResponse']] = None,
                  ssh_endpoints: Optional[Sequence['outputs.ApplicationGetEndpointResponse']] = None,
                  uninstall_script_actions: Optional[Sequence['outputs.RuntimeScriptActionResponse']] = None):
         """
@@ -315,6 +308,7 @@ class ApplicationPropertiesResponse(dict):
         :param Sequence['ErrorsResponse'] errors: The list of errors.
         :param Sequence['ApplicationGetHttpsEndpointResponse'] https_endpoints: The list of application HTTPS endpoints.
         :param Sequence['RuntimeScriptActionResponse'] install_script_actions: The list of install script actions.
+        :param Sequence['PrivateLinkConfigurationResponse'] private_link_configurations: The private link configurations.
         :param Sequence['ApplicationGetEndpointResponse'] ssh_endpoints: The list of application SSH endpoints.
         :param Sequence['RuntimeScriptActionResponse'] uninstall_script_actions: The list of uninstall script actions.
         """
@@ -332,6 +326,8 @@ class ApplicationPropertiesResponse(dict):
             pulumi.set(__self__, "https_endpoints", https_endpoints)
         if install_script_actions is not None:
             pulumi.set(__self__, "install_script_actions", install_script_actions)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if ssh_endpoints is not None:
             pulumi.set(__self__, "ssh_endpoints", ssh_endpoints)
         if uninstall_script_actions is not None:
@@ -408,6 +404,14 @@ class ApplicationPropertiesResponse(dict):
         The list of install script actions.
         """
         return pulumi.get(self, "install_script_actions")
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[Sequence['outputs.PrivateLinkConfigurationResponse']]:
+        """
+        The private link configurations.
+        """
+        return pulumi.get(self, "private_link_configurations")
 
     @property
     @pulumi.getter(name="sshEndpoints")
@@ -825,6 +829,8 @@ class ClusterGetPropertiesResponse(dict):
         suggest = None
         if key == "clusterDefinition":
             suggest = "cluster_definition"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
         elif key == "clusterHdpVersion":
             suggest = "cluster_hdp_version"
         elif key == "clusterId":
@@ -855,6 +861,8 @@ class ClusterGetPropertiesResponse(dict):
             suggest = "network_properties"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "privateLinkConfigurations":
+            suggest = "private_link_configurations"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "quotaInfo":
@@ -877,6 +885,7 @@ class ClusterGetPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  cluster_definition: 'outputs.ClusterDefinitionResponse',
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  cluster_hdp_version: Optional[str] = None,
                  cluster_id: Optional[str] = None,
                  cluster_state: Optional[str] = None,
@@ -893,6 +902,7 @@ class ClusterGetPropertiesResponse(dict):
                  min_supported_tls_version: Optional[str] = None,
                  network_properties: Optional['outputs.NetworkPropertiesResponse'] = None,
                  os_type: Optional[str] = None,
+                 private_link_configurations: Optional[Sequence['outputs.PrivateLinkConfigurationResponse']] = None,
                  provisioning_state: Optional[str] = None,
                  quota_info: Optional['outputs.QuotaInfoResponse'] = None,
                  security_profile: Optional['outputs.SecurityProfileResponse'] = None,
@@ -901,6 +911,7 @@ class ClusterGetPropertiesResponse(dict):
         """
         The properties of cluster.
         :param 'ClusterDefinitionResponse' cluster_definition: The cluster definition.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections.
         :param str cluster_hdp_version: The hdp version of the cluster.
         :param str cluster_id: The cluster id.
         :param str cluster_state: The state of the cluster.
@@ -917,6 +928,7 @@ class ClusterGetPropertiesResponse(dict):
         :param str min_supported_tls_version: The minimal supported tls version.
         :param 'NetworkPropertiesResponse' network_properties: The network properties.
         :param str os_type: The type of operating system.
+        :param Sequence['PrivateLinkConfigurationResponse'] private_link_configurations: The private link configurations.
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param 'QuotaInfoResponse' quota_info: The quota information.
         :param 'SecurityProfileResponse' security_profile: The security profile.
@@ -924,6 +936,7 @@ class ClusterGetPropertiesResponse(dict):
         :param str tier: The cluster tier.
         """
         pulumi.set(__self__, "cluster_definition", cluster_definition)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if cluster_hdp_version is not None:
             pulumi.set(__self__, "cluster_hdp_version", cluster_hdp_version)
         if cluster_id is not None:
@@ -956,6 +969,8 @@ class ClusterGetPropertiesResponse(dict):
             pulumi.set(__self__, "network_properties", network_properties)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if quota_info is not None:
@@ -974,6 +989,14 @@ class ClusterGetPropertiesResponse(dict):
         The cluster definition.
         """
         return pulumi.get(self, "cluster_definition")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The list of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="clusterHdpVersion")
@@ -1104,6 +1127,14 @@ class ClusterGetPropertiesResponse(dict):
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[Sequence['outputs.PrivateLinkConfigurationResponse']]:
+        """
+        The private link configurations.
+        """
+        return pulumi.get(self, "private_link_configurations")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
@@ -1174,13 +1205,13 @@ class ClusterIdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ClusterIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the cluster.
         :param str principal_id: The principal id of cluster identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        :param Mapping[str, 'ClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1215,73 +1246,11 @@ class ClusterIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ClusterIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class ClusterIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str,
-                 tenant_id: Optional[str] = None):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        :param str tenant_id: The tenant id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The tenant id of user assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -1801,6 +1770,130 @@ class HardwareProfileResponse(dict):
 
 
 @pulumi.output_type
+class IPConfigurationResponse(dict):
+    """
+    The ip configurations for the private link service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet: Optional['outputs.ResourceIdResponse'] = None):
+        """
+        The ip configurations for the private link service.
+        :param str id: The private link IP configuration id.
+        :param str name: The name of private link IP configuration.
+        :param str provisioning_state: The private link configuration provisioning state, which only appears in the response.
+        :param str type: The type of the private link IP configuration.
+        :param bool primary: Indicates whether this IP configuration is primary for the corresponding NIC.
+        :param str private_ip_address: The IP address.
+        :param str private_ip_allocation_method: The method that private IP address is allocated.
+        :param 'ResourceIdResponse' subnet: The subnet resource id.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The private link IP configuration id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of private link IP configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The private link configuration provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the private link IP configuration.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary for the corresponding NIC.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The IP address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The method that private IP address is allocated.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+        """
+        The subnet resource id.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
 class KafkaRestPropertiesResponse(dict):
     """
     The kafka rest proxy configuration which contains AAD security group information.
@@ -2013,6 +2106,130 @@ class OsProfileResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 link_identifier: str,
+                 name: str,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str):
+        """
+        The private endpoint connection.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str link_identifier: The link identifier.
+        :param str name: The name of the resource
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "link_identifier", link_identifier)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> str:
+        """
+        The link identifier.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The private endpoint of the private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        The private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     The private endpoint.
@@ -2033,6 +2250,104 @@ class PrivateEndpointResponse(dict):
         The private endpoint id.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkConfigurationResponse(dict):
+    """
+    The private link configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 id: str,
+                 ip_configurations: Sequence['outputs.IPConfigurationResponse'],
+                 name: str,
+                 provisioning_state: str,
+                 type: str):
+        """
+        The private link configuration.
+        :param str group_id: The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+        :param str id: The private link configuration id.
+        :param Sequence['IPConfigurationResponse'] ip_configurations: The IP configurations for the private link service.
+        :param str name: The name of private link configuration.
+        :param str provisioning_state: The private link configuration provisioning state, which only appears in the response.
+        :param str type: The type of the private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The private link configuration id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
+        """
+        The IP configurations for the private link service.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The private link configuration provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the private link configuration.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2136,6 +2451,29 @@ class QuotaInfoResponse(dict):
         The cores used by the cluster.
         """
         return pulumi.get(self, "cores_used")
+
+
+@pulumi.output_type
+class ResourceIdResponse(dict):
+    """
+    The azure resource id.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The azure resource id.
+        :param str id: The azure resource id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The azure resource id.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2344,22 +2682,18 @@ class RuntimeScriptActionResponse(dict):
                  application_name: str,
                  name: str,
                  roles: Sequence[str],
-                 uri: str,
-                 parameters: Optional[str] = None):
+                 uri: str):
         """
         Describes a script action on a running cluster.
         :param str application_name: The application name of the script action, if any.
         :param str name: The name of the script action.
         :param Sequence[str] roles: The list of roles where script will be executed.
         :param str uri: The URI to the script.
-        :param str parameters: The parameters for the script
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "uri", uri)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -2392,14 +2726,6 @@ class RuntimeScriptActionResponse(dict):
         The URI to the script.
         """
         return pulumi.get(self, "uri")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[str]:
-        """
-        The parameters for the script
-        """
-        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -2949,6 +3275,72 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    The User Assigned Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str,
+                 tenant_id: Optional[str] = None):
+        """
+        The User Assigned Identity
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        :param str tenant_id: The tenant id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

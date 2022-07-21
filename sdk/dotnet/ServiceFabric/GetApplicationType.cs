@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// The application type name resource
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The application type name resource
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetApplicationTypeResult> Invoke(GetApplicationTypeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeInvokeArgs(), options.WithDefaults());
@@ -82,15 +82,11 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetApplicationTypeResult
     {
         /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        public readonly string Etag;
-        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -102,6 +98,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Azure resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -112,8 +112,6 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetApplicationTypeResult(
-            string etag,
-
             string id,
 
             string? location,
@@ -122,15 +120,17 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            Etag = etag;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -11,7 +11,7 @@ import (
 )
 
 // Network security rule.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupSecurityRule(ctx *pulumi.Context, args *LookupSecurityRuleArgs, opts ...pulumi.InvokeOption) (*LookupSecurityRuleResult, error) {
 	var rv LookupSecurityRuleResult
 	err := ctx.Invoke("azure-native:network:getSecurityRule", args, &rv, opts...)

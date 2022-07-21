@@ -10,15 +10,157 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+type HealthBotProperties struct {
+	// KeyVault properties for the resource encryption.
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+}
+
+// HealthBotPropertiesInput is an input type that accepts HealthBotPropertiesArgs and HealthBotPropertiesOutput values.
+// You can construct a concrete instance of `HealthBotPropertiesInput` via:
+//
+//          HealthBotPropertiesArgs{...}
+type HealthBotPropertiesInput interface {
+	pulumi.Input
+
+	ToHealthBotPropertiesOutput() HealthBotPropertiesOutput
+	ToHealthBotPropertiesOutputWithContext(context.Context) HealthBotPropertiesOutput
+}
+
+// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+type HealthBotPropertiesArgs struct {
+	// KeyVault properties for the resource encryption.
+	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (HealthBotPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthBotProperties)(nil)).Elem()
+}
+
+func (i HealthBotPropertiesArgs) ToHealthBotPropertiesOutput() HealthBotPropertiesOutput {
+	return i.ToHealthBotPropertiesOutputWithContext(context.Background())
+}
+
+func (i HealthBotPropertiesArgs) ToHealthBotPropertiesOutputWithContext(ctx context.Context) HealthBotPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthBotPropertiesOutput)
+}
+
+func (i HealthBotPropertiesArgs) ToHealthBotPropertiesPtrOutput() HealthBotPropertiesPtrOutput {
+	return i.ToHealthBotPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i HealthBotPropertiesArgs) ToHealthBotPropertiesPtrOutputWithContext(ctx context.Context) HealthBotPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthBotPropertiesOutput).ToHealthBotPropertiesPtrOutputWithContext(ctx)
+}
+
+// HealthBotPropertiesPtrInput is an input type that accepts HealthBotPropertiesArgs, HealthBotPropertiesPtr and HealthBotPropertiesPtrOutput values.
+// You can construct a concrete instance of `HealthBotPropertiesPtrInput` via:
+//
+//          HealthBotPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type HealthBotPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToHealthBotPropertiesPtrOutput() HealthBotPropertiesPtrOutput
+	ToHealthBotPropertiesPtrOutputWithContext(context.Context) HealthBotPropertiesPtrOutput
+}
+
+type healthBotPropertiesPtrType HealthBotPropertiesArgs
+
+func HealthBotPropertiesPtr(v *HealthBotPropertiesArgs) HealthBotPropertiesPtrInput {
+	return (*healthBotPropertiesPtrType)(v)
+}
+
+func (*healthBotPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthBotProperties)(nil)).Elem()
+}
+
+func (i *healthBotPropertiesPtrType) ToHealthBotPropertiesPtrOutput() HealthBotPropertiesPtrOutput {
+	return i.ToHealthBotPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *healthBotPropertiesPtrType) ToHealthBotPropertiesPtrOutputWithContext(ctx context.Context) HealthBotPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthBotPropertiesPtrOutput)
+}
+
+// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+type HealthBotPropertiesOutput struct{ *pulumi.OutputState }
+
+func (HealthBotPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthBotProperties)(nil)).Elem()
+}
+
+func (o HealthBotPropertiesOutput) ToHealthBotPropertiesOutput() HealthBotPropertiesOutput {
+	return o
+}
+
+func (o HealthBotPropertiesOutput) ToHealthBotPropertiesOutputWithContext(ctx context.Context) HealthBotPropertiesOutput {
+	return o
+}
+
+func (o HealthBotPropertiesOutput) ToHealthBotPropertiesPtrOutput() HealthBotPropertiesPtrOutput {
+	return o.ToHealthBotPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o HealthBotPropertiesOutput) ToHealthBotPropertiesPtrOutputWithContext(ctx context.Context) HealthBotPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthBotProperties) *HealthBotProperties {
+		return &v
+	}).(HealthBotPropertiesPtrOutput)
+}
+
+// KeyVault properties for the resource encryption.
+func (o HealthBotPropertiesOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v HealthBotProperties) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
+}
+
+type HealthBotPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthBotPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthBotProperties)(nil)).Elem()
+}
+
+func (o HealthBotPropertiesPtrOutput) ToHealthBotPropertiesPtrOutput() HealthBotPropertiesPtrOutput {
+	return o
+}
+
+func (o HealthBotPropertiesPtrOutput) ToHealthBotPropertiesPtrOutputWithContext(ctx context.Context) HealthBotPropertiesPtrOutput {
+	return o
+}
+
+func (o HealthBotPropertiesPtrOutput) Elem() HealthBotPropertiesOutput {
+	return o.ApplyT(func(v *HealthBotProperties) HealthBotProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HealthBotProperties
+		return ret
+	}).(HealthBotPropertiesOutput)
+}
+
+// KeyVault properties for the resource encryption.
+func (o HealthBotPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *HealthBotProperties) *KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponse struct {
 	// The link.
 	BotManagementPortalLink string `pulumi:"botManagementPortalLink"`
-	// The provisioning state of the Healthbot resource.
+	// KeyVault properties for the resource encryption.
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// The provisioning state of the Azure Health Bot resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
-// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
 type HealthBotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthBotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -38,14 +180,604 @@ func (o HealthBotPropertiesResponseOutput) BotManagementPortalLink() pulumi.Stri
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.BotManagementPortalLink }).(pulumi.StringOutput)
 }
 
-// The provisioning state of the Healthbot resource.
+// KeyVault properties for the resource encryption.
+func (o HealthBotPropertiesResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v HealthBotPropertiesResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of the Azure Health Bot resource.
 func (o HealthBotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthBotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Identity for the resource.
+type Identity struct {
+	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+	Type *ResourceIdentityType `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
+//
+//          IdentityArgs{...}
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
+}
+
+// Identity for the resource.
+type IdentityArgs struct {
+	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
+}
+
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
+//
+//          IdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
+}
+
+type identityPtrType IdentityArgs
+
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
+}
+
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityOutput struct{ *pulumi.OutputState }
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+		return &v
+	}).(IdentityPtrOutput)
+}
+
+// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
+}
+
+// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Identity for the resource.
+type IdentityResponse struct {
+	// The principal ID of resource identity. This property will only be provided for a system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource. This property will only be provided for a system assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+	Type *string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// Identity for the resource.
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity. This property will only be provided for a system assigned identity.
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource. This property will only be provided for a system assigned identity.
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
+}
+
+// The principal ID of resource identity. This property will only be provided for a system assigned identity.
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of resource. This property will only be provided for a system assigned identity.
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+// Properties of the key vault.
+type KeyVaultProperties struct {
+	// The name of the key vault key.
+	KeyName string `pulumi:"keyName"`
+	// The Uri of the key vault.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The version of the key vault key.
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity *string `pulumi:"userIdentity"`
+}
+
+// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+type KeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
+	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
+}
+
+// Properties of the key vault.
+type KeyVaultPropertiesArgs struct {
+	// The name of the key vault key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The Uri of the key vault.
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The version of the key vault key.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity pulumi.StringPtrInput `pulumi:"userIdentity"`
+}
+
+func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput).ToKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput
+	ToKeyVaultPropertiesPtrOutputWithContext(context.Context) KeyVaultPropertiesPtrOutput
+}
+
+type keyVaultPropertiesPtrType KeyVaultPropertiesArgs
+
+func KeyVaultPropertiesPtr(v *KeyVaultPropertiesArgs) KeyVaultPropertiesPtrInput {
+	return (*keyVaultPropertiesPtrType)(v)
+}
+
+func (*keyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
+}
+
+// Properties of the key vault.
+type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+		return &v
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The name of the key vault key.
+func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The Uri of the key vault.
+func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The version of the key vault key.
+func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.UserIdentity }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
+}
+
+// The name of the key vault key.
+func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Uri of the key vault.
+func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key vault key.
+func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesPtrOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the key vault.
+type KeyVaultPropertiesResponse struct {
+	// The name of the key vault key.
+	KeyName string `pulumi:"keyName"`
+	// The Uri of the key vault.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The version of the key vault key.
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity *string `pulumi:"userIdentity"`
+}
+
+// Properties of the key vault.
+type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+// The name of the key vault key.
+func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The Uri of the key vault.
+func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The version of the key vault key.
+func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesResponseOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.UserIdentity }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
+}
+
+// The name of the key vault key.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Uri of the key vault.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key vault key.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesResponsePtrOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource model definition representing SKU
 type Sku struct {
-	// The name of the HealthBot SKU
+	// The name of the Azure Health Bot SKU
 	Name SkuName `pulumi:"name"`
 }
 
@@ -62,7 +794,7 @@ type SkuInput interface {
 
 // The resource model definition representing SKU
 type SkuArgs struct {
-	// The name of the HealthBot SKU
+	// The name of the Azure Health Bot SKU
 	Name SkuNameInput `pulumi:"name"`
 }
 
@@ -93,14 +825,14 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return o
 }
 
-// The name of the HealthBot SKU
+// The name of the Azure Health Bot SKU
 func (o SkuOutput) Name() SkuNameOutput {
 	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 // The resource model definition representing SKU
 type SkuResponse struct {
-	// The name of the HealthBot SKU
+	// The name of the Azure Health Bot SKU
 	Name string `pulumi:"name"`
 }
 
@@ -119,7 +851,7 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The name of the HealthBot SKU
+// The name of the Azure Health Bot SKU
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -185,9 +917,74 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// The details of the user assigned managed identity used by the Video Analyzer resource.
+type UserAssignedIdentityResponse struct {
+	// The client ID of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// The details of the user assigned managed identity used by the Video Analyzer resource.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client ID of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(HealthBotPropertiesOutput{})
+	pulumi.RegisterOutputType(HealthBotPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HealthBotPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

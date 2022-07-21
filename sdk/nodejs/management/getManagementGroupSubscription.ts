@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The details of subscription under management group.
- * API Version: 2020-05-01.
+ * API Version: 2021-04-01.
  */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
     if (!opts) {
@@ -49,9 +49,9 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly name: string;
     /**
-     * The ID of the parent management group.
+     * The ID, name and displayName of the parent management group.
      */
-    readonly parent?: outputs.management.DescendantParentGroupInfoResponse;
+    readonly parent?: outputs.management.ParentGroupBagInfoResponse;
     /**
      * The state of the subscription.
      */

@@ -16,6 +16,27 @@ export {
     v20211001preview,
 };
 
+export const AuthenticationMode = {
+    Msi: "Msi",
+    UserToken: "UserToken",
+    ConnectionString: "ConnectionString",
+} as const;
+
+/**
+ * Authentication Mode.
+ */
+export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
+
+export const BlobWriteMode = {
+    Append: "Append",
+    Once: "Once",
+} as const;
+
+/**
+ * Blob write mode.
+ */
+export type BlobWriteMode = (typeof BlobWriteMode)[keyof typeof BlobWriteMode];
+
 export const ClusterSkuName = {
     /**
      * The default SKU.
@@ -30,12 +51,34 @@ export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName
 
 export const CompatibilityLevel = {
     CompatibilityLevel_1_0: "1.0",
+    CompatibilityLevel_1_2: "1.2",
 } as const;
 
 /**
  * Controls certain runtime behaviors of the streaming job.
  */
 export type CompatibilityLevel = (typeof CompatibilityLevel)[keyof typeof CompatibilityLevel];
+
+export const CompressionType = {
+    None: "None",
+    GZip: "GZip",
+    Deflate: "Deflate",
+} as const;
+
+/**
+ * Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+export const ContentStoragePolicy = {
+    SystemAccount: "SystemAccount",
+    JobStorageAccount: "JobStorageAccount",
+} as const;
+
+/**
+ * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+ */
+export type ContentStoragePolicy = (typeof ContentStoragePolicy)[keyof typeof ContentStoragePolicy];
 
 export const Encoding = {
     UTF8: "UTF8",
@@ -46,10 +89,22 @@ export const Encoding = {
  */
 export type Encoding = (typeof Encoding)[keyof typeof Encoding];
 
+export const EventGridEventSchemaType = {
+    EventGridEventSchema: "EventGridEventSchema",
+    CloudEventSchema: "CloudEventSchema",
+} as const;
+
+/**
+ * Indicates the Event Grid schema type.
+ */
+export type EventGridEventSchemaType = (typeof EventGridEventSchemaType)[keyof typeof EventGridEventSchemaType];
+
 export const EventSerializationType = {
     Csv: "Csv",
     Avro: "Avro",
     Json: "Json",
+    CustomClr: "CustomClr",
+    Parquet: "Parquet",
 } as const;
 
 /**
@@ -66,6 +121,26 @@ export const EventsOutOfOrderPolicy = {
  * Indicates the policy to apply to events that arrive out of order in the input event stream.
  */
 export type EventsOutOfOrderPolicy = (typeof EventsOutOfOrderPolicy)[keyof typeof EventsOutOfOrderPolicy];
+
+export const InputWatermarkMode = {
+    None: "None",
+    ReadWatermark: "ReadWatermark",
+} as const;
+
+/**
+ * The input watermark mode.
+ */
+export type InputWatermarkMode = (typeof InputWatermarkMode)[keyof typeof InputWatermarkMode];
+
+export const JobType = {
+    Cloud: "Cloud",
+    Edge: "Edge",
+} as const;
+
+/**
+ * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
 
 export const JsonOutputSerializationFormat = {
     LineSeparated: "LineSeparated",
@@ -98,6 +173,28 @@ export const OutputStartMode = {
  */
 export type OutputStartMode = (typeof OutputStartMode)[keyof typeof OutputStartMode];
 
+export const OutputWatermarkMode = {
+    None: "None",
+    SendCurrentPartitionWatermark: "SendCurrentPartitionWatermark",
+    SendLowestWatermarkAcrossPartitions: "SendLowestWatermarkAcrossPartitions",
+} as const;
+
+/**
+ * The output watermark mode.
+ */
+export type OutputWatermarkMode = (typeof OutputWatermarkMode)[keyof typeof OutputWatermarkMode];
+
+export const RefreshType = {
+    Static: "Static",
+    RefreshPeriodicallyWithFull: "RefreshPeriodicallyWithFull",
+    RefreshPeriodicallyWithDelta: "RefreshPeriodicallyWithDelta",
+} as const;
+
+/**
+ * Indicates the type of data refresh option.
+ */
+export type RefreshType = (typeof RefreshType)[keyof typeof RefreshType];
+
 export const SkuName = {
     Standard: "Standard",
 } as const;
@@ -106,3 +203,23 @@ export const SkuName = {
  * The name of the SKU. Required on PUT (CreateOrReplace) requests.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const UpdatableUdfRefreshType = {
+    Blocking: "Blocking",
+    Nonblocking: "Nonblocking",
+} as const;
+
+/**
+ * This property indicates which data refresh option to use, Blocking or Nonblocking.
+ */
+export type UpdatableUdfRefreshType = (typeof UpdatableUdfRefreshType)[keyof typeof UpdatableUdfRefreshType];
+
+export const UpdateMode = {
+    Static: "Static",
+    Refreshable: "Refreshable",
+} as const;
+
+/**
+ * Refresh modes for Stream Analytics functions.
+ */
+export type UpdateMode = (typeof UpdateMode)[keyof typeof UpdateMode];

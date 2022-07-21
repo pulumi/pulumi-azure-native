@@ -12,7 +12,7 @@ import (
 )
 
 // An Application Insights component definition.
-// API Version: 2015-05-01.
+// API Version: 2020-02-02.
 type Component struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +28,14 @@ type Component struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
+	// Resource etag
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrOutput `pulumi:"flowType"`
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrOutput `pulumi:"forceCustomerStorageForProfiler"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrOutput `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
@@ -42,6 +48,8 @@ type Component struct {
 	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind pulumi.StringOutput `pulumi:"kind"`
+	// The date which the component got migrated to LA, in ISO 8601 format.
+	LaMigrationDate pulumi.StringOutput `pulumi:"laMigrationDate"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
@@ -50,6 +58,10 @@ type Component struct {
 	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayOutput `pulumi:"privateLinkScopedResources"`
 	// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The network access type for accessing Application Insights ingestion.
+	PublicNetworkAccessForIngestion pulumi.StringPtrOutput `pulumi:"publicNetworkAccessForIngestion"`
+	// The network access type for accessing Application Insights query.
+	PublicNetworkAccessForQuery pulumi.StringPtrOutput `pulumi:"publicNetworkAccessForQuery"`
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource pulumi.StringPtrOutput `pulumi:"requestSource"`
 	// Retention period in days.
@@ -62,6 +74,8 @@ type Component struct {
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId pulumi.StringPtrOutput `pulumi:"workspaceResourceId"`
 }
 
 // NewComponent registers a new resource with the given unique name, arguments, and options.
@@ -84,13 +98,10 @@ func NewComponent(ctx *pulumi.Context,
 		args.FlowType = pulumi.StringPtr("Bluefield")
 	}
 	if isZero(args.IngestionMode) {
-		args.IngestionMode = pulumi.StringPtr("ApplicationInsights")
+		args.IngestionMode = pulumi.StringPtr("LogAnalytics")
 	}
 	if isZero(args.RequestSource) {
 		args.RequestSource = pulumi.StringPtr("rest")
-	}
-	if isZero(args.RetentionInDays) {
-		args.RetentionInDays = pulumi.IntPtr(90)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -143,8 +154,12 @@ type componentArgs struct {
 	ApplicationType string `pulumi:"applicationType"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Purge data immediately after 30 days.
@@ -155,6 +170,10 @@ type componentArgs struct {
 	Kind string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// The network access type for accessing Application Insights ingestion.
+	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
+	// The network access type for accessing Application Insights query.
+	PublicNetworkAccessForQuery *string `pulumi:"publicNetworkAccessForQuery"`
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource *string `pulumi:"requestSource"`
 	// The name of the resource group. The name is case insensitive.
@@ -167,6 +186,8 @@ type componentArgs struct {
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // The set of arguments for constructing a Component resource.
@@ -175,8 +196,12 @@ type ComponentArgs struct {
 	ApplicationType pulumi.StringInput
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrInput
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrInput
 	// Purge data immediately after 30 days.
@@ -187,6 +212,10 @@ type ComponentArgs struct {
 	Kind pulumi.StringInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// The network access type for accessing Application Insights ingestion.
+	PublicNetworkAccessForIngestion pulumi.StringPtrInput
+	// The network access type for accessing Application Insights query.
+	PublicNetworkAccessForQuery pulumi.StringPtrInput
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
@@ -199,6 +228,8 @@ type ComponentArgs struct {
 	SamplingPercentage pulumi.Float64PtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId pulumi.StringPtrInput
 }
 
 func (ComponentArgs) ElementType() reflect.Type {
@@ -268,9 +299,24 @@ func (o ComponentOutput) DisableIpMasking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.DisableIpMasking }).(pulumi.BoolPtrOutput)
 }
 
+// Disable Non-AAD based Auth.
+func (o ComponentOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Resource etag
+func (o ComponentOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
 // Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 func (o ComponentOutput) FlowType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.FlowType }).(pulumi.StringPtrOutput)
+}
+
+// Force users to create their own storage account for profiler and debugger.
+func (o ComponentOutput) ForceCustomerStorageForProfiler() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.ForceCustomerStorageForProfiler }).(pulumi.BoolPtrOutput)
 }
 
 // The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -303,6 +349,11 @@ func (o ComponentOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
+// The date which the component got migrated to LA, in ISO 8601 format.
+func (o ComponentOutput) LaMigrationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.LaMigrationDate }).(pulumi.StringOutput)
+}
+
 // Resource location
 func (o ComponentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -321,6 +372,16 @@ func (o ComponentOutput) PrivateLinkScopedResources() PrivateLinkScopedResourceR
 // Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 func (o ComponentOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The network access type for accessing Application Insights ingestion.
+func (o ComponentOutput) PublicNetworkAccessForIngestion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.PublicNetworkAccessForIngestion }).(pulumi.StringPtrOutput)
+}
+
+// The network access type for accessing Application Insights query.
+func (o ComponentOutput) PublicNetworkAccessForQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.PublicNetworkAccessForQuery }).(pulumi.StringPtrOutput)
 }
 
 // Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
@@ -351,6 +412,11 @@ func (o ComponentOutput) TenantId() pulumi.StringOutput {
 // Azure resource type
 func (o ComponentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+func (o ComponentOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

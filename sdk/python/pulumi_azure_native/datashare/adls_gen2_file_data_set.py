@@ -190,7 +190,7 @@ class ADLSGen2FileDataSet(pulumi.CustomResource):
                  __props__=None):
         """
         An ADLS Gen 2 file data set.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +214,7 @@ class ADLSGen2FileDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ADLS Gen 2 file data set.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ADLSGen2FileDataSetArgs args: The arguments to use to populate this resource's properties.

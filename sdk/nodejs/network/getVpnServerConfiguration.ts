@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfiguration Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
     if (!opts) {
@@ -40,6 +40,10 @@ export interface GetVpnServerConfigurationResult {
      * The set of aad vpn authentication parameters.
      */
     readonly aadAuthenticationParameters?: outputs.network.AadAuthenticationParametersResponse;
+    /**
+     * List of all VpnServerConfigurationPolicyGroups.
+     */
+    readonly configurationPolicyGroups?: outputs.network.VpnServerConfigurationPolicyGroupResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

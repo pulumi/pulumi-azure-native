@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.FluidRelay
 {
     /// <summary>
     /// A FluidRelay Server.
-    /// API Version: 2021-03-12-preview.
+    /// API Version: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay:FluidRelayServer")]
     public partial class FluidRelayServer : Pulumi.CustomResource
     {
+        /// <summary>
+        /// All encryption configuration for a resource.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertiesResponse?> Encryption { get; private set; } = null!;
+
         /// <summary>
         /// The Fluid Relay Service endpoints for this server.
         /// </summary>
@@ -27,6 +33,12 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         [Output("frsTenantId")]
         public Output<string> FrsTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity used for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -45,6 +57,12 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Sku of the storage associated with the resource
+        /// </summary>
+        [Output("storagesku")]
+        public Output<string?> Storagesku { get; private set; } = null!;
 
         /// <summary>
         /// System meta data for this resource, including creation and modification information.
@@ -122,16 +140,28 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class FluidRelayServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// All encryption configuration for a resource.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// The Fluid Relay server resource name.
+        /// </summary>
+        [Input("fluidRelayServerName")]
+        public Input<string>? FluidRelayServerName { get; set; }
+
+        /// <summary>
+        /// The type of identity used for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The resource name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Provision states for FluidRelay RP
@@ -144,6 +174,12 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         [Input("resourceGroup", required: true)]
         public Input<string> ResourceGroup { get; set; } = null!;
+
+        /// <summary>
+        /// Sku of the storage associated with the resource
+        /// </summary>
+        [Input("storagesku")]
+        public InputUnion<string, Pulumi.AzureNative.FluidRelay.StorageSKU>? Storagesku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

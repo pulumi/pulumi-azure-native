@@ -374,7 +374,7 @@ def get_pool(account_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Contains information about a pool.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -431,7 +431,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Contains information about a pool.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.

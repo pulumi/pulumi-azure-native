@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Dedicated host.
- * API Version: 2020-12-01.
+ * API Version: 2021-11-01.
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     if (!opts) {
@@ -25,7 +25,7 @@ export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.Invok
 
 export interface GetDedicatedHostArgs {
     /**
-     * The expand expression to apply on the operation.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
      */
     expand?: string;
     /**
@@ -95,6 +95,10 @@ export interface GetDedicatedHostResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    readonly timeCreated: string;
+    /**
      * Resource type
      */
     readonly type: string;
@@ -110,7 +114,7 @@ export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: 
 
 export interface GetDedicatedHostOutputArgs {
     /**
-     * The expand expression to apply on the operation.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
      */
     expand?: pulumi.Input<string>;
     /**

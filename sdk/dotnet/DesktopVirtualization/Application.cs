@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Schema for Application properties.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-07-12.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:Application")]
     public partial class Application : Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Volume resource
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:netapp:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Volume resource
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:netapp:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.NetApp
     public sealed class GetVolumeResult
     {
         /// <summary>
+        /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        /// </summary>
+        public readonly string? AvsDataStore;
+        /// <summary>
         /// UUID v4 or resource identifier used to identify the Backup.
         /// </summary>
         public readonly string? BackupId;
@@ -101,6 +105,22 @@ namespace Pulumi.AzureNative.NetApp
         /// Unique Baremetal Tenant Identifier.
         /// </summary>
         public readonly string BaremetalTenantId;
+        /// <summary>
+        /// Pool Resource Id used in case of creating a volume through volume group
+        /// </summary>
+        public readonly string? CapacityPoolResourceId;
+        /// <summary>
+        /// When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+        /// </summary>
+        public readonly int CloneProgress;
+        /// <summary>
+        /// Specifies whether Cool Access(tiering) is enabled for the volume.
+        /// </summary>
+        public readonly bool? CoolAccess;
+        /// <summary>
+        /// Specifies the number of days after which data that is not accessed by clients will be tiered.
+        /// </summary>
+        public readonly int? CoolnessPeriod;
         /// <summary>
         /// A unique file path for the volume. Used when creating mount targets
         /// </summary>
@@ -110,9 +130,29 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        /// </summary>
+        public readonly double? DefaultGroupQuotaInKiBs;
+        /// <summary>
+        /// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        /// </summary>
+        public readonly double? DefaultUserQuotaInKiBs;
+        /// <summary>
+        /// Flag indicating whether subvolume operations are enabled on the volume
+        /// </summary>
+        public readonly string? EnableSubvolumes;
+        /// <summary>
+        /// Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        /// </summary>
+        public readonly bool Encrypted;
+        /// <summary>
+        /// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         /// </summary>
         public readonly string? EncryptionKeySource;
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Set of export policy rules
         /// </summary>
@@ -122,9 +162,13 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies if default quota is enabled for the volume.
+        /// </summary>
+        public readonly bool? IsDefaultQuotaEnabled;
         /// <summary>
         /// Restoring
         /// </summary>
@@ -138,17 +182,33 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly bool? LdapEnabled;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+        /// </summary>
+        public readonly double MaximumNumberOfFiles;
         /// <summary>
         /// List of mount targets
         /// </summary>
         public readonly ImmutableArray<Outputs.MountTargetPropertiesResponse> MountTargets;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Basic network, or Standard features available to the volume.
+        /// </summary>
+        public readonly string? NetworkFeatures;
+        /// <summary>
+        /// Network Sibling Set ID for the the group of volumes sharing networking resources.
+        /// </summary>
+        public readonly string NetworkSiblingSetId;
+        /// <summary>
+        /// Application specific placement rules for the particular volume
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlacementKeyValuePairsResponse> PlacementRules;
         /// <summary>
         /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
@@ -157,6 +217,10 @@ namespace Pulumi.AzureNative.NetApp
         /// Azure lifecycle management
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Proximity placement group associated with the volume
+        /// </summary>
+        public readonly string? ProximityPlacementGroup;
         /// <summary>
         /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         /// </summary>
@@ -182,44 +246,94 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
+        /// Provides storage to network proximity information for the volume.
+        /// </summary>
+        public readonly string StorageToNetworkProximity;
+        /// <summary>
         /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// T2 network information
+        /// </summary>
+        public readonly string T2Network;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly double? ThroughputMibps;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+        /// </summary>
+        public readonly string? UnixPermissions;
         /// <summary>
         /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         /// </summary>
         public readonly double UsageThreshold;
         /// <summary>
-        /// What type of volume is this
+        /// Volume Group Name
+        /// </summary>
+        public readonly string VolumeGroupName;
+        /// <summary>
+        /// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        /// </summary>
+        public readonly string? VolumeSpecName;
+        /// <summary>
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         public readonly string? VolumeType;
+        /// <summary>
+        /// Availability Zone
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetVolumeResult(
+            string? avsDataStore,
+
             string? backupId,
 
             string baremetalTenantId,
+
+            string? capacityPoolResourceId,
+
+            int cloneProgress,
+
+            bool? coolAccess,
+
+            int? coolnessPeriod,
 
             string creationToken,
 
             Outputs.VolumePropertiesResponseDataProtection? dataProtection,
 
+            double? defaultGroupQuotaInKiBs,
+
+            double? defaultUserQuotaInKiBs,
+
+            string? enableSubvolumes,
+
+            bool encrypted,
+
             string? encryptionKeySource,
+
+            string etag,
 
             Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
 
             string fileSystemId,
 
             string id,
+
+            bool? isDefaultQuotaEnabled,
 
             bool? isRestoring,
 
@@ -229,13 +343,23 @@ namespace Pulumi.AzureNative.NetApp
 
             string location,
 
+            double maximumNumberOfFiles,
+
             ImmutableArray<Outputs.MountTargetPropertiesResponse> mountTargets,
 
             string name,
 
+            string? networkFeatures,
+
+            string networkSiblingSetId,
+
+            ImmutableArray<Outputs.PlacementKeyValuePairsResponse> placementRules,
+
             ImmutableArray<string> protocolTypes,
 
             string provisioningState,
+
+            string? proximityPlacementGroup,
 
             string? securityStyle,
 
@@ -249,7 +373,13 @@ namespace Pulumi.AzureNative.NetApp
 
             string? snapshotId,
 
+            string storageToNetworkProximity,
+
             string subnetId,
+
+            Outputs.SystemDataResponse systemData,
+
+            string t2Network,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -257,38 +387,69 @@ namespace Pulumi.AzureNative.NetApp
 
             string type,
 
+            string? unixPermissions,
+
             double usageThreshold,
 
-            string? volumeType)
+            string volumeGroupName,
+
+            string? volumeSpecName,
+
+            string? volumeType,
+
+            ImmutableArray<string> zones)
         {
+            AvsDataStore = avsDataStore;
             BackupId = backupId;
             BaremetalTenantId = baremetalTenantId;
+            CapacityPoolResourceId = capacityPoolResourceId;
+            CloneProgress = cloneProgress;
+            CoolAccess = coolAccess;
+            CoolnessPeriod = coolnessPeriod;
             CreationToken = creationToken;
             DataProtection = dataProtection;
+            DefaultGroupQuotaInKiBs = defaultGroupQuotaInKiBs;
+            DefaultUserQuotaInKiBs = defaultUserQuotaInKiBs;
+            EnableSubvolumes = enableSubvolumes;
+            Encrypted = encrypted;
             EncryptionKeySource = encryptionKeySource;
+            Etag = etag;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;
             Id = id;
+            IsDefaultQuotaEnabled = isDefaultQuotaEnabled;
             IsRestoring = isRestoring;
             KerberosEnabled = kerberosEnabled;
             LdapEnabled = ldapEnabled;
             Location = location;
+            MaximumNumberOfFiles = maximumNumberOfFiles;
             MountTargets = mountTargets;
             Name = name;
+            NetworkFeatures = networkFeatures;
+            NetworkSiblingSetId = networkSiblingSetId;
+            PlacementRules = placementRules;
             ProtocolTypes = protocolTypes;
             ProvisioningState = provisioningState;
+            ProximityPlacementGroup = proximityPlacementGroup;
             SecurityStyle = securityStyle;
             ServiceLevel = serviceLevel;
             SmbContinuouslyAvailable = smbContinuouslyAvailable;
             SmbEncryption = smbEncryption;
             SnapshotDirectoryVisible = snapshotDirectoryVisible;
             SnapshotId = snapshotId;
+            StorageToNetworkProximity = storageToNetworkProximity;
             SubnetId = subnetId;
+            SystemData = systemData;
+            T2Network = t2Network;
             Tags = tags;
             ThroughputMibps = throughputMibps;
             Type = type;
+            UnixPermissions = unixPermissions;
             UsageThreshold = usageThreshold;
+            VolumeGroupName = volumeGroupName;
+            VolumeSpecName = volumeSpecName;
             VolumeType = volumeType;
+            Zones = zones;
         }
     }
 }

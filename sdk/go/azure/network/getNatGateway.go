@@ -11,7 +11,7 @@ import (
 )
 
 // Nat Gateway resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	var rv LookupNatGatewayResult
 	err := ctx.Invoke("azure-native:network:getNatGateway", args, &rv, opts...)

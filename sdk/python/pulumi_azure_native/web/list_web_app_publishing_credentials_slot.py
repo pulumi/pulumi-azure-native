@@ -145,7 +145,7 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsSlotResult:
     """
     User credentials used for publishing activity.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -181,7 +181,7 @@ def list_web_app_publishing_credentials_slot_output(name: Optional[pulumi.Input[
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppPublishingCredentialsSlotResult]:
     """
     User credentials used for publishing activity.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

@@ -146,7 +146,7 @@ class EventHub(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Event Hub operation
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +166,7 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Event Hub operation
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param EventHubArgs args: The arguments to use to populate this resource's properties.
@@ -214,8 +214,10 @@ class EventHub(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["partition_ids"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20140901:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20170401:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20211101:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:EventHub")])
@@ -244,11 +246,13 @@ class EventHub(pulumi.CustomResource):
 
         __props__.__dict__["capture_description"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["message_retention_in_days"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partition_count"] = None
         __props__.__dict__["partition_ids"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         return EventHub(resource_name, opts=opts, __props__=__props__)
@@ -268,6 +272,14 @@ class EventHub(pulumi.CustomResource):
         Exact time the Event Hub was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
@@ -310,10 +322,18 @@ class EventHub(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

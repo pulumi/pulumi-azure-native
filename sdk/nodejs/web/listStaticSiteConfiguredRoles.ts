@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * String list resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function listStaticSiteConfiguredRoles(args: ListStaticSiteConfiguredRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteConfiguredRolesResult> {
     if (!opts) {

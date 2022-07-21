@@ -21,15 +21,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.CodeConfigurationResponse? CodeConfiguration;
         /// <summary>
-        /// Configuration for compute binding.
+        /// Compute target for batch inference operation.
         /// </summary>
-        public readonly Outputs.ComputeConfigurationResponse? Compute;
+        public readonly string? Compute;
         /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// ARM resource ID of the environment specification for the endpoint deployment.
+        /// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         /// </summary>
         public readonly string? EnvironmentId;
         /// <summary>
@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? LoggingLevel;
         /// <summary>
+        /// Indicates maximum number of parallelism per instance.
+        /// </summary>
+        public readonly int? MaxConcurrencyPerInstance;
+        /// <summary>
         /// Size of the mini-batch passed to each batch invocation.
         /// For FileDataset, this is the number of files per mini-batch.
         /// For TabularDataset, this is the size of the records in bytes, per mini-batch.
@@ -59,19 +63,29 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly object? Model;
         /// <summary>
-        /// Output configuration for the batch inference operation.
+        /// Indicates how the output will be organized.
         /// </summary>
-        public readonly Outputs.BatchOutputConfigurationResponse? OutputConfiguration;
+        public readonly string? OutputAction;
         /// <summary>
-        /// Partition keys list used for Named partitioning.
+        /// Customized output file name for append_row output action.
         /// </summary>
-        public readonly ImmutableArray<string> PartitionKeys;
+        public readonly string? OutputFileName;
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
+        /// Provisioning state for the endpoint deployment.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Indicates compute configuration for the job.
+        /// If not provided, will default to the defaults defined in ResourceConfiguration.
+        /// </summary>
+        public readonly Outputs.ResourceConfigurationResponse? Resources;
+        /// <summary>
         /// Retry Settings for the batch inference operation.
+        /// If not provided, will default to the defaults defined in BatchRetrySettings.
         /// </summary>
         public readonly Outputs.BatchRetrySettingsResponse? RetrySettings;
 
@@ -79,7 +93,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private BatchDeploymentResponse(
             Outputs.CodeConfigurationResponse? codeConfiguration,
 
-            Outputs.ComputeConfigurationResponse? compute,
+            string? compute,
 
             string? description,
 
@@ -91,15 +105,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? loggingLevel,
 
+            int? maxConcurrencyPerInstance,
+
             double? miniBatchSize,
 
             object? model,
 
-            Outputs.BatchOutputConfigurationResponse? outputConfiguration,
+            string? outputAction,
 
-            ImmutableArray<string> partitionKeys,
+            string? outputFileName,
 
             ImmutableDictionary<string, string>? properties,
+
+            string provisioningState,
+
+            Outputs.ResourceConfigurationResponse? resources,
 
             Outputs.BatchRetrySettingsResponse? retrySettings)
         {
@@ -110,11 +130,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             EnvironmentVariables = environmentVariables;
             ErrorThreshold = errorThreshold;
             LoggingLevel = loggingLevel;
+            MaxConcurrencyPerInstance = maxConcurrencyPerInstance;
             MiniBatchSize = miniBatchSize;
             Model = model;
-            OutputConfiguration = outputConfiguration;
-            PartitionKeys = partitionKeys;
+            OutputAction = outputAction;
+            OutputFileName = outputFileName;
             Properties = properties;
+            ProvisioningState = provisioningState;
+            Resources = resources;
             RetrySettings = retrySettings;
         }
     }

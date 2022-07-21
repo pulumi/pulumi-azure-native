@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An IPv6 server firewall rule.
- * API Version: 2021-08-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getIPv6FirewallRule(args: GetIPv6FirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIPv6FirewallRuleResult> {
     if (!opts) {

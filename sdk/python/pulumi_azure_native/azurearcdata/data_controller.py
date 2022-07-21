@@ -125,7 +125,7 @@ class DataController(pulumi.CustomResource):
                  __props__=None):
         """
         Data controller resource
-        API Version: 2021-06-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +143,7 @@ class DataController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data controller resource
-        API Version: 2021-06-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param DataControllerArgs args: The arguments to use to populate this resource's properties.
@@ -260,7 +260,7 @@ class DataController(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -276,7 +276,7 @@ class DataController(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

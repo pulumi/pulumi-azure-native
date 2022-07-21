@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
     public sealed class KustomizationDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
-        private InputList<Inputs.DependsOnDefinitionArgs>? _dependsOn;
+        private InputList<string>? _dependsOn;
 
         /// <summary>
         /// Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         /// </summary>
-        public InputList<Inputs.DependsOnDefinitionArgs> DependsOn
+        public InputList<string> DependsOn
         {
-            get => _dependsOn ?? (_dependsOn = new InputList<Inputs.DependsOnDefinitionArgs>());
+            get => _dependsOn ?? (_dependsOn = new InputList<string>());
             set => _dependsOn = value;
         }
 
@@ -62,12 +62,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         /// </summary>
         [Input("timeoutInSeconds")]
         public Input<double>? TimeoutInSeconds { get; set; }
-
-        /// <summary>
-        /// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-        /// </summary>
-        [Input("validation")]
-        public InputUnion<string, Pulumi.AzureNative.KubernetesConfiguration.KustomizationValidationType>? Validation { get; set; }
 
         public KustomizationDefinitionArgs()
         {

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The storage account identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The type of the storage account.
         /// </summary>
         [Input("type", required: true)]

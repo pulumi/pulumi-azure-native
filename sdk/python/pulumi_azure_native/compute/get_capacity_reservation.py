@@ -21,7 +21,7 @@ class GetCapacityReservationResult:
     """
     Specifies information about the capacity reservation.
     """
-    def __init__(__self__, id=None, instance_view=None, location=None, name=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, type=None, virtual_machines_associated=None, zones=None):
+    def __init__(__self__, id=None, instance_view=None, location=None, name=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, time_created=None, type=None, virtual_machines_associated=None, zones=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +49,9 @@ class GetCapacityReservationResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -132,6 +135,14 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -171,6 +182,7 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
             reservation_id=self.reservation_id,
             sku=self.sku,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
             virtual_machines_associated=self.virtual_machines_associated,
             zones=self.zones)
@@ -183,7 +195,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     Specifies information about the capacity reservation.
-    API Version: 2021-04-01.
+    API Version: 2021-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -212,6 +224,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
         reservation_id=__ret__.reservation_id,
         sku=__ret__.sku,
         tags=__ret__.tags,
+        time_created=__ret__.time_created,
         type=__ret__.type,
         virtual_machines_associated=__ret__.virtual_machines_associated,
         zones=__ret__.zones)
@@ -225,7 +238,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Specifies information about the capacity reservation.
-    API Version: 2021-04-01.
+    API Version: 2021-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

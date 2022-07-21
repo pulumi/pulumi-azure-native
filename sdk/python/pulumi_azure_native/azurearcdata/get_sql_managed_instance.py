@@ -62,7 +62,7 @@ class GetSqlManagedInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -102,7 +102,7 @@ class GetSqlManagedInstanceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -118,7 +118,7 @@ class GetSqlManagedInstanceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -145,7 +145,7 @@ def get_sql_managed_instance(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlManagedInstanceResult:
     """
     A SqlManagedInstance.
-    API Version: 2021-06-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str resource_group_name: The name of the Azure resource group
@@ -178,7 +178,7 @@ def get_sql_managed_instance_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlManagedInstanceResult]:
     """
     A SqlManagedInstance.
-    API Version: 2021-06-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str resource_group_name: The name of the Azure resource group

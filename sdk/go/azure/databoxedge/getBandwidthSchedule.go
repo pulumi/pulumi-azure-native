@@ -11,7 +11,7 @@ import (
 )
 
 // The bandwidth schedule details.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupBandwidthSchedule(ctx *pulumi.Context, args *LookupBandwidthScheduleArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthScheduleResult, error) {
 	var rv LookupBandwidthScheduleResult
 	err := ctx.Invoke("azure-native:databoxedge:getBandwidthSchedule", args, &rv, opts...)
@@ -44,7 +44,7 @@ type LookupBandwidthScheduleResult struct {
 	Start string `pulumi:"start"`
 	// The stop time of the schedule in UTC.
 	Stop string `pulumi:"stop"`
-	// Bandwidth object related to ASE resource
+	// Metadata pertaining to creation and last modification of BandwidthSchedule
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -121,7 +121,7 @@ func (o LookupBandwidthScheduleResultOutput) Stop() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBandwidthScheduleResult) string { return v.Stop }).(pulumi.StringOutput)
 }
 
-// Bandwidth object related to ASE resource
+// Metadata pertaining to creation and last modification of BandwidthSchedule
 func (o LookupBandwidthScheduleResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupBandwidthScheduleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

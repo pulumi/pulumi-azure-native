@@ -12,7 +12,7 @@ import (
 )
 
 // Information about a domain.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 type Domain struct {
 	pulumi.CustomResourceState
 
@@ -50,8 +50,6 @@ type Domain struct {
 	ReadyForDnsRecordManagement pulumi.BoolOutput `pulumi:"readyForDnsRecordManagement"`
 	// Domain registration status.
 	RegistrationStatus pulumi.StringOutput `pulumi:"registrationStatus"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Target DNS type (would be used for migration)
@@ -347,11 +345,6 @@ func (o DomainOutput) ReadyForDnsRecordManagement() pulumi.BoolOutput {
 // Domain registration status.
 func (o DomainOutput) RegistrationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.RegistrationStatus }).(pulumi.StringOutput)
-}
-
-// The system metadata relating to this resource.
-func (o DomainOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v *Domain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

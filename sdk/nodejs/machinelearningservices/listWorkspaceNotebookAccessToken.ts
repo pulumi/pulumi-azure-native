@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
     if (!opts) {
@@ -21,7 +21,7 @@ export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAcce
 
 export interface ListWorkspaceNotebookAccessTokenArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -47,7 +47,7 @@ export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebo
 
 export interface ListWorkspaceNotebookAccessTokenOutputArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

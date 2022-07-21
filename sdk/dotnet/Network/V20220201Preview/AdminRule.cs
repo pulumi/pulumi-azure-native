@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:AdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:AdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220101:AdminRule"},

@@ -11,7 +11,7 @@ import (
 )
 
 // Provisioning token properties. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
-// API Version: 2021-05-01-preview.
+// API Version: 2021-11-01-preview.
 func ListEdgeModuleProvisioningToken(ctx *pulumi.Context, args *ListEdgeModuleProvisioningTokenArgs, opts ...pulumi.InvokeOption) (*ListEdgeModuleProvisioningTokenResult, error) {
 	var rv ListEdgeModuleProvisioningTokenResult
 	err := ctx.Invoke("azure-native:videoanalyzer:listEdgeModuleProvisioningToken", args, &rv, opts...)
@@ -24,7 +24,7 @@ func ListEdgeModuleProvisioningToken(ctx *pulumi.Context, args *ListEdgeModulePr
 type ListEdgeModuleProvisioningTokenArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName string `pulumi:"accountName"`
-	// The name of the edge module used to create a new provisioning token.
+	// The Edge Module name.
 	EdgeModuleName string `pulumi:"edgeModuleName"`
 	// The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
 	ExpirationDate string `pulumi:"expirationDate"`
@@ -56,7 +56,7 @@ func ListEdgeModuleProvisioningTokenOutput(ctx *pulumi.Context, args ListEdgeMod
 type ListEdgeModuleProvisioningTokenOutputArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The name of the edge module used to create a new provisioning token.
+	// The Edge Module name.
 	EdgeModuleName pulumi.StringInput `pulumi:"edgeModuleName"`
 	// The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
 	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`

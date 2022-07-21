@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class ContinuousModeBackupPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The object representing the state of the migration between the backup policies.
+        /// </summary>
+        [Input("migrationState")]
+        public Input<Inputs.BackupPolicyMigrationStateArgs>? MigrationState { get; set; }
+
+        /// <summary>
         /// Describes the mode of backups.
         /// Expected value is 'Continuous'.
         /// </summary>

@@ -11,7 +11,7 @@ import (
 )
 
 // An application security group in a resource group.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplicationSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationSecurityGroupResult, error) {
 	var rv LookupApplicationSecurityGroupResult
 	err := ctx.Invoke("azure-native:network:getApplicationSecurityGroup", args, &rv, opts...)

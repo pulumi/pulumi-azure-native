@@ -12,7 +12,7 @@ import (
 )
 
 // States and configurations of Cost Analysis.
-// API Version: 2019-11-01.
+// API Version: 2021-10-01.
 type View struct {
 	pulumi.CustomResourceState
 
@@ -22,18 +22,18 @@ type View struct {
 	Chart pulumi.StringPtrOutput `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Selected currency.
+	// Currency of the current view.
 	Currency pulumi.StringOutput `pulumi:"currency"`
 	// Has definition for data in this report config.
 	DataSet ReportConfigDatasetResponsePtrOutput `pulumi:"dataSet"`
-	// Selected date range for viewing cost in.
+	// Date range of the current view.
 	DateRange pulumi.StringOutput `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Include monetary commitment
-	IncludeMonetaryCommitment pulumi.BoolOutput `pulumi:"includeMonetaryCommitment"`
+	// If true, report includes monetary commitment.
+	IncludeMonetaryCommitment pulumi.BoolPtrOutput `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis KpiPropertiesResponseArrayOutput `pulumi:"kpis"`
 	// Metric to use when displaying costs.
@@ -124,6 +124,8 @@ type viewArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// If true, report includes monetary commitment.
+	IncludeMonetaryCommitment *bool `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis []KpiProperties `pulumi:"kpis"`
 	// Metric to use when displaying costs.
@@ -154,6 +156,8 @@ type ViewArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// If true, report includes monetary commitment.
+	IncludeMonetaryCommitment pulumi.BoolPtrInput
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis KpiPropertiesArrayInput
 	// Metric to use when displaying costs.
@@ -224,7 +228,7 @@ func (o ViewOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Selected currency.
+// Currency of the current view.
 func (o ViewOutput) Currency() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Currency }).(pulumi.StringOutput)
 }
@@ -234,7 +238,7 @@ func (o ViewOutput) DataSet() ReportConfigDatasetResponsePtrOutput {
 	return o.ApplyT(func(v *View) ReportConfigDatasetResponsePtrOutput { return v.DataSet }).(ReportConfigDatasetResponsePtrOutput)
 }
 
-// Selected date range for viewing cost in.
+// Date range of the current view.
 func (o ViewOutput) DateRange() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.DateRange }).(pulumi.StringOutput)
 }
@@ -249,9 +253,9 @@ func (o ViewOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
-// Include monetary commitment
-func (o ViewOutput) IncludeMonetaryCommitment() pulumi.BoolOutput {
-	return o.ApplyT(func(v *View) pulumi.BoolOutput { return v.IncludeMonetaryCommitment }).(pulumi.BoolOutput)
+// If true, report includes monetary commitment.
+func (o ViewOutput) IncludeMonetaryCommitment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IncludeMonetaryCommitment }).(pulumi.BoolPtrOutput)
 }
 
 // List of KPIs to show in Cost Analysis UI.

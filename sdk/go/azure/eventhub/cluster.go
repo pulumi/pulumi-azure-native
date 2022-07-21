@@ -12,7 +12,7 @@ import (
 )
 
 // Single Event Hubs Cluster resource in List or Get operations.
-// API Version: 2018-01-01-preview.
+// API Version: 2021-11-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type Cluster struct {
 	Sku ClusterSkuResponsePtrOutput `pulumi:"sku"`
 	// Status of the Cluster resource
 	Status pulumi.StringOutput `pulumi:"status"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -184,6 +186,11 @@ func (o ClusterOutput) Sku() ClusterSkuResponsePtrOutput {
 // Status of the Cluster resource
 func (o ClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

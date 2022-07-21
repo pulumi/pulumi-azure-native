@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:SecurityContact"},
                     new Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact"},
                 },
             };

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
     /// The SourceControl Configuration object returned in Get &amp; Put response.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : Pulumi.CustomResource
@@ -176,13 +176,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public Input<string> ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public Input<string> ClusterRp { get; set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string>? RepositoryUrl { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

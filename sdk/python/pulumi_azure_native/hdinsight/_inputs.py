@@ -21,7 +21,6 @@ __all__ = [
     'ClientGroupInfoArgs',
     'ClusterCreatePropertiesArgs',
     'ClusterDefinitionArgs',
-    'ClusterIdentityUserAssignedIdentitiesArgs',
     'ClusterIdentityArgs',
     'ComputeIsolationPropertiesArgs',
     'ComputeProfileArgs',
@@ -30,11 +29,14 @@ __all__ = [
     'EncryptionInTransitPropertiesArgs',
     'ErrorsArgs',
     'HardwareProfileArgs',
+    'IPConfigurationArgs',
     'KafkaRestPropertiesArgs',
     'LinuxOperatingSystemProfileArgs',
     'NetworkPropertiesArgs',
     'OsProfileArgs',
+    'PrivateLinkConfigurationArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ResourceIdArgs',
     'RoleArgs',
     'RuntimeScriptActionArgs',
     'ScriptActionArgs',
@@ -43,6 +45,7 @@ __all__ = [
     'SshPublicKeyArgs',
     'StorageAccountArgs',
     'StorageProfileArgs',
+    'UserAssignedIdentityArgs',
     'VirtualNetworkProfileArgs',
 ]
 
@@ -214,6 +217,7 @@ class ApplicationPropertiesArgs:
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]] = None,
                  https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]] = None,
                  install_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None,
+                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]] = None,
                  ssh_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]] = None,
                  uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None):
         """
@@ -223,6 +227,7 @@ class ApplicationPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]] errors: The list of errors.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]] https_endpoints: The list of application HTTPS endpoints.
         :param pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]] install_script_actions: The list of install script actions.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]] private_link_configurations: The private link configurations.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]] ssh_endpoints: The list of application SSH endpoints.
         :param pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]] uninstall_script_actions: The list of uninstall script actions.
         """
@@ -236,6 +241,8 @@ class ApplicationPropertiesArgs:
             pulumi.set(__self__, "https_endpoints", https_endpoints)
         if install_script_actions is not None:
             pulumi.set(__self__, "install_script_actions", install_script_actions)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if ssh_endpoints is not None:
             pulumi.set(__self__, "ssh_endpoints", ssh_endpoints)
         if uninstall_script_actions is not None:
@@ -300,6 +307,18 @@ class ApplicationPropertiesArgs:
     @install_script_actions.setter
     def install_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
         pulumi.set(self, "install_script_actions", value)
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]:
+        """
+        The private link configurations.
+        """
+        return pulumi.get(self, "private_link_configurations")
+
+    @private_link_configurations.setter
+    def private_link_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]):
+        pulumi.set(self, "private_link_configurations", value)
 
     @property
     @pulumi.getter(name="sshEndpoints")
@@ -409,11 +428,11 @@ class AutoscaleRecurrenceArgs:
 @pulumi.input_type
 class AutoscaleScheduleArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]] = None,
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]] = None,
                  time_and_capacity: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
-        :param pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]] days: Days of the week for a schedule-based autoscale rule
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]] days: Days of the week for a schedule-based autoscale rule
         :param pulumi.Input['AutoscaleTimeAndCapacityArgs'] time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
         if days is not None:
@@ -423,14 +442,14 @@ class AutoscaleScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]:
+    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]]:
         """
         Days of the week for a schedule-based autoscale rule
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
+    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]]):
         pulumi.set(self, "days", value)
 
     @property
@@ -594,10 +613,11 @@ class ClusterCreatePropertiesArgs:
                  kafka_rest_properties: Optional[pulumi.Input['KafkaRestPropertiesArgs']] = None,
                  min_supported_tls_version: Optional[pulumi.Input[str]] = None,
                  network_properties: Optional[pulumi.Input['NetworkPropertiesArgs']] = None,
-                 os_type: Optional[pulumi.Input['OSType']] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 tier: Optional[pulumi.Input['Tier']] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'Tier']]] = None):
         """
         The cluster create parameters.
         :param pulumi.Input['ClusterDefinitionArgs'] cluster_definition: The cluster definition.
@@ -609,10 +629,11 @@ class ClusterCreatePropertiesArgs:
         :param pulumi.Input['KafkaRestPropertiesArgs'] kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param pulumi.Input[str] min_supported_tls_version: The minimal supported tls version.
         :param pulumi.Input['NetworkPropertiesArgs'] network_properties: The network properties.
-        :param pulumi.Input['OSType'] os_type: The type of operating system.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: The type of operating system.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]] private_link_configurations: The private link configurations.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: The security profile.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile.
-        :param pulumi.Input['Tier'] tier: The cluster tier.
+        :param pulumi.Input[Union[str, 'Tier']] tier: The cluster tier.
         """
         if cluster_definition is not None:
             pulumi.set(__self__, "cluster_definition", cluster_definition)
@@ -634,6 +655,8 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "network_properties", network_properties)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile is not None:
@@ -753,15 +776,27 @@ class ClusterCreatePropertiesArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input['OSType']]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
         The type of operating system.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input['OSType']]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]:
+        """
+        The private link configurations.
+        """
+        return pulumi.get(self, "private_link_configurations")
+
+    @private_link_configurations.setter
+    def private_link_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgs']]]]):
+        pulumi.set(self, "private_link_configurations", value)
 
     @property
     @pulumi.getter(name="securityProfile")
@@ -789,14 +824,14 @@ class ClusterCreatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['Tier']]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'Tier']]]:
         """
         The cluster tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['Tier']]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'Tier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -873,37 +908,14 @@ class ClusterDefinitionArgs:
 
 
 @pulumi.input_type
-class ClusterIdentityUserAssignedIdentitiesArgs:
-    def __init__(__self__, *,
-                 tenant_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] tenant_id: The tenant id of user assigned identity.
-        """
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tenant id of user assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-
-@pulumi.input_type
 class ClusterIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Identity for the cluster.
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -912,26 +924,26 @@ class ClusterIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]:
         """
         The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1222,6 +1234,93 @@ class HardwareProfileArgs:
 
 
 @pulumi.input_type
+class IPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 primary: Optional[pulumi.Input[bool]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethod']]] = None,
+                 subnet: Optional[pulumi.Input['ResourceIdArgs']] = None):
+        """
+        The ip configurations for the private link service.
+        :param pulumi.Input[str] name: The name of private link IP configuration.
+        :param pulumi.Input[bool] primary: Indicates whether this IP configuration is primary for the corresponding NIC.
+        :param pulumi.Input[str] private_ip_address: The IP address.
+        :param pulumi.Input[Union[str, 'PrivateIPAllocationMethod']] private_ip_allocation_method: The method that private IP address is allocated.
+        :param pulumi.Input['ResourceIdArgs'] subnet: The subnet resource id.
+        """
+        pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of private link IP configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether this IP configuration is primary for the corresponding NIC.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethod']]]:
+        """
+        The method that private IP address is allocated.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethod']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['ResourceIdArgs']]:
+        """
+        The subnet resource id.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['ResourceIdArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
 class KafkaRestPropertiesArgs:
     def __init__(__self__, *,
                  client_group_info: Optional[pulumi.Input['ClientGroupInfoArgs']] = None,
@@ -1382,6 +1481,59 @@ class OsProfileArgs:
 
 
 @pulumi.input_type
+class PrivateLinkConfigurationArgs:
+    def __init__(__self__, *,
+                 group_id: pulumi.Input[str],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]],
+                 name: pulumi.Input[str]):
+        """
+        The private link configuration.
+        :param pulumi.Input[str] group_id: The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+        :param pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]] ip_configurations: The IP configurations for the private link service.
+        :param pulumi.Input[str] name: The name of private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[str]:
+        """
+        The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]:
+        """
+        The IP configurations for the private link service.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
@@ -1434,6 +1586,30 @@ class PrivateLinkServiceConnectionStateArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class ResourceIdArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The azure resource id.
+        :param pulumi.Input[str] id: The azure resource id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The azure resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -1749,7 +1925,7 @@ class SecurityProfileArgs:
     def __init__(__self__, *,
                  aadds_resource_id: Optional[pulumi.Input[str]] = None,
                  cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 directory_type: Optional[pulumi.Input['DirectoryType']] = None,
+                 directory_type: Optional[pulumi.Input[Union[str, 'DirectoryType']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_user_password: Optional[pulumi.Input[str]] = None,
                  domain_username: Optional[pulumi.Input[str]] = None,
@@ -1760,7 +1936,7 @@ class SecurityProfileArgs:
         The security profile which contains Ssh public key for the HDInsight cluster.
         :param pulumi.Input[str] aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
-        :param pulumi.Input['DirectoryType'] directory_type: The directory type.
+        :param pulumi.Input[Union[str, 'DirectoryType']] directory_type: The directory type.
         :param pulumi.Input[str] domain: The organization's active directory domain.
         :param pulumi.Input[str] domain_user_password: The domain admin password.
         :param pulumi.Input[str] domain_username: The domain user account that will have admin privileges on the cluster.
@@ -1813,14 +1989,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> Optional[pulumi.Input['DirectoryType']]:
+    def directory_type(self) -> Optional[pulumi.Input[Union[str, 'DirectoryType']]]:
         """
         The directory type.
         """
         return pulumi.get(self, "directory_type")
 
     @directory_type.setter
-    def directory_type(self, value: Optional[pulumi.Input['DirectoryType']]):
+    def directory_type(self, value: Optional[pulumi.Input[Union[str, 'DirectoryType']]]):
         pulumi.set(self, "directory_type", value)
 
     @property
@@ -2118,6 +2294,30 @@ class StorageProfileArgs:
     @storageaccounts.setter
     def storageaccounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
         pulumi.set(self, "storageaccounts", value)
+
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__, *,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The User Assigned Identity
+        :param pulumi.Input[str] tenant_id: The tenant id of user assigned identity.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

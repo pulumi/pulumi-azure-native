@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents threat intelligence data connector.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export class TIDataConnector extends pulumi.CustomResource {
     /**
@@ -50,9 +50,13 @@ export class TIDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"ThreatIntelligence">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenant id to connect to, and get the data from.
      */
@@ -62,7 +66,7 @@ export class TIDataConnector extends pulumi.CustomResource {
      */
     public readonly tipLookbackPeriod!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -95,12 +99,14 @@ export class TIDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataTypes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["tipLookbackPeriod"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -130,7 +136,7 @@ export interface TIDataConnectorArgs {
      */
     kind: pulumi.Input<"ThreatIntelligence">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

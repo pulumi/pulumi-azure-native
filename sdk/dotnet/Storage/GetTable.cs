@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Properties of the table, including Id, resource name, resource type.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of the table, including Id, resource name, resource type.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of stored access policies specified on the table.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TableSignedIdentifierResponse> SignedIdentifiers;
+        /// <summary>
         /// Table name under the specified account
         /// </summary>
         public readonly string TableName;
@@ -104,12 +108,15 @@ namespace Pulumi.AzureNative.Storage
 
             string name,
 
+            ImmutableArray<Outputs.TableSignedIdentifierResponse> signedIdentifiers,
+
             string tableName,
 
             string type)
         {
             Id = id;
             Name = name;
+            SignedIdentifiers = signedIdentifiers;
             TableName = tableName;
             Type = type;
         }

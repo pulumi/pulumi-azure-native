@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : Pulumi.CustomResource
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        [Output("sshPublicKey")]
+        public Output<string?> SshPublicKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -244,6 +250,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        [Input("sshPublicKey")]
+        public Input<string>? SshPublicKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

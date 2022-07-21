@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnGateway Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class VpnGateway extends pulumi.CustomResource {
      * List of all vpn connections to the gateway.
      */
     public readonly connections!: pulumi.Output<outputs.network.VpnConnectionResponse[] | undefined>;
+    /**
+     * Enable BGP routes translation for NAT on this VpnGateway.
+     */
+    public readonly enableBgpRouteTranslationForNat!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -105,6 +109,7 @@ export class VpnGateway extends pulumi.CustomResource {
             }
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["connections"] = args ? args.connections : undefined;
+            resourceInputs["enableBgpRouteTranslationForNat"] = args ? args.enableBgpRouteTranslationForNat : undefined;
             resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
@@ -122,6 +127,7 @@ export class VpnGateway extends pulumi.CustomResource {
         } else {
             resourceInputs["bgpSettings"] = undefined /*out*/;
             resourceInputs["connections"] = undefined /*out*/;
+            resourceInputs["enableBgpRouteTranslationForNat"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["isRoutingPreferenceInternet"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface VpnGatewayArgs {
      * List of all vpn connections to the gateway.
      */
     connections?: pulumi.Input<pulumi.Input<inputs.network.VpnConnectionArgs>[]>;
+    /**
+     * Enable BGP routes translation for NAT on this VpnGateway.
+     */
+    enableBgpRouteTranslationForNat?: pulumi.Input<boolean>;
     /**
      * The name of the gateway.
      */

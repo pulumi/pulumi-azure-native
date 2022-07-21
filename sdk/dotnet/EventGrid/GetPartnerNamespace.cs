@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// EventGrid Partner Namespace.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// EventGrid Partner Namespace.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerNamespaceResult> Invoke(GetPartnerNamespaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceInvokeArgs(), options.WithDefaults());
@@ -98,6 +98,11 @@ namespace Pulumi.AzureNative.EventGrid
         /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
         /// </summary>
         public readonly string? PartnerRegistrationFullyQualifiedId;
+        /// <summary>
+        /// This determines if events published to this partner namespace should use the source attribute in the event payload
+        /// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+        /// </summary>
+        public readonly string? PartnerTopicRoutingMode;
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the partner namespace.
@@ -137,6 +142,8 @@ namespace Pulumi.AzureNative.EventGrid
 
             string? partnerRegistrationFullyQualifiedId,
 
+            string? partnerTopicRoutingMode,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
@@ -156,6 +163,7 @@ namespace Pulumi.AzureNative.EventGrid
             Location = location;
             Name = name;
             PartnerRegistrationFullyQualifiedId = partnerRegistrationFullyQualifiedId;
+            PartnerTopicRoutingMode = partnerTopicRoutingMode;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

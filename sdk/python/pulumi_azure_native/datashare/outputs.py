@@ -16,6 +16,7 @@ __all__ = [
     'ShareSynchronizationResponse',
     'SynchronizationDetailsResponse',
     'SystemDataResponse',
+    'TableLevelSharingPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -632,5 +633,115 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TableLevelSharingPropertiesResponse(dict):
+    """
+    Table level sharing properties dto for kusto data set properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalTablesToExclude":
+            suggest = "external_tables_to_exclude"
+        elif key == "externalTablesToInclude":
+            suggest = "external_tables_to_include"
+        elif key == "materializedViewsToExclude":
+            suggest = "materialized_views_to_exclude"
+        elif key == "materializedViewsToInclude":
+            suggest = "materialized_views_to_include"
+        elif key == "tablesToExclude":
+            suggest = "tables_to_exclude"
+        elif key == "tablesToInclude":
+            suggest = "tables_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableLevelSharingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_tables_to_exclude: Optional[Sequence[str]] = None,
+                 external_tables_to_include: Optional[Sequence[str]] = None,
+                 materialized_views_to_exclude: Optional[Sequence[str]] = None,
+                 materialized_views_to_include: Optional[Sequence[str]] = None,
+                 tables_to_exclude: Optional[Sequence[str]] = None,
+                 tables_to_include: Optional[Sequence[str]] = None):
+        """
+        Table level sharing properties dto for kusto data set properties
+        :param Sequence[str] external_tables_to_exclude: External tables to be excluded in the data set
+        :param Sequence[str] external_tables_to_include: External tables to be included in the data set
+        :param Sequence[str] materialized_views_to_exclude: Materialized views to be excluded in the data set
+        :param Sequence[str] materialized_views_to_include: Materialized views to be included in the data set
+        :param Sequence[str] tables_to_exclude: Tables to be excluded in the data set
+        :param Sequence[str] tables_to_include: Tables to be included in the data set
+        """
+        if external_tables_to_exclude is not None:
+            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+        if external_tables_to_include is not None:
+            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if materialized_views_to_exclude is not None:
+            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+        if materialized_views_to_include is not None:
+            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+        if tables_to_exclude is not None:
+            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+        if tables_to_include is not None:
+            pulumi.set(__self__, "tables_to_include", tables_to_include)
+
+    @property
+    @pulumi.getter(name="externalTablesToExclude")
+    def external_tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        External tables to be excluded in the data set
+        """
+        return pulumi.get(self, "external_tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="externalTablesToInclude")
+    def external_tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        External tables to be included in the data set
+        """
+        return pulumi.get(self, "external_tables_to_include")
+
+    @property
+    @pulumi.getter(name="materializedViewsToExclude")
+    def materialized_views_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        Materialized views to be excluded in the data set
+        """
+        return pulumi.get(self, "materialized_views_to_exclude")
+
+    @property
+    @pulumi.getter(name="materializedViewsToInclude")
+    def materialized_views_to_include(self) -> Optional[Sequence[str]]:
+        """
+        Materialized views to be included in the data set
+        """
+        return pulumi.get(self, "materialized_views_to_include")
+
+    @property
+    @pulumi.getter(name="tablesToExclude")
+    def tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        Tables to be excluded in the data set
+        """
+        return pulumi.get(self, "tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="tablesToInclude")
+    def tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        Tables to be included in the data set
+        """
+        return pulumi.get(self, "tables_to_include")
 
 

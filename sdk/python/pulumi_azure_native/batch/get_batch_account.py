@@ -21,13 +21,16 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, allowed_authentication_modes=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, network_profile=None, node_management_endpoint=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
         if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, int):
             raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a int")
         pulumi.set(__self__, "active_job_and_job_schedule_quota", active_job_and_job_schedule_quota)
+        if allowed_authentication_modes and not isinstance(allowed_authentication_modes, list):
+            raise TypeError("Expected argument 'allowed_authentication_modes' to be a list")
+        pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if auto_storage and not isinstance(auto_storage, dict):
             raise TypeError("Expected argument 'auto_storage' to be a dict")
         pulumi.set(__self__, "auto_storage", auto_storage)
@@ -61,6 +64,12 @@ class GetBatchAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        pulumi.set(__self__, "network_profile", network_profile)
+        if node_management_endpoint and not isinstance(node_management_endpoint, str):
+            raise TypeError("Expected argument 'node_management_endpoint' to be a str")
+        pulumi.set(__self__, "node_management_endpoint", node_management_endpoint)
         if pool_allocation_mode and not isinstance(pool_allocation_mode, str):
             raise TypeError("Expected argument 'pool_allocation_mode' to be a str")
         pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
@@ -97,6 +106,14 @@ class GetBatchAccountResult:
         return pulumi.get(self, "active_job_and_job_schedule_quota")
 
     @property
+    @pulumi.getter(name="allowedAuthenticationModes")
+    def allowed_authentication_modes(self) -> Sequence[str]:
+        """
+        List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+        """
+        return pulumi.get(self, "allowed_authentication_modes")
+
+    @property
     @pulumi.getter(name="autoStorage")
     def auto_storage(self) -> 'outputs.AutoStoragePropertiesResponse':
         """
@@ -124,7 +141,7 @@ class GetBatchAccountResult:
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamilyEnforced")
     def dedicated_core_quota_per_vm_family_enforced(self) -> bool:
         """
-        Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+        If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
         """
         return pulumi.get(self, "dedicated_core_quota_per_vm_family_enforced")
 
@@ -185,6 +202,22 @@ class GetBatchAccountResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+        """
+        The network profile only takes effect when publicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="nodeManagementEndpoint")
+    def node_management_endpoint(self) -> str:
+        """
+        The endpoint used by compute node to connect to the Batch node management service.
+        """
+        return pulumi.get(self, "node_management_endpoint")
+
+    @property
     @pulumi.getter(name="poolAllocationMode")
     def pool_allocation_mode(self) -> str:
         """
@@ -215,7 +248,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> str:
+    def public_network_access(self) -> Optional[str]:
         """
         If not specified, the default value is 'enabled'.
         """
@@ -246,6 +279,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
         return GetBatchAccountResult(
             account_endpoint=self.account_endpoint,
             active_job_and_job_schedule_quota=self.active_job_and_job_schedule_quota,
+            allowed_authentication_modes=self.allowed_authentication_modes,
             auto_storage=self.auto_storage,
             dedicated_core_quota=self.dedicated_core_quota,
             dedicated_core_quota_per_vm_family=self.dedicated_core_quota_per_vm_family,
@@ -257,6 +291,8 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             location=self.location,
             low_priority_core_quota=self.low_priority_core_quota,
             name=self.name,
+            network_profile=self.network_profile,
+            node_management_endpoint=self.node_management_endpoint,
             pool_allocation_mode=self.pool_allocation_mode,
             pool_quota=self.pool_quota,
             private_endpoint_connections=self.private_endpoint_connections,
@@ -271,7 +307,7 @@ def get_batch_account(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -289,6 +325,7 @@ def get_batch_account(account_name: Optional[str] = None,
     return AwaitableGetBatchAccountResult(
         account_endpoint=__ret__.account_endpoint,
         active_job_and_job_schedule_quota=__ret__.active_job_and_job_schedule_quota,
+        allowed_authentication_modes=__ret__.allowed_authentication_modes,
         auto_storage=__ret__.auto_storage,
         dedicated_core_quota=__ret__.dedicated_core_quota,
         dedicated_core_quota_per_vm_family=__ret__.dedicated_core_quota_per_vm_family,
@@ -300,6 +337,8 @@ def get_batch_account(account_name: Optional[str] = None,
         location=__ret__.location,
         low_priority_core_quota=__ret__.low_priority_core_quota,
         name=__ret__.name,
+        network_profile=__ret__.network_profile,
+        node_management_endpoint=__ret__.node_management_endpoint,
         pool_allocation_mode=__ret__.pool_allocation_mode,
         pool_quota=__ret__.pool_quota,
         private_endpoint_connections=__ret__.private_endpoint_connections,
@@ -315,7 +354,7 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchAccountResult]:
     """
     Contains information about an Azure Batch account.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.

@@ -10,34 +10,31 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ActivityEntityQueriesPropertiesQueryDefinitionsArgs',
+    'AlertDetailsOverrideArgs',
     'AlertsDataTypeOfDataConnectorArgs',
-    'AutomationRuleModifyPropertiesActionActionConfigurationArgs',
     'AutomationRuleModifyPropertiesActionArgs',
-    'AutomationRulePropertyValuesConditionConditionPropertiesArgs',
     'AutomationRulePropertyValuesConditionArgs',
-    'AutomationRuleRunPlaybookActionActionConfigurationArgs',
     'AutomationRuleRunPlaybookActionArgs',
     'AutomationRuleTriggeringLogicArgs',
     'AwsCloudTrailDataConnectorDataTypesLogsArgs',
     'AwsCloudTrailDataConnectorDataTypesArgs',
-    'ContentPathMapArgs',
     'DataConnectorDataTypeCommonArgs',
+    'EntityMappingArgs',
+    'EventGroupingSettingsArgs',
+    'FieldMappingArgs',
+    'GroupingConfigurationArgs',
+    'IncidentConfigurationArgs',
     'IncidentInfoArgs',
     'IncidentLabelArgs',
     'IncidentOwnerInfoArgs',
+    'IncidentPropertiesActionArgs',
     'MCASDataConnectorDataTypesArgs',
-    'MetadataAuthorArgs',
-    'MetadataCategoriesArgs',
-    'MetadataDependenciesArgs',
-    'MetadataSourceArgs',
-    'MetadataSupportArgs',
     'OfficeDataConnectorDataTypesExchangeArgs',
     'OfficeDataConnectorDataTypesSharePointArgs',
     'OfficeDataConnectorDataTypesTeamsArgs',
     'OfficeDataConnectorDataTypesArgs',
-    'RepositoryArgs',
-    'SecurityMLAnalyticsSettingsDataSourceArgs',
+    'PlaybookActionPropertiesArgs',
+    'PropertyConditionPropertiesArgs',
     'TIDataConnectorDataTypesIndicatorsArgs',
     'TIDataConnectorDataTypesArgs',
     'ThreatIntelligenceExternalReferenceArgs',
@@ -50,27 +47,75 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ActivityEntityQueriesPropertiesQueryDefinitionsArgs:
+class AlertDetailsOverrideArgs:
     def __init__(__self__, *,
-                 query: Optional[pulumi.Input[str]] = None):
+                 alert_description_format: Optional[pulumi.Input[str]] = None,
+                 alert_display_name_format: Optional[pulumi.Input[str]] = None,
+                 alert_severity_column_name: Optional[pulumi.Input[str]] = None,
+                 alert_tactics_column_name: Optional[pulumi.Input[str]] = None):
         """
-        The Activity query definitions
-        :param pulumi.Input[str] query: The Activity query to run on a given entity
+        Settings for how to dynamically override alert static details
+        :param pulumi.Input[str] alert_description_format: the format containing columns name(s) to override the alert description
+        :param pulumi.Input[str] alert_display_name_format: the format containing columns name(s) to override the alert name
+        :param pulumi.Input[str] alert_severity_column_name: the column name to take the alert severity from
+        :param pulumi.Input[str] alert_tactics_column_name: the column name to take the alert tactics from
         """
-        if query is not None:
-            pulumi.set(__self__, "query", query)
+        if alert_description_format is not None:
+            pulumi.set(__self__, "alert_description_format", alert_description_format)
+        if alert_display_name_format is not None:
+            pulumi.set(__self__, "alert_display_name_format", alert_display_name_format)
+        if alert_severity_column_name is not None:
+            pulumi.set(__self__, "alert_severity_column_name", alert_severity_column_name)
+        if alert_tactics_column_name is not None:
+            pulumi.set(__self__, "alert_tactics_column_name", alert_tactics_column_name)
 
     @property
-    @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="alertDescriptionFormat")
+    def alert_description_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The Activity query to run on a given entity
+        the format containing columns name(s) to override the alert description
         """
-        return pulumi.get(self, "query")
+        return pulumi.get(self, "alert_description_format")
 
-    @query.setter
-    def query(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "query", value)
+    @alert_description_format.setter
+    def alert_description_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_description_format", value)
+
+    @property
+    @pulumi.getter(name="alertDisplayNameFormat")
+    def alert_display_name_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        the format containing columns name(s) to override the alert name
+        """
+        return pulumi.get(self, "alert_display_name_format")
+
+    @alert_display_name_format.setter
+    def alert_display_name_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_display_name_format", value)
+
+    @property
+    @pulumi.getter(name="alertSeverityColumnName")
+    def alert_severity_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the column name to take the alert severity from
+        """
+        return pulumi.get(self, "alert_severity_column_name")
+
+    @alert_severity_column_name.setter
+    def alert_severity_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_severity_column_name", value)
+
+    @property
+    @pulumi.getter(name="alertTacticsColumnName")
+    def alert_tactics_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the column name to take the alert tactics from
+        """
+        return pulumi.get(self, "alert_tactics_column_name")
+
+    @alert_tactics_column_name.setter
+    def alert_tactics_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_tactics_column_name", value)
 
 
 @pulumi.input_type
@@ -98,153 +143,20 @@ class AlertsDataTypeOfDataConnectorArgs:
 
 
 @pulumi.input_type
-class AutomationRuleModifyPropertiesActionActionConfigurationArgs:
-    def __init__(__self__, *,
-                 classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
-                 classification_comment: Optional[pulumi.Input[str]] = None,
-                 classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
-                 owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None,
-                 severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'IncidentStatus']]] = None):
-        """
-        The configuration of the modify properties automation rule action
-        :param pulumi.Input[Union[str, 'IncidentClassification']] classification: The reason the incident was closed
-        :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
-        :param pulumi.Input[Union[str, 'IncidentClassificationReason']] classification_reason: The classification reason to close the incident with
-        :param pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]] labels: List of labels to add to the incident
-        :param pulumi.Input['IncidentOwnerInfoArgs'] owner: Describes a user that the incident is assigned to
-        :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
-        :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
-        """
-        if classification is not None:
-            pulumi.set(__self__, "classification", classification)
-        if classification_comment is not None:
-            pulumi.set(__self__, "classification_comment", classification_comment)
-        if classification_reason is not None:
-            pulumi.set(__self__, "classification_reason", classification_reason)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if owner is not None:
-            pulumi.set(__self__, "owner", owner)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def classification(self) -> Optional[pulumi.Input[Union[str, 'IncidentClassification']]]:
-        """
-        The reason the incident was closed
-        """
-        return pulumi.get(self, "classification")
-
-    @classification.setter
-    def classification(self, value: Optional[pulumi.Input[Union[str, 'IncidentClassification']]]):
-        pulumi.set(self, "classification", value)
-
-    @property
-    @pulumi.getter(name="classificationComment")
-    def classification_comment(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes the reason the incident was closed
-        """
-        return pulumi.get(self, "classification_comment")
-
-    @classification_comment.setter
-    def classification_comment(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "classification_comment", value)
-
-    @property
-    @pulumi.getter(name="classificationReason")
-    def classification_reason(self) -> Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]]:
-        """
-        The classification reason to close the incident with
-        """
-        return pulumi.get(self, "classification_reason")
-
-    @classification_reason.setter
-    def classification_reason(self, value: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]]):
-        pulumi.set(self, "classification_reason", value)
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]]:
-        """
-        List of labels to add to the incident
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]]):
-        pulumi.set(self, "labels", value)
-
-    @property
-    @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input['IncidentOwnerInfoArgs']]:
-        """
-        Describes a user that the incident is assigned to
-        """
-        return pulumi.get(self, "owner")
-
-    @owner.setter
-    def owner(self, value: Optional[pulumi.Input['IncidentOwnerInfoArgs']]):
-        pulumi.set(self, "owner", value)
-
-    @property
-    @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[Union[str, 'IncidentSeverity']]]:
-        """
-        The severity of the incident
-        """
-        return pulumi.get(self, "severity")
-
-    @severity.setter
-    def severity(self, value: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]]):
-        pulumi.set(self, "severity", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'IncidentStatus']]]:
-        """
-        The status of the incident
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'IncidentStatus']]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
 class AutomationRuleModifyPropertiesActionArgs:
     def __init__(__self__, *,
-                 action_configuration: pulumi.Input['AutomationRuleModifyPropertiesActionActionConfigurationArgs'],
                  action_type: pulumi.Input[str],
-                 order: pulumi.Input[int]):
+                 order: pulumi.Input[int],
+                 action_configuration: Optional[pulumi.Input['IncidentPropertiesActionArgs']] = None):
         """
-        Describes an automation rule action to modify an object's properties
-        :param pulumi.Input['AutomationRuleModifyPropertiesActionActionConfigurationArgs'] action_configuration: The configuration of the modify properties automation rule action
+        Describes an automation rule action to modify an object's properties.
         :param pulumi.Input[str] action_type: The type of the automation rule action
                Expected value is 'ModifyProperties'.
-        :param pulumi.Input[int] order: The order of execution of the automation rule action
         """
-        pulumi.set(__self__, "action_configuration", action_configuration)
         pulumi.set(__self__, "action_type", 'ModifyProperties')
         pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter(name="actionConfiguration")
-    def action_configuration(self) -> pulumi.Input['AutomationRuleModifyPropertiesActionActionConfigurationArgs']:
-        """
-        The configuration of the modify properties automation rule action
-        """
-        return pulumi.get(self, "action_configuration")
-
-    @action_configuration.setter
-    def action_configuration(self, value: pulumi.Input['AutomationRuleModifyPropertiesActionActionConfigurationArgs']):
-        pulumi.set(self, "action_configuration", value)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
 
     @property
     @pulumi.getter(name="actionType")
@@ -262,27 +174,30 @@ class AutomationRuleModifyPropertiesActionArgs:
     @property
     @pulumi.getter
     def order(self) -> pulumi.Input[int]:
-        """
-        The order of execution of the automation rule action
-        """
         return pulumi.get(self, "order")
 
     @order.setter
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional[pulumi.Input['IncidentPropertiesActionArgs']]:
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: Optional[pulumi.Input['IncidentPropertiesActionArgs']]):
+        pulumi.set(self, "action_configuration", value)
+
 
 @pulumi.input_type
-class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
+class AutomationRulePropertyValuesConditionArgs:
     def __init__(__self__, *,
                  operator: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']]] = None,
                  property_name: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']]] = None,
                  property_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The configuration of the automation rule condition
-        :param pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']] operator: The operator to use for evaluation the condition
-        :param pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']] property_name: The property to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_values: The values to use for evaluating the condition
+        :param pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']] property_name: The property to evaluate in an automation rule property condition
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -294,9 +209,6 @@ class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']]]:
-        """
-        The operator to use for evaluation the condition
-        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -307,7 +219,7 @@ class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
     @pulumi.getter(name="propertyName")
     def property_name(self) -> Optional[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']]]:
         """
-        The property to evaluate
+        The property to evaluate in an automation rule property condition
         """
         return pulumi.get(self, "property_name")
 
@@ -318,9 +230,6 @@ class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
     @property
     @pulumi.getter(name="propertyValues")
     def property_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The values to use for evaluating the condition
-        """
         return pulumi.get(self, "property_values")
 
     @property_values.setter
@@ -329,113 +238,20 @@ class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
 
 
 @pulumi.input_type
-class AutomationRulePropertyValuesConditionArgs:
-    def __init__(__self__, *,
-                 condition_properties: pulumi.Input['AutomationRulePropertyValuesConditionConditionPropertiesArgs'],
-                 condition_type: pulumi.Input[str]):
-        """
-        Describes an automation rule condition that evaluates a property's value
-        :param pulumi.Input['AutomationRulePropertyValuesConditionConditionPropertiesArgs'] condition_properties: The configuration of the automation rule condition
-        :param pulumi.Input[str] condition_type: The type of the automation rule condition
-               Expected value is 'Property'.
-        """
-        pulumi.set(__self__, "condition_properties", condition_properties)
-        pulumi.set(__self__, "condition_type", 'Property')
-
-    @property
-    @pulumi.getter(name="conditionProperties")
-    def condition_properties(self) -> pulumi.Input['AutomationRulePropertyValuesConditionConditionPropertiesArgs']:
-        """
-        The configuration of the automation rule condition
-        """
-        return pulumi.get(self, "condition_properties")
-
-    @condition_properties.setter
-    def condition_properties(self, value: pulumi.Input['AutomationRulePropertyValuesConditionConditionPropertiesArgs']):
-        pulumi.set(self, "condition_properties", value)
-
-    @property
-    @pulumi.getter(name="conditionType")
-    def condition_type(self) -> pulumi.Input[str]:
-        """
-        The type of the automation rule condition
-        Expected value is 'Property'.
-        """
-        return pulumi.get(self, "condition_type")
-
-    @condition_type.setter
-    def condition_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "condition_type", value)
-
-
-@pulumi.input_type
-class AutomationRuleRunPlaybookActionActionConfigurationArgs:
-    def __init__(__self__, *,
-                 logic_app_resource_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None):
-        """
-        The configuration of the run playbook automation rule action
-        :param pulumi.Input[str] logic_app_resource_id: The resource id of the playbook resource
-        :param pulumi.Input[str] tenant_id: The tenant id of the playbook resource
-        """
-        if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id of the playbook resource
-        """
-        return pulumi.get(self, "logic_app_resource_id")
-
-    @logic_app_resource_id.setter
-    def logic_app_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "logic_app_resource_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tenant id of the playbook resource
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-
-@pulumi.input_type
 class AutomationRuleRunPlaybookActionArgs:
     def __init__(__self__, *,
-                 action_configuration: pulumi.Input['AutomationRuleRunPlaybookActionActionConfigurationArgs'],
                  action_type: pulumi.Input[str],
-                 order: pulumi.Input[int]):
+                 order: pulumi.Input[int],
+                 action_configuration: Optional[pulumi.Input['PlaybookActionPropertiesArgs']] = None):
         """
         Describes an automation rule action to run a playbook
-        :param pulumi.Input['AutomationRuleRunPlaybookActionActionConfigurationArgs'] action_configuration: The configuration of the run playbook automation rule action
         :param pulumi.Input[str] action_type: The type of the automation rule action
                Expected value is 'RunPlaybook'.
-        :param pulumi.Input[int] order: The order of execution of the automation rule action
         """
-        pulumi.set(__self__, "action_configuration", action_configuration)
         pulumi.set(__self__, "action_type", 'RunPlaybook')
         pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter(name="actionConfiguration")
-    def action_configuration(self) -> pulumi.Input['AutomationRuleRunPlaybookActionActionConfigurationArgs']:
-        """
-        The configuration of the run playbook automation rule action
-        """
-        return pulumi.get(self, "action_configuration")
-
-    @action_configuration.setter
-    def action_configuration(self, value: pulumi.Input['AutomationRuleRunPlaybookActionActionConfigurationArgs']):
-        pulumi.set(self, "action_configuration", value)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
 
     @property
     @pulumi.getter(name="actionType")
@@ -453,14 +269,20 @@ class AutomationRuleRunPlaybookActionArgs:
     @property
     @pulumi.getter
     def order(self) -> pulumi.Input[int]:
-        """
-        The order of execution of the automation rule action
-        """
         return pulumi.get(self, "order")
 
     @order.setter
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional[pulumi.Input['PlaybookActionPropertiesArgs']]:
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: Optional[pulumi.Input['PlaybookActionPropertiesArgs']]):
+        pulumi.set(self, "action_configuration", value)
 
 
 @pulumi.input_type
@@ -469,14 +291,12 @@ class AutomationRuleTriggeringLogicArgs:
                  is_enabled: pulumi.Input[bool],
                  triggers_on: pulumi.Input[Union[str, 'TriggersOn']],
                  triggers_when: pulumi.Input[Union[str, 'TriggersWhen']],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PropertyConditionPropertiesArgs']]]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None):
         """
         Describes automation rule triggering logic
-        :param pulumi.Input[bool] is_enabled: Determines whether the automation rule is enabled or disabled.
-        :param pulumi.Input[Union[str, 'TriggersOn']] triggers_on: The type of object the automation rule triggers on
-        :param pulumi.Input[Union[str, 'TriggersWhen']] triggers_when: The type of event the automation rule triggers on
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        :param pulumi.Input[bool] is_enabled: Determines whether the automation rule is enabled or disabled
+        :param pulumi.Input[Sequence[pulumi.Input['PropertyConditionPropertiesArgs']]] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
         :param pulumi.Input[str] expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -491,7 +311,7 @@ class AutomationRuleTriggeringLogicArgs:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[bool]:
         """
-        Determines whether the automation rule is enabled or disabled.
+        Determines whether the automation rule is enabled or disabled
         """
         return pulumi.get(self, "is_enabled")
 
@@ -502,9 +322,6 @@ class AutomationRuleTriggeringLogicArgs:
     @property
     @pulumi.getter(name="triggersOn")
     def triggers_on(self) -> pulumi.Input[Union[str, 'TriggersOn']]:
-        """
-        The type of object the automation rule triggers on
-        """
         return pulumi.get(self, "triggers_on")
 
     @triggers_on.setter
@@ -514,9 +331,6 @@ class AutomationRuleTriggeringLogicArgs:
     @property
     @pulumi.getter(name="triggersWhen")
     def triggers_when(self) -> pulumi.Input[Union[str, 'TriggersWhen']]:
-        """
-        The type of event the automation rule triggers on
-        """
         return pulumi.get(self, "triggers_when")
 
     @triggers_when.setter
@@ -525,14 +339,14 @@ class AutomationRuleTriggeringLogicArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PropertyConditionPropertiesArgs']]]]:
         """
         The conditions to evaluate to determine if the automation rule should be triggered on a given object
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PropertyConditionPropertiesArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -597,46 +411,6 @@ class AwsCloudTrailDataConnectorDataTypesArgs:
 
 
 @pulumi.input_type
-class ContentPathMapArgs:
-    def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[Union[str, 'ContentType']]] = None,
-                 path: Optional[pulumi.Input[str]] = None):
-        """
-        The mapping of content type to a repo path.
-        :param pulumi.Input[Union[str, 'ContentType']] content_type: Content type.
-        :param pulumi.Input[str] path: The path to the content.
-        """
-        if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[Union[str, 'ContentType']]]:
-        """
-        Content type.
-        """
-        return pulumi.get(self, "content_type")
-
-    @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[Union[str, 'ContentType']]]):
-        pulumi.set(self, "content_type", value)
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the content.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
-
-
-@pulumi.input_type
 class DataConnectorDataTypeCommonArgs:
     def __init__(__self__, *,
                  state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
@@ -658,6 +432,265 @@ class DataConnectorDataTypeCommonArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class EntityMappingArgs:
+    def __init__(__self__, *,
+                 entity_type: Optional[pulumi.Input[Union[str, 'EntityMappingType']]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]] = None):
+        """
+        Single entity mapping for the alert rule
+        :param pulumi.Input[Union[str, 'EntityMappingType']] entity_type: The V3 type of the mapped entity
+        :param pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]] field_mappings: array of field mappings for the given entity mapping
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if field_mappings is not None:
+            pulumi.set(__self__, "field_mappings", field_mappings)
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> Optional[pulumi.Input[Union[str, 'EntityMappingType']]]:
+        """
+        The V3 type of the mapped entity
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: Optional[pulumi.Input[Union[str, 'EntityMappingType']]]):
+        pulumi.set(self, "entity_type", value)
+
+    @property
+    @pulumi.getter(name="fieldMappings")
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]]:
+        """
+        array of field mappings for the given entity mapping
+        """
+        return pulumi.get(self, "field_mappings")
+
+    @field_mappings.setter
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]]):
+        pulumi.set(self, "field_mappings", value)
+
+
+@pulumi.input_type
+class EventGroupingSettingsArgs:
+    def __init__(__self__, *,
+                 aggregation_kind: Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]] = None):
+        """
+        Event grouping settings property bag.
+        :param pulumi.Input[Union[str, 'EventGroupingAggregationKind']] aggregation_kind: The event grouping aggregation kinds
+        """
+        if aggregation_kind is not None:
+            pulumi.set(__self__, "aggregation_kind", aggregation_kind)
+
+    @property
+    @pulumi.getter(name="aggregationKind")
+    def aggregation_kind(self) -> Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]]:
+        """
+        The event grouping aggregation kinds
+        """
+        return pulumi.get(self, "aggregation_kind")
+
+    @aggregation_kind.setter
+    def aggregation_kind(self, value: Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]]):
+        pulumi.set(self, "aggregation_kind", value)
+
+
+@pulumi.input_type
+class FieldMappingArgs:
+    def __init__(__self__, *,
+                 column_name: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None):
+        """
+        A single field mapping of the mapped entity
+        :param pulumi.Input[str] column_name: the column name to be mapped to the identifier
+        :param pulumi.Input[str] identifier: the V3 identifier of the entity
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the column name to be mapped to the identifier
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        the V3 identifier of the entity
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
+
+
+@pulumi.input_type
+class GroupingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 lookback_duration: pulumi.Input[str],
+                 matching_method: pulumi.Input[Union[str, 'MatchingMethod']],
+                 reopen_closed_incident: pulumi.Input[bool],
+                 group_by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]] = None,
+                 group_by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]] = None):
+        """
+        Grouping configuration property bag.
+        :param pulumi.Input[bool] enabled: Grouping enabled
+        :param pulumi.Input[str] lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        :param pulumi.Input[Union[str, 'MatchingMethod']] matching_method: Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+        :param pulumi.Input[bool] reopen_closed_incident: Re-open closed matching incidents
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]] group_by_alert_details: A list of alert details to group by (when matchingMethod is Selected)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_custom_details: A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]] group_by_entities: A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "lookback_duration", lookback_duration)
+        pulumi.set(__self__, "matching_method", matching_method)
+        pulumi.set(__self__, "reopen_closed_incident", reopen_closed_incident)
+        if group_by_alert_details is not None:
+            pulumi.set(__self__, "group_by_alert_details", group_by_alert_details)
+        if group_by_custom_details is not None:
+            pulumi.set(__self__, "group_by_custom_details", group_by_custom_details)
+        if group_by_entities is not None:
+            pulumi.set(__self__, "group_by_entities", group_by_entities)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Grouping enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="lookbackDuration")
+    def lookback_duration(self) -> pulumi.Input[str]:
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        """
+        return pulumi.get(self, "lookback_duration")
+
+    @lookback_duration.setter
+    def lookback_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lookback_duration", value)
+
+    @property
+    @pulumi.getter(name="matchingMethod")
+    def matching_method(self) -> pulumi.Input[Union[str, 'MatchingMethod']]:
+        """
+        Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+        """
+        return pulumi.get(self, "matching_method")
+
+    @matching_method.setter
+    def matching_method(self, value: pulumi.Input[Union[str, 'MatchingMethod']]):
+        pulumi.set(self, "matching_method", value)
+
+    @property
+    @pulumi.getter(name="reopenClosedIncident")
+    def reopen_closed_incident(self) -> pulumi.Input[bool]:
+        """
+        Re-open closed matching incidents
+        """
+        return pulumi.get(self, "reopen_closed_incident")
+
+    @reopen_closed_incident.setter
+    def reopen_closed_incident(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "reopen_closed_incident", value)
+
+    @property
+    @pulumi.getter(name="groupByAlertDetails")
+    def group_by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]]:
+        """
+        A list of alert details to group by (when matchingMethod is Selected)
+        """
+        return pulumi.get(self, "group_by_alert_details")
+
+    @group_by_alert_details.setter
+    def group_by_alert_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]]):
+        pulumi.set(self, "group_by_alert_details", value)
+
+    @property
+    @pulumi.getter(name="groupByCustomDetails")
+    def group_by_custom_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+        """
+        return pulumi.get(self, "group_by_custom_details")
+
+    @group_by_custom_details.setter
+    def group_by_custom_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_by_custom_details", value)
+
+    @property
+    @pulumi.getter(name="groupByEntities")
+    def group_by_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]]:
+        """
+        A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+        """
+        return pulumi.get(self, "group_by_entities")
+
+    @group_by_entities.setter
+    def group_by_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]]):
+        pulumi.set(self, "group_by_entities", value)
+
+
+@pulumi.input_type
+class IncidentConfigurationArgs:
+    def __init__(__self__, *,
+                 create_incident: pulumi.Input[bool],
+                 grouping_configuration: Optional[pulumi.Input['GroupingConfigurationArgs']] = None):
+        """
+        Incident Configuration property bag.
+        :param pulumi.Input[bool] create_incident: Create incidents from alerts triggered by this analytics rule
+        :param pulumi.Input['GroupingConfigurationArgs'] grouping_configuration: Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+        pulumi.set(__self__, "create_incident", create_incident)
+        if grouping_configuration is not None:
+            pulumi.set(__self__, "grouping_configuration", grouping_configuration)
+
+    @property
+    @pulumi.getter(name="createIncident")
+    def create_incident(self) -> pulumi.Input[bool]:
+        """
+        Create incidents from alerts triggered by this analytics rule
+        """
+        return pulumi.get(self, "create_incident")
+
+    @create_incident.setter
+    def create_incident(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "create_incident", value)
+
+    @property
+    @pulumi.getter(name="groupingConfiguration")
+    def grouping_configuration(self) -> Optional[pulumi.Input['GroupingConfigurationArgs']]:
+        """
+        Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+        return pulumi.get(self, "grouping_configuration")
+
+    @grouping_configuration.setter
+    def grouping_configuration(self, value: Optional[pulumi.Input['GroupingConfigurationArgs']]):
+        pulumi.set(self, "grouping_configuration", value)
 
 
 @pulumi.input_type
@@ -761,12 +794,14 @@ class IncidentOwnerInfoArgs:
                  assigned_to: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
+                 owner_type: Optional[pulumi.Input[Union[str, 'OwnerType']]] = None,
                  user_principal_name: Optional[pulumi.Input[str]] = None):
         """
         Information on the user an incident is assigned to
         :param pulumi.Input[str] assigned_to: The name of the user the incident is assigned to.
         :param pulumi.Input[str] email: The email of the user the incident is assigned to.
         :param pulumi.Input[str] object_id: The object id of the user the incident is assigned to.
+        :param pulumi.Input[Union[str, 'OwnerType']] owner_type: The type of the owner the incident is assigned to.
         :param pulumi.Input[str] user_principal_name: The user principal name of the user the incident is assigned to.
         """
         if assigned_to is not None:
@@ -775,6 +810,8 @@ class IncidentOwnerInfoArgs:
             pulumi.set(__self__, "email", email)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
+        if owner_type is not None:
+            pulumi.set(__self__, "owner_type", owner_type)
         if user_principal_name is not None:
             pulumi.set(__self__, "user_principal_name", user_principal_name)
 
@@ -815,6 +852,18 @@ class IncidentOwnerInfoArgs:
         pulumi.set(self, "object_id", value)
 
     @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> Optional[pulumi.Input[Union[str, 'OwnerType']]]:
+        """
+        The type of the owner the incident is assigned to.
+        """
+        return pulumi.get(self, "owner_type")
+
+    @owner_type.setter
+    def owner_type(self, value: Optional[pulumi.Input[Union[str, 'OwnerType']]]):
+        pulumi.set(self, "owner_type", value)
+
+    @property
     @pulumi.getter(name="userPrincipalName")
     def user_principal_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -825,6 +874,125 @@ class IncidentOwnerInfoArgs:
     @user_principal_name.setter
     def user_principal_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_principal_name", value)
+
+
+@pulumi.input_type
+class IncidentPropertiesActionArgs:
+    def __init__(__self__, *,
+                 classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
+                 classification_comment: Optional[pulumi.Input[str]] = None,
+                 classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
+                 owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'IncidentStatus']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'IncidentClassification']] classification: The reason the incident was closed
+        :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
+        :param pulumi.Input[Union[str, 'IncidentClassificationReason']] classification_reason: The classification reason the incident was closed with
+        :param pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]] labels: List of labels to add to the incident
+        :param pulumi.Input['IncidentOwnerInfoArgs'] owner: Information on the user an incident is assigned to
+        :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
+        :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if classification_comment is not None:
+            pulumi.set(__self__, "classification_comment", classification_comment)
+        if classification_reason is not None:
+            pulumi.set(__self__, "classification_reason", classification_reason)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[pulumi.Input[Union[str, 'IncidentClassification']]]:
+        """
+        The reason the incident was closed
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: Optional[pulumi.Input[Union[str, 'IncidentClassification']]]):
+        pulumi.set(self, "classification", value)
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the reason the incident was closed
+        """
+        return pulumi.get(self, "classification_comment")
+
+    @classification_comment.setter
+    def classification_comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "classification_comment", value)
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]]:
+        """
+        The classification reason the incident was closed with
+        """
+        return pulumi.get(self, "classification_reason")
+
+    @classification_reason.setter
+    def classification_reason(self, value: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]]):
+        pulumi.set(self, "classification_reason", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]]:
+        """
+        List of labels to add to the incident
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input['IncidentOwnerInfoArgs']]:
+        """
+        Information on the user an incident is assigned to
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input['IncidentOwnerInfoArgs']]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[Union[str, 'IncidentSeverity']]]:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'IncidentStatus']]]:
+        """
+        The status of the incident
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'IncidentStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -865,332 +1033,6 @@ class MCASDataConnectorDataTypesArgs:
     @discovery_logs.setter
     def discovery_logs(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
         pulumi.set(self, "discovery_logs", value)
-
-
-@pulumi.input_type
-class MetadataAuthorArgs:
-    def __init__(__self__, *,
-                 email: Optional[pulumi.Input[str]] = None,
-                 link: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Publisher or creator of the content item.
-        :param pulumi.Input[str] email: Email of author contact
-        :param pulumi.Input[str] link: Link for author/vendor page
-        :param pulumi.Input[str] name: Name of the author. Company or person.
-        """
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if link is not None:
-            pulumi.set(__self__, "link", link)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email of author contact
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "email", value)
-
-    @property
-    @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[str]]:
-        """
-        Link for author/vendor page
-        """
-        return pulumi.get(self, "link")
-
-    @link.setter
-    def link(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "link", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the author. Company or person.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class MetadataCategoriesArgs:
-    def __init__(__self__, *,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        ies for the solution content item
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: domain for the solution content item
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] verticals: Industry verticals for the solution content item
-        """
-        if domains is not None:
-            pulumi.set(__self__, "domains", domains)
-        if verticals is not None:
-            pulumi.set(__self__, "verticals", verticals)
-
-    @property
-    @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        domain for the solution content item
-        """
-        return pulumi.get(self, "domains")
-
-    @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "domains", value)
-
-    @property
-    @pulumi.getter
-    def verticals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Industry verticals for the solution content item
-        """
-        return pulumi.get(self, "verticals")
-
-    @verticals.setter
-    def verticals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "verticals", value)
-
-
-@pulumi.input_type
-class MetadataDependenciesArgs:
-    def __init__(__self__, *,
-                 content_id: Optional[pulumi.Input[str]] = None,
-                 criteria: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
-        """
-        Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
-        :param pulumi.Input[str] content_id: Id of the content item we depend on
-        :param pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]] criteria: This is the list of dependencies we must fulfill, according to the AND/OR operator
-        :param pulumi.Input[Union[str, 'Kind']] kind: Type of the content item we depend on
-        :param pulumi.Input[str] name: Name of the content item
-        :param pulumi.Input[Union[str, 'Operator']] operator: Operator used for list of dependencies in criteria array.
-        :param pulumi.Input[str] version: Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-        """
-        if content_id is not None:
-            pulumi.set(__self__, "content_id", content_id)
-        if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="contentId")
-    def content_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of the content item we depend on
-        """
-        return pulumi.get(self, "content_id")
-
-    @content_id.setter
-    def content_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "content_id", value)
-
-    @property
-    @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]]:
-        """
-        This is the list of dependencies we must fulfill, according to the AND/OR operator
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]]):
-        pulumi.set(self, "criteria", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[str, 'Kind']]]:
-        """
-        Type of the content item we depend on
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[str, 'Kind']]]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the content item
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
-        """
-        Operator used for list of dependencies in criteria array.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class MetadataSourceArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[Union[str, 'SourceKind']],
-                 name: Optional[pulumi.Input[str]] = None,
-                 source_id: Optional[pulumi.Input[str]] = None):
-        """
-        The original source of the content item, where it comes from.
-        :param pulumi.Input[Union[str, 'SourceKind']] kind: Source type of the content
-        :param pulumi.Input[str] name: Name of the content source.  The repo name, solution name, LA workspace name etc.
-        :param pulumi.Input[str] source_id: ID of the content source.  The solution ID, workspace ID, etc
-        """
-        pulumi.set(__self__, "kind", kind)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[Union[str, 'SourceKind']]:
-        """
-        Source type of the content
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[Union[str, 'SourceKind']]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the content source.  The repo name, solution name, LA workspace name etc.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the content source.  The solution ID, workspace ID, etc
-        """
-        return pulumi.get(self, "source_id")
-
-    @source_id.setter
-    def source_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_id", value)
-
-
-@pulumi.input_type
-class MetadataSupportArgs:
-    def __init__(__self__, *,
-                 tier: pulumi.Input[Union[str, 'SupportTier']],
-                 email: Optional[pulumi.Input[str]] = None,
-                 link: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Support information for the content item.
-        :param pulumi.Input[Union[str, 'SupportTier']] tier: Type of support for content item
-        :param pulumi.Input[str] email: Email of support contact
-        :param pulumi.Input[str] link: Link for support help, like to support page to open a ticket etc.
-        :param pulumi.Input[str] name: Name of the support contact. Company or person.
-        """
-        pulumi.set(__self__, "tier", tier)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if link is not None:
-            pulumi.set(__self__, "link", link)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> pulumi.Input[Union[str, 'SupportTier']]:
-        """
-        Type of support for content item
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: pulumi.Input[Union[str, 'SupportTier']]):
-        pulumi.set(self, "tier", value)
-
-    @property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email of support contact
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "email", value)
-
-    @property
-    @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[str]]:
-        """
-        Link for support help, like to support page to open a ticket etc.
-        """
-        return pulumi.get(self, "link")
-
-    @link.setter
-    def link(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "link", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the support contact. Company or person.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -1322,131 +1164,78 @@ class OfficeDataConnectorDataTypesArgs:
 
 
 @pulumi.input_type
-class RepositoryArgs:
+class PlaybookActionPropertiesArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[str]] = None,
-                 deployment_logs_url: Optional[pulumi.Input[str]] = None,
-                 display_url: Optional[pulumi.Input[str]] = None,
-                 path_mapping: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]] = None,
-                 url: Optional[pulumi.Input[str]] = None):
+                 logic_app_resource_id: pulumi.Input[str],
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        metadata of a repository.
-        :param pulumi.Input[str] branch: Branch name of repository.
-        :param pulumi.Input[str] deployment_logs_url: Url to access repository action logs.
-        :param pulumi.Input[str] display_url: Display url of repository.
-        :param pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]] path_mapping: Dictionary of source control content type and path mapping.
-        :param pulumi.Input[str] url: Url of repository.
+        :param pulumi.Input[str] logic_app_resource_id: The resource id of the playbook resource
+        :param pulumi.Input[str] tenant_id: The tenant id of the playbook resource
         """
-        if branch is not None:
-            pulumi.set(__self__, "branch", branch)
-        if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
-        if display_url is not None:
-            pulumi.set(__self__, "display_url", display_url)
-        if path_mapping is not None:
-            pulumi.set(__self__, "path_mapping", path_mapping)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
-    @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> pulumi.Input[str]:
         """
-        Branch name of repository.
+        The resource id of the playbook resource
         """
-        return pulumi.get(self, "branch")
+        return pulumi.get(self, "logic_app_resource_id")
 
-    @branch.setter
-    def branch(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "branch", value)
-
-    @property
-    @pulumi.getter(name="deploymentLogsUrl")
-    def deployment_logs_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Url to access repository action logs.
-        """
-        return pulumi.get(self, "deployment_logs_url")
-
-    @deployment_logs_url.setter
-    def deployment_logs_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "deployment_logs_url", value)
+    @logic_app_resource_id.setter
+    def logic_app_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "logic_app_resource_id", value)
 
     @property
-    @pulumi.getter(name="displayUrl")
-    def display_url(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Display url of repository.
+        The tenant id of the playbook resource
         """
-        return pulumi.get(self, "display_url")
+        return pulumi.get(self, "tenant_id")
 
-    @display_url.setter
-    def display_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_url", value)
-
-    @property
-    @pulumi.getter(name="pathMapping")
-    def path_mapping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]]:
-        """
-        Dictionary of source control content type and path mapping.
-        """
-        return pulumi.get(self, "path_mapping")
-
-    @path_mapping.setter
-    def path_mapping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]]):
-        pulumi.set(self, "path_mapping", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Url of repository.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
-class SecurityMLAnalyticsSettingsDataSourceArgs:
+class PropertyConditionPropertiesArgs:
     def __init__(__self__, *,
-                 connector_id: Optional[pulumi.Input[str]] = None,
-                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 condition_type: pulumi.Input[str],
+                 condition_properties: Optional[pulumi.Input['AutomationRulePropertyValuesConditionArgs']] = None):
         """
-        security ml analytics settings data sources
-        :param pulumi.Input[str] connector_id: The connector id that provides the following data types
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_types: The data types used by the security ml analytics settings
+        Describes an automation rule condition that evaluates a property's value
+        :param pulumi.Input[str] condition_type: 
+               Expected value is 'Property'.
         """
-        if connector_id is not None:
-            pulumi.set(__self__, "connector_id", connector_id)
-        if data_types is not None:
-            pulumi.set(__self__, "data_types", data_types)
+        pulumi.set(__self__, "condition_type", 'Property')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
 
     @property
-    @pulumi.getter(name="connectorId")
-    def connector_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> pulumi.Input[str]:
         """
-        The connector id that provides the following data types
-        """
-        return pulumi.get(self, "connector_id")
 
-    @connector_id.setter
-    def connector_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connector_id", value)
+        Expected value is 'Property'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @condition_type.setter
+    def condition_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_type", value)
 
     @property
-    @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The data types used by the security ml analytics settings
-        """
-        return pulumi.get(self, "data_types")
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]:
+        return pulumi.get(self, "condition_properties")
 
-    @data_types.setter
-    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "data_types", value)
+    @condition_properties.setter
+    def condition_properties(self, value: Optional[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]):
+        pulumi.set(self, "condition_properties", value)
 
 
 @pulumi.input_type
@@ -1764,23 +1553,24 @@ class ThreatIntelligenceParsedPatternArgs:
 @pulumi.input_type
 class UserInfoArgs:
     def __init__(__self__, *,
-                 object_id: pulumi.Input[str]):
+                 object_id: Optional[pulumi.Input[str]] = None):
         """
         User information that made some action
         :param pulumi.Input[str] object_id: The object id of the user.
         """
-        pulumi.set(__self__, "object_id", object_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
 
     @property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> pulumi.Input[str]:
+    def object_id(self) -> Optional[pulumi.Input[str]]:
         """
         The object id of the user.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: pulumi.Input[str]):
+    def object_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_id", value)
 
 

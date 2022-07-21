@@ -17,13 +17,13 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class AppResourcePropertiesResponse
     {
         /// <summary>
-        /// Name of the active deployment of the App
+        /// Collection of addons
         /// </summary>
-        public readonly string? ActiveDeploymentName;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? AddonConfigs;
         /// <summary>
-        /// Date time when the resource is created
+        /// Indicate if end to end TLS is enabled.
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly bool? EnableEndToEndTLS;
         /// <summary>
         /// Fully qualified dns Name.
         /// </summary>
@@ -32,6 +32,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Indicate if only https is allowed.
         /// </summary>
         public readonly bool? HttpsOnly;
+        /// <summary>
+        /// Collection of loaded certificates
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LoadedCertificateResponse> LoadedCertificates;
         /// <summary>
         /// Persistent disk settings
         /// </summary>
@@ -55,13 +59,15 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private AppResourcePropertiesResponse(
-            string? activeDeploymentName,
+            ImmutableDictionary<string, ImmutableDictionary<string, object>>? addonConfigs,
 
-            string createdTime,
+            bool? enableEndToEndTLS,
 
             string? fqdn,
 
             bool? httpsOnly,
+
+            ImmutableArray<Outputs.LoadedCertificateResponse> loadedCertificates,
 
             Outputs.PersistentDiskResponse? persistentDisk,
 
@@ -73,10 +79,11 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string url)
         {
-            ActiveDeploymentName = activeDeploymentName;
-            CreatedTime = createdTime;
+            AddonConfigs = addonConfigs;
+            EnableEndToEndTLS = enableEndToEndTLS;
             Fqdn = fqdn;
             HttpsOnly = httpsOnly;
+            LoadedCertificates = loadedCertificates;
             PersistentDisk = persistentDisk;
             ProvisioningState = provisioningState;
             Public = @public;

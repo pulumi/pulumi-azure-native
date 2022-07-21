@@ -29,6 +29,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public BatchRetrySettingsArgs()
         {
+            MaxRetries = 3;
+            Timeout = "PT30S";
         }
     }
 }

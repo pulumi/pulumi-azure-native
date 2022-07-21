@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing a cluster principal assignment.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupClusterPrincipalAssignment(ctx *pulumi.Context, args *LookupClusterPrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupClusterPrincipalAssignmentResult, error) {
 	var rv LookupClusterPrincipalAssignmentResult
 	err := ctx.Invoke("azure-native:kusto:getClusterPrincipalAssignment", args, &rv, opts...)
@@ -32,6 +32,8 @@ type LookupClusterPrincipalAssignmentArgs struct {
 
 // Class representing a cluster principal assignment.
 type LookupClusterPrincipalAssignmentResult struct {
+	// The service principal object id in AAD (Azure active directory)
+	AadObjectId string `pulumi:"aadObjectId"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
@@ -93,6 +95,11 @@ func (o LookupClusterPrincipalAssignmentResultOutput) ToLookupClusterPrincipalAs
 
 func (o LookupClusterPrincipalAssignmentResultOutput) ToLookupClusterPrincipalAssignmentResultOutputWithContext(ctx context.Context) LookupClusterPrincipalAssignmentResultOutput {
 	return o
+}
+
+// The service principal object id in AAD (Azure active directory)
+func (o LookupClusterPrincipalAssignmentResultOutput) AadObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.AadObjectId }).(pulumi.StringOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

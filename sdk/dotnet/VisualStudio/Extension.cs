@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VisualStudio
 {
     /// <summary>
     /// The response to an extension resource GET request.
-    /// API Version: 2014-04-01-preview.
+    /// API Version: 2017-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:visualstudio:Extension")]
     public partial class Extension : Pulumi.CustomResource

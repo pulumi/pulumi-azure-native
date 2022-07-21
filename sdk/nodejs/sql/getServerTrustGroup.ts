@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A server trust group.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustGroupResult> {
     if (!opts) {

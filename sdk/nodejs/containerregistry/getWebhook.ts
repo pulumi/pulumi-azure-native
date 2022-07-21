@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * An object that represents a webhook for a container registry.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
     if (!opts) {
@@ -68,6 +69,10 @@ export interface GetWebhookResult {
      * The status of the webhook at the time the operation was called.
      */
     readonly status?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.SystemDataResponse;
     /**
      * The tags of the resource.
      */

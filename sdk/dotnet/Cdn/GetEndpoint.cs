@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:cdn:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:cdn:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.Cdn
         /// List of content types on which compression applies. The value should be a valid MIME type.
         /// </summary>
         public readonly ImmutableArray<string> ContentTypesToCompress;
+        /// <summary>
+        /// The custom domains under the endpoint.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CustomDomainResponse> CustomDomains;
         /// <summary>
         /// A reference to the origin group.
         /// </summary>
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.Cdn
         private GetEndpointResult(
             ImmutableArray<string> contentTypesToCompress,
 
+            ImmutableArray<Outputs.CustomDomainResponse> customDomains,
+
             Outputs.ResourceReferenceResponse? defaultOriginGroup,
 
             Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy? deliveryPolicy,
@@ -235,6 +241,7 @@ namespace Pulumi.AzureNative.Cdn
             Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink? webApplicationFirewallPolicyLink)
         {
             ContentTypesToCompress = contentTypesToCompress;
+            CustomDomains = customDomains;
             DefaultOriginGroup = defaultOriginGroup;
             DeliveryPolicy = deliveryPolicy;
             GeoFilters = geoFilters;

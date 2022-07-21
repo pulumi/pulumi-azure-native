@@ -21,7 +21,7 @@ class GetDataPoolResult:
     """
     ADP Data Pool
     """
-    def __init__(__self__, data_pool_id=None, id=None, locations=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, data_pool_id=None, id=None, locations=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if data_pool_id and not isinstance(data_pool_id, str):
             raise TypeError("Expected argument 'data_pool_id' to be a str")
         pulumi.set(__self__, "data_pool_id", data_pool_id)
@@ -40,6 +40,9 @@ class GetDataPoolResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -94,6 +97,14 @@ class GetDataPoolResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -113,6 +124,7 @@ class AwaitableGetDataPoolResult(GetDataPoolResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -122,7 +134,7 @@ def get_data_pool(account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataPoolResult:
     """
     ADP Data Pool
-    API Version: 2021-02-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str account_name: The name of the ADP account
@@ -146,6 +158,7 @@ def get_data_pool(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 
@@ -156,7 +169,7 @@ def get_data_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataPoolResult]:
     """
     ADP Data Pool
-    API Version: 2021-02-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str account_name: The name of the ADP account

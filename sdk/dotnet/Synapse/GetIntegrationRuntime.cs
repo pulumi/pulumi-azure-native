@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Integration runtime resource type.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Integration runtime resource type.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());

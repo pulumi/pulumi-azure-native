@@ -12,7 +12,7 @@ import (
 )
 
 // Cognitive Services account deployment.
-// API Version: 2021-10-01.
+// API Version: 2022-03-01.
 type Deployment struct {
 	pulumi.CustomResourceState
 

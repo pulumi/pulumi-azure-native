@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Service resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:mobilenetwork:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:mobilenetwork:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -134,6 +134,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly Outputs.QosPolicyResponse? ServiceQosPolicy;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             Outputs.QosPolicyResponse? serviceQosPolicy,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             ProvisioningState = provisioningState;
             ServicePrecedence = servicePrecedence;
             ServiceQosPolicy = serviceQosPolicy;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

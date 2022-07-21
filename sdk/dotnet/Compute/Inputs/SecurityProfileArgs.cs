@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<bool>? EncryptionAtHost { get; set; }
 
         /// <summary>
-        /// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+        /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set.
         /// </summary>
         [Input("securityType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.SecurityTypes>? SecurityType { get; set; }

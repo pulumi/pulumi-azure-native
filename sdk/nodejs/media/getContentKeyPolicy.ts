@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Content Key Policy resource.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
     if (!opts) {

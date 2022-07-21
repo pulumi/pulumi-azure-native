@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * maintenance configuration.
- * API Version: 2021-03-01.
+ * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+ * API Version: 2022-04-01.
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetMaintenanceConfigurationArgs {
      */
     configName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -38,7 +38,7 @@ export interface GetMaintenanceConfigurationArgs {
 }
 
 /**
- * maintenance configuration.
+ * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
  */
 export interface GetMaintenanceConfigurationResult {
     /**
@@ -54,11 +54,11 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly notAllowedTime?: outputs.containerservice.TimeSpanResponse[];
     /**
-     * The system meta data relating to this resource.
+     * The system metadata relating to this resource.
      */
     readonly systemData: outputs.containerservice.SystemDataResponse;
     /**
-     * Weekday time slots allowed to upgrade.
+     * If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */
     readonly timeInWeek?: outputs.containerservice.TimeInWeekResponse[];
     /**
@@ -77,7 +77,7 @@ export interface GetMaintenanceConfigurationOutputArgs {
      */
     configName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

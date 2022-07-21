@@ -11,16 +11,22 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a contact resource for a spacecraft resource.
-    /// API Version: 2021-04-04-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Contact")]
     public partial class Contact : Pulumi.CustomResource
     {
         /// <summary>
+        /// The configuration associated with the allocated antenna.
+        /// </summary>
+        [Output("antennaConfiguration")]
+        public Output<Outputs.ContactsPropertiesResponseAntennaConfiguration> AntennaConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The reference to the contact profile resource.
         /// </summary>
         [Output("contactProfile")]
-        public Output<Outputs.ResourceReferenceResponse> ContactProfile { get; private set; } = null!;
+        public Output<Outputs.ContactsPropertiesResponseContactProfile> ContactProfile { get; private set; } = null!;
 
         /// <summary>
         /// Azimuth of the antenna at the end of the contact in decimal degrees.
@@ -65,25 +71,25 @@ namespace Pulumi.AzureNative.Orbital
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Reservation end time of a contact.
+        /// Reservation end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Output("reservationEndTime")]
         public Output<string> ReservationEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// Reservation start time of a contact.
+        /// Reservation start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Output("reservationStartTime")]
         public Output<string> ReservationStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// Receive end time of a contact.
+        /// Receive end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Output("rxEndTime")]
         public Output<string> RxEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// Receive start time of a contact.
+        /// Receive start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Output("rxStartTime")]
         public Output<string> RxStartTime { get; private set; } = null!;
@@ -113,13 +119,13 @@ namespace Pulumi.AzureNative.Orbital
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Transmit end time of a contact.
+        /// Transmit end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Output("txEndTime")]
         public Output<string> TxEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// Transmit start time of a contact.
+        /// Transmit start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Output("txStartTime")]
         public Output<string> TxStartTime { get; private set; } = null!;
@@ -181,7 +187,7 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class ContactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contact Name
+        /// Contact name.
         /// </summary>
         [Input("contactName")]
         public Input<string>? ContactName { get; set; }
@@ -190,7 +196,7 @@ namespace Pulumi.AzureNative.Orbital
         /// The reference to the contact profile resource.
         /// </summary>
         [Input("contactProfile", required: true)]
-        public Input<Inputs.ResourceReferenceArgs> ContactProfile { get; set; } = null!;
+        public Input<Inputs.ContactsPropertiesContactProfileArgs> ContactProfile { get; set; } = null!;
 
         /// <summary>
         /// Azure Ground Station name.
@@ -199,13 +205,13 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string> GroundStationName { get; set; } = null!;
 
         /// <summary>
-        /// Reservation end time of a contact.
+        /// Reservation end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("reservationEndTime", required: true)]
         public Input<string> ReservationEndTime { get; set; } = null!;
 
         /// <summary>
-        /// Reservation start time of a contact.
+        /// Reservation start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("reservationStartTime", required: true)]
         public Input<string> ReservationStartTime { get; set; } = null!;
@@ -217,7 +223,7 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;

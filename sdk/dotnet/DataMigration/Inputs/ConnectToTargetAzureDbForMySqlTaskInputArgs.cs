@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class ConnectToTargetAzureDbForMySqlTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Flag for whether or not the migration is offline
+        /// </summary>
+        [Input("isOfflineMigration")]
+        public Input<bool>? IsOfflineMigration { get; set; }
+
+        /// <summary>
         /// Connection information for source MySQL server
         /// </summary>
         [Input("sourceConnectionInfo", required: true)]
@@ -29,6 +35,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
 
         public ConnectToTargetAzureDbForMySqlTaskInputArgs()
         {
+            IsOfflineMigration = false;
         }
     }
 }

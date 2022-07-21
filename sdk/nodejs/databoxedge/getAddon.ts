@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role Addon
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 /** @deprecated Please use one of the variants: ArcAddon, IoTAddon. */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
@@ -61,7 +61,7 @@ export interface GetAddonResult {
      */
     readonly name: string;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

@@ -54,15 +54,6 @@ const (
 	MsaAppTypeMultiTenant     = MsaAppType("MultiTenant")
 )
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-type PrivateEndpointServiceConnectionStatus string
-
-const (
-	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
-	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
-	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
-)
-
 // Whether the bot is in an isolated network
 type PublicNetworkAccess string
 

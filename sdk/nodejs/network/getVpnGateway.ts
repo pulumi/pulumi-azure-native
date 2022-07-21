@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnGateway Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     if (!opts) {
@@ -44,6 +44,10 @@ export interface GetVpnGatewayResult {
      * List of all vpn connections to the gateway.
      */
     readonly connections?: outputs.network.VpnConnectionResponse[];
+    /**
+     * Enable BGP routes translation for NAT on this VpnGateway.
+     */
+    readonly enableBgpRouteTranslationForNat?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

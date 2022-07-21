@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Content type contract details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export class ContentType extends pulumi.CustomResource {
     /**
@@ -40,7 +40,7 @@ export class ContentType extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -48,7 +48,7 @@ export class ContentType extends pulumi.CustomResource {
      */
     public /*out*/ readonly schema!: pulumi.Output<any | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

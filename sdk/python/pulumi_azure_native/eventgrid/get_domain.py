@@ -21,13 +21,28 @@ class GetDomainResult:
     """
     EventGrid Domain.
     """
-    def __init__(__self__, endpoint=None, id=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_create_topic_with_first_subscription=None, auto_delete_topic_with_last_subscription=None, data_residency_boundary=None, disable_local_auth=None, endpoint=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+        if auto_create_topic_with_first_subscription and not isinstance(auto_create_topic_with_first_subscription, bool):
+            raise TypeError("Expected argument 'auto_create_topic_with_first_subscription' to be a bool")
+        pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
+        if auto_delete_topic_with_last_subscription and not isinstance(auto_delete_topic_with_last_subscription, bool):
+            raise TypeError("Expected argument 'auto_delete_topic_with_last_subscription' to be a bool")
+        pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
+        if data_residency_boundary and not isinstance(data_residency_boundary, str):
+            raise TypeError("Expected argument 'data_residency_boundary' to be a str")
+        pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
             raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
         pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
@@ -66,10 +81,54 @@ class GetDomainResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
+    def auto_create_topic_with_first_subscription(self) -> Optional[bool]:
+        """
+        This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+        created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+        by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+        flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+        domain topic on demand if needed.
+        """
+        return pulumi.get(self, "auto_create_topic_with_first_subscription")
+
+    @property
+    @pulumi.getter(name="autoDeleteTopicWithLastSubscription")
+    def auto_delete_topic_with_last_subscription(self) -> Optional[bool]:
+        """
+        This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+        of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+        (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+        control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+        resources by the user.
+        """
+        return pulumi.get(self, "auto_delete_topic_with_last_subscription")
+
+    @property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> Optional[str]:
+        """
+        Data Residency Boundary of the resource.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        Endpoint for the domain.
+        Endpoint for the Event Grid Domain Resource which is used for publishing the events.
         """
         return pulumi.get(self, "endpoint")
 
@@ -80,6 +139,14 @@ class GetDomainResult:
         Fully qualified identifier of the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityInfoResponse']:
+        """
+        Identity information for the Event Grid Domain resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -93,7 +160,7 @@ class GetDomainResult:
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional[str]:
         """
-        This determines the format that Event Grid should expect for incoming events published to the domain.
+        This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         """
         return pulumi.get(self, "input_schema")
 
@@ -117,7 +184,7 @@ class GetDomainResult:
     @pulumi.getter(name="metricResourceId")
     def metric_resource_id(self) -> str:
         """
-        Metric resource id for the domain.
+        Metric resource id for the Event Grid Domain Resource.
         """
         return pulumi.get(self, "metric_resource_id")
 
@@ -141,7 +208,7 @@ class GetDomainResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the domain.
+        Provisioning state of the Event Grid Domain Resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -149,7 +216,7 @@ class GetDomainResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled. 
+        This determines if traffic is allowed over public network. By default it is enabled.
         You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         """
         return pulumi.get(self, "public_network_access")
@@ -158,7 +225,7 @@ class GetDomainResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Domain resource.
+        The system metadata relating to the Event Grid Domain resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -185,8 +252,13 @@ class AwaitableGetDomainResult(GetDomainResult):
         if False:
             yield self
         return GetDomainResult(
+            auto_create_topic_with_first_subscription=self.auto_create_topic_with_first_subscription,
+            auto_delete_topic_with_last_subscription=self.auto_delete_topic_with_last_subscription,
+            data_residency_boundary=self.data_residency_boundary,
+            disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
             id=self.id,
+            identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
             input_schema=self.input_schema,
             input_schema_mapping=self.input_schema_mapping,
@@ -206,7 +278,7 @@ def get_domain(domain_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     EventGrid Domain.
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain.
@@ -222,8 +294,13 @@ def get_domain(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
+        auto_create_topic_with_first_subscription=__ret__.auto_create_topic_with_first_subscription,
+        auto_delete_topic_with_last_subscription=__ret__.auto_delete_topic_with_last_subscription,
+        data_residency_boundary=__ret__.data_residency_boundary,
+        disable_local_auth=__ret__.disable_local_auth,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
+        identity=__ret__.identity,
         inbound_ip_rules=__ret__.inbound_ip_rules,
         input_schema=__ret__.input_schema,
         input_schema_mapping=__ret__.input_schema_mapping,
@@ -244,7 +321,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     EventGrid Domain.
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain.

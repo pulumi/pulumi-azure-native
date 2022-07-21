@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The description of the IoT hub.
-        /// API Version: 2020-08-31.
+        /// API Version: 2021-07-02.
         /// </summary>
         public static Task<GetIotHubResourceResult> InvokeAsync(GetIotHubResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-native:devices:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the IoT hub.
-        /// API Version: 2020-08-31.
+        /// API Version: 2021-07-02.
         /// </summary>
         public static Output<GetIotHubResourceResult> Invoke(GetIotHubResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIotHubResourceResult>("azure-native:devices:getIotHubResource", args ?? new GetIotHubResourceInvokeArgs(), options.WithDefaults());
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identities for the IotHub.
+        /// </summary>
+        public readonly Outputs.ArmIdentityResponse? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,10 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public readonly Outputs.IotHubSkuInfoResponse Sku;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -108,6 +116,8 @@ namespace Pulumi.AzureNative.Devices
 
             string id,
 
+            Outputs.ArmIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -116,16 +126,20 @@ namespace Pulumi.AzureNative.Devices
 
             Outputs.IotHubSkuInfoResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

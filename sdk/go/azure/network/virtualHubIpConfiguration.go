@@ -12,7 +12,7 @@ import (
 )
 
 // IpConfigurations.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualHubIpConfiguration struct {
 	pulumi.CustomResourceState
 

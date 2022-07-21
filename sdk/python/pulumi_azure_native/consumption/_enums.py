@@ -69,6 +69,7 @@ class ThresholdType(str, Enum):
     The type of threshold
     """
     ACTUAL = "Actual"
+    FORECASTED = "Forecasted"
 
 
 class TimeGrainType(str, Enum):

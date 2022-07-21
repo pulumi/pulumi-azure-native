@@ -11,7 +11,7 @@ import (
 )
 
 // A list of streaming jobs. Populated by a List operation.
-// API Version: 2020-03-01-preview.
+// API Version: 2020-03-01.
 func ListClusterStreamingJobs(ctx *pulumi.Context, args *ListClusterStreamingJobsArgs, opts ...pulumi.InvokeOption) (*ListClusterStreamingJobsResult, error) {
 	var rv ListClusterStreamingJobsResult
 	err := ctx.Invoke("azure-native:streamanalytics:listClusterStreamingJobs", args, &rv, opts...)

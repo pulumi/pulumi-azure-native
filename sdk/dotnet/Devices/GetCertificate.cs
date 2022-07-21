@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The X509 Certificate.
-        /// API Version: 2020-08-31.
+        /// API Version: 2021-07-02.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:devices:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// The X509 Certificate.
-        /// API Version: 2020-08-31.
+        /// API Version: 2021-07-02.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:devices:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

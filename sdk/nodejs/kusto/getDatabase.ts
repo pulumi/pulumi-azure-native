@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto database.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 /** @deprecated Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {

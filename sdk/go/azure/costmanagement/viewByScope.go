@@ -12,7 +12,7 @@ import (
 )
 
 // States and configurations of Cost Analysis.
-// API Version: 2019-11-01.
+// API Version: 2021-10-01.
 type ViewByScope struct {
 	pulumi.CustomResourceState
 
@@ -22,18 +22,18 @@ type ViewByScope struct {
 	Chart pulumi.StringPtrOutput `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Selected currency.
+	// Currency of the current view.
 	Currency pulumi.StringOutput `pulumi:"currency"`
 	// Has definition for data in this report config.
 	DataSet ReportConfigDatasetResponsePtrOutput `pulumi:"dataSet"`
-	// Selected date range for viewing cost in.
+	// Date range of the current view.
 	DateRange pulumi.StringOutput `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Include monetary commitment
-	IncludeMonetaryCommitment pulumi.BoolOutput `pulumi:"includeMonetaryCommitment"`
+	// If true, report includes monetary commitment.
+	IncludeMonetaryCommitment pulumi.BoolPtrOutput `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis KpiPropertiesResponseArrayOutput `pulumi:"kpis"`
 	// Metric to use when displaying costs.
@@ -127,6 +127,8 @@ type viewByScopeArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// If true, report includes monetary commitment.
+	IncludeMonetaryCommitment *bool `pulumi:"includeMonetaryCommitment"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis []KpiProperties `pulumi:"kpis"`
 	// Metric to use when displaying costs.
@@ -157,6 +159,8 @@ type ViewByScopeArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// If true, report includes monetary commitment.
+	IncludeMonetaryCommitment pulumi.BoolPtrInput
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis KpiPropertiesArrayInput
 	// Metric to use when displaying costs.
@@ -227,7 +231,7 @@ func (o ViewByScopeOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Selected currency.
+// Currency of the current view.
 func (o ViewByScopeOutput) Currency() pulumi.StringOutput {
 	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.Currency }).(pulumi.StringOutput)
 }
@@ -237,7 +241,7 @@ func (o ViewByScopeOutput) DataSet() ReportConfigDatasetResponsePtrOutput {
 	return o.ApplyT(func(v *ViewByScope) ReportConfigDatasetResponsePtrOutput { return v.DataSet }).(ReportConfigDatasetResponsePtrOutput)
 }
 
-// Selected date range for viewing cost in.
+// Date range of the current view.
 func (o ViewByScopeOutput) DateRange() pulumi.StringOutput {
 	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.DateRange }).(pulumi.StringOutput)
 }
@@ -252,9 +256,9 @@ func (o ViewByScopeOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
-// Include monetary commitment
-func (o ViewByScopeOutput) IncludeMonetaryCommitment() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ViewByScope) pulumi.BoolOutput { return v.IncludeMonetaryCommitment }).(pulumi.BoolOutput)
+// If true, report includes monetary commitment.
+func (o ViewByScopeOutput) IncludeMonetaryCommitment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.BoolPtrOutput { return v.IncludeMonetaryCommitment }).(pulumi.BoolPtrOutput)
 }
 
 // List of KPIs to show in Cost Analysis UI.

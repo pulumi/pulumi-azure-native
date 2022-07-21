@@ -12,15 +12,19 @@ import (
 )
 
 // Description of a namespace authorization rule.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rights associated with the rule.
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -158,7 +162,12 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 	return o
 }
 
-// Resource name
+// The geo-location where the resource lives
+func (o NamespaceAuthorizationRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o NamespaceAuthorizationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -168,7 +177,12 @@ func (o NamespaceAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// Resource type
+// The system meta data relating to this resource.
+func (o NamespaceAuthorizationRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o NamespaceAuthorizationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

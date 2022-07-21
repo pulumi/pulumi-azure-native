@@ -11,7 +11,7 @@ import (
 )
 
 // Describes a hybrid machine.
-// API Version: 2020-08-02.
+// API Version: 2022-03-10.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
 	err := ctx.Invoke("azure-native:hybridcompute:getMachine", args, &rv, opts...)
@@ -25,62 +25,29 @@ type LookupMachineArgs struct {
 	// The expand expression to apply on the operation.
 	Expand *string `pulumi:"expand"`
 	// The name of the hybrid machine.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	MachineName string `pulumi:"machineName"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Describes a hybrid machine.
 type LookupMachineResult struct {
-	// Specifies the AD fully qualified display name.
-	AdFqdn string `pulumi:"adFqdn"`
-	// The hybrid machine agent full version.
-	AgentVersion string `pulumi:"agentVersion"`
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey *string `pulumi:"clientPublicKey"`
-	// Specifies the hybrid machine display name.
-	DisplayName string `pulumi:"displayName"`
-	// Specifies the DNS fully qualified display name.
-	DnsFqdn string `pulumi:"dnsFqdn"`
-	// Specifies the Windows domain name.
-	DomainName string `pulumi:"domainName"`
-	// Details about the error state.
-	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
-	// Machine Extensions information
-	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id       string                   `pulumi:"id"`
-	Identity *MachineResponseIdentity `pulumi:"identity"`
-	// The time of the last status change.
-	LastStatusChange string `pulumi:"lastStatusChange"`
+	Id string `pulumi:"id"`
+	// Identity for the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData *LocationDataResponse `pulumi:"locationData"`
-	// Specifies the hybrid machine FQDN.
-	MachineFqdn string `pulumi:"machineFqdn"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The Operating System running on the hybrid machine.
-	OsName string `pulumi:"osName"`
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile *MachinePropertiesResponseOsProfile `pulumi:"osProfile"`
-	// Specifies the Operating System product SKU.
-	OsSku string `pulumi:"osSku"`
-	// The version of Operating System running on the hybrid machine.
-	OsVersion string `pulumi:"osVersion"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The status of the hybrid machine agent.
-	Status string `pulumi:"status"`
+	// Hybrid Compute Machine properties
+	Properties MachinePropertiesResponse `pulumi:"properties"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
-	// Specifies the hybrid machine unique ID.
-	VmId *string `pulumi:"vmId"`
-	// Specifies the Arc Machine's unique SMBIOS ID
-	VmUuid string `pulumi:"vmUuid"`
 }
 
 func LookupMachineOutput(ctx *pulumi.Context, args LookupMachineOutputArgs, opts ...pulumi.InvokeOption) LookupMachineResultOutput {
@@ -100,8 +67,8 @@ type LookupMachineOutputArgs struct {
 	// The expand expression to apply on the operation.
 	Expand pulumi.StringPtrInput `pulumi:"expand"`
 	// The name of the hybrid machine.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group.
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -124,58 +91,14 @@ func (o LookupMachineResultOutput) ToLookupMachineResultOutputWithContext(ctx co
 	return o
 }
 
-// Specifies the AD fully qualified display name.
-func (o LookupMachineResultOutput) AdFqdn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.AdFqdn }).(pulumi.StringOutput)
-}
-
-// The hybrid machine agent full version.
-func (o LookupMachineResultOutput) AgentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.AgentVersion }).(pulumi.StringOutput)
-}
-
-// Public Key that the client provides to be used during initial resource onboarding
-func (o LookupMachineResultOutput) ClientPublicKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMachineResult) *string { return v.ClientPublicKey }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the hybrid machine display name.
-func (o LookupMachineResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-// Specifies the DNS fully qualified display name.
-func (o LookupMachineResultOutput) DnsFqdn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.DnsFqdn }).(pulumi.StringOutput)
-}
-
-// Specifies the Windows domain name.
-func (o LookupMachineResultOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.DomainName }).(pulumi.StringOutput)
-}
-
-// Details about the error state.
-func (o LookupMachineResultOutput) ErrorDetails() ErrorDetailResponseArrayOutput {
-	return o.ApplyT(func(v LookupMachineResult) []ErrorDetailResponse { return v.ErrorDetails }).(ErrorDetailResponseArrayOutput)
-}
-
-// Machine Extensions information
-func (o LookupMachineResultOutput) Extensions() MachineExtensionInstanceViewResponseArrayOutput {
-	return o.ApplyT(func(v LookupMachineResult) []MachineExtensionInstanceViewResponse { return v.Extensions }).(MachineExtensionInstanceViewResponseArrayOutput)
-}
-
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupMachineResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMachineResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupMachineResultOutput) Identity() MachineResponseIdentityPtrOutput {
-	return o.ApplyT(func(v LookupMachineResult) *MachineResponseIdentity { return v.Identity }).(MachineResponseIdentityPtrOutput)
-}
-
-// The time of the last status change.
-func (o LookupMachineResultOutput) LastStatusChange() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.LastStatusChange }).(pulumi.StringOutput)
+// Identity for the resource.
+func (o LookupMachineResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupMachineResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives
@@ -183,49 +106,19 @@ func (o LookupMachineResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMachineResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Metadata pertaining to the geographic location of the resource.
-func (o LookupMachineResultOutput) LocationData() LocationDataResponsePtrOutput {
-	return o.ApplyT(func(v LookupMachineResult) *LocationDataResponse { return v.LocationData }).(LocationDataResponsePtrOutput)
-}
-
-// Specifies the hybrid machine FQDN.
-func (o LookupMachineResultOutput) MachineFqdn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.MachineFqdn }).(pulumi.StringOutput)
-}
-
 // The name of the resource
 func (o LookupMachineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMachineResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Operating System running on the hybrid machine.
-func (o LookupMachineResultOutput) OsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.OsName }).(pulumi.StringOutput)
+// Hybrid Compute Machine properties
+func (o LookupMachineResultOutput) Properties() MachinePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupMachineResult) MachinePropertiesResponse { return v.Properties }).(MachinePropertiesResponseOutput)
 }
 
-// Specifies the operating system settings for the hybrid machine.
-func (o LookupMachineResultOutput) OsProfile() MachinePropertiesResponseOsProfilePtrOutput {
-	return o.ApplyT(func(v LookupMachineResult) *MachinePropertiesResponseOsProfile { return v.OsProfile }).(MachinePropertiesResponseOsProfilePtrOutput)
-}
-
-// Specifies the Operating System product SKU.
-func (o LookupMachineResultOutput) OsSku() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.OsSku }).(pulumi.StringOutput)
-}
-
-// The version of Operating System running on the hybrid machine.
-func (o LookupMachineResultOutput) OsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.OsVersion }).(pulumi.StringOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o LookupMachineResultOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The status of the hybrid machine agent.
-func (o LookupMachineResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.Status }).(pulumi.StringOutput)
+// The system meta data relating to this resource.
+func (o LookupMachineResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMachineResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.
@@ -236,16 +129,6 @@ func (o LookupMachineResultOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupMachineResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMachineResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies the hybrid machine unique ID.
-func (o LookupMachineResultOutput) VmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMachineResult) *string { return v.VmId }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Arc Machine's unique SMBIOS ID
-func (o LookupMachineResultOutput) VmUuid() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupMachineResult) string { return v.VmUuid }).(pulumi.StringOutput)
 }
 
 func init() {

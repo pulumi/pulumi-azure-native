@@ -21,7 +21,10 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, blob_nfs=None, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, system_data=None, target_type=None, type=None, unknown=None):
+    def __init__(__self__, allocation_percentage=None, blob_nfs=None, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, state=None, system_data=None, target_type=None, type=None, unknown=None):
+        if allocation_percentage and not isinstance(allocation_percentage, int):
+            raise TypeError("Expected argument 'allocation_percentage' to be a int")
+        pulumi.set(__self__, "allocation_percentage", allocation_percentage)
         if blob_nfs and not isinstance(blob_nfs, dict):
             raise TypeError("Expected argument 'blob_nfs' to be a dict")
         pulumi.set(__self__, "blob_nfs", blob_nfs)
@@ -46,6 +49,9 @@ class GetStorageTargetResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -58,6 +64,14 @@ class GetStorageTargetResult:
         if unknown and not isinstance(unknown, dict):
             raise TypeError("Expected argument 'unknown' to be a dict")
         pulumi.set(__self__, "unknown", unknown)
+
+    @property
+    @pulumi.getter(name="allocationPercentage")
+    def allocation_percentage(self) -> int:
+        """
+        The percentage of cache space allocated for this storage target
+        """
+        return pulumi.get(self, "allocation_percentage")
 
     @property
     @pulumi.getter(name="blobNfs")
@@ -117,11 +131,19 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Storage target operational state.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="systemData")
@@ -162,6 +184,7 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
         if False:
             yield self
         return GetStorageTargetResult(
+            allocation_percentage=self.allocation_percentage,
             blob_nfs=self.blob_nfs,
             clfs=self.clfs,
             id=self.id,
@@ -170,6 +193,7 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
             name=self.name,
             nfs3=self.nfs3,
             provisioning_state=self.provisioning_state,
+            state=self.state,
             system_data=self.system_data,
             target_type=self.target_type,
             type=self.type,
@@ -182,7 +206,7 @@ def get_storage_target(cache_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
     Type of the Storage Target.
-    API Version: 2021-03-01.
+    API Version: 2022-05-01.
 
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -200,6 +224,7 @@ def get_storage_target(cache_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagecache:getStorageTarget', __args__, opts=opts, typ=GetStorageTargetResult).value
 
     return AwaitableGetStorageTargetResult(
+        allocation_percentage=__ret__.allocation_percentage,
         blob_nfs=__ret__.blob_nfs,
         clfs=__ret__.clfs,
         id=__ret__.id,
@@ -208,6 +233,7 @@ def get_storage_target(cache_name: Optional[str] = None,
         name=__ret__.name,
         nfs3=__ret__.nfs3,
         provisioning_state=__ret__.provisioning_state,
+        state=__ret__.state,
         system_data=__ret__.system_data,
         target_type=__ret__.target_type,
         type=__ret__.type,
@@ -221,7 +247,7 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
     Type of the Storage Target.
-    API Version: 2021-03-01.
+    API Version: 2022-05-01.
 
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.

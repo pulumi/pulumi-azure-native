@@ -23,11 +23,6 @@ __all__ = [
     'ParameterType',
     'PartnerType',
     'RecurrenceFrequency',
-    'RosettaNetActionType',
-    'RosettaNetPipActivityType',
-    'RosettaNetPipConfidentialityScope',
-    'RosettaNetPipRoleType',
-    'RosettaNetResponseType',
     'SchemaType',
     'SegmentTerminatorSuffix',
     'SigningAlgorithm',
@@ -238,57 +233,6 @@ class RecurrenceFrequency(str, Enum):
     WEEK = "Week"
     MONTH = "Month"
     YEAR = "Year"
-
-
-class RosettaNetActionType(str, Enum):
-    """
-    The value indicating whether the RosettaNet PIP is used for a single action.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    SINGLE_ACTION = "SingleAction"
-    DOUBLE_ACTION = "DoubleAction"
-
-
-class RosettaNetPipActivityType(str, Enum):
-    """
-    The RosettaNet ProcessConfiguration activity type.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    INFORMATION_DISTRIBUTION = "InformationDistribution"
-    BUSINESS_TRANSACTION = "BusinessTransaction"
-    NOTIFICATION = "Notification"
-    QUERY_RESPONSE = "QueryResponse"
-    REQUEST_CONFIRM = "RequestConfirm"
-    REQUEST_RESPONSE = "RequestResponse"
-
-
-class RosettaNetPipConfidentialityScope(str, Enum):
-    """
-    The persistent confidentiality encryption scope.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    NONE = "None"
-    PAYLOAD = "Payload"
-    PAYLOAD_CONTAINER = "PayloadContainer"
-
-
-class RosettaNetPipRoleType(str, Enum):
-    """
-    The RosettaNet ProcessConfiguration role type.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    FUNCTIONAL = "Functional"
-    ORGANIZATIONAL = "Organizational"
-    EMPLOYEE = "Employee"
-
-
-class RosettaNetResponseType(str, Enum):
-    """
-    The value indicating whether the RosettaNet PIP communication is synchronous.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    SYNC = "Sync"
-    ASYNC_ = "Async"
 
 
 class SchemaType(str, Enum):

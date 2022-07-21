@@ -11,7 +11,7 @@ import (
 )
 
 // A global reach connection resource
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 func LookupGlobalReachConnection(ctx *pulumi.Context, args *LookupGlobalReachConnectionArgs, opts ...pulumi.InvokeOption) (*LookupGlobalReachConnectionResult, error) {
 	var rv LookupGlobalReachConnectionResult
 	err := ctx.Invoke("azure-native:avs:getGlobalReachConnection", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupGlobalReachConnectionResult struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The connection status of the global reach connection
 	CircuitConnectionStatus string `pulumi:"circuitConnectionStatus"`
+	// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+	ExpressRouteId *string `pulumi:"expressRouteId"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
@@ -104,6 +106,11 @@ func (o LookupGlobalReachConnectionResultOutput) AuthorizationKey() pulumi.Strin
 // The connection status of the global reach connection
 func (o LookupGlobalReachConnectionResultOutput) CircuitConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalReachConnectionResult) string { return v.CircuitConnectionStatus }).(pulumi.StringOutput)
+}
+
+// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+func (o LookupGlobalReachConnectionResultOutput) ExpressRouteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalReachConnectionResult) *string { return v.ExpressRouteId }).(pulumi.StringPtrOutput)
 }
 
 // Resource ID.

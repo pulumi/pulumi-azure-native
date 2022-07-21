@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Integration runtime status response.
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
     if (!opts) {

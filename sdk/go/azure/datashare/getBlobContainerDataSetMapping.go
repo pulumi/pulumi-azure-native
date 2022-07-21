@@ -11,7 +11,7 @@ import (
 )
 
 // A Blob container data set mapping.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupBlobContainerDataSetMapping(ctx *pulumi.Context, args *LookupBlobContainerDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerDataSetMappingResult, error) {
 	var rv LookupBlobContainerDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare:getBlobContainerDataSetMapping", args, &rv, opts...)

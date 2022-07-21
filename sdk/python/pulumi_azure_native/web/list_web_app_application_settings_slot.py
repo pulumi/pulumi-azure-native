@@ -97,7 +97,7 @@ def list_web_app_application_settings_slot(name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppApplicationSettingsSlotResult:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -129,7 +129,7 @@ def list_web_app_application_settings_slot_output(name: Optional[pulumi.Input[st
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppApplicationSettingsSlotResult]:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

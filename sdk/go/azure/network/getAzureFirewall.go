@@ -11,7 +11,7 @@ import (
 )
 
 // Azure Firewall resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opts ...pulumi.InvokeOption) (*LookupAzureFirewallResult, error) {
 	var rv LookupAzureFirewallResult
 	err := ctx.Invoke("azure-native:network:getAzureFirewall", args, &rv, opts...)

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Customer creates a contact resource for a spacecraft resource.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a contact resource for a spacecraft resource.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Name
+        /// Contact name.
         /// </summary>
         [Input("contactName", required: true)]
         public string ContactName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Orbital
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public string SpacecraftName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Name
+        /// Contact name.
         /// </summary>
         [Input("contactName", required: true)]
         public Input<string> ContactName { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactResult
     {
         /// <summary>
+        /// The configuration associated with the allocated antenna.
+        /// </summary>
+        public readonly Outputs.ContactsPropertiesResponseAntennaConfiguration AntennaConfiguration;
+        /// <summary>
         /// The reference to the contact profile resource.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse ContactProfile;
+        public readonly Outputs.ContactsPropertiesResponseContactProfile ContactProfile;
         /// <summary>
         /// Azimuth of the antenna at the end of the contact in decimal degrees.
         /// </summary>
@@ -118,19 +122,19 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Reservation end time of a contact.
+        /// Reservation end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string ReservationEndTime;
         /// <summary>
-        /// Reservation start time of a contact.
+        /// Reservation start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string ReservationStartTime;
         /// <summary>
-        /// Receive end time of a contact.
+        /// Receive end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxEndTime;
         /// <summary>
-        /// Receive start time of a contact.
+        /// Receive start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxStartTime;
         /// <summary>
@@ -150,11 +154,11 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Transmit end time of a contact.
+        /// Transmit end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxEndTime;
         /// <summary>
-        /// Transmit start time of a contact.
+        /// Transmit start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxStartTime;
         /// <summary>
@@ -164,7 +168,9 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetContactResult(
-            Outputs.ResourceReferenceResponse contactProfile,
+            Outputs.ContactsPropertiesResponseAntennaConfiguration antennaConfiguration,
+
+            Outputs.ContactsPropertiesResponseContactProfile contactProfile,
 
             double endAzimuthDegrees,
 
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.Orbital
 
             string type)
         {
+            AntennaConfiguration = antennaConfiguration;
             ContactProfile = contactProfile;
             EndAzimuthDegrees = endAzimuthDegrees;
             EndElevationDegrees = endElevationDegrees;

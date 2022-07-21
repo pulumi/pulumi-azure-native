@@ -236,7 +236,7 @@ class ImportPipeline(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:ImportPipeline")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:ImportPipeline"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:ImportPipeline")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportPipeline, __self__).__init__(
             'azure-native:containerregistry/v20210601preview:ImportPipeline',

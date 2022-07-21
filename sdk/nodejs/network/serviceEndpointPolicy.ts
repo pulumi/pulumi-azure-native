@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service End point policy resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class ServiceEndpointPolicy extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * A collection of contextual service endpoint policy.
+     */
+    public readonly contextualServiceEndpointPolicies!: pulumi.Output<string[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -60,6 +64,10 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
      * The resource GUID property of the service endpoint policy resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * The alias indicating if the policy belongs to a service
+     */
+    public readonly serviceAlias!: pulumi.Output<string | undefined>;
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
@@ -91,9 +99,11 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["contextualServiceEndpointPolicies"] = args ? args.contextualServiceEndpointPolicies : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceAlias"] = args ? args.serviceAlias : undefined;
             resourceInputs["serviceEndpointPolicyDefinitions"] = args ? args.serviceEndpointPolicyDefinitions : undefined;
             resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -105,12 +115,14 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["contextualServiceEndpointPolicies"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["serviceAlias"] = undefined /*out*/;
             resourceInputs["serviceEndpointPolicyDefinitions"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -128,6 +140,10 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
  */
 export interface ServiceEndpointPolicyArgs {
     /**
+     * A collection of contextual service endpoint policy.
+     */
+    contextualServiceEndpointPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
@@ -139,6 +155,10 @@ export interface ServiceEndpointPolicyArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The alias indicating if the policy belongs to a service
+     */
+    serviceAlias?: pulumi.Input<string>;
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */

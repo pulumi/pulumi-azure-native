@@ -12,6 +12,7 @@ from .extension import *
 from .get_arc_setting import *
 from .get_cluster import *
 from .get_extension import *
+from ._inputs import *
 from . import outputs
 
 # Make subpackages available:

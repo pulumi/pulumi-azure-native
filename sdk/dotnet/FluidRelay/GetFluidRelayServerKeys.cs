@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.FluidRelay
     {
         /// <summary>
         /// The set of available keys for this server.
-        /// API Version: 2021-03-12-preview.
+        /// API Version: 2022-05-26.
         /// </summary>
         public static Task<GetFluidRelayServerKeysResult> InvokeAsync(GetFluidRelayServerKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerKeysResult>("azure-native:fluidrelay:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The set of available keys for this server.
-        /// API Version: 2021-03-12-preview.
+        /// API Version: 2022-05-26.
         /// </summary>
         public static Output<GetFluidRelayServerKeysResult> Invoke(GetFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerKeysResult>("azure-native:fluidrelay:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
@@ -30,10 +30,10 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class GetFluidRelayServerKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource name.
+        /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("fluidRelayServerName", required: true)]
+        public string FluidRelayServerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group containing the resource.
@@ -49,10 +49,10 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class GetFluidRelayServerKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource name.
+        /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("fluidRelayServerName", required: true)]
+        public Input<string> FluidRelayServerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group containing the resource.

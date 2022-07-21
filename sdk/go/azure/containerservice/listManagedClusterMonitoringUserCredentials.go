@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of credential result response.
-// API Version: 2021-03-01.
+// The list credential result response.
+// API Version: 2022-04-01.
 func ListManagedClusterMonitoringUserCredentials(ctx *pulumi.Context, args *ListManagedClusterMonitoringUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterMonitoringUserCredentialsResult, error) {
 	var rv ListManagedClusterMonitoringUserCredentialsResult
 	err := ctx.Invoke("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", args, &rv, opts...)
@@ -22,13 +22,15 @@ func ListManagedClusterMonitoringUserCredentials(ctx *pulumi.Context, args *List
 }
 
 type ListManagedClusterMonitoringUserCredentialsArgs struct {
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
+	// server fqdn type for credentials to be returned
+	ServerFqdn *string `pulumi:"serverFqdn"`
 }
 
-// The list of credential result response.
+// The list credential result response.
 type ListManagedClusterMonitoringUserCredentialsResult struct {
 	// Base64-encoded Kubernetes configuration file.
 	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
@@ -48,17 +50,19 @@ func ListManagedClusterMonitoringUserCredentialsOutput(ctx *pulumi.Context, args
 }
 
 type ListManagedClusterMonitoringUserCredentialsOutputArgs struct {
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// server fqdn type for credentials to be returned
+	ServerFqdn pulumi.StringPtrInput `pulumi:"serverFqdn"`
 }
 
 func (ListManagedClusterMonitoringUserCredentialsOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListManagedClusterMonitoringUserCredentialsArgs)(nil)).Elem()
 }
 
-// The list of credential result response.
+// The list credential result response.
 type ListManagedClusterMonitoringUserCredentialsResultOutput struct{ *pulumi.OutputState }
 
 func (ListManagedClusterMonitoringUserCredentialsResultOutput) ElementType() reflect.Type {

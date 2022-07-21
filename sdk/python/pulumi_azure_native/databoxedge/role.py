@@ -98,7 +98,7 @@ class Role(pulumi.CustomResource):
                  __props__=None):
         """
         Compute role.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Compute role.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.
@@ -211,7 +211,7 @@ class Role(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 

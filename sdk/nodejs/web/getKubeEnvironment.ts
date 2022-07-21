@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Kubernetes cluster specialized for web workloads by Azure App Service
- * API Version: 2021-01-01.
+ * API Version: 2021-03-01.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
     if (!opts) {
@@ -50,6 +50,10 @@ export interface GetKubeEnvironmentResult {
      */
     readonly arcConfiguration?: outputs.web.ArcConfigurationResponse;
     /**
+     * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+     */
+    readonly containerAppsConfiguration?: outputs.web.ContainerAppsConfigurationResponse;
+    /**
      * Default Domain Name for the cluster
      */
     readonly defaultDomain: string;
@@ -57,6 +61,10 @@ export interface GetKubeEnvironmentResult {
      * Any errors that occurred during deployment or deployment validation
      */
     readonly deploymentErrors: string;
+    /**
+     * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+     */
+    readonly environmentType?: string;
     /**
      * Extended Location.
      */

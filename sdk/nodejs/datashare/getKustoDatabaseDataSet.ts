@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A kusto database data set.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getKustoDatabaseDataSet(args: GetKustoDatabaseDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoDatabaseDataSetResult> {
     if (!opts) {

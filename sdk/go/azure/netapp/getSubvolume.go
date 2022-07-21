@@ -11,7 +11,7 @@ import (
 )
 
 // Subvolume Information properties
-// API Version: 2021-10-01.
+// API Version: 2022-01-01.
 func LookupSubvolume(ctx *pulumi.Context, args *LookupSubvolumeArgs, opts ...pulumi.InvokeOption) (*LookupSubvolumeResult, error) {
 	var rv LookupSubvolumeResult
 	err := ctx.Invoke("azure-native:netapp:getSubvolume", args, &rv, opts...)
@@ -46,7 +46,7 @@ type LookupSubvolumeResult struct {
 	Path *string `pulumi:"path"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -122,7 +122,7 @@ func (o LookupSubvolumeResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubvolumeResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The system meta data relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupSubvolumeResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupSubvolumeResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

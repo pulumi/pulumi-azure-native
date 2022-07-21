@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'AllowedAudiencesValidationArgs',
+    'AllowedPrincipalsArgs',
     'ApiConnectionDefinitionPropertiesArgs',
     'ApiConnectionTestLinkArgs',
     'ApiDefinitionInfoArgs',
@@ -56,6 +57,7 @@ __all__ = [
     'ConnectionParameterArgs',
     'ConnectionStatusDefinitionArgs',
     'ConsentLinkParameterDefinition',
+    'ContainerAppsConfigurationArgs',
     'ContainerResourcesArgs',
     'ContainerArgs',
     'CookieExpirationArgs',
@@ -68,6 +70,7 @@ __all__ = [
     'DaprArgs',
     'DatabaseBackupSetting',
     'DatabaseBackupSettingArgs',
+    'DefaultAuthorizationPolicyArgs',
     'EnabledConfigArgs',
     'EnvironmentVarArgs',
     'ExperimentsArgs',
@@ -162,6 +165,46 @@ class AllowedAudiencesValidationArgs:
     @allowed_audiences.setter
     def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
+
+
+@pulumi.input_type
+class AllowedPrincipalsArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of the allowed groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identities: The list of the allowed identities.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if identities is not None:
+            pulumi.set(__self__, "identities", identities)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the allowed groups.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the allowed identities.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identities", value)
 
 
 @pulumi.input_type
@@ -1555,14 +1598,18 @@ class AzureActiveDirectoryRegistrationArgs:
 class AzureActiveDirectoryValidationArgs:
     def __init__(__self__, *,
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_authorization_policy: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']] = None,
                  jwt_claim_checks: Optional[pulumi.Input['JwtClaimChecksArgs']] = None):
         """
         The configuration settings of the Azure Active Directory token validation flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
+        :param pulumi.Input['DefaultAuthorizationPolicyArgs'] default_authorization_policy: The configuration settings of the default authorization policy.
         :param pulumi.Input['JwtClaimChecksArgs'] jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
         """
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if default_authorization_policy is not None:
+            pulumi.set(__self__, "default_authorization_policy", default_authorization_policy)
         if jwt_claim_checks is not None:
             pulumi.set(__self__, "jwt_claim_checks", jwt_claim_checks)
 
@@ -1577,6 +1624,18 @@ class AzureActiveDirectoryValidationArgs:
     @allowed_audiences.setter
     def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="defaultAuthorizationPolicy")
+    def default_authorization_policy(self) -> Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']]:
+        """
+        The configuration settings of the default authorization policy.
+        """
+        return pulumi.get(self, "default_authorization_policy")
+
+    @default_authorization_policy.setter
+    def default_authorization_policy(self, value: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']]):
+        pulumi.set(self, "default_authorization_policy", value)
 
     @property
     @pulumi.getter(name="jwtClaimChecks")
@@ -3107,6 +3166,109 @@ class ConsentLinkParameterDefinition:
 
 
 @pulumi.input_type
+class ContainerAppsConfigurationArgs:
+    def __init__(__self__, *,
+                 app_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+                 control_plane_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+                 dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+                 platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
+                 platform_reserved_dns_ip: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] app_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        :param pulumi.Input[str] control_plane_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param pulumi.Input[str] docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        :param pulumi.Input[str] platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        :param pulumi.Input[str] platform_reserved_dns_ip: An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+        if app_subnet_resource_id is not None:
+            pulumi.set(__self__, "app_subnet_resource_id", app_subnet_resource_id)
+        if control_plane_subnet_resource_id is not None:
+            pulumi.set(__self__, "control_plane_subnet_resource_id", control_plane_subnet_resource_id)
+        if dapr_ai_instrumentation_key is not None:
+            pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+        if docker_bridge_cidr is not None:
+            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if platform_reserved_cidr is not None:
+            pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
+        if platform_reserved_dns_ip is not None:
+            pulumi.set(__self__, "platform_reserved_dns_ip", platform_reserved_dns_ip)
+
+    @property
+    @pulumi.getter(name="appSubnetResourceId")
+    def app_subnet_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "app_subnet_resource_id")
+
+    @app_subnet_resource_id.setter
+    def app_subnet_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_subnet_resource_id", value)
+
+    @property
+    @pulumi.getter(name="controlPlaneSubnetResourceId")
+    def control_plane_subnet_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "control_plane_subnet_resource_id")
+
+    @control_plane_subnet_resource_id.setter
+    def control_plane_subnet_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "control_plane_subnet_resource_id", value)
+
+    @property
+    @pulumi.getter(name="daprAIInstrumentationKey")
+    def dapr_ai_instrumentation_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_instrumentation_key")
+
+    @dapr_ai_instrumentation_key.setter
+    def dapr_ai_instrumentation_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dapr_ai_instrumentation_key", value)
+
+    @property
+    @pulumi.getter(name="dockerBridgeCidr")
+    def docker_bridge_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "docker_bridge_cidr")
+
+    @docker_bridge_cidr.setter
+    def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_bridge_cidr", value)
+
+    @property
+    @pulumi.getter(name="platformReservedCidr")
+    def platform_reserved_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        """
+        return pulumi.get(self, "platform_reserved_cidr")
+
+    @platform_reserved_cidr.setter
+    def platform_reserved_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_reserved_cidr", value)
+
+    @property
+    @pulumi.getter(name="platformReservedDnsIP")
+    def platform_reserved_dns_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+        return pulumi.get(self, "platform_reserved_dns_ip")
+
+    @platform_reserved_dns_ip.setter
+    def platform_reserved_dns_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_reserved_dns_ip", value)
+
+
+@pulumi.input_type
 class ContainerResourcesArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[float]] = None,
@@ -3986,6 +4148,46 @@ class DatabaseBackupSettingArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DefaultAuthorizationPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_principals: Optional[pulumi.Input['AllowedPrincipalsArgs']] = None):
+        """
+        The configuration settings of the Azure Active Directory default authorization policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The configuration settings of the Azure Active Directory allowed applications.
+        :param pulumi.Input['AllowedPrincipalsArgs'] allowed_principals: The configuration settings of the Azure Active Directory allowed principals.
+        """
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_principals is not None:
+            pulumi.set(__self__, "allowed_principals", allowed_principals)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The configuration settings of the Azure Active Directory allowed applications.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedPrincipals")
+    def allowed_principals(self) -> Optional[pulumi.Input['AllowedPrincipalsArgs']]:
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        """
+        return pulumi.get(self, "allowed_principals")
+
+    @allowed_principals.setter
+    def allowed_principals(self, value: Optional[pulumi.Input['AllowedPrincipalsArgs']]):
+        pulumi.set(self, "allowed_principals", value)
 
 
 @pulumi.input_type
@@ -5893,11 +6095,11 @@ class LoginArgs:
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed service identity.
         :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -5918,14 +6120,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

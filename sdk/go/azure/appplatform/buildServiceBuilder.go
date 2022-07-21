@@ -12,7 +12,7 @@ import (
 )
 
 // KPack Builder resource
-// API Version: 2022-01-01-preview.
+// API Version: 2022-04-01.
 type BuildServiceBuilder struct {
 	pulumi.CustomResourceState
 

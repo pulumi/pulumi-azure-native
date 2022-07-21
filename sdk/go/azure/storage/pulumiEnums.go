@@ -10,12 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+// Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
 type AccessTier string
 
 const (
-	AccessTierHot  = AccessTier("Hot")
-	AccessTierCool = AccessTier("Cool")
+	AccessTierHot     = AccessTier("Hot")
+	AccessTierCool    = AccessTier("Cool")
+	AccessTierPremium = AccessTier("Premium")
 )
 
 func (AccessTier) ElementType() reflect.Type {
@@ -174,6 +175,15 @@ func (in *accessTierPtr) ToAccessTierPtrOutput() AccessTierPtrOutput {
 func (in *accessTierPtr) ToAccessTierPtrOutputWithContext(ctx context.Context) AccessTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AccessTierPtrOutput)
 }
+
+// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+type AccountImmutabilityPolicyState string
+
+const (
+	AccountImmutabilityPolicyStateUnlocked = AccountImmutabilityPolicyState("Unlocked")
+	AccountImmutabilityPolicyStateLocked   = AccountImmutabilityPolicyState("Locked")
+	AccountImmutabilityPolicyStateDisabled = AccountImmutabilityPolicyState("Disabled")
+)
 
 // The action of virtual network rule.
 type Action string
@@ -338,6 +348,14 @@ func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
 func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
 }
+
+// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+type AllowedCopyScope string
+
+const (
+	AllowedCopyScopePrivateLink = AllowedCopyScope("PrivateLink")
+	AllowedCopyScopeAAD         = AllowedCopyScope("AAD")
+)
 
 // The access tier of a storage blob.
 type BlobAccessTier string
@@ -850,6 +868,16 @@ func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
 }
 
+// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+type DefaultSharePermission string
+
+const (
+	DefaultSharePermissionNone                                       = DefaultSharePermission("None")
+	DefaultSharePermissionStorageFileDataSmbShareReader              = DefaultSharePermission("StorageFileDataSmbShareReader")
+	DefaultSharePermissionStorageFileDataSmbShareContributor         = DefaultSharePermission("StorageFileDataSmbShareContributor")
+	DefaultSharePermissionStorageFileDataSmbShareElevatedContributor = DefaultSharePermission("StorageFileDataSmbShareElevatedContributor")
+)
+
 // Indicates the directory service used.
 type DirectoryServiceOptions string
 
@@ -857,6 +885,14 @@ const (
 	DirectoryServiceOptionsNone  = DirectoryServiceOptions("None")
 	DirectoryServiceOptionsAADDS = DirectoryServiceOptions("AADDS")
 	DirectoryServiceOptionsAD    = DirectoryServiceOptions("AD")
+)
+
+// Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+type DnsEndpointType string
+
+const (
+	DnsEndpointTypeStandard     = DnsEndpointType("Standard")
+	DnsEndpointTypeAzureDnsZone = DnsEndpointType("AzureDnsZone")
 )
 
 // The authentication protocol that is used for the file share. Can only be specified when creating a share.
@@ -895,6 +931,14 @@ type ExtendedLocationTypes string
 
 const (
 	ExtendedLocationTypesEdgeZone = ExtendedLocationTypes("EdgeZone")
+)
+
+// This is a required field, it specifies the format for the inventory files.
+type Format string
+
+const (
+	FormatCsv     = Format("Csv")
+	FormatParquet = Format("Parquet")
 )
 
 // The protocol permitted for a request made with the account SAS.
@@ -1130,6 +1174,14 @@ const (
 	NameAccessTimeTracking = Name("AccessTimeTracking")
 )
 
+// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+type ObjectType string
+
+const (
+	ObjectTypeBlob      = ObjectType("Blob")
+	ObjectTypeContainer = ObjectType("Container")
+)
+
 // The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
 type Permissions string
 
@@ -1319,6 +1371,14 @@ func (in *publicAccessPtr) ToPublicAccessPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PublicAccessPtrOutput)
 }
 
+// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+type PublicNetworkAccess string
+
+const (
+	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
 // The property is for NFS share only. The default is NoRootSquash.
 type RootSquashType string
 
@@ -1341,6 +1401,14 @@ type RuleType string
 
 const (
 	RuleTypeLifecycle = RuleType("Lifecycle")
+)
+
+// This is a required field. This field is used to schedule an inventory formation.
+type Schedule string
+
+const (
+	ScheduleDaily  = Schedule("Daily")
+	ScheduleWeekly = Schedule("Weekly")
 )
 
 // The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
@@ -1400,11 +1468,11 @@ const (
 type State string
 
 const (
-	StateProvisioning         = State("provisioning")
-	StateDeprovisioning       = State("deprovisioning")
-	StateSucceeded            = State("succeeded")
-	StateFailed               = State("failed")
-	StateNetworkSourceDeleted = State("networkSourceDeleted")
+	StateProvisioning         = State("Provisioning")
+	StateDeprovisioning       = State("Deprovisioning")
+	StateSucceeded            = State("Succeeded")
+	StateFailed               = State("Failed")
+	StateNetworkSourceDeleted = State("NetworkSourceDeleted")
 )
 
 func init() {

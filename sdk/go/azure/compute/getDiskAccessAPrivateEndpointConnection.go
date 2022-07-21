@@ -11,7 +11,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2020-12-01.
+// API Version: 2021-12-01.
 func LookupDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context, args *LookupDiskAccessAPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessAPrivateEndpointConnectionResult, error) {
 	var rv LookupDiskAccessAPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:compute:getDiskAccessAPrivateEndpointConnection", args, &rv, opts...)
@@ -22,9 +22,9 @@ func LookupDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context, args *Looku
 }
 
 type LookupDiskAccessAPrivateEndpointConnectionArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskAccessName string `pulumi:"diskAccessName"`
-	// The name of the private endpoint connection
+	// The name of the private endpoint connection.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -60,9 +60,9 @@ func LookupDiskAccessAPrivateEndpointConnectionOutput(ctx *pulumi.Context, args 
 }
 
 type LookupDiskAccessAPrivateEndpointConnectionOutputArgs struct {
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskAccessName pulumi.StringInput `pulumi:"diskAccessName"`
-	// The name of the private endpoint connection
+	// The name of the private endpoint connection.
 	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

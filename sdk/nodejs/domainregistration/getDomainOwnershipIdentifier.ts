@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Domain ownership Identifier.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
     if (!opts) {
@@ -57,10 +56,6 @@ export interface GetDomainOwnershipIdentifierResult {
      * Ownership Id.
      */
     readonly ownershipId?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.domainregistration.SystemDataResponse;
     /**
      * Resource type.
      */

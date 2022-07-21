@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A common class for general resource information.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.Network
         public Output<double> EgressBytesTransferred { get; private set; } = null!;
 
         /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        [Output("egressNatRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> EgressNatRules { get; private set; } = null!;
+
+        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         [Output("enableBgp")]
@@ -77,10 +83,22 @@ namespace Pulumi.AzureNative.Network
         public Output<bool?> ExpressRouteGatewayBypass { get; private set; } = null!;
 
         /// <summary>
+        /// GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+        /// </summary>
+        [Output("gatewayCustomBgpIpAddresses")]
+        public Output<ImmutableArray<Outputs.GatewayCustomBgpIpAddressIpConfigurationResponse>> GatewayCustomBgpIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// The ingress bytes transferred in this connection.
         /// </summary>
         [Output("ingressBytesTransferred")]
         public Output<double> IngressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        [Output("ingressNatRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> IngressNatRules { get; private set; } = null!;
 
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
@@ -302,6 +320,18 @@ namespace Pulumi.AzureNative.Network
         [Input("dpdTimeoutSeconds")]
         public Input<int>? DpdTimeoutSeconds { get; set; }
 
+        [Input("egressNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _egressNatRules;
+
+        /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> EgressNatRules
+        {
+            get => _egressNatRules ?? (_egressNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _egressNatRules = value;
+        }
+
         /// <summary>
         /// EnableBgp flag.
         /// </summary>
@@ -314,11 +344,35 @@ namespace Pulumi.AzureNative.Network
         [Input("expressRouteGatewayBypass")]
         public Input<bool>? ExpressRouteGatewayBypass { get; set; }
 
+        [Input("gatewayCustomBgpIpAddresses")]
+        private InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs>? _gatewayCustomBgpIpAddresses;
+
+        /// <summary>
+        /// GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+        /// </summary>
+        public InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs> GatewayCustomBgpIpAddresses
+        {
+            get => _gatewayCustomBgpIpAddresses ?? (_gatewayCustomBgpIpAddresses = new InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs>());
+            set => _gatewayCustomBgpIpAddresses = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ingressNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _ingressNatRules;
+
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> IngressNatRules
+        {
+            get => _ingressNatRules ?? (_ingressNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _ingressNatRules = value;
+        }
 
         [Input("ipsecPolicies")]
         private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;

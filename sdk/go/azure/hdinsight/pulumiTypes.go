@@ -354,8 +354,6 @@ type ApplicationGetHttpsEndpointResponse struct {
 	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort int `pulumi:"publicPort"`
-	// The subdomain suffix of the application.
-	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
 }
 
 // Gets the application HTTP endpoints.
@@ -403,11 +401,6 @@ func (o ApplicationGetHttpsEndpointResponseOutput) PublicPort() pulumi.IntOutput
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) int { return v.PublicPort }).(pulumi.IntOutput)
 }
 
-// The subdomain suffix of the application.
-func (o ApplicationGetHttpsEndpointResponseOutput) SubDomainSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.SubDomainSuffix }).(pulumi.StringPtrOutput)
-}
-
 type ApplicationGetHttpsEndpointResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGetHttpsEndpointResponseArrayOutput) ElementType() reflect.Type {
@@ -440,6 +433,8 @@ type ApplicationProperties struct {
 	HttpsEndpoints []ApplicationGetHttpsEndpoint `pulumi:"httpsEndpoints"`
 	// The list of install script actions.
 	InstallScriptActions []RuntimeScriptAction `pulumi:"installScriptActions"`
+	// The private link configurations.
+	PrivateLinkConfigurations []PrivateLinkConfiguration `pulumi:"privateLinkConfigurations"`
 	// The list of application SSH endpoints.
 	SshEndpoints []ApplicationGetEndpoint `pulumi:"sshEndpoints"`
 	// The list of uninstall script actions.
@@ -469,6 +464,8 @@ type ApplicationPropertiesArgs struct {
 	HttpsEndpoints ApplicationGetHttpsEndpointArrayInput `pulumi:"httpsEndpoints"`
 	// The list of install script actions.
 	InstallScriptActions RuntimeScriptActionArrayInput `pulumi:"installScriptActions"`
+	// The private link configurations.
+	PrivateLinkConfigurations PrivateLinkConfigurationArrayInput `pulumi:"privateLinkConfigurations"`
 	// The list of application SSH endpoints.
 	SshEndpoints ApplicationGetEndpointArrayInput `pulumi:"sshEndpoints"`
 	// The list of uninstall script actions.
@@ -578,6 +575,11 @@ func (o ApplicationPropertiesOutput) InstallScriptActions() RuntimeScriptActionA
 	return o.ApplyT(func(v ApplicationProperties) []RuntimeScriptAction { return v.InstallScriptActions }).(RuntimeScriptActionArrayOutput)
 }
 
+// The private link configurations.
+func (o ApplicationPropertiesOutput) PrivateLinkConfigurations() PrivateLinkConfigurationArrayOutput {
+	return o.ApplyT(func(v ApplicationProperties) []PrivateLinkConfiguration { return v.PrivateLinkConfigurations }).(PrivateLinkConfigurationArrayOutput)
+}
+
 // The list of application SSH endpoints.
 func (o ApplicationPropertiesOutput) SshEndpoints() ApplicationGetEndpointArrayOutput {
 	return o.ApplyT(func(v ApplicationProperties) []ApplicationGetEndpoint { return v.SshEndpoints }).(ApplicationGetEndpointArrayOutput)
@@ -662,6 +664,16 @@ func (o ApplicationPropertiesPtrOutput) InstallScriptActions() RuntimeScriptActi
 	}).(RuntimeScriptActionArrayOutput)
 }
 
+// The private link configurations.
+func (o ApplicationPropertiesPtrOutput) PrivateLinkConfigurations() PrivateLinkConfigurationArrayOutput {
+	return o.ApplyT(func(v *ApplicationProperties) []PrivateLinkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkConfigurations
+	}).(PrivateLinkConfigurationArrayOutput)
+}
+
 // The list of application SSH endpoints.
 func (o ApplicationPropertiesPtrOutput) SshEndpoints() ApplicationGetEndpointArrayOutput {
 	return o.ApplyT(func(v *ApplicationProperties) []ApplicationGetEndpoint {
@@ -700,6 +712,8 @@ type ApplicationPropertiesResponse struct {
 	InstallScriptActions []RuntimeScriptActionResponse `pulumi:"installScriptActions"`
 	// The marketplace identifier.
 	MarketplaceIdentifier string `pulumi:"marketplaceIdentifier"`
+	// The private link configurations.
+	PrivateLinkConfigurations []PrivateLinkConfigurationResponse `pulumi:"privateLinkConfigurations"`
 	// The provisioning state of the application.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The list of application SSH endpoints.
@@ -761,6 +775,13 @@ func (o ApplicationPropertiesResponseOutput) InstallScriptActions() RuntimeScrip
 // The marketplace identifier.
 func (o ApplicationPropertiesResponseOutput) MarketplaceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPropertiesResponse) string { return v.MarketplaceIdentifier }).(pulumi.StringOutput)
+}
+
+// The private link configurations.
+func (o ApplicationPropertiesResponseOutput) PrivateLinkConfigurations() PrivateLinkConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationPropertiesResponse) []PrivateLinkConfigurationResponse {
+		return v.PrivateLinkConfigurations
+	}).(PrivateLinkConfigurationResponseArrayOutput)
 }
 
 // The provisioning state of the application.
@@ -1489,7 +1510,7 @@ func (o AutoscaleResponsePtrOutput) Recurrence() AutoscaleRecurrenceResponsePtrO
 // Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
 type AutoscaleSchedule struct {
 	// Days of the week for a schedule-based autoscale rule
-	Days []DaysOfWeek `pulumi:"days"`
+	Days []string `pulumi:"days"`
 	// Time and capacity for a schedule-based autoscale rule
 	TimeAndCapacity *AutoscaleTimeAndCapacity `pulumi:"timeAndCapacity"`
 }
@@ -1508,7 +1529,7 @@ type AutoscaleScheduleInput interface {
 // Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
 type AutoscaleScheduleArgs struct {
 	// Days of the week for a schedule-based autoscale rule
-	Days DaysOfWeekArrayInput `pulumi:"days"`
+	Days pulumi.StringArrayInput `pulumi:"days"`
 	// Time and capacity for a schedule-based autoscale rule
 	TimeAndCapacity AutoscaleTimeAndCapacityPtrInput `pulumi:"timeAndCapacity"`
 }
@@ -1566,8 +1587,8 @@ func (o AutoscaleScheduleOutput) ToAutoscaleScheduleOutputWithContext(ctx contex
 }
 
 // Days of the week for a schedule-based autoscale rule
-func (o AutoscaleScheduleOutput) Days() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v AutoscaleSchedule) []DaysOfWeek { return v.Days }).(DaysOfWeekArrayOutput)
+func (o AutoscaleScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoscaleSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
 // Time and capacity for a schedule-based autoscale rule
@@ -2177,13 +2198,15 @@ type ClusterCreateProperties struct {
 	// The network properties.
 	NetworkProperties *NetworkProperties `pulumi:"networkProperties"`
 	// The type of operating system.
-	OsType *OSType `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
+	// The private link configurations.
+	PrivateLinkConfigurations []PrivateLinkConfiguration `pulumi:"privateLinkConfigurations"`
 	// The security profile.
 	SecurityProfile *SecurityProfile `pulumi:"securityProfile"`
 	// The storage profile.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// The cluster tier.
-	Tier *Tier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // Defaults sets the appropriate defaults for ClusterCreateProperties
@@ -2199,7 +2222,7 @@ func (val *ClusterCreateProperties) Defaults() *ClusterCreateProperties {
 	tmp.EncryptionInTransitProperties = tmp.EncryptionInTransitProperties.Defaults()
 
 	if isZero(tmp.Tier) {
-		tier_ := Tier("Standard")
+		tier_ := "Standard"
 		tmp.Tier = &tier_
 	}
 	return &tmp
@@ -2237,13 +2260,15 @@ type ClusterCreatePropertiesArgs struct {
 	// The network properties.
 	NetworkProperties NetworkPropertiesPtrInput `pulumi:"networkProperties"`
 	// The type of operating system.
-	OsType OSTypePtrInput `pulumi:"osType"`
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The private link configurations.
+	PrivateLinkConfigurations PrivateLinkConfigurationArrayInput `pulumi:"privateLinkConfigurations"`
 	// The security profile.
 	SecurityProfile SecurityProfilePtrInput `pulumi:"securityProfile"`
 	// The storage profile.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// The cluster tier.
-	Tier TierPtrInput `pulumi:"tier"`
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 // Defaults sets the appropriate defaults for ClusterCreatePropertiesArgs
@@ -2254,7 +2279,7 @@ func (val *ClusterCreatePropertiesArgs) Defaults() *ClusterCreatePropertiesArgs 
 	tmp := *val
 
 	if isZero(tmp.Tier) {
-		tmp.Tier = Tier("Standard")
+		tmp.Tier = pulumi.StringPtr("Standard")
 	}
 	return &tmp
 }
@@ -2382,8 +2407,13 @@ func (o ClusterCreatePropertiesOutput) NetworkProperties() NetworkPropertiesPtrO
 }
 
 // The type of operating system.
-func (o ClusterCreatePropertiesOutput) OsType() OSTypePtrOutput {
-	return o.ApplyT(func(v ClusterCreateProperties) *OSType { return v.OsType }).(OSTypePtrOutput)
+func (o ClusterCreatePropertiesOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The private link configurations.
+func (o ClusterCreatePropertiesOutput) PrivateLinkConfigurations() PrivateLinkConfigurationArrayOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) []PrivateLinkConfiguration { return v.PrivateLinkConfigurations }).(PrivateLinkConfigurationArrayOutput)
 }
 
 // The security profile.
@@ -2397,8 +2427,8 @@ func (o ClusterCreatePropertiesOutput) StorageProfile() StorageProfilePtrOutput 
 }
 
 // The cluster tier.
-func (o ClusterCreatePropertiesOutput) Tier() TierPtrOutput {
-	return o.ApplyT(func(v ClusterCreateProperties) *Tier { return v.Tier }).(TierPtrOutput)
+func (o ClusterCreatePropertiesOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCreatePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2516,13 +2546,23 @@ func (o ClusterCreatePropertiesPtrOutput) NetworkProperties() NetworkPropertiesP
 }
 
 // The type of operating system.
-func (o ClusterCreatePropertiesPtrOutput) OsType() OSTypePtrOutput {
-	return o.ApplyT(func(v *ClusterCreateProperties) *OSType {
+func (o ClusterCreatePropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.OsType
-	}).(OSTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link configurations.
+func (o ClusterCreatePropertiesPtrOutput) PrivateLinkConfigurations() PrivateLinkConfigurationArrayOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) []PrivateLinkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkConfigurations
+	}).(PrivateLinkConfigurationArrayOutput)
 }
 
 // The security profile.
@@ -2546,13 +2586,13 @@ func (o ClusterCreatePropertiesPtrOutput) StorageProfile() StorageProfilePtrOutp
 }
 
 // The cluster tier.
-func (o ClusterCreatePropertiesPtrOutput) Tier() TierPtrOutput {
-	return o.ApplyT(func(v *ClusterCreateProperties) *Tier {
+func (o ClusterCreatePropertiesPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(TierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The cluster definition.
@@ -2835,6 +2875,10 @@ type ClusterGetPropertiesResponse struct {
 	NetworkProperties *NetworkPropertiesResponse `pulumi:"networkProperties"`
 	// The type of operating system.
 	OsType *string `pulumi:"osType"`
+	// The list of private endpoint connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The private link configurations.
+	PrivateLinkConfigurations []PrivateLinkConfigurationResponse `pulumi:"privateLinkConfigurations"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The quota information.
@@ -2968,6 +3012,20 @@ func (o ClusterGetPropertiesResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
+// The list of private endpoint connections.
+func (o ClusterGetPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The private link configurations.
+func (o ClusterGetPropertiesResponseOutput) PrivateLinkConfigurations() PrivateLinkConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) []PrivateLinkConfigurationResponse {
+		return v.PrivateLinkConfigurations
+	}).(PrivateLinkConfigurationResponseArrayOutput)
+}
+
 // The provisioning state, which only appears in the response.
 func (o ClusterGetPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
@@ -2996,9 +3054,9 @@ func (o ClusterGetPropertiesResponseOutput) Tier() pulumi.StringPtrOutput {
 // Identity for the cluster.
 type ClusterIdentity struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]ClusterIdentityUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserAssignedIdentity `pulumi:"userAssignedIdentities"`
 }
 
 // ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
@@ -3015,9 +3073,9 @@ type ClusterIdentityInput interface {
 // Identity for the cluster.
 type ClusterIdentityArgs struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities ClusterIdentityUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserAssignedIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ClusterIdentityArgs) ElementType() reflect.Type {
@@ -3099,15 +3157,13 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 }
 
 // The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-func (o ClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ClusterIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o ClusterIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityOutput) UserAssignedIdentities() ClusterIdentityUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v ClusterIdentity) map[string]ClusterIdentityUserAssignedIdentities {
-		return v.UserAssignedIdentities
-	}).(ClusterIdentityUserAssignedIdentitiesMapOutput)
+func (o ClusterIdentityOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
+	return o.ApplyT(func(v ClusterIdentity) map[string]UserAssignedIdentity { return v.UserAssignedIdentities }).(UserAssignedIdentityMapOutput)
 }
 
 type ClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3135,23 +3191,23 @@ func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
 }
 
 // The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-func (o ClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ClusterIdentity) *ResourceIdentityType {
+func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityPtrOutput) UserAssignedIdentities() ClusterIdentityUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v *ClusterIdentity) map[string]ClusterIdentityUserAssignedIdentities {
+func (o ClusterIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
+	return o.ApplyT(func(v *ClusterIdentity) map[string]UserAssignedIdentity {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(ClusterIdentityUserAssignedIdentitiesMapOutput)
+	}).(UserAssignedIdentityMapOutput)
 }
 
 // Identity for the cluster.
@@ -3163,7 +3219,7 @@ type ClusterIdentityResponse struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]ClusterIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // Identity for the cluster.
@@ -3197,10 +3253,10 @@ func (o ClusterIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityResponseOutput) UserAssignedIdentities() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v ClusterIdentityResponse) map[string]ClusterIdentityResponseUserAssignedIdentities {
+func (o ClusterIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ClusterIdentityResponse) map[string]UserAssignedIdentityResponse {
 		return v.UserAssignedIdentities
-	}).(ClusterIdentityResponseUserAssignedIdentitiesMapOutput)
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 type ClusterIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3258,168 +3314,13 @@ func (o ClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityResponsePtrOutput) UserAssignedIdentities() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v *ClusterIdentityResponse) map[string]ClusterIdentityResponseUserAssignedIdentities {
+func (o ClusterIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ClusterIdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(ClusterIdentityResponseUserAssignedIdentitiesMapOutput)
-}
-
-type ClusterIdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of user assigned identity.
-	TenantId *string `pulumi:"tenantId"`
-}
-
-type ClusterIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) ToClusterIdentityResponseUserAssignedIdentitiesOutput() ClusterIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) ToClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-// The client id of user assigned identity.
-func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The principal id of user assigned identity.
-func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-// The tenant id of user assigned identity.
-func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-type ClusterIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ToClusterIdentityResponseUserAssignedIdentitiesMapOutput() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ToClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ClusterIdentityResponseUserAssignedIdentitiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityResponseUserAssignedIdentities {
-		return vs[0].(map[string]ClusterIdentityResponseUserAssignedIdentities)[vs[1].(string)]
-	}).(ClusterIdentityResponseUserAssignedIdentitiesOutput)
-}
-
-type ClusterIdentityUserAssignedIdentities struct {
-	// The tenant id of user assigned identity.
-	TenantId *string `pulumi:"tenantId"`
-}
-
-// ClusterIdentityUserAssignedIdentitiesInput is an input type that accepts ClusterIdentityUserAssignedIdentitiesArgs and ClusterIdentityUserAssignedIdentitiesOutput values.
-// You can construct a concrete instance of `ClusterIdentityUserAssignedIdentitiesInput` via:
-//
-//          ClusterIdentityUserAssignedIdentitiesArgs{...}
-type ClusterIdentityUserAssignedIdentitiesInput interface {
-	pulumi.Input
-
-	ToClusterIdentityUserAssignedIdentitiesOutput() ClusterIdentityUserAssignedIdentitiesOutput
-	ToClusterIdentityUserAssignedIdentitiesOutputWithContext(context.Context) ClusterIdentityUserAssignedIdentitiesOutput
-}
-
-type ClusterIdentityUserAssignedIdentitiesArgs struct {
-	// The tenant id of user assigned identity.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (ClusterIdentityUserAssignedIdentitiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityUserAssignedIdentities)(nil)).Elem()
-}
-
-func (i ClusterIdentityUserAssignedIdentitiesArgs) ToClusterIdentityUserAssignedIdentitiesOutput() ClusterIdentityUserAssignedIdentitiesOutput {
-	return i.ToClusterIdentityUserAssignedIdentitiesOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityUserAssignedIdentitiesArgs) ToClusterIdentityUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityUserAssignedIdentitiesOutput)
-}
-
-// ClusterIdentityUserAssignedIdentitiesMapInput is an input type that accepts ClusterIdentityUserAssignedIdentitiesMap and ClusterIdentityUserAssignedIdentitiesMapOutput values.
-// You can construct a concrete instance of `ClusterIdentityUserAssignedIdentitiesMapInput` via:
-//
-//          ClusterIdentityUserAssignedIdentitiesMap{ "key": ClusterIdentityUserAssignedIdentitiesArgs{...} }
-type ClusterIdentityUserAssignedIdentitiesMapInput interface {
-	pulumi.Input
-
-	ToClusterIdentityUserAssignedIdentitiesMapOutput() ClusterIdentityUserAssignedIdentitiesMapOutput
-	ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(context.Context) ClusterIdentityUserAssignedIdentitiesMapOutput
-}
-
-type ClusterIdentityUserAssignedIdentitiesMap map[string]ClusterIdentityUserAssignedIdentitiesInput
-
-func (ClusterIdentityUserAssignedIdentitiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityUserAssignedIdentities)(nil)).Elem()
-}
-
-func (i ClusterIdentityUserAssignedIdentitiesMap) ToClusterIdentityUserAssignedIdentitiesMapOutput() ClusterIdentityUserAssignedIdentitiesMapOutput {
-	return i.ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityUserAssignedIdentitiesMap) ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityUserAssignedIdentitiesMapOutput)
-}
-
-type ClusterIdentityUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityUserAssignedIdentitiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o ClusterIdentityUserAssignedIdentitiesOutput) ToClusterIdentityUserAssignedIdentitiesOutput() ClusterIdentityUserAssignedIdentitiesOutput {
-	return o
-}
-
-func (o ClusterIdentityUserAssignedIdentitiesOutput) ToClusterIdentityUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesOutput {
-	return o
-}
-
-// The tenant id of user assigned identity.
-func (o ClusterIdentityUserAssignedIdentitiesOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterIdentityUserAssignedIdentities) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-type ClusterIdentityUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o ClusterIdentityUserAssignedIdentitiesMapOutput) ToClusterIdentityUserAssignedIdentitiesMapOutput() ClusterIdentityUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o ClusterIdentityUserAssignedIdentitiesMapOutput) ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o ClusterIdentityUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ClusterIdentityUserAssignedIdentitiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityUserAssignedIdentities {
-		return vs[0].(map[string]ClusterIdentityUserAssignedIdentities)[vs[1].(string)]
-	}).(ClusterIdentityUserAssignedIdentitiesOutput)
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // The compute isolation properties.
@@ -5222,6 +5123,237 @@ func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ip configurations for the private link service.
+type IPConfiguration struct {
+	// The name of private link IP configuration.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary for the corresponding NIC.
+	Primary *bool `pulumi:"primary"`
+	// The IP address.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The method that private IP address is allocated.
+	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
+	// The subnet resource id.
+	Subnet *ResourceId `pulumi:"subnet"`
+}
+
+// IPConfigurationInput is an input type that accepts IPConfigurationArgs and IPConfigurationOutput values.
+// You can construct a concrete instance of `IPConfigurationInput` via:
+//
+//          IPConfigurationArgs{...}
+type IPConfigurationInput interface {
+	pulumi.Input
+
+	ToIPConfigurationOutput() IPConfigurationOutput
+	ToIPConfigurationOutputWithContext(context.Context) IPConfigurationOutput
+}
+
+// The ip configurations for the private link service.
+type IPConfigurationArgs struct {
+	// The name of private link IP configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary for the corresponding NIC.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The IP address.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
+	// The method that private IP address is allocated.
+	PrivateIPAllocationMethod pulumi.StringPtrInput `pulumi:"privateIPAllocationMethod"`
+	// The subnet resource id.
+	Subnet ResourceIdPtrInput `pulumi:"subnet"`
+}
+
+func (IPConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPConfiguration)(nil)).Elem()
+}
+
+func (i IPConfigurationArgs) ToIPConfigurationOutput() IPConfigurationOutput {
+	return i.ToIPConfigurationOutputWithContext(context.Background())
+}
+
+func (i IPConfigurationArgs) ToIPConfigurationOutputWithContext(ctx context.Context) IPConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPConfigurationOutput)
+}
+
+// IPConfigurationArrayInput is an input type that accepts IPConfigurationArray and IPConfigurationArrayOutput values.
+// You can construct a concrete instance of `IPConfigurationArrayInput` via:
+//
+//          IPConfigurationArray{ IPConfigurationArgs{...} }
+type IPConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToIPConfigurationArrayOutput() IPConfigurationArrayOutput
+	ToIPConfigurationArrayOutputWithContext(context.Context) IPConfigurationArrayOutput
+}
+
+type IPConfigurationArray []IPConfigurationInput
+
+func (IPConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPConfiguration)(nil)).Elem()
+}
+
+func (i IPConfigurationArray) ToIPConfigurationArrayOutput() IPConfigurationArrayOutput {
+	return i.ToIPConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i IPConfigurationArray) ToIPConfigurationArrayOutputWithContext(ctx context.Context) IPConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPConfigurationArrayOutput)
+}
+
+// The ip configurations for the private link service.
+type IPConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IPConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPConfiguration)(nil)).Elem()
+}
+
+func (o IPConfigurationOutput) ToIPConfigurationOutput() IPConfigurationOutput {
+	return o
+}
+
+func (o IPConfigurationOutput) ToIPConfigurationOutputWithContext(ctx context.Context) IPConfigurationOutput {
+	return o
+}
+
+// The name of private link IP configuration.
+func (o IPConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IPConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary for the corresponding NIC.
+func (o IPConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IPConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The IP address.
+func (o IPConfigurationOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPConfiguration) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
+// The method that private IP address is allocated.
+func (o IPConfigurationOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPConfiguration) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// The subnet resource id.
+func (o IPConfigurationOutput) Subnet() ResourceIdPtrOutput {
+	return o.ApplyT(func(v IPConfiguration) *ResourceId { return v.Subnet }).(ResourceIdPtrOutput)
+}
+
+type IPConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (IPConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPConfiguration)(nil)).Elem()
+}
+
+func (o IPConfigurationArrayOutput) ToIPConfigurationArrayOutput() IPConfigurationArrayOutput {
+	return o
+}
+
+func (o IPConfigurationArrayOutput) ToIPConfigurationArrayOutputWithContext(ctx context.Context) IPConfigurationArrayOutput {
+	return o
+}
+
+func (o IPConfigurationArrayOutput) Index(i pulumi.IntInput) IPConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPConfiguration {
+		return vs[0].([]IPConfiguration)[vs[1].(int)]
+	}).(IPConfigurationOutput)
+}
+
+// The ip configurations for the private link service.
+type IPConfigurationResponse struct {
+	// The private link IP configuration id.
+	Id string `pulumi:"id"`
+	// The name of private link IP configuration.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary for the corresponding NIC.
+	Primary *bool `pulumi:"primary"`
+	// The IP address.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The method that private IP address is allocated.
+	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
+	// The private link configuration provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The subnet resource id.
+	Subnet *ResourceIdResponse `pulumi:"subnet"`
+	// The type of the private link IP configuration.
+	Type string `pulumi:"type"`
+}
+
+// The ip configurations for the private link service.
+type IPConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (IPConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPConfigurationResponse)(nil)).Elem()
+}
+
+func (o IPConfigurationResponseOutput) ToIPConfigurationResponseOutput() IPConfigurationResponseOutput {
+	return o
+}
+
+func (o IPConfigurationResponseOutput) ToIPConfigurationResponseOutputWithContext(ctx context.Context) IPConfigurationResponseOutput {
+	return o
+}
+
+// The private link IP configuration id.
+func (o IPConfigurationResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of private link IP configuration.
+func (o IPConfigurationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary for the corresponding NIC.
+func (o IPConfigurationResponseOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The IP address.
+func (o IPConfigurationResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
+// The method that private IP address is allocated.
+func (o IPConfigurationResponseOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// The private link configuration provisioning state, which only appears in the response.
+func (o IPConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The subnet resource id.
+func (o IPConfigurationResponseOutput) Subnet() ResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) *ResourceIdResponse { return v.Subnet }).(ResourceIdResponsePtrOutput)
+}
+
+// The type of the private link IP configuration.
+func (o IPConfigurationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IPConfigurationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IPConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPConfigurationResponse)(nil)).Elem()
+}
+
+func (o IPConfigurationResponseArrayOutput) ToIPConfigurationResponseArrayOutput() IPConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o IPConfigurationResponseArrayOutput) ToIPConfigurationResponseArrayOutputWithContext(ctx context.Context) IPConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o IPConfigurationResponseArrayOutput) Index(i pulumi.IntInput) IPConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPConfigurationResponse {
+		return vs[0].([]IPConfigurationResponse)[vs[1].(int)]
+	}).(IPConfigurationResponseOutput)
+}
+
 // The kafka rest proxy configuration which contains AAD security group information.
 type KafkaRestProperties struct {
 	// The information of AAD security group.
@@ -6166,6 +6298,103 @@ func (o OsProfileResponsePtrOutput) LinuxOperatingSystemProfile() LinuxOperating
 	}).(LinuxOperatingSystemProfileResponsePtrOutput)
 }
 
+// The private endpoint connection.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The link identifier.
+	LinkIdentifier string `pulumi:"linkIdentifier"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The private endpoint of the private endpoint connection
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// The private link service connection state.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// The private endpoint connection.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The link identifier.
+func (o PrivateEndpointConnectionResponseOutput) LinkIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.LinkIdentifier }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The private endpoint of the private endpoint connection
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
+}
+
+// The private link service connection state.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
 // The private endpoint.
 type PrivateEndpointResponse struct {
 	// The private endpoint id.
@@ -6190,6 +6419,205 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContex
 // The private endpoint id.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The private link configuration.
+type PrivateLinkConfiguration struct {
+	// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+	GroupId string `pulumi:"groupId"`
+	// The IP configurations for the private link service.
+	IpConfigurations []IPConfiguration `pulumi:"ipConfigurations"`
+	// The name of private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// PrivateLinkConfigurationInput is an input type that accepts PrivateLinkConfigurationArgs and PrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `PrivateLinkConfigurationInput` via:
+//
+//          PrivateLinkConfigurationArgs{...}
+type PrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToPrivateLinkConfigurationOutput() PrivateLinkConfigurationOutput
+	ToPrivateLinkConfigurationOutputWithContext(context.Context) PrivateLinkConfigurationOutput
+}
+
+// The private link configuration.
+type PrivateLinkConfigurationArgs struct {
+	// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The IP configurations for the private link service.
+	IpConfigurations IPConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i PrivateLinkConfigurationArgs) ToPrivateLinkConfigurationOutput() PrivateLinkConfigurationOutput {
+	return i.ToPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkConfigurationArgs) ToPrivateLinkConfigurationOutputWithContext(ctx context.Context) PrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConfigurationOutput)
+}
+
+// PrivateLinkConfigurationArrayInput is an input type that accepts PrivateLinkConfigurationArray and PrivateLinkConfigurationArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkConfigurationArrayInput` via:
+//
+//          PrivateLinkConfigurationArray{ PrivateLinkConfigurationArgs{...} }
+type PrivateLinkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkConfigurationArrayOutput() PrivateLinkConfigurationArrayOutput
+	ToPrivateLinkConfigurationArrayOutputWithContext(context.Context) PrivateLinkConfigurationArrayOutput
+}
+
+type PrivateLinkConfigurationArray []PrivateLinkConfigurationInput
+
+func (PrivateLinkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i PrivateLinkConfigurationArray) ToPrivateLinkConfigurationArrayOutput() PrivateLinkConfigurationArrayOutput {
+	return i.ToPrivateLinkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkConfigurationArray) ToPrivateLinkConfigurationArrayOutputWithContext(ctx context.Context) PrivateLinkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConfigurationArrayOutput)
+}
+
+// The private link configuration.
+type PrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o PrivateLinkConfigurationOutput) ToPrivateLinkConfigurationOutput() PrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o PrivateLinkConfigurationOutput) ToPrivateLinkConfigurationOutputWithContext(ctx context.Context) PrivateLinkConfigurationOutput {
+	return o
+}
+
+// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+func (o PrivateLinkConfigurationOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The IP configurations for the private link service.
+func (o PrivateLinkConfigurationOutput) IpConfigurations() IPConfigurationArrayOutput {
+	return o.ApplyT(func(v PrivateLinkConfiguration) []IPConfiguration { return v.IpConfigurations }).(IPConfigurationArrayOutput)
+}
+
+// The name of private link configuration.
+func (o PrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PrivateLinkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o PrivateLinkConfigurationArrayOutput) ToPrivateLinkConfigurationArrayOutput() PrivateLinkConfigurationArrayOutput {
+	return o
+}
+
+func (o PrivateLinkConfigurationArrayOutput) ToPrivateLinkConfigurationArrayOutputWithContext(ctx context.Context) PrivateLinkConfigurationArrayOutput {
+	return o
+}
+
+func (o PrivateLinkConfigurationArrayOutput) Index(i pulumi.IntInput) PrivateLinkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkConfiguration {
+		return vs[0].([]PrivateLinkConfiguration)[vs[1].(int)]
+	}).(PrivateLinkConfigurationOutput)
+}
+
+// The private link configuration.
+type PrivateLinkConfigurationResponse struct {
+	// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+	GroupId string `pulumi:"groupId"`
+	// The private link configuration id.
+	Id string `pulumi:"id"`
+	// The IP configurations for the private link service.
+	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
+	// The name of private link configuration.
+	Name string `pulumi:"name"`
+	// The private link configuration provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the private link configuration.
+	Type string `pulumi:"type"`
+}
+
+// The private link configuration.
+type PrivateLinkConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkConfigurationResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkConfigurationResponseOutput) ToPrivateLinkConfigurationResponseOutput() PrivateLinkConfigurationResponseOutput {
+	return o
+}
+
+func (o PrivateLinkConfigurationResponseOutput) ToPrivateLinkConfigurationResponseOutputWithContext(ctx context.Context) PrivateLinkConfigurationResponseOutput {
+	return o
+}
+
+// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+func (o PrivateLinkConfigurationResponseOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfigurationResponse) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The private link configuration id.
+func (o PrivateLinkConfigurationResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfigurationResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The IP configurations for the private link service.
+func (o PrivateLinkConfigurationResponseOutput) IpConfigurations() IPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v PrivateLinkConfigurationResponse) []IPConfigurationResponse { return v.IpConfigurations }).(IPConfigurationResponseArrayOutput)
+}
+
+// The name of private link configuration.
+func (o PrivateLinkConfigurationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The private link configuration provisioning state, which only appears in the response.
+func (o PrivateLinkConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the private link configuration.
+func (o PrivateLinkConfigurationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConfigurationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateLinkConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkConfigurationResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkConfigurationResponseArrayOutput) ToPrivateLinkConfigurationResponseArrayOutput() PrivateLinkConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkConfigurationResponseArrayOutput) ToPrivateLinkConfigurationResponseArrayOutputWithContext(ctx context.Context) PrivateLinkConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkConfigurationResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkConfigurationResponse {
+		return vs[0].([]PrivateLinkConfigurationResponse)[vs[1].(int)]
+	}).(PrivateLinkConfigurationResponseOutput)
 }
 
 // The private link service connection state.
@@ -6363,6 +6791,206 @@ func (o QuotaInfoResponsePtrOutput) CoresUsed() pulumi.IntPtrOutput {
 		}
 		return v.CoresUsed
 	}).(pulumi.IntPtrOutput)
+}
+
+// The azure resource id.
+type ResourceId struct {
+	// The azure resource id.
+	Id *string `pulumi:"id"`
+}
+
+// ResourceIdInput is an input type that accepts ResourceIdArgs and ResourceIdOutput values.
+// You can construct a concrete instance of `ResourceIdInput` via:
+//
+//          ResourceIdArgs{...}
+type ResourceIdInput interface {
+	pulumi.Input
+
+	ToResourceIdOutput() ResourceIdOutput
+	ToResourceIdOutputWithContext(context.Context) ResourceIdOutput
+}
+
+// The azure resource id.
+type ResourceIdArgs struct {
+	// The azure resource id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ResourceIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceId)(nil)).Elem()
+}
+
+func (i ResourceIdArgs) ToResourceIdOutput() ResourceIdOutput {
+	return i.ToResourceIdOutputWithContext(context.Background())
+}
+
+func (i ResourceIdArgs) ToResourceIdOutputWithContext(ctx context.Context) ResourceIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdOutput)
+}
+
+func (i ResourceIdArgs) ToResourceIdPtrOutput() ResourceIdPtrOutput {
+	return i.ToResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdArgs) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdOutput).ToResourceIdPtrOutputWithContext(ctx)
+}
+
+// ResourceIdPtrInput is an input type that accepts ResourceIdArgs, ResourceIdPtr and ResourceIdPtrOutput values.
+// You can construct a concrete instance of `ResourceIdPtrInput` via:
+//
+//          ResourceIdArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdPtrInput interface {
+	pulumi.Input
+
+	ToResourceIdPtrOutput() ResourceIdPtrOutput
+	ToResourceIdPtrOutputWithContext(context.Context) ResourceIdPtrOutput
+}
+
+type resourceIdPtrType ResourceIdArgs
+
+func ResourceIdPtr(v *ResourceIdArgs) ResourceIdPtrInput {
+	return (*resourceIdPtrType)(v)
+}
+
+func (*resourceIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceId)(nil)).Elem()
+}
+
+func (i *resourceIdPtrType) ToResourceIdPtrOutput() ResourceIdPtrOutput {
+	return i.ToResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdPtrType) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdPtrOutput)
+}
+
+// The azure resource id.
+type ResourceIdOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceId)(nil)).Elem()
+}
+
+func (o ResourceIdOutput) ToResourceIdOutput() ResourceIdOutput {
+	return o
+}
+
+func (o ResourceIdOutput) ToResourceIdOutputWithContext(ctx context.Context) ResourceIdOutput {
+	return o
+}
+
+func (o ResourceIdOutput) ToResourceIdPtrOutput() ResourceIdPtrOutput {
+	return o.ToResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdOutput) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceId) *ResourceId {
+		return &v
+	}).(ResourceIdPtrOutput)
+}
+
+// The azure resource id.
+func (o ResourceIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceId) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceId)(nil)).Elem()
+}
+
+func (o ResourceIdPtrOutput) ToResourceIdPtrOutput() ResourceIdPtrOutput {
+	return o
+}
+
+func (o ResourceIdPtrOutput) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
+	return o
+}
+
+func (o ResourceIdPtrOutput) Elem() ResourceIdOutput {
+	return o.ApplyT(func(v *ResourceId) ResourceId {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceId
+		return ret
+	}).(ResourceIdOutput)
+}
+
+// The azure resource id.
+func (o ResourceIdPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The azure resource id.
+type ResourceIdResponse struct {
+	// The azure resource id.
+	Id *string `pulumi:"id"`
+}
+
+// The azure resource id.
+type ResourceIdResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdResponse)(nil)).Elem()
+}
+
+func (o ResourceIdResponseOutput) ToResourceIdResponseOutput() ResourceIdResponseOutput {
+	return o
+}
+
+func (o ResourceIdResponseOutput) ToResourceIdResponseOutputWithContext(ctx context.Context) ResourceIdResponseOutput {
+	return o
+}
+
+// The azure resource id.
+func (o ResourceIdResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdResponse)(nil)).Elem()
+}
+
+func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdResponse
+		return ret
+	}).(ResourceIdResponseOutput)
+}
+
+// The azure resource id.
+func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes a role on the cluster.
@@ -6841,8 +7469,6 @@ type RuntimeScriptActionResponse struct {
 	ApplicationName string `pulumi:"applicationName"`
 	// The name of the script action.
 	Name string `pulumi:"name"`
-	// The parameters for the script
-	Parameters *string `pulumi:"parameters"`
 	// The list of roles where script will be executed.
 	Roles []string `pulumi:"roles"`
 	// The URI to the script.
@@ -6872,11 +7498,6 @@ func (o RuntimeScriptActionResponseOutput) ApplicationName() pulumi.StringOutput
 // The name of the script action.
 func (o RuntimeScriptActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeScriptActionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The parameters for the script
-func (o RuntimeScriptActionResponseOutput) Parameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuntimeScriptActionResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
 // The list of roles where script will be executed.
@@ -7094,7 +7715,7 @@ type SecurityProfile struct {
 	// Optional. The Distinguished Names for cluster user groups
 	ClusterUsersGroupDNs []string `pulumi:"clusterUsersGroupDNs"`
 	// The directory type.
-	DirectoryType *DirectoryType `pulumi:"directoryType"`
+	DirectoryType *string `pulumi:"directoryType"`
 	// The organization's active directory domain.
 	Domain *string `pulumi:"domain"`
 	// The domain admin password.
@@ -7127,7 +7748,7 @@ type SecurityProfileArgs struct {
 	// Optional. The Distinguished Names for cluster user groups
 	ClusterUsersGroupDNs pulumi.StringArrayInput `pulumi:"clusterUsersGroupDNs"`
 	// The directory type.
-	DirectoryType DirectoryTypePtrInput `pulumi:"directoryType"`
+	DirectoryType pulumi.StringPtrInput `pulumi:"directoryType"`
 	// The organization's active directory domain.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// The domain admin password.
@@ -7231,8 +7852,8 @@ func (o SecurityProfileOutput) ClusterUsersGroupDNs() pulumi.StringArrayOutput {
 }
 
 // The directory type.
-func (o SecurityProfileOutput) DirectoryType() DirectoryTypePtrOutput {
-	return o.ApplyT(func(v SecurityProfile) *DirectoryType { return v.DirectoryType }).(DirectoryTypePtrOutput)
+func (o SecurityProfileOutput) DirectoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfile) *string { return v.DirectoryType }).(pulumi.StringPtrOutput)
 }
 
 // The organization's active directory domain.
@@ -7310,13 +7931,13 @@ func (o SecurityProfilePtrOutput) ClusterUsersGroupDNs() pulumi.StringArrayOutpu
 }
 
 // The directory type.
-func (o SecurityProfilePtrOutput) DirectoryType() DirectoryTypePtrOutput {
-	return o.ApplyT(func(v *SecurityProfile) *DirectoryType {
+func (o SecurityProfilePtrOutput) DirectoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) *string {
 		if v == nil {
 			return nil
 		}
 		return v.DirectoryType
-	}).(DirectoryTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The organization's active directory domain.
@@ -8456,6 +9077,166 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// The User Assigned Identity
+type UserAssignedIdentity struct {
+	// The tenant id of user assigned identity.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityInput` via:
+//
+//          UserAssignedIdentityArgs{...}
+type UserAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
+	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
+}
+
+// The User Assigned Identity
+type UserAssignedIdentityArgs struct {
+	// The tenant id of user assigned identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (UserAssignedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
+}
+
+// UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
+//
+//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
+type UserAssignedIdentityMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput
+	ToUserAssignedIdentityMapOutputWithContext(context.Context) UserAssignedIdentityMapOutput
+}
+
+type UserAssignedIdentityMap map[string]UserAssignedIdentityInput
+
+func (UserAssignedIdentityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
+	return i.ToUserAssignedIdentityMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
+}
+
+// The User Assigned Identity
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return o
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return o
+}
+
+// The tenant id of user assigned identity.
+func (o UserAssignedIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedIdentityMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentity {
+		return vs[0].(map[string]UserAssignedIdentity)[vs[1].(string)]
+	}).(UserAssignedIdentityOutput)
+}
+
+// The User Assigned Identity
+type UserAssignedIdentityResponse struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// The User Assigned Identity
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 // The virtual network properties.
 type VirtualNetworkProfile struct {
 	// The ID of the virtual network.
@@ -8738,10 +9519,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesMapOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityUserAssignedIdentitiesOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(ComputeIsolationPropertiesOutput{})
 	pulumi.RegisterOutputType(ComputeIsolationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ComputeIsolationPropertiesResponseOutput{})
@@ -8774,6 +9551,10 @@ func init() {
 	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(IPConfigurationOutput{})
+	pulumi.RegisterOutputType(IPConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(IPConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(IPConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(KafkaRestPropertiesOutput{})
 	pulumi.RegisterOutputType(KafkaRestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KafkaRestPropertiesResponseOutput{})
@@ -8790,11 +9571,21 @@ func init() {
 	pulumi.RegisterOutputType(OsProfilePtrOutput{})
 	pulumi.RegisterOutputType(OsProfileResponseOutput{})
 	pulumi.RegisterOutputType(OsProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(PrivateLinkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(QuotaInfoResponseOutput{})
 	pulumi.RegisterOutputType(QuotaInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdOutput{})
+	pulumi.RegisterOutputType(ResourceIdPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoleOutput{})
 	pulumi.RegisterOutputType(RoleArrayOutput{})
 	pulumi.RegisterOutputType(RoleResponseOutput{})
@@ -8828,6 +9619,10 @@ func init() {
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})

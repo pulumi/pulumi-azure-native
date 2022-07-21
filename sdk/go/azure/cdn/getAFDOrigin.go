@@ -11,14 +11,14 @@ import (
 )
 
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func LookupAFDOrigin(ctx *pulumi.Context, args *LookupAFDOriginArgs, opts ...pulumi.InvokeOption) (*LookupAFDOriginResult, error) {
 	var rv LookupAFDOriginResult
 	err := ctx.Invoke("azure-native:cdn:getAFDOrigin", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAFDOriginArgs struct {
@@ -26,7 +26,7 @@ type LookupAFDOriginArgs struct {
 	OriginGroupName string `pulumi:"originGroupName"`
 	// Name of the origin which is unique within the profile.
 	OriginName string `pulumi:"originName"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -39,6 +39,8 @@ type LookupAFDOriginResult struct {
 	DeploymentStatus string                     `pulumi:"deploymentStatus"`
 	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
 	EnabledState *string `pulumi:"enabledState"`
+	// Whether to enable certificate name check at origin level
+	EnforceCertificateNameCheck *bool `pulumi:"enforceCertificateNameCheck"`
 	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
 	HostName string `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between 1 and 65535.
@@ -49,6 +51,8 @@ type LookupAFDOriginResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The name of the origin group which contains this origin.
+	OriginGroupName string `pulumi:"originGroupName"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
@@ -63,6 +67,19 @@ type LookupAFDOriginResult struct {
 	Type string `pulumi:"type"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight *int `pulumi:"weight"`
+}
+
+// Defaults sets the appropriate defaults for LookupAFDOriginResult
+func (val *LookupAFDOriginResult) Defaults() *LookupAFDOriginResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := true
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
 }
 
 func LookupAFDOriginOutput(ctx *pulumi.Context, args LookupAFDOriginOutputArgs, opts ...pulumi.InvokeOption) LookupAFDOriginResultOutput {
@@ -83,7 +100,7 @@ type LookupAFDOriginOutputArgs struct {
 	OriginGroupName pulumi.StringInput `pulumi:"originGroupName"`
 	// Name of the origin which is unique within the profile.
 	OriginName pulumi.StringInput `pulumi:"originName"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -122,6 +139,11 @@ func (o LookupAFDOriginResultOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAFDOriginResult) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable certificate name check at origin level
+func (o LookupAFDOriginResultOutput) EnforceCertificateNameCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAFDOriginResult) *bool { return v.EnforceCertificateNameCheck }).(pulumi.BoolPtrOutput)
+}
+
 // The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
 func (o LookupAFDOriginResultOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDOriginResult) string { return v.HostName }).(pulumi.StringOutput)
@@ -145,6 +167,11 @@ func (o LookupAFDOriginResultOutput) Id() pulumi.StringOutput {
 // Resource name.
 func (o LookupAFDOriginResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDOriginResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the origin group which contains this origin.
+func (o LookupAFDOriginResultOutput) OriginGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDOriginResult) string { return v.OriginGroupName }).(pulumi.StringOutput)
 }
 
 // The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint

@@ -11,7 +11,7 @@ import (
 )
 
 // NSX VM Group
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 func LookupWorkloadNetworkVMGroup(ctx *pulumi.Context, args *LookupWorkloadNetworkVMGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkVMGroupResult, error) {
 	var rv LookupWorkloadNetworkVMGroupResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkVMGroup", args, &rv, opts...)

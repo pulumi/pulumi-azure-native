@@ -11,7 +11,7 @@ import (
 )
 
 // The essential information related to the peer's ASN.
-// API Version: 2021-01-01.
+// API Version: 2022-01-01.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
 	err := ctx.Invoke("azure-native:peering:getPeerAsn", args, &rv, opts...)
@@ -43,7 +43,7 @@ type LookupPeerAsnResult struct {
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// The validation state of the ASN associated with the peer.
-	ValidationState *string `pulumi:"validationState"`
+	ValidationState string `pulumi:"validationState"`
 }
 
 func LookupPeerAsnOutput(ctx *pulumi.Context, args LookupPeerAsnOutputArgs, opts ...pulumi.InvokeOption) LookupPeerAsnResultOutput {
@@ -119,8 +119,8 @@ func (o LookupPeerAsnResultOutput) Type() pulumi.StringOutput {
 }
 
 // The validation state of the ASN associated with the peer.
-func (o LookupPeerAsnResultOutput) ValidationState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPeerAsnResult) *string { return v.ValidationState }).(pulumi.StringPtrOutput)
+func (o LookupPeerAsnResultOutput) ValidationState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeerAsnResult) string { return v.ValidationState }).(pulumi.StringOutput)
 }
 
 func init() {

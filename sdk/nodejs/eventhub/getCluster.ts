@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
- * API Version: 2018-01-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -64,6 +64,10 @@ export interface GetClusterResult {
      * Status of the Cluster resource
      */
     readonly status: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
     /**
      * Resource tags.
      */

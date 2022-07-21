@@ -67,7 +67,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datamigration:SqlMigrationService"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:SqlMigrationService"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:SqlMigrationService"},
                 },

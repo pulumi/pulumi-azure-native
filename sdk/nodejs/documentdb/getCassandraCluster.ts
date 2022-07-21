@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Representation of a managed Cassandra cluster.
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-15.
  */
 export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraClusterResult> {
     if (!opts) {
@@ -43,7 +43,7 @@ export interface GetCassandraClusterResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.documentdb.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.documentdb.ManagedCassandraManagedServiceIdentityResponse;
     /**
      * The location of the resource group to which the resource belongs.
      */

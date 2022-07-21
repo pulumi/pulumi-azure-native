@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class InMageEnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The target data store name.
+        /// The target datastore name.
         /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
@@ -43,8 +43,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The class type.
         /// Expected value is 'InMage'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// The Master Target Id.
@@ -53,13 +53,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string> MasterTargetId { get; set; } = null!;
 
         /// <summary>
-        /// The multi vm group Id.
+        /// The multi VM group Id.
         /// </summary>
         [Input("multiVmGroupId", required: true)]
         public Input<string> MultiVmGroupId { get; set; } = null!;
 
         /// <summary>
-        /// The multi vm group name.
+        /// The multi VM group name.
         /// </summary>
         [Input("multiVmGroupName", required: true)]
         public Input<string> MultiVmGroupName { get; set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? RunAsAccountId { get; set; }
 
         /// <summary>
-        /// The Vm Name.
+        /// The VM Name.
         /// </summary>
         [Input("vmFriendlyName")]
         public Input<string>? VmFriendlyName { get; set; }

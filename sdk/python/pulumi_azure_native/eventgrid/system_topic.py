@@ -147,7 +147,7 @@ class SystemTopic(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid System Topic.
-        API Version: 2021-06-01-preview.
+        API Version: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class SystemTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid System Topic.
-        API Version: 2021-06-01-preview.
+        API Version: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param SystemTopicArgs args: The arguments to use to populate this resource's properties.

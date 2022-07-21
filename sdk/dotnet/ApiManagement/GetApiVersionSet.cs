@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiVersionSet
     {
         /// <summary>
-        /// Api Version Set Contract details.
-        /// API Version: 2020-12-01.
+        /// API Version Set Contract details.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Api Version Set Contract details.
-        /// API Version: 2020-12-01.
+        /// API Version Set Contract details.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
@@ -90,15 +90,15 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -12,7 +12,7 @@ import (
 )
 
 // Backup of a Volume
-// API Version: 2020-12-01.
+// API Version: 2022-01-01.
 type Backup struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +36,8 @@ type Backup struct {
 	Size pulumi.Float64Output `pulumi:"size"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+	UseExistingSnapshot pulumi.BoolPtrOutput `pulumi:"useExistingSnapshot"`
 	// Volume name
 	VolumeName pulumi.StringOutput `pulumi:"volumeName"`
 }
@@ -58,6 +60,9 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	if args.VolumeName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeName'")
+	}
+	if isZero(args.UseExistingSnapshot) {
+		args.UseExistingSnapshot = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -148,6 +153,8 @@ type backupArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+	UseExistingSnapshot *bool `pulumi:"useExistingSnapshot"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -166,6 +173,8 @@ type BackupArgs struct {
 	PoolName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+	UseExistingSnapshot pulumi.BoolPtrInput
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }
@@ -255,6 +264,11 @@ func (o BackupOutput) Size() pulumi.Float64Output {
 // Resource type
 func (o BackupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+func (o BackupOutput) UseExistingSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.UseExistingSnapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Volume name

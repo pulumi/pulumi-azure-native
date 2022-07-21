@@ -11,7 +11,7 @@ import (
 )
 
 // Cluster details.
-// API Version: 2020-10-01.
+// API Version: 2022-05-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:azurestackhci:getCluster", args, &rv, opts...)
@@ -30,20 +30,28 @@ type LookupClusterArgs struct {
 
 // Cluster details.
 type LookupClusterResult struct {
+	// Object id of cluster AAD identity.
+	AadApplicationObjectId *string `pulumi:"aadApplicationObjectId"`
 	// App id of cluster AAD identity.
-	AadClientId string `pulumi:"aadClientId"`
+	AadClientId *string `pulumi:"aadClientId"`
+	// Id of cluster identity service principal.
+	AadServicePrincipalObjectId *string `pulumi:"aadServicePrincipalObjectId"`
 	// Tenant id of cluster AAD identity.
-	AadTenantId string `pulumi:"aadTenantId"`
+	AadTenantId *string `pulumi:"aadTenantId"`
 	// Type of billing applied to the resource.
 	BillingModel string `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId string `pulumi:"cloudId"`
+	// Endpoint configured for management from the Azure portal.
+	CloudManagementEndpoint *string `pulumi:"cloudManagementEndpoint"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
+	// Desired properties of the cluster.
+	DesiredProperties *ClusterDesiredPropertiesResponse `pulumi:"desiredProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Most recent billing meter timestamp.
@@ -65,7 +73,9 @@ type LookupClusterResult struct {
 	// First cluster sync timestamp.
 	RegistrationTimestamp string `pulumi:"registrationTimestamp"`
 	// Properties reported by cluster agent.
-	ReportedProperties *ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
+	ReportedProperties ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
+	// Region specific DataPath Endpoint of the cluster.
+	ServiceEndpoint string `pulumi:"serviceEndpoint"`
 	// Status of the cluster agent.
 	Status string `pulumi:"status"`
 	// Resource tags.
@@ -115,14 +125,24 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// Object id of cluster AAD identity.
+func (o LookupClusterResultOutput) AadApplicationObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.AadApplicationObjectId }).(pulumi.StringPtrOutput)
+}
+
 // App id of cluster AAD identity.
-func (o LookupClusterResultOutput) AadClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.AadClientId }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) AadClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.AadClientId }).(pulumi.StringPtrOutput)
+}
+
+// Id of cluster identity service principal.
+func (o LookupClusterResultOutput) AadServicePrincipalObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.AadServicePrincipalObjectId }).(pulumi.StringPtrOutput)
 }
 
 // Tenant id of cluster AAD identity.
-func (o LookupClusterResultOutput) AadTenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.AadTenantId }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.AadTenantId }).(pulumi.StringPtrOutput)
 }
 
 // Type of billing applied to the resource.
@@ -133,6 +153,11 @@ func (o LookupClusterResultOutput) BillingModel() pulumi.StringOutput {
 // Unique, immutable resource id.
 func (o LookupClusterResultOutput) CloudId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.CloudId }).(pulumi.StringOutput)
+}
+
+// Endpoint configured for management from the Azure portal.
+func (o LookupClusterResultOutput) CloudManagementEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.CloudManagementEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -148,6 +173,11 @@ func (o LookupClusterResultOutput) CreatedBy() pulumi.StringPtrOutput {
 // The type of identity that created the resource.
 func (o LookupClusterResultOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// Desired properties of the cluster.
+func (o LookupClusterResultOutput) DesiredProperties() ClusterDesiredPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterDesiredPropertiesResponse { return v.DesiredProperties }).(ClusterDesiredPropertiesResponsePtrOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -201,8 +231,13 @@ func (o LookupClusterResultOutput) RegistrationTimestamp() pulumi.StringOutput {
 }
 
 // Properties reported by cluster agent.
-func (o LookupClusterResultOutput) ReportedProperties() ClusterReportedPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *ClusterReportedPropertiesResponse { return v.ReportedProperties }).(ClusterReportedPropertiesResponsePtrOutput)
+func (o LookupClusterResultOutput) ReportedProperties() ClusterReportedPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupClusterResult) ClusterReportedPropertiesResponse { return v.ReportedProperties }).(ClusterReportedPropertiesResponseOutput)
+}
+
+// Region specific DataPath Endpoint of the cluster.
+func (o LookupClusterResultOutput) ServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
 }
 
 // Status of the cluster agent.

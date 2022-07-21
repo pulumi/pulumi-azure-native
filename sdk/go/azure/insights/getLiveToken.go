@@ -11,7 +11,7 @@ import (
 )
 
 // The response to a live token query.
-// API Version: 2020-06-02-preview.
+// API Version: 2021-10-14.
 func GetLiveToken(ctx *pulumi.Context, args *GetLiveTokenArgs, opts ...pulumi.InvokeOption) (*GetLiveTokenResult, error) {
 	var rv GetLiveTokenResult
 	err := ctx.Invoke("azure-native:insights:getLiveToken", args, &rv, opts...)

@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SourceControl"},

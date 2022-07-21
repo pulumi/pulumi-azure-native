@@ -20,21 +20,23 @@ __all__ = [
     'AzureBlobFileSystemConfigurationResponse',
     'AzureFileShareConfigurationResponse',
     'BatchAccountIdentityResponse',
-    'BatchAccountIdentityResponseUserAssignedIdentities',
     'BatchPoolIdentityResponse',
-    'BatchPoolIdentityResponseUserAssignedIdentities',
     'CIFSMountConfigurationResponse',
     'CertificateReferenceResponse',
     'CloudServiceConfigurationResponse',
+    'ComputeNodeIdentityReferenceResponse',
     'ContainerConfigurationResponse',
     'ContainerRegistryResponse',
     'DataDiskResponse',
     'DeleteCertificateErrorResponse',
     'DeploymentConfigurationResponse',
+    'DiffDiskSettingsResponse',
     'DiskEncryptionConfigurationResponse',
     'EncryptionPropertiesResponse',
+    'EndpointAccessProfileResponse',
     'EnvironmentSettingResponse',
     'FixedScaleSettingsResponse',
+    'IPRuleResponse',
     'ImageReferenceResponse',
     'InboundNatPoolResponse',
     'KeyVaultPropertiesResponse',
@@ -44,8 +46,10 @@ __all__ = [
     'MountConfigurationResponse',
     'NFSMountConfigurationResponse',
     'NetworkConfigurationResponse',
+    'NetworkProfileResponse',
     'NetworkSecurityGroupRuleResponse',
     'NodePlacementConfigurationResponse',
+    'OSDiskResponse',
     'PoolEndpointConfigurationResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -59,6 +63,7 @@ __all__ = [
     'TaskContainerSettingsResponse',
     'TaskSchedulingPolicyResponse',
     'UserAccountResponse',
+    'UserAssignedIdentitiesResponse',
     'UserIdentityResponse',
     'VMExtensionResponse',
     'VirtualMachineConfigurationResponse',
@@ -236,6 +241,10 @@ class AutoStoragePropertiesResponse(dict):
             suggest = "last_key_sync"
         elif key == "storageAccountId":
             suggest = "storage_account_id"
+        elif key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "nodeIdentityReference":
+            suggest = "node_identity_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutoStoragePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -250,14 +259,24 @@ class AutoStoragePropertiesResponse(dict):
 
     def __init__(__self__, *,
                  last_key_sync: str,
-                 storage_account_id: str):
+                 storage_account_id: str,
+                 authentication_mode: Optional[str] = None,
+                 node_identity_reference: Optional['outputs.ComputeNodeIdentityReferenceResponse'] = None):
         """
         Contains information about the auto-storage account associated with a Batch account.
         :param str last_key_sync: The UTC time at which storage keys were last synchronized with the Batch account.
         :param str storage_account_id: The resource ID of the storage account to be used for auto-storage account.
+        :param str authentication_mode: The authentication mode which the Batch service will use to manage the auto-storage account.
+        :param 'ComputeNodeIdentityReferenceResponse' node_identity_reference: The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
         """
         pulumi.set(__self__, "last_key_sync", last_key_sync)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if authentication_mode is None:
+            authentication_mode = 'StorageKeys'
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if node_identity_reference is not None:
+            pulumi.set(__self__, "node_identity_reference", node_identity_reference)
 
     @property
     @pulumi.getter(name="lastKeySync")
@@ -274,6 +293,22 @@ class AutoStoragePropertiesResponse(dict):
         The resource ID of the storage account to be used for auto-storage account.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[str]:
+        """
+        The authentication mode which the Batch service will use to manage the auto-storage account.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter(name="nodeIdentityReference")
+    def node_identity_reference(self) -> Optional['outputs.ComputeNodeIdentityReferenceResponse']:
+        """
+        The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+        """
+        return pulumi.get(self, "node_identity_reference")
 
 
 @pulumi.output_type
@@ -339,6 +374,8 @@ class AzureBlobFileSystemConfigurationResponse(dict):
             suggest = "account_key"
         elif key == "blobfuseOptions":
             suggest = "blobfuse_options"
+        elif key == "identityReference":
+            suggest = "identity_reference"
         elif key == "sasKey":
             suggest = "sas_key"
 
@@ -359,12 +396,14 @@ class AzureBlobFileSystemConfigurationResponse(dict):
                  relative_mount_path: str,
                  account_key: Optional[str] = None,
                  blobfuse_options: Optional[str] = None,
+                 identity_reference: Optional['outputs.ComputeNodeIdentityReferenceResponse'] = None,
                  sas_key: Optional[str] = None):
         """
         :param str relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
-        :param str account_key: This property is mutually exclusive with sasKey and one must be specified.
+        :param str account_key: This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
         :param str blobfuse_options: These are 'net use' options in Windows and 'mount' options in Linux.
-        :param str sas_key: This property is mutually exclusive with accountKey and one must be specified.
+        :param 'ComputeNodeIdentityReferenceResponse' identity_reference: This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+        :param str sas_key: This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -373,6 +412,8 @@ class AzureBlobFileSystemConfigurationResponse(dict):
             pulumi.set(__self__, "account_key", account_key)
         if blobfuse_options is not None:
             pulumi.set(__self__, "blobfuse_options", blobfuse_options)
+        if identity_reference is not None:
+            pulumi.set(__self__, "identity_reference", identity_reference)
         if sas_key is not None:
             pulumi.set(__self__, "sas_key", sas_key)
 
@@ -398,7 +439,7 @@ class AzureBlobFileSystemConfigurationResponse(dict):
     @pulumi.getter(name="accountKey")
     def account_key(self) -> Optional[str]:
         """
-        This property is mutually exclusive with sasKey and one must be specified.
+        This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
         """
         return pulumi.get(self, "account_key")
 
@@ -411,10 +452,18 @@ class AzureBlobFileSystemConfigurationResponse(dict):
         return pulumi.get(self, "blobfuse_options")
 
     @property
+    @pulumi.getter(name="identityReference")
+    def identity_reference(self) -> Optional['outputs.ComputeNodeIdentityReferenceResponse']:
+        """
+        This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+        """
+        return pulumi.get(self, "identity_reference")
+
+    @property
     @pulumi.getter(name="sasKey")
     def sas_key(self) -> Optional[str]:
         """
-        This property is mutually exclusive with accountKey and one must be specified.
+        This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
         """
         return pulumi.get(self, "sas_key")
 
@@ -502,7 +551,7 @@ class AzureFileShareConfigurationResponse(dict):
 @pulumi.output_type
 class BatchAccountIdentityResponse(dict):
     """
-    The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+    The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -529,13 +578,13 @@ class BatchAccountIdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.BatchAccountIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
-        The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+        The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
         :param str principal_id: The principal id of the Batch account. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the Batch account. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the Batch account.
-        :param Mapping[str, 'BatchAccountIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the Batch account.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -569,59 +618,11 @@ class BatchAccountIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.BatchAccountIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']]:
         """
-        The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The list of user identities associated with the Batch account.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class BatchAccountIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BatchAccountIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BatchAccountIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BatchAccountIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -648,11 +649,11 @@ class BatchPoolIdentityResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.BatchPoolIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
         :param str type: The type of identity used for the Batch Pool.
-        :param Mapping[str, 'BatchPoolIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the Batch pool.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -668,59 +669,11 @@ class BatchPoolIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.BatchPoolIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']]:
         """
-        The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The list of user identities associated with the Batch pool.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class BatchPoolIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BatchPoolIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BatchPoolIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BatchPoolIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -908,6 +861,46 @@ class CloudServiceConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ComputeNodeIdentityReferenceResponse(dict):
+    """
+    The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeNodeIdentityReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeNodeIdentityReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeNodeIdentityReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None):
+        """
+        The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        :param str resource_id: The ARM resource id of the user assigned identity.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The ARM resource id of the user assigned identity.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class ContainerConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -969,10 +962,12 @@ class ContainerRegistryResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userName":
-            suggest = "user_name"
+        if key == "identityReference":
+            suggest = "identity_reference"
         elif key == "registryServer":
             suggest = "registry_server"
+        elif key == "userName":
+            suggest = "user_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ContainerRegistryResponse. Access the value via the '{suggest}' property getter instead.")
@@ -986,26 +981,35 @@ class ContainerRegistryResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password: str,
-                 user_name: str,
-                 registry_server: Optional[str] = None):
+                 identity_reference: Optional['outputs.ComputeNodeIdentityReferenceResponse'] = None,
+                 password: Optional[str] = None,
+                 registry_server: Optional[str] = None,
+                 user_name: Optional[str] = None):
         """
+        :param 'ComputeNodeIdentityReferenceResponse' identity_reference: The reference to a user assigned identity associated with the Batch pool which a compute node will use.
         :param str registry_server: If omitted, the default is "docker.io".
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "user_name", user_name)
+        if identity_reference is not None:
+            pulumi.set(__self__, "identity_reference", identity_reference)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if registry_server is not None:
             pulumi.set(__self__, "registry_server", registry_server)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="identityReference")
+    def identity_reference(self) -> Optional['outputs.ComputeNodeIdentityReferenceResponse']:
+        """
+        The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        """
+        return pulumi.get(self, "identity_reference")
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> Optional[str]:
         return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> str:
-        return pulumi.get(self, "user_name")
 
     @property
     @pulumi.getter(name="registryServer")
@@ -1014,6 +1018,11 @@ class ContainerRegistryResponse(dict):
         If omitted, the default is "docker.io".
         """
         return pulumi.get(self, "registry_server")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -1214,6 +1223,25 @@ class DeploymentConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class DiffDiskSettingsResponse(dict):
+    def __init__(__self__, *,
+                 placement: Optional[str] = None):
+        """
+        :param str placement: This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        """
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[str]:
+        """
+        This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        """
+        return pulumi.get(self, "placement")
+
+
+@pulumi.output_type
 class DiskEncryptionConfigurationResponse(dict):
     """
     The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
@@ -1288,6 +1316,59 @@ class EncryptionPropertiesResponse(dict):
         Additional details when using Microsoft.KeyVault
         """
         return pulumi.get(self, "key_vault_properties")
+
+
+@pulumi.output_type
+class EndpointAccessProfileResponse(dict):
+    """
+    Network access profile for Batch endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointAccessProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointAccessProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointAccessProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_action: str,
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None):
+        """
+        Network access profile for Batch endpoint.
+        :param str default_action: Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+        :param Sequence['IPRuleResponse'] ip_rules: Array of IP ranges to filter client IP address.
+        """
+        pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
+        """
+        Array of IP ranges to filter client IP address.
+        """
+        return pulumi.get(self, "ip_rules")
 
 
 @pulumi.output_type
@@ -1389,6 +1470,39 @@ class FixedScaleSettingsResponse(dict):
 
 
 @pulumi.output_type
+class IPRuleResponse(dict):
+    """
+    Rule to filter client IP address.
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 value: str):
+        """
+        Rule to filter client IP address.
+        :param str action: Action when client IP address is matched.
+        :param str value: IPv4 address, or IPv4 address range in CIDR format.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Action when client IP address is matched.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        IPv4 address, or IPv4 address range in CIDR format.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ImageReferenceResponse(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
@@ -1400,7 +1514,7 @@ class ImageReferenceResponse(dict):
         :param str id: This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         :param str offer: For example, UbuntuServer or WindowsServer.
         :param str publisher: For example, Canonical or MicrosoftWindowsServer.
-        :param str sku: For example, 18.04-LTS or 2019-Datacenter.
+        :param str sku: For example, 18.04-LTS or 2022-datacenter.
         :param str version: A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
         """
         if id is not None:
@@ -1442,7 +1556,7 @@ class ImageReferenceResponse(dict):
     @pulumi.getter
     def sku(self) -> Optional[str]:
         """
-        For example, 18.04-LTS or 2019-Datacenter.
+        For example, 18.04-LTS or 2022-datacenter.
         """
         return pulumi.get(self, "sku")
 
@@ -1856,7 +1970,9 @@ class NetworkConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointConfiguration":
+        if key == "dynamicVNetAssignmentScope":
+            suggest = "dynamic_v_net_assignment_scope"
+        elif key == "endpointConfiguration":
             suggest = "endpoint_configuration"
         elif key == "publicIPAddressConfiguration":
             suggest = "public_ip_address_configuration"
@@ -1875,6 +1991,7 @@ class NetworkConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 dynamic_v_net_assignment_scope: Optional[str] = None,
                  endpoint_configuration: Optional['outputs.PoolEndpointConfigurationResponse'] = None,
                  public_ip_address_configuration: Optional['outputs.PublicIPAddressConfigurationResponse'] = None,
                  subnet_id: Optional[str] = None):
@@ -1884,12 +2001,19 @@ class NetworkConfigurationResponse(dict):
         :param 'PublicIPAddressConfigurationResponse' public_ip_address_configuration: This property is only supported on Pools with the virtualMachineConfiguration property.
         :param str subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
+        if dynamic_v_net_assignment_scope is not None:
+            pulumi.set(__self__, "dynamic_v_net_assignment_scope", dynamic_v_net_assignment_scope)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if public_ip_address_configuration is not None:
             pulumi.set(__self__, "public_ip_address_configuration", public_ip_address_configuration)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="dynamicVNetAssignmentScope")
+    def dynamic_v_net_assignment_scope(self) -> Optional[str]:
+        return pulumi.get(self, "dynamic_v_net_assignment_scope")
 
     @property
     @pulumi.getter(name="endpointConfiguration")
@@ -1914,6 +2038,60 @@ class NetworkConfigurationResponse(dict):
         The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class NetworkProfileResponse(dict):
+    """
+    Network profile for Batch account, which contains network rule settings for each endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountAccess":
+            suggest = "account_access"
+        elif key == "nodeManagementAccess":
+            suggest = "node_management_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_access: Optional['outputs.EndpointAccessProfileResponse'] = None,
+                 node_management_access: Optional['outputs.EndpointAccessProfileResponse'] = None):
+        """
+        Network profile for Batch account, which contains network rule settings for each endpoint.
+        :param 'EndpointAccessProfileResponse' account_access: Network access profile for batchAccount endpoint (Batch account data plane API).
+        :param 'EndpointAccessProfileResponse' node_management_access: Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+        """
+        if account_access is not None:
+            pulumi.set(__self__, "account_access", account_access)
+        if node_management_access is not None:
+            pulumi.set(__self__, "node_management_access", node_management_access)
+
+    @property
+    @pulumi.getter(name="accountAccess")
+    def account_access(self) -> Optional['outputs.EndpointAccessProfileResponse']:
+        """
+        Network access profile for batchAccount endpoint (Batch account data plane API).
+        """
+        return pulumi.get(self, "account_access")
+
+    @property
+    @pulumi.getter(name="nodeManagementAccess")
+    def node_management_access(self) -> Optional['outputs.EndpointAccessProfileResponse']:
+        """
+        Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+        """
+        return pulumi.get(self, "node_management_access")
 
 
 @pulumi.output_type
@@ -2007,6 +2185,36 @@ class NodePlacementConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class OSDiskResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ephemeralOSDiskSettings":
+            suggest = "ephemeral_os_disk_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ephemeral_os_disk_settings: Optional['outputs.DiffDiskSettingsResponse'] = None):
+        if ephemeral_os_disk_settings is not None:
+            pulumi.set(__self__, "ephemeral_os_disk_settings", ephemeral_os_disk_settings)
+
+    @property
+    @pulumi.getter(name="ephemeralOSDiskSettings")
+    def ephemeral_os_disk_settings(self) -> Optional['outputs.DiffDiskSettingsResponse']:
+        return pulumi.get(self, "ephemeral_os_disk_settings")
+
+
+@pulumi.output_type
 class PoolEndpointConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2049,10 +2257,12 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
+        if key == "groupIds":
+            suggest = "group_ids"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
 
@@ -2069,28 +2279,30 @@ class PrivateEndpointConnectionResponse(dict):
 
     def __init__(__self__, *,
                  etag: str,
+                 group_ids: Sequence[str],
                  id: str,
                  name: str,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
                  provisioning_state: str,
                  type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Contains information about a private link resource.
         :param str etag: The ETag of the resource, used for concurrency statements.
+        :param Sequence[str] group_ids: The value has one and only one group id.
         :param str id: The ID of the resource.
         :param str name: The name of the resource.
-        :param str type: The type of the resource.
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection.
+        :param str type: The type of the resource.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state of the private endpoint connection
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
 
@@ -2101,6 +2313,14 @@ class PrivateEndpointConnectionResponse(dict):
         The ETag of the resource, used for concurrency statements.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The value has one and only one group id.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -2119,6 +2339,14 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The private endpoint of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         return pulumi.get(self, "provisioning_state")
@@ -2130,14 +2358,6 @@ class PrivateEndpointConnectionResponse(dict):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The private endpoint of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_endpoint")
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -2243,7 +2463,7 @@ class PublicIPAddressConfigurationResponse(dict):
                  provision: Optional[str] = None):
         """
         The public IP Address configuration of the networking configuration of a Pool.
-        :param Sequence[str] ip_address_ids: The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+        :param Sequence[str] ip_address_ids: The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
         :param str provision: The default value is BatchManaged
         """
         if ip_address_ids is not None:
@@ -2255,7 +2475,7 @@ class PublicIPAddressConfigurationResponse(dict):
     @pulumi.getter(name="ipAddressIds")
     def ip_address_ids(self) -> Optional[Sequence[str]]:
         """
-        The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+        The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
         """
         return pulumi.get(self, "ip_address_ids")
 
@@ -2416,6 +2636,8 @@ class ResourceFileResponse(dict):
             suggest = "file_path"
         elif key == "httpUrl":
             suggest = "http_url"
+        elif key == "identityReference":
+            suggest = "identity_reference"
         elif key == "storageContainerUrl":
             suggest = "storage_container_url"
 
@@ -2436,14 +2658,16 @@ class ResourceFileResponse(dict):
                  file_mode: Optional[str] = None,
                  file_path: Optional[str] = None,
                  http_url: Optional[str] = None,
+                 identity_reference: Optional['outputs.ComputeNodeIdentityReferenceResponse'] = None,
                  storage_container_url: Optional[str] = None):
         """
         :param str auto_storage_container_name: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
         :param str blob_prefix: The property is valid only when autoStorageContainerName or storageContainerUrl is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
         :param str file_mode: This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a resourceFile which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
         :param str file_path: If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
-        :param str http_url: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
-        :param str storage_container_url: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        :param str http_url: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
+        :param 'ComputeNodeIdentityReferenceResponse' identity_reference: The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        :param str storage_container_url: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
         """
         if auto_storage_container_name is not None:
             pulumi.set(__self__, "auto_storage_container_name", auto_storage_container_name)
@@ -2455,6 +2679,8 @@ class ResourceFileResponse(dict):
             pulumi.set(__self__, "file_path", file_path)
         if http_url is not None:
             pulumi.set(__self__, "http_url", http_url)
+        if identity_reference is not None:
+            pulumi.set(__self__, "identity_reference", identity_reference)
         if storage_container_url is not None:
             pulumi.set(__self__, "storage_container_url", storage_container_url)
 
@@ -2494,15 +2720,23 @@ class ResourceFileResponse(dict):
     @pulumi.getter(name="httpUrl")
     def http_url(self) -> Optional[str]:
         """
-        The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
         """
         return pulumi.get(self, "http_url")
+
+    @property
+    @pulumi.getter(name="identityReference")
+    def identity_reference(self) -> Optional['outputs.ComputeNodeIdentityReferenceResponse']:
+        """
+        The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        """
+        return pulumi.get(self, "identity_reference")
 
     @property
     @pulumi.getter(name="storageContainerUrl")
     def storage_container_url(self) -> Optional[str]:
         """
-        The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
         """
         return pulumi.get(self, "storage_container_url")
 
@@ -2856,6 +3090,58 @@ class UserAccountResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentitiesResponse(dict):
+    """
+    The list of associated user identities.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        The list of associated user identities.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class UserIdentityResponse(dict):
     """
     Specify either the userName or autoUser property, but not both.
@@ -3031,6 +3317,8 @@ class VirtualMachineConfigurationResponse(dict):
             suggest = "license_type"
         elif key == "nodePlacementConfiguration":
             suggest = "node_placement_configuration"
+        elif key == "osDisk":
+            suggest = "os_disk"
         elif key == "windowsConfiguration":
             suggest = "windows_configuration"
 
@@ -3054,6 +3342,7 @@ class VirtualMachineConfigurationResponse(dict):
                  extensions: Optional[Sequence['outputs.VMExtensionResponse']] = None,
                  license_type: Optional[str] = None,
                  node_placement_configuration: Optional['outputs.NodePlacementConfigurationResponse'] = None,
+                 os_disk: Optional['outputs.OSDiskResponse'] = None,
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         :param str node_agent_sku_id: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
@@ -3066,6 +3355,7 @@ class VirtualMachineConfigurationResponse(dict):
                 Windows_Server - The on-premises license is for Windows Server.
                 Windows_Client - The on-premises license is for Windows Client.
         :param 'NodePlacementConfigurationResponse' node_placement_configuration: This configuration will specify rules on how nodes in the pool will be physically allocated.
+        :param 'OSDiskResponse' os_disk: Contains configuration for ephemeral OSDisk settings.
         :param 'WindowsConfigurationResponse' windows_configuration: This property must not be specified if the imageReference specifies a Linux OS image.
         """
         pulumi.set(__self__, "image_reference", image_reference)
@@ -3082,6 +3372,8 @@ class VirtualMachineConfigurationResponse(dict):
             pulumi.set(__self__, "license_type", license_type)
         if node_placement_configuration is not None:
             pulumi.set(__self__, "node_placement_configuration", node_placement_configuration)
+        if os_disk is not None:
+            pulumi.set(__self__, "os_disk", os_disk)
         if windows_configuration is not None:
             pulumi.set(__self__, "windows_configuration", windows_configuration)
 
@@ -3148,6 +3440,14 @@ class VirtualMachineConfigurationResponse(dict):
         This configuration will specify rules on how nodes in the pool will be physically allocated.
         """
         return pulumi.get(self, "node_placement_configuration")
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> Optional['outputs.OSDiskResponse']:
+        """
+        Contains configuration for ephemeral OSDisk settings.
+        """
+        return pulumi.get(self, "os_disk")
 
     @property
     @pulumi.getter(name="windowsConfiguration")

@@ -290,7 +290,7 @@ def get_job(expand: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Job Resource.
-    API Version: 2020-11-01.
+    API Version: 2022-02-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -338,7 +338,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Job Resource.
-    API Version: 2020-11-01.
+    API Version: 2022-02-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.

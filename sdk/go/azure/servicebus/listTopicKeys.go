@@ -11,7 +11,7 @@ import (
 )
 
 // Namespace/ServiceBus Connection String
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func ListTopicKeys(ctx *pulumi.Context, args *ListTopicKeysArgs, opts ...pulumi.InvokeOption) (*ListTopicKeysResult, error) {
 	var rv ListTopicKeysResult
 	err := ctx.Invoke("azure-native:servicebus:listTopicKeys", args, &rv, opts...)

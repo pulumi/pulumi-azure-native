@@ -61,7 +61,7 @@ def list_domain_recommendations(keywords: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainRecommendationsResult:
     """
     Collection of domain name identifiers.
-    API Version: 2020-10-01.
+    API Version: 2021-03-01.
 
 
     :param str keywords: Keywords to be used for generating domain recommendations.
@@ -87,7 +87,7 @@ def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
     """
     Collection of domain name identifiers.
-    API Version: 2020-10-01.
+    API Version: 2021-03-01.
 
 
     :param str keywords: Keywords to be used for generating domain recommendations.

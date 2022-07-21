@@ -11,7 +11,7 @@ import (
 )
 
 // Private endpoint resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupPrivateEndpoint(ctx *pulumi.Context, args *LookupPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointResult, error) {
 	var rv LookupPrivateEndpointResult
 	err := ctx.Invoke("azure-native:network:getPrivateEndpoint", args, &rv, opts...)
@@ -32,14 +32,20 @@ type LookupPrivateEndpointArgs struct {
 
 // Private endpoint resource.
 type LookupPrivateEndpointResult struct {
+	// Application security groups in which the private endpoint IP configuration is included.
+	ApplicationSecurityGroups []ApplicationSecurityGroupResponse `pulumi:"applicationSecurityGroups"`
 	// An array of custom dns configurations.
 	CustomDnsConfigs []CustomDnsConfigPropertiesFormatResponse `pulumi:"customDnsConfigs"`
+	// The custom name of the network interface attached to the private endpoint.
+	CustomNetworkInterfaceName *string `pulumi:"customNetworkInterfaceName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The extended location of the load balancer.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+	IpConfigurations []PrivateEndpointIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
@@ -112,11 +118,23 @@ func (o LookupPrivateEndpointResultOutput) ToLookupPrivateEndpointResultOutputWi
 	return o
 }
 
+// Application security groups in which the private endpoint IP configuration is included.
+func (o LookupPrivateEndpointResultOutput) ApplicationSecurityGroups() ApplicationSecurityGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointResult) []ApplicationSecurityGroupResponse {
+		return v.ApplicationSecurityGroups
+	}).(ApplicationSecurityGroupResponseArrayOutput)
+}
+
 // An array of custom dns configurations.
 func (o LookupPrivateEndpointResultOutput) CustomDnsConfigs() CustomDnsConfigPropertiesFormatResponseArrayOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointResult) []CustomDnsConfigPropertiesFormatResponse {
 		return v.CustomDnsConfigs
 	}).(CustomDnsConfigPropertiesFormatResponseArrayOutput)
+}
+
+// The custom name of the network interface attached to the private endpoint.
+func (o LookupPrivateEndpointResultOutput) CustomNetworkInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointResult) *string { return v.CustomNetworkInterfaceName }).(pulumi.StringPtrOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.
@@ -132,6 +150,13 @@ func (o LookupPrivateEndpointResultOutput) ExtendedLocation() ExtendedLocationRe
 // Resource ID.
 func (o LookupPrivateEndpointResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+func (o LookupPrivateEndpointResultOutput) IpConfigurations() PrivateEndpointIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointResult) []PrivateEndpointIPConfigurationResponse {
+		return v.IpConfigurations
+	}).(PrivateEndpointIPConfigurationResponseArrayOutput)
 }
 
 // Resource location.

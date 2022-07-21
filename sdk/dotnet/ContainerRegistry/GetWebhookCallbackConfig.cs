@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// The configuration of service URI and custom headers for the webhook.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-native:containerregistry:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// The configuration of service URI and custom headers for the webhook.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetWebhookCallbackConfigResult> Invoke(GetWebhookCallbackConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebhookCallbackConfigResult>("azure-native:containerregistry:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigInvokeArgs(), options.WithDefaults());

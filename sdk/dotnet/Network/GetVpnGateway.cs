@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VpnGateway Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetVpnGatewayResult> InvokeAsync(GetVpnGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("azure-native:network:getVpnGateway", args ?? new GetVpnGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// VpnGateway Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetVpnGatewayResult> Invoke(GetVpnGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("azure-native:network:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithDefaults());
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnConnectionResponse> Connections;
         /// <summary>
+        /// Enable BGP routes translation for NAT on this VpnGateway.
+        /// </summary>
+        public readonly bool? EnableBgpRouteTranslationForNat;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.VpnConnectionResponse> connections,
 
+            bool? enableBgpRouteTranslationForNat,
+
             string etag,
 
             string? id,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNative.Network
         {
             BgpSettings = bgpSettings;
             Connections = connections;
+            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
             Etag = etag;
             Id = id;
             IpConfigurations = ipConfigurations;

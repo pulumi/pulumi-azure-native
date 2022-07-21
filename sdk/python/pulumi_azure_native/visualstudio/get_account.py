@@ -108,7 +108,7 @@ def get_account(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     The response to an account resource GET request.
-    API Version: 2014-04-01-preview.
+    API Version: 2017-11-01-preview.
 
 
     :param str resource_group_name: Name of the resource group within the Azure subscription.
@@ -138,7 +138,7 @@ def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     The response to an account resource GET request.
-    API Version: 2014-04-01-preview.
+    API Version: 2017-11-01-preview.
 
 
     :param str resource_group_name: Name of the resource group within the Azure subscription.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a container registry.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     if (!opts) {
@@ -45,9 +45,25 @@ export interface GetRegistryResult {
      */
     readonly creationDate: string;
     /**
+     * Enable a single data endpoint per region for serving data.
+     */
+    readonly dataEndpointEnabled?: boolean;
+    /**
+     * List of host names that will serve data when dataEndpointEnabled is true.
+     */
+    readonly dataEndpointHostNames: string[];
+    /**
+     * The encryption settings of container registry.
+     */
+    readonly encryption?: outputs.containerregistry.EncryptionPropertyResponse;
+    /**
      * The resource ID.
      */
     readonly id: string;
+    /**
+     * The identity of the container registry.
+     */
+    readonly identity?: outputs.containerregistry.IdentityPropertiesResponse;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -61,6 +77,10 @@ export interface GetRegistryResult {
      */
     readonly name: string;
     /**
+     * Whether to allow trusted Azure services to access a network restricted registry.
+     */
+    readonly networkRuleBypassOptions?: string;
+    /**
      * The network rule set for a container registry.
      */
     readonly networkRuleSet?: outputs.containerregistry.NetworkRuleSetResponse;
@@ -69,9 +89,17 @@ export interface GetRegistryResult {
      */
     readonly policies?: outputs.containerregistry.PoliciesResponse;
     /**
+     * List of private endpoint connections for a container registry.
+     */
+    readonly privateEndpointConnections: outputs.containerregistry.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioning state of the container registry at the time the operation was called.
      */
     readonly provisioningState: string;
+    /**
+     * Whether or not public network access is allowed for the container registry.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The SKU of the container registry.
      */
@@ -81,9 +109,9 @@ export interface GetRegistryResult {
      */
     readonly status: outputs.containerregistry.StatusResponse;
     /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly storageAccount?: outputs.containerregistry.StorageAccountPropertiesResponse;
+    readonly systemData: outputs.containerregistry.SystemDataResponse;
     /**
      * The tags of the resource.
      */
@@ -92,6 +120,10 @@ export interface GetRegistryResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry
+     */
+    readonly zoneRedundancy?: string;
 }
 
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {

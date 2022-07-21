@@ -121,7 +121,7 @@ def get_managed_instance_key(key_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceKeyResult:
     """
     A managed instance key.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str key_name: The name of the managed instance key to be retrieved.
@@ -155,7 +155,7 @@ def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceKeyResult]:
     """
     A managed instance key.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str key_name: The name of the managed instance key to be retrieved.

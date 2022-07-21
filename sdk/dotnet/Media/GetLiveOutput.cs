@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// The Live Output.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-native:media:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Live Output.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetLiveOutputResult> Invoke(GetLiveOutputInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithDefaults());
@@ -142,6 +142,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNative.Media
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ArchiveWindowLength = archiveWindowLength;
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Media
             OutputSnapTime = outputSnapTime;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// The properties that are associated with a function.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.AggregateFunctionPropertiesArgs, Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
 
         public FunctionArgs()
         {

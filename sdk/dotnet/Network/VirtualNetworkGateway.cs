@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A common class for general resource information.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : Pulumi.CustomResource
@@ -35,10 +35,22 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.AddressSpaceResponse?> CustomRoutes { get; private set; } = null!;
 
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        [Output("disableIPSecReplayProtection")]
+        public Output<bool?> DisableIPSecReplayProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        [Output("enableBgpRouteTranslationForNat")]
+        public Output<bool?> EnableBgpRouteTranslationForNat { get; private set; } = null!;
 
         /// <summary>
         /// Whether dns forwarding is enabled or not.
@@ -99,6 +111,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        [Output("natRules")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse>> NatRules { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the virtual network gateway resource.
@@ -261,10 +279,22 @@ namespace Pulumi.AzureNative.Network
         public Input<Inputs.AddressSpaceArgs>? CustomRoutes { get; set; }
 
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        [Input("disableIPSecReplayProtection")]
+        public Input<bool>? DisableIPSecReplayProtection { get; set; }
+
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        [Input("enableBgpRouteTranslationForNat")]
+        public Input<bool>? EnableBgpRouteTranslationForNat { get; set; }
 
         /// <summary>
         /// Whether dns forwarding is enabled or not.
@@ -319,6 +349,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("natRules")]
+        private InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>? _natRules;
+
+        /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayNatRuleArgs> NatRules
+        {
+            get => _natRules ?? (_natRules = new InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>());
+            set => _natRules = value;
+        }
 
         /// <summary>
         /// The name of the resource group.

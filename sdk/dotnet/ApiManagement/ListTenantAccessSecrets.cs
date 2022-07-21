@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Tenant access information contract of the API Management service.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-native:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tenant access information contract of the API Management service.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<ListTenantAccessSecretsResult> Invoke(ListTenantAccessSecretsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListTenantAccessSecretsResult>("azure-native:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsInvokeArgs(), options.WithDefaults());

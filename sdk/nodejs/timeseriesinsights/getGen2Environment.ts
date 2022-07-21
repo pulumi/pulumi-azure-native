@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
- * API Version: 2020-05-15.
+ * API Version: 2021-06-30-preview.
  */
 export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen2EnvironmentResult> {
     if (!opts) {
@@ -86,6 +86,10 @@ export interface GetGen2EnvironmentResult {
      * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
      */
     readonly storageConfiguration: outputs.timeseriesinsights.Gen2StorageConfigurationOutputResponse;
+    /**
+     * Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+     */
+    readonly supportsCustomerManagedKey: boolean;
     /**
      * Resource tags
      */

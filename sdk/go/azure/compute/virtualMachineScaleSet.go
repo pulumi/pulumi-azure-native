@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set.
-// API Version: 2021-03-01.
+// API Version: 2021-11-01.
 type VirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
@@ -44,14 +44,18 @@ type VirtualMachineScaleSet struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
 	ProximityPlacementGroup SubResourceResponsePtrOutput `pulumi:"proximityPlacementGroup"`
-	// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+	// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
 	ScaleInPolicy ScaleInPolicyResponsePtrOutput `pulumi:"scaleInPolicy"`
 	// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Specifies the Spot Restore properties for the virtual machine scale set.
+	SpotRestorePolicy SpotRestorePolicyResponsePtrOutput `pulumi:"spotRestorePolicy"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
@@ -60,7 +64,7 @@ type VirtualMachineScaleSet struct {
 	UpgradePolicy UpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
 	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrOutput `pulumi:"virtualMachineProfile"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -188,12 +192,14 @@ type virtualMachineScaleSetArgs struct {
 	ProximityPlacementGroup *SubResource `pulumi:"proximityPlacementGroup"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+	// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
 	ScaleInPolicy *ScaleInPolicy `pulumi:"scaleInPolicy"`
 	// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku *Sku `pulumi:"sku"`
+	// Specifies the Spot Restore properties for the virtual machine scale set.
+	SpotRestorePolicy *SpotRestorePolicy `pulumi:"spotRestorePolicy"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The upgrade policy.
@@ -202,7 +208,7 @@ type virtualMachineScaleSetArgs struct {
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
 	// The name of the VM scale set to create or update.
 	VmScaleSetName *string `pulumi:"vmScaleSetName"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones []string `pulumi:"zones"`
@@ -236,12 +242,14 @@ type VirtualMachineScaleSetArgs struct {
 	ProximityPlacementGroup SubResourcePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+	// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
 	ScaleInPolicy ScaleInPolicyPtrInput
 	// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The virtual machine scale set sku.
 	Sku SkuPtrInput
+	// Specifies the Spot Restore properties for the virtual machine scale set.
+	SpotRestorePolicy SpotRestorePolicyPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The upgrade policy.
@@ -250,7 +258,7 @@ type VirtualMachineScaleSetArgs struct {
 	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
 	// The name of the VM scale set to create or update.
 	VmScaleSetName pulumi.StringPtrInput
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance pulumi.BoolPtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones pulumi.StringArrayInput
@@ -367,7 +375,7 @@ func (o VirtualMachineScaleSetOutput) ProximityPlacementGroup() SubResourceRespo
 	return o.ApplyT(func(v *VirtualMachineScaleSet) SubResourceResponsePtrOutput { return v.ProximityPlacementGroup }).(SubResourceResponsePtrOutput)
 }
 
-// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
 func (o VirtualMachineScaleSetOutput) ScaleInPolicy() ScaleInPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSet) ScaleInPolicyResponsePtrOutput { return v.ScaleInPolicy }).(ScaleInPolicyResponsePtrOutput)
 }
@@ -382,9 +390,19 @@ func (o VirtualMachineScaleSetOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSet) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
 }
 
+// Specifies the Spot Restore properties for the virtual machine scale set.
+func (o VirtualMachineScaleSetOutput) SpotRestorePolicy() SpotRestorePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) SpotRestorePolicyResponsePtrOutput { return v.SpotRestorePolicy }).(SpotRestorePolicyResponsePtrOutput)
+}
+
 // Resource tags
 func (o VirtualMachineScaleSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o VirtualMachineScaleSetOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type
@@ -409,7 +427,7 @@ func (o VirtualMachineScaleSetOutput) VirtualMachineProfile() VirtualMachineScal
 	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
 }
 
-// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 func (o VirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
 }

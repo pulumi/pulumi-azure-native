@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? AdminUsername;
         /// <summary>
+        /// Specifies whether extension operations should be allowed on the virtual machine scale set. &lt;br&gt;&lt;br&gt;This may only be set to False when no extensions are present on the virtual machine scale set.
+        /// </summary>
+        public readonly bool? AllowExtensionOperations;
+        /// <summary>
         /// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         /// </summary>
         public readonly string? ComputerNamePrefix;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? adminUsername,
 
+            bool? allowExtensionOperations,
+
             string? computerNamePrefix,
 
             string? customData,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         {
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            AllowExtensionOperations = allowExtensionOperations;
             ComputerNamePrefix = computerNamePrefix;
             CustomData = customData;
             LinuxConfiguration = linuxConfiguration;

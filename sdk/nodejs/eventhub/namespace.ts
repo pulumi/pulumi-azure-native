@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single Namespace item in List or Get Operation
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -37,9 +37,29 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * Alternate name specified when alias and namespace names are same.
+     */
+    public readonly alternateName!: pulumi.Output<string | undefined>;
+    /**
+     * Cluster ARM ID of the Namespace.
+     */
+    public readonly clusterArmId!: pulumi.Output<string | undefined>;
+    /**
      * The time the Namespace was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * This property disables SAS authentication for the Event Hubs namespace.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    public readonly encryption!: pulumi.Output<outputs.eventhub.EncryptionResponse | undefined>;
+    /**
+     * Properties of BYOK Identity description
+     */
+    public readonly identity!: pulumi.Output<outputs.eventhub.IdentityResponse | undefined>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -65,6 +85,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of private endpoint connections.
+     */
+    public readonly privateEndpointConnections!: pulumi.Output<outputs.eventhub.PrivateEndpointConnectionResponse[] | undefined>;
+    /**
      * Provisioning state of the Namespace.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -77,6 +101,14 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.eventhub.SkuResponse | undefined>;
     /**
+     * Status of the Namespace.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -88,6 +120,10 @@ export class Namespace extends pulumi.CustomResource {
      * The time the Namespace was updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -103,35 +139,53 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
+            resourceInputs["clusterArmId"] = args ? args.clusterArmId : undefined;
+            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.eventhub.encryptionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["isAutoInflateEnabled"] = args ? args.isAutoInflateEnabled : undefined;
             resourceInputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["alternateName"] = undefined /*out*/;
+            resourceInputs["clusterArmId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["isAutoInflateEnabled"] = undefined /*out*/;
             resourceInputs["kafkaEnabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maximumThroughputUnits"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20140901:Namespace" }, { type: "azure-native:eventhub/v20150801:Namespace" }, { type: "azure-native:eventhub/v20170401:Namespace" }, { type: "azure-native:eventhub/v20180101preview:Namespace" }, { type: "azure-native:eventhub/v20210101preview:Namespace" }, { type: "azure-native:eventhub/v20210601preview:Namespace" }, { type: "azure-native:eventhub/v20211101:Namespace" }, { type: "azure-native:eventhub/v20220101preview:Namespace" }] };
@@ -144,6 +198,26 @@ export class Namespace extends pulumi.CustomResource {
  * The set of arguments for constructing a Namespace resource.
  */
 export interface NamespaceArgs {
+    /**
+     * Alternate name specified when alias and namespace names are same.
+     */
+    alternateName?: pulumi.Input<string>;
+    /**
+     * Cluster ARM ID of the Namespace.
+     */
+    clusterArmId?: pulumi.Input<string>;
+    /**
+     * This property disables SAS authentication for the Event Hubs namespace.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    encryption?: pulumi.Input<inputs.eventhub.EncryptionArgs>;
+    /**
+     * Properties of BYOK Identity description
+     */
+    identity?: pulumi.Input<inputs.eventhub.IdentityArgs>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -165,6 +239,10 @@ export interface NamespaceArgs {
      */
     namespaceName?: pulumi.Input<string>;
     /**
+     * List of private endpoint connections.
+     */
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventhub.PrivateEndpointConnectionArgs>[]>;
+    /**
      * Name of the resource group within the azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -176,4 +254,8 @@ export interface NamespaceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a database on the RedisEnterprise cluster
- * API Version: 2021-03-01.
+ * API Version: 2022-01-01.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class Database extends pulumi.CustomResource {
      * Redis eviction policy - default is VolatileLRU
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Optional set of properties to configure geo replication for this database.
+     */
+    public readonly geoReplication!: pulumi.Output<outputs.cache.DatabasePropertiesResponseGeoReplication | undefined>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
@@ -99,6 +103,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["geoReplication"] = args ? args.geoReplication : undefined;
             resourceInputs["modules"] = args ? args.modules : undefined;
             resourceInputs["persistence"] = args ? args.persistence : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -111,6 +116,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["clientProtocol"] = undefined /*out*/;
             resourceInputs["clusteringPolicy"] = undefined /*out*/;
             resourceInputs["evictionPolicy"] = undefined /*out*/;
+            resourceInputs["geoReplication"] = undefined /*out*/;
             resourceInputs["modules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["persistence"] = undefined /*out*/;
@@ -150,6 +156,10 @@ export interface DatabaseArgs {
      * Redis eviction policy - default is VolatileLRU
      */
     evictionPolicy?: pulumi.Input<string | enums.cache.EvictionPolicy>;
+    /**
+     * Optional set of properties to configure geo replication for this database.
+     */
+    geoReplication?: pulumi.Input<inputs.cache.DatabasePropertiesGeoReplicationArgs>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Restore Point details.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
     if (!opts) {
@@ -16,6 +16,7 @@ export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute:getRestorePoint", {
+        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "restorePointCollectionName": args.restorePointCollectionName,
         "restorePointName": args.restorePointName,
@@ -23,6 +24,10 @@ export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetRestorePointArgs {
+    /**
+     * The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
+     */
+    expand?: string;
     /**
      * The name of the resource group.
      */
@@ -54,6 +59,10 @@ export interface GetRestorePointResult {
      */
     readonly id: string;
     /**
+     * The restore point instance view.
+     */
+    readonly instanceView: outputs.compute.RestorePointInstanceViewResponse;
+    /**
      * Resource name
      */
     readonly name: string;
@@ -65,6 +74,10 @@ export interface GetRestorePointResult {
      * Gets the details of the VM captured at the time of the restore point creation.
      */
     readonly sourceMetadata: outputs.compute.RestorePointSourceMetadataResponse;
+    /**
+     * Resource Id of the source restore point from which a copy needs to be created.
+     */
+    readonly sourceRestorePoint?: outputs.compute.ApiEntityReferenceResponse;
     /**
      * Gets the creation time of the restore point.
      */
@@ -80,6 +93,10 @@ export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pu
 }
 
 export interface GetRestorePointOutputArgs {
+    /**
+     * The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

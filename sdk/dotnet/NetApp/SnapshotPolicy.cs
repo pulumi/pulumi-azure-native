@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Snapshot policy information
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:SnapshotPolicy")]
     public partial class SnapshotPolicy : Pulumi.CustomResource
@@ -29,13 +29,19 @@ namespace Pulumi.AzureNative.NetApp
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Schedule for hourly snapshots
         /// </summary>
         [Output("hourlySchedule")]
         public Output<Outputs.HourlyScheduleResponse?> HourlySchedule { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -47,7 +53,7 @@ namespace Pulumi.AzureNative.NetApp
         public Output<Outputs.MonthlyScheduleResponse?> MonthlySchedule { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -59,13 +65,19 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -163,7 +175,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<Inputs.HourlyScheduleArgs>? HourlySchedule { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -190,7 +202,7 @@ namespace Pulumi.AzureNative.NetApp
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

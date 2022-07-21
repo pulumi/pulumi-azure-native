@@ -38,6 +38,24 @@ const (
 	EnableSubvolumesDisabled = EnableSubvolumes("Disabled")
 )
 
+// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
+type EncryptionKeySource string
+
+const (
+	// Microsoft-managed key encryption
+	EncryptionKeySource_Microsoft_NetApp = EncryptionKeySource("Microsoft.NetApp")
+)
+
+// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+type EncryptionType string
+
+const (
+	// EncryptionType Single, volumes will use single encryption at rest
+	EncryptionTypeSingle = EncryptionType("Single")
+	// EncryptionType Double, volumes will use double encryption at rest
+	EncryptionTypeDouble = EncryptionType("Double")
+)
+
 // Indicates whether the local volume is the source or destination for the Volume Replication
 type EndpointType string
 

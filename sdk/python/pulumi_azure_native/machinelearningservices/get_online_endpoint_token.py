@@ -38,7 +38,7 @@ class GetOnlineEndpointTokenResult:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[str]:
         """
-        Access token.
+        Access token for endpoint authentication.
         """
         return pulumi.get(self, "access_token")
 
@@ -85,7 +85,7 @@ def get_online_endpoint_token(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineEndpointTokenResult:
     """
     Service Token
-    API Version: 2021-03-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str endpoint_name: Online Endpoint name.
@@ -116,7 +116,7 @@ def get_online_endpoint_token_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineEndpointTokenResult]:
     """
     Service Token
-    API Version: 2021-03-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str endpoint_name: Online Endpoint name.

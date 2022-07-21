@@ -11,7 +11,7 @@ import (
 )
 
 // The description of the IoT hub.
-// API Version: 2020-08-31.
+// API Version: 2021-07-02.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
 	err := ctx.Invoke("azure-native:devices:getIotHubResource", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupIotHubResourceResult struct {
 	Etag *string `pulumi:"etag"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
+	// The managed identities for the IotHub.
+	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.
@@ -42,6 +44,8 @@ type LookupIotHubResourceResult struct {
 	Properties IotHubPropertiesResponse `pulumi:"properties"`
 	// IotHub SKU info
 	Sku IotHubSkuInfoResponse `pulumi:"sku"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
@@ -108,6 +112,11 @@ func (o LookupIotHubResourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIotHubResourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The managed identities for the IotHub.
+func (o LookupIotHubResourceResultOutput) Identity() ArmIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) *ArmIdentityResponse { return v.Identity }).(ArmIdentityResponsePtrOutput)
+}
+
 // The resource location.
 func (o LookupIotHubResourceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIotHubResourceResult) string { return v.Location }).(pulumi.StringOutput)
@@ -126,6 +135,11 @@ func (o LookupIotHubResourceResultOutput) Properties() IotHubPropertiesResponseO
 // IotHub SKU info
 func (o LookupIotHubResourceResultOutput) Sku() IotHubSkuInfoResponseOutput {
 	return o.ApplyT(func(v LookupIotHubResourceResult) IotHubSkuInfoResponse { return v.Sku }).(IotHubSkuInfoResponseOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupIotHubResourceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource tags.

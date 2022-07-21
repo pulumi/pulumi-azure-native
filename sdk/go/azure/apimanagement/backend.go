@@ -12,7 +12,7 @@ import (
 )
 
 // Backend details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type Backend struct {
 	pulumi.CustomResourceState
 
@@ -20,7 +20,7 @@ type Backend struct {
 	Credentials BackendCredentialsContractResponsePtrOutput `pulumi:"credentials"`
 	// Backend Description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Backend Properties contract
 	Properties BackendPropertiesResponseOutput `pulumi:"properties"`
@@ -28,13 +28,13 @@ type Backend struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Backend Proxy Contract Properties
 	Proxy BackendProxyContractResponsePtrOutput `pulumi:"proxy"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Backend Title.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
 	// Backend TLS Properties
 	Tls BackendTlsPropertiesResponsePtrOutput `pulumi:"tls"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Runtime Url of the Backend.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -153,7 +153,7 @@ type backendArgs struct {
 	Proxy *BackendProxyContract `pulumi:"proxy"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId *string `pulumi:"resourceId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
@@ -181,7 +181,7 @@ type BackendArgs struct {
 	Proxy BackendProxyContractPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
@@ -240,7 +240,7 @@ func (o BackendOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o BackendOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -260,7 +260,7 @@ func (o BackendOutput) Proxy() BackendProxyContractResponsePtrOutput {
 	return o.ApplyT(func(v *Backend) BackendProxyContractResponsePtrOutput { return v.Proxy }).(BackendProxyContractResponsePtrOutput)
 }
 
-// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 func (o BackendOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -275,7 +275,7 @@ func (o BackendOutput) Tls() BackendTlsPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *Backend) BackendTlsPropertiesResponsePtrOutput { return v.Tls }).(BackendTlsPropertiesResponsePtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o BackendOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

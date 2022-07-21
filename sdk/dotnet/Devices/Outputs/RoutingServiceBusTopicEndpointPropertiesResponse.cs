@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Managed identity properties of routing service bus topic endpoint.
+        /// </summary>
+        public readonly Outputs.ManagedIdentityResponse? Identity;
+        /// <summary>
         /// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
         /// </summary>
         public readonly string Name;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string? id,
 
+            Outputs.ManagedIdentityResponse? identity,
+
             string name,
 
             string? resourceGroup,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
             EndpointUri = endpointUri;
             EntityPath = entityPath;
             Id = id;
+            Identity = identity;
             Name = name;
             ResourceGroup = resourceGroup;
             SubscriptionId = subscriptionId;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// A single Redis item in List or Get Operation.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisArgs(), options.WithDefaults());
 
         /// <summary>
         /// A single Redis item in List or Get Operation.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetRedisResult> Invoke(GetRedisInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisInvokeArgs(), options.WithDefaults());
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// List of the Redis instances associated with the cache
         /// </summary>
@@ -102,7 +106,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -126,13 +130,17 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly Outputs.RedisCommonPropertiesResponseRedisConfiguration? RedisConfiguration;
         /// <summary>
-        /// Redis version.
+        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
         /// </summary>
-        public readonly string RedisVersion;
+        public readonly string? RedisVersion;
         /// <summary>
-        /// The number of replicas to be created per master.
+        /// The number of replicas to be created per primary.
         /// </summary>
         public readonly int? ReplicasPerMaster;
+        /// <summary>
+        /// The number of replicas to be created per primary.
+        /// </summary>
+        public readonly int? ReplicasPerPrimary;
         /// <summary>
         /// The number of shards to be created on a Premium Cluster Cache.
         /// </summary>
@@ -162,7 +170,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TenantSettings;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -179,6 +187,8 @@ namespace Pulumi.AzureNative.Cache
             string hostName,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             ImmutableArray<Outputs.RedisInstanceDetailsResponse> instances,
 
@@ -200,9 +210,11 @@ namespace Pulumi.AzureNative.Cache
 
             Outputs.RedisCommonPropertiesResponseRedisConfiguration? redisConfiguration,
 
-            string redisVersion,
+            string? redisVersion,
 
             int? replicasPerMaster,
+
+            int? replicasPerPrimary,
 
             int? shardCount,
 
@@ -226,6 +238,7 @@ namespace Pulumi.AzureNative.Cache
             EnableNonSslPort = enableNonSslPort;
             HostName = hostName;
             Id = id;
+            Identity = identity;
             Instances = instances;
             LinkedServers = linkedServers;
             Location = location;
@@ -238,6 +251,7 @@ namespace Pulumi.AzureNative.Cache
             RedisConfiguration = redisConfiguration;
             RedisVersion = redisVersion;
             ReplicasPerMaster = replicasPerMaster;
+            ReplicasPerPrimary = replicasPerPrimary;
             ShardCount = shardCount;
             Sku = sku;
             SslPort = sslPort;

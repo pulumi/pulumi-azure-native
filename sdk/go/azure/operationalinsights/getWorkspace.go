@@ -11,7 +11,7 @@ import (
 )
 
 // The top level Workspace resource container.
-// API Version: 2020-10-01.
+// API Version: 2021-06-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:operationalinsights:getWorkspace", args, &rv, opts...)
@@ -34,8 +34,8 @@ type LookupWorkspaceResult struct {
 	CreatedDate string `pulumi:"createdDate"`
 	// This is a read-only property. Represents the ID associated with the workspace.
 	CustomerId string `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
+	// The etag of the workspace.
+	Etag *string `pulumi:"etag"`
 	// Workspace features.
 	Features *WorkspaceFeaturesResponse `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
@@ -117,9 +117,9 @@ func (o LookupWorkspaceResultOutput) CustomerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CustomerId }).(pulumi.StringOutput)
 }
 
-// The ETag of the workspace.
-func (o LookupWorkspaceResultOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+// The etag of the workspace.
+func (o LookupWorkspaceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Workspace features.

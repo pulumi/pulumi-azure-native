@@ -11,7 +11,7 @@ import (
 )
 
 // A SQL DB Table data set mapping.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupSqlDBTableDataSetMapping(ctx *pulumi.Context, args *LookupSqlDBTableDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupSqlDBTableDataSetMappingResult, error) {
 	var rv LookupSqlDBTableDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare:getSqlDBTableDataSetMapping", args, &rv, opts...)

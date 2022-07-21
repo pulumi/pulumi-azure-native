@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about JIT request definition.
- * API Version: 2019-07-01.
+ * API Version: 2021-07-01.
  */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
     if (!opts) {
@@ -76,6 +76,10 @@ export interface GetJitRequestResult {
      * The publisher tenant id.
      */
     readonly publisherTenantId: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.solutions.SystemDataResponse;
     /**
      * Resource tags
      */

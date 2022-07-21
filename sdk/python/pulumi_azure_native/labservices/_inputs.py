@@ -12,12 +12,20 @@ from ._enums import *
 __all__ = [
     'AutoShutdownProfileArgs',
     'ConnectionProfileArgs',
+    'CredentialsArgs',
+    'ImageReferenceArgs',
+    'LabNetworkProfileArgs',
     'LabPlanNetworkProfileArgs',
     'RecurrencePatternArgs',
     'ReferenceVmArgs',
     'ResourceSettingsArgs',
     'ResourceSetArgs',
+    'RosterProfileArgs',
+    'SecurityProfileArgs',
+    'SkuArgs',
     'SupportInfoArgs',
+    'VirtualMachineAdditionalCapabilitiesArgs',
+    'VirtualMachineProfileArgs',
 ]
 
 @pulumi.input_type
@@ -208,6 +216,189 @@ class ConnectionProfileArgs:
     @web_ssh_access.setter
     def web_ssh_access(self, value: Optional[pulumi.Input['ConnectionType']]):
         pulumi.set(self, "web_ssh_access", value)
+
+
+@pulumi.input_type
+class CredentialsArgs:
+    def __init__(__self__, *,
+                 username: pulumi.Input[str],
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        Credentials for a user on a lab VM.
+        :param pulumi.Input[str] username: The username to use when signing in to lab VMs.
+        :param pulumi.Input[str] password: The password for the user. This is required for the TemplateVM createOption.
+        """
+        pulumi.set(__self__, "username", username)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username to use when signing in to lab VMs.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the user. This is required for the TemplateVM createOption.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class ImageReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 offer: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Image reference information. Used in the virtual machine profile.
+        :param pulumi.Input[str] id: Image resource ID
+        :param pulumi.Input[str] offer: The image offer if applicable.
+        :param pulumi.Input[str] publisher: The image publisher
+        :param pulumi.Input[str] sku: The image SKU
+        :param pulumi.Input[str] version: The image version specified on creation.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Image resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image offer if applicable.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offer", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image publisher
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image version specified on creation.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class LabNetworkProfileArgs:
+    def __init__(__self__, *,
+                 load_balancer_id: Optional[pulumi.Input[str]] = None,
+                 public_ip_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Profile for how to handle networking for Labs.
+        :param pulumi.Input[str] load_balancer_id: The external load balancer resource id
+        :param pulumi.Input[str] public_ip_id: The external public IP resource id
+        :param pulumi.Input[str] subnet_id: The external subnet resource id
+        """
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if public_ip_id is not None:
+            pulumi.set(__self__, "public_ip_id", public_ip_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The external load balancer resource id
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
+    @pulumi.getter(name="publicIpId")
+    def public_ip_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The external public IP resource id
+        """
+        return pulumi.get(self, "public_ip_id")
+
+    @public_ip_id.setter
+    def public_ip_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The external subnet resource id
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type
@@ -439,6 +630,205 @@ class ResourceSetArgs:
 
 
 @pulumi.input_type
+class RosterProfileArgs:
+    def __init__(__self__, *,
+                 active_directory_group_id: Optional[pulumi.Input[str]] = None,
+                 lms_instance: Optional[pulumi.Input[str]] = None,
+                 lti_client_id: Optional[pulumi.Input[str]] = None,
+                 lti_context_id: Optional[pulumi.Input[str]] = None,
+                 lti_roster_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        The lab user list management profile.
+        :param pulumi.Input[str] active_directory_group_id: The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+        :param pulumi.Input[str] lms_instance: The base URI identifying the lms instance.
+        :param pulumi.Input[str] lti_client_id: The unique id of the azure lab services tool in the lms.
+        :param pulumi.Input[str] lti_context_id: The unique context identifier for the lab in the lms.
+        :param pulumi.Input[str] lti_roster_endpoint: The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+        """
+        if active_directory_group_id is not None:
+            pulumi.set(__self__, "active_directory_group_id", active_directory_group_id)
+        if lms_instance is not None:
+            pulumi.set(__self__, "lms_instance", lms_instance)
+        if lti_client_id is not None:
+            pulumi.set(__self__, "lti_client_id", lti_client_id)
+        if lti_context_id is not None:
+            pulumi.set(__self__, "lti_context_id", lti_context_id)
+        if lti_roster_endpoint is not None:
+            pulumi.set(__self__, "lti_roster_endpoint", lti_roster_endpoint)
+
+    @property
+    @pulumi.getter(name="activeDirectoryGroupId")
+    def active_directory_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+        """
+        return pulumi.get(self, "active_directory_group_id")
+
+    @active_directory_group_id.setter
+    def active_directory_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "active_directory_group_id", value)
+
+    @property
+    @pulumi.getter(name="lmsInstance")
+    def lms_instance(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base URI identifying the lms instance.
+        """
+        return pulumi.get(self, "lms_instance")
+
+    @lms_instance.setter
+    def lms_instance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lms_instance", value)
+
+    @property
+    @pulumi.getter(name="ltiClientId")
+    def lti_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique id of the azure lab services tool in the lms.
+        """
+        return pulumi.get(self, "lti_client_id")
+
+    @lti_client_id.setter
+    def lti_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lti_client_id", value)
+
+    @property
+    @pulumi.getter(name="ltiContextId")
+    def lti_context_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique context identifier for the lab in the lms.
+        """
+        return pulumi.get(self, "lti_context_id")
+
+    @lti_context_id.setter
+    def lti_context_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lti_context_id", value)
+
+    @property
+    @pulumi.getter(name="ltiRosterEndpoint")
+    def lti_roster_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+        """
+        return pulumi.get(self, "lti_roster_endpoint")
+
+    @lti_roster_endpoint.setter
+    def lti_roster_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lti_roster_endpoint", value)
+
+
+@pulumi.input_type
+class SecurityProfileArgs:
+    def __init__(__self__, *,
+                 open_access: Optional[pulumi.Input['EnableState']] = None):
+        """
+        The lab security profile.
+        :param pulumi.Input['EnableState'] open_access: Whether any user or only specified users can register to a lab.
+        """
+        if open_access is not None:
+            pulumi.set(__self__, "open_access", open_access)
+
+    @property
+    @pulumi.getter(name="openAccess")
+    def open_access(self) -> Optional[pulumi.Input['EnableState']]:
+        """
+        Whether any user or only specified users can register to a lab.
+        """
+        return pulumi.get(self, "open_access")
+
+    @open_access.setter
+    def open_access(self, value: Optional[pulumi.Input['EnableState']]):
+        pulumi.set(self, "open_access", value)
+
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
+        """
+        The resource model definition representing SKU
+        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+        pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
 class SupportInfoArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
@@ -508,5 +898,164 @@ class SupportInfoArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class VirtualMachineAdditionalCapabilitiesArgs:
+    def __init__(__self__, *,
+                 install_gpu_drivers: Optional[pulumi.Input['EnableState']] = None):
+        """
+        The additional capabilities for a lab VM.
+        :param pulumi.Input['EnableState'] install_gpu_drivers: Flag to pre-install dedicated GPU drivers.
+        """
+        if install_gpu_drivers is None:
+            install_gpu_drivers = 'Disabled'
+        if install_gpu_drivers is not None:
+            pulumi.set(__self__, "install_gpu_drivers", install_gpu_drivers)
+
+    @property
+    @pulumi.getter(name="installGpuDrivers")
+    def install_gpu_drivers(self) -> Optional[pulumi.Input['EnableState']]:
+        """
+        Flag to pre-install dedicated GPU drivers.
+        """
+        return pulumi.get(self, "install_gpu_drivers")
+
+    @install_gpu_drivers.setter
+    def install_gpu_drivers(self, value: Optional[pulumi.Input['EnableState']]):
+        pulumi.set(self, "install_gpu_drivers", value)
+
+
+@pulumi.input_type
+class VirtualMachineProfileArgs:
+    def __init__(__self__, *,
+                 admin_user: pulumi.Input['CredentialsArgs'],
+                 create_option: pulumi.Input['CreateOption'],
+                 image_reference: pulumi.Input['ImageReferenceArgs'],
+                 sku: pulumi.Input['SkuArgs'],
+                 usage_quota: pulumi.Input[str],
+                 additional_capabilities: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 non_admin_user: Optional[pulumi.Input['CredentialsArgs']] = None,
+                 use_shared_password: Optional[pulumi.Input['EnableState']] = None):
+        """
+        The base virtual machine configuration for a lab.
+        :param pulumi.Input['CredentialsArgs'] admin_user: Credentials for the admin user on the VM.
+        :param pulumi.Input['CreateOption'] create_option: Indicates what lab virtual machines are created from.
+        :param pulumi.Input['ImageReferenceArgs'] image_reference: The image configuration for lab virtual machines.
+        :param pulumi.Input['SkuArgs'] sku: The SKU for the lab. Defines the type of virtual machines used in the lab.
+        :param pulumi.Input[str] usage_quota: The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+        :param pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: Additional VM capabilities.
+        :param pulumi.Input['CredentialsArgs'] non_admin_user: Credentials for the non-admin user on the VM, if one exists.
+        :param pulumi.Input['EnableState'] use_shared_password: Enabling this option will use the same password for all user VMs.
+        """
+        pulumi.set(__self__, "admin_user", admin_user)
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "image_reference", image_reference)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "usage_quota", usage_quota)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if non_admin_user is not None:
+            pulumi.set(__self__, "non_admin_user", non_admin_user)
+        if use_shared_password is None:
+            use_shared_password = 'Disabled'
+        if use_shared_password is not None:
+            pulumi.set(__self__, "use_shared_password", use_shared_password)
+
+    @property
+    @pulumi.getter(name="adminUser")
+    def admin_user(self) -> pulumi.Input['CredentialsArgs']:
+        """
+        Credentials for the admin user on the VM.
+        """
+        return pulumi.get(self, "admin_user")
+
+    @admin_user.setter
+    def admin_user(self, value: pulumi.Input['CredentialsArgs']):
+        pulumi.set(self, "admin_user", value)
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> pulumi.Input['CreateOption']:
+        """
+        Indicates what lab virtual machines are created from.
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: pulumi.Input['CreateOption']):
+        pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> pulumi.Input['ImageReferenceArgs']:
+        """
+        The image configuration for lab virtual machines.
+        """
+        return pulumi.get(self, "image_reference")
+
+    @image_reference.setter
+    def image_reference(self, value: pulumi.Input['ImageReferenceArgs']):
+        pulumi.set(self, "image_reference", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        The SKU for the lab. Defines the type of virtual machines used in the lab.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="usageQuota")
+    def usage_quota(self) -> pulumi.Input[str]:
+        """
+        The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+        """
+        return pulumi.get(self, "usage_quota")
+
+    @usage_quota.setter
+    def usage_quota(self, value: pulumi.Input[str]):
+        pulumi.set(self, "usage_quota", value)
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']]:
+        """
+        Additional VM capabilities.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @additional_capabilities.setter
+    def additional_capabilities(self, value: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']]):
+        pulumi.set(self, "additional_capabilities", value)
+
+    @property
+    @pulumi.getter(name="nonAdminUser")
+    def non_admin_user(self) -> Optional[pulumi.Input['CredentialsArgs']]:
+        """
+        Credentials for the non-admin user on the VM, if one exists.
+        """
+        return pulumi.get(self, "non_admin_user")
+
+    @non_admin_user.setter
+    def non_admin_user(self, value: Optional[pulumi.Input['CredentialsArgs']]):
+        pulumi.set(self, "non_admin_user", value)
+
+    @property
+    @pulumi.getter(name="useSharedPassword")
+    def use_shared_password(self) -> Optional[pulumi.Input['EnableState']]:
+        """
+        Enabling this option will use the same password for all user VMs.
+        """
+        return pulumi.get(self, "use_shared_password")
+
+    @use_shared_password.setter
+    def use_shared_password(self, value: Optional[pulumi.Input['EnableState']]):
+        pulumi.set(self, "use_shared_password", value)
 
 

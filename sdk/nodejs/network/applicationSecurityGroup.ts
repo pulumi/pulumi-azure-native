@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An application security group in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

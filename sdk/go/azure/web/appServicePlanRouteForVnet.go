@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type AppServicePlanRouteForVnet struct {
 	pulumi.CustomResourceState
 

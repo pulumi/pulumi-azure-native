@@ -100,7 +100,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationStorageClassificationMappingResult:
     """
     Storage mapping object.
-    API Version: 2018-07-10.
+    API Version: 2022-03-01.
 
 
     :param str fabric_name: Fabric name.
@@ -138,7 +138,7 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationStorageClassificationMappingResult]:
     """
     Storage mapping object.
-    API Version: 2018-07-10.
+    API Version: 2022-03-01.
 
 
     :param str fabric_name: Fabric name.

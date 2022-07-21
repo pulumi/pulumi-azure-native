@@ -47,9 +47,6 @@ func NewPrivateEndpointConnectionByWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace"),
 		},
 		{

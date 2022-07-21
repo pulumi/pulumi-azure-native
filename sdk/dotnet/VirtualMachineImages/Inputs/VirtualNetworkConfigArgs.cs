@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     public sealed class VirtualNetworkConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
+        /// </summary>
+        [Input("proxyVmSize")]
+        public Input<string>? ProxyVmSize { get; set; }
+
+        /// <summary>
         /// Resource id of a pre-existing subnet.
         /// </summary>
         [Input("subnetId")]
@@ -23,6 +29,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
 
         public VirtualNetworkConfigArgs()
         {
+            ProxyVmSize = "";
         }
     }
 }

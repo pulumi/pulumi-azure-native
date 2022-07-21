@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
     /// <summary>
-    /// Sku definition
+    /// Service Fabric managed cluster Sku definition
     /// </summary>
     [OutputType]
     public sealed class SkuResponse

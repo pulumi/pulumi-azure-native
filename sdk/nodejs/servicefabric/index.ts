@@ -8,16 +8,12 @@ import * as utilities from "../utilities";
 export * from "./application";
 export * from "./applicationType";
 export * from "./applicationTypeVersion";
-export * from "./cluster";
 export * from "./getApplication";
 export * from "./getApplicationType";
 export * from "./getApplicationTypeVersion";
-export * from "./getCluster";
 export * from "./getManagedCluster";
 export * from "./getNodeType";
 export * from "./getService";
-export * from "./getmanagedAzResiliencyStatus";
-export * from "./listListUpgradableVersionPost";
 export * from "./managedCluster";
 export * from "./nodeType";
 export * from "./service";
@@ -70,7 +66,6 @@ export {
 import { Application } from "./application";
 import { ApplicationType } from "./applicationType";
 import { ApplicationTypeVersion } from "./applicationTypeVersion";
-import { Cluster } from "./cluster";
 import { ManagedCluster } from "./managedCluster";
 import { NodeType } from "./nodeType";
 import { Service } from "./service";
@@ -85,8 +80,6 @@ const _module = {
                 return new ApplicationType(name, <any>undefined, { urn })
             case "azure-native:servicefabric:ApplicationTypeVersion":
                 return new ApplicationTypeVersion(name, <any>undefined, { urn })
-            case "azure-native:servicefabric:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:servicefabric:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-native:servicefabric:NodeType":

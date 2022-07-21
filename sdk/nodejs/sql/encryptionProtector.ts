@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The server encryption protector.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class EncryptionProtector extends pulumi.CustomResource {
     /**

@@ -10,139 +10,620 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Managed service identity (either system assigned, or none)
-type SystemAssignedServiceIdentity struct {
-	// Type of managed service identity (either system assigned, or none).
-	Type string `pulumi:"type"`
+// Key and identity details for Customer Managed Key encryption of load test resource
+type EncryptionProperties struct {
+	// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+	Identity *EncryptionPropertiesIdentity `pulumi:"identity"`
+	// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+	KeyUrl *string `pulumi:"keyUrl"`
 }
 
-// SystemAssignedServiceIdentityInput is an input type that accepts SystemAssignedServiceIdentityArgs and SystemAssignedServiceIdentityOutput values.
-// You can construct a concrete instance of `SystemAssignedServiceIdentityInput` via:
+// EncryptionPropertiesInput is an input type that accepts EncryptionPropertiesArgs and EncryptionPropertiesOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesInput` via:
 //
-//          SystemAssignedServiceIdentityArgs{...}
-type SystemAssignedServiceIdentityInput interface {
+//          EncryptionPropertiesArgs{...}
+type EncryptionPropertiesInput interface {
 	pulumi.Input
 
-	ToSystemAssignedServiceIdentityOutput() SystemAssignedServiceIdentityOutput
-	ToSystemAssignedServiceIdentityOutputWithContext(context.Context) SystemAssignedServiceIdentityOutput
+	ToEncryptionPropertiesOutput() EncryptionPropertiesOutput
+	ToEncryptionPropertiesOutputWithContext(context.Context) EncryptionPropertiesOutput
 }
 
-// Managed service identity (either system assigned, or none)
-type SystemAssignedServiceIdentityArgs struct {
-	// Type of managed service identity (either system assigned, or none).
-	Type pulumi.StringInput `pulumi:"type"`
+// Key and identity details for Customer Managed Key encryption of load test resource
+type EncryptionPropertiesArgs struct {
+	// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+	Identity EncryptionPropertiesIdentityPtrInput `pulumi:"identity"`
+	// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+	KeyUrl pulumi.StringPtrInput `pulumi:"keyUrl"`
 }
 
-func (SystemAssignedServiceIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemAssignedServiceIdentity)(nil)).Elem()
+func (EncryptionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionProperties)(nil)).Elem()
 }
 
-func (i SystemAssignedServiceIdentityArgs) ToSystemAssignedServiceIdentityOutput() SystemAssignedServiceIdentityOutput {
-	return i.ToSystemAssignedServiceIdentityOutputWithContext(context.Background())
+func (i EncryptionPropertiesArgs) ToEncryptionPropertiesOutput() EncryptionPropertiesOutput {
+	return i.ToEncryptionPropertiesOutputWithContext(context.Background())
 }
 
-func (i SystemAssignedServiceIdentityArgs) ToSystemAssignedServiceIdentityOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemAssignedServiceIdentityOutput)
+func (i EncryptionPropertiesArgs) ToEncryptionPropertiesOutputWithContext(ctx context.Context) EncryptionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesOutput)
 }
 
-func (i SystemAssignedServiceIdentityArgs) ToSystemAssignedServiceIdentityPtrOutput() SystemAssignedServiceIdentityPtrOutput {
-	return i.ToSystemAssignedServiceIdentityPtrOutputWithContext(context.Background())
+func (i EncryptionPropertiesArgs) ToEncryptionPropertiesPtrOutput() EncryptionPropertiesPtrOutput {
+	return i.ToEncryptionPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SystemAssignedServiceIdentityArgs) ToSystemAssignedServiceIdentityPtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemAssignedServiceIdentityOutput).ToSystemAssignedServiceIdentityPtrOutputWithContext(ctx)
+func (i EncryptionPropertiesArgs) ToEncryptionPropertiesPtrOutputWithContext(ctx context.Context) EncryptionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesOutput).ToEncryptionPropertiesPtrOutputWithContext(ctx)
 }
 
-// SystemAssignedServiceIdentityPtrInput is an input type that accepts SystemAssignedServiceIdentityArgs, SystemAssignedServiceIdentityPtr and SystemAssignedServiceIdentityPtrOutput values.
-// You can construct a concrete instance of `SystemAssignedServiceIdentityPtrInput` via:
+// EncryptionPropertiesPtrInput is an input type that accepts EncryptionPropertiesArgs, EncryptionPropertiesPtr and EncryptionPropertiesPtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesPtrInput` via:
 //
-//          SystemAssignedServiceIdentityArgs{...}
+//          EncryptionPropertiesArgs{...}
 //
 //  or:
 //
 //          nil
-type SystemAssignedServiceIdentityPtrInput interface {
+type EncryptionPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSystemAssignedServiceIdentityPtrOutput() SystemAssignedServiceIdentityPtrOutput
-	ToSystemAssignedServiceIdentityPtrOutputWithContext(context.Context) SystemAssignedServiceIdentityPtrOutput
+	ToEncryptionPropertiesPtrOutput() EncryptionPropertiesPtrOutput
+	ToEncryptionPropertiesPtrOutputWithContext(context.Context) EncryptionPropertiesPtrOutput
 }
 
-type systemAssignedServiceIdentityPtrType SystemAssignedServiceIdentityArgs
+type encryptionPropertiesPtrType EncryptionPropertiesArgs
 
-func SystemAssignedServiceIdentityPtr(v *SystemAssignedServiceIdentityArgs) SystemAssignedServiceIdentityPtrInput {
-	return (*systemAssignedServiceIdentityPtrType)(v)
+func EncryptionPropertiesPtr(v *EncryptionPropertiesArgs) EncryptionPropertiesPtrInput {
+	return (*encryptionPropertiesPtrType)(v)
 }
 
-func (*systemAssignedServiceIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemAssignedServiceIdentity)(nil)).Elem()
+func (*encryptionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionProperties)(nil)).Elem()
 }
 
-func (i *systemAssignedServiceIdentityPtrType) ToSystemAssignedServiceIdentityPtrOutput() SystemAssignedServiceIdentityPtrOutput {
-	return i.ToSystemAssignedServiceIdentityPtrOutputWithContext(context.Background())
+func (i *encryptionPropertiesPtrType) ToEncryptionPropertiesPtrOutput() EncryptionPropertiesPtrOutput {
+	return i.ToEncryptionPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *systemAssignedServiceIdentityPtrType) ToSystemAssignedServiceIdentityPtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemAssignedServiceIdentityPtrOutput)
+func (i *encryptionPropertiesPtrType) ToEncryptionPropertiesPtrOutputWithContext(ctx context.Context) EncryptionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesPtrOutput)
 }
 
-// Managed service identity (either system assigned, or none)
-type SystemAssignedServiceIdentityOutput struct{ *pulumi.OutputState }
+// Key and identity details for Customer Managed Key encryption of load test resource
+type EncryptionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SystemAssignedServiceIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemAssignedServiceIdentity)(nil)).Elem()
+func (EncryptionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionProperties)(nil)).Elem()
 }
 
-func (o SystemAssignedServiceIdentityOutput) ToSystemAssignedServiceIdentityOutput() SystemAssignedServiceIdentityOutput {
+func (o EncryptionPropertiesOutput) ToEncryptionPropertiesOutput() EncryptionPropertiesOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityOutput) ToSystemAssignedServiceIdentityOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityOutput {
+func (o EncryptionPropertiesOutput) ToEncryptionPropertiesOutputWithContext(ctx context.Context) EncryptionPropertiesOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityOutput) ToSystemAssignedServiceIdentityPtrOutput() SystemAssignedServiceIdentityPtrOutput {
-	return o.ToSystemAssignedServiceIdentityPtrOutputWithContext(context.Background())
+func (o EncryptionPropertiesOutput) ToEncryptionPropertiesPtrOutput() EncryptionPropertiesPtrOutput {
+	return o.ToEncryptionPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SystemAssignedServiceIdentityOutput) ToSystemAssignedServiceIdentityPtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemAssignedServiceIdentity) *SystemAssignedServiceIdentity {
+func (o EncryptionPropertiesOutput) ToEncryptionPropertiesPtrOutputWithContext(ctx context.Context) EncryptionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionProperties) *EncryptionProperties {
 		return &v
-	}).(SystemAssignedServiceIdentityPtrOutput)
+	}).(EncryptionPropertiesPtrOutput)
 }
 
-// Type of managed service identity (either system assigned, or none).
-func (o SystemAssignedServiceIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SystemAssignedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+func (o EncryptionPropertiesOutput) Identity() EncryptionPropertiesIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionProperties) *EncryptionPropertiesIdentity { return v.Identity }).(EncryptionPropertiesIdentityPtrOutput)
 }
 
-type SystemAssignedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (SystemAssignedServiceIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemAssignedServiceIdentity)(nil)).Elem()
+// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+func (o EncryptionPropertiesOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionProperties) *string { return v.KeyUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o SystemAssignedServiceIdentityPtrOutput) ToSystemAssignedServiceIdentityPtrOutput() SystemAssignedServiceIdentityPtrOutput {
+type EncryptionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionProperties)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesPtrOutput) ToEncryptionPropertiesPtrOutput() EncryptionPropertiesPtrOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityPtrOutput) ToSystemAssignedServiceIdentityPtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityPtrOutput {
+func (o EncryptionPropertiesPtrOutput) ToEncryptionPropertiesPtrOutputWithContext(ctx context.Context) EncryptionPropertiesPtrOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityPtrOutput) Elem() SystemAssignedServiceIdentityOutput {
-	return o.ApplyT(func(v *SystemAssignedServiceIdentity) SystemAssignedServiceIdentity {
+func (o EncryptionPropertiesPtrOutput) Elem() EncryptionPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionProperties) EncryptionProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SystemAssignedServiceIdentity
+		var ret EncryptionProperties
 		return ret
-	}).(SystemAssignedServiceIdentityOutput)
+	}).(EncryptionPropertiesOutput)
 }
 
-// Type of managed service identity (either system assigned, or none).
-func (o SystemAssignedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemAssignedServiceIdentity) *string {
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+func (o EncryptionPropertiesPtrOutput) Identity() EncryptionPropertiesIdentityPtrOutput {
+	return o.ApplyT(func(v *EncryptionProperties) *EncryptionPropertiesIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionPropertiesIdentityPtrOutput)
+}
+
+// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+func (o EncryptionPropertiesPtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+type EncryptionPropertiesIdentity struct {
+	// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+	ResourceId *string `pulumi:"resourceId"`
+	// Managed identity type to use for accessing encryption key Url
+	Type *string `pulumi:"type"`
+}
+
+// EncryptionPropertiesIdentityInput is an input type that accepts EncryptionPropertiesIdentityArgs and EncryptionPropertiesIdentityOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesIdentityInput` via:
+//
+//          EncryptionPropertiesIdentityArgs{...}
+type EncryptionPropertiesIdentityInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesIdentityOutput() EncryptionPropertiesIdentityOutput
+	ToEncryptionPropertiesIdentityOutputWithContext(context.Context) EncryptionPropertiesIdentityOutput
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+type EncryptionPropertiesIdentityArgs struct {
+	// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Managed identity type to use for accessing encryption key Url
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EncryptionPropertiesIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityOutput() EncryptionPropertiesIdentityOutput {
+	return i.ToEncryptionPropertiesIdentityOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesIdentityOutput)
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return i.ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesIdentityOutput).ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertiesIdentityPtrInput is an input type that accepts EncryptionPropertiesIdentityArgs, EncryptionPropertiesIdentityPtr and EncryptionPropertiesIdentityPtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesIdentityPtrInput` via:
+//
+//          EncryptionPropertiesIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertiesIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput
+	ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Context) EncryptionPropertiesIdentityPtrOutput
+}
+
+type encryptionPropertiesIdentityPtrType EncryptionPropertiesIdentityArgs
+
+func EncryptionPropertiesIdentityPtr(v *EncryptionPropertiesIdentityArgs) EncryptionPropertiesIdentityPtrInput {
+	return (*encryptionPropertiesIdentityPtrType)(v)
+}
+
+func (*encryptionPropertiesIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (i *encryptionPropertiesIdentityPtrType) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return i.ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertiesIdentityPtrType) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesIdentityPtrOutput)
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+type EncryptionPropertiesIdentityOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityOutput() EncryptionPropertiesIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return o.ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertiesIdentity) *EncryptionPropertiesIdentity {
+		return &v
+	}).(EncryptionPropertiesIdentityPtrOutput)
+}
+
+// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+func (o EncryptionPropertiesIdentityOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity type to use for accessing encryption key Url
+func (o EncryptionPropertiesIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPropertiesIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesIdentityPtrOutput) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityPtrOutput) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityPtrOutput) Elem() EncryptionPropertiesIdentityOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesIdentity) EncryptionPropertiesIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionPropertiesIdentity
+		return ret
+	}).(EncryptionPropertiesIdentityOutput)
+}
+
+// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+func (o EncryptionPropertiesIdentityPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed identity type to use for accessing encryption key Url
+func (o EncryptionPropertiesIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key and identity details for Customer Managed Key encryption of load test resource
+type EncryptionPropertiesResponse struct {
+	// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+	Identity *EncryptionPropertiesResponseIdentity `pulumi:"identity"`
+	// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+	KeyUrl *string `pulumi:"keyUrl"`
+}
+
+// Key and identity details for Customer Managed Key encryption of load test resource
+type EncryptionPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesResponseOutput) ToEncryptionPropertiesResponseOutput() EncryptionPropertiesResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseOutput) ToEncryptionPropertiesResponseOutputWithContext(ctx context.Context) EncryptionPropertiesResponseOutput {
+	return o
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+func (o EncryptionPropertiesResponseOutput) Identity() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponse) *EncryptionPropertiesResponseIdentity { return v.Identity }).(EncryptionPropertiesResponseIdentityPtrOutput)
+}
+
+// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+func (o EncryptionPropertiesResponseOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponse) *string { return v.KeyUrl }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesResponsePtrOutput) ToEncryptionPropertiesResponsePtrOutput() EncryptionPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponsePtrOutput) ToEncryptionPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponsePtrOutput) Elem() EncryptionPropertiesResponseOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponse) EncryptionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionPropertiesResponse
+		return ret
+	}).(EncryptionPropertiesResponseOutput)
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+func (o EncryptionPropertiesResponsePtrOutput) Identity() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponse) *EncryptionPropertiesResponseIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionPropertiesResponseIdentityPtrOutput)
+}
+
+// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+func (o EncryptionPropertiesResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+type EncryptionPropertiesResponseIdentity struct {
+	// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+	ResourceId *string `pulumi:"resourceId"`
+	// Managed identity type to use for accessing encryption key Url
+	Type *string `pulumi:"type"`
+}
+
+// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+type EncryptionPropertiesResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesResponseIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesResponseIdentityOutput() EncryptionPropertiesResponseIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesResponseIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityOutput {
+	return o
+}
+
+// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+func (o EncryptionPropertiesResponseIdentityOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponseIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity type to use for accessing encryption key Url
+func (o EncryptionPropertiesResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPropertiesResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesResponseIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesResponseIdentityPtrOutput) ToEncryptionPropertiesResponseIdentityPtrOutput() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityPtrOutput) ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityPtrOutput) Elem() EncryptionPropertiesResponseIdentityOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponseIdentity) EncryptionPropertiesResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionPropertiesResponseIdentity
+		return ret
+	}).(EncryptionPropertiesResponseIdentityOutput)
+}
+
+// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+func (o EncryptionPropertiesResponseIdentityPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed identity type to use for accessing encryption key Url
+func (o EncryptionPropertiesResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentity struct {
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+type ManagedServiceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
+	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityArgs struct {
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
+	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
+}
+
+type managedServiceIdentityPtrType ManagedServiceIdentityArgs
+
+func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
+	return (*managedServiceIdentityPtrType)(v)
+}
+
+func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+		return &v
+	}).(ManagedServiceIdentityPtrOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -150,73 +631,92 @@ func (o SystemAssignedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed service identity (either system assigned, or none)
-type SystemAssignedServiceIdentityResponse struct {
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityResponse struct {
 	// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
 	TenantId string `pulumi:"tenantId"`
-	// Type of managed service identity (either system assigned, or none).
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
 	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
-// Managed service identity (either system assigned, or none)
-type SystemAssignedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
-func (SystemAssignedServiceIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemAssignedServiceIdentityResponse)(nil)).Elem()
+func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
 }
 
-func (o SystemAssignedServiceIdentityResponseOutput) ToSystemAssignedServiceIdentityResponseOutput() SystemAssignedServiceIdentityResponseOutput {
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityResponseOutput) ToSystemAssignedServiceIdentityResponseOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponseOutput {
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
 	return o
 }
 
 // The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-func (o SystemAssignedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v SystemAssignedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-func (o SystemAssignedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v SystemAssignedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Type of managed service identity (either system assigned, or none).
-func (o SystemAssignedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SystemAssignedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type SystemAssignedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemAssignedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemAssignedServiceIdentityResponse)(nil)).Elem()
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-func (o SystemAssignedServiceIdentityResponsePtrOutput) ToSystemAssignedServiceIdentityResponsePtrOutput() SystemAssignedServiceIdentityResponsePtrOutput {
+type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityResponsePtrOutput) ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponsePtrOutput {
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
 	return o
 }
 
-func (o SystemAssignedServiceIdentityResponsePtrOutput) Elem() SystemAssignedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *SystemAssignedServiceIdentityResponse) SystemAssignedServiceIdentityResponse {
+func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
 		if v != nil {
 			return *v
 		}
-		var ret SystemAssignedServiceIdentityResponse
+		var ret ManagedServiceIdentityResponse
 		return ret
-	}).(SystemAssignedServiceIdentityResponseOutput)
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
 // The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-func (o SystemAssignedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemAssignedServiceIdentityResponse) *string {
+func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -225,8 +725,8 @@ func (o SystemAssignedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.Str
 }
 
 // The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-func (o SystemAssignedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemAssignedServiceIdentityResponse) *string {
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -234,14 +734,24 @@ func (o SystemAssignedServiceIdentityResponsePtrOutput) TenantId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of managed service identity (either system assigned, or none).
-func (o SystemAssignedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemAssignedServiceIdentityResponse) *string {
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -305,10 +815,73 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// User assigned identity properties
+type UserAssignedIdentityResponse struct {
+	// The client ID of the assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// User assigned identity properties
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client ID of the assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(SystemAssignedServiceIdentityOutput{})
-	pulumi.RegisterOutputType(SystemAssignedServiceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(SystemAssignedServiceIdentityResponseOutput{})
-	pulumi.RegisterOutputType(SystemAssignedServiceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesIdentityOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesResponseIdentityOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

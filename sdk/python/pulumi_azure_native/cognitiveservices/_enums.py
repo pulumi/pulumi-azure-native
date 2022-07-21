@@ -7,11 +7,12 @@ from enum import Enum
 __all__ = [
     'DeploymentScaleType',
     'HostingModel',
-    'IdentityType',
     'KeySource',
     'NetworkRuleAction',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'ResourceIdentityType',
+    'SkuTier',
 ]
 
 
@@ -30,15 +31,6 @@ class HostingModel(str, Enum):
     WEB = "Web"
     CONNECTED_CONTAINER = "ConnectedContainer"
     DISCONNECTED_CONTAINER = "DisconnectedContainer"
-
-
-class IdentityType(str, Enum):
-    """
-    Type of managed service identity.
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
 
 
 class KeySource(str, Enum):
@@ -64,12 +56,32 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class PublicNetworkAccess(str, Enum):
     """
-    Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    Whether or not public endpoint access is allowed for this account.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+class SkuTier(str, Enum):
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
+    ENTERPRISE = "Enterprise"

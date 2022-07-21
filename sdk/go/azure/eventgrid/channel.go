@@ -12,11 +12,11 @@ import (
 )
 
 // Channel info.
-// API Version: 2021-10-15-preview.
+// API Version: 2022-06-15.
 type Channel struct {
 	pulumi.CustomResourceState
 
-	// The type of the event channel which represents the  direction flow of events.
+	// The type of the event channel which represents the direction flow of events.
 	ChannelType pulumi.StringPtrOutput `pulumi:"channelType"`
 	// Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
 	// the channel and corresponding partner topic are deleted.
@@ -25,8 +25,6 @@ type Channel struct {
 	MessageForActivation pulumi.StringPtrOutput `pulumi:"messageForActivation"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-	PartnerDestinationInfo WebhookPartnerDestinationInfoResponsePtrOutput `pulumi:"partnerDestinationInfo"`
 	// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
 	PartnerTopicInfo PartnerTopicInfoResponsePtrOutput `pulumi:"partnerTopicInfo"`
 	// Provisioning state of the channel.
@@ -51,9 +49,6 @@ func NewChannel(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.PartnerDestinationInfo != nil {
-		args.PartnerDestinationInfo = args.PartnerDestinationInfo.ToWebhookPartnerDestinationInfoPtrOutput().ApplyT(func(v *WebhookPartnerDestinationInfo) *WebhookPartnerDestinationInfo { return v.Defaults() }).(WebhookPartnerDestinationInfoPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -98,15 +93,13 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// Name of the channel.
 	ChannelName *string `pulumi:"channelName"`
-	// The type of the event channel which represents the  direction flow of events.
+	// The type of the event channel which represents the direction flow of events.
 	ChannelType *string `pulumi:"channelType"`
 	// Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
 	// the channel and corresponding partner topic are deleted.
 	ExpirationTimeIfNotActivatedUtc *string `pulumi:"expirationTimeIfNotActivatedUtc"`
 	// Context or helpful message that can be used during the approval process by the subscriber.
 	MessageForActivation *string `pulumi:"messageForActivation"`
-	// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-	PartnerDestinationInfo *WebhookPartnerDestinationInfo `pulumi:"partnerDestinationInfo"`
 	// Name of the partner namespace.
 	PartnerNamespaceName string `pulumi:"partnerNamespaceName"`
 	// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
@@ -123,15 +116,13 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// Name of the channel.
 	ChannelName pulumi.StringPtrInput
-	// The type of the event channel which represents the  direction flow of events.
+	// The type of the event channel which represents the direction flow of events.
 	ChannelType pulumi.StringPtrInput
 	// Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
 	// the channel and corresponding partner topic are deleted.
 	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrInput
 	// Context or helpful message that can be used during the approval process by the subscriber.
 	MessageForActivation pulumi.StringPtrInput
-	// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-	PartnerDestinationInfo WebhookPartnerDestinationInfoPtrInput
 	// Name of the partner namespace.
 	PartnerNamespaceName pulumi.StringInput
 	// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
@@ -181,7 +172,7 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
-// The type of the event channel which represents the  direction flow of events.
+// The type of the event channel which represents the direction flow of events.
 func (o ChannelOutput) ChannelType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelType }).(pulumi.StringPtrOutput)
 }
@@ -200,11 +191,6 @@ func (o ChannelOutput) MessageForActivation() pulumi.StringPtrOutput {
 // Name of the resource.
 func (o ChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-func (o ChannelOutput) PartnerDestinationInfo() WebhookPartnerDestinationInfoResponsePtrOutput {
-	return o.ApplyT(func(v *Channel) WebhookPartnerDestinationInfoResponsePtrOutput { return v.PartnerDestinationInfo }).(WebhookPartnerDestinationInfoResponsePtrOutput)
 }
 
 // This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.

@@ -8,6 +8,75 @@ using Pulumi;
 namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
+    /// Day of the week to run assessment.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentDayOfWeek : IEquatable<AssessmentDayOfWeek>
+    {
+        private readonly string _value;
+
+        private AssessmentDayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentDayOfWeek Monday { get; } = new AssessmentDayOfWeek("Monday");
+        public static AssessmentDayOfWeek Tuesday { get; } = new AssessmentDayOfWeek("Tuesday");
+        public static AssessmentDayOfWeek Wednesday { get; } = new AssessmentDayOfWeek("Wednesday");
+        public static AssessmentDayOfWeek Thursday { get; } = new AssessmentDayOfWeek("Thursday");
+        public static AssessmentDayOfWeek Friday { get; } = new AssessmentDayOfWeek("Friday");
+        public static AssessmentDayOfWeek Saturday { get; } = new AssessmentDayOfWeek("Saturday");
+        public static AssessmentDayOfWeek Sunday { get; } = new AssessmentDayOfWeek("Sunday");
+
+        public static bool operator ==(AssessmentDayOfWeek left, AssessmentDayOfWeek right) => left.Equals(right);
+        public static bool operator !=(AssessmentDayOfWeek left, AssessmentDayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentDayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentDayOfWeek other && Equals(other);
+        public bool Equals(AssessmentDayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutoBackupDaysOfWeek : IEquatable<AutoBackupDaysOfWeek>
+    {
+        private readonly string _value;
+
+        private AutoBackupDaysOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoBackupDaysOfWeek Monday { get; } = new AutoBackupDaysOfWeek("Monday");
+        public static AutoBackupDaysOfWeek Tuesday { get; } = new AutoBackupDaysOfWeek("Tuesday");
+        public static AutoBackupDaysOfWeek Wednesday { get; } = new AutoBackupDaysOfWeek("Wednesday");
+        public static AutoBackupDaysOfWeek Thursday { get; } = new AutoBackupDaysOfWeek("Thursday");
+        public static AutoBackupDaysOfWeek Friday { get; } = new AutoBackupDaysOfWeek("Friday");
+        public static AutoBackupDaysOfWeek Saturday { get; } = new AutoBackupDaysOfWeek("Saturday");
+        public static AutoBackupDaysOfWeek Sunday { get; } = new AutoBackupDaysOfWeek("Sunday");
+
+        public static bool operator ==(AutoBackupDaysOfWeek left, AutoBackupDaysOfWeek right) => left.Equals(right);
+        public static bool operator !=(AutoBackupDaysOfWeek left, AutoBackupDaysOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(AutoBackupDaysOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoBackupDaysOfWeek other && Equals(other);
+        public bool Equals(AutoBackupDaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Backup schedule type.
     /// </summary>
     [EnumType]
@@ -31,6 +100,68 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BackupScheduleType other && Equals(other);
         public bool Equals(BackupScheduleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Cluster subnet type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSubnetType : IEquatable<ClusterSubnetType>
+    {
+        private readonly string _value;
+
+        private ClusterSubnetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSubnetType SingleSubnet { get; } = new ClusterSubnetType("SingleSubnet");
+        public static ClusterSubnetType MultiSubnet { get; } = new ClusterSubnetType("MultiSubnet");
+
+        public static bool operator ==(ClusterSubnetType left, ClusterSubnetType right) => left.Equals(right);
+        public static bool operator !=(ClusterSubnetType left, ClusterSubnetType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSubnetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSubnetType other && Equals(other);
+        public bool Equals(ClusterSubnetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Replica commit mode in availability group.
+    /// </summary>
+    [EnumType]
+    public readonly struct Commit : IEquatable<Commit>
+    {
+        private readonly string _value;
+
+        private Commit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Commit SYNCHRONOUS_COMMIT { get; } = new Commit("SYNCHRONOUS_COMMIT");
+        public static Commit ASYNCHRONOUS_COMMIT { get; } = new Commit("ASYNCHRONOUS_COMMIT");
+
+        public static bool operator ==(Commit left, Commit right) => left.Equals(right);
+        public static bool operator !=(Commit left, Commit right) => !left.Equals(right);
+
+        public static explicit operator string(Commit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Commit other && Equals(other);
+        public bool Equals(Commit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -83,6 +214,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static DayOfWeek Everyday { get; } = new DayOfWeek("Everyday");
         public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
         public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
         public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
@@ -139,6 +271,37 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     }
 
     /// <summary>
+    /// Replica failover mode in availability group.
+    /// </summary>
+    [EnumType]
+    public readonly struct Failover : IEquatable<Failover>
+    {
+        private readonly string _value;
+
+        private Failover(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Failover AUTOMATIC { get; } = new Failover("AUTOMATIC");
+        public static Failover MANUAL { get; } = new Failover("MANUAL");
+
+        public static bool operator ==(Failover left, Failover right) => left.Equals(right);
+        public static bool operator !=(Failover left, Failover right) => !left.Equals(right);
+
+        public static explicit operator string(Failover value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Failover other && Equals(other);
+        public bool Equals(Failover other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
     /// </summary>
     [EnumType]
@@ -182,6 +345,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static IdentityType None { get; } = new IdentityType("None");
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -192,6 +356,69 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
         public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Replica readable secondary mode in availability group.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReadableSecondary : IEquatable<ReadableSecondary>
+    {
+        private readonly string _value;
+
+        private ReadableSecondary(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReadableSecondary NO { get; } = new ReadableSecondary("NO");
+        public static ReadableSecondary ALL { get; } = new ReadableSecondary("ALL");
+        public static ReadableSecondary READ_ONLY { get; } = new ReadableSecondary("READ_ONLY");
+
+        public static bool operator ==(ReadableSecondary left, ReadableSecondary right) => left.Equals(right);
+        public static bool operator !=(ReadableSecondary left, ReadableSecondary right) => !left.Equals(right);
+
+        public static explicit operator string(ReadableSecondary value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReadableSecondary other && Equals(other);
+        public bool Equals(ReadableSecondary other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Replica Role in availability group.
+    /// </summary>
+    [EnumType]
+    public readonly struct Role : IEquatable<Role>
+    {
+        private readonly string _value;
+
+        private Role(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Role PRIMARY { get; } = new Role("PRIMARY");
+        public static Role SECONDARY { get; } = new Role("SECONDARY");
+
+        public static bool operator ==(Role left, Role right) => left.Equals(right);
+        public static bool operator !=(Role left, Role right) => !left.Equals(right);
+
+        public static explicit operator string(Role value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Role other && Equals(other);
+        public bool Equals(Role other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

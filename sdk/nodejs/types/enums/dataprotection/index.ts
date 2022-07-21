@@ -40,6 +40,13 @@ export const AbsoluteMarker = {
 
 export type AbsoluteMarker = (typeof AbsoluteMarker)[keyof typeof AbsoluteMarker];
 
+export const AlertsState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
+
 export const DataStoreTypes = {
     OperationalStore: "OperationalStore",
     VaultStore: "VaultStore",
@@ -80,6 +87,16 @@ export const Month = {
 
 export type Month = (typeof Month)[keyof typeof Month];
 
+export const SecretStoreType = {
+    Invalid: "Invalid",
+    AzureKeyVault: "AzureKeyVault",
+} as const;
+
+/**
+ * Gets or sets the type of secret store
+ */
+export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
+
 export const StorageSettingStoreTypes = {
     ArchiveStore: "ArchiveStore",
     SnapshotStore: "SnapshotStore",
@@ -94,12 +111,23 @@ export type StorageSettingStoreTypes = (typeof StorageSettingStoreTypes)[keyof t
 export const StorageSettingTypes = {
     GeoRedundant: "GeoRedundant",
     LocallyRedundant: "LocallyRedundant",
+    ZoneRedundant: "ZoneRedundant",
 } as const;
 
 /**
  * Gets or sets the type.
  */
 export type StorageSettingTypes = (typeof StorageSettingTypes)[keyof typeof StorageSettingTypes];
+
+export const ValidationType = {
+    ShallowValidation: "ShallowValidation",
+    DeepValidation: "DeepValidation",
+} as const;
+
+/**
+ * Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+ */
+export type ValidationType = (typeof ValidationType)[keyof typeof ValidationType];
 
 export const WeekNumber = {
     First: "First",

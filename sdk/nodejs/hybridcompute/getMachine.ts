@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a hybrid machine.
- * API Version: 2020-08-02.
+ * API Version: 2022-03-10.
  */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
     if (!opts) {
@@ -17,7 +17,7 @@ export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridcompute:getMachine", {
         "expand": args.expand,
-        "name": args.name,
+        "machineName": args.machineName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -30,9 +30,9 @@ export interface GetMachineArgs {
     /**
      * The name of the hybrid machine.
      */
-    name: string;
+    machineName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -42,86 +42,29 @@ export interface GetMachineArgs {
  */
 export interface GetMachineResult {
     /**
-     * Specifies the AD fully qualified display name.
-     */
-    readonly adFqdn: string;
-    /**
-     * The hybrid machine agent full version.
-     */
-    readonly agentVersion: string;
-    /**
-     * Public Key that the client provides to be used during initial resource onboarding
-     */
-    readonly clientPublicKey?: string;
-    /**
-     * Specifies the hybrid machine display name.
-     */
-    readonly displayName: string;
-    /**
-     * Specifies the DNS fully qualified display name.
-     */
-    readonly dnsFqdn: string;
-    /**
-     * Specifies the Windows domain name.
-     */
-    readonly domainName: string;
-    /**
-     * Details about the error state.
-     */
-    readonly errorDetails: outputs.hybridcompute.ErrorDetailResponse[];
-    /**
-     * Machine Extensions information
-     */
-    readonly extensions: outputs.hybridcompute.MachineExtensionInstanceViewResponse[];
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    readonly identity?: outputs.hybridcompute.MachineResponseIdentity;
     /**
-     * The time of the last status change.
+     * Identity for the resource.
      */
-    readonly lastStatusChange: string;
+    readonly identity?: outputs.hybridcompute.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Metadata pertaining to the geographic location of the resource.
-     */
-    readonly locationData?: outputs.hybridcompute.LocationDataResponse;
-    /**
-     * Specifies the hybrid machine FQDN.
-     */
-    readonly machineFqdn: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The Operating System running on the hybrid machine.
+     * Hybrid Compute Machine properties
      */
-    readonly osName: string;
+    readonly properties: outputs.hybridcompute.MachinePropertiesResponse;
     /**
-     * Specifies the operating system settings for the hybrid machine.
+     * The system meta data relating to this resource.
      */
-    readonly osProfile?: outputs.hybridcompute.MachinePropertiesResponseOsProfile;
-    /**
-     * Specifies the Operating System product SKU.
-     */
-    readonly osSku: string;
-    /**
-     * The version of Operating System running on the hybrid machine.
-     */
-    readonly osVersion: string;
-    /**
-     * The provisioning state, which only appears in the response.
-     */
-    readonly provisioningState: string;
-    /**
-     * The status of the hybrid machine agent.
-     */
-    readonly status: string;
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -130,14 +73,6 @@ export interface GetMachineResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Specifies the hybrid machine unique ID.
-     */
-    readonly vmId?: string;
-    /**
-     * Specifies the Arc Machine's unique SMBIOS ID
-     */
-    readonly vmUuid: string;
 }
 
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
@@ -152,9 +87,9 @@ export interface GetMachineOutputArgs {
     /**
      * The name of the hybrid machine.
      */
-    name: pulumi.Input<string>;
+    machineName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

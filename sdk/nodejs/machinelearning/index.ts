@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./commitmentPlan";
-export * from "./getCommitmentPlan";
 export * from "./getWebService";
 export * from "./getWorkspace";
 export * from "./listWorkspaceKeys";
@@ -30,7 +28,6 @@ export {
 };
 
 // Import resources to register:
-import { CommitmentPlan } from "./commitmentPlan";
 import { WebService } from "./webService";
 import { Workspace } from "./workspace";
 
@@ -38,8 +35,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearning:CommitmentPlan":
-                return new CommitmentPlan(name, <any>undefined, { urn })
             case "azure-native:machinelearning:WebService":
                 return new WebService(name, <any>undefined, { urn })
             case "azure-native:machinelearning:Workspace":

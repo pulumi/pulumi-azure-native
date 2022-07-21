@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site ARM resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
     if (!opts) {
@@ -61,6 +61,10 @@ export interface GetStaticSiteResult {
      */
     readonly defaultHostname: string;
     /**
+     * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+     */
+    readonly enterpriseGradeCdnStatus?: string;
+    /**
      * Resource Id.
      */
     readonly id: string;
@@ -91,7 +95,7 @@ export interface GetStaticSiteResult {
     /**
      * The provider that submitted the last deployment to the primary environment of the static site.
      */
-    readonly provider: string;
+    readonly provider?: string;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */

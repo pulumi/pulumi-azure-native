@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Description of Rule Resource.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of Rule Resource.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
@@ -118,11 +118,15 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -130,7 +134,11 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly Outputs.SqlFilterResponse? SqlFilter;
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
@@ -144,9 +152,13 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string id,
 
+            string location,
+
             string name,
 
             Outputs.SqlFilterResponse? sqlFilter,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -154,8 +166,10 @@ namespace Pulumi.AzureNative.ServiceBus
             CorrelationFilter = correlationFilter;
             FilterType = filterType;
             Id = id;
+            Location = location;
             Name = name;
             SqlFilter = sqlFilter;
+            SystemData = systemData;
             Type = type;
         }
     }

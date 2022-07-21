@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX VM Group
- * API Version: 2020-07-17-preview.
+ * API Version: 2021-12-01.
  */
 export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     /**

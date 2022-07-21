@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// OpenId Connect Provider details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// OpenId Connect Provider details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithDefaults());
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string MetadataEndpoint;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

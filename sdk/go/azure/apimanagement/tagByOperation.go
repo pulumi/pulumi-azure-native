@@ -12,15 +12,15 @@ import (
 )
 
 // Tag Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type TagByOperation struct {
 	pulumi.CustomResourceState
 
 	// Tag name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -182,12 +182,12 @@ func (o TagByOperationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagByOperation) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o TagByOperationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagByOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o TagByOperationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagByOperation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

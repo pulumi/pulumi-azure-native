@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
- * API Version: 2020-06-01.
+ * API Version: 2021-06-01.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
     if (!opts) {
@@ -49,9 +49,13 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.cache.ManagedServiceIdentityResponse;
     /**
      * List of the Redis instances associated with the cache
      */
@@ -69,7 +73,7 @@ export interface GetRedisResult {
      */
     readonly minimumTlsVersion?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -93,13 +97,17 @@ export interface GetRedisResult {
      */
     readonly redisConfiguration?: outputs.cache.RedisCommonPropertiesResponseRedisConfiguration;
     /**
-     * Redis version.
+     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
      */
-    readonly redisVersion: string;
+    readonly redisVersion?: string;
     /**
-     * The number of replicas to be created per master.
+     * The number of replicas to be created per primary.
      */
     readonly replicasPerMaster?: number;
+    /**
+     * The number of replicas to be created per primary.
+     */
+    readonly replicasPerPrimary?: number;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
@@ -129,7 +137,7 @@ export interface GetRedisResult {
      */
     readonly tenantSettings?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

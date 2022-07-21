@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:SecurityMLAnalyticsSetting"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"},
                 },

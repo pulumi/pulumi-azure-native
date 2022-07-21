@@ -569,6 +569,167 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// Table level sharing properties dto for kusto data set properties
+type TableLevelSharingProperties struct {
+	// External tables to be excluded in the data set
+	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
+	// External tables to be included in the data set
+	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
+	// Materialized views to be excluded in the data set
+	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
+	// Materialized views to be included in the data set
+	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
+	// Tables to be excluded in the data set
+	TablesToExclude []string `pulumi:"tablesToExclude"`
+	// Tables to be included in the data set
+	TablesToInclude []string `pulumi:"tablesToInclude"`
+}
+
+// TableLevelSharingPropertiesInput is an input type that accepts TableLevelSharingPropertiesArgs and TableLevelSharingPropertiesOutput values.
+// You can construct a concrete instance of `TableLevelSharingPropertiesInput` via:
+//
+//          TableLevelSharingPropertiesArgs{...}
+type TableLevelSharingPropertiesInput interface {
+	pulumi.Input
+
+	ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput
+	ToTableLevelSharingPropertiesOutputWithContext(context.Context) TableLevelSharingPropertiesOutput
+}
+
+// Table level sharing properties dto for kusto data set properties
+type TableLevelSharingPropertiesArgs struct {
+	// External tables to be excluded in the data set
+	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
+	// External tables to be included in the data set
+	ExternalTablesToInclude pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
+	// Materialized views to be excluded in the data set
+	MaterializedViewsToExclude pulumi.StringArrayInput `pulumi:"materializedViewsToExclude"`
+	// Materialized views to be included in the data set
+	MaterializedViewsToInclude pulumi.StringArrayInput `pulumi:"materializedViewsToInclude"`
+	// Tables to be excluded in the data set
+	TablesToExclude pulumi.StringArrayInput `pulumi:"tablesToExclude"`
+	// Tables to be included in the data set
+	TablesToInclude pulumi.StringArrayInput `pulumi:"tablesToInclude"`
+}
+
+func (TableLevelSharingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingProperties)(nil)).Elem()
+}
+
+func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput {
+	return i.ToTableLevelSharingPropertiesOutputWithContext(context.Background())
+}
+
+func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesOutputWithContext(ctx context.Context) TableLevelSharingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesOutput)
+}
+
+// Table level sharing properties dto for kusto data set properties
+type TableLevelSharingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TableLevelSharingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingProperties)(nil)).Elem()
+}
+
+func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesOutputWithContext(ctx context.Context) TableLevelSharingPropertiesOutput {
+	return o
+}
+
+// External tables to be excluded in the data set
+func (o TableLevelSharingPropertiesOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// External tables to be included in the data set
+func (o TableLevelSharingPropertiesOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+// Materialized views to be excluded in the data set
+func (o TableLevelSharingPropertiesOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
+}
+
+// Materialized views to be included in the data set
+func (o TableLevelSharingPropertiesOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
+}
+
+// Tables to be excluded in the data set
+func (o TableLevelSharingPropertiesOutput) TablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// Tables to be included in the data set
+func (o TableLevelSharingPropertiesOutput) TablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+// Table level sharing properties dto for kusto data set properties
+type TableLevelSharingPropertiesResponse struct {
+	// External tables to be excluded in the data set
+	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
+	// External tables to be included in the data set
+	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
+	// Materialized views to be excluded in the data set
+	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
+	// Materialized views to be included in the data set
+	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
+	// Tables to be excluded in the data set
+	TablesToExclude []string `pulumi:"tablesToExclude"`
+	// Tables to be included in the data set
+	TablesToInclude []string `pulumi:"tablesToInclude"`
+}
+
+// Table level sharing properties dto for kusto data set properties
+type TableLevelSharingPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (TableLevelSharingPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingPropertiesResponse)(nil)).Elem()
+}
+
+func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponseOutput() TableLevelSharingPropertiesResponseOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponseOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponseOutput {
+	return o
+}
+
+// External tables to be excluded in the data set
+func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// External tables to be included in the data set
+func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+// Materialized views to be excluded in the data set
+func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
+}
+
+// Materialized views to be included in the data set
+func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
+}
+
+// Tables to be excluded in the data set
+func (o TableLevelSharingPropertiesResponseOutput) TablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// Tables to be included in the data set
+func (o TableLevelSharingPropertiesResponseOutput) TablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
@@ -581,4 +742,6 @@ func init() {
 	pulumi.RegisterOutputType(SynchronizationDetailsResponseOutput{})
 	pulumi.RegisterOutputType(SynchronizationDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(TableLevelSharingPropertiesOutput{})
+	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponseOutput{})
 }

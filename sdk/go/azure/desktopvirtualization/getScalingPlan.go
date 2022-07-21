@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a scaling plan definition.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-07-12.
 func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ...pulumi.InvokeOption) (*LookupScalingPlanResult, error) {
 	var rv LookupScalingPlanResult
 	err := ctx.Invoke("azure-native:desktopvirtualization:getScalingPlan", args, &rv, opts...)
@@ -56,8 +56,6 @@ type LookupScalingPlanResult struct {
 	// ObjectId of scaling plan. (internal use)
 	ObjectId string                                           `pulumi:"objectId"`
 	Plan     *ResourceModelWithAllowedPropertySetResponsePlan `pulumi:"plan"`
-	// The ring number of scaling plan.
-	Ring *int `pulumi:"ring"`
 	// List of ScalingSchedule definitions.
 	Schedules []ScalingScheduleResponse                       `pulumi:"schedules"`
 	Sku       *ResourceModelWithAllowedPropertySetResponseSku `pulumi:"sku"`
@@ -176,11 +174,6 @@ func (o LookupScalingPlanResultOutput) ObjectId() pulumi.StringOutput {
 
 func (o LookupScalingPlanResultOutput) Plan() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
 	return o.ApplyT(func(v LookupScalingPlanResult) *ResourceModelWithAllowedPropertySetResponsePlan { return v.Plan }).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
-}
-
-// The ring number of scaling plan.
-func (o LookupScalingPlanResultOutput) Ring() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupScalingPlanResult) *int { return v.Ring }).(pulumi.IntPtrOutput)
 }
 
 // List of ScalingSchedule definitions.

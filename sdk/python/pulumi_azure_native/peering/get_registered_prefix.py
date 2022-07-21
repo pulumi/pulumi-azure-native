@@ -133,7 +133,7 @@ def get_registered_prefix(peering_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredPrefixResult:
     """
     The customer's prefix that is registered by the peering service provider.
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peering_name: The name of the peering.
@@ -168,7 +168,7 @@ def get_registered_prefix_output(peering_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredPrefixResult]:
     """
     The customer's prefix that is registered by the peering service provider.
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peering_name: The name of the peering.

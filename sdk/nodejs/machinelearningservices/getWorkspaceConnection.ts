@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Workspace connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceConnectionResult> {
     if (!opts) {
@@ -27,7 +27,7 @@ export interface GetWorkspaceConnectionArgs {
      */
     connectionName: string;
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -36,42 +36,24 @@ export interface GetWorkspaceConnectionArgs {
     workspaceName: string;
 }
 
-/**
- * Workspace connection.
- */
 export interface GetWorkspaceConnectionResult {
     /**
-     * Authorization type of the workspace connection.
-     */
-    readonly authType?: string;
-    /**
-     * Category of the workspace connection.
-     */
-    readonly category?: string;
-    /**
-     * ResourceId of the workspace connection.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Friendly name of the workspace connection.
+     * The name of the resource
      */
     readonly name: string;
+    readonly properties: outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse;
     /**
-     * Target of the workspace connection.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly target?: string;
+    readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
-     * Resource type of workspace connection.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Value details of the workspace connection.
-     */
-    readonly value?: string;
-    /**
-     * format for the workspace connection value
-     */
-    readonly valueFormat?: string;
 }
 
 export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
@@ -84,7 +66,7 @@ export interface GetWorkspaceConnectionOutputArgs {
      */
     connectionName: pulumi.Input<string>;
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

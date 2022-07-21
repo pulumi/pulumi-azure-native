@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetWebAppSwiftVirtualNetworkConnectionResult> Invoke(GetWebAppSwiftVirtualNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionInvokeArgs(), options.WithDefaults());
@@ -90,10 +90,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? SwiftSupported;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -110,8 +106,6 @@ namespace Pulumi.AzureNative.Web
 
             bool? swiftSupported,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -119,7 +113,6 @@ namespace Pulumi.AzureNative.Web
             Name = name;
             SubnetResourceId = subnetResourceId;
             SwiftSupported = swiftSupported;
-            SystemData = systemData;
             Type = type;
         }
     }

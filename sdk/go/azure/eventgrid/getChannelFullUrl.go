@@ -11,7 +11,7 @@ import (
 )
 
 // Full endpoint url of an event subscription
-// API Version: 2021-10-15-preview.
+// API Version: 2022-06-15.
 func GetChannelFullUrl(ctx *pulumi.Context, args *GetChannelFullUrlArgs, opts ...pulumi.InvokeOption) (*GetChannelFullUrlResult, error) {
 	var rv GetChannelFullUrlResult
 	err := ctx.Invoke("azure-native:eventgrid:getChannelFullUrl", args, &rv, opts...)

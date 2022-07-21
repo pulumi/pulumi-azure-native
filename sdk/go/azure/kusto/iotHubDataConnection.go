@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing an iot hub data connection.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 type IotHubDataConnection struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type IotHubDataConnection struct {
 	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
 	// The data format of the message. Optionally the data format can be added to each message.
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed
+	DatabaseRouting pulumi.StringPtrOutput `pulumi:"databaseRouting"`
 	// System properties of the iot hub
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
 	// The resource ID of the Iot hub to be used to create a data connection.
@@ -70,6 +72,9 @@ func NewIotHubDataConnection(ctx *pulumi.Context,
 	}
 	if args.SharedAccessPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyName'")
+	}
+	if isZero(args.DatabaseRouting) {
+		args.DatabaseRouting = pulumi.StringPtr("Single")
 	}
 	args.Kind = pulumi.String("IotHub")
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -147,6 +152,8 @@ type iotHubDataConnectionArgs struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// The name of the database in the Kusto cluster.
 	DatabaseName string `pulumi:"databaseName"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed
+	DatabaseRouting *string `pulumi:"databaseRouting"`
 	// System properties of the iot hub
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// The resource ID of the Iot hub to be used to create a data connection.
@@ -178,6 +185,8 @@ type IotHubDataConnectionArgs struct {
 	DataFormat pulumi.StringPtrInput
 	// The name of the database in the Kusto cluster.
 	DatabaseName pulumi.StringInput
+	// Indication for database routing information from the data connection, by default only database routing information is allowed
+	DatabaseRouting pulumi.StringPtrInput
 	// System properties of the iot hub
 	EventSystemProperties pulumi.StringArrayInput
 	// The resource ID of the Iot hub to be used to create a data connection.
@@ -242,6 +251,11 @@ func (o IotHubDataConnectionOutput) ConsumerGroup() pulumi.StringOutput {
 // The data format of the message. Optionally the data format can be added to each message.
 func (o IotHubDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// Indication for database routing information from the data connection, by default only database routing information is allowed
+func (o IotHubDataConnectionOutput) DatabaseRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DatabaseRouting }).(pulumi.StringPtrOutput)
 }
 
 // System properties of the iot hub

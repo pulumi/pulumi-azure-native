@@ -11,7 +11,7 @@ import (
 )
 
 // Function secrets.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppFunctionSecretsSlot(ctx *pulumi.Context, args *ListWebAppFunctionSecretsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionSecretsSlotResult, error) {
 	var rv ListWebAppFunctionSecretsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppFunctionSecretsSlot", args, &rv, opts...)

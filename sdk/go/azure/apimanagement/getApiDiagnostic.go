@@ -11,7 +11,7 @@ import (
 )
 
 // Diagnostic details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupApiDiagnostic(ctx *pulumi.Context, args *LookupApiDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupApiDiagnosticResult, error) {
 	var rv LookupApiDiagnosticResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiDiagnostic", args, &rv, opts...)
@@ -42,19 +42,19 @@ type LookupApiDiagnosticResult struct {
 	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
 	// Sets correlation protocol to use for Application Insights diagnostics.
 	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Log the ClientIP. Default is false.
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
 	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The verbosity level applied to traces emitted by trace policies.
 	Verbosity *string `pulumi:"verbosity"`
@@ -123,7 +123,7 @@ func (o LookupApiDiagnosticResultOutput) HttpCorrelationProtocol() pulumi.String
 	return o.ApplyT(func(v LookupApiDiagnosticResult) *string { return v.HttpCorrelationProtocol }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiDiagnosticResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiDiagnosticResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -138,7 +138,7 @@ func (o LookupApiDiagnosticResultOutput) LoggerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiDiagnosticResult) string { return v.LoggerId }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiDiagnosticResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiDiagnosticResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -153,7 +153,7 @@ func (o LookupApiDiagnosticResultOutput) Sampling() SamplingSettingsResponsePtrO
 	return o.ApplyT(func(v LookupApiDiagnosticResult) *SamplingSettingsResponse { return v.Sampling }).(SamplingSettingsResponsePtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiDiagnosticResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiDiagnosticResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -11,7 +11,7 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getJob", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupJobArgs struct {
-	// The name and identifier for the Job.
+	// The name and identifier for the Job. This is case-sensitive.
 	Id string `pulumi:"id"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -34,11 +34,11 @@ type LookupJobArgs struct {
 type LookupJobResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// [Required] Additional attributes of the entity.
+	JobBaseProperties interface{} `pulumi:"jobBaseProperties"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties interface{} `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -58,7 +58,7 @@ func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulu
 }
 
 type LookupJobOutputArgs struct {
-	// The name and identifier for the Job.
+	// The name and identifier for the Job. This is case-sensitive.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -90,17 +90,17 @@ func (o LookupJobResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupJobResultOutput) JobBaseProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupJobResult) interface{} { return v.JobBaseProperties }).(pulumi.AnyOutput)
+}
+
 // The name of the resource
 func (o LookupJobResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupJobResultOutput) Properties() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupJobResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupJobResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupJobResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

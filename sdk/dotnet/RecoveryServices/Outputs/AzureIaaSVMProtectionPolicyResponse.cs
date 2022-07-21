@@ -26,10 +26,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Instant RP retention policy range in days
         /// </summary>
         public readonly int? InstantRpRetentionRangeInDays;
+        public readonly string? PolicyType;
         /// <summary>
         /// Number of items associated with this policy.
         /// </summary>
         public readonly int? ProtectedItemsCount;
+        /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
         /// <summary>
         /// Retention policy with the details on backup copy retention ranges.
         /// </summary>
@@ -51,7 +56,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? instantRpRetentionRangeInDays,
 
+            string? policyType,
+
             int? protectedItemsCount,
+
+            ImmutableArray<string> resourceGuardOperationRequests,
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
@@ -62,7 +71,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             BackupManagementType = backupManagementType;
             InstantRPDetails = instantRPDetails;
             InstantRpRetentionRangeInDays = instantRpRetentionRangeInDays;
+            PolicyType = policyType;
             ProtectedItemsCount = protectedItemsCount;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
             TimeZone = timeZone;

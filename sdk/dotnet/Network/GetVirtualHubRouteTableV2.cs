@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VirtualHubRouteTableV2 Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetVirtualHubRouteTableV2Result> InvokeAsync(GetVirtualHubRouteTableV2Args args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubRouteTableV2Result>("azure-native:network:getVirtualHubRouteTableV2", args ?? new GetVirtualHubRouteTableV2Args(), options.WithDefaults());
 
         /// <summary>
         /// VirtualHubRouteTableV2 Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetVirtualHubRouteTableV2Result> Invoke(GetVirtualHubRouteTableV2InvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableV2Result>("azure-native:network:getVirtualHubRouteTableV2", args ?? new GetVirtualHubRouteTableV2InvokeArgs(), options.WithDefaults());

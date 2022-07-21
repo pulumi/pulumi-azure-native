@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -41,11 +41,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly allowPublicAccessWhenBehindVnet!: pulumi.Output<boolean | undefined>;
     /**
-     * ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+     * ARM id of the application insights associated with this workspace.
      */
     public readonly applicationInsights!: pulumi.Output<string | undefined>;
     /**
-     * ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+     * ARM id of the container registry associated with this workspace.
      */
     public readonly containerRegistry!: pulumi.Output<string | undefined>;
     /**
@@ -71,7 +71,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearningservices.IdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * The compute name for image build
      */
@@ -85,7 +85,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the resource.
+     * The URI associated with this workspace that machine learning flow must point at to set up tracking.
+     */
+    public /*out*/ readonly mlFlowTrackingUri!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -109,6 +113,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Whether requests from Public Network are allowed.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The service managed resource settings.
      */
     public readonly serviceManagedResourcesSettings!: pulumi.Output<outputs.machinelearningservices.ServiceManagedResourcesSettingsResponse | undefined>;
@@ -129,7 +137,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly storageAccount!: pulumi.Output<string | undefined>;
     /**
-     * Read only system data
+     * If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
+     */
+    public /*out*/ readonly storageHnsEnabled!: pulumi.Output<boolean>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -137,9 +149,17 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the type of the resource.
+     * The tenant id associated with this workspace.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+     */
+    public readonly v1LegacyMode!: pulumi.Output<boolean | undefined>;
     /**
      * The immutable id associated with this workspace.
      */
@@ -172,20 +192,25 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["keyVault"] = args ? args.keyVault : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceManagedResourcesSettings"] = args ? args.serviceManagedResourcesSettings : undefined;
             resourceInputs["sharedPrivateLinkResources"] = args ? args.sharedPrivateLinkResources : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["v1LegacyMode"] = (args ? args.v1LegacyMode : undefined) ?? false;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notebookInfo"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["privateLinkCount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
+            resourceInputs["storageHnsEnabled"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         } else {
@@ -201,20 +226,25 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["imageBuildCompute"] = undefined /*out*/;
             resourceInputs["keyVault"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notebookInfo"] = undefined /*out*/;
             resourceInputs["primaryUserAssignedIdentity"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["privateLinkCount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceManagedResourcesSettings"] = undefined /*out*/;
             resourceInputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
             resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageAccount"] = undefined /*out*/;
+            resourceInputs["storageHnsEnabled"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["v1LegacyMode"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -233,11 +263,11 @@ export interface WorkspaceArgs {
      */
     allowPublicAccessWhenBehindVnet?: pulumi.Input<boolean>;
     /**
-     * ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+     * ARM id of the application insights associated with this workspace.
      */
     applicationInsights?: pulumi.Input<string>;
     /**
-     * ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+     * ARM id of the container registry associated with this workspace.
      */
     containerRegistry?: pulumi.Input<string>;
     /**
@@ -263,7 +293,7 @@ export interface WorkspaceArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * The compute name for image build
      */
@@ -281,7 +311,11 @@ export interface WorkspaceArgs {
      */
     primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
-     * Name of the resource group in which workspace is located.
+     * Whether requests from Public Network are allowed.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.machinelearningservices.PublicNetworkAccess>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -304,6 +338,10 @@ export interface WorkspaceArgs {
      * Contains resource tags defined as key/value pairs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+     */
+    v1LegacyMode?: pulumi.Input<boolean>;
     /**
      * Name of Azure Machine Learning workspace.
      */

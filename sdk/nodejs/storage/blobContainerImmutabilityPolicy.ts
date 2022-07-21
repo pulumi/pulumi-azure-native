@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
@@ -36,9 +36,13 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
      */
     public readonly allowProtectedAppendWrites!: pulumi.Output<boolean | undefined>;
+    /**
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+     */
+    public readonly allowProtectedAppendWritesAll!: pulumi.Output<boolean | undefined>;
     /**
      * Resource Etag.
      */
@@ -82,6 +86,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["allowProtectedAppendWrites"] = args ? args.allowProtectedAppendWrites : undefined;
+            resourceInputs["allowProtectedAppendWritesAll"] = args ? args.allowProtectedAppendWritesAll : undefined;
             resourceInputs["containerName"] = args ? args.containerName : undefined;
             resourceInputs["immutabilityPeriodSinceCreationInDays"] = args ? args.immutabilityPeriodSinceCreationInDays : undefined;
             resourceInputs["immutabilityPolicyName"] = args ? args.immutabilityPolicyName : undefined;
@@ -92,6 +97,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowProtectedAppendWrites"] = undefined /*out*/;
+            resourceInputs["allowProtectedAppendWritesAll"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["immutabilityPeriodSinceCreationInDays"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -114,9 +120,13 @@ export interface BlobContainerImmutabilityPolicyArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
      */
     allowProtectedAppendWrites?: pulumi.Input<boolean>;
+    /**
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+     */
+    allowProtectedAppendWritesAll?: pulumi.Input<boolean>;
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */

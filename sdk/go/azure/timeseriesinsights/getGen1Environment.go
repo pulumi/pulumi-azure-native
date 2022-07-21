@@ -11,7 +11,7 @@ import (
 )
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-// API Version: 2020-05-15.
+// API Version: 2021-06-30-preview.
 func LookupGen1Environment(ctx *pulumi.Context, args *LookupGen1EnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupGen1EnvironmentResult, error) {
 	var rv LookupGen1EnvironmentResult
 	err := ctx.Invoke("azure-native:timeseriesinsights:getGen1Environment", args, &rv, opts...)
@@ -59,6 +59,8 @@ type LookupGen1EnvironmentResult struct {
 	Status EnvironmentStatusResponse `pulumi:"status"`
 	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
+	// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+	SupportsCustomerManagedKey bool `pulumi:"supportsCustomerManagedKey"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -170,6 +172,11 @@ func (o LookupGen1EnvironmentResultOutput) Status() EnvironmentStatusResponseOut
 // The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 func (o LookupGen1EnvironmentResultOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGen1EnvironmentResult) *string { return v.StorageLimitExceededBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+func (o LookupGen1EnvironmentResultOutput) SupportsCustomerManagedKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupGen1EnvironmentResult) bool { return v.SupportsCustomerManagedKey }).(pulumi.BoolOutput)
 }
 
 // Resource tags

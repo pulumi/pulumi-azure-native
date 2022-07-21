@@ -18,10 +18,8 @@ export * from "./getEventSource";
 export * from "./getGen1Environment";
 export * from "./getGen2Environment";
 export * from "./getIoTHubEventSource";
-export * from "./getPrivateEndpointConnection";
 export * from "./getReferenceDataSet";
 export * from "./ioTHubEventSource";
-export * from "./privateEndpointConnection";
 export * from "./referenceDataSet";
 
 // Export enums:
@@ -52,7 +50,6 @@ import { EventSource } from "./eventSource";
 import { Gen1Environment } from "./gen1Environment";
 import { Gen2Environment } from "./gen2Environment";
 import { IoTHubEventSource } from "./ioTHubEventSource";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { ReferenceDataSet } from "./referenceDataSet";
 
 const _module = {
@@ -73,8 +70,6 @@ const _module = {
                 return new Gen2Environment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights:IoTHubEventSource":
                 return new IoTHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
             default:

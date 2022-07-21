@@ -142,7 +142,7 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteCustomDomainResult:
     """
     Static Site Custom Domain Overview ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str domain_name: The custom domain name.
@@ -178,7 +178,7 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteCustomDomainResult]:
     """
     Static Site Custom Domain Overview ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str domain_name: The custom domain name.

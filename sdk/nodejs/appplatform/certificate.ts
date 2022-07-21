@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate resource payload.
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -43,7 +43,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Properties of the certificate resource payload.
      */
-    public readonly properties!: pulumi.Output<outputs.appplatform.CertificatePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.appplatform.ContentCertificatePropertiesResponse | outputs.appplatform.KeyVaultCertificatePropertiesResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
     /**
      * The type of the resource.
      */
@@ -71,10 +75,12 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -95,7 +101,7 @@ export interface CertificateArgs {
     /**
      * Properties of the certificate resource payload.
      */
-    properties?: pulumi.Input<inputs.appplatform.CertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.ContentCertificatePropertiesArgs | inputs.appplatform.KeyVaultCertificatePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

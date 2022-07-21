@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
     if (!opts) {
@@ -69,10 +68,6 @@ export interface GetAppServiceCertificateOrderCertificateResult {
      * Status of the Key Vault secret.
      */
     readonly provisioningState: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.certificateregistration.SystemDataResponse;
     /**
      * Resource tags.
      */

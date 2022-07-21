@@ -12,10 +12,13 @@ from ._enums import *
 
 __all__ = [
     'AdditionalLocationResponse',
+    'ApiContactInformationResponse',
+    'ApiLicenseInformationResponse',
     'ApiManagementServiceIdentityResponse',
     'ApiManagementServiceSkuPropertiesResponse',
     'ApiVersionConstraintResponse',
     'ApiVersionSetContractDetailsResponse',
+    'ArmIdWrapperResponse',
     'AuthenticationSettingsContractResponse',
     'BackendAuthorizationHeaderCredentialsResponse',
     'BackendCredentialsContractResponse',
@@ -37,16 +40,18 @@ __all__ = [
     'OAuth2AuthenticationSettingsContractResponse',
     'OpenIdAuthenticationSettingsContractResponse',
     'ParameterContractResponse',
+    'ParameterExampleContractResponse',
     'PipelineDiagnosticSettingsResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'RemotePrivateEndpointConnectionWrapperResponse',
     'RepresentationContractResponse',
     'RequestContractResponse',
-    'ResourceCollectionResponseValue',
     'ResourceLocationDataContractResponse',
     'ResponseContractResponse',
     'SamplingSettingsResponse',
     'SubscriptionKeyParameterNamesContractResponse',
+    'SystemDataResponse',
     'TokenBodyParameterContractResponse',
     'UserIdentityContractResponse',
     'UserIdentityPropertiesResponse',
@@ -64,12 +69,16 @@ class AdditionalLocationResponse(dict):
         suggest = None
         if key == "gatewayRegionalUrl":
             suggest = "gateway_regional_url"
+        elif key == "platformVersion":
+            suggest = "platform_version"
         elif key == "privateIPAddresses":
             suggest = "private_ip_addresses"
         elif key == "publicIPAddresses":
             suggest = "public_ip_addresses"
         elif key == "disableGateway":
             suggest = "disable_gateway"
+        elif key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
         elif key == "virtualNetworkConfiguration":
             suggest = "virtual_network_configuration"
 
@@ -87,25 +96,30 @@ class AdditionalLocationResponse(dict):
     def __init__(__self__, *,
                  gateway_regional_url: str,
                  location: str,
+                 platform_version: str,
                  private_ip_addresses: Sequence[str],
                  public_ip_addresses: Sequence[str],
                  sku: 'outputs.ApiManagementServiceSkuPropertiesResponse',
                  disable_gateway: Optional[bool] = None,
+                 public_ip_address_id: Optional[str] = None,
                  virtual_network_configuration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None,
                  zones: Optional[Sequence[str]] = None):
         """
         Description of an additional API Management resource location.
         :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param str location: The location name of the additional region among Azure Data center regions.
+        :param str platform_version: Compute Platform Version running the service.
         :param Sequence[str] private_ip_addresses: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         :param 'ApiManagementServiceSkuPropertiesResponse' sku: SKU properties of the API Management service.
         :param bool disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        :param str public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
         :param 'VirtualNetworkConfigurationResponse' virtual_network_configuration: Virtual network configuration for the location.
         :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "platform_version", platform_version)
         pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
         pulumi.set(__self__, "sku", sku)
@@ -113,6 +127,8 @@ class AdditionalLocationResponse(dict):
             disable_gateway = False
         if disable_gateway is not None:
             pulumi.set(__self__, "disable_gateway", disable_gateway)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
@@ -133,6 +149,14 @@ class AdditionalLocationResponse(dict):
         The location name of the additional region among Azure Data center regions.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> str:
+        """
+        Compute Platform Version running the service.
+        """
+        return pulumi.get(self, "platform_version")
 
     @property
     @pulumi.getter(name="privateIPAddresses")
@@ -167,6 +191,14 @@ class AdditionalLocationResponse(dict):
         return pulumi.get(self, "disable_gateway")
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[str]:
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
         """
@@ -181,6 +213,88 @@ class AdditionalLocationResponse(dict):
         A list of availability zones denoting where the resource needs to come from.
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class ApiContactInformationResponse(dict):
+    """
+    API contact information
+    """
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        API contact information
+        :param str email: The email address of the contact person/organization. MUST be in the format of an email address
+        :param str name: The identifying name of the contact person/organization
+        :param str url: The URL pointing to the contact information. MUST be in the format of a URL
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email address of the contact person/organization. MUST be in the format of an email address
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The identifying name of the contact person/organization
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL pointing to the contact information. MUST be in the format of a URL
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ApiLicenseInformationResponse(dict):
+    """
+    API license information
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        API license information
+        :param str name: The license name used for the API
+        :param str url: A URL to the license used for the API. MUST be in the format of a URL
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The license name used for the API
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        A URL to the license used for the API. MUST be in the format of a URL
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -441,6 +555,24 @@ class ApiVersionSetContractDetailsResponse(dict):
         An value that determines where the API Version identifier will be located in a HTTP request.
         """
         return pulumi.get(self, "versioning_scheme")
+
+
+@pulumi.output_type
+class ArmIdWrapperResponse(dict):
+    """
+    A wrapper for an ARM resource id
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A wrapper for an ARM resource id
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -1243,6 +1375,10 @@ class HostnameConfigurationResponse(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "defaultSslBinding":
             suggest = "default_ssl_binding"
         elif key == "encodedCertificate":
@@ -1270,6 +1406,8 @@ class HostnameConfigurationResponse(dict):
                  type: str,
                  certificate: Optional['outputs.CertificateInformationResponse'] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  default_ssl_binding: Optional[bool] = None,
                  encoded_certificate: Optional[str] = None,
                  identity_client_id: Optional[str] = None,
@@ -1281,6 +1419,8 @@ class HostnameConfigurationResponse(dict):
         :param str type: Hostname type.
         :param 'CertificateInformationResponse' certificate: Certificate information.
         :param str certificate_password: Certificate Password.
+        :param str certificate_source: Certificate Source.
+        :param str certificate_status: Certificate Status.
         :param bool default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
         :param str encoded_certificate: Base64 Encoded certificate.
         :param str identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
@@ -1293,6 +1433,10 @@ class HostnameConfigurationResponse(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if default_ssl_binding is None:
             default_ssl_binding = False
         if default_ssl_binding is not None:
@@ -1339,6 +1483,22 @@ class HostnameConfigurationResponse(dict):
         Certificate Password.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        Certificate Source.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        Certificate Status.
+        """
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter(name="defaultSslBinding")
@@ -1479,7 +1639,7 @@ class KeyVaultContractPropertiesResponse(dict):
         KeyVault contract details.
         :param str identity_client_id: Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         :param 'KeyVaultLastAccessStatusContractPropertiesResponse' last_status: Last time sync and refresh status of secret from key vault.
-        :param str secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        :param str secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         if identity_client_id is not None:
             pulumi.set(__self__, "identity_client_id", identity_client_id)
@@ -1508,7 +1668,7 @@ class KeyVaultContractPropertiesResponse(dict):
     @pulumi.getter(name="secretIdentifier")
     def secret_identifier(self) -> Optional[str]:
         """
-        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         return pulumi.get(self, "secret_identifier")
 
@@ -1693,6 +1853,10 @@ class ParameterContractResponse(dict):
         suggest = None
         if key == "defaultValue":
             suggest = "default_value"
+        elif key == "schemaId":
+            suggest = "schema_id"
+        elif key == "typeName":
+            suggest = "type_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ParameterContractResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1710,7 +1874,10 @@ class ParameterContractResponse(dict):
                  type: str,
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
+                 examples: Optional[Mapping[str, 'outputs.ParameterExampleContractResponse']] = None,
                  required: Optional[bool] = None,
+                 schema_id: Optional[str] = None,
+                 type_name: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
         Operation parameters details.
@@ -1718,7 +1885,10 @@ class ParameterContractResponse(dict):
         :param str type: Parameter type.
         :param str default_value: Default parameter value.
         :param str description: Parameter description.
+        :param Mapping[str, 'ParameterExampleContractResponse'] examples: Exampled defined for the parameter.
         :param bool required: Specifies whether parameter is required or not.
+        :param str schema_id: Schema identifier.
+        :param str type_name: Type name defined by the schema.
         :param Sequence[str] values: Parameter values.
         """
         pulumi.set(__self__, "name", name)
@@ -1727,8 +1897,14 @@ class ParameterContractResponse(dict):
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if required is not None:
             pulumi.set(__self__, "required", required)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if type_name is not None:
+            pulumi.set(__self__, "type_name", type_name)
         if values is not None:
             pulumi.set(__self__, "values", values)
 
@@ -1766,11 +1942,35 @@ class ParameterContractResponse(dict):
 
     @property
     @pulumi.getter
+    def examples(self) -> Optional[Mapping[str, 'outputs.ParameterExampleContractResponse']]:
+        """
+        Exampled defined for the parameter.
+        """
+        return pulumi.get(self, "examples")
+
+    @property
+    @pulumi.getter
     def required(self) -> Optional[bool]:
         """
         Specifies whether parameter is required or not.
         """
         return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[str]:
+        """
+        Schema identifier.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @property
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[str]:
+        """
+        Type name defined by the schema.
+        """
+        return pulumi.get(self, "type_name")
 
     @property
     @pulumi.getter
@@ -1779,6 +1979,82 @@ class ParameterContractResponse(dict):
         Parameter values.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ParameterExampleContractResponse(dict):
+    """
+    Parameter example.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalValue":
+            suggest = "external_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterExampleContractResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterExampleContractResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterExampleContractResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 external_value: Optional[str] = None,
+                 summary: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Parameter example.
+        :param str description: Long description for the example
+        :param str external_value: A URL that points to the literal example
+        :param str summary: Short description for the example
+        :param Any value: Example value. May be a primitive value, or an object.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_value is not None:
+            pulumi.set(__self__, "external_value", external_value)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Long description for the example
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalValue")
+    def external_value(self) -> Optional[str]:
+        """
+        A URL that points to the literal example
+        """
+        return pulumi.get(self, "external_value")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[str]:
+        """
+        Short description for the example
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Example value. May be a primitive value, or an object.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1903,6 +2179,121 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class RemotePrivateEndpointConnectionWrapperResponse(dict):
+    """
+    Remote Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePrivateEndpointConnectionWrapperResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePrivateEndpointConnectionWrapperResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePrivateEndpointConnectionWrapperResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_endpoint: Optional['outputs.ArmIdWrapperResponse'] = None,
+                 type: Optional[str] = None):
+        """
+        Remote Private Endpoint Connection resource.
+        :param Sequence[str] group_ids: All the Group ids.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str id: Private Endpoint connection resource id
+        :param str name: Private Endpoint Connection Name
+        :param 'ArmIdWrapperResponse' private_endpoint: The resource of private end point.
+        :param str type: Private Endpoint Connection Resource Type
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        All the Group ids.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Private Endpoint connection resource id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Private Endpoint Connection Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Private Endpoint Connection Resource Type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RepresentationContractResponse(dict):
     """
     Operation request/response representation details.
@@ -1932,23 +2323,23 @@ class RepresentationContractResponse(dict):
 
     def __init__(__self__, *,
                  content_type: str,
+                 examples: Optional[Mapping[str, 'outputs.ParameterExampleContractResponse']] = None,
                  form_parameters: Optional[Sequence['outputs.ParameterContractResponse']] = None,
-                 sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         Operation request/response representation details.
         :param str content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
+        :param Mapping[str, 'ParameterExampleContractResponse'] examples: Exampled defined for the representation.
         :param Sequence['ParameterContractResponse'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-        :param str sample: An example of the representation.
         :param str schema_id: Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         :param str type_name: Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         """
         pulumi.set(__self__, "content_type", content_type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
-        if sample is not None:
-            pulumi.set(__self__, "sample", sample)
         if schema_id is not None:
             pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
@@ -1963,20 +2354,20 @@ class RepresentationContractResponse(dict):
         return pulumi.get(self, "content_type")
 
     @property
+    @pulumi.getter
+    def examples(self) -> Optional[Mapping[str, 'outputs.ParameterExampleContractResponse']]:
+        """
+        Exampled defined for the representation.
+        """
+        return pulumi.get(self, "examples")
+
+    @property
     @pulumi.getter(name="formParameters")
     def form_parameters(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
         """
         Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         """
         return pulumi.get(self, "form_parameters")
-
-    @property
-    @pulumi.getter
-    def sample(self) -> Optional[str]:
-        """
-        An example of the representation.
-        """
-        return pulumi.get(self, "sample")
 
     @property
     @pulumi.getter(name="schemaId")
@@ -2069,46 +2460,6 @@ class RequestContractResponse(dict):
         Collection of operation request representations.
         """
         return pulumi.get(self, "representations")
-
-
-@pulumi.output_type
-class ResourceCollectionResponseValue(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str):
-        """
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param str name: The name of the resource
-        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2346,6 +2697,116 @@ class SubscriptionKeyParameterNamesContractResponse(dict):
         Subscription key query string parameter name.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

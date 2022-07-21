@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:sql:BackupLongTermRetentionPolicy":
+		r = &BackupLongTermRetentionPolicy{}
 	case "azure-native:sql:BackupShortTermRetentionPolicy":
 		r = &BackupShortTermRetentionPolicy{}
 	case "azure-native:sql:DataMaskingPolicy":
@@ -33,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabaseBlobAuditingPolicy{}
 	case "azure-native:sql:DatabaseSecurityAlertPolicy":
 		r = &DatabaseSecurityAlertPolicy{}
+	case "azure-native:sql:DatabaseThreatDetectionPolicy":
+		r = &DatabaseThreatDetectionPolicy{}
 	case "azure-native:sql:DatabaseVulnerabilityAssessment":
 		r = &DatabaseVulnerabilityAssessment{}
 	case "azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline":

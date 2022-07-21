@@ -60,7 +60,7 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersResult:
     """
     Function secrets.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -86,7 +86,7 @@ def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersResult]:
     """
     Function secrets.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

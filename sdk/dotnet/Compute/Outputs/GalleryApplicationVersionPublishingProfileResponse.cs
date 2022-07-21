@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly int? ReplicaCount;
         /// <summary>
+        /// Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        /// </summary>
+        public readonly string? ReplicationMode;
+        /// <summary>
         /// The source image from which the Image Version is going to be created.
         /// </summary>
         public readonly Outputs.UserArtifactSourceResponse Source;
@@ -45,6 +49,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Specifies the storage account type to be used to store the image. This property is not updatable.
         /// </summary>
         public readonly string? StorageAccountType;
+        /// <summary>
+        /// The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GalleryTargetExtendedLocationResponse> TargetExtendedLocations;
         /// <summary>
         /// The target regions where the Image Version is going to be replicated to. This property is updatable.
         /// </summary>
@@ -64,9 +72,13 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             int? replicaCount,
 
+            string? replicationMode,
+
             Outputs.UserArtifactSourceResponse source,
 
             string? storageAccountType,
+
+            ImmutableArray<Outputs.GalleryTargetExtendedLocationResponse> targetExtendedLocations,
 
             ImmutableArray<Outputs.TargetRegionResponse> targetRegions)
         {
@@ -76,8 +88,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
             ManageActions = manageActions;
             PublishedDate = publishedDate;
             ReplicaCount = replicaCount;
+            ReplicationMode = replicationMode;
             Source = source;
             StorageAccountType = storageAccountType;
+            TargetExtendedLocations = targetExtendedLocations;
             TargetRegions = targetRegions;
         }
     }

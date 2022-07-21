@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for list sim ids API service call.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function listMobileNetworkSimIds(args: ListMobileNetworkSimIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimIdsResult> {
     if (!opts) {

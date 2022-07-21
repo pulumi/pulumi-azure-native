@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Stream Analytics Cluster object
- * API Version: 2020-03-01-preview.
+ * API Version: 2020-03-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -37,6 +37,22 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * Represents the number of streaming units currently being used on the cluster.
+     */
+    readonly capacityAllocated: number;
+    /**
+     * Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+     */
+    readonly capacityAssigned: number;
+    /**
+     * Unique identifier for the cluster.
+     */
+    readonly clusterId: string;
+    /**
+     * The date this cluster was created.
+     */
+    readonly createdDate: string;
+    /**
      * The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
     readonly etag: string;
@@ -53,9 +69,9 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
-     * The properties associated with a Stream Analytics cluster.
+     * The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
      */
-    readonly properties: outputs.streamanalytics.ClusterPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
      */

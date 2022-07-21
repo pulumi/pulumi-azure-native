@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
     if (!opts) {
@@ -71,7 +71,7 @@ export interface GetContainerResult {
      */
     readonly refreshDetails: outputs.databoxedge.RefreshDetailsResponse;
     /**
-     * Container in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Container
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

@@ -108,7 +108,7 @@ class CustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +126,7 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param CustomDomainArgs args: The arguments to use to populate this resource's properties.
@@ -230,7 +230,7 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="customHttpsProvisioningState")
     def custom_https_provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning status of Custom Https of the custom domain.
+        Provisioning status of the custom domain.
         """
         return pulumi.get(self, "custom_https_provisioning_state")
 
@@ -262,7 +262,7 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning status of the custom domain.
+        Provisioning status of Custom Https of the custom domain.
         """
         return pulumi.get(self, "provisioning_state")
 

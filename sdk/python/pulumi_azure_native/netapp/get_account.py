@@ -21,13 +21,16 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, encryption=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, encryption=None, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if active_directories and not isinstance(active_directories, list):
             raise TypeError("Expected argument 'active_directories' to be a list")
         pulumi.set(__self__, "active_directories", active_directories)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -68,9 +71,17 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -78,7 +89,7 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -86,7 +97,7 @@ class GetAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -102,7 +113,7 @@ class GetAccountResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -110,7 +121,7 @@ class GetAccountResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -118,7 +129,7 @@ class GetAccountResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -131,6 +142,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         return GetAccountResult(
             active_directories=self.active_directories,
             encryption=self.encryption,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -145,7 +157,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     NetApp account resource
-    API Version: 2020-12-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -163,6 +175,7 @@ def get_account(account_name: Optional[str] = None,
     return AwaitableGetAccountResult(
         active_directories=__ret__.active_directories,
         encryption=__ret__.encryption,
+        etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
@@ -178,7 +191,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     NetApp account resource
-    API Version: 2020-12-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account

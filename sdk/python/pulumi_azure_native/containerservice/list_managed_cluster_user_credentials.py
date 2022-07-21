@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class ListManagedClusterUserCredentialsResult:
     """
-    The list of credential result response.
+    The list credential result response.
     """
     def __init__(__self__, kubeconfigs=None):
         if kubeconfigs and not isinstance(kubeconfigs, list):
@@ -44,20 +44,26 @@ class AwaitableListManagedClusterUserCredentialsResult(ListManagedClusterUserCre
             kubeconfigs=self.kubeconfigs)
 
 
-def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = None,
+def list_managed_cluster_user_credentials(format: Optional[str] = None,
+                                          resource_group_name: Optional[str] = None,
                                           resource_name: Optional[str] = None,
+                                          server_fqdn: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterUserCredentialsResult:
     """
-    The list of credential result response.
-    API Version: 2021-03-01.
+    The list credential result response.
+    API Version: 2022-04-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str format: Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
+    :param str server_fqdn: server fqdn type for credentials to be returned
     """
     __args__ = dict()
+    __args__['format'] = format
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
+    __args__['serverFqdn'] = server_fqdn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -69,15 +75,19 @@ def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = N
 
 
 @_utilities.lift_output_func(list_managed_cluster_user_credentials)
-def list_managed_cluster_user_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+def list_managed_cluster_user_credentials_output(format: Optional[pulumi.Input[Optional[str]]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  resource_name: Optional[pulumi.Input[str]] = None,
+                                                 server_fqdn: Optional[pulumi.Input[Optional[str]]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterUserCredentialsResult]:
     """
-    The list of credential result response.
-    API Version: 2021-03-01.
+    The list credential result response.
+    API Version: 2022-04-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str format: Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
+    :param str server_fqdn: server fqdn type for credentials to be returned
     """
     ...

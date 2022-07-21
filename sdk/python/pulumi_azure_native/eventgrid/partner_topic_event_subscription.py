@@ -241,7 +241,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Event Subscription
-        API Version: 2020-04-01-preview.
+        API Version: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,7 +270,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription
-        API Version: 2020-04-01-preview.
+        API Version: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.

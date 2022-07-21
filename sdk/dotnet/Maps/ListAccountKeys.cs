@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
-        /// API Version: 2018-05-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
-        /// API Version: 2018-05-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:maps:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Maps
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Maps
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -70,29 +70,36 @@ namespace Pulumi.AzureNative.Maps
     public sealed class ListAccountKeysResult
     {
         /// <summary>
-        /// The full Azure resource identifier of the Maps Account.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The primary key for accessing the Maps REST APIs.
         /// </summary>
         public readonly string PrimaryKey;
         /// <summary>
+        /// The last updated date and time of the primary key.
+        /// </summary>
+        public readonly string PrimaryKeyLastUpdated;
+        /// <summary>
         /// The secondary key for accessing the Maps REST APIs.
         /// </summary>
         public readonly string SecondaryKey;
+        /// <summary>
+        /// The last updated date and time of the secondary key.
+        /// </summary>
+        public readonly string SecondaryKeyLastUpdated;
 
         [OutputConstructor]
         private ListAccountKeysResult(
-            string id,
-
             string primaryKey,
 
-            string secondaryKey)
+            string primaryKeyLastUpdated,
+
+            string secondaryKey,
+
+            string secondaryKeyLastUpdated)
         {
-            Id = id;
             PrimaryKey = primaryKey;
+            PrimaryKeyLastUpdated = primaryKeyLastUpdated;
             SecondaryKey = secondaryKey;
+            SecondaryKeyLastUpdated = secondaryKeyLastUpdated;
         }
     }
 }

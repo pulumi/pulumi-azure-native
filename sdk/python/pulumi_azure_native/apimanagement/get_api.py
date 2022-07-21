@@ -19,9 +19,9 @@ __all__ = [
 @pulumi.output_type
 class GetApiResult:
     """
-    Api details.
+    API details.
     """
-    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, description=None, display_name=None, id=None, is_current=None, is_online=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, type=None):
+    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, contact=None, description=None, display_name=None, id=None, is_current=None, is_online=None, license=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, terms_of_service_url=None, type=None):
         if api_revision and not isinstance(api_revision, str):
             raise TypeError("Expected argument 'api_revision' to be a str")
         pulumi.set(__self__, "api_revision", api_revision)
@@ -46,6 +46,9 @@ class GetApiResult:
         if authentication_settings and not isinstance(authentication_settings, dict):
             raise TypeError("Expected argument 'authentication_settings' to be a dict")
         pulumi.set(__self__, "authentication_settings", authentication_settings)
+        if contact and not isinstance(contact, dict):
+            raise TypeError("Expected argument 'contact' to be a dict")
+        pulumi.set(__self__, "contact", contact)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -61,6 +64,9 @@ class GetApiResult:
         if is_online and not isinstance(is_online, bool):
             raise TypeError("Expected argument 'is_online' to be a bool")
         pulumi.set(__self__, "is_online", is_online)
+        if license and not isinstance(license, dict):
+            raise TypeError("Expected argument 'license' to be a dict")
+        pulumi.set(__self__, "license", license)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -82,6 +88,9 @@ class GetApiResult:
         if subscription_required and not isinstance(subscription_required, bool):
             raise TypeError("Expected argument 'subscription_required' to be a bool")
         pulumi.set(__self__, "subscription_required", subscription_required)
+        if terms_of_service_url and not isinstance(terms_of_service_url, str):
+            raise TypeError("Expected argument 'terms_of_service_url' to be a str")
+        pulumi.set(__self__, "terms_of_service_url", terms_of_service_url)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -90,7 +99,7 @@ class GetApiResult:
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> Optional[str]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -98,7 +107,7 @@ class GetApiResult:
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> Optional[str]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -114,7 +123,7 @@ class GetApiResult:
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> Optional[str]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -122,7 +131,7 @@ class GetApiResult:
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> Optional[str]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -152,6 +161,14 @@ class GetApiResult:
 
     @property
     @pulumi.getter
+    def contact(self) -> Optional['outputs.ApiContactInformationResponse']:
+        """
+        Contact information for the API.
+        """
+        return pulumi.get(self, "contact")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Description of the API. May include HTML formatting tags.
@@ -170,7 +187,7 @@ class GetApiResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -192,9 +209,17 @@ class GetApiResult:
 
     @property
     @pulumi.getter
+    def license(self) -> Optional['outputs.ApiLicenseInformationResponse']:
+        """
+        License information for the API.
+        """
+        return pulumi.get(self, "license")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -247,10 +272,18 @@ class GetApiResult:
         return pulumi.get(self, "subscription_required")
 
     @property
+    @pulumi.getter(name="termsOfServiceUrl")
+    def terms_of_service_url(self) -> Optional[str]:
+        """
+         A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        """
+        return pulumi.get(self, "terms_of_service_url")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -269,11 +302,13 @@ class AwaitableGetApiResult(GetApiResult):
             api_version_set=self.api_version_set,
             api_version_set_id=self.api_version_set_id,
             authentication_settings=self.authentication_settings,
+            contact=self.contact,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
             is_current=self.is_current,
             is_online=self.is_online,
+            license=self.license,
             name=self.name,
             path=self.path,
             protocols=self.protocols,
@@ -281,6 +316,7 @@ class AwaitableGetApiResult(GetApiResult):
             source_api_id=self.source_api_id,
             subscription_key_parameter_names=self.subscription_key_parameter_names,
             subscription_required=self.subscription_required,
+            terms_of_service_url=self.terms_of_service_url,
             type=self.type)
 
 
@@ -289,8 +325,8 @@ def get_api(api_id: Optional[str] = None,
             service_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
-    Api details.
-    API Version: 2020-12-01.
+    API details.
+    API Version: 2021-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -316,11 +352,13 @@ def get_api(api_id: Optional[str] = None,
         api_version_set=__ret__.api_version_set,
         api_version_set_id=__ret__.api_version_set_id,
         authentication_settings=__ret__.authentication_settings,
+        contact=__ret__.contact,
         description=__ret__.description,
         display_name=__ret__.display_name,
         id=__ret__.id,
         is_current=__ret__.is_current,
         is_online=__ret__.is_online,
+        license=__ret__.license,
         name=__ret__.name,
         path=__ret__.path,
         protocols=__ret__.protocols,
@@ -328,6 +366,7 @@ def get_api(api_id: Optional[str] = None,
         source_api_id=__ret__.source_api_id,
         subscription_key_parameter_names=__ret__.subscription_key_parameter_names,
         subscription_required=__ret__.subscription_required,
+        terms_of_service_url=__ret__.terms_of_service_url,
         type=__ret__.type)
 
 
@@ -337,8 +376,8 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    service_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
     """
-    Api details.
-    API Version: 2020-12-01.
+    API details.
+    API Version: 2021-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The set of available keys for this server.
- * API Version: 2022-04-21.
+ * API Version: 2022-06-01.
  */
 export function listFluidRelayServerKeys(args: ListFluidRelayServerKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListFluidRelayServerKeysResult> {
     if (!opts) {

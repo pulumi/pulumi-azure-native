@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Compute role.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [Obsolete(@"Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.")]
     [AzureNativeResourceType("azure-native:databoxedge:Role")]
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

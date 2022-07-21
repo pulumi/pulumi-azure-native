@@ -123,10 +123,10 @@ def get_management_group(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupResult:
     """
     The management group details.
-    API Version: 2020-05-01.
+    API Version: 2021-04-01.
 
 
-    :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+    :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
     :param str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
@@ -160,10 +160,10 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupResult]:
     """
     The management group details.
-    API Version: 2020-05-01.
+    API Version: 2021-04-01.
 
 
-    :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+    :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
     :param str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.

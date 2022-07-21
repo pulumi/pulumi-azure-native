@@ -98,7 +98,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeResult:
     """
     Integration runtime resource type.
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -130,7 +130,7 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
     """
     Integration runtime resource type.
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str integration_runtime_name: Integration runtime name

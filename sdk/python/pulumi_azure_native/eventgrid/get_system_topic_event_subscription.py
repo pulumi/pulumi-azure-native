@@ -222,7 +222,7 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionResult:
     """
     Event Subscription
-    API Version: 2020-04-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -264,7 +264,7 @@ def get_system_topic_event_subscription_output(event_subscription_name: Optional
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionResult]:
     """
     Event Subscription
-    API Version: 2020-04-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

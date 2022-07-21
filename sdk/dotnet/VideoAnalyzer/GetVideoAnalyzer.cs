@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class GetVideoAnalyzer
     {
         /// <summary>
-        /// A Video Analyzer account.
-        /// API Version: 2021-05-01-preview.
+        /// The Video Analyzer account.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetVideoAnalyzerResult> InvokeAsync(GetVideoAnalyzerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Video Analyzer account.
-        /// API Version: 2021-05-01-preview.
+        /// The Video Analyzer account.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithDefaults());
@@ -72,9 +72,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// <summary>
         /// The account encryption properties.
         /// </summary>
-        public readonly Outputs.AccountEncryptionResponse Encryption;
+        public readonly Outputs.AccountEncryptionResponse? Encryption;
         /// <summary>
-        /// The list of endpoints associated with this resource.
+        /// The endpoints associated with this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointResponse> Endpoints;
         /// <summary>
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The set of managed identities associated with the Video Analyzer resource.
+        /// The identities associated to the Video Analyzer resource.
         /// </summary>
         public readonly Outputs.VideoAnalyzerIdentityResponse? Identity;
+        /// <summary>
+        /// The IoT Hubs for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IotHubResponse> IotHubs;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -94,11 +98,27 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Network access control for Video Analyzer.
+        /// </summary>
+        public readonly Outputs.NetworkAccessControlResponse? NetworkAccessControl;
+        /// <summary>
+        /// Private Endpoint Connections created under Video Analyzer account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Provisioning state of the Video Analyzer account.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Whether or not public network access is allowed for resources under the Video Analyzer account.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageAccountResponse> StorageAccounts;
         /// <summary>
-        /// The system data of the Video Analyzer account.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -112,7 +132,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetVideoAnalyzerResult(
-            Outputs.AccountEncryptionResponse encryption,
+            Outputs.AccountEncryptionResponse? encryption,
 
             ImmutableArray<Outputs.EndpointResponse> endpoints,
 
@@ -120,9 +140,19 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             Outputs.VideoAnalyzerIdentityResponse? identity,
 
+            ImmutableArray<Outputs.IotHubResponse> iotHubs,
+
             string location,
 
             string name,
+
+            Outputs.NetworkAccessControlResponse? networkAccessControl,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string provisioningState,
+
+            string? publicNetworkAccess,
 
             ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
 
@@ -136,8 +166,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
             Endpoints = endpoints;
             Id = id;
             Identity = identity;
+            IotHubs = iotHubs;
             Location = location;
             Name = name;
+            NetworkAccessControl = networkAccessControl;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             StorageAccounts = storageAccounts;
             SystemData = systemData;
             Tags = tags;

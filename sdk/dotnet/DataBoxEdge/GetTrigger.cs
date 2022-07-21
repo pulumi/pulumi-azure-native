@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Trigger details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Trigger in DataBoxEdge Resource
+        /// Metadata pertaining to creation and last modification of Trigger
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

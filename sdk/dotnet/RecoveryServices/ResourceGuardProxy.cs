@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ResourceGuardProxy")]
     public partial class ResourceGuardProxy : Pulumi.CustomResource

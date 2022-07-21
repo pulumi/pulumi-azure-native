@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing an attached database configuration.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupAttachedDatabaseConfiguration(ctx *pulumi.Context, args *LookupAttachedDatabaseConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAttachedDatabaseConfigurationResult, error) {
 	var rv LookupAttachedDatabaseConfigurationResult
 	err := ctx.Invoke("azure-native:kusto:getAttachedDatabaseConfiguration", args, &rv, opts...)

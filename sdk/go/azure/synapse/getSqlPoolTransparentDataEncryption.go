@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a Sql pool transparent data encryption configuration.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func LookupSqlPoolTransparentDataEncryption(ctx *pulumi.Context, args *LookupSqlPoolTransparentDataEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolTransparentDataEncryptionResult, error) {
 	var rv LookupSqlPoolTransparentDataEncryptionResult
 	err := ctx.Invoke("azure-native:synapse:getSqlPoolTransparentDataEncryption", args, &rv, opts...)
@@ -28,7 +28,7 @@ type LookupSqlPoolTransparentDataEncryptionArgs struct {
 	SqlPoolName string `pulumi:"sqlPoolName"`
 	// The name of the transparent data encryption configuration.
 	TransparentDataEncryptionName string `pulumi:"transparentDataEncryptionName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -66,7 +66,7 @@ type LookupSqlPoolTransparentDataEncryptionOutputArgs struct {
 	SqlPoolName pulumi.StringInput `pulumi:"sqlPoolName"`
 	// The name of the transparent data encryption configuration.
 	TransparentDataEncryptionName pulumi.StringInput `pulumi:"transparentDataEncryptionName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 

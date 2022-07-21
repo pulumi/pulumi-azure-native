@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Arc Addon.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:ArcAddon")]
     public partial class ArcAddon : Pulumi.CustomResource
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> SubscriptionId { get; private set; } = null!;
 
         /// <summary>
-        /// Addon type
+        /// Metadata pertaining to creation and last modification of Addon
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

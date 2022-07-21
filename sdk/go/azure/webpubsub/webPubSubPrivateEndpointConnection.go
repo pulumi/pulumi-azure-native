@@ -12,17 +12,19 @@ import (
 )
 
 // A private endpoint connection to an azure resource
-// API Version: 2021-04-01-preview.
+// API Version: 2021-10-01.
 type WebPubSubPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	// Group IDs
+	GroupIds pulumi.StringArrayOutput `pulumi:"groupIds"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
+	// Private endpoint
 	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Connection state
+	// Connection state of the private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
+	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -90,11 +92,11 @@ func (WebPubSubPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type webPubSubPrivateEndpointConnectionArgs struct {
-	// Private endpoint associated with the private endpoint connection
+	// Private endpoint
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// The name of the private endpoint connection
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Connection state
+	// Connection state of the private endpoint connection
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -104,11 +106,11 @@ type webPubSubPrivateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a WebPubSubPrivateEndpointConnection resource.
 type WebPubSubPrivateEndpointConnectionArgs struct {
-	// Private endpoint associated with the private endpoint connection
+	// Private endpoint
 	PrivateEndpoint PrivateEndpointPtrInput
 	// The name of the private endpoint connection
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Connection state
+	// Connection state of the private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
@@ -153,24 +155,29 @@ func (o WebPubSubPrivateEndpointConnectionOutput) ToWebPubSubPrivateEndpointConn
 	return o
 }
 
+// Group IDs
+func (o WebPubSubPrivateEndpointConnectionOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebPubSubPrivateEndpointConnection) pulumi.StringArrayOutput { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
 // The name of the resource.
 func (o WebPubSubPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebPubSubPrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint associated with the private endpoint connection
+// Private endpoint
 func (o WebPubSubPrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *WebPubSubPrivateEndpointConnection) PrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// Connection state
+// Connection state of the private endpoint connection
 func (o WebPubSubPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *WebPubSubPrivateEndpointConnection) PrivateLinkServiceConnectionStateResponsePtrOutput {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint connection
+// Provisioning state of the resource.
 func (o WebPubSubPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebPubSubPrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }

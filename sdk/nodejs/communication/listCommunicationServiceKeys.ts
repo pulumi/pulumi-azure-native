@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing the access keys of a CommunicationService.
- * API Version: 2020-08-20.
+ * API Version: 2021-10-01-preview.
  */
 export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListCommunicationServiceKeysResult> {
     if (!opts) {

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ContainerService
     public static class ListManagedClusterUserCredentials
     {
         /// <summary>
-        /// The list of credential result response.
-        /// API Version: 2021-03-01.
+        /// The list credential result response.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<ListManagedClusterUserCredentialsResult> InvokeAsync(ListManagedClusterUserCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-native:containerservice:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of credential result response.
-        /// API Version: 2021-03-01.
+        /// The list credential result response.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<ListManagedClusterUserCredentialsResult> Invoke(ListManagedClusterUserCredentialsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListManagedClusterUserCredentialsResult>("azure-native:containerservice:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,13 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ListManagedClusterUserCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+        /// </summary>
+        [Input("format")]
+        public string? Format { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -41,6 +47,12 @@ namespace Pulumi.AzureNative.ContainerService
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public string? ServerFqdn { get; set; }
+
         public ListManagedClusterUserCredentialsArgs()
         {
         }
@@ -49,7 +61,13 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ListManagedClusterUserCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -59,6 +77,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public Input<string>? ServerFqdn { get; set; }
 
         public ListManagedClusterUserCredentialsInvokeArgs()
         {

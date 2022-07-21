@@ -11,7 +11,7 @@ import (
 )
 
 // The response from the ListCredentials operation.
-// API Version: 2019-05-01.
+// API Version: 2021-09-01.
 func ListRegistryCredentials(ctx *pulumi.Context, args *ListRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*ListRegistryCredentialsResult, error) {
 	var rv ListRegistryCredentialsResult
 	err := ctx.Invoke("azure-native:containerregistry:listRegistryCredentials", args, &rv, opts...)

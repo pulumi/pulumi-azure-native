@@ -11,7 +11,7 @@ import (
 )
 
 // Sim resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupSim(ctx *pulumi.Context, args *LookupSimArgs, opts ...pulumi.InvokeOption) (*LookupSimResult, error) {
 	var rv LookupSimResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getSim", args, &rv, opts...)
@@ -30,8 +30,6 @@ type LookupSimArgs struct {
 
 // Sim resource.
 type LookupSimResult struct {
-	// The configuration state of the sim resource - complete or incomplete.
-	ConfigurationState string `pulumi:"configurationState"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
@@ -62,8 +60,12 @@ type LookupSimResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The simPolicy used by this sim.
 	SimPolicy *SimPolicyResourceIdResponse `pulumi:"simPolicy"`
+	// The state of the sim resource.
+	SimState string `pulumi:"simState"`
 	// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
 	StaticIpConfiguration []SimStaticIpPropertiesResponse `pulumi:"staticIpConfiguration"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -107,11 +109,6 @@ func (o LookupSimResultOutput) ToLookupSimResultOutput() LookupSimResultOutput {
 
 func (o LookupSimResultOutput) ToLookupSimResultOutputWithContext(ctx context.Context) LookupSimResultOutput {
 	return o
-}
-
-// The configuration state of the sim resource - complete or incomplete.
-func (o LookupSimResultOutput) ConfigurationState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSimResult) string { return v.ConfigurationState }).(pulumi.StringOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -189,9 +186,19 @@ func (o LookupSimResultOutput) SimPolicy() SimPolicyResourceIdResponsePtrOutput 
 	return o.ApplyT(func(v LookupSimResult) *SimPolicyResourceIdResponse { return v.SimPolicy }).(SimPolicyResourceIdResponsePtrOutput)
 }
 
+// The state of the sim resource.
+func (o LookupSimResultOutput) SimState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSimResult) string { return v.SimState }).(pulumi.StringOutput)
+}
+
 // A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
 func (o LookupSimResultOutput) StaticIpConfiguration() SimStaticIpPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v LookupSimResult) []SimStaticIpPropertiesResponse { return v.StaticIpConfiguration }).(SimStaticIpPropertiesResponseArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSimResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSimResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

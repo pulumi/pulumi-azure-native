@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// App resource payload
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// App resource payload
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         public readonly Outputs.AppResourcePropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.AppPlatform
 
             Outputs.AppResourcePropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNative.AppPlatform
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

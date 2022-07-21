@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Sql pool transparent data encryption configuration.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type SqlPoolTransparentDataEncryption struct {
 	pulumi.CustomResourceState
 
@@ -106,7 +106,7 @@ type sqlPoolTransparentDataEncryptionArgs struct {
 	Status *string `pulumi:"status"`
 	// The name of the transparent data encryption configuration.
 	TransparentDataEncryptionName *string `pulumi:"transparentDataEncryptionName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -120,7 +120,7 @@ type SqlPoolTransparentDataEncryptionArgs struct {
 	Status pulumi.StringPtrInput
 	// The name of the transparent data encryption configuration.
 	TransparentDataEncryptionName pulumi.StringPtrInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 

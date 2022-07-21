@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read write database.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
     if (!opts) {

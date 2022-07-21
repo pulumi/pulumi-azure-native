@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get User Token response details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetUserSharedAccessTokenResult> InvokeAsync(GetUserSharedAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserSharedAccessTokenResult>("azure-native:apimanagement:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get User Token response details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetUserSharedAccessTokenResult> Invoke(GetUserSharedAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithDefaults());

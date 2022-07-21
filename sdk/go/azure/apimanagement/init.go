@@ -75,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayCertificateAuthority{}
 	case "azure-native:apimanagement:GatewayHostnameConfiguration":
 		r = &GatewayHostnameConfiguration{}
+	case "azure-native:apimanagement:GlobalSchema":
+		r = &GlobalSchema{}
 	case "azure-native:apimanagement:Group":
 		r = &Group{}
 	case "azure-native:apimanagement:GroupUser":
@@ -93,8 +95,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OpenIdConnectProvider{}
 	case "azure-native:apimanagement:Policy":
 		r = &Policy{}
-	case "azure-native:apimanagement:PolicyFragment":
-		r = &PolicyFragment{}
 	case "azure-native:apimanagement:PrivateEndpointConnectionByName":
 		r = &PrivateEndpointConnectionByName{}
 	case "azure-native:apimanagement:Product":
@@ -107,8 +107,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductPolicy{}
 	case "azure-native:apimanagement:Property":
 		r = &Property{}
-	case "azure-native:apimanagement:Schema":
-		r = &Schema{}
 	case "azure-native:apimanagement:Subscription":
 		r = &Subscription{}
 	case "azure-native:apimanagement:Tag":
@@ -119,6 +117,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TagByOperation{}
 	case "azure-native:apimanagement:TagByProduct":
 		r = &TagByProduct{}
+	case "azure-native:apimanagement:TagDescription":
+		r = &TagDescription{}
 	case "azure-native:apimanagement:User":
 		r = &User{}
 	default:

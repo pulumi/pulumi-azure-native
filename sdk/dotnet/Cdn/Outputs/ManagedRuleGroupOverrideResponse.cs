@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string RuleGroupName;
         /// <summary>
-        /// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        /// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedRuleOverrideResponse> Rules;
 

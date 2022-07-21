@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An HCX Enterprise Site resource
-    /// API Version: 2020-03-20.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:HcxEnterpriseSite")]
     public partial class HcxEnterpriseSite : Pulumi.CustomResource

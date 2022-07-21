@@ -11,7 +11,7 @@ import (
 )
 
 // Represents Fusion alert rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 func LookupFusionAlertRule(ctx *pulumi.Context, args *LookupFusionAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupFusionAlertRuleResult, error) {
 	var rv LookupFusionAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights:getFusionAlertRule", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupFusionAlertRule(ctx *pulumi.Context, args *LookupFusionAlertRuleArgs,
 }
 
 type LookupFusionAlertRuleArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
@@ -42,20 +42,22 @@ type LookupFusionAlertRuleResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The kind of the alert rule
 	// Expected value is 'Fusion'.
 	Kind string `pulumi:"kind"`
 	// The last time that this alert has been modified.
 	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The severity for alerts created by this alert rule.
 	Severity string `pulumi:"severity"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tactics of the alert rule
 	Tactics []string `pulumi:"tactics"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -73,7 +75,7 @@ func LookupFusionAlertRuleOutput(ctx *pulumi.Context, args LookupFusionAlertRule
 }
 
 type LookupFusionAlertRuleOutputArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
@@ -125,7 +127,7 @@ func (o LookupFusionAlertRuleResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupFusionAlertRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -141,7 +143,7 @@ func (o LookupFusionAlertRuleResultOutput) LastModifiedUtc() pulumi.StringOutput
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.LastModifiedUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupFusionAlertRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -151,12 +153,17 @@ func (o LookupFusionAlertRuleResultOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Severity }).(pulumi.StringOutput)
 }
 
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupFusionAlertRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The tactics of the alert rule
 func (o LookupFusionAlertRuleResultOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) []string { return v.Tactics }).(pulumi.StringArrayOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupFusionAlertRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

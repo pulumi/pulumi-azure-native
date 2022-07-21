@@ -12,82 +12,92 @@ import (
 )
 
 // Agent Pool.
-// API Version: 2021-03-01.
+// API Version: 2022-04-01.
 type AgentPool struct {
 	pulumi.CustomResourceState
 
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	// The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrOutput `pulumi:"count"`
+	// CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+	CreationData CreationDataResponsePtrOutput `pulumi:"creationData"`
+	// If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
+	CurrentOrchestratorVersion pulumi.StringOutput `pulumi:"currentOrchestratorVersion"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
-	// Whether to enable EncryptionAtHost
+	// This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
 	EnableEncryptionAtHost pulumi.BoolPtrOutput `pulumi:"enableEncryptionAtHost"`
-	// Whether to use FIPS enabled OS
+	// See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
 	EnableFIPS pulumi.BoolPtrOutput `pulumi:"enableFIPS"`
-	// Enable public IP for nodes
+	// Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
 	EnableNodePublicIP pulumi.BoolPtrOutput `pulumi:"enableNodePublicIP"`
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	// Whether to enable UltraSSD
+	EnableUltraSSD pulumi.BoolPtrOutput `pulumi:"enableUltraSSD"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
 	GpuInstanceProfile pulumi.StringPtrOutput `pulumi:"gpuInstanceProfile"`
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	// The Kubelet configuration on the agent pool nodes.
 	KubeletConfig KubeletConfigResponsePtrOutput `pulumi:"kubeletConfig"`
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	// Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
 	KubeletDiskType pulumi.StringPtrOutput `pulumi:"kubeletDiskType"`
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	// The OS configuration of Linux agent nodes.
 	LinuxOSConfig LinuxOSConfigResponsePtrOutput `pulumi:"linuxOSConfig"`
-	// Maximum number of nodes for auto-scaling
+	// The maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrOutput `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
+	// The maximum number of pods that can run on a node.
 	MaxPods pulumi.IntPtrOutput `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
+	// The minimum number of nodes for auto-scaling
 	MinCount pulumi.IntPtrOutput `pulumi:"minCount"`
-	// AgentPoolMode represents mode of an agent pool
+	// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Version of node image
+	// The version of node image
 	NodeImageVersion pulumi.StringOutput `pulumi:"nodeImageVersion"`
-	// Agent pool node labels to be persisted across all nodes in agent pool.
+	// The node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	// This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
 	NodePublicIPPrefixID pulumi.StringPtrOutput `pulumi:"nodePublicIPPrefixID"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	// The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
+	// Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
 	OrchestratorVersion pulumi.StringPtrOutput `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	// OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrOutput `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+	// The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
 	OsDiskType pulumi.StringPtrOutput `pulumi:"osDiskType"`
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	// Specifies an OS SKU. This value must not be specified if OSType is Windows.
 	OsSKU pulumi.StringPtrOutput `pulumi:"osSKU"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	// The operating system type. The default is Linux.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	// If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 	PodSubnetID pulumi.StringPtrOutput `pulumi:"podSubnetID"`
-	// Describes whether the Agent Pool is Running or Stopped
-	PowerState PowerStateResponseOutput `pulumi:"powerState"`
-	// The current deployment or provisioning state, which only appears in the response.
+	// When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+	PowerState PowerStateResponsePtrOutput `pulumi:"powerState"`
+	// The current deployment or provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupID"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+	// This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+	ScaleDownMode pulumi.StringPtrOutput `pulumi:"scaleDownMode"`
+	// This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
 	ScaleSetEvictionPolicy pulumi.StringPtrOutput `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	// The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
 	ScaleSetPriority pulumi.StringPtrOutput `pulumi:"scaleSetPriority"`
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	// The tags to be persisted on the agent pool virtual machine scale set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// AgentPoolType represents types of an agent pool
+	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Settings for upgrading the agentpool
 	UpgradeSettings AgentPoolUpgradeSettingsResponsePtrOutput `pulumi:"upgradeSettings"`
-	// Size of agent VMs.
+	// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
 	VmSize pulumi.StringPtrOutput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+	// If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 	VnetSubnetID pulumi.StringPtrOutput `pulumi:"vnetSubnetID"`
+	// Determines the type of workload a node can run.
+	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
 }
 
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
@@ -236,148 +246,168 @@ func (AgentPoolState) ElementType() reflect.Type {
 type agentPoolArgs struct {
 	// The name of the agent pool.
 	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	// The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
 	Count *int `pulumi:"count"`
+	// CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+	CreationData *CreationData `pulumi:"creationData"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Whether to enable EncryptionAtHost
+	// This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
 	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
-	// Whether to use FIPS enabled OS
+	// See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
 	EnableFIPS *bool `pulumi:"enableFIPS"`
-	// Enable public IP for nodes
+	// Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	// Whether to enable UltraSSD
+	EnableUltraSSD *bool `pulumi:"enableUltraSSD"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
 	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	// The Kubelet configuration on the agent pool nodes.
 	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	// Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	// The OS configuration of Linux agent nodes.
 	LinuxOSConfig *LinuxOSConfig `pulumi:"linuxOSConfig"`
-	// Maximum number of nodes for auto-scaling
+	// The maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
+	// The maximum number of pods that can run on a node.
 	MaxPods *int `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
+	// The minimum number of nodes for auto-scaling
 	MinCount *int `pulumi:"minCount"`
-	// AgentPoolMode represents mode of an agent pool
+	// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
 	Mode *string `pulumi:"mode"`
-	// Agent pool node labels to be persisted across all nodes in agent pool.
+	// The node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	// This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
 	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	// The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
+	// Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	// OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+	// The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
 	OsDiskType *string `pulumi:"osDiskType"`
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	// Specifies an OS SKU. This value must not be specified if OSType is Windows.
 	OsSKU *string `pulumi:"osSKU"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	// The operating system type. The default is Linux.
 	OsType *string `pulumi:"osType"`
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	// If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 	PodSubnetID *string `pulumi:"podSubnetID"`
+	// When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+	PowerState *PowerState `pulumi:"powerState"`
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID *string `pulumi:"proximityPlacementGroupID"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+	// This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
 	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	// The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
 	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	// The tags to be persisted on the agent pool virtual machine scale set.
 	Tags map[string]string `pulumi:"tags"`
-	// AgentPoolType represents types of an agent pool
+	// The type of Agent Pool.
 	Type *string `pulumi:"type"`
 	// Settings for upgrading the agentpool
 	UpgradeSettings *AgentPoolUpgradeSettings `pulumi:"upgradeSettings"`
-	// Size of agent VMs.
+	// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
 	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+	// If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+	// Determines the type of workload a node can run.
+	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 }
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
 	// The name of the agent pool.
 	AgentPoolName pulumi.StringPtrInput
-	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	// The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
 	AvailabilityZones pulumi.StringArrayInput
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrInput
+	// CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+	CreationData CreationDataPtrInput
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Whether to enable EncryptionAtHost
+	// This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
 	EnableEncryptionAtHost pulumi.BoolPtrInput
-	// Whether to use FIPS enabled OS
+	// See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
 	EnableFIPS pulumi.BoolPtrInput
-	// Enable public IP for nodes
+	// Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
 	EnableNodePublicIP pulumi.BoolPtrInput
-	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	// Whether to enable UltraSSD
+	EnableUltraSSD pulumi.BoolPtrInput
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
 	GpuInstanceProfile pulumi.StringPtrInput
-	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	// The Kubelet configuration on the agent pool nodes.
 	KubeletConfig KubeletConfigPtrInput
-	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+	// Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
 	KubeletDiskType pulumi.StringPtrInput
-	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	// The OS configuration of Linux agent nodes.
 	LinuxOSConfig LinuxOSConfigPtrInput
-	// Maximum number of nodes for auto-scaling
+	// The maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrInput
-	// Maximum number of pods that can run on a node.
+	// The maximum number of pods that can run on a node.
 	MaxPods pulumi.IntPtrInput
-	// Minimum number of nodes for auto-scaling
+	// The minimum number of nodes for auto-scaling
 	MinCount pulumi.IntPtrInput
-	// AgentPoolMode represents mode of an agent pool
+	// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
 	Mode pulumi.StringPtrInput
-	// Agent pool node labels to be persisted across all nodes in agent pool.
+	// The node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapInput
-	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	// This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
 	NodePublicIPPrefixID pulumi.StringPtrInput
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	// The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayInput
-	// Version of orchestrator specified when creating the managed cluster.
+	// Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
 	OrchestratorVersion pulumi.StringPtrInput
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	// OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput
-	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+	// The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
 	OsDiskType pulumi.StringPtrInput
-	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	// Specifies an OS SKU. This value must not be specified if OSType is Windows.
 	OsSKU pulumi.StringPtrInput
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	// The operating system type. The default is Linux.
 	OsType pulumi.StringPtrInput
-	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	// If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 	PodSubnetID pulumi.StringPtrInput
+	// When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+	PowerState PowerStatePtrInput
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID pulumi.StringPtrInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+	// This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+	ScaleDownMode pulumi.StringPtrInput
+	// This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
 	ScaleSetEvictionPolicy pulumi.StringPtrInput
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	// The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
 	ScaleSetPriority pulumi.StringPtrInput
-	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
 	SpotMaxPrice pulumi.Float64PtrInput
-	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	// The tags to be persisted on the agent pool virtual machine scale set.
 	Tags pulumi.StringMapInput
-	// AgentPoolType represents types of an agent pool
+	// The type of Agent Pool.
 	Type pulumi.StringPtrInput
 	// Settings for upgrading the agentpool
 	UpgradeSettings AgentPoolUpgradeSettingsPtrInput
-	// Size of agent VMs.
+	// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
 	VmSize pulumi.StringPtrInput
-	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+	// If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 	VnetSubnetID pulumi.StringPtrInput
+	// Determines the type of workload a node can run.
+	WorkloadRuntime pulumi.StringPtrInput
 }
 
 func (AgentPoolArgs) ElementType() reflect.Type {
@@ -417,14 +447,24 @@ func (o AgentPoolOutput) ToAgentPoolOutputWithContext(ctx context.Context) Agent
 	return o
 }
 
-// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+// The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
 func (o AgentPoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
 func (o AgentPoolOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+func (o AgentPoolOutput) CreationData() CreationDataResponsePtrOutput {
+	return o.ApplyT(func(v *AgentPool) CreationDataResponsePtrOutput { return v.CreationData }).(CreationDataResponsePtrOutput)
+}
+
+// If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
+func (o AgentPoolOutput) CurrentOrchestratorVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.CurrentOrchestratorVersion }).(pulumi.StringOutput)
 }
 
 // Whether to enable auto-scaler
@@ -432,57 +472,62 @@ func (o AgentPoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable EncryptionAtHost
+// This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
 func (o AgentPoolOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to use FIPS enabled OS
+// See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
 func (o AgentPoolOutput) EnableFIPS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableFIPS }).(pulumi.BoolPtrOutput)
 }
 
-// Enable public IP for nodes
+// Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
 func (o AgentPoolOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
-// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+// Whether to enable UltraSSD
+func (o AgentPoolOutput) EnableUltraSSD() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableUltraSSD }).(pulumi.BoolPtrOutput)
+}
+
+// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
 func (o AgentPoolOutput) GpuInstanceProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.GpuInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
-// KubeletConfig specifies the configuration of kubelet on agent nodes.
+// The Kubelet configuration on the agent pool nodes.
 func (o AgentPoolOutput) KubeletConfig() KubeletConfigResponsePtrOutput {
 	return o.ApplyT(func(v *AgentPool) KubeletConfigResponsePtrOutput { return v.KubeletConfig }).(KubeletConfigResponsePtrOutput)
 }
 
-// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+// Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
 func (o AgentPoolOutput) KubeletDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
-// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+// The OS configuration of Linux agent nodes.
 func (o AgentPoolOutput) LinuxOSConfig() LinuxOSConfigResponsePtrOutput {
 	return o.ApplyT(func(v *AgentPool) LinuxOSConfigResponsePtrOutput { return v.LinuxOSConfig }).(LinuxOSConfigResponsePtrOutput)
 }
 
-// Maximum number of nodes for auto-scaling
+// The maximum number of nodes for auto-scaling
 func (o AgentPoolOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of pods that can run on a node.
+// The maximum number of pods that can run on a node.
 func (o AgentPoolOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of nodes for auto-scaling
+// The minimum number of nodes for auto-scaling
 func (o AgentPoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// AgentPoolMode represents mode of an agent pool
+// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
 func (o AgentPoolOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -492,62 +537,62 @@ func (o AgentPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Version of node image
+// The version of node image
 func (o AgentPoolOutput) NodeImageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.NodeImageVersion }).(pulumi.StringOutput)
 }
 
-// Agent pool node labels to be persisted across all nodes in agent pool.
+// The node labels to be persisted across all nodes in agent pool.
 func (o AgentPoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringMapOutput { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+// This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
 func (o AgentPoolOutput) NodePublicIPPrefixID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.NodePublicIPPrefixID }).(pulumi.StringPtrOutput)
 }
 
-// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+// The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 func (o AgentPoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringArrayOutput { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
-// Version of orchestrator specified when creating the managed cluster.
+// Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
 func (o AgentPoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+// OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 func (o AgentPoolOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+// The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
 func (o AgentPoolOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+// Specifies an OS SKU. This value must not be specified if OSType is Windows.
 func (o AgentPoolOutput) OsSKU() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.OsSKU }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+// The operating system type. The default is Linux.
 func (o AgentPoolOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Pod SubnetID specifies the VNet's subnet identifier for pods.
+// If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 func (o AgentPoolOutput) PodSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.PodSubnetID }).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the Agent Pool is Running or Stopped
-func (o AgentPoolOutput) PowerState() PowerStateResponseOutput {
-	return o.ApplyT(func(v *AgentPool) PowerStateResponseOutput { return v.PowerState }).(PowerStateResponseOutput)
+// When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+func (o AgentPoolOutput) PowerState() PowerStateResponsePtrOutput {
+	return o.ApplyT(func(v *AgentPool) PowerStateResponsePtrOutput { return v.PowerState }).(PowerStateResponsePtrOutput)
 }
 
-// The current deployment or provisioning state, which only appears in the response.
+// The current deployment or provisioning state.
 func (o AgentPoolOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -557,27 +602,32 @@ func (o AgentPoolOutput) ProximityPlacementGroupID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.ProximityPlacementGroupID }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+// This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+func (o AgentPoolOutput) ScaleDownMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
+}
+
+// This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
 func (o AgentPoolOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+// The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
 func (o AgentPoolOutput) ScaleSetPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
 }
 
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
 func (o AgentPoolOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.Float64PtrOutput { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
-// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+// The tags to be persisted on the agent pool virtual machine scale set.
 func (o AgentPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// AgentPoolType represents types of an agent pool
+// Resource type
 func (o AgentPoolOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -587,14 +637,19 @@ func (o AgentPoolOutput) UpgradeSettings() AgentPoolUpgradeSettingsResponsePtrOu
 	return o.ApplyT(func(v *AgentPool) AgentPoolUpgradeSettingsResponsePtrOutput { return v.UpgradeSettings }).(AgentPoolUpgradeSettingsResponsePtrOutput)
 }
 
-// Size of agent VMs.
+// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
 func (o AgentPoolOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+// If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
 func (o AgentPoolOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
+}
+
+// Determines the type of workload a node can run.
+func (o AgentPoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }
 
 func init() {

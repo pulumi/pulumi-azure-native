@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for list of user's role for Logz.io account.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function listMonitorUserRoles(args: ListMonitorUserRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorUserRolesResult> {
     if (!opts) {

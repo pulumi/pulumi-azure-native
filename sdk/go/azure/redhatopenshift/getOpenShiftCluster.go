@@ -11,7 +11,7 @@ import (
 )
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-// API Version: 2020-04-30.
+// API Version: 2022-04-01.
 func LookupOpenShiftCluster(ctx *pulumi.Context, args *LookupOpenShiftClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftClusterResult, error) {
 	var rv LookupOpenShiftClusterResult
 	err := ctx.Invoke("azure-native:redhatopenshift:getOpenShiftCluster", args, &rv, opts...)
@@ -48,10 +48,12 @@ type LookupOpenShiftClusterResult struct {
 	Name string `pulumi:"name"`
 	// The cluster network profile.
 	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// The cluster provisioning state (immutable).
+	// The cluster provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The cluster service principal profile.
 	ServicePrincipalProfile *ServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -144,7 +146,7 @@ func (o LookupOpenShiftClusterResultOutput) NetworkProfile() NetworkProfileRespo
 	return o.ApplyT(func(v LookupOpenShiftClusterResult) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
 }
 
-// The cluster provisioning state (immutable).
+// The cluster provisioning state.
 func (o LookupOpenShiftClusterResultOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOpenShiftClusterResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -154,6 +156,11 @@ func (o LookupOpenShiftClusterResultOutput) ServicePrincipalProfile() ServicePri
 	return o.ApplyT(func(v LookupOpenShiftClusterResult) *ServicePrincipalProfileResponse {
 		return v.ServicePrincipalProfile
 	}).(ServicePrincipalProfileResponsePtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupOpenShiftClusterResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupOpenShiftClusterResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

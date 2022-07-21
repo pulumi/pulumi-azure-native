@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRouteCircuit resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      * Allow classic operations.
      */
     public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * The authorizationKey.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
      * The list of authorizations.
      */
@@ -132,6 +136,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             resourceInputs["authorizations"] = args ? args.authorizations : undefined;
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
             resourceInputs["circuitName"] = args ? args.circuitName : undefined;
@@ -156,6 +161,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowClassicOperations"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
             resourceInputs["bandwidthInGbps"] = undefined /*out*/;
             resourceInputs["circuitProvisioningState"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface ExpressRouteCircuitArgs {
      * Allow classic operations.
      */
     allowClassicOperations?: pulumi.Input<boolean>;
+    /**
+     * The authorizationKey.
+     */
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The list of authorizations.
      */

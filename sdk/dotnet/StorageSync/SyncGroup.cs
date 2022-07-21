@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Sync Group object.
-    /// API Version: 2020-03-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("syncGroupStatus")]
         public Output<string> SyncGroupStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

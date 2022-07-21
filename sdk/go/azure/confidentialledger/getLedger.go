@@ -11,7 +11,7 @@ import (
 )
 
 // Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-// API Version: 2020-12-01-preview.
+// API Version: 2022-05-13.
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
 	var rv LookupLedgerResult
 	err := ctx.Invoke("azure-native:confidentialledger:getLedger", args, &rv, opts...)

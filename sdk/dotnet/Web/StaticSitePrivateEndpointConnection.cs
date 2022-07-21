@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Remote Private Endpoint Connection ARM resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSitePrivateEndpointConnection")]
     public partial class StaticSitePrivateEndpointConnection : Pulumi.CustomResource

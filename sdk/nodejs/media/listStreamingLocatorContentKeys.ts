@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class of response for listContentKeys action
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function listStreamingLocatorContentKeys(args: ListStreamingLocatorContentKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorContentKeysResult> {
     if (!opts) {

@@ -11,7 +11,7 @@ import (
 )
 
 // The result of a request to list API keys.
-// API Version: 2020-06-01.
+// API Version: 2022-05-01.
 func ListConfigurationStoreKeys(ctx *pulumi.Context, args *ListConfigurationStoreKeysArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeysResult, error) {
 	var rv ListConfigurationStoreKeysResult
 	err := ctx.Invoke("azure-native:appconfiguration:listConfigurationStoreKeys", args, &rv, opts...)

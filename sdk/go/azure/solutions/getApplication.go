@@ -11,7 +11,7 @@ import (
 )
 
 // Information about managed application.
-// API Version: 2019-07-01.
+// API Version: 2021-07-01.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:solutions:getApplication", args, &rv, opts...)
@@ -74,6 +74,8 @@ type LookupApplicationResult struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// The read-only support URLs property that is retrieved from the application package.
 	SupportUrls ApplicationPackageSupportUrlsResponse `pulumi:"supportUrls"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -229,6 +231,11 @@ func (o LookupApplicationResultOutput) Sku() SkuResponsePtrOutput {
 // The read-only support URLs property that is retrieved from the application package.
 func (o LookupApplicationResultOutput) SupportUrls() ApplicationPackageSupportUrlsResponseOutput {
 	return o.ApplyT(func(v LookupApplicationResult) ApplicationPackageSupportUrlsResponse { return v.SupportUrls }).(ApplicationPackageSupportUrlsResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApplicationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

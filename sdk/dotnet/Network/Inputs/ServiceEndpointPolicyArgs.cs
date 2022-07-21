@@ -15,6 +15,24 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class ServiceEndpointPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("contextualServiceEndpointPolicies")]
+        private InputList<string>? _contextualServiceEndpointPolicies;
+
+        /// <summary>
+        /// A collection of contextual service endpoint policy.
+        /// </summary>
+        public InputList<string> ContextualServiceEndpointPolicies
+        {
+            get => _contextualServiceEndpointPolicies ?? (_contextualServiceEndpointPolicies = new InputList<string>());
+            set => _contextualServiceEndpointPolicies = value;
+        }
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,6 +44,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The alias indicating if the policy belongs to a service
+        /// </summary>
+        [Input("serviceAlias")]
+        public Input<string>? ServiceAlias { get; set; }
 
         [Input("serviceEndpointPolicyDefinitions")]
         private InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>? _serviceEndpointPolicyDefinitions;

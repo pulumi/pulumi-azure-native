@@ -11,7 +11,7 @@ import (
 )
 
 // Create or update Restore Point collection parameters.
-// API Version: 2021-03-01.
+// API Version: 2021-11-01.
 func LookupRestorePointCollection(ctx *pulumi.Context, args *LookupRestorePointCollectionArgs, opts ...pulumi.InvokeOption) (*LookupRestorePointCollectionResult, error) {
 	var rv LookupRestorePointCollectionResult
 	err := ctx.Invoke("azure-native:compute:getRestorePointCollection", args, &rv, opts...)

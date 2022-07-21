@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         [Input("userInfo")]
         public Input<Inputs.UserInfoArgs>? UserInfo { get; set; }
 
+        /// <summary>
+        /// Version of elastic of the monitor resource
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public MonitorPropertiesArgs()
         {
         }

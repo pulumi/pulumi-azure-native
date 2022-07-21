@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a replication for a container registry.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
     if (!opts) {
@@ -58,9 +58,17 @@ export interface GetReplicationResult {
      */
     readonly provisioningState: string;
     /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    readonly regionEndpointEnabled?: boolean;
+    /**
      * The status of the replication at the time the operation was called.
      */
     readonly status: outputs.containerregistry.StatusResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.SystemDataResponse;
     /**
      * The tags of the resource.
      */
@@ -69,6 +77,10 @@ export interface GetReplicationResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry replication
+     */
+    readonly zoneRedundancy?: string;
 }
 
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {

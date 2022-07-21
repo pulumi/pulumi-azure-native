@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    /// API Version: 2021-04-04-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:ContactProfile")]
     public partial class ContactProfile : Pulumi.CustomResource
     {
         /// <summary>
-        /// Auto track configuration.
+        /// Auto-tracking configuration.
         /// </summary>
         [Output("autoTrackingConfiguration")]
         public Output<string?> AutoTrackingConfiguration { get; private set; } = null!;
@@ -29,13 +29,13 @@ namespace Pulumi.AzureNative.Orbital
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of the Event Hub used for telemetry
+        /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         [Output("eventHubUri")]
         public Output<string?> EventHubUri { get; private set; } = null!;
 
         /// <summary>
-        /// Links of the Contact Profile
+        /// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.ContactProfileLinkResponse>> Links { get; private set; } = null!;
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.Orbital
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum viable elevation for the contact in decimal degrees.
+        /// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Output("minimumElevationDegrees")]
         public Output<double?> MinimumElevationDegrees { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum viable contact duration in ISO 8601 format.
+        /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Output("minimumViableContactDuration")]
         public Output<string?> MinimumViableContactDuration { get; private set; } = null!;
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network configuration of customer virtual network.
+        /// </summary>
+        [Output("networkConfiguration")]
+        public Output<Outputs.ContactProfilesPropertiesResponseNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -133,19 +139,19 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class ContactProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto track configuration.
+        /// Auto-tracking configuration.
         /// </summary>
         [Input("autoTrackingConfiguration")]
         public Input<Pulumi.AzureNative.Orbital.AutoTrackingConfiguration>? AutoTrackingConfiguration { get; set; }
 
         /// <summary>
-        /// Contact Profile Name
+        /// Contact Profile name.
         /// </summary>
         [Input("contactProfileName")]
         public Input<string>? ContactProfileName { get; set; }
 
         /// <summary>
-        /// The URI of the Event Hub used for telemetry
+        /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         [Input("eventHubUri")]
         public Input<string>? EventHubUri { get; set; }
@@ -154,7 +160,7 @@ namespace Pulumi.AzureNative.Orbital
         private InputList<Inputs.ContactProfileLinkArgs>? _links;
 
         /// <summary>
-        /// Links of the Contact Profile
+        /// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkArgs> Links
         {
@@ -169,16 +175,22 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Minimum viable elevation for the contact in decimal degrees.
+        /// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Input("minimumElevationDegrees")]
         public Input<double>? MinimumElevationDegrees { get; set; }
 
         /// <summary>
-        /// Minimum viable contact duration in ISO 8601 format.
+        /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Input("minimumViableContactDuration")]
         public Input<string>? MinimumViableContactDuration { get; set; }
+
+        /// <summary>
+        /// Network configuration of customer virtual network.
+        /// </summary>
+        [Input("networkConfiguration", required: true)]
+        public Input<Inputs.ContactProfilesPropertiesNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

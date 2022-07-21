@@ -170,7 +170,7 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnSlotResult:
     """
     Premier add-on.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -211,7 +211,7 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPremierAddOnSlotResult]:
     """
     Premier add-on.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

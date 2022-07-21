@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Service resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Service")]
     public partial class Service : Pulumi.CustomResource
@@ -87,6 +87,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("serviceQosPolicy")]
         public Output<Outputs.QosPolicyResponse?> ServiceQosPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

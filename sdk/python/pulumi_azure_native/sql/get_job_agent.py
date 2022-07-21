@@ -134,7 +134,7 @@ def get_job_agent(job_agent_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobAgentResult:
     """
     An Azure SQL job agent.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str job_agent_name: The name of the job agent to be retrieved.
@@ -169,7 +169,7 @@ def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobAgentResult]:
     """
     An Azure SQL job agent.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str job_agent_name: The name of the job agent to be retrieved.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     if (!opts) {
@@ -49,9 +49,17 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly customRoutes?: outputs.network.AddressSpaceResponse;
     /**
+     * disableIPSecReplayProtection flag.
+     */
+    readonly disableIPSecReplayProtection?: boolean;
+    /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
     readonly enableBgp?: boolean;
+    /**
+     * EnableBgpRouteTranslationForNat flag.
+     */
+    readonly enableBgpRouteTranslationForNat?: boolean;
     /**
      * Whether dns forwarding is enabled or not.
      */
@@ -96,6 +104,10 @@ export interface GetVirtualNetworkGatewayResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * NatRules for virtual network gateway.
+     */
+    readonly natRules?: outputs.network.VirtualNetworkGatewayNatRuleResponse[];
     /**
      * The provisioning state of the virtual network gateway resource.
      */

@@ -11,39 +11,54 @@ import (
 )
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
-// API Version: 2018-05-01.
+// API Version: 2021-02-01.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:maps:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAccountArgs struct {
 	// The name of the Maps Account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the Azure Resource Group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
 type LookupAccountResult struct {
-	// The fully qualified Maps Account resource identifier.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// The location of the resource.
+	// Get or Set Kind property.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the Maps Account, which is unique within a Resource Group.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The map account properties.
 	Properties MapsAccountPropertiesResponse `pulumi:"properties"`
 	// The SKU of this account.
 	Sku SkuResponse `pulumi:"sku"`
-	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupAccountResult
+func (val *LookupAccountResult) Defaults() *LookupAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -62,7 +77,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 type LookupAccountOutputArgs struct {
 	// The name of the Maps Account.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The name of the Azure Resource Group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -85,17 +100,22 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
-// The fully qualified Maps Account resource identifier.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The location of the resource.
+// Get or Set Kind property.
+func (o LookupAccountResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
 func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the Maps Account, which is unique within a Resource Group.
+// The name of the resource
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -110,12 +130,17 @@ func (o LookupAccountResultOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v LookupAccountResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }
 
-// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+// The system meta data relating to this resource.
+func (o LookupAccountResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Azure resource type.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupAccountResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Type }).(pulumi.StringOutput)
 }

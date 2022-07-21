@@ -100,7 +100,7 @@ class GetPeriodicTimerEventTriggerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Trigger in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of Trigger
         """
         return pulumi.get(self, "system_data")
 
@@ -135,7 +135,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeriodicTimerEventTriggerResult:
     """
     Trigger details.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -170,7 +170,7 @@ def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[s
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
     """
     Trigger details.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

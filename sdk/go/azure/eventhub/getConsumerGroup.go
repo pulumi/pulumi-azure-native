@@ -11,7 +11,7 @@ import (
 )
 
 // Single item in List or Get Consumer group operation
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupConsumerGroupResult, error) {
 	var rv LookupConsumerGroupResult
 	err := ctx.Invoke("azure-native:eventhub:getConsumerGroup", args, &rv, opts...)
@@ -38,9 +38,13 @@ type LookupConsumerGroupResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -101,12 +105,22 @@ func (o LookupConsumerGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The geo-location where the resource lives
+func (o LookupConsumerGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
 // The name of the resource
 func (o LookupConsumerGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+// The system meta data relating to this resource.
+func (o LookupConsumerGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupConsumerGroupResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Type }).(pulumi.StringOutput)
 }

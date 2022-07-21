@@ -12,16 +12,20 @@ import (
 )
 
 // Describes a Virtual Machine.
-// API Version: 2021-03-01.
+// API Version: 2021-11-01.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
 	// Specifies additional capabilities enabled or disabled on the virtual machine.
 	AdditionalCapabilities AdditionalCapabilitiesResponsePtrOutput `pulumi:"additionalCapabilities"`
+	// Specifies the gallery applications that should be made available to the VM/VMSS
+	ApplicationProfile ApplicationProfileResponsePtrOutput `pulumi:"applicationProfile"`
 	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
 	AvailabilitySet SubResourceResponsePtrOutput `pulumi:"availabilitySet"`
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfileResponsePtrOutput `pulumi:"billingProfile"`
+	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+	CapacityReservation CapacityReservationProfileResponsePtrOutput `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfileResponsePtrOutput `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -70,6 +74,8 @@ type VirtualMachine struct {
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
@@ -180,10 +186,14 @@ func (VirtualMachineState) ElementType() reflect.Type {
 type virtualMachineArgs struct {
 	// Specifies additional capabilities enabled or disabled on the virtual machine.
 	AdditionalCapabilities *AdditionalCapabilities `pulumi:"additionalCapabilities"`
+	// Specifies the gallery applications that should be made available to the VM/VMSS
+	ApplicationProfile *ApplicationProfile `pulumi:"applicationProfile"`
 	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
 	AvailabilitySet *SubResource `pulumi:"availabilitySet"`
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfile `pulumi:"billingProfile"`
+	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+	CapacityReservation *CapacityReservationProfile `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile *DiagnosticsProfile `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -240,10 +250,14 @@ type virtualMachineArgs struct {
 type VirtualMachineArgs struct {
 	// Specifies additional capabilities enabled or disabled on the virtual machine.
 	AdditionalCapabilities AdditionalCapabilitiesPtrInput
+	// Specifies the gallery applications that should be made available to the VM/VMSS
+	ApplicationProfile ApplicationProfilePtrInput
 	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
 	AvailabilitySet SubResourcePtrInput
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfilePtrInput
+	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+	CapacityReservation CapacityReservationProfilePtrInput
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfilePtrInput
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -338,6 +352,11 @@ func (o VirtualMachineOutput) AdditionalCapabilities() AdditionalCapabilitiesRes
 	return o.ApplyT(func(v *VirtualMachine) AdditionalCapabilitiesResponsePtrOutput { return v.AdditionalCapabilities }).(AdditionalCapabilitiesResponsePtrOutput)
 }
 
+// Specifies the gallery applications that should be made available to the VM/VMSS
+func (o VirtualMachineOutput) ApplicationProfile() ApplicationProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) ApplicationProfileResponsePtrOutput { return v.ApplicationProfile }).(ApplicationProfileResponsePtrOutput)
+}
+
 // Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
 func (o VirtualMachineOutput) AvailabilitySet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
@@ -346,6 +365,11 @@ func (o VirtualMachineOutput) AvailabilitySet() SubResourceResponsePtrOutput {
 // Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 func (o VirtualMachineOutput) BillingProfile() BillingProfileResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) BillingProfileResponsePtrOutput { return v.BillingProfile }).(BillingProfileResponsePtrOutput)
+}
+
+// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+func (o VirtualMachineOutput) CapacityReservation() CapacityReservationProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) CapacityReservationProfileResponsePtrOutput { return v.CapacityReservation }).(CapacityReservationProfileResponsePtrOutput)
 }
 
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
@@ -466,6 +490,11 @@ func (o VirtualMachineOutput) StorageProfile() StorageProfileResponsePtrOutput {
 // Resource tags
 func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o VirtualMachineOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type

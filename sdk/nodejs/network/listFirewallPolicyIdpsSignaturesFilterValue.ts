@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the list of all possible values for a specific filter value
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export function listFirewallPolicyIdpsSignaturesFilterValue(args: ListFirewallPolicyIdpsSignaturesFilterValueArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
     if (!opts) {

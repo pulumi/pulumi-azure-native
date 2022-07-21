@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network watcher in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The representation of an edge module.
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class EdgeModule extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class EdgeModule extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
@@ -99,7 +99,7 @@ export interface EdgeModuleArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the edge module to create or update.
+     * The Edge Module name.
      */
     edgeModuleName?: pulumi.Input<string>;
     /**

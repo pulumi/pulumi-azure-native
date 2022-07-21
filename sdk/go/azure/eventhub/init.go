@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:eventhub:ApplicationGroup":
-		r = &ApplicationGroup{}
 	case "azure-native:eventhub:Cluster":
 		r = &Cluster{}
 	case "azure-native:eventhub:ConsumerGroup":
@@ -37,12 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Namespace{}
 	case "azure-native:eventhub:NamespaceAuthorizationRule":
 		r = &NamespaceAuthorizationRule{}
-	case "azure-native:eventhub:NamespaceIpFilterRule":
-		r = &NamespaceIpFilterRule{}
 	case "azure-native:eventhub:NamespaceNetworkRuleSet":
 		r = &NamespaceNetworkRuleSet{}
-	case "azure-native:eventhub:NamespaceVirtualNetworkRule":
-		r = &NamespaceVirtualNetworkRule{}
 	case "azure-native:eventhub:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:eventhub:SchemaRegistry":

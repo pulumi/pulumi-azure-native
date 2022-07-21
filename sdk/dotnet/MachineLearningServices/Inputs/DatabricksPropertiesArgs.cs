@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
+    /// <summary>
+    /// Properties of Databricks
+    /// </summary>
     public sealed class DatabricksPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>

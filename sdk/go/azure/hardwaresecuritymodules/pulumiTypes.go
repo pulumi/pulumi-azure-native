@@ -363,6 +363,7 @@ func (o NetworkInterfaceResponseArrayOutput) Index(i pulumi.IntInput) NetworkInt
 	}).(NetworkInterfaceResponseOutput)
 }
 
+// The network profile definition.
 type NetworkProfile struct {
 	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 	NetworkInterfaces []NetworkInterface `pulumi:"networkInterfaces"`
@@ -381,6 +382,7 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
+// The network profile definition.
 type NetworkProfileArgs struct {
 	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 	NetworkInterfaces NetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
@@ -441,6 +443,7 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
+// The network profile definition.
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -519,6 +522,7 @@ func (o NetworkProfilePtrOutput) Subnet() ApiEntityReferencePtrOutput {
 	}).(ApiEntityReferencePtrOutput)
 }
 
+// The network profile definition.
 type NetworkProfileResponse struct {
 	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
 	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
@@ -526,6 +530,7 @@ type NetworkProfileResponse struct {
 	Subnet *ApiEntityReferenceResponse `pulumi:"subnet"`
 }
 
+// The network profile definition.
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -675,6 +680,67 @@ func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of dedicated hsm resource.
+type SystemDataResponse struct {
+	// The timestamp of dedicated hsm resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created dedicated hsm resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created dedicated hsm resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of dedicated hsm resource last modification (UTC).
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified dedicated hsm resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified dedicated hsm resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of dedicated hsm resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of dedicated hsm resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created dedicated hsm resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created dedicated hsm resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of dedicated hsm resource last modification (UTC).
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified dedicated hsm resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified dedicated hsm resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiEntityReferenceOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferencePtrOutput{})
@@ -690,4 +756,5 @@ func init() {
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

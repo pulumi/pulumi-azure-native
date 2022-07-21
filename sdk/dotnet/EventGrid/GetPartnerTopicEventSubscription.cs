@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Event Subscription
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionResult> InvokeAsync(GetPartnerTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionResult>("azure-native:eventgrid:getPartnerTopicEventSubscription", args ?? new GetPartnerTopicEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Subscription
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerTopicEventSubscriptionResult> Invoke(GetPartnerTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPartnerTopicEventSubscriptionResult>("azure-native:eventgrid:getPartnerTopicEventSubscription", args ?? new GetPartnerTopicEventSubscriptionInvokeArgs(), options.WithDefaults());

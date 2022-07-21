@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot policy information
- * API Version: 2020-12-01.
+ * API Version: 2022-01-01.
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
     if (!opts) {
@@ -50,15 +50,19 @@ export interface GetSnapshotPolicyResult {
      */
     readonly enabled?: boolean;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
+    /**
      * Schedule for hourly snapshots
      */
     readonly hourlySchedule?: outputs.netapp.HourlyScheduleResponse;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -66,7 +70,7 @@ export interface GetSnapshotPolicyResult {
      */
     readonly monthlySchedule?: outputs.netapp.MonthlyScheduleResponse;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -74,11 +78,15 @@ export interface GetSnapshotPolicyResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.netapp.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

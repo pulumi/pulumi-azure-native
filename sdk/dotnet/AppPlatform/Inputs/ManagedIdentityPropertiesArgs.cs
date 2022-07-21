@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class ManagedIdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Principal Id
+        /// Principal Id of system-assigned managed identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// Tenant Id
+        /// Tenant Id of system-assigned managed identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
     if (!opts) {

@@ -48,12 +48,6 @@ func NewResourceSyncRule(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:extendedlocation:ResourceSyncRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ResourceSyncRule
 	err := ctx.RegisterResource("azure-native:extendedlocation/v20210831preview:ResourceSyncRule", name, args, &resource, opts...)
 	if err != nil {

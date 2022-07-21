@@ -11,7 +11,7 @@ import (
 )
 
 // Disk resource.
-// API Version: 2020-12-01.
+// API Version: 2021-12-01.
 func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.InvokeOption) (*LookupDiskResult, error) {
 	var rv LookupDiskResult
 	err := ctx.Invoke("azure-native:compute:getDisk", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.Invoke
 }
 
 type LookupDiskArgs struct {
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskName string `pulumi:"diskName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -32,8 +32,12 @@ type LookupDiskArgs struct {
 type LookupDiskResult struct {
 	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
 	BurstingEnabled *bool `pulumi:"burstingEnabled"`
+	// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+	CompletionPercent *float64 `pulumi:"completionPercent"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataResponse `pulumi:"creationData"`
+	// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+	DataAccessAuthMode *string `pulumi:"dataAccessAuthMode"`
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -78,6 +82,8 @@ type LookupDiskResult struct {
 	PropertyUpdatesInProgress PropertyUpdatesInProgressResponse `pulumi:"propertyUpdatesInProgress"`
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Policy for controlling export on the disk.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
 	// Contains the security related information for the resource.
@@ -86,6 +92,8 @@ type LookupDiskResult struct {
 	ShareInfo []ShareInfoElementResponse `pulumi:"shareInfo"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku *DiskSkuResponse `pulumi:"sku"`
+	// List of supported capabilities for the image from which the OS disk was created.
+	SupportedCapabilities *SupportedCapabilitiesResponse `pulumi:"supportedCapabilities"`
 	// Indicates the OS on a disk supports hibernation.
 	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
@@ -116,7 +124,7 @@ func LookupDiskOutput(ctx *pulumi.Context, args LookupDiskOutputArgs, opts ...pu
 }
 
 type LookupDiskOutputArgs struct {
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskName pulumi.StringInput `pulumi:"diskName"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -146,9 +154,19 @@ func (o LookupDiskResultOutput) BurstingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *bool { return v.BurstingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+func (o LookupDiskResultOutput) CompletionPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *float64 { return v.CompletionPercent }).(pulumi.Float64PtrOutput)
+}
+
 // Disk source information. CreationData information cannot be changed after the disk has been created.
 func (o LookupDiskResultOutput) CreationData() CreationDataResponseOutput {
 	return o.ApplyT(func(v LookupDiskResult) CreationDataResponse { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+func (o LookupDiskResultOutput) DataAccessAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.DataAccessAuthMode }).(pulumi.StringPtrOutput)
 }
 
 // ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -261,6 +279,11 @@ func (o LookupDiskResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Policy for controlling export on the disk.
+func (o LookupDiskResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
 // Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 func (o LookupDiskResultOutput) PurchasePlan() PurchasePlanResponsePtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *PurchasePlanResponse { return v.PurchasePlan }).(PurchasePlanResponsePtrOutput)
@@ -279,6 +302,11 @@ func (o LookupDiskResultOutput) ShareInfo() ShareInfoElementResponseArrayOutput 
 // The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 func (o LookupDiskResultOutput) Sku() DiskSkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *DiskSkuResponse { return v.Sku }).(DiskSkuResponsePtrOutput)
+}
+
+// List of supported capabilities for the image from which the OS disk was created.
+func (o LookupDiskResultOutput) SupportedCapabilities() SupportedCapabilitiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *SupportedCapabilitiesResponse { return v.SupportedCapabilities }).(SupportedCapabilitiesResponsePtrOutput)
 }
 
 // Indicates the OS on a disk supports hibernation.

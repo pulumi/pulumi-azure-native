@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application.
-    /// API Version: 2019-07-01.
+    /// API Version: 2021-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:Application")]
     public partial class Application : Pulumi.CustomResource
@@ -141,6 +141,12 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         [Output("supportUrls")]
         public Output<Outputs.ApplicationPackageSupportUrlsResponse> SupportUrls { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

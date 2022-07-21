@@ -94,7 +94,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Recovery plan details.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Recovery plan details.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationRecoveryPlanArgs args: The arguments to use to populate this resource's properties.

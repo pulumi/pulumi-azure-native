@@ -176,7 +176,7 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB storedProcedure.
-        API Version: 2021-03-15.
+        API Version: 2021-10-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB storedProcedure.
-        API Version: 2021-03-15.
+        API Version: 2021-10-15.
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlStoredProcedureArgs args: The arguments to use to populate this resource's properties.

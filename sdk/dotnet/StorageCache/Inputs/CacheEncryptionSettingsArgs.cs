@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         [Input("keyEncryptionKey")]
         public Input<Inputs.KeyVaultKeyReferenceArgs>? KeyEncryptionKey { get; set; }
 
+        /// <summary>
+        /// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        /// </summary>
+        [Input("rotationToLatestKeyVersionEnabled")]
+        public Input<bool>? RotationToLatestKeyVersionEnabled { get; set; }
+
         public CacheEncryptionSettingsArgs()
         {
         }

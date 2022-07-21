@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Type of the Storage Target.
- * API Version: 2021-03-01.
+ * API Version: 2022-05-01.
  */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetStorageTargetArgs {
  */
 export interface GetStorageTargetResult {
     /**
+     * The percentage of cache space allocated for this storage target
+     */
+    readonly allocationPercentage: number;
+    /**
      * Properties when targetType is blobNfs.
      */
     readonly blobNfs?: outputs.storagecache.BlobNfsTargetResponse;
@@ -72,7 +76,11 @@ export interface GetStorageTargetResult {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
+    /**
+     * Storage target operational state.
+     */
+    readonly state?: string;
     /**
      * The system meta data relating to this resource.
      */

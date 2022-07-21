@@ -11,7 +11,7 @@ import (
 )
 
 // Backend details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.InvokeOption) (*LookupBackendResult, error) {
 	var rv LookupBackendResult
 	err := ctx.Invoke("azure-native:apimanagement:getBackend", args, &rv, opts...)
@@ -36,9 +36,9 @@ type LookupBackendResult struct {
 	Credentials *BackendCredentialsContractResponse `pulumi:"credentials"`
 	// Backend Description.
 	Description *string `pulumi:"description"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Backend Properties contract
 	Properties BackendPropertiesResponse `pulumi:"properties"`
@@ -46,13 +46,13 @@ type LookupBackendResult struct {
 	Protocol string `pulumi:"protocol"`
 	// Backend Proxy Contract Properties
 	Proxy *BackendProxyContractResponse `pulumi:"proxy"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId *string `pulumi:"resourceId"`
 	// Backend Title.
 	Title *string `pulumi:"title"`
 	// Backend TLS Properties
 	Tls *BackendTlsPropertiesResponse `pulumi:"tls"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Runtime Url of the Backend.
 	Url string `pulumi:"url"`
@@ -120,12 +120,12 @@ func (o LookupBackendResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackendResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupBackendResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackendResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupBackendResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackendResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -145,7 +145,7 @@ func (o LookupBackendResultOutput) Proxy() BackendProxyContractResponsePtrOutput
 	return o.ApplyT(func(v LookupBackendResult) *BackendProxyContractResponse { return v.Proxy }).(BackendProxyContractResponsePtrOutput)
 }
 
-// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 func (o LookupBackendResultOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackendResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -160,7 +160,7 @@ func (o LookupBackendResultOutput) Tls() BackendTlsPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LookupBackendResult) *BackendTlsPropertiesResponse { return v.Tls }).(BackendTlsPropertiesResponsePtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupBackendResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackendResult) string { return v.Type }).(pulumi.StringOutput)
 }

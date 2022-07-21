@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Analytics pool
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
     if (!opts) {
@@ -32,7 +32,7 @@ export interface GetSqlPoolArgs {
      */
     sqlPoolName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -46,21 +46,9 @@ export interface GetSqlPoolResult {
      */
     readonly collation?: string;
     /**
-     * Specifies the mode of sql pool creation.
-     *
-     * Default: regular sql pool creation.
-     *
-     * PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-     *
-     * Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-     *
-     * Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-     */
-    readonly createMode?: string;
-    /**
      * Date the SQL pool was created
      */
-    readonly creationDate?: string;
+    readonly creationDate: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -94,13 +82,13 @@ export interface GetSqlPoolResult {
      */
     readonly sku?: outputs.synapse.SkuResponse;
     /**
-     * Source database to create from
+     * Specifies the time that the sql pool was deleted
      */
-    readonly sourceDatabaseId?: string;
+    readonly sourceDatabaseDeletionDate?: string;
     /**
      * Resource status
      */
-    readonly status?: string;
+    readonly status: string;
     /**
      * The storage account type used to store backups for this sql pool.
      */
@@ -129,7 +117,7 @@ export interface GetSqlPoolOutputArgs {
      */
     sqlPoolName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

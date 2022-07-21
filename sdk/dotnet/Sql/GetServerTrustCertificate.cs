@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-        /// API Version: 2021-05-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetServerTrustCertificateResult> InvokeAsync(GetServerTrustCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-        /// API Version: 2021-05-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetServerTrustCertificateResult> Invoke(GetServerTrustCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateInvokeArgs(), options.WithDefaults());

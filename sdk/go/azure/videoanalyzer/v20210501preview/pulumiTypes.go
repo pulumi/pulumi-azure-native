@@ -1461,7 +1461,7 @@ type VideoAnalyzerIdentity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The User Assigned Managed Identities.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // VideoAnalyzerIdentityInput is an input type that accepts VideoAnalyzerIdentityArgs and VideoAnalyzerIdentityOutput values.
@@ -1480,7 +1480,7 @@ type VideoAnalyzerIdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The User Assigned Managed Identities.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (VideoAnalyzerIdentityArgs) ElementType() reflect.Type {
@@ -1567,8 +1567,8 @@ func (o VideoAnalyzerIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The User Assigned Managed Identities.
-func (o VideoAnalyzerIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v VideoAnalyzerIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o VideoAnalyzerIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VideoAnalyzerIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type VideoAnalyzerIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1606,13 +1606,13 @@ func (o VideoAnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The User Assigned Managed Identities.
-func (o VideoAnalyzerIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *VideoAnalyzerIdentity) map[string]interface{} {
+func (o VideoAnalyzerIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzerIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The managed identity for the Video Analyzer resource.

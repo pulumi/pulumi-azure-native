@@ -11,7 +11,7 @@ import (
 )
 
 // An account data transfer object.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:datashare:getAccount", args, &rv, opts...)

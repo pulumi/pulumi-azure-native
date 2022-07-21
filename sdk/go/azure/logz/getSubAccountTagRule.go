@@ -11,7 +11,7 @@ import (
 )
 
 // Capture logs and metrics of Azure resources based on ARM tags.
-// API Version: 2020-10-01.
+// API Version: 2022-01-01-preview.
 func LookupSubAccountTagRule(ctx *pulumi.Context, args *LookupSubAccountTagRuleArgs, opts ...pulumi.InvokeOption) (*LookupSubAccountTagRuleResult, error) {
 	var rv LookupSubAccountTagRuleResult
 	err := ctx.Invoke("azure-native:logz:getSubAccountTagRule", args, &rv, opts...)

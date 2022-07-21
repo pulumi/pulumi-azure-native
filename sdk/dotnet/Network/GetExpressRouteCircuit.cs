@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// ExpressRouteCircuit resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRouteCircuit resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.Network
         /// Allow classic operations.
         /// </summary>
         public readonly bool? AllowClassicOperations;
+        /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        public readonly string? AuthorizationKey;
         /// <summary>
         /// The list of authorizations.
         /// </summary>
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Network
         private GetExpressRouteCircuitResult(
             bool? allowClassicOperations,
 
+            string? authorizationKey,
+
             ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> authorizations,
 
             double? bandwidthInGbps,
@@ -199,6 +205,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AllowClassicOperations = allowClassicOperations;
+            AuthorizationKey = authorizationKey;
             Authorizations = authorizations;
             BandwidthInGbps = bandwidthInGbps;
             CircuitProvisioningState = circuitProvisioningState;

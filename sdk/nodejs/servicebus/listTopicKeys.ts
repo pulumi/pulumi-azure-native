@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace/ServiceBus Connection String
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
     if (!opts) {

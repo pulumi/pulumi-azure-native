@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// Describes a Shared Private Link Resource
-    /// API Version: 2021-04-01-preview.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubSharedPrivateLinkResource")]
     public partial class WebPubSubSharedPrivateLinkResource : Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the shared private link resource
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

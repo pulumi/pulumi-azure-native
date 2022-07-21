@@ -11,7 +11,7 @@ import (
 )
 
 // Backup Vault Resource
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ...pulumi.InvokeOption) (*LookupBackupVaultResult, error) {
 	var rv LookupBackupVaultResult
 	err := ctx.Invoke("azure-native:dataprotection:getBackupVault", args, &rv, opts...)

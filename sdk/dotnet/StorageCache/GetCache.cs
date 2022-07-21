@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
@@ -110,9 +110,13 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly Outputs.CacheNetworkSettingsResponse? NetworkSettings;
         /// <summary>
+        /// Specifies the priming jobs defined in the cache.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrimingJobResponse> PrimingJobs;
+        /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Specifies security settings of the cache.
         /// </summary>
@@ -121,6 +125,10 @@ namespace Pulumi.AzureNative.StorageCache
         /// SKU for the Cache.
         /// </summary>
         public readonly Outputs.CacheResponseSku? Sku;
+        /// <summary>
+        /// Specifies the space allocation percentage for each storage target in the cache.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageTargetSpaceAllocationResponse> SpaceAllocation;
         /// <summary>
         /// Subnet used for the Cache.
         /// </summary>
@@ -138,9 +146,17 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Upgrade settings of the Cache.
+        /// </summary>
+        public readonly Outputs.CacheUpgradeSettingsResponse? UpgradeSettings;
+        /// <summary>
         /// Upgrade status of the Cache.
         /// </summary>
-        public readonly Outputs.CacheUpgradeStatusResponse? UpgradeStatus;
+        public readonly Outputs.CacheUpgradeStatusResponse UpgradeStatus;
+        /// <summary>
+        /// Availability zones for resources. This field should only contain a single element in the array.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetCacheResult(
@@ -164,11 +180,15 @@ namespace Pulumi.AzureNative.StorageCache
 
             Outputs.CacheNetworkSettingsResponse? networkSettings,
 
-            string? provisioningState,
+            ImmutableArray<Outputs.PrimingJobResponse> primingJobs,
+
+            string provisioningState,
 
             Outputs.CacheSecuritySettingsResponse? securitySettings,
 
             Outputs.CacheResponseSku? sku,
+
+            ImmutableArray<Outputs.StorageTargetSpaceAllocationResponse> spaceAllocation,
 
             string? subnet,
 
@@ -178,7 +198,11 @@ namespace Pulumi.AzureNative.StorageCache
 
             string type,
 
-            Outputs.CacheUpgradeStatusResponse? upgradeStatus)
+            Outputs.CacheUpgradeSettingsResponse? upgradeSettings,
+
+            Outputs.CacheUpgradeStatusResponse upgradeStatus,
+
+            ImmutableArray<string> zones)
         {
             CacheSizeGB = cacheSizeGB;
             DirectoryServicesSettings = directoryServicesSettings;
@@ -190,14 +214,18 @@ namespace Pulumi.AzureNative.StorageCache
             MountAddresses = mountAddresses;
             Name = name;
             NetworkSettings = networkSettings;
+            PrimingJobs = primingJobs;
             ProvisioningState = provisioningState;
             SecuritySettings = securitySettings;
             Sku = sku;
+            SpaceAllocation = spaceAllocation;
             Subnet = subnet;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            UpgradeSettings = upgradeSettings;
             UpgradeStatus = upgradeStatus;
+            Zones = zones;
         }
     }
 }

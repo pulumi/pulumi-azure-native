@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The Log Search Rule resource.
- * API Version: 2018-04-16.
+ * The scheduled query rule resource.
+ * API Version: 2021-08-01.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
     if (!opts) {
@@ -33,23 +33,31 @@ export interface GetScheduledQueryRuleArgs {
 }
 
 /**
- * The Log Search Rule resource.
+ * The scheduled query rule resource.
  */
 export interface GetScheduledQueryRuleResult {
     /**
-     * Action needs to be taken on rule execution.
+     * Actions to invoke when the alert fires.
      */
-    readonly action: outputs.insights.AlertingActionResponse | outputs.insights.LogToMetricActionResponse;
+    readonly actions?: outputs.insights.ActionsResponse;
     /**
-     * The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
      */
     readonly autoMitigate?: boolean;
+    /**
+     * The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
+     */
+    readonly checkWorkspaceAlertsStorageConfigured?: boolean;
     /**
      * The api-version used when creating this alert rule
      */
     readonly createdWithApiVersion: string;
     /**
-     * The description of the Log Search rule.
+     * The rule criteria that defines the conditions of the scheduled query rule.
+     */
+    readonly criteria: outputs.insights.ScheduledQueryRuleCriteriaResponse;
+    /**
+     * The description of the scheduled query rule.
      */
     readonly description?: string;
     /**
@@ -57,15 +65,19 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly displayName?: string;
     /**
-     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled?: string;
+    readonly enabled: boolean;
     /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
     readonly etag: string;
     /**
-     * Azure resource Id
+     * How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
+     */
+    readonly evaluationFrequency?: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -73,41 +85,61 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly isLegacyLogAnalyticsRule: boolean;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * The flag which indicates whether this scheduled query rule has been configured to be stored in the customer's storage. The default is false.
      */
-    readonly kind: string;
+    readonly isWorkspaceAlertsStorageConfigured: boolean;
     /**
-     * Last time the rule was updated in IS08601 format.
+     * Indicates the type of scheduled query rule. The default is LogAlert.
      */
-    readonly lastUpdatedTime: string;
+    readonly kind?: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Azure resource name
+     * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
+     */
+    readonly muteActionsDuration?: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Provisioning state of the scheduled query rule
+     * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
      */
-    readonly provisioningState: string;
+    readonly overrideQueryTimeRange?: string;
     /**
-     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly schedule?: outputs.insights.ScheduleResponse;
+    readonly scopes: string[];
     /**
-     * Data Source against which rule will Query Data
+     * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */
-    readonly source: outputs.insights.SourceResponse;
+    readonly severity?: number;
     /**
-     * Resource tags
+     * The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
+     */
+    readonly skipQueryValidation?: boolean;
+    /**
+     * SystemData of ScheduledQueryRule.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type
+     * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
+     */
+    readonly targetResourceTypes?: string[];
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
+     */
+    readonly windowSize?: string;
 }
 
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {

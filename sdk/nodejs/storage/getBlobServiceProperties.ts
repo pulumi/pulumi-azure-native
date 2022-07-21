@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of a storage account’s Blob service.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
     if (!opts) {

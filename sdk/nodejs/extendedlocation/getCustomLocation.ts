@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Locations definition.
- * API Version: 2021-03-15-preview.
+ * API Version: 2021-08-15.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
     if (!opts) {
@@ -60,6 +60,10 @@ export interface GetCustomLocationResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.extendedlocation.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */

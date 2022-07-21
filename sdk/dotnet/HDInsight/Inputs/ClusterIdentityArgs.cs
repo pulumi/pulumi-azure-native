@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         /// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNative.HDInsight.ResourceIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HDInsight.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

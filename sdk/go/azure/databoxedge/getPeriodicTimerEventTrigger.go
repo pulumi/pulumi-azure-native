@@ -11,7 +11,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupPeriodicTimerEventTrigger(ctx *pulumi.Context, args *LookupPeriodicTimerEventTriggerArgs, opts ...pulumi.InvokeOption) (*LookupPeriodicTimerEventTriggerResult, error) {
 	var rv LookupPeriodicTimerEventTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge:getPeriodicTimerEventTrigger", args, &rv, opts...)
@@ -45,7 +45,7 @@ type LookupPeriodicTimerEventTriggerResult struct {
 	SinkInfo RoleSinkInfoResponse `pulumi:"sinkInfo"`
 	// Periodic timer details.
 	SourceInfo PeriodicTimerSourceInfoResponse `pulumi:"sourceInfo"`
-	// Trigger in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of Trigger
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -123,7 +123,7 @@ func (o LookupPeriodicTimerEventTriggerResultOutput) SourceInfo() PeriodicTimerS
 	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) PeriodicTimerSourceInfoResponse { return v.SourceInfo }).(PeriodicTimerSourceInfoResponseOutput)
 }
 
-// Trigger in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of Trigger
 func (o LookupPeriodicTimerEventTriggerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -223,7 +223,7 @@ def get_domain_topic_event_subscription(domain_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicEventSubscriptionResult:
     """
     Event Subscription
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the top level domain.
@@ -268,7 +268,7 @@ def get_domain_topic_event_subscription_output(domain_name: Optional[pulumi.Inpu
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionResult]:
     """
     Event Subscription
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the top level domain.

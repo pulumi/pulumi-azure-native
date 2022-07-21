@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
- * API Version: 2020-03-01.
+ * API Version: 2022-02-05.
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
      */
     public readonly properties!: pulumi.Output<outputs.devices.PrivateEndpointConnectionPropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.devices.SystemDataResponse>;
+    /**
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -74,10 +78,12 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

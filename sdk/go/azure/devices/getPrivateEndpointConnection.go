@@ -11,7 +11,7 @@ import (
 )
 
 // The private endpoint connection of an IotHub
-// API Version: 2020-08-31.
+// API Version: 2021-07-02.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:devices:getPrivateEndpointConnection", args, &rv, opts...)

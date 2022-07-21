@@ -13,6 +13,12 @@ namespace Pulumi.AzureNative.Media.Inputs
     public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Key Vault identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The properties of the key used to encrypt the account.
         /// </summary>
         [Input("keyVaultProperties")]

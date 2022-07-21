@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The X509 Certificate.
-    /// API Version: 2020-08-31.
+    /// API Version: 2021-07-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:Certificate")]
     public partial class Certificate : Pulumi.CustomResource

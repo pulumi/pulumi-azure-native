@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * LoadTest details
- * API Version: 2021-12-01-preview.
+ * API Version: 2022-04-15-preview.
  */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
     if (!opts) {
@@ -45,13 +45,17 @@ export interface GetLoadTestResult {
      */
     readonly description?: string;
     /**
+     * CMK Encryption property.
+     */
+    readonly encryption?: outputs.loadtestservice.EncryptionPropertiesResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
      * The type of identity used for the resource.
      */
-    readonly identity?: outputs.loadtestservice.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.loadtestservice.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */

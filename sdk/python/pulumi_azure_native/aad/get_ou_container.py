@@ -218,7 +218,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOuContainerResult:
     """
     Resource for OuContainer.
-    API Version: 2021-03-01.
+    API Version: 2021-05-01.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -260,7 +260,7 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOuContainerResult]:
     """
     Resource for OuContainer.
-    API Version: 2021-03-01.
+    API Version: 2021-05-01.
 
 
     :param str domain_service_name: The name of the domain service.

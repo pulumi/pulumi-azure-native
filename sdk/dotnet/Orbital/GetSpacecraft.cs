@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Customer creates a spacecraft resource to schedule a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetSpacecraftResult> InvokeAsync(GetSpacecraftArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a spacecraft resource to schedule a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Orbital
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public string SpacecraftName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;
@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetSpacecraftResult
     {
         /// <summary>
-        /// Authorization status of spacecraft.
-        /// </summary>
-        public readonly string AuthorizationStatus;
-        /// <summary>
-        /// Details of the authorization status.
-        /// </summary>
-        public readonly string AuthorizationStatusExtended;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -86,7 +78,7 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Links of the Spacecraft
+        /// Immutable list of Spacecraft links.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpacecraftLinkResponse> Links;
         /// <summary>
@@ -110,15 +102,15 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Title line of Two Line Element (TLE).
+        /// Title line of the two-line element set (TLE).
         /// </summary>
         public readonly string? TitleLine;
         /// <summary>
-        /// Line 1 of Two Line Element (TLE).
+        /// Line 1 of the two-line element set (TLE).
         /// </summary>
         public readonly string? TleLine1;
         /// <summary>
-        /// Line 2 of Two Line Element (TLE).
+        /// Line 2 of the two-line element set (TLE).
         /// </summary>
         public readonly string? TleLine2;
         /// <summary>
@@ -128,10 +120,6 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetSpacecraftResult(
-            string authorizationStatus,
-
-            string authorizationStatusExtended,
-
             string etag,
 
             string id,
@@ -156,8 +144,6 @@ namespace Pulumi.AzureNative.Orbital
 
             string type)
         {
-            AuthorizationStatus = authorizationStatus;
-            AuthorizationStatusExtended = authorizationStatusExtended;
             Etag = etag;
             Id = id;
             Links = links;

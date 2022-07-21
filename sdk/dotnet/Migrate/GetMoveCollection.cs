@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Define the move collection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the move collection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly Outputs.MoveCollectionPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.Migrate
 
             Outputs.MoveCollectionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Migrate
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

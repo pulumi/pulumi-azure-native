@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Storage
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of object replication policy or 'default' if the policy ID is unknown.
+        /// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         /// </summary>
         [Input("objectReplicationPolicyId", required: true)]
         public string ObjectReplicationPolicyId { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of object replication policy or 'default' if the policy ID is unknown.
+        /// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         /// </summary>
         [Input("objectReplicationPolicyId", required: true)]
         public Input<string> ObjectReplicationPolicyId { get; set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetObjectReplicationPolicyResult
     {
         /// <summary>
-        /// Required. Destination account name.
+        /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
         public readonly string DestinationAccount;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse> Rules;
         /// <summary>
-        /// Required. Source account name.
+        /// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
         public readonly string SourceAccount;
         /// <summary>

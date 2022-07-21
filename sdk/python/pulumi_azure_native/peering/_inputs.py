@@ -512,37 +512,13 @@ class PeeringServiceSkuArgs:
 @pulumi.input_type
 class PeeringSkuArgs:
     def __init__(__self__, *,
-                 family: Optional[pulumi.Input[Union[str, 'Family']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[Union[str, 'Size']]] = None,
-                 tier: Optional[pulumi.Input[Union[str, 'Tier']]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The SKU that defines the tier and kind of the peering.
-        :param pulumi.Input[Union[str, 'Family']] family: The family of the peering SKU.
         :param pulumi.Input[str] name: The name of the peering SKU.
-        :param pulumi.Input[Union[str, 'Size']] size: The size of the peering SKU.
-        :param pulumi.Input[Union[str, 'Tier']] tier: The tier of the peering SKU.
         """
-        if family is not None:
-            pulumi.set(__self__, "family", family)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[Union[str, 'Family']]]:
-        """
-        The family of the peering SKU.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[Union[str, 'Family']]]):
-        pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
@@ -555,30 +531,6 @@ class PeeringSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[Union[str, 'Size']]]:
-        """
-        The size of the peering SKU.
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[Union[str, 'Size']]]):
-        pulumi.set(self, "size", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[str, 'Tier']]]:
-        """
-        The tier of the peering SKU.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[str, 'Tier']]]):
-        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

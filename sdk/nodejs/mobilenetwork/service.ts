@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -85,6 +85,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly serviceQosPolicy!: pulumi.Output<outputs.mobilenetwork.QosPolicyResponse | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -132,6 +136,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -146,6 +151,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["servicePrecedence"] = undefined /*out*/;
             resourceInputs["serviceQosPolicy"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

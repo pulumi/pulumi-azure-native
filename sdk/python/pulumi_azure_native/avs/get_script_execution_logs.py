@@ -254,7 +254,7 @@ def get_script_execution_logs(private_cloud_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptExecutionLogsResult:
     """
     An instance of a script executed by a user - custom or AVS
-    API Version: 2021-06-01.
+    API Version: 2021-12-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -299,7 +299,7 @@ def get_script_execution_logs_output(private_cloud_name: Optional[pulumi.Input[s
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptExecutionLogsResult]:
     """
     An instance of a script executed by a user - custom or AVS
-    API Version: 2021-06-01.
+    API Version: 2021-12-01.
 
 
     :param str private_cloud_name: Name of the private cloud

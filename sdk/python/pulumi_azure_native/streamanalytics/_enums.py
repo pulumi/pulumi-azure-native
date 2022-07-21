@@ -5,16 +5,44 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationMode',
+    'BlobWriteMode',
     'ClusterSkuName',
     'CompatibilityLevel',
+    'CompressionType',
+    'ContentStoragePolicy',
     'Encoding',
+    'EventGridEventSchemaType',
     'EventSerializationType',
     'EventsOutOfOrderPolicy',
+    'InputWatermarkMode',
+    'JobType',
     'JsonOutputSerializationFormat',
     'OutputErrorPolicy',
     'OutputStartMode',
+    'OutputWatermarkMode',
+    'RefreshType',
     'SkuName',
+    'UpdatableUdfRefreshType',
+    'UpdateMode',
 ]
+
+
+class AuthenticationMode(str, Enum):
+    """
+    Authentication Mode.
+    """
+    MSI = "Msi"
+    USER_TOKEN = "UserToken"
+    CONNECTION_STRING = "ConnectionString"
+
+
+class BlobWriteMode(str, Enum):
+    """
+    Blob write mode.
+    """
+    APPEND = "Append"
+    ONCE = "Once"
 
 
 class ClusterSkuName(str, Enum):
@@ -32,6 +60,24 @@ class CompatibilityLevel(str, Enum):
     Controls certain runtime behaviors of the streaming job.
     """
     COMPATIBILITY_LEVEL_1_0 = "1.0"
+    COMPATIBILITY_LEVEL_1_2 = "1.2"
+
+
+class CompressionType(str, Enum):
+    """
+    Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
+    """
+    NONE = "None"
+    G_ZIP = "GZip"
+    DEFLATE = "Deflate"
+
+
+class ContentStoragePolicy(str, Enum):
+    """
+    Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+    """
+    SYSTEM_ACCOUNT = "SystemAccount"
+    JOB_STORAGE_ACCOUNT = "JobStorageAccount"
 
 
 class Encoding(str, Enum):
@@ -41,6 +87,14 @@ class Encoding(str, Enum):
     UTF8 = "UTF8"
 
 
+class EventGridEventSchemaType(str, Enum):
+    """
+    Indicates the Event Grid schema type.
+    """
+    EVENT_GRID_EVENT_SCHEMA = "EventGridEventSchema"
+    CLOUD_EVENT_SCHEMA = "CloudEventSchema"
+
+
 class EventSerializationType(str, Enum):
     """
     Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -48,6 +102,8 @@ class EventSerializationType(str, Enum):
     CSV = "Csv"
     AVRO = "Avro"
     JSON = "Json"
+    CUSTOM_CLR = "CustomClr"
+    PARQUET = "Parquet"
 
 
 class EventsOutOfOrderPolicy(str, Enum):
@@ -56,6 +112,22 @@ class EventsOutOfOrderPolicy(str, Enum):
     """
     ADJUST = "Adjust"
     DROP = "Drop"
+
+
+class InputWatermarkMode(str, Enum):
+    """
+    The input watermark mode.
+    """
+    NONE = "None"
+    READ_WATERMARK = "ReadWatermark"
+
+
+class JobType(str, Enum):
+    """
+    Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+    """
+    CLOUD = "Cloud"
+    EDGE = "Edge"
 
 
 class JsonOutputSerializationFormat(str, Enum):
@@ -83,8 +155,42 @@ class OutputStartMode(str, Enum):
     LAST_OUTPUT_EVENT_TIME = "LastOutputEventTime"
 
 
+class OutputWatermarkMode(str, Enum):
+    """
+    The output watermark mode.
+    """
+    NONE = "None"
+    SEND_CURRENT_PARTITION_WATERMARK = "SendCurrentPartitionWatermark"
+    SEND_LOWEST_WATERMARK_ACROSS_PARTITIONS = "SendLowestWatermarkAcrossPartitions"
+
+
+class RefreshType(str, Enum):
+    """
+    Indicates the type of data refresh option.
+    """
+    STATIC = "Static"
+    REFRESH_PERIODICALLY_WITH_FULL = "RefreshPeriodicallyWithFull"
+    REFRESH_PERIODICALLY_WITH_DELTA = "RefreshPeriodicallyWithDelta"
+
+
 class SkuName(str, Enum):
     """
     The name of the SKU. Required on PUT (CreateOrReplace) requests.
     """
     STANDARD = "Standard"
+
+
+class UpdatableUdfRefreshType(str, Enum):
+    """
+    This property indicates which data refresh option to use, Blocking or Nonblocking.
+    """
+    BLOCKING = "Blocking"
+    NONBLOCKING = "Nonblocking"
+
+
+class UpdateMode(str, Enum):
+    """
+    Refresh modes for Stream Analytics functions.
+    """
+    STATIC = "Static"
+    REFRESHABLE = "Refreshable"

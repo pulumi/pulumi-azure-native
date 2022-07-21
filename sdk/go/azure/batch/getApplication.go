@@ -11,7 +11,7 @@ import (
 )
 
 // Contains information about an application in a Batch account.
-// API Version: 2021-01-01.
+// API Version: 2022-06-01.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:batch:getApplication", args, &rv, opts...)

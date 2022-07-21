@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        /// </summary>
+        [Input("drainPeriodInSeconds")]
+        public Input<int>? DrainPeriodInSeconds { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -34,10 +40,28 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tunnelInterfaces")]
+        private InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>? _tunnelInterfaces;
+
+        /// <summary>
+        /// An array of gateway load balancer tunnel interfaces.
+        /// </summary>
+        public InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs> TunnelInterfaces
+        {
+            get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>());
+            set => _tunnelInterfaces = value;
+        }
 
         public BackendAddressPoolArgs()
         {

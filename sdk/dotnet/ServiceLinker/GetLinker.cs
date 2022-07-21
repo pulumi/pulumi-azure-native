@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceLinker
     {
         /// <summary>
         /// Linker of source and target resource
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetLinkerResult> InvokeAsync(GetLinkerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linker of source and target resource
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// connection scope in source service.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
         /// An option to store secret value in secure place
         /// </summary>
         public readonly Outputs.SecretStoreResponse? SecretStore;
@@ -98,9 +102,9 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The resource Id of target service.
+        /// The target service properties
         /// </summary>
-        public readonly string? TargetId;
+        public readonly object? TargetService;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -122,11 +126,13 @@ namespace Pulumi.AzureNative.ServiceLinker
 
             string provisioningState,
 
+            string? scope,
+
             Outputs.SecretStoreResponse? secretStore,
 
             Outputs.SystemDataResponse systemData,
 
-            string? targetId,
+            object? targetService,
 
             string type,
 
@@ -137,9 +143,10 @@ namespace Pulumi.AzureNative.ServiceLinker
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            Scope = scope;
             SecretStore = secretStore;
             SystemData = systemData;
-            TargetId = targetId;
+            TargetService = targetService;
             Type = type;
             VNetSolution = vNetSolution;
         }

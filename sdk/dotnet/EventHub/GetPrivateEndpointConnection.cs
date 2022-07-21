@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Properties of the PrivateEndpointConnection.
-        /// API Version: 2018-01-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:eventhub:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of the PrivateEndpointConnection.
-        /// API Version: 2018-01-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:eventhub:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -102,13 +106,19 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
             string id,
+
+            string location,
 
             string name,
 
@@ -118,13 +128,17 @@ namespace Pulumi.AzureNative.EventHub
 
             string? provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
+            Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

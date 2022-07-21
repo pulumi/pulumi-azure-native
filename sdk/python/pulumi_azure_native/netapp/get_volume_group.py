@@ -21,7 +21,7 @@ class GetVolumeGroupResult:
     """
     Volume group resource for create
     """
-    def __init__(__self__, group_meta_data=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, volumes=None):
+    def __init__(__self__, group_meta_data=None, id=None, location=None, name=None, provisioning_state=None, type=None, volumes=None):
         if group_meta_data and not isinstance(group_meta_data, dict):
             raise TypeError("Expected argument 'group_meta_data' to be a dict")
         pulumi.set(__self__, "group_meta_data", group_meta_data)
@@ -37,9 +37,6 @@ class GetVolumeGroupResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -89,14 +86,6 @@ class GetVolumeGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Resource type
@@ -123,7 +112,6 @@ class AwaitableGetVolumeGroupResult(GetVolumeGroupResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            tags=self.tags,
             type=self.type,
             volumes=self.volumes)
 
@@ -134,7 +122,7 @@ def get_volume_group(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Volume group resource for create
-    API Version: 2021-10-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -157,7 +145,6 @@ def get_volume_group(account_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
         type=__ret__.type,
         volumes=__ret__.volumes)
 
@@ -169,7 +156,7 @@ def get_volume_group_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Volume group resource for create
-    API Version: 2021-10-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account

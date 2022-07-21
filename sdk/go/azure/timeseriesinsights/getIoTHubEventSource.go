@@ -11,7 +11,7 @@ import (
 )
 
 // An event source that receives its data from an Azure IoTHub.
-// API Version: 2020-05-15.
+// API Version: 2021-06-30-preview.
 func LookupIoTHubEventSource(ctx *pulumi.Context, args *LookupIoTHubEventSourceArgs, opts ...pulumi.InvokeOption) (*LookupIoTHubEventSourceResult, error) {
 	var rv LookupIoTHubEventSourceResult
 	err := ctx.Invoke("azure-native:timeseriesinsights:getIoTHubEventSource", args, &rv, opts...)

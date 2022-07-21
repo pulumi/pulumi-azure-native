@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Represents a server.
-        /// API Version: 2017-12-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a server.
-        /// API Version: 2017-12-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -74,73 +74,61 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// Status showing whether the server data encryption is enabled with customer-managed keys.
+        /// availability zone information of the server.
         /// </summary>
-        public readonly string ByokEnforcement;
+        public readonly string? AvailabilityZone;
         /// <summary>
-        /// Earliest restore point creation time (ISO8601 format)
+        /// Backup properties of a server.
         /// </summary>
-        public readonly string? EarliestRestoreDate;
+        public readonly Outputs.BackupResponse? Backup;
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
-        public readonly string? FullyQualifiedDomainName;
+        public readonly string FullyQualifiedDomainName;
+        /// <summary>
+        /// High availability properties of a server.
+        /// </summary>
+        public readonly Outputs.HighAvailabilityResponse? HighAvailability;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Azure Active Directory identity of the server.
-        /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
-        /// <summary>
-        /// Status showing whether the server enabled infrastructure encryption.
-        /// </summary>
-        public readonly string? InfrastructureEncryption;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The master server id of a replica server.
+        /// Maintenance window properties of a server.
         /// </summary>
-        public readonly string? MasterServerId;
+        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
         /// <summary>
-        /// Enforce a minimal Tls version for the server.
+        /// The minor version of the server.
         /// </summary>
-        public readonly string? MinimalTlsVersion;
+        public readonly string MinorVersion;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections on a server
+        /// Network properties of a server.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
-        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        /// </summary>
-        public readonly string? PublicNetworkAccess;
-        /// <summary>
-        /// The maximum number of replicas that a master server can have.
-        /// </summary>
-        public readonly int? ReplicaCapacity;
-        /// <summary>
-        /// The replication role of the server.
-        /// </summary>
-        public readonly string? ReplicationRole;
+        public readonly Outputs.NetworkResponse? Network;
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Enable ssl enforcement or not when connect to server.
+        /// A state of a server that is visible to user.
         /// </summary>
-        public readonly string? SslEnforcement;
+        public readonly string State;
         /// <summary>
-        /// Storage profile of a server.
+        /// Storage properties of a server.
         /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.StorageResponse? Storage;
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -150,11 +138,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A state of a server that is visible to user.
-        /// </summary>
-        public readonly string? UserVisibleState;
-        /// <summary>
-        /// Server version.
+        /// PostgreSQL Server version.
         /// </summary>
         public readonly string? Version;
 
@@ -162,69 +146,57 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         private GetServerResult(
             string? administratorLogin,
 
-            string byokEnforcement,
+            string? availabilityZone,
 
-            string? earliestRestoreDate,
+            Outputs.BackupResponse? backup,
 
-            string? fullyQualifiedDomainName,
+            string fullyQualifiedDomainName,
+
+            Outputs.HighAvailabilityResponse? highAvailability,
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
-
-            string? infrastructureEncryption,
-
             string location,
 
-            string? masterServerId,
+            Outputs.MaintenanceWindowResponse? maintenanceWindow,
 
-            string? minimalTlsVersion,
+            string minorVersion,
 
             string name,
 
-            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
-
-            string? publicNetworkAccess,
-
-            int? replicaCapacity,
-
-            string? replicationRole,
+            Outputs.NetworkResponse? network,
 
             Outputs.SkuResponse? sku,
 
-            string? sslEnforcement,
+            string state,
 
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.StorageResponse? storage,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            string? userVisibleState,
-
             string? version)
         {
             AdministratorLogin = administratorLogin;
-            ByokEnforcement = byokEnforcement;
-            EarliestRestoreDate = earliestRestoreDate;
+            AvailabilityZone = availabilityZone;
+            Backup = backup;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HighAvailability = highAvailability;
             Id = id;
-            Identity = identity;
-            InfrastructureEncryption = infrastructureEncryption;
             Location = location;
-            MasterServerId = masterServerId;
-            MinimalTlsVersion = minimalTlsVersion;
+            MaintenanceWindow = maintenanceWindow;
+            MinorVersion = minorVersion;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
-            PublicNetworkAccess = publicNetworkAccess;
-            ReplicaCapacity = replicaCapacity;
-            ReplicationRole = replicationRole;
+            Network = network;
             Sku = sku;
-            SslEnforcement = sslEnforcement;
-            StorageProfile = storageProfile;
+            State = state;
+            Storage = storage;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserVisibleState = userVisibleState;
             Version = version;
         }
     }

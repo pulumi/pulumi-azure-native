@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the SSH public key.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource

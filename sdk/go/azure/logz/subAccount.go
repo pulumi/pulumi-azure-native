@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-10-01.
+// API Version: 2022-01-01-preview.
 type SubAccount struct {
 	pulumi.CustomResourceState
 

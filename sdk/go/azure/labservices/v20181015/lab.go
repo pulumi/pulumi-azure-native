@@ -60,12 +60,6 @@ func NewLab(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:labservices:Lab"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Lab
 	err := ctx.RegisterResource("azure-native:labservices/v20181015:Lab", name, args, &resource, opts...)
 	if err != nil {

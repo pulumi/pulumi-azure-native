@@ -11,7 +11,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupWebAppSlot(ctx *pulumi.Context, args *LookupWebAppSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSlotResult, error) {
 	var rv LookupWebAppSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppSlot", args, &rv, opts...)
@@ -58,6 +58,8 @@ type LookupWebAppSlotResult struct {
 	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
 	// the app is not served on those hostnames.
 	EnabledHostNames []string `pulumi:"enabledHostNames"`
+	// Extended Location.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates []HostNameSslStateResponse `pulumi:"hostNameSslStates"`
 	// Hostnames associated with the app.
@@ -261,6 +263,11 @@ func (o LookupWebAppSlotResultOutput) Enabled() pulumi.BoolPtrOutput {
 // the app is not served on those hostnames.
 func (o LookupWebAppSlotResultOutput) EnabledHostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWebAppSlotResult) []string { return v.EnabledHostNames }).(pulumi.StringArrayOutput)
+}
+
+// Extended Location.
+func (o LookupWebAppSlotResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebAppSlotResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
 }
 
 // Hostname SSL states are used to manage the SSL bindings for app's hostnames.

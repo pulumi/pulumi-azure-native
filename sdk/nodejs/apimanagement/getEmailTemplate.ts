@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Email Template details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
     if (!opts) {
@@ -50,15 +50,15 @@ export interface GetEmailTemplateResult {
      */
     readonly description?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Whether the template is the default template provided by Api Management or has been edited.
+     * Whether the template is the default template provided by API Management or has been edited.
      */
     readonly isDefault: boolean;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -74,7 +74,7 @@ export interface GetEmailTemplateResult {
      */
     readonly title?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

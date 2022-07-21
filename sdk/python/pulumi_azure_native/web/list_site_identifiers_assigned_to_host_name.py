@@ -60,7 +60,7 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteIdentifiersAssignedToHostNameResult:
     """
     Collection of identifiers.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the object.
@@ -83,7 +83,7 @@ def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Inp
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
     """
     Collection of identifiers.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the object.

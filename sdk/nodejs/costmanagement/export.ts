@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An export resource.
- * API Version: 2020-06-01.
+ * API Version: 2021-10-01.
  */
 export class Export extends pulumi.CustomResource {
     /**
@@ -61,6 +61,10 @@ export class Export extends pulumi.CustomResource {
      */
     public /*out*/ readonly nextRunTimeEstimate!: pulumi.Output<string>;
     /**
+     * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+     */
+    public readonly partitionData!: pulumi.Output<boolean | undefined>;
+    /**
      * If requested, has the most recent execution history for the export.
      */
     public /*out*/ readonly runHistory!: pulumi.Output<outputs.costmanagement.ExportExecutionListResultResponse | undefined>;
@@ -98,6 +102,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["exportName"] = args ? args.exportName : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["partitionData"] = args ? args.partitionData : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;
+            resourceInputs["partitionData"] = undefined /*out*/;
             resourceInputs["runHistory"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -146,6 +152,10 @@ export interface ExportArgs {
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
     format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    /**
+     * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+     */
+    partitionData?: pulumi.Input<boolean>;
     /**
      * Has schedule information for the export.
      */

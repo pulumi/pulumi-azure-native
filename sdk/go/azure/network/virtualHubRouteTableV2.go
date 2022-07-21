@@ -12,7 +12,7 @@ import (
 )
 
 // VirtualHubRouteTableV2 Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualHubRouteTableV2 struct {
 	pulumi.CustomResourceState
 

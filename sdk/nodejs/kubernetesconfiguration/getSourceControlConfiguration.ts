@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The SourceControl Configuration object returned in Get & Put response.
- * API Version: 2021-03-01.
+ * API Version: 2022-07-01.
  */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
     if (!opts) {
@@ -30,15 +30,15 @@ export interface GetSourceControlConfigurationArgs {
      */
     clusterName: string;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: string;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -131,15 +131,15 @@ export interface GetSourceControlConfigurationOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

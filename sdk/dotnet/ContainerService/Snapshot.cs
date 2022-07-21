@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// A node pool snapshot resource.
-    /// API Version: 2021-08-01.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
@@ -23,16 +23,46 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.CreationDataResponse?> CreationData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// Whether to use a FIPS-enabled OS.
+        /// </summary>
+        [Output("enableFIPS")]
+        public Output<bool> EnableFIPS { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of Kubernetes.
+        /// </summary>
+        [Output("kubernetesVersion")]
+        public Output<string> KubernetesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of node image.
+        /// </summary>
+        [Output("nodeImageVersion")]
+        public Output<string> NodeImageVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies an OS SKU. This value must not be specified if OSType is Windows.
+        /// </summary>
+        [Output("osSku")]
+        public Output<string> OsSku { get; private set; } = null!;
+
+        /// <summary>
+        /// The operating system type. The default is Linux.
+        /// </summary>
+        [Output("osType")]
+        public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
         /// The type of a snapshot. The default is NodePool.
@@ -41,22 +71,28 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<string?> SnapshotType { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this snapshot.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the VM.
+        /// </summary>
+        [Output("vmSize")]
+        public Output<string> VmSize { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,13 +162,13 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.CreationDataArgs>? CreationData { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -153,7 +189,7 @@ namespace Pulumi.AzureNative.ContainerService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

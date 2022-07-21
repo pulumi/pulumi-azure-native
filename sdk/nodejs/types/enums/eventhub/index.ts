@@ -30,15 +30,6 @@ export const AccessRights = {
 
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
 
-export const ApplicationGroupPolicyType = {
-    ThrottlingPolicy: "ThrottlingPolicy",
-} as const;
-
-/**
- * Application Group Policy types
- */
-export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[keyof typeof ApplicationGroupPolicyType];
-
 export const ClusterSkuName = {
     Dedicated: "Dedicated",
 } as const;
@@ -99,27 +90,26 @@ export const EntityStatus = {
  */
 export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
 
-export const IPAction = {
-    Accept: "Accept",
-    Reject: "Reject",
+export const KeySource = {
+    Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
 /**
- * The IP Filter Action
+ * Enumerates the possible value of keySource for Encryption
  */
-export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
 
-export const MetricId = {
-    IncomingBytes: "IncomingBytes",
-    OutgoingBytes: "OutgoingBytes",
-    IncomingMessages: "IncomingMessages",
-    OutgoingMessages: "OutgoingMessages",
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
 } as const;
 
 /**
- * Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+ * Type of managed service identity.
  */
-export type MetricId = (typeof MetricId)[keyof typeof MetricId];
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",
@@ -142,6 +132,16 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
+
 export const SchemaCompatibility = {
     None: "None",
     Backward: "Backward",
@@ -160,6 +160,7 @@ export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 export const SkuName = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**
@@ -170,6 +171,7 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const SkuTier = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**

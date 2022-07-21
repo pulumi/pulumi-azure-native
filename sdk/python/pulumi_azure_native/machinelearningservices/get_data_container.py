@@ -21,22 +21,30 @@ class GetDataContainerResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, data_container_properties=None, id=None, name=None, system_data=None, type=None):
+        if data_container_properties and not isinstance(data_container_properties, dict):
+            raise TypeError("Expected argument 'data_container_properties' to be a dict")
+        pulumi.set(__self__, "data_container_properties", data_container_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dataContainerProperties")
+    def data_container_properties(self) -> 'outputs.DataContainerResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "data_container_properties")
 
     @property
     @pulumi.getter
@@ -55,18 +63,10 @@ class GetDataContainerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.DataContainerResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -85,9 +85,9 @@ class AwaitableGetDataContainerResult(GetDataContainerResult):
         if False:
             yield self
         return GetDataContainerResult(
+            data_container_properties=self.data_container_properties,
             id=self.id,
             name=self.name,
-            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -98,7 +98,7 @@ def get_data_container(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str name: Container name.
@@ -116,9 +116,9 @@ def get_data_container(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getDataContainer', __args__, opts=opts, typ=GetDataContainerResult).value
 
     return AwaitableGetDataContainerResult(
+        data_container_properties=__ret__.data_container_properties,
         id=__ret__.id,
         name=__ret__.name,
-        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -130,7 +130,7 @@ def get_data_container_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str name: Container name.

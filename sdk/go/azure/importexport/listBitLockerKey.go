@@ -11,7 +11,7 @@ import (
 )
 
 // GetBitLockerKeys response
-// API Version: 2020-08-01.
+// API Version: 2021-01-01.
 func ListBitLockerKey(ctx *pulumi.Context, args *ListBitLockerKeyArgs, opts ...pulumi.InvokeOption) (*ListBitLockerKeyResult, error) {
 	var rv ListBitLockerKeyResult
 	err := ctx.Invoke("azure-native:importexport:listBitLockerKey", args, &rv, opts...)

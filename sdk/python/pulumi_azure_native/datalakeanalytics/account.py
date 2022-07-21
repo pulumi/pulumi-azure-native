@@ -329,7 +329,7 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-        API Version: 2016-11-01.
+        API Version: 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,7 +359,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-        API Version: 2016-11-01.
+        API Version: 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -446,6 +446,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["current_tier"] = None
             __props__.__dict__["debug_data_access_level"] = None
+            __props__.__dict__["default_data_lake_store_account_type"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["hive_metastores"] = None
             __props__.__dict__["last_modified_time"] = None
@@ -491,6 +492,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["data_lake_store_accounts"] = None
         __props__.__dict__["debug_data_access_level"] = None
         __props__.__dict__["default_data_lake_store_account"] = None
+        __props__.__dict__["default_data_lake_store_account_type"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["firewall_allow_azure_ips"] = None
         __props__.__dict__["firewall_rules"] = None
@@ -574,6 +576,14 @@ class Account(pulumi.CustomResource):
         The default Data Lake Store account associated with this account.
         """
         return pulumi.get(self, "default_data_lake_store_account")
+
+    @property
+    @pulumi.getter(name="defaultDataLakeStoreAccountType")
+    def default_data_lake_store_account_type(self) -> pulumi.Output[str]:
+        """
+        The type of the default Data Lake Store account associated with this account.
+        """
+        return pulumi.get(self, "default_data_lake_store_account_type")
 
     @property
     @pulumi.getter

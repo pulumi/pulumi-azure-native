@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:PostgresInstance"},
                 },

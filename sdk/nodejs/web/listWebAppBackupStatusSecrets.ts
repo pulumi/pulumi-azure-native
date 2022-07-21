@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup description.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsResult> {
     if (!opts) {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database script.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
     if (!opts) {
@@ -67,9 +67,9 @@ export interface GetScriptResult {
      */
     readonly provisioningState: string;
     /**
-     * The url to the KQL script blob file.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
-    readonly scriptUrl: string;
+    readonly scriptUrl?: string;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

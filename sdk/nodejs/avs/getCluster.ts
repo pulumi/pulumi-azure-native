@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A cluster resource
- * API Version: 2020-03-20.
+ * API Version: 2021-12-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -48,11 +48,11 @@ export interface GetClusterResult {
     /**
      * The cluster size
      */
-    readonly clusterSize: number;
+    readonly clusterSize?: number;
     /**
      * The hosts
      */
-    readonly hosts: string[];
+    readonly hosts?: string[];
     /**
      * Resource ID.
      */

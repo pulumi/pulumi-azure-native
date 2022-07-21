@@ -110,11 +110,11 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[str
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessAPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
-    API Version: 2020-12-01.
+    API Version: 2021-12-01.
 
 
-    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-    :param str private_endpoint_connection_name: The name of the private endpoint connection
+    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
@@ -143,11 +143,11 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessAPrivateEndpointConnectionResult]:
     """
     The Private Endpoint Connection resource.
-    API Version: 2020-12-01.
+    API Version: 2021-12-01.
 
 
-    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-    :param str private_endpoint_connection_name: The name of the private endpoint connection
+    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group.
     """
     ...

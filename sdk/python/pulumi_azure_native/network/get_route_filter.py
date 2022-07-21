@@ -158,7 +158,7 @@ def get_route_filter(expand: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterResult:
     """
     Route Filter Resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced express route bgp peering resources.
@@ -195,7 +195,7 @@ def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterResult]:
     """
     Route Filter Resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced express route bgp peering resources.

@@ -110,7 +110,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     A private endpoint connection class.
-    API Version: 2020-12-01-preview.
+    API Version: 2021-07-01.
 
 
     :param str account_name: The name of the account.
@@ -143,7 +143,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     A private endpoint connection class.
-    API Version: 2020-12-01-preview.
+    API Version: 2021-07-01.
 
 
     :param str account_name: The name of the account.

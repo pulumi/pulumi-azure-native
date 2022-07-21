@@ -105,7 +105,7 @@ class GetPeerAsnResult:
 
     @property
     @pulumi.getter(name="validationState")
-    def validation_state(self) -> Optional[str]:
+    def validation_state(self) -> str:
         """
         The validation state of the ASN associated with the peer.
         """
@@ -132,7 +132,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeerAsnResult:
     """
     The essential information related to the peer's ASN.
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peer_asn_name: The peer ASN name.
@@ -161,7 +161,7 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeerAsnResult]:
     """
     The essential information related to the peer's ASN.
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peer_asn_name: The peer ASN name.

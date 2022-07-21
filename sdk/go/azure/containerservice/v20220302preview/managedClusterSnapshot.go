@@ -45,9 +45,6 @@ func NewManagedClusterSnapshot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:containerservice:ManagedClusterSnapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20220202preview:ManagedClusterSnapshot"),
 		},
 		{

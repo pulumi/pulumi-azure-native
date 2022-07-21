@@ -11,7 +11,7 @@ import (
 )
 
 // The Live Output.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupLiveOutput(ctx *pulumi.Context, args *LookupLiveOutputArgs, opts ...pulumi.InvokeOption) (*LookupLiveOutputResult, error) {
 	var rv LookupLiveOutputResult
 	err := ctx.Invoke("azure-native:media:getLiveOutput", args, &rv, opts...)
@@ -58,6 +58,8 @@ type LookupLiveOutputResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource state of the live output.
 	ResourceState string `pulumi:"resourceState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -163,6 +165,11 @@ func (o LookupLiveOutputResultOutput) ProvisioningState() pulumi.StringOutput {
 // The resource state of the live output.
 func (o LookupLiveOutputResultOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupLiveOutputResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

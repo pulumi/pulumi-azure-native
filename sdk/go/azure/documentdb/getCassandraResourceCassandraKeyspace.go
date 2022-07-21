@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra keyspace.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func LookupCassandraResourceCassandraKeyspace(ctx *pulumi.Context, args *LookupCassandraResourceCassandraKeyspaceArgs, opts ...pulumi.InvokeOption) (*LookupCassandraResourceCassandraKeyspaceResult, error) {
 	var rv LookupCassandraResourceCassandraKeyspaceResult
 	err := ctx.Invoke("azure-native:documentdb:getCassandraResourceCassandraKeyspace", args, &rv, opts...)

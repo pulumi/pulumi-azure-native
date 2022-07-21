@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -106,10 +112,40 @@ namespace Pulumi.AzureNative.Network.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkPrivateLinkServiceNetworkPolicies>? PrivateLinkServiceNetworkPolicies { get; set; }
 
         /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("resourceNavigationLinks")]
+        private InputList<Inputs.ResourceNavigationLinkArgs>? _resourceNavigationLinks;
+
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        public InputList<Inputs.ResourceNavigationLinkArgs> ResourceNavigationLinks
+        {
+            get => _resourceNavigationLinks ?? (_resourceNavigationLinks = new InputList<Inputs.ResourceNavigationLinkArgs>());
+            set => _resourceNavigationLinks = value;
+        }
+
+        /// <summary>
         /// The reference to the RouteTable resource.
         /// </summary>
         [Input("routeTable")]
         public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
+
+        [Input("serviceAssociationLinks")]
+        private InputList<Inputs.ServiceAssociationLinkArgs>? _serviceAssociationLinks;
+
+        /// <summary>
+        /// Gets an array of references to services injecting into this subnet.
+        /// </summary>
+        public InputList<Inputs.ServiceAssociationLinkArgs> ServiceAssociationLinks
+        {
+            get => _serviceAssociationLinks ?? (_serviceAssociationLinks = new InputList<Inputs.ServiceAssociationLinkArgs>());
+            set => _serviceAssociationLinks = value;
+        }
 
         [Input("serviceEndpointPolicies")]
         private InputList<Inputs.ServiceEndpointPolicyArgs>? _serviceEndpointPolicies;

@@ -11,7 +11,7 @@ import (
 )
 
 // A SQL virtual machine.
-// API Version: 2017-03-01-preview.
+// API Version: 2022-02-01.
 func LookupSqlVirtualMachine(ctx *pulumi.Context, args *LookupSqlVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupSqlVirtualMachineResult, error) {
 	var rv LookupSqlVirtualMachineResult
 	err := ctx.Invoke("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args, &rv, opts...)
@@ -32,6 +32,8 @@ type LookupSqlVirtualMachineArgs struct {
 
 // A SQL virtual machine.
 type LookupSqlVirtualMachineResult struct {
+	// Assessment Settings.
+	AssessmentSettings *AssessmentSettingsResponse `pulumi:"assessmentSettings"`
 	// Auto backup settings for SQL Server.
 	AutoBackupSettings *AutoBackupSettingsResponse `pulumi:"autoBackupSettings"`
 	// Auto patching settings for applying critical security updates to SQL virtual machine.
@@ -62,6 +64,8 @@ type LookupSqlVirtualMachineResult struct {
 	SqlVirtualMachineGroupResourceId *string `pulumi:"sqlVirtualMachineGroupResourceId"`
 	// Storage Configuration Settings.
 	StorageConfigurationSettings *StorageConfigurationSettingsResponse `pulumi:"storageConfigurationSettings"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -70,6 +74,8 @@ type LookupSqlVirtualMachineResult struct {
 	VirtualMachineResourceId *string `pulumi:"virtualMachineResourceId"`
 	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 	WsfcDomainCredentials *WsfcDomainCredentialsResponse `pulumi:"wsfcDomainCredentials"`
+	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+	WsfcStaticIp *string `pulumi:"wsfcStaticIp"`
 }
 
 func LookupSqlVirtualMachineOutput(ctx *pulumi.Context, args LookupSqlVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupSqlVirtualMachineResultOutput {
@@ -111,6 +117,11 @@ func (o LookupSqlVirtualMachineResultOutput) ToLookupSqlVirtualMachineResultOutp
 
 func (o LookupSqlVirtualMachineResultOutput) ToLookupSqlVirtualMachineResultOutputWithContext(ctx context.Context) LookupSqlVirtualMachineResultOutput {
 	return o
+}
+
+// Assessment Settings.
+func (o LookupSqlVirtualMachineResultOutput) AssessmentSettings() AssessmentSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *AssessmentSettingsResponse { return v.AssessmentSettings }).(AssessmentSettingsResponsePtrOutput)
 }
 
 // Auto backup settings for SQL Server.
@@ -194,6 +205,11 @@ func (o LookupSqlVirtualMachineResultOutput) StorageConfigurationSettings() Stor
 	}).(StorageConfigurationSettingsResponsePtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupSqlVirtualMachineResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o LookupSqlVirtualMachineResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSqlVirtualMachineResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -212,6 +228,11 @@ func (o LookupSqlVirtualMachineResultOutput) VirtualMachineResourceId() pulumi.S
 // Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 func (o LookupSqlVirtualMachineResultOutput) WsfcDomainCredentials() WsfcDomainCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *WsfcDomainCredentialsResponse { return v.WsfcDomainCredentials }).(WsfcDomainCredentialsResponsePtrOutput)
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+func (o LookupSqlVirtualMachineResultOutput) WsfcStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.WsfcStaticIp }).(pulumi.StringPtrOutput)
 }
 
 func init() {

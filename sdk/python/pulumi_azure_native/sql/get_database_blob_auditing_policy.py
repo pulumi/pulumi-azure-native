@@ -20,7 +20,7 @@ class GetDatabaseBlobAuditingPolicyResult:
     """
     A database blob auditing policy.
     """
-    def __init__(__self__, audit_actions_and_groups=None, id=None, is_azure_monitor_target_enabled=None, is_storage_secondary_key_in_use=None, kind=None, name=None, queue_delay_ms=None, retention_days=None, state=None, storage_account_subscription_id=None, storage_endpoint=None, type=None):
+    def __init__(__self__, audit_actions_and_groups=None, id=None, is_azure_monitor_target_enabled=None, is_managed_identity_in_use=None, is_storage_secondary_key_in_use=None, kind=None, name=None, queue_delay_ms=None, retention_days=None, state=None, storage_account_subscription_id=None, storage_endpoint=None, type=None):
         if audit_actions_and_groups and not isinstance(audit_actions_and_groups, list):
             raise TypeError("Expected argument 'audit_actions_and_groups' to be a list")
         pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
@@ -30,6 +30,9 @@ class GetDatabaseBlobAuditingPolicyResult:
         if is_azure_monitor_target_enabled and not isinstance(is_azure_monitor_target_enabled, bool):
             raise TypeError("Expected argument 'is_azure_monitor_target_enabled' to be a bool")
         pulumi.set(__self__, "is_azure_monitor_target_enabled", is_azure_monitor_target_enabled)
+        if is_managed_identity_in_use and not isinstance(is_managed_identity_in_use, bool):
+            raise TypeError("Expected argument 'is_managed_identity_in_use' to be a bool")
+        pulumi.set(__self__, "is_managed_identity_in_use", is_managed_identity_in_use)
         if is_storage_secondary_key_in_use and not isinstance(is_storage_secondary_key_in_use, bool):
             raise TypeError("Expected argument 'is_storage_secondary_key_in_use' to be a bool")
         pulumi.set(__self__, "is_storage_secondary_key_in_use", is_storage_secondary_key_in_use)
@@ -94,6 +97,10 @@ class GetDatabaseBlobAuditingPolicyResult:
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
+        DBCC_GROUP
+        DATABASE_OWNERSHIP_CHANGE_GROUP
+        DATABASE_CHANGE_GROUP
+        LEDGER_OPERATION_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         
@@ -147,6 +154,14 @@ class GetDatabaseBlobAuditingPolicyResult:
         or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
         """
         return pulumi.get(self, "is_azure_monitor_target_enabled")
+
+    @property
+    @pulumi.getter(name="isManagedIdentityInUse")
+    def is_managed_identity_in_use(self) -> Optional[bool]:
+        """
+        Specifies whether Managed Identity is used to access blob storage
+        """
+        return pulumi.get(self, "is_managed_identity_in_use")
 
     @property
     @pulumi.getter(name="isStorageSecondaryKeyInUse")
@@ -231,6 +246,7 @@ class AwaitableGetDatabaseBlobAuditingPolicyResult(GetDatabaseBlobAuditingPolicy
             audit_actions_and_groups=self.audit_actions_and_groups,
             id=self.id,
             is_azure_monitor_target_enabled=self.is_azure_monitor_target_enabled,
+            is_managed_identity_in_use=self.is_managed_identity_in_use,
             is_storage_secondary_key_in_use=self.is_storage_secondary_key_in_use,
             kind=self.kind,
             name=self.name,
@@ -249,7 +265,7 @@ def get_database_blob_auditing_policy(blob_auditing_policy_name: Optional[str] =
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseBlobAuditingPolicyResult:
     """
     A database blob auditing policy.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
@@ -272,6 +288,7 @@ def get_database_blob_auditing_policy(blob_auditing_policy_name: Optional[str] =
         audit_actions_and_groups=__ret__.audit_actions_and_groups,
         id=__ret__.id,
         is_azure_monitor_target_enabled=__ret__.is_azure_monitor_target_enabled,
+        is_managed_identity_in_use=__ret__.is_managed_identity_in_use,
         is_storage_secondary_key_in_use=__ret__.is_storage_secondary_key_in_use,
         kind=__ret__.kind,
         name=__ret__.name,
@@ -291,7 +308,7 @@ def get_database_blob_auditing_policy_output(blob_auditing_policy_name: Optional
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseBlobAuditingPolicyResult]:
     """
     A database blob auditing policy.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.

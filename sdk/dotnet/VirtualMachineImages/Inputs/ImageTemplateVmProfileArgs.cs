@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
 {
 
     /// <summary>
-    /// Describes the virtual machine used to build, customize and capture images
+    /// Describes the virtual machines used to build and validate images
     /// </summary>
     public sealed class ImageTemplateVmProfileArgs : Pulumi.ResourceArgs
     {
@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         [Input("osDiskSizeGB")]
         public Input<int>? OsDiskSizeGB { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
+        }
+
         /// <summary>
         /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         /// </summary>
@@ -28,7 +40,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public Input<string>? VmSize { get; set; }
 
         /// <summary>
-        /// Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        /// Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         /// </summary>
         [Input("vnetConfig")]
         public Input<Inputs.VirtualNetworkConfigArgs>? VnetConfig { get; set; }

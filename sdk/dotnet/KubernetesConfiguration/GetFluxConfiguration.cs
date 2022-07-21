@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     {
         /// <summary>
         /// The Flux Configuration object returned in Get &amp; Put response.
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Flux Configuration object returned in Get &amp; Put response.
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public string ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public string ClusterRp { get; set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public Input<string> ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public Input<string> ClusterRp { get; set; } = null!;
@@ -106,6 +106,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public sealed class GetFluxConfigurationResult
     {
         /// <summary>
+        /// Parameters to reconcile to the AzureBlob source kind type.
+        /// </summary>
+        public readonly Outputs.AzureBlobDefinitionResponse? AzureBlob;
+        /// <summary>
+        /// Parameters to reconcile to the Bucket source kind type.
+        /// </summary>
+        public readonly Outputs.BucketDefinitionResponse? Bucket;
+        /// <summary>
         /// Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.
         /// </summary>
         public readonly string ComplianceState;
@@ -129,14 +137,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.KustomizationDefinitionResponse>? Kustomizations;
-        /// <summary>
-        /// Datetime the fluxConfiguration last synced its source on the cluster.
-        /// </summary>
-        public readonly string LastSourceSyncedAt;
-        /// <summary>
-        /// Branch and SHA of the last source commit synced with the cluster.
-        /// </summary>
-        public readonly string LastSourceSyncedCommitId;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -162,6 +162,18 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         public readonly string? SourceKind;
         /// <summary>
+        /// Branch and/or SHA of the source commit synced with the cluster.
+        /// </summary>
+        public readonly string SourceSyncedCommitId;
+        /// <summary>
+        /// Datetime the fluxConfiguration synced its source on the cluster.
+        /// </summary>
+        public readonly string SourceUpdatedAt;
+        /// <summary>
+        /// Datetime the fluxConfiguration synced its status on the cluster with Azure.
+        /// </summary>
+        public readonly string StatusUpdatedAt;
+        /// <summary>
         /// Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObjectStatusDefinitionResponse> Statuses;
@@ -180,6 +192,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
         [OutputConstructor]
         private GetFluxConfigurationResult(
+            Outputs.AzureBlobDefinitionResponse? azureBlob,
+
+            Outputs.BucketDefinitionResponse? bucket,
+
             string complianceState,
 
             ImmutableDictionary<string, string>? configurationProtectedSettings,
@@ -191,10 +207,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
             string id,
 
             ImmutableDictionary<string, Outputs.KustomizationDefinitionResponse>? kustomizations,
-
-            string lastSourceSyncedAt,
-
-            string lastSourceSyncedCommitId,
 
             string name,
 
@@ -208,6 +220,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string? sourceKind,
 
+            string sourceSyncedCommitId,
+
+            string sourceUpdatedAt,
+
+            string statusUpdatedAt,
+
             ImmutableArray<Outputs.ObjectStatusDefinitionResponse> statuses,
 
             bool? suspend,
@@ -216,20 +234,23 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string type)
         {
+            AzureBlob = azureBlob;
+            Bucket = bucket;
             ComplianceState = complianceState;
             ConfigurationProtectedSettings = configurationProtectedSettings;
             ErrorMessage = errorMessage;
             GitRepository = gitRepository;
             Id = id;
             Kustomizations = kustomizations;
-            LastSourceSyncedAt = lastSourceSyncedAt;
-            LastSourceSyncedCommitId = lastSourceSyncedCommitId;
             Name = name;
             Namespace = @namespace;
             ProvisioningState = provisioningState;
             RepositoryPublicKey = repositoryPublicKey;
             Scope = scope;
             SourceKind = sourceKind;
+            SourceSyncedCommitId = sourceSyncedCommitId;
+            SourceUpdatedAt = sourceUpdatedAt;
+            StatusUpdatedAt = statusUpdatedAt;
             Statuses = statuses;
             Suspend = suspend;
             SystemData = systemData;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The SAS response that contains the storage account, container and associated SAS token for connection use.
- * API Version: 2016-11-01.
+ * API Version: 2019-11-01-preview.
  */
 export function listStorageAccountSasTokens(args: ListStorageAccountSasTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSasTokensResult> {
     if (!opts) {

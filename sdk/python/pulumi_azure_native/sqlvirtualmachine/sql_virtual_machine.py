@@ -17,6 +17,7 @@ __all__ = ['SqlVirtualMachineArgs', 'SqlVirtualMachine']
 class SqlVirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 assessment_settings: Optional[pulumi.Input['AssessmentSettingsArgs']] = None,
                  auto_backup_settings: Optional[pulumi.Input['AutoBackupSettingsArgs']] = None,
                  auto_patching_settings: Optional[pulumi.Input['AutoPatchingSettingsArgs']] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
@@ -32,10 +33,12 @@ class SqlVirtualMachineArgs:
                  storage_configuration_settings: Optional[pulumi.Input['StorageConfigurationSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_resource_id: Optional[pulumi.Input[str]] = None,
-                 wsfc_domain_credentials: Optional[pulumi.Input['WsfcDomainCredentialsArgs']] = None):
+                 wsfc_domain_credentials: Optional[pulumi.Input['WsfcDomainCredentialsArgs']] = None,
+                 wsfc_static_ip: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SqlVirtualMachine resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input['AssessmentSettingsArgs'] assessment_settings: Assessment Settings.
         :param pulumi.Input['AutoBackupSettingsArgs'] auto_backup_settings: Auto backup settings for SQL Server.
         :param pulumi.Input['AutoPatchingSettingsArgs'] auto_patching_settings: Auto patching settings for applying critical security updates to SQL virtual machine.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Azure Active Directory identity of the server.
@@ -52,8 +55,11 @@ class SqlVirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_machine_resource_id: ARM Resource id of underlying virtual machine created from SQL marketplace image.
         :param pulumi.Input['WsfcDomainCredentialsArgs'] wsfc_domain_credentials: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        :param pulumi.Input[str] wsfc_static_ip: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if assessment_settings is not None:
+            pulumi.set(__self__, "assessment_settings", assessment_settings)
         if auto_backup_settings is not None:
             pulumi.set(__self__, "auto_backup_settings", auto_backup_settings)
         if auto_patching_settings is not None:
@@ -86,6 +92,8 @@ class SqlVirtualMachineArgs:
             pulumi.set(__self__, "virtual_machine_resource_id", virtual_machine_resource_id)
         if wsfc_domain_credentials is not None:
             pulumi.set(__self__, "wsfc_domain_credentials", wsfc_domain_credentials)
+        if wsfc_static_ip is not None:
+            pulumi.set(__self__, "wsfc_static_ip", wsfc_static_ip)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -98,6 +106,18 @@ class SqlVirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="assessmentSettings")
+    def assessment_settings(self) -> Optional[pulumi.Input['AssessmentSettingsArgs']]:
+        """
+        Assessment Settings.
+        """
+        return pulumi.get(self, "assessment_settings")
+
+    @assessment_settings.setter
+    def assessment_settings(self, value: Optional[pulumi.Input['AssessmentSettingsArgs']]):
+        pulumi.set(self, "assessment_settings", value)
 
     @property
     @pulumi.getter(name="autoBackupSettings")
@@ -291,12 +311,25 @@ class SqlVirtualMachineArgs:
     def wsfc_domain_credentials(self, value: Optional[pulumi.Input['WsfcDomainCredentialsArgs']]):
         pulumi.set(self, "wsfc_domain_credentials", value)
 
+    @property
+    @pulumi.getter(name="wsfcStaticIp")
+    def wsfc_static_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        """
+        return pulumi.get(self, "wsfc_static_ip")
+
+    @wsfc_static_ip.setter
+    def wsfc_static_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wsfc_static_ip", value)
+
 
 class SqlVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_settings: Optional[pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']]] = None,
                  auto_backup_settings: Optional[pulumi.Input[pulumi.InputType['AutoBackupSettingsArgs']]] = None,
                  auto_patching_settings: Optional[pulumi.Input[pulumi.InputType['AutoPatchingSettingsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
@@ -314,13 +347,15 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_resource_id: Optional[pulumi.Input[str]] = None,
                  wsfc_domain_credentials: Optional[pulumi.Input[pulumi.InputType['WsfcDomainCredentialsArgs']]] = None,
+                 wsfc_static_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A SQL virtual machine.
-        API Version: 2017-03-01-preview.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']] assessment_settings: Assessment Settings.
         :param pulumi.Input[pulumi.InputType['AutoBackupSettingsArgs']] auto_backup_settings: Auto backup settings for SQL Server.
         :param pulumi.Input[pulumi.InputType['AutoPatchingSettingsArgs']] auto_patching_settings: Auto patching settings for applying critical security updates to SQL virtual machine.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Azure Active Directory identity of the server.
@@ -338,6 +373,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_machine_resource_id: ARM Resource id of underlying virtual machine created from SQL marketplace image.
         :param pulumi.Input[pulumi.InputType['WsfcDomainCredentialsArgs']] wsfc_domain_credentials: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        :param pulumi.Input[str] wsfc_static_ip: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
         ...
     @overload
@@ -347,7 +383,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL virtual machine.
-        API Version: 2017-03-01-preview.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -364,6 +400,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_settings: Optional[pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']]] = None,
                  auto_backup_settings: Optional[pulumi.Input[pulumi.InputType['AutoBackupSettingsArgs']]] = None,
                  auto_patching_settings: Optional[pulumi.Input[pulumi.InputType['AutoPatchingSettingsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
@@ -381,6 +418,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_resource_id: Optional[pulumi.Input[str]] = None,
                  wsfc_domain_credentials: Optional[pulumi.Input[pulumi.InputType['WsfcDomainCredentialsArgs']]] = None,
+                 wsfc_static_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -393,6 +431,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlVirtualMachineArgs.__new__(SqlVirtualMachineArgs)
 
+            __props__.__dict__["assessment_settings"] = assessment_settings
             __props__.__dict__["auto_backup_settings"] = auto_backup_settings
             __props__.__dict__["auto_patching_settings"] = auto_patching_settings
             __props__.__dict__["identity"] = identity
@@ -412,8 +451,10 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_machine_resource_id"] = virtual_machine_resource_id
             __props__.__dict__["wsfc_domain_credentials"] = wsfc_domain_credentials
+            __props__.__dict__["wsfc_static_ip"] = wsfc_static_ip
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -439,6 +480,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
 
         __props__ = SqlVirtualMachineArgs.__new__(SqlVirtualMachineArgs)
 
+        __props__.__dict__["assessment_settings"] = None
         __props__.__dict__["auto_backup_settings"] = None
         __props__.__dict__["auto_patching_settings"] = None
         __props__.__dict__["identity"] = None
@@ -453,11 +495,21 @@ class SqlVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["sql_server_license_type"] = None
         __props__.__dict__["sql_virtual_machine_group_resource_id"] = None
         __props__.__dict__["storage_configuration_settings"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine_resource_id"] = None
         __props__.__dict__["wsfc_domain_credentials"] = None
+        __props__.__dict__["wsfc_static_ip"] = None
         return SqlVirtualMachine(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assessmentSettings")
+    def assessment_settings(self) -> pulumi.Output[Optional['outputs.AssessmentSettingsResponse']]:
+        """
+        Assessment Settings.
+        """
+        return pulumi.get(self, "assessment_settings")
 
     @property
     @pulumi.getter(name="autoBackupSettings")
@@ -572,6 +624,14 @@ class SqlVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "storage_configuration_settings")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -602,4 +662,12 @@ class SqlVirtualMachine(pulumi.CustomResource):
         Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
         return pulumi.get(self, "wsfc_domain_credentials")
+
+    @property
+    @pulumi.getter(name="wsfcStaticIp")
+    def wsfc_static_ip(self) -> pulumi.Output[Optional[str]]:
+        """
+        Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        """
+        return pulumi.get(self, "wsfc_static_ip")
 

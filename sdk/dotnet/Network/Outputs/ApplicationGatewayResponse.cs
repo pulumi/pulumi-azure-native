@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> BackendHttpSettingsCollection;
         /// <summary>
+        /// Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendSettingsResponse> BackendSettingsCollection;
+        /// <summary>
         /// Custom error configurations of the application gateway resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse> CustomErrorConfigurations;
@@ -69,6 +73,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> GatewayIPConfigurations;
         /// <summary>
+        /// Global Configuration.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewayGlobalConfigurationResponse? GlobalConfiguration;
+        /// <summary>
         /// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> HttpListeners;
@@ -80,6 +88,14 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// The identity of the application gateway, if configured.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayListenerResponse> Listeners;
+        /// <summary>
+        /// Load distribution policies of the application gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayLoadDistributionPolicyResponse> LoadDistributionPolicies;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -124,6 +140,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Rewrite rules for the application gateway resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponse> RewriteRuleSets;
+        /// <summary>
+        /// Routing rules of the application gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRoutingRuleResponse> RoutingRules;
         /// <summary>
         /// SKU of the application gateway resource.
         /// </summary>
@@ -179,6 +199,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> backendHttpSettingsCollection,
 
+            ImmutableArray<Outputs.ApplicationGatewayBackendSettingsResponse> backendSettingsCollection,
+
             ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse> customErrorConfigurations,
 
             bool? enableFips,
@@ -197,11 +219,17 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> gatewayIPConfigurations,
 
+            Outputs.ApplicationGatewayGlobalConfigurationResponse? globalConfiguration,
+
             ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> httpListeners,
 
             string? id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
+
+            ImmutableArray<Outputs.ApplicationGatewayListenerResponse> listeners,
+
+            ImmutableArray<Outputs.ApplicationGatewayLoadDistributionPolicyResponse> loadDistributionPolicies,
 
             string? location,
 
@@ -224,6 +252,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             string resourceGuid,
 
             ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponse> rewriteRuleSets,
+
+            ImmutableArray<Outputs.ApplicationGatewayRoutingRuleResponse> routingRules,
 
             Outputs.ApplicationGatewaySkuResponse? sku,
 
@@ -251,6 +281,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             AutoscaleConfiguration = autoscaleConfiguration;
             BackendAddressPools = backendAddressPools;
             BackendHttpSettingsCollection = backendHttpSettingsCollection;
+            BackendSettingsCollection = backendSettingsCollection;
             CustomErrorConfigurations = customErrorConfigurations;
             EnableFips = enableFips;
             EnableHttp2 = enableHttp2;
@@ -260,9 +291,12 @@ namespace Pulumi.AzureNative.Network.Outputs
             FrontendIPConfigurations = frontendIPConfigurations;
             FrontendPorts = frontendPorts;
             GatewayIPConfigurations = gatewayIPConfigurations;
+            GlobalConfiguration = globalConfiguration;
             HttpListeners = httpListeners;
             Id = id;
             Identity = identity;
+            Listeners = listeners;
+            LoadDistributionPolicies = loadDistributionPolicies;
             Location = location;
             Name = name;
             OperationalState = operationalState;
@@ -274,6 +308,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             RequestRoutingRules = requestRoutingRules;
             ResourceGuid = resourceGuid;
             RewriteRuleSets = rewriteRuleSets;
+            RoutingRules = routingRules;
             Sku = sku;
             SslCertificates = sslCertificates;
             SslPolicy = sslPolicy;

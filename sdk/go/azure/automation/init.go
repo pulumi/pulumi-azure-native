@@ -43,8 +43,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobSchedule{}
 	case "azure-native:automation:Module":
 		r = &Module{}
-	case "azure-native:automation:PrivateEndpointConnection":
-		r = &PrivateEndpointConnection{}
 	case "azure-native:automation:Python2Package":
 		r = &Python2Package{}
 	case "azure-native:automation:Runbook":

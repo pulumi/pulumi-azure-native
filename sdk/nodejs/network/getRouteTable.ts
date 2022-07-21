@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Route table resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     if (!opts) {

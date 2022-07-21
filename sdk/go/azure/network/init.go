@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:network:AdminRule":
-		r = &AdminRule{}
-	case "azure-native:network:AdminRuleCollection":
-		r = &AdminRuleCollection{}
 	case "azure-native:network:ApplicationGateway":
 		r = &ApplicationGateway{}
 	case "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
@@ -39,22 +35,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationPolicyGroup{}
 	case "azure-native:network:ConnectionMonitor":
 		r = &ConnectionMonitor{}
-	case "azure-native:network:ConnectivityConfiguration":
-		r = &ConnectivityConfiguration{}
 	case "azure-native:network:CustomIPPrefix":
 		r = &CustomIPPrefix{}
 	case "azure-native:network:DdosCustomPolicy":
 		r = &DdosCustomPolicy{}
 	case "azure-native:network:DdosProtectionPlan":
 		r = &DdosProtectionPlan{}
-	case "azure-native:network:DefaultAdminRule":
-		r = &DefaultAdminRule{}
-	case "azure-native:network:DefaultUserRule":
-		r = &DefaultUserRule{}
-	case "azure-native:network:DnsForwardingRuleset":
-		r = &DnsForwardingRuleset{}
-	case "azure-native:network:DnsResolver":
-		r = &DnsResolver{}
 	case "azure-native:network:DscpConfiguration":
 		r = &DscpConfiguration{}
 	case "azure-native:network:Endpoint":
@@ -87,18 +73,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallPolicyRuleGroup{}
 	case "azure-native:network:FlowLog":
 		r = &FlowLog{}
-	case "azure-native:network:ForwardingRule":
-		r = &ForwardingRule{}
 	case "azure-native:network:FrontDoor":
 		r = &FrontDoor{}
 	case "azure-native:network:HubRouteTable":
 		r = &HubRouteTable{}
 	case "azure-native:network:HubVirtualNetworkConnection":
 		r = &HubVirtualNetworkConnection{}
-	case "azure-native:network:InboundEndpoint":
-		r = &InboundEndpoint{}
 	case "azure-native:network:InboundNatRule":
 		r = &InboundNatRule{}
+	case "azure-native:network:InterfaceEndpoint":
+		r = &InterfaceEndpoint{}
 	case "azure-native:network:IpAllocation":
 		r = &IpAllocation{}
 	case "azure-native:network:IpGroup":
@@ -109,42 +93,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LoadBalancerBackendAddressPool{}
 	case "azure-native:network:LocalNetworkGateway":
 		r = &LocalNetworkGateway{}
-	case "azure-native:network:ManagementGroupNetworkManagerConnection":
-		r = &ManagementGroupNetworkManagerConnection{}
 	case "azure-native:network:NatGateway":
 		r = &NatGateway{}
 	case "azure-native:network:NatRule":
 		r = &NatRule{}
 	case "azure-native:network:NetworkExperimentProfile":
 		r = &NetworkExperimentProfile{}
-	case "azure-native:network:NetworkGroup":
-		r = &NetworkGroup{}
 	case "azure-native:network:NetworkInterface":
 		r = &NetworkInterface{}
 	case "azure-native:network:NetworkInterfaceTapConfiguration":
 		r = &NetworkInterfaceTapConfiguration{}
-	case "azure-native:network:NetworkManager":
-		r = &NetworkManager{}
 	case "azure-native:network:NetworkProfile":
 		r = &NetworkProfile{}
 	case "azure-native:network:NetworkSecurityGroup":
 		r = &NetworkSecurityGroup{}
-	case "azure-native:network:NetworkSecurityPerimeter":
-		r = &NetworkSecurityPerimeter{}
 	case "azure-native:network:NetworkVirtualAppliance":
 		r = &NetworkVirtualAppliance{}
 	case "azure-native:network:NetworkWatcher":
 		r = &NetworkWatcher{}
-	case "azure-native:network:NspAccessRule":
-		r = &NspAccessRule{}
-	case "azure-native:network:NspAssociation":
-		r = &NspAssociation{}
-	case "azure-native:network:NspAssociationsProxy":
-		r = &NspAssociationsProxy{}
-	case "azure-native:network:NspProfile":
-		r = &NspProfile{}
-	case "azure-native:network:OutboundEndpoint":
-		r = &OutboundEndpoint{}
 	case "azure-native:network:P2sVpnGateway":
 		r = &P2sVpnGateway{}
 	case "azure-native:network:P2sVpnServerConfiguration":
@@ -185,32 +151,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoutingIntent{}
 	case "azure-native:network:RulesEngine":
 		r = &RulesEngine{}
-	case "azure-native:network:ScopeConnection":
-		r = &ScopeConnection{}
-	case "azure-native:network:SecurityAdminConfiguration":
-		r = &SecurityAdminConfiguration{}
 	case "azure-native:network:SecurityPartnerProvider":
 		r = &SecurityPartnerProvider{}
 	case "azure-native:network:SecurityRule":
 		r = &SecurityRule{}
-	case "azure-native:network:SecurityUserConfiguration":
-		r = &SecurityUserConfiguration{}
 	case "azure-native:network:ServiceEndpointPolicy":
 		r = &ServiceEndpointPolicy{}
 	case "azure-native:network:ServiceEndpointPolicyDefinition":
 		r = &ServiceEndpointPolicyDefinition{}
-	case "azure-native:network:StaticMember":
-		r = &StaticMember{}
 	case "azure-native:network:Subnet":
 		r = &Subnet{}
-	case "azure-native:network:SubscriptionNetworkManagerConnection":
-		r = &SubscriptionNetworkManagerConnection{}
 	case "azure-native:network:TrafficManagerUserMetricsKey":
 		r = &TrafficManagerUserMetricsKey{}
-	case "azure-native:network:UserRule":
-		r = &UserRule{}
-	case "azure-native:network:UserRuleCollection":
-		r = &UserRuleCollection{}
 	case "azure-native:network:VirtualApplianceSite":
 		r = &VirtualApplianceSite{}
 	case "azure-native:network:VirtualHub":

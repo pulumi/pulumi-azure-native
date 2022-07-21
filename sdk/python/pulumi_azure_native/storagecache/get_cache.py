@@ -21,7 +21,7 @@ class GetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
+    def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, priming_jobs=None, provisioning_state=None, security_settings=None, sku=None, space_allocation=None, subnet=None, system_data=None, tags=None, type=None, upgrade_settings=None, upgrade_status=None, zones=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
@@ -52,6 +52,9 @@ class GetCacheResult:
         if network_settings and not isinstance(network_settings, dict):
             raise TypeError("Expected argument 'network_settings' to be a dict")
         pulumi.set(__self__, "network_settings", network_settings)
+        if priming_jobs and not isinstance(priming_jobs, list):
+            raise TypeError("Expected argument 'priming_jobs' to be a list")
+        pulumi.set(__self__, "priming_jobs", priming_jobs)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -61,6 +64,9 @@ class GetCacheResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if space_allocation and not isinstance(space_allocation, list):
+            raise TypeError("Expected argument 'space_allocation' to be a list")
+        pulumi.set(__self__, "space_allocation", space_allocation)
         if subnet and not isinstance(subnet, str):
             raise TypeError("Expected argument 'subnet' to be a str")
         pulumi.set(__self__, "subnet", subnet)
@@ -73,9 +79,15 @@ class GetCacheResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upgrade_settings and not isinstance(upgrade_settings, dict):
+            raise TypeError("Expected argument 'upgrade_settings' to be a dict")
+        pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if upgrade_status and not isinstance(upgrade_status, dict):
             raise TypeError("Expected argument 'upgrade_status' to be a dict")
         pulumi.set(__self__, "upgrade_status", upgrade_status)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="cacheSizeGB")
@@ -158,8 +170,16 @@ class GetCacheResult:
         return pulumi.get(self, "network_settings")
 
     @property
+    @pulumi.getter(name="primingJobs")
+    def priming_jobs(self) -> Sequence['outputs.PrimingJobResponse']:
+        """
+        Specifies the priming jobs defined in the cache.
+        """
+        return pulumi.get(self, "priming_jobs")
+
+    @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
@@ -180,6 +200,14 @@ class GetCacheResult:
         SKU for the Cache.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="spaceAllocation")
+    def space_allocation(self) -> Sequence['outputs.StorageTargetSpaceAllocationResponse']:
+        """
+        Specifies the space allocation percentage for each storage target in the cache.
+        """
+        return pulumi.get(self, "space_allocation")
 
     @property
     @pulumi.getter
@@ -214,12 +242,28 @@ class GetCacheResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional['outputs.CacheUpgradeSettingsResponse']:
+        """
+        Upgrade settings of the Cache.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @property
     @pulumi.getter(name="upgradeStatus")
-    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
+    def upgrade_status(self) -> 'outputs.CacheUpgradeStatusResponse':
         """
         Upgrade status of the Cache.
         """
         return pulumi.get(self, "upgrade_status")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        Availability zones for resources. This field should only contain a single element in the array.
+        """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetCacheResult(GetCacheResult):
@@ -238,14 +282,18 @@ class AwaitableGetCacheResult(GetCacheResult):
             mount_addresses=self.mount_addresses,
             name=self.name,
             network_settings=self.network_settings,
+            priming_jobs=self.priming_jobs,
             provisioning_state=self.provisioning_state,
             security_settings=self.security_settings,
             sku=self.sku,
+            space_allocation=self.space_allocation,
             subnet=self.subnet,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            upgrade_status=self.upgrade_status)
+            upgrade_settings=self.upgrade_settings,
+            upgrade_status=self.upgrade_status,
+            zones=self.zones)
 
 
 def get_cache(cache_name: Optional[str] = None,
@@ -253,7 +301,7 @@ def get_cache(cache_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    API Version: 2021-03-01.
+    API Version: 2022-05-01.
 
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -279,14 +327,18 @@ def get_cache(cache_name: Optional[str] = None,
         mount_addresses=__ret__.mount_addresses,
         name=__ret__.name,
         network_settings=__ret__.network_settings,
+        priming_jobs=__ret__.priming_jobs,
         provisioning_state=__ret__.provisioning_state,
         security_settings=__ret__.security_settings,
         sku=__ret__.sku,
+        space_allocation=__ret__.space_allocation,
         subnet=__ret__.subnet,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
-        upgrade_status=__ret__.upgrade_status)
+        upgrade_settings=__ret__.upgrade_settings,
+        upgrade_status=__ret__.upgrade_status,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(get_cache)
@@ -295,7 +347,7 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    API Version: 2021-03-01.
+    API Version: 2022-05-01.
 
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.

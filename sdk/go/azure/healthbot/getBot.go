@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// HealthBot resource definition
-// API Version: 2020-12-08.
+// Azure Health Bot resource definition
+// API Version: 2021-08-24.
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	var rv LookupBotResult
 	err := ctx.Invoke("azure-native:healthbot:getBot", args, &rv, opts...)
@@ -28,17 +28,19 @@ type LookupBotArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// HealthBot resource definition
+// Azure Health Bot resource definition
 type LookupBotResult struct {
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
+	// The identity of the Azure Health Bot.
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The set of properties specific to Healthbot resource.
+	// The set of properties specific to Azure Health Bot resource.
 	Properties HealthBotPropertiesResponse `pulumi:"properties"`
-	// SKU of the HealthBot.
+	// SKU of the Azure Health Bot.
 	Sku SkuResponse `pulumi:"sku"`
 	// Metadata pertaining to creation and last modification of the resource
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -72,7 +74,7 @@ func (LookupBotOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupBotArgs)(nil)).Elem()
 }
 
-// HealthBot resource definition
+// Azure Health Bot resource definition
 type LookupBotResultOutput struct{ *pulumi.OutputState }
 
 func (LookupBotResultOutput) ElementType() reflect.Type {
@@ -92,6 +94,11 @@ func (o LookupBotResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The identity of the Azure Health Bot.
+func (o LookupBotResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
 // The geo-location where the resource lives
 func (o LookupBotResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotResult) string { return v.Location }).(pulumi.StringOutput)
@@ -102,12 +109,12 @@ func (o LookupBotResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The set of properties specific to Healthbot resource.
+// The set of properties specific to Azure Health Bot resource.
 func (o LookupBotResultOutput) Properties() HealthBotPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupBotResult) HealthBotPropertiesResponse { return v.Properties }).(HealthBotPropertiesResponseOutput)
 }
 
-// SKU of the HealthBot.
+// SKU of the Azure Health Bot.
 func (o LookupBotResultOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v LookupBotResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // A server key.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 type ServerKey struct {
 	pulumi.CustomResourceState
 
@@ -117,7 +117,7 @@ type serverKeyArgs struct {
 	ServerKeyType string `pulumi:"serverKeyType"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
 	Uri *string `pulumi:"uri"`
 }
 
@@ -131,7 +131,7 @@ type ServerKeyArgs struct {
 	ServerKeyType pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
 	Uri pulumi.StringPtrInput
 }
 

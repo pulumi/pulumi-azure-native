@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the IoT hub.
- * API Version: 2020-08-31.
+ * API Version: 2021-07-02.
  */
 export class IotHubResource extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class IotHubResource extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * The managed identities for the IotHub.
+     */
+    public readonly identity!: pulumi.Output<outputs.devices.ArmIdentityResponse | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -56,6 +60,10 @@ export class IotHubResource extends pulumi.CustomResource {
      * IotHub SKU info
      */
     public readonly sku!: pulumi.Output<outputs.devices.IotHubSkuInfoResponse>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.devices.SystemDataResponse>;
     /**
      * The resource tags.
      */
@@ -82,6 +90,7 @@ export class IotHubResource extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.devices.iotHubPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -90,13 +99,16 @@ export class IotHubResource extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -111,6 +123,10 @@ export class IotHubResource extends pulumi.CustomResource {
  * The set of arguments for constructing a IotHubResource resource.
  */
 export interface IotHubResourceArgs {
+    /**
+     * The managed identities for the IotHub.
+     */
+    identity?: pulumi.Input<inputs.devices.ArmIdentityArgs>;
     /**
      * The resource location.
      */

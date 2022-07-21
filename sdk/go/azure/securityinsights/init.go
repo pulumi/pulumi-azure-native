@@ -29,30 +29,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ASCDataConnector{}
 	case "azure-native:securityinsights:Action":
 		r = &Action{}
-	case "azure-native:securityinsights:ActivityCustomEntityQuery":
-		r = &ActivityCustomEntityQuery{}
 	case "azure-native:securityinsights:AlertRule":
 		r = &AlertRule{}
-	case "azure-native:securityinsights:Anomalies":
-		r = &Anomalies{}
-	case "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings":
-		r = &AnomalySecurityMLAnalyticsSettings{}
 	case "azure-native:securityinsights:AutomationRule":
 		r = &AutomationRule{}
 	case "azure-native:securityinsights:AwsCloudTrailDataConnector":
 		r = &AwsCloudTrailDataConnector{}
 	case "azure-native:securityinsights:Bookmark":
 		r = &Bookmark{}
-	case "azure-native:securityinsights:BookmarkRelation":
-		r = &BookmarkRelation{}
 	case "azure-native:securityinsights:DataConnector":
 		r = &DataConnector{}
-	case "azure-native:securityinsights:EntityAnalytics":
-		r = &EntityAnalytics{}
-	case "azure-native:securityinsights:EntityQuery":
-		r = &EntityQuery{}
-	case "azure-native:securityinsights:EyesOn":
-		r = &EyesOn{}
 	case "azure-native:securityinsights:FusionAlertRule":
 		r = &FusionAlertRule{}
 	case "azure-native:securityinsights:Incident":
@@ -65,28 +51,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MCASDataConnector{}
 	case "azure-native:securityinsights:MDATPDataConnector":
 		r = &MDATPDataConnector{}
-	case "azure-native:securityinsights:Metadata":
-		r = &Metadata{}
 	case "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule":
 		r = &MicrosoftSecurityIncidentCreationAlertRule{}
 	case "azure-native:securityinsights:OfficeDataConnector":
 		r = &OfficeDataConnector{}
-	case "azure-native:securityinsights:ProductSetting":
-		r = &ProductSetting{}
 	case "azure-native:securityinsights:ScheduledAlertRule":
 		r = &ScheduledAlertRule{}
-	case "azure-native:securityinsights:SecurityMLAnalyticsSetting":
-		r = &SecurityMLAnalyticsSetting{}
 	case "azure-native:securityinsights:SentinelOnboardingState":
 		r = &SentinelOnboardingState{}
-	case "azure-native:securityinsights:SourceControl":
-		r = &SourceControl{}
 	case "azure-native:securityinsights:TIDataConnector":
 		r = &TIDataConnector{}
 	case "azure-native:securityinsights:ThreatIntelligenceIndicator":
 		r = &ThreatIntelligenceIndicator{}
-	case "azure-native:securityinsights:Ueba":
-		r = &Ueba{}
 	case "azure-native:securityinsights:Watchlist":
 		r = &Watchlist{}
 	case "azure-native:securityinsights:WatchlistItem":

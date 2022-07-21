@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
+        /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
+
         public StorageAccountArgs()
         {
         }

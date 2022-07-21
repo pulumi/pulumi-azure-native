@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:Peering")]
     public partial class Peering : Pulumi.CustomResource

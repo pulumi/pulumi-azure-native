@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRoutePort Authorization resource definition.
-// API Version: 2022-01-01.
+// API Version: 2021-08-01.
 type ExpressRoutePortAuthorization struct {
 	pulumi.CustomResourceState
 

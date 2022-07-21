@@ -35,50 +35,32 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Component{}
 	case "azure-native:insights:ComponentCurrentBillingFeature":
 		r = &ComponentCurrentBillingFeature{}
-	case "azure-native:insights:ComponentLinkedStorageAccount":
-		r = &ComponentLinkedStorageAccount{}
 	case "azure-native:insights:DataCollectionEndpoint":
 		r = &DataCollectionEndpoint{}
 	case "azure-native:insights:DataCollectionRule":
 		r = &DataCollectionRule{}
 	case "azure-native:insights:DataCollectionRuleAssociation":
 		r = &DataCollectionRuleAssociation{}
-	case "azure-native:insights:DiagnosticSetting":
-		r = &DiagnosticSetting{}
 	case "azure-native:insights:ExportConfiguration":
 		r = &ExportConfiguration{}
 	case "azure-native:insights:Favorite":
 		r = &Favorite{}
-	case "azure-native:insights:GuestDiagnosticsSettingsAssociation":
-		r = &GuestDiagnosticsSettingsAssociation{}
 	case "azure-native:insights:LogProfile":
 		r = &LogProfile{}
-	case "azure-native:insights:ManagementGroupDiagnosticSetting":
-		r = &ManagementGroupDiagnosticSetting{}
 	case "azure-native:insights:MetricAlert":
 		r = &MetricAlert{}
 	case "azure-native:insights:MyWorkbook":
 		r = &MyWorkbook{}
-	case "azure-native:insights:PrivateEndpointConnection":
-		r = &PrivateEndpointConnection{}
-	case "azure-native:insights:PrivateLinkScope":
-		r = &PrivateLinkScope{}
-	case "azure-native:insights:PrivateLinkScopedResource":
-		r = &PrivateLinkScopedResource{}
 	case "azure-native:insights:ProactiveDetectionConfiguration":
 		r = &ProactiveDetectionConfiguration{}
 	case "azure-native:insights:ScheduledQueryRule":
 		r = &ScheduledQueryRule{}
-	case "azure-native:insights:SubscriptionDiagnosticSetting":
-		r = &SubscriptionDiagnosticSetting{}
 	case "azure-native:insights:WebTest":
 		r = &WebTest{}
 	case "azure-native:insights:Workbook":
 		r = &Workbook{}
 	case "azure-native:insights:WorkbookTemplate":
 		r = &WorkbookTemplate{}
-	case "azure-native:insights:guestDiagnosticsSetting":
-		r = &GuestDiagnosticsSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

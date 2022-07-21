@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
-    /// An Application Insights workbook definition.
-    /// API Version: 2020-10-20.
+    /// A workbook definition.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Workbook")]
     public partial class Workbook : Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Category { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the workbook.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The user-defined name (display name) of the workbook.
         /// </summary>
         [Output("displayName")]
@@ -32,31 +38,37 @@ namespace Pulumi.AzureNative.Insights
         /// Resource etag
         /// </summary>
         [Output("etag")]
-        public Output<ImmutableDictionary<string, string>?> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.WorkbookManagedIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.WorkbookResourceResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of workbook. Choices are user and shared.
+        /// The kind of workbook. Only valid value is shared.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique revision id for this workbook definition
+        /// </summary>
+        [Output("revision")]
+        public Output<string> Revision { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
@@ -71,13 +83,19 @@ namespace Pulumi.AzureNative.Insights
         public Output<string?> SourceId { get; private set; } = null!;
 
         /// <summary>
-        /// BYOS Storage Account URI
+        /// The resourceId to the storage account when bring your own storage is used
         /// </summary>
         [Output("storageUri")]
         public Output<string?> StorageUri { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -89,10 +107,10 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// Unique user id of the specific user that owns this workbook.
@@ -101,7 +119,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// Workbook version
+        /// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -167,40 +185,34 @@ namespace Pulumi.AzureNative.Insights
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
+        /// The description of the workbook.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The user-defined name (display name) of the workbook.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Azure resource Id
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// Identity used for BYOS
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.WorkbookManagedIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.WorkbookResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of workbook. Choices are user and shared.
+        /// The kind of workbook. Only valid value is shared.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNative.Insights.Kind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.WorkbookSharedTypeKind>? Kind { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Azure resource name
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -209,7 +221,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights component resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
@@ -227,7 +239,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<string>? SourceId { get; set; }
 
         /// <summary>
-        /// BYOS Storage Account URI
+        /// The resourceId to the storage account when bring your own storage is used
         /// </summary>
         [Input("storageUri")]
         public Input<string>? StorageUri { get; set; }
@@ -236,7 +248,7 @@ namespace Pulumi.AzureNative.Insights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -245,13 +257,7 @@ namespace Pulumi.AzureNative.Insights
         }
 
         /// <summary>
-        /// Azure resource type
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// Workbook version
+        /// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

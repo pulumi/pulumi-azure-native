@@ -69,88 +69,6 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
-    /// Column data type logical hint.
-    /// </summary>
-    [EnumType]
-    public readonly struct ColumnDataTypeHintEnum : IEquatable<ColumnDataTypeHintEnum>
-    {
-        private readonly string _value;
-
-        private ColumnDataTypeHintEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// A string that matches the pattern of a URI, for example, scheme://username:password@host:1234/this/is/a/path?k1=v1&amp;k2=v2#fragment
-        /// </summary>
-        public static ColumnDataTypeHintEnum Uri { get; } = new ColumnDataTypeHintEnum("uri");
-        /// <summary>
-        /// A standard 128-bit GUID following the standard shape, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        /// </summary>
-        public static ColumnDataTypeHintEnum Guid { get; } = new ColumnDataTypeHintEnum("guid");
-        /// <summary>
-        /// An Azure Resource Model (ARM) path: /subscriptions/{...}/resourceGroups/{...}/providers/Microsoft.{...}/{...}/{...}/{...}...
-        /// </summary>
-        public static ColumnDataTypeHintEnum ArmPath { get; } = new ColumnDataTypeHintEnum("armPath");
-        /// <summary>
-        /// A standard V4/V6 ip address following the standard shape, x.x.x.x/y:y:y:y:y:y:y:y
-        /// </summary>
-        public static ColumnDataTypeHintEnum Ip { get; } = new ColumnDataTypeHintEnum("ip");
-
-        public static bool operator ==(ColumnDataTypeHintEnum left, ColumnDataTypeHintEnum right) => left.Equals(right);
-        public static bool operator !=(ColumnDataTypeHintEnum left, ColumnDataTypeHintEnum right) => !left.Equals(right);
-
-        public static explicit operator string(ColumnDataTypeHintEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ColumnDataTypeHintEnum other && Equals(other);
-        public bool Equals(ColumnDataTypeHintEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Column data type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ColumnTypeEnum : IEquatable<ColumnTypeEnum>
-    {
-        private readonly string _value;
-
-        private ColumnTypeEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ColumnTypeEnum @String { get; } = new ColumnTypeEnum("string");
-        public static ColumnTypeEnum @Int { get; } = new ColumnTypeEnum("int");
-        public static ColumnTypeEnum @Long { get; } = new ColumnTypeEnum("long");
-        public static ColumnTypeEnum Real { get; } = new ColumnTypeEnum("real");
-        public static ColumnTypeEnum Boolean { get; } = new ColumnTypeEnum("boolean");
-        public static ColumnTypeEnum DateTime { get; } = new ColumnTypeEnum("dateTime");
-        public static ColumnTypeEnum Guid { get; } = new ColumnTypeEnum("guid");
-        public static ColumnTypeEnum @Dynamic { get; } = new ColumnTypeEnum("dynamic");
-
-        public static bool operator ==(ColumnTypeEnum left, ColumnTypeEnum right) => left.Equals(right);
-        public static bool operator !=(ColumnTypeEnum left, ColumnTypeEnum right) => !left.Equals(right);
-
-        public static explicit operator string(ColumnTypeEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ColumnTypeEnum other && Equals(other);
-        public bool Equals(ColumnTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of the DataSource.
     /// </summary>
     [EnumType]
@@ -278,40 +196,6 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
-    /// Type of the machine group
-    /// </summary>
-    [EnumType]
-    public readonly struct MachineGroupType : IEquatable<MachineGroupType>
-    {
-        private readonly string _value;
-
-        private MachineGroupType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MachineGroupType Unknown { get; } = new MachineGroupType("unknown");
-        public static MachineGroupType Azure_cs { get; } = new MachineGroupType("azure-cs");
-        public static MachineGroupType Azure_sf { get; } = new MachineGroupType("azure-sf");
-        public static MachineGroupType Azure_vmss { get; } = new MachineGroupType("azure-vmss");
-        public static MachineGroupType User_static { get; } = new MachineGroupType("user-static");
-
-        public static bool operator ==(MachineGroupType left, MachineGroupType right) => left.Equals(right);
-        public static bool operator !=(MachineGroupType left, MachineGroupType right) => !left.Equals(right);
-
-        public static explicit operator string(MachineGroupType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MachineGroupType other && Equals(other);
-        public bool Equals(MachineGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The network access type for accessing Log Analytics query.
     /// </summary>
     [EnumType]
@@ -341,43 +225,6 @@ namespace Pulumi.AzureNative.OperationalInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
         public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Instruct the system how to handle and charge the logs ingested to this table.
-    /// </summary>
-    [EnumType]
-    public readonly struct TablePlanEnum : IEquatable<TablePlanEnum>
-    {
-        private readonly string _value;
-
-        private TablePlanEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Logs  that are adjusted to support high volume low value verbose logs.
-        /// </summary>
-        public static TablePlanEnum Basic { get; } = new TablePlanEnum("Basic");
-        /// <summary>
-        /// Logs  that allow monitoring and analytics.
-        /// </summary>
-        public static TablePlanEnum Analytics { get; } = new TablePlanEnum("Analytics");
-
-        public static bool operator ==(TablePlanEnum left, TablePlanEnum right) => left.Equals(right);
-        public static bool operator !=(TablePlanEnum left, TablePlanEnum right) => !left.Equals(right);
-
-        public static explicit operator string(TablePlanEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TablePlanEnum other && Equals(other);
-        public bool Equals(TablePlanEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

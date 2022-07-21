@@ -21,10 +21,13 @@ class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
     """
-    def __init__(__self__, active_key=None, encryption_type=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, tags=None, type=None):
+    def __init__(__self__, active_key=None, auto_key_rotation_error=None, encryption_type=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, tags=None, type=None):
         if active_key and not isinstance(active_key, dict):
             raise TypeError("Expected argument 'active_key' to be a dict")
         pulumi.set(__self__, "active_key", active_key)
+        if auto_key_rotation_error and not isinstance(auto_key_rotation_error, dict):
+            raise TypeError("Expected argument 'auto_key_rotation_error' to be a dict")
+        pulumi.set(__self__, "auto_key_rotation_error", auto_key_rotation_error)
         if encryption_type and not isinstance(encryption_type, str):
             raise TypeError("Expected argument 'encryption_type' to be a str")
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -66,6 +69,14 @@ class GetDiskEncryptionSetResult:
         The key vault key which is currently used by this disk encryption set.
         """
         return pulumi.get(self, "active_key")
+
+    @property
+    @pulumi.getter(name="autoKeyRotationError")
+    def auto_key_rotation_error(self) -> 'outputs.ApiErrorResponse':
+        """
+        The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+        """
+        return pulumi.get(self, "auto_key_rotation_error")
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -163,6 +174,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
             yield self
         return GetDiskEncryptionSetResult(
             active_key=self.active_key,
+            auto_key_rotation_error=self.auto_key_rotation_error,
             encryption_type=self.encryption_type,
             id=self.id,
             identity=self.identity,
@@ -181,10 +193,10 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
     disk encryption set resource.
-    API Version: 2020-12-01.
+    API Version: 2021-12-01.
 
 
-    :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
@@ -198,6 +210,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
 
     return AwaitableGetDiskEncryptionSetResult(
         active_key=__ret__.active_key,
+        auto_key_rotation_error=__ret__.auto_key_rotation_error,
         encryption_type=__ret__.encryption_type,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -217,10 +230,10 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
     disk encryption set resource.
-    API Version: 2020-12-01.
+    API Version: 2021-12-01.
 
 
-    :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
     ...

@@ -11,7 +11,7 @@ import (
 )
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupBlobContainerImmutabilityPolicy(ctx *pulumi.Context, args *LookupBlobContainerImmutabilityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerImmutabilityPolicyResult, error) {
 	var rv LookupBlobContainerImmutabilityPolicyResult
 	err := ctx.Invoke("azure-native:storage:getBlobContainerImmutabilityPolicy", args, &rv, opts...)
@@ -34,8 +34,10 @@ type LookupBlobContainerImmutabilityPolicyArgs struct {
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 type LookupBlobContainerImmutabilityPolicyResult struct {
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+	AllowProtectedAppendWritesAll *bool `pulumi:"allowProtectedAppendWritesAll"`
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -93,9 +95,14 @@ func (o LookupBlobContainerImmutabilityPolicyResultOutput) ToLookupBlobContainer
 	return o
 }
 
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 func (o LookupBlobContainerImmutabilityPolicyResultOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupBlobContainerImmutabilityPolicyResult) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+func (o LookupBlobContainerImmutabilityPolicyResultOutput) AllowProtectedAppendWritesAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBlobContainerImmutabilityPolicyResult) *bool { return v.AllowProtectedAppendWritesAll }).(pulumi.BoolPtrOutput)
 }
 
 // Resource Etag.

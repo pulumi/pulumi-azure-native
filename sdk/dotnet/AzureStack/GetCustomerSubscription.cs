@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStack
     {
         /// <summary>
         /// Customer subscription.
-        /// API Version: 2017-06-01.
+        /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer subscription.
-        /// API Version: 2017-06-01.
+        /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tenant Id.
         /// </summary>
         public readonly string? TenantId;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.AzureStack
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string? tenantId,
 
             string type)
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.AzureStack
             Etag = etag;
             Id = id;
             Name = name;
+            SystemData = systemData;
             TenantId = tenantId;
             Type = type;
         }

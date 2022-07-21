@@ -15,9 +15,6 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     /// </summary>
     public sealed class SqlManagedInstanceSkuArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
@@ -27,14 +24,11 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         [Input("dev")]
         public Input<bool>? Dev { get; set; }
 
-        /// <summary>
-        /// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the SKU.  It is typically a letter+number code
+        /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -46,7 +40,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+        /// The pricing tier for the instance.
         /// </summary>
         [Input("tier")]
         public Input<Pulumi.AzureNative.AzureArcData.SqlManagedInstanceSkuTier>? Tier { get; set; }

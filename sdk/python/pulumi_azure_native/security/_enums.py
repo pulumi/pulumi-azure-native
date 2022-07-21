@@ -5,52 +5,28 @@
 from enum import Enum
 
 __all__ = [
-    'ActionType',
     'AdditionalWorkspaceDataType',
     'AdditionalWorkspaceType',
-    'ApplicationSourceResourceType',
     'AssessmentStatusCode',
     'AssessmentType',
-    'AuthenticationType',
-    'AutoProvision',
     'Categories',
-    'CloudName',
     'DataSource',
-    'EventSource',
     'ExportData',
     'ImplementationEffort',
-    'MinimalSeverity',
-    'OfferingType',
-    'Operator',
-    'OrganizationMembershipType',
-    'PropertyType',
     'Protocol',
     'RecommendationConfigStatus',
     'RecommendationType',
-    'Roles',
-    'RuleState',
     'SecuritySolutionStatus',
     'Severity',
-    'SeverityEnum',
     'Source',
-    'StandardSupportedClouds',
-    'State',
     'Status',
     'StatusReason',
-    'SupportedCloudEnum',
+    'Tactics',
+    'Techniques',
     'Threats',
     'UnmaskedIpLoggingStatus',
     'UserImpact',
 ]
-
-
-class ActionType(str, Enum):
-    """
-    The type of the action that will be triggered by the Automation
-    """
-    LOGIC_APP = "LogicApp"
-    EVENT_HUB = "EventHub"
-    WORKSPACE = "Workspace"
 
 
 class AdditionalWorkspaceDataType(str, Enum):
@@ -66,16 +42,6 @@ class AdditionalWorkspaceType(str, Enum):
     Workspace type.
     """
     SENTINEL = "Sentinel"
-
-
-class ApplicationSourceResourceType(str, Enum):
-    """
-    The application source, what it affects, e.g. Assessments
-    """
-    ASSESSMENTS = "Assessments"
-    """
-    The source of the application is assessments
-    """
 
 
 class AssessmentStatusCode(str, Enum):
@@ -118,38 +84,6 @@ class AssessmentType(str, Enum):
     """
 
 
-class AuthenticationType(str, Enum):
-    """
-    Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-    """
-    AWS_CREDS = "awsCreds"
-    """
-    AWS cloud account connector user credentials authentication
-    """
-    AWS_ASSUME_ROLE = "awsAssumeRole"
-    """
-    AWS account connector assume role authentication
-    """
-    GCP_CREDENTIALS = "gcpCredentials"
-    """
-    GCP account connector service to service authentication
-    """
-
-
-class AutoProvision(str, Enum):
-    """
-    Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-    """
-    ON = "On"
-    """
-    Install missing Azure Arc agents on machines automatically
-    """
-    OFF = "Off"
-    """
-    Do not install Azure Arc agent on the machines automatically
-    """
-
-
 class Categories(str, Enum):
     """
     The categories of resource that is at risk when the assessment is unhealthy
@@ -161,37 +95,11 @@ class Categories(str, Enum):
     IO_T = "IoT"
 
 
-class CloudName(str, Enum):
-    """
-    The multi cloud resource's cloud name.
-    """
-    AZURE = "Azure"
-    AWS = "AWS"
-    GCP = "GCP"
-
-
 class DataSource(str, Enum):
     TWIN_DATA = "TwinData"
     """
     Devices twin data
     """
-
-
-class EventSource(str, Enum):
-    """
-    A valid event source type.
-    """
-    ASSESSMENTS = "Assessments"
-    ASSESSMENTS_SNAPSHOT = "AssessmentsSnapshot"
-    SUB_ASSESSMENTS = "SubAssessments"
-    SUB_ASSESSMENTS_SNAPSHOT = "SubAssessmentsSnapshot"
-    ALERTS = "Alerts"
-    SECURE_SCORES = "SecureScores"
-    SECURE_SCORES_SNAPSHOT = "SecureScoresSnapshot"
-    SECURE_SCORE_CONTROLS = "SecureScoreControls"
-    SECURE_SCORE_CONTROLS_SNAPSHOT = "SecureScoreControlsSnapshot"
-    REGULATORY_COMPLIANCE_ASSESSMENT = "RegulatoryComplianceAssessment"
-    REGULATORY_COMPLIANCE_ASSESSMENT_SNAPSHOT = "RegulatoryComplianceAssessmentSnapshot"
 
 
 class ExportData(str, Enum):
@@ -208,94 +116,6 @@ class ImplementationEffort(str, Enum):
     LOW = "Low"
     MODERATE = "Moderate"
     HIGH = "High"
-
-
-class MinimalSeverity(str, Enum):
-    """
-    Defines the minimal alert severity which will be sent as email notifications
-    """
-    HIGH = "High"
-    """
-    Get notifications on new alerts with High severity
-    """
-    MEDIUM = "Medium"
-    """
-    Get notifications on new alerts with medium or high severity
-    """
-    LOW = "Low"
-    """
-    Don't get notifications on new alerts with low, medium or high severity
-    """
-
-
-class OfferingType(str, Enum):
-    """
-    The type of the security offering.
-    """
-    CSPM_MONITOR_AWS = "CspmMonitorAws"
-    DEFENDER_FOR_CONTAINERS_AWS = "DefenderForContainersAws"
-    DEFENDER_FOR_SERVERS_AWS = "DefenderForServersAws"
-    INFORMATION_PROTECTION_AWS = "InformationProtectionAws"
-
-
-class Operator(str, Enum):
-    """
-    A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-    """
-    EQUALS = "Equals"
-    """
-    Applies for decimal and non-decimal operands
-    """
-    GREATER_THAN = "GreaterThan"
-    """
-    Applies only for decimal operands
-    """
-    GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
-    """
-    Applies only for decimal operands
-    """
-    LESSER_THAN = "LesserThan"
-    """
-    Applies only for decimal operands
-    """
-    LESSER_THAN_OR_EQUAL_TO = "LesserThanOrEqualTo"
-    """
-    Applies only for decimal operands
-    """
-    NOT_EQUALS = "NotEquals"
-    """
-    Applies  for decimal and non-decimal operands
-    """
-    CONTAINS = "Contains"
-    """
-    Applies only for non-decimal operands
-    """
-    STARTS_WITH = "StartsWith"
-    """
-    Applies only for non-decimal operands
-    """
-    ENDS_WITH = "EndsWith"
-    """
-    Applies only for non-decimal operands
-    """
-
-
-class OrganizationMembershipType(str, Enum):
-    """
-    The multi cloud account's membership type in the organization
-    """
-    MEMBER = "Member"
-    ORGANIZATION = "Organization"
-
-
-class PropertyType(str, Enum):
-    """
-    The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-    """
-    STRING = "String"
-    INTEGER = "Integer"
-    NUMBER = "Number"
-    BOOLEAN = "Boolean"
 
 
 class Protocol(str, Enum):
@@ -382,37 +202,6 @@ class RecommendationType(str, Enum):
     """
 
 
-class Roles(str, Enum):
-    """
-    A possible role to configure sending security notification alerts to
-    """
-    ACCOUNT_ADMIN = "AccountAdmin"
-    """
-    If enabled, send notification on new alerts to the account admins
-    """
-    SERVICE_ADMIN = "ServiceAdmin"
-    """
-    If enabled, send notification on new alerts to the service admins
-    """
-    OWNER = "Owner"
-    """
-    If enabled, send notification on new alerts to the subscription owners
-    """
-    CONTRIBUTOR = "Contributor"
-    """
-    If enabled, send notification on new alerts to the subscription contributors
-    """
-
-
-class RuleState(str, Enum):
-    """
-    Possible states of the rule
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-    EXPIRED = "Expired"
-
-
 class SecuritySolutionStatus(str, Enum):
     """
     Status of the IoT Security solution.
@@ -428,15 +217,6 @@ class Severity(str, Enum):
     LOW = "Low"
     MEDIUM = "Medium"
     HIGH = "High"
-
-
-class SeverityEnum(str, Enum):
-    """
-    The severity to relate to the assessments generated by this assessment automation.
-    """
-    HIGH = "High"
-    MEDIUM = "Medium"
-    LOW = "Low"
 
 
 class Source(str, Enum):
@@ -457,28 +237,6 @@ class Source(str, Enum):
     """
 
 
-class StandardSupportedClouds(str, Enum):
-    """
-    The cloud that the standard is supported on.
-    """
-    AWS = "AWS"
-    GCP = "GCP"
-
-
-class State(str, Enum):
-    """
-    Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-    """
-    ON = "On"
-    """
-    Send notification on new alerts to the subscription's admins
-    """
-    OFF = "Off"
-    """
-    Don't send notification on new alerts to the subscription's admins
-    """
-
-
 class Status(str, Enum):
     """
     The status of the port
@@ -496,12 +254,134 @@ class StatusReason(str, Enum):
     NEWER_REQUEST_INITIATED = "NewerRequestInitiated"
 
 
-class SupportedCloudEnum(str, Enum):
+class Tactics(str, Enum):
     """
-    Relevant cloud for the custom assessment automation.
+    Tactic of the assessment
     """
-    AWS = "AWS"
-    GCP = "GCP"
+    RECONNAISSANCE = "Reconnaissance"
+    RESOURCE_DEVELOPMENT = "Resource Development"
+    INITIAL_ACCESS = "Initial Access"
+    EXECUTION = "Execution"
+    PERSISTENCE = "Persistence"
+    PRIVILEGE_ESCALATION = "Privilege Escalation"
+    DEFENSE_EVASION = "Defense Evasion"
+    CREDENTIAL_ACCESS = "Credential Access"
+    DISCOVERY = "Discovery"
+    LATERAL_MOVEMENT = "Lateral Movement"
+    COLLECTION = "Collection"
+    COMMAND_AND_CONTROL = "Command and Control"
+    EXFILTRATION = "Exfiltration"
+    IMPACT = "Impact"
+
+
+class Techniques(str, Enum):
+    """
+    Techniques of the assessment
+    """
+    ABUSE_ELEVATION_CONTROL_MECHANISM = "Abuse Elevation Control Mechanism"
+    ACCESS_TOKEN_MANIPULATION = "Access Token Manipulation"
+    ACCOUNT_DISCOVERY = "Account Discovery"
+    ACCOUNT_MANIPULATION = "Account Manipulation"
+    ACTIVE_SCANNING = "Active Scanning"
+    APPLICATION_LAYER_PROTOCOL = "Application Layer Protocol"
+    AUDIO_CAPTURE = "Audio Capture"
+    BOOT_OR_LOGON_AUTOSTART_EXECUTION = "Boot or Logon Autostart Execution"
+    BOOT_OR_LOGON_INITIALIZATION_SCRIPTS = "Boot or Logon Initialization Scripts"
+    BRUTE_FORCE = "Brute Force"
+    CLOUD_INFRASTRUCTURE_DISCOVERY = "Cloud Infrastructure Discovery"
+    CLOUD_SERVICE_DASHBOARD = "Cloud Service Dashboard"
+    CLOUD_SERVICE_DISCOVERY = "Cloud Service Discovery"
+    COMMAND_AND_SCRIPTING_INTERPRETER = "Command and Scripting Interpreter"
+    COMPROMISE_CLIENT_SOFTWARE_BINARY = "Compromise Client Software Binary"
+    COMPROMISE_INFRASTRUCTURE = "Compromise Infrastructure"
+    CONTAINER_AND_RESOURCE_DISCOVERY = "Container and Resource Discovery"
+    CREATE_ACCOUNT = "Create Account"
+    CREATE_OR_MODIFY_SYSTEM_PROCESS = "Create or Modify System Process"
+    CREDENTIALS_FROM_PASSWORD_STORES = "Credentials from Password Stores"
+    DATA_DESTRUCTION = "Data Destruction"
+    DATA_ENCRYPTED_FOR_IMPACT = "Data Encrypted for Impact"
+    DATA_FROM_CLOUD_STORAGE_OBJECT = "Data from Cloud Storage Object"
+    DATA_FROM_CONFIGURATION_REPOSITORY = "Data from Configuration Repository"
+    DATA_FROM_INFORMATION_REPOSITORIES = "Data from Information Repositories"
+    DATA_FROM_LOCAL_SYSTEM = "Data from Local System"
+    DATA_MANIPULATION = "Data Manipulation"
+    DATA_STAGED = "Data Staged"
+    DEFACEMENT = "Defacement"
+    DEOBFUSCATE_DECODE_FILES_OR_INFORMATION = "Deobfuscate/Decode Files or Information"
+    DISK_WIPE = "Disk Wipe"
+    DOMAIN_TRUST_DISCOVERY = "Domain Trust Discovery"
+    DRIVE_BY_COMPROMISE = "Drive-by Compromise"
+    DYNAMIC_RESOLUTION = "Dynamic Resolution"
+    ENDPOINT_DENIAL_OF_SERVICE = "Endpoint Denial of Service"
+    EVENT_TRIGGERED_EXECUTION = "Event Triggered Execution"
+    EXFILTRATION_OVER_ALTERNATIVE_PROTOCOL = "Exfiltration Over Alternative Protocol"
+    EXPLOIT_PUBLIC_FACING_APPLICATION = "Exploit Public-Facing Application"
+    EXPLOITATION_FOR_CLIENT_EXECUTION = "Exploitation for Client Execution"
+    EXPLOITATION_FOR_CREDENTIAL_ACCESS = "Exploitation for Credential Access"
+    EXPLOITATION_FOR_DEFENSE_EVASION = "Exploitation for Defense Evasion"
+    EXPLOITATION_FOR_PRIVILEGE_ESCALATION = "Exploitation for Privilege Escalation"
+    EXPLOITATION_OF_REMOTE_SERVICES = "Exploitation of Remote Services"
+    EXTERNAL_REMOTE_SERVICES = "External Remote Services"
+    FALLBACK_CHANNELS = "Fallback Channels"
+    FILE_AND_DIRECTORY_DISCOVERY = "File and Directory Discovery"
+    GATHER_VICTIM_NETWORK_INFORMATION = "Gather Victim Network Information"
+    HIDE_ARTIFACTS = "Hide Artifacts"
+    HIJACK_EXECUTION_FLOW = "Hijack Execution Flow"
+    IMPAIR_DEFENSES = "Impair Defenses"
+    IMPLANT_CONTAINER_IMAGE = "Implant Container Image"
+    INDICATOR_REMOVAL_ON_HOST = "Indicator Removal on Host"
+    INDIRECT_COMMAND_EXECUTION = "Indirect Command Execution"
+    INGRESS_TOOL_TRANSFER = "Ingress Tool Transfer"
+    INPUT_CAPTURE = "Input Capture"
+    INTER_PROCESS_COMMUNICATION = "Inter-Process Communication"
+    LATERAL_TOOL_TRANSFER = "Lateral Tool Transfer"
+    MAN_IN_THE_MIDDLE = "Man-in-the-Middle"
+    MASQUERADING = "Masquerading"
+    MODIFY_AUTHENTICATION_PROCESS = "Modify Authentication Process"
+    MODIFY_REGISTRY = "Modify Registry"
+    NETWORK_DENIAL_OF_SERVICE = "Network Denial of Service"
+    NETWORK_SERVICE_SCANNING = "Network Service Scanning"
+    NETWORK_SNIFFING = "Network Sniffing"
+    NON_APPLICATION_LAYER_PROTOCOL = "Non-Application Layer Protocol"
+    NON_STANDARD_PORT = "Non-Standard Port"
+    OBTAIN_CAPABILITIES = "Obtain Capabilities"
+    OBFUSCATED_FILES_OR_INFORMATION = "Obfuscated Files or Information"
+    OFFICE_APPLICATION_STARTUP = "Office Application Startup"
+    O_S_CREDENTIAL_DUMPING = "OS Credential Dumping"
+    PERMISSION_GROUPS_DISCOVERY = "Permission Groups Discovery"
+    PHISHING = "Phishing"
+    PRE_O_S_BOOT = "Pre-OS Boot"
+    PROCESS_DISCOVERY = "Process Discovery"
+    PROCESS_INJECTION = "Process Injection"
+    PROTOCOL_TUNNELING = "Protocol Tunneling"
+    PROXY = "Proxy"
+    QUERY_REGISTRY = "Query Registry"
+    REMOTE_ACCESS_SOFTWARE = "Remote Access Software"
+    REMOTE_SERVICE_SESSION_HIJACKING = "Remote Service Session Hijacking"
+    REMOTE_SERVICES = "Remote Services"
+    REMOTE_SYSTEM_DISCOVERY = "Remote System Discovery"
+    RESOURCE_HIJACKING = "Resource Hijacking"
+    SCHEDULED_TASK_JOB = "Scheduled Task/Job"
+    SCREEN_CAPTURE = "Screen Capture"
+    SEARCH_VICTIM_OWNED_WEBSITES = "Search Victim-Owned Websites"
+    SERVER_SOFTWARE_COMPONENT = "Server Software Component"
+    SERVICE_STOP = "Service Stop"
+    SIGNED_BINARY_PROXY_EXECUTION = "Signed Binary Proxy Execution"
+    SOFTWARE_DEPLOYMENT_TOOLS = "Software Deployment Tools"
+    SQ_L_STORED_PROCEDURES = "SQL Stored Procedures"
+    STEAL_OR_FORGE_KERBEROS_TICKETS = "Steal or Forge Kerberos Tickets"
+    SUBVERT_TRUST_CONTROLS = "Subvert Trust Controls"
+    SUPPLY_CHAIN_COMPROMISE = "Supply Chain Compromise"
+    SYSTEM_INFORMATION_DISCOVERY = "System Information Discovery"
+    TAINT_SHARED_CONTENT = "Taint Shared Content"
+    TRAFFIC_SIGNALING = "Traffic Signaling"
+    TRANSFER_DATA_TO_CLOUD_ACCOUNT = "Transfer Data to Cloud Account"
+    TRUSTED_RELATIONSHIP = "Trusted Relationship"
+    UNSECURED_CREDENTIALS = "Unsecured Credentials"
+    USER_EXECUTION = "User Execution"
+    VALID_ACCOUNTS = "Valid Accounts"
+    WINDOWS_MANAGEMENT_INSTRUMENTATION = "Windows Management Instrumentation"
+    FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION = "File and Directory Permissions Modification"
 
 
 class Threats(str, Enum):

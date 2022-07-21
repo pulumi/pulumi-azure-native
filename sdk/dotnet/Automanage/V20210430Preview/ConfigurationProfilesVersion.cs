@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfilesVersion"},
                     new Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfilesVersion"},
                 },
             };

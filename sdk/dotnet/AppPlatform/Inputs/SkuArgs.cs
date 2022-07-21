@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 {
 
     /// <summary>
-    /// Sku of Azure Spring Cloud
+    /// Sku of Azure Spring Apps
     /// </summary>
     public sealed class SkuArgs : Pulumi.ResourceArgs
     {
@@ -35,6 +35,8 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public SkuArgs()
         {
+            Name = "S0";
+            Tier = "Standard";
         }
     }
 }

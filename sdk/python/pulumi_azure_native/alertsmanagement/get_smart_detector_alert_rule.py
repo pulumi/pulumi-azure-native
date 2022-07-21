@@ -90,7 +90,7 @@ class GetSmartDetectorAlertRuleResult:
     @pulumi.getter
     def frequency(self) -> str:
         """
-        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         """
         return pulumi.get(self, "frequency")
 
@@ -194,7 +194,7 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
     The alert rule information
-    API Version: 2019-06-01.
+    API Version: 2021-04-01.
 
 
     :param str alert_rule_name: The name of the alert rule.
@@ -234,7 +234,7 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSmartDetectorAlertRuleResult]:
     """
     The alert rule information
-    API Version: 2019-06-01.
+    API Version: 2021-04-01.
 
 
     :param str alert_rule_name: The name of the alert rule.

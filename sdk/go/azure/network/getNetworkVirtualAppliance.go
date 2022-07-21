@@ -11,7 +11,7 @@ import (
 )
 
 // NetworkVirtualAppliance Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupNetworkVirtualAppliance(ctx *pulumi.Context, args *LookupNetworkVirtualApplianceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkVirtualApplianceResult, error) {
 	var rv LookupNetworkVirtualApplianceResult
 	err := ctx.Invoke("azure-native:network:getNetworkVirtualAppliance", args, &rv, opts...)
@@ -56,6 +56,8 @@ type LookupNetworkVirtualApplianceResult struct {
 	NvaSku *VirtualApplianceSkuPropertiesResponse `pulumi:"nvaSku"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Public key for SSH login.
+	SshPublicKey *string `pulumi:"sshPublicKey"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -169,6 +171,11 @@ func (o LookupNetworkVirtualApplianceResultOutput) NvaSku() VirtualApplianceSkuP
 // The provisioning state of the resource.
 func (o LookupNetworkVirtualApplianceResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Public key for SSH login.
+func (o LookupNetworkVirtualApplianceResultOutput) SshPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *string { return v.SshPublicKey }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags.

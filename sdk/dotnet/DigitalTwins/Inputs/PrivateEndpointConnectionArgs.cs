@@ -15,8 +15,11 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
     /// </summary>
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connection properties.
+        /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.ConnectionPropertiesArgs> Properties { get; set; } = null!;
 
         public PrivateEndpointConnectionArgs()
         {

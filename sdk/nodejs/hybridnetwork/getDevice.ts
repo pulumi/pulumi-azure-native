@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device resource.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
@@ -64,6 +64,10 @@ export interface GetDeviceResult {
      * The current device status.
      */
     readonly status: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

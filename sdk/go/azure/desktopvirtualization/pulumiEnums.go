@@ -27,18 +27,6 @@ const (
 	CommandLineSettingRequire    = CommandLineSetting("Require")
 )
 
-type DayOfWeek string
-
-const (
-	DayOfWeekMonday    = DayOfWeek("Monday")
-	DayOfWeekTuesday   = DayOfWeek("Tuesday")
-	DayOfWeekWednesday = DayOfWeek("Wednesday")
-	DayOfWeekThursday  = DayOfWeek("Thursday")
-	DayOfWeekFriday    = DayOfWeek("Friday")
-	DayOfWeekSaturday  = DayOfWeek("Saturday")
-	DayOfWeekSunday    = DayOfWeek("Sunday")
-)
-
 // HostPool type for desktop.
 type HostPoolType string
 
@@ -91,15 +79,6 @@ const (
 	PreferredAppGroupTypeNone             = PreferredAppGroupType("None")
 	PreferredAppGroupTypeDesktop          = PreferredAppGroupType("Desktop")
 	PreferredAppGroupTypeRailApplications = PreferredAppGroupType("RailApplications")
-)
-
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-type PrivateEndpointServiceConnectionStatus string
-
-const (
-	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
-	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
-	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
 )
 
 // The type of resetting the token.

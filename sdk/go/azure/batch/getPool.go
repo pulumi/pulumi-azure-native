@@ -11,7 +11,7 @@ import (
 )
 
 // Contains information about a pool.
-// API Version: 2021-01-01.
+// API Version: 2022-06-01.
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("azure-native:batch:getPool", args, &rv, opts...)

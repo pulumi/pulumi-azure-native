@@ -11,7 +11,7 @@ import (
 )
 
 // A private endpoint connection
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:sql:getPrivateEndpointConnection", args, &rv, opts...)
@@ -32,6 +32,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // A private endpoint connection
 type LookupPrivateEndpointConnectionResult struct {
+	// Group IDs.
+	GroupIds []string `pulumi:"groupIds"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
@@ -85,6 +87,11 @@ func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConn
 
 func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionResultOutput {
 	return o
+}
+
+// Group IDs.
+func (o LookupPrivateEndpointConnectionResultOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Resource ID.

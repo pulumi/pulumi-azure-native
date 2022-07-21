@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * GetBitLockerKeys response
- * API Version: 2020-08-01.
+ * API Version: 2021-01-01.
  */
 export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListBitLockerKeyResult> {
     if (!opts) {

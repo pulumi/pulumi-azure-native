@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// The application resource.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The application resource.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        public readonly string Etag;
-        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
@@ -94,25 +90,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
         /// List of user assigned identities for the application, each mapped to a friendly name.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationUserAssignedIdentityResponse> ManagedIdentities;
-        /// <summary>
-        /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-        /// </summary>
-        public readonly double? MaximumNodes;
-        /// <summary>
-        /// List of application capacity metric description.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationMetricDescriptionResponse> Metrics;
-        /// <summary>
-        /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-        /// </summary>
-        public readonly double? MinimumNodes;
         /// <summary>
         /// Azure resource name.
         /// </summary>
@@ -126,9 +110,9 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Remove the current application capacity settings.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly bool? RemoveApplicationCapacity;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -138,22 +122,17 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The application type name as defined in the application manifest.
-        /// </summary>
-        public readonly string? TypeName;
-        /// <summary>
-        /// The version of the application type as defined in the application manifest.
-        /// </summary>
-        public readonly string? TypeVersion;
-        /// <summary>
         /// Describes the policy for a monitored application upgrade.
         /// </summary>
         public readonly Outputs.ApplicationUpgradePolicyResponse? UpgradePolicy;
+        /// <summary>
+        /// The version of the application type as defined in the application manifest.
+        /// This name must be the full Arm Resource ID for the referenced application type version.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetApplicationResult(
-            string etag,
-
             string id,
 
             Outputs.ManagedIdentityResponse? identity,
@@ -162,47 +141,34 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             ImmutableArray<Outputs.ApplicationUserAssignedIdentityResponse> managedIdentities,
 
-            double? maximumNodes,
-
-            ImmutableArray<Outputs.ApplicationMetricDescriptionResponse> metrics,
-
-            double? minimumNodes,
-
             string name,
 
             ImmutableDictionary<string, string>? parameters,
 
             string provisioningState,
 
-            bool? removeApplicationCapacity,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            string? typeName,
+            Outputs.ApplicationUpgradePolicyResponse? upgradePolicy,
 
-            string? typeVersion,
-
-            Outputs.ApplicationUpgradePolicyResponse? upgradePolicy)
+            string? version)
         {
-            Etag = etag;
             Id = id;
             Identity = identity;
             Location = location;
             ManagedIdentities = managedIdentities;
-            MaximumNodes = maximumNodes;
-            Metrics = metrics;
-            MinimumNodes = minimumNodes;
             Name = name;
             Parameters = parameters;
             ProvisioningState = provisioningState;
-            RemoveApplicationCapacity = removeApplicationCapacity;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
-            TypeName = typeName;
-            TypeVersion = typeVersion;
             UpgradePolicy = upgradePolicy;
+            Version = version;
         }
     }
 }

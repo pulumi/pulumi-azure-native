@@ -18,14 +18,14 @@ namespace Pulumi.AzureNative.Kusto.Inputs
         /// <summary>
         /// The name of the key vault key.
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The Uri of the key vault.
         /// </summary>
-        [Input("keyVaultUri", required: true)]
-        public Input<string> KeyVaultUri { get; set; } = null!;
+        [Input("keyVaultUri")]
+        public Input<string>? KeyVaultUri { get; set; }
 
         /// <summary>
         /// The version of the key vault key.

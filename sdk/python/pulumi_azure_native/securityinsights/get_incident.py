@@ -21,7 +21,7 @@ class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
     """
-    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
+    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, system_data=None, title=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
@@ -79,6 +79,9 @@ class GetIncidentResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
@@ -154,7 +157,7 @@ class GetIncidentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -202,7 +205,7 @@ class GetIncidentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -239,6 +242,14 @@ class GetIncidentResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def title(self) -> str:
         """
@@ -250,7 +261,7 @@ class GetIncidentResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -280,6 +291,7 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             related_analytic_rule_ids=self.related_analytic_rule_ids,
             severity=self.severity,
             status=self.status,
+            system_data=self.system_data,
             title=self.title,
             type=self.type)
 
@@ -290,11 +302,11 @@ def get_incident(incident_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
-    API Version: 2020-01-01.
+    API Version: 2021-10-01.
 
 
     :param str incident_id: Incident ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
@@ -327,6 +339,7 @@ def get_incident(incident_id: Optional[str] = None,
         related_analytic_rule_ids=__ret__.related_analytic_rule_ids,
         severity=__ret__.severity,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         title=__ret__.title,
         type=__ret__.type)
 
@@ -338,11 +351,11 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentResult]:
     """
     Represents an incident in Azure Security Insights.
-    API Version: 2020-01-01.
+    API Version: 2021-10-01.
 
 
     :param str incident_id: Incident ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     ...

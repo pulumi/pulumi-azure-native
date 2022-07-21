@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public object? Distribution { get; set; }
 
         /// <summary>
-        /// The ARM resource ID of the Environment specification for the job.
+        /// [Required] The ARM resource ID of the Environment specification for the job.
         /// </summary>
-        [Input("environmentId")]
-        public Input<string>? EnvironmentId { get; set; }
+        [Input("environmentId", required: true)]
+        public Input<string> EnvironmentId { get; set; } = null!;
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
@@ -51,36 +51,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _environmentVariables = value;
         }
 
-        [Input("inputDataBindings")]
-        private InputMap<Inputs.InputDataBindingArgs>? _inputDataBindings;
-
         /// <summary>
-        /// Mapping of input data bindings used in the job.
+        /// Compute Resource configuration for the job.
         /// </summary>
-        public InputMap<Inputs.InputDataBindingArgs> InputDataBindings
-        {
-            get => _inputDataBindings ?? (_inputDataBindings = new InputMap<Inputs.InputDataBindingArgs>());
-            set => _inputDataBindings = value;
-        }
-
-        [Input("outputDataBindings")]
-        private InputMap<Inputs.OutputDataBindingArgs>? _outputDataBindings;
-
-        /// <summary>
-        /// Mapping of output data bindings used in the job.
-        /// </summary>
-        public InputMap<Inputs.OutputDataBindingArgs> OutputDataBindings
-        {
-            get => _outputDataBindings ?? (_outputDataBindings = new InputMap<Inputs.OutputDataBindingArgs>());
-            set => _outputDataBindings = value;
-        }
-
-        /// <summary>
-        /// The max run duration in ISO 8601 format, after which the trial component will be cancelled.
-        /// Only supports duration with precision as low as Seconds.
-        /// </summary>
-        [Input("timeout")]
-        public Input<string>? Timeout { get; set; }
+        [Input("resources")]
+        public Input<Inputs.ResourceConfigurationArgs>? Resources { get; set; }
 
         public TrialComponentArgs()
         {

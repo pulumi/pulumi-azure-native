@@ -11,18 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema Contract details.
-// API Version: 2020-12-01.
+// API Schema Contract details.
+// API Version: 2021-08-01.
 type ApiSchema struct {
 	pulumi.CustomResourceState
 
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+	Components pulumi.AnyOutput `pulumi:"components"`
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
 	Definitions pulumi.AnyOutput `pulumi:"definitions"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
@@ -120,13 +122,15 @@ func (ApiSchemaState) ElementType() reflect.Type {
 type apiSchemaArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId string `pulumi:"apiId"`
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+	Components interface{} `pulumi:"components"`
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType string `pulumi:"contentType"`
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
 	Definitions interface{} `pulumi:"definitions"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	// Schema id identifier. Must be unique in the current API Management service instance.
 	SchemaId *string `pulumi:"schemaId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
@@ -138,13 +142,15 @@ type apiSchemaArgs struct {
 type ApiSchemaArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId pulumi.StringInput
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+	Components pulumi.Input
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringInput
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
 	Definitions pulumi.Input
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	// Schema id identifier. Must be unique in the current API Management service instance.
 	SchemaId pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
@@ -189,22 +195,27 @@ func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSc
 	return o
 }
 
+// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+func (o ApiSchemaOutput) Components() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.AnyOutput { return v.Components }).(pulumi.AnyOutput)
+}
+
 // Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 func (o ApiSchemaOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
 func (o ApiSchemaOutput) Definitions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiSchema) pulumi.AnyOutput { return v.Definitions }).(pulumi.AnyOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiSchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiSchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

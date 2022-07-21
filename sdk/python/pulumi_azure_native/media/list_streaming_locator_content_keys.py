@@ -50,7 +50,7 @@ def list_streaming_locator_content_keys(account_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorContentKeysResult:
     """
     Class of response for listContentKeys action
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -78,7 +78,7 @@ def list_streaming_locator_content_keys_output(account_name: Optional[pulumi.Inp
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStreamingLocatorContentKeysResult]:
     """
     Class of response for listContentKeys action
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

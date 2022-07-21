@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.ShareAccessRightResponse[]>;
     /**
-     * User in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of User
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

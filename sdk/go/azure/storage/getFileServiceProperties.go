@@ -11,7 +11,7 @@ import (
 )
 
 // The properties of File services in storage account.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {
 	var rv LookupFileServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage:getFileServiceProperties", args, &rv, opts...)

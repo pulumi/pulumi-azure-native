@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
 
@@ -107,7 +108,7 @@ class FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server firewall rule.
-        API Version: 2017-12-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +126,7 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server firewall rule.
-        API Version: 2017-12-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -173,8 +174,9 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'start_ip_address'")
             __props__.__dict__["start_ip_address"] = start_ip_address
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:dbforpostgresql:FirewallRule',
@@ -201,6 +203,7 @@ class FirewallRule(pulumi.CustomResource):
         __props__.__dict__["end_ip_address"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["start_ip_address"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
 
@@ -227,6 +230,14 @@ class FirewallRule(pulumi.CustomResource):
         The start IP address of the server firewall rule. Must be IPv4 format.
         """
         return pulumi.get(self, "start_ip_address")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

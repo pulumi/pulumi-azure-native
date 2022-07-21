@@ -96,7 +96,7 @@ def list_static_site_app_settings(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteAppSettingsResult:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the static site.
@@ -125,7 +125,7 @@ def list_static_site_app_settings_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteAppSettingsResult]:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the static site.

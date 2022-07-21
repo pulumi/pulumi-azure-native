@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.HealthBot
     public static class GetBot
     {
         /// <summary>
-        /// HealthBot resource definition
-        /// API Version: 2020-12-08.
+        /// Azure Health Bot resource definition
+        /// API Version: 2021-08-24.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// HealthBot resource definition
-        /// API Version: 2020-12-08.
+        /// Azure Health Bot resource definition
+        /// API Version: 2021-08-24.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.HealthBot
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The identity of the Azure Health Bot.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -82,11 +86,11 @@ namespace Pulumi.AzureNative.HealthBot
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The set of properties specific to Healthbot resource.
+        /// The set of properties specific to Azure Health Bot resource.
         /// </summary>
         public readonly Outputs.HealthBotPropertiesResponse Properties;
         /// <summary>
-        /// SKU of the HealthBot.
+        /// SKU of the Azure Health Bot.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNative.HealthBot
         private GetBotResult(
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string location,
 
             string name,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.HealthBot
             string type)
         {
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

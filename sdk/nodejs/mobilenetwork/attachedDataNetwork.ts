@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Attached data network resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export class AttachedDataNetwork extends pulumi.CustomResource {
     /**
@@ -78,6 +78,10 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -142,6 +146,7 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
             resourceInputs["userPlaneDataInterface"] = args ? args.userPlaneDataInterface : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -154,6 +159,7 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["naptConfiguration"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userEquipmentAddressPoolPrefix"] = undefined /*out*/;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : Pulumi.CustomResource
@@ -83,12 +83,6 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network profile information for a container group.
-        /// </summary>
-        [Output("networkProfile")]
-        public Output<Outputs.ContainerGroupNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
-
-        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Output("osType")]
@@ -116,6 +110,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        [Output("subnetIds")]
+        public Output<ImmutableArray<Outputs.ContainerGroupSubnetIdResponse>> SubnetIds { get; private set; } = null!;
+
+        /// <summary>
         /// The resource tags.
         /// </summary>
         [Output("tags")]
@@ -132,6 +132,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.VolumeResponse>> Volumes { get; private set; } = null!;
+
+        /// <summary>
+        /// The zones for the container group.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -274,12 +280,6 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The network profile information for a container group.
-        /// </summary>
-        [Input("networkProfile")]
-        public Input<Inputs.ContainerGroupNetworkProfileArgs>? NetworkProfile { get; set; }
-
-        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Input("osType", required: true)]
@@ -306,6 +306,18 @@ namespace Pulumi.AzureNative.ContainerInstance
         [Input("sku")]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupSku>? Sku { get; set; }
 
+        [Input("subnetIds")]
+        private InputList<Inputs.ContainerGroupSubnetIdArgs>? _subnetIds;
+
+        /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        public InputList<Inputs.ContainerGroupSubnetIdArgs> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<Inputs.ContainerGroupSubnetIdArgs>());
+            set => _subnetIds = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -328,6 +340,18 @@ namespace Pulumi.AzureNative.ContainerInstance
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.VolumeArgs>());
             set => _volumes = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// The zones for the container group.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public ContainerGroupArgs()

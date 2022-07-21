@@ -11,32 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an automation rule.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-10-01.
 type AutomationRule struct {
 	pulumi.CustomResourceState
 
 	// The actions to execute when the automation rule is triggered
 	Actions pulumi.ArrayOutput `pulumi:"actions"`
-	// Describes the client that created the automation rule
+	// Information on the client (user or application) that made some action
 	CreatedBy ClientInfoResponseOutput `pulumi:"createdBy"`
 	// The time the automation rule was created
 	CreatedTimeUtc pulumi.StringOutput `pulumi:"createdTimeUtc"`
-	// The display name of the automation  rule
+	// The display name of the automation rule
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Describes the client that last updated the automation rule
+	// Information on the client (user or application) that made some action
 	LastModifiedBy ClientInfoResponseOutput `pulumi:"lastModifiedBy"`
 	// The last time the automation rule was updated
 	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The order of execution of the automation rule
 	Order pulumi.IntOutput `pulumi:"order"`
-	// The triggering logic of the automation rule
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// Describes automation rule triggering logic
 	TriggeringLogic AutomationRuleTriggeringLogicResponseOutput `pulumi:"triggeringLogic"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -52,9 +53,6 @@ func NewAutomationRule(ctx *pulumi.Context,
 	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
-	if args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
 	if args.Order == nil {
 		return nil, errors.New("invalid value for required argument 'Order'")
@@ -134,15 +132,13 @@ type automationRuleArgs struct {
 	Actions []interface{} `pulumi:"actions"`
 	// Automation rule ID
 	AutomationRuleId *string `pulumi:"automationRuleId"`
-	// The display name of the automation  rule
+	// The display name of the automation rule
 	DisplayName string `pulumi:"displayName"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The order of execution of the automation rule
 	Order int `pulumi:"order"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The triggering logic of the automation rule
+	// Describes automation rule triggering logic
 	TriggeringLogic AutomationRuleTriggeringLogic `pulumi:"triggeringLogic"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -154,15 +150,13 @@ type AutomationRuleArgs struct {
 	Actions pulumi.ArrayInput
 	// Automation rule ID
 	AutomationRuleId pulumi.StringPtrInput
-	// The display name of the automation  rule
+	// The display name of the automation rule
 	DisplayName pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput
 	// The order of execution of the automation rule
 	Order pulumi.IntInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The triggering logic of the automation rule
+	// Describes automation rule triggering logic
 	TriggeringLogic AutomationRuleTriggeringLogicInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
@@ -210,7 +204,7 @@ func (o AutomationRuleOutput) Actions() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.ArrayOutput { return v.Actions }).(pulumi.ArrayOutput)
 }
 
-// Describes the client that created the automation rule
+// Information on the client (user or application) that made some action
 func (o AutomationRuleOutput) CreatedBy() ClientInfoResponseOutput {
 	return o.ApplyT(func(v *AutomationRule) ClientInfoResponseOutput { return v.CreatedBy }).(ClientInfoResponseOutput)
 }
@@ -220,7 +214,7 @@ func (o AutomationRuleOutput) CreatedTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.CreatedTimeUtc }).(pulumi.StringOutput)
 }
 
-// The display name of the automation  rule
+// The display name of the automation rule
 func (o AutomationRuleOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -230,7 +224,7 @@ func (o AutomationRuleOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Describes the client that last updated the automation rule
+// Information on the client (user or application) that made some action
 func (o AutomationRuleOutput) LastModifiedBy() ClientInfoResponseOutput {
 	return o.ApplyT(func(v *AutomationRule) ClientInfoResponseOutput { return v.LastModifiedBy }).(ClientInfoResponseOutput)
 }
@@ -240,7 +234,7 @@ func (o AutomationRuleOutput) LastModifiedTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o AutomationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -250,12 +244,17 @@ func (o AutomationRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
-// The triggering logic of the automation rule
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AutomationRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AutomationRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Describes automation rule triggering logic
 func (o AutomationRuleOutput) TriggeringLogic() AutomationRuleTriggeringLogicResponseOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleTriggeringLogicResponseOutput { return v.TriggeringLogic }).(AutomationRuleTriggeringLogicResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o AutomationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

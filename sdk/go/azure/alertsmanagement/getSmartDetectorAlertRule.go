@@ -11,7 +11,7 @@ import (
 )
 
 // The alert rule information
-// API Version: 2019-06-01.
+// API Version: 2021-04-01.
 func LookupSmartDetectorAlertRule(ctx *pulumi.Context, args *LookupSmartDetectorAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupSmartDetectorAlertRuleResult, error) {
 	var rv LookupSmartDetectorAlertRuleResult
 	err := ctx.Invoke("azure-native:alertsmanagement:getSmartDetectorAlertRule", args, &rv, opts...)
@@ -38,7 +38,7 @@ type LookupSmartDetectorAlertRuleResult struct {
 	Description *string `pulumi:"description"`
 	// The alert rule's detector.
 	Detector DetectorResponse `pulumi:"detector"`
-	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
 	Frequency string `pulumi:"frequency"`
 	// The resource ID.
 	Id string `pulumi:"id"`
@@ -129,7 +129,7 @@ func (o LookupSmartDetectorAlertRuleResultOutput) Detector() DetectorResponseOut
 	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) DetectorResponse { return v.Detector }).(DetectorResponseOutput)
 }
 
-// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
 func (o LookupSmartDetectorAlertRuleResultOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.Frequency }).(pulumi.StringOutput)
 }

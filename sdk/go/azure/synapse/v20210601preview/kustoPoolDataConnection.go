@@ -53,9 +53,6 @@ func NewKustoPoolDataConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse:KustoPoolDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:KustoPoolDataConnection"),
 		},
 	})

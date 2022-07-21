@@ -11,7 +11,7 @@ import (
 )
 
 // Inbound NAT rule of the load balancer.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupInboundNatRuleResult, error) {
 	var rv LookupInboundNatRuleResult
 	err := ctx.Invoke("azure-native:network:getInboundNatRule", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, o
 type LookupInboundNatRuleArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
-	// The name of the inbound nat rule.
+	// The name of the inbound NAT rule.
 	InboundNatRuleName string `pulumi:"inboundNatRuleName"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
@@ -34,6 +34,8 @@ type LookupInboundNatRuleArgs struct {
 
 // Inbound NAT rule of the load balancer.
 type LookupInboundNatRuleResult struct {
+	// A reference to backendAddressPool resource.
+	BackendAddressPool *SubResourceResponse `pulumi:"backendAddressPool"`
 	// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
 	BackendIPConfiguration NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfiguration"`
 	// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
@@ -48,6 +50,10 @@ type LookupInboundNatRuleResult struct {
 	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
 	FrontendPort *int `pulumi:"frontendPort"`
+	// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+	FrontendPortRangeEnd *int `pulumi:"frontendPortRangeEnd"`
+	// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+	FrontendPortRangeStart *int `pulumi:"frontendPortRangeStart"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
@@ -89,7 +95,7 @@ func LookupInboundNatRuleOutput(ctx *pulumi.Context, args LookupInboundNatRuleOu
 type LookupInboundNatRuleOutputArgs struct {
 	// Expands referenced resources.
 	Expand pulumi.StringPtrInput `pulumi:"expand"`
-	// The name of the inbound nat rule.
+	// The name of the inbound NAT rule.
 	InboundNatRuleName pulumi.StringInput `pulumi:"inboundNatRuleName"`
 	// The name of the load balancer.
 	LoadBalancerName pulumi.StringInput `pulumi:"loadBalancerName"`
@@ -114,6 +120,11 @@ func (o LookupInboundNatRuleResultOutput) ToLookupInboundNatRuleResultOutput() L
 
 func (o LookupInboundNatRuleResultOutput) ToLookupInboundNatRuleResultOutputWithContext(ctx context.Context) LookupInboundNatRuleResultOutput {
 	return o
+}
+
+// A reference to backendAddressPool resource.
+func (o LookupInboundNatRuleResultOutput) BackendAddressPool() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupInboundNatRuleResult) *SubResourceResponse { return v.BackendAddressPool }).(SubResourceResponsePtrOutput)
 }
 
 // A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
@@ -151,6 +162,16 @@ func (o LookupInboundNatRuleResultOutput) FrontendIPConfiguration() SubResourceR
 // The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
 func (o LookupInboundNatRuleResultOutput) FrontendPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupInboundNatRuleResult) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
+}
+
+// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+func (o LookupInboundNatRuleResultOutput) FrontendPortRangeEnd() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupInboundNatRuleResult) *int { return v.FrontendPortRangeEnd }).(pulumi.IntPtrOutput)
+}
+
+// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+func (o LookupInboundNatRuleResultOutput) FrontendPortRangeStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupInboundNatRuleResult) *int { return v.FrontendPortRangeStart }).(pulumi.IntPtrOutput)
 }
 
 // Resource ID.

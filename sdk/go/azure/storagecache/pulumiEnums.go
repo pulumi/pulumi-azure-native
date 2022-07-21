@@ -14,8 +14,10 @@ import (
 type CacheIdentityType string
 
 const (
-	CacheIdentityTypeSystemAssigned = CacheIdentityType("SystemAssigned")
-	CacheIdentityTypeNone           = CacheIdentityType("None")
+	CacheIdentityTypeSystemAssigned               = CacheIdentityType("SystemAssigned")
+	CacheIdentityTypeUserAssigned                 = CacheIdentityType("UserAssigned")
+	CacheIdentityType_SystemAssigned_UserAssigned = CacheIdentityType("SystemAssigned, UserAssigned")
+	CacheIdentityTypeNone                         = CacheIdentityType("None")
 )
 
 func (CacheIdentityType) ElementType() reflect.Type {
@@ -193,16 +195,14 @@ const (
 	NfsAccessRuleScopeHost    = NfsAccessRuleScope("host")
 )
 
-// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-type ProvisioningStateType string
+// Storage target operational state.
+type OperationalStateType string
 
 const (
-	ProvisioningStateTypeSucceeded = ProvisioningStateType("Succeeded")
-	ProvisioningStateTypeFailed    = ProvisioningStateType("Failed")
-	ProvisioningStateTypeCancelled = ProvisioningStateType("Cancelled")
-	ProvisioningStateTypeCreating  = ProvisioningStateType("Creating")
-	ProvisioningStateTypeDeleting  = ProvisioningStateType("Deleting")
-	ProvisioningStateTypeUpdating  = ProvisioningStateType("Updating")
+	OperationalStateTypeReady     = OperationalStateType("Ready")
+	OperationalStateTypeBusy      = OperationalStateType("Busy")
+	OperationalStateTypeSuspended = OperationalStateType("Suspended")
+	OperationalStateTypeFlushing  = OperationalStateType("Flushing")
 )
 
 // Type of the Storage Target.

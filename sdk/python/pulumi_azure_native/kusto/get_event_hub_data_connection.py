@@ -20,7 +20,7 @@ class GetEventHubDataConnectionResult:
     """
     Class representing an event hub data connection.
     """
-    def __init__(__self__, compression=None, consumer_group=None, data_format=None, event_hub_resource_id=None, event_system_properties=None, id=None, kind=None, location=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, table_name=None, type=None):
+    def __init__(__self__, compression=None, consumer_group=None, data_format=None, database_routing=None, event_hub_resource_id=None, event_system_properties=None, id=None, kind=None, location=None, managed_identity_object_id=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, table_name=None, type=None):
         if compression and not isinstance(compression, str):
             raise TypeError("Expected argument 'compression' to be a str")
         pulumi.set(__self__, "compression", compression)
@@ -30,6 +30,9 @@ class GetEventHubDataConnectionResult:
         if data_format and not isinstance(data_format, str):
             raise TypeError("Expected argument 'data_format' to be a str")
         pulumi.set(__self__, "data_format", data_format)
+        if database_routing and not isinstance(database_routing, str):
+            raise TypeError("Expected argument 'database_routing' to be a str")
+        pulumi.set(__self__, "database_routing", database_routing)
         if event_hub_resource_id and not isinstance(event_hub_resource_id, str):
             raise TypeError("Expected argument 'event_hub_resource_id' to be a str")
         pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
@@ -45,6 +48,9 @@ class GetEventHubDataConnectionResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_identity_object_id and not isinstance(managed_identity_object_id, str):
+            raise TypeError("Expected argument 'managed_identity_object_id' to be a str")
+        pulumi.set(__self__, "managed_identity_object_id", managed_identity_object_id)
         if managed_identity_resource_id and not isinstance(managed_identity_resource_id, str):
             raise TypeError("Expected argument 'managed_identity_resource_id' to be a str")
         pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
@@ -89,6 +95,14 @@ class GetEventHubDataConnectionResult:
         return pulumi.get(self, "data_format")
 
     @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[str]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
+
+    @property
     @pulumi.getter(name="eventHubResourceId")
     def event_hub_resource_id(self) -> str:
         """
@@ -130,10 +144,18 @@ class GetEventHubDataConnectionResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedIdentityObjectId")
+    def managed_identity_object_id(self) -> str:
+        """
+        The object ID of the managedIdentityResourceId
+        """
+        return pulumi.get(self, "managed_identity_object_id")
+
+    @property
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> Optional[str]:
         """
-        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -187,11 +209,13 @@ class AwaitableGetEventHubDataConnectionResult(GetEventHubDataConnectionResult):
             compression=self.compression,
             consumer_group=self.consumer_group,
             data_format=self.data_format,
+            database_routing=self.database_routing,
             event_hub_resource_id=self.event_hub_resource_id,
             event_system_properties=self.event_system_properties,
             id=self.id,
             kind=self.kind,
             location=self.location,
+            managed_identity_object_id=self.managed_identity_object_id,
             managed_identity_resource_id=self.managed_identity_resource_id,
             mapping_rule_name=self.mapping_rule_name,
             name=self.name,
@@ -207,7 +231,7 @@ def get_event_hub_data_connection(cluster_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubDataConnectionResult:
     """
     Class representing an event hub data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -230,11 +254,13 @@ def get_event_hub_data_connection(cluster_name: Optional[str] = None,
         compression=__ret__.compression,
         consumer_group=__ret__.consumer_group,
         data_format=__ret__.data_format,
+        database_routing=__ret__.database_routing,
         event_hub_resource_id=__ret__.event_hub_resource_id,
         event_system_properties=__ret__.event_system_properties,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
+        managed_identity_object_id=__ret__.managed_identity_object_id,
         managed_identity_resource_id=__ret__.managed_identity_resource_id,
         mapping_rule_name=__ret__.mapping_rule_name,
         name=__ret__.name,
@@ -251,7 +277,7 @@ def get_event_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubDataConnectionResult]:
     """
     Class representing an event hub data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

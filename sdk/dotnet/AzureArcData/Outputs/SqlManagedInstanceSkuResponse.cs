@@ -16,20 +16,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     [OutputType]
     public sealed class SqlManagedInstanceSkuResponse
     {
-        /// <summary>
-        /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        /// </summary>
         public readonly int? Capacity;
         /// <summary>
         /// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
         /// </summary>
         public readonly bool? Dev;
-        /// <summary>
-        /// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// The name of the SKU.  It is typically a letter+number code
+        /// The name of the SKU.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -37,7 +31,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? Size;
         /// <summary>
-        /// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+        /// The pricing tier for the instance.
         /// </summary>
         public readonly string? Tier;
 

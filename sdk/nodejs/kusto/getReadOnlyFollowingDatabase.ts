@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read only following database.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
     if (!opts) {

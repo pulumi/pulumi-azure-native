@@ -11,7 +11,7 @@ import (
 )
 
 // Packet core control plane resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupPacketCoreControlPlane(ctx *pulumi.Context, args *LookupPacketCoreControlPlaneArgs, opts ...pulumi.InvokeOption) (*LookupPacketCoreControlPlaneResult, error) {
 	var rv LookupPacketCoreControlPlaneResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getPacketCoreControlPlane", args, &rv, opts...)
@@ -58,6 +58,8 @@ type LookupPacketCoreControlPlaneResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state of the packet core control plane resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -175,6 +177,11 @@ func (o LookupPacketCoreControlPlaneResultOutput) Name() pulumi.StringOutput {
 // The provisioning state of the packet core control plane resource.
 func (o LookupPacketCoreControlPlaneResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPacketCoreControlPlaneResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupPacketCoreControlPlaneResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPacketCoreControlPlaneResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

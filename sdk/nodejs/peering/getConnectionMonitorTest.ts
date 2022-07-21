@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Connection Monitor Test class.
- * API Version: 2021-06-01.
+ * API Version: 2022-01-01.
  */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
     if (!opts) {

@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Media.Inputs
         public Input<string> OdataType { get; set; } = null!;
 
         /// <summary>
+        /// The video rate control mode
+        /// </summary>
+        [Input("rateControlMode")]
+        public InputUnion<string, Pulumi.AzureNative.Media.H264RateControlMode>? RateControlMode { get; set; }
+
+        /// <summary>
         /// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
         /// </summary>
         [Input("sceneChangeDetection")]

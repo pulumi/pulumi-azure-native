@@ -10,6 +10,338 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The properties of an HCX addon
+type AddonHcxProperties struct {
+	// The type of private cloud addon
+	// Expected value is 'HCX'.
+	AddonType string `pulumi:"addonType"`
+	// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+	Offer string `pulumi:"offer"`
+}
+
+// The properties of an HCX addon
+type AddonHcxPropertiesResponse struct {
+	// The type of private cloud addon
+	// Expected value is 'HCX'.
+	AddonType string `pulumi:"addonType"`
+	// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+	Offer string `pulumi:"offer"`
+	// The state of the addon provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// The properties of a Site Recovery Manager (SRM) addon
+type AddonSrmProperties struct {
+	// The type of private cloud addon
+	// Expected value is 'SRM'.
+	AddonType string `pulumi:"addonType"`
+	// The Site Recovery Manager (SRM) license
+	LicenseKey *string `pulumi:"licenseKey"`
+}
+
+// The properties of a Site Recovery Manager (SRM) addon
+type AddonSrmPropertiesResponse struct {
+	// The type of private cloud addon
+	// Expected value is 'SRM'.
+	AddonType string `pulumi:"addonType"`
+	// The Site Recovery Manager (SRM) license
+	LicenseKey *string `pulumi:"licenseKey"`
+	// The state of the addon provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// The properties of a vSphere Replication (VR) addon
+type AddonVrProperties struct {
+	// The type of private cloud addon
+	// Expected value is 'VR'.
+	AddonType string `pulumi:"addonType"`
+	// The vSphere Replication Server (VRS) count
+	VrsCount int `pulumi:"vrsCount"`
+}
+
+// The properties of a vSphere Replication (VR) addon
+type AddonVrPropertiesResponse struct {
+	// The type of private cloud addon
+	// Expected value is 'VR'.
+	AddonType string `pulumi:"addonType"`
+	// The state of the addon provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The vSphere Replication Server (VRS) count
+	VrsCount int `pulumi:"vrsCount"`
+}
+
+// The properties describing private cloud availability zone distribution
+type AvailabilityProperties struct {
+	// The secondary availability zone for the private cloud
+	SecondaryZone *int `pulumi:"secondaryZone"`
+	// The availability strategy for the private cloud
+	Strategy *string `pulumi:"strategy"`
+	// The primary availability zone for the private cloud
+	Zone *int `pulumi:"zone"`
+}
+
+// AvailabilityPropertiesInput is an input type that accepts AvailabilityPropertiesArgs and AvailabilityPropertiesOutput values.
+// You can construct a concrete instance of `AvailabilityPropertiesInput` via:
+//
+//          AvailabilityPropertiesArgs{...}
+type AvailabilityPropertiesInput interface {
+	pulumi.Input
+
+	ToAvailabilityPropertiesOutput() AvailabilityPropertiesOutput
+	ToAvailabilityPropertiesOutputWithContext(context.Context) AvailabilityPropertiesOutput
+}
+
+// The properties describing private cloud availability zone distribution
+type AvailabilityPropertiesArgs struct {
+	// The secondary availability zone for the private cloud
+	SecondaryZone pulumi.IntPtrInput `pulumi:"secondaryZone"`
+	// The availability strategy for the private cloud
+	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
+	// The primary availability zone for the private cloud
+	Zone pulumi.IntPtrInput `pulumi:"zone"`
+}
+
+func (AvailabilityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityProperties)(nil)).Elem()
+}
+
+func (i AvailabilityPropertiesArgs) ToAvailabilityPropertiesOutput() AvailabilityPropertiesOutput {
+	return i.ToAvailabilityPropertiesOutputWithContext(context.Background())
+}
+
+func (i AvailabilityPropertiesArgs) ToAvailabilityPropertiesOutputWithContext(ctx context.Context) AvailabilityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityPropertiesOutput)
+}
+
+func (i AvailabilityPropertiesArgs) ToAvailabilityPropertiesPtrOutput() AvailabilityPropertiesPtrOutput {
+	return i.ToAvailabilityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AvailabilityPropertiesArgs) ToAvailabilityPropertiesPtrOutputWithContext(ctx context.Context) AvailabilityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityPropertiesOutput).ToAvailabilityPropertiesPtrOutputWithContext(ctx)
+}
+
+// AvailabilityPropertiesPtrInput is an input type that accepts AvailabilityPropertiesArgs, AvailabilityPropertiesPtr and AvailabilityPropertiesPtrOutput values.
+// You can construct a concrete instance of `AvailabilityPropertiesPtrInput` via:
+//
+//          AvailabilityPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AvailabilityPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAvailabilityPropertiesPtrOutput() AvailabilityPropertiesPtrOutput
+	ToAvailabilityPropertiesPtrOutputWithContext(context.Context) AvailabilityPropertiesPtrOutput
+}
+
+type availabilityPropertiesPtrType AvailabilityPropertiesArgs
+
+func AvailabilityPropertiesPtr(v *AvailabilityPropertiesArgs) AvailabilityPropertiesPtrInput {
+	return (*availabilityPropertiesPtrType)(v)
+}
+
+func (*availabilityPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailabilityProperties)(nil)).Elem()
+}
+
+func (i *availabilityPropertiesPtrType) ToAvailabilityPropertiesPtrOutput() AvailabilityPropertiesPtrOutput {
+	return i.ToAvailabilityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *availabilityPropertiesPtrType) ToAvailabilityPropertiesPtrOutputWithContext(ctx context.Context) AvailabilityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityPropertiesPtrOutput)
+}
+
+// The properties describing private cloud availability zone distribution
+type AvailabilityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityProperties)(nil)).Elem()
+}
+
+func (o AvailabilityPropertiesOutput) ToAvailabilityPropertiesOutput() AvailabilityPropertiesOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesOutput) ToAvailabilityPropertiesOutputWithContext(ctx context.Context) AvailabilityPropertiesOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesOutput) ToAvailabilityPropertiesPtrOutput() AvailabilityPropertiesPtrOutput {
+	return o.ToAvailabilityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AvailabilityPropertiesOutput) ToAvailabilityPropertiesPtrOutputWithContext(ctx context.Context) AvailabilityPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AvailabilityProperties) *AvailabilityProperties {
+		return &v
+	}).(AvailabilityPropertiesPtrOutput)
+}
+
+// The secondary availability zone for the private cloud
+func (o AvailabilityPropertiesOutput) SecondaryZone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AvailabilityProperties) *int { return v.SecondaryZone }).(pulumi.IntPtrOutput)
+}
+
+// The availability strategy for the private cloud
+func (o AvailabilityPropertiesOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AvailabilityProperties) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
+// The primary availability zone for the private cloud
+func (o AvailabilityPropertiesOutput) Zone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AvailabilityProperties) *int { return v.Zone }).(pulumi.IntPtrOutput)
+}
+
+type AvailabilityPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailabilityProperties)(nil)).Elem()
+}
+
+func (o AvailabilityPropertiesPtrOutput) ToAvailabilityPropertiesPtrOutput() AvailabilityPropertiesPtrOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesPtrOutput) ToAvailabilityPropertiesPtrOutputWithContext(ctx context.Context) AvailabilityPropertiesPtrOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesPtrOutput) Elem() AvailabilityPropertiesOutput {
+	return o.ApplyT(func(v *AvailabilityProperties) AvailabilityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AvailabilityProperties
+		return ret
+	}).(AvailabilityPropertiesOutput)
+}
+
+// The secondary availability zone for the private cloud
+func (o AvailabilityPropertiesPtrOutput) SecondaryZone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilityProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryZone
+	}).(pulumi.IntPtrOutput)
+}
+
+// The availability strategy for the private cloud
+func (o AvailabilityPropertiesPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailabilityProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The primary availability zone for the private cloud
+func (o AvailabilityPropertiesPtrOutput) Zone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilityProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Zone
+	}).(pulumi.IntPtrOutput)
+}
+
+// The properties describing private cloud availability zone distribution
+type AvailabilityPropertiesResponse struct {
+	// The secondary availability zone for the private cloud
+	SecondaryZone *int `pulumi:"secondaryZone"`
+	// The availability strategy for the private cloud
+	Strategy *string `pulumi:"strategy"`
+	// The primary availability zone for the private cloud
+	Zone *int `pulumi:"zone"`
+}
+
+// The properties describing private cloud availability zone distribution
+type AvailabilityPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityPropertiesResponse)(nil)).Elem()
+}
+
+func (o AvailabilityPropertiesResponseOutput) ToAvailabilityPropertiesResponseOutput() AvailabilityPropertiesResponseOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesResponseOutput) ToAvailabilityPropertiesResponseOutputWithContext(ctx context.Context) AvailabilityPropertiesResponseOutput {
+	return o
+}
+
+// The secondary availability zone for the private cloud
+func (o AvailabilityPropertiesResponseOutput) SecondaryZone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AvailabilityPropertiesResponse) *int { return v.SecondaryZone }).(pulumi.IntPtrOutput)
+}
+
+// The availability strategy for the private cloud
+func (o AvailabilityPropertiesResponseOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AvailabilityPropertiesResponse) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
+// The primary availability zone for the private cloud
+func (o AvailabilityPropertiesResponseOutput) Zone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AvailabilityPropertiesResponse) *int { return v.Zone }).(pulumi.IntPtrOutput)
+}
+
+type AvailabilityPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailabilityPropertiesResponse)(nil)).Elem()
+}
+
+func (o AvailabilityPropertiesResponsePtrOutput) ToAvailabilityPropertiesResponsePtrOutput() AvailabilityPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesResponsePtrOutput) ToAvailabilityPropertiesResponsePtrOutputWithContext(ctx context.Context) AvailabilityPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o AvailabilityPropertiesResponsePtrOutput) Elem() AvailabilityPropertiesResponseOutput {
+	return o.ApplyT(func(v *AvailabilityPropertiesResponse) AvailabilityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AvailabilityPropertiesResponse
+		return ret
+	}).(AvailabilityPropertiesResponseOutput)
+}
+
+// The secondary availability zone for the private cloud
+func (o AvailabilityPropertiesResponsePtrOutput) SecondaryZone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilityPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryZone
+	}).(pulumi.IntPtrOutput)
+}
+
+// The availability strategy for the private cloud
+func (o AvailabilityPropertiesResponsePtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailabilityPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The primary availability zone for the private cloud
+func (o AvailabilityPropertiesResponsePtrOutput) Zone() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilityPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Zone
+	}).(pulumi.IntPtrOutput)
+}
+
 // An ExpressRoute Circuit
 type CircuitResponse struct {
 	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
@@ -123,10 +455,25 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolume struct {
-	// iSCSI provider target IP address list
-	Endpoints []string `pulumi:"endpoints"`
-	// Name of the LUN to be used
-	LunName *string `pulumi:"lunName"`
+	// Name of the LUN to be used for datastore
+	LunName string `pulumi:"lunName"`
+	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+	MountOption *string `pulumi:"mountOption"`
+	// Azure resource ID of the iSCSI target
+	TargetId string `pulumi:"targetId"`
+}
+
+// Defaults sets the appropriate defaults for DiskPoolVolume
+func (val *DiskPoolVolume) Defaults() *DiskPoolVolume {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountOption) {
+		mountOption_ := "MOUNT"
+		tmp.MountOption = &mountOption_
+	}
+	return &tmp
 }
 
 // DiskPoolVolumeInput is an input type that accepts DiskPoolVolumeArgs and DiskPoolVolumeOutput values.
@@ -142,12 +489,25 @@ type DiskPoolVolumeInput interface {
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeArgs struct {
-	// iSCSI provider target IP address list
-	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
-	// Name of the LUN to be used
-	LunName pulumi.StringPtrInput `pulumi:"lunName"`
+	// Name of the LUN to be used for datastore
+	LunName pulumi.StringInput `pulumi:"lunName"`
+	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+	MountOption pulumi.StringPtrInput `pulumi:"mountOption"`
+	// Azure resource ID of the iSCSI target
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
+// Defaults sets the appropriate defaults for DiskPoolVolumeArgs
+func (val *DiskPoolVolumeArgs) Defaults() *DiskPoolVolumeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountOption) {
+		tmp.MountOption = pulumi.StringPtr("MOUNT")
+	}
+	return &tmp
+}
 func (DiskPoolVolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskPoolVolume)(nil)).Elem()
 }
@@ -226,14 +586,19 @@ func (o DiskPoolVolumeOutput) ToDiskPoolVolumePtrOutputWithContext(ctx context.C
 	}).(DiskPoolVolumePtrOutput)
 }
 
-// iSCSI provider target IP address list
-func (o DiskPoolVolumeOutput) Endpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DiskPoolVolume) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+// Name of the LUN to be used for datastore
+func (o DiskPoolVolumeOutput) LunName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskPoolVolume) string { return v.LunName }).(pulumi.StringOutput)
 }
 
-// Name of the LUN to be used
-func (o DiskPoolVolumeOutput) LunName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPoolVolume) *string { return v.LunName }).(pulumi.StringPtrOutput)
+// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+func (o DiskPoolVolumeOutput) MountOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskPoolVolume) *string { return v.MountOption }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource ID of the iSCSI target
+func (o DiskPoolVolumeOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskPoolVolume) string { return v.TargetId }).(pulumi.StringOutput)
 }
 
 type DiskPoolVolumePtrOutput struct{ *pulumi.OutputState }
@@ -260,32 +625,59 @@ func (o DiskPoolVolumePtrOutput) Elem() DiskPoolVolumeOutput {
 	}).(DiskPoolVolumeOutput)
 }
 
-// iSCSI provider target IP address list
-func (o DiskPoolVolumePtrOutput) Endpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DiskPoolVolume) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoints
-	}).(pulumi.StringArrayOutput)
-}
-
-// Name of the LUN to be used
+// Name of the LUN to be used for datastore
 func (o DiskPoolVolumePtrOutput) LunName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskPoolVolume) *string {
 		if v == nil {
 			return nil
 		}
-		return v.LunName
+		return &v.LunName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+func (o DiskPoolVolumePtrOutput) MountOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure resource ID of the iSCSI target
+func (o DiskPoolVolumePtrOutput) TargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetId
 	}).(pulumi.StringPtrOutput)
 }
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeResponse struct {
-	// iSCSI provider target IP address list
-	Endpoints []string `pulumi:"endpoints"`
-	// Name of the LUN to be used
-	LunName *string `pulumi:"lunName"`
+	// Name of the LUN to be used for datastore
+	LunName string `pulumi:"lunName"`
+	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+	MountOption *string `pulumi:"mountOption"`
+	// Device path
+	Path string `pulumi:"path"`
+	// Azure resource ID of the iSCSI target
+	TargetId string `pulumi:"targetId"`
+}
+
+// Defaults sets the appropriate defaults for DiskPoolVolumeResponse
+func (val *DiskPoolVolumeResponse) Defaults() *DiskPoolVolumeResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountOption) {
+		mountOption_ := "MOUNT"
+		tmp.MountOption = &mountOption_
+	}
+	return &tmp
 }
 
 // An iSCSI volume from Microsoft.StoragePool provider
@@ -303,14 +695,24 @@ func (o DiskPoolVolumeResponseOutput) ToDiskPoolVolumeResponseOutputWithContext(
 	return o
 }
 
-// iSCSI provider target IP address list
-func (o DiskPoolVolumeResponseOutput) Endpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DiskPoolVolumeResponse) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+// Name of the LUN to be used for datastore
+func (o DiskPoolVolumeResponseOutput) LunName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) string { return v.LunName }).(pulumi.StringOutput)
 }
 
-// Name of the LUN to be used
-func (o DiskPoolVolumeResponseOutput) LunName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPoolVolumeResponse) *string { return v.LunName }).(pulumi.StringPtrOutput)
+// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+func (o DiskPoolVolumeResponseOutput) MountOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) *string { return v.MountOption }).(pulumi.StringPtrOutput)
+}
+
+// Device path
+func (o DiskPoolVolumeResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Azure resource ID of the iSCSI target
+func (o DiskPoolVolumeResponseOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) string { return v.TargetId }).(pulumi.StringOutput)
 }
 
 type DiskPoolVolumeResponsePtrOutput struct{ *pulumi.OutputState }
@@ -337,23 +739,585 @@ func (o DiskPoolVolumeResponsePtrOutput) Elem() DiskPoolVolumeResponseOutput {
 	}).(DiskPoolVolumeResponseOutput)
 }
 
-// iSCSI provider target IP address list
-func (o DiskPoolVolumeResponsePtrOutput) Endpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DiskPoolVolumeResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoints
-	}).(pulumi.StringArrayOutput)
-}
-
-// Name of the LUN to be used
+// Name of the LUN to be used for datastore
 func (o DiskPoolVolumeResponsePtrOutput) LunName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.LunName
+		return &v.LunName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+func (o DiskPoolVolumeResponsePtrOutput) MountOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Device path
+func (o DiskPoolVolumeResponsePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure resource ID of the iSCSI target
+func (o DiskPoolVolumeResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of customer managed encryption key
+type Encryption struct {
+	// The key vault where the encryption key is stored
+	KeyVaultProperties *EncryptionKeyVaultProperties `pulumi:"keyVaultProperties"`
+	// Status of customer managed encryption key
+	Status *string `pulumi:"status"`
+}
+
+// EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
+// You can construct a concrete instance of `EncryptionInput` via:
+//
+//          EncryptionArgs{...}
+type EncryptionInput interface {
+	pulumi.Input
+
+	ToEncryptionOutput() EncryptionOutput
+	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
+}
+
+// The properties of customer managed encryption key
+type EncryptionArgs struct {
+	// The key vault where the encryption key is stored
+	KeyVaultProperties EncryptionKeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+	// Status of customer managed encryption key
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (EncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Encryption)(nil)).Elem()
+}
+
+func (i EncryptionArgs) ToEncryptionOutput() EncryptionOutput {
+	return i.ToEncryptionOutputWithContext(context.Background())
+}
+
+func (i EncryptionArgs) ToEncryptionOutputWithContext(ctx context.Context) EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionOutput)
+}
+
+func (i EncryptionArgs) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return i.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionArgs) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionOutput).ToEncryptionPtrOutputWithContext(ctx)
+}
+
+// EncryptionPtrInput is an input type that accepts EncryptionArgs, EncryptionPtr and EncryptionPtrOutput values.
+// You can construct a concrete instance of `EncryptionPtrInput` via:
+//
+//          EncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPtrOutput() EncryptionPtrOutput
+	ToEncryptionPtrOutputWithContext(context.Context) EncryptionPtrOutput
+}
+
+type encryptionPtrType EncryptionArgs
+
+func EncryptionPtr(v *EncryptionArgs) EncryptionPtrInput {
+	return (*encryptionPtrType)(v)
+}
+
+func (*encryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Encryption)(nil)).Elem()
+}
+
+func (i *encryptionPtrType) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return i.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
+}
+
+// The properties of customer managed encryption key
+type EncryptionOutput struct{ *pulumi.OutputState }
+
+func (EncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Encryption)(nil)).Elem()
+}
+
+func (o EncryptionOutput) ToEncryptionOutput() EncryptionOutput {
+	return o
+}
+
+func (o EncryptionOutput) ToEncryptionOutputWithContext(ctx context.Context) EncryptionOutput {
+	return o
+}
+
+func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return o.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
+		return &v
+	}).(EncryptionPtrOutput)
+}
+
+// The key vault where the encryption key is stored
+func (o EncryptionOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v Encryption) *EncryptionKeyVaultProperties { return v.KeyVaultProperties }).(EncryptionKeyVaultPropertiesPtrOutput)
+}
+
+// Status of customer managed encryption key
+func (o EncryptionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Encryption)(nil)).Elem()
+}
+
+func (o EncryptionPtrOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPtrOutput) Elem() EncryptionOutput {
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
+}
+
+// The key vault where the encryption key is stored
+func (o EncryptionPtrOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *Encryption) *EncryptionKeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(EncryptionKeyVaultPropertiesPtrOutput)
+}
+
+// Status of customer managed encryption key
+func (o EncryptionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Encryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Encryption Key
+type EncryptionKeyVaultProperties struct {
+	// The name of the key.
+	KeyName *string `pulumi:"keyName"`
+	// The URL of the vault.
+	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
+	// The version of the key.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// EncryptionKeyVaultPropertiesInput is an input type that accepts EncryptionKeyVaultPropertiesArgs and EncryptionKeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `EncryptionKeyVaultPropertiesInput` via:
+//
+//          EncryptionKeyVaultPropertiesArgs{...}
+type EncryptionKeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyVaultPropertiesOutput() EncryptionKeyVaultPropertiesOutput
+	ToEncryptionKeyVaultPropertiesOutputWithContext(context.Context) EncryptionKeyVaultPropertiesOutput
+}
+
+// An Encryption Key
+type EncryptionKeyVaultPropertiesArgs struct {
+	// The name of the key.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The URL of the vault.
+	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
+	// The version of the key.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (EncryptionKeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyVaultProperties)(nil)).Elem()
+}
+
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesOutput() EncryptionKeyVaultPropertiesOutput {
+	return i.ToEncryptionKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyVaultPropertiesOutput)
+}
+
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyVaultPropertiesOutput).ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// EncryptionKeyVaultPropertiesPtrInput is an input type that accepts EncryptionKeyVaultPropertiesArgs, EncryptionKeyVaultPropertiesPtr and EncryptionKeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `EncryptionKeyVaultPropertiesPtrInput` via:
+//
+//          EncryptionKeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionKeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput
+	ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Context) EncryptionKeyVaultPropertiesPtrOutput
+}
+
+type encryptionKeyVaultPropertiesPtrType EncryptionKeyVaultPropertiesArgs
+
+func EncryptionKeyVaultPropertiesPtr(v *EncryptionKeyVaultPropertiesArgs) EncryptionKeyVaultPropertiesPtrInput {
+	return (*encryptionKeyVaultPropertiesPtrType)(v)
+}
+
+func (*encryptionKeyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyVaultProperties)(nil)).Elem()
+}
+
+func (i *encryptionKeyVaultPropertiesPtrType) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionKeyVaultPropertiesPtrType) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyVaultPropertiesPtrOutput)
+}
+
+// An Encryption Key
+type EncryptionKeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesOutput() EncryptionKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyVaultProperties) *EncryptionKeyVaultProperties {
+		return &v
+	}).(EncryptionKeyVaultPropertiesPtrOutput)
+}
+
+// The name of the key.
+func (o EncryptionKeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the vault.
+func (o EncryptionKeyVaultPropertiesOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultProperties) *string { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// The version of the key.
+func (o EncryptionKeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionKeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionKeyVaultPropertiesPtrOutput) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesPtrOutput) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesPtrOutput) Elem() EncryptionKeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) EncryptionKeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionKeyVaultProperties
+		return ret
+	}).(EncryptionKeyVaultPropertiesOutput)
+}
+
+// The name of the key.
+func (o EncryptionKeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the vault.
+func (o EncryptionKeyVaultPropertiesPtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key.
+func (o EncryptionKeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Encryption Key
+type EncryptionKeyVaultPropertiesResponse struct {
+	// The name of the key.
+	KeyName *string `pulumi:"keyName"`
+	// The state of key provided
+	KeyState string `pulumi:"keyState"`
+	// The URL of the vault.
+	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
+	// The version of the key.
+	KeyVersion *string `pulumi:"keyVersion"`
+	// Property of the key if user provided or auto detected
+	VersionType string `pulumi:"versionType"`
+}
+
+// An Encryption Key
+type EncryptionKeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionKeyVaultPropertiesResponseOutput) ToEncryptionKeyVaultPropertiesResponseOutput() EncryptionKeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesResponseOutput) ToEncryptionKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesResponseOutput {
+	return o
+}
+
+// The name of the key.
+func (o EncryptionKeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The state of key provided
+func (o EncryptionKeyVaultPropertiesResponseOutput) KeyState() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) string { return v.KeyState }).(pulumi.StringOutput)
+}
+
+// The URL of the vault.
+func (o EncryptionKeyVaultPropertiesResponseOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) *string { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// The version of the key.
+func (o EncryptionKeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// Property of the key if user provided or auto detected
+func (o EncryptionKeyVaultPropertiesResponseOutput) VersionType() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) string { return v.VersionType }).(pulumi.StringOutput)
+}
+
+type EncryptionKeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) ToEncryptionKeyVaultPropertiesResponsePtrOutput() EncryptionKeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) ToEncryptionKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) Elem() EncryptionKeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) EncryptionKeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionKeyVaultPropertiesResponse
+		return ret
+	}).(EncryptionKeyVaultPropertiesResponseOutput)
+}
+
+// The name of the key.
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of key provided
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) KeyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the vault.
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key.
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Property of the key if user provided or auto detected
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) VersionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VersionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of customer managed encryption key
+type EncryptionResponse struct {
+	// The key vault where the encryption key is stored
+	KeyVaultProperties *EncryptionKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// Status of customer managed encryption key
+	Status *string `pulumi:"status"`
+}
+
+// The properties of customer managed encryption key
+type EncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponseOutput() EncryptionResponseOutput {
+	return o
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponseOutputWithContext(ctx context.Context) EncryptionResponseOutput {
+	return o
+}
+
+// The key vault where the encryption key is stored
+func (o EncryptionResponseOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *EncryptionKeyVaultPropertiesResponse { return v.KeyVaultProperties }).(EncryptionKeyVaultPropertiesResponsePtrOutput)
+}
+
+// Status of customer managed encryption key
+func (o EncryptionResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
+}
+
+// The key vault where the encryption key is stored
+func (o EncryptionResponsePtrOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *EncryptionKeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(EncryptionKeyVaultPropertiesResponsePtrOutput)
+}
+
+// Status of customer managed encryption key
+func (o EncryptionResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -687,10 +1651,12 @@ func (o IdentitySourceResponseArrayOutput) Index(i pulumi.IntInput) IdentitySour
 	}).(IdentitySourceResponseOutput)
 }
 
-// The properties of a default cluster
+// The properties of a management cluster
 type ManagementCluster struct {
 	// The cluster size
 	ClusterSize int `pulumi:"clusterSize"`
+	// The hosts
+	Hosts []string `pulumi:"hosts"`
 }
 
 // ManagementClusterInput is an input type that accepts ManagementClusterArgs and ManagementClusterOutput values.
@@ -704,10 +1670,12 @@ type ManagementClusterInput interface {
 	ToManagementClusterOutputWithContext(context.Context) ManagementClusterOutput
 }
 
-// The properties of a default cluster
+// The properties of a management cluster
 type ManagementClusterArgs struct {
 	// The cluster size
 	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
+	// The hosts
+	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
 }
 
 func (ManagementClusterArgs) ElementType() reflect.Type {
@@ -722,7 +1690,7 @@ func (i ManagementClusterArgs) ToManagementClusterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterOutput)
 }
 
-// The properties of a default cluster
+// The properties of a management cluster
 type ManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterOutput) ElementType() reflect.Type {
@@ -742,7 +1710,12 @@ func (o ManagementClusterOutput) ClusterSize() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagementCluster) int { return v.ClusterSize }).(pulumi.IntOutput)
 }
 
-// The properties of a default cluster
+// The hosts
+func (o ManagementClusterOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagementCluster) []string { return v.Hosts }).(pulumi.StringArrayOutput)
+}
+
+// The properties of a management cluster
 type ManagementClusterResponse struct {
 	// The identity
 	ClusterId int `pulumi:"clusterId"`
@@ -754,7 +1727,7 @@ type ManagementClusterResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
-// The properties of a default cluster
+// The properties of a management cluster
 type ManagementClusterResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterResponseOutput) ElementType() reflect.Type {
@@ -791,10 +1764,8 @@ func (o ManagementClusterResponseOutput) ProvisioningState() pulumi.StringOutput
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolume struct {
-	// File path through which the NFS volume is exposed by the provider
-	NfsFilePath *string `pulumi:"nfsFilePath"`
-	// IP address of the NFS provider
-	NfsProviderIp *string `pulumi:"nfsProviderIp"`
+	// Azure resource ID of the NetApp volume
+	Id string `pulumi:"id"`
 }
 
 // NetAppVolumeInput is an input type that accepts NetAppVolumeArgs and NetAppVolumeOutput values.
@@ -810,10 +1781,8 @@ type NetAppVolumeInput interface {
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeArgs struct {
-	// File path through which the NFS volume is exposed by the provider
-	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
-	// IP address of the NFS provider
-	NfsProviderIp pulumi.StringPtrInput `pulumi:"nfsProviderIp"`
+	// Azure resource ID of the NetApp volume
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (NetAppVolumeArgs) ElementType() reflect.Type {
@@ -894,14 +1863,9 @@ func (o NetAppVolumeOutput) ToNetAppVolumePtrOutputWithContext(ctx context.Conte
 	}).(NetAppVolumePtrOutput)
 }
 
-// File path through which the NFS volume is exposed by the provider
-func (o NetAppVolumeOutput) NfsFilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetAppVolume) *string { return v.NfsFilePath }).(pulumi.StringPtrOutput)
-}
-
-// IP address of the NFS provider
-func (o NetAppVolumeOutput) NfsProviderIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetAppVolume) *string { return v.NfsProviderIp }).(pulumi.StringPtrOutput)
+// Azure resource ID of the NetApp volume
+func (o NetAppVolumeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetAppVolume) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type NetAppVolumePtrOutput struct{ *pulumi.OutputState }
@@ -928,32 +1892,20 @@ func (o NetAppVolumePtrOutput) Elem() NetAppVolumeOutput {
 	}).(NetAppVolumeOutput)
 }
 
-// File path through which the NFS volume is exposed by the provider
-func (o NetAppVolumePtrOutput) NfsFilePath() pulumi.StringPtrOutput {
+// Azure resource ID of the NetApp volume
+func (o NetAppVolumePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetAppVolume) *string {
 		if v == nil {
 			return nil
 		}
-		return v.NfsFilePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// IP address of the NFS provider
-func (o NetAppVolumePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetAppVolume) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NfsProviderIp
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeResponse struct {
-	// File path through which the NFS volume is exposed by the provider
-	NfsFilePath *string `pulumi:"nfsFilePath"`
-	// IP address of the NFS provider
-	NfsProviderIp *string `pulumi:"nfsProviderIp"`
+	// Azure resource ID of the NetApp volume
+	Id string `pulumi:"id"`
 }
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
@@ -971,14 +1923,9 @@ func (o NetAppVolumeResponseOutput) ToNetAppVolumeResponseOutputWithContext(ctx 
 	return o
 }
 
-// File path through which the NFS volume is exposed by the provider
-func (o NetAppVolumeResponseOutput) NfsFilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetAppVolumeResponse) *string { return v.NfsFilePath }).(pulumi.StringPtrOutput)
-}
-
-// IP address of the NFS provider
-func (o NetAppVolumeResponseOutput) NfsProviderIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetAppVolumeResponse) *string { return v.NfsProviderIp }).(pulumi.StringPtrOutput)
+// Azure resource ID of the NetApp volume
+func (o NetAppVolumeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetAppVolumeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type NetAppVolumeResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1005,23 +1952,13 @@ func (o NetAppVolumeResponsePtrOutput) Elem() NetAppVolumeResponseOutput {
 	}).(NetAppVolumeResponseOutput)
 }
 
-// File path through which the NFS volume is exposed by the provider
-func (o NetAppVolumeResponsePtrOutput) NfsFilePath() pulumi.StringPtrOutput {
+// Azure resource ID of the NetApp volume
+func (o NetAppVolumeResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetAppVolumeResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.NfsFilePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// IP address of the NFS provider
-func (o NetAppVolumeResponsePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetAppVolumeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NfsProviderIp
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1049,6 +1986,240 @@ type PSCredentialExecutionParameterResponse struct {
 	Type string `pulumi:"type"`
 	// username for login
 	Username *string `pulumi:"username"`
+}
+
+// Identity for the virtual machine.
+type PrivateCloudIdentity struct {
+	// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+	Type *string `pulumi:"type"`
+}
+
+// PrivateCloudIdentityInput is an input type that accepts PrivateCloudIdentityArgs and PrivateCloudIdentityOutput values.
+// You can construct a concrete instance of `PrivateCloudIdentityInput` via:
+//
+//          PrivateCloudIdentityArgs{...}
+type PrivateCloudIdentityInput interface {
+	pulumi.Input
+
+	ToPrivateCloudIdentityOutput() PrivateCloudIdentityOutput
+	ToPrivateCloudIdentityOutputWithContext(context.Context) PrivateCloudIdentityOutput
+}
+
+// Identity for the virtual machine.
+type PrivateCloudIdentityArgs struct {
+	// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PrivateCloudIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateCloudIdentity)(nil)).Elem()
+}
+
+func (i PrivateCloudIdentityArgs) ToPrivateCloudIdentityOutput() PrivateCloudIdentityOutput {
+	return i.ToPrivateCloudIdentityOutputWithContext(context.Background())
+}
+
+func (i PrivateCloudIdentityArgs) ToPrivateCloudIdentityOutputWithContext(ctx context.Context) PrivateCloudIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudIdentityOutput)
+}
+
+func (i PrivateCloudIdentityArgs) ToPrivateCloudIdentityPtrOutput() PrivateCloudIdentityPtrOutput {
+	return i.ToPrivateCloudIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateCloudIdentityArgs) ToPrivateCloudIdentityPtrOutputWithContext(ctx context.Context) PrivateCloudIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudIdentityOutput).ToPrivateCloudIdentityPtrOutputWithContext(ctx)
+}
+
+// PrivateCloudIdentityPtrInput is an input type that accepts PrivateCloudIdentityArgs, PrivateCloudIdentityPtr and PrivateCloudIdentityPtrOutput values.
+// You can construct a concrete instance of `PrivateCloudIdentityPtrInput` via:
+//
+//          PrivateCloudIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateCloudIdentityPtrInput interface {
+	pulumi.Input
+
+	ToPrivateCloudIdentityPtrOutput() PrivateCloudIdentityPtrOutput
+	ToPrivateCloudIdentityPtrOutputWithContext(context.Context) PrivateCloudIdentityPtrOutput
+}
+
+type privateCloudIdentityPtrType PrivateCloudIdentityArgs
+
+func PrivateCloudIdentityPtr(v *PrivateCloudIdentityArgs) PrivateCloudIdentityPtrInput {
+	return (*privateCloudIdentityPtrType)(v)
+}
+
+func (*privateCloudIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateCloudIdentity)(nil)).Elem()
+}
+
+func (i *privateCloudIdentityPtrType) ToPrivateCloudIdentityPtrOutput() PrivateCloudIdentityPtrOutput {
+	return i.ToPrivateCloudIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *privateCloudIdentityPtrType) ToPrivateCloudIdentityPtrOutputWithContext(ctx context.Context) PrivateCloudIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudIdentityPtrOutput)
+}
+
+// Identity for the virtual machine.
+type PrivateCloudIdentityOutput struct{ *pulumi.OutputState }
+
+func (PrivateCloudIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateCloudIdentity)(nil)).Elem()
+}
+
+func (o PrivateCloudIdentityOutput) ToPrivateCloudIdentityOutput() PrivateCloudIdentityOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityOutput) ToPrivateCloudIdentityOutputWithContext(ctx context.Context) PrivateCloudIdentityOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityOutput) ToPrivateCloudIdentityPtrOutput() PrivateCloudIdentityPtrOutput {
+	return o.ToPrivateCloudIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateCloudIdentityOutput) ToPrivateCloudIdentityPtrOutputWithContext(ctx context.Context) PrivateCloudIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateCloudIdentity) *PrivateCloudIdentity {
+		return &v
+	}).(PrivateCloudIdentityPtrOutput)
+}
+
+// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+func (o PrivateCloudIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateCloudIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PrivateCloudIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateCloudIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateCloudIdentity)(nil)).Elem()
+}
+
+func (o PrivateCloudIdentityPtrOutput) ToPrivateCloudIdentityPtrOutput() PrivateCloudIdentityPtrOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityPtrOutput) ToPrivateCloudIdentityPtrOutputWithContext(ctx context.Context) PrivateCloudIdentityPtrOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityPtrOutput) Elem() PrivateCloudIdentityOutput {
+	return o.ApplyT(func(v *PrivateCloudIdentity) PrivateCloudIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateCloudIdentity
+		return ret
+	}).(PrivateCloudIdentityOutput)
+}
+
+// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+func (o PrivateCloudIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloudIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the virtual machine.
+type PrivateCloudIdentityResponse struct {
+	// The principal ID of private cloud identity. This property will only be provided for a system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID associated with the private cloud. This property will only be provided for a system assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+	Type *string `pulumi:"type"`
+}
+
+// Identity for the virtual machine.
+type PrivateCloudIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateCloudIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateCloudIdentityResponse)(nil)).Elem()
+}
+
+func (o PrivateCloudIdentityResponseOutput) ToPrivateCloudIdentityResponseOutput() PrivateCloudIdentityResponseOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityResponseOutput) ToPrivateCloudIdentityResponseOutputWithContext(ctx context.Context) PrivateCloudIdentityResponseOutput {
+	return o
+}
+
+// The principal ID of private cloud identity. This property will only be provided for a system assigned identity.
+func (o PrivateCloudIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateCloudIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID associated with the private cloud. This property will only be provided for a system assigned identity.
+func (o PrivateCloudIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateCloudIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+func (o PrivateCloudIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateCloudIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PrivateCloudIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateCloudIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateCloudIdentityResponse)(nil)).Elem()
+}
+
+func (o PrivateCloudIdentityResponsePtrOutput) ToPrivateCloudIdentityResponsePtrOutput() PrivateCloudIdentityResponsePtrOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityResponsePtrOutput) ToPrivateCloudIdentityResponsePtrOutputWithContext(ctx context.Context) PrivateCloudIdentityResponsePtrOutput {
+	return o
+}
+
+func (o PrivateCloudIdentityResponsePtrOutput) Elem() PrivateCloudIdentityResponseOutput {
+	return o.ApplyT(func(v *PrivateCloudIdentityResponse) PrivateCloudIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateCloudIdentityResponse
+		return ret
+	}).(PrivateCloudIdentityResponseOutput)
+}
+
+// The principal ID of private cloud identity. This property will only be provided for a system assigned identity.
+func (o PrivateCloudIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloudIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID associated with the private cloud. This property will only be provided for a system assigned identity.
+func (o PrivateCloudIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloudIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+func (o PrivateCloudIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloudIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // a plain text value execution parameter
@@ -1242,6 +2413,70 @@ type VmVmPlacementPolicyPropertiesResponse struct {
 	Type string `pulumi:"type"`
 	// Virtual machine members list
 	VmMembers []string `pulumi:"vmMembers"`
+}
+
+// NSX DHCP Relay
+type WorkloadNetworkDhcpRelay struct {
+	// Type of DHCP: SERVER or RELAY.
+	// Expected value is 'RELAY'.
+	DhcpType string `pulumi:"dhcpType"`
+	// Display name of the DHCP entity.
+	DisplayName *string `pulumi:"displayName"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// DHCP Relay Addresses. Max 3.
+	ServerAddresses []string `pulumi:"serverAddresses"`
+}
+
+// NSX DHCP Relay
+type WorkloadNetworkDhcpRelayResponse struct {
+	// Type of DHCP: SERVER or RELAY.
+	// Expected value is 'RELAY'.
+	DhcpType string `pulumi:"dhcpType"`
+	// Display name of the DHCP entity.
+	DisplayName *string `pulumi:"displayName"`
+	// The provisioning state
+	ProvisioningState string `pulumi:"provisioningState"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// NSX Segments consuming DHCP.
+	Segments []string `pulumi:"segments"`
+	// DHCP Relay Addresses. Max 3.
+	ServerAddresses []string `pulumi:"serverAddresses"`
+}
+
+// NSX DHCP Server
+type WorkloadNetworkDhcpServer struct {
+	// Type of DHCP: SERVER or RELAY.
+	// Expected value is 'SERVER'.
+	DhcpType string `pulumi:"dhcpType"`
+	// Display name of the DHCP entity.
+	DisplayName *string `pulumi:"displayName"`
+	// DHCP Server Lease Time.
+	LeaseTime *float64 `pulumi:"leaseTime"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// DHCP Server Address.
+	ServerAddress *string `pulumi:"serverAddress"`
+}
+
+// NSX DHCP Server
+type WorkloadNetworkDhcpServerResponse struct {
+	// Type of DHCP: SERVER or RELAY.
+	// Expected value is 'SERVER'.
+	DhcpType string `pulumi:"dhcpType"`
+	// Display name of the DHCP entity.
+	DisplayName *string `pulumi:"displayName"`
+	// DHCP Server Lease Time.
+	LeaseTime *float64 `pulumi:"leaseTime"`
+	// The provisioning state
+	ProvisioningState string `pulumi:"provisioningState"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// NSX Segments consuming DHCP.
+	Segments []string `pulumi:"segments"`
+	// DHCP Server Address.
+	ServerAddress *string `pulumi:"serverAddress"`
 }
 
 // Ports and any VIF attached to segment.
@@ -1527,12 +2762,24 @@ func (o WorkloadNetworkSegmentSubnetResponsePtrOutput) GatewayAddress() pulumi.S
 }
 
 func init() {
+	pulumi.RegisterOutputType(AvailabilityPropertiesOutput{})
+	pulumi.RegisterOutputType(AvailabilityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AvailabilityPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AvailabilityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CircuitResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskPoolVolumeOutput{})
 	pulumi.RegisterOutputType(DiskPoolVolumePtrOutput{})
 	pulumi.RegisterOutputType(DiskPoolVolumeResponseOutput{})
 	pulumi.RegisterOutputType(DiskPoolVolumeResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionOutput{})
+	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(IdentitySourceOutput{})
 	pulumi.RegisterOutputType(IdentitySourceArrayOutput{})
@@ -1544,6 +2791,10 @@ func init() {
 	pulumi.RegisterOutputType(NetAppVolumePtrOutput{})
 	pulumi.RegisterOutputType(NetAppVolumeResponseOutput{})
 	pulumi.RegisterOutputType(NetAppVolumeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateCloudIdentityOutput{})
+	pulumi.RegisterOutputType(PrivateCloudIdentityPtrOutput{})
+	pulumi.RegisterOutputType(PrivateCloudIdentityResponseOutput{})
+	pulumi.RegisterOutputType(PrivateCloudIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentPortVifResponseOutput{})

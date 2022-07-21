@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
     if (!opts) {
@@ -51,7 +51,7 @@ export interface GetCustomDomainResult {
      */
     readonly customHttpsParameters?: outputs.cdn.CdnManagedHttpsParametersResponse | outputs.cdn.UserManagedHttpsParametersResponse;
     /**
-     * Provisioning status of Custom Https of the custom domain.
+     * Provisioning status of the custom domain.
      */
     readonly customHttpsProvisioningState: string;
     /**
@@ -71,7 +71,7 @@ export interface GetCustomDomainResult {
      */
     readonly name: string;
     /**
-     * Provisioning status of the custom domain.
+     * Provisioning status of Custom Https of the custom domain.
      */
     readonly provisioningState: string;
     /**

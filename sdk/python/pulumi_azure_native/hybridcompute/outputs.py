@@ -11,69 +11,314 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AgentConfigurationResponse',
+    'CloudMetadataResponse',
+    'ConfigurationExtensionResponse',
+    'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'HybridComputePrivateLinkScopePropertiesResponse',
+    'IdentityResponse',
     'LocationDataResponse',
     'MachineExtensionInstanceViewResponse',
     'MachineExtensionInstanceViewResponseStatus',
-    'MachineExtensionPropertiesResponseInstanceView',
-    'MachinePropertiesResponseOsProfile',
-    'MachineResponseIdentity',
+    'MachineExtensionPropertiesResponse',
+    'MachinePropertiesResponse',
+    'OSProfileResponse',
+    'OSProfileResponseLinuxConfiguration',
+    'OSProfileResponseWindowsConfiguration',
+    'PrivateEndpointConnectionDataModelResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'ServiceStatusResponse',
+    'ServiceStatusesResponse',
     'SystemDataResponse',
 ]
 
 @pulumi.output_type
-class ErrorDetailResponse(dict):
+class AgentConfigurationResponse(dict):
+    """
+    Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionsAllowList":
+            suggest = "extensions_allow_list"
+        elif key == "extensionsBlockList":
+            suggest = "extensions_block_list"
+        elif key == "extensionsEnabled":
+            suggest = "extensions_enabled"
+        elif key == "guestConfigurationEnabled":
+            suggest = "guest_configuration_enabled"
+        elif key == "incomingConnectionsPorts":
+            suggest = "incoming_connections_ports"
+        elif key == "proxyBypass":
+            suggest = "proxy_bypass"
+        elif key == "proxyUrl":
+            suggest = "proxy_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 extensions_allow_list: Sequence['outputs.ConfigurationExtensionResponse'],
+                 extensions_block_list: Sequence['outputs.ConfigurationExtensionResponse'],
+                 extensions_enabled: str,
+                 guest_configuration_enabled: str,
+                 incoming_connections_ports: Sequence[str],
+                 proxy_bypass: Sequence[str],
+                 proxy_url: str):
+        """
+        Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+        :param Sequence['ConfigurationExtensionResponse'] extensions_allow_list: Array of extensions that are allowed to be installed or updated.
+        :param Sequence['ConfigurationExtensionResponse'] extensions_block_list: Array of extensions that are blocked (cannot be installed or updated)
+        :param str extensions_enabled: Specifies whether the extension service is enabled or disabled.
+        :param str guest_configuration_enabled: Specified whether the guest configuration service is enabled or disabled.
+        :param Sequence[str] incoming_connections_ports: Specifies the list of ports that the agent will be able to listen on.
+        :param Sequence[str] proxy_bypass: List of service names which should not use the specified proxy server.
+        :param str proxy_url: Specifies the URL of the proxy to be used.
+        """
+        pulumi.set(__self__, "extensions_allow_list", extensions_allow_list)
+        pulumi.set(__self__, "extensions_block_list", extensions_block_list)
+        pulumi.set(__self__, "extensions_enabled", extensions_enabled)
+        pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
+        pulumi.set(__self__, "incoming_connections_ports", incoming_connections_ports)
+        pulumi.set(__self__, "proxy_bypass", proxy_bypass)
+        pulumi.set(__self__, "proxy_url", proxy_url)
+
+    @property
+    @pulumi.getter(name="extensionsAllowList")
+    def extensions_allow_list(self) -> Sequence['outputs.ConfigurationExtensionResponse']:
+        """
+        Array of extensions that are allowed to be installed or updated.
+        """
+        return pulumi.get(self, "extensions_allow_list")
+
+    @property
+    @pulumi.getter(name="extensionsBlockList")
+    def extensions_block_list(self) -> Sequence['outputs.ConfigurationExtensionResponse']:
+        """
+        Array of extensions that are blocked (cannot be installed or updated)
+        """
+        return pulumi.get(self, "extensions_block_list")
+
+    @property
+    @pulumi.getter(name="extensionsEnabled")
+    def extensions_enabled(self) -> str:
+        """
+        Specifies whether the extension service is enabled or disabled.
+        """
+        return pulumi.get(self, "extensions_enabled")
+
+    @property
+    @pulumi.getter(name="guestConfigurationEnabled")
+    def guest_configuration_enabled(self) -> str:
+        """
+        Specified whether the guest configuration service is enabled or disabled.
+        """
+        return pulumi.get(self, "guest_configuration_enabled")
+
+    @property
+    @pulumi.getter(name="incomingConnectionsPorts")
+    def incoming_connections_ports(self) -> Sequence[str]:
+        """
+        Specifies the list of ports that the agent will be able to listen on.
+        """
+        return pulumi.get(self, "incoming_connections_ports")
+
+    @property
+    @pulumi.getter(name="proxyBypass")
+    def proxy_bypass(self) -> Sequence[str]:
+        """
+        List of service names which should not use the specified proxy server.
+        """
+        return pulumi.get(self, "proxy_bypass")
+
+    @property
+    @pulumi.getter(name="proxyUrl")
+    def proxy_url(self) -> str:
+        """
+        Specifies the URL of the proxy to be used.
+        """
+        return pulumi.get(self, "proxy_url")
+
+
+@pulumi.output_type
+class CloudMetadataResponse(dict):
+    """
+    The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+    """
+    def __init__(__self__, *,
+                 provider: str):
+        """
+        The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+        :param str provider: Specifies the cloud provider (Azure/AWS/GCP...).
+        """
+        pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> str:
+        """
+        Specifies the cloud provider (Azure/AWS/GCP...).
+        """
+        return pulumi.get(self, "provider")
+
+
+@pulumi.output_type
+class ConfigurationExtensionResponse(dict):
+    """
+    Describes properties that can identify extensions.
+    """
+    def __init__(__self__, *,
+                 publisher: str,
+                 type: str):
+        """
+        Describes properties that can identify extensions.
+        :param str publisher: Publisher of the extension.
+        :param str type: Type of the extension.
+        """
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        Publisher of the extension.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the extension.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
                  code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
                  message: str,
-                 details: Optional[Sequence['outputs.ErrorDetailResponse']] = None,
-                 target: Optional[str] = None):
+                 target: str):
         """
-        :param str code: The error's code.
-        :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponse'] details: Additional error details.
-        :param str target: Indicates which property in the request is responsible for the error.
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
         """
+        pulumi.set(__self__, "additional_info", additional_info)
         pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
         pulumi.set(__self__, "message", message)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
 
     @property
     @pulumi.getter
     def code(self) -> str:
         """
-        The error's code.
+        The error code.
         """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter
-    def message(self) -> str:
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
-        A human readable error message.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.ErrorDetailResponse']]:
-        """
-        Additional error details.
+        The error details.
         """
         return pulumi.get(self, "details")
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def message(self) -> str:
         """
-        Indicates which property in the request is responsible for the error.
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
         """
         return pulumi.get(self, "target")
 
@@ -86,7 +331,9 @@ class HybridComputePrivateLinkScopePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateLinkScopeId":
+        if key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "privateLinkScopeId":
             suggest = "private_link_scope_id"
         elif key == "provisioningState":
             suggest = "provisioning_state"
@@ -105,19 +352,30 @@ class HybridComputePrivateLinkScopePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionDataModelResponse'],
                  private_link_scope_id: str,
                  provisioning_state: str,
                  public_network_access: Optional[str] = None):
         """
         Properties that define a Azure Arc PrivateLinkScope resource.
+        :param Sequence['PrivateEndpointConnectionDataModelResponse'] private_endpoint_connections: The collection of associated Private Endpoint Connections.
         :param str private_link_scope_id: The Guid id of the private link scope.
         :param str provisioning_state: Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
         :param str public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         """
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "private_link_scope_id", private_link_scope_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionDataModelResponse']:
+        """
+        The collection of associated Private Endpoint Connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="privateLinkScopeId")
@@ -142,6 +400,70 @@ class HybridComputePrivateLinkScopePropertiesResponse(dict):
         Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         """
         return pulumi.get(self, "public_network_access")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -242,46 +564,33 @@ class MachineExtensionInstanceViewResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: str,
-                 type: str,
-                 type_handler_version: str,
-                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
+                 name: Optional[str] = None,
+                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None,
+                 type: Optional[str] = None,
+                 type_handler_version: Optional[str] = None):
         """
         Describes the Machine Extension Instance View.
         :param str name: The machine extension name.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
-        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The machine extension name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> str:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
 
     @property
     @pulumi.getter
@@ -290,6 +599,22 @@ class MachineExtensionInstanceViewResponse(dict):
         Instance view status.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[str]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
 
 
 @pulumi.output_type
@@ -315,11 +640,11 @@ class MachineExtensionInstanceViewResponseStatus(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 code: str,
-                 display_status: str,
-                 level: str,
-                 message: str,
-                 time: str):
+                 code: Optional[str] = None,
+                 display_status: Optional[str] = None,
+                 level: Optional[str] = None,
+                 message: Optional[str] = None,
+                 time: Optional[str] = None):
         """
         Instance view status.
         :param str code: The status code.
@@ -328,15 +653,20 @@ class MachineExtensionInstanceViewResponseStatus(dict):
         :param str message: The detailed status message, including for alerts and error messages.
         :param str time: The time of the status.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "display_status", display_status)
-        pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "time", time)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if display_status is not None:
+            pulumi.set(__self__, "display_status", display_status)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
-    def code(self) -> str:
+    def code(self) -> Optional[str]:
         """
         The status code.
         """
@@ -344,7 +674,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter(name="displayStatus")
-    def display_status(self) -> str:
+    def display_status(self) -> Optional[str]:
         """
         The short localizable label for the status.
         """
@@ -352,7 +682,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> str:
+    def level(self) -> Optional[str]:
         """
         The level code.
         """
@@ -360,7 +690,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter
-    def message(self) -> str:
+    def message(self) -> Optional[str]:
         """
         The detailed status message, including for alerts and error messages.
         """
@@ -368,7 +698,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> str:
+    def time(self) -> Optional[str]:
         """
         The time of the status.
         """
@@ -376,56 +706,150 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
 
 @pulumi.output_type
-class MachineExtensionPropertiesResponseInstanceView(dict):
+class MachineExtensionPropertiesResponse(dict):
     """
-    The machine extension instance view.
+    Describes the properties of a Machine Extension.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "typeHandlerVersion":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "enableAutomaticUpgrade":
+            suggest = "enable_automatic_upgrade"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "instanceView":
+            suggest = "instance_view"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "typeHandlerVersion":
             suggest = "type_handler_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionPropertiesResponseInstanceView. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MachineExtensionPropertiesResponseInstanceView.__key_warning(key)
+        MachineExtensionPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MachineExtensionPropertiesResponseInstanceView.__key_warning(key)
+        MachineExtensionPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: str,
-                 type: str,
-                 type_handler_version: str,
-                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
+                 provisioning_state: str,
+                 auto_upgrade_minor_version: Optional[bool] = None,
+                 enable_automatic_upgrade: Optional[bool] = None,
+                 force_update_tag: Optional[str] = None,
+                 instance_view: Optional['outputs.MachineExtensionInstanceViewResponse'] = None,
+                 protected_settings: Optional[Any] = None,
+                 publisher: Optional[str] = None,
+                 settings: Optional[Any] = None,
+                 type: Optional[str] = None,
+                 type_handler_version: Optional[str] = None):
         """
-        The machine extension instance view.
-        :param str name: The machine extension name.
+        Describes the properties of a Machine Extension.
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        :param str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
+        :param 'MachineExtensionInstanceViewResponse' instance_view: The machine extension instance view.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param str publisher: The name of the extension handler publisher.
+        :param Any settings: Json formatted public settings for the extension.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
-        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if instance_view is not None:
+            pulumi.set(__self__, "instance_view", instance_view)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        How the extension handler should be forced to update even if the extension configuration has not changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> Optional['outputs.MachineExtensionInstanceViewResponse']:
+        """
+        The machine extension instance view.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[Any]:
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        return pulumi.get(self, "protected_settings")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def publisher(self) -> Optional[str]:
         """
-        The machine extension name.
+        The name of the extension handler publisher.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "publisher")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def settings(self) -> Optional[Any]:
+        """
+        Json formatted public settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
         Specifies the type of the extension; an example is "CustomScriptExtension".
         """
@@ -433,23 +857,399 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
 
     @property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> str:
+    def type_handler_version(self) -> Optional[str]:
         """
         Specifies the version of the script handler.
         """
         return pulumi.get(self, "type_handler_version")
 
+
+@pulumi.output_type
+class MachinePropertiesResponse(dict):
+    """
+    Describes the properties of a hybrid machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adFqdn":
+            suggest = "ad_fqdn"
+        elif key == "agentConfiguration":
+            suggest = "agent_configuration"
+        elif key == "agentVersion":
+            suggest = "agent_version"
+        elif key == "detectedProperties":
+            suggest = "detected_properties"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "dnsFqdn":
+            suggest = "dns_fqdn"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "lastStatusChange":
+            suggest = "last_status_change"
+        elif key == "machineFqdn":
+            suggest = "machine_fqdn"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "osSku":
+            suggest = "os_sku"
+        elif key == "osVersion":
+            suggest = "os_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "vmUuid":
+            suggest = "vm_uuid"
+        elif key == "clientPublicKey":
+            suggest = "client_public_key"
+        elif key == "cloudMetadata":
+            suggest = "cloud_metadata"
+        elif key == "locationData":
+            suggest = "location_data"
+        elif key == "mssqlDiscovered":
+            suggest = "mssql_discovered"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "parentClusterResourceId":
+            suggest = "parent_cluster_resource_id"
+        elif key == "privateLinkScopeResourceId":
+            suggest = "private_link_scope_resource_id"
+        elif key == "serviceStatuses":
+            suggest = "service_statuses"
+        elif key == "vmId":
+            suggest = "vm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ad_fqdn: str,
+                 agent_configuration: 'outputs.AgentConfigurationResponse',
+                 agent_version: str,
+                 detected_properties: Mapping[str, str],
+                 display_name: str,
+                 dns_fqdn: str,
+                 domain_name: str,
+                 error_details: Sequence['outputs.ErrorDetailResponse'],
+                 last_status_change: str,
+                 machine_fqdn: str,
+                 os_name: str,
+                 os_sku: str,
+                 os_version: str,
+                 provisioning_state: str,
+                 status: str,
+                 vm_uuid: str,
+                 client_public_key: Optional[str] = None,
+                 cloud_metadata: Optional['outputs.CloudMetadataResponse'] = None,
+                 extensions: Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']] = None,
+                 location_data: Optional['outputs.LocationDataResponse'] = None,
+                 mssql_discovered: Optional[str] = None,
+                 os_profile: Optional['outputs.OSProfileResponse'] = None,
+                 os_type: Optional[str] = None,
+                 parent_cluster_resource_id: Optional[str] = None,
+                 private_link_scope_resource_id: Optional[str] = None,
+                 service_statuses: Optional['outputs.ServiceStatusesResponse'] = None,
+                 vm_id: Optional[str] = None):
+        """
+        Describes the properties of a hybrid machine.
+        :param str ad_fqdn: Specifies the AD fully qualified display name.
+        :param 'AgentConfigurationResponse' agent_configuration: Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+        :param str agent_version: The hybrid machine agent full version.
+        :param Mapping[str, str] detected_properties: Detected properties from the machine.
+        :param str display_name: Specifies the hybrid machine display name.
+        :param str dns_fqdn: Specifies the DNS fully qualified display name.
+        :param str domain_name: Specifies the Windows domain name.
+        :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
+        :param str last_status_change: The time of the last status change.
+        :param str machine_fqdn: Specifies the hybrid machine FQDN.
+        :param str os_name: The Operating System running on the hybrid machine.
+        :param str os_sku: Specifies the Operating System product SKU.
+        :param str os_version: The version of Operating System running on the hybrid machine.
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param str status: The status of the hybrid machine agent.
+        :param str vm_uuid: Specifies the Arc Machine's unique SMBIOS ID
+        :param str client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param 'CloudMetadataResponse' cloud_metadata: The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+        :param Sequence['MachineExtensionInstanceViewResponse'] extensions: Machine Extensions information
+        :param 'LocationDataResponse' location_data: Metadata pertaining to the geographic location of the resource.
+        :param str mssql_discovered: Specifies whether any MS SQL instance is discovered on the machine.
+        :param 'OSProfileResponse' os_profile: Specifies the operating system settings for the hybrid machine.
+        :param str os_type: The type of Operating System (windows/linux).
+        :param str parent_cluster_resource_id: The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+        :param str private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
+        :param 'ServiceStatusesResponse' service_statuses: Statuses of dependent services that are reported back to ARM.
+        :param str vm_id: Specifies the hybrid machine unique ID.
+        """
+        pulumi.set(__self__, "ad_fqdn", ad_fqdn)
+        pulumi.set(__self__, "agent_configuration", agent_configuration)
+        pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "detected_properties", detected_properties)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "dns_fqdn", dns_fqdn)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "error_details", error_details)
+        pulumi.set(__self__, "last_status_change", last_status_change)
+        pulumi.set(__self__, "machine_fqdn", machine_fqdn)
+        pulumi.set(__self__, "os_name", os_name)
+        pulumi.set(__self__, "os_sku", os_sku)
+        pulumi.set(__self__, "os_version", os_version)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "vm_uuid", vm_uuid)
+        if client_public_key is not None:
+            pulumi.set(__self__, "client_public_key", client_public_key)
+        if cloud_metadata is not None:
+            pulumi.set(__self__, "cloud_metadata", cloud_metadata)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if location_data is not None:
+            pulumi.set(__self__, "location_data", location_data)
+        if mssql_discovered is not None:
+            pulumi.set(__self__, "mssql_discovered", mssql_discovered)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if parent_cluster_resource_id is not None:
+            pulumi.set(__self__, "parent_cluster_resource_id", parent_cluster_resource_id)
+        if private_link_scope_resource_id is not None:
+            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+        if service_statuses is not None:
+            pulumi.set(__self__, "service_statuses", service_statuses)
+        if vm_id is not None:
+            pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter(name="adFqdn")
+    def ad_fqdn(self) -> str:
+        """
+        Specifies the AD fully qualified display name.
+        """
+        return pulumi.get(self, "ad_fqdn")
+
+    @property
+    @pulumi.getter(name="agentConfiguration")
+    def agent_configuration(self) -> 'outputs.AgentConfigurationResponse':
+        """
+        Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+        """
+        return pulumi.get(self, "agent_configuration")
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> str:
+        """
+        The hybrid machine agent full version.
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="detectedProperties")
+    def detected_properties(self) -> Mapping[str, str]:
+        """
+        Detected properties from the machine.
+        """
+        return pulumi.get(self, "detected_properties")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Specifies the hybrid machine display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="dnsFqdn")
+    def dns_fqdn(self) -> str:
+        """
+        Specifies the DNS fully qualified display name.
+        """
+        return pulumi.get(self, "dns_fqdn")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        Specifies the Windows domain name.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        Details about the error state.
+        """
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter(name="lastStatusChange")
+    def last_status_change(self) -> str:
+        """
+        The time of the last status change.
+        """
+        return pulumi.get(self, "last_status_change")
+
+    @property
+    @pulumi.getter(name="machineFqdn")
+    def machine_fqdn(self) -> str:
+        """
+        Specifies the hybrid machine FQDN.
+        """
+        return pulumi.get(self, "machine_fqdn")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
+        """
+        The Operating System running on the hybrid machine.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> str:
+        """
+        Specifies the Operating System product SKU.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> str:
+        """
+        The version of Operating System running on the hybrid machine.
+        """
+        return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
     @property
     @pulumi.getter
-    def status(self) -> Optional['outputs.MachineExtensionInstanceViewResponseStatus']:
+    def status(self) -> str:
         """
-        Instance view status.
+        The status of the hybrid machine agent.
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter(name="vmUuid")
+    def vm_uuid(self) -> str:
+        """
+        Specifies the Arc Machine's unique SMBIOS ID
+        """
+        return pulumi.get(self, "vm_uuid")
+
+    @property
+    @pulumi.getter(name="clientPublicKey")
+    def client_public_key(self) -> Optional[str]:
+        """
+        Public Key that the client provides to be used during initial resource onboarding
+        """
+        return pulumi.get(self, "client_public_key")
+
+    @property
+    @pulumi.getter(name="cloudMetadata")
+    def cloud_metadata(self) -> Optional['outputs.CloudMetadataResponse']:
+        """
+        The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+        """
+        return pulumi.get(self, "cloud_metadata")
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']]:
+        """
+        Machine Extensions information
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="locationData")
+    def location_data(self) -> Optional['outputs.LocationDataResponse']:
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        return pulumi.get(self, "location_data")
+
+    @property
+    @pulumi.getter(name="mssqlDiscovered")
+    def mssql_discovered(self) -> Optional[str]:
+        """
+        Specifies whether any MS SQL instance is discovered on the machine.
+        """
+        return pulumi.get(self, "mssql_discovered")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional['outputs.OSProfileResponse']:
+        """
+        Specifies the operating system settings for the hybrid machine.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The type of Operating System (windows/linux).
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="parentClusterResourceId")
+    def parent_cluster_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "parent_cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the private link scope this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @property
+    @pulumi.getter(name="serviceStatuses")
+    def service_statuses(self) -> Optional['outputs.ServiceStatusesResponse']:
+        """
+        Statuses of dependent services that are reported back to ARM.
+        """
+        return pulumi.get(self, "service_statuses")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> Optional[str]:
+        """
+        Specifies the hybrid machine unique ID.
+        """
+        return pulumi.get(self, "vm_id")
+
 
 @pulumi.output_type
-class MachinePropertiesResponseOsProfile(dict):
+class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the hybrid machine.
     """
@@ -458,25 +1258,37 @@ class MachinePropertiesResponseOsProfile(dict):
         suggest = None
         if key == "computerName":
             suggest = "computer_name"
+        elif key == "linuxConfiguration":
+            suggest = "linux_configuration"
+        elif key == "windowsConfiguration":
+            suggest = "windows_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MachinePropertiesResponseOsProfile. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MachinePropertiesResponseOsProfile.__key_warning(key)
+        OSProfileResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MachinePropertiesResponseOsProfile.__key_warning(key)
+        OSProfileResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 computer_name: str):
+                 computer_name: str,
+                 linux_configuration: Optional['outputs.OSProfileResponseLinuxConfiguration'] = None,
+                 windows_configuration: Optional['outputs.OSProfileResponseWindowsConfiguration'] = None):
         """
         Specifies the operating system settings for the hybrid machine.
         :param str computer_name: Specifies the host OS name of the hybrid machine.
+        :param 'OSProfileResponseLinuxConfiguration' linux_configuration: Specifies the linux configuration for update management.
+        :param 'OSProfileResponseWindowsConfiguration' windows_configuration: Specifies the windows configuration for update management.
         """
         pulumi.set(__self__, "computer_name", computer_name)
+        if linux_configuration is not None:
+            pulumi.set(__self__, "linux_configuration", linux_configuration)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
 
     @property
     @pulumi.getter(name="computerName")
@@ -486,65 +1298,185 @@ class MachinePropertiesResponseOsProfile(dict):
         """
         return pulumi.get(self, "computer_name")
 
+    @property
+    @pulumi.getter(name="linuxConfiguration")
+    def linux_configuration(self) -> Optional['outputs.OSProfileResponseLinuxConfiguration']:
+        """
+        Specifies the linux configuration for update management.
+        """
+        return pulumi.get(self, "linux_configuration")
+
+    @property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> Optional['outputs.OSProfileResponseWindowsConfiguration']:
+        """
+        Specifies the windows configuration for update management.
+        """
+        return pulumi.get(self, "windows_configuration")
+
 
 @pulumi.output_type
-class MachineResponseIdentity(dict):
+class OSProfileResponseLinuxConfiguration(dict):
+    """
+    Specifies the linux configuration for update management.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
+        if key == "assessmentMode":
+            suggest = "assessment_mode"
+        elif key == "patchMode":
+            suggest = "patch_mode"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MachineResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponseLinuxConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MachineResponseIdentity.__key_warning(key)
+        OSProfileResponseLinuxConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MachineResponseIdentity.__key_warning(key)
+        OSProfileResponseLinuxConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None):
+                 assessment_mode: Optional[str] = None,
+                 patch_mode: Optional[str] = None):
         """
-        :param str principal_id: The identity's principal id.
-        :param str tenant_id: The identity's tenant id.
-        :param str type: The identity type.
+        Specifies the linux configuration for update management.
+        :param str assessment_mode: Specifies the assessment mode.
+        :param str patch_mode: Specifies the patch mode.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[str]:
         """
-        The identity's principal id.
+        Specifies the assessment mode.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "assessment_mode")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[str]:
         """
-        The identity's tenant id.
+        Specifies the patch mode.
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "patch_mode")
+
+
+@pulumi.output_type
+class OSProfileResponseWindowsConfiguration(dict):
+    """
+    Specifies the windows configuration for update management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentMode":
+            suggest = "assessment_mode"
+        elif key == "patchMode":
+            suggest = "patch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponseWindowsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSProfileResponseWindowsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSProfileResponseWindowsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_mode: Optional[str] = None,
+                 patch_mode: Optional[str] = None):
+        """
+        Specifies the windows configuration for update management.
+        :param str assessment_mode: Specifies the assessment mode.
+        :param str patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[str]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[str]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionDataModelResponse(dict):
+    """
+    The Data Model for a Private Endpoint Connection associated with a Private Link Scope
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
+        """
+        The Data Model for a Private Endpoint Connection associated with a Private Link Scope
+        :param str id: The ARM Resource Id of the Private Endpoint.
+        :param str name: The Name of the Private Endpoint.
+        :param str type: Azure resource type
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: The Private Endpoint Connection properties.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def id(self) -> str:
         """
-        The identity type.
+        The ARM Resource Id of the Private Endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the Private Endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponse']:
+        """
+        The Private Endpoint Connection properties.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -555,7 +1487,9 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
@@ -574,20 +1508,31 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[str],
                  provisioning_state: str,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+        :param Sequence[str] group_ids: List of group IDs.
         :param str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        List of group IDs.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -696,6 +1641,112 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ServiceStatusResponse(dict):
+    """
+    Describes the status and behavior of a service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startupType":
+            suggest = "startup_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 startup_type: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Describes the status and behavior of a service.
+        :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
+        :param str status: The current status of the service.
+        """
+        if startup_type is not None:
+            pulumi.set(__self__, "startup_type", startup_type)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="startupType")
+    def startup_type(self) -> Optional[str]:
+        """
+        The behavior of the service when the Arc-enabled machine starts up.
+        """
+        return pulumi.get(self, "startup_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The current status of the service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ServiceStatusesResponse(dict):
+    """
+    Reports the state and behavior of dependent services.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionService":
+            suggest = "extension_service"
+        elif key == "guestConfigurationService":
+            suggest = "guest_configuration_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceStatusesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceStatusesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceStatusesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extension_service: Optional['outputs.ServiceStatusResponse'] = None,
+                 guest_configuration_service: Optional['outputs.ServiceStatusResponse'] = None):
+        """
+        Reports the state and behavior of dependent services.
+        :param 'ServiceStatusResponse' extension_service: The state of the extension service on the Arc-enabled machine.
+        :param 'ServiceStatusResponse' guest_configuration_service: The state of the guest configuration service on the Arc-enabled machine.
+        """
+        if extension_service is not None:
+            pulumi.set(__self__, "extension_service", extension_service)
+        if guest_configuration_service is not None:
+            pulumi.set(__self__, "guest_configuration_service", guest_configuration_service)
+
+    @property
+    @pulumi.getter(name="extensionService")
+    def extension_service(self) -> Optional['outputs.ServiceStatusResponse']:
+        """
+        The state of the extension service on the Arc-enabled machine.
+        """
+        return pulumi.get(self, "extension_service")
+
+    @property
+    @pulumi.getter(name="guestConfigurationService")
+    def guest_configuration_service(self) -> Optional['outputs.ServiceStatusResponse']:
+        """
+        The state of the guest configuration service on the Arc-enabled machine.
+        """
+        return pulumi.get(self, "guest_configuration_service")
 
 
 @pulumi.output_type

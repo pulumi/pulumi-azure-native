@@ -11,7 +11,7 @@ import (
 )
 
 // Keys for endpoint authentication.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func ListBatchEndpointKeys(ctx *pulumi.Context, args *ListBatchEndpointKeysArgs, opts ...pulumi.InvokeOption) (*ListBatchEndpointKeysResult, error) {
 	var rv ListBatchEndpointKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listBatchEndpointKeys", args, &rv, opts...)

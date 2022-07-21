@@ -11,7 +11,7 @@ import (
 )
 
 // NSX Port Mirroring
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 func LookupWorkloadNetworkPortMirroring(ctx *pulumi.Context, args *LookupWorkloadNetworkPortMirroringArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkPortMirroringResult, error) {
 	var rv LookupWorkloadNetworkPortMirroringResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkPortMirroring", args, &rv, opts...)

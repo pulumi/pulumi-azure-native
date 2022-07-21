@@ -12,7 +12,7 @@ import (
 )
 
 // The local user associated with the storage accounts.
-// API Version: 2021-08-01.
+// API Version: 2021-09-01.
 type LocalUser struct {
 	pulumi.CustomResourceState
 

@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthErrorResponse> ValidationErrors;
         /// <summary>
-        /// Version status
+        /// Version status.
         /// </summary>
         public readonly string? VersionStatus;
 

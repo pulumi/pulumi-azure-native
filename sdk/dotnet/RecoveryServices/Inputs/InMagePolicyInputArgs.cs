@@ -25,8 +25,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The class type.
         /// Expected value is 'InMage'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.

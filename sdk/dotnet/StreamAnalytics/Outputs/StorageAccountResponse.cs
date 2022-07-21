@@ -24,15 +24,22 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? AccountName;
+        /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
 
         [OutputConstructor]
         private StorageAccountResponse(
             string? accountKey,
 
-            string? accountName)
+            string? accountName,
+
+            string? authenticationMode)
         {
             AccountKey = accountKey;
             AccountName = accountName;
+            AuthenticationMode = authenticationMode;
         }
     }
 }

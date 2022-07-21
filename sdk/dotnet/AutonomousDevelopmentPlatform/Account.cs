@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
     /// ADP account
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:Account")]
     public partial class Account : Pulumi.CustomResource

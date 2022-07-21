@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device Update account details.
- * API Version: 2020-03-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Device Update account primary and failover location details
+     */
+    public /*out*/ readonly locations!: pulumi.Output<outputs.deviceupdate.LocationResponse[]>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -64,6 +68,10 @@ export class Account extends pulumi.CustomResource {
      * Whether or not public network access is allowed for the account.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Device Update Sku
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -97,8 +105,10 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = (args ? args.sku : undefined) ?? "Standard";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -107,10 +117,12 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -150,6 +162,10 @@ export interface AccountArgs {
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Device Update Sku
+     */
+    sku?: pulumi.Input<string | enums.deviceupdate.SKU>;
     /**
      * Resource tags.
      */

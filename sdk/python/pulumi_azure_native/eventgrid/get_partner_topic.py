@@ -219,7 +219,7 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicResult:
     """
     Event Grid Partner Topic.
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str partner_topic_name: Name of the partner topic.
@@ -258,7 +258,7 @@ def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicResult]:
     """
     Event Grid Partner Topic.
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str partner_topic_name: Name of the partner topic.

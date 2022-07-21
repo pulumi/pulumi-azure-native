@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a server firewall rule.
-    /// API Version: 2017-12-01.
+    /// API Version: 2021-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("startIpAddress")]
         public Output<string> StartIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -65,8 +71,11 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

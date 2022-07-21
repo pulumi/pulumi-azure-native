@@ -76,6 +76,9 @@ func NewLab(ctx *pulumi.Context,
 	args.VirtualMachineProfile = args.VirtualMachineProfile.ToVirtualMachineProfileOutput().ApplyT(func(v VirtualMachineProfile) VirtualMachineProfile { return *v.Defaults() }).(VirtualMachineProfileOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:labservices:Lab"),
+		},
+		{
 			Type: pulumi.String("azure-native:labservices/v20211001preview:Lab"),
 		},
 	})

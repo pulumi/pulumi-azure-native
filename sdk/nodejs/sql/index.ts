@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./backupLongTermRetentionPolicy";
 export * from "./backupShortTermRetentionPolicy";
 export * from "./dataMaskingPolicy";
 export * from "./database";
 export * from "./databaseAdvisor";
 export * from "./databaseBlobAuditingPolicy";
 export * from "./databaseSecurityAlertPolicy";
+export * from "./databaseThreatDetectionPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./disasterRecoveryConfiguration";
@@ -22,12 +24,14 @@ export * from "./extendedServerBlobAuditingPolicy";
 export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./geoBackupPolicy";
+export * from "./getBackupLongTermRetentionPolicy";
 export * from "./getBackupShortTermRetentionPolicy";
 export * from "./getDataMaskingPolicy";
 export * from "./getDatabase";
 export * from "./getDatabaseAdvisor";
 export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getDatabaseSecurityAlertPolicy";
+export * from "./getDatabaseThreatDetectionPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getDisasterRecoveryConfiguration";
@@ -159,12 +163,14 @@ export {
 };
 
 // Import resources to register:
+import { BackupLongTermRetentionPolicy } from "./backupLongTermRetentionPolicy";
 import { BackupShortTermRetentionPolicy } from "./backupShortTermRetentionPolicy";
 import { DataMaskingPolicy } from "./dataMaskingPolicy";
 import { Database } from "./database";
 import { DatabaseAdvisor } from "./databaseAdvisor";
 import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
+import { DatabaseThreatDetectionPolicy } from "./databaseThreatDetectionPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
@@ -223,6 +229,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql:BackupLongTermRetentionPolicy":
+                return new BackupLongTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:BackupShortTermRetentionPolicy":
                 return new BackupShortTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DataMaskingPolicy":
@@ -235,6 +243,8 @@ const _module = {
                 return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseSecurityAlertPolicy":
                 return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql:DatabaseThreatDetectionPolicy":
+                return new DatabaseThreatDetectionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline":

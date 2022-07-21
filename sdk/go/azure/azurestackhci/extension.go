@@ -12,7 +12,7 @@ import (
 )
 
 // Details of a particular extension in HCI Cluster.
-// API Version: 2021-01-01-preview.
+// API Version: 2022-05-01.
 type Extension struct {
 	pulumi.CustomResourceState
 

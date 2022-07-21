@@ -11,7 +11,7 @@ import (
 )
 
 // Event Subscription
-// API Version: 2020-06-01.
+// API Version: 2022-06-15.
 func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupEventSubscriptionResult, error) {
 	var rv LookupEventSubscriptionResult
 	err := ctx.Invoke("azure-native:eventgrid:getEventSubscription", args, &rv, opts...)
@@ -30,9 +30,17 @@ type LookupEventSubscriptionArgs struct {
 
 // Event Subscription
 type LookupEventSubscriptionResult struct {
-	// The DeadLetter destination of the event subscription.
+	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
 	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentityResponse `pulumi:"deadLetterWithResourceIdentity"`
 	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeliveryWithResourceIdentity *DeliveryWithResourceIdentityResponse `pulumi:"deliveryWithResourceIdentity"`
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
 	Destination interface{} `pulumi:"destination"`
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
@@ -114,14 +122,32 @@ func (o LookupEventSubscriptionResultOutput) ToLookupEventSubscriptionResultOutp
 	return o
 }
 
-// The DeadLetter destination of the event subscription.
+// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
 func (o LookupEventSubscriptionResultOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
 	return o.ApplyT(func(v LookupEventSubscriptionResult) *StorageBlobDeadLetterDestinationResponse {
 		return v.DeadLetterDestination
 	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
+// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o LookupEventSubscriptionResultOutput) DeadLetterWithResourceIdentity() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupEventSubscriptionResult) *DeadLetterWithResourceIdentityResponse {
+		return v.DeadLetterWithResourceIdentity
+	}).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
 // Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o LookupEventSubscriptionResultOutput) DeliveryWithResourceIdentity() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupEventSubscriptionResult) *DeliveryWithResourceIdentityResponse {
+		return v.DeliveryWithResourceIdentity
+	}).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
 func (o LookupEventSubscriptionResultOutput) Destination() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEventSubscriptionResult) interface{} { return v.Destination }).(pulumi.AnyOutput)
 }

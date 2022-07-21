@@ -302,6 +302,7 @@ class ProductResponse(dict):
                  publisher_display_name: Optional[str] = None,
                  publisher_identifier: Optional[str] = None,
                  sku: Optional[str] = None,
+                 system_data: Optional['outputs.SystemDataResponse'] = None,
                  vm_extension_type: Optional[str] = None):
         """
         Product information.
@@ -326,6 +327,7 @@ class ProductResponse(dict):
         :param str publisher_display_name: The user-friendly name of the product publisher.
         :param str publisher_identifier: Publisher identifier.
         :param str sku: The product SKU.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str vm_extension_type: The type of the Virtual Machine Extension.
         """
         pulumi.set(__self__, "id", id)
@@ -367,6 +369,8 @@ class ProductResponse(dict):
             pulumi.set(__self__, "publisher_identifier", publisher_identifier)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if system_data is not None:
+            pulumi.set(__self__, "system_data", system_data)
         if vm_extension_type is not None:
             pulumi.set(__self__, "vm_extension_type", vm_extension_type)
 
@@ -537,6 +541,14 @@ class ProductResponse(dict):
         The product SKU.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="vmExtensionType")

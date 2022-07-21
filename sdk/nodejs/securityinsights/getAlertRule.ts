@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Alert rule.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 /** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
@@ -25,7 +26,7 @@ export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions
 
 export interface GetAlertRuleArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -47,7 +48,7 @@ export interface GetAlertRuleResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -55,11 +56,15 @@ export interface GetAlertRuleResult {
      */
     readonly kind: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -70,7 +75,7 @@ export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.I
 
 export interface GetAlertRuleOutputArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

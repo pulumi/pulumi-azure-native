@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The list of credential result response.
- * API Version: 2021-03-01.
+ * The list credential result response.
+ * API Version: 2022-04-01.
  */
 export function listManagedClusterMonitoringUserCredentials(args: ListManagedClusterMonitoringUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterMonitoringUserCredentialsResult> {
     if (!opts) {
@@ -18,22 +18,27 @@ export function listManagedClusterMonitoringUserCredentials(args: ListManagedClu
     return pulumi.runtime.invoke("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "serverFqdn": args.serverFqdn,
     }, opts);
 }
 
 export interface ListManagedClusterMonitoringUserCredentialsArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
      * The name of the managed cluster resource.
      */
     resourceName: string;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: string;
 }
 
 /**
- * The list of credential result response.
+ * The list credential result response.
  */
 export interface ListManagedClusterMonitoringUserCredentialsResult {
     /**
@@ -48,11 +53,15 @@ export function listManagedClusterMonitoringUserCredentialsOutput(args: ListMana
 
 export interface ListManagedClusterMonitoringUserCredentialsOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
     resourceName: pulumi.Input<string>;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: pulumi.Input<string>;
 }

@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a Watchlist item in Azure Security Insights.
- * API Version: 2021-03-01-preview.
+ * Represents a Watchlist Item in Azure Security Insights.
+ * API Version: 2021-10-01.
  */
 export function getWatchlistItem(args: GetWatchlistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistItemResult> {
     if (!opts) {
@@ -16,7 +16,6 @@ export function getWatchlistItem(args: GetWatchlistItemArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getWatchlistItem", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "watchlistAlias": args.watchlistAlias,
         "watchlistItemId": args.watchlistItemId,
@@ -26,19 +25,15 @@ export function getWatchlistItem(args: GetWatchlistItemArgs, opts?: pulumi.Invok
 
 export interface GetWatchlistItemArgs {
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * Watchlist Alias
+     * The watchlist alias
      */
     watchlistAlias: string;
     /**
-     * Watchlist Item Id (GUID)
+     * The watchlist item id (GUID)
      */
     watchlistItemId: string;
     /**
@@ -48,7 +43,7 @@ export interface GetWatchlistItemArgs {
 }
 
 /**
- * Represents a Watchlist item in Azure Security Insights.
+ * Represents a Watchlist Item in Azure Security Insights.
  */
 export interface GetWatchlistItemResult {
     /**
@@ -68,7 +63,7 @@ export interface GetWatchlistItemResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -80,7 +75,7 @@ export interface GetWatchlistItemResult {
      */
     readonly itemsKeyValue: any;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -92,7 +87,7 @@ export interface GetWatchlistItemResult {
      */
     readonly tenantId?: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -119,19 +114,15 @@ export function getWatchlistItemOutput(args: GetWatchlistItemOutputArgs, opts?: 
 
 export interface GetWatchlistItemOutputArgs {
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Watchlist Alias
+     * The watchlist alias
      */
     watchlistAlias: pulumi.Input<string>;
     /**
-     * Watchlist Item Id (GUID)
+     * The watchlist item id (GUID)
      */
     watchlistItemId: pulumi.Input<string>;
     /**

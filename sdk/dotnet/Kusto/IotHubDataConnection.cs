@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an iot hub data connection.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:IotHubDataConnection")]
     public partial class IotHubDataConnection : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Output("databaseRouting")]
+        public Output<string?> DatabaseRouting { get; private set; } = null!;
 
         /// <summary>
         /// System properties of the iot hub
@@ -184,6 +190,12 @@ namespace Pulumi.AzureNative.Kusto
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Input("databaseRouting")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DatabaseRouting>? DatabaseRouting { get; set; }
+
         [Input("eventSystemProperties")]
         private InputList<string>? _eventSystemProperties;
 
@@ -241,6 +253,7 @@ namespace Pulumi.AzureNative.Kusto
 
         public IotHubDataConnectionArgs()
         {
+            DatabaseRouting = "Single";
         }
     }
 }

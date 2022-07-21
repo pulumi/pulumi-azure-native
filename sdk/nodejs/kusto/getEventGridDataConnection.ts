@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an Event Grid data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
     if (!opts) {
@@ -58,6 +58,14 @@ export interface GetEventGridDataConnectionResult {
      */
     readonly dataFormat?: string;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    readonly databaseRouting?: string;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    readonly eventGridResourceId?: string;
+    /**
      * The resource ID where the event grid is configured to send events.
      */
     readonly eventHubResourceId: string;
@@ -78,6 +86,14 @@ export interface GetEventGridDataConnectionResult {
      * Resource location.
      */
     readonly location?: string;
+    /**
+     * The object ID of managedIdentityResourceId
+     */
+    readonly managedIdentityObjectId: string;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    readonly managedIdentityResourceId?: string;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */

@@ -11,7 +11,7 @@ import (
 )
 
 // Customer creates a contact resource for a spacecraft resource.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
 	var rv LookupContactResult
 	err := ctx.Invoke("azure-native:orbital:getContact", args, &rv, opts...)
@@ -22,18 +22,20 @@ func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.
 }
 
 type LookupContactArgs struct {
-	// Contact Name
+	// Contact name.
 	ContactName string `pulumi:"contactName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName string `pulumi:"spacecraftName"`
 }
 
 // Customer creates a contact resource for a spacecraft resource.
 type LookupContactResult struct {
+	// The configuration associated with the allocated antenna.
+	AntennaConfiguration ContactsPropertiesResponseAntennaConfiguration `pulumi:"antennaConfiguration"`
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReferenceResponse `pulumi:"contactProfile"`
+	ContactProfile ContactsPropertiesResponseContactProfile `pulumi:"contactProfile"`
 	// Azimuth of the antenna at the end of the contact in decimal degrees.
 	EndAzimuthDegrees float64 `pulumi:"endAzimuthDegrees"`
 	// Spacecraft elevation above the horizon at contact end.
@@ -50,13 +52,13 @@ type LookupContactResult struct {
 	MaximumElevationDegrees float64 `pulumi:"maximumElevationDegrees"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Reservation end time of a contact.
+	// Reservation end time of a contact (ISO 8601 UTC standard).
 	ReservationEndTime string `pulumi:"reservationEndTime"`
-	// Reservation start time of a contact.
+	// Reservation start time of a contact (ISO 8601 UTC standard).
 	ReservationStartTime string `pulumi:"reservationStartTime"`
-	// Receive end time of a contact.
+	// Receive end time of a contact (ISO 8601 UTC standard).
 	RxEndTime string `pulumi:"rxEndTime"`
-	// Receive start time of a contact.
+	// Receive start time of a contact (ISO 8601 UTC standard).
 	RxStartTime string `pulumi:"rxStartTime"`
 	// Azimuth of the antenna at the start of the contact in decimal degrees.
 	StartAzimuthDegrees float64 `pulumi:"startAzimuthDegrees"`
@@ -66,9 +68,9 @@ type LookupContactResult struct {
 	Status string `pulumi:"status"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Transmit end time of a contact.
+	// Transmit end time of a contact (ISO 8601 UTC standard).
 	TxEndTime string `pulumi:"txEndTime"`
-	// Transmit start time of a contact.
+	// Transmit start time of a contact (ISO 8601 UTC standard).
 	TxStartTime string `pulumi:"txStartTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -88,11 +90,11 @@ func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts
 }
 
 type LookupContactOutputArgs struct {
-	// Contact Name
+	// Contact name.
 	ContactName pulumi.StringInput `pulumi:"contactName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName pulumi.StringInput `pulumi:"spacecraftName"`
 }
 
@@ -115,9 +117,16 @@ func (o LookupContactResultOutput) ToLookupContactResultOutputWithContext(ctx co
 	return o
 }
 
+// The configuration associated with the allocated antenna.
+func (o LookupContactResultOutput) AntennaConfiguration() ContactsPropertiesResponseAntennaConfigurationOutput {
+	return o.ApplyT(func(v LookupContactResult) ContactsPropertiesResponseAntennaConfiguration {
+		return v.AntennaConfiguration
+	}).(ContactsPropertiesResponseAntennaConfigurationOutput)
+}
+
 // The reference to the contact profile resource.
-func (o LookupContactResultOutput) ContactProfile() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v LookupContactResult) ResourceReferenceResponse { return v.ContactProfile }).(ResourceReferenceResponseOutput)
+func (o LookupContactResultOutput) ContactProfile() ContactsPropertiesResponseContactProfileOutput {
+	return o.ApplyT(func(v LookupContactResult) ContactsPropertiesResponseContactProfile { return v.ContactProfile }).(ContactsPropertiesResponseContactProfileOutput)
 }
 
 // Azimuth of the antenna at the end of the contact in decimal degrees.
@@ -160,22 +169,22 @@ func (o LookupContactResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Reservation end time of a contact.
+// Reservation end time of a contact (ISO 8601 UTC standard).
 func (o LookupContactResultOutput) ReservationEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.ReservationEndTime }).(pulumi.StringOutput)
 }
 
-// Reservation start time of a contact.
+// Reservation start time of a contact (ISO 8601 UTC standard).
 func (o LookupContactResultOutput) ReservationStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.ReservationStartTime }).(pulumi.StringOutput)
 }
 
-// Receive end time of a contact.
+// Receive end time of a contact (ISO 8601 UTC standard).
 func (o LookupContactResultOutput) RxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.RxEndTime }).(pulumi.StringOutput)
 }
 
-// Receive start time of a contact.
+// Receive start time of a contact (ISO 8601 UTC standard).
 func (o LookupContactResultOutput) RxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.RxStartTime }).(pulumi.StringOutput)
 }
@@ -200,12 +209,12 @@ func (o LookupContactResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupContactResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Transmit end time of a contact.
+// Transmit end time of a contact (ISO 8601 UTC standard).
 func (o LookupContactResultOutput) TxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.TxEndTime }).(pulumi.StringOutput)
 }
 
-// Transmit start time of a contact.
+// Transmit start time of a contact (ISO 8601 UTC standard).
 func (o LookupContactResultOutput) TxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.TxStartTime }).(pulumi.StringOutput)
 }

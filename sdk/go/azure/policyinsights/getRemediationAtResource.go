@@ -11,7 +11,7 @@ import (
 )
 
 // The remediation definition.
-// API Version: 2019-07-01.
+// API Version: 2021-10-01.
 func LookupRemediationAtResource(ctx *pulumi.Context, args *LookupRemediationAtResourceArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtResourceResult, error) {
 	var rv LookupRemediationAtResourceResult
 	err := ctx.Invoke("azure-native:policyinsights:getRemediationAtResource", args, &rv, opts...)
@@ -30,10 +30,14 @@ type LookupRemediationAtResourceArgs struct {
 
 // The remediation definition.
 type LookupRemediationAtResourceResult struct {
+	// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
+	CorrelationId string `pulumi:"correlationId"`
 	// The time at which the remediation was created.
 	CreatedOn string `pulumi:"createdOn"`
 	// The deployment status summary for all deployments created by the remediation.
 	DeploymentStatus RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
+	// The remediation failure threshold settings
+	FailureThreshold *RemediationPropertiesResponseFailureThreshold `pulumi:"failureThreshold"`
 	// The filters that will be applied to determine which resources to remediate.
 	Filters *RemediationFiltersResponse `pulumi:"filters"`
 	// The ID of the remediation.
@@ -42,14 +46,22 @@ type LookupRemediationAtResourceResult struct {
 	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
 	// The name of the remediation.
 	Name string `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments *int `pulumi:"parallelDeployments"`
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The status of the remediation.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount *int `pulumi:"resourceCount"`
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
+	// The remediation status message. Provides additional details regarding the state of the remediation.
+	StatusMessage string `pulumi:"statusMessage"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the remediation.
 	Type string `pulumi:"type"`
 }
@@ -93,6 +105,11 @@ func (o LookupRemediationAtResourceResultOutput) ToLookupRemediationAtResourceRe
 	return o
 }
 
+// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
+func (o LookupRemediationAtResourceResultOutput) CorrelationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceResult) string { return v.CorrelationId }).(pulumi.StringOutput)
+}
+
 // The time at which the remediation was created.
 func (o LookupRemediationAtResourceResultOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRemediationAtResourceResult) string { return v.CreatedOn }).(pulumi.StringOutput)
@@ -103,6 +120,13 @@ func (o LookupRemediationAtResourceResultOutput) DeploymentStatus() RemediationD
 	return o.ApplyT(func(v LookupRemediationAtResourceResult) RemediationDeploymentSummaryResponse {
 		return v.DeploymentStatus
 	}).(RemediationDeploymentSummaryResponseOutput)
+}
+
+// The remediation failure threshold settings
+func (o LookupRemediationAtResourceResultOutput) FailureThreshold() RemediationPropertiesResponseFailureThresholdPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceResult) *RemediationPropertiesResponseFailureThreshold {
+		return v.FailureThreshold
+	}).(RemediationPropertiesResponseFailureThresholdPtrOutput)
 }
 
 // The filters that will be applied to determine which resources to remediate.
@@ -125,6 +149,11 @@ func (o LookupRemediationAtResourceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRemediationAtResourceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+func (o LookupRemediationAtResourceResultOutput) ParallelDeployments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceResult) *int { return v.ParallelDeployments }).(pulumi.IntPtrOutput)
+}
+
 // The resource ID of the policy assignment that should be remediated.
 func (o LookupRemediationAtResourceResultOutput) PolicyAssignmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemediationAtResourceResult) *string { return v.PolicyAssignmentId }).(pulumi.StringPtrOutput)
@@ -140,9 +169,24 @@ func (o LookupRemediationAtResourceResultOutput) ProvisioningState() pulumi.Stri
 	return o.ApplyT(func(v LookupRemediationAtResourceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+func (o LookupRemediationAtResourceResultOutput) ResourceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceResult) *int { return v.ResourceCount }).(pulumi.IntPtrOutput)
+}
+
 // The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 func (o LookupRemediationAtResourceResultOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemediationAtResourceResult) *string { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
+}
+
+// The remediation status message. Provides additional details regarding the state of the remediation.
+func (o LookupRemediationAtResourceResultOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupRemediationAtResourceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the remediation.

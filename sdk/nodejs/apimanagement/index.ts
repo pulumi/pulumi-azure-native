@@ -58,25 +58,26 @@ export * from "./getEmailTemplate";
 export * from "./getGateway";
 export * from "./getGatewayCertificateAuthority";
 export * from "./getGatewayHostnameConfiguration";
+export * from "./getGlobalSchema";
 export * from "./getGroup";
 export * from "./getIdentityProvider";
 export * from "./getLogger";
 export * from "./getNamedValue";
 export * from "./getOpenIdConnectProvider";
 export * from "./getPolicy";
-export * from "./getPolicyFragment";
 export * from "./getPrivateEndpointConnectionByName";
 export * from "./getProduct";
 export * from "./getProductPolicy";
 export * from "./getProperty";
-export * from "./getSchema";
 export * from "./getSubscription";
 export * from "./getTag";
 export * from "./getTagByApi";
 export * from "./getTagByOperation";
 export * from "./getTagByProduct";
+export * from "./getTagDescription";
 export * from "./getUser";
 export * from "./getUserSharedAccessToken";
+export * from "./globalSchema";
 export * from "./group";
 export * from "./groupUser";
 export * from "./identityProvider";
@@ -86,7 +87,6 @@ export * from "./listGatewayKeys";
 export * from "./listIdentityProviderSecrets";
 export * from "./listNamedValue";
 export * from "./listOpenIdConnectProviderSecrets";
-export * from "./listPolicyFragmentReferences";
 export * from "./listSubscriptionSecrets";
 export * from "./listTenantAccessGitSecrets";
 export * from "./listTenantAccessSecrets";
@@ -96,19 +96,18 @@ export * from "./notificationRecipientEmail";
 export * from "./notificationRecipientUser";
 export * from "./openIdConnectProvider";
 export * from "./policy";
-export * from "./policyFragment";
 export * from "./privateEndpointConnectionByName";
 export * from "./product";
 export * from "./productApi";
 export * from "./productGroup";
 export * from "./productPolicy";
 export * from "./property";
-export * from "./schema";
 export * from "./subscription";
 export * from "./tag";
 export * from "./tagByApi";
 export * from "./tagByOperation";
 export * from "./tagByProduct";
+export * from "./tagDescription";
 export * from "./user";
 
 // Export enums:
@@ -175,6 +174,7 @@ import { Gateway } from "./gateway";
 import { GatewayApiEntityTag } from "./gatewayApiEntityTag";
 import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
 import { GatewayHostnameConfiguration } from "./gatewayHostnameConfiguration";
+import { GlobalSchema } from "./globalSchema";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
 import { IdentityProvider } from "./identityProvider";
@@ -184,19 +184,18 @@ import { NotificationRecipientEmail } from "./notificationRecipientEmail";
 import { NotificationRecipientUser } from "./notificationRecipientUser";
 import { OpenIdConnectProvider } from "./openIdConnectProvider";
 import { Policy } from "./policy";
-import { PolicyFragment } from "./policyFragment";
 import { PrivateEndpointConnectionByName } from "./privateEndpointConnectionByName";
 import { Product } from "./product";
 import { ProductApi } from "./productApi";
 import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
 import { Property } from "./property";
-import { Schema } from "./schema";
 import { Subscription } from "./subscription";
 import { Tag } from "./tag";
 import { TagByApi } from "./tagByApi";
 import { TagByOperation } from "./tagByOperation";
 import { TagByProduct } from "./tagByProduct";
+import { TagDescription } from "./tagDescription";
 import { User } from "./user";
 
 const _module = {
@@ -257,6 +256,8 @@ const _module = {
                 return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure-native:apimanagement:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GlobalSchema":
+                return new GlobalSchema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure-native:apimanagement:GroupUser":
@@ -275,8 +276,6 @@ const _module = {
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:PolicyFragment":
-                return new PolicyFragment(name, <any>undefined, { urn })
             case "azure-native:apimanagement:PrivateEndpointConnectionByName":
                 return new PrivateEndpointConnectionByName(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Product":
@@ -289,8 +288,6 @@ const _module = {
                 return new ProductPolicy(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Property":
                 return new Property(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:Schema":
-                return new Schema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Tag":
@@ -301,6 +298,8 @@ const _module = {
                 return new TagByOperation(name, <any>undefined, { urn })
             case "azure-native:apimanagement:TagByProduct":
                 return new TagByProduct(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:TagDescription":
+                return new TagDescription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:User":
                 return new User(name, <any>undefined, { urn })
             default:

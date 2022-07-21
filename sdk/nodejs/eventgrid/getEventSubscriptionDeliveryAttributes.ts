@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Result of the Get delivery attributes operation.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getEventSubscriptionDeliveryAttributes(args: GetEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionDeliveryAttributesResult> {
     if (!opts) {

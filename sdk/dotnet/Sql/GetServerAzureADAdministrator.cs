@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Azure Active Directory administrator.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetServerAzureADAdministratorResult> InvokeAsync(GetServerAzureADAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-native:sql:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Active Directory administrator.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetServerAzureADAdministratorResult> Invoke(GetServerAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerAzureADAdministratorResult>("azure-native:sql:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorInvokeArgs(), options.WithDefaults());

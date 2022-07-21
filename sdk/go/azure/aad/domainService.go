@@ -12,10 +12,12 @@ import (
 )
 
 // Domain service.
-// API Version: 2021-03-01.
+// API Version: 2021-05-01.
 type DomainService struct {
 	pulumi.CustomResourceState
 
+	// Configuration diagnostics data containing latest execution from client.
+	ConfigDiagnostics ConfigDiagnosticsResponsePtrOutput `pulumi:"configDiagnostics"`
 	// Deployment Id
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// Domain Configuration Type
@@ -126,6 +128,8 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
+	// Configuration diagnostics data containing latest execution from client.
+	ConfigDiagnostics *ConfigDiagnostics `pulumi:"configDiagnostics"`
 	// Domain Configuration Type
 	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -156,6 +160,8 @@ type domainServiceArgs struct {
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
+	// Configuration diagnostics data containing latest execution from client.
+	ConfigDiagnostics ConfigDiagnosticsPtrInput
 	// Domain Configuration Type
 	DomainConfigurationType pulumi.StringPtrInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -219,6 +225,11 @@ func (o DomainServiceOutput) ToDomainServiceOutput() DomainServiceOutput {
 
 func (o DomainServiceOutput) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
 	return o
+}
+
+// Configuration diagnostics data containing latest execution from client.
+func (o DomainServiceOutput) ConfigDiagnostics() ConfigDiagnosticsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) ConfigDiagnosticsResponsePtrOutput { return v.ConfigDiagnostics }).(ConfigDiagnosticsResponsePtrOutput)
 }
 
 // Deployment Id

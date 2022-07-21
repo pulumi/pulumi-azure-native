@@ -46,9 +46,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:dbformysql:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20171201preview:FirewallRule"),
 		},
 	})

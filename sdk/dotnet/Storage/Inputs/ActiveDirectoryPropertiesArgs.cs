@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Storage.Inputs
     public sealed class ActiveDirectoryPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the Active Directory account type for Azure Storage.
+        /// </summary>
+        [Input("accountType")]
+        public Input<string>? AccountType { get; set; }
+
+        /// <summary>
         /// Specifies the security identifier (SID) for Azure Storage.
         /// </summary>
         [Input("azureStorageSid", required: true)]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.Storage.Inputs
         /// </summary>
         [Input("netBiosDomainName", required: true)]
         public Input<string> NetBiosDomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Active Directory SAMAccountName for Azure Storage.
+        /// </summary>
+        [Input("samAccountName")]
+        public Input<string>? SamAccountName { get; set; }
 
         public ActiveDirectoryPropertiesArgs()
         {

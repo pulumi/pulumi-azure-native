@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Addon.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
     if (!opts) {
@@ -80,7 +80,7 @@ export interface GetIoTAddonResult {
      */
     readonly provisioningState: string;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

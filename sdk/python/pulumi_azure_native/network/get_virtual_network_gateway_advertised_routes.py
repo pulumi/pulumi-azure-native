@@ -50,7 +50,7 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult:
     """
     List of virtual network gateway routes.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str peer: The IP address of the peer.
@@ -78,7 +78,7 @@ def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.I
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayAdvertisedRoutesResult]:
     """
     List of virtual network gateway routes.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str peer: The IP address of the peer.

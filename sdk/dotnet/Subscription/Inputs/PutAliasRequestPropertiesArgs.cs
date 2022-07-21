@@ -16,7 +16,16 @@ namespace Pulumi.AzureNative.Subscription.Inputs
     public sealed class PutAliasRequestPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether subscription is fieldLed, partnerLed or LegacyEA
+        /// Put alias request additional properties.
+        /// </summary>
+        [Input("additionalProperties")]
+        public Input<Inputs.PutAliasRequestAdditionalPropertiesArgs>? AdditionalProperties { get; set; }
+
+        /// <summary>
+        /// Billing scope of the subscription.
+        /// For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
+        /// For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
+        /// For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
         /// </summary>
         [Input("billingScope")]
         public Input<string>? BillingScope { get; set; }
@@ -28,7 +37,7 @@ namespace Pulumi.AzureNative.Subscription.Inputs
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Reseller ID, basically MPN Id
+        /// Reseller Id
         /// </summary>
         [Input("resellerId")]
         public Input<string>? ResellerId { get; set; }

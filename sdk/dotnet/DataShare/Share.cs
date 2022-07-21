@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A share data transfer object.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Share")]
     public partial class Share : Pulumi.CustomResource

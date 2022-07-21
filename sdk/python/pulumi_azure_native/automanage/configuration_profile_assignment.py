@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConfigurationProfileAssignmentArgs', 'ConfigurationProfileAssignment']
@@ -95,7 +94,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
-        API Version: 2020-06-30-preview.
+        API Version: 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +111,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
-        API Version: 2020-06-30-preview.
+        API Version: 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +152,9 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"), pulumi.Alias(type_="azure-native:automanage/v20210430preview:ConfigurationProfileAssignment"), pulumi.Alias(type_="azure-native:automanage/v20220504:ConfigurationProfileAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -179,10 +180,20 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
 
         __props__ = ConfigurationProfileAssignmentArgs.__new__(ConfigurationProfileAssignmentArgs)
 
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConfigurationProfileAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        Azure resource id. Indicates if this resource is managed by another Azure resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -199,6 +210,14 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
         Properties of the configuration profile assignment.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain Topic.
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
     if (!opts) {

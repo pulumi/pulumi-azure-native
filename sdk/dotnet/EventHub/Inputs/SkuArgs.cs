@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.EventHub.Inputs
     public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        /// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }

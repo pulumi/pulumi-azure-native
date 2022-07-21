@@ -126,7 +126,7 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about an application in a Batch account.
-        API Version: 2021-01-01.
+        API Version: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about an application in a Batch account.
-        API Version: 2021-01-01.
+        API Version: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

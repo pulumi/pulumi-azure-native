@@ -12,7 +12,7 @@ import (
 )
 
 // A database blob auditing policy.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 type DatabaseBlobAuditingPolicy struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +48,10 @@ type DatabaseBlobAuditingPolicy struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
+	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -86,6 +90,8 @@ type DatabaseBlobAuditingPolicy struct {
 	// For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
 	// or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
 	IsAzureMonitorTargetEnabled pulumi.BoolPtrOutput `pulumi:"isAzureMonitorTargetEnabled"`
+	// Specifies whether Managed Identity is used to access blob storage
+	IsManagedIdentityInUse pulumi.BoolPtrOutput `pulumi:"isManagedIdentityInUse"`
 	// Specifies whether storageAccountAccessKey value is the storage's secondary key.
 	IsStorageSecondaryKeyInUse pulumi.BoolPtrOutput `pulumi:"isStorageSecondaryKeyInUse"`
 	// Resource kind.
@@ -220,6 +226,10 @@ type databaseBlobAuditingPolicyArgs struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
+	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -262,6 +272,8 @@ type databaseBlobAuditingPolicyArgs struct {
 	// For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
 	// or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
 	IsAzureMonitorTargetEnabled *bool `pulumi:"isAzureMonitorTargetEnabled"`
+	// Specifies whether Managed Identity is used to access blob storage
+	IsManagedIdentityInUse *bool `pulumi:"isManagedIdentityInUse"`
 	// Specifies whether storageAccountAccessKey value is the storage's secondary key.
 	IsStorageSecondaryKeyInUse *bool `pulumi:"isStorageSecondaryKeyInUse"`
 	// Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
@@ -322,6 +334,10 @@ type DatabaseBlobAuditingPolicyArgs struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
+	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -364,6 +380,8 @@ type DatabaseBlobAuditingPolicyArgs struct {
 	// For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
 	// or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
 	IsAzureMonitorTargetEnabled pulumi.BoolPtrInput
+	// Specifies whether Managed Identity is used to access blob storage
+	IsManagedIdentityInUse pulumi.BoolPtrInput
 	// Specifies whether storageAccountAccessKey value is the storage's secondary key.
 	IsStorageSecondaryKeyInUse pulumi.BoolPtrInput
 	// Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
@@ -459,6 +477,10 @@ func (o DatabaseBlobAuditingPolicyOutput) ToDatabaseBlobAuditingPolicyOutputWith
 // USER_CHANGE_PASSWORD_GROUP
 // BATCH_STARTED_GROUP
 // BATCH_COMPLETED_GROUP
+// DBCC_GROUP
+// DATABASE_OWNERSHIP_CHANGE_GROUP
+// DATABASE_CHANGE_GROUP
+// LEDGER_OPERATION_GROUP
 //
 // These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 //
@@ -501,6 +523,11 @@ func (o DatabaseBlobAuditingPolicyOutput) AuditActionsAndGroups() pulumi.StringA
 // or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
 func (o DatabaseBlobAuditingPolicyOutput) IsAzureMonitorTargetEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.BoolPtrOutput { return v.IsAzureMonitorTargetEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Managed Identity is used to access blob storage
+func (o DatabaseBlobAuditingPolicyOutput) IsManagedIdentityInUse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.BoolPtrOutput { return v.IsManagedIdentityInUse }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether storageAccountAccessKey value is the storage's secondary key.

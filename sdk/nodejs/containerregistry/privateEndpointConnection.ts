@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a private endpoint connection for a container registry.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-09-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

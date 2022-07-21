@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a cluster principal assignment.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
     if (!opts) {
@@ -40,6 +40,10 @@ export interface GetClusterPrincipalAssignmentArgs {
  * Class representing a cluster principal assignment.
  */
 export interface GetClusterPrincipalAssignmentResult {
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    readonly aadObjectId: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

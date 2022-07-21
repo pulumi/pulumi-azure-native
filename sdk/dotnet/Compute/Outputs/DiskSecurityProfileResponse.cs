@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class DiskSecurityProfileResponse
     {
         /// <summary>
+        /// ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
+        /// </summary>
+        public readonly string? SecureVMDiskEncryptionSetId;
+        /// <summary>
         /// Specifies the SecurityType of the VM. Applicable for OS disks only.
         /// </summary>
         public readonly string? SecurityType;
 
         [OutputConstructor]
-        private DiskSecurityProfileResponse(string? securityType)
+        private DiskSecurityProfileResponse(
+            string? secureVMDiskEncryptionSetId,
+
+            string? securityType)
         {
+            SecureVMDiskEncryptionSetId = secureVMDiskEncryptionSetId;
             SecurityType = securityType;
         }
     }

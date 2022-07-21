@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Restore Point details.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:RestorePoint")]
     public partial class RestorePoint : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("excludeDisks")]
         public Output<ImmutableArray<Outputs.ApiEntityReferenceResponse>> ExcludeDisks { get; private set; } = null!;
+
+        /// <summary>
+        /// The restore point instance view.
+        /// </summary>
+        [Output("instanceView")]
+        public Output<Outputs.RestorePointInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("sourceMetadata")]
         public Output<Outputs.RestorePointSourceMetadataResponse> SourceMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        [Output("sourceRestorePoint")]
+        public Output<Outputs.ApiEntityReferenceResponse?> SourceRestorePoint { get; private set; } = null!;
 
         /// <summary>
         /// Gets the creation time of the restore point.
@@ -139,6 +151,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("restorePointName")]
         public Input<string>? RestorePointName { get; set; }
+
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        [Input("sourceRestorePoint")]
+        public Input<Inputs.ApiEntityReferenceArgs>? SourceRestorePoint { get; set; }
 
         /// <summary>
         /// Gets the creation time of the restore point.

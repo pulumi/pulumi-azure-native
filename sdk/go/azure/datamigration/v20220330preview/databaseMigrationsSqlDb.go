@@ -36,12 +36,6 @@ func NewDatabaseMigrationsSqlDb(ctx *pulumi.Context,
 	if args.SqlDbInstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlDbInstanceName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:datamigration:DatabaseMigrationsSqlDb"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource DatabaseMigrationsSqlDb
 	err := ctx.RegisterResource("azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb", name, args, &resource, opts...)
 	if err != nil {

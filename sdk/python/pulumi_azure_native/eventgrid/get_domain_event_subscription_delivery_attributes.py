@@ -50,7 +50,7 @@ def get_domain_event_subscription_delivery_attributes(domain_name: Optional[str]
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainEventSubscriptionDeliveryAttributesResult:
     """
     Result of the Get delivery attributes operation.
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain topic.
@@ -78,7 +78,7 @@ def get_domain_event_subscription_delivery_attributes_output(domain_name: Option
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainEventSubscriptionDeliveryAttributesResult]:
     """
     Result of the Get delivery attributes operation.
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain topic.

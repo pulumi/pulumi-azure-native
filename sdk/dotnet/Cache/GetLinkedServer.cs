@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Response to put/get linked server (with properties) for Redis cache.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response to put/get linked server (with properties) for Redis cache.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetLinkedServerResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string LinkedRedisCacheLocation;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string ServerRole;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

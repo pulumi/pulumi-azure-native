@@ -12,7 +12,7 @@ import (
 )
 
 // Custom domain resource payload.
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type CustomDomain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the custom domain resource.
 	Properties CustomDomainPropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -170,6 +172,11 @@ func (o CustomDomainOutput) Name() pulumi.StringOutput {
 // Properties of the custom domain resource.
 func (o CustomDomainOutput) Properties() CustomDomainPropertiesResponseOutput {
 	return o.ApplyT(func(v *CustomDomain) CustomDomainPropertiesResponseOutput { return v.Properties }).(CustomDomainPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o CustomDomainOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CustomDomain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

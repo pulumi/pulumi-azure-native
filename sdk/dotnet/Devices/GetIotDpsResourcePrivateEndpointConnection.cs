@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The private endpoint connection of a provisioning service
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-02-05.
         /// </summary>
         public static Task<GetIotDpsResourcePrivateEndpointConnectionResult> InvokeAsync(GetIotDpsResourcePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-native:devices:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The private endpoint connection of a provisioning service
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-02-05.
         /// </summary>
         public static Output<GetIotDpsResourcePrivateEndpointConnectionResult> Invoke(GetIotDpsResourcePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-native:devices:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
@@ -106,11 +110,14 @@ namespace Pulumi.AzureNative.Devices
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

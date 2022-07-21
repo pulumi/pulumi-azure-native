@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// 
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetResourceGuardProxyResult> InvokeAsync(GetResourceGuardProxyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetResourceGuardProxyResult> Invoke(GetResourceGuardProxyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyInvokeArgs(), options.WithDefaults());

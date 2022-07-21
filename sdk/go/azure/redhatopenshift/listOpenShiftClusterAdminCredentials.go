@@ -11,7 +11,7 @@ import (
 )
 
 // OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
-// API Version: 2021-09-01-preview.
+// API Version: 2022-04-01.
 func ListOpenShiftClusterAdminCredentials(ctx *pulumi.Context, args *ListOpenShiftClusterAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListOpenShiftClusterAdminCredentialsResult, error) {
 	var rv ListOpenShiftClusterAdminCredentialsResult
 	err := ctx.Invoke("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", args, &rv, opts...)

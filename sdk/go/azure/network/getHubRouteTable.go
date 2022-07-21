@@ -11,7 +11,7 @@ import (
 )
 
 // RouteTable resource in a virtual hub.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupHubRouteTable(ctx *pulumi.Context, args *LookupHubRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupHubRouteTableResult, error) {
 	var rv LookupHubRouteTableResult
 	err := ctx.Invoke("azure-native:network:getHubRouteTable", args, &rv, opts...)

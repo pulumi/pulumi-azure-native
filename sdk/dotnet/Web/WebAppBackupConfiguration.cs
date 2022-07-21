@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Description of a backup which will be performed.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppBackupConfiguration")]
     public partial class WebAppBackupConfiguration : Pulumi.CustomResource

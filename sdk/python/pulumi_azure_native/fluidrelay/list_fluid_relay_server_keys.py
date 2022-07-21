@@ -60,7 +60,7 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFluidRelayServerKeysResult:
     """
     The set of available keys for this server.
-    API Version: 2022-04-21.
+    API Version: 2022-06-01.
 
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
@@ -86,7 +86,7 @@ def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFluidRelayServerKeysResult]:
     """
     The set of available keys for this server.
-    API Version: 2022-04-21.
+    API Version: 2022-06-01.
 
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.

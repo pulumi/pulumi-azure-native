@@ -11,7 +11,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2017-04-18.
+// API Version: 2022-03-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:cognitiveservices:getPrivateEndpointConnection", args, &rv, opts...)
@@ -32,7 +32,7 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // The Private Endpoint Connection resource.
 type LookupPrivateEndpointConnectionResult struct {
-	// Entity Tag
+	// Resource Etag.
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -42,6 +42,8 @@ type LookupPrivateEndpointConnectionResult struct {
 	Name string `pulumi:"name"`
 	// Resource properties.
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -87,7 +89,7 @@ func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConn
 	return o
 }
 
-// Entity Tag
+// Resource Etag.
 func (o LookupPrivateEndpointConnectionResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -112,6 +114,11 @@ func (o LookupPrivateEndpointConnectionResultOutput) Properties() PrivateEndpoin
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupPrivateEndpointConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

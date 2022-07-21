@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the capacity reservation.
-// API Version: 2021-04-01.
+// API Version: 2021-11-01.
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 
@@ -32,6 +32,8 @@ type CapacityReservation struct {
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A list of all virtual machine resource ids that are associated with the capacity reservation.
@@ -209,6 +211,11 @@ func (o CapacityReservationOutput) Sku() SkuResponseOutput {
 // Resource tags
 func (o CapacityReservationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o CapacityReservationOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type

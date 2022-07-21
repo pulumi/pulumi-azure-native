@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Registration assignment.
- * API Version: 2019-09-01.
+ * The registration assignment.
+ * API Version: 2022-01-01-preview.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
     if (!opts) {
@@ -24,21 +24,21 @@ export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, o
 
 export interface GetRegistrationAssignmentArgs {
     /**
-     * Tells whether to return registration definition details also along with registration assignment details.
+     * The flag indicating whether to return the registration definition details along with the registration assignment details.
      */
     expandRegistrationDefinition?: boolean;
     /**
-     * Guid of the registration assignment.
+     * The GUID of the registration assignment.
      */
     registrationAssignmentId: string;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: string;
 }
 
 /**
- * Registration assignment.
+ * The registration assignment.
  */
 export interface GetRegistrationAssignmentResult {
     /**
@@ -46,15 +46,19 @@ export interface GetRegistrationAssignmentResult {
      */
     readonly id: string;
     /**
-     * Name of the registration assignment.
+     * The name of the registration assignment.
      */
     readonly name: string;
     /**
-     * Properties of a registration assignment.
+     * The properties of a registration assignment.
      */
     readonly properties: outputs.managedservices.RegistrationAssignmentPropertiesResponse;
     /**
-     * Type of the resource.
+     * The metadata for the registration assignment resource.
+     */
+    readonly systemData: outputs.managedservices.SystemDataResponse;
+    /**
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
      */
     readonly type: string;
 }
@@ -65,15 +69,15 @@ export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentO
 
 export interface GetRegistrationAssignmentOutputArgs {
     /**
-     * Tells whether to return registration definition details also along with registration assignment details.
+     * The flag indicating whether to return the registration definition details along with the registration assignment details.
      */
     expandRegistrationDefinition?: pulumi.Input<boolean>;
     /**
-     * Guid of the registration assignment.
+     * The GUID of the registration assignment.
      */
     registrationAssignmentId: pulumi.Input<string>;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: pulumi.Input<string>;
 }

@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
     public sealed class ImageRegistryCredentialResponse
     {
         /// <summary>
+        /// The identity for the private registry.
+        /// </summary>
+        public readonly string? Identity;
+        /// <summary>
+        /// The identity URL for the private registry.
+        /// </summary>
+        public readonly string? IdentityUrl;
+        /// <summary>
         /// The password for the private registry.
         /// </summary>
         public readonly string? Password;
@@ -27,16 +35,22 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// <summary>
         /// The username for the private registry.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private ImageRegistryCredentialResponse(
+            string? identity,
+
+            string? identityUrl,
+
             string? password,
 
             string server,
 
-            string username)
+            string? username)
         {
+            Identity = identity;
+            IdentityUrl = identityUrl;
             Password = password;
             Server = server;
             Username = username;

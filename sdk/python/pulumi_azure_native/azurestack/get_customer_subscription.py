@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCustomerSubscriptionResult',
@@ -20,7 +21,7 @@ class GetCustomerSubscriptionResult:
     """
     Customer subscription.
     """
-    def __init__(__self__, etag=None, id=None, name=None, tenant_id=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, system_data=None, tenant_id=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -30,6 +31,9 @@ class GetCustomerSubscriptionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -62,6 +66,14 @@ class GetCustomerSubscriptionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
@@ -87,6 +99,7 @@ class AwaitableGetCustomerSubscriptionResult(GetCustomerSubscriptionResult):
             etag=self.etag,
             id=self.id,
             name=self.name,
+            system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type)
 
@@ -97,7 +110,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerSubscriptionResult:
     """
     Customer subscription.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str customer_subscription_name: Name of the product.
@@ -118,6 +131,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
 
@@ -129,7 +143,7 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
     """
     Customer subscription.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str customer_subscription_name: Name of the product.

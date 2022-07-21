@@ -11,7 +11,7 @@ import (
 )
 
 // ExpressRoute Circuit Authorization
-// API Version: 2020-03-20.
+// API Version: 2021-12-01.
 func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationResult, error) {
 	var rv LookupAuthorizationResult
 	err := ctx.Invoke("azure-native:avs:getAuthorization", args, &rv, opts...)
@@ -36,6 +36,8 @@ type LookupAuthorizationResult struct {
 	ExpressRouteAuthorizationId string `pulumi:"expressRouteAuthorizationId"`
 	// The key of the ExpressRoute Circuit Authorization
 	ExpressRouteAuthorizationKey string `pulumi:"expressRouteAuthorizationKey"`
+	// The ID of the ExpressRoute Circuit
+	ExpressRouteId *string `pulumi:"expressRouteId"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
@@ -95,6 +97,11 @@ func (o LookupAuthorizationResultOutput) ExpressRouteAuthorizationId() pulumi.St
 // The key of the ExpressRoute Circuit Authorization
 func (o LookupAuthorizationResultOutput) ExpressRouteAuthorizationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.ExpressRouteAuthorizationKey }).(pulumi.StringOutput)
+}
+
+// The ID of the ExpressRoute Circuit
+func (o LookupAuthorizationResultOutput) ExpressRouteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) *string { return v.ExpressRouteId }).(pulumi.StringPtrOutput)
 }
 
 // Resource ID.

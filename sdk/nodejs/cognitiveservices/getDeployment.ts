@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account deployment.
- * API Version: 2021-10-01.
+ * API Version: 2022-03-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     if (!opts) {

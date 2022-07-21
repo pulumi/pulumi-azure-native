@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The set of available keys for this server.
- * API Version: 2021-03-12-preview.
+ * API Version: 2022-05-26.
  */
 export function getFluidRelayServerKeys(args: GetFluidRelayServerKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerKeysResult> {
     if (!opts) {
@@ -15,16 +15,16 @@ export function getFluidRelayServerKeys(args: GetFluidRelayServerKeysArgs, opts?
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:fluidrelay:getFluidRelayServerKeys", {
-        "name": args.name,
+        "fluidRelayServerName": args.fluidRelayServerName,
         "resourceGroup": args.resourceGroup,
     }, opts);
 }
 
 export interface GetFluidRelayServerKeysArgs {
     /**
-     * The resource name.
+     * The Fluid Relay server resource name.
      */
-    name: string;
+    fluidRelayServerName: string;
     /**
      * The resource group containing the resource.
      */
@@ -51,9 +51,9 @@ export function getFluidRelayServerKeysOutput(args: GetFluidRelayServerKeysOutpu
 
 export interface GetFluidRelayServerKeysOutputArgs {
     /**
-     * The resource name.
+     * The Fluid Relay server resource name.
      */
-    name: pulumi.Input<string>;
+    fluidRelayServerName: pulumi.Input<string>;
     /**
      * The resource group containing the resource.
      */

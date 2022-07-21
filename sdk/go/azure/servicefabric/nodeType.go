@@ -12,30 +12,58 @@ import (
 )
 
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-// API Version: 2020-01-01-preview.
+// API Version: 2022-01-01.
 type NodeType struct {
 	pulumi.CustomResourceState
 
+	// Additional managed data disks.
+	AdditionalDataDisks VmssDataDiskResponseArrayOutput `pulumi:"additionalDataDisks"`
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts EndpointRangeDescriptionResponsePtrOutput `pulumi:"applicationPorts"`
 	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 	Capacities pulumi.StringMapOutput `pulumi:"capacities"`
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB pulumi.IntOutput `pulumi:"dataDiskSizeGB"`
+	// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+	DataDiskLetter pulumi.StringPtrOutput `pulumi:"dataDiskLetter"`
+	// Disk size for the managed disk attached to the vms on the node type in GBs.
+	DataDiskSizeGB pulumi.IntPtrOutput `pulumi:"dataDiskSizeGB"`
+	// Managed data disk type. Specifies the storage account type for the managed disk
+	DataDiskType pulumi.StringPtrOutput `pulumi:"dataDiskType"`
+	// Specifies whether the network interface is accelerated networking-enabled.
+	EnableAcceleratedNetworking pulumi.BoolPtrOutput `pulumi:"enableAcceleratedNetworking"`
+	// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+	EnableEncryptionAtHost pulumi.BoolPtrOutput `pulumi:"enableEncryptionAtHost"`
+	// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+	EnableOverProvisioning pulumi.BoolPtrOutput `pulumi:"enableOverProvisioning"`
 	// The range of ephemeral ports that nodes in this node type should be configured with.
 	EphemeralPorts EndpointRangeDescriptionResponsePtrOutput `pulumi:"ephemeralPorts"`
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+	// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+	FrontendConfigurations FrontendConfigurationResponseArrayOutput `pulumi:"frontendConfigurations"`
+	// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
 	IsPrimary pulumi.BoolOutput `pulumi:"isPrimary"`
+	// Indicates if the node type can only host Stateless workloads.
+	IsStateless pulumi.BoolPtrOutput `pulumi:"isStateless"`
+	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+	MultiplePlacementGroups pulumi.BoolPtrOutput `pulumi:"multiplePlacementGroups"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+	NetworkSecurityRules NetworkSecurityRuleResponseArrayOutput `pulumi:"networkSecurityRules"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapOutput `pulumi:"placementProperties"`
-	// The provisioning state of the managed cluster resource.
+	// The provisioning state of the node type resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The node type sku.
+	Sku NodeTypeSkuResponsePtrOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+	UseDefaultPublicLoadBalancer pulumi.BoolPtrOutput `pulumi:"useDefaultPublicLoadBalancer"`
+	// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+	UseTempDataDisk pulumi.BoolPtrOutput `pulumi:"useTempDataDisk"`
 	// Set of extensions that should be installed onto the virtual machines.
 	VmExtensions VMSSExtensionResponseArrayOutput `pulumi:"vmExtensions"`
 	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
@@ -46,8 +74,10 @@ type NodeType struct {
 	VmImageSku pulumi.StringPtrOutput `pulumi:"vmImageSku"`
 	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	VmImageVersion pulumi.StringPtrOutput `pulumi:"vmImageVersion"`
-	// The number of nodes in the node type.
+	// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
 	VmInstanceCount pulumi.IntOutput `pulumi:"vmInstanceCount"`
+	// Identities to assign to the virtual machine scale set under the node type.
+	VmManagedIdentity VmManagedIdentityResponsePtrOutput `pulumi:"vmManagedIdentity"`
 	// The secrets to install in the virtual machines.
 	VmSecrets VaultSecretGroupResponseArrayOutput `pulumi:"vmSecrets"`
 	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
@@ -64,9 +94,6 @@ func NewNodeType(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.DataDiskSizeGB == nil {
-		return nil, errors.New("invalid value for required argument 'DataDiskSizeGB'")
-	}
 	if args.IsPrimary == nil {
 		return nil, errors.New("invalid value for required argument 'IsPrimary'")
 	}
@@ -75,6 +102,15 @@ func NewNodeType(ctx *pulumi.Context,
 	}
 	if args.VmInstanceCount == nil {
 		return nil, errors.New("invalid value for required argument 'VmInstanceCount'")
+	}
+	if isZero(args.EnableEncryptionAtHost) {
+		args.EnableEncryptionAtHost = pulumi.BoolPtr(false)
+	}
+	if isZero(args.IsStateless) {
+		args.IsStateless = pulumi.BoolPtr(false)
+	}
+	if isZero(args.MultiplePlacementGroups) {
+		args.MultiplePlacementGroups = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -135,26 +171,52 @@ func (NodeTypeState) ElementType() reflect.Type {
 }
 
 type nodeTypeArgs struct {
+	// Additional managed data disks.
+	AdditionalDataDisks []VmssDataDisk `pulumi:"additionalDataDisks"`
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts *EndpointRangeDescription `pulumi:"applicationPorts"`
 	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 	Capacities map[string]string `pulumi:"capacities"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB int `pulumi:"dataDiskSizeGB"`
+	// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+	DataDiskLetter *string `pulumi:"dataDiskLetter"`
+	// Disk size for the managed disk attached to the vms on the node type in GBs.
+	DataDiskSizeGB *int `pulumi:"dataDiskSizeGB"`
+	// Managed data disk type. Specifies the storage account type for the managed disk
+	DataDiskType *string `pulumi:"dataDiskType"`
+	// Specifies whether the network interface is accelerated networking-enabled.
+	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
+	// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+	EnableOverProvisioning *bool `pulumi:"enableOverProvisioning"`
 	// The range of ephemeral ports that nodes in this node type should be configured with.
 	EphemeralPorts *EndpointRangeDescription `pulumi:"ephemeralPorts"`
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+	// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+	FrontendConfigurations []FrontendConfiguration `pulumi:"frontendConfigurations"`
+	// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
 	IsPrimary bool `pulumi:"isPrimary"`
+	// Indicates if the node type can only host Stateless workloads.
+	IsStateless *bool `pulumi:"isStateless"`
+	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+	MultiplePlacementGroups *bool `pulumi:"multiplePlacementGroups"`
+	// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+	NetworkSecurityRules []NetworkSecurityRule `pulumi:"networkSecurityRules"`
 	// The name of the node type.
 	NodeTypeName *string `pulumi:"nodeTypeName"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties map[string]string `pulumi:"placementProperties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The node type sku.
+	Sku *NodeTypeSku `pulumi:"sku"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+	UseDefaultPublicLoadBalancer *bool `pulumi:"useDefaultPublicLoadBalancer"`
+	// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+	UseTempDataDisk *bool `pulumi:"useTempDataDisk"`
 	// Set of extensions that should be installed onto the virtual machines.
 	VmExtensions []VMSSExtension `pulumi:"vmExtensions"`
 	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
@@ -165,8 +227,10 @@ type nodeTypeArgs struct {
 	VmImageSku *string `pulumi:"vmImageSku"`
 	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	VmImageVersion *string `pulumi:"vmImageVersion"`
-	// The number of nodes in the node type.
+	// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
 	VmInstanceCount int `pulumi:"vmInstanceCount"`
+	// Identities to assign to the virtual machine scale set under the node type.
+	VmManagedIdentity *VmManagedIdentity `pulumi:"vmManagedIdentity"`
 	// The secrets to install in the virtual machines.
 	VmSecrets []VaultSecretGroup `pulumi:"vmSecrets"`
 	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
@@ -175,26 +239,52 @@ type nodeTypeArgs struct {
 
 // The set of arguments for constructing a NodeType resource.
 type NodeTypeArgs struct {
+	// Additional managed data disks.
+	AdditionalDataDisks VmssDataDiskArrayInput
 	// The range of ports from which cluster assigned port to Service Fabric applications.
 	ApplicationPorts EndpointRangeDescriptionPtrInput
 	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 	Capacities pulumi.StringMapInput
 	// The name of the cluster resource.
 	ClusterName pulumi.StringInput
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB pulumi.IntInput
+	// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+	DataDiskLetter pulumi.StringPtrInput
+	// Disk size for the managed disk attached to the vms on the node type in GBs.
+	DataDiskSizeGB pulumi.IntPtrInput
+	// Managed data disk type. Specifies the storage account type for the managed disk
+	DataDiskType pulumi.StringPtrInput
+	// Specifies whether the network interface is accelerated networking-enabled.
+	EnableAcceleratedNetworking pulumi.BoolPtrInput
+	// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+	EnableEncryptionAtHost pulumi.BoolPtrInput
+	// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+	EnableOverProvisioning pulumi.BoolPtrInput
 	// The range of ephemeral ports that nodes in this node type should be configured with.
 	EphemeralPorts EndpointRangeDescriptionPtrInput
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+	// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+	FrontendConfigurations FrontendConfigurationArrayInput
+	// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
 	IsPrimary pulumi.BoolInput
+	// Indicates if the node type can only host Stateless workloads.
+	IsStateless pulumi.BoolPtrInput
+	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+	MultiplePlacementGroups pulumi.BoolPtrInput
+	// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+	NetworkSecurityRules NetworkSecurityRuleArrayInput
 	// The name of the node type.
 	NodeTypeName pulumi.StringPtrInput
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The node type sku.
+	Sku NodeTypeSkuPtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
+	// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+	UseDefaultPublicLoadBalancer pulumi.BoolPtrInput
+	// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+	UseTempDataDisk pulumi.BoolPtrInput
 	// Set of extensions that should be installed onto the virtual machines.
 	VmExtensions VMSSExtensionArrayInput
 	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
@@ -205,8 +295,10 @@ type NodeTypeArgs struct {
 	VmImageSku pulumi.StringPtrInput
 	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	VmImageVersion pulumi.StringPtrInput
-	// The number of nodes in the node type.
+	// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
 	VmInstanceCount pulumi.IntInput
+	// Identities to assign to the virtual machine scale set under the node type.
+	VmManagedIdentity VmManagedIdentityPtrInput
 	// The secrets to install in the virtual machines.
 	VmSecrets VaultSecretGroupArrayInput
 	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
@@ -250,6 +342,11 @@ func (o NodeTypeOutput) ToNodeTypeOutputWithContext(ctx context.Context) NodeTyp
 	return o
 }
 
+// Additional managed data disks.
+func (o NodeTypeOutput) AdditionalDataDisks() VmssDataDiskResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) VmssDataDiskResponseArrayOutput { return v.AdditionalDataDisks }).(VmssDataDiskResponseArrayOutput)
+}
+
 // The range of ports from which cluster assigned port to Service Fabric applications.
 func (o NodeTypeOutput) ApplicationPorts() EndpointRangeDescriptionResponsePtrOutput {
 	return o.ApplyT(func(v *NodeType) EndpointRangeDescriptionResponsePtrOutput { return v.ApplicationPorts }).(EndpointRangeDescriptionResponsePtrOutput)
@@ -260,9 +357,34 @@ func (o NodeTypeOutput) Capacities() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.StringMapOutput { return v.Capacities }).(pulumi.StringMapOutput)
 }
 
-// Disk size for each vm in the node type in GBs.
-func (o NodeTypeOutput) DataDiskSizeGB() pulumi.IntOutput {
-	return o.ApplyT(func(v *NodeType) pulumi.IntOutput { return v.DataDiskSizeGB }).(pulumi.IntOutput)
+// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+func (o NodeTypeOutput) DataDiskLetter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.DataDiskLetter }).(pulumi.StringPtrOutput)
+}
+
+// Disk size for the managed disk attached to the vms on the node type in GBs.
+func (o NodeTypeOutput) DataDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.IntPtrOutput { return v.DataDiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Managed data disk type. Specifies the storage account type for the managed disk
+func (o NodeTypeOutput) DataDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.DataDiskType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the network interface is accelerated networking-enabled.
+func (o NodeTypeOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+func (o NodeTypeOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+func (o NodeTypeOutput) EnableOverProvisioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.EnableOverProvisioning }).(pulumi.BoolPtrOutput)
 }
 
 // The range of ephemeral ports that nodes in this node type should be configured with.
@@ -270,9 +392,24 @@ func (o NodeTypeOutput) EphemeralPorts() EndpointRangeDescriptionResponsePtrOutp
 	return o.ApplyT(func(v *NodeType) EndpointRangeDescriptionResponsePtrOutput { return v.EphemeralPorts }).(EndpointRangeDescriptionResponsePtrOutput)
 }
 
-// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+func (o NodeTypeOutput) FrontendConfigurations() FrontendConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) FrontendConfigurationResponseArrayOutput { return v.FrontendConfigurations }).(FrontendConfigurationResponseArrayOutput)
+}
+
+// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
 func (o NodeTypeOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.BoolOutput { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+// Indicates if the node type can only host Stateless workloads.
+func (o NodeTypeOutput) IsStateless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.IsStateless }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+func (o NodeTypeOutput) MultiplePlacementGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.MultiplePlacementGroups }).(pulumi.BoolPtrOutput)
 }
 
 // Azure resource name.
@@ -280,14 +417,29 @@ func (o NodeTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+func (o NodeTypeOutput) NetworkSecurityRules() NetworkSecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) NetworkSecurityRuleResponseArrayOutput { return v.NetworkSecurityRules }).(NetworkSecurityRuleResponseArrayOutput)
+}
+
 // The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 func (o NodeTypeOutput) PlacementProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.StringMapOutput { return v.PlacementProperties }).(pulumi.StringMapOutput)
 }
 
-// The provisioning state of the managed cluster resource.
+// The provisioning state of the node type resource.
 func (o NodeTypeOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The node type sku.
+func (o NodeTypeOutput) Sku() NodeTypeSkuResponsePtrOutput {
+	return o.ApplyT(func(v *NodeType) NodeTypeSkuResponsePtrOutput { return v.Sku }).(NodeTypeSkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o NodeTypeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *NodeType) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Azure resource tags.
@@ -298,6 +450,16 @@ func (o NodeTypeOutput) Tags() pulumi.StringMapOutput {
 // Azure resource type.
 func (o NodeTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+func (o NodeTypeOutput) UseDefaultPublicLoadBalancer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.UseDefaultPublicLoadBalancer }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+func (o NodeTypeOutput) UseTempDataDisk() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.UseTempDataDisk }).(pulumi.BoolPtrOutput)
 }
 
 // Set of extensions that should be installed onto the virtual machines.
@@ -325,9 +487,14 @@ func (o NodeTypeOutput) VmImageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.VmImageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The number of nodes in the node type.
+// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
 func (o NodeTypeOutput) VmInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NodeType) pulumi.IntOutput { return v.VmInstanceCount }).(pulumi.IntOutput)
+}
+
+// Identities to assign to the virtual machine scale set under the node type.
+func (o NodeTypeOutput) VmManagedIdentity() VmManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *NodeType) VmManagedIdentityResponsePtrOutput { return v.VmManagedIdentity }).(VmManagedIdentityResponsePtrOutput)
 }
 
 // The secrets to install in the virtual machines.

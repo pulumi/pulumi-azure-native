@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Represents a Watchlist in Azure Security Insights.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Watchlist in Azure Security Insights.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());
@@ -30,19 +30,13 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetWatchlistArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Watchlist Alias
+        /// The watchlist alias
         /// </summary>
         [Input("watchlistAlias", required: true)]
         public string WatchlistAlias { get; set; } = null!;
@@ -61,19 +55,13 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetWatchlistInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Watchlist Alias
+        /// The watchlist alias
         /// </summary>
         [Input("watchlistAlias", required: true)]
         public Input<string> WatchlistAlias { get; set; } = null!;
@@ -94,7 +82,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetWatchlistResult
     {
         /// <summary>
-        /// The content type of the raw content. Example : text/csv or text/tsv 
+        /// The content type of the raw content. For now, only text/csv is valid
         /// </summary>
         public readonly string? ContentType;
         /// <summary>
@@ -122,7 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -138,11 +126,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly ImmutableArray<string> Labels;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of lines in a csv/tsv content to skip before the header
+        /// The number of lines in a csv content to skip before the header
         /// </summary>
         public readonly int? NumberOfLinesToSkip;
         /// <summary>
@@ -150,7 +138,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Provider;
         /// <summary>
-        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        /// The raw content that represents to watchlist items to create. Example : This line will be skipped
+        /// header1,header2
+        /// value1,value2
         /// </summary>
         public readonly string? RawContent;
         /// <summary>
@@ -166,7 +156,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -178,7 +168,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.WatchlistUserInfoResponse? UpdatedBy;
         /// <summary>
-        /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        /// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         /// </summary>
         public readonly string? UploadStatus;
         /// <summary>
@@ -189,10 +179,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The id (a Guid) of the watchlist
         /// </summary>
         public readonly string? WatchlistId;
-        /// <summary>
-        /// The number of Watchlist Items in the Watchlist
-        /// </summary>
-        public readonly int? WatchlistItemsCount;
         /// <summary>
         /// The type of the watchlist
         /// </summary>
@@ -248,8 +234,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? watchlistId,
 
-            int? watchlistItemsCount,
-
             string? watchlistType)
         {
             ContentType = contentType;
@@ -276,7 +260,6 @@ namespace Pulumi.AzureNative.SecurityInsights
             UploadStatus = uploadStatus;
             WatchlistAlias = watchlistAlias;
             WatchlistId = watchlistId;
-            WatchlistItemsCount = watchlistItemsCount;
             WatchlistType = watchlistType;
         }
     }

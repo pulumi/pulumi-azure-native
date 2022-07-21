@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:machinelearning:CommitmentPlan":
-		r = &CommitmentPlan{}
 	case "azure-native:machinelearning:WebService":
 		r = &WebService{}
 	case "azure-native:machinelearning:Workspace":

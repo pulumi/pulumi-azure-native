@@ -91,8 +91,6 @@ export class AccessConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks:AccessConnector" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessConnector.__pulumiType, name, resourceInputs, opts);
     }
 }

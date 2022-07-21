@@ -119,7 +119,7 @@ export class ForwardingRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:ForwardingRule" }, { type: "azure-native:network/v20200401preview:ForwardingRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:ForwardingRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ForwardingRule.__pulumiType, name, resourceInputs, opts);
     }

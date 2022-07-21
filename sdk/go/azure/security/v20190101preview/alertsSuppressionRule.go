@@ -51,12 +51,6 @@ func NewAlertsSuppressionRule(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:AlertsSuppressionRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource AlertsSuppressionRule
 	err := ctx.RegisterResource("azure-native:security/v20190101preview:AlertsSuppressionRule", name, args, &resource, opts...)
 	if err != nil {

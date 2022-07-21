@@ -11,16 +11,46 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
-    /// API Version: 2017-04-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// Alternate name specified when alias and namespace names are same.
+        /// </summary>
+        [Output("alternateName")]
+        public Output<string?> AlternateName { get; private set; } = null!;
+
+        /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        [Output("clusterArmId")]
+        public Output<string?> ClusterArmId { get; private set; } = null!;
+
+        /// <summary>
         /// The time the Namespace was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// This property disables SAS authentication for the Event Hubs namespace.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -59,6 +89,12 @@ namespace Pulumi.AzureNative.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the Namespace.
         /// </summary>
         [Output("provisioningState")]
@@ -77,6 +113,18 @@ namespace Pulumi.AzureNative.EventHub
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -93,6 +141,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -151,6 +205,36 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Alternate name specified when alias and namespace names are same.
+        /// </summary>
+        [Input("alternateName")]
+        public Input<string>? AlternateName { get; set; }
+
+        /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        [Input("clusterArmId")]
+        public Input<string>? ClusterArmId { get; set; }
+
+        /// <summary>
+        /// This property disables SAS authentication for the Event Hubs namespace.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         [Input("isAutoInflateEnabled")]
@@ -180,6 +264,18 @@ namespace Pulumi.AzureNative.EventHub
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
         /// <summary>
         /// Name of the resource group within the azure subscription.
         /// </summary>
@@ -203,6 +299,12 @@ namespace Pulumi.AzureNative.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public NamespaceArgs()
         {

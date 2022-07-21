@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkVirtualAppliance Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
     if (!opts) {
@@ -89,6 +89,10 @@ export interface GetNetworkVirtualApplianceResult {
      * The provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Public key for SSH login.
+     */
+    readonly sshPublicKey?: string;
     /**
      * Resource tags.
      */

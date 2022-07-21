@@ -11,7 +11,7 @@ import (
 )
 
 // Function secrets.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppSyncFunctionTriggersSlot(ctx *pulumi.Context, args *ListWebAppSyncFunctionTriggersSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppSyncFunctionTriggersSlotResult, error) {
 	var rv ListWebAppSyncFunctionTriggersSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppSyncFunctionTriggersSlot", args, &rv, opts...)

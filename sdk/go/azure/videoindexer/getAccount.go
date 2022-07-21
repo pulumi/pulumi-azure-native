@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Video Analyzer for Media account.
-// API Version: 2021-10-18-preview.
+// An Azure Video Indexer account.
+// API Version: 2022-04-13-preview.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:videoindexer:getAccount", args, &rv, opts...)
@@ -22,13 +22,13 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// The name of the Azure Video Analyzer for Media account.
+	// The name of the Azure Video Indexer account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// An Azure Video Analyzer for Media account.
+// An Azure Video Indexer account.
 type LookupAccountResult struct {
 	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId *string `pulumi:"accountId"`
@@ -52,6 +52,8 @@ type LookupAccountResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The account's tenant id
 	TenantId string `pulumi:"tenantId"`
+	// An integer representing the total seconds that have been indexed on the account
+	TotalSecondsIndexed int `pulumi:"totalSecondsIndexed"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -83,7 +85,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 }
 
 type LookupAccountOutputArgs struct {
-	// The name of the Azure Video Analyzer for Media account.
+	// The name of the Azure Video Indexer account.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -93,7 +95,7 @@ func (LookupAccountOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
 }
 
-// An Azure Video Analyzer for Media account.
+// An Azure Video Indexer account.
 type LookupAccountResultOutput struct{ *pulumi.OutputState }
 
 func (LookupAccountResultOutput) ElementType() reflect.Type {
@@ -161,6 +163,11 @@ func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
 // The account's tenant id
 func (o LookupAccountResultOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// An integer representing the total seconds that have been indexed on the account
+func (o LookupAccountResultOutput) TotalSecondsIndexed() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.TotalSecondsIndexed }).(pulumi.IntOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

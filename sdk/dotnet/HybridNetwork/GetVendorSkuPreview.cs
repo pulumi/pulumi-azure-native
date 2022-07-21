@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Customer subscription which can use a sku.
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer subscription which can use a sku.
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());
@@ -90,6 +90,14 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The provisioning state of the PreviewSubscription resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -100,10 +108,16 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string name,
 
+            string provisioningState,
+
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
+            ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -44,14 +44,6 @@ const (
 	ClusterPurposeDevTest   = ClusterPurpose("DevTest")
 )
 
-// The compute environment type for the service.
-type ComputeEnvironmentType string
-
-const (
-	ComputeEnvironmentTypeACI = ComputeEnvironmentType("ACI")
-	ComputeEnvironmentTypeAKS = ComputeEnvironmentType("AKS")
-)
-
 // The Compute Instance Authorization type. Available values are personal (default).
 type ComputeInstanceAuthorizationType string
 
@@ -64,6 +56,7 @@ type ComputeType string
 
 const (
 	ComputeTypeAKS               = ComputeType("AKS")
+	ComputeTypeKubernetes        = ComputeType("Kubernetes")
 	ComputeTypeAmlCompute        = ComputeType("AmlCompute")
 	ComputeTypeComputeInstance   = ComputeType("ComputeInstance")
 	ComputeTypeDataFactory       = ComputeType("DataFactory")
@@ -71,6 +64,27 @@ const (
 	ComputeTypeHDInsight         = ComputeType("HDInsight")
 	ComputeTypeDatabricks        = ComputeType("Databricks")
 	ComputeTypeDataLakeAnalytics = ComputeType("DataLakeAnalytics")
+	ComputeTypeSynapseSpark      = ComputeType("SynapseSpark")
+)
+
+// Authentication type of the connection target
+type ConnectionAuthType string
+
+const (
+	ConnectionAuthTypePAT              = ConnectionAuthType("PAT")
+	ConnectionAuthTypeManagedIdentity  = ConnectionAuthType("ManagedIdentity")
+	ConnectionAuthTypeUsernamePassword = ConnectionAuthType("UsernamePassword")
+	ConnectionAuthTypeNone             = ConnectionAuthType("None")
+	ConnectionAuthTypeSAS              = ConnectionAuthType("SAS")
+)
+
+// Category of the connection
+type ConnectionCategory string
+
+const (
+	ConnectionCategoryPythonFeed        = ConnectionCategory("PythonFeed")
+	ConnectionCategoryContainerRegistry = ConnectionCategory("ContainerRegistry")
+	ConnectionCategoryGit               = ConnectionCategory("Git")
 )
 
 // The type of container to retrieve logs from.
@@ -81,40 +95,34 @@ const (
 	ContainerTypeInferenceServer    = ContainerType("InferenceServer")
 )
 
-// Mechanism for data movement to datastore.
-type DataBindingMode string
+// [Required] Credential type used to authentication with storage.
+type CredentialsType string
 
 const (
-	DataBindingModeMount          = DataBindingMode("Mount")
-	DataBindingModeDownload       = DataBindingMode("Download")
-	DataBindingModeUpload         = DataBindingMode("Upload")
-	DataBindingModeReadOnlyMount  = DataBindingMode("ReadOnlyMount")
-	DataBindingModeReadWriteMount = DataBindingMode("ReadWriteMount")
-	DataBindingModeDirect         = DataBindingMode("Direct")
-	DataBindingModeEvalMount      = DataBindingMode("EvalMount")
-	DataBindingModeEvalDownload   = DataBindingMode("EvalDownload")
+	CredentialsTypeAccountKey       = CredentialsType("AccountKey")
+	CredentialsTypeCertificate      = CredentialsType("Certificate")
+	CredentialsTypeNone             = CredentialsType("None")
+	CredentialsTypeSas              = CredentialsType("Sas")
+	CredentialsTypeServicePrincipal = CredentialsType("ServicePrincipal")
 )
 
-// Specifies dataset type.
-type DatasetType string
+// [Required] Specifies the type of data.
+type DataType string
 
 const (
-	DatasetTypeTabular = DatasetType("tabular")
-	DatasetTypeFile    = DatasetType("file")
+	DataType_Uri_file   = DataType("uri_file")
+	DataType_Uri_folder = DataType("uri_folder")
+	DataTypeMltable     = DataType("mltable")
 )
 
-// Specifies datastore type.
-type DatastoreTypeArm string
+// [Required] Storage type backing the datastore.
+type DatastoreType string
 
 const (
-	DatastoreTypeArmBlob       = DatastoreTypeArm("blob")
-	DatastoreTypeArmAdls       = DatastoreTypeArm("adls")
-	DatastoreTypeArm_Adls_gen2 = DatastoreTypeArm("adls-gen2")
-	DatastoreTypeArmDbfs       = DatastoreTypeArm("dbfs")
-	DatastoreTypeArmFile       = DatastoreTypeArm("file")
-	DatastoreTypeArmMysqldb    = DatastoreTypeArm("mysqldb")
-	DatastoreTypeArmSqldb      = DatastoreTypeArm("sqldb")
-	DatastoreTypeArmPsqldb     = DatastoreTypeArm("psqldb")
+	DatastoreTypeAzureBlob         = DatastoreType("AzureBlob")
+	DatastoreTypeAzureDataLakeGen1 = DatastoreType("AzureDataLakeGen1")
+	DatastoreTypeAzureDataLakeGen2 = DatastoreType("AzureDataLakeGen2")
+	DatastoreTypeAzureFile         = DatastoreType("AzureFile")
 )
 
 // [Required] Specifies the type of distribution framework.
@@ -124,14 +132,6 @@ const (
 	DistributionTypePyTorch    = DistributionType("PyTorch")
 	DistributionTypeTensorFlow = DistributionType("TensorFlow")
 	DistributionTypeMpi        = DistributionType("Mpi")
-)
-
-// [Required] Docker specification must be either Build or Image
-type DockerSpecificationType string
-
-const (
-	DockerSpecificationTypeBuild = DockerSpecificationType("Build")
-	DockerSpecificationTypeImage = DockerSpecificationType("Image")
 )
 
 // [Required] Name of policy configuration
@@ -151,7 +151,7 @@ const (
 	EncryptionStatusDisabled = EncryptionStatus("Disabled")
 )
 
-// [Required] Inference endpoint authentication mode type
+// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
 type EndpointAuthMode string
 
 const (
@@ -165,7 +165,7 @@ type EndpointComputeType string
 
 const (
 	EndpointComputeTypeManaged        = EndpointComputeType("Managed")
-	EndpointComputeTypeK8S            = EndpointComputeType("K8S")
+	EndpointComputeTypeKubernetes     = EndpointComputeType("Kubernetes")
 	EndpointComputeTypeAzureMLCompute = EndpointComputeType("AzureMLCompute")
 )
 
@@ -177,31 +177,58 @@ const (
 	GoalMaximize = Goal("Maximize")
 )
 
-// Header type.
-type Header string
-
-const (
-	Header_All_files_have_same_headers = Header("all_files_have_same_headers")
-	Header_Only_first_file_has_headers = Header("only_first_file_has_headers")
-	Header_No_headers                  = Header("no_headers")
-	Header_Combine_all_files_headers   = Header("combine_all_files_headers")
-)
-
 // [Required] Specifies the type of identity framework.
 type IdentityConfigurationType string
 
 const (
-	IdentityConfigurationTypeManaged  = IdentityConfigurationType("Managed")
-	IdentityConfigurationTypeAMLToken = IdentityConfigurationType("AMLToken")
+	IdentityConfigurationTypeManaged      = IdentityConfigurationType("Managed")
+	IdentityConfigurationTypeAMLToken     = IdentityConfigurationType("AMLToken")
+	IdentityConfigurationTypeUserIdentity = IdentityConfigurationType("UserIdentity")
 )
 
-// Annotation type of image labeling tasks.
-type ImageAnnotationType string
+// Input Asset Delivery Mode.
+type InputDeliveryMode string
 
 const (
-	ImageAnnotationTypeClassification       = ImageAnnotationType("Classification")
-	ImageAnnotationTypeBoundingBox          = ImageAnnotationType("BoundingBox")
-	ImageAnnotationTypeInstanceSegmentation = ImageAnnotationType("InstanceSegmentation")
+	InputDeliveryModeReadOnlyMount  = InputDeliveryMode("ReadOnlyMount")
+	InputDeliveryModeReadWriteMount = InputDeliveryMode("ReadWriteMount")
+	InputDeliveryModeDownload       = InputDeliveryMode("Download")
+	InputDeliveryModeDirect         = InputDeliveryMode("Direct")
+	InputDeliveryModeEvalMount      = InputDeliveryMode("EvalMount")
+	InputDeliveryModeEvalDownload   = InputDeliveryMode("EvalDownload")
+)
+
+// [Required] Specifies the type of job.
+type JobInputType string
+
+const (
+	JobInputTypeLiteral       = JobInputType("literal")
+	JobInputType_Uri_file     = JobInputType("uri_file")
+	JobInputType_Uri_folder   = JobInputType("uri_folder")
+	JobInputTypeMltable       = JobInputType("mltable")
+	JobInputType_Custom_model = JobInputType("custom_model")
+	JobInputType_Mlflow_model = JobInputType("mlflow_model")
+	JobInputType_Triton_model = JobInputType("triton_model")
+)
+
+// [Required] JobLimit type.
+type JobLimitsType string
+
+const (
+	JobLimitsTypeCommand = JobLimitsType("Command")
+	JobLimitsTypeSweep   = JobLimitsType("Sweep")
+)
+
+// [Required] Specifies the type of job.
+type JobOutputType string
+
+const (
+	JobOutputType_Uri_file     = JobOutputType("uri_file")
+	JobOutputType_Uri_folder   = JobOutputType("uri_folder")
+	JobOutputTypeMltable       = JobOutputType("mltable")
+	JobOutputType_Custom_model = JobOutputType("custom_model")
+	JobOutputType_Mlflow_model = JobOutputType("mlflow_model")
+	JobOutputType_Triton_model = JobOutputType("triton_model")
 )
 
 // [Required] Specifies the type of job.
@@ -210,182 +237,28 @@ type JobType string
 const (
 	JobTypeCommand  = JobType("Command")
 	JobTypeSweep    = JobType("Sweep")
-	JobTypeLabeling = JobType("Labeling")
+	JobTypePipeline = JobType("Pipeline")
 )
 
-// Type of the link target.
-type LinkedServiceLinkType string
+// Load Balancer Type
+type LoadBalancerType string
 
 const (
-	LinkedServiceLinkTypeSynapse = LinkedServiceLinkType("Synapse")
+	LoadBalancerTypePublicIp             = LoadBalancerType("PublicIp")
+	LoadBalancerTypeInternalLoadBalancer = LoadBalancerType("InternalLoadBalancer")
 )
 
-func (LinkedServiceLinkType) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceLinkType)(nil)).Elem()
-}
-
-func (e LinkedServiceLinkType) ToLinkedServiceLinkTypeOutput() LinkedServiceLinkTypeOutput {
-	return pulumi.ToOutput(e).(LinkedServiceLinkTypeOutput)
-}
-
-func (e LinkedServiceLinkType) ToLinkedServiceLinkTypeOutputWithContext(ctx context.Context) LinkedServiceLinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LinkedServiceLinkTypeOutput)
-}
-
-func (e LinkedServiceLinkType) ToLinkedServiceLinkTypePtrOutput() LinkedServiceLinkTypePtrOutput {
-	return e.ToLinkedServiceLinkTypePtrOutputWithContext(context.Background())
-}
-
-func (e LinkedServiceLinkType) ToLinkedServiceLinkTypePtrOutputWithContext(ctx context.Context) LinkedServiceLinkTypePtrOutput {
-	return LinkedServiceLinkType(e).ToLinkedServiceLinkTypeOutputWithContext(ctx).ToLinkedServiceLinkTypePtrOutputWithContext(ctx)
-}
-
-func (e LinkedServiceLinkType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e LinkedServiceLinkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e LinkedServiceLinkType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e LinkedServiceLinkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type LinkedServiceLinkTypeOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceLinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceLinkType)(nil)).Elem()
-}
-
-func (o LinkedServiceLinkTypeOutput) ToLinkedServiceLinkTypeOutput() LinkedServiceLinkTypeOutput {
-	return o
-}
-
-func (o LinkedServiceLinkTypeOutput) ToLinkedServiceLinkTypeOutputWithContext(ctx context.Context) LinkedServiceLinkTypeOutput {
-	return o
-}
-
-func (o LinkedServiceLinkTypeOutput) ToLinkedServiceLinkTypePtrOutput() LinkedServiceLinkTypePtrOutput {
-	return o.ToLinkedServiceLinkTypePtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceLinkTypeOutput) ToLinkedServiceLinkTypePtrOutputWithContext(ctx context.Context) LinkedServiceLinkTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceLinkType) *LinkedServiceLinkType {
-		return &v
-	}).(LinkedServiceLinkTypePtrOutput)
-}
-
-func (o LinkedServiceLinkTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceLinkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinkedServiceLinkType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o LinkedServiceLinkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceLinkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinkedServiceLinkType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type LinkedServiceLinkTypePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceLinkTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceLinkType)(nil)).Elem()
-}
-
-func (o LinkedServiceLinkTypePtrOutput) ToLinkedServiceLinkTypePtrOutput() LinkedServiceLinkTypePtrOutput {
-	return o
-}
-
-func (o LinkedServiceLinkTypePtrOutput) ToLinkedServiceLinkTypePtrOutputWithContext(ctx context.Context) LinkedServiceLinkTypePtrOutput {
-	return o
-}
-
-func (o LinkedServiceLinkTypePtrOutput) Elem() LinkedServiceLinkTypeOutput {
-	return o.ApplyT(func(v *LinkedServiceLinkType) LinkedServiceLinkType {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceLinkType
-		return ret
-	}).(LinkedServiceLinkTypeOutput)
-}
-
-func (o LinkedServiceLinkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceLinkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LinkedServiceLinkType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// LinkedServiceLinkTypeInput is an input type that accepts LinkedServiceLinkTypeArgs and LinkedServiceLinkTypeOutput values.
-// You can construct a concrete instance of `LinkedServiceLinkTypeInput` via:
-//
-//          LinkedServiceLinkTypeArgs{...}
-type LinkedServiceLinkTypeInput interface {
-	pulumi.Input
-
-	ToLinkedServiceLinkTypeOutput() LinkedServiceLinkTypeOutput
-	ToLinkedServiceLinkTypeOutputWithContext(context.Context) LinkedServiceLinkTypeOutput
-}
-
-var linkedServiceLinkTypePtrType = reflect.TypeOf((**LinkedServiceLinkType)(nil)).Elem()
-
-type LinkedServiceLinkTypePtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceLinkTypePtrOutput() LinkedServiceLinkTypePtrOutput
-	ToLinkedServiceLinkTypePtrOutputWithContext(context.Context) LinkedServiceLinkTypePtrOutput
-}
-
-type linkedServiceLinkTypePtr string
-
-func LinkedServiceLinkTypePtr(v string) LinkedServiceLinkTypePtrInput {
-	return (*linkedServiceLinkTypePtr)(&v)
-}
-
-func (*linkedServiceLinkTypePtr) ElementType() reflect.Type {
-	return linkedServiceLinkTypePtrType
-}
-
-func (in *linkedServiceLinkTypePtr) ToLinkedServiceLinkTypePtrOutput() LinkedServiceLinkTypePtrOutput {
-	return pulumi.ToOutput(in).(LinkedServiceLinkTypePtrOutput)
-}
-
-func (in *linkedServiceLinkTypePtr) ToLinkedServiceLinkTypePtrOutputWithContext(ctx context.Context) LinkedServiceLinkTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LinkedServiceLinkTypePtrOutput)
-}
-
-// Media type of data asset.
-type MediaType string
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+type ManagedServiceIdentityType string
 
 const (
-	MediaTypeImage = MediaType("Image")
-	MediaTypeText  = MediaType("Text")
+	ManagedServiceIdentityTypeNone                         = ManagedServiceIdentityType("None")
+	ManagedServiceIdentityTypeSystemAssigned               = ManagedServiceIdentityType("SystemAssigned")
+	ManagedServiceIdentityTypeUserAssigned                 = ManagedServiceIdentityType("UserAssigned")
+	ManagedServiceIdentityType_SystemAssigned_UserAssigned = ManagedServiceIdentityType("SystemAssigned,UserAssigned")
 )
 
-// The OS type the Environment.
+// The OS type of the environment.
 type OperatingSystemType string
 
 const (
@@ -401,6 +274,14 @@ const (
 	OsTypeWindows = OsType("Windows")
 )
 
+// Output Asset Delivery Mode.
+type OutputDeliveryMode string
+
+const (
+	OutputDeliveryModeReadWriteMount = OutputDeliveryMode("ReadWriteMount")
+	OutputDeliveryModeUpload         = OutputDeliveryMode("Upload")
+)
+
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 
@@ -410,6 +291,22 @@ const (
 	PrivateEndpointServiceConnectionStatusRejected     = PrivateEndpointServiceConnectionStatus("Rejected")
 	PrivateEndpointServiceConnectionStatusDisconnected = PrivateEndpointServiceConnectionStatus("Disconnected")
 	PrivateEndpointServiceConnectionStatusTimeout      = PrivateEndpointServiceConnectionStatus("Timeout")
+)
+
+// Whether requests from Public Network are allowed.
+type PublicNetworkAccess string
+
+const (
+	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
+// The specific type of random algorithm
+type RandomSamplingAlgorithmRule string
+
+const (
+	RandomSamplingAlgorithmRuleRandom = RandomSamplingAlgorithmRule("Random")
+	RandomSamplingAlgorithmRuleSobol  = RandomSamplingAlgorithmRule("Sobol")
 )
 
 // [Required] Specifies the type of asset reference.
@@ -430,137 +327,166 @@ const (
 	RemoteLoginPortPublicAccessNotSpecified = RemoteLoginPortPublicAccess("NotSpecified")
 )
 
-// Defines values for a ResourceIdentity's type.
-type ResourceIdentityAssignment string
+// [Required] The algorithm used for generating hyperparameter values, along with configuration properties
+type SamplingAlgorithmType string
 
 const (
-	ResourceIdentityAssignmentSystemAssigned               = ResourceIdentityAssignment("SystemAssigned")
-	ResourceIdentityAssignmentUserAssigned                 = ResourceIdentityAssignment("UserAssigned")
-	ResourceIdentityAssignment_SystemAssigned_UserAssigned = ResourceIdentityAssignment("SystemAssigned,UserAssigned")
-	ResourceIdentityAssignmentNone                         = ResourceIdentityAssignment("None")
+	SamplingAlgorithmTypeGrid     = SamplingAlgorithmType("Grid")
+	SamplingAlgorithmTypeRandom   = SamplingAlgorithmType("Random")
+	SamplingAlgorithmTypeBayesian = SamplingAlgorithmType("Bayesian")
 )
 
-// The identity type.
-type ResourceIdentityType string
+// [Required] Type of deployment scaling algorithm
+type ScaleType string
 
 const (
-	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
-	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned,UserAssigned")
-	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
-	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+	ScaleTypeDefault           = ScaleType("Default")
+	ScaleTypeTargetUtilization = ScaleType("TargetUtilization")
 )
 
-func (ResourceIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+// [Required] Credential type used to authentication with storage.
+type SecretsType string
+
+const (
+	SecretsTypeAccountKey       = SecretsType("AccountKey")
+	SecretsTypeCertificate      = SecretsType("Certificate")
+	SecretsTypeSas              = SecretsType("Sas")
+	SecretsTypeServicePrincipal = SecretsType("ServicePrincipal")
+)
+
+// Indicates which identity to use to authenticate service data access to customer's storage.
+type ServiceDataAccessAuthIdentity string
+
+const (
+	// Do not use any identity for service data access.
+	ServiceDataAccessAuthIdentityNone = ServiceDataAccessAuthIdentity("None")
+	// Use the system assigned managed identity of the Workspace to authenticate service data access.
+	ServiceDataAccessAuthIdentityWorkspaceSystemAssignedIdentity = ServiceDataAccessAuthIdentity("WorkspaceSystemAssignedIdentity")
+	// Use the user assigned managed identity of the Workspace to authenticate service data access.
+	ServiceDataAccessAuthIdentityWorkspaceUserAssignedIdentity = ServiceDataAccessAuthIdentity("WorkspaceUserAssignedIdentity")
+)
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+type SkuTier string
+
+const (
+	SkuTierFree     = SkuTier("Free")
+	SkuTierBasic    = SkuTier("Basic")
+	SkuTierStandard = SkuTier("Standard")
+	SkuTierPremium  = SkuTier("Premium")
+)
+
+func (SkuTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuTier)(nil)).Elem()
 }
 
-func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
-	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+func (e SkuTier) ToSkuTierOutput() SkuTierOutput {
+	return pulumi.ToOutput(e).(SkuTierOutput)
 }
 
-func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+func (e SkuTier) ToSkuTierOutputWithContext(ctx context.Context) SkuTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuTierOutput)
 }
 
-func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
-	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+func (e SkuTier) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return e.ToSkuTierPtrOutputWithContext(context.Background())
 }
 
-func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
-	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
+func (e SkuTier) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return SkuTier(e).ToSkuTierOutputWithContext(ctx).ToSkuTierPtrOutputWithContext(ctx)
 }
 
-func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+func (e SkuTier) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e SkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e SkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e SkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+type SkuTierOutput struct{ *pulumi.OutputState }
 
-func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+func (SkuTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuTier)(nil)).Elem()
 }
 
-func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+func (o SkuTierOutput) ToSkuTierOutput() SkuTierOutput {
 	return o
 }
 
-func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+func (o SkuTierOutput) ToSkuTierOutputWithContext(ctx context.Context) SkuTierOutput {
 	return o
 }
 
-func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
-	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+func (o SkuTierOutput) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return o.ToSkuTierPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+func (o SkuTierOutput) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuTier) *SkuTier {
 		return &v
-	}).(ResourceIdentityTypePtrOutput)
+	}).(SkuTierPtrOutput)
 }
 
-func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o SkuTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+func (o SkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuTier) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o SkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+func (o SkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuTier) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+type SkuTierPtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+func (SkuTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuTier)(nil)).Elem()
 }
 
-func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+func (o SkuTierPtrOutput) ToSkuTierPtrOutput() SkuTierPtrOutput {
 	return o
 }
 
-func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+func (o SkuTierPtrOutput) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
 	return o
 }
 
-func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
-	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+func (o SkuTierPtrOutput) Elem() SkuTierOutput {
+	return o.ApplyT(func(v *SkuTier) SkuTier {
 		if v != nil {
 			return *v
 		}
-		var ret ResourceIdentityType
+		var ret SkuTier
 		return ret
-	}).(ResourceIdentityTypeOutput)
+	}).(SkuTierOutput)
 }
 
-func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o SkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuTier) *string {
 		if e == nil {
 			return nil
 		}
@@ -569,69 +495,43 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
-// You can construct a concrete instance of `ResourceIdentityTypeInput` via:
+// SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
+// You can construct a concrete instance of `SkuTierInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
-type ResourceIdentityTypeInput interface {
+//          SkuTierArgs{...}
+type SkuTierInput interface {
 	pulumi.Input
 
-	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
-	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+	ToSkuTierOutput() SkuTierOutput
+	ToSkuTierOutputWithContext(context.Context) SkuTierOutput
 }
 
-var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+var skuTierPtrType = reflect.TypeOf((**SkuTier)(nil)).Elem()
 
-type ResourceIdentityTypePtrInput interface {
+type SkuTierPtrInput interface {
 	pulumi.Input
 
-	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
-	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+	ToSkuTierPtrOutput() SkuTierPtrOutput
+	ToSkuTierPtrOutputWithContext(context.Context) SkuTierPtrOutput
 }
 
-type resourceIdentityTypePtr string
+type skuTierPtr string
 
-func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
-	return (*resourceIdentityTypePtr)(&v)
+func SkuTierPtr(v string) SkuTierPtrInput {
+	return (*skuTierPtr)(&v)
 }
 
-func (*resourceIdentityTypePtr) ElementType() reflect.Type {
-	return resourceIdentityTypePtrType
+func (*skuTierPtr) ElementType() reflect.Type {
+	return skuTierPtrType
 }
 
-func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
-	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+func (in *skuTierPtr) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return pulumi.ToOutput(in).(SkuTierPtrOutput)
 }
 
-func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
 }
-
-// [Required] Type of the hyperparameter sampling algorithms
-type SamplingAlgorithm string
-
-const (
-	SamplingAlgorithmGrid     = SamplingAlgorithm("Grid")
-	SamplingAlgorithmRandom   = SamplingAlgorithm("Random")
-	SamplingAlgorithmBayesian = SamplingAlgorithm("Bayesian")
-)
-
-// [Required] Type of deployment scaling algorithm
-type ScaleType string
-
-const (
-	ScaleTypeAuto   = ScaleType("Auto")
-	ScaleTypeManual = ScaleType("Manual")
-)
-
-// Data source type.
-type SourceType string
-
-const (
-	SourceType_Delimited_files  = SourceType("delimited_files")
-	SourceType_Json_lines_files = SourceType("json_lines_files")
-	SourceType_Parquet_files    = SourceType("parquet_files")
-)
 
 // State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
 type SshPublicAccess string
@@ -641,19 +541,20 @@ const (
 	SshPublicAccessDisabled = SshPublicAccess("Disabled")
 )
 
+// Enable or disable ssl for scoring
+type SslConfigStatus string
+
+const (
+	SslConfigStatusDisabled = SslConfigStatus("Disabled")
+	SslConfigStatusEnabled  = SslConfigStatus("Enabled")
+	SslConfigStatusAuto     = SslConfigStatus("Auto")
+)
+
 // format for the workspace connection value
 type ValueFormat string
 
 const (
 	ValueFormatJSON = ValueFormat("JSON")
-)
-
-// The type of the variant.
-type VariantType string
-
-const (
-	VariantTypeControl   = VariantType("Control")
-	VariantTypeTreatment = VariantType("Treatment")
 )
 
 // Virtual Machine priority
@@ -665,8 +566,6 @@ const (
 )
 
 func init() {
-	pulumi.RegisterOutputType(LinkedServiceLinkTypeOutput{})
-	pulumi.RegisterOutputType(LinkedServiceLinkTypePtrOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(SkuTierOutput{})
+	pulumi.RegisterOutputType(SkuTierPtrOutput{})
 }

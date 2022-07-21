@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("protectedSettings")]
         public Input<object>? ProtectedSettings { get; set; }
 
+        /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<object>? ProtectedSettingsFromKeyVault { get; set; }
+
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;
 
@@ -68,6 +74,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("settings")]
         public Input<object>? Settings { get; set; }
+
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        [Input("suppressFailures")]
+        public Input<bool>? SuppressFailures { get; set; }
 
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".

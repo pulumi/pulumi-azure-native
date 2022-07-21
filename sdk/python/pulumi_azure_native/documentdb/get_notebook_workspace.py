@@ -97,7 +97,7 @@ def get_notebook_workspace(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotebookWorkspaceResult:
     """
     A notebook workspace resource
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -129,7 +129,7 @@ def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotebookWorkspaceResult]:
     """
     A notebook workspace resource
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

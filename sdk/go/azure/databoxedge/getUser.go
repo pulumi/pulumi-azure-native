@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("azure-native:databoxedge:getUser", args, &rv, opts...)
@@ -40,7 +40,7 @@ type LookupUserResult struct {
 	Name string `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.
 	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
-	// User in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of User
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -109,7 +109,7 @@ func (o LookupUserResultOutput) ShareAccessRights() ShareAccessRightResponseArra
 	return o.ApplyT(func(v LookupUserResult) []ShareAccessRightResponse { return v.ShareAccessRights }).(ShareAccessRightResponseArrayOutput)
 }
 
-// User in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of User
 func (o LookupUserResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupUserResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

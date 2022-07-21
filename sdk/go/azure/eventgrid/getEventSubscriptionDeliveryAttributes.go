@@ -11,7 +11,7 @@ import (
 )
 
 // Result of the Get delivery attributes operation.
-// API Version: 2021-06-01-preview.
+// API Version: 2022-06-15.
 func GetEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, args *GetEventSubscriptionDeliveryAttributesArgs, opts ...pulumi.InvokeOption) (*GetEventSubscriptionDeliveryAttributesResult, error) {
 	var rv GetEventSubscriptionDeliveryAttributesResult
 	err := ctx.Invoke("azure-native:eventgrid:getEventSubscriptionDeliveryAttributes", args, &rv, opts...)

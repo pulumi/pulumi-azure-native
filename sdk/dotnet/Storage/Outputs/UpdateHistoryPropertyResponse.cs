@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class UpdateHistoryPropertyResponse
     {
         /// <summary>
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+        /// </summary>
+        public readonly bool? AllowProtectedAppendWrites;
+        /// <summary>
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+        /// </summary>
+        public readonly bool? AllowProtectedAppendWritesAll;
+        /// <summary>
         /// The immutability period for the blobs in the container since the policy creation, in days.
         /// </summary>
         public readonly int ImmutabilityPeriodSinceCreationInDays;
@@ -43,6 +51,10 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
         [OutputConstructor]
         private UpdateHistoryPropertyResponse(
+            bool? allowProtectedAppendWrites,
+
+            bool? allowProtectedAppendWritesAll,
+
             int immutabilityPeriodSinceCreationInDays,
 
             string objectIdentifier,
@@ -55,6 +67,8 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
             string upn)
         {
+            AllowProtectedAppendWrites = allowProtectedAppendWrites;
+            AllowProtectedAppendWritesAll = allowProtectedAppendWritesAll;
             ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;
             ObjectIdentifier = objectIdentifier;
             TenantId = tenantId;

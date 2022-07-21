@@ -135,7 +135,7 @@ def list_web_app_site_push_settings(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsResult:
     """
     Push settings for the App.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of web app.
@@ -167,7 +167,7 @@ def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSitePushSettingsResult]:
     """
     Push settings for the App.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of web app.

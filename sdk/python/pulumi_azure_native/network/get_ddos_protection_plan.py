@@ -145,7 +145,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosProtectionPlanResult:
     """
     A DDoS protection plan in a resource group.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
@@ -178,7 +178,7 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
     """
     A DDoS protection plan in a resource group.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.

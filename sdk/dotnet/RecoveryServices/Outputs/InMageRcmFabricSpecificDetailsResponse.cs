@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
+        /// The list of Mars agents.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MarsAgentDetailsResponse> MarsAgents;
+        /// <summary>
         /// The ARM Id of the physical site.
         /// </summary>
         public readonly string PhysicalSiteId;
@@ -74,6 +78,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string ServiceResourceId;
         /// <summary>
+        /// The source agent identity details.
+        /// </summary>
+        public readonly Outputs.IdentityProviderDetailsResponse? SourceAgentIdentityDetails;
+        /// <summary>
         /// The ARM Id of the VMware site.
         /// </summary>
         public readonly string VmwareSiteId;
@@ -89,6 +97,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ImmutableArray<Outputs.DraDetailsResponse> dras,
 
             string instanceType,
+
+            ImmutableArray<Outputs.MarsAgentDetailsResponse> marsAgents,
 
             string physicalSiteId,
 
@@ -108,6 +118,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string serviceResourceId,
 
+            Outputs.IdentityProviderDetailsResponse? sourceAgentIdentityDetails,
+
             string vmwareSiteId)
         {
             AgentDetails = agentDetails;
@@ -115,6 +127,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DataPlaneUri = dataPlaneUri;
             Dras = dras;
             InstanceType = instanceType;
+            MarsAgents = marsAgents;
             PhysicalSiteId = physicalSiteId;
             ProcessServers = processServers;
             PushInstallers = pushInstallers;
@@ -124,6 +137,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ServiceContainerId = serviceContainerId;
             ServiceEndpoint = serviceEndpoint;
             ServiceResourceId = serviceResourceId;
+            SourceAgentIdentityDetails = sourceAgentIdentityDetails;
             VmwareSiteId = vmwareSiteId;
         }
     }

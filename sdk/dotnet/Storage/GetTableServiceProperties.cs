@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The properties of a storage account’s Table service.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetTableServicePropertiesResult> InvokeAsync(GetTableServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-native:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a storage account’s Table service.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetTableServicePropertiesResult> Invoke(GetTableServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTableServicePropertiesResult>("azure-native:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesInvokeArgs(), options.WithDefaults());

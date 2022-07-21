@@ -594,7 +594,7 @@ type ManagedServiceIdentity struct {
 	// Type of the managed identity.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
@@ -613,7 +613,7 @@ type ManagedServiceIdentityArgs struct {
 	// Type of the managed identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -649,8 +649,8 @@ func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 // Managed identity generic object.

@@ -11,7 +11,7 @@ import (
 )
 
 // Email Template details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opts ...pulumi.InvokeOption) (*LookupEmailTemplateResult, error) {
 	var rv LookupEmailTemplateResult
 	err := ctx.Invoke("azure-native:apimanagement:getEmailTemplate", args, &rv, opts...)
@@ -36,11 +36,11 @@ type LookupEmailTemplateResult struct {
 	Body string `pulumi:"body"`
 	// Description of the Email Template.
 	Description *string `pulumi:"description"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Whether the template is the default template provided by Api Management or has been edited.
+	// Whether the template is the default template provided by API Management or has been edited.
 	IsDefault bool `pulumi:"isDefault"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Email Template Parameter values.
 	Parameters []EmailTemplateParametersContractPropertiesResponse `pulumi:"parameters"`
@@ -48,7 +48,7 @@ type LookupEmailTemplateResult struct {
 	Subject string `pulumi:"subject"`
 	// Title of the Template.
 	Title *string `pulumi:"title"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -103,17 +103,17 @@ func (o LookupEmailTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupEmailTemplateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Whether the template is the default template provided by Api Management or has been edited.
+// Whether the template is the default template provided by API Management or has been edited.
 func (o LookupEmailTemplateResultOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupEmailTemplateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -135,7 +135,7 @@ func (o LookupEmailTemplateResultOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupEmailTemplateResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) string { return v.Type }).(pulumi.StringOutput)
 }

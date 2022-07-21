@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB SQL database.
-        /// API Version: 2021-03-15.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Task<GetSqlResourceSqlDatabaseResult> InvokeAsync(GetSqlResourceSqlDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlDatabaseResult>("azure-native:documentdb:getSqlResourceSqlDatabase", args ?? new GetSqlResourceSqlDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB SQL database.
-        /// API Version: 2021-03-15.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Output<GetSqlResourceSqlDatabaseResult> Invoke(GetSqlResourceSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlDatabaseResult>("azure-native:documentdb:getSqlResourceSqlDatabase", args ?? new GetSqlResourceSqlDatabaseInvokeArgs(), options.WithDefaults());

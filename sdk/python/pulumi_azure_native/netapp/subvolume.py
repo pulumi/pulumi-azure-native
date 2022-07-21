@@ -159,7 +159,7 @@ class Subvolume(pulumi.CustomResource):
                  __props__=None):
         """
         Subvolume Information properties
-        API Version: 2021-10-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +180,7 @@ class Subvolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subvolume Information properties
-        API Version: 2021-10-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param SubvolumeArgs args: The arguments to use to populate this resource's properties.
@@ -305,7 +305,7 @@ class Subvolume(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

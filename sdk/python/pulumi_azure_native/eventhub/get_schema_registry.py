@@ -164,7 +164,7 @@ def get_schema_registry(namespace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryResult:
     """
     Single item in List or Get Schema Group operation
-    API Version: 2022-01-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The Namespace name
@@ -202,7 +202,7 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = Non
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryResult]:
     """
     Single item in List or Get Schema Group operation
-    API Version: 2022-01-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The Namespace name

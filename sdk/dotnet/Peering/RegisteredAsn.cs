@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:RegisteredAsn")]
     public partial class RegisteredAsn : Pulumi.CustomResource

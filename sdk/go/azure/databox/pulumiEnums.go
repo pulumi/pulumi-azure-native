@@ -25,6 +25,8 @@ const (
 	ClassDiscriminatorDataBoxDisk = ClassDiscriminator("DataBoxDisk")
 	// Data Box Heavy orders.
 	ClassDiscriminatorDataBoxHeavy = ClassDiscriminator("DataBoxHeavy")
+	// Data Box Customer Disk orders.
+	ClassDiscriminatorDataBoxCustomerDisk = ClassDiscriminator("DataBoxCustomerDisk")
 )
 
 // Type of the account of data.
@@ -103,6 +105,10 @@ const (
 	NotificationStageNameAtAzureDC = NotificationStageName("AtAzureDC")
 	// Notification at data copy started stage.
 	NotificationStageNameDataCopy = NotificationStageName("DataCopy")
+	// Notification at job created stage.
+	NotificationStageNameCreated = NotificationStageName("Created")
+	// Notification at shipped devices to customer stage.
+	NotificationStageNameShippedToCustomer = NotificationStageName("ShippedToCustomer")
 )
 
 // The sku name.
@@ -115,6 +121,15 @@ const (
 	SkuNameDataBoxDisk = SkuName("DataBoxDisk")
 	// Data Box Heavy.
 	SkuNameDataBoxHeavy = SkuName("DataBoxHeavy")
+	// Data Box Customer Disk.
+	SkuNameDataBoxCustomerDisk = SkuName("DataBoxCustomerDisk")
+)
+
+type StorageAccountAccessTier string
+
+const (
+	// Archive Access Tier shares requested by the customer.
+	StorageAccountAccessTierArchive = StorageAccountAccessTier("Archive")
 )
 
 // Type of the configuration for transfer.

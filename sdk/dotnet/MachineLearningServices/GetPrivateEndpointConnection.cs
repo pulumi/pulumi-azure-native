@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:machinelearningservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:machinelearningservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -82,19 +82,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Specifies the resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Specifies the name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Specifies the type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetPrivateEndpointConnectionResult(
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 

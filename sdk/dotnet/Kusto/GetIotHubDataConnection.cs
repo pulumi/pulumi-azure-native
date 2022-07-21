@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing an iot hub data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an iot hub data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string? DataFormat;
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        public readonly string? DatabaseRouting;
+        /// <summary>
         /// System properties of the iot hub
         /// </summary>
         public readonly ImmutableArray<string> EventSystemProperties;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string? dataFormat,
 
+            string? databaseRouting,
+
             ImmutableArray<string> eventSystemProperties,
 
             string id,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.Kusto
         {
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
+            DatabaseRouting = databaseRouting;
             EventSystemProperties = eventSystemProperties;
             Id = id;
             IotHubResourceId = iotHubResourceId;

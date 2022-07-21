@@ -12,12 +12,14 @@ import (
 )
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 type BlobContainerImmutabilityPolicy struct {
 	pulumi.CustomResourceState
 
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 	AllowProtectedAppendWrites pulumi.BoolPtrOutput `pulumi:"allowProtectedAppendWrites"`
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+	AllowProtectedAppendWritesAll pulumi.BoolPtrOutput `pulumi:"allowProtectedAppendWritesAll"`
 	// Resource Etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
@@ -122,8 +124,10 @@ func (BlobContainerImmutabilityPolicyState) ElementType() reflect.Type {
 type blobContainerImmutabilityPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+	AllowProtectedAppendWritesAll *bool `pulumi:"allowProtectedAppendWritesAll"`
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	ContainerName string `pulumi:"containerName"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
@@ -138,8 +142,10 @@ type blobContainerImmutabilityPolicyArgs struct {
 type BlobContainerImmutabilityPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 	AllowProtectedAppendWrites pulumi.BoolPtrInput
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+	AllowProtectedAppendWritesAll pulumi.BoolPtrInput
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	ContainerName pulumi.StringInput
 	// The immutability period for the blobs in the container since the policy creation, in days.
@@ -187,9 +193,14 @@ func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicy
 	return o
 }
 
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 func (o BlobContainerImmutabilityPolicyOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.BoolPtrOutput { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+func (o BlobContainerImmutabilityPolicyOutput) AllowProtectedAppendWritesAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.BoolPtrOutput { return v.AllowProtectedAppendWritesAll }).(pulumi.BoolPtrOutput)
 }
 
 // Resource Etag.

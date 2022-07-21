@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoUserDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition"},

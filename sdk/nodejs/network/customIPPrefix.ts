@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -37,6 +37,14 @@ export class CustomIPPrefix extends pulumi.CustomResource {
     }
 
     /**
+     * Authorization message for WAN validation.
+     */
+    public readonly authorizationMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The list of all Children for IPv6 /48 CustomIpPrefix.
+     */
+    public /*out*/ readonly childCustomIpPrefixes!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
     public readonly cidr!: pulumi.Output<string | undefined>;
@@ -45,6 +53,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      */
     public readonly commissionedState!: pulumi.Output<string | undefined>;
     /**
+     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+     */
+    public readonly customIpPrefixParent!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -52,6 +64,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * The extended location of the custom IP prefix.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    /**
+     * The reason why resource is in failed state.
+     */
+    public /*out*/ readonly failedReason!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -72,6 +88,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * The resource GUID property of the custom IP prefix resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * Signed message for WAN validation.
+     */
+    public readonly signedMessage!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -99,31 +119,41 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["authorizationMessage"] = args ? args.authorizationMessage : undefined;
             resourceInputs["cidr"] = args ? args.cidr : undefined;
             resourceInputs["commissionedState"] = args ? args.commissionedState : undefined;
             resourceInputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
+            resourceInputs["customIpPrefixParent"] = args ? args.customIpPrefixParent : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["signedMessage"] = args ? args.signedMessage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["failedReason"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIpPrefixes"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["authorizationMessage"] = undefined /*out*/;
+            resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["cidr"] = undefined /*out*/;
             resourceInputs["commissionedState"] = undefined /*out*/;
+            resourceInputs["customIpPrefixParent"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["failedReason"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIpPrefixes"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["signedMessage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
@@ -140,6 +170,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
  */
 export interface CustomIPPrefixArgs {
     /**
+     * Authorization message for WAN validation.
+     */
+    authorizationMessage?: pulumi.Input<string>;
+    /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
     cidr?: pulumi.Input<string>;
@@ -151,6 +185,10 @@ export interface CustomIPPrefixArgs {
      * The name of the custom IP prefix.
      */
     customIpPrefixName?: pulumi.Input<string>;
+    /**
+     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+     */
+    customIpPrefixParent?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The extended location of the custom IP prefix.
      */
@@ -167,6 +205,10 @@ export interface CustomIPPrefixArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Signed message for WAN validation.
+     */
+    signedMessage?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

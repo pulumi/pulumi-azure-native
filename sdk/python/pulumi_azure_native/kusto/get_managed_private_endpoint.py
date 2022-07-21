@@ -146,7 +146,7 @@ def get_managed_private_endpoint(cluster_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrivateEndpointResult:
     """
     Class representing a managed private endpoint.
-    API Version: 2021-08-27.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -182,7 +182,7 @@ def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     Class representing a managed private endpoint.
-    API Version: 2021-08-27.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

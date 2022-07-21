@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ import (
 )
 
 // A virtual network rule.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
 	err := ctx.Invoke("azure-native:sql:getVirtualNetworkRule", args, &rv, opts...)

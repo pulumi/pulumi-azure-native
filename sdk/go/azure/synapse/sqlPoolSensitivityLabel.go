@@ -12,7 +12,7 @@ import (
 )
 
 // A sensitivity label.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type SqlPoolSensitivityLabel struct {
 	pulumi.CustomResourceState
 
@@ -143,7 +143,7 @@ type sqlPoolSensitivityLabelArgs struct {
 	SqlPoolName string `pulumi:"sqlPoolName"`
 	// The name of the table.
 	TableName string `pulumi:"tableName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -170,7 +170,7 @@ type SqlPoolSensitivityLabelArgs struct {
 	SqlPoolName pulumi.StringInput
 	// The name of the table.
 	TableName pulumi.StringInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 

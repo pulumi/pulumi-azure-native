@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Video Analyzer for Media account.
-// API Version: 2021-10-18-preview.
+// An Azure Video Indexer account.
+// API Version: 2022-04-13-preview.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +36,8 @@ type Account struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The account's tenant id
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	// An integer representing the total seconds that have been indexed on the account
+	TotalSecondsIndexed pulumi.IntOutput `pulumi:"totalSecondsIndexed"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -102,7 +104,7 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId *string `pulumi:"accountId"`
-	// The name of the Azure Video Analyzer for Media account.
+	// The name of the Azure Video Indexer account.
 	AccountName *string `pulumi:"accountName"`
 	// Managed service identity (system assigned and/or user assigned identities)
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
@@ -120,7 +122,7 @@ type accountArgs struct {
 type AccountArgs struct {
 	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId pulumi.StringPtrInput
-	// The name of the Azure Video Analyzer for Media account.
+	// The name of the Azure Video Indexer account.
 	AccountName pulumi.StringPtrInput
 	// Managed service identity (system assigned and/or user assigned identities)
 	Identity ManagedServiceIdentityPtrInput
@@ -219,6 +221,11 @@ func (o AccountOutput) Tags() pulumi.StringMapOutput {
 // The account's tenant id
 func (o AccountOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// An integer representing the total seconds that have been indexed on the account
+func (o AccountOutput) TotalSecondsIndexed() pulumi.IntOutput {
+	return o.ApplyT(func(v *Account) pulumi.IntOutput { return v.TotalSecondsIndexed }).(pulumi.IntOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ComputeInstanceAuthorizationType>? ComputeInstanceAuthorizationType { get; set; }
 
         /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
+        /// <summary>
         /// Settings for a personal compute instance.
         /// </summary>
         [Input("personalComputeInstanceSettings")]

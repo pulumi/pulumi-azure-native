@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:LabelingJob"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:LabelingJob"},
                 },
             };

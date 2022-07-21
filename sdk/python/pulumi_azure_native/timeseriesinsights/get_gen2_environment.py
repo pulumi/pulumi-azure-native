@@ -21,7 +21,7 @@ class GetGen2EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
     """
-    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, id=None, kind=None, location=None, name=None, provisioning_state=None, sku=None, status=None, storage_configuration=None, tags=None, time_series_id_properties=None, type=None, warm_store_configuration=None):
+    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, id=None, kind=None, location=None, name=None, provisioning_state=None, sku=None, status=None, storage_configuration=None, supports_customer_managed_key=None, tags=None, time_series_id_properties=None, type=None, warm_store_configuration=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -55,6 +55,9 @@ class GetGen2EnvironmentResult:
         if storage_configuration and not isinstance(storage_configuration, dict):
             raise TypeError("Expected argument 'storage_configuration' to be a dict")
         pulumi.set(__self__, "storage_configuration", storage_configuration)
+        if supports_customer_managed_key and not isinstance(supports_customer_managed_key, bool):
+            raise TypeError("Expected argument 'supports_customer_managed_key' to be a bool")
+        pulumi.set(__self__, "supports_customer_managed_key", supports_customer_managed_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -158,6 +161,14 @@ class GetGen2EnvironmentResult:
         return pulumi.get(self, "storage_configuration")
 
     @property
+    @pulumi.getter(name="supportsCustomerManagedKey")
+    def supports_customer_managed_key(self) -> bool:
+        """
+        Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+        """
+        return pulumi.get(self, "supports_customer_managed_key")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -207,6 +218,7 @@ class AwaitableGetGen2EnvironmentResult(GetGen2EnvironmentResult):
             sku=self.sku,
             status=self.status,
             storage_configuration=self.storage_configuration,
+            supports_customer_managed_key=self.supports_customer_managed_key,
             tags=self.tags,
             time_series_id_properties=self.time_series_id_properties,
             type=self.type,
@@ -219,7 +231,7 @@ def get_gen2_environment(environment_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGen2EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -248,6 +260,7 @@ def get_gen2_environment(environment_name: Optional[str] = None,
         sku=__ret__.sku,
         status=__ret__.status,
         storage_configuration=__ret__.storage_configuration,
+        supports_customer_managed_key=__ret__.supports_customer_managed_key,
         tags=__ret__.tags,
         time_series_id_properties=__ret__.time_series_id_properties,
         type=__ret__.type,
@@ -261,7 +274,7 @@ def get_gen2_environment_output(environment_name: Optional[pulumi.Input[str]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGen2EnvironmentResult]:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

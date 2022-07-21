@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
- * API Version: 2021-02-01.
+ * API Version: 2022-03-01.
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**

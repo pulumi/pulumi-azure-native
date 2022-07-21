@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The lock information.
- * API Version: 2017-04-01.
+ * API Version: 2020-05-01.
  */
 export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
      */
     public readonly owners!: pulumi.Output<outputs.authorization.ManagementLockOwnerResponse[] | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -96,12 +100,14 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["level"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notes"] = undefined /*out*/;
             resourceInputs["owners"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

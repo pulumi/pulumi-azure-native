@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * API Version: 2021-03-01.
+ * API Version: 2021-10-01.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -81,10 +81,6 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The network profile information for a container group.
-     */
-    public readonly networkProfile!: pulumi.Output<outputs.containerinstance.ContainerGroupNetworkProfileResponse | undefined>;
-    /**
      * The operating system type required by the containers in the container group.
      */
     public readonly osType!: pulumi.Output<string>;
@@ -104,6 +100,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    public readonly subnetIds!: pulumi.Output<outputs.containerinstance.ContainerGroupSubnetIdResponse[] | undefined>;
+    /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +115,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The list of volumes that can be mounted by containers in this container group.
      */
     public readonly volumes!: pulumi.Output<outputs.containerinstance.VolumeResponse[] | undefined>;
+    /**
+     * The zones for the container group.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ContainerGroup resource with the given unique name, arguments, and options.
@@ -146,13 +150,14 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["initContainers"] = args ? args.initContainers : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -169,14 +174,15 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["restartPolicy"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }, { type: "azure-native:containerinstance/v20211001:ContainerGroup" }] };
@@ -230,10 +236,6 @@ export interface ContainerGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The network profile information for a container group.
-     */
-    networkProfile?: pulumi.Input<inputs.containerinstance.ContainerGroupNetworkProfileArgs>;
-    /**
      * The operating system type required by the containers in the container group.
      */
     osType: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
@@ -253,6 +255,10 @@ export interface ContainerGroupArgs {
      */
     sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku>;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    subnetIds?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupSubnetIdArgs>[]>;
+    /**
      * The resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -260,4 +266,8 @@ export interface ContainerGroupArgs {
      * The list of volumes that can be mounted by containers in this container group.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.VolumeArgs>[]>;
+    /**
+     * The zones for the container group.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -38,6 +38,34 @@ namespace Pulumi.AzureNative.DataProtection
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct AlertsState : IEquatable<AlertsState>
+    {
+        private readonly string _value;
+
+        private AlertsState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertsState Enabled { get; } = new AlertsState("Enabled");
+        public static AlertsState Disabled { get; } = new AlertsState("Disabled");
+
+        public static bool operator ==(AlertsState left, AlertsState right) => left.Equals(right);
+        public static bool operator !=(AlertsState left, AlertsState right) => !left.Equals(right);
+
+        public static explicit operator string(AlertsState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertsState other && Equals(other);
+        public bool Equals(AlertsState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// type of datastore; Operational/Vault/Archive
     /// </summary>
@@ -142,6 +170,37 @@ namespace Pulumi.AzureNative.DataProtection
     }
 
     /// <summary>
+    /// Gets or sets the type of secret store
+    /// </summary>
+    [EnumType]
+    public readonly struct SecretStoreType : IEquatable<SecretStoreType>
+    {
+        private readonly string _value;
+
+        private SecretStoreType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecretStoreType Invalid { get; } = new SecretStoreType("Invalid");
+        public static SecretStoreType AzureKeyVault { get; } = new SecretStoreType("AzureKeyVault");
+
+        public static bool operator ==(SecretStoreType left, SecretStoreType right) => left.Equals(right);
+        public static bool operator !=(SecretStoreType left, SecretStoreType right) => !left.Equals(right);
+
+        public static explicit operator string(SecretStoreType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecretStoreType other && Equals(other);
+        public bool Equals(SecretStoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the type of the datastore.
     /// </summary>
     [EnumType]
@@ -188,6 +247,7 @@ namespace Pulumi.AzureNative.DataProtection
 
         public static StorageSettingTypes GeoRedundant { get; } = new StorageSettingTypes("GeoRedundant");
         public static StorageSettingTypes LocallyRedundant { get; } = new StorageSettingTypes("LocallyRedundant");
+        public static StorageSettingTypes ZoneRedundant { get; } = new StorageSettingTypes("ZoneRedundant");
 
         public static bool operator ==(StorageSettingTypes left, StorageSettingTypes right) => left.Equals(right);
         public static bool operator !=(StorageSettingTypes left, StorageSettingTypes right) => !left.Equals(right);
@@ -197,6 +257,37 @@ namespace Pulumi.AzureNative.DataProtection
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageSettingTypes other && Equals(other);
         public bool Equals(StorageSettingTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+    /// </summary>
+    [EnumType]
+    public readonly struct ValidationType : IEquatable<ValidationType>
+    {
+        private readonly string _value;
+
+        private ValidationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ValidationType ShallowValidation { get; } = new ValidationType("ShallowValidation");
+        public static ValidationType DeepValidation { get; } = new ValidationType("DeepValidation");
+
+        public static bool operator ==(ValidationType left, ValidationType right) => left.Equals(right);
+        public static bool operator !=(ValidationType left, ValidationType right) => !left.Equals(right);
+
+        public static explicit operator string(ValidationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ValidationType other && Equals(other);
+        public bool Equals(ValidationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

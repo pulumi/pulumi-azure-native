@@ -11,7 +11,7 @@ import (
 )
 
 // Domain Topic.
-// API Version: 2020-06-01.
+// API Version: 2022-06-15.
 func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ...pulumi.InvokeOption) (*LookupDomainTopicResult, error) {
 	var rv LookupDomainTopicResult
 	err := ctx.Invoke("azure-native:eventgrid:getDomainTopic", args, &rv, opts...)

@@ -21,8 +21,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         [Input("networkProfile")]
         public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
 
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public ClusterResourcePropertiesArgs()
         {
+            ZoneRedundant = false;
         }
     }
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// A network interface in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A network interface in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.Network
     [OutputType]
     public sealed class GetNetworkInterfaceResult
     {
+        /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliaryMode;
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
@@ -177,9 +181,19 @@ namespace Pulumi.AzureNative.Network
         /// The reference to a virtual machine.
         /// </summary>
         public readonly Outputs.SubResourceResponse VirtualMachine;
+        /// <summary>
+        /// Whether the virtual machine this nic is attached to supports encryption.
+        /// </summary>
+        public readonly bool VnetEncryptionSupported;
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        public readonly string? WorkloadType;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
+            string? auxiliaryMode,
+
             Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
 
             Outputs.SubResourceResponse dscpConfiguration,
@@ -226,8 +240,13 @@ namespace Pulumi.AzureNative.Network
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine)
+            Outputs.SubResourceResponse virtualMachine,
+
+            bool vnetEncryptionSupported,
+
+            string? workloadType)
         {
+            AuxiliaryMode = auxiliaryMode;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
@@ -252,6 +271,8 @@ namespace Pulumi.AzureNative.Network
             TapConfigurations = tapConfigurations;
             Type = type;
             VirtualMachine = virtualMachine;
+            VnetEncryptionSupported = vnetEncryptionSupported;
+            WorkloadType = workloadType;
         }
     }
 }

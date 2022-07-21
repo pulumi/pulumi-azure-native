@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Integration runtime resource type.
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**

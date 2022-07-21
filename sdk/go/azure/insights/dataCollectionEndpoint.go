@@ -12,11 +12,11 @@ import (
 )
 
 // Definition of ARM tracked top level resource.
-// API Version: 2021-09-01-preview.
+// API Version: 2021-04-01.
 type DataCollectionEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The endpoint used by clients to access their configuration.
+	// The endpoint used by agents to access their configuration.
 	ConfigurationAccess DataCollectionEndpointResponseConfigurationAccessPtrOutput `pulumi:"configurationAccess"`
 	// Description of the data collection endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -170,7 +170,7 @@ func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutputWithContext(
 	return o
 }
 
-// The endpoint used by clients to access their configuration.
+// The endpoint used by agents to access their configuration.
 func (o DataCollectionEndpointOutput) ConfigurationAccess() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpoint) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
 		return v.ConfigurationAccess

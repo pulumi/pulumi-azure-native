@@ -12,12 +12,12 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2022-02-01-preview.
+// API Version: 2022-05-01.
 type ComponentVersion struct {
 	pulumi.CustomResourceState
 
 	// [Required] Additional attributes of the entity.
-	ComponentVersionDetails ComponentVersionResponseOutput `pulumi:"componentVersionDetails"`
+	ComponentVersionProperties ComponentVersionResponseOutput `pulumi:"componentVersionProperties"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -33,8 +33,8 @@ func NewComponentVersion(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ComponentVersionDetails == nil {
-		return nil, errors.New("invalid value for required argument 'ComponentVersionDetails'")
+	if args.ComponentVersionProperties == nil {
+		return nil, errors.New("invalid value for required argument 'ComponentVersionProperties'")
 	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
@@ -45,7 +45,7 @@ func NewComponentVersion(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	args.ComponentVersionDetails = args.ComponentVersionDetails.ToComponentVersionTypeOutput().ApplyT(func(v ComponentVersionType) ComponentVersionType { return *v.Defaults() }).(ComponentVersionTypeOutput)
+	args.ComponentVersionProperties = args.ComponentVersionProperties.ToComponentVersionTypeOutput().ApplyT(func(v ComponentVersionType) ComponentVersionType { return *v.Defaults() }).(ComponentVersionTypeOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20220201preview:ComponentVersion"),
@@ -88,7 +88,7 @@ func (ComponentVersionState) ElementType() reflect.Type {
 
 type componentVersionArgs struct {
 	// [Required] Additional attributes of the entity.
-	ComponentVersionDetails ComponentVersionType `pulumi:"componentVersionDetails"`
+	ComponentVersionProperties ComponentVersionType `pulumi:"componentVersionProperties"`
 	// Container name.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
@@ -102,7 +102,7 @@ type componentVersionArgs struct {
 // The set of arguments for constructing a ComponentVersion resource.
 type ComponentVersionArgs struct {
 	// [Required] Additional attributes of the entity.
-	ComponentVersionDetails ComponentVersionTypeInput
+	ComponentVersionProperties ComponentVersionTypeInput
 	// Container name.
 	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
@@ -151,8 +151,8 @@ func (o ComponentVersionOutput) ToComponentVersionOutputWithContext(ctx context.
 }
 
 // [Required] Additional attributes of the entity.
-func (o ComponentVersionOutput) ComponentVersionDetails() ComponentVersionResponseOutput {
-	return o.ApplyT(func(v *ComponentVersion) ComponentVersionResponseOutput { return v.ComponentVersionDetails }).(ComponentVersionResponseOutput)
+func (o ComponentVersionOutput) ComponentVersionProperties() ComponentVersionResponseOutput {
+	return o.ApplyT(func(v *ComponentVersion) ComponentVersionResponseOutput { return v.ComponentVersionProperties }).(ComponentVersionResponseOutput)
 }
 
 // The name of the resource

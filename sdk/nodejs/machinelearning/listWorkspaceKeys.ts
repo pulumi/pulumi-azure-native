@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace authorization keys for a workspace.
- * API Version: 2016-04-01.
+ * API Version: 2019-10-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
     if (!opts) {

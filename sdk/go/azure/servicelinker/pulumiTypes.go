@@ -10,6 +10,122 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The resource properties when type is Azure Key Vault
+type AzureKeyVaultProperties struct {
+	// True if connect via Kubernetes CSI Driver.
+	ConnectAsKubernetesCsiDriver *bool `pulumi:"connectAsKubernetesCsiDriver"`
+	// The azure resource type.
+	// Expected value is 'KeyVault'.
+	Type string `pulumi:"type"`
+}
+
+// The resource properties when type is Azure Key Vault
+type AzureKeyVaultPropertiesResponse struct {
+	// True if connect via Kubernetes CSI Driver.
+	ConnectAsKubernetesCsiDriver *bool `pulumi:"connectAsKubernetesCsiDriver"`
+	// The azure resource type.
+	// Expected value is 'KeyVault'.
+	Type string `pulumi:"type"`
+}
+
+// The azure resource info when target service type is AzureResource
+type AzureResource struct {
+	// The Id of azure resource.
+	Id *string `pulumi:"id"`
+	// The azure resource connection related properties.
+	ResourceProperties *AzureKeyVaultProperties `pulumi:"resourceProperties"`
+	// The target service type.
+	// Expected value is 'AzureResource'.
+	Type string `pulumi:"type"`
+}
+
+// The azure resource info when target service type is AzureResource
+type AzureResourceResponse struct {
+	// The Id of azure resource.
+	Id *string `pulumi:"id"`
+	// The azure resource connection related properties.
+	ResourceProperties *AzureKeyVaultPropertiesResponse `pulumi:"resourceProperties"`
+	// The target service type.
+	// Expected value is 'AzureResource'.
+	Type string `pulumi:"type"`
+}
+
+// The service properties when target service type is ConfluentBootstrapServer
+type ConfluentBootstrapServer struct {
+	// The endpoint of service.
+	Endpoint *string `pulumi:"endpoint"`
+	// The target service type.
+	// Expected value is 'ConfluentBootstrapServer'.
+	Type string `pulumi:"type"`
+}
+
+// The service properties when target service type is ConfluentBootstrapServer
+type ConfluentBootstrapServerResponse struct {
+	// The endpoint of service.
+	Endpoint *string `pulumi:"endpoint"`
+	// The target service type.
+	// Expected value is 'ConfluentBootstrapServer'.
+	Type string `pulumi:"type"`
+}
+
+// The service properties when target service type is ConfluentSchemaRegistry
+type ConfluentSchemaRegistry struct {
+	// The endpoint of service.
+	Endpoint *string `pulumi:"endpoint"`
+	// The target service type.
+	// Expected value is 'ConfluentSchemaRegistry'.
+	Type string `pulumi:"type"`
+}
+
+// The service properties when target service type is ConfluentSchemaRegistry
+type ConfluentSchemaRegistryResponse struct {
+	// The endpoint of service.
+	Endpoint *string `pulumi:"endpoint"`
+	// The target service type.
+	// Expected value is 'ConfluentSchemaRegistry'.
+	Type string `pulumi:"type"`
+}
+
+// The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
+type KeyVaultSecretReferenceSecretInfo struct {
+	// Name of the Key Vault secret.
+	Name *string `pulumi:"name"`
+	// The secret type.
+	// Expected value is 'keyVaultSecretReference'.
+	SecretType string `pulumi:"secretType"`
+	// Version of the Key Vault secret.
+	Version *string `pulumi:"version"`
+}
+
+// The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
+type KeyVaultSecretReferenceSecretInfoResponse struct {
+	// Name of the Key Vault secret.
+	Name *string `pulumi:"name"`
+	// The secret type.
+	// Expected value is 'keyVaultSecretReference'.
+	SecretType string `pulumi:"secretType"`
+	// Version of the Key Vault secret.
+	Version *string `pulumi:"version"`
+}
+
+// The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
+type KeyVaultSecretUriSecretInfo struct {
+	// The secret type.
+	// Expected value is 'keyVaultSecretUri'.
+	SecretType string `pulumi:"secretType"`
+	// URI to the keyvault secret
+	Value *string `pulumi:"value"`
+}
+
+// The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
+type KeyVaultSecretUriSecretInfoResponse struct {
+	// The secret type.
+	// Expected value is 'keyVaultSecretUri'.
+	SecretType string `pulumi:"secretType"`
+	// URI to the keyvault secret
+	Value *string `pulumi:"value"`
+}
+
 // The authentication info when authType is secret
 type SecretAuthInfo struct {
 	// The authentication type.
@@ -17,8 +133,8 @@ type SecretAuthInfo struct {
 	AuthType string `pulumi:"authType"`
 	// Username or account name for secret auth.
 	Name *string `pulumi:"name"`
-	// Password or account key for secret auth.
-	Secret *string `pulumi:"secret"`
+	// Password or key vault secret for secret auth.
+	SecretInfo interface{} `pulumi:"secretInfo"`
 }
 
 // The authentication info when authType is secret
@@ -28,8 +144,8 @@ type SecretAuthInfoResponse struct {
 	AuthType string `pulumi:"authType"`
 	// Username or account name for secret auth.
 	Name *string `pulumi:"name"`
-	// Password or account key for secret auth.
-	Secret *string `pulumi:"secret"`
+	// Password or key vault secret for secret auth.
+	SecretInfo interface{} `pulumi:"secretInfo"`
 }
 
 // An option to store secret value in secure place
@@ -418,9 +534,9 @@ type UserAssignedIdentityAuthInfo struct {
 	// Expected value is 'userAssignedIdentity'.
 	AuthType string `pulumi:"authType"`
 	// Client Id for userAssignedIdentity.
-	ClientId string `pulumi:"clientId"`
+	ClientId *string `pulumi:"clientId"`
 	// Subscription id for userAssignedIdentity.
-	SubscriptionId string `pulumi:"subscriptionId"`
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The authentication info when authType is userAssignedIdentity
@@ -429,9 +545,9 @@ type UserAssignedIdentityAuthInfoResponse struct {
 	// Expected value is 'userAssignedIdentity'.
 	AuthType string `pulumi:"authType"`
 	// Client Id for userAssignedIdentity.
-	ClientId string `pulumi:"clientId"`
+	ClientId *string `pulumi:"clientId"`
 	// Subscription id for userAssignedIdentity.
-	SubscriptionId string `pulumi:"subscriptionId"`
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The VNet solution for linker
@@ -632,6 +748,24 @@ func (o VNetSolutionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The secret info when type is rawValue. It's for scenarios that user input the secret.
+type ValueSecretInfo struct {
+	// The secret type.
+	// Expected value is 'rawValue'.
+	SecretType string `pulumi:"secretType"`
+	// The actual value of the secret.
+	Value *string `pulumi:"value"`
+}
+
+// The secret info when type is rawValue. It's for scenarios that user input the secret.
+type ValueSecretInfoResponse struct {
+	// The secret type.
+	// Expected value is 'rawValue'.
+	SecretType string `pulumi:"secretType"`
+	// The actual value of the secret.
+	Value *string `pulumi:"value"`
 }
 
 func init() {

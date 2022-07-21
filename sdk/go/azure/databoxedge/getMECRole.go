@@ -11,7 +11,7 @@ import (
 )
 
 // MEC role.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupMECRole(ctx *pulumi.Context, args *LookupMECRoleArgs, opts ...pulumi.InvokeOption) (*LookupMECRoleResult, error) {
 	var rv LookupMECRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getMECRole", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupMECRoleArgs struct {
 type LookupMECRoleResult struct {
 	// Activation key of the MEC.
 	ConnectionString *AsymmetricEncryptedSecretResponse `pulumi:"connectionString"`
+	// Controller Endpoint.
+	ControllerEndpoint *string `pulumi:"controllerEndpoint"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// Role type.
@@ -41,9 +43,11 @@ type LookupMECRoleResult struct {
 	Kind string `pulumi:"kind"`
 	// The object name.
 	Name string `pulumi:"name"`
+	// Unique Id of the Resource.
+	ResourceUniqueId *string `pulumi:"resourceUniqueId"`
 	// Role status.
 	RoleStatus string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
+	// Metadata pertaining to creation and last modification of Role
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -95,6 +99,11 @@ func (o LookupMECRoleResultOutput) ConnectionString() AsymmetricEncryptedSecretR
 	return o.ApplyT(func(v LookupMECRoleResult) *AsymmetricEncryptedSecretResponse { return v.ConnectionString }).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
+// Controller Endpoint.
+func (o LookupMECRoleResultOutput) ControllerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMECRoleResult) *string { return v.ControllerEndpoint }).(pulumi.StringPtrOutput)
+}
+
 // The path ID that uniquely identifies the object.
 func (o LookupMECRoleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMECRoleResult) string { return v.Id }).(pulumi.StringOutput)
@@ -111,12 +120,17 @@ func (o LookupMECRoleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMECRoleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Unique Id of the Resource.
+func (o LookupMECRoleResultOutput) ResourceUniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMECRoleResult) *string { return v.ResourceUniqueId }).(pulumi.StringPtrOutput)
+}
+
 // Role status.
 func (o LookupMECRoleResultOutput) RoleStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMECRoleResult) string { return v.RoleStatus }).(pulumi.StringOutput)
 }
 
-// Role configured on ASE resource
+// Metadata pertaining to creation and last modification of Role
 func (o LookupMECRoleResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupMECRoleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

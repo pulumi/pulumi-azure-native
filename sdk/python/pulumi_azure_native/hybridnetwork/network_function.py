@@ -20,6 +20,7 @@ class NetworkFunctionArgs:
                  device: Optional[pulumi.Input['SubResourceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
+                 network_function_container_configurations: Optional[Any] = None,
                  network_function_name: Optional[pulumi.Input[str]] = None,
                  network_function_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionUserConfigurationArgs']]]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -28,14 +29,15 @@ class NetworkFunctionArgs:
         """
         The set of arguments for constructing a NetworkFunction resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SubResourceArgs'] device: The reference to the device resource.
+        :param pulumi.Input['SubResourceArgs'] device: The reference to the device resource. Once set, it cannot be updated.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param Any managed_application_parameters: The parameters for the managed application.
+        :param Any network_function_container_configurations: The network function container configurations from the user.
         :param pulumi.Input[str] network_function_name: Resource name for the network function resource.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkFunctionUserConfigurationArgs']]] network_function_user_configurations: The network function configurations from the user.
-        :param pulumi.Input[str] sku_name: The sku name for the network function.
+        :param pulumi.Input[str] sku_name: The sku name for the network function. Once set, it cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vendor_name: The vendor name for the network function.
+        :param pulumi.Input[str] vendor_name: The vendor name for the network function. Once set, it cannot be updated.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if device is not None:
@@ -44,6 +46,8 @@ class NetworkFunctionArgs:
             pulumi.set(__self__, "location", location)
         if managed_application_parameters is not None:
             pulumi.set(__self__, "managed_application_parameters", managed_application_parameters)
+        if network_function_container_configurations is not None:
+            pulumi.set(__self__, "network_function_container_configurations", network_function_container_configurations)
         if network_function_name is not None:
             pulumi.set(__self__, "network_function_name", network_function_name)
         if network_function_user_configurations is not None:
@@ -71,7 +75,7 @@ class NetworkFunctionArgs:
     @pulumi.getter
     def device(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        The reference to the device resource.
+        The reference to the device resource. Once set, it cannot be updated.
         """
         return pulumi.get(self, "device")
 
@@ -104,6 +108,18 @@ class NetworkFunctionArgs:
         pulumi.set(self, "managed_application_parameters", value)
 
     @property
+    @pulumi.getter(name="networkFunctionContainerConfigurations")
+    def network_function_container_configurations(self) -> Optional[Any]:
+        """
+        The network function container configurations from the user.
+        """
+        return pulumi.get(self, "network_function_container_configurations")
+
+    @network_function_container_configurations.setter
+    def network_function_container_configurations(self, value: Optional[Any]):
+        pulumi.set(self, "network_function_container_configurations", value)
+
+    @property
     @pulumi.getter(name="networkFunctionName")
     def network_function_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -131,7 +147,7 @@ class NetworkFunctionArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku name for the network function.
+        The sku name for the network function. Once set, it cannot be updated.
         """
         return pulumi.get(self, "sku_name")
 
@@ -155,7 +171,7 @@ class NetworkFunctionArgs:
     @pulumi.getter(name="vendorName")
     def vendor_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The vendor name for the network function.
+        The vendor name for the network function. Once set, it cannot be updated.
         """
         return pulumi.get(self, "vendor_name")
 
@@ -172,6 +188,7 @@ class NetworkFunction(pulumi.CustomResource):
                  device: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
+                 network_function_container_configurations: Optional[Any] = None,
                  network_function_name: Optional[pulumi.Input[str]] = None,
                  network_function_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkFunctionUserConfigurationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -181,19 +198,20 @@ class NetworkFunction(pulumi.CustomResource):
                  __props__=None):
         """
         Network function resource response.
-        API Version: 2020-01-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the device resource.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the device resource. Once set, it cannot be updated.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param Any managed_application_parameters: The parameters for the managed application.
+        :param Any network_function_container_configurations: The network function container configurations from the user.
         :param pulumi.Input[str] network_function_name: Resource name for the network function resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkFunctionUserConfigurationArgs']]]] network_function_user_configurations: The network function configurations from the user.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sku_name: The sku name for the network function.
+        :param pulumi.Input[str] sku_name: The sku name for the network function. Once set, it cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vendor_name: The vendor name for the network function.
+        :param pulumi.Input[str] vendor_name: The vendor name for the network function. Once set, it cannot be updated.
         """
         ...
     @overload
@@ -203,7 +221,7 @@ class NetworkFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network function resource response.
-        API Version: 2020-01-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkFunctionArgs args: The arguments to use to populate this resource's properties.
@@ -223,6 +241,7 @@ class NetworkFunction(pulumi.CustomResource):
                  device: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
+                 network_function_container_configurations: Optional[Any] = None,
                  network_function_name: Optional[pulumi.Input[str]] = None,
                  network_function_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkFunctionUserConfigurationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -244,6 +263,7 @@ class NetworkFunction(pulumi.CustomResource):
             __props__.__dict__["device"] = device
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_application_parameters"] = managed_application_parameters
+            __props__.__dict__["network_function_container_configurations"] = network_function_container_configurations
             __props__.__dict__["network_function_name"] = network_function_name
             __props__.__dict__["network_function_user_configurations"] = network_function_user_configurations
             if resource_group_name is None and not opts.urn:
@@ -258,6 +278,7 @@ class NetworkFunction(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_key"] = None
             __props__.__dict__["sku_type"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vendor_provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:NetworkFunction")])
@@ -290,11 +311,13 @@ class NetworkFunction(pulumi.CustomResource):
         __props__.__dict__["managed_application"] = None
         __props__.__dict__["managed_application_parameters"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_function_container_configurations"] = None
         __props__.__dict__["network_function_user_configurations"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["service_key"] = None
         __props__.__dict__["sku_name"] = None
         __props__.__dict__["sku_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vendor_name"] = None
@@ -305,7 +328,7 @@ class NetworkFunction(pulumi.CustomResource):
     @pulumi.getter
     def device(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        The reference to the device resource.
+        The reference to the device resource. Once set, it cannot be updated.
         """
         return pulumi.get(self, "device")
 
@@ -350,6 +373,14 @@ class NetworkFunction(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkFunctionContainerConfigurations")
+    def network_function_container_configurations(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The network function container configurations from the user.
+        """
+        return pulumi.get(self, "network_function_container_configurations")
+
+    @property
     @pulumi.getter(name="networkFunctionUserConfigurations")
     def network_function_user_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkFunctionUserConfigurationResponse']]]:
         """
@@ -377,7 +408,7 @@ class NetworkFunction(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The sku name for the network function.
+        The sku name for the network function. Once set, it cannot be updated.
         """
         return pulumi.get(self, "sku_name")
 
@@ -388,6 +419,14 @@ class NetworkFunction(pulumi.CustomResource):
         The sku type for the network function.
         """
         return pulumi.get(self, "sku_type")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -409,7 +448,7 @@ class NetworkFunction(pulumi.CustomResource):
     @pulumi.getter(name="vendorName")
     def vendor_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The vendor name for the network function.
+        The vendor name for the network function. Once set, it cannot be updated.
         """
         return pulumi.get(self, "vendor_name")
 

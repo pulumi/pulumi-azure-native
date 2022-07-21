@@ -12,7 +12,7 @@ import (
 )
 
 // The response to an account resource GET request.
-// API Version: 2014-04-01-preview.
+// API Version: 2017-11-01-preview.
 type Account struct {
 	pulumi.CustomResourceState
 

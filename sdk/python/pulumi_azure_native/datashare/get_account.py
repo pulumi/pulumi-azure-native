@@ -169,7 +169,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     An account data transfer object.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -204,7 +204,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     An account data transfer object.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

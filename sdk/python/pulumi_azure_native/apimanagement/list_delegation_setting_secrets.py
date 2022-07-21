@@ -48,7 +48,7 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDelegationSettingSecretsResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -73,7 +73,7 @@ def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDelegationSettingSecretsResult]:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

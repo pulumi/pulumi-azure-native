@@ -11,7 +11,7 @@ import (
 )
 
 // Database, Server or Elastic Pool Advisor.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupServerAdvisor(ctx *pulumi.Context, args *LookupServerAdvisorArgs, opts ...pulumi.InvokeOption) (*LookupServerAdvisorResult, error) {
 	var rv LookupServerAdvisorResult
 	err := ctx.Invoke("azure-native:sql:getServerAdvisor", args, &rv, opts...)

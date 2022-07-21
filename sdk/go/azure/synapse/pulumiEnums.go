@@ -10,67 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU name.
-type AzureSkuName string
+// The type of the spark config properties file.
+type ConfigurationType string
 
 const (
-	AzureSkuName_Standard_DS13_v2_1TB_PS    = AzureSkuName("Standard_DS13_v2+1TB_PS")
-	AzureSkuName_Standard_DS13_v2_2TB_PS    = AzureSkuName("Standard_DS13_v2+2TB_PS")
-	AzureSkuName_Standard_DS14_v2_3TB_PS    = AzureSkuName("Standard_DS14_v2+3TB_PS")
-	AzureSkuName_Standard_DS14_v2_4TB_PS    = AzureSkuName("Standard_DS14_v2+4TB_PS")
-	AzureSkuName_Standard_D13_v2            = AzureSkuName("Standard_D13_v2")
-	AzureSkuName_Standard_D14_v2            = AzureSkuName("Standard_D14_v2")
-	AzureSkuName_Standard_L8s               = AzureSkuName("Standard_L8s")
-	AzureSkuName_Standard_L16s              = AzureSkuName("Standard_L16s")
-	AzureSkuName_Standard_L8s_v2            = AzureSkuName("Standard_L8s_v2")
-	AzureSkuName_Standard_L16s_v2           = AzureSkuName("Standard_L16s_v2")
-	AzureSkuName_Standard_D11_v2            = AzureSkuName("Standard_D11_v2")
-	AzureSkuName_Standard_D12_v2            = AzureSkuName("Standard_D12_v2")
-	AzureSkuName_Standard_L4s               = AzureSkuName("Standard_L4s")
-	AzureSkuName_Dev_No_SLA_Standard_D11_v2 = AzureSkuName("Dev(No SLA)_Standard_D11_v2")
-	AzureSkuName_Standard_E64i_v3           = AzureSkuName("Standard_E64i_v3")
-	AzureSkuName_Standard_E80ids_v4         = AzureSkuName("Standard_E80ids_v4")
-	AzureSkuName_Standard_E2a_v4            = AzureSkuName("Standard_E2a_v4")
-	AzureSkuName_Standard_E4a_v4            = AzureSkuName("Standard_E4a_v4")
-	AzureSkuName_Standard_E8a_v4            = AzureSkuName("Standard_E8a_v4")
-	AzureSkuName_Standard_E16a_v4           = AzureSkuName("Standard_E16a_v4")
-	AzureSkuName_Standard_E8as_v4_1TB_PS    = AzureSkuName("Standard_E8as_v4+1TB_PS")
-	AzureSkuName_Standard_E8as_v4_2TB_PS    = AzureSkuName("Standard_E8as_v4+2TB_PS")
-	AzureSkuName_Standard_E16as_v4_3TB_PS   = AzureSkuName("Standard_E16as_v4+3TB_PS")
-	AzureSkuName_Standard_E16as_v4_4TB_PS   = AzureSkuName("Standard_E16as_v4+4TB_PS")
-	AzureSkuName_Dev_No_SLA_Standard_E2a_v4 = AzureSkuName("Dev(No SLA)_Standard_E2a_v4")
-)
-
-// SKU tier.
-type AzureSkuTier string
-
-const (
-	AzureSkuTierBasic    = AzureSkuTier("Basic")
-	AzureSkuTierStandard = AzureSkuTier("Standard")
-)
-
-// The name of blob storage event type to process.
-type BlobStorageEventType string
-
-const (
-	BlobStorageEventType_Microsoft_Storage_BlobCreated = BlobStorageEventType("Microsoft.Storage.BlobCreated")
-	BlobStorageEventType_Microsoft_Storage_BlobRenamed = BlobStorageEventType("Microsoft.Storage.BlobRenamed")
-)
-
-// Cluster principal role.
-type ClusterPrincipalRole string
-
-const (
-	ClusterPrincipalRoleAllDatabasesAdmin  = ClusterPrincipalRole("AllDatabasesAdmin")
-	ClusterPrincipalRoleAllDatabasesViewer = ClusterPrincipalRole("AllDatabasesViewer")
-)
-
-// The event hub messages compression type
-type Compression string
-
-const (
-	CompressionNone = Compression("None")
-	CompressionGZip = Compression("GZip")
+	ConfigurationTypeFile     = ConfigurationType("File")
+	ConfigurationTypeArtifact = ConfigurationType("Artifact")
 )
 
 // Specifies the mode of sql pool creation.
@@ -91,15 +36,6 @@ const (
 	CreateModeRestore            = CreateMode("Restore")
 )
 
-// Kind of the endpoint for the data connection
-type DataConnectionKind string
-
-const (
-	DataConnectionKindEventHub  = DataConnectionKind("EventHub")
-	DataConnectionKindEventGrid = DataConnectionKind("EventGrid")
-	DataConnectionKindIotHub    = DataConnectionKind("IotHub")
-)
-
 // Compute type of the cluster which will execute data flow job.
 type DataFlowComputeType string
 
@@ -107,79 +43,6 @@ const (
 	DataFlowComputeTypeGeneral          = DataFlowComputeType("General")
 	DataFlowComputeTypeMemoryOptimized  = DataFlowComputeType("MemoryOptimized")
 	DataFlowComputeTypeComputeOptimized = DataFlowComputeType("ComputeOptimized")
-)
-
-// Database principal role.
-type DatabasePrincipalRole string
-
-const (
-	DatabasePrincipalRoleAdmin              = DatabasePrincipalRole("Admin")
-	DatabasePrincipalRoleIngestor           = DatabasePrincipalRole("Ingestor")
-	DatabasePrincipalRoleMonitor            = DatabasePrincipalRole("Monitor")
-	DatabasePrincipalRoleUser               = DatabasePrincipalRole("User")
-	DatabasePrincipalRoleUnrestrictedViewer = DatabasePrincipalRole("UnrestrictedViewer")
-	DatabasePrincipalRoleViewer             = DatabasePrincipalRole("Viewer")
-)
-
-// The default principals modification kind
-type DefaultPrincipalsModificationKind string
-
-const (
-	DefaultPrincipalsModificationKindUnion   = DefaultPrincipalsModificationKind("Union")
-	DefaultPrincipalsModificationKindReplace = DefaultPrincipalsModificationKind("Replace")
-	DefaultPrincipalsModificationKindNone    = DefaultPrincipalsModificationKind("None")
-)
-
-// The engine type
-type EngineType string
-
-const (
-	EngineTypeV2 = EngineType("V2")
-	EngineTypeV3 = EngineType("V3")
-)
-
-// The data format of the message. Optionally the data format can be added to each message.
-type EventGridDataFormat string
-
-const (
-	EventGridDataFormatMULTIJSON  = EventGridDataFormat("MULTIJSON")
-	EventGridDataFormatJSON       = EventGridDataFormat("JSON")
-	EventGridDataFormatCSV        = EventGridDataFormat("CSV")
-	EventGridDataFormatTSV        = EventGridDataFormat("TSV")
-	EventGridDataFormatSCSV       = EventGridDataFormat("SCSV")
-	EventGridDataFormatSOHSV      = EventGridDataFormat("SOHSV")
-	EventGridDataFormatPSV        = EventGridDataFormat("PSV")
-	EventGridDataFormatTXT        = EventGridDataFormat("TXT")
-	EventGridDataFormatRAW        = EventGridDataFormat("RAW")
-	EventGridDataFormatSINGLEJSON = EventGridDataFormat("SINGLEJSON")
-	EventGridDataFormatAVRO       = EventGridDataFormat("AVRO")
-	EventGridDataFormatTSVE       = EventGridDataFormat("TSVE")
-	EventGridDataFormatPARQUET    = EventGridDataFormat("PARQUET")
-	EventGridDataFormatORC        = EventGridDataFormat("ORC")
-	EventGridDataFormatAPACHEAVRO = EventGridDataFormat("APACHEAVRO")
-	EventGridDataFormatW3CLOGFILE = EventGridDataFormat("W3CLOGFILE")
-)
-
-// The data format of the message. Optionally the data format can be added to each message.
-type EventHubDataFormat string
-
-const (
-	EventHubDataFormatMULTIJSON  = EventHubDataFormat("MULTIJSON")
-	EventHubDataFormatJSON       = EventHubDataFormat("JSON")
-	EventHubDataFormatCSV        = EventHubDataFormat("CSV")
-	EventHubDataFormatTSV        = EventHubDataFormat("TSV")
-	EventHubDataFormatSCSV       = EventHubDataFormat("SCSV")
-	EventHubDataFormatSOHSV      = EventHubDataFormat("SOHSV")
-	EventHubDataFormatPSV        = EventHubDataFormat("PSV")
-	EventHubDataFormatTXT        = EventHubDataFormat("TXT")
-	EventHubDataFormatRAW        = EventHubDataFormat("RAW")
-	EventHubDataFormatSINGLEJSON = EventHubDataFormat("SINGLEJSON")
-	EventHubDataFormatAVRO       = EventHubDataFormat("AVRO")
-	EventHubDataFormatTSVE       = EventHubDataFormat("TSVE")
-	EventHubDataFormatPARQUET    = EventHubDataFormat("PARQUET")
-	EventHubDataFormatORC        = EventHubDataFormat("ORC")
-	EventHubDataFormatAPACHEAVRO = EventHubDataFormat("APACHEAVRO")
-	EventHubDataFormatW3CLOGFILE = EventHubDataFormat("W3CLOGFILE")
 )
 
 // The edition for the SSIS Integration Runtime
@@ -224,36 +87,6 @@ const (
 	IntegrationRuntimeTypeSelfHosted = IntegrationRuntimeType("SelfHosted")
 )
 
-// The data format of the message. Optionally the data format can be added to each message.
-type IotHubDataFormat string
-
-const (
-	IotHubDataFormatMULTIJSON  = IotHubDataFormat("MULTIJSON")
-	IotHubDataFormatJSON       = IotHubDataFormat("JSON")
-	IotHubDataFormatCSV        = IotHubDataFormat("CSV")
-	IotHubDataFormatTSV        = IotHubDataFormat("TSV")
-	IotHubDataFormatSCSV       = IotHubDataFormat("SCSV")
-	IotHubDataFormatSOHSV      = IotHubDataFormat("SOHSV")
-	IotHubDataFormatPSV        = IotHubDataFormat("PSV")
-	IotHubDataFormatTXT        = IotHubDataFormat("TXT")
-	IotHubDataFormatRAW        = IotHubDataFormat("RAW")
-	IotHubDataFormatSINGLEJSON = IotHubDataFormat("SINGLEJSON")
-	IotHubDataFormatAVRO       = IotHubDataFormat("AVRO")
-	IotHubDataFormatTSVE       = IotHubDataFormat("TSVE")
-	IotHubDataFormatPARQUET    = IotHubDataFormat("PARQUET")
-	IotHubDataFormatORC        = IotHubDataFormat("ORC")
-	IotHubDataFormatAPACHEAVRO = IotHubDataFormat("APACHEAVRO")
-	IotHubDataFormatW3CLOGFILE = IotHubDataFormat("W3CLOGFILE")
-)
-
-// Kind of the database
-type Kind string
-
-const (
-	KindReadWrite         = Kind("ReadWrite")
-	KindReadOnlyFollowing = Kind("ReadOnlyFollowing")
-)
-
 // The level of compute power that each node in the Big Data pool has.
 type NodeSize string
 
@@ -277,21 +110,13 @@ const (
 	NodeSizeFamilyHardwareAcceleratedGPU  = NodeSizeFamily("HardwareAcceleratedGPU")
 )
 
-// Principal type.
-type PrincipalType string
-
-const (
-	PrincipalTypeApp   = PrincipalType("App")
-	PrincipalTypeGroup = PrincipalType("Group")
-	PrincipalTypeUser  = PrincipalType("User")
-)
-
 // The type of managed identity for the workspace
 type ResourceIdentityType string
 
 const (
-	ResourceIdentityTypeNone           = ResourceIdentityType("None")
-	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned,UserAssigned")
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {
@@ -624,7 +449,6 @@ type StorageAccountType string
 const (
 	StorageAccountTypeGRS = StorageAccountType("GRS")
 	StorageAccountTypeLRS = StorageAccountType("LRS")
-	StorageAccountTypeZRS = StorageAccountType("ZRS")
 )
 
 // The status of the database transparent data encryption.

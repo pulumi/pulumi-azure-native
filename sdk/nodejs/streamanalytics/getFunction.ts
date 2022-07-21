@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
- * API Version: 2016-03-01.
+ * API Version: 2021-10-01-preview.
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     if (!opts) {
@@ -32,7 +32,7 @@ export interface GetFunctionArgs {
      */
     jobName: string;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -52,7 +52,7 @@ export interface GetFunctionResult {
     /**
      * The properties that are associated with a function.
      */
-    readonly properties: outputs.streamanalytics.ScalarFunctionPropertiesResponse;
+    readonly properties: outputs.streamanalytics.AggregateFunctionPropertiesResponse | outputs.streamanalytics.ScalarFunctionPropertiesResponse;
     /**
      * Resource type
      */
@@ -73,7 +73,7 @@ export interface GetFunctionOutputArgs {
      */
     jobName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The manged cluster resource
  *
- * API Version: 2020-01-01-preview.
+ * API Version: 2022-01-01.
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**
@@ -38,19 +38,31 @@ export class ManagedCluster extends pulumi.CustomResource {
     }
 
     /**
-     * client certificates for the cluster.
+     * List of add-on features to enable on the cluster.
      */
     public readonly addonFeatures!: pulumi.Output<string[] | undefined>;
     /**
-     * vm admin user password.
+     * VM admin user password.
      */
     public readonly adminPassword!: pulumi.Output<string | undefined>;
     /**
-     * vm admin user name.
+     * VM admin user name.
      */
     public readonly adminUserName!: pulumi.Output<string>;
     /**
-     * Azure active directory.
+     * Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+     */
+    public readonly allowRdpAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * The policy used to clean up unused versions.
+     */
+    public readonly applicationTypeVersionsCleanupPolicy!: pulumi.Output<outputs.servicefabric.ApplicationTypeVersionsCleanupPolicyResponse | undefined>;
+    /**
+     * Auxiliary subnets for the cluster.
+     */
+    public readonly auxiliarySubnets!: pulumi.Output<outputs.servicefabric.SubnetResponse[] | undefined>;
+    /**
+     * The AAD authentication settings of the cluster.
      */
     public readonly azureActiveDirectory!: pulumi.Output<outputs.servicefabric.AzureActiveDirectoryResponse | undefined>;
     /**
@@ -58,15 +70,15 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly clientConnectionPort!: pulumi.Output<number | undefined>;
     /**
-     * client certificates for the cluster.
+     * Client certificates that are allowed to manage the cluster.
      */
     public readonly clients!: pulumi.Output<outputs.servicefabric.ClientCertificateResponse[] | undefined>;
     /**
-     * The cluster certificate thumbprint used node to node communication.
+     * List of thumbprints of the cluster certificates.
      */
-    public /*out*/ readonly clusterCertificateThumbprint!: pulumi.Output<string>;
+    public /*out*/ readonly clusterCertificateThumbprints!: pulumi.Output<string[]>;
     /**
-     * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+     * The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
     public readonly clusterCodeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -78,9 +90,29 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
+     * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+     */
+    public readonly clusterUpgradeCadence!: pulumi.Output<string | undefined>;
+    /**
+     * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     */
+    public readonly clusterUpgradeMode!: pulumi.Output<string | undefined>;
+    /**
      * The cluster dns name.
      */
     public readonly dnsName!: pulumi.Output<string>;
+    /**
+     * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+     */
+    public readonly enableAutoOSUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
+     * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+     */
+    public readonly enableIpv6!: pulumi.Output<boolean | undefined>;
+    /**
+     * Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+     */
+    public readonly enableServicePublicIP!: pulumi.Output<boolean | undefined>;
     /**
      * Azure resource etag.
      */
@@ -90,15 +122,27 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly fabricSettings!: pulumi.Output<outputs.servicefabric.SettingsSectionDescriptionResponse[] | undefined>;
     /**
-     * the cluster Fully qualified domain name.
+     * The fully qualified domain name associated with the public load balancer of the cluster.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The port used for http connections to the cluster.
+     * The port used for HTTP connections to the cluster.
      */
     public readonly httpGatewayConnectionPort!: pulumi.Output<number | undefined>;
     /**
-     * Describes load balancing rules.
+     * The list of IP tags associated with the default public IP address of the cluster.
+     */
+    public readonly ipTags!: pulumi.Output<outputs.servicefabric.IPTagResponse[] | undefined>;
+    /**
+     * The IPv4 address associated with the public load balancer of the cluster.
+     */
+    public /*out*/ readonly ipv4Address!: pulumi.Output<string>;
+    /**
+     * IPv6 address for the cluster if IPv6 is enabled.
+     */
+    public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    /**
+     * Load balancing rules that are applied to the public load balancer of the cluster.
      */
     public readonly loadBalancingRules!: pulumi.Output<outputs.servicefabric.LoadBalancingRuleResponse[] | undefined>;
     /**
@@ -110,13 +154,29 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+     */
+    public readonly networkSecurityRules!: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
+    /**
      * The provisioning state of the managed cluster resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Service endpoints for subnets in the cluster.
+     */
+    public readonly serviceEndpoints!: pulumi.Output<outputs.servicefabric.ServiceEndpointResponse[] | undefined>;
+    /**
      * The sku of the managed cluster
      */
     public readonly sku!: pulumi.Output<outputs.servicefabric.SkuResponse | undefined>;
+    /**
+     * If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+     */
+    public readonly subnetId!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
@@ -125,6 +185,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      * Azure resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Indicates if the cluster has zone resiliency.
+     */
+    public readonly zonalResiliency!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ManagedCluster resource with the given unique name, arguments, and options.
@@ -149,50 +213,82 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["addonFeatures"] = args ? args.addonFeatures : undefined;
             resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
             resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
+            resourceInputs["allowRdpAccess"] = args ? args.allowRdpAccess : undefined;
+            resourceInputs["applicationTypeVersionsCleanupPolicy"] = args ? args.applicationTypeVersionsCleanupPolicy : undefined;
+            resourceInputs["auxiliarySubnets"] = args ? args.auxiliarySubnets : undefined;
             resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
             resourceInputs["clientConnectionPort"] = (args ? args.clientConnectionPort : undefined) ?? 19000;
             resourceInputs["clients"] = args ? args.clients : undefined;
             resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterUpgradeCadence"] = args ? args.clusterUpgradeCadence : undefined;
+            resourceInputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
             resourceInputs["dnsName"] = args ? args.dnsName : undefined;
+            resourceInputs["enableAutoOSUpgrade"] = args ? args.enableAutoOSUpgrade : undefined;
+            resourceInputs["enableIpv6"] = args ? args.enableIpv6 : undefined;
+            resourceInputs["enableServicePublicIP"] = args ? args.enableServicePublicIP : undefined;
             resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             resourceInputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) ?? 19080;
+            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
             resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["clusterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["zonalResiliency"] = (args ? args.zonalResiliency : undefined) ?? false;
+            resourceInputs["clusterCertificateThumbprints"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["clusterState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["ipv4Address"] = undefined /*out*/;
+            resourceInputs["ipv6Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["addonFeatures"] = undefined /*out*/;
             resourceInputs["adminPassword"] = undefined /*out*/;
             resourceInputs["adminUserName"] = undefined /*out*/;
+            resourceInputs["allowRdpAccess"] = undefined /*out*/;
+            resourceInputs["applicationTypeVersionsCleanupPolicy"] = undefined /*out*/;
+            resourceInputs["auxiliarySubnets"] = undefined /*out*/;
             resourceInputs["azureActiveDirectory"] = undefined /*out*/;
             resourceInputs["clientConnectionPort"] = undefined /*out*/;
             resourceInputs["clients"] = undefined /*out*/;
-            resourceInputs["clusterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["clusterCertificateThumbprints"] = undefined /*out*/;
             resourceInputs["clusterCodeVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["clusterUpgradeCadence"] = undefined /*out*/;
+            resourceInputs["clusterUpgradeMode"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enableAutoOSUpgrade"] = undefined /*out*/;
+            resourceInputs["enableIpv6"] = undefined /*out*/;
+            resourceInputs["enableServicePublicIP"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fabricSettings"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["httpGatewayConnectionPort"] = undefined /*out*/;
+            resourceInputs["ipTags"] = undefined /*out*/;
+            resourceInputs["ipv4Address"] = undefined /*out*/;
+            resourceInputs["ipv6Address"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSecurityRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceEndpoints"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zonalResiliency"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210501:ManagedCluster" }, { type: "azure-native:servicefabric/v20210701preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210901privatepreview:ManagedCluster" }, { type: "azure-native:servicefabric/v20211101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20220101:ManagedCluster" }, { type: "azure-native:servicefabric/v20220201preview:ManagedCluster" }] };
@@ -206,19 +302,31 @@ export class ManagedCluster extends pulumi.CustomResource {
  */
 export interface ManagedClusterArgs {
     /**
-     * client certificates for the cluster.
+     * List of add-on features to enable on the cluster.
      */
     addonFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * vm admin user password.
+     * VM admin user password.
      */
     adminPassword?: pulumi.Input<string>;
     /**
-     * vm admin user name.
+     * VM admin user name.
      */
     adminUserName: pulumi.Input<string>;
     /**
-     * Azure active directory.
+     * Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+     */
+    allowRdpAccess?: pulumi.Input<boolean>;
+    /**
+     * The policy used to clean up unused versions.
+     */
+    applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicyArgs>;
+    /**
+     * Auxiliary subnets for the cluster.
+     */
+    auxiliarySubnets?: pulumi.Input<pulumi.Input<inputs.servicefabric.SubnetArgs>[]>;
+    /**
+     * The AAD authentication settings of the cluster.
      */
     azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectoryArgs>;
     /**
@@ -226,11 +334,11 @@ export interface ManagedClusterArgs {
      */
     clientConnectionPort?: pulumi.Input<number>;
     /**
-     * client certificates for the cluster.
+     * Client certificates that are allowed to manage the cluster.
      */
     clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateArgs>[]>;
     /**
-     * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+     * The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
     clusterCodeVersion?: pulumi.Input<string>;
     /**
@@ -238,19 +346,43 @@ export interface ManagedClusterArgs {
      */
     clusterName?: pulumi.Input<string>;
     /**
+     * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+     */
+    clusterUpgradeCadence?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeCadence>;
+    /**
+     * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     */
+    clusterUpgradeMode?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeMode>;
+    /**
      * The cluster dns name.
      */
     dnsName: pulumi.Input<string>;
+    /**
+     * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+     */
+    enableAutoOSUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+     */
+    enableIpv6?: pulumi.Input<boolean>;
+    /**
+     * Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+     */
+    enableServicePublicIP?: pulumi.Input<boolean>;
     /**
      * The list of custom fabric settings to configure the cluster.
      */
     fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionArgs>[]>;
     /**
-     * The port used for http connections to the cluster.
+     * The port used for HTTP connections to the cluster.
      */
     httpGatewayConnectionPort?: pulumi.Input<number>;
     /**
-     * Describes load balancing rules.
+     * The list of IP tags associated with the default public IP address of the cluster.
+     */
+    ipTags?: pulumi.Input<pulumi.Input<inputs.servicefabric.IPTagArgs>[]>;
+    /**
+     * Load balancing rules that are applied to the public load balancer of the cluster.
      */
     loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.LoadBalancingRuleArgs>[]>;
     /**
@@ -258,15 +390,31 @@ export interface ManagedClusterArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+     */
+    networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Service endpoints for subnets in the cluster.
+     */
+    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServiceEndpointArgs>[]>;
     /**
      * The sku of the managed cluster
      */
     sku?: pulumi.Input<inputs.servicefabric.SkuArgs>;
     /**
+     * If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+     */
+    subnetId?: pulumi.Input<string>;
+    /**
      * Azure resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Indicates if the cluster has zone resiliency.
+     */
+    zonalResiliency?: pulumi.Input<boolean>;
 }

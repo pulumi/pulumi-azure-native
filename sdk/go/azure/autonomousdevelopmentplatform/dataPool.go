@@ -12,7 +12,7 @@ import (
 )
 
 // ADP Data Pool
-// API Version: 2021-02-01-preview.
+// API Version: 2021-11-01-preview.
 type DataPool struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type DataPool struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The system meta data relating to this resource
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// Resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -98,6 +100,8 @@ type dataPoolArgs struct {
 	Locations []DataPoolLocation `pulumi:"locations"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataPool resource.
@@ -110,6 +114,8 @@ type DataPoolArgs struct {
 	Locations DataPoolLocationArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (DataPoolArgs) ElementType() reflect.Type {
@@ -172,6 +178,11 @@ func (o DataPoolOutput) ProvisioningState() pulumi.StringOutput {
 // The system meta data relating to this resource
 func (o DataPoolOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *DataPool) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o DataPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -11,16 +11,46 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Bastion Host resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:BastionHost")]
     public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>
+        /// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+        /// </summary>
+        [Output("disableCopyPaste")]
+        public Output<bool?> DisableCopyPaste { get; private set; } = null!;
+
+        /// <summary>
         /// FQDN for the endpoint on which bastion host is accessible.
         /// </summary>
         [Output("dnsName")]
         public Output<string?> DnsName { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable File Copy feature of the Bastion Host resource.
+        /// </summary>
+        [Output("enableFileCopy")]
+        public Output<bool?> EnableFileCopy { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable IP Connect feature of the Bastion Host resource.
+        /// </summary>
+        [Output("enableIpConnect")]
+        public Output<bool?> EnableIpConnect { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable Shareable Link of the Bastion Host resource.
+        /// </summary>
+        [Output("enableShareableLink")]
+        public Output<bool?> EnableShareableLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable Tunneling feature of the Bastion Host resource.
+        /// </summary>
+        [Output("enableTunneling")]
+        public Output<bool?> EnableTunneling { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -51,6 +81,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The scale units for the Bastion Host resource.
+        /// </summary>
+        [Output("scaleUnits")]
+        public Output<int?> ScaleUnits { get; private set; } = null!;
+
+        /// <summary>
+        /// The sku of this Bastion Host.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -138,10 +180,40 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? BastionHostName { get; set; }
 
         /// <summary>
+        /// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+        /// </summary>
+        [Input("disableCopyPaste")]
+        public Input<bool>? DisableCopyPaste { get; set; }
+
+        /// <summary>
         /// FQDN for the endpoint on which bastion host is accessible.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
+
+        /// <summary>
+        /// Enable/Disable File Copy feature of the Bastion Host resource.
+        /// </summary>
+        [Input("enableFileCopy")]
+        public Input<bool>? EnableFileCopy { get; set; }
+
+        /// <summary>
+        /// Enable/Disable IP Connect feature of the Bastion Host resource.
+        /// </summary>
+        [Input("enableIpConnect")]
+        public Input<bool>? EnableIpConnect { get; set; }
+
+        /// <summary>
+        /// Enable/Disable Shareable Link of the Bastion Host resource.
+        /// </summary>
+        [Input("enableShareableLink")]
+        public Input<bool>? EnableShareableLink { get; set; }
+
+        /// <summary>
+        /// Enable/Disable Tunneling feature of the Bastion Host resource.
+        /// </summary>
+        [Input("enableTunneling")]
+        public Input<bool>? EnableTunneling { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -173,6 +245,18 @@ namespace Pulumi.AzureNative.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The scale units for the Bastion Host resource.
+        /// </summary>
+        [Input("scaleUnits")]
+        public Input<int>? ScaleUnits { get; set; }
+
+        /// <summary>
+        /// The sku of this Bastion Host.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -187,6 +271,11 @@ namespace Pulumi.AzureNative.Network
 
         public BastionHostArgs()
         {
+            DisableCopyPaste = false;
+            EnableFileCopy = false;
+            EnableIpConnect = false;
+            EnableShareableLink = false;
+            EnableTunneling = false;
         }
     }
 }

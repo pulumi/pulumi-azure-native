@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class VMwareCbtEnableMigrationInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data mover RunAs account Id.
+        /// The data mover run as account Id.
         /// </summary>
         [Input("dataMoverRunAsAccountId", required: true)]
         public Input<string> DataMoverRunAsAccountId { get; set; } = null!;
@@ -47,10 +47,34 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
-        /// The snapshot RunAs account Id.
+        /// A value indicating whether auto resync is to be done.
+        /// </summary>
+        [Input("performAutoResync")]
+        public Input<string>? PerformAutoResync { get; set; }
+
+        [Input("seedDiskTags")]
+        private InputMap<string>? _seedDiskTags;
+
+        /// <summary>
+        /// The tags for the seed disks.
+        /// </summary>
+        public InputMap<string> SeedDiskTags
+        {
+            get => _seedDiskTags ?? (_seedDiskTags = new InputMap<string>());
+            set => _seedDiskTags = value;
+        }
+
+        /// <summary>
+        /// The snapshot run as account Id.
         /// </summary>
         [Input("snapshotRunAsAccountId", required: true)]
         public Input<string> SnapshotRunAsAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// The SQL Server license type.
+        /// </summary>
+        [Input("sqlServerLicenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
 
         /// <summary>
         /// The target availability set ARM Id.
@@ -59,16 +83,52 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TargetAvailabilitySetId { get; set; }
 
         /// <summary>
+        /// The target availability zone.
+        /// </summary>
+        [Input("targetAvailabilityZone")]
+        public Input<string>? TargetAvailabilityZone { get; set; }
+
+        /// <summary>
         /// The target boot diagnostics storage account ARM Id.
         /// </summary>
         [Input("targetBootDiagnosticsStorageAccountId")]
         public Input<string>? TargetBootDiagnosticsStorageAccountId { get; set; }
+
+        [Input("targetDiskTags")]
+        private InputMap<string>? _targetDiskTags;
+
+        /// <summary>
+        /// The tags for the target disks.
+        /// </summary>
+        public InputMap<string> TargetDiskTags
+        {
+            get => _targetDiskTags ?? (_targetDiskTags = new InputMap<string>());
+            set => _targetDiskTags = value;
+        }
 
         /// <summary>
         /// The target network ARM Id.
         /// </summary>
         [Input("targetNetworkId", required: true)]
         public Input<string> TargetNetworkId { get; set; } = null!;
+
+        [Input("targetNicTags")]
+        private InputMap<string>? _targetNicTags;
+
+        /// <summary>
+        /// The tags for the target NICs.
+        /// </summary>
+        public InputMap<string> TargetNicTags
+        {
+            get => _targetNicTags ?? (_targetNicTags = new InputMap<string>());
+            set => _targetNicTags = value;
+        }
+
+        /// <summary>
+        /// The target proximity placement group ARM Id.
+        /// </summary>
+        [Input("targetProximityPlacementGroupId")]
+        public Input<string>? TargetProximityPlacementGroupId { get; set; }
 
         /// <summary>
         /// The target resource group ARM Id.
@@ -93,6 +153,30 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("targetVmSize")]
         public Input<string>? TargetVmSize { get; set; }
+
+        [Input("targetVmTags")]
+        private InputMap<string>? _targetVmTags;
+
+        /// <summary>
+        /// The target VM tags.
+        /// </summary>
+        public InputMap<string> TargetVmTags
+        {
+            get => _targetVmTags ?? (_targetVmTags = new InputMap<string>());
+            set => _targetVmTags = value;
+        }
+
+        /// <summary>
+        /// The selected test network ARM Id.
+        /// </summary>
+        [Input("testNetworkId")]
+        public Input<string>? TestNetworkId { get; set; }
+
+        /// <summary>
+        /// The selected test subnet name.
+        /// </summary>
+        [Input("testSubnetName")]
+        public Input<string>? TestSubnetName { get; set; }
 
         /// <summary>
         /// The ARM Id of the VM discovered in VMware.

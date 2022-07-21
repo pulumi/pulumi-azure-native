@@ -11,7 +11,7 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2022-02-01-preview.
+// API Version: 2022-05-01.
 func LookupComponentContainer(ctx *pulumi.Context, args *LookupComponentContainerArgs, opts ...pulumi.InvokeOption) (*LookupComponentContainerResult, error) {
 	var rv LookupComponentContainerResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getComponentContainer", args, &rv, opts...)
@@ -33,7 +33,7 @@ type LookupComponentContainerArgs struct {
 // Azure Resource Manager resource envelope.
 type LookupComponentContainerResult struct {
 	// [Required] Additional attributes of the entity.
-	ComponentContainerDetails ComponentContainerResponse `pulumi:"componentContainerDetails"`
+	ComponentContainerProperties ComponentContainerResponse `pulumi:"componentContainerProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
@@ -50,7 +50,7 @@ func (val *LookupComponentContainerResult) Defaults() *LookupComponentContainerR
 		return nil
 	}
 	tmp := *val
-	tmp.ComponentContainerDetails = *tmp.ComponentContainerDetails.Defaults()
+	tmp.ComponentContainerProperties = *tmp.ComponentContainerProperties.Defaults()
 
 	return &tmp
 }
@@ -97,8 +97,10 @@ func (o LookupComponentContainerResultOutput) ToLookupComponentContainerResultOu
 }
 
 // [Required] Additional attributes of the entity.
-func (o LookupComponentContainerResultOutput) ComponentContainerDetails() ComponentContainerResponseOutput {
-	return o.ApplyT(func(v LookupComponentContainerResult) ComponentContainerResponse { return v.ComponentContainerDetails }).(ComponentContainerResponseOutput)
+func (o LookupComponentContainerResultOutput) ComponentContainerProperties() ComponentContainerResponseOutput {
+	return o.ApplyT(func(v LookupComponentContainerResult) ComponentContainerResponse {
+		return v.ComponentContainerProperties
+	}).(ComponentContainerResponseOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

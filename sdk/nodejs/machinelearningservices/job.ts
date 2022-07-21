@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -37,15 +37,15 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    public readonly jobBaseProperties!: pulumi.Output<outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.PipelineJobResponse | outputs.machinelearningservices.SweepJobResponse>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.SweepJobResponse>;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -64,8 +64,8 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.jobBaseProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'jobBaseProperties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -74,15 +74,15 @@ export class Job extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["jobBaseProperties"] = args ? args.jobBaseProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["jobBaseProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -98,13 +98,13 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     /**
-     * The name and identifier for the Job.
+     * The name and identifier for the Job. This is case-sensitive.
      */
     id?: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
-    properties: pulumi.Input<inputs.machinelearningservices.CommandJobArgs | inputs.machinelearningservices.SweepJobArgs>;
+    jobBaseProperties: pulumi.Input<inputs.machinelearningservices.CommandJobArgs | inputs.machinelearningservices.PipelineJobArgs | inputs.machinelearningservices.SweepJobArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The configuration of service URI and custom headers for the webhook.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
     if (!opts) {

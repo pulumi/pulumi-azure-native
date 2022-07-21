@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-02-05.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         [Output("properties")]
         public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

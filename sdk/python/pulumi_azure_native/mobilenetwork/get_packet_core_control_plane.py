@@ -21,7 +21,7 @@ class GetPacketCoreControlPlaneResult:
     """
     Packet core control plane resource.
     """
-    def __init__(__self__, control_plane_access_interface=None, core_network_technology=None, created_at=None, created_by=None, created_by_type=None, custom_location=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, mobile_network=None, name=None, provisioning_state=None, tags=None, type=None, version=None):
+    def __init__(__self__, control_plane_access_interface=None, core_network_technology=None, created_at=None, created_by=None, created_by_type=None, custom_location=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, mobile_network=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
         if control_plane_access_interface and not isinstance(control_plane_access_interface, dict):
             raise TypeError("Expected argument 'control_plane_access_interface' to be a dict")
         pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
@@ -64,6 +64,9 @@ class GetPacketCoreControlPlaneResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -187,6 +190,14 @@ class GetPacketCoreControlPlaneResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -231,6 +242,7 @@ class AwaitableGetPacketCoreControlPlaneResult(GetPacketCoreControlPlaneResult):
             mobile_network=self.mobile_network,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             version=self.version)
@@ -241,7 +253,7 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreControlPlaneResult:
     """
     Packet core control plane resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -271,6 +283,7 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
         mobile_network=__ret__.mobile_network,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
@@ -282,7 +295,7 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreControlPlaneResult]:
     """
     Packet core control plane resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.

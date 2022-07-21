@@ -11,7 +11,7 @@ import (
 )
 
 // Represents scheduled alert rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 func LookupScheduledAlertRule(ctx *pulumi.Context, args *LookupScheduledAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupScheduledAlertRuleResult, error) {
 	var rv LookupScheduledAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights:getScheduledAlertRule", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupScheduledAlertRule(ctx *pulumi.Context, args *LookupScheduledAlertRul
 }
 
 type LookupScheduledAlertRuleArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
@@ -32,24 +32,34 @@ type LookupScheduledAlertRuleArgs struct {
 
 // Represents scheduled alert rule.
 type LookupScheduledAlertRuleResult struct {
+	// The alert details override settings
+	AlertDetailsOverride *AlertDetailsOverrideResponse `pulumi:"alertDetailsOverride"`
 	// The Name of the alert rule template used to create this rule.
 	AlertRuleTemplateName *string `pulumi:"alertRuleTemplateName"`
+	// Dictionary of string key-value pairs of columns to be attached to the alert
+	CustomDetails map[string]string `pulumi:"customDetails"`
 	// The description of the alert rule.
 	Description *string `pulumi:"description"`
 	// The display name for alerts created by this alert rule.
 	DisplayName string `pulumi:"displayName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
+	// Array of the entity mappings of the alert rule
+	EntityMappings []EntityMappingResponse `pulumi:"entityMappings"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// The event grouping settings.
+	EventGroupingSettings *EventGroupingSettingsResponse `pulumi:"eventGroupingSettings"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The settings of the incidents that created from alerts triggered by this analytics rule
+	IncidentConfiguration *IncidentConfigurationResponse `pulumi:"incidentConfiguration"`
 	// The kind of the alert rule
 	// Expected value is 'Scheduled'.
 	Kind string `pulumi:"kind"`
 	// The last time that this alert rule has been modified.
 	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The query that creates alerts for this rule.
 	Query string `pulumi:"query"`
@@ -63,13 +73,17 @@ type LookupScheduledAlertRuleResult struct {
 	SuppressionDuration string `pulumi:"suppressionDuration"`
 	// Determines whether the suppression for this alert rule is enabled or disabled.
 	SuppressionEnabled bool `pulumi:"suppressionEnabled"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tactics of the alert rule
 	Tactics []string `pulumi:"tactics"`
+	// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+	TemplateVersion *string `pulumi:"templateVersion"`
 	// The operation against the threshold that triggers alert rule.
 	TriggerOperator string `pulumi:"triggerOperator"`
 	// The threshold triggers this alert rule.
 	TriggerThreshold int `pulumi:"triggerThreshold"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -87,7 +101,7 @@ func LookupScheduledAlertRuleOutput(ctx *pulumi.Context, args LookupScheduledAle
 }
 
 type LookupScheduledAlertRuleOutputArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
@@ -114,9 +128,19 @@ func (o LookupScheduledAlertRuleResultOutput) ToLookupScheduledAlertRuleResultOu
 	return o
 }
 
+// The alert details override settings
+func (o LookupScheduledAlertRuleResultOutput) AlertDetailsOverride() AlertDetailsOverrideResponsePtrOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *AlertDetailsOverrideResponse { return v.AlertDetailsOverride }).(AlertDetailsOverrideResponsePtrOutput)
+}
+
 // The Name of the alert rule template used to create this rule.
 func (o LookupScheduledAlertRuleResultOutput) AlertRuleTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *string { return v.AlertRuleTemplateName }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of string key-value pairs of columns to be attached to the alert
+func (o LookupScheduledAlertRuleResultOutput) CustomDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) map[string]string { return v.CustomDetails }).(pulumi.StringMapOutput)
 }
 
 // The description of the alert rule.
@@ -134,14 +158,29 @@ func (o LookupScheduledAlertRuleResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Array of the entity mappings of the alert rule
+func (o LookupScheduledAlertRuleResultOutput) EntityMappings() EntityMappingResponseArrayOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) []EntityMappingResponse { return v.EntityMappings }).(EntityMappingResponseArrayOutput)
+}
+
 // Etag of the azure resource
 func (o LookupScheduledAlertRuleResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// The event grouping settings.
+func (o LookupScheduledAlertRuleResultOutput) EventGroupingSettings() EventGroupingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *EventGroupingSettingsResponse { return v.EventGroupingSettings }).(EventGroupingSettingsResponsePtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupScheduledAlertRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The settings of the incidents that created from alerts triggered by this analytics rule
+func (o LookupScheduledAlertRuleResultOutput) IncidentConfiguration() IncidentConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *IncidentConfigurationResponse { return v.IncidentConfiguration }).(IncidentConfigurationResponsePtrOutput)
 }
 
 // The kind of the alert rule
@@ -155,7 +194,7 @@ func (o LookupScheduledAlertRuleResultOutput) LastModifiedUtc() pulumi.StringOut
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) string { return v.LastModifiedUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupScheduledAlertRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -190,9 +229,19 @@ func (o LookupScheduledAlertRuleResultOutput) SuppressionEnabled() pulumi.BoolOu
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) bool { return v.SuppressionEnabled }).(pulumi.BoolOutput)
 }
 
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupScheduledAlertRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The tactics of the alert rule
 func (o LookupScheduledAlertRuleResultOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+func (o LookupScheduledAlertRuleResultOutput) TemplateVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *string { return v.TemplateVersion }).(pulumi.StringPtrOutput)
 }
 
 // The operation against the threshold that triggers alert rule.
@@ -205,7 +254,7 @@ func (o LookupScheduledAlertRuleResultOutput) TriggerThreshold() pulumi.IntOutpu
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) int { return v.TriggerThreshold }).(pulumi.IntOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupScheduledAlertRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

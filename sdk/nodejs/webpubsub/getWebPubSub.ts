@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent a resource.
- * API Version: 2021-04-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
     if (!opts) {
@@ -37,34 +37,41 @@ export interface GetWebPubSubArgs {
  */
 export interface GetWebPubSubResult {
     /**
-     * The settings for event handler in webpubsub service.
+     * DisableLocalAuth
+     * Enable or disable aad auth
+     * When set as true, connection with AuthType=aad won't work.
      */
-    readonly eventHandler?: outputs.webpubsub.EventHandlerSettingsResponse;
+    readonly disableAadAuth?: boolean;
+    /**
+     * DisableLocalAuth
+     * Enable or disable local auth with AccessKey
+     * When set as true, connection with AccessKey=xxx won't work.
+     */
+    readonly disableLocalAuth?: boolean;
     /**
      * The publicly accessible IP of the resource.
      */
     readonly externalIP: string;
     /**
-     * List of the featureFlags.
-     * 
-     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
-     * And the response will only include featureFlags that are explicitly set. 
-     * When a featureFlag is not explicitly set, its globally default value will be used
-     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-     */
-    readonly features?: outputs.webpubsub.WebPubSubFeatureResponse[];
-    /**
      * FQDN of the service instance.
      */
     readonly hostName: string;
+    /**
+     * Deprecated.
+     */
+    readonly hostNamePrefix: string;
     /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
     /**
-     * The managed identity response
+     * A class represent managed identities used for request and response
      */
     readonly identity?: outputs.webpubsub.ManagedIdentityResponse;
+    /**
+     * Live trace configuration of a Microsoft.SignalRService resource.
+     */
+    readonly liveTraceConfiguration?: outputs.webpubsub.LiveTraceConfigurationResponse;
     /**
      * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
@@ -74,7 +81,7 @@ export interface GetWebPubSubResult {
      */
     readonly name: string;
     /**
-     * Network ACLs
+     * Network ACLs for the resource
      */
     readonly networkACLs?: outputs.webpubsub.WebPubSubNetworkACLsResponse;
     /**
@@ -96,6 +103,10 @@ export interface GetWebPubSubResult {
      */
     readonly publicPort: number;
     /**
+     * Resource log configuration of a Microsoft.SignalRService resource.
+     */
+    readonly resourceLogConfiguration?: outputs.webpubsub.ResourceLogConfigurationResponse;
+    /**
      * The publicly accessible port of the resource which is designed for customer server side usage.
      */
     readonly serverPort: number;
@@ -104,7 +115,7 @@ export interface GetWebPubSubResult {
      */
     readonly sharedPrivateLinkResources: outputs.webpubsub.SharedPrivateLinkResourceResponse[];
     /**
-     * The billing information of the resource.(e.g. Free, Standard)
+     * The billing information of the resource.
      */
     readonly sku?: outputs.webpubsub.ResourceSkuResponse;
     /**
@@ -116,7 +127,7 @@ export interface GetWebPubSubResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * TLS settings.
+     * TLS settings for the resource
      */
     readonly tls?: outputs.webpubsub.WebPubSubTlsSettingsResponse;
     /**

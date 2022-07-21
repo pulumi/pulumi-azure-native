@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupBatchEndpoint(ctx *pulumi.Context, args *LookupBatchEndpointArgs, opts ...pulumi.InvokeOption) (*LookupBatchEndpointResult, error) {
 	var rv LookupBatchEndpointResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getBatchEndpoint", args, &rv, opts...)
@@ -30,19 +30,21 @@ type LookupBatchEndpointArgs struct {
 }
 
 type LookupBatchEndpointResult struct {
+	// [Required] Additional attributes of the entity.
+	BatchEndpointProperties BatchEndpointResponse `pulumi:"batchEndpointProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties BatchEndpointResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Sku details required for ARM contract for Autoscaling.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -90,14 +92,19 @@ func (o LookupBatchEndpointResultOutput) ToLookupBatchEndpointResultOutputWithCo
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupBatchEndpointResultOutput) BatchEndpointProperties() BatchEndpointResponseOutput {
+	return o.ApplyT(func(v LookupBatchEndpointResult) BatchEndpointResponse { return v.BatchEndpointProperties }).(BatchEndpointResponseOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupBatchEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchEndpointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Service identity associated with a resource.
-func (o LookupBatchEndpointResultOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupBatchEndpointResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+// Managed service identity (system assigned and/or user assigned identities)
+func (o LookupBatchEndpointResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupBatchEndpointResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -115,12 +122,12 @@ func (o LookupBatchEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupBatchEndpointResultOutput) Properties() BatchEndpointResponseOutput {
-	return o.ApplyT(func(v LookupBatchEndpointResult) BatchEndpointResponse { return v.Properties }).(BatchEndpointResponseOutput)
+// Sku details required for ARM contract for Autoscaling.
+func (o LookupBatchEndpointResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupBatchEndpointResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupBatchEndpointResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupBatchEndpointResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

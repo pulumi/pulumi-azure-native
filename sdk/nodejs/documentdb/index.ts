@@ -9,24 +9,18 @@ export * from "./cassandraCluster";
 export * from "./cassandraDataCenter";
 export * from "./cassandraResourceCassandraKeyspace";
 export * from "./cassandraResourceCassandraTable";
-export * from "./cassandraResourceCassandraView";
 export * from "./databaseAccount";
 export * from "./getCassandraCluster";
 export * from "./getCassandraDataCenter";
 export * from "./getCassandraResourceCassandraKeyspace";
 export * from "./getCassandraResourceCassandraTable";
-export * from "./getCassandraResourceCassandraView";
 export * from "./getDatabaseAccount";
-export * from "./getGraphResourceGraph";
 export * from "./getGremlinResourceGremlinDatabase";
 export * from "./getGremlinResourceGremlinGraph";
 export * from "./getMongoDBResourceMongoDBCollection";
 export * from "./getMongoDBResourceMongoDBDatabase";
-export * from "./getMongoDBResourceMongoRoleDefinition";
-export * from "./getMongoDBResourceMongoUserDefinition";
 export * from "./getNotebookWorkspace";
 export * from "./getPrivateEndpointConnection";
-export * from "./getService";
 export * from "./getSqlResourceSqlContainer";
 export * from "./getSqlResourceSqlDatabase";
 export * from "./getSqlResourceSqlRoleAssignment";
@@ -35,7 +29,6 @@ export * from "./getSqlResourceSqlStoredProcedure";
 export * from "./getSqlResourceSqlTrigger";
 export * from "./getSqlResourceSqlUserDefinedFunction";
 export * from "./getTableResourceTable";
-export * from "./graphResourceGraph";
 export * from "./gremlinResourceGremlinDatabase";
 export * from "./gremlinResourceGremlinGraph";
 export * from "./listDatabaseAccountConnectionStrings";
@@ -43,11 +36,8 @@ export * from "./listDatabaseAccountKeys";
 export * from "./listNotebookWorkspaceConnectionInfo";
 export * from "./mongoDBResourceMongoDBCollection";
 export * from "./mongoDBResourceMongoDBDatabase";
-export * from "./mongoDBResourceMongoRoleDefinition";
-export * from "./mongoDBResourceMongoUserDefinition";
 export * from "./notebookWorkspace";
 export * from "./privateEndpointConnection";
-export * from "./service";
 export * from "./sqlResourceSqlContainer";
 export * from "./sqlResourceSqlDatabase";
 export * from "./sqlResourceSqlRoleAssignment";
@@ -122,18 +112,13 @@ import { CassandraCluster } from "./cassandraCluster";
 import { CassandraDataCenter } from "./cassandraDataCenter";
 import { CassandraResourceCassandraKeyspace } from "./cassandraResourceCassandraKeyspace";
 import { CassandraResourceCassandraTable } from "./cassandraResourceCassandraTable";
-import { CassandraResourceCassandraView } from "./cassandraResourceCassandraView";
 import { DatabaseAccount } from "./databaseAccount";
-import { GraphResourceGraph } from "./graphResourceGraph";
 import { GremlinResourceGremlinDatabase } from "./gremlinResourceGremlinDatabase";
 import { GremlinResourceGremlinGraph } from "./gremlinResourceGremlinGraph";
 import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollection";
 import { MongoDBResourceMongoDBDatabase } from "./mongoDBResourceMongoDBDatabase";
-import { MongoDBResourceMongoRoleDefinition } from "./mongoDBResourceMongoRoleDefinition";
-import { MongoDBResourceMongoUserDefinition } from "./mongoDBResourceMongoUserDefinition";
 import { NotebookWorkspace } from "./notebookWorkspace";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Service } from "./service";
 import { SqlResourceSqlContainer } from "./sqlResourceSqlContainer";
 import { SqlResourceSqlDatabase } from "./sqlResourceSqlDatabase";
 import { SqlResourceSqlRoleAssignment } from "./sqlResourceSqlRoleAssignment";
@@ -155,12 +140,8 @@ const _module = {
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
-            case "azure-native:documentdb:CassandraResourceCassandraView":
-                return new CassandraResourceCassandraView(name, <any>undefined, { urn })
             case "azure-native:documentdb:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-native:documentdb:GraphResourceGraph":
-                return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinGraph":
@@ -169,16 +150,10 @@ const _module = {
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
             case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
-            case "azure-native:documentdb:MongoDBResourceMongoRoleDefinition":
-                return new MongoDBResourceMongoRoleDefinition(name, <any>undefined, { urn })
-            case "azure-native:documentdb:MongoDBResourceMongoUserDefinition":
-                return new MongoDBResourceMongoUserDefinition(name, <any>undefined, { urn })
             case "azure-native:documentdb:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:documentdb:Service":
-                return new Service(name, <any>undefined, { urn })
             case "azure-native:documentdb:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
             case "azure-native:documentdb:SqlResourceSqlDatabase":

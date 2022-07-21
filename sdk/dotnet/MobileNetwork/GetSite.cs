@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Site resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:mobilenetwork:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Site resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:mobilenetwork:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
@@ -126,6 +126,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             Name = name;
             NetworkFunctions = networkFunctions;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

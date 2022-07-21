@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Query result
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export function listFirewallPolicyIdpsSignature(args: ListFirewallPolicyIdpsSignatureArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignatureResult> {
     if (!opts) {

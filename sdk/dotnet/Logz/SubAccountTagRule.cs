@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
-    /// API Version: 2020-10-01.
+    /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:SubAccountTagRule")]
     public partial class SubAccountTagRule : Pulumi.CustomResource

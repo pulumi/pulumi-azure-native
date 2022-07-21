@@ -19,6 +19,7 @@ class VpnGatewayArgs:
                  resource_group_name: pulumi.Input[str],
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionArgs']]]] = None,
+                 enable_bgp_route_translation_for_nat: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
@@ -32,6 +33,7 @@ class VpnGatewayArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionArgs']]] connections: List of all vpn connections to the gateway.
+        :param pulumi.Input[bool] enable_bgp_route_translation_for_nat: Enable BGP routes translation for NAT on this VpnGateway.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the VpnGateway.
@@ -46,6 +48,8 @@ class VpnGatewayArgs:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
         if connections is not None:
             pulumi.set(__self__, "connections", connections)
+        if enable_bgp_route_translation_for_nat is not None:
+            pulumi.set(__self__, "enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
         if gateway_name is not None:
             pulumi.set(__self__, "gateway_name", gateway_name)
         if id is not None:
@@ -98,6 +102,18 @@ class VpnGatewayArgs:
     @connections.setter
     def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionArgs']]]]):
         pulumi.set(self, "connections", value)
+
+    @property
+    @pulumi.getter(name="enableBgpRouteTranslationForNat")
+    def enable_bgp_route_translation_for_nat(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable BGP routes translation for NAT on this VpnGateway.
+        """
+        return pulumi.get(self, "enable_bgp_route_translation_for_nat")
+
+    @enable_bgp_route_translation_for_nat.setter
+    def enable_bgp_route_translation_for_nat(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_bgp_route_translation_for_nat", value)
 
     @property
     @pulumi.getter(name="gatewayName")
@@ -203,6 +219,7 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
+                 enable_bgp_route_translation_for_nat: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
@@ -215,12 +232,13 @@ class VpnGateway(pulumi.CustomResource):
                  __props__=None):
         """
         VpnGateway Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]] connections: List of all vpn connections to the gateway.
+        :param pulumi.Input[bool] enable_bgp_route_translation_for_nat: Enable BGP routes translation for NAT on this VpnGateway.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the VpnGateway.
@@ -239,7 +257,7 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnGateway Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -258,6 +276,7 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
+                 enable_bgp_route_translation_for_nat: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
@@ -281,6 +300,7 @@ class VpnGateway(pulumi.CustomResource):
 
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["connections"] = connections
+            __props__.__dict__["enable_bgp_route_translation_for_nat"] = enable_bgp_route_translation_for_nat
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["is_routing_preference_internet"] = is_routing_preference_internet
@@ -323,6 +343,7 @@ class VpnGateway(pulumi.CustomResource):
 
         __props__.__dict__["bgp_settings"] = None
         __props__.__dict__["connections"] = None
+        __props__.__dict__["enable_bgp_route_translation_for_nat"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["is_routing_preference_internet"] = None
@@ -351,6 +372,14 @@ class VpnGateway(pulumi.CustomResource):
         List of all vpn connections to the gateway.
         """
         return pulumi.get(self, "connections")
+
+    @property
+    @pulumi.getter(name="enableBgpRouteTranslationForNat")
+    def enable_bgp_route_translation_for_nat(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable BGP routes translation for NAT on this VpnGateway.
+        """
+        return pulumi.get(self, "enable_bgp_route_translation_for_nat")
 
     @property
     @pulumi.getter

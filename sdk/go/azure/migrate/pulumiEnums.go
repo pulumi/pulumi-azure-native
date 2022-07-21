@@ -226,18 +226,6 @@ const (
 	ProjectStatusInactive = ProjectStatus("Inactive")
 )
 
-// Provisioning state of the migrate project.
-type ProvisioningState string
-
-const (
-	ProvisioningStateAccepted  = ProvisioningState("Accepted")
-	ProvisioningStateCreating  = ProvisioningState("Creating")
-	ProvisioningStateDeleting  = ProvisioningState("Deleting")
-	ProvisioningStateFailed    = ProvisioningState("Failed")
-	ProvisioningStateMoving    = ProvisioningState("Moving")
-	ProvisioningStateSucceeded = ProvisioningState("Succeeded")
-)
-
 // Azure reserved instance.
 type ReservedInstance string
 
@@ -254,6 +242,16 @@ const (
 	ResourceIdentityTypeNone           = ResourceIdentityType("None")
 	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
 	ResourceIdentityTypeUserAssigned   = ResourceIdentityType("UserAssigned")
+)
+
+// Private link connection state.
+type Status string
+
+const (
+	StatusApproved     = Status("Approved")
+	StatusPending      = Status("Pending")
+	StatusRejected     = Status("Rejected")
+	StatusDisconnected = Status("Disconnected")
 )
 
 // Gets or sets the target availability zone.

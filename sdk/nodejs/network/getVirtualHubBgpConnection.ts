@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Virtual Appliance Site resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
     if (!opts) {
@@ -48,6 +49,10 @@ export interface GetVirtualHubBgpConnectionResult {
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The reference to the HubVirtualNetworkConnection resource.
+     */
+    readonly hubVirtualNetworkConnection?: outputs.network.SubResourceResponse;
     /**
      * Resource ID.
      */

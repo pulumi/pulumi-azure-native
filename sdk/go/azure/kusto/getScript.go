@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing a database script.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupScript(ctx *pulumi.Context, args *LookupScriptArgs, opts ...pulumi.InvokeOption) (*LookupScriptResult, error) {
 	var rv LookupScriptResult
 	err := ctx.Invoke("azure-native:kusto:getScript", args, &rv, opts...)
@@ -44,8 +44,8 @@ type LookupScriptResult struct {
 	Name string `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The url to the KQL script blob file.
-	ScriptUrl string `pulumi:"scriptUrl"`
+	// The url to the KQL script blob file. Must not be used together with scriptContent property
+	ScriptUrl *string `pulumi:"scriptUrl"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -133,9 +133,9 @@ func (o LookupScriptResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScriptResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The url to the KQL script blob file.
-func (o LookupScriptResultOutput) ScriptUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupScriptResult) string { return v.ScriptUrl }).(pulumi.StringOutput)
+// The url to the KQL script blob file. Must not be used together with scriptContent property
+func (o LookupScriptResultOutput) ScriptUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScriptResult) *string { return v.ScriptUrl }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.

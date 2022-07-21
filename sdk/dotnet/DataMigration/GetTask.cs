@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// A task resource
-        /// API Version: 2018-04-19.
+        /// API Version: 2021-06-30.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// A task resource
-        /// API Version: 2018-04-19.
+        /// API Version: 2021-06-30.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public readonly object Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -136,12 +140,15 @@ namespace Pulumi.AzureNative.DataMigration
 
             object properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
     /// <summary>
-    /// Desired outbound IP resources for Azure Spring Cloud instance.
+    /// Desired outbound IP resources for Azure Spring Apps resource.
     /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponseOutboundIPs

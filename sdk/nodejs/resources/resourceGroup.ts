@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource group information.
- * API Version: 2019-05-01.
+ * API Version: 2021-04-01.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

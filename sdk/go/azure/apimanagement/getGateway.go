@@ -11,7 +11,7 @@ import (
 )
 
 // Gateway details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	var rv LookupGatewayResult
 	err := ctx.Invoke("azure-native:apimanagement:getGateway", args, &rv, opts...)
@@ -34,13 +34,13 @@ type LookupGatewayArgs struct {
 type LookupGatewayResult struct {
 	// Gateway description
 	Description *string `pulumi:"description"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Gateway location.
 	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -90,7 +90,7 @@ func (o LookupGatewayResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -100,12 +100,12 @@ func (o LookupGatewayResultOutput) LocationData() ResourceLocationDataContractRe
 	return o.ApplyT(func(v LookupGatewayResult) *ResourceLocationDataContractResponse { return v.LocationData }).(ResourceLocationDataContractResponsePtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupGatewayResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Type }).(pulumi.StringOutput)
 }

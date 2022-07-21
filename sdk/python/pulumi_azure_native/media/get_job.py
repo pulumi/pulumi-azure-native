@@ -207,7 +207,7 @@ def get_job(account_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -251,7 +251,7 @@ def get_job_output(account_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

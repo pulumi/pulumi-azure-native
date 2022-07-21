@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
 {
 
     /// <summary>
-    /// Network ACLs for SignalR
+    /// Network ACLs for the resource
     /// </summary>
     public sealed class SignalRNetworkACLsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default action when no other rule matches
+        /// Azure Networking ACL Action.
         /// </summary>
         [Input("defaultAction")]
         public InputUnion<string, Pulumi.AzureNative.SignalRService.ACLAction>? DefaultAction { get; set; }
@@ -34,14 +34,13 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         }
 
         /// <summary>
-        /// ACL for requests from public network
+        /// Network ACL
         /// </summary>
         [Input("publicNetwork")]
         public Input<Inputs.NetworkACLArgs>? PublicNetwork { get; set; }
 
         public SignalRNetworkACLsArgs()
         {
-            DefaultAction = "Deny";
         }
     }
 }

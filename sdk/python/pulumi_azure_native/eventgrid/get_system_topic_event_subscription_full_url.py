@@ -49,7 +49,7 @@ def get_system_topic_event_subscription_full_url(event_subscription_name: Option
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionFullUrlResult:
     """
     Full endpoint url of an event subscription
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -77,7 +77,7 @@ def get_system_topic_event_subscription_full_url_output(event_subscription_name:
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionFullUrlResult]:
     """
     Full endpoint url of an event subscription
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

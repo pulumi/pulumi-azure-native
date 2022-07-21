@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
     /**
+     * Specifies the gallery applications that should be made available to the VM/VMSS
+     */
+    public readonly applicationProfile!: pulumi.Output<outputs.compute.ApplicationProfileResponse | undefined>;
+    /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
      */
     public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
@@ -48,6 +52,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
      */
     public readonly billingProfile!: pulumi.Output<outputs.compute.BillingProfileResponse | undefined>;
+    /**
+     * Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+     */
+    public readonly capacityReservation!: pulumi.Output<outputs.compute.CapacityReservationProfileResponse | undefined>;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */
@@ -145,6 +153,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -180,8 +192,10 @@ export class VirtualMachine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
+            resourceInputs["applicationProfile"] = args ? args.applicationProfile : undefined;
             resourceInputs["availabilitySet"] = args ? args.availabilitySet : undefined;
             resourceInputs["billingProfile"] = args ? args.billingProfile : undefined;
+            resourceInputs["capacityReservation"] = args ? args.capacityReservation : undefined;
             resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
@@ -211,12 +225,15 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
         } else {
             resourceInputs["additionalCapabilities"] = undefined /*out*/;
+            resourceInputs["applicationProfile"] = undefined /*out*/;
             resourceInputs["availabilitySet"] = undefined /*out*/;
             resourceInputs["billingProfile"] = undefined /*out*/;
+            resourceInputs["capacityReservation"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
             resourceInputs["evictionPolicy"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
@@ -241,6 +258,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userData"] = undefined /*out*/;
             resourceInputs["virtualMachineScaleSet"] = undefined /*out*/;
@@ -263,6 +281,10 @@ export interface VirtualMachineArgs {
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
     /**
+     * Specifies the gallery applications that should be made available to the VM/VMSS
+     */
+    applicationProfile?: pulumi.Input<inputs.compute.ApplicationProfileArgs>;
+    /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
      */
     availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs>;
@@ -270,6 +292,10 @@ export interface VirtualMachineArgs {
      * Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
      */
     billingProfile?: pulumi.Input<inputs.compute.BillingProfileArgs>;
+    /**
+     * Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+     */
+    capacityReservation?: pulumi.Input<inputs.compute.CapacityReservationProfileArgs>;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */

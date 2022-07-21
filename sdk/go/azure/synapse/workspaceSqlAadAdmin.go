@@ -12,7 +12,7 @@ import (
 )
 
 // Workspace active directory administrator
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 //
 // Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 type WorkspaceSqlAadAdmin struct {
@@ -111,7 +111,7 @@ type workspaceSqlAadAdminArgs struct {
 	Sid *string `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId *string `pulumi:"tenantId"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -127,7 +127,7 @@ type WorkspaceSqlAadAdminArgs struct {
 	Sid pulumi.StringPtrInput
 	// Tenant ID of the workspace active directory administrator
 	TenantId pulumi.StringPtrInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 

@@ -11,7 +11,7 @@ import (
 )
 
 // Resource upload definition payload
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func GetAppResourceUploadUrl(ctx *pulumi.Context, args *GetAppResourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*GetAppResourceUploadUrlResult, error) {
 	var rv GetAppResourceUploadUrlResult
 	err := ctx.Invoke("azure-native:appplatform:getAppResourceUploadUrl", args, &rv, opts...)

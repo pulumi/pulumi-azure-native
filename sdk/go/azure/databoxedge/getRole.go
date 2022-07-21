@@ -11,7 +11,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 //
 // Deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
@@ -40,7 +40,7 @@ type LookupRoleResult struct {
 	Kind string `pulumi:"kind"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// Role configured on ASE resource
+	// Metadata pertaining to creation and last modification of Role
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -102,7 +102,7 @@ func (o LookupRoleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Role configured on ASE resource
+// Metadata pertaining to creation and last modification of Role
 func (o LookupRoleResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupRoleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

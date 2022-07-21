@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     /// </summary>
     public sealed class BackupVaultArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Monitoring Settings
+        /// </summary>
+        [Input("monitoringSettings")]
+        public Input<Inputs.MonitoringSettingsArgs>? MonitoringSettings { get; set; }
+
         [Input("storageSettings", required: true)]
         private InputList<Inputs.StorageSettingArgs>? _storageSettings;
 

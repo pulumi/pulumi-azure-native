@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:ApplicationType"},

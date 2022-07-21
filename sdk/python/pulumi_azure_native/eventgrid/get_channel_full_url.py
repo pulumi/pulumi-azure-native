@@ -49,7 +49,7 @@ def get_channel_full_url(channel_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelFullUrlResult:
     """
     Full endpoint url of an event subscription
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str channel_name: Name of the Channel.
@@ -77,7 +77,7 @@ def get_channel_full_url_output(channel_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelFullUrlResult]:
     """
     Full endpoint url of an event subscription
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str channel_name: Name of the Channel.

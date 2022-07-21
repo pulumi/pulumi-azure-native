@@ -12,18 +12,26 @@ from ._enums import *
 
 __all__ = [
     'AdditionalFeaturesServerConfigurationsResponse',
+    'AgConfigurationResponse',
+    'AgReplicaResponse',
+    'AssessmentSettingsResponse',
     'AutoBackupSettingsResponse',
     'AutoPatchingSettingsResponse',
     'KeyVaultCredentialSettingsResponse',
     'LoadBalancerConfigurationResponse',
+    'MultiSubnetIpConfigurationResponse',
     'PrivateIPAddressResponse',
     'ResourceIdentityResponse',
+    'SQLInstanceSettingsResponse',
     'SQLStorageSettingsResponse',
+    'SQLTempDbSettingsResponse',
+    'ScheduleResponse',
     'ServerConfigurationsManagementSettingsResponse',
     'SqlConnectivityUpdateSettingsResponse',
     'SqlStorageUpdateSettingsResponse',
     'SqlWorkloadTypeUpdateSettingsResponse',
     'StorageConfigurationSettingsResponse',
+    'SystemDataResponse',
     'WsfcDomainCredentialsResponse',
     'WsfcDomainProfileResponse',
 ]
@@ -69,6 +77,183 @@ class AdditionalFeaturesServerConfigurationsResponse(dict):
 
 
 @pulumi.output_type
+class AgConfigurationResponse(dict):
+    """
+    Availability group configuration.
+    """
+    def __init__(__self__, *,
+                 replicas: Optional[Sequence['outputs.AgReplicaResponse']] = None):
+        """
+        Availability group configuration.
+        :param Sequence['AgReplicaResponse'] replicas: Replica configurations.
+        """
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[Sequence['outputs.AgReplicaResponse']]:
+        """
+        Replica configurations.
+        """
+        return pulumi.get(self, "replicas")
+
+
+@pulumi.output_type
+class AgReplicaResponse(dict):
+    """
+    Availability group replica configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readableSecondary":
+            suggest = "readable_secondary"
+        elif key == "sqlVirtualMachineInstanceId":
+            suggest = "sql_virtual_machine_instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgReplicaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgReplicaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgReplicaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 commit: Optional[str] = None,
+                 failover: Optional[str] = None,
+                 readable_secondary: Optional[str] = None,
+                 role: Optional[str] = None,
+                 sql_virtual_machine_instance_id: Optional[str] = None):
+        """
+        Availability group replica configuration.
+        :param str commit: Replica commit mode in availability group.
+        :param str failover: Replica failover mode in availability group.
+        :param str readable_secondary: Replica readable secondary mode in availability group.
+        :param str role: Replica Role in availability group.
+        :param str sql_virtual_machine_instance_id: Sql VirtualMachine Instance Id.
+        """
+        if commit is not None:
+            pulumi.set(__self__, "commit", commit)
+        if failover is not None:
+            pulumi.set(__self__, "failover", failover)
+        if readable_secondary is not None:
+            pulumi.set(__self__, "readable_secondary", readable_secondary)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if sql_virtual_machine_instance_id is not None:
+            pulumi.set(__self__, "sql_virtual_machine_instance_id", sql_virtual_machine_instance_id)
+
+    @property
+    @pulumi.getter
+    def commit(self) -> Optional[str]:
+        """
+        Replica commit mode in availability group.
+        """
+        return pulumi.get(self, "commit")
+
+    @property
+    @pulumi.getter
+    def failover(self) -> Optional[str]:
+        """
+        Replica failover mode in availability group.
+        """
+        return pulumi.get(self, "failover")
+
+    @property
+    @pulumi.getter(name="readableSecondary")
+    def readable_secondary(self) -> Optional[str]:
+        """
+        Replica readable secondary mode in availability group.
+        """
+        return pulumi.get(self, "readable_secondary")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        Replica Role in availability group.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="sqlVirtualMachineInstanceId")
+    def sql_virtual_machine_instance_id(self) -> Optional[str]:
+        """
+        Sql VirtualMachine Instance Id.
+        """
+        return pulumi.get(self, "sql_virtual_machine_instance_id")
+
+
+@pulumi.output_type
+class AssessmentSettingsResponse(dict):
+    """
+    Configure assessment for databases in your SQL virtual machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runImmediately":
+            suggest = "run_immediately"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable: Optional[bool] = None,
+                 run_immediately: Optional[bool] = None,
+                 schedule: Optional['outputs.ScheduleResponse'] = None):
+        """
+        Configure assessment for databases in your SQL virtual machine.
+        :param bool enable: Enable or disable assessment feature on SQL virtual machine.
+        :param bool run_immediately: Run assessment immediately on SQL virtual machine.
+        :param 'ScheduleResponse' schedule: Schedule for Assessment.
+        """
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if run_immediately is not None:
+            pulumi.set(__self__, "run_immediately", run_immediately)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        """
+        Enable or disable assessment feature on SQL virtual machine.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="runImmediately")
+    def run_immediately(self) -> Optional[bool]:
+        """
+        Run assessment immediately on SQL virtual machine.
+        """
+        return pulumi.get(self, "run_immediately")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        Schedule for Assessment.
+        """
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
 class AutoBackupSettingsResponse(dict):
     """
     Configure backups for databases in your SQL virtual machine.
@@ -80,6 +265,8 @@ class AutoBackupSettingsResponse(dict):
             suggest = "backup_schedule_type"
         elif key == "backupSystemDbs":
             suggest = "backup_system_dbs"
+        elif key == "daysOfWeek":
+            suggest = "days_of_week"
         elif key == "enableEncryption":
             suggest = "enable_encryption"
         elif key == "fullBackupFrequency":
@@ -94,6 +281,8 @@ class AutoBackupSettingsResponse(dict):
             suggest = "retention_period"
         elif key == "storageAccountUrl":
             suggest = "storage_account_url"
+        elif key == "storageContainerName":
+            suggest = "storage_container_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutoBackupSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -109,6 +298,7 @@ class AutoBackupSettingsResponse(dict):
     def __init__(__self__, *,
                  backup_schedule_type: Optional[str] = None,
                  backup_system_dbs: Optional[bool] = None,
+                 days_of_week: Optional[Sequence[str]] = None,
                  enable: Optional[bool] = None,
                  enable_encryption: Optional[bool] = None,
                  full_backup_frequency: Optional[str] = None,
@@ -116,24 +306,29 @@ class AutoBackupSettingsResponse(dict):
                  full_backup_window_hours: Optional[int] = None,
                  log_backup_frequency: Optional[int] = None,
                  retention_period: Optional[int] = None,
-                 storage_account_url: Optional[str] = None):
+                 storage_account_url: Optional[str] = None,
+                 storage_container_name: Optional[str] = None):
         """
         Configure backups for databases in your SQL virtual machine.
         :param str backup_schedule_type: Backup schedule type.
         :param bool backup_system_dbs: Include or exclude system databases from auto backup.
+        :param Sequence[str] days_of_week: Days of the week for the backups when FullBackupFrequency is set to Weekly.
         :param bool enable: Enable or disable autobackup on SQL virtual machine.
         :param bool enable_encryption: Enable or disable encryption for backup on SQL virtual machine.
         :param str full_backup_frequency: Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
         :param int full_backup_start_time: Start time of a given day during which full backups can take place. 0-23 hours.
         :param int full_backup_window_hours: Duration of the time window of a given day during which full backups can take place. 1-23 hours.
         :param int log_backup_frequency: Frequency of log backups. 5-60 minutes.
-        :param int retention_period: Retention period of backup: 1-30 days.
+        :param int retention_period: Retention period of backup: 1-90 days.
         :param str storage_account_url: Storage account url where backup will be taken to.
+        :param str storage_container_name: Storage container name where backup will be taken to.
         """
         if backup_schedule_type is not None:
             pulumi.set(__self__, "backup_schedule_type", backup_schedule_type)
         if backup_system_dbs is not None:
             pulumi.set(__self__, "backup_system_dbs", backup_system_dbs)
+        if days_of_week is not None:
+            pulumi.set(__self__, "days_of_week", days_of_week)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if enable_encryption is not None:
@@ -150,6 +345,8 @@ class AutoBackupSettingsResponse(dict):
             pulumi.set(__self__, "retention_period", retention_period)
         if storage_account_url is not None:
             pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if storage_container_name is not None:
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
 
     @property
     @pulumi.getter(name="backupScheduleType")
@@ -166,6 +363,14 @@ class AutoBackupSettingsResponse(dict):
         Include or exclude system databases from auto backup.
         """
         return pulumi.get(self, "backup_system_dbs")
+
+    @property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> Optional[Sequence[str]]:
+        """
+        Days of the week for the backups when FullBackupFrequency is set to Weekly.
+        """
+        return pulumi.get(self, "days_of_week")
 
     @property
     @pulumi.getter
@@ -219,7 +424,7 @@ class AutoBackupSettingsResponse(dict):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[int]:
         """
-        Retention period of backup: 1-30 days.
+        Retention period of backup: 1-90 days.
         """
         return pulumi.get(self, "retention_period")
 
@@ -230,6 +435,14 @@ class AutoBackupSettingsResponse(dict):
         Storage account url where backup will be taken to.
         """
         return pulumi.get(self, "storage_account_url")
+
+    @property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> Optional[str]:
+        """
+        Storage container name where backup will be taken to.
+        """
+        return pulumi.get(self, "storage_container_name")
 
 
 @pulumi.output_type
@@ -489,6 +702,58 @@ class LoadBalancerConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class MultiSubnetIpConfigurationResponse(dict):
+    """
+    Multi subnet ip configuration for an availability group listener.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "sqlVirtualMachineInstance":
+            suggest = "sql_virtual_machine_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiSubnetIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiSubnetIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiSubnetIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_ip_address: 'outputs.PrivateIPAddressResponse',
+                 sql_virtual_machine_instance: str):
+        """
+        Multi subnet ip configuration for an availability group listener.
+        :param 'PrivateIPAddressResponse' private_ip_address: Private IP address.
+        :param str sql_virtual_machine_instance: SQL virtual machine instance resource id that are enrolled into the availability group listener.
+        """
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "sql_virtual_machine_instance", sql_virtual_machine_instance)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> 'outputs.PrivateIPAddressResponse':
+        """
+        Private IP address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="sqlVirtualMachineInstance")
+    def sql_virtual_machine_instance(self) -> str:
+        """
+        SQL virtual machine instance resource id that are enrolled into the availability group listener.
+        """
+        return pulumi.get(self, "sql_virtual_machine_instance")
+
+
+@pulumi.output_type
 class PrivateIPAddressResponse(dict):
     """
     A private IP address bound to the availability group listener.
@@ -607,6 +872,128 @@ class ResourceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class SQLInstanceSettingsResponse(dict):
+    """
+    Set the server/instance-level settings for SQL Server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isIfiEnabled":
+            suggest = "is_ifi_enabled"
+        elif key == "isLpimEnabled":
+            suggest = "is_lpim_enabled"
+        elif key == "isOptimizeForAdHocWorkloadsEnabled":
+            suggest = "is_optimize_for_ad_hoc_workloads_enabled"
+        elif key == "maxDop":
+            suggest = "max_dop"
+        elif key == "maxServerMemoryMB":
+            suggest = "max_server_memory_mb"
+        elif key == "minServerMemoryMB":
+            suggest = "min_server_memory_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SQLInstanceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SQLInstanceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SQLInstanceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collation: Optional[str] = None,
+                 is_ifi_enabled: Optional[bool] = None,
+                 is_lpim_enabled: Optional[bool] = None,
+                 is_optimize_for_ad_hoc_workloads_enabled: Optional[bool] = None,
+                 max_dop: Optional[int] = None,
+                 max_server_memory_mb: Optional[int] = None,
+                 min_server_memory_mb: Optional[int] = None):
+        """
+        Set the server/instance-level settings for SQL Server.
+        :param str collation: SQL Server Collation.
+        :param bool is_ifi_enabled: SQL Server IFI.
+        :param bool is_lpim_enabled: SQL Server LPIM.
+        :param bool is_optimize_for_ad_hoc_workloads_enabled: SQL Server Optimize for Adhoc workloads.
+        :param int max_dop: SQL Server MAXDOP.
+        :param int max_server_memory_mb: SQL Server maximum memory.
+        :param int min_server_memory_mb: SQL Server minimum memory.
+        """
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if is_ifi_enabled is not None:
+            pulumi.set(__self__, "is_ifi_enabled", is_ifi_enabled)
+        if is_lpim_enabled is not None:
+            pulumi.set(__self__, "is_lpim_enabled", is_lpim_enabled)
+        if is_optimize_for_ad_hoc_workloads_enabled is not None:
+            pulumi.set(__self__, "is_optimize_for_ad_hoc_workloads_enabled", is_optimize_for_ad_hoc_workloads_enabled)
+        if max_dop is not None:
+            pulumi.set(__self__, "max_dop", max_dop)
+        if max_server_memory_mb is not None:
+            pulumi.set(__self__, "max_server_memory_mb", max_server_memory_mb)
+        if min_server_memory_mb is not None:
+            pulumi.set(__self__, "min_server_memory_mb", min_server_memory_mb)
+
+    @property
+    @pulumi.getter
+    def collation(self) -> Optional[str]:
+        """
+        SQL Server Collation.
+        """
+        return pulumi.get(self, "collation")
+
+    @property
+    @pulumi.getter(name="isIfiEnabled")
+    def is_ifi_enabled(self) -> Optional[bool]:
+        """
+        SQL Server IFI.
+        """
+        return pulumi.get(self, "is_ifi_enabled")
+
+    @property
+    @pulumi.getter(name="isLpimEnabled")
+    def is_lpim_enabled(self) -> Optional[bool]:
+        """
+        SQL Server LPIM.
+        """
+        return pulumi.get(self, "is_lpim_enabled")
+
+    @property
+    @pulumi.getter(name="isOptimizeForAdHocWorkloadsEnabled")
+    def is_optimize_for_ad_hoc_workloads_enabled(self) -> Optional[bool]:
+        """
+        SQL Server Optimize for Adhoc workloads.
+        """
+        return pulumi.get(self, "is_optimize_for_ad_hoc_workloads_enabled")
+
+    @property
+    @pulumi.getter(name="maxDop")
+    def max_dop(self) -> Optional[int]:
+        """
+        SQL Server MAXDOP.
+        """
+        return pulumi.get(self, "max_dop")
+
+    @property
+    @pulumi.getter(name="maxServerMemoryMB")
+    def max_server_memory_mb(self) -> Optional[int]:
+        """
+        SQL Server maximum memory.
+        """
+        return pulumi.get(self, "max_server_memory_mb")
+
+    @property
+    @pulumi.getter(name="minServerMemoryMB")
+    def min_server_memory_mb(self) -> Optional[int]:
+        """
+        SQL Server minimum memory.
+        """
+        return pulumi.get(self, "min_server_memory_mb")
+
+
+@pulumi.output_type
 class SQLStorageSettingsResponse(dict):
     """
     Set disk storage settings for SQL Server.
@@ -659,6 +1046,242 @@ class SQLStorageSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SQLTempDbSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataFileCount":
+            suggest = "data_file_count"
+        elif key == "dataFileSize":
+            suggest = "data_file_size"
+        elif key == "dataGrowth":
+            suggest = "data_growth"
+        elif key == "defaultFilePath":
+            suggest = "default_file_path"
+        elif key == "logFileSize":
+            suggest = "log_file_size"
+        elif key == "logGrowth":
+            suggest = "log_growth"
+        elif key == "persistFolder":
+            suggest = "persist_folder"
+        elif key == "persistFolderPath":
+            suggest = "persist_folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SQLTempDbSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SQLTempDbSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SQLTempDbSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_file_count: Optional[int] = None,
+                 data_file_size: Optional[int] = None,
+                 data_growth: Optional[int] = None,
+                 default_file_path: Optional[str] = None,
+                 log_file_size: Optional[int] = None,
+                 log_growth: Optional[int] = None,
+                 luns: Optional[Sequence[int]] = None,
+                 persist_folder: Optional[bool] = None,
+                 persist_folder_path: Optional[str] = None):
+        """
+        :param int data_file_count: SQL Server tempdb data file count
+        :param int data_file_size: SQL Server tempdb data file size
+        :param int data_growth: SQL Server tempdb data file autoGrowth size
+        :param str default_file_path: SQL Server default file path
+        :param int log_file_size: SQL Server tempdb log file size
+        :param int log_growth: SQL Server tempdb log file autoGrowth size
+        :param Sequence[int] luns: Logical Unit Numbers for the disks.
+        :param bool persist_folder: SQL Server tempdb persist folder choice
+        :param str persist_folder_path: SQL Server tempdb persist folder location
+        """
+        if data_file_count is not None:
+            pulumi.set(__self__, "data_file_count", data_file_count)
+        if data_file_size is not None:
+            pulumi.set(__self__, "data_file_size", data_file_size)
+        if data_growth is not None:
+            pulumi.set(__self__, "data_growth", data_growth)
+        if default_file_path is not None:
+            pulumi.set(__self__, "default_file_path", default_file_path)
+        if log_file_size is not None:
+            pulumi.set(__self__, "log_file_size", log_file_size)
+        if log_growth is not None:
+            pulumi.set(__self__, "log_growth", log_growth)
+        if luns is not None:
+            pulumi.set(__self__, "luns", luns)
+        if persist_folder is not None:
+            pulumi.set(__self__, "persist_folder", persist_folder)
+        if persist_folder_path is not None:
+            pulumi.set(__self__, "persist_folder_path", persist_folder_path)
+
+    @property
+    @pulumi.getter(name="dataFileCount")
+    def data_file_count(self) -> Optional[int]:
+        """
+        SQL Server tempdb data file count
+        """
+        return pulumi.get(self, "data_file_count")
+
+    @property
+    @pulumi.getter(name="dataFileSize")
+    def data_file_size(self) -> Optional[int]:
+        """
+        SQL Server tempdb data file size
+        """
+        return pulumi.get(self, "data_file_size")
+
+    @property
+    @pulumi.getter(name="dataGrowth")
+    def data_growth(self) -> Optional[int]:
+        """
+        SQL Server tempdb data file autoGrowth size
+        """
+        return pulumi.get(self, "data_growth")
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> Optional[str]:
+        """
+        SQL Server default file path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @property
+    @pulumi.getter(name="logFileSize")
+    def log_file_size(self) -> Optional[int]:
+        """
+        SQL Server tempdb log file size
+        """
+        return pulumi.get(self, "log_file_size")
+
+    @property
+    @pulumi.getter(name="logGrowth")
+    def log_growth(self) -> Optional[int]:
+        """
+        SQL Server tempdb log file autoGrowth size
+        """
+        return pulumi.get(self, "log_growth")
+
+    @property
+    @pulumi.getter
+    def luns(self) -> Optional[Sequence[int]]:
+        """
+        Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
+
+    @property
+    @pulumi.getter(name="persistFolder")
+    def persist_folder(self) -> Optional[bool]:
+        """
+        SQL Server tempdb persist folder choice
+        """
+        return pulumi.get(self, "persist_folder")
+
+    @property
+    @pulumi.getter(name="persistFolderPath")
+    def persist_folder_path(self) -> Optional[str]:
+        """
+        SQL Server tempdb persist folder location
+        """
+        return pulumi.get(self, "persist_folder_path")
+
+
+@pulumi.output_type
+class ScheduleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "monthlyOccurrence":
+            suggest = "monthly_occurrence"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "weeklyInterval":
+            suggest = "weekly_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: Optional[str] = None,
+                 enable: Optional[bool] = None,
+                 monthly_occurrence: Optional[int] = None,
+                 start_time: Optional[str] = None,
+                 weekly_interval: Optional[int] = None):
+        """
+        :param str day_of_week: Day of the week to run assessment.
+        :param bool enable: Enable or disable assessment schedule on SQL virtual machine.
+        :param int monthly_occurrence: Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
+        :param str start_time: Time of the day in HH:mm format. Eg. 17:30
+        :param int weekly_interval: Number of weeks to schedule between 2 assessment runs. Takes value from 1-6
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if monthly_occurrence is not None:
+            pulumi.set(__self__, "monthly_occurrence", monthly_occurrence)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if weekly_interval is not None:
+            pulumi.set(__self__, "weekly_interval", weekly_interval)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        Day of the week to run assessment.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        """
+        Enable or disable assessment schedule on SQL virtual machine.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="monthlyOccurrence")
+    def monthly_occurrence(self) -> Optional[int]:
+        """
+        Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
+        """
+        return pulumi.get(self, "monthly_occurrence")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Time of the day in HH:mm format. Eg. 17:30
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="weeklyInterval")
+    def weekly_interval(self) -> Optional[int]:
+        """
+        Number of weeks to schedule between 2 assessment runs. Takes value from 1-6
+        """
+        return pulumi.get(self, "weekly_interval")
+
+
+@pulumi.output_type
 class ServerConfigurationsManagementSettingsResponse(dict):
     """
     Set the connectivity, storage and workload settings.
@@ -670,6 +1293,8 @@ class ServerConfigurationsManagementSettingsResponse(dict):
             suggest = "additional_features_server_configurations"
         elif key == "sqlConnectivityUpdateSettings":
             suggest = "sql_connectivity_update_settings"
+        elif key == "sqlInstanceSettings":
+            suggest = "sql_instance_settings"
         elif key == "sqlStorageUpdateSettings":
             suggest = "sql_storage_update_settings"
         elif key == "sqlWorkloadTypeUpdateSettings":
@@ -689,12 +1314,14 @@ class ServerConfigurationsManagementSettingsResponse(dict):
     def __init__(__self__, *,
                  additional_features_server_configurations: Optional['outputs.AdditionalFeaturesServerConfigurationsResponse'] = None,
                  sql_connectivity_update_settings: Optional['outputs.SqlConnectivityUpdateSettingsResponse'] = None,
+                 sql_instance_settings: Optional['outputs.SQLInstanceSettingsResponse'] = None,
                  sql_storage_update_settings: Optional['outputs.SqlStorageUpdateSettingsResponse'] = None,
                  sql_workload_type_update_settings: Optional['outputs.SqlWorkloadTypeUpdateSettingsResponse'] = None):
         """
         Set the connectivity, storage and workload settings.
         :param 'AdditionalFeaturesServerConfigurationsResponse' additional_features_server_configurations: Additional SQL feature settings.
         :param 'SqlConnectivityUpdateSettingsResponse' sql_connectivity_update_settings: SQL connectivity type settings.
+        :param 'SQLInstanceSettingsResponse' sql_instance_settings: SQL Instance settings.
         :param 'SqlStorageUpdateSettingsResponse' sql_storage_update_settings: SQL storage update settings.
         :param 'SqlWorkloadTypeUpdateSettingsResponse' sql_workload_type_update_settings: SQL workload type settings.
         """
@@ -702,6 +1329,8 @@ class ServerConfigurationsManagementSettingsResponse(dict):
             pulumi.set(__self__, "additional_features_server_configurations", additional_features_server_configurations)
         if sql_connectivity_update_settings is not None:
             pulumi.set(__self__, "sql_connectivity_update_settings", sql_connectivity_update_settings)
+        if sql_instance_settings is not None:
+            pulumi.set(__self__, "sql_instance_settings", sql_instance_settings)
         if sql_storage_update_settings is not None:
             pulumi.set(__self__, "sql_storage_update_settings", sql_storage_update_settings)
         if sql_workload_type_update_settings is not None:
@@ -722,6 +1351,14 @@ class ServerConfigurationsManagementSettingsResponse(dict):
         SQL connectivity type settings.
         """
         return pulumi.get(self, "sql_connectivity_update_settings")
+
+    @property
+    @pulumi.getter(name="sqlInstanceSettings")
+    def sql_instance_settings(self) -> Optional['outputs.SQLInstanceSettingsResponse']:
+        """
+        SQL Instance settings.
+        """
+        return pulumi.get(self, "sql_instance_settings")
 
     @property
     @pulumi.getter(name="sqlStorageUpdateSettings")
@@ -914,6 +1551,8 @@ class StorageConfigurationSettingsResponse(dict):
             suggest = "sql_data_settings"
         elif key == "sqlLogSettings":
             suggest = "sql_log_settings"
+        elif key == "sqlSystemDbOnDataDisk":
+            suggest = "sql_system_db_on_data_disk"
         elif key == "sqlTempDbSettings":
             suggest = "sql_temp_db_settings"
         elif key == "storageWorkloadType":
@@ -934,14 +1573,16 @@ class StorageConfigurationSettingsResponse(dict):
                  disk_configuration_type: Optional[str] = None,
                  sql_data_settings: Optional['outputs.SQLStorageSettingsResponse'] = None,
                  sql_log_settings: Optional['outputs.SQLStorageSettingsResponse'] = None,
-                 sql_temp_db_settings: Optional['outputs.SQLStorageSettingsResponse'] = None,
+                 sql_system_db_on_data_disk: Optional[bool] = None,
+                 sql_temp_db_settings: Optional['outputs.SQLTempDbSettingsResponse'] = None,
                  storage_workload_type: Optional[str] = None):
         """
         Storage Configurations for SQL Data, Log and TempDb.
         :param str disk_configuration_type: Disk configuration to apply to SQL Server.
         :param 'SQLStorageSettingsResponse' sql_data_settings: SQL Server Data Storage Settings.
         :param 'SQLStorageSettingsResponse' sql_log_settings: SQL Server Log Storage Settings.
-        :param 'SQLStorageSettingsResponse' sql_temp_db_settings: SQL Server TempDb Storage Settings.
+        :param bool sql_system_db_on_data_disk: SQL Server SystemDb Storage on DataPool if true.
+        :param 'SQLTempDbSettingsResponse' sql_temp_db_settings: SQL Server TempDb Storage Settings.
         :param str storage_workload_type: Storage workload type.
         """
         if disk_configuration_type is not None:
@@ -950,6 +1591,8 @@ class StorageConfigurationSettingsResponse(dict):
             pulumi.set(__self__, "sql_data_settings", sql_data_settings)
         if sql_log_settings is not None:
             pulumi.set(__self__, "sql_log_settings", sql_log_settings)
+        if sql_system_db_on_data_disk is not None:
+            pulumi.set(__self__, "sql_system_db_on_data_disk", sql_system_db_on_data_disk)
         if sql_temp_db_settings is not None:
             pulumi.set(__self__, "sql_temp_db_settings", sql_temp_db_settings)
         if storage_workload_type is not None:
@@ -980,8 +1623,16 @@ class StorageConfigurationSettingsResponse(dict):
         return pulumi.get(self, "sql_log_settings")
 
     @property
+    @pulumi.getter(name="sqlSystemDbOnDataDisk")
+    def sql_system_db_on_data_disk(self) -> Optional[bool]:
+        """
+        SQL Server SystemDb Storage on DataPool if true.
+        """
+        return pulumi.get(self, "sql_system_db_on_data_disk")
+
+    @property
     @pulumi.getter(name="sqlTempDbSettings")
-    def sql_temp_db_settings(self) -> Optional['outputs.SQLStorageSettingsResponse']:
+    def sql_temp_db_settings(self) -> Optional['outputs.SQLTempDbSettingsResponse']:
         """
         SQL Server TempDb Storage Settings.
         """
@@ -994,6 +1645,116 @@ class StorageConfigurationSettingsResponse(dict):
         Storage workload type.
         """
         return pulumi.get(self, "storage_workload_type")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -1076,6 +1837,8 @@ class WsfcDomainProfileResponse(dict):
             suggest = "cluster_bootstrap_account"
         elif key == "clusterOperatorAccount":
             suggest = "cluster_operator_account"
+        elif key == "clusterSubnetType":
+            suggest = "cluster_subnet_type"
         elif key == "domainFqdn":
             suggest = "domain_fqdn"
         elif key == "fileShareWitnessPath":
@@ -1101,6 +1864,7 @@ class WsfcDomainProfileResponse(dict):
     def __init__(__self__, *,
                  cluster_bootstrap_account: Optional[str] = None,
                  cluster_operator_account: Optional[str] = None,
+                 cluster_subnet_type: Optional[str] = None,
                  domain_fqdn: Optional[str] = None,
                  file_share_witness_path: Optional[str] = None,
                  ou_path: Optional[str] = None,
@@ -1110,6 +1874,7 @@ class WsfcDomainProfileResponse(dict):
         Active Directory account details to operate Windows Server Failover Cluster.
         :param str cluster_bootstrap_account: Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
         :param str cluster_operator_account: Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
+        :param str cluster_subnet_type: Cluster subnet type.
         :param str domain_fqdn: Fully qualified name of the domain.
         :param str file_share_witness_path: Optional path for fileshare witness.
         :param str ou_path: Organizational Unit path in which the nodes and cluster will be present.
@@ -1120,6 +1885,8 @@ class WsfcDomainProfileResponse(dict):
             pulumi.set(__self__, "cluster_bootstrap_account", cluster_bootstrap_account)
         if cluster_operator_account is not None:
             pulumi.set(__self__, "cluster_operator_account", cluster_operator_account)
+        if cluster_subnet_type is not None:
+            pulumi.set(__self__, "cluster_subnet_type", cluster_subnet_type)
         if domain_fqdn is not None:
             pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if file_share_witness_path is not None:
@@ -1146,6 +1913,14 @@ class WsfcDomainProfileResponse(dict):
         Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
         """
         return pulumi.get(self, "cluster_operator_account")
+
+    @property
+    @pulumi.getter(name="clusterSubnetType")
+    def cluster_subnet_type(self) -> Optional[str]:
+        """
+        Cluster subnet type.
+        """
+        return pulumi.get(self, "cluster_subnet_type")
 
     @property
     @pulumi.getter(name="domainFqdn")

@@ -266,7 +266,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
     Information about the connection monitor.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str connection_monitor_name: The name of the connection monitor.
@@ -312,7 +312,7 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorResult]:
     """
     Information about the connection monitor.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str connection_monitor_name: The name of the connection monitor.

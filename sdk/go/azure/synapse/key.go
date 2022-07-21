@@ -12,7 +12,7 @@ import (
 )
 
 // A workspace key
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -103,7 +103,7 @@ type keyArgs struct {
 	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -117,7 +117,7 @@ type KeyArgs struct {
 	KeyVaultUrl pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 

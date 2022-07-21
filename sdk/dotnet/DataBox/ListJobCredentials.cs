@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBox
     {
         /// <summary>
         /// List of unencrypted credentials for accessing device.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of unencrypted credentials for accessing device.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithDefaults());

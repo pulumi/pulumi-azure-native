@@ -6,10 +6,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .access_review_history_definition_by_id import *
-from .access_review_schedule_definition_by_id import *
-from .get_access_review_history_definition_by_id import *
-from .get_access_review_schedule_definition_by_id import *
 from .get_client_config import *
 from .get_client_token import *
 from .get_management_lock_at_resource_group_level import *
@@ -19,16 +15,11 @@ from .get_management_lock_by_scope import *
 from .get_policy_assignment import *
 from .get_policy_definition import *
 from .get_policy_definition_at_management_group import *
-from .get_policy_exemption import *
 from .get_policy_set_definition import *
 from .get_policy_set_definition_at_management_group import *
 from .get_private_link_association import *
 from .get_resource_management_private_link import *
-from .get_role_assignment import *
-from .get_role_definition import *
 from .get_role_management_policy_assignment import *
-from .get_scope_access_review_history_definition_by_id import *
-from .get_scope_access_review_schedule_definition_by_id import *
 from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *
@@ -36,16 +27,11 @@ from .management_lock_by_scope import *
 from .policy_assignment import *
 from .policy_definition import *
 from .policy_definition_at_management_group import *
-from .policy_exemption import *
 from .policy_set_definition import *
 from .policy_set_definition_at_management_group import *
 from .private_link_association import *
 from .resource_management_private_link import *
-from .role_assignment import *
-from .role_definition import *
 from .role_management_policy_assignment import *
-from .scope_access_review_history_definition_by_id import *
-from .scope_access_review_schedule_definition_by_id import *
 from ._inputs import *
 from . import outputs
 

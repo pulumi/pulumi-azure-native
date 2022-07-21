@@ -11,14 +11,14 @@ import (
 )
 
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-// API Version: 2020-06-01.
+// API Version: 2022-05-01.
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	var rv LookupConfigurationStoreResult
 	err := ctx.Invoke("azure-native:appconfiguration:getConfigurationStore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupConfigurationStoreArgs struct {
@@ -32,17 +32,21 @@ type LookupConfigurationStoreArgs struct {
 type LookupConfigurationStoreResult struct {
 	// The creation date of configuration store.
 	CreationDate string `pulumi:"creationDate"`
+	// Disables all authentication methods other than AAD authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Property specifying whether protection against purge is enabled for this configuration store.
+	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// The encryption settings of the configuration store.
 	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
 	// The DNS endpoint where the configuration store API will be available.
 	Endpoint string `pulumi:"endpoint"`
-	// The resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The managed identity information, if configured.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the resource.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The list of private endpoint connections that are set up for this resource.
 	PrivateEndpointConnections []PrivateEndpointConnectionReferenceResponse `pulumi:"privateEndpointConnections"`
@@ -52,10 +56,35 @@ type LookupConfigurationStoreResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The sku of the configuration store.
 	Sku SkuResponse `pulumi:"sku"`
-	// The tags of the resource.
+	// The amount of time in days that the configuration store will be retained when it is soft deleted.
+	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
+	// Resource system metadata.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupConfigurationStoreResult
+func (val *LookupConfigurationStoreResult) Defaults() *LookupConfigurationStoreResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableLocalAuth) {
+		disableLocalAuth_ := false
+		tmp.DisableLocalAuth = &disableLocalAuth_
+	}
+	if isZero(tmp.EnablePurgeProtection) {
+		enablePurgeProtection_ := false
+		tmp.EnablePurgeProtection = &enablePurgeProtection_
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		softDeleteRetentionInDays_ := 7
+		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
+	}
+	return &tmp
 }
 
 func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfigurationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationStoreResultOutput {
@@ -102,6 +131,16 @@ func (o LookupConfigurationStoreResultOutput) CreationDate() pulumi.StringOutput
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// Disables all authentication methods other than AAD authentication.
+func (o LookupConfigurationStoreResultOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Property specifying whether protection against purge is enabled for this configuration store.
+func (o LookupConfigurationStoreResultOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
+}
+
 // The encryption settings of the configuration store.
 func (o LookupConfigurationStoreResultOutput) Encryption() EncryptionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) *EncryptionPropertiesResponse { return v.Encryption }).(EncryptionPropertiesResponsePtrOutput)
@@ -112,7 +151,7 @@ func (o LookupConfigurationStoreResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupConfigurationStoreResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -122,12 +161,12 @@ func (o LookupConfigurationStoreResultOutput) Identity() ResourceIdentityRespons
 	return o.ApplyT(func(v LookupConfigurationStoreResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
 }
 
-// The location of the resource. This cannot be changed after the resource is created.
+// The geo-location where the resource lives
 func (o LookupConfigurationStoreResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the resource.
+// The name of the resource
 func (o LookupConfigurationStoreResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -154,12 +193,22 @@ func (o LookupConfigurationStoreResultOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }
 
-// The tags of the resource.
+// The amount of time in days that the configuration store will be retained when it is soft deleted.
+func (o LookupConfigurationStoreResultOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *int { return v.SoftDeleteRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Resource system metadata.
+func (o LookupConfigurationStoreResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupConfigurationStoreResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupConfigurationStoreResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Type }).(pulumi.StringOutput)
 }

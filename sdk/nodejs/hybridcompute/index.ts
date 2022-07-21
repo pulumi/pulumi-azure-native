@@ -9,12 +9,10 @@ export * from "./getMachine";
 export * from "./getMachineExtension";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkScope";
-export * from "./getPrivateLinkScopedResource";
 export * from "./machine";
 export * from "./machineExtension";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkScope";
-export * from "./privateLinkScopedResource";
 
 // Export enums:
 export * from "../types/enums/hybridcompute";
@@ -59,7 +57,6 @@ import { Machine } from "./machine";
 import { MachineExtension } from "./machineExtension";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkScope } from "./privateLinkScope";
-import { PrivateLinkScopedResource } from "./privateLinkScopedResource";
 
 const _module = {
     version: utilities.getVersion(),
@@ -73,8 +70,6 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
-            case "azure-native:hybridcompute:PrivateLinkScopedResource":
-                return new PrivateLinkScopedResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

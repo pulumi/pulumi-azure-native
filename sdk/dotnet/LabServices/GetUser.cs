@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.LabServices
     public static class GetUser
     {
         /// <summary>
-        /// The User registered to a lab
-        /// API Version: 2018-10-15.
+        /// User of a lab that can register for and use virtual machines within the lab.
+        /// API Version: 2021-11-15-preview.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The User registered to a lab
-        /// API Version: 2018-10-15.
+        /// User of a lab that can register for and use virtual machines within the lab.
+        /// API Version: 2021-11-15-preview.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -30,31 +30,19 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify the $expand query. Example: 'properties($select=email)'
-        /// </summary>
-        [Input("expand")]
-        public string? Expand { get; set; }
-
-        /// <summary>
-        /// The name of the lab Account.
-        /// </summary>
-        [Input("labAccountName", required: true)]
-        public string LabAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the lab.
+        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user.
+        /// The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
@@ -67,31 +55,19 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify the $expand query. Example: 'properties($select=email)'
-        /// </summary>
-        [Input("expand")]
-        public Input<string>? Expand { get; set; }
-
-        /// <summary>
-        /// The name of the lab Account.
-        /// </summary>
-        [Input("labAccountName", required: true)]
-        public Input<string> LabAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the lab.
+        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user.
+        /// The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -106,99 +82,92 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetUserResult
     {
         /// <summary>
-        /// The user email address, as it was specified during registration.
+        /// The amount of usage quota time the user gets in addition to the lab usage quota.
+        /// </summary>
+        public readonly string? AdditionalUsageQuota;
+        /// <summary>
+        /// Display name of the user, for example user's full name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// Email address of the user.
         /// </summary>
         public readonly string Email;
         /// <summary>
-        /// The user family name, as it was specified during registration.
-        /// </summary>
-        public readonly string FamilyName;
-        /// <summary>
-        /// The user given name, as it was specified during registration.
-        /// </summary>
-        public readonly string GivenName;
-        /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The details of the latest operation. ex: status, error
+        /// Date and time when the invitation message was sent to the user.
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
+        public readonly string InvitationSent;
         /// <summary>
-        /// The location of the resource.
+        /// State of the invitation message for the user.
         /// </summary>
-        public readonly string? Location;
+        public readonly string InvitationState;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning status of the resource.
+        /// Current provisioning state of the user resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// The tags of the resource.
+        /// State of the user's registration within the lab.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly string RegistrationState;
         /// <summary>
-        /// The user tenant ID, as it was specified during registration.
+        /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
-        public readonly string TenantId;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// How long the user has used his VMs in this lab
+        /// How long the user has used their virtual machines in this lab.
         /// </summary>
         public readonly string TotalUsage;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetUserResult(
+            string? additionalUsageQuota,
+
+            string displayName,
+
             string email,
-
-            string familyName,
-
-            string givenName,
 
             string id,
 
-            Outputs.LatestOperationResultResponse latestOperationResult,
+            string invitationSent,
 
-            string? location,
+            string invitationState,
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
-            ImmutableDictionary<string, string>? tags,
+            string registrationState,
 
-            string tenantId,
+            Outputs.SystemDataResponse systemData,
 
             string totalUsage,
 
-            string type,
-
-            string? uniqueIdentifier)
+            string type)
         {
+            AdditionalUsageQuota = additionalUsageQuota;
+            DisplayName = displayName;
             Email = email;
-            FamilyName = familyName;
-            GivenName = givenName;
             Id = id;
-            LatestOperationResult = latestOperationResult;
-            Location = location;
+            InvitationSent = invitationSent;
+            InvitationState = invitationState;
             Name = name;
             ProvisioningState = provisioningState;
-            Tags = tags;
-            TenantId = tenantId;
+            RegistrationState = registrationState;
+            SystemData = systemData;
             TotalUsage = totalUsage;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

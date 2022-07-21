@@ -30,6 +30,7 @@ namespace Pulumi.AzureNative.DataShare
         public static DataSetKind AdlsGen1File { get; } = new DataSetKind("AdlsGen1File");
         public static DataSetKind KustoCluster { get; } = new DataSetKind("KustoCluster");
         public static DataSetKind KustoDatabase { get; } = new DataSetKind("KustoDatabase");
+        public static DataSetKind KustoTable { get; } = new DataSetKind("KustoTable");
         public static DataSetKind SqlDBTable { get; } = new DataSetKind("SqlDBTable");
         public static DataSetKind SqlDWTable { get; } = new DataSetKind("SqlDWTable");
         public static DataSetKind SynapseWorkspaceSqlPoolTable { get; } = new DataSetKind("SynapseWorkspaceSqlPoolTable");
@@ -70,6 +71,7 @@ namespace Pulumi.AzureNative.DataShare
         public static DataSetMappingKind AdlsGen2File { get; } = new DataSetMappingKind("AdlsGen2File");
         public static DataSetMappingKind KustoCluster { get; } = new DataSetMappingKind("KustoCluster");
         public static DataSetMappingKind KustoDatabase { get; } = new DataSetMappingKind("KustoDatabase");
+        public static DataSetMappingKind KustoTable { get; } = new DataSetMappingKind("KustoTable");
         public static DataSetMappingKind SqlDBTable { get; } = new DataSetMappingKind("SqlDBTable");
         public static DataSetMappingKind SqlDWTable { get; } = new DataSetMappingKind("SqlDWTable");
         public static DataSetMappingKind SynapseWorkspaceSqlPoolTable { get; } = new DataSetMappingKind("SynapseWorkspaceSqlPoolTable");

@@ -11,18 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration definition.
-// API Version: 2019-09-01.
+// The registration definition.
+// API Version: 2022-01-01-preview.
 type RegistrationDefinition struct {
 	pulumi.CustomResourceState
 
-	// Name of the registration definition.
+	// The name of the registration definition.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Plan details for the managed services.
+	// The details for the Managed Services offer’s plan in Azure Marketplace.
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
-	// Properties of a registration definition.
+	// The properties of a registration definition.
 	Properties RegistrationDefinitionPropertiesResponseOutput `pulumi:"properties"`
-	// Type of the resource.
+	// The metadata for the registration assignment resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -89,25 +91,25 @@ func (RegistrationDefinitionState) ElementType() reflect.Type {
 }
 
 type registrationDefinitionArgs struct {
-	// Plan details for the managed services.
+	// The details for the Managed Services offer’s plan in Azure Marketplace.
 	Plan *Plan `pulumi:"plan"`
-	// Properties of a registration definition.
+	// The properties of a registration definition.
 	Properties *RegistrationDefinitionProperties `pulumi:"properties"`
-	// Guid of the registration definition.
+	// The GUID of the registration definition.
 	RegistrationDefinitionId *string `pulumi:"registrationDefinitionId"`
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RegistrationDefinition resource.
 type RegistrationDefinitionArgs struct {
-	// Plan details for the managed services.
+	// The details for the Managed Services offer’s plan in Azure Marketplace.
 	Plan PlanPtrInput
-	// Properties of a registration definition.
+	// The properties of a registration definition.
 	Properties RegistrationDefinitionPropertiesPtrInput
-	// Guid of the registration definition.
+	// The GUID of the registration definition.
 	RegistrationDefinitionId pulumi.StringPtrInput
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope pulumi.StringInput
 }
 
@@ -148,22 +150,27 @@ func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutputWithContext(
 	return o
 }
 
-// Name of the registration definition.
+// The name of the registration definition.
 func (o RegistrationDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistrationDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Plan details for the managed services.
+// The details for the Managed Services offer’s plan in Azure Marketplace.
 func (o RegistrationDefinitionOutput) Plan() PlanResponsePtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinition) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
 }
 
-// Properties of a registration definition.
+// The properties of a registration definition.
 func (o RegistrationDefinitionOutput) Properties() RegistrationDefinitionPropertiesResponseOutput {
 	return o.ApplyT(func(v *RegistrationDefinition) RegistrationDefinitionPropertiesResponseOutput { return v.Properties }).(RegistrationDefinitionPropertiesResponseOutput)
 }
 
-// Type of the resource.
+// The metadata for the registration assignment resource.
+func (o RegistrationDefinitionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *RegistrationDefinition) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
 func (o RegistrationDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistrationDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

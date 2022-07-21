@@ -12,7 +12,7 @@ import (
 )
 
 // Mobile network resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 type MobileNetwork struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type MobileNetwork struct {
 	PublicLandMobileNetworkIdentifier PlmnIdResponseOutput `pulumi:"publicLandMobileNetworkIdentifier"`
 	// The mobile network resource identifier
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -238,6 +240,11 @@ func (o MobileNetworkOutput) PublicLandMobileNetworkIdentifier() PlmnIdResponseO
 // The mobile network resource identifier
 func (o MobileNetworkOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o MobileNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MobileNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// For example, 18.04-LTS or 2019-Datacenter.
+        /// For example, 18.04-LTS or 2022-datacenter.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

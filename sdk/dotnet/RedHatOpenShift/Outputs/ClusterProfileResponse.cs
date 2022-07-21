@@ -17,25 +17,31 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class ClusterProfileResponse
     {
         /// <summary>
-        /// The domain for the cluster (immutable).
+        /// The domain for the cluster.
         /// </summary>
         public readonly string? Domain;
         /// <summary>
-        /// The pull secret for the cluster (immutable).
+        /// If FIPS validated crypto modules are used
+        /// </summary>
+        public readonly string? FipsValidatedModules;
+        /// <summary>
+        /// The pull secret for the cluster.
         /// </summary>
         public readonly string? PullSecret;
         /// <summary>
-        /// The ID of the cluster resource group (immutable).
+        /// The ID of the cluster resource group.
         /// </summary>
         public readonly string? ResourceGroupId;
         /// <summary>
-        /// The version of the cluster (immutable).
+        /// The version of the cluster.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private ClusterProfileResponse(
             string? domain,
+
+            string? fipsValidatedModules,
 
             string? pullSecret,
 
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
             string? version)
         {
             Domain = domain;
+            FipsValidatedModules = fipsValidatedModules;
             PullSecret = pullSecret;
             ResourceGroupId = resourceGroupId;
             Version = version;

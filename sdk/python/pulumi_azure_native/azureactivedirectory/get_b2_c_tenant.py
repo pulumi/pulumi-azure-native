@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetB2CTenantResult:
-    def __init__(__self__, billing_config=None, id=None, location=None, name=None, sku=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, billing_config=None, id=None, location=None, name=None, sku=None, system_data=None, tags=None, tenant_id=None, type=None):
         if billing_config and not isinstance(billing_config, dict):
             raise TypeError("Expected argument 'billing_config' to be a dict")
         pulumi.set(__self__, "billing_config", billing_config)
@@ -34,6 +34,9 @@ class GetB2CTenantResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -56,7 +59,7 @@ class GetB2CTenantResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        An identifier that represents the B2C tenant resource.
+        An identifier that represents the Azure AD B2C tenant resource.
         """
         return pulumi.get(self, "id")
 
@@ -64,7 +67,7 @@ class GetB2CTenantResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         """
         return pulumi.get(self, "location")
 
@@ -72,7 +75,7 @@ class GetB2CTenantResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the B2C tenant resource.
+        The name of the Azure AD B2C tenant resource.
         """
         return pulumi.get(self, "name")
 
@@ -83,6 +86,14 @@ class GetB2CTenantResult:
         SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -96,7 +107,7 @@ class GetB2CTenantResult:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        An identifier of the B2C tenant.
+        An identifier of the Azure AD B2C tenant.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -120,6 +131,7 @@ class AwaitableGetB2CTenantResult(GetB2CTenantResult):
             location=self.location,
             name=self.name,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type)
@@ -129,11 +141,11 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetB2CTenantResult:
     """
-    API Version: 2019-01-01-preview.
+    API Version: 2021-04-01.
 
 
     :param str resource_group_name: The name of the resource group.
-    :param str resource_name: The initial domain name of the B2C tenant.
+    :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -150,6 +162,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
@@ -160,10 +173,10 @@ def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetB2CTenantResult]:
     """
-    API Version: 2019-01-01-preview.
+    API Version: 2021-04-01.
 
 
     :param str resource_group_name: The name of the resource group.
-    :param str resource_name: The initial domain name of the B2C tenant.
+    :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
     ...

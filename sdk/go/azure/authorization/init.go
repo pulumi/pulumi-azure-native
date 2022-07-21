@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:authorization:AccessReviewHistoryDefinitionById":
-		r = &AccessReviewHistoryDefinitionById{}
-	case "azure-native:authorization:AccessReviewScheduleDefinitionById":
-		r = &AccessReviewScheduleDefinitionById{}
 	case "azure-native:authorization:ManagementLockAtResourceGroupLevel":
 		r = &ManagementLockAtResourceGroupLevel{}
 	case "azure-native:authorization:ManagementLockAtResourceLevel":
@@ -39,8 +35,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyDefinition{}
 	case "azure-native:authorization:PolicyDefinitionAtManagementGroup":
 		r = &PolicyDefinitionAtManagementGroup{}
-	case "azure-native:authorization:PolicyExemption":
-		r = &PolicyExemption{}
 	case "azure-native:authorization:PolicySetDefinition":
 		r = &PolicySetDefinition{}
 	case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
@@ -49,16 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateLinkAssociation{}
 	case "azure-native:authorization:ResourceManagementPrivateLink":
 		r = &ResourceManagementPrivateLink{}
-	case "azure-native:authorization:RoleAssignment":
-		r = &RoleAssignment{}
-	case "azure-native:authorization:RoleDefinition":
-		r = &RoleDefinition{}
 	case "azure-native:authorization:RoleManagementPolicyAssignment":
 		r = &RoleManagementPolicyAssignment{}
-	case "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById":
-		r = &ScopeAccessReviewHistoryDefinitionById{}
-	case "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById":
-		r = &ScopeAccessReviewScheduleDefinitionById{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

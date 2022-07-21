@@ -11,7 +11,7 @@ import (
 )
 
 // Peerings in a VirtualNetwork resource
-// API Version: 2018-04-01.
+// API Version: 2021-04-01-preview.
 func GetvNetPeering(ctx *pulumi.Context, args *GetvNetPeeringArgs, opts ...pulumi.InvokeOption) (*GetvNetPeeringResult, error) {
 	var rv GetvNetPeeringResult
 	err := ctx.Invoke("azure-native:databricks:getvNetPeering", args, &rv, opts...)

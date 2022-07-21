@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a hybrid machine.
- * API Version: 2020-08-02.
+ * API Version: 2022-03-10.
  */
 export class Machine extends pulumi.CustomResource {
     /**
@@ -37,82 +37,25 @@ export class Machine extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the AD fully qualified display name.
+     * Identity for the resource.
      */
-    public /*out*/ readonly adFqdn!: pulumi.Output<string>;
-    /**
-     * The hybrid machine agent full version.
-     */
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
-    /**
-     * Public Key that the client provides to be used during initial resource onboarding
-     */
-    public readonly clientPublicKey!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the hybrid machine display name.
-     */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
-    /**
-     * Specifies the DNS fully qualified display name.
-     */
-    public /*out*/ readonly dnsFqdn!: pulumi.Output<string>;
-    /**
-     * Specifies the Windows domain name.
-     */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
-    /**
-     * Details about the error state.
-     */
-    public /*out*/ readonly errorDetails!: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse[]>;
-    /**
-     * Machine Extensions information
-     */
-    public /*out*/ readonly extensions!: pulumi.Output<outputs.hybridcompute.MachineExtensionInstanceViewResponse[]>;
-    public readonly identity!: pulumi.Output<outputs.hybridcompute.MachineResponseIdentity | undefined>;
-    /**
-     * The time of the last status change.
-     */
-    public /*out*/ readonly lastStatusChange!: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<outputs.hybridcompute.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to the geographic location of the resource.
-     */
-    public readonly locationData!: pulumi.Output<outputs.hybridcompute.LocationDataResponse | undefined>;
-    /**
-     * Specifies the hybrid machine FQDN.
-     */
-    public /*out*/ readonly machineFqdn!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The Operating System running on the hybrid machine.
+     * Hybrid Compute Machine properties
      */
-    public /*out*/ readonly osName!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hybridcompute.MachinePropertiesResponse>;
     /**
-     * Specifies the operating system settings for the hybrid machine.
+     * The system meta data relating to this resource.
      */
-    public /*out*/ readonly osProfile!: pulumi.Output<outputs.hybridcompute.MachinePropertiesResponseOsProfile | undefined>;
-    /**
-     * Specifies the Operating System product SKU.
-     */
-    public /*out*/ readonly osSku!: pulumi.Output<string>;
-    /**
-     * The version of Operating System running on the hybrid machine.
-     */
-    public /*out*/ readonly osVersion!: pulumi.Output<string>;
-    /**
-     * The provisioning state, which only appears in the response.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The status of the hybrid machine agent.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -121,14 +64,6 @@ export class Machine extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Specifies the hybrid machine unique ID.
-     */
-    public readonly vmId!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the Arc Machine's unique SMBIOS ID
-     */
-    public /*out*/ readonly vmUuid!: pulumi.Output<string>;
 
     /**
      * Create a Machine resource with the given unique name, arguments, and options.
@@ -144,56 +79,23 @@ export class Machine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locationData"] = args ? args.locationData : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["machineName"] = args ? args.machineName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmId"] = args ? args.vmId : undefined;
-            resourceInputs["adFqdn"] = undefined /*out*/;
-            resourceInputs["agentVersion"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["dnsFqdn"] = undefined /*out*/;
-            resourceInputs["domainName"] = undefined /*out*/;
-            resourceInputs["errorDetails"] = undefined /*out*/;
-            resourceInputs["extensions"] = undefined /*out*/;
-            resourceInputs["lastStatusChange"] = undefined /*out*/;
-            resourceInputs["machineFqdn"] = undefined /*out*/;
-            resourceInputs["osName"] = undefined /*out*/;
-            resourceInputs["osProfile"] = undefined /*out*/;
-            resourceInputs["osSku"] = undefined /*out*/;
-            resourceInputs["osVersion"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmUuid"] = undefined /*out*/;
-        } else {
-            resourceInputs["adFqdn"] = undefined /*out*/;
-            resourceInputs["agentVersion"] = undefined /*out*/;
-            resourceInputs["clientPublicKey"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["dnsFqdn"] = undefined /*out*/;
-            resourceInputs["domainName"] = undefined /*out*/;
-            resourceInputs["errorDetails"] = undefined /*out*/;
-            resourceInputs["extensions"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["lastStatusChange"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["locationData"] = undefined /*out*/;
-            resourceInputs["machineFqdn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["osName"] = undefined /*out*/;
-            resourceInputs["osProfile"] = undefined /*out*/;
-            resourceInputs["osSku"] = undefined /*out*/;
-            resourceInputs["osVersion"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+        } else {
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmId"] = undefined /*out*/;
-            resourceInputs["vmUuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190318preview:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }, { type: "azure-native:hybridcompute/v20211210preview:Machine" }, { type: "azure-native:hybridcompute/v20220310:Machine" }, { type: "azure-native:hybridcompute/v20220510preview:Machine" }] };
@@ -207,32 +109,27 @@ export class Machine extends pulumi.CustomResource {
  */
 export interface MachineArgs {
     /**
-     * Public Key that the client provides to be used during initial resource onboarding
+     * Identity for the resource.
      */
-    clientPublicKey?: pulumi.Input<string>;
-    identity?: pulumi.Input<inputs.hybridcompute.MachineIdentityArgs>;
+    identity?: pulumi.Input<inputs.hybridcompute.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Metadata pertaining to the geographic location of the resource.
-     */
-    locationData?: pulumi.Input<inputs.hybridcompute.LocationDataArgs>;
-    /**
      * The name of the hybrid machine.
      */
-    name?: pulumi.Input<string>;
+    machineName?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * Hybrid Compute Machine properties
+     */
+    properties?: pulumi.Input<inputs.hybridcompute.MachinePropertiesArgs>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the hybrid machine unique ID.
-     */
-    vmId?: pulumi.Input<string>;
 }

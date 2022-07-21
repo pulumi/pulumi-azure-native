@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Quantum
     {
         /// <summary>
         /// The resource proxy definition object for quantum workspace.
-        /// API Version: 2019-11-04-preview.
+        /// API Version: 2022-01-10-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource proxy definition object for quantum workspace.
-        /// API Version: 2019-11-04-preview.
+        /// API Version: 2022-01-10-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

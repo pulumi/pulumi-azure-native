@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-    /// API Version: 2020-12-01-preview.
+    /// API Version: 2022-05-13.
     /// </summary>
     [AzureNativeResourceType("azure-native:confidentialledger:Ledger")]
     public partial class Ledger : Pulumi.CustomResource

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHub Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
     if (!opts) {
@@ -61,6 +61,10 @@ export interface GetVirtualHubResult {
      */
     readonly expressRouteGateway?: outputs.network.SubResourceResponse;
     /**
+     * The hubRoutingPreference of this VirtualHub.
+     */
+    readonly hubRoutingPreference?: string;
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -68,6 +72,10 @@ export interface GetVirtualHubResult {
      * List of references to IpConfigurations.
      */
     readonly ipConfigurations: outputs.network.SubResourceResponse[];
+    /**
+     * Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+     */
+    readonly kind: string;
     /**
      * Resource location.
      */
@@ -80,6 +88,10 @@ export interface GetVirtualHubResult {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     readonly p2SVpnGateway?: outputs.network.SubResourceResponse;
+    /**
+     * The preferred gateway to route on-prem traffic
+     */
+    readonly preferredRoutingGateway?: string;
     /**
      * The provisioning state of the virtual hub resource.
      */

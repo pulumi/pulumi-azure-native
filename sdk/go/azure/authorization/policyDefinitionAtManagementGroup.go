@@ -12,7 +12,7 @@ import (
 )
 
 // The policy definition.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type PolicyDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 
@@ -32,6 +32,8 @@ type PolicyDefinitionAtManagementGroup struct {
 	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -230,6 +232,11 @@ func (o PolicyDefinitionAtManagementGroupOutput) PolicyRule() pulumi.AnyOutput {
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 func (o PolicyDefinitionAtManagementGroupOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o PolicyDefinitionAtManagementGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource (Microsoft.Authorization/policyDefinitions).

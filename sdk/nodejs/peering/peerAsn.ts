@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The essential information related to the peer's ASN.
- * API Version: 2021-01-01.
+ * API Version: 2022-01-01.
  */
 export class PeerAsn extends pulumi.CustomResource {
     /**
@@ -63,7 +63,7 @@ export class PeerAsn extends pulumi.CustomResource {
     /**
      * The validation state of the ASN associated with the peer.
      */
-    public readonly validationState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly validationState!: pulumi.Output<string>;
 
     /**
      * Create a PeerAsn resource with the given unique name, arguments, and options.
@@ -80,10 +80,10 @@ export class PeerAsn extends pulumi.CustomResource {
             resourceInputs["peerAsnName"] = args ? args.peerAsnName : undefined;
             resourceInputs["peerContactDetail"] = args ? args.peerContactDetail : undefined;
             resourceInputs["peerName"] = args ? args.peerName : undefined;
-            resourceInputs["validationState"] = args ? args.validationState : undefined;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationState"] = undefined /*out*/;
         } else {
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -120,8 +120,4 @@ export interface PeerAsnArgs {
      * The name of the peer.
      */
     peerName?: pulumi.Input<string>;
-    /**
-     * The validation state of the ASN associated with the peer.
-     */
-    validationState?: pulumi.Input<string | enums.peering.ValidationState>;
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The extended Info of the Data Box Edge/Gateway device.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The extended Info of the Data Box Edge/Gateway device.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetDeviceExtendedInformationResult> Invoke(GetDeviceExtendedInformationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationInvokeArgs(), options.WithDefaults());
@@ -86,9 +86,25 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string? ClientSecretStoreUrl;
         /// <summary>
+        /// The Container for cloud witness in the storage account.
+        /// </summary>
+        public readonly string CloudWitnessContainerName;
+        /// <summary>
+        /// The Cloud Witness Storage account name.
+        /// </summary>
+        public readonly string CloudWitnessStorageAccountName;
+        /// <summary>
+        /// The Azure service endpoint of the cloud witness storage account.
+        /// </summary>
+        public readonly string CloudWitnessStorageEndpoint;
+        /// <summary>
+        /// Cluster Witness Type
+        /// </summary>
+        public readonly string ClusterWitnessType;
+        /// <summary>
         /// Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
         /// </summary>
-        public readonly Outputs.DeviceSecretsResponse DeviceSecrets;
+        public readonly ImmutableDictionary<string, Outputs.SecretResponse> DeviceSecrets;
         /// <summary>
         /// The public part of the encryption certificate. Client uses this to encrypt any secret.
         /// </summary>
@@ -97,6 +113,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// The digital signature of encrypted certificate.
         /// </summary>
         public readonly string? EncryptionKeyThumbprint;
+        /// <summary>
+        /// The witness location of file share.
+        /// </summary>
+        public readonly string FileShareWitnessLocation;
+        /// <summary>
+        /// The username of file share.
+        /// </summary>
+        public readonly string FileShareWitnessUsername;
         /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
@@ -114,6 +138,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string ResourceKey;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of DataBoxEdgeDevice
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -128,11 +156,23 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string? clientSecretStoreUrl,
 
-            Outputs.DeviceSecretsResponse deviceSecrets,
+            string cloudWitnessContainerName,
+
+            string cloudWitnessStorageAccountName,
+
+            string cloudWitnessStorageEndpoint,
+
+            string clusterWitnessType,
+
+            ImmutableDictionary<string, Outputs.SecretResponse> deviceSecrets,
 
             string? encryptionKey,
 
             string? encryptionKeyThumbprint,
+
+            string fileShareWitnessLocation,
+
+            string fileShareWitnessUsername,
 
             string id,
 
@@ -142,19 +182,28 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string resourceKey,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ChannelIntegrityKeyName = channelIntegrityKeyName;
             ChannelIntegrityKeyVersion = channelIntegrityKeyVersion;
             ClientSecretStoreId = clientSecretStoreId;
             ClientSecretStoreUrl = clientSecretStoreUrl;
+            CloudWitnessContainerName = cloudWitnessContainerName;
+            CloudWitnessStorageAccountName = cloudWitnessStorageAccountName;
+            CloudWitnessStorageEndpoint = cloudWitnessStorageEndpoint;
+            ClusterWitnessType = clusterWitnessType;
             DeviceSecrets = deviceSecrets;
             EncryptionKey = encryptionKey;
             EncryptionKeyThumbprint = encryptionKeyThumbprint;
+            FileShareWitnessLocation = fileShareWitnessLocation;
+            FileShareWitnessUsername = fileShareWitnessUsername;
             Id = id;
             KeyVaultSyncStatus = keyVaultSyncStatus;
             Name = name;
             ResourceKey = resourceKey;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -24,7 +24,7 @@ class PrivateEndpointConnectionArgs:
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The resource of private endpoint.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -53,7 +53,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -111,14 +111,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection
-        API Version: 2021-03-01.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The resource of private endpoint.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
         """
         ...
@@ -129,7 +129,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
-        API Version: 2021-03-01.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

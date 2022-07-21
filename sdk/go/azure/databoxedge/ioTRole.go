@@ -12,7 +12,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type IoTRole struct {
 	pulumi.CustomResourceState
 
@@ -37,7 +37,7 @@ type IoTRole struct {
 	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
 	// Mount points of shares in role(s).
 	ShareMappings MountPointMapResponseArrayOutput `pulumi:"shareMappings"`
-	// Role configured on ASE resource
+	// Metadata pertaining to creation and last modification of Role
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -286,7 +286,7 @@ func (o IoTRoleOutput) ShareMappings() MountPointMapResponseArrayOutput {
 	return o.ApplyT(func(v *IoTRole) MountPointMapResponseArrayOutput { return v.ShareMappings }).(MountPointMapResponseArrayOutput)
 }
 
-// Role configured on ASE resource
+// Metadata pertaining to creation and last modification of Role
 func (o IoTRoleOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *IoTRole) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

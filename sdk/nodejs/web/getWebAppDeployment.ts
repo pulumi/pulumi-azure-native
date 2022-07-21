@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * User credentials used for publishing activity.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentResult> {
     if (!opts) {

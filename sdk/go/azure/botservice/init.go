@@ -29,8 +29,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Channel{}
 	case "azure-native:botservice:EnterpriseChannel":
 		r = &EnterpriseChannel{}
-	case "azure-native:botservice:PrivateEndpointConnection":
-		r = &PrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// API Version: 2019-11-01-preview.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// API Version: 2019-11-01-preview.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResourceResponseSystemData SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.Insights
 
             string provisioningState,
 
+            Outputs.DataCollectionRuleResourceResponseSystemData systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Insights
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -12,7 +12,7 @@ import (
 )
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type AFDCustomDomain struct {
 	pulumi.CustomResourceState
 
@@ -25,6 +25,10 @@ type AFDCustomDomain struct {
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Resource reference to the Azure resource where custom domain ownership was prevalidated
+	PreValidatedCustomDomainResourceId ResourceReferenceResponsePtrOutput `pulumi:"preValidatedCustomDomainResourceId"`
+	// The name of the profile which holds the domain.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Read only system data
@@ -100,7 +104,9 @@ type afdcustomDomainArgs struct {
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// The host name of the domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Resource reference to the Azure resource where custom domain ownership was prevalidated
+	PreValidatedCustomDomainResourceId *ResourceReference `pulumi:"preValidatedCustomDomainResourceId"`
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -116,7 +122,9 @@ type AFDCustomDomainArgs struct {
 	CustomDomainName pulumi.StringPtrInput
 	// The host name of the domain. Must be a domain name.
 	HostName pulumi.StringInput
-	// Name of the CDN profile which is unique within the resource group.
+	// Resource reference to the Azure resource where custom domain ownership was prevalidated
+	PreValidatedCustomDomainResourceId ResourceReferencePtrInput
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
@@ -183,6 +191,18 @@ func (o AFDCustomDomainOutput) HostName() pulumi.StringOutput {
 // Resource name.
 func (o AFDCustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource reference to the Azure resource where custom domain ownership was prevalidated
+func (o AFDCustomDomainOutput) PreValidatedCustomDomainResourceId() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) ResourceReferenceResponsePtrOutput {
+		return v.PreValidatedCustomDomainResourceId
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+// The name of the profile which holds the domain.
+func (o AFDCustomDomainOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // Provisioning status

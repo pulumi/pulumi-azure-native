@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Full endpoint url of an event subscription
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getSystemTopicEventSubscriptionFullUrl(args: GetSystemTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionFullUrlResult> {
     if (!opts) {

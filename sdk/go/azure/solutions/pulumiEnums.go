@@ -387,6 +387,15 @@ const (
 	JitApproverTypeGroup = JitApproverType("group")
 )
 
+// The type of JIT schedule.
+type JitSchedulingType string
+
+const (
+	JitSchedulingTypeNotSpecified = JitSchedulingType("NotSpecified")
+	JitSchedulingTypeOnce         = JitSchedulingType("Once")
+	JitSchedulingTypeRecurring    = JitSchedulingType("Recurring")
+)
+
 // The identity type.
 type ResourceIdentityType string
 

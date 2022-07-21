@@ -11,7 +11,7 @@ import (
 )
 
 // A DDoS protection plan in a resource group.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupDdosProtectionPlan(ctx *pulumi.Context, args *LookupDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*LookupDdosProtectionPlanResult, error) {
 	var rv LookupDdosProtectionPlanResult
 	err := ctx.Invoke("azure-native:network:getDdosProtectionPlan", args, &rv, opts...)

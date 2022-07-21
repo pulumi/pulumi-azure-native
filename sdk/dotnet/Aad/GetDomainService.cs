@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Aad
     {
         /// <summary>
         /// Domain service.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Domain service.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.Aad
     [OutputType]
     public sealed class GetDomainServiceResult
     {
+        /// <summary>
+        /// Configuration diagnostics data containing latest execution from client.
+        /// </summary>
+        public readonly Outputs.ConfigDiagnosticsResponse? ConfigDiagnostics;
         /// <summary>
         /// Deployment Id
         /// </summary>
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Aad
 
         [OutputConstructor]
         private GetDomainServiceResult(
+            Outputs.ConfigDiagnosticsResponse? configDiagnostics,
+
             string deploymentId,
 
             string? domainConfigurationType,
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.Aad
 
             int version)
         {
+            ConfigDiagnostics = configDiagnostics;
             DeploymentId = deploymentId;
             DomainConfigurationType = domainConfigurationType;
             DomainName = domainName;

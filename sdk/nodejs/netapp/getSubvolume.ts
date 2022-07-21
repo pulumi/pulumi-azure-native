@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subvolume Information properties
- * API Version: 2021-10-01.
+ * API Version: 2022-01-01.
  */
 export function getSubvolume(args: GetSubvolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeResult> {
     if (!opts) {
@@ -72,7 +72,7 @@ export interface GetSubvolumeResult {
      */
     readonly provisioningState: string;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.netapp.SystemDataResponse;
     /**

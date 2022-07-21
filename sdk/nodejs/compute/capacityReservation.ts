@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the capacity reservation.
- * API Version: 2021-04-01.
+ * API Version: 2021-11-01.
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**
@@ -69,6 +69,10 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningTime"] = undefined /*out*/;
             resourceInputs["reservationId"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociated"] = undefined /*out*/;
         } else {
@@ -124,6 +129,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["reservationId"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociated"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;

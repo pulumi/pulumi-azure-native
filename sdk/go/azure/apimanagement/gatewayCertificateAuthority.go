@@ -12,15 +12,15 @@ import (
 )
 
 // Gateway certificate authority details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type GatewayCertificateAuthority struct {
 	pulumi.CustomResourceState
 
 	// Determines whether certificate authority is trusted.
 	IsTrusted pulumi.BoolPtrOutput `pulumi:"isTrusted"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -161,12 +161,12 @@ func (o GatewayCertificateAuthorityOutput) IsTrusted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GatewayCertificateAuthority) pulumi.BoolPtrOutput { return v.IsTrusted }).(pulumi.BoolPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o GatewayCertificateAuthorityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayCertificateAuthority) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o GatewayCertificateAuthorityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayCertificateAuthority) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

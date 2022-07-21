@@ -12,7 +12,7 @@ import (
 )
 
 // Static Site User Provided Function App ARM resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type StaticSiteUserProvidedFunctionAppForStaticSiteBuild struct {
 	pulumi.CustomResourceState
 

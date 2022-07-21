@@ -11,7 +11,7 @@ import (
 )
 
 // Friendly Routes name mapping to the any Routes or secret related information.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
 	err := ctx.Invoke("azure-native:cdn:getRoute", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 type LookupRouteArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -34,13 +34,15 @@ type LookupRouteArgs struct {
 
 // Friendly Routes name mapping to the any Routes or secret related information.
 type LookupRouteResult struct {
-	// compression settings.
-	CompressionSettings *CompressionSettingsResponse `pulumi:"compressionSettings"`
+	// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+	CacheConfiguration *AfdRouteCacheConfigurationResponse `pulumi:"cacheConfiguration"`
 	// Domains referenced by this endpoint.
-	CustomDomains    []ResourceReferenceResponse `pulumi:"customDomains"`
-	DeploymentStatus string                      `pulumi:"deploymentStatus"`
+	CustomDomains    []ActivatedResourceReferenceResponse `pulumi:"customDomains"`
+	DeploymentStatus string                               `pulumi:"deploymentStatus"`
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState *string `pulumi:"enabledState"`
+	// The name of the endpoint which holds the route.
+	EndpointName string `pulumi:"endpointName"`
 	// Protocol this rule will use when forwarding traffic to backends.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
@@ -59,8 +61,6 @@ type LookupRouteResult struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// rule sets referenced by this endpoint.
 	RuleSets []ResourceReferenceResponse `pulumi:"ruleSets"`
 	// List of supported protocols for this route.
@@ -87,7 +87,7 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 type LookupRouteOutputArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -114,14 +114,14 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx contex
 	return o
 }
 
-// compression settings.
-func (o LookupRouteResultOutput) CompressionSettings() CompressionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v LookupRouteResult) *CompressionSettingsResponse { return v.CompressionSettings }).(CompressionSettingsResponsePtrOutput)
+// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+func (o LookupRouteResultOutput) CacheConfiguration() AfdRouteCacheConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *AfdRouteCacheConfigurationResponse { return v.CacheConfiguration }).(AfdRouteCacheConfigurationResponsePtrOutput)
 }
 
 // Domains referenced by this endpoint.
-func (o LookupRouteResultOutput) CustomDomains() ResourceReferenceResponseArrayOutput {
-	return o.ApplyT(func(v LookupRouteResult) []ResourceReferenceResponse { return v.CustomDomains }).(ResourceReferenceResponseArrayOutput)
+func (o LookupRouteResultOutput) CustomDomains() ActivatedResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v LookupRouteResult) []ActivatedResourceReferenceResponse { return v.CustomDomains }).(ActivatedResourceReferenceResponseArrayOutput)
 }
 
 func (o LookupRouteResultOutput) DeploymentStatus() pulumi.StringOutput {
@@ -131,6 +131,11 @@ func (o LookupRouteResultOutput) DeploymentStatus() pulumi.StringOutput {
 // Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 func (o LookupRouteResultOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// The name of the endpoint which holds the route.
+func (o LookupRouteResultOutput) EndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
 // Protocol this rule will use when forwarding traffic to backends.
@@ -176,11 +181,6 @@ func (o LookupRouteResultOutput) PatternsToMatch() pulumi.StringArrayOutput {
 // Provisioning status
 func (o LookupRouteResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-func (o LookupRouteResultOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRouteResult) *string { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
 }
 
 // rule sets referenced by this endpoint.

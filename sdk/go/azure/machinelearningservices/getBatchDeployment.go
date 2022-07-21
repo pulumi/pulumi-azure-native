@@ -10,14 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupBatchDeployment(ctx *pulumi.Context, args *LookupBatchDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupBatchDeploymentResult, error) {
 	var rv LookupBatchDeploymentResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getBatchDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBatchDeploymentArgs struct {
@@ -32,24 +32,37 @@ type LookupBatchDeploymentArgs struct {
 }
 
 type LookupBatchDeploymentResult struct {
+	// [Required] Additional attributes of the entity.
+	BatchDeploymentProperties BatchDeploymentResponse `pulumi:"batchDeploymentProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties BatchDeploymentResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Sku details required for ARM contract for Autoscaling.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupBatchDeploymentResult
+func (val *LookupBatchDeploymentResult) Defaults() *LookupBatchDeploymentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BatchDeploymentProperties = *tmp.BatchDeploymentProperties.Defaults()
+
+	return &tmp
 }
 
 func LookupBatchDeploymentOutput(ctx *pulumi.Context, args LookupBatchDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupBatchDeploymentResultOutput {
@@ -94,14 +107,19 @@ func (o LookupBatchDeploymentResultOutput) ToLookupBatchDeploymentResultOutputWi
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupBatchDeploymentResultOutput) BatchDeploymentProperties() BatchDeploymentResponseOutput {
+	return o.ApplyT(func(v LookupBatchDeploymentResult) BatchDeploymentResponse { return v.BatchDeploymentProperties }).(BatchDeploymentResponseOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupBatchDeploymentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchDeploymentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Service identity associated with a resource.
-func (o LookupBatchDeploymentResultOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupBatchDeploymentResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+// Managed service identity (system assigned and/or user assigned identities)
+func (o LookupBatchDeploymentResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupBatchDeploymentResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -119,12 +137,12 @@ func (o LookupBatchDeploymentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchDeploymentResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupBatchDeploymentResultOutput) Properties() BatchDeploymentResponseOutput {
-	return o.ApplyT(func(v LookupBatchDeploymentResult) BatchDeploymentResponse { return v.Properties }).(BatchDeploymentResponseOutput)
+// Sku details required for ARM contract for Autoscaling.
+func (o LookupBatchDeploymentResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupBatchDeploymentResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupBatchDeploymentResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupBatchDeploymentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// An event source that receives its data from an Azure IoTHub.
-        /// API Version: 2020-05-15.
+        /// API Version: 2021-06-30-preview.
         /// </summary>
         public static Task<GetIoTHubEventSourceResult> InvokeAsync(GetIoTHubEventSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights:getIoTHubEventSource", args ?? new GetIoTHubEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// An event source that receives its data from an Azure IoTHub.
-        /// API Version: 2020-05-15.
+        /// API Version: 2021-06-30-preview.
         /// </summary>
         public static Output<GetIoTHubEventSourceResult> Invoke(GetIoTHubEventSourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights:getIoTHubEventSource", args ?? new GetIoTHubEventSourceInvokeArgs(), options.WithDefaults());

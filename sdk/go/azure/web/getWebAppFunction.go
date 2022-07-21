@@ -11,7 +11,7 @@ import (
 )
 
 // Function information.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupWebAppFunction(ctx *pulumi.Context, args *LookupWebAppFunctionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppFunctionResult, error) {
 	var rv LookupWebAppFunctionResult
 	err := ctx.Invoke("azure-native:web:getWebAppFunction", args, &rv, opts...)

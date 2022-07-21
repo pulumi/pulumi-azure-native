@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// The list Kusto database principals operation response.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list Kusto database principals operation response.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());

@@ -27,7 +27,6 @@ class ScalingPlanArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
-                 ring: Optional[pulumi.Input[int]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
@@ -44,7 +43,6 @@ class ScalingPlanArgs:
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[int] ring: The ring number of scaling plan.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]] schedules: List of ScalingSchedule definitions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -71,8 +69,6 @@ class ScalingPlanArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
-        if ring is not None:
-            pulumi.set(__self__, "ring", ring)
         if scaling_plan_name is not None:
             pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
         if schedules is not None:
@@ -211,18 +207,6 @@ class ScalingPlanArgs:
         pulumi.set(self, "plan", value)
 
     @property
-    @pulumi.getter
-    def ring(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ring number of scaling plan.
-        """
-        return pulumi.get(self, "ring")
-
-    @ring.setter
-    def ring(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "ring", value)
-
-    @property
     @pulumi.getter(name="scalingPlanName")
     def scaling_plan_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -296,7 +280,6 @@ class ScalingPlan(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ring: Optional[pulumi.Input[int]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingScheduleArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
@@ -305,7 +288,7 @@ class ScalingPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a scaling plan definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2021-07-12.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,7 +301,6 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[int] ring: The ring number of scaling plan.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingScheduleArgs']]]] schedules: List of ScalingSchedule definitions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -332,7 +314,7 @@ class ScalingPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a scaling plan definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2021-07-12.
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.
@@ -360,7 +342,6 @@ class ScalingPlan(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ring: Optional[pulumi.Input[int]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingScheduleArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
@@ -391,7 +372,6 @@ class ScalingPlan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["ring"] = ring
             __props__.__dict__["scaling_plan_name"] = scaling_plan_name
             __props__.__dict__["schedules"] = schedules
             __props__.__dict__["sku"] = sku
@@ -438,7 +418,6 @@ class ScalingPlan(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["plan"] = None
-        __props__.__dict__["ring"] = None
         __props__.__dict__["schedules"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
@@ -543,14 +522,6 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']]:
         return pulumi.get(self, "plan")
-
-    @property
-    @pulumi.getter
-    def ring(self) -> pulumi.Output[Optional[int]]:
-        """
-        The ring number of scaling plan.
-        """
-        return pulumi.get(self, "ring")
 
     @property
     @pulumi.getter

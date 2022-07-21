@@ -61,7 +61,7 @@ def list_monitored_resource(monitor_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitoredResourceResult:
     """
     Response of a list operation.
-    API Version: 2020-07-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -87,7 +87,7 @@ def list_monitored_resource_output(monitor_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitoredResourceResult]:
     """
     Response of a list operation.
-    API Version: 2020-07-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

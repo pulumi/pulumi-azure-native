@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service Token
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getOnlineEndpointToken(args: GetOnlineEndpointTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointTokenResult> {
     if (!opts) {
@@ -41,7 +41,7 @@ export interface GetOnlineEndpointTokenArgs {
  */
 export interface GetOnlineEndpointTokenResult {
     /**
-     * Access token.
+     * Access token for endpoint authentication.
      */
     readonly accessToken?: string;
     /**

@@ -11,11 +11,23 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// App Service plan.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
     {
+        /// <summary>
+        /// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        /// </summary>
+        [Output("elasticScaleEnabled")]
+        public Output<bool?> ElasticScaleEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
         /// <summary>
         /// The time when the server farm free offer expires.
         /// </summary>
@@ -173,6 +185,13 @@ namespace Pulumi.AzureNative.Web
         [Output("workerTierName")]
         public Output<string?> WorkerTierName { get; private set; } = null!;
 
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan will perform availability zone balancing.
+        /// If &lt;code&gt;false&lt;/code&gt;, this App Service Plan will not perform availability zone balancing.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AppServicePlan resource with the given unique name, arguments, and options.
@@ -234,6 +253,18 @@ namespace Pulumi.AzureNative.Web
 
     public sealed class AppServicePlanArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        /// </summary>
+        [Input("elasticScaleEnabled")]
+        public Input<bool>? ElasticScaleEnabled { get; set; }
+
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
         /// <summary>
         /// The time when the server farm free offer expires.
         /// </summary>
@@ -355,12 +386,20 @@ namespace Pulumi.AzureNative.Web
         [Input("workerTierName")]
         public Input<string>? WorkerTierName { get; set; }
 
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan will perform availability zone balancing.
+        /// If &lt;code&gt;false&lt;/code&gt;, this App Service Plan will not perform availability zone balancing.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public AppServicePlanArgs()
         {
             HyperV = false;
             IsXenon = false;
             PerSiteScaling = false;
             Reserved = false;
+            ZoneRedundant = false;
         }
     }
 }

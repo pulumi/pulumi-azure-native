@@ -11,7 +11,7 @@ import (
 )
 
 // Product details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	var rv LookupProductResult
 	err := ctx.Invoke("azure-native:apimanagement:getProduct", args, &rv, opts...)
@@ -38,9 +38,9 @@ type LookupProductResult struct {
 	Description *string `pulumi:"description"`
 	// Product name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
 	State *string `pulumi:"state"`
@@ -50,7 +50,7 @@ type LookupProductResult struct {
 	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
 	// Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
 	Terms *string `pulumi:"terms"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -110,12 +110,12 @@ func (o LookupProductResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupProductResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupProductResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -140,7 +140,7 @@ func (o LookupProductResultOutput) Terms() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProductResult) *string { return v.Terms }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupProductResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Type }).(pulumi.StringOutput)
 }

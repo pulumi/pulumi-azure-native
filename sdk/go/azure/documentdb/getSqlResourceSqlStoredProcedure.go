@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure Cosmos DB storedProcedure.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func LookupSqlResourceSqlStoredProcedure(ctx *pulumi.Context, args *LookupSqlResourceSqlStoredProcedureArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlStoredProcedureResult, error) {
 	var rv LookupSqlResourceSqlStoredProcedureResult
 	err := ctx.Invoke("azure-native:documentdb:getSqlResourceSqlStoredProcedure", args, &rv, opts...)

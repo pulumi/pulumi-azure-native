@@ -123,7 +123,7 @@ def get_asset_filter(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetFilterResult:
     """
     An Asset Filter.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -160,7 +160,7 @@ def get_asset_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetFilterResult]:
     """
     An Asset Filter.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

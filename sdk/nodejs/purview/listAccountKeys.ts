@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Account access keys.
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-07-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
     if (!opts) {

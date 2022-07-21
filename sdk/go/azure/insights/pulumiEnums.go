@@ -21,17 +21,6 @@ const (
 	AggregationTypeEnumTotal   = AggregationTypeEnum("Total")
 )
 
-// Severity of the alert
-type AlertSeverity string
-
-const (
-	AlertSeverityZero  = AlertSeverity("0")
-	AlertSeverityOne   = AlertSeverity("1")
-	AlertSeverityTwo   = AlertSeverity("2")
-	AlertSeverityThree = AlertSeverity("3")
-	AlertSeverityFour  = AlertSeverity("4")
-)
-
 // Type of application being monitored.
 type ApplicationType string
 
@@ -209,25 +198,15 @@ func (in *comparisonOperationTypePtr) ToComparisonOperationTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ComparisonOperationTypePtrOutput)
 }
 
-// the operator used to compare the data and the threshold.
+// The criteria operator. Relevant and required only for rules of the kind LogAlert.
 type ConditionOperator string
 
 const (
+	ConditionOperatorEquals             = ConditionOperator("Equals")
 	ConditionOperatorGreaterThan        = ConditionOperator("GreaterThan")
 	ConditionOperatorGreaterThanOrEqual = ConditionOperator("GreaterThanOrEqual")
 	ConditionOperatorLessThan           = ConditionOperator("LessThan")
 	ConditionOperatorLessThanOrEqual    = ConditionOperator("LessThanOrEqual")
-)
-
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-type ConditionalOperator string
-
-const (
-	ConditionalOperatorGreaterThanOrEqual = ConditionalOperator("GreaterThanOrEqual")
-	ConditionalOperatorLessThanOrEqual    = ConditionalOperator("LessThanOrEqual")
-	ConditionalOperatorGreaterThan        = ConditionalOperator("GreaterThan")
-	ConditionalOperatorLessThan           = ConditionalOperator("LessThan")
-	ConditionalOperatorEqual              = ConditionalOperator("Equal")
 )
 
 // Specifies the type of threshold criteria
@@ -236,6 +215,14 @@ type CriterionType string
 const (
 	CriterionTypeStaticThresholdCriterion  = CriterionType("StaticThresholdCriterion")
 	CriterionTypeDynamicThresholdCriterion = CriterionType("DynamicThresholdCriterion")
+)
+
+// Operator for dimension values
+type DimensionOperator string
+
+const (
+	DimensionOperatorInclude = DimensionOperator("Include")
+	DimensionOperatorExclude = DimensionOperator("Exclude")
 )
 
 // The operator used to compare the metric value against the threshold.
@@ -254,14 +241,6 @@ const (
 	DynamicThresholdSensitivityLow    = DynamicThresholdSensitivity("Low")
 	DynamicThresholdSensitivityMedium = DynamicThresholdSensitivity("Medium")
 	DynamicThresholdSensitivityHigh   = DynamicThresholdSensitivity("High")
-)
-
-// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-type Enabled string
-
-const (
-	EnabledTrue  = Enabled("true")
-	EnabledFalse = Enabled("false")
 )
 
 // Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -463,12 +442,12 @@ const (
 	ItemTypeFunction = ItemType("function")
 )
 
-// The kind of workbook. Choices are user and shared.
+// Indicates the type of scheduled query rule. The default is LogAlert.
 type Kind string
 
 const (
-	KindUser   = Kind("user")
-	KindShared = Kind("shared")
+	KindLogAlert    = Kind("LogAlert")
+	KindLogToMetric = Kind("LogToMetric")
 )
 
 // The kind of the resource.
@@ -573,6 +552,16 @@ type KnownWindowsEventLogDataSourceStreams string
 const (
 	KnownWindowsEventLogDataSourceStreams_Microsoft_WindowsEvent = KnownWindowsEventLogDataSourceStreams("Microsoft-WindowsEvent")
 	KnownWindowsEventLogDataSourceStreams_Microsoft_Event        = KnownWindowsEventLogDataSourceStreams("Microsoft-Event")
+)
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+type ManagedServiceIdentityType string
+
+const (
+	ManagedServiceIdentityTypeNone                         = ManagedServiceIdentityType("None")
+	ManagedServiceIdentityTypeSystemAssigned               = ManagedServiceIdentityType("SystemAssigned")
+	ManagedServiceIdentityTypeUserAssigned                 = ManagedServiceIdentityType("UserAssigned")
+	ManagedServiceIdentityType_SystemAssigned_UserAssigned = ManagedServiceIdentityType("SystemAssigned,UserAssigned")
 )
 
 // the metric statistic type. How the metrics from multiple instances are combined.
@@ -742,14 +731,6 @@ func (in *metricStatisticTypePtr) ToMetricStatisticTypePtrOutput() MetricStatist
 func (in *metricStatisticTypePtr) ToMetricStatisticTypePtrOutputWithContext(ctx context.Context) MetricStatisticTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricStatisticTypePtrOutput)
 }
-
-// Metric Trigger Type - 'Consecutive' or 'Total'
-type MetricTriggerType string
-
-const (
-	MetricTriggerTypeConsecutive = MetricTriggerType("Consecutive")
-	MetricTriggerTypeTotal       = MetricTriggerType("Total")
-)
 
 // specifies the type of the alert criteria.
 type Odatatype string
@@ -924,18 +905,25 @@ func (in *operationTypePtr) ToOperationTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(OperationTypePtrOutput)
 }
 
-// Operator for dimension values
+// the criteria operator.
 type Operator string
 
 const (
-	OperatorInclude = Operator("Include")
+	OperatorEquals             = Operator("Equals")
+	OperatorGreaterThan        = Operator("GreaterThan")
+	OperatorGreaterThanOrEqual = Operator("GreaterThanOrEqual")
+	OperatorLessThan           = Operator("LessThan")
+	OperatorLessThanOrEqual    = Operator("LessThanOrEqual")
 )
 
-// Set value to 'ResultCount' .
-type QueryType string
+// The network access type for accessing Application Insights query.
+type PublicNetworkAccessType string
 
 const (
-	QueryTypeResultCount = QueryType("ResultCount")
+	// Enables connectivity to Application Insights through public DNS.
+	PublicNetworkAccessTypeEnabled = PublicNetworkAccessType("Enabled")
+	// Disables public connectivity to Application Insights through public DNS.
+	PublicNetworkAccessTypeDisabled = PublicNetworkAccessType("Disabled")
 )
 
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
@@ -1457,6 +1445,17 @@ func (in *scaleTypePtr) ToScaleTypePtrOutputWithContext(ctx context.Context) Sca
 	return pulumi.ToOutputWithContext(ctx, in).(ScaleTypePtrOutput)
 }
 
+// Aggregation type. Relevant and required only for rules of the kind LogAlert.
+type TimeAggregation string
+
+const (
+	TimeAggregationCount   = TimeAggregation("Count")
+	TimeAggregationAverage = TimeAggregation("Average")
+	TimeAggregationMinimum = TimeAggregation("Minimum")
+	TimeAggregationMaximum = TimeAggregation("Maximum")
+	TimeAggregationTotal   = TimeAggregation("Total")
+)
+
 // the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
 type TimeAggregationOperator string
 
@@ -1801,6 +1800,13 @@ func (in *webTestKindPtr) ToWebTestKindPtrOutput() WebTestKindPtrOutput {
 func (in *webTestKindPtr) ToWebTestKindPtrOutputWithContext(ctx context.Context) WebTestKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebTestKindPtrOutput)
 }
+
+// The kind of workbook. Only valid value is shared.
+type WorkbookSharedTypeKind string
+
+const (
+	WorkbookSharedTypeKindShared = WorkbookSharedTypeKind("shared")
+)
 
 func init() {
 	pulumi.RegisterOutputType(ComparisonOperationTypeOutput{})

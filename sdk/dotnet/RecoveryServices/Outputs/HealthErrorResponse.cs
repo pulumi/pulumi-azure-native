@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
     /// <summary>
-    /// Health Error
+    /// Health Error.
     /// </summary>
     [OutputType]
     public sealed class HealthErrorResponse
     {
         /// <summary>
-        /// Error creation time (UTC)
+        /// Error creation time (UTC).
         /// </summary>
         public readonly string? CreationTimeUtc;
         /// <summary>

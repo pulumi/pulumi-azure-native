@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Representation of a managed Cassandra cluster.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Task<GetCassandraClusterResult> InvokeAsync(GetCassandraClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Representation of a managed Cassandra cluster.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedCassandraManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.DocumentDB
         private GetCassandraClusterResult(
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedCassandraManagedServiceIdentityResponse? identity,
 
             string? location,
 

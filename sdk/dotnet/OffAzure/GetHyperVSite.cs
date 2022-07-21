@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Site REST Resource.
-        /// API Version: 2020-01-01.
+        /// API Version: 2020-07-07.
         /// </summary>
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-native:offazure:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Site REST Resource.
-        /// API Version: 2020-01-01.
+        /// API Version: 2020-07-07.
         /// </summary>
         public static Output<GetHyperVSiteResult> Invoke(GetHyperVSiteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHyperVSiteResult>("azure-native:offazure:getHyperVSite", args ?? new GetHyperVSiteInvokeArgs(), options.WithDefaults());
@@ -89,6 +89,10 @@ namespace Pulumi.AzureNative.OffAzure
         /// Nested properties of Hyper-V site.
         /// </summary>
         public readonly Outputs.SitePropertiesResponse Properties;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
@@ -107,6 +111,8 @@ namespace Pulumi.AzureNative.OffAzure
 
             Outputs.SitePropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNative.OffAzure
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

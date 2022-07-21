@@ -11,7 +11,7 @@ import (
 )
 
 // An object that represents a container registry.
-// API Version: 2019-05-01.
+// API Version: 2021-09-01.
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	var rv LookupRegistryResult
 	err := ctx.Invoke("azure-native:containerregistry:getRegistry", args, &rv, opts...)
@@ -34,30 +34,46 @@ type LookupRegistryResult struct {
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate string `pulumi:"creationDate"`
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
+	// List of host names that will serve data when dataEndpointEnabled is true.
+	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
+	// The encryption settings of container registry.
+	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
 	// The resource ID.
 	Id string `pulumi:"id"`
+	// The identity of the container registry.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
 	LoginServer string `pulumi:"loginServer"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions *string `pulumi:"networkRuleBypassOptions"`
 	// The network rule set for a container registry.
 	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
 	Policies *PoliciesResponse `pulumi:"policies"`
+	// List of private endpoint connections for a container registry.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The SKU of the container registry.
 	Sku SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// Whether or not zone redundancy is enabled for this container registry
+	ZoneRedundancy *string `pulumi:"zoneRedundancy"`
 }
 
 // Defaults sets the appropriate defaults for LookupRegistryResult
@@ -70,10 +86,22 @@ func (val *LookupRegistryResult) Defaults() *LookupRegistryResult {
 		adminUserEnabled_ := false
 		tmp.AdminUserEnabled = &adminUserEnabled_
 	}
+	if isZero(tmp.NetworkRuleBypassOptions) {
+		networkRuleBypassOptions_ := "AzureServices"
+		tmp.NetworkRuleBypassOptions = &networkRuleBypassOptions_
+	}
 	tmp.NetworkRuleSet = tmp.NetworkRuleSet.Defaults()
 
 	tmp.Policies = tmp.Policies.Defaults()
 
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	if isZero(tmp.ZoneRedundancy) {
+		zoneRedundancy_ := "Disabled"
+		tmp.ZoneRedundancy = &zoneRedundancy_
+	}
 	return &tmp
 }
 
@@ -126,9 +154,29 @@ func (o LookupRegistryResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// Enable a single data endpoint per region for serving data.
+func (o LookupRegistryResultOutput) DataEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *bool { return v.DataEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of host names that will serve data when dataEndpointEnabled is true.
+func (o LookupRegistryResultOutput) DataEndpointHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []string { return v.DataEndpointHostNames }).(pulumi.StringArrayOutput)
+}
+
+// The encryption settings of container registry.
+func (o LookupRegistryResultOutput) Encryption() EncryptionPropertyResponsePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *EncryptionPropertyResponse { return v.Encryption }).(EncryptionPropertyResponsePtrOutput)
+}
+
 // The resource ID.
 func (o LookupRegistryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the container registry.
+func (o LookupRegistryResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
 }
 
 // The location of the resource. This cannot be changed after the resource is created.
@@ -146,6 +194,11 @@ func (o LookupRegistryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to allow trusted Azure services to access a network restricted registry.
+func (o LookupRegistryResultOutput) NetworkRuleBypassOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *string { return v.NetworkRuleBypassOptions }).(pulumi.StringPtrOutput)
+}
+
 // The network rule set for a container registry.
 func (o LookupRegistryResultOutput) NetworkRuleSet() NetworkRuleSetResponsePtrOutput {
 	return o.ApplyT(func(v LookupRegistryResult) *NetworkRuleSetResponse { return v.NetworkRuleSet }).(NetworkRuleSetResponsePtrOutput)
@@ -156,9 +209,19 @@ func (o LookupRegistryResultOutput) Policies() PoliciesResponsePtrOutput {
 	return o.ApplyT(func(v LookupRegistryResult) *PoliciesResponse { return v.Policies }).(PoliciesResponsePtrOutput)
 }
 
+// List of private endpoint connections for a container registry.
+func (o LookupRegistryResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The provisioning state of the container registry at the time the operation was called.
 func (o LookupRegistryResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is allowed for the container registry.
+func (o LookupRegistryResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The SKU of the container registry.
@@ -171,9 +234,9 @@ func (o LookupRegistryResultOutput) Status() StatusResponseOutput {
 	return o.ApplyT(func(v LookupRegistryResult) StatusResponse { return v.Status }).(StatusResponseOutput)
 }
 
-// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-func (o LookupRegistryResultOutput) StorageAccount() StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LookupRegistryResult) *StorageAccountPropertiesResponse { return v.StorageAccount }).(StorageAccountPropertiesResponsePtrOutput)
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupRegistryResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRegistryResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The tags of the resource.
@@ -184,6 +247,11 @@ func (o LookupRegistryResultOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource.
 func (o LookupRegistryResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not zone redundancy is enabled for this container registry
+func (o LookupRegistryResultOutput) ZoneRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
 }
 
 func init() {

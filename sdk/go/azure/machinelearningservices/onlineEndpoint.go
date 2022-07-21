@@ -11,12 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 type OnlineEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Service identity associated with a resource.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
@@ -24,8 +24,10 @@ type OnlineEndpoint struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// [Required] Additional attributes of the entity.
-	Properties OnlineEndpointResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
+	OnlineEndpointProperties OnlineEndpointResponseOutput `pulumi:"onlineEndpointProperties"`
+	// Sku details required for ARM contract for Autoscaling.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -40,8 +42,8 @@ func NewOnlineEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
+	if args.OnlineEndpointProperties == nil {
+		return nil, errors.New("invalid value for required argument 'OnlineEndpointProperties'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -95,16 +97,18 @@ func (OnlineEndpointState) ElementType() reflect.Type {
 type onlineEndpointArgs struct {
 	// Online Endpoint name.
 	EndpointName *string `pulumi:"endpointName"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentity `pulumi:"identity"`
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// [Required] Additional attributes of the entity.
-	Properties OnlineEndpointType `pulumi:"properties"`
+	OnlineEndpointProperties OnlineEndpointType `pulumi:"onlineEndpointProperties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sku details required for ARM contract for Autoscaling.
+	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of Azure Machine Learning workspace.
@@ -115,16 +119,18 @@ type onlineEndpointArgs struct {
 type OnlineEndpointArgs struct {
 	// Online Endpoint name.
 	EndpointName pulumi.StringPtrInput
-	// Service identity associated with a resource.
-	Identity ResourceIdentityPtrInput
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity ManagedServiceIdentityPtrInput
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// [Required] Additional attributes of the entity.
-	Properties OnlineEndpointTypeInput
+	OnlineEndpointProperties OnlineEndpointTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Sku details required for ARM contract for Autoscaling.
+	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Name of Azure Machine Learning workspace.
@@ -168,9 +174,9 @@ func (o OnlineEndpointOutput) ToOnlineEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Service identity associated with a resource.
-func (o OnlineEndpointOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *OnlineEndpoint) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+// Managed service identity (system assigned and/or user assigned identities)
+func (o OnlineEndpointOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -189,11 +195,16 @@ func (o OnlineEndpointOutput) Name() pulumi.StringOutput {
 }
 
 // [Required] Additional attributes of the entity.
-func (o OnlineEndpointOutput) Properties() OnlineEndpointResponseOutput {
-	return o.ApplyT(func(v *OnlineEndpoint) OnlineEndpointResponseOutput { return v.Properties }).(OnlineEndpointResponseOutput)
+func (o OnlineEndpointOutput) OnlineEndpointProperties() OnlineEndpointResponseOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) OnlineEndpointResponseOutput { return v.OnlineEndpointProperties }).(OnlineEndpointResponseOutput)
 }
 
-// System data associated with resource provider
+// Sku details required for ARM contract for Autoscaling.
+func (o OnlineEndpointOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o OnlineEndpointOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *OnlineEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

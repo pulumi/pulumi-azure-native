@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['DiskPoolArgs', 'DiskPool']
@@ -16,53 +15,50 @@ __all__ = ['DiskPoolArgs', 'DiskPool']
 @pulumi.input_type
 class DiskPoolArgs:
     def __init__(__self__, *,
-                 availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
                  subnet_id: pulumi.Input[str],
-                 tier: pulumi.Input[Union[str, 'DiskPoolTier']],
                  additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DiskPool resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk pool resource; example: ["1"].
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk pool.
-        :param pulumi.Input[Union[str, 'DiskPoolTier']] tier: Determines the SKU of VM deployed for Disk pool
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk pool.
-        :param pulumi.Input[str] disk_pool_name: The name of the Disk pool.
-        :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        :param pulumi.Input['SkuArgs'] sku: Determines the SKU of the Disk Pool
+        :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk Pool resource; example: ["1"].
+        :param pulumi.Input[str] disk_pool_name: The name of the Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: List of Azure Managed Disks to attach to a Disk Pool.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
+        :param pulumi.Input[str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_by_extended: List of Azure resource ids that manage this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "tier", tier)
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if disk_pool_name is not None:
             pulumi.set(__self__, "disk_pool_name", disk_pool_name)
         if disks is not None:
             pulumi.set(__self__, "disks", disks)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
+        if managed_by_extended is not None:
+            pulumi.set(__self__, "managed_by_extended", managed_by_extended)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Logical zone for Disk pool resource; example: ["1"].
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @availability_zones.setter
-    def availability_zones(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "availability_zones", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -77,10 +73,22 @@ class DiskPoolArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        Determines the SKU of the Disk Pool
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        Azure Resource ID of a Subnet for the Disk pool.
+        Azure Resource ID of a Subnet for the Disk Pool.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -89,22 +97,10 @@ class DiskPoolArgs:
         pulumi.set(self, "subnet_id", value)
 
     @property
-    @pulumi.getter
-    def tier(self) -> pulumi.Input[Union[str, 'DiskPoolTier']]:
-        """
-        Determines the SKU of VM deployed for Disk pool
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: pulumi.Input[Union[str, 'DiskPoolTier']]):
-        pulumi.set(self, "tier", value)
-
-    @property
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of additional capabilities for a Disk pool.
+        List of additional capabilities for a Disk Pool.
         """
         return pulumi.get(self, "additional_capabilities")
 
@@ -113,10 +109,22 @@ class DiskPoolArgs:
         pulumi.set(self, "additional_capabilities", value)
 
     @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Logical zone for Disk Pool resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
     @pulumi.getter(name="diskPoolName")
     def disk_pool_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Disk pool.
+        The name of the Disk Pool.
         """
         return pulumi.get(self, "disk_pool_name")
 
@@ -128,7 +136,7 @@ class DiskPoolArgs:
     @pulumi.getter
     def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
         """
-        List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        List of Azure Managed Disks to attach to a Disk Pool.
         """
         return pulumi.get(self, "disks")
 
@@ -147,6 +155,30 @@ class DiskPoolArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure resource id. Indicates if this resource is managed by another Azure resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_by", value)
+
+    @property
+    @pulumi.getter(name="managedByExtended")
+    def managed_by_extended(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Azure resource ids that manage this resource.
+        """
+        return pulumi.get(self, "managed_by_extended")
+
+    @managed_by_extended.setter
+    def managed_by_extended(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "managed_by_extended", value)
 
     @property
     @pulumi.getter
@@ -171,26 +203,30 @@ class DiskPool(pulumi.CustomResource):
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tier: Optional[pulumi.Input[Union[str, 'DiskPoolTier']]] = None,
                  __props__=None):
         """
-        Response for Disk pool request.
-        API Version: 2020-03-15-preview.
+        Response for Disk Pool request.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk pool resource; example: ["1"].
-        :param pulumi.Input[str] disk_pool_name: The name of the Disk pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]] disks: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk Pool resource; example: ["1"].
+        :param pulumi.Input[str] disk_pool_name: The name of the Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]] disks: List of Azure Managed Disks to attach to a Disk Pool.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
+        :param pulumi.Input[str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_by_extended: List of Azure resource ids that manage this resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk pool.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Determines the SKU of the Disk Pool
+        :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Union[str, 'DiskPoolTier']] tier: Determines the SKU of VM deployed for Disk pool
         """
         ...
     @overload
@@ -199,8 +235,8 @@ class DiskPool(pulumi.CustomResource):
                  args: DiskPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Response for Disk pool request.
-        API Version: 2020-03-15-preview.
+        Response for Disk Pool request.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param DiskPoolArgs args: The arguments to use to populate this resource's properties.
@@ -222,10 +258,12 @@ class DiskPool(pulumi.CustomResource):
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tier: Optional[pulumi.Input[Union[str, 'DiskPoolTier']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -239,26 +277,27 @@ class DiskPool(pulumi.CustomResource):
             __props__ = DiskPoolArgs.__new__(DiskPoolArgs)
 
             __props__.__dict__["additional_capabilities"] = additional_capabilities
-            if availability_zones is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_zones'")
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["disk_pool_name"] = disk_pool_name
             __props__.__dict__["disks"] = disks
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_by"] = managed_by
+            __props__.__dict__["managed_by_extended"] = managed_by_extended
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is None and not opts.urn:
+                raise TypeError("Missing required property 'sku'")
+            __props__.__dict__["sku"] = sku
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            if tier is None and not opts.urn:
-                raise TypeError("Missing required property 'tier'")
-            __props__.__dict__["tier"] = tier
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["tier"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagepool/v20200315preview:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20210401preview:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20210801:DiskPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -288,6 +327,8 @@ class DiskPool(pulumi.CustomResource):
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["disks"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
+        __props__.__dict__["managed_by_extended"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
@@ -302,7 +343,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of additional capabilities for Disk pool.
+        List of additional capabilities for Disk Pool.
         """
         return pulumi.get(self, "additional_capabilities")
 
@@ -310,7 +351,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[str]]:
         """
-        Logical zone for Disk pool resource; example: ["1"].
+        Logical zone for Disk Pool resource; example: ["1"].
         """
         return pulumi.get(self, "availability_zones")
 
@@ -318,7 +359,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter
     def disks(self) -> pulumi.Output[Optional[Sequence['outputs.DiskResponse']]]:
         """
-        List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        List of Azure Managed Disks to attach to a Disk Pool.
         """
         return pulumi.get(self, "disks")
 
@@ -329,6 +370,22 @@ class DiskPool(pulumi.CustomResource):
         The geo-location where the resource lives.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        Azure resource id. Indicates if this resource is managed by another Azure resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter(name="managedByExtended")
+    def managed_by_extended(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of Azure resource ids that manage this resource.
+        """
+        return pulumi.get(self, "managed_by_extended")
 
     @property
     @pulumi.getter
@@ -350,7 +407,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Operational status of the Disk pool.
+        Operational status of the Disk Pool.
         """
         return pulumi.get(self, "status")
 
@@ -358,7 +415,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        Azure Resource ID of a Subnet for the Disk pool.
+        Azure Resource ID of a Subnet for the Disk Pool.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -380,9 +437,9 @@ class DiskPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Output[str]:
+    def tier(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the SKU of VM deployed for Disk pool
+        Sku tier
         """
         return pulumi.get(self, "tier")
 

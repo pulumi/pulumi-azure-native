@@ -11,7 +11,7 @@ import (
 )
 
 // Organization resource.
-// API Version: 2020-03-01.
+// API Version: 2021-12-01.
 func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	var rv LookupOrganizationResult
 	err := ctx.Invoke("azure-native:confluent:getOrganization", args, &rv, opts...)
@@ -39,19 +39,21 @@ type LookupOrganizationResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Confluent offer detail
-	OfferDetail *OrganizationResourcePropertiesResponseOfferDetail `pulumi:"offerDetail"`
+	OfferDetail OfferDetailResponse `pulumi:"offerDetail"`
 	// Id of the Confluent organization.
 	OrganizationId string `pulumi:"organizationId"`
 	// Provision states for confluent RP
 	ProvisioningState string `pulumi:"provisioningState"`
 	// SSO url for the Confluent organization.
 	SsoUrl string `pulumi:"ssoUrl"`
+	// Metadata pertaining to creation and last modification of the resource
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Organization resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// Subscriber detail
-	UserDetail *OrganizationResourcePropertiesResponseUserDetail `pulumi:"userDetail"`
+	UserDetail UserDetailResponse `pulumi:"userDetail"`
 }
 
 func LookupOrganizationOutput(ctx *pulumi.Context, args LookupOrganizationOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
@@ -114,10 +116,8 @@ func (o LookupOrganizationResultOutput) Name() pulumi.StringOutput {
 }
 
 // Confluent offer detail
-func (o LookupOrganizationResultOutput) OfferDetail() OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) *OrganizationResourcePropertiesResponseOfferDetail {
-		return v.OfferDetail
-	}).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
+func (o LookupOrganizationResultOutput) OfferDetail() OfferDetailResponseOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) OfferDetailResponse { return v.OfferDetail }).(OfferDetailResponseOutput)
 }
 
 // Id of the Confluent organization.
@@ -135,6 +135,11 @@ func (o LookupOrganizationResultOutput) SsoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.SsoUrl }).(pulumi.StringOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource
+func (o LookupOrganizationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Organization resource tags
 func (o LookupOrganizationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -146,10 +151,8 @@ func (o LookupOrganizationResultOutput) Type() pulumi.StringOutput {
 }
 
 // Subscriber detail
-func (o LookupOrganizationResultOutput) UserDetail() OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return o.ApplyT(func(v LookupOrganizationResult) *OrganizationResourcePropertiesResponseUserDetail {
-		return v.UserDetail
-	}).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
+func (o LookupOrganizationResultOutput) UserDetail() UserDetailResponseOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) UserDetailResponse { return v.UserDetail }).(UserDetailResponseOutput)
 }
 
 func init() {

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Build result log resource properties payload
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getBuildServiceBuildResultLog(args: GetBuildServiceBuildResultLogArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuildResultLogResult> {
     if (!opts) {

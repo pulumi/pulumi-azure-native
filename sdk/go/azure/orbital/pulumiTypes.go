@@ -10,6 +10,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Authorized groundstation.
+type AuthorizedGroundstationResponse struct {
+	// Date of authorization expiration.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Groundstation name.
+	GroundStation *string `pulumi:"groundStation"`
+}
+
+// Authorized groundstation.
+type AuthorizedGroundstationResponseOutput struct{ *pulumi.OutputState }
+
+func (AuthorizedGroundstationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizedGroundstationResponse)(nil)).Elem()
+}
+
+func (o AuthorizedGroundstationResponseOutput) ToAuthorizedGroundstationResponseOutput() AuthorizedGroundstationResponseOutput {
+	return o
+}
+
+func (o AuthorizedGroundstationResponseOutput) ToAuthorizedGroundstationResponseOutputWithContext(ctx context.Context) AuthorizedGroundstationResponseOutput {
+	return o
+}
+
+// Date of authorization expiration.
+func (o AuthorizedGroundstationResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizedGroundstationResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Groundstation name.
+func (o AuthorizedGroundstationResponseOutput) GroundStation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizedGroundstationResponse) *string { return v.GroundStation }).(pulumi.StringPtrOutput)
+}
+
+type AuthorizedGroundstationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizedGroundstationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizedGroundstationResponse)(nil)).Elem()
+}
+
+func (o AuthorizedGroundstationResponseArrayOutput) ToAuthorizedGroundstationResponseArrayOutput() AuthorizedGroundstationResponseArrayOutput {
+	return o
+}
+
+func (o AuthorizedGroundstationResponseArrayOutput) ToAuthorizedGroundstationResponseArrayOutputWithContext(ctx context.Context) AuthorizedGroundstationResponseArrayOutput {
+	return o
+}
+
+func (o AuthorizedGroundstationResponseArrayOutput) Index(i pulumi.IntInput) AuthorizedGroundstationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizedGroundstationResponse {
+		return vs[0].([]AuthorizedGroundstationResponse)[vs[1].(int)]
+	}).(AuthorizedGroundstationResponseOutput)
+}
+
 // Customer retrieves list of Available Contacts for a spacecraft resource. Later, one of the available contact can be selected to create a contact.
 type AvailableContactsResponse struct {
 	// Azimuth of the antenna at the end of the contact in decimal degrees.
@@ -20,19 +73,19 @@ type AvailableContactsResponse struct {
 	GroundStationName string `pulumi:"groundStationName"`
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MaximumElevationDegrees float64 `pulumi:"maximumElevationDegrees"`
-	// Time to lost receiving a signal.
+	// Time to lost receiving a signal (ISO 8601 UTC standard).
 	RxEndTime string `pulumi:"rxEndTime"`
-	// Earliest time to receive a signal.
+	// Earliest time to receive a signal (ISO 8601 UTC standard).
 	RxStartTime string `pulumi:"rxStartTime"`
 	// The reference to the spacecraft resource.
-	Spacecraft *ResourceReferenceResponse `pulumi:"spacecraft"`
+	Spacecraft *AvailableContactsResponseSpacecraft `pulumi:"spacecraft"`
 	// Azimuth of the antenna at the start of the contact in decimal degrees.
 	StartAzimuthDegrees float64 `pulumi:"startAzimuthDegrees"`
 	// Spacecraft elevation above the horizon at contact start.
 	StartElevationDegrees float64 `pulumi:"startElevationDegrees"`
-	// Time at which antenna transmit will be disabled.
+	// Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
 	TxEndTime string `pulumi:"txEndTime"`
-	// Time at which antenna transmit will be enabled.
+	// Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
 	TxStartTime string `pulumi:"txStartTime"`
 }
 
@@ -71,19 +124,19 @@ func (o AvailableContactsResponseOutput) MaximumElevationDegrees() pulumi.Float6
 	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.MaximumElevationDegrees }).(pulumi.Float64Output)
 }
 
-// Time to lost receiving a signal.
+// Time to lost receiving a signal (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) RxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.RxEndTime }).(pulumi.StringOutput)
 }
 
-// Earliest time to receive a signal.
+// Earliest time to receive a signal (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) RxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.RxStartTime }).(pulumi.StringOutput)
 }
 
 // The reference to the spacecraft resource.
-func (o AvailableContactsResponseOutput) Spacecraft() ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v AvailableContactsResponse) *ResourceReferenceResponse { return v.Spacecraft }).(ResourceReferenceResponsePtrOutput)
+func (o AvailableContactsResponseOutput) Spacecraft() AvailableContactsResponseSpacecraftPtrOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) *AvailableContactsResponseSpacecraft { return v.Spacecraft }).(AvailableContactsResponseSpacecraftPtrOutput)
 }
 
 // Azimuth of the antenna at the start of the contact in decimal degrees.
@@ -96,12 +149,12 @@ func (o AvailableContactsResponseOutput) StartElevationDegrees() pulumi.Float64O
 	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.StartElevationDegrees }).(pulumi.Float64Output)
 }
 
-// Time at which antenna transmit will be disabled.
+// Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) TxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.TxEndTime }).(pulumi.StringOutput)
 }
 
-// Time at which antenna transmit will be enabled.
+// Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) TxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.TxStartTime }).(pulumi.StringOutput)
 }
@@ -126,17 +179,134 @@ func (o AvailableContactsResponseArrayOutput) Index(i pulumi.IntInput) Available
 	}).(AvailableContactsResponseOutput)
 }
 
-// Contact Profile link
+// The reference to the spacecraft resource.
+type AvailableContactsResponseSpacecraft struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// The reference to the spacecraft resource.
+type AvailableContactsResponseSpacecraftOutput struct{ *pulumi.OutputState }
+
+func (AvailableContactsResponseSpacecraftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailableContactsResponseSpacecraft)(nil)).Elem()
+}
+
+func (o AvailableContactsResponseSpacecraftOutput) ToAvailableContactsResponseSpacecraftOutput() AvailableContactsResponseSpacecraftOutput {
+	return o
+}
+
+func (o AvailableContactsResponseSpacecraftOutput) ToAvailableContactsResponseSpacecraftOutputWithContext(ctx context.Context) AvailableContactsResponseSpacecraftOutput {
+	return o
+}
+
+// Resource ID.
+func (o AvailableContactsResponseSpacecraftOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AvailableContactsResponseSpacecraft) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type AvailableContactsResponseSpacecraftPtrOutput struct{ *pulumi.OutputState }
+
+func (AvailableContactsResponseSpacecraftPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailableContactsResponseSpacecraft)(nil)).Elem()
+}
+
+func (o AvailableContactsResponseSpacecraftPtrOutput) ToAvailableContactsResponseSpacecraftPtrOutput() AvailableContactsResponseSpacecraftPtrOutput {
+	return o
+}
+
+func (o AvailableContactsResponseSpacecraftPtrOutput) ToAvailableContactsResponseSpacecraftPtrOutputWithContext(ctx context.Context) AvailableContactsResponseSpacecraftPtrOutput {
+	return o
+}
+
+func (o AvailableContactsResponseSpacecraftPtrOutput) Elem() AvailableContactsResponseSpacecraftOutput {
+	return o.ApplyT(func(v *AvailableContactsResponseSpacecraft) AvailableContactsResponseSpacecraft {
+		if v != nil {
+			return *v
+		}
+		var ret AvailableContactsResponseSpacecraft
+		return ret
+	}).(AvailableContactsResponseSpacecraftOutput)
+}
+
+// Resource ID.
+func (o AvailableContactsResponseSpacecraftPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailableContactsResponseSpacecraft) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reference to the contact profile resource.
+type ContactParametersContactProfile struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// ContactParametersContactProfileInput is an input type that accepts ContactParametersContactProfileArgs and ContactParametersContactProfileOutput values.
+// You can construct a concrete instance of `ContactParametersContactProfileInput` via:
+//
+//          ContactParametersContactProfileArgs{...}
+type ContactParametersContactProfileInput interface {
+	pulumi.Input
+
+	ToContactParametersContactProfileOutput() ContactParametersContactProfileOutput
+	ToContactParametersContactProfileOutputWithContext(context.Context) ContactParametersContactProfileOutput
+}
+
+// The reference to the contact profile resource.
+type ContactParametersContactProfileArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ContactParametersContactProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactParametersContactProfile)(nil)).Elem()
+}
+
+func (i ContactParametersContactProfileArgs) ToContactParametersContactProfileOutput() ContactParametersContactProfileOutput {
+	return i.ToContactParametersContactProfileOutputWithContext(context.Background())
+}
+
+func (i ContactParametersContactProfileArgs) ToContactParametersContactProfileOutputWithContext(ctx context.Context) ContactParametersContactProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactParametersContactProfileOutput)
+}
+
+// The reference to the contact profile resource.
+type ContactParametersContactProfileOutput struct{ *pulumi.OutputState }
+
+func (ContactParametersContactProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactParametersContactProfile)(nil)).Elem()
+}
+
+func (o ContactParametersContactProfileOutput) ToContactParametersContactProfileOutput() ContactParametersContactProfileOutput {
+	return o
+}
+
+func (o ContactParametersContactProfileOutput) ToContactParametersContactProfileOutputWithContext(ctx context.Context) ContactParametersContactProfileOutput {
+	return o
+}
+
+// Resource ID.
+func (o ContactParametersContactProfileOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactParametersContactProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Contact Profile Link.
 type ContactProfileLink struct {
-	// Contact Profile Link Channel
+	// Contact Profile Link Channel.
 	Channels []ContactProfileLinkChannel `pulumi:"channels"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// Effective Isotropic Radiated Power (EIRP) in dBW.
+	// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 	EirpdBW *float64 `pulumi:"eirpdBW"`
-	// Gain To Noise Temperature in db/K.
+	// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 	GainOverTemperature *float64 `pulumi:"gainOverTemperature"`
-	// polarization. eg (RHCP, LHCP)
+	// Link name.
+	Name string `pulumi:"name"`
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
@@ -151,17 +321,19 @@ type ContactProfileLinkInput interface {
 	ToContactProfileLinkOutputWithContext(context.Context) ContactProfileLinkOutput
 }
 
-// Contact Profile link
+// Contact Profile Link.
 type ContactProfileLinkArgs struct {
-	// Contact Profile Link Channel
+	// Contact Profile Link Channel.
 	Channels ContactProfileLinkChannelArrayInput `pulumi:"channels"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// Effective Isotropic Radiated Power (EIRP) in dBW.
+	// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 	EirpdBW pulumi.Float64PtrInput `pulumi:"eirpdBW"`
-	// Gain To Noise Temperature in db/K.
+	// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 	GainOverTemperature pulumi.Float64PtrInput `pulumi:"gainOverTemperature"`
-	// polarization. eg (RHCP, LHCP)
+	// Link name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization pulumi.StringInput `pulumi:"polarization"`
 }
 
@@ -202,7 +374,7 @@ func (i ContactProfileLinkArray) ToContactProfileLinkArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkArrayOutput)
 }
 
-// Contact Profile link
+// Contact Profile Link.
 type ContactProfileLinkOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkOutput) ElementType() reflect.Type {
@@ -217,27 +389,32 @@ func (o ContactProfileLinkOutput) ToContactProfileLinkOutputWithContext(ctx cont
 	return o
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 func (o ContactProfileLinkOutput) Channels() ContactProfileLinkChannelArrayOutput {
 	return o.ApplyT(func(v ContactProfileLink) []ContactProfileLinkChannel { return v.Channels }).(ContactProfileLinkChannelArrayOutput)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o ContactProfileLinkOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Effective Isotropic Radiated Power (EIRP) in dBW.
+// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 func (o ContactProfileLinkOutput) EirpdBW() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLink) *float64 { return v.EirpdBW }).(pulumi.Float64PtrOutput)
 }
 
-// Gain To Noise Temperature in db/K.
+// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 func (o ContactProfileLinkOutput) GainOverTemperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLink) *float64 { return v.GainOverTemperature }).(pulumi.Float64PtrOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Link name.
+func (o ContactProfileLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Polarization. e.g. (RHCP, LHCP).
 func (o ContactProfileLinkOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -262,22 +439,24 @@ func (o ContactProfileLinkArrayOutput) Index(i pulumi.IntInput) ContactProfileLi
 	}).(ContactProfileLinkOutput)
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannel struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Configuration for decoding
+	// Currently unused.
 	DecodingConfiguration *string `pulumi:"decodingConfiguration"`
-	// Configuration for demodulation
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 	DemodulationConfiguration *string `pulumi:"demodulationConfiguration"`
-	// Configuration for encoding
+	// Currently unused.
 	EncodingConfiguration *string `pulumi:"encodingConfiguration"`
 	// Customer End point to store/retrieve data during a contact.
 	EndPoint EndPoint `pulumi:"endPoint"`
-	// Configuration for modulation
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 	ModulationConfiguration *string `pulumi:"modulationConfiguration"`
+	// Channel name.
+	Name string `pulumi:"name"`
 }
 
 // ContactProfileLinkChannelInput is an input type that accepts ContactProfileLinkChannelArgs and ContactProfileLinkChannelOutput values.
@@ -291,22 +470,24 @@ type ContactProfileLinkChannelInput interface {
 	ToContactProfileLinkChannelOutputWithContext(context.Context) ContactProfileLinkChannelOutput
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelArgs struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz pulumi.Float64Input `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz pulumi.Float64Input `pulumi:"centerFrequencyMHz"`
-	// Configuration for decoding
+	// Currently unused.
 	DecodingConfiguration pulumi.StringPtrInput `pulumi:"decodingConfiguration"`
-	// Configuration for demodulation
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 	DemodulationConfiguration pulumi.StringPtrInput `pulumi:"demodulationConfiguration"`
-	// Configuration for encoding
+	// Currently unused.
 	EncodingConfiguration pulumi.StringPtrInput `pulumi:"encodingConfiguration"`
 	// Customer End point to store/retrieve data during a contact.
 	EndPoint EndPointInput `pulumi:"endPoint"`
-	// Configuration for modulation
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 	ModulationConfiguration pulumi.StringPtrInput `pulumi:"modulationConfiguration"`
+	// Channel name.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (ContactProfileLinkChannelArgs) ElementType() reflect.Type {
@@ -346,7 +527,7 @@ func (i ContactProfileLinkChannelArray) ToContactProfileLinkChannelArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelArrayOutput)
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkChannelOutput) ElementType() reflect.Type {
@@ -361,27 +542,27 @@ func (o ContactProfileLinkChannelOutput) ToContactProfileLinkChannelOutputWithCo
 	return o
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o ContactProfileLinkChannelOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannel) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o ContactProfileLinkChannelOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannel) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Configuration for decoding
+// Currently unused.
 func (o ContactProfileLinkChannelOutput) DecodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.DecodingConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for demodulation
+// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelOutput) DemodulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.DemodulationConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for encoding
+// Currently unused.
 func (o ContactProfileLinkChannelOutput) EncodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.EncodingConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -391,9 +572,14 @@ func (o ContactProfileLinkChannelOutput) EndPoint() EndPointOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) EndPoint { return v.EndPoint }).(EndPointOutput)
 }
 
-// Configuration for modulation
+// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelOutput) ModulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.ModulationConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// Channel name.
+func (o ContactProfileLinkChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannel) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ContactProfileLinkChannelArrayOutput struct{ *pulumi.OutputState }
@@ -416,25 +602,27 @@ func (o ContactProfileLinkChannelArrayOutput) Index(i pulumi.IntInput) ContactPr
 	}).(ContactProfileLinkChannelOutput)
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelResponse struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Configuration for decoding
+	// Currently unused.
 	DecodingConfiguration *string `pulumi:"decodingConfiguration"`
-	// Configuration for demodulation
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 	DemodulationConfiguration *string `pulumi:"demodulationConfiguration"`
-	// Configuration for encoding
+	// Currently unused.
 	EncodingConfiguration *string `pulumi:"encodingConfiguration"`
 	// Customer End point to store/retrieve data during a contact.
 	EndPoint EndPointResponse `pulumi:"endPoint"`
-	// Configuration for modulation
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 	ModulationConfiguration *string `pulumi:"modulationConfiguration"`
+	// Channel name.
+	Name string `pulumi:"name"`
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkChannelResponseOutput) ElementType() reflect.Type {
@@ -449,27 +637,27 @@ func (o ContactProfileLinkChannelResponseOutput) ToContactProfileLinkChannelResp
 	return o
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o ContactProfileLinkChannelResponseOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o ContactProfileLinkChannelResponseOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Configuration for decoding
+// Currently unused.
 func (o ContactProfileLinkChannelResponseOutput) DecodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.DecodingConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for demodulation
+// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelResponseOutput) DemodulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.DemodulationConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for encoding
+// Currently unused.
 func (o ContactProfileLinkChannelResponseOutput) EncodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.EncodingConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -479,9 +667,14 @@ func (o ContactProfileLinkChannelResponseOutput) EndPoint() EndPointResponseOutp
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) EndPointResponse { return v.EndPoint }).(EndPointResponseOutput)
 }
 
-// Configuration for modulation
+// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelResponseOutput) ModulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.ModulationConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// Channel name.
+func (o ContactProfileLinkChannelResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannelResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ContactProfileLinkChannelResponseArrayOutput struct{ *pulumi.OutputState }
@@ -504,21 +697,23 @@ func (o ContactProfileLinkChannelResponseArrayOutput) Index(i pulumi.IntInput) C
 	}).(ContactProfileLinkChannelResponseOutput)
 }
 
-// Contact Profile link
+// Contact Profile Link.
 type ContactProfileLinkResponse struct {
-	// Contact Profile Link Channel
+	// Contact Profile Link Channel.
 	Channels []ContactProfileLinkChannelResponse `pulumi:"channels"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// Effective Isotropic Radiated Power (EIRP) in dBW.
+	// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 	EirpdBW *float64 `pulumi:"eirpdBW"`
-	// Gain To Noise Temperature in db/K.
+	// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 	GainOverTemperature *float64 `pulumi:"gainOverTemperature"`
-	// polarization. eg (RHCP, LHCP)
+	// Link name.
+	Name string `pulumi:"name"`
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
-// Contact Profile link
+// Contact Profile Link.
 type ContactProfileLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkResponseOutput) ElementType() reflect.Type {
@@ -533,27 +728,32 @@ func (o ContactProfileLinkResponseOutput) ToContactProfileLinkResponseOutputWith
 	return o
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 func (o ContactProfileLinkResponseOutput) Channels() ContactProfileLinkChannelResponseArrayOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) []ContactProfileLinkChannelResponse { return v.Channels }).(ContactProfileLinkChannelResponseArrayOutput)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o ContactProfileLinkResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Effective Isotropic Radiated Power (EIRP) in dBW.
+// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 func (o ContactProfileLinkResponseOutput) EirpdBW() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) *float64 { return v.EirpdBW }).(pulumi.Float64PtrOutput)
 }
 
-// Gain To Noise Temperature in db/K.
+// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 func (o ContactProfileLinkResponseOutput) GainOverTemperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) *float64 { return v.GainOverTemperature }).(pulumi.Float64PtrOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Link name.
+func (o ContactProfileLinkResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Polarization. e.g. (RHCP, LHCP).
 func (o ContactProfileLinkResponseOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -576,6 +776,201 @@ func (o ContactProfileLinkResponseArrayOutput) Index(i pulumi.IntInput) ContactP
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactProfileLinkResponse {
 		return vs[0].([]ContactProfileLinkResponse)[vs[1].(int)]
 	}).(ContactProfileLinkResponseOutput)
+}
+
+// Network configuration of customer virtual network.
+type ContactProfilesPropertiesNetworkConfiguration struct {
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ContactProfilesPropertiesNetworkConfigurationInput is an input type that accepts ContactProfilesPropertiesNetworkConfigurationArgs and ContactProfilesPropertiesNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ContactProfilesPropertiesNetworkConfigurationInput` via:
+//
+//          ContactProfilesPropertiesNetworkConfigurationArgs{...}
+type ContactProfilesPropertiesNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToContactProfilesPropertiesNetworkConfigurationOutput() ContactProfilesPropertiesNetworkConfigurationOutput
+	ToContactProfilesPropertiesNetworkConfigurationOutputWithContext(context.Context) ContactProfilesPropertiesNetworkConfigurationOutput
+}
+
+// Network configuration of customer virtual network.
+type ContactProfilesPropertiesNetworkConfigurationArgs struct {
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ContactProfilesPropertiesNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfilesPropertiesNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ContactProfilesPropertiesNetworkConfigurationArgs) ToContactProfilesPropertiesNetworkConfigurationOutput() ContactProfilesPropertiesNetworkConfigurationOutput {
+	return i.ToContactProfilesPropertiesNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContactProfilesPropertiesNetworkConfigurationArgs) ToContactProfilesPropertiesNetworkConfigurationOutputWithContext(ctx context.Context) ContactProfilesPropertiesNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfilesPropertiesNetworkConfigurationOutput)
+}
+
+// Network configuration of customer virtual network.
+type ContactProfilesPropertiesNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContactProfilesPropertiesNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfilesPropertiesNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ContactProfilesPropertiesNetworkConfigurationOutput) ToContactProfilesPropertiesNetworkConfigurationOutput() ContactProfilesPropertiesNetworkConfigurationOutput {
+	return o
+}
+
+func (o ContactProfilesPropertiesNetworkConfigurationOutput) ToContactProfilesPropertiesNetworkConfigurationOutputWithContext(ctx context.Context) ContactProfilesPropertiesNetworkConfigurationOutput {
+	return o
+}
+
+// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+func (o ContactProfilesPropertiesNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfilesPropertiesNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Network configuration of customer virtual network.
+type ContactProfilesPropertiesResponseNetworkConfiguration struct {
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// Network configuration of customer virtual network.
+type ContactProfilesPropertiesResponseNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContactProfilesPropertiesResponseNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfilesPropertiesResponseNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ContactProfilesPropertiesResponseNetworkConfigurationOutput) ToContactProfilesPropertiesResponseNetworkConfigurationOutput() ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+	return o
+}
+
+func (o ContactProfilesPropertiesResponseNetworkConfigurationOutput) ToContactProfilesPropertiesResponseNetworkConfigurationOutputWithContext(ctx context.Context) ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+	return o
+}
+
+// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+func (o ContactProfilesPropertiesResponseNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfilesPropertiesResponseNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The reference to the contact profile resource.
+type ContactsPropertiesContactProfile struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// ContactsPropertiesContactProfileInput is an input type that accepts ContactsPropertiesContactProfileArgs and ContactsPropertiesContactProfileOutput values.
+// You can construct a concrete instance of `ContactsPropertiesContactProfileInput` via:
+//
+//          ContactsPropertiesContactProfileArgs{...}
+type ContactsPropertiesContactProfileInput interface {
+	pulumi.Input
+
+	ToContactsPropertiesContactProfileOutput() ContactsPropertiesContactProfileOutput
+	ToContactsPropertiesContactProfileOutputWithContext(context.Context) ContactsPropertiesContactProfileOutput
+}
+
+// The reference to the contact profile resource.
+type ContactsPropertiesContactProfileArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ContactsPropertiesContactProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsPropertiesContactProfile)(nil)).Elem()
+}
+
+func (i ContactsPropertiesContactProfileArgs) ToContactsPropertiesContactProfileOutput() ContactsPropertiesContactProfileOutput {
+	return i.ToContactsPropertiesContactProfileOutputWithContext(context.Background())
+}
+
+func (i ContactsPropertiesContactProfileArgs) ToContactsPropertiesContactProfileOutputWithContext(ctx context.Context) ContactsPropertiesContactProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsPropertiesContactProfileOutput)
+}
+
+// The reference to the contact profile resource.
+type ContactsPropertiesContactProfileOutput struct{ *pulumi.OutputState }
+
+func (ContactsPropertiesContactProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsPropertiesContactProfile)(nil)).Elem()
+}
+
+func (o ContactsPropertiesContactProfileOutput) ToContactsPropertiesContactProfileOutput() ContactsPropertiesContactProfileOutput {
+	return o
+}
+
+func (o ContactsPropertiesContactProfileOutput) ToContactsPropertiesContactProfileOutputWithContext(ctx context.Context) ContactsPropertiesContactProfileOutput {
+	return o
+}
+
+// Resource ID.
+func (o ContactsPropertiesContactProfileOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactsPropertiesContactProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The configuration associated with the allocated antenna.
+type ContactsPropertiesResponseAntennaConfiguration struct {
+	// The destination IP a packet can be sent to. This would for example be the TCP endpoint you would send data to.
+	DestinationIp *string `pulumi:"destinationIp"`
+	// List of Source IP
+	SourceIps []string `pulumi:"sourceIps"`
+}
+
+// The configuration associated with the allocated antenna.
+type ContactsPropertiesResponseAntennaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContactsPropertiesResponseAntennaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsPropertiesResponseAntennaConfiguration)(nil)).Elem()
+}
+
+func (o ContactsPropertiesResponseAntennaConfigurationOutput) ToContactsPropertiesResponseAntennaConfigurationOutput() ContactsPropertiesResponseAntennaConfigurationOutput {
+	return o
+}
+
+func (o ContactsPropertiesResponseAntennaConfigurationOutput) ToContactsPropertiesResponseAntennaConfigurationOutputWithContext(ctx context.Context) ContactsPropertiesResponseAntennaConfigurationOutput {
+	return o
+}
+
+// The destination IP a packet can be sent to. This would for example be the TCP endpoint you would send data to.
+func (o ContactsPropertiesResponseAntennaConfigurationOutput) DestinationIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactsPropertiesResponseAntennaConfiguration) *string { return v.DestinationIp }).(pulumi.StringPtrOutput)
+}
+
+// List of Source IP
+func (o ContactsPropertiesResponseAntennaConfigurationOutput) SourceIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactsPropertiesResponseAntennaConfiguration) []string { return v.SourceIps }).(pulumi.StringArrayOutput)
+}
+
+// The reference to the contact profile resource.
+type ContactsPropertiesResponseContactProfile struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// The reference to the contact profile resource.
+type ContactsPropertiesResponseContactProfileOutput struct{ *pulumi.OutputState }
+
+func (ContactsPropertiesResponseContactProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsPropertiesResponseContactProfile)(nil)).Elem()
+}
+
+func (o ContactsPropertiesResponseContactProfileOutput) ToContactsPropertiesResponseContactProfileOutput() ContactsPropertiesResponseContactProfileOutput {
+	return o
+}
+
+func (o ContactsPropertiesResponseContactProfileOutput) ToContactsPropertiesResponseContactProfileOutputWithContext(ctx context.Context) ContactsPropertiesResponseContactProfileOutput {
+	return o
+}
+
+// Resource ID.
+func (o ContactsPropertiesResponseContactProfileOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactsPropertiesResponseContactProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Customer End point to store/retrieve data during a contact.
@@ -707,130 +1102,17 @@ func (o EndPointResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v EndPointResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Resource Reference
-type ResourceReference struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-}
-
-// ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
-// You can construct a concrete instance of `ResourceReferenceInput` via:
-//
-//          ResourceReferenceArgs{...}
-type ResourceReferenceInput interface {
-	pulumi.Input
-
-	ToResourceReferenceOutput() ResourceReferenceOutput
-	ToResourceReferenceOutputWithContext(context.Context) ResourceReferenceOutput
-}
-
-// Resource Reference
-type ResourceReferenceArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (ResourceReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceReference)(nil)).Elem()
-}
-
-func (i ResourceReferenceArgs) ToResourceReferenceOutput() ResourceReferenceOutput {
-	return i.ToResourceReferenceOutputWithContext(context.Background())
-}
-
-func (i ResourceReferenceArgs) ToResourceReferenceOutputWithContext(ctx context.Context) ResourceReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceOutput)
-}
-
-// Resource Reference
-type ResourceReferenceOutput struct{ *pulumi.OutputState }
-
-func (ResourceReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceReference)(nil)).Elem()
-}
-
-func (o ResourceReferenceOutput) ToResourceReferenceOutput() ResourceReferenceOutput {
-	return o
-}
-
-func (o ResourceReferenceOutput) ToResourceReferenceOutputWithContext(ctx context.Context) ResourceReferenceOutput {
-	return o
-}
-
-// Resource ID.
-func (o ResourceReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceReference) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Resource Reference
-type ResourceReferenceResponse struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-}
-
-// Resource Reference
-type ResourceReferenceResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceReferenceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceReferenceResponse)(nil)).Elem()
-}
-
-func (o ResourceReferenceResponseOutput) ToResourceReferenceResponseOutput() ResourceReferenceResponseOutput {
-	return o
-}
-
-func (o ResourceReferenceResponseOutput) ToResourceReferenceResponseOutputWithContext(ctx context.Context) ResourceReferenceResponseOutput {
-	return o
-}
-
-// Resource ID.
-func (o ResourceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type ResourceReferenceResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceReferenceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceReferenceResponse)(nil)).Elem()
-}
-
-func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutput() ResourceReferenceResponsePtrOutput {
-	return o
-}
-
-func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceResponsePtrOutput {
-	return o
-}
-
-func (o ResourceReferenceResponsePtrOutput) Elem() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceReferenceResponse
-		return ret
-	}).(ResourceReferenceResponseOutput)
-}
-
-// Resource ID.
-func (o ResourceReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Spacecraft Link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLink struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// polarization. eg (RHCP, LHCP)
+	// Link name.
+	Name string `pulumi:"name"`
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
@@ -845,15 +1127,17 @@ type SpacecraftLinkInput interface {
 	ToSpacecraftLinkOutputWithContext(context.Context) SpacecraftLinkOutput
 }
 
-// Spacecraft Link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkArgs struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz pulumi.Float64Input `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz pulumi.Float64Input `pulumi:"centerFrequencyMHz"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// polarization. eg (RHCP, LHCP)
+	// Link name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization pulumi.StringInput `pulumi:"polarization"`
 }
 
@@ -894,7 +1178,7 @@ func (i SpacecraftLinkArray) ToSpacecraftLinkArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftLinkArrayOutput)
 }
 
-// Spacecraft Link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftLinkOutput) ElementType() reflect.Type {
@@ -909,22 +1193,27 @@ func (o SpacecraftLinkOutput) ToSpacecraftLinkOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o SpacecraftLinkOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLink) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o SpacecraftLinkOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLink) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o SpacecraftLinkOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Link name.
+func (o SpacecraftLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SpacecraftLink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Polarization. e.g. (RHCP, LHCP).
 func (o SpacecraftLinkOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -949,19 +1238,23 @@ func (o SpacecraftLinkArrayOutput) Index(i pulumi.IntInput) SpacecraftLinkOutput
 	}).(SpacecraftLinkOutput)
 }
 
-// Spacecraft Link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkResponse struct {
-	// Bandwidth in MHz
+	// Authorized Ground Stations
+	Authorizations []AuthorizedGroundstationResponse `pulumi:"authorizations"`
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// polarization. eg (RHCP, LHCP)
+	// Link name.
+	Name string `pulumi:"name"`
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
-// Spacecraft Link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftLinkResponseOutput) ElementType() reflect.Type {
@@ -976,22 +1269,32 @@ func (o SpacecraftLinkResponseOutput) ToSpacecraftLinkResponseOutputWithContext(
 	return o
 }
 
-// Bandwidth in MHz
+// Authorized Ground Stations
+func (o SpacecraftLinkResponseOutput) Authorizations() AuthorizedGroundstationResponseArrayOutput {
+	return o.ApplyT(func(v SpacecraftLinkResponse) []AuthorizedGroundstationResponse { return v.Authorizations }).(AuthorizedGroundstationResponseArrayOutput)
+}
+
+// Bandwidth in MHz.
 func (o SpacecraftLinkResponseOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLinkResponse) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o SpacecraftLinkResponseOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLinkResponse) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o SpacecraftLinkResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLinkResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Link name.
+func (o SpacecraftLinkResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SpacecraftLinkResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Polarization. e.g. (RHCP, LHCP).
 func (o SpacecraftLinkResponseOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLinkResponse) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -1078,8 +1381,13 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AuthorizedGroundstationResponseOutput{})
+	pulumi.RegisterOutputType(AuthorizedGroundstationResponseArrayOutput{})
 	pulumi.RegisterOutputType(AvailableContactsResponseOutput{})
 	pulumi.RegisterOutputType(AvailableContactsResponseArrayOutput{})
+	pulumi.RegisterOutputType(AvailableContactsResponseSpacecraftOutput{})
+	pulumi.RegisterOutputType(AvailableContactsResponseSpacecraftPtrOutput{})
+	pulumi.RegisterOutputType(ContactParametersContactProfileOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkArrayOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkChannelOutput{})
@@ -1088,11 +1396,13 @@ func init() {
 	pulumi.RegisterOutputType(ContactProfileLinkChannelResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkResponseOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(ContactProfilesPropertiesNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ContactProfilesPropertiesResponseNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ContactsPropertiesContactProfileOutput{})
+	pulumi.RegisterOutputType(ContactsPropertiesResponseAntennaConfigurationOutput{})
+	pulumi.RegisterOutputType(ContactsPropertiesResponseContactProfileOutput{})
 	pulumi.RegisterOutputType(EndPointOutput{})
 	pulumi.RegisterOutputType(EndPointResponseOutput{})
-	pulumi.RegisterOutputType(ResourceReferenceOutput{})
-	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
-	pulumi.RegisterOutputType(ResourceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkArrayOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkResponseOutput{})

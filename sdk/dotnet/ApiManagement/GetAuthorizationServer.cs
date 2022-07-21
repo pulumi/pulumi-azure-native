@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// External OAuth authorization server settings.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetAuthorizationServerResult> InvokeAsync(GetAuthorizationServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// External OAuth authorization server settings.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetAuthorizationServerResult> Invoke(GetAuthorizationServerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerInvokeArgs(), options.WithDefaults());
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly ImmutableArray<string> GrantTypes;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? TokenEndpoint;
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

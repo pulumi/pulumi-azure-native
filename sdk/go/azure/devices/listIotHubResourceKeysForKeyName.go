@@ -11,7 +11,7 @@ import (
 )
 
 // The properties of an IoT hub shared access policy.
-// API Version: 2020-08-31.
+// API Version: 2021-07-02.
 func ListIotHubResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotHubResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysForKeyNameResult, error) {
 	var rv ListIotHubResourceKeysForKeyNameResult
 	err := ctx.Invoke("azure-native:devices:listIotHubResourceKeysForKeyName", args, &rv, opts...)

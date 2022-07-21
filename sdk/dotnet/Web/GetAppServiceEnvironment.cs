@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// App Service Environment ARM resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// App Service Environment ARM resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentResult> Invoke(GetAppServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentInvokeArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Dedicated Host Count
         /// </summary>
-        public readonly int DedicatedHostCount;
+        public readonly int? DedicatedHostCount;
         /// <summary>
         /// DNS suffix of the App Service Environment.
         /// </summary>
@@ -154,12 +154,16 @@ namespace Pulumi.AzureNative.Web
         /// Description of the Virtual Network.
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse VirtualNetwork;
+        /// <summary>
+        /// Whether or not this App Service Environment is zone-redundant.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetAppServiceEnvironmentResult(
             ImmutableArray<Outputs.NameValuePairResponse> clusterSettings,
 
-            int dedicatedHostCount,
+            int? dedicatedHostCount,
 
             string? dnsSuffix,
 
@@ -197,7 +201,9 @@ namespace Pulumi.AzureNative.Web
 
             ImmutableArray<string> userWhitelistedIpRanges,
 
-            Outputs.VirtualNetworkProfileResponse virtualNetwork)
+            Outputs.VirtualNetworkProfileResponse virtualNetwork,
+
+            bool? zoneRedundant)
         {
             ClusterSettings = clusterSettings;
             DedicatedHostCount = dedicatedHostCount;
@@ -220,6 +226,7 @@ namespace Pulumi.AzureNative.Web
             Type = type;
             UserWhitelistedIpRanges = userWhitelistedIpRanges;
             VirtualNetwork = virtualNetwork;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

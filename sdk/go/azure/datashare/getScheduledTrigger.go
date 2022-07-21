@@ -11,7 +11,7 @@ import (
 )
 
 // A type of trigger based on schedule
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupScheduledTrigger(ctx *pulumi.Context, args *LookupScheduledTriggerArgs, opts ...pulumi.InvokeOption) (*LookupScheduledTriggerResult, error) {
 	var rv LookupScheduledTriggerResult
 	err := ctx.Invoke("azure-native:datashare:getScheduledTrigger", args, &rv, opts...)

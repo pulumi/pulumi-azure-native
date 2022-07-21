@@ -11,7 +11,7 @@ import (
 )
 
 // The list Kusto database principals operation response.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func ListClusterFollowerDatabases(ctx *pulumi.Context, args *ListClusterFollowerDatabasesArgs, opts ...pulumi.InvokeOption) (*ListClusterFollowerDatabasesResult, error) {
 	var rv ListClusterFollowerDatabasesResult
 	err := ctx.Invoke("azure-native:kusto:listClusterFollowerDatabases", args, &rv, opts...)

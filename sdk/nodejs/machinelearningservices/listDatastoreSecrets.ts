@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base definition for datastore secrets.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function listDatastoreSecrets(args: ListDatastoreSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatastoreSecretsResult> {
     if (!opts) {

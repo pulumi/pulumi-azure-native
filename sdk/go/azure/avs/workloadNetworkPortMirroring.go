@@ -12,7 +12,7 @@ import (
 )
 
 // NSX Port Mirroring
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 type WorkloadNetworkPortMirroring struct {
 	pulumi.CustomResourceState
 

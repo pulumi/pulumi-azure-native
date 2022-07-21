@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Role Assignment
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-15.
  */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
     if (!opts) {

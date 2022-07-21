@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func ListMediaServiceEdgePolicies(ctx *pulumi.Context, args *ListMediaServiceEdgePoliciesArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceEdgePoliciesResult, error) {
 	var rv ListMediaServiceEdgePoliciesResult
 	err := ctx.Invoke("azure-native:media:listMediaServiceEdgePolicies", args, &rv, opts...)

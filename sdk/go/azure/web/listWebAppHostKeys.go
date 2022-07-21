@@ -11,7 +11,7 @@ import (
 )
 
 // Functions host level keys.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppHostKeys(ctx *pulumi.Context, args *ListWebAppHostKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysResult, error) {
 	var rv ListWebAppHostKeysResult
 	err := ctx.Invoke("azure-native:web:listWebAppHostKeys", args, &rv, opts...)

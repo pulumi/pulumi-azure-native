@@ -11,7 +11,7 @@ import (
 )
 
 // OpenId Connect Provider details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	var rv LookupOpenIdConnectProviderResult
 	err := ctx.Invoke("azure-native:apimanagement:getOpenIdConnectProvider", args, &rv, opts...)
@@ -40,13 +40,13 @@ type LookupOpenIdConnectProviderResult struct {
 	Description *string `pulumi:"description"`
 	// User-friendly OpenID Connect Provider name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Metadata endpoint URI.
 	MetadataEndpoint string `pulumi:"metadataEndpoint"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -111,7 +111,7 @@ func (o LookupOpenIdConnectProviderResultOutput) DisplayName() pulumi.StringOutp
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupOpenIdConnectProviderResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -121,12 +121,12 @@ func (o LookupOpenIdConnectProviderResultOutput) MetadataEndpoint() pulumi.Strin
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.MetadataEndpoint }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupOpenIdConnectProviderResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupOpenIdConnectProviderResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.Type }).(pulumi.StringOutput)
 }

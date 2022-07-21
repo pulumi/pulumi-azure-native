@@ -11,7 +11,7 @@ import (
 )
 
 // Sku sub resource.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkusResult, error) {
 	var rv LookupVendorSkusResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getVendorSkus", args, &rv, opts...)
@@ -42,12 +42,16 @@ type LookupVendorSkusResult struct {
 	Name string `pulumi:"name"`
 	// The template definition of the network function.
 	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
+	// The network function type.
+	NetworkFunctionType *string `pulumi:"networkFunctionType"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType *string `pulumi:"skuType"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -121,6 +125,11 @@ func (o LookupVendorSkusResultOutput) NetworkFunctionTemplate() NetworkFunctionT
 	return o.ApplyT(func(v LookupVendorSkusResult) *NetworkFunctionTemplateResponse { return v.NetworkFunctionTemplate }).(NetworkFunctionTemplateResponsePtrOutput)
 }
 
+// The network function type.
+func (o LookupVendorSkusResultOutput) NetworkFunctionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVendorSkusResult) *string { return v.NetworkFunctionType }).(pulumi.StringPtrOutput)
+}
+
 // Indicates if the vendor sku is in preview mode.
 func (o LookupVendorSkusResultOutput) Preview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVendorSkusResult) *bool { return v.Preview }).(pulumi.BoolPtrOutput)
@@ -134,6 +143,11 @@ func (o LookupVendorSkusResultOutput) ProvisioningState() pulumi.StringOutput {
 // The sku type.
 func (o LookupVendorSkusResultOutput) SkuType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVendorSkusResult) *string { return v.SkuType }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupVendorSkusResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupVendorSkusResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

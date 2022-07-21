@@ -10,26 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices
 {
     /// <summary>
-    /// Registration assignment.
-    /// API Version: 2019-09-01.
+    /// The registration assignment.
+    /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedservices:RegistrationAssignment")]
     public partial class RegistrationAssignment : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the registration assignment.
+        /// The name of the registration assignment.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a registration assignment.
+        /// The properties of a registration assignment.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.RegistrationAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource.
+        /// The metadata for the registration assignment resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -89,19 +95,19 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class RegistrationAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of a registration assignment.
+        /// The properties of a registration assignment.
         /// </summary>
         [Input("properties")]
         public Input<Inputs.RegistrationAssignmentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Guid of the registration assignment.
+        /// The GUID of the registration assignment.
         /// </summary>
         [Input("registrationAssignmentId")]
         public Input<string>? RegistrationAssignmentId { get; set; }
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

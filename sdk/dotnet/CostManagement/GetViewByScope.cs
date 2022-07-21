@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// States and configurations of Cost Analysis.
-        /// API Version: 2019-11-01.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// States and configurations of Cost Analysis.
-        /// API Version: 2019-11-01.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
-        /// Selected currency.
+        /// Currency of the current view.
         /// </summary>
         public readonly string Currency;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly Outputs.ReportConfigDatasetResponse? DataSet;
         /// <summary>
-        /// Selected date range for viewing cost in.
+        /// Date range of the current view.
         /// </summary>
         public readonly string DateRange;
         /// <summary>
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Include monetary commitment
+        /// If true, report includes monetary commitment.
         /// </summary>
-        public readonly bool IncludeMonetaryCommitment;
+        public readonly bool? IncludeMonetaryCommitment;
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string id,
 
-            bool includeMonetaryCommitment,
+            bool? includeMonetaryCommitment,
 
             ImmutableArray<Outputs.KpiPropertiesResponse> kpis,
 

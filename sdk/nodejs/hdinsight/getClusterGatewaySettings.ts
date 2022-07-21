@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway settings.
- * API Version: 2018-06-01-preview.
+ * API Version: 2021-06-01.
  */
 export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterGatewaySettingsResult> {
     if (!opts) {

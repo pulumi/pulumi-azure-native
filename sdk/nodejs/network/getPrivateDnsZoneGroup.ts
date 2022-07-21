@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Private dns zone group resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
     if (!opts) {

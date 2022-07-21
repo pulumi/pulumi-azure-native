@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a relation between two resources
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-01.
  */
 export class IncidentRelation extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class IncidentRelation extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -65,7 +65,7 @@ export class IncidentRelation extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -83,9 +83,6 @@ export class IncidentRelation extends pulumi.CustomResource {
             if ((!args || args.incidentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
@@ -96,7 +93,6 @@ export class IncidentRelation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
             resourceInputs["relationName"] = args ? args.relationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -133,10 +129,6 @@ export interface IncidentRelationArgs {
      * Incident ID
      */
     incidentId: pulumi.Input<string>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The resource ID of the related resource
      */

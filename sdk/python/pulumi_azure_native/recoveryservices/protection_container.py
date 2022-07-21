@@ -162,7 +162,7 @@ class ProtectionContainer(pulumi.CustomResource):
                  __props__=None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        API Version: 2021-02-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class ProtectionContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        API Version: 2021-02-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.

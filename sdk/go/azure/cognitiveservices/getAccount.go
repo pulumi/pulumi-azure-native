@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-// API Version: 2017-04-18.
+// Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+// API Version: 2022-03-01.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:cognitiveservices:getAccount", args, &rv, opts...)
@@ -28,27 +28,29 @@ type LookupAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+// Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
 type LookupAccountResult struct {
-	// Entity Tag
+	// Resource Etag.
 	Etag string `pulumi:"etag"`
-	// The id of the created account
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// The identity of Cognitive Services account.
+	// Identity for the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The Kind of the resource.
 	Kind *string `pulumi:"kind"`
-	// The location of the resource
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// The name of the created account
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of Cognitive Services account.
-	Properties CognitiveServicesAccountPropertiesResponse `pulumi:"properties"`
-	// The SKU of Cognitive Services account.
+	Properties AccountPropertiesResponse `pulumi:"properties"`
+	// The resource model definition representing SKU
 	Sku *SkuResponse `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -87,7 +89,7 @@ func (LookupAccountOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
 }
 
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+// Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
 type LookupAccountResultOutput struct{ *pulumi.OutputState }
 
 func (LookupAccountResultOutput) ElementType() reflect.Type {
@@ -102,17 +104,17 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
-// Entity Tag
+// Resource Etag.
 func (o LookupAccountResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The id of the created account
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The identity of Cognitive Services account.
+// Identity for the resource.
 func (o LookupAccountResultOutput) Identity() IdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
@@ -122,32 +124,37 @@ func (o LookupAccountResultOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The location of the resource
+// The geo-location where the resource lives
 func (o LookupAccountResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the created account
+// The name of the resource
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Properties of Cognitive Services account.
-func (o LookupAccountResultOutput) Properties() CognitiveServicesAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v LookupAccountResult) CognitiveServicesAccountPropertiesResponse { return v.Properties }).(CognitiveServicesAccountPropertiesResponseOutput)
+func (o LookupAccountResultOutput) Properties() AccountPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) AccountPropertiesResponse { return v.Properties }).(AccountPropertiesResponseOutput)
 }
 
-// The SKU of Cognitive Services account.
+// The resource model definition representing SKU
 func (o LookupAccountResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupAccountResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupAccountResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Type }).(pulumi.StringOutput)
 }

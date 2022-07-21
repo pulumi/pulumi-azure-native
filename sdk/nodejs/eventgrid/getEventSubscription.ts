@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
     if (!opts) {
@@ -37,11 +37,23 @@ export interface GetEventSubscriptionArgs {
  */
 export interface GetEventSubscriptionResult {
     /**
-     * The DeadLetter destination of the event subscription.
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     readonly deadLetterDestination?: outputs.eventgrid.StorageBlobDeadLetterDestinationResponse;
     /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    readonly deadLetterWithResourceIdentity?: outputs.eventgrid.DeadLetterWithResourceIdentityResponse;
+    /**
      * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    readonly deliveryWithResourceIdentity?: outputs.eventgrid.DeliveryWithResourceIdentityResponse;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
     /**

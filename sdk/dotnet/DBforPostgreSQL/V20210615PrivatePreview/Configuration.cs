@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Configuration"},

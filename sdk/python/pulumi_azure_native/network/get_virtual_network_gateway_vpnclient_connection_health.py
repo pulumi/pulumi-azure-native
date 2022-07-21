@@ -49,7 +49,7 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult:
     """
     List of virtual network gateway vpn client connection health.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -74,7 +74,7 @@ def get_virtual_network_gateway_vpnclient_connection_health_output(resource_grou
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientConnectionHealthResult]:
     """
     List of virtual network gateway vpn client connection health.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

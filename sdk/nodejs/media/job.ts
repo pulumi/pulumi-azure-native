@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export class Job extends pulumi.CustomResource {
     /**

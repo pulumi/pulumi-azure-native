@@ -193,7 +193,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributedAvailabilityGroupResult:
     """
     Distributed availability group between box and Sql Managed Instance.
-    API Version: 2021-05-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str distributed_availability_group_name: The distributed availability group name.
@@ -233,7 +233,7 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributedAvailabilityGroupResult]:
     """
     Distributed availability group between box and Sql Managed Instance.
-    API Version: 2021-05-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str distributed_availability_group_name: The distributed availability group name.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL DB Server Outbound Firewall Rule.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:OutboundFirewallRule")]
     public partial class OutboundFirewallRule : Pulumi.CustomResource

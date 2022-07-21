@@ -12,7 +12,7 @@ import (
 )
 
 // Workload classifier operations for a data warehouse
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
 
@@ -132,7 +132,7 @@ type sqlPoolWorkloadClassifierArgs struct {
 	WorkloadClassifierName *string `pulumi:"workloadClassifierName"`
 	// The name of the workload group.
 	WorkloadGroupName string `pulumi:"workloadGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -158,7 +158,7 @@ type SqlPoolWorkloadClassifierArgs struct {
 	WorkloadClassifierName pulumi.StringPtrInput
 	// The name of the workload group.
 	WorkloadGroupName pulumi.StringInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 

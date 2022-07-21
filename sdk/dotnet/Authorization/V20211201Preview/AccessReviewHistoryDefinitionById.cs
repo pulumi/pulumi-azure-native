@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:AccessReviewHistoryDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById"},
                 },
             };

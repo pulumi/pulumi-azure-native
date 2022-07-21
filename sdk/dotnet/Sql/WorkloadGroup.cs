@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Workload group operations for a data warehouse
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:WorkloadGroup")]
     public partial class WorkloadGroup : Pulumi.CustomResource

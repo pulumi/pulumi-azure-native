@@ -17,50 +17,29 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class DeploymentSettingsResponse
     {
         /// <summary>
-        /// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        /// Collection of addons
         /// </summary>
-        public readonly int? Cpu;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? AddonConfigs;
         /// <summary>
         /// Collection of environment variables
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// JVM parameter
+        /// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         /// </summary>
-        public readonly string? JvmOptions;
-        /// <summary>
-        /// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-        /// </summary>
-        public readonly int? MemoryInGB;
-        /// <summary>
-        /// The path to the .NET executable relative to zip root
-        /// </summary>
-        public readonly string? NetCoreMainEntryPath;
-        /// <summary>
-        /// Runtime version
-        /// </summary>
-        public readonly string? RuntimeVersion;
+        public readonly Outputs.ResourceRequestsResponse? ResourceRequests;
 
         [OutputConstructor]
         private DeploymentSettingsResponse(
-            int? cpu,
+            ImmutableDictionary<string, ImmutableDictionary<string, object>>? addonConfigs,
 
             ImmutableDictionary<string, string>? environmentVariables,
 
-            string? jvmOptions,
-
-            int? memoryInGB,
-
-            string? netCoreMainEntryPath,
-
-            string? runtimeVersion)
+            Outputs.ResourceRequestsResponse? resourceRequests)
         {
-            Cpu = cpu;
+            AddonConfigs = addonConfigs;
             EnvironmentVariables = environmentVariables;
-            JvmOptions = jvmOptions;
-            MemoryInGB = memoryInGB;
-            NetCoreMainEntryPath = netCoreMainEntryPath;
-            RuntimeVersion = runtimeVersion;
+            ResourceRequests = resourceRequests;
         }
     }
 }

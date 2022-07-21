@@ -21,7 +21,7 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, type=None):
+    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, system_data=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -61,6 +61,9 @@ class GetPolicyAssignmentResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -170,6 +173,14 @@ class GetPolicyAssignmentResult:
         return pulumi.get(self, "scope")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -197,6 +208,7 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             parameters=self.parameters,
             policy_definition_id=self.policy_definition_id,
             scope=self.scope,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -205,7 +217,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
     The policy assignment.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.
@@ -234,6 +246,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         parameters=__ret__.parameters,
         policy_definition_id=__ret__.policy_definition_id,
         scope=__ret__.scope,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -243,7 +256,7 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     The policy assignment.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.

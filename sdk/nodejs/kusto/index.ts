@@ -12,7 +12,6 @@ export * from "./dataConnection";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
 export * from "./eventGridDataConnection";
-export * from "./eventHubConnection";
 export * from "./eventHubDataConnection";
 export * from "./getAttachedDatabaseConfiguration";
 export * from "./getCluster";
@@ -21,7 +20,6 @@ export * from "./getDataConnection";
 export * from "./getDatabase";
 export * from "./getDatabasePrincipalAssignment";
 export * from "./getEventGridDataConnection";
-export * from "./getEventHubConnection";
 export * from "./getEventHubDataConnection";
 export * from "./getIotHubDataConnection";
 export * from "./getManagedPrivateEndpoint";
@@ -79,7 +77,6 @@ import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { EventGridDataConnection } from "./eventGridDataConnection";
-import { EventHubConnection } from "./eventHubConnection";
 import { EventHubDataConnection } from "./eventHubDataConnection";
 import { IotHubDataConnection } from "./iotHubDataConnection";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
@@ -106,8 +103,6 @@ const _module = {
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto:EventGridDataConnection":
                 return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto:EventHubConnection":
-                return new EventHubConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:EventHubDataConnection":
                 return new EventHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:IotHubDataConnection":

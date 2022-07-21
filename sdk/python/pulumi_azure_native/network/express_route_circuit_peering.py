@@ -384,7 +384,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  __props__=None):
         """
         Peering in an ExpressRouteCircuit resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,7 +418,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peering in an ExpressRouteCircuit resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitPeeringInitArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,7 @@ import (
 )
 
 // Customer subscription.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 func LookupCustomerSubscription(ctx *pulumi.Context, args *LookupCustomerSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupCustomerSubscriptionResult, error) {
 	var rv LookupCustomerSubscriptionResult
 	err := ctx.Invoke("azure-native:azurestack:getCustomerSubscription", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupCustomerSubscriptionResult struct {
 	Id string `pulumi:"id"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tenant Id.
 	TenantId *string `pulumi:"tenantId"`
 	// Type of Resource.
@@ -98,6 +100,11 @@ func (o LookupCustomerSubscriptionResultOutput) Id() pulumi.StringOutput {
 // Name of the resource.
 func (o LookupCustomerSubscriptionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomerSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupCustomerSubscriptionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCustomerSubscriptionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tenant Id.

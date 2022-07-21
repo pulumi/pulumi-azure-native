@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
     public sealed class WorkspaceSkuResponse
     {
         /// <summary>
-        /// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        /// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         /// </summary>
         public readonly int? CapacityReservationLevel;
         /// <summary>

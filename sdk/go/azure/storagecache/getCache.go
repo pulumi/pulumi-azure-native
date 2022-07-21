@@ -11,7 +11,7 @@ import (
 )
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-// API Version: 2021-03-01.
+// API Version: 2022-05-01.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure-native:storagecache:getCache", args, &rv, opts...)
@@ -50,12 +50,16 @@ type LookupCacheResult struct {
 	Name string `pulumi:"name"`
 	// Specifies network settings of the cache.
 	NetworkSettings *CacheNetworkSettingsResponse `pulumi:"networkSettings"`
+	// Specifies the priming jobs defined in the cache.
+	PrimingJobs []PrimingJobResponse `pulumi:"primingJobs"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Specifies security settings of the cache.
 	SecuritySettings *CacheSecuritySettingsResponse `pulumi:"securitySettings"`
 	// SKU for the Cache.
 	Sku *CacheResponseSku `pulumi:"sku"`
+	// Specifies the space allocation percentage for each storage target in the cache.
+	SpaceAllocation []StorageTargetSpaceAllocationResponse `pulumi:"spaceAllocation"`
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
 	// The system meta data relating to this resource.
@@ -64,8 +68,12 @@ type LookupCacheResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
+	// Upgrade settings of the Cache.
+	UpgradeSettings *CacheUpgradeSettingsResponse `pulumi:"upgradeSettings"`
 	// Upgrade status of the Cache.
-	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
+	UpgradeStatus CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
+	// Availability zones for resources. This field should only contain a single element in the array.
+	Zones []string `pulumi:"zones"`
 }
 
 // Defaults sets the appropriate defaults for LookupCacheResult
@@ -170,9 +178,14 @@ func (o LookupCacheResultOutput) NetworkSettings() CacheNetworkSettingsResponseP
 	return o.ApplyT(func(v LookupCacheResult) *CacheNetworkSettingsResponse { return v.NetworkSettings }).(CacheNetworkSettingsResponsePtrOutput)
 }
 
+// Specifies the priming jobs defined in the cache.
+func (o LookupCacheResultOutput) PrimingJobs() PrimingJobResponseArrayOutput {
+	return o.ApplyT(func(v LookupCacheResult) []PrimingJobResponse { return v.PrimingJobs }).(PrimingJobResponseArrayOutput)
+}
+
 // ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-func (o LookupCacheResultOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupCacheResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o LookupCacheResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Specifies security settings of the cache.
@@ -183,6 +196,11 @@ func (o LookupCacheResultOutput) SecuritySettings() CacheSecuritySettingsRespons
 // SKU for the Cache.
 func (o LookupCacheResultOutput) Sku() CacheResponseSkuPtrOutput {
 	return o.ApplyT(func(v LookupCacheResult) *CacheResponseSku { return v.Sku }).(CacheResponseSkuPtrOutput)
+}
+
+// Specifies the space allocation percentage for each storage target in the cache.
+func (o LookupCacheResultOutput) SpaceAllocation() StorageTargetSpaceAllocationResponseArrayOutput {
+	return o.ApplyT(func(v LookupCacheResult) []StorageTargetSpaceAllocationResponse { return v.SpaceAllocation }).(StorageTargetSpaceAllocationResponseArrayOutput)
 }
 
 // Subnet used for the Cache.
@@ -205,9 +223,19 @@ func (o LookupCacheResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCacheResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Upgrade settings of the Cache.
+func (o LookupCacheResultOutput) UpgradeSettings() CacheUpgradeSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupCacheResult) *CacheUpgradeSettingsResponse { return v.UpgradeSettings }).(CacheUpgradeSettingsResponsePtrOutput)
+}
+
 // Upgrade status of the Cache.
-func (o LookupCacheResultOutput) UpgradeStatus() CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyT(func(v LookupCacheResult) *CacheUpgradeStatusResponse { return v.UpgradeStatus }).(CacheUpgradeStatusResponsePtrOutput)
+func (o LookupCacheResultOutput) UpgradeStatus() CacheUpgradeStatusResponseOutput {
+	return o.ApplyT(func(v LookupCacheResult) CacheUpgradeStatusResponse { return v.UpgradeStatus }).(CacheUpgradeStatusResponseOutput)
+}
+
+// Availability zones for resources. This field should only contain a single element in the array.
+func (o LookupCacheResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCacheResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

@@ -11,7 +11,7 @@ import (
 )
 
 // Single item in a List or Get AuthorizationRule operation
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupEventHubAuthorizationRuleResult, error) {
 	var rv LookupEventHubAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:eventhub:getEventHubAuthorizationRule", args, &rv, opts...)
@@ -36,11 +36,15 @@ type LookupEventHubAuthorizationRuleArgs struct {
 type LookupEventHubAuthorizationRuleResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The rights associated with the rule.
 	Rights []string `pulumi:"rights"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 }
 
@@ -92,6 +96,11 @@ func (o LookupEventHubAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The geo-location where the resource lives
+func (o LookupEventHubAuthorizationRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
 // The name of the resource
 func (o LookupEventHubAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
@@ -102,7 +111,12 @@ func (o LookupEventHubAuthorizationRuleResultOutput) Rights() pulumi.StringArray
 	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+// The system meta data relating to this resource.
+func (o LookupEventHubAuthorizationRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupEventHubAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -1744,79 +1744,204 @@ func (o ContactDetailsResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// Device Secrets
-type DeviceSecretsResponse struct {
-	// Keyvault Id of BMCDefaultUserPassword
-	BmcDefaultUserPassword *SecretResponse `pulumi:"bmcDefaultUserPassword"`
-	// Keyvault Id of HcsDataVolumeBitLockerExternalKey
-	HcsDataVolumeBitLockerExternalKey *SecretResponse `pulumi:"hcsDataVolumeBitLockerExternalKey"`
-	// Keyvault Id of HcsInternalVolumeBitLockerExternalKey
-	HcsInternalVolumeBitLockerExternalKey *SecretResponse `pulumi:"hcsInternalVolumeBitLockerExternalKey"`
-	// Keyvault Id of RotateKeyForDataVolumeBitlocker
-	RotateKeyForDataVolumeBitlocker *SecretResponse `pulumi:"rotateKeyForDataVolumeBitlocker"`
-	// Keyvault Id of RotateKeysForSedDrivesSerialized
-	RotateKeysForSedDrivesSerialized *SecretResponse `pulumi:"rotateKeysForSedDrivesSerialized"`
-	// Keyvault Id of SEDEncryptionExternalKey
-	SedEncryptionExternalKey *SecretResponse `pulumi:"sedEncryptionExternalKey"`
-	// Keyvault Id of SEDEncryptionExternalKeyId
-	SedEncryptionExternalKeyId *SecretResponse `pulumi:"sedEncryptionExternalKeyId"`
-	// Keyvault Id of SystemVolumeBitLockerRecoveryKey
-	SystemVolumeBitLockerRecoveryKey *SecretResponse `pulumi:"systemVolumeBitLockerRecoveryKey"`
+// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+type DataResidency struct {
+	// DataResidencyType enum
+	Type *string `pulumi:"type"`
 }
 
-// Device Secrets
-type DeviceSecretsResponseOutput struct{ *pulumi.OutputState }
+// DataResidencyInput is an input type that accepts DataResidencyArgs and DataResidencyOutput values.
+// You can construct a concrete instance of `DataResidencyInput` via:
+//
+//          DataResidencyArgs{...}
+type DataResidencyInput interface {
+	pulumi.Input
 
-func (DeviceSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecretsResponse)(nil)).Elem()
+	ToDataResidencyOutput() DataResidencyOutput
+	ToDataResidencyOutputWithContext(context.Context) DataResidencyOutput
 }
 
-func (o DeviceSecretsResponseOutput) ToDeviceSecretsResponseOutput() DeviceSecretsResponseOutput {
+// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+type DataResidencyArgs struct {
+	// DataResidencyType enum
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DataResidencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataResidency)(nil)).Elem()
+}
+
+func (i DataResidencyArgs) ToDataResidencyOutput() DataResidencyOutput {
+	return i.ToDataResidencyOutputWithContext(context.Background())
+}
+
+func (i DataResidencyArgs) ToDataResidencyOutputWithContext(ctx context.Context) DataResidencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataResidencyOutput)
+}
+
+func (i DataResidencyArgs) ToDataResidencyPtrOutput() DataResidencyPtrOutput {
+	return i.ToDataResidencyPtrOutputWithContext(context.Background())
+}
+
+func (i DataResidencyArgs) ToDataResidencyPtrOutputWithContext(ctx context.Context) DataResidencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataResidencyOutput).ToDataResidencyPtrOutputWithContext(ctx)
+}
+
+// DataResidencyPtrInput is an input type that accepts DataResidencyArgs, DataResidencyPtr and DataResidencyPtrOutput values.
+// You can construct a concrete instance of `DataResidencyPtrInput` via:
+//
+//          DataResidencyArgs{...}
+//
+//  or:
+//
+//          nil
+type DataResidencyPtrInput interface {
+	pulumi.Input
+
+	ToDataResidencyPtrOutput() DataResidencyPtrOutput
+	ToDataResidencyPtrOutputWithContext(context.Context) DataResidencyPtrOutput
+}
+
+type dataResidencyPtrType DataResidencyArgs
+
+func DataResidencyPtr(v *DataResidencyArgs) DataResidencyPtrInput {
+	return (*dataResidencyPtrType)(v)
+}
+
+func (*dataResidencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataResidency)(nil)).Elem()
+}
+
+func (i *dataResidencyPtrType) ToDataResidencyPtrOutput() DataResidencyPtrOutput {
+	return i.ToDataResidencyPtrOutputWithContext(context.Background())
+}
+
+func (i *dataResidencyPtrType) ToDataResidencyPtrOutputWithContext(ctx context.Context) DataResidencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataResidencyPtrOutput)
+}
+
+// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+type DataResidencyOutput struct{ *pulumi.OutputState }
+
+func (DataResidencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataResidency)(nil)).Elem()
+}
+
+func (o DataResidencyOutput) ToDataResidencyOutput() DataResidencyOutput {
 	return o
 }
 
-func (o DeviceSecretsResponseOutput) ToDeviceSecretsResponseOutputWithContext(ctx context.Context) DeviceSecretsResponseOutput {
+func (o DataResidencyOutput) ToDataResidencyOutputWithContext(ctx context.Context) DataResidencyOutput {
 	return o
 }
 
-// Keyvault Id of BMCDefaultUserPassword
-func (o DeviceSecretsResponseOutput) BmcDefaultUserPassword() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.BmcDefaultUserPassword }).(SecretResponsePtrOutput)
+func (o DataResidencyOutput) ToDataResidencyPtrOutput() DataResidencyPtrOutput {
+	return o.ToDataResidencyPtrOutputWithContext(context.Background())
 }
 
-// Keyvault Id of HcsDataVolumeBitLockerExternalKey
-func (o DeviceSecretsResponseOutput) HcsDataVolumeBitLockerExternalKey() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.HcsDataVolumeBitLockerExternalKey }).(SecretResponsePtrOutput)
+func (o DataResidencyOutput) ToDataResidencyPtrOutputWithContext(ctx context.Context) DataResidencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataResidency) *DataResidency {
+		return &v
+	}).(DataResidencyPtrOutput)
 }
 
-// Keyvault Id of HcsInternalVolumeBitLockerExternalKey
-func (o DeviceSecretsResponseOutput) HcsInternalVolumeBitLockerExternalKey() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.HcsInternalVolumeBitLockerExternalKey }).(SecretResponsePtrOutput)
+// DataResidencyType enum
+func (o DataResidencyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataResidency) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Keyvault Id of RotateKeyForDataVolumeBitlocker
-func (o DeviceSecretsResponseOutput) RotateKeyForDataVolumeBitlocker() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.RotateKeyForDataVolumeBitlocker }).(SecretResponsePtrOutput)
+type DataResidencyPtrOutput struct{ *pulumi.OutputState }
+
+func (DataResidencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataResidency)(nil)).Elem()
 }
 
-// Keyvault Id of RotateKeysForSedDrivesSerialized
-func (o DeviceSecretsResponseOutput) RotateKeysForSedDrivesSerialized() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.RotateKeysForSedDrivesSerialized }).(SecretResponsePtrOutput)
+func (o DataResidencyPtrOutput) ToDataResidencyPtrOutput() DataResidencyPtrOutput {
+	return o
 }
 
-// Keyvault Id of SEDEncryptionExternalKey
-func (o DeviceSecretsResponseOutput) SedEncryptionExternalKey() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.SedEncryptionExternalKey }).(SecretResponsePtrOutput)
+func (o DataResidencyPtrOutput) ToDataResidencyPtrOutputWithContext(ctx context.Context) DataResidencyPtrOutput {
+	return o
 }
 
-// Keyvault Id of SEDEncryptionExternalKeyId
-func (o DeviceSecretsResponseOutput) SedEncryptionExternalKeyId() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.SedEncryptionExternalKeyId }).(SecretResponsePtrOutput)
+func (o DataResidencyPtrOutput) Elem() DataResidencyOutput {
+	return o.ApplyT(func(v *DataResidency) DataResidency {
+		if v != nil {
+			return *v
+		}
+		var ret DataResidency
+		return ret
+	}).(DataResidencyOutput)
 }
 
-// Keyvault Id of SystemVolumeBitLockerRecoveryKey
-func (o DeviceSecretsResponseOutput) SystemVolumeBitLockerRecoveryKey() SecretResponsePtrOutput {
-	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.SystemVolumeBitLockerRecoveryKey }).(SecretResponsePtrOutput)
+// DataResidencyType enum
+func (o DataResidencyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataResidency) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+type DataResidencyResponse struct {
+	// DataResidencyType enum
+	Type *string `pulumi:"type"`
+}
+
+// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+type DataResidencyResponseOutput struct{ *pulumi.OutputState }
+
+func (DataResidencyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataResidencyResponse)(nil)).Elem()
+}
+
+func (o DataResidencyResponseOutput) ToDataResidencyResponseOutput() DataResidencyResponseOutput {
+	return o
+}
+
+func (o DataResidencyResponseOutput) ToDataResidencyResponseOutputWithContext(ctx context.Context) DataResidencyResponseOutput {
+	return o
+}
+
+// DataResidencyType enum
+func (o DataResidencyResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataResidencyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DataResidencyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DataResidencyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataResidencyResponse)(nil)).Elem()
+}
+
+func (o DataResidencyResponsePtrOutput) ToDataResidencyResponsePtrOutput() DataResidencyResponsePtrOutput {
+	return o
+}
+
+func (o DataResidencyResponsePtrOutput) ToDataResidencyResponsePtrOutputWithContext(ctx context.Context) DataResidencyResponsePtrOutput {
+	return o
+}
+
+func (o DataResidencyResponsePtrOutput) Elem() DataResidencyResponseOutput {
+	return o.ApplyT(func(v *DataResidencyResponse) DataResidencyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataResidencyResponse
+		return ret
+	}).(DataResidencyResponseOutput)
+}
+
+// DataResidencyType enum
+func (o DataResidencyResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataResidencyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // Details about Edge Profile for the resource
@@ -5323,48 +5448,24 @@ func (o SecretResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-type SecretResponsePtrOutput struct{ *pulumi.OutputState }
+type SecretResponseMapOutput struct{ *pulumi.OutputState }
 
-func (SecretResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretResponse)(nil)).Elem()
+func (SecretResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecretResponse)(nil)).Elem()
 }
 
-func (o SecretResponsePtrOutput) ToSecretResponsePtrOutput() SecretResponsePtrOutput {
+func (o SecretResponseMapOutput) ToSecretResponseMapOutput() SecretResponseMapOutput {
 	return o
 }
 
-func (o SecretResponsePtrOutput) ToSecretResponsePtrOutputWithContext(ctx context.Context) SecretResponsePtrOutput {
+func (o SecretResponseMapOutput) ToSecretResponseMapOutputWithContext(ctx context.Context) SecretResponseMapOutput {
 	return o
 }
 
-func (o SecretResponsePtrOutput) Elem() SecretResponseOutput {
-	return o.ApplyT(func(v *SecretResponse) SecretResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretResponse
-		return ret
+func (o SecretResponseMapOutput) MapIndex(k pulumi.StringInput) SecretResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecretResponse {
+		return vs[0].(map[string]SecretResponse)[vs[1].(string)]
 	}).(SecretResponseOutput)
-}
-
-// Encrypted (using device public key) secret value.
-func (o SecretResponsePtrOutput) EncryptedSecret() AsymmetricEncryptedSecretResponsePtrOutput {
-	return o.ApplyT(func(v *SecretResponse) *AsymmetricEncryptedSecretResponse {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptedSecret
-	}).(AsymmetricEncryptedSecretResponsePtrOutput)
-}
-
-// Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
-func (o SecretResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecretResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultId
-	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
@@ -5911,7 +6012,7 @@ type SystemDataResponse struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
+	// The timestamp of resource last modification (UTC)
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
 	// The identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
@@ -5949,7 +6050,7 @@ func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
+// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
@@ -6221,7 +6322,10 @@ func init() {
 	pulumi.RegisterOutputType(ComputeResourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContactDetailsOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
-	pulumi.RegisterOutputType(DeviceSecretsResponseOutput{})
+	pulumi.RegisterOutputType(DataResidencyOutput{})
+	pulumi.RegisterOutputType(DataResidencyPtrOutput{})
+	pulumi.RegisterOutputType(DataResidencyResponseOutput{})
+	pulumi.RegisterOutputType(DataResidencyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdgeProfileResponseOutput{})
 	pulumi.RegisterOutputType(EdgeProfileSubscriptionResponseOutput{})
 	pulumi.RegisterOutputType(EdgeProfileSubscriptionResponsePtrOutput{})
@@ -6292,7 +6396,7 @@ func init() {
 	pulumi.RegisterOutputType(RoleSinkInfoOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoResponseOutput{})
 	pulumi.RegisterOutputType(SecretResponseOutput{})
-	pulumi.RegisterOutputType(SecretResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecretResponseMapOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

@@ -144,7 +144,6 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220101:DefaultAdminRule"},

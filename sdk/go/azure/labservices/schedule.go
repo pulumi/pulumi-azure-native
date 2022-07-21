@@ -12,7 +12,7 @@ import (
 )
 
 // Schedule for automatically turning virtual machines in a lab on and off at specified times.
-// API Version: 2021-10-01-preview.
+// API Version: 2021-11-15-preview.
 type Schedule struct {
 	pulumi.CustomResourceState
 

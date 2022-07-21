@@ -20,8 +20,9 @@ class LinkerArgs:
                  auth_info: Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
-                 target_id: Optional[pulumi.Input[str]] = None,
+                 target_service: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs']]] = None,
                  v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None):
         """
         The set of arguments for constructing a Linker resource.
@@ -29,8 +30,9 @@ class LinkerArgs:
         :param pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input[str] linker_name: The name Linker resource.
+        :param pulumi.Input[str] scope: connection scope in source service.
         :param pulumi.Input['SecretStoreArgs'] secret_store: An option to store secret value in secure place
-        :param pulumi.Input[str] target_id: The resource Id of target service.
+        :param pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs']] target_service: The target service properties
         :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
@@ -40,10 +42,12 @@ class LinkerArgs:
             pulumi.set(__self__, "client_type", client_type)
         if linker_name is not None:
             pulumi.set(__self__, "linker_name", linker_name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if secret_store is not None:
             pulumi.set(__self__, "secret_store", secret_store)
-        if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+        if target_service is not None:
+            pulumi.set(__self__, "target_service", target_service)
         if v_net_solution is not None:
             pulumi.set(__self__, "v_net_solution", v_net_solution)
 
@@ -96,6 +100,18 @@ class LinkerArgs:
         pulumi.set(self, "linker_name", value)
 
     @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        connection scope in source service.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
     @pulumi.getter(name="secretStore")
     def secret_store(self) -> Optional[pulumi.Input['SecretStoreArgs']]:
         """
@@ -108,16 +124,16 @@ class LinkerArgs:
         pulumi.set(self, "secret_store", value)
 
     @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="targetService")
+    def target_service(self) -> Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs']]]:
         """
-        The resource Id of target service.
+        The target service properties
         """
-        return pulumi.get(self, "target_id")
+        return pulumi.get(self, "target_service")
 
-    @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target_id", value)
+    @target_service.setter
+    def target_service(self, value: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs']]]):
+        pulumi.set(self, "target_service", value)
 
     @property
     @pulumi.getter(name="vNetSolution")
@@ -141,13 +157,14 @@ class Linker(pulumi.CustomResource):
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
-                 target_id: Optional[pulumi.Input[str]] = None,
+                 target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs']]]] = None,
                  v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
         """
         Linker of source and target resource
-        API Version: 2021-11-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,8 +172,9 @@ class Linker(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input[str] linker_name: The name Linker resource.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+        :param pulumi.Input[str] scope: connection scope in source service.
         :param pulumi.Input[pulumi.InputType['SecretStoreArgs']] secret_store: An option to store secret value in secure place
-        :param pulumi.Input[str] target_id: The resource Id of target service.
+        :param pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs']]] target_service: The target service properties
         :param pulumi.Input[pulumi.InputType['VNetSolutionArgs']] v_net_solution: The VNet solution.
         """
         ...
@@ -167,7 +185,7 @@ class Linker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linker of source and target resource
-        API Version: 2021-11-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param LinkerArgs args: The arguments to use to populate this resource's properties.
@@ -188,8 +206,9 @@ class Linker(pulumi.CustomResource):
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
-                 target_id: Optional[pulumi.Input[str]] = None,
+                 target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs']]]] = None,
                  v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -209,8 +228,9 @@ class Linker(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["scope"] = scope
             __props__.__dict__["secret_store"] = secret_store
-            __props__.__dict__["target_id"] = target_id
+            __props__.__dict__["target_service"] = target_service
             __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -244,9 +264,10 @@ class Linker(pulumi.CustomResource):
         __props__.__dict__["client_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["scope"] = None
         __props__.__dict__["secret_store"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["target_id"] = None
+        __props__.__dict__["target_service"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["v_net_solution"] = None
         return Linker(resource_name, opts=opts, __props__=__props__)
@@ -284,6 +305,14 @@ class Linker(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        connection scope in source service.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
     @pulumi.getter(name="secretStore")
     def secret_store(self) -> pulumi.Output[Optional['outputs.SecretStoreResponse']]:
         """
@@ -300,12 +329,12 @@ class Linker(pulumi.CustomResource):
         return pulumi.get(self, "system_data")
 
     @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="targetService")
+    def target_service(self) -> pulumi.Output[Optional[Any]]:
         """
-        The resource Id of target service.
+        The target service properties
         """
-        return pulumi.get(self, "target_id")
+        return pulumi.get(self, "target_service")
 
     @property
     @pulumi.getter

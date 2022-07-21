@@ -11,7 +11,7 @@ import (
 )
 
 // Issue Attachment Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupApiIssueAttachment(ctx *pulumi.Context, args *LookupApiIssueAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueAttachmentResult, error) {
 	var rv LookupApiIssueAttachmentResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiIssueAttachment", args, &rv, opts...)
@@ -40,13 +40,13 @@ type LookupApiIssueAttachmentResult struct {
 	Content string `pulumi:"content"`
 	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
 	ContentFormat string `pulumi:"contentFormat"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Filename by which the binary data will be saved.
 	Title string `pulumi:"title"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -105,12 +105,12 @@ func (o LookupApiIssueAttachmentResultOutput) ContentFormat() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.ContentFormat }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiIssueAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiIssueAttachmentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -120,7 +120,7 @@ func (o LookupApiIssueAttachmentResultOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Title }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiIssueAttachmentResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Type }).(pulumi.StringOutput)
 }

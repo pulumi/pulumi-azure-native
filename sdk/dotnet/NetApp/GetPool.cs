@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Capacity pool resource
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capacity pool resource
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -82,15 +82,27 @@ namespace Pulumi.AzureNative.NetApp
     public sealed class GetPoolResult
     {
         /// <summary>
-        /// Resource Id
+        /// If enabled (true) the pool can contain cool Access enabled volumes.
+        /// </summary>
+        public readonly bool? CoolAccess;
+        /// <summary>
+        /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        /// </summary>
+        public readonly string? EncryptionType;
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -110,11 +122,15 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ServiceLevel;
         /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        /// Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
         /// </summary>
         public readonly double Size;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -122,7 +138,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly double TotalThroughputMibps;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -132,6 +148,12 @@ namespace Pulumi.AzureNative.NetApp
 
         [OutputConstructor]
         private GetPoolResult(
+            bool? coolAccess,
+
+            string? encryptionType,
+
+            string etag,
+
             string id,
 
             string location,
@@ -148,6 +170,8 @@ namespace Pulumi.AzureNative.NetApp
 
             double size,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             double totalThroughputMibps,
@@ -156,6 +180,9 @@ namespace Pulumi.AzureNative.NetApp
 
             double utilizedThroughputMibps)
         {
+            CoolAccess = coolAccess;
+            EncryptionType = encryptionType;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;
@@ -164,6 +191,7 @@ namespace Pulumi.AzureNative.NetApp
             QosType = qosType;
             ServiceLevel = serviceLevel;
             Size = size;
+            SystemData = systemData;
             Tags = tags;
             TotalThroughputMibps = totalThroughputMibps;
             Type = type;

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The action of virtual network rule.
+// The action of IP ACL rule.
 type Action string
 
 const (
@@ -31,17 +31,7 @@ type Architecture string
 const (
 	ArchitectureAmd64 = Architecture("amd64")
 	ArchitectureX86   = Architecture("x86")
-	Architecture_386  = Architecture("386")
 	ArchitectureArm   = Architecture("arm")
-	ArchitectureArm64 = Architecture("arm64")
-)
-
-// Indicates whether audit logs are enabled on the connected registry.
-type AuditLogStatus string
-
-const (
-	AuditLogStatusEnabled  = AuditLogStatus("Enabled")
-	AuditLogStatusDisabled = AuditLogStatus("Disabled")
 )
 
 // The type of the auto trigger for base image dependency updates.
@@ -50,14 +40,6 @@ type BaseImageTriggerType string
 const (
 	BaseImageTriggerTypeAll     = BaseImageTriggerType("All")
 	BaseImageTriggerTypeRuntime = BaseImageTriggerType("Runtime")
-)
-
-// The mode of the connected registry resource that indicates the permissions of the registry.
-type ConnectedRegistryMode string
-
-const (
-	ConnectedRegistryModeRegistry = ConnectedRegistryMode("Registry")
-	ConnectedRegistryModeMirror   = ConnectedRegistryMode("Mirror")
 )
 
 // The private link service connection status.
@@ -78,15 +60,28 @@ const (
 	DefaultActionDeny  = DefaultAction("Deny")
 )
 
-// The verbosity of logs persisted on the connected registry.
-type LogLevel string
+// Indicates whether or not the encryption is enabled for container registry.
+type EncryptionStatus string
 
 const (
-	LogLevelDebug       = LogLevel("Debug")
-	LogLevelInformation = LogLevel("Information")
-	LogLevelWarning     = LogLevel("Warning")
-	LogLevelError       = LogLevel("Error")
-	LogLevelNone        = LogLevel("None")
+	EncryptionStatusEnabled  = EncryptionStatus("enabled")
+	EncryptionStatusDisabled = EncryptionStatus("disabled")
+)
+
+// The value that indicates whether the policy is enabled or not.
+type ExportPolicyStatus string
+
+const (
+	ExportPolicyStatusEnabled  = ExportPolicyStatus("enabled")
+	ExportPolicyStatusDisabled = ExportPolicyStatus("disabled")
+)
+
+// Whether to allow trusted Azure services to access a network restricted registry.
+type NetworkRuleBypassOptions string
+
+const (
+	NetworkRuleBypassOptionsAzureServices = NetworkRuleBypassOptions("AzureServices")
+	NetworkRuleBypassOptionsNone          = NetworkRuleBypassOptions("None")
 )
 
 // The operating system type required for the run.
@@ -97,42 +92,20 @@ const (
 	OSLinux   = OS("Linux")
 )
 
-type PipelineOptions string
-
-const (
-	PipelineOptionsOverwriteTags             = PipelineOptions("OverwriteTags")
-	PipelineOptionsOverwriteBlobs            = PipelineOptions("OverwriteBlobs")
-	PipelineOptionsDeleteSourceBlobOnSuccess = PipelineOptions("DeleteSourceBlobOnSuccess")
-	PipelineOptionsContinueOnErrors          = PipelineOptions("ContinueOnErrors")
-)
-
-// The type of the source.
-type PipelineRunSourceType string
-
-const (
-	PipelineRunSourceTypeAzureStorageBlob = PipelineRunSourceType("AzureStorageBlob")
-)
-
-// The type of the target.
-type PipelineRunTargetType string
-
-const (
-	PipelineRunTargetTypeAzureStorageBlob = PipelineRunTargetType("AzureStorageBlob")
-)
-
-// The type of source for the import pipeline.
-type PipelineSourceType string
-
-const (
-	PipelineSourceTypeAzureStorageBlobContainer = PipelineSourceType("AzureStorageBlobContainer")
-)
-
 // The value that indicates whether the policy is enabled or not.
 type PolicyStatus string
 
 const (
 	PolicyStatusEnabled  = PolicyStatus("enabled")
 	PolicyStatusDisabled = PolicyStatus("disabled")
+)
+
+// Whether or not public network access is allowed for the container registry.
+type PublicNetworkAccess string
+
+const (
+	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
 )
 
 // The identity type.
@@ -363,29 +336,6 @@ const (
 	TaskStatusEnabled  = TaskStatus("Enabled")
 )
 
-type TokenCertificateName string
-
-const (
-	TokenCertificateNameCertificate1 = TokenCertificateName("certificate1")
-	TokenCertificateNameCertificate2 = TokenCertificateName("certificate2")
-)
-
-// The password name "password1" or "password2"
-type TokenPasswordName string
-
-const (
-	TokenPasswordNamePassword1 = TokenPasswordName("password1")
-	TokenPasswordNamePassword2 = TokenPasswordName("password2")
-)
-
-// The status of the token example enabled or disabled.
-type TokenStatus string
-
-const (
-	TokenStatusEnabled  = TokenStatus("enabled")
-	TokenStatusDisabled = TokenStatus("disabled")
-)
-
 // The type of Auth token.
 type TokenType string
 
@@ -407,14 +357,6 @@ type TrustPolicyType string
 
 const (
 	TrustPolicyTypeNotary = TrustPolicyType("Notary")
-)
-
-// Type of Payload body for Base image update triggers.
-type UpdateTriggerPayloadType string
-
-const (
-	UpdateTriggerPayloadTypeDefault = UpdateTriggerPayloadType("Default")
-	UpdateTriggerPayloadTypeToken   = UpdateTriggerPayloadType("Token")
 )
 
 // Variant of the CPU.
@@ -442,6 +384,14 @@ type WebhookStatus string
 const (
 	WebhookStatusEnabled  = WebhookStatus("enabled")
 	WebhookStatusDisabled = WebhookStatus("disabled")
+)
+
+// Whether or not zone redundancy is enabled for this container registry replication
+type ZoneRedundancy string
+
+const (
+	ZoneRedundancyEnabled  = ZoneRedundancy("Enabled")
+	ZoneRedundancyDisabled = ZoneRedundancy("Disabled")
 )
 
 func init() {

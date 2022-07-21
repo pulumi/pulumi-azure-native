@@ -21,10 +21,10 @@ class GetComponentVersionResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, component_version_details=None, id=None, name=None, system_data=None, type=None):
-        if component_version_details and not isinstance(component_version_details, dict):
-            raise TypeError("Expected argument 'component_version_details' to be a dict")
-        pulumi.set(__self__, "component_version_details", component_version_details)
+    def __init__(__self__, component_version_properties=None, id=None, name=None, system_data=None, type=None):
+        if component_version_properties and not isinstance(component_version_properties, dict):
+            raise TypeError("Expected argument 'component_version_properties' to be a dict")
+        pulumi.set(__self__, "component_version_properties", component_version_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,12 +39,12 @@ class GetComponentVersionResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="componentVersionDetails")
-    def component_version_details(self) -> 'outputs.ComponentVersionResponse':
+    @pulumi.getter(name="componentVersionProperties")
+    def component_version_properties(self) -> 'outputs.ComponentVersionResponse':
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "component_version_details")
+        return pulumi.get(self, "component_version_properties")
 
     @property
     @pulumi.getter
@@ -85,7 +85,7 @@ class AwaitableGetComponentVersionResult(GetComponentVersionResult):
         if False:
             yield self
         return GetComponentVersionResult(
-            component_version_details=self.component_version_details,
+            component_version_properties=self.component_version_properties,
             id=self.id,
             name=self.name,
             system_data=self.system_data,
@@ -99,7 +99,7 @@ def get_component_version(name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentVersionResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-02-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str name: Container name.
@@ -119,7 +119,7 @@ def get_component_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getComponentVersion', __args__, opts=opts, typ=GetComponentVersionResult).value
 
     return AwaitableGetComponentVersionResult(
-        component_version_details=__ret__.component_version_details,
+        component_version_properties=__ret__.component_version_properties,
         id=__ret__.id,
         name=__ret__.name,
         system_data=__ret__.system_data,
@@ -134,7 +134,7 @@ def get_component_version_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-02-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str name: Container name.

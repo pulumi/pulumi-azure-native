@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['SubscriptionArgs', 'Subscription']
 
@@ -19,6 +20,7 @@ class SubscriptionArgs:
                  resource_group_name: pulumi.Input[str],
                  topic_name: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_affine_properties: Optional[pulumi.Input['SBClientAffinePropertiesArgs']] = None,
                  dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,
@@ -26,6 +28,7 @@ class SubscriptionArgs:
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
+                 is_client_affine: Optional[pulumi.Input[bool]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
@@ -37,6 +40,7 @@ class SubscriptionArgs:
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] topic_name: The topic name.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        :param pulumi.Input['SBClientAffinePropertiesArgs'] client_affine_properties: Properties specific to client affine subscriptions.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_exceptions: Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Value that indicates whether a subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_time_to_live: ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -44,6 +48,7 @@ class SubscriptionArgs:
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: Queue/Topic name to forward the Dead Letter message
         :param pulumi.Input[str] forward_to: Queue/Topic name to forward the messages
+        :param pulumi.Input[bool] is_client_affine: Value that indicates whether the subscription has an affinity to the client id.
         :param pulumi.Input[str] lock_duration: ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         :param pulumi.Input[int] max_delivery_count: Number of maximum deliveries.
         :param pulumi.Input[bool] requires_session: Value indicating if a subscription supports the concept of sessions.
@@ -55,6 +60,8 @@ class SubscriptionArgs:
         pulumi.set(__self__, "topic_name", topic_name)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if client_affine_properties is not None:
+            pulumi.set(__self__, "client_affine_properties", client_affine_properties)
         if dead_lettering_on_filter_evaluation_exceptions is not None:
             pulumi.set(__self__, "dead_lettering_on_filter_evaluation_exceptions", dead_lettering_on_filter_evaluation_exceptions)
         if dead_lettering_on_message_expiration is not None:
@@ -69,6 +76,8 @@ class SubscriptionArgs:
             pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
         if forward_to is not None:
             pulumi.set(__self__, "forward_to", forward_to)
+        if is_client_affine is not None:
+            pulumi.set(__self__, "is_client_affine", is_client_affine)
         if lock_duration is not None:
             pulumi.set(__self__, "lock_duration", lock_duration)
         if max_delivery_count is not None:
@@ -127,6 +136,18 @@ class SubscriptionArgs:
     @auto_delete_on_idle.setter
     def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="clientAffineProperties")
+    def client_affine_properties(self) -> Optional[pulumi.Input['SBClientAffinePropertiesArgs']]:
+        """
+        Properties specific to client affine subscriptions.
+        """
+        return pulumi.get(self, "client_affine_properties")
+
+    @client_affine_properties.setter
+    def client_affine_properties(self, value: Optional[pulumi.Input['SBClientAffinePropertiesArgs']]):
+        pulumi.set(self, "client_affine_properties", value)
 
     @property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationExceptions")
@@ -213,6 +234,18 @@ class SubscriptionArgs:
         pulumi.set(self, "forward_to", value)
 
     @property
+    @pulumi.getter(name="isClientAffine")
+    def is_client_affine(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether the subscription has an affinity to the client id.
+        """
+        return pulumi.get(self, "is_client_affine")
+
+    @is_client_affine.setter
+    def is_client_affine(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_client_affine", value)
+
+    @property
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
@@ -279,6 +312,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_affine_properties: Optional[pulumi.Input[pulumi.InputType['SBClientAffinePropertiesArgs']]] = None,
                  dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,
@@ -286,6 +320,7 @@ class Subscription(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
+                 is_client_affine: Optional[pulumi.Input[bool]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -297,11 +332,12 @@ class Subscription(pulumi.CustomResource):
                  __props__=None):
         """
         Description of subscription resource.
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        :param pulumi.Input[pulumi.InputType['SBClientAffinePropertiesArgs']] client_affine_properties: Properties specific to client affine subscriptions.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_exceptions: Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Value that indicates whether a subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_time_to_live: ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -309,6 +345,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: Queue/Topic name to forward the Dead Letter message
         :param pulumi.Input[str] forward_to: Queue/Topic name to forward the messages
+        :param pulumi.Input[bool] is_client_affine: Value that indicates whether the subscription has an affinity to the client id.
         :param pulumi.Input[str] lock_duration: ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         :param pulumi.Input[int] max_delivery_count: Number of maximum deliveries.
         :param pulumi.Input[str] namespace_name: The namespace name
@@ -326,7 +363,7 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of subscription resource.
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -344,6 +381,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_affine_properties: Optional[pulumi.Input[pulumi.InputType['SBClientAffinePropertiesArgs']]] = None,
                  dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,
@@ -351,6 +389,7 @@ class Subscription(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
+                 is_client_affine: Optional[pulumi.Input[bool]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -372,6 +411,7 @@ class Subscription(pulumi.CustomResource):
             __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            __props__.__dict__["client_affine_properties"] = client_affine_properties
             __props__.__dict__["dead_lettering_on_filter_evaluation_exceptions"] = dead_lettering_on_filter_evaluation_exceptions
             __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
             __props__.__dict__["default_message_time_to_live"] = default_message_time_to_live
@@ -379,6 +419,7 @@ class Subscription(pulumi.CustomResource):
             __props__.__dict__["enable_batched_operations"] = enable_batched_operations
             __props__.__dict__["forward_dead_lettered_messages_to"] = forward_dead_lettered_messages_to
             __props__.__dict__["forward_to"] = forward_to
+            __props__.__dict__["is_client_affine"] = is_client_affine
             __props__.__dict__["lock_duration"] = lock_duration
             __props__.__dict__["max_delivery_count"] = max_delivery_count
             if namespace_name is None and not opts.urn:
@@ -396,8 +437,10 @@ class Subscription(pulumi.CustomResource):
             __props__.__dict__["accessed_at"] = None
             __props__.__dict__["count_details"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["location"] = None
             __props__.__dict__["message_count"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20140901:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Subscription")])
@@ -426,6 +469,7 @@ class Subscription(pulumi.CustomResource):
 
         __props__.__dict__["accessed_at"] = None
         __props__.__dict__["auto_delete_on_idle"] = None
+        __props__.__dict__["client_affine_properties"] = None
         __props__.__dict__["count_details"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["dead_lettering_on_filter_evaluation_exceptions"] = None
@@ -435,12 +479,15 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["enable_batched_operations"] = None
         __props__.__dict__["forward_dead_lettered_messages_to"] = None
         __props__.__dict__["forward_to"] = None
+        __props__.__dict__["is_client_affine"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["lock_duration"] = None
         __props__.__dict__["max_delivery_count"] = None
         __props__.__dict__["message_count"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["requires_session"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
@@ -460,6 +507,14 @@ class Subscription(pulumi.CustomResource):
         ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="clientAffineProperties")
+    def client_affine_properties(self) -> pulumi.Output[Optional['outputs.SBClientAffinePropertiesResponse']]:
+        """
+        Properties specific to client affine subscriptions.
+        """
+        return pulumi.get(self, "client_affine_properties")
 
     @property
     @pulumi.getter(name="countDetails")
@@ -534,6 +589,22 @@ class Subscription(pulumi.CustomResource):
         return pulumi.get(self, "forward_to")
 
     @property
+    @pulumi.getter(name="isClientAffine")
+    def is_client_affine(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Value that indicates whether the subscription has an affinity to the client id.
+        """
+        return pulumi.get(self, "is_client_affine")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> pulumi.Output[Optional[str]]:
         """
@@ -561,7 +632,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -582,10 +653,18 @@ class Subscription(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

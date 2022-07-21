@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Application Configuration Service resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getConfigurationService(args: GetConfigurationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationServiceResult> {
     if (!opts) {

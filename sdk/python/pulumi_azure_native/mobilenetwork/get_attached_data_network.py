@@ -21,7 +21,7 @@ class GetAttachedDataNetworkResult:
     """
     Attached data network resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, napt_configuration=None, provisioning_state=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -55,6 +55,9 @@ class GetAttachedDataNetworkResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -161,6 +164,14 @@ class GetAttachedDataNetworkResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -221,6 +232,7 @@ class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
             name=self.name,
             napt_configuration=self.napt_configuration,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             user_equipment_address_pool_prefix=self.user_equipment_address_pool_prefix,
@@ -235,7 +247,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDataNetworkResult:
     """
     Attached data network resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -266,6 +278,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
         name=__ret__.name,
         napt_configuration=__ret__.napt_configuration,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         user_equipment_address_pool_prefix=__ret__.user_equipment_address_pool_prefix,
@@ -281,7 +294,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
     Attached data network resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str attached_data_network_name: The name of the attached data network.

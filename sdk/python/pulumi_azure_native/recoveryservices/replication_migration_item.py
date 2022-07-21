@@ -126,7 +126,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  __props__=None):
         """
         Migration item.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Migration item.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationMigrationItemArgs args: The arguments to use to populate this resource's properties.

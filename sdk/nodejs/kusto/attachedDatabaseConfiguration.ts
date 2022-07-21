@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**

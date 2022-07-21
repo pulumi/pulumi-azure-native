@@ -32,6 +32,42 @@ export {
     v20220601,
 };
 
+export const AuthenticationMode = {
+    /**
+     * The authentication mode using shared keys.
+     */
+    SharedKey: "SharedKey",
+    /**
+     * The authentication mode using Azure Active Directory.
+     */
+    AAD: "AAD",
+    /**
+     * The authentication mode using task authentication tokens.
+     */
+    TaskAuthenticationToken: "TaskAuthenticationToken",
+} as const;
+
+/**
+ * The authentication mode for the Batch account.
+ */
+export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
+
+export const AutoStorageAuthenticationMode = {
+    /**
+     * The Batch service will authenticate requests to auto-storage using storage account keys.
+     */
+    StorageKeys: "StorageKeys",
+    /**
+     * The Batch service will authenticate requests to auto-storage using the managed identity assigned to the Batch account.
+     */
+    BatchAccountManagedIdentity: "BatchAccountManagedIdentity",
+} as const;
+
+/**
+ * The authentication mode which the Batch service will use to manage the auto-storage account.
+ */
+export type AutoStorageAuthenticationMode = (typeof AutoStorageAuthenticationMode)[keyof typeof AutoStorageAuthenticationMode];
+
 export const AutoUserScope = {
     /**
      * Specifies that the service should create a new user for the task.
@@ -182,6 +218,18 @@ export const ContainerWorkingDirectory = {
 
 export type ContainerWorkingDirectory = (typeof ContainerWorkingDirectory)[keyof typeof ContainerWorkingDirectory];
 
+export const DiffDiskPlacement = {
+    /**
+     * The Ephemeral OS Disk is stored on the VM cache.
+     */
+    CacheDisk: "CacheDisk",
+} as const;
+
+/**
+ * This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+ */
+export type DiffDiskPlacement = (typeof DiffDiskPlacement)[keyof typeof DiffDiskPlacement];
+
 export const DiskEncryptionTarget = {
     /**
      * The OS Disk on the compute node is encrypted.
@@ -198,6 +246,19 @@ export const DiskEncryptionTarget = {
  */
 export type DiskEncryptionTarget = (typeof DiskEncryptionTarget)[keyof typeof DiskEncryptionTarget];
 
+export const DynamicVNetAssignmentScope = {
+    /**
+     * No dynamic VNet assignment is enabled.
+     */
+    None: "none",
+    /**
+     * Dynamic VNet assignment is done per-job. If this value is set, the network configuration subnet ID must also be set. This feature requires approval before use, please contact support
+     */
+    Job: "job",
+} as const;
+
+export type DynamicVNetAssignmentScope = (typeof DynamicVNetAssignmentScope)[keyof typeof DynamicVNetAssignmentScope];
+
 export const ElevationLevel = {
     /**
      * The user is a standard user without elevated access.
@@ -213,6 +274,22 @@ export const ElevationLevel = {
  * nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
  */
 export type ElevationLevel = (typeof ElevationLevel)[keyof typeof ElevationLevel];
+
+export const EndpointAccessDefaultAction = {
+    /**
+     * Allow client access.
+     */
+    Allow: "Allow",
+    /**
+     * Deny client access.
+     */
+    Deny: "Deny",
+} as const;
+
+/**
+ * Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+ */
+export type EndpointAccessDefaultAction = (typeof EndpointAccessDefaultAction)[keyof typeof EndpointAccessDefaultAction];
 
 export const IPAddressProvisioningType = {
     /**
@@ -233,6 +310,18 @@ export const IPAddressProvisioningType = {
  * The default value is BatchManaged
  */
 export type IPAddressProvisioningType = (typeof IPAddressProvisioningType)[keyof typeof IPAddressProvisioningType];
+
+export const IPRuleAction = {
+    /**
+     * Allow access for the matched client IP address.
+     */
+    Allow: "Allow",
+} as const;
+
+/**
+ * Action when client IP address is matched.
+ */
+export type IPRuleAction = (typeof IPRuleAction)[keyof typeof IPRuleAction];
 
 export const InboundEndpointProtocol = {
     /**

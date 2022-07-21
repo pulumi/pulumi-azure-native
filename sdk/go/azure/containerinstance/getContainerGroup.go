@@ -11,7 +11,7 @@ import (
 )
 
 // A container group.
-// API Version: 2021-03-01.
+// API Version: 2021-10-01.
 func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, opts ...pulumi.InvokeOption) (*LookupContainerGroupResult, error) {
 	var rv LookupContainerGroupResult
 	err := ctx.Invoke("azure-native:containerinstance:getContainerGroup", args, &rv, opts...)
@@ -54,8 +54,6 @@ type LookupContainerGroupResult struct {
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The network profile information for a container group.
-	NetworkProfile *ContainerGroupNetworkProfileResponse `pulumi:"networkProfile"`
 	// The operating system type required by the containers in the container group.
 	OsType string `pulumi:"osType"`
 	// The provisioning state of the container group. This only appears in the response.
@@ -67,12 +65,16 @@ type LookupContainerGroupResult struct {
 	RestartPolicy *string `pulumi:"restartPolicy"`
 	// The SKU for a container group.
 	Sku *string `pulumi:"sku"`
+	// The subnet resource IDs for a container group.
+	SubnetIds []ContainerGroupSubnetIdResponse `pulumi:"subnetIds"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
 	// The list of volumes that can be mounted by containers in this container group.
 	Volumes []VolumeResponse `pulumi:"volumes"`
+	// The zones for the container group.
+	Zones []string `pulumi:"zones"`
 }
 
 func LookupContainerGroupOutput(ctx *pulumi.Context, args LookupContainerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupContainerGroupResultOutput {
@@ -176,11 +178,6 @@ func (o LookupContainerGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The network profile information for a container group.
-func (o LookupContainerGroupResultOutput) NetworkProfile() ContainerGroupNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v LookupContainerGroupResult) *ContainerGroupNetworkProfileResponse { return v.NetworkProfile }).(ContainerGroupNetworkProfileResponsePtrOutput)
-}
-
 // The operating system type required by the containers in the container group.
 func (o LookupContainerGroupResultOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerGroupResult) string { return v.OsType }).(pulumi.StringOutput)
@@ -204,6 +201,11 @@ func (o LookupContainerGroupResultOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerGroupResult) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
+// The subnet resource IDs for a container group.
+func (o LookupContainerGroupResultOutput) SubnetIds() ContainerGroupSubnetIdResponseArrayOutput {
+	return o.ApplyT(func(v LookupContainerGroupResult) []ContainerGroupSubnetIdResponse { return v.SubnetIds }).(ContainerGroupSubnetIdResponseArrayOutput)
+}
+
 // The resource tags.
 func (o LookupContainerGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupContainerGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -217,6 +219,11 @@ func (o LookupContainerGroupResultOutput) Type() pulumi.StringOutput {
 // The list of volumes that can be mounted by containers in this container group.
 func (o LookupContainerGroupResultOutput) Volumes() VolumeResponseArrayOutput {
 	return o.ApplyT(func(v LookupContainerGroupResult) []VolumeResponse { return v.Volumes }).(VolumeResponseArrayOutput)
+}
+
+// The zones for the container group.
+func (o LookupContainerGroupResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupContainerGroupResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

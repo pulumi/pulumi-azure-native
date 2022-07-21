@@ -11,7 +11,7 @@ import (
 )
 
 // Representation of a managed Cassandra cluster.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-15.
 func LookupCassandraCluster(ctx *pulumi.Context, args *LookupCassandraClusterArgs, opts ...pulumi.InvokeOption) (*LookupCassandraClusterResult, error) {
 	var rv LookupCassandraClusterResult
 	err := ctx.Invoke("azure-native:documentdb:getCassandraCluster", args, &rv, opts...)
@@ -33,7 +33,7 @@ type LookupCassandraClusterResult struct {
 	// The unique resource identifier of the ARM resource.
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity *ManagedCassandraManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
@@ -91,8 +91,10 @@ func (o LookupCassandraClusterResultOutput) Id() pulumi.StringOutput {
 }
 
 // Identity for the resource.
-func (o LookupCassandraClusterResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupCassandraClusterResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+func (o LookupCassandraClusterResultOutput) Identity() ManagedCassandraManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupCassandraClusterResult) *ManagedCassandraManagedServiceIdentityResponse {
+		return v.Identity
+	}).(ManagedCassandraManagedServiceIdentityResponsePtrOutput)
 }
 
 // The location of the resource group to which the resource belongs.

@@ -21,7 +21,7 @@ class GetVendorSkusResult:
     """
     Sku sub resource.
     """
-    def __init__(__self__, deployment_mode=None, id=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, preview=None, provisioning_state=None, sku_type=None, type=None):
+    def __init__(__self__, deployment_mode=None, id=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, network_function_type=None, preview=None, provisioning_state=None, sku_type=None, system_data=None, type=None):
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         pulumi.set(__self__, "deployment_mode", deployment_mode)
@@ -40,6 +40,9 @@ class GetVendorSkusResult:
         if network_function_template and not isinstance(network_function_template, dict):
             raise TypeError("Expected argument 'network_function_template' to be a dict")
         pulumi.set(__self__, "network_function_template", network_function_template)
+        if network_function_type and not isinstance(network_function_type, str):
+            raise TypeError("Expected argument 'network_function_type' to be a str")
+        pulumi.set(__self__, "network_function_type", network_function_type)
         if preview and not isinstance(preview, bool):
             raise TypeError("Expected argument 'preview' to be a bool")
         pulumi.set(__self__, "preview", preview)
@@ -49,6 +52,9 @@ class GetVendorSkusResult:
         if sku_type and not isinstance(sku_type, str):
             raise TypeError("Expected argument 'sku_type' to be a str")
         pulumi.set(__self__, "sku_type", sku_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -102,6 +108,14 @@ class GetVendorSkusResult:
         return pulumi.get(self, "network_function_template")
 
     @property
+    @pulumi.getter(name="networkFunctionType")
+    def network_function_type(self) -> Optional[str]:
+        """
+        The network function type.
+        """
+        return pulumi.get(self, "network_function_type")
+
+    @property
     @pulumi.getter
     def preview(self) -> Optional[bool]:
         """
@@ -126,6 +140,14 @@ class GetVendorSkusResult:
         return pulumi.get(self, "sku_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -146,9 +168,11 @@ class AwaitableGetVendorSkusResult(GetVendorSkusResult):
             managed_application_template=self.managed_application_template,
             name=self.name,
             network_function_template=self.network_function_template,
+            network_function_type=self.network_function_type,
             preview=self.preview,
             provisioning_state=self.provisioning_state,
             sku_type=self.sku_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -157,7 +181,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkusResult:
     """
     Sku sub resource.
-    API Version: 2020-01-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str sku_name: The name of the sku.
@@ -179,9 +203,11 @@ def get_vendor_skus(sku_name: Optional[str] = None,
         managed_application_template=__ret__.managed_application_template,
         name=__ret__.name,
         network_function_template=__ret__.network_function_template,
+        network_function_type=__ret__.network_function_type,
         preview=__ret__.preview,
         provisioning_state=__ret__.provisioning_state,
         sku_type=__ret__.sku_type,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -191,7 +217,7 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkusResult]:
     """
     Sku sub resource.
-    API Version: 2020-01-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str sku_name: The name of the sku.

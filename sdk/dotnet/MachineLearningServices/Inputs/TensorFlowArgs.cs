@@ -29,13 +29,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<int>? ParameterServerCount { get; set; }
 
         /// <summary>
-        /// Number of workers. Overwrites the node count in compute binding.
+        /// Number of workers. If not specified, will default to the instance count.
         /// </summary>
         [Input("workerCount")]
         public Input<int>? WorkerCount { get; set; }
 
         public TensorFlowArgs()
         {
+            ParameterServerCount = 0;
         }
     }
 }

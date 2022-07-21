@@ -16,25 +16,33 @@ __all__ = ['ServiceEndpointPolicyInitArgs', 'ServiceEndpointPolicy']
 class ServiceEndpointPolicyInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 contextual_service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 service_alias: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyDefinitionArgs']]]] = None,
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServiceEndpointPolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contextual_service_endpoint_policies: A collection of contextual service endpoint policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] service_alias: The alias indicating if the policy belongs to a service
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyDefinitionArgs']]] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if contextual_service_endpoint_policies is not None:
+            pulumi.set(__self__, "contextual_service_endpoint_policies", contextual_service_endpoint_policies)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if service_alias is not None:
+            pulumi.set(__self__, "service_alias", service_alias)
         if service_endpoint_policy_definitions is not None:
             pulumi.set(__self__, "service_endpoint_policy_definitions", service_endpoint_policy_definitions)
         if service_endpoint_policy_name is not None:
@@ -53,6 +61,18 @@ class ServiceEndpointPolicyInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="contextualServiceEndpointPolicies")
+    def contextual_service_endpoint_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A collection of contextual service endpoint policy.
+        """
+        return pulumi.get(self, "contextual_service_endpoint_policies")
+
+    @contextual_service_endpoint_policies.setter
+    def contextual_service_endpoint_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "contextual_service_endpoint_policies", value)
 
     @property
     @pulumi.getter
@@ -77,6 +97,18 @@ class ServiceEndpointPolicyInitArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="serviceAlias")
+    def service_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias indicating if the policy belongs to a service
+        """
+        return pulumi.get(self, "service_alias")
+
+    @service_alias.setter
+    def service_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_alias", value)
 
     @property
     @pulumi.getter(name="serviceEndpointPolicyDefinitions")
@@ -120,22 +152,26 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 contextual_service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_alias: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]]] = None,
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Service End point policy resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contextual_service_endpoint_policies: A collection of contextual service endpoint policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_alias: The alias indicating if the policy belongs to a service
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -148,7 +184,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Service End point policy resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointPolicyInitArgs args: The arguments to use to populate this resource's properties.
@@ -165,9 +201,11 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 contextual_service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_alias: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]]] = None,
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -183,11 +221,13 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointPolicyInitArgs.__new__(ServiceEndpointPolicyInitArgs)
 
+            __props__.__dict__["contextual_service_endpoint_policies"] = contextual_service_endpoint_policies
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_alias"] = service_alias
             __props__.__dict__["service_endpoint_policy_definitions"] = service_endpoint_policy_definitions
             __props__.__dict__["service_endpoint_policy_name"] = service_endpoint_policy_name
             __props__.__dict__["tags"] = tags
@@ -222,17 +262,27 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
 
         __props__ = ServiceEndpointPolicyInitArgs.__new__(ServiceEndpointPolicyInitArgs)
 
+        __props__.__dict__["contextual_service_endpoint_policies"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["service_alias"] = None
         __props__.__dict__["service_endpoint_policy_definitions"] = None
         __props__.__dict__["subnets"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ServiceEndpointPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="contextualServiceEndpointPolicies")
+    def contextual_service_endpoint_policies(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A collection of contextual service endpoint policy.
+        """
+        return pulumi.get(self, "contextual_service_endpoint_policies")
 
     @property
     @pulumi.getter
@@ -281,6 +331,14 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         The resource GUID property of the service endpoint policy resource.
         """
         return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="serviceAlias")
+    def service_alias(self) -> pulumi.Output[Optional[str]]:
+        """
+        The alias indicating if the policy belongs to a service
+        """
+        return pulumi.get(self, "service_alias")
 
     @property
     @pulumi.getter(name="serviceEndpointPolicyDefinitions")

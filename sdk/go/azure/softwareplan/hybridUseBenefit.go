@@ -12,7 +12,7 @@ import (
 )
 
 // Response on GET of a hybrid use benefit
-// API Version: 2019-06-01-preview.
+// API Version: 2019-12-01.
 type HybridUseBenefit struct {
 	pulumi.CustomResourceState
 

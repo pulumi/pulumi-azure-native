@@ -11,7 +11,7 @@ import (
 )
 
 // Information about a partner registration.
-// API Version: 2021-06-01-preview.
+// API Version: 2022-06-15.
 func LookupPartnerRegistration(ctx *pulumi.Context, args *LookupPartnerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupPartnerRegistrationResult, error) {
 	var rv LookupPartnerRegistrationResult
 	err := ctx.Invoke("azure-native:eventgrid:getPartnerRegistration", args, &rv, opts...)
@@ -30,52 +30,23 @@ type LookupPartnerRegistrationArgs struct {
 
 // Information about a partner registration.
 type LookupPartnerRegistrationResult struct {
-	// List of Azure subscription Ids that are authorized to create a partner namespace
-	// associated with this partner registration. This is an optional property. Creating
-	// partner namespaces is always permitted under the same Azure subscription as the one used
-	// for creating the partner registration.
-	AuthorizedAzureSubscriptionIds []string `pulumi:"authorizedAzureSubscriptionIds"`
-	// The extension of the customer service URI of the publisher.
-	CustomerServiceUri *string `pulumi:"customerServiceUri"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
-	// URI of the logo.
-	LogoUri *string `pulumi:"logoUri"`
-	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-	// Length of this description should not exceed 2048 characters.
-	LongDescription *string `pulumi:"longDescription"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
-	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
-	PartnerCustomerServiceExtension *string `pulumi:"partnerCustomerServiceExtension"`
-	// The customer service number of the publisher. The expected phone format should start with a '+' sign
-	// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-	// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-	// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-	PartnerCustomerServiceNumber *string `pulumi:"partnerCustomerServiceNumber"`
-	// Official name of the partner name. For example: "Contoso".
-	PartnerName *string `pulumi:"partnerName"`
-	// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-	PartnerResourceTypeDescription *string `pulumi:"partnerResourceTypeDescription"`
-	// Display name of the partner resource type.
-	PartnerResourceTypeDisplayName *string `pulumi:"partnerResourceTypeDisplayName"`
-	// Name of the partner resource type.
-	PartnerResourceTypeName *string `pulumi:"partnerResourceTypeName"`
+	// The immutableId of the corresponding partner registration.
+	// Note: This property is marked for deprecation and is not supported in any future GA API version
+	PartnerRegistrationImmutableId *string `pulumi:"partnerRegistrationImmutableId"`
 	// Provisioning state of the partner registration.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// URI of the partner website that can be used by Azure customers to setup Event Grid
-	// integration on an event source.
-	SetupUri *string `pulumi:"setupUri"`
 	// The system metadata relating to Partner Registration resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
-	// Visibility state of the partner registration.
-	VisibilityState *string `pulumi:"visibilityState"`
 }
 
 func LookupPartnerRegistrationOutput(ctx *pulumi.Context, args LookupPartnerRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupPartnerRegistrationResultOutput {
@@ -117,19 +88,6 @@ func (o LookupPartnerRegistrationResultOutput) ToLookupPartnerRegistrationResult
 	return o
 }
 
-// List of Azure subscription Ids that are authorized to create a partner namespace
-// associated with this partner registration. This is an optional property. Creating
-// partner namespaces is always permitted under the same Azure subscription as the one used
-// for creating the partner registration.
-func (o LookupPartnerRegistrationResultOutput) AuthorizedAzureSubscriptionIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) []string { return v.AuthorizedAzureSubscriptionIds }).(pulumi.StringArrayOutput)
-}
-
-// The extension of the customer service URI of the publisher.
-func (o LookupPartnerRegistrationResultOutput) CustomerServiceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.CustomerServiceUri }).(pulumi.StringPtrOutput)
-}
-
 // Fully qualified identifier of the resource.
 func (o LookupPartnerRegistrationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPartnerRegistrationResult) string { return v.Id }).(pulumi.StringOutput)
@@ -140,64 +98,20 @@ func (o LookupPartnerRegistrationResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPartnerRegistrationResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// URI of the logo.
-func (o LookupPartnerRegistrationResultOutput) LogoUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.LogoUri }).(pulumi.StringPtrOutput)
-}
-
-// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-// Length of this description should not exceed 2048 characters.
-func (o LookupPartnerRegistrationResultOutput) LongDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.LongDescription }).(pulumi.StringPtrOutput)
-}
-
 // Name of the resource.
 func (o LookupPartnerRegistrationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPartnerRegistrationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
-func (o LookupPartnerRegistrationResultOutput) PartnerCustomerServiceExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerCustomerServiceExtension }).(pulumi.StringPtrOutput)
-}
-
-// The customer service number of the publisher. The expected phone format should start with a '+' sign
-// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-func (o LookupPartnerRegistrationResultOutput) PartnerCustomerServiceNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerCustomerServiceNumber }).(pulumi.StringPtrOutput)
-}
-
-// Official name of the partner name. For example: "Contoso".
-func (o LookupPartnerRegistrationResultOutput) PartnerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerName }).(pulumi.StringPtrOutput)
-}
-
-// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-func (o LookupPartnerRegistrationResultOutput) PartnerResourceTypeDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerResourceTypeDescription }).(pulumi.StringPtrOutput)
-}
-
-// Display name of the partner resource type.
-func (o LookupPartnerRegistrationResultOutput) PartnerResourceTypeDisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerResourceTypeDisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Name of the partner resource type.
-func (o LookupPartnerRegistrationResultOutput) PartnerResourceTypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerResourceTypeName }).(pulumi.StringPtrOutput)
+// The immutableId of the corresponding partner registration.
+// Note: This property is marked for deprecation and is not supported in any future GA API version
+func (o LookupPartnerRegistrationResultOutput) PartnerRegistrationImmutableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.PartnerRegistrationImmutableId }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning state of the partner registration.
 func (o LookupPartnerRegistrationResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPartnerRegistrationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// URI of the partner website that can be used by Azure customers to setup Event Grid
-// integration on an event source.
-func (o LookupPartnerRegistrationResultOutput) SetupUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.SetupUri }).(pulumi.StringPtrOutput)
 }
 
 // The system metadata relating to Partner Registration resource.
@@ -213,11 +127,6 @@ func (o LookupPartnerRegistrationResultOutput) Tags() pulumi.StringMapOutput {
 // Type of the resource.
 func (o LookupPartnerRegistrationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPartnerRegistrationResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Visibility state of the partner registration.
-func (o LookupPartnerRegistrationResultOutput) VisibilityState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPartnerRegistrationResult) *string { return v.VisibilityState }).(pulumi.StringPtrOutput)
 }
 
 func init() {

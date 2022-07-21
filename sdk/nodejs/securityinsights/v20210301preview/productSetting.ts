@@ -101,7 +101,7 @@ export class ProductSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ProductSetting" }, { type: "azure-native:securityinsights/v20190101preview:ProductSetting" }, { type: "azure-native:securityinsights/v20210901preview:ProductSetting" }, { type: "azure-native:securityinsights/v20211001preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220101preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220401preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220501preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220601preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220701preview:ProductSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:ProductSetting" }, { type: "azure-native:securityinsights/v20210901preview:ProductSetting" }, { type: "azure-native:securityinsights/v20211001preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220101preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220401preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220501preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220601preview:ProductSetting" }, { type: "azure-native:securityinsights/v20220701preview:ProductSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductSetting.__pulumiType, name, resourceInputs, opts);
     }

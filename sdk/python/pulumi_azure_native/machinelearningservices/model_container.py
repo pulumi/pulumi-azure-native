@@ -15,34 +15,34 @@ __all__ = ['ModelContainerInitArgs', 'ModelContainer']
 @pulumi.input_type
 class ModelContainerInitArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['ModelContainerArgs'],
+                 model_container_properties: pulumi.Input['ModelContainerArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ModelContainer resource.
-        :param pulumi.Input['ModelContainerArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['ModelContainerArgs'] model_container_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[str] name: Container name.
+        :param pulumi.Input[str] name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "model_container_properties", model_container_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['ModelContainerArgs']:
+    @pulumi.getter(name="modelContainerProperties")
+    def model_container_properties(self) -> pulumi.Input['ModelContainerArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "model_container_properties")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['ModelContainerArgs']):
-        pulumi.set(self, "properties", value)
+    @model_container_properties.setter
+    def model_container_properties(self, value: pulumi.Input['ModelContainerArgs']):
+        pulumi.set(self, "model_container_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -72,7 +72,7 @@ class ModelContainerInitArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Container name.
+        Container name. This is case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -86,19 +86,19 @@ class ModelContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 model_container_properties: Optional[pulumi.Input[pulumi.InputType['ModelContainerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ModelContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['ModelContainerArgs']] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['ModelContainerArgs']] model_container_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] name: Container name. This is case-sensitive.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -110,7 +110,7 @@ class ModelContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param ModelContainerInitArgs args: The arguments to use to populate this resource's properties.
@@ -127,8 +127,8 @@ class ModelContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 model_container_properties: Optional[pulumi.Input[pulumi.InputType['ModelContainerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ModelContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -143,10 +143,10 @@ class ModelContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ModelContainerInitArgs.__new__(ModelContainerInitArgs)
 
+            if model_container_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'model_container_properties'")
+            __props__.__dict__["model_container_properties"] = model_container_properties
             __props__.__dict__["name"] = name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -179,11 +179,19 @@ class ModelContainer(pulumi.CustomResource):
 
         __props__ = ModelContainerInitArgs.__new__(ModelContainerInitArgs)
 
+        __props__.__dict__["model_container_properties"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ModelContainer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="modelContainerProperties")
+    def model_container_properties(self) -> pulumi.Output['outputs.ModelContainerResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "model_container_properties")
 
     @property
     @pulumi.getter
@@ -194,18 +202,10 @@ class ModelContainer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ModelContainerResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

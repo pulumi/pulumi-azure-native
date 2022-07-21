@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A project resource
-    /// API Version: 2018-04-19.
+    /// API Version: 2021-06-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Project")]
     public partial class Project : Pulumi.CustomResource
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         [Output("sourcePlatform")]
         public Output<string> SourcePlatform { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

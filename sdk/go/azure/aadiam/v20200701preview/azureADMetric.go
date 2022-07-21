@@ -36,12 +36,6 @@ func NewAzureADMetric(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:aadiam:azureADMetric"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource AzureADMetric
 	err := ctx.RegisterResource("azure-native:aadiam/v20200701preview:azureADMetric", name, args, &resource, opts...)
 	if err != nil {

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<Inputs.BasicLoginInformationArgs>? BasicLoginInformation { get; set; }
 
         /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        /// </summary>
+        [Input("clusterId")]
+        public Input<string>? ClusterId { get; set; }
+
+        /// <summary>
         /// null
         /// </summary>
         [Input("dataControllerId")]
@@ -40,16 +46,28 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        /// </summary>
+        [Input("extensionId")]
+        public Input<string>? ExtensionId { get; set; }
+
+        /// <summary>
         /// The raw kubernetes information
         /// </summary>
         [Input("k8sRaw")]
-        public Input<object>? K8sRaw { get; set; }
+        public Input<Inputs.SqlManagedInstanceK8sRawArgs>? K8sRaw { get; set; }
 
         /// <summary>
         /// Last uploaded date from Kubernetes cluster. Defaults to current date time
         /// </summary>
         [Input("lastUploadedDate")]
         public Input<string>? LastUploadedDate { get; set; }
+
+        /// <summary>
+        /// The license type to apply for this managed instance.
+        /// </summary>
+        [Input("licenseType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ArcSqlManagedInstanceLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// The instance start time
@@ -59,6 +77,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
 
         public SqlManagedInstancePropertiesArgs()
         {
+            LicenseType = "BasePrice";
         }
     }
 }

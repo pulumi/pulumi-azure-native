@@ -11,7 +11,7 @@ import (
 )
 
 // A server trust group.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupServerTrustGroup(ctx *pulumi.Context, args *LookupServerTrustGroupArgs, opts ...pulumi.InvokeOption) (*LookupServerTrustGroupResult, error) {
 	var rv LookupServerTrustGroupResult
 	err := ctx.Invoke("azure-native:sql:getServerTrustGroup", args, &rv, opts...)

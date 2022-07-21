@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// A set of Azure Batch account keys.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-native:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// A set of Azure Batch account keys.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<ListBatchAccountKeysResult> Invoke(ListBatchAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListBatchAccountKeysResult>("azure-native:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysInvokeArgs(), options.WithDefaults());

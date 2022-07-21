@@ -21,7 +21,7 @@ class GetStaticSiteResult:
     """
     Static Site ARM resource.
     """
-    def __init__(__self__, allow_config_file_updates=None, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, default_hostname=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, location=None, name=None, private_endpoint_connections=None, provider=None, repository_token=None, repository_url=None, sku=None, staging_environment_policy=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
+    def __init__(__self__, allow_config_file_updates=None, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, default_hostname=None, enterprise_grade_cdn_status=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, location=None, name=None, private_endpoint_connections=None, provider=None, repository_token=None, repository_url=None, sku=None, staging_environment_policy=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
         if allow_config_file_updates and not isinstance(allow_config_file_updates, bool):
             raise TypeError("Expected argument 'allow_config_file_updates' to be a bool")
         pulumi.set(__self__, "allow_config_file_updates", allow_config_file_updates)
@@ -40,6 +40,9 @@ class GetStaticSiteResult:
         if default_hostname and not isinstance(default_hostname, str):
             raise TypeError("Expected argument 'default_hostname' to be a str")
         pulumi.set(__self__, "default_hostname", default_hostname)
+        if enterprise_grade_cdn_status and not isinstance(enterprise_grade_cdn_status, str):
+            raise TypeError("Expected argument 'enterprise_grade_cdn_status' to be a str")
+        pulumi.set(__self__, "enterprise_grade_cdn_status", enterprise_grade_cdn_status)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -138,6 +141,14 @@ class GetStaticSiteResult:
         return pulumi.get(self, "default_hostname")
 
     @property
+    @pulumi.getter(name="enterpriseGradeCdnStatus")
+    def enterprise_grade_cdn_status(self) -> Optional[str]:
+        """
+        State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+        """
+        return pulumi.get(self, "enterprise_grade_cdn_status")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -195,7 +206,7 @@ class GetStaticSiteResult:
 
     @property
     @pulumi.getter
-    def provider(self) -> str:
+    def provider(self) -> Optional[str]:
         """
         The provider that submitted the last deployment to the primary environment of the static site.
         """
@@ -278,6 +289,7 @@ class AwaitableGetStaticSiteResult(GetStaticSiteResult):
             content_distribution_endpoint=self.content_distribution_endpoint,
             custom_domains=self.custom_domains,
             default_hostname=self.default_hostname,
+            enterprise_grade_cdn_status=self.enterprise_grade_cdn_status,
             id=self.id,
             identity=self.identity,
             key_vault_reference_identity=self.key_vault_reference_identity,
@@ -301,7 +313,7 @@ def get_static_site(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteResult:
     """
     Static Site ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the static site.
@@ -323,6 +335,7 @@ def get_static_site(name: Optional[str] = None,
         content_distribution_endpoint=__ret__.content_distribution_endpoint,
         custom_domains=__ret__.custom_domains,
         default_hostname=__ret__.default_hostname,
+        enterprise_grade_cdn_status=__ret__.enterprise_grade_cdn_status,
         id=__ret__.id,
         identity=__ret__.identity,
         key_vault_reference_identity=__ret__.key_vault_reference_identity,
@@ -347,7 +360,7 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteResult]:
     """
     Static Site ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the static site.

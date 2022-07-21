@@ -20,10 +20,12 @@ class StaticSiteArgs:
                  allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input['StaticSiteBuildPropertiesArgs']] = None,
+                 enterprise_grade_cdn_status: Optional[pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 provider: Optional[pulumi.Input[str]] = None,
                  repository_token: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
@@ -36,10 +38,12 @@ class StaticSiteArgs:
         :param pulumi.Input[bool] allow_config_file_updates: <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         :param pulumi.Input[str] branch: The target branch in the repository.
         :param pulumi.Input['StaticSiteBuildPropertiesArgs'] build_properties: Build properties to configure on the repository.
+        :param pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']] enterprise_grade_cdn_status: State indicating the status of the enterprise grade CDN serving traffic to the static web app.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
+        :param pulumi.Input[str] provider: The provider that submitted the last deployment to the primary environment of the static site.
         :param pulumi.Input[str] repository_token: A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         :param pulumi.Input[str] repository_url: URL for the repository of the static site.
         :param pulumi.Input['SkuDescriptionArgs'] sku: Description of a SKU for a scalable resource.
@@ -54,6 +58,8 @@ class StaticSiteArgs:
             pulumi.set(__self__, "branch", branch)
         if build_properties is not None:
             pulumi.set(__self__, "build_properties", build_properties)
+        if enterprise_grade_cdn_status is not None:
+            pulumi.set(__self__, "enterprise_grade_cdn_status", enterprise_grade_cdn_status)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -62,6 +68,8 @@ class StaticSiteArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
         if repository_token is not None:
             pulumi.set(__self__, "repository_token", repository_token)
         if repository_url is not None:
@@ -124,6 +132,18 @@ class StaticSiteArgs:
         pulumi.set(self, "build_properties", value)
 
     @property
+    @pulumi.getter(name="enterpriseGradeCdnStatus")
+    def enterprise_grade_cdn_status(self) -> Optional[pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']]]:
+        """
+        State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+        """
+        return pulumi.get(self, "enterprise_grade_cdn_status")
+
+    @enterprise_grade_cdn_status.setter
+    def enterprise_grade_cdn_status(self, value: Optional[pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']]]):
+        pulumi.set(self, "enterprise_grade_cdn_status", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
@@ -170,6 +190,18 @@ class StaticSiteArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider that submitted the last deployment to the primary environment of the static site.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider", value)
 
     @property
     @pulumi.getter(name="repositoryToken")
@@ -252,10 +284,12 @@ class StaticSite(pulumi.CustomResource):
                  allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
+                 enterprise_grade_cdn_status: Optional[pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 provider: Optional[pulumi.Input[str]] = None,
                  repository_token: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -266,17 +300,19 @@ class StaticSite(pulumi.CustomResource):
                  __props__=None):
         """
         Static Site ARM resource.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_config_file_updates: <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         :param pulumi.Input[str] branch: The target branch in the repository.
         :param pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']] build_properties: Build properties to configure on the repository.
+        :param pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']] enterprise_grade_cdn_status: State indicating the status of the enterprise grade CDN serving traffic to the static web app.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
+        :param pulumi.Input[str] provider: The provider that submitted the last deployment to the primary environment of the static site.
         :param pulumi.Input[str] repository_token: A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         :param pulumi.Input[str] repository_url: URL for the repository of the static site.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -293,7 +329,7 @@ class StaticSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site ARM resource.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteArgs args: The arguments to use to populate this resource's properties.
@@ -313,10 +349,12 @@ class StaticSite(pulumi.CustomResource):
                  allow_config_file_updates: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
+                 enterprise_grade_cdn_status: Optional[pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 provider: Optional[pulumi.Input[str]] = None,
                  repository_token: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -339,10 +377,12 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["allow_config_file_updates"] = allow_config_file_updates
             __props__.__dict__["branch"] = branch
             __props__.__dict__["build_properties"] = build_properties
+            __props__.__dict__["enterprise_grade_cdn_status"] = enterprise_grade_cdn_status
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["provider"] = provider
             __props__.__dict__["repository_token"] = repository_token
             __props__.__dict__["repository_url"] = repository_url
             if resource_group_name is None and not opts.urn:
@@ -357,7 +397,6 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["key_vault_reference_identity"] = None
             __props__.__dict__["private_endpoint_connections"] = None
-            __props__.__dict__["provider"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["user_provided_function_apps"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200901:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201001:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSite"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSite")])
@@ -390,6 +429,7 @@ class StaticSite(pulumi.CustomResource):
         __props__.__dict__["content_distribution_endpoint"] = None
         __props__.__dict__["custom_domains"] = None
         __props__.__dict__["default_hostname"] = None
+        __props__.__dict__["enterprise_grade_cdn_status"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["key_vault_reference_identity"] = None
         __props__.__dict__["kind"] = None
@@ -456,6 +496,14 @@ class StaticSite(pulumi.CustomResource):
         return pulumi.get(self, "default_hostname")
 
     @property
+    @pulumi.getter(name="enterpriseGradeCdnStatus")
+    def enterprise_grade_cdn_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+        """
+        return pulumi.get(self, "enterprise_grade_cdn_status")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
@@ -505,7 +553,7 @@ class StaticSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def provider(self) -> pulumi.Output[str]:
+    def provider(self) -> pulumi.Output[Optional[str]]:
         """
         The provider that submitted the last deployment to the primary environment of the static site.
         """

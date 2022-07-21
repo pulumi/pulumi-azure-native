@@ -11,7 +11,7 @@ import (
 )
 
 // Schedule for automatically turning virtual machines in a lab on and off at specified times.
-// API Version: 2021-10-01-preview.
+// API Version: 2021-11-15-preview.
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
 	var rv LookupScheduleResult
 	err := ctx.Invoke("azure-native:labservices:getSchedule", args, &rv, opts...)

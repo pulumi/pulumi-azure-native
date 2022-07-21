@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Appliance Site resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type VirtualHubBgpConnection struct {
 	ConnectionState pulumi.StringOutput `pulumi:"connectionState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The reference to the HubVirtualNetworkConnection resource.
+	HubVirtualNetworkConnection SubResourceResponsePtrOutput `pulumi:"hubVirtualNetworkConnection"`
 	// Name of the connection.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Peer ASN.
@@ -112,6 +114,8 @@ func (VirtualHubBgpConnectionState) ElementType() reflect.Type {
 type virtualHubBgpConnectionArgs struct {
 	// The name of the connection.
 	ConnectionName *string `pulumi:"connectionName"`
+	// The reference to the HubVirtualNetworkConnection resource.
+	HubVirtualNetworkConnection *SubResource `pulumi:"hubVirtualNetworkConnection"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Name of the connection.
@@ -130,6 +134,8 @@ type virtualHubBgpConnectionArgs struct {
 type VirtualHubBgpConnectionArgs struct {
 	// The name of the connection.
 	ConnectionName pulumi.StringPtrInput
+	// The reference to the HubVirtualNetworkConnection resource.
+	HubVirtualNetworkConnection SubResourcePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Name of the connection.
@@ -189,6 +195,11 @@ func (o VirtualHubBgpConnectionOutput) ConnectionState() pulumi.StringOutput {
 // A unique read-only string that changes whenever the resource is updated.
 func (o VirtualHubBgpConnectionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The reference to the HubVirtualNetworkConnection resource.
+func (o VirtualHubBgpConnectionOutput) HubVirtualNetworkConnection() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) SubResourceResponsePtrOutput { return v.HubVirtualNetworkConnection }).(SubResourceResponsePtrOutput)
 }
 
 // Name of the connection.

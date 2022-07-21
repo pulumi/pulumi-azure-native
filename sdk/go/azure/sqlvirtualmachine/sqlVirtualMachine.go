@@ -12,10 +12,12 @@ import (
 )
 
 // A SQL virtual machine.
-// API Version: 2017-03-01-preview.
+// API Version: 2022-02-01.
 type SqlVirtualMachine struct {
 	pulumi.CustomResourceState
 
+	// Assessment Settings.
+	AssessmentSettings AssessmentSettingsResponsePtrOutput `pulumi:"assessmentSettings"`
 	// Auto backup settings for SQL Server.
 	AutoBackupSettings AutoBackupSettingsResponsePtrOutput `pulumi:"autoBackupSettings"`
 	// Auto patching settings for applying critical security updates to SQL virtual machine.
@@ -44,6 +46,8 @@ type SqlVirtualMachine struct {
 	SqlVirtualMachineGroupResourceId pulumi.StringPtrOutput `pulumi:"sqlVirtualMachineGroupResourceId"`
 	// Storage Configuration Settings.
 	StorageConfigurationSettings StorageConfigurationSettingsResponsePtrOutput `pulumi:"storageConfigurationSettings"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -52,6 +56,8 @@ type SqlVirtualMachine struct {
 	VirtualMachineResourceId pulumi.StringPtrOutput `pulumi:"virtualMachineResourceId"`
 	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 	WsfcDomainCredentials WsfcDomainCredentialsResponsePtrOutput `pulumi:"wsfcDomainCredentials"`
+	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+	WsfcStaticIp pulumi.StringPtrOutput `pulumi:"wsfcStaticIp"`
 }
 
 // NewSqlVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -111,6 +117,8 @@ func (SqlVirtualMachineState) ElementType() reflect.Type {
 }
 
 type sqlVirtualMachineArgs struct {
+	// Assessment Settings.
+	AssessmentSettings *AssessmentSettings `pulumi:"assessmentSettings"`
 	// Auto backup settings for SQL Server.
 	AutoBackupSettings *AutoBackupSettings `pulumi:"autoBackupSettings"`
 	// Auto patching settings for applying critical security updates to SQL virtual machine.
@@ -145,10 +153,14 @@ type sqlVirtualMachineArgs struct {
 	VirtualMachineResourceId *string `pulumi:"virtualMachineResourceId"`
 	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 	WsfcDomainCredentials *WsfcDomainCredentials `pulumi:"wsfcDomainCredentials"`
+	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+	WsfcStaticIp *string `pulumi:"wsfcStaticIp"`
 }
 
 // The set of arguments for constructing a SqlVirtualMachine resource.
 type SqlVirtualMachineArgs struct {
+	// Assessment Settings.
+	AssessmentSettings AssessmentSettingsPtrInput
 	// Auto backup settings for SQL Server.
 	AutoBackupSettings AutoBackupSettingsPtrInput
 	// Auto patching settings for applying critical security updates to SQL virtual machine.
@@ -183,6 +195,8 @@ type SqlVirtualMachineArgs struct {
 	VirtualMachineResourceId pulumi.StringPtrInput
 	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 	WsfcDomainCredentials WsfcDomainCredentialsPtrInput
+	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+	WsfcStaticIp pulumi.StringPtrInput
 }
 
 func (SqlVirtualMachineArgs) ElementType() reflect.Type {
@@ -220,6 +234,11 @@ func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutput() SqlVirtualMachineOu
 
 func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutputWithContext(ctx context.Context) SqlVirtualMachineOutput {
 	return o
+}
+
+// Assessment Settings.
+func (o SqlVirtualMachineOutput) AssessmentSettings() AssessmentSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) AssessmentSettingsResponsePtrOutput { return v.AssessmentSettings }).(AssessmentSettingsResponsePtrOutput)
 }
 
 // Auto backup settings for SQL Server.
@@ -298,6 +317,11 @@ func (o SqlVirtualMachineOutput) StorageConfigurationSettings() StorageConfigura
 	}).(StorageConfigurationSettingsResponsePtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o SqlVirtualMachineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o SqlVirtualMachineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -316,6 +340,11 @@ func (o SqlVirtualMachineOutput) VirtualMachineResourceId() pulumi.StringPtrOutp
 // Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 func (o SqlVirtualMachineOutput) WsfcDomainCredentials() WsfcDomainCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v *SqlVirtualMachine) WsfcDomainCredentialsResponsePtrOutput { return v.WsfcDomainCredentials }).(WsfcDomainCredentialsResponsePtrOutput)
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+func (o SqlVirtualMachineOutput) WsfcStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.WsfcStaticIp }).(pulumi.StringPtrOutput)
 }
 
 func init() {

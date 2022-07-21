@@ -1604,12 +1604,248 @@ func (o ExpressionEvaluationOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Resource extended location.
+type ExtendedLocation struct {
+	// The extended location name.
+	Name *string `pulumi:"name"`
+	// The extended location type.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// Resource extended location.
+type ExtendedLocationArgs struct {
+	// The extended location name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The extended location type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// Resource extended location.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// The extended location name.
+func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocation
+		return ret
+	}).(ExtendedLocationOutput)
+}
+
+// The extended location name.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource extended location.
+type ExtendedLocationResponse struct {
+	// The extended location name.
+	Name *string `pulumi:"name"`
+	// The extended location type.
+	Type *string `pulumi:"type"`
+}
+
+// Resource extended location.
+type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return o
+}
+
+// The extended location name.
+func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocationResponse
+		return ret
+	}).(ExtendedLocationResponseOutput)
+}
+
+// The extended location name.
+func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1628,7 +1864,7 @@ type IdentityArgs struct {
 	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1715,8 +1951,8 @@ func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1754,13 +1990,13 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *Identity) map[string]interface{} {
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity for the resource.
@@ -2094,7 +2330,7 @@ type ManagedServiceIdentity struct {
 	// Type of the managed identity.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
@@ -2113,7 +2349,7 @@ type ManagedServiceIdentityArgs struct {
 	// Type of the managed identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -2200,8 +2436,8 @@ func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2239,13 +2475,13 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Managed identity generic object.
@@ -3252,6 +3488,8 @@ type ProviderResponse struct {
 	Id string `pulumi:"id"`
 	// The namespace of the resource provider.
 	Namespace *string `pulumi:"namespace"`
+	// The provider authorization consent state.
+	ProviderAuthorizationConsentState *string `pulumi:"providerAuthorizationConsentState"`
 	// The registration policy of the resource provider.
 	RegistrationPolicy string `pulumi:"registrationPolicy"`
 	// The registration state of the resource provider.
@@ -3283,6 +3521,11 @@ func (o ProviderResponseOutput) Id() pulumi.StringOutput {
 // The namespace of the resource provider.
 func (o ProviderResponseOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The provider authorization consent state.
+func (o ProviderResponseOutput) ProviderAuthorizationConsentState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderResponse) *string { return v.ProviderAuthorizationConsentState }).(pulumi.StringPtrOutput)
 }
 
 // The registration policy of the resource provider.
@@ -4672,6 +4915,10 @@ func init() {
 	pulumi.RegisterOutputType(ErrorResponseResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExpressionEvaluationOptionsOutput{})
 	pulumi.RegisterOutputType(ExpressionEvaluationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

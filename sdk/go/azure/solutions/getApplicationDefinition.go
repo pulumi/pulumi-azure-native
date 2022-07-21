@@ -11,7 +11,7 @@ import (
 )
 
 // Information about managed application definition.
-// API Version: 2019-07-01.
+// API Version: 2021-07-01.
 func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationDefinitionResult, error) {
 	var rv LookupApplicationDefinitionResult
 	err := ctx.Invoke("azure-native:solutions:getApplicationDefinition", args, &rv, opts...)
@@ -66,8 +66,14 @@ type LookupApplicationDefinitionResult struct {
 	PackageFileUri *string `pulumi:"packageFileUri"`
 	// The managed application provider policies.
 	Policies []ApplicationPolicyResponse `pulumi:"policies"`
+	// Provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -211,9 +217,24 @@ func (o LookupApplicationDefinitionResultOutput) Policies() ApplicationPolicyRes
 	return o.ApplyT(func(v LookupApplicationDefinitionResult) []ApplicationPolicyResponse { return v.Policies }).(ApplicationPolicyResponseArrayOutput)
 }
 
+// Provisioning state.
+func (o LookupApplicationDefinitionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 // The SKU of the resource.
 func (o LookupApplicationDefinitionResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupApplicationDefinitionResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The storage account id for bring your own storage scenario.
+func (o LookupApplicationDefinitionResultOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApplicationDefinitionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

@@ -10,610 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Details of the data collection options specified.
-type ACIServiceCreateRequestDataCollection struct {
-	// Option for enabling/disabling Event Hub.
-	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
-	// Option for enabling/disabling storage.
-	StorageEnabled *bool `pulumi:"storageEnabled"`
-}
-
-// ACIServiceCreateRequestDataCollectionInput is an input type that accepts ACIServiceCreateRequestDataCollectionArgs and ACIServiceCreateRequestDataCollectionOutput values.
-// You can construct a concrete instance of `ACIServiceCreateRequestDataCollectionInput` via:
-//
-//          ACIServiceCreateRequestDataCollectionArgs{...}
-type ACIServiceCreateRequestDataCollectionInput interface {
-	pulumi.Input
-
-	ToACIServiceCreateRequestDataCollectionOutput() ACIServiceCreateRequestDataCollectionOutput
-	ToACIServiceCreateRequestDataCollectionOutputWithContext(context.Context) ACIServiceCreateRequestDataCollectionOutput
-}
-
-// Details of the data collection options specified.
-type ACIServiceCreateRequestDataCollectionArgs struct {
-	// Option for enabling/disabling Event Hub.
-	EventHubEnabled pulumi.BoolPtrInput `pulumi:"eventHubEnabled"`
-	// Option for enabling/disabling storage.
-	StorageEnabled pulumi.BoolPtrInput `pulumi:"storageEnabled"`
-}
-
-func (ACIServiceCreateRequestDataCollectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionOutput() ACIServiceCreateRequestDataCollectionOutput {
-	return i.ToACIServiceCreateRequestDataCollectionOutputWithContext(context.Background())
-}
-
-func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestDataCollectionOutput)
-}
-
-func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
-	return i.ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestDataCollectionOutput).ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx)
-}
-
-// ACIServiceCreateRequestDataCollectionPtrInput is an input type that accepts ACIServiceCreateRequestDataCollectionArgs, ACIServiceCreateRequestDataCollectionPtr and ACIServiceCreateRequestDataCollectionPtrOutput values.
-// You can construct a concrete instance of `ACIServiceCreateRequestDataCollectionPtrInput` via:
-//
-//          ACIServiceCreateRequestDataCollectionArgs{...}
-//
-//  or:
-//
-//          nil
-type ACIServiceCreateRequestDataCollectionPtrInput interface {
-	pulumi.Input
-
-	ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput
-	ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Context) ACIServiceCreateRequestDataCollectionPtrOutput
-}
-
-type aciserviceCreateRequestDataCollectionPtrType ACIServiceCreateRequestDataCollectionArgs
-
-func ACIServiceCreateRequestDataCollectionPtr(v *ACIServiceCreateRequestDataCollectionArgs) ACIServiceCreateRequestDataCollectionPtrInput {
-	return (*aciserviceCreateRequestDataCollectionPtrType)(v)
-}
-
-func (*aciserviceCreateRequestDataCollectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACIServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (i *aciserviceCreateRequestDataCollectionPtrType) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
-	return i.ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i *aciserviceCreateRequestDataCollectionPtrType) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestDataCollectionPtrOutput)
-}
-
-// Details of the data collection options specified.
-type ACIServiceCreateRequestDataCollectionOutput struct{ *pulumi.OutputState }
-
-func (ACIServiceCreateRequestDataCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionOutput() ACIServiceCreateRequestDataCollectionOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
-	return o.ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
-}
-
-func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceCreateRequestDataCollection) *ACIServiceCreateRequestDataCollection {
-		return &v
-	}).(ACIServiceCreateRequestDataCollectionPtrOutput)
-}
-
-// Option for enabling/disabling Event Hub.
-func (o ACIServiceCreateRequestDataCollectionOutput) EventHubEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestDataCollection) *bool { return v.EventHubEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Option for enabling/disabling storage.
-func (o ACIServiceCreateRequestDataCollectionOutput) StorageEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestDataCollection) *bool { return v.StorageEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type ACIServiceCreateRequestDataCollectionPtrOutput struct{ *pulumi.OutputState }
-
-func (ACIServiceCreateRequestDataCollectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACIServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (o ACIServiceCreateRequestDataCollectionPtrOutput) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestDataCollectionPtrOutput) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestDataCollectionPtrOutput) Elem() ACIServiceCreateRequestDataCollectionOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) ACIServiceCreateRequestDataCollection {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceCreateRequestDataCollection
-		return ret
-	}).(ACIServiceCreateRequestDataCollectionOutput)
-}
-
-// Option for enabling/disabling Event Hub.
-func (o ACIServiceCreateRequestDataCollectionPtrOutput) EventHubEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EventHubEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Option for enabling/disabling storage.
-func (o ACIServiceCreateRequestDataCollectionPtrOutput) StorageEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StorageEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The encryption properties.
-type ACIServiceCreateRequestEncryptionProperties struct {
-	// Encryption Key name
-	KeyName string `pulumi:"keyName"`
-	// Encryption Key Version
-	KeyVersion string `pulumi:"keyVersion"`
-	// vault base Url
-	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
-}
-
-// ACIServiceCreateRequestEncryptionPropertiesInput is an input type that accepts ACIServiceCreateRequestEncryptionPropertiesArgs and ACIServiceCreateRequestEncryptionPropertiesOutput values.
-// You can construct a concrete instance of `ACIServiceCreateRequestEncryptionPropertiesInput` via:
-//
-//          ACIServiceCreateRequestEncryptionPropertiesArgs{...}
-type ACIServiceCreateRequestEncryptionPropertiesInput interface {
-	pulumi.Input
-
-	ToACIServiceCreateRequestEncryptionPropertiesOutput() ACIServiceCreateRequestEncryptionPropertiesOutput
-	ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(context.Context) ACIServiceCreateRequestEncryptionPropertiesOutput
-}
-
-// The encryption properties.
-type ACIServiceCreateRequestEncryptionPropertiesArgs struct {
-	// Encryption Key name
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Encryption Key Version
-	KeyVersion pulumi.StringInput `pulumi:"keyVersion"`
-	// vault base Url
-	VaultBaseUrl pulumi.StringInput `pulumi:"vaultBaseUrl"`
-}
-
-func (ACIServiceCreateRequestEncryptionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
-}
-
-func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesOutput() ACIServiceCreateRequestEncryptionPropertiesOutput {
-	return i.ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(context.Background())
-}
-
-func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestEncryptionPropertiesOutput)
-}
-
-func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return i.ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestEncryptionPropertiesOutput).ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx)
-}
-
-// ACIServiceCreateRequestEncryptionPropertiesPtrInput is an input type that accepts ACIServiceCreateRequestEncryptionPropertiesArgs, ACIServiceCreateRequestEncryptionPropertiesPtr and ACIServiceCreateRequestEncryptionPropertiesPtrOutput values.
-// You can construct a concrete instance of `ACIServiceCreateRequestEncryptionPropertiesPtrInput` via:
-//
-//          ACIServiceCreateRequestEncryptionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ACIServiceCreateRequestEncryptionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput
-	ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput
-}
-
-type aciserviceCreateRequestEncryptionPropertiesPtrType ACIServiceCreateRequestEncryptionPropertiesArgs
-
-func ACIServiceCreateRequestEncryptionPropertiesPtr(v *ACIServiceCreateRequestEncryptionPropertiesArgs) ACIServiceCreateRequestEncryptionPropertiesPtrInput {
-	return (*aciserviceCreateRequestEncryptionPropertiesPtrType)(v)
-}
-
-func (*aciserviceCreateRequestEncryptionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
-}
-
-func (i *aciserviceCreateRequestEncryptionPropertiesPtrType) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return i.ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *aciserviceCreateRequestEncryptionPropertiesPtrType) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestEncryptionPropertiesPtrOutput)
-}
-
-// The encryption properties.
-type ACIServiceCreateRequestEncryptionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ACIServiceCreateRequestEncryptionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesOutput() ACIServiceCreateRequestEncryptionPropertiesOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return o.ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceCreateRequestEncryptionProperties) *ACIServiceCreateRequestEncryptionProperties {
-		return &v
-	}).(ACIServiceCreateRequestEncryptionPropertiesPtrOutput)
-}
-
-// Encryption Key name
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) string { return v.KeyName }).(pulumi.StringOutput)
-}
-
-// Encryption Key Version
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) KeyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) string { return v.KeyVersion }).(pulumi.StringOutput)
-}
-
-// vault base Url
-func (o ACIServiceCreateRequestEncryptionPropertiesOutput) VaultBaseUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) string { return v.VaultBaseUrl }).(pulumi.StringOutput)
-}
-
-type ACIServiceCreateRequestEncryptionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) Elem() ACIServiceCreateRequestEncryptionPropertiesOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) ACIServiceCreateRequestEncryptionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceCreateRequestEncryptionProperties
-		return ret
-	}).(ACIServiceCreateRequestEncryptionPropertiesOutput)
-}
-
-// Encryption Key name
-func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Encryption Key Version
-func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// vault base Url
-func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) VaultBaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultBaseUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The virtual network configuration.
-type ACIServiceCreateRequestVnetConfiguration struct {
-	// The name of the virtual network subnet.
-	SubnetName *string `pulumi:"subnetName"`
-	// The name of the virtual network.
-	VnetName *string `pulumi:"vnetName"`
-}
-
-// ACIServiceCreateRequestVnetConfigurationInput is an input type that accepts ACIServiceCreateRequestVnetConfigurationArgs and ACIServiceCreateRequestVnetConfigurationOutput values.
-// You can construct a concrete instance of `ACIServiceCreateRequestVnetConfigurationInput` via:
-//
-//          ACIServiceCreateRequestVnetConfigurationArgs{...}
-type ACIServiceCreateRequestVnetConfigurationInput interface {
-	pulumi.Input
-
-	ToACIServiceCreateRequestVnetConfigurationOutput() ACIServiceCreateRequestVnetConfigurationOutput
-	ToACIServiceCreateRequestVnetConfigurationOutputWithContext(context.Context) ACIServiceCreateRequestVnetConfigurationOutput
-}
-
-// The virtual network configuration.
-type ACIServiceCreateRequestVnetConfigurationArgs struct {
-	// The name of the virtual network subnet.
-	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
-	// The name of the virtual network.
-	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
-}
-
-func (ACIServiceCreateRequestVnetConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
-}
-
-func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationOutput() ACIServiceCreateRequestVnetConfigurationOutput {
-	return i.ToACIServiceCreateRequestVnetConfigurationOutputWithContext(context.Background())
-}
-
-func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestVnetConfigurationOutput)
-}
-
-func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return i.ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestVnetConfigurationOutput).ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx)
-}
-
-// ACIServiceCreateRequestVnetConfigurationPtrInput is an input type that accepts ACIServiceCreateRequestVnetConfigurationArgs, ACIServiceCreateRequestVnetConfigurationPtr and ACIServiceCreateRequestVnetConfigurationPtrOutput values.
-// You can construct a concrete instance of `ACIServiceCreateRequestVnetConfigurationPtrInput` via:
-//
-//          ACIServiceCreateRequestVnetConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ACIServiceCreateRequestVnetConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput
-	ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput
-}
-
-type aciserviceCreateRequestVnetConfigurationPtrType ACIServiceCreateRequestVnetConfigurationArgs
-
-func ACIServiceCreateRequestVnetConfigurationPtr(v *ACIServiceCreateRequestVnetConfigurationArgs) ACIServiceCreateRequestVnetConfigurationPtrInput {
-	return (*aciserviceCreateRequestVnetConfigurationPtrType)(v)
-}
-
-func (*aciserviceCreateRequestVnetConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
-}
-
-func (i *aciserviceCreateRequestVnetConfigurationPtrType) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return i.ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *aciserviceCreateRequestVnetConfigurationPtrType) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestVnetConfigurationPtrOutput)
-}
-
-// The virtual network configuration.
-type ACIServiceCreateRequestVnetConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ACIServiceCreateRequestVnetConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationOutput() ACIServiceCreateRequestVnetConfigurationOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return o.ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceCreateRequestVnetConfiguration) *ACIServiceCreateRequestVnetConfiguration {
-		return &v
-	}).(ACIServiceCreateRequestVnetConfigurationPtrOutput)
-}
-
-// The name of the virtual network subnet.
-func (o ACIServiceCreateRequestVnetConfigurationOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestVnetConfiguration) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
-}
-
-// The name of the virtual network.
-func (o ACIServiceCreateRequestVnetConfigurationOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ACIServiceCreateRequestVnetConfiguration) *string { return v.VnetName }).(pulumi.StringPtrOutput)
-}
-
-type ACIServiceCreateRequestVnetConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ACIServiceCreateRequestVnetConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return o
-}
-
-func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) Elem() ACIServiceCreateRequestVnetConfigurationOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) ACIServiceCreateRequestVnetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceCreateRequestVnetConfiguration
-		return ret
-	}).(ACIServiceCreateRequestVnetConfigurationOutput)
-}
-
-// The name of the virtual network subnet.
-func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the virtual network.
-func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The response for an ACI service.
-type ACIServiceResponseResponse struct {
-	// Whether or not Application Insights is enabled.
-	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
-	// Whether or not authentication is enabled on the service.
-	AuthEnabled *bool `pulumi:"authEnabled"`
-	// The CName for the service.
-	Cname *string `pulumi:"cname"`
-	// The compute environment type for the service.
-	// Expected value is 'ACI'.
-	ComputeType string `pulumi:"computeType"`
-	// The container resource requirements.
-	ContainerResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"containerResourceRequirements"`
-	// Details of the data collection options specified.
-	DataCollection *ACIServiceResponseResponseDataCollection `pulumi:"dataCollection"`
-	// The deployment type for the service.
-	DeploymentType *string `pulumi:"deploymentType"`
-	// The service description.
-	Description *string `pulumi:"description"`
-	// The encryption properties.
-	EncryptionProperties *ACIServiceResponseResponseEncryptionProperties `pulumi:"encryptionProperties"`
-	// The Environment, models and assets used for inferencing.
-	EnvironmentImageRequest *ACIServiceResponseResponseEnvironmentImageRequest `pulumi:"environmentImageRequest"`
-	// The error details.
-	Error ServiceResponseBaseResponseError `pulumi:"error"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The name of the Azure location/region.
-	Location *string `pulumi:"location"`
-	// Details on the models and configurations.
-	ModelConfigMap map[string]interface{} `pulumi:"modelConfigMap"`
-	// The list of models.
-	Models []ModelResponse `pulumi:"models"`
-	// The service property dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// The public Fqdn for the service.
-	PublicFqdn *string `pulumi:"publicFqdn"`
-	// The public IP address for the service.
-	PublicIp *string `pulumi:"publicIp"`
-	// The Uri for sending scoring requests.
-	ScoringUri string `pulumi:"scoringUri"`
-	// The public SSL certificate in PEM format to use if SSL is enabled.
-	SslCertificate *string `pulumi:"sslCertificate"`
-	// Whether or not SSL is enabled.
-	SslEnabled *bool `pulumi:"sslEnabled"`
-	// The public SSL key in PEM format for the certificate.
-	SslKey *string `pulumi:"sslKey"`
-	// The current state of the service.
-	State string `pulumi:"state"`
-	// The Uri for sending swagger requests.
-	SwaggerUri string `pulumi:"swaggerUri"`
-	// The virtual network configuration.
-	VnetConfiguration *ACIServiceResponseResponseVnetConfiguration `pulumi:"vnetConfiguration"`
-}
-
-// Details of the data collection options specified.
-type ACIServiceResponseResponseDataCollection struct {
-	// Option for enabling/disabling Event Hub.
-	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
-	// Option for enabling/disabling storage.
-	StorageEnabled *bool `pulumi:"storageEnabled"`
-}
-
-// The encryption properties.
-type ACIServiceResponseResponseEncryptionProperties struct {
-	// Encryption Key name
-	KeyName string `pulumi:"keyName"`
-	// Encryption Key Version
-	KeyVersion string `pulumi:"keyVersion"`
-	// vault base Url
-	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
-}
-
-// The Environment, models and assets used for inferencing.
-type ACIServiceResponseResponseEnvironmentImageRequest struct {
-	// The list of assets.
-	Assets []ImageAssetResponse `pulumi:"assets"`
-	// The name of the driver file.
-	DriverProgram *string `pulumi:"driverProgram"`
-	// The details of the AZURE ML environment.
-	Environment *EnvironmentImageResponseResponseEnvironment `pulumi:"environment"`
-	// The unique identifying details of the AZURE ML environment.
-	EnvironmentReference *EnvironmentImageResponseResponseEnvironmentReference `pulumi:"environmentReference"`
-	// The list of model Ids.
-	ModelIds []string `pulumi:"modelIds"`
-	// The list of models.
-	Models []ModelResponse `pulumi:"models"`
-}
-
-// The virtual network configuration.
-type ACIServiceResponseResponseVnetConfiguration struct {
-	// The name of the virtual network subnet.
-	SubnetName *string `pulumi:"subnetName"`
-	// The name of the virtual network.
-	VnetName *string `pulumi:"vnetName"`
-}
-
 // A Machine Learning compute based on AKS.
 type AKS struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'AKS'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// AKS properties
-	Properties *AKSProperties `pulumi:"properties"`
+	Properties *AKSSchemaProperties `pulumi:"properties"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
@@ -629,56 +36,27 @@ func (val *AKS) Defaults() *AKS {
 	return &tmp
 }
 
-// AKS properties
-type AKSProperties struct {
-	// Number of agents
-	AgentCount *int `pulumi:"agentCount"`
-	// Agent virtual machine size
-	AgentVmSize *string `pulumi:"agentVmSize"`
-	// AKS networking configuration for vnet
-	AksNetworkingConfiguration *AksNetworkingConfiguration `pulumi:"aksNetworkingConfiguration"`
-	// Cluster full qualified domain name
-	ClusterFqdn *string `pulumi:"clusterFqdn"`
-	// Intended usage of the cluster
-	ClusterPurpose *string `pulumi:"clusterPurpose"`
-	// SSL configuration
-	SslConfiguration *SslConfiguration `pulumi:"sslConfiguration"`
-}
-
-// Defaults sets the appropriate defaults for AKSProperties
-func (val *AKSProperties) Defaults() *AKSProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ClusterPurpose) {
-		clusterPurpose_ := "FastProd"
-		tmp.ClusterPurpose = &clusterPurpose_
-	}
-	return &tmp
-}
-
-// The error details.
-type AKSReplicaStatusResponseError struct {
-	// The error response.
-	Error ErrorResponseResponse `pulumi:"error"`
-}
-
 // A Machine Learning compute based on AKS.
 type AKSResponse struct {
 	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
+	ComputeLocation string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'AKS'.
 	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
 	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
 	// AKS properties
-	Properties *AKSResponseProperties `pulumi:"properties"`
+	Properties *AKSSchemaResponseProperties `pulumi:"properties"`
 	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
 	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM resource id of the underlying compute
@@ -697,7 +75,44 @@ func (val *AKSResponse) Defaults() *AKSResponse {
 }
 
 // AKS properties
-type AKSResponseProperties struct {
+type AKSSchemaProperties struct {
+	// Number of agents
+	AgentCount *int `pulumi:"agentCount"`
+	// Agent virtual machine size
+	AgentVmSize *string `pulumi:"agentVmSize"`
+	// AKS networking configuration for vnet
+	AksNetworkingConfiguration *AksNetworkingConfiguration `pulumi:"aksNetworkingConfiguration"`
+	// Cluster full qualified domain name
+	ClusterFqdn *string `pulumi:"clusterFqdn"`
+	// Intended usage of the cluster
+	ClusterPurpose *string `pulumi:"clusterPurpose"`
+	// Load Balancer Subnet
+	LoadBalancerSubnet *string `pulumi:"loadBalancerSubnet"`
+	// Load Balancer Type
+	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	// SSL configuration
+	SslConfiguration *SslConfiguration `pulumi:"sslConfiguration"`
+}
+
+// Defaults sets the appropriate defaults for AKSSchemaProperties
+func (val *AKSSchemaProperties) Defaults() *AKSSchemaProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClusterPurpose) {
+		clusterPurpose_ := "FastProd"
+		tmp.ClusterPurpose = &clusterPurpose_
+	}
+	if isZero(tmp.LoadBalancerType) {
+		loadBalancerType_ := "PublicIp"
+		tmp.LoadBalancerType = &loadBalancerType_
+	}
+	return &tmp
+}
+
+// AKS properties
+type AKSSchemaResponseProperties struct {
 	// Number of agents
 	AgentCount *int `pulumi:"agentCount"`
 	// Agent virtual machine size
@@ -708,14 +123,18 @@ type AKSResponseProperties struct {
 	ClusterFqdn *string `pulumi:"clusterFqdn"`
 	// Intended usage of the cluster
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
+	// Load Balancer Subnet
+	LoadBalancerSubnet *string `pulumi:"loadBalancerSubnet"`
+	// Load Balancer Type
+	LoadBalancerType *string `pulumi:"loadBalancerType"`
 	// SSL configuration
 	SslConfiguration *SslConfigurationResponse `pulumi:"sslConfiguration"`
 	// System services
 	SystemServices []SystemServiceResponse `pulumi:"systemServices"`
 }
 
-// Defaults sets the appropriate defaults for AKSResponseProperties
-func (val *AKSResponseProperties) Defaults() *AKSResponseProperties {
+// Defaults sets the appropriate defaults for AKSSchemaResponseProperties
+func (val *AKSSchemaResponseProperties) Defaults() *AKSSchemaResponseProperties {
 	if val == nil {
 		return nil
 	}
@@ -724,750 +143,36 @@ func (val *AKSResponseProperties) Defaults() *AKSResponseProperties {
 		clusterPurpose_ := "FastProd"
 		tmp.ClusterPurpose = &clusterPurpose_
 	}
+	if isZero(tmp.LoadBalancerType) {
+		loadBalancerType_ := "PublicIp"
+		tmp.LoadBalancerType = &loadBalancerType_
+	}
 	return &tmp
 }
 
-// The auto scaler properties.
-type AKSServiceCreateRequestAutoScaler struct {
-	// Option to enable/disable auto scaling.
-	AutoscaleEnabled *bool `pulumi:"autoscaleEnabled"`
-	// The maximum number of replicas in the cluster.
-	MaxReplicas *int `pulumi:"maxReplicas"`
-	// The minimum number of replicas to scale down to.
-	MinReplicas *int `pulumi:"minReplicas"`
-	// The amount of seconds to wait between auto scale updates.
-	RefreshPeriodInSeconds *int `pulumi:"refreshPeriodInSeconds"`
-	// The target utilization percentage to use for determining whether to scale the cluster.
-	TargetUtilization *int `pulumi:"targetUtilization"`
-}
-
-// AKSServiceCreateRequestAutoScalerInput is an input type that accepts AKSServiceCreateRequestAutoScalerArgs and AKSServiceCreateRequestAutoScalerOutput values.
-// You can construct a concrete instance of `AKSServiceCreateRequestAutoScalerInput` via:
-//
-//          AKSServiceCreateRequestAutoScalerArgs{...}
-type AKSServiceCreateRequestAutoScalerInput interface {
-	pulumi.Input
-
-	ToAKSServiceCreateRequestAutoScalerOutput() AKSServiceCreateRequestAutoScalerOutput
-	ToAKSServiceCreateRequestAutoScalerOutputWithContext(context.Context) AKSServiceCreateRequestAutoScalerOutput
-}
-
-// The auto scaler properties.
-type AKSServiceCreateRequestAutoScalerArgs struct {
-	// Option to enable/disable auto scaling.
-	AutoscaleEnabled pulumi.BoolPtrInput `pulumi:"autoscaleEnabled"`
-	// The maximum number of replicas in the cluster.
-	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
-	// The minimum number of replicas to scale down to.
-	MinReplicas pulumi.IntPtrInput `pulumi:"minReplicas"`
-	// The amount of seconds to wait between auto scale updates.
-	RefreshPeriodInSeconds pulumi.IntPtrInput `pulumi:"refreshPeriodInSeconds"`
-	// The target utilization percentage to use for determining whether to scale the cluster.
-	TargetUtilization pulumi.IntPtrInput `pulumi:"targetUtilization"`
-}
-
-func (AKSServiceCreateRequestAutoScalerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSServiceCreateRequestAutoScaler)(nil)).Elem()
-}
-
-func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerOutput() AKSServiceCreateRequestAutoScalerOutput {
-	return i.ToAKSServiceCreateRequestAutoScalerOutputWithContext(context.Background())
-}
-
-func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestAutoScalerOutput)
-}
-
-func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
-	return i.ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Background())
-}
-
-func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestAutoScalerOutput).ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx)
-}
-
-// AKSServiceCreateRequestAutoScalerPtrInput is an input type that accepts AKSServiceCreateRequestAutoScalerArgs, AKSServiceCreateRequestAutoScalerPtr and AKSServiceCreateRequestAutoScalerPtrOutput values.
-// You can construct a concrete instance of `AKSServiceCreateRequestAutoScalerPtrInput` via:
-//
-//          AKSServiceCreateRequestAutoScalerArgs{...}
-//
-//  or:
-//
-//          nil
-type AKSServiceCreateRequestAutoScalerPtrInput interface {
-	pulumi.Input
-
-	ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput
-	ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Context) AKSServiceCreateRequestAutoScalerPtrOutput
-}
-
-type aksserviceCreateRequestAutoScalerPtrType AKSServiceCreateRequestAutoScalerArgs
-
-func AKSServiceCreateRequestAutoScalerPtr(v *AKSServiceCreateRequestAutoScalerArgs) AKSServiceCreateRequestAutoScalerPtrInput {
-	return (*aksserviceCreateRequestAutoScalerPtrType)(v)
-}
-
-func (*aksserviceCreateRequestAutoScalerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AKSServiceCreateRequestAutoScaler)(nil)).Elem()
-}
-
-func (i *aksserviceCreateRequestAutoScalerPtrType) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
-	return i.ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Background())
-}
-
-func (i *aksserviceCreateRequestAutoScalerPtrType) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestAutoScalerPtrOutput)
-}
-
-// The auto scaler properties.
-type AKSServiceCreateRequestAutoScalerOutput struct{ *pulumi.OutputState }
-
-func (AKSServiceCreateRequestAutoScalerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSServiceCreateRequestAutoScaler)(nil)).Elem()
-}
-
-func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerOutput() AKSServiceCreateRequestAutoScalerOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
-	return o.ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Background())
-}
-
-func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceCreateRequestAutoScaler) *AKSServiceCreateRequestAutoScaler {
-		return &v
-	}).(AKSServiceCreateRequestAutoScalerPtrOutput)
-}
-
-// Option to enable/disable auto scaling.
-func (o AKSServiceCreateRequestAutoScalerOutput) AutoscaleEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *bool { return v.AutoscaleEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// The maximum number of replicas in the cluster.
-func (o AKSServiceCreateRequestAutoScalerOutput) MaxReplicas() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.MaxReplicas }).(pulumi.IntPtrOutput)
-}
-
-// The minimum number of replicas to scale down to.
-func (o AKSServiceCreateRequestAutoScalerOutput) MinReplicas() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.MinReplicas }).(pulumi.IntPtrOutput)
-}
-
-// The amount of seconds to wait between auto scale updates.
-func (o AKSServiceCreateRequestAutoScalerOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.RefreshPeriodInSeconds }).(pulumi.IntPtrOutput)
-}
-
-// The target utilization percentage to use for determining whether to scale the cluster.
-func (o AKSServiceCreateRequestAutoScalerOutput) TargetUtilization() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.TargetUtilization }).(pulumi.IntPtrOutput)
-}
-
-type AKSServiceCreateRequestAutoScalerPtrOutput struct{ *pulumi.OutputState }
-
-func (AKSServiceCreateRequestAutoScalerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AKSServiceCreateRequestAutoScaler)(nil)).Elem()
-}
-
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) Elem() AKSServiceCreateRequestAutoScalerOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) AKSServiceCreateRequestAutoScaler {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceCreateRequestAutoScaler
-		return ret
-	}).(AKSServiceCreateRequestAutoScalerOutput)
-}
-
-// Option to enable/disable auto scaling.
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) AutoscaleEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoscaleEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The maximum number of replicas in the cluster.
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) MaxReplicas() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxReplicas
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum number of replicas to scale down to.
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) MinReplicas() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinReplicas
-	}).(pulumi.IntPtrOutput)
-}
-
-// The amount of seconds to wait between auto scale updates.
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RefreshPeriodInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The target utilization percentage to use for determining whether to scale the cluster.
-func (o AKSServiceCreateRequestAutoScalerPtrOutput) TargetUtilization() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TargetUtilization
-	}).(pulumi.IntPtrOutput)
-}
-
-// Details of the data collection options specified.
-type AKSServiceCreateRequestDataCollection struct {
-	// Option for enabling/disabling Event Hub.
-	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
-	// Option for enabling/disabling storage.
-	StorageEnabled *bool `pulumi:"storageEnabled"`
-}
-
-// AKSServiceCreateRequestDataCollectionInput is an input type that accepts AKSServiceCreateRequestDataCollectionArgs and AKSServiceCreateRequestDataCollectionOutput values.
-// You can construct a concrete instance of `AKSServiceCreateRequestDataCollectionInput` via:
-//
-//          AKSServiceCreateRequestDataCollectionArgs{...}
-type AKSServiceCreateRequestDataCollectionInput interface {
-	pulumi.Input
-
-	ToAKSServiceCreateRequestDataCollectionOutput() AKSServiceCreateRequestDataCollectionOutput
-	ToAKSServiceCreateRequestDataCollectionOutputWithContext(context.Context) AKSServiceCreateRequestDataCollectionOutput
-}
-
-// Details of the data collection options specified.
-type AKSServiceCreateRequestDataCollectionArgs struct {
-	// Option for enabling/disabling Event Hub.
-	EventHubEnabled pulumi.BoolPtrInput `pulumi:"eventHubEnabled"`
-	// Option for enabling/disabling storage.
-	StorageEnabled pulumi.BoolPtrInput `pulumi:"storageEnabled"`
-}
-
-func (AKSServiceCreateRequestDataCollectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionOutput() AKSServiceCreateRequestDataCollectionOutput {
-	return i.ToAKSServiceCreateRequestDataCollectionOutputWithContext(context.Background())
-}
-
-func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestDataCollectionOutput)
-}
-
-func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
-	return i.ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestDataCollectionOutput).ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx)
-}
-
-// AKSServiceCreateRequestDataCollectionPtrInput is an input type that accepts AKSServiceCreateRequestDataCollectionArgs, AKSServiceCreateRequestDataCollectionPtr and AKSServiceCreateRequestDataCollectionPtrOutput values.
-// You can construct a concrete instance of `AKSServiceCreateRequestDataCollectionPtrInput` via:
-//
-//          AKSServiceCreateRequestDataCollectionArgs{...}
-//
-//  or:
-//
-//          nil
-type AKSServiceCreateRequestDataCollectionPtrInput interface {
-	pulumi.Input
-
-	ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput
-	ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Context) AKSServiceCreateRequestDataCollectionPtrOutput
-}
-
-type aksserviceCreateRequestDataCollectionPtrType AKSServiceCreateRequestDataCollectionArgs
-
-func AKSServiceCreateRequestDataCollectionPtr(v *AKSServiceCreateRequestDataCollectionArgs) AKSServiceCreateRequestDataCollectionPtrInput {
-	return (*aksserviceCreateRequestDataCollectionPtrType)(v)
-}
-
-func (*aksserviceCreateRequestDataCollectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AKSServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (i *aksserviceCreateRequestDataCollectionPtrType) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
-	return i.ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i *aksserviceCreateRequestDataCollectionPtrType) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestDataCollectionPtrOutput)
-}
-
-// Details of the data collection options specified.
-type AKSServiceCreateRequestDataCollectionOutput struct{ *pulumi.OutputState }
-
-func (AKSServiceCreateRequestDataCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionOutput() AKSServiceCreateRequestDataCollectionOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
-	return o.ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
-}
-
-func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceCreateRequestDataCollection) *AKSServiceCreateRequestDataCollection {
-		return &v
-	}).(AKSServiceCreateRequestDataCollectionPtrOutput)
-}
-
-// Option for enabling/disabling Event Hub.
-func (o AKSServiceCreateRequestDataCollectionOutput) EventHubEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestDataCollection) *bool { return v.EventHubEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Option for enabling/disabling storage.
-func (o AKSServiceCreateRequestDataCollectionOutput) StorageEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestDataCollection) *bool { return v.StorageEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type AKSServiceCreateRequestDataCollectionPtrOutput struct{ *pulumi.OutputState }
-
-func (AKSServiceCreateRequestDataCollectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AKSServiceCreateRequestDataCollection)(nil)).Elem()
-}
-
-func (o AKSServiceCreateRequestDataCollectionPtrOutput) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestDataCollectionPtrOutput) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestDataCollectionPtrOutput) Elem() AKSServiceCreateRequestDataCollectionOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) AKSServiceCreateRequestDataCollection {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceCreateRequestDataCollection
-		return ret
-	}).(AKSServiceCreateRequestDataCollectionOutput)
-}
-
-// Option for enabling/disabling Event Hub.
-func (o AKSServiceCreateRequestDataCollectionPtrOutput) EventHubEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EventHubEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Option for enabling/disabling storage.
-func (o AKSServiceCreateRequestDataCollectionPtrOutput) StorageEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StorageEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The liveness probe requirements.
-type AKSServiceCreateRequestLivenessProbeRequirements struct {
-	// The number of failures to allow before returning an unhealthy status.
-	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The delay before the first probe in seconds.
-	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
-	// The length of time between probes in seconds.
-	PeriodSeconds *int `pulumi:"periodSeconds"`
-	// The number of successful probes before returning a healthy status.
-	SuccessThreshold *int `pulumi:"successThreshold"`
-	// The probe timeout in seconds.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
-}
-
-// AKSServiceCreateRequestLivenessProbeRequirementsInput is an input type that accepts AKSServiceCreateRequestLivenessProbeRequirementsArgs and AKSServiceCreateRequestLivenessProbeRequirementsOutput values.
-// You can construct a concrete instance of `AKSServiceCreateRequestLivenessProbeRequirementsInput` via:
-//
-//          AKSServiceCreateRequestLivenessProbeRequirementsArgs{...}
-type AKSServiceCreateRequestLivenessProbeRequirementsInput interface {
-	pulumi.Input
-
-	ToAKSServiceCreateRequestLivenessProbeRequirementsOutput() AKSServiceCreateRequestLivenessProbeRequirementsOutput
-	ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(context.Context) AKSServiceCreateRequestLivenessProbeRequirementsOutput
-}
-
-// The liveness probe requirements.
-type AKSServiceCreateRequestLivenessProbeRequirementsArgs struct {
-	// The number of failures to allow before returning an unhealthy status.
-	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
-	// The delay before the first probe in seconds.
-	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
-	// The length of time between probes in seconds.
-	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
-	// The number of successful probes before returning a healthy status.
-	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
-	// The probe timeout in seconds.
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
-}
-
-func (AKSServiceCreateRequestLivenessProbeRequirementsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
-}
-
-func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsOutput() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
-	return i.ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(context.Background())
-}
-
-func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestLivenessProbeRequirementsOutput)
-}
-
-func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return i.ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Background())
-}
-
-func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestLivenessProbeRequirementsOutput).ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx)
-}
-
-// AKSServiceCreateRequestLivenessProbeRequirementsPtrInput is an input type that accepts AKSServiceCreateRequestLivenessProbeRequirementsArgs, AKSServiceCreateRequestLivenessProbeRequirementsPtr and AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput values.
-// You can construct a concrete instance of `AKSServiceCreateRequestLivenessProbeRequirementsPtrInput` via:
-//
-//          AKSServiceCreateRequestLivenessProbeRequirementsArgs{...}
-//
-//  or:
-//
-//          nil
-type AKSServiceCreateRequestLivenessProbeRequirementsPtrInput interface {
-	pulumi.Input
-
-	ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput
-	ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput
-}
-
-type aksserviceCreateRequestLivenessProbeRequirementsPtrType AKSServiceCreateRequestLivenessProbeRequirementsArgs
-
-func AKSServiceCreateRequestLivenessProbeRequirementsPtr(v *AKSServiceCreateRequestLivenessProbeRequirementsArgs) AKSServiceCreateRequestLivenessProbeRequirementsPtrInput {
-	return (*aksserviceCreateRequestLivenessProbeRequirementsPtrType)(v)
-}
-
-func (*aksserviceCreateRequestLivenessProbeRequirementsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
-}
-
-func (i *aksserviceCreateRequestLivenessProbeRequirementsPtrType) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return i.ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Background())
-}
-
-func (i *aksserviceCreateRequestLivenessProbeRequirementsPtrType) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput)
-}
-
-// The liveness probe requirements.
-type AKSServiceCreateRequestLivenessProbeRequirementsOutput struct{ *pulumi.OutputState }
-
-func (AKSServiceCreateRequestLivenessProbeRequirementsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsOutput() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return o.ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Background())
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceCreateRequestLivenessProbeRequirements) *AKSServiceCreateRequestLivenessProbeRequirements {
-		return &v
-	}).(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput)
-}
-
-// The number of failures to allow before returning an unhealthy status.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
-}
-
-// The delay before the first probe in seconds.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
-}
-
-// The length of time between probes in seconds.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
-}
-
-// The number of successful probes before returning a healthy status.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
-}
-
-// The probe timeout in seconds.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
-}
-
-type AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput struct{ *pulumi.OutputState }
-
-func (AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return o
-}
-
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) Elem() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) AKSServiceCreateRequestLivenessProbeRequirements {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceCreateRequestLivenessProbeRequirements
-		return ret
-	}).(AKSServiceCreateRequestLivenessProbeRequirementsOutput)
-}
-
-// The number of failures to allow before returning an unhealthy status.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.FailureThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// The delay before the first probe in seconds.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.InitialDelaySeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The length of time between probes in seconds.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PeriodSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of successful probes before returning a healthy status.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SuccessThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// The probe timeout in seconds.
-func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TimeoutSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The response for an AKS service.
-type AKSServiceResponseResponse struct {
-	// Whether or not AAD authentication is enabled.
-	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Whether or not Application Insights is enabled.
-	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
-	// Whether or not authentication is enabled.
-	AuthEnabled *bool `pulumi:"authEnabled"`
-	// The auto scaler properties.
-	AutoScaler *AKSServiceResponseResponseAutoScaler `pulumi:"autoScaler"`
-	// The name of the compute resource.
-	ComputeName *string `pulumi:"computeName"`
-	// The compute environment type for the service.
-	// Expected value is 'AKS'.
-	ComputeType string `pulumi:"computeType"`
-	// The container resource requirements.
-	ContainerResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"containerResourceRequirements"`
-	// Details of the data collection options specified.
-	DataCollection *AKSServiceResponseResponseDataCollection `pulumi:"dataCollection"`
-	// The deployment status.
-	DeploymentStatus AKSServiceResponseResponseDeploymentStatus `pulumi:"deploymentStatus"`
-	// The deployment type for the service.
-	DeploymentType *string `pulumi:"deploymentType"`
-	// The service description.
-	Description *string `pulumi:"description"`
-	// The Environment, models and assets used for inferencing.
-	EnvironmentImageRequest *AKSServiceResponseResponseEnvironmentImageRequest `pulumi:"environmentImageRequest"`
-	// The error details.
-	Error ServiceResponseBaseResponseError `pulumi:"error"`
-	// Is this the default variant.
-	IsDefault *bool `pulumi:"isDefault"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The liveness probe requirements.
-	LivenessProbeRequirements *AKSServiceResponseResponseLivenessProbeRequirements `pulumi:"livenessProbeRequirements"`
-	// The maximum number of concurrent requests per container.
-	MaxConcurrentRequestsPerContainer *int `pulumi:"maxConcurrentRequestsPerContainer"`
-	// Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
-	MaxQueueWaitMs *int `pulumi:"maxQueueWaitMs"`
-	// Details on the models and configurations.
-	ModelConfigMap map[string]interface{} `pulumi:"modelConfigMap"`
-	// The list of models.
-	Models []ModelResponse `pulumi:"models"`
-	// The Kubernetes namespace of the deployment.
-	Namespace *string `pulumi:"namespace"`
-	// The number of replicas on the cluster.
-	NumReplicas *int `pulumi:"numReplicas"`
-	// The service property dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// The scoring timeout in milliseconds.
-	ScoringTimeoutMs *int `pulumi:"scoringTimeoutMs"`
-	// The Uri for sending scoring requests.
-	ScoringUri string `pulumi:"scoringUri"`
-	// The current state of the service.
-	State string `pulumi:"state"`
-	// The Uri for sending swagger requests.
-	SwaggerUri string `pulumi:"swaggerUri"`
-	// The amount of traffic variant receives.
-	TrafficPercentile *float64 `pulumi:"trafficPercentile"`
-	// The type of the variant.
-	Type *string `pulumi:"type"`
-}
-
-// The auto scaler properties.
-type AKSServiceResponseResponseAutoScaler struct {
-	// Option to enable/disable auto scaling.
-	AutoscaleEnabled *bool `pulumi:"autoscaleEnabled"`
-	// The maximum number of replicas in the cluster.
-	MaxReplicas *int `pulumi:"maxReplicas"`
-	// The minimum number of replicas to scale down to.
-	MinReplicas *int `pulumi:"minReplicas"`
-	// The amount of seconds to wait between auto scale updates.
-	RefreshPeriodInSeconds *int `pulumi:"refreshPeriodInSeconds"`
-	// The target utilization percentage to use for determining whether to scale the cluster.
-	TargetUtilization *int `pulumi:"targetUtilization"`
-}
-
-// Details of the data collection options specified.
-type AKSServiceResponseResponseDataCollection struct {
-	// Option for enabling/disabling Event Hub.
-	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
-	// Option for enabling/disabling storage.
-	StorageEnabled *bool `pulumi:"storageEnabled"`
-}
-
-// The deployment status.
-type AKSServiceResponseResponseDeploymentStatus struct {
-	// The number of available replicas.
-	AvailableReplicas *int `pulumi:"availableReplicas"`
-	// The desired number of replicas.
-	DesiredReplicas *int `pulumi:"desiredReplicas"`
-	// The error details.
-	Error *AKSReplicaStatusResponseError `pulumi:"error"`
-	// The number of updated replicas.
-	UpdatedReplicas *int `pulumi:"updatedReplicas"`
-}
-
-// The Environment, models and assets used for inferencing.
-type AKSServiceResponseResponseEnvironmentImageRequest struct {
-	// The list of assets.
-	Assets []ImageAssetResponse `pulumi:"assets"`
-	// The name of the driver file.
-	DriverProgram *string `pulumi:"driverProgram"`
-	// The details of the AZURE ML environment.
-	Environment *EnvironmentImageResponseResponseEnvironment `pulumi:"environment"`
-	// The unique identifying details of the AZURE ML environment.
-	EnvironmentReference *EnvironmentImageResponseResponseEnvironmentReference `pulumi:"environmentReference"`
-	// The list of model Ids.
-	ModelIds []string `pulumi:"modelIds"`
-	// The list of models.
-	Models []ModelResponse `pulumi:"models"`
-}
-
-// The liveness probe requirements.
-type AKSServiceResponseResponseLivenessProbeRequirements struct {
-	// The number of failures to allow before returning an unhealthy status.
-	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The delay before the first probe in seconds.
-	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
-	// The length of time between probes in seconds.
-	PeriodSeconds *int `pulumi:"periodSeconds"`
-	// The number of successful probes before returning a healthy status.
-	SuccessThreshold *int `pulumi:"successThreshold"`
-	// The probe timeout in seconds.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
-}
-
-// The response for an AKS variant.
-type AKSVariantResponseResponse struct {
-	// The compute environment type for the service.
-	// Expected value is 'Custom'.
-	ComputeType string `pulumi:"computeType"`
-	// The deployment type for the service.
-	DeploymentType *string `pulumi:"deploymentType"`
-	// The service description.
-	Description *string `pulumi:"description"`
-	// The error details.
-	Error ServiceResponseBaseResponseError `pulumi:"error"`
-	// Is this the default variant.
-	IsDefault *bool `pulumi:"isDefault"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The service property dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// The current state of the service.
-	State string `pulumi:"state"`
-	// The amount of traffic variant receives.
-	TrafficPercentile *float64 `pulumi:"trafficPercentile"`
-	// The type of the variant.
-	Type *string `pulumi:"type"`
+// Account key datastore credentials configuration.
+type AccountKeyDatastoreCredentials struct {
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'AccountKey'.
+	CredentialsType string `pulumi:"credentialsType"`
+	// [Required] Storage account secrets.
+	Secrets AccountKeyDatastoreSecrets `pulumi:"secrets"`
+}
+
+// Account key datastore credentials configuration.
+type AccountKeyDatastoreCredentialsResponse struct {
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'AccountKey'.
+	CredentialsType string `pulumi:"credentialsType"`
+}
+
+// Datastore account key secrets.
+type AccountKeyDatastoreSecrets struct {
+	// Storage account key.
+	Key *string `pulumi:"key"`
+	// Enum to determine the datastore secrets type.
+	// Expected value is 'AccountKey'.
+	SecretsType string `pulumi:"secretsType"`
 }
 
 // Advance configuration for AKS networking
@@ -1496,14 +201,14 @@ type AksNetworkingConfigurationResponse struct {
 
 // An Azure Machine Learning compute.
 type AmlCompute struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'AmlCompute'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
-	// AML Compute properties
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Properties of AmlCompute
 	Properties *AmlComputeProperties `pulumi:"properties"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
@@ -1609,6 +314,8 @@ type AmlComputeProperties struct {
 	IsolatedNetwork *bool `pulumi:"isolatedNetwork"`
 	// Compute OS Type
 	OsType *string `pulumi:"osType"`
+	// A property bag containing additional properties.
+	PropertyBag interface{} `pulumi:"propertyBag"`
 	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
 	RemoteLoginPortPublicAccess *string `pulumi:"remoteLoginPortPublicAccess"`
 	// Scale settings for AML Compute
@@ -1648,40 +355,8 @@ func (val *AmlComputeProperties) Defaults() *AmlComputeProperties {
 	return &tmp
 }
 
-// An Azure Machine Learning compute.
-type AmlComputeResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'AmlCompute'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
-	// AML Compute properties
-	Properties *AmlComputeResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the underlying compute
-	ResourceId *string `pulumi:"resourceId"`
-}
-
-// Defaults sets the appropriate defaults for AmlComputeResponse
-func (val *AmlComputeResponse) Defaults() *AmlComputeResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.Properties = tmp.Properties.Defaults()
-
-	return &tmp
-}
-
 // AML Compute properties
-type AmlComputeResponseProperties struct {
+type AmlComputePropertiesResponse struct {
 	// Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
 	AllocationState string `pulumi:"allocationState"`
 	// The time at which the compute entered its current allocation state.
@@ -1691,13 +366,15 @@ type AmlComputeResponseProperties struct {
 	// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Collection of errors encountered by various compute nodes during node setup.
-	Errors []MachineLearningServiceErrorResponse `pulumi:"errors"`
+	Errors []ErrorResponseResponse `pulumi:"errors"`
 	// Network is isolated or not
 	IsolatedNetwork *bool `pulumi:"isolatedNetwork"`
 	// Counts of various node states on the compute.
 	NodeStateCounts NodeStateCountsResponse `pulumi:"nodeStateCounts"`
 	// Compute OS Type
 	OsType *string `pulumi:"osType"`
+	// A property bag containing additional properties.
+	PropertyBag interface{} `pulumi:"propertyBag"`
 	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
 	RemoteLoginPortPublicAccess *string `pulumi:"remoteLoginPortPublicAccess"`
 	// Scale settings for AML Compute
@@ -1716,8 +393,8 @@ type AmlComputeResponseProperties struct {
 	VmSize *string `pulumi:"vmSize"`
 }
 
-// Defaults sets the appropriate defaults for AmlComputeResponseProperties
-func (val *AmlComputeResponseProperties) Defaults() *AmlComputeResponseProperties {
+// Defaults sets the appropriate defaults for AmlComputePropertiesResponse
+func (val *AmlComputePropertiesResponse) Defaults() *AmlComputePropertiesResponse {
 	if val == nil {
 		return nil
 	}
@@ -1735,6 +412,44 @@ func (val *AmlComputeResponseProperties) Defaults() *AmlComputeResponsePropertie
 		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
 	}
 	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
+}
+
+// An Azure Machine Learning compute.
+type AmlComputeResponse struct {
+	// Location for the underlying compute
+	ComputeLocation string `pulumi:"computeLocation"`
+	// The type of compute
+	// Expected value is 'AmlCompute'.
+	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// Properties of AmlCompute
+	Properties *AmlComputePropertiesResponse `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// Defaults sets the appropriate defaults for AmlComputeResponse
+func (val *AmlComputeResponse) Defaults() *AmlComputeResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
 
 	return &tmp
 }
@@ -1769,1646 +484,333 @@ type AssignedUserResponse struct {
 	TenantId string `pulumi:"tenantId"`
 }
 
-type AutoScaleSettings struct {
-	// Maximum number of instances for this deployment.
-	MaxInstances *int `pulumi:"maxInstances"`
-	// Minimum number of instances for this deployment.
-	MinInstances *int `pulumi:"minInstances"`
-	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
-	PollingInterval *string `pulumi:"pollingInterval"`
-	// Expected value is 'Auto'.
-	ScaleType string `pulumi:"scaleType"`
-	// Target CPU usage for the autoscaler.
-	TargetUtilizationPercentage *int `pulumi:"targetUtilizationPercentage"`
+// Auto pause properties
+type AutoPauseProperties struct {
+	DelayInMinutes *int  `pulumi:"delayInMinutes"`
+	Enabled        *bool `pulumi:"enabled"`
 }
 
-type AutoScaleSettingsResponse struct {
-	// Maximum number of instances for this deployment.
-	MaxInstances *int `pulumi:"maxInstances"`
-	// Minimum number of instances for this deployment.
-	MinInstances *int `pulumi:"minInstances"`
-	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
-	PollingInterval *string `pulumi:"pollingInterval"`
-	// Expected value is 'Auto'.
-	ScaleType string `pulumi:"scaleType"`
-	// Target CPU usage for the autoscaler.
-	TargetUtilizationPercentage *int `pulumi:"targetUtilizationPercentage"`
+// Auto pause properties
+type AutoPausePropertiesResponse struct {
+	DelayInMinutes *int  `pulumi:"delayInMinutes"`
+	Enabled        *bool `pulumi:"enabled"`
 }
 
-type AzureDataLakeSectionResponse struct {
-	// The authority URL used for authentication.
-	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// The content of the certificate used for authentication.
-	Certificate *string `pulumi:"certificate"`
-	// The Client ID/Application ID
-	ClientId *string `pulumi:"clientId"`
-	// The client secret.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// The Azure Data Lake credential type.
-	CredentialType *string `pulumi:"credentialType"`
-	//  Is it using certificate to authenticate. If false then use client secret.
-	IsCertAuth *bool `pulumi:"isCertAuth"`
-	// Resource Group.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The resource the service principal/app has access to.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// Indicates which identity to use to authenticate service data access to customer's storage.
-	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
-	// The Azure Data Lake store name.
-	StoreName *string `pulumi:"storeName"`
-	// Subscription ID.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The ID of the tenant the service principal/app belongs to.
-	TenantId *string `pulumi:"tenantId"`
-	// The thumbprint of the certificate above.
-	Thumbprint *string `pulumi:"thumbprint"`
+// Auto scale properties
+type AutoScaleProperties struct {
+	Enabled      *bool `pulumi:"enabled"`
+	MaxNodeCount *int  `pulumi:"maxNodeCount"`
+	MinNodeCount *int  `pulumi:"minNodeCount"`
 }
 
-type AzureDataLakeSectionResponseOutput struct{ *pulumi.OutputState }
-
-func (AzureDataLakeSectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeSectionResponse)(nil)).Elem()
-}
-
-func (o AzureDataLakeSectionResponseOutput) ToAzureDataLakeSectionResponseOutput() AzureDataLakeSectionResponseOutput {
-	return o
-}
-
-func (o AzureDataLakeSectionResponseOutput) ToAzureDataLakeSectionResponseOutputWithContext(ctx context.Context) AzureDataLakeSectionResponseOutput {
-	return o
-}
-
-// The authority URL used for authentication.
-func (o AzureDataLakeSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzureDataLakeSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzureDataLakeSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzureDataLakeSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Data Lake credential type.
-func (o AzureDataLakeSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzureDataLakeSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
-}
-
-// Resource Group.
-func (o AzureDataLakeSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzureDataLakeSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureDataLakeSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Data Lake store name.
-func (o AzureDataLakeSectionResponseOutput) StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.StoreName }).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureDataLakeSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzureDataLakeSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzureDataLakeSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type AzureDataLakeSectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AzureDataLakeSectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureDataLakeSectionResponse)(nil)).Elem()
-}
-
-func (o AzureDataLakeSectionResponsePtrOutput) ToAzureDataLakeSectionResponsePtrOutput() AzureDataLakeSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureDataLakeSectionResponsePtrOutput) ToAzureDataLakeSectionResponsePtrOutputWithContext(ctx context.Context) AzureDataLakeSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureDataLakeSectionResponsePtrOutput) Elem() AzureDataLakeSectionResponseOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) AzureDataLakeSectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureDataLakeSectionResponse
-		return ret
-	}).(AzureDataLakeSectionResponseOutput)
-}
-
-// The authority URL used for authentication.
-func (o AzureDataLakeSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorityUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzureDataLakeSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Certificate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzureDataLakeSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzureDataLakeSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure Data Lake credential type.
-func (o AzureDataLakeSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CredentialType
-	}).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzureDataLakeSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCertAuth
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Resource Group.
-func (o AzureDataLakeSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzureDataLakeSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureDataLakeSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDataAccessAuthIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure Data Lake store name.
-func (o AzureDataLakeSectionResponsePtrOutput) StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StoreName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureDataLakeSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzureDataLakeSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzureDataLakeSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDataLakeSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-type AzureMySqlSectionResponse struct {
-	// The authority URL used for authentication.
-	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// The content of the certificate used for authentication.
-	Certificate *string `pulumi:"certificate"`
-	// The Client ID/Application ID
-	ClientId *string `pulumi:"clientId"`
-	// The client secret.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Sql Authentication type.
-	CredentialType *string `pulumi:"credentialType"`
-	// The Azure SQL database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The server host endpoint.
-	Endpoint *string `pulumi:"endpoint"`
-	//  Is it using certificate to authenticate. If false then use client secret.
-	IsCertAuth *bool `pulumi:"isCertAuth"`
-	// / The Azure SQL port number.
-	PortNumber *string `pulumi:"portNumber"`
-	// Resource Group.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The resource the service principal/app has access to.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// The Azure SQL server name.
-	ServerName *string `pulumi:"serverName"`
-	// Indicates which identity to use to authenticate service data access to customer's storage.
-	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
-	// Subscription ID.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The ID of the tenant the service principal/app belongs to.
-	TenantId *string `pulumi:"tenantId"`
-	// The thumbprint of the certificate above.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// The Azure SQL user id.
-	UserId *string `pulumi:"userId"`
-	// The Azure SQL user password.
-	UserPassword *string `pulumi:"userPassword"`
-}
-
-type AzureMySqlSectionResponseOutput struct{ *pulumi.OutputState }
-
-func (AzureMySqlSectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMySqlSectionResponse)(nil)).Elem()
-}
-
-func (o AzureMySqlSectionResponseOutput) ToAzureMySqlSectionResponseOutput() AzureMySqlSectionResponseOutput {
-	return o
-}
-
-func (o AzureMySqlSectionResponseOutput) ToAzureMySqlSectionResponseOutputWithContext(ctx context.Context) AzureMySqlSectionResponseOutput {
-	return o
-}
-
-// The authority URL used for authentication.
-func (o AzureMySqlSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzureMySqlSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzureMySqlSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzureMySqlSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-// Sql Authentication type.
-func (o AzureMySqlSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL database name.
-func (o AzureMySqlSectionResponseOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// The server host endpoint.
-func (o AzureMySqlSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzureMySqlSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
-}
-
-// / The Azure SQL port number.
-func (o AzureMySqlSectionResponseOutput) PortNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.PortNumber }).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzureMySqlSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzureMySqlSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL server name.
-func (o AzureMySqlSectionResponseOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureMySqlSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureMySqlSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzureMySqlSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzureMySqlSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user id.
-func (o AzureMySqlSectionResponseOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.UserId }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user password.
-func (o AzureMySqlSectionResponseOutput) UserPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlSectionResponse) *string { return v.UserPassword }).(pulumi.StringPtrOutput)
-}
-
-type AzureMySqlSectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AzureMySqlSectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureMySqlSectionResponse)(nil)).Elem()
-}
-
-func (o AzureMySqlSectionResponsePtrOutput) ToAzureMySqlSectionResponsePtrOutput() AzureMySqlSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureMySqlSectionResponsePtrOutput) ToAzureMySqlSectionResponsePtrOutputWithContext(ctx context.Context) AzureMySqlSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureMySqlSectionResponsePtrOutput) Elem() AzureMySqlSectionResponseOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) AzureMySqlSectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureMySqlSectionResponse
-		return ret
-	}).(AzureMySqlSectionResponseOutput)
-}
-
-// The authority URL used for authentication.
-func (o AzureMySqlSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorityUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzureMySqlSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Certificate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzureMySqlSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzureMySqlSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sql Authentication type.
-func (o AzureMySqlSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CredentialType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL database name.
-func (o AzureMySqlSectionResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The server host endpoint.
-func (o AzureMySqlSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzureMySqlSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCertAuth
-	}).(pulumi.BoolPtrOutput)
-}
-
-// / The Azure SQL port number.
-func (o AzureMySqlSectionResponsePtrOutput) PortNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PortNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzureMySqlSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzureMySqlSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL server name.
-func (o AzureMySqlSectionResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureMySqlSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDataAccessAuthIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureMySqlSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzureMySqlSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzureMySqlSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user id.
-func (o AzureMySqlSectionResponsePtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user password.
-func (o AzureMySqlSectionResponsePtrOutput) UserPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureMySqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserPassword
-	}).(pulumi.StringPtrOutput)
-}
-
-type AzurePostgreSqlSectionResponse struct {
-	// The authority URL used for authentication.
-	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// The content of the certificate used for authentication.
-	Certificate *string `pulumi:"certificate"`
-	// The Client ID/Application ID
-	ClientId *string `pulumi:"clientId"`
-	// The client secret.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Sql Authentication type.
-	CredentialType *string `pulumi:"credentialType"`
-	// The Azure SQL database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Indicates SSL requirement of Azure Postgresql server.
-	EnableSsl *bool `pulumi:"enableSsl"`
-	// The server host endpoint.
-	Endpoint *string `pulumi:"endpoint"`
-	//  Is it using certificate to authenticate. If false then use client secret.
-	IsCertAuth *bool `pulumi:"isCertAuth"`
-	// / The Azure SQL port number.
-	PortNumber *string `pulumi:"portNumber"`
-	// Resource Group.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The resource the service principal/app has access to.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// The Azure SQL server name.
-	ServerName *string `pulumi:"serverName"`
-	// Indicates which identity to use to authenticate service data access to customer's storage.
-	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
-	// Subscription ID.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The ID of the tenant the service principal/app belongs to.
-	TenantId *string `pulumi:"tenantId"`
-	// The thumbprint of the certificate above.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// The Azure SQL user id.
-	UserId *string `pulumi:"userId"`
-	// The Azure SQL user password.
-	UserPassword *string `pulumi:"userPassword"`
-}
-
-type AzurePostgreSqlSectionResponseOutput struct{ *pulumi.OutputState }
-
-func (AzurePostgreSqlSectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePostgreSqlSectionResponse)(nil)).Elem()
-}
-
-func (o AzurePostgreSqlSectionResponseOutput) ToAzurePostgreSqlSectionResponseOutput() AzurePostgreSqlSectionResponseOutput {
-	return o
-}
-
-func (o AzurePostgreSqlSectionResponseOutput) ToAzurePostgreSqlSectionResponseOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponseOutput {
-	return o
-}
-
-// The authority URL used for authentication.
-func (o AzurePostgreSqlSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzurePostgreSqlSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzurePostgreSqlSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzurePostgreSqlSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-// Sql Authentication type.
-func (o AzurePostgreSqlSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL database name.
-func (o AzurePostgreSqlSectionResponseOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates SSL requirement of Azure Postgresql server.
-func (o AzurePostgreSqlSectionResponseOutput) EnableSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *bool { return v.EnableSsl }).(pulumi.BoolPtrOutput)
-}
-
-// The server host endpoint.
-func (o AzurePostgreSqlSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzurePostgreSqlSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
-}
-
-// / The Azure SQL port number.
-func (o AzurePostgreSqlSectionResponseOutput) PortNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.PortNumber }).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzurePostgreSqlSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzurePostgreSqlSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL server name.
-func (o AzurePostgreSqlSectionResponseOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzurePostgreSqlSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzurePostgreSqlSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzurePostgreSqlSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzurePostgreSqlSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user id.
-func (o AzurePostgreSqlSectionResponseOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.UserId }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user password.
-func (o AzurePostgreSqlSectionResponseOutput) UserPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlSectionResponse) *string { return v.UserPassword }).(pulumi.StringPtrOutput)
-}
-
-type AzurePostgreSqlSectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AzurePostgreSqlSectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzurePostgreSqlSectionResponse)(nil)).Elem()
-}
-
-func (o AzurePostgreSqlSectionResponsePtrOutput) ToAzurePostgreSqlSectionResponsePtrOutput() AzurePostgreSqlSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzurePostgreSqlSectionResponsePtrOutput) ToAzurePostgreSqlSectionResponsePtrOutputWithContext(ctx context.Context) AzurePostgreSqlSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzurePostgreSqlSectionResponsePtrOutput) Elem() AzurePostgreSqlSectionResponseOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) AzurePostgreSqlSectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzurePostgreSqlSectionResponse
-		return ret
-	}).(AzurePostgreSqlSectionResponseOutput)
-}
-
-// The authority URL used for authentication.
-func (o AzurePostgreSqlSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorityUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzurePostgreSqlSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Certificate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzurePostgreSqlSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzurePostgreSqlSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sql Authentication type.
-func (o AzurePostgreSqlSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CredentialType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL database name.
-func (o AzurePostgreSqlSectionResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates SSL requirement of Azure Postgresql server.
-func (o AzurePostgreSqlSectionResponsePtrOutput) EnableSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableSsl
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The server host endpoint.
-func (o AzurePostgreSqlSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzurePostgreSqlSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCertAuth
-	}).(pulumi.BoolPtrOutput)
-}
-
-// / The Azure SQL port number.
-func (o AzurePostgreSqlSectionResponsePtrOutput) PortNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PortNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzurePostgreSqlSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzurePostgreSqlSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL server name.
-func (o AzurePostgreSqlSectionResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzurePostgreSqlSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDataAccessAuthIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzurePostgreSqlSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzurePostgreSqlSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzurePostgreSqlSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user id.
-func (o AzurePostgreSqlSectionResponsePtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user password.
-func (o AzurePostgreSqlSectionResponsePtrOutput) UserPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzurePostgreSqlSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserPassword
-	}).(pulumi.StringPtrOutput)
-}
-
-type AzureSqlDatabaseSectionResponse struct {
-	// The authority URL used for authentication.
-	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// The content of the certificate used for authentication.
-	Certificate *string `pulumi:"certificate"`
-	// The Client ID/Application ID
-	ClientId *string `pulumi:"clientId"`
-	// The client secret.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Sql Authentication type.
-	CredentialType *string `pulumi:"credentialType"`
-	// The Azure SQL database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The server host endpoint.
-	Endpoint *string `pulumi:"endpoint"`
-	//  Is it using certificate to authenticate. If false then use client secret.
-	IsCertAuth *bool `pulumi:"isCertAuth"`
-	// / The Azure SQL port number.
-	PortNumber *string `pulumi:"portNumber"`
-	// Resource Group.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The resource the service principal/app has access to.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// The Azure SQL server name.
-	ServerName *string `pulumi:"serverName"`
-	// Indicates which identity to use to authenticate service data access to customer's storage.
-	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
-	// Subscription ID.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The ID of the tenant the service principal/app belongs to.
-	TenantId *string `pulumi:"tenantId"`
-	// The thumbprint of the certificate above.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// The Azure SQL user id.
-	UserId *string `pulumi:"userId"`
-	// The Azure SQL user password.
-	UserPassword *string `pulumi:"userPassword"`
-}
-
-type AzureSqlDatabaseSectionResponseOutput struct{ *pulumi.OutputState }
-
-func (AzureSqlDatabaseSectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDatabaseSectionResponse)(nil)).Elem()
-}
-
-func (o AzureSqlDatabaseSectionResponseOutput) ToAzureSqlDatabaseSectionResponseOutput() AzureSqlDatabaseSectionResponseOutput {
-	return o
-}
-
-func (o AzureSqlDatabaseSectionResponseOutput) ToAzureSqlDatabaseSectionResponseOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponseOutput {
-	return o
-}
-
-// The authority URL used for authentication.
-func (o AzureSqlDatabaseSectionResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzureSqlDatabaseSectionResponseOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzureSqlDatabaseSectionResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzureSqlDatabaseSectionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-// Sql Authentication type.
-func (o AzureSqlDatabaseSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL database name.
-func (o AzureSqlDatabaseSectionResponseOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// The server host endpoint.
-func (o AzureSqlDatabaseSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzureSqlDatabaseSectionResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
-}
-
-// / The Azure SQL port number.
-func (o AzureSqlDatabaseSectionResponseOutput) PortNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.PortNumber }).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzureSqlDatabaseSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzureSqlDatabaseSectionResponseOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL server name.
-func (o AzureSqlDatabaseSectionResponseOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureSqlDatabaseSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureSqlDatabaseSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzureSqlDatabaseSectionResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzureSqlDatabaseSectionResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user id.
-func (o AzureSqlDatabaseSectionResponseOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.UserId }).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user password.
-func (o AzureSqlDatabaseSectionResponseOutput) UserPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseSectionResponse) *string { return v.UserPassword }).(pulumi.StringPtrOutput)
-}
-
-type AzureSqlDatabaseSectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AzureSqlDatabaseSectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureSqlDatabaseSectionResponse)(nil)).Elem()
-}
-
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ToAzureSqlDatabaseSectionResponsePtrOutput() AzureSqlDatabaseSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ToAzureSqlDatabaseSectionResponsePtrOutputWithContext(ctx context.Context) AzureSqlDatabaseSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureSqlDatabaseSectionResponsePtrOutput) Elem() AzureSqlDatabaseSectionResponseOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) AzureSqlDatabaseSectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSqlDatabaseSectionResponse
-		return ret
-	}).(AzureSqlDatabaseSectionResponseOutput)
-}
-
-// The authority URL used for authentication.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorityUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content of the certificate used for authentication.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Certificate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Client ID/Application ID
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client secret.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sql Authentication type.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CredentialType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL database name.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The server host endpoint.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCertAuth
-	}).(pulumi.BoolPtrOutput)
-}
-
-// / The Azure SQL port number.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) PortNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PortNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL server name.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDataAccessAuthIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user id.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure SQL user password.
-func (o AzureSqlDatabaseSectionResponsePtrOutput) UserPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureSqlDatabaseSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserPassword
-	}).(pulumi.StringPtrOutput)
+// Auto scale properties
+type AutoScalePropertiesResponse struct {
+	Enabled      *bool `pulumi:"enabled"`
+	MaxNodeCount *int  `pulumi:"maxNodeCount"`
+	MinNodeCount *int  `pulumi:"minNodeCount"`
 }
 
-type AzureStorageSectionResponse struct {
-	//  Storage Account Key (Deprecated).
-	AccountKey *string `pulumi:"accountKey"`
-	// Storage Account Name.
+// Azure Blob datastore configuration.
+type AzureBlobDatastore struct {
+	// Storage account name.
 	AccountName *string `pulumi:"accountName"`
-	// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
-	AreWorkspaceManagedIdentitiesAllowed *bool `pulumi:"areWorkspaceManagedIdentitiesAllowed"`
-	//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
-	BlobCacheTimeout  *int                       `pulumi:"blobCacheTimeout"`
-	ClientCredentials *ClientCredentialsResponse `pulumi:"clientCredentials"`
-	// The storage container name.
+	// Storage account container name.
 	ContainerName *string `pulumi:"containerName"`
-	// The credential.
-	Credential *string `pulumi:"credential"`
-	//  The credential type.
-	CredentialType *string `pulumi:"credentialType"`
-	// The host of the container.
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureBlob'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Azure cloud endpoint for the storage account.
 	Endpoint *string `pulumi:"endpoint"`
-	// Indicate if we are using SAS token or Account Key (Deprecated).
-	IsSas *bool `pulumi:"isSas"`
-	// The protocol to use. Defaults to https.
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Protocol used to communicate with the storage account.
 	Protocol *string `pulumi:"protocol"`
-	// Resource Group.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	//  SAS Token for the container (Deprecated).
-	SasToken *string `pulumi:"sasToken"`
 	// Indicates which identity to use to authenticate service data access to customer's storage.
 	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
-	// Subscription ID.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-type AzureStorageSectionResponseOutput struct{ *pulumi.OutputState }
-
-func (AzureStorageSectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureStorageSectionResponse)(nil)).Elem()
+// Defaults sets the appropriate defaults for AzureBlobDatastore
+func (val *AzureBlobDatastore) Defaults() *AzureBlobDatastore {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-func (o AzureStorageSectionResponseOutput) ToAzureStorageSectionResponseOutput() AzureStorageSectionResponseOutput {
-	return o
+// Azure Blob datastore configuration.
+type AzureBlobDatastoreResponse struct {
+	// Storage account name.
+	AccountName *string `pulumi:"accountName"`
+	// Storage account container name.
+	ContainerName *string `pulumi:"containerName"`
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureBlob'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Azure cloud endpoint for the storage account.
+	Endpoint *string `pulumi:"endpoint"`
+	// Readonly property to indicate if datastore is the workspace default datastore
+	IsDefault bool `pulumi:"isDefault"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Protocol used to communicate with the storage account.
+	Protocol *string `pulumi:"protocol"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-func (o AzureStorageSectionResponseOutput) ToAzureStorageSectionResponseOutputWithContext(ctx context.Context) AzureStorageSectionResponseOutput {
-	return o
+// Defaults sets the appropriate defaults for AzureBlobDatastoreResponse
+func (val *AzureBlobDatastoreResponse) Defaults() *AzureBlobDatastoreResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-//  Storage Account Key (Deprecated).
-func (o AzureStorageSectionResponseOutput) AccountKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+// Azure Data Lake Gen1 datastore configuration.
+type AzureDataLakeGen1Datastore struct {
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureDataLakeGen1'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// [Required] Azure Data Lake store name.
+	StoreName string `pulumi:"storeName"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-// Storage Account Name.
-func (o AzureStorageSectionResponseOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for AzureDataLakeGen1Datastore
+func (val *AzureDataLakeGen1Datastore) Defaults() *AzureDataLakeGen1Datastore {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
-func (o AzureStorageSectionResponseOutput) AreWorkspaceManagedIdentitiesAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *bool { return v.AreWorkspaceManagedIdentitiesAllowed }).(pulumi.BoolPtrOutput)
+// Azure Data Lake Gen1 datastore configuration.
+type AzureDataLakeGen1DatastoreResponse struct {
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureDataLakeGen1'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Readonly property to indicate if datastore is the workspace default datastore
+	IsDefault bool `pulumi:"isDefault"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// [Required] Azure Data Lake store name.
+	StoreName string `pulumi:"storeName"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
-func (o AzureStorageSectionResponseOutput) BlobCacheTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *int { return v.BlobCacheTimeout }).(pulumi.IntPtrOutput)
+// Defaults sets the appropriate defaults for AzureDataLakeGen1DatastoreResponse
+func (val *AzureDataLakeGen1DatastoreResponse) Defaults() *AzureDataLakeGen1DatastoreResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-func (o AzureStorageSectionResponseOutput) ClientCredentials() ClientCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *ClientCredentialsResponse { return v.ClientCredentials }).(ClientCredentialsResponsePtrOutput)
+// Azure Data Lake Gen2 datastore configuration.
+type AzureDataLakeGen2Datastore struct {
+	// [Required] Storage account name.
+	AccountName string `pulumi:"accountName"`
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureDataLakeGen2'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Azure cloud endpoint for the storage account.
+	Endpoint *string `pulumi:"endpoint"`
+	// [Required] The name of the Data Lake Gen2 filesystem.
+	Filesystem string `pulumi:"filesystem"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Protocol used to communicate with the storage account.
+	Protocol *string `pulumi:"protocol"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-// The storage container name.
-func (o AzureStorageSectionResponseOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for AzureDataLakeGen2Datastore
+func (val *AzureDataLakeGen2Datastore) Defaults() *AzureDataLakeGen2Datastore {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-// The credential.
-func (o AzureStorageSectionResponseOutput) Credential() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.Credential }).(pulumi.StringPtrOutput)
+// Azure Data Lake Gen2 datastore configuration.
+type AzureDataLakeGen2DatastoreResponse struct {
+	// [Required] Storage account name.
+	AccountName string `pulumi:"accountName"`
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureDataLakeGen2'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Azure cloud endpoint for the storage account.
+	Endpoint *string `pulumi:"endpoint"`
+	// [Required] The name of the Data Lake Gen2 filesystem.
+	Filesystem string `pulumi:"filesystem"`
+	// Readonly property to indicate if datastore is the workspace default datastore
+	IsDefault bool `pulumi:"isDefault"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Protocol used to communicate with the storage account.
+	Protocol *string `pulumi:"protocol"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-//  The credential type.
-func (o AzureStorageSectionResponseOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.CredentialType }).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for AzureDataLakeGen2DatastoreResponse
+func (val *AzureDataLakeGen2DatastoreResponse) Defaults() *AzureDataLakeGen2DatastoreResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-// The host of the container.
-func (o AzureStorageSectionResponseOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+// Azure File datastore configuration.
+type AzureFileDatastore struct {
+	// [Required] Storage account name.
+	AccountName string `pulumi:"accountName"`
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureFile'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Azure cloud endpoint for the storage account.
+	Endpoint *string `pulumi:"endpoint"`
+	// [Required] The name of the Azure file share that the datastore points to.
+	FileShareName string `pulumi:"fileShareName"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Protocol used to communicate with the storage account.
+	Protocol *string `pulumi:"protocol"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-// Indicate if we are using SAS token or Account Key (Deprecated).
-func (o AzureStorageSectionResponseOutput) IsSas() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *bool { return v.IsSas }).(pulumi.BoolPtrOutput)
+// Defaults sets the appropriate defaults for AzureFileDatastore
+func (val *AzureFileDatastore) Defaults() *AzureFileDatastore {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-// The protocol to use. Defaults to https.
-func (o AzureStorageSectionResponseOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+// Azure File datastore configuration.
+type AzureFileDatastoreResponse struct {
+	// [Required] Storage account name.
+	AccountName string `pulumi:"accountName"`
+	// [Required] Account credentials.
+	Credentials interface{} `pulumi:"credentials"`
+	// Enum to determine the datastore contents type.
+	// Expected value is 'AzureFile'.
+	DatastoreType string `pulumi:"datastoreType"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Azure cloud endpoint for the storage account.
+	Endpoint *string `pulumi:"endpoint"`
+	// [Required] The name of the Azure file share that the datastore points to.
+	FileShareName string `pulumi:"fileShareName"`
+	// Readonly property to indicate if datastore is the workspace default datastore
+	IsDefault bool `pulumi:"isDefault"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Protocol used to communicate with the storage account.
+	Protocol *string `pulumi:"protocol"`
+	// Indicates which identity to use to authenticate service data access to customer's storage.
+	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-// Resource Group.
-func (o AzureStorageSectionResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for AzureFileDatastoreResponse
+func (val *AzureFileDatastoreResponse) Defaults() *AzureFileDatastoreResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceDataAccessAuthIdentity) {
+		serviceDataAccessAuthIdentity_ := "None"
+		tmp.ServiceDataAccessAuthIdentity = &serviceDataAccessAuthIdentity_
+	}
+	return &tmp
 }
 
-//  SAS Token for the container (Deprecated).
-func (o AzureStorageSectionResponseOutput) SasToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.SasToken }).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureStorageSectionResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureStorageSectionResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageSectionResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-type AzureStorageSectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AzureStorageSectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureStorageSectionResponse)(nil)).Elem()
-}
-
-func (o AzureStorageSectionResponsePtrOutput) ToAzureStorageSectionResponsePtrOutput() AzureStorageSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureStorageSectionResponsePtrOutput) ToAzureStorageSectionResponsePtrOutputWithContext(ctx context.Context) AzureStorageSectionResponsePtrOutput {
-	return o
-}
-
-func (o AzureStorageSectionResponsePtrOutput) Elem() AzureStorageSectionResponseOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) AzureStorageSectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureStorageSectionResponse
-		return ret
-	}).(AzureStorageSectionResponseOutput)
-}
-
-//  Storage Account Key (Deprecated).
-func (o AzureStorageSectionResponsePtrOutput) AccountKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Storage Account Name.
-func (o AzureStorageSectionResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
-func (o AzureStorageSectionResponsePtrOutput) AreWorkspaceManagedIdentitiesAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AreWorkspaceManagedIdentitiesAllowed
-	}).(pulumi.BoolPtrOutput)
-}
-
-//  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
-func (o AzureStorageSectionResponsePtrOutput) BlobCacheTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BlobCacheTimeout
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o AzureStorageSectionResponsePtrOutput) ClientCredentials() ClientCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *ClientCredentialsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ClientCredentials
-	}).(ClientCredentialsResponsePtrOutput)
-}
-
-// The storage container name.
-func (o AzureStorageSectionResponsePtrOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The credential.
-func (o AzureStorageSectionResponsePtrOutput) Credential() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Credential
-	}).(pulumi.StringPtrOutput)
-}
-
-//  The credential type.
-func (o AzureStorageSectionResponsePtrOutput) CredentialType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CredentialType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The host of the container.
-func (o AzureStorageSectionResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicate if we are using SAS token or Account Key (Deprecated).
-func (o AzureStorageSectionResponsePtrOutput) IsSas() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsSas
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The protocol to use. Defaults to https.
-func (o AzureStorageSectionResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Protocol
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Group.
-func (o AzureStorageSectionResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-//  SAS Token for the container (Deprecated).
-func (o AzureStorageSectionResponsePtrOutput) SasToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SasToken
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o AzureStorageSectionResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDataAccessAuthIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o AzureStorageSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStorageSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
 type BanditPolicy struct {
 	// Number of intervals by which to delay the first evaluation.
 	DelayEvaluation *int `pulumi:"delayEvaluation"`
@@ -3422,7 +824,32 @@ type BanditPolicy struct {
 	SlackFactor *float64 `pulumi:"slackFactor"`
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
+// Defaults sets the appropriate defaults for BanditPolicy
+func (val *BanditPolicy) Defaults() *BanditPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelayEvaluation) {
+		delayEvaluation_ := 0
+		tmp.DelayEvaluation = &delayEvaluation_
+	}
+	if isZero(tmp.EvaluationInterval) {
+		evaluationInterval_ := 0
+		tmp.EvaluationInterval = &evaluationInterval_
+	}
+	if isZero(tmp.SlackAmount) {
+		slackAmount_ := 0.0
+		tmp.SlackAmount = &slackAmount_
+	}
+	if isZero(tmp.SlackFactor) {
+		slackFactor_ := 0.0
+		tmp.SlackFactor = &slackFactor_
+	}
+	return &tmp
+}
+
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
 type BanditPolicyResponse struct {
 	// Number of intervals by which to delay the first evaluation.
 	DelayEvaluation *int `pulumi:"delayEvaluation"`
@@ -3436,15 +863,40 @@ type BanditPolicyResponse struct {
 	SlackFactor *float64 `pulumi:"slackFactor"`
 }
 
+// Defaults sets the appropriate defaults for BanditPolicyResponse
+func (val *BanditPolicyResponse) Defaults() *BanditPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelayEvaluation) {
+		delayEvaluation_ := 0
+		tmp.DelayEvaluation = &delayEvaluation_
+	}
+	if isZero(tmp.EvaluationInterval) {
+		evaluationInterval_ := 0
+		tmp.EvaluationInterval = &evaluationInterval_
+	}
+	if isZero(tmp.SlackAmount) {
+		slackAmount_ := 0.0
+		tmp.SlackAmount = &slackAmount_
+	}
+	if isZero(tmp.SlackFactor) {
+		slackFactor_ := 0.0
+		tmp.SlackFactor = &slackFactor_
+	}
+	return &tmp
+}
+
 // Batch inference settings per deployment.
 type BatchDeploymentType struct {
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration *CodeConfiguration `pulumi:"codeConfiguration"`
-	// Configuration for compute binding.
-	Compute *ComputeConfiguration `pulumi:"compute"`
+	// Compute target for batch inference operation.
+	Compute *string `pulumi:"compute"`
 	// Description of the endpoint deployment.
 	Description *string `pulumi:"description"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
@@ -3456,20 +908,63 @@ type BatchDeploymentType struct {
 	ErrorThreshold *int `pulumi:"errorThreshold"`
 	// Logging level for batch inference operation.
 	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Indicates maximum number of parallelism per instance.
+	MaxConcurrencyPerInstance *int `pulumi:"maxConcurrencyPerInstance"`
 	// Size of the mini-batch passed to each batch invocation.
 	// For FileDataset, this is the number of files per mini-batch.
 	// For TabularDataset, this is the size of the records in bytes, per mini-batch.
 	MiniBatchSize *float64 `pulumi:"miniBatchSize"`
 	// Reference to the model asset for the endpoint deployment.
 	Model interface{} `pulumi:"model"`
-	// Output configuration for the batch inference operation.
-	OutputConfiguration *BatchOutputConfiguration `pulumi:"outputConfiguration"`
-	// Partition keys list used for Named partitioning.
-	PartitionKeys []string `pulumi:"partitionKeys"`
+	// Indicates how the output will be organized.
+	OutputAction *string `pulumi:"outputAction"`
+	// Customized output file name for append_row output action.
+	OutputFileName *string `pulumi:"outputFileName"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
+	// Indicates compute configuration for the job.
+	// If not provided, will default to the defaults defined in ResourceConfiguration.
+	Resources *ResourceConfiguration `pulumi:"resources"`
 	// Retry Settings for the batch inference operation.
+	// If not provided, will default to the defaults defined in BatchRetrySettings.
 	RetrySettings *BatchRetrySettings `pulumi:"retrySettings"`
+}
+
+// Defaults sets the appropriate defaults for BatchDeploymentType
+func (val *BatchDeploymentType) Defaults() *BatchDeploymentType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ErrorThreshold) {
+		errorThreshold_ := -1
+		tmp.ErrorThreshold = &errorThreshold_
+	}
+	if isZero(tmp.LoggingLevel) {
+		loggingLevel_ := "Info"
+		tmp.LoggingLevel = &loggingLevel_
+	}
+	if isZero(tmp.MaxConcurrencyPerInstance) {
+		maxConcurrencyPerInstance_ := 1
+		tmp.MaxConcurrencyPerInstance = &maxConcurrencyPerInstance_
+	}
+	if isZero(tmp.MiniBatchSize) {
+		miniBatchSize_ := 10.0
+		tmp.MiniBatchSize = &miniBatchSize_
+	}
+	if isZero(tmp.OutputAction) {
+		outputAction_ := "AppendRow"
+		tmp.OutputAction = &outputAction_
+	}
+	if isZero(tmp.OutputFileName) {
+		outputFileName_ := "predictions.csv"
+		tmp.OutputFileName = &outputFileName_
+	}
+	tmp.Resources = tmp.Resources.Defaults()
+
+	tmp.RetrySettings = tmp.RetrySettings.Defaults()
+
+	return &tmp
 }
 
 // BatchDeploymentTypeInput is an input type that accepts BatchDeploymentTypeArgs and BatchDeploymentTypeOutput values.
@@ -3487,11 +982,11 @@ type BatchDeploymentTypeInput interface {
 type BatchDeploymentTypeArgs struct {
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration CodeConfigurationPtrInput `pulumi:"codeConfiguration"`
-	// Configuration for compute binding.
-	Compute ComputeConfigurationPtrInput `pulumi:"compute"`
+	// Compute target for batch inference operation.
+	Compute pulumi.StringPtrInput `pulumi:"compute"`
 	// Description of the endpoint deployment.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
@@ -3503,22 +998,55 @@ type BatchDeploymentTypeArgs struct {
 	ErrorThreshold pulumi.IntPtrInput `pulumi:"errorThreshold"`
 	// Logging level for batch inference operation.
 	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// Indicates maximum number of parallelism per instance.
+	MaxConcurrencyPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrencyPerInstance"`
 	// Size of the mini-batch passed to each batch invocation.
 	// For FileDataset, this is the number of files per mini-batch.
 	// For TabularDataset, this is the size of the records in bytes, per mini-batch.
 	MiniBatchSize pulumi.Float64PtrInput `pulumi:"miniBatchSize"`
 	// Reference to the model asset for the endpoint deployment.
 	Model pulumi.Input `pulumi:"model"`
-	// Output configuration for the batch inference operation.
-	OutputConfiguration BatchOutputConfigurationPtrInput `pulumi:"outputConfiguration"`
-	// Partition keys list used for Named partitioning.
-	PartitionKeys pulumi.StringArrayInput `pulumi:"partitionKeys"`
+	// Indicates how the output will be organized.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Customized output file name for append_row output action.
+	OutputFileName pulumi.StringPtrInput `pulumi:"outputFileName"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Indicates compute configuration for the job.
+	// If not provided, will default to the defaults defined in ResourceConfiguration.
+	Resources ResourceConfigurationPtrInput `pulumi:"resources"`
 	// Retry Settings for the batch inference operation.
+	// If not provided, will default to the defaults defined in BatchRetrySettings.
 	RetrySettings BatchRetrySettingsPtrInput `pulumi:"retrySettings"`
 }
 
+// Defaults sets the appropriate defaults for BatchDeploymentTypeArgs
+func (val *BatchDeploymentTypeArgs) Defaults() *BatchDeploymentTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ErrorThreshold) {
+		tmp.ErrorThreshold = pulumi.IntPtr(-1)
+	}
+	if isZero(tmp.LoggingLevel) {
+		tmp.LoggingLevel = pulumi.StringPtr("Info")
+	}
+	if isZero(tmp.MaxConcurrencyPerInstance) {
+		tmp.MaxConcurrencyPerInstance = pulumi.IntPtr(1)
+	}
+	if isZero(tmp.MiniBatchSize) {
+		tmp.MiniBatchSize = pulumi.Float64Ptr(10.0)
+	}
+	if isZero(tmp.OutputAction) {
+		tmp.OutputAction = pulumi.StringPtr("AppendRow")
+	}
+	if isZero(tmp.OutputFileName) {
+		tmp.OutputFileName = pulumi.StringPtr("predictions.csv")
+	}
+
+	return &tmp
+}
 func (BatchDeploymentTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchDeploymentType)(nil)).Elem()
 }
@@ -3551,9 +1079,9 @@ func (o BatchDeploymentTypeOutput) CodeConfiguration() CodeConfigurationPtrOutpu
 	return o.ApplyT(func(v BatchDeploymentType) *CodeConfiguration { return v.CodeConfiguration }).(CodeConfigurationPtrOutput)
 }
 
-// Configuration for compute binding.
-func (o BatchDeploymentTypeOutput) Compute() ComputeConfigurationPtrOutput {
-	return o.ApplyT(func(v BatchDeploymentType) *ComputeConfiguration { return v.Compute }).(ComputeConfigurationPtrOutput)
+// Compute target for batch inference operation.
+func (o BatchDeploymentTypeOutput) Compute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentType) *string { return v.Compute }).(pulumi.StringPtrOutput)
 }
 
 // Description of the endpoint deployment.
@@ -3561,7 +1089,7 @@ func (o BatchDeploymentTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARM resource ID of the environment specification for the endpoint deployment.
+// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 func (o BatchDeploymentTypeOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentType) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
@@ -3585,6 +1113,11 @@ func (o BatchDeploymentTypeOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentType) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
+// Indicates maximum number of parallelism per instance.
+func (o BatchDeploymentTypeOutput) MaxConcurrencyPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentType) *int { return v.MaxConcurrencyPerInstance }).(pulumi.IntPtrOutput)
+}
+
 // Size of the mini-batch passed to each batch invocation.
 // For FileDataset, this is the number of files per mini-batch.
 // For TabularDataset, this is the size of the records in bytes, per mini-batch.
@@ -3597,14 +1130,14 @@ func (o BatchDeploymentTypeOutput) Model() pulumi.AnyOutput {
 	return o.ApplyT(func(v BatchDeploymentType) interface{} { return v.Model }).(pulumi.AnyOutput)
 }
 
-// Output configuration for the batch inference operation.
-func (o BatchDeploymentTypeOutput) OutputConfiguration() BatchOutputConfigurationPtrOutput {
-	return o.ApplyT(func(v BatchDeploymentType) *BatchOutputConfiguration { return v.OutputConfiguration }).(BatchOutputConfigurationPtrOutput)
+// Indicates how the output will be organized.
+func (o BatchDeploymentTypeOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentType) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
 }
 
-// Partition keys list used for Named partitioning.
-func (o BatchDeploymentTypeOutput) PartitionKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BatchDeploymentType) []string { return v.PartitionKeys }).(pulumi.StringArrayOutput)
+// Customized output file name for append_row output action.
+func (o BatchDeploymentTypeOutput) OutputFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentType) *string { return v.OutputFileName }).(pulumi.StringPtrOutput)
 }
 
 // Property dictionary. Properties can be added, but not removed or altered.
@@ -3612,7 +1145,14 @@ func (o BatchDeploymentTypeOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BatchDeploymentType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Indicates compute configuration for the job.
+// If not provided, will default to the defaults defined in ResourceConfiguration.
+func (o BatchDeploymentTypeOutput) Resources() ResourceConfigurationPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentType) *ResourceConfiguration { return v.Resources }).(ResourceConfigurationPtrOutput)
+}
+
 // Retry Settings for the batch inference operation.
+// If not provided, will default to the defaults defined in BatchRetrySettings.
 func (o BatchDeploymentTypeOutput) RetrySettings() BatchRetrySettingsPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentType) *BatchRetrySettings { return v.RetrySettings }).(BatchRetrySettingsPtrOutput)
 }
@@ -3621,11 +1161,11 @@ func (o BatchDeploymentTypeOutput) RetrySettings() BatchRetrySettingsPtrOutput {
 type BatchDeploymentResponse struct {
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration *CodeConfigurationResponse `pulumi:"codeConfiguration"`
-	// Configuration for compute binding.
-	Compute *ComputeConfigurationResponse `pulumi:"compute"`
+	// Compute target for batch inference operation.
+	Compute *string `pulumi:"compute"`
 	// Description of the endpoint deployment.
 	Description *string `pulumi:"description"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
@@ -3637,20 +1177,65 @@ type BatchDeploymentResponse struct {
 	ErrorThreshold *int `pulumi:"errorThreshold"`
 	// Logging level for batch inference operation.
 	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Indicates maximum number of parallelism per instance.
+	MaxConcurrencyPerInstance *int `pulumi:"maxConcurrencyPerInstance"`
 	// Size of the mini-batch passed to each batch invocation.
 	// For FileDataset, this is the number of files per mini-batch.
 	// For TabularDataset, this is the size of the records in bytes, per mini-batch.
 	MiniBatchSize *float64 `pulumi:"miniBatchSize"`
 	// Reference to the model asset for the endpoint deployment.
 	Model interface{} `pulumi:"model"`
-	// Output configuration for the batch inference operation.
-	OutputConfiguration *BatchOutputConfigurationResponse `pulumi:"outputConfiguration"`
-	// Partition keys list used for Named partitioning.
-	PartitionKeys []string `pulumi:"partitionKeys"`
+	// Indicates how the output will be organized.
+	OutputAction *string `pulumi:"outputAction"`
+	// Customized output file name for append_row output action.
+	OutputFileName *string `pulumi:"outputFileName"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
+	// Provisioning state for the endpoint deployment.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Indicates compute configuration for the job.
+	// If not provided, will default to the defaults defined in ResourceConfiguration.
+	Resources *ResourceConfigurationResponse `pulumi:"resources"`
 	// Retry Settings for the batch inference operation.
+	// If not provided, will default to the defaults defined in BatchRetrySettings.
 	RetrySettings *BatchRetrySettingsResponse `pulumi:"retrySettings"`
+}
+
+// Defaults sets the appropriate defaults for BatchDeploymentResponse
+func (val *BatchDeploymentResponse) Defaults() *BatchDeploymentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ErrorThreshold) {
+		errorThreshold_ := -1
+		tmp.ErrorThreshold = &errorThreshold_
+	}
+	if isZero(tmp.LoggingLevel) {
+		loggingLevel_ := "Info"
+		tmp.LoggingLevel = &loggingLevel_
+	}
+	if isZero(tmp.MaxConcurrencyPerInstance) {
+		maxConcurrencyPerInstance_ := 1
+		tmp.MaxConcurrencyPerInstance = &maxConcurrencyPerInstance_
+	}
+	if isZero(tmp.MiniBatchSize) {
+		miniBatchSize_ := 10.0
+		tmp.MiniBatchSize = &miniBatchSize_
+	}
+	if isZero(tmp.OutputAction) {
+		outputAction_ := "AppendRow"
+		tmp.OutputAction = &outputAction_
+	}
+	if isZero(tmp.OutputFileName) {
+		outputFileName_ := "predictions.csv"
+		tmp.OutputFileName = &outputFileName_
+	}
+	tmp.Resources = tmp.Resources.Defaults()
+
+	tmp.RetrySettings = tmp.RetrySettings.Defaults()
+
+	return &tmp
 }
 
 // Batch inference settings per deployment.
@@ -3673,9 +1258,9 @@ func (o BatchDeploymentResponseOutput) CodeConfiguration() CodeConfigurationResp
 	return o.ApplyT(func(v BatchDeploymentResponse) *CodeConfigurationResponse { return v.CodeConfiguration }).(CodeConfigurationResponsePtrOutput)
 }
 
-// Configuration for compute binding.
-func (o BatchDeploymentResponseOutput) Compute() ComputeConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v BatchDeploymentResponse) *ComputeConfigurationResponse { return v.Compute }).(ComputeConfigurationResponsePtrOutput)
+// Compute target for batch inference operation.
+func (o BatchDeploymentResponseOutput) Compute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentResponse) *string { return v.Compute }).(pulumi.StringPtrOutput)
 }
 
 // Description of the endpoint deployment.
@@ -3683,7 +1268,7 @@ func (o BatchDeploymentResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARM resource ID of the environment specification for the endpoint deployment.
+// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 func (o BatchDeploymentResponseOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentResponse) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
@@ -3707,6 +1292,11 @@ func (o BatchDeploymentResponseOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchDeploymentResponse) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
+// Indicates maximum number of parallelism per instance.
+func (o BatchDeploymentResponseOutput) MaxConcurrencyPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentResponse) *int { return v.MaxConcurrencyPerInstance }).(pulumi.IntPtrOutput)
+}
+
 // Size of the mini-batch passed to each batch invocation.
 // For FileDataset, this is the number of files per mini-batch.
 // For TabularDataset, this is the size of the records in bytes, per mini-batch.
@@ -3719,14 +1309,14 @@ func (o BatchDeploymentResponseOutput) Model() pulumi.AnyOutput {
 	return o.ApplyT(func(v BatchDeploymentResponse) interface{} { return v.Model }).(pulumi.AnyOutput)
 }
 
-// Output configuration for the batch inference operation.
-func (o BatchDeploymentResponseOutput) OutputConfiguration() BatchOutputConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v BatchDeploymentResponse) *BatchOutputConfigurationResponse { return v.OutputConfiguration }).(BatchOutputConfigurationResponsePtrOutput)
+// Indicates how the output will be organized.
+func (o BatchDeploymentResponseOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentResponse) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
 }
 
-// Partition keys list used for Named partitioning.
-func (o BatchDeploymentResponseOutput) PartitionKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BatchDeploymentResponse) []string { return v.PartitionKeys }).(pulumi.StringArrayOutput)
+// Customized output file name for append_row output action.
+func (o BatchDeploymentResponseOutput) OutputFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchDeploymentResponse) *string { return v.OutputFileName }).(pulumi.StringPtrOutput)
 }
 
 // Property dictionary. Properties can be added, but not removed or altered.
@@ -3734,15 +1324,29 @@ func (o BatchDeploymentResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BatchDeploymentResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Provisioning state for the endpoint deployment.
+func (o BatchDeploymentResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchDeploymentResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Indicates compute configuration for the job.
+// If not provided, will default to the defaults defined in ResourceConfiguration.
+func (o BatchDeploymentResponseOutput) Resources() ResourceConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v BatchDeploymentResponse) *ResourceConfigurationResponse { return v.Resources }).(ResourceConfigurationResponsePtrOutput)
+}
+
 // Retry Settings for the batch inference operation.
+// If not provided, will default to the defaults defined in BatchRetrySettings.
 func (o BatchDeploymentResponseOutput) RetrySettings() BatchRetrySettingsResponsePtrOutput {
 	return o.ApplyT(func(v BatchDeploymentResponse) *BatchRetrySettingsResponse { return v.RetrySettings }).(BatchRetrySettingsResponsePtrOutput)
 }
 
 // Batch endpoint configuration.
 type BatchEndpointType struct {
-	// [Required] Inference endpoint authentication mode type
-	AuthMode *string `pulumi:"authMode"`
+	// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+	AuthMode string `pulumi:"authMode"`
+	// Default values for Batch Endpoint
+	Defaults *BatchEndpointDefaults `pulumi:"defaults"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
 	// EndpointAuthKeys to set initially on an Endpoint.
@@ -3750,8 +1354,6 @@ type BatchEndpointType struct {
 	Keys *EndpointAuthKeys `pulumi:"keys"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
-	// Traffic rules on how the traffic will be routed across deployments.
-	Traffic map[string]int `pulumi:"traffic"`
 }
 
 // BatchEndpointTypeInput is an input type that accepts BatchEndpointTypeArgs and BatchEndpointTypeOutput values.
@@ -3767,8 +1369,10 @@ type BatchEndpointTypeInput interface {
 
 // Batch endpoint configuration.
 type BatchEndpointTypeArgs struct {
-	// [Required] Inference endpoint authentication mode type
-	AuthMode pulumi.StringPtrInput `pulumi:"authMode"`
+	// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+	AuthMode pulumi.StringInput `pulumi:"authMode"`
+	// Default values for Batch Endpoint
+	Defaults BatchEndpointDefaultsPtrInput `pulumi:"defaults"`
 	// Description of the inference endpoint.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// EndpointAuthKeys to set initially on an Endpoint.
@@ -3776,8 +1380,6 @@ type BatchEndpointTypeArgs struct {
 	Keys EndpointAuthKeysPtrInput `pulumi:"keys"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Traffic rules on how the traffic will be routed across deployments.
-	Traffic pulumi.IntMapInput `pulumi:"traffic"`
 }
 
 func (BatchEndpointTypeArgs) ElementType() reflect.Type {
@@ -3807,9 +1409,14 @@ func (o BatchEndpointTypeOutput) ToBatchEndpointTypeOutputWithContext(ctx contex
 	return o
 }
 
-// [Required] Inference endpoint authentication mode type
-func (o BatchEndpointTypeOutput) AuthMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BatchEndpointType) *string { return v.AuthMode }).(pulumi.StringPtrOutput)
+// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+func (o BatchEndpointTypeOutput) AuthMode() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchEndpointType) string { return v.AuthMode }).(pulumi.StringOutput)
+}
+
+// Default values for Batch Endpoint
+func (o BatchEndpointTypeOutput) Defaults() BatchEndpointDefaultsPtrOutput {
+	return o.ApplyT(func(v BatchEndpointType) *BatchEndpointDefaults { return v.Defaults }).(BatchEndpointDefaultsPtrOutput)
 }
 
 // Description of the inference endpoint.
@@ -3828,25 +1435,229 @@ func (o BatchEndpointTypeOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BatchEndpointType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Traffic rules on how the traffic will be routed across deployments.
-func (o BatchEndpointTypeOutput) Traffic() pulumi.IntMapOutput {
-	return o.ApplyT(func(v BatchEndpointType) map[string]int { return v.Traffic }).(pulumi.IntMapOutput)
+// Batch endpoint default values
+type BatchEndpointDefaults struct {
+	// Name of the deployment that will be default for the endpoint.
+	// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+	DeploymentName *string `pulumi:"deploymentName"`
+}
+
+// BatchEndpointDefaultsInput is an input type that accepts BatchEndpointDefaultsArgs and BatchEndpointDefaultsOutput values.
+// You can construct a concrete instance of `BatchEndpointDefaultsInput` via:
+//
+//          BatchEndpointDefaultsArgs{...}
+type BatchEndpointDefaultsInput interface {
+	pulumi.Input
+
+	ToBatchEndpointDefaultsOutput() BatchEndpointDefaultsOutput
+	ToBatchEndpointDefaultsOutputWithContext(context.Context) BatchEndpointDefaultsOutput
+}
+
+// Batch endpoint default values
+type BatchEndpointDefaultsArgs struct {
+	// Name of the deployment that will be default for the endpoint.
+	// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+	DeploymentName pulumi.StringPtrInput `pulumi:"deploymentName"`
+}
+
+func (BatchEndpointDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchEndpointDefaults)(nil)).Elem()
+}
+
+func (i BatchEndpointDefaultsArgs) ToBatchEndpointDefaultsOutput() BatchEndpointDefaultsOutput {
+	return i.ToBatchEndpointDefaultsOutputWithContext(context.Background())
+}
+
+func (i BatchEndpointDefaultsArgs) ToBatchEndpointDefaultsOutputWithContext(ctx context.Context) BatchEndpointDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchEndpointDefaultsOutput)
+}
+
+func (i BatchEndpointDefaultsArgs) ToBatchEndpointDefaultsPtrOutput() BatchEndpointDefaultsPtrOutput {
+	return i.ToBatchEndpointDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i BatchEndpointDefaultsArgs) ToBatchEndpointDefaultsPtrOutputWithContext(ctx context.Context) BatchEndpointDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchEndpointDefaultsOutput).ToBatchEndpointDefaultsPtrOutputWithContext(ctx)
+}
+
+// BatchEndpointDefaultsPtrInput is an input type that accepts BatchEndpointDefaultsArgs, BatchEndpointDefaultsPtr and BatchEndpointDefaultsPtrOutput values.
+// You can construct a concrete instance of `BatchEndpointDefaultsPtrInput` via:
+//
+//          BatchEndpointDefaultsArgs{...}
+//
+//  or:
+//
+//          nil
+type BatchEndpointDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToBatchEndpointDefaultsPtrOutput() BatchEndpointDefaultsPtrOutput
+	ToBatchEndpointDefaultsPtrOutputWithContext(context.Context) BatchEndpointDefaultsPtrOutput
+}
+
+type batchEndpointDefaultsPtrType BatchEndpointDefaultsArgs
+
+func BatchEndpointDefaultsPtr(v *BatchEndpointDefaultsArgs) BatchEndpointDefaultsPtrInput {
+	return (*batchEndpointDefaultsPtrType)(v)
+}
+
+func (*batchEndpointDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchEndpointDefaults)(nil)).Elem()
+}
+
+func (i *batchEndpointDefaultsPtrType) ToBatchEndpointDefaultsPtrOutput() BatchEndpointDefaultsPtrOutput {
+	return i.ToBatchEndpointDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *batchEndpointDefaultsPtrType) ToBatchEndpointDefaultsPtrOutputWithContext(ctx context.Context) BatchEndpointDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchEndpointDefaultsPtrOutput)
+}
+
+// Batch endpoint default values
+type BatchEndpointDefaultsOutput struct{ *pulumi.OutputState }
+
+func (BatchEndpointDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchEndpointDefaults)(nil)).Elem()
+}
+
+func (o BatchEndpointDefaultsOutput) ToBatchEndpointDefaultsOutput() BatchEndpointDefaultsOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsOutput) ToBatchEndpointDefaultsOutputWithContext(ctx context.Context) BatchEndpointDefaultsOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsOutput) ToBatchEndpointDefaultsPtrOutput() BatchEndpointDefaultsPtrOutput {
+	return o.ToBatchEndpointDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o BatchEndpointDefaultsOutput) ToBatchEndpointDefaultsPtrOutputWithContext(ctx context.Context) BatchEndpointDefaultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchEndpointDefaults) *BatchEndpointDefaults {
+		return &v
+	}).(BatchEndpointDefaultsPtrOutput)
+}
+
+// Name of the deployment that will be default for the endpoint.
+// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+func (o BatchEndpointDefaultsOutput) DeploymentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchEndpointDefaults) *string { return v.DeploymentName }).(pulumi.StringPtrOutput)
+}
+
+type BatchEndpointDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (BatchEndpointDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchEndpointDefaults)(nil)).Elem()
+}
+
+func (o BatchEndpointDefaultsPtrOutput) ToBatchEndpointDefaultsPtrOutput() BatchEndpointDefaultsPtrOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsPtrOutput) ToBatchEndpointDefaultsPtrOutputWithContext(ctx context.Context) BatchEndpointDefaultsPtrOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsPtrOutput) Elem() BatchEndpointDefaultsOutput {
+	return o.ApplyT(func(v *BatchEndpointDefaults) BatchEndpointDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret BatchEndpointDefaults
+		return ret
+	}).(BatchEndpointDefaultsOutput)
+}
+
+// Name of the deployment that will be default for the endpoint.
+// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+func (o BatchEndpointDefaultsPtrOutput) DeploymentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchEndpointDefaults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Batch endpoint default values
+type BatchEndpointDefaultsResponse struct {
+	// Name of the deployment that will be default for the endpoint.
+	// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+	DeploymentName *string `pulumi:"deploymentName"`
+}
+
+// Batch endpoint default values
+type BatchEndpointDefaultsResponseOutput struct{ *pulumi.OutputState }
+
+func (BatchEndpointDefaultsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchEndpointDefaultsResponse)(nil)).Elem()
+}
+
+func (o BatchEndpointDefaultsResponseOutput) ToBatchEndpointDefaultsResponseOutput() BatchEndpointDefaultsResponseOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsResponseOutput) ToBatchEndpointDefaultsResponseOutputWithContext(ctx context.Context) BatchEndpointDefaultsResponseOutput {
+	return o
+}
+
+// Name of the deployment that will be default for the endpoint.
+// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+func (o BatchEndpointDefaultsResponseOutput) DeploymentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchEndpointDefaultsResponse) *string { return v.DeploymentName }).(pulumi.StringPtrOutput)
+}
+
+type BatchEndpointDefaultsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BatchEndpointDefaultsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BatchEndpointDefaultsResponse)(nil)).Elem()
+}
+
+func (o BatchEndpointDefaultsResponsePtrOutput) ToBatchEndpointDefaultsResponsePtrOutput() BatchEndpointDefaultsResponsePtrOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsResponsePtrOutput) ToBatchEndpointDefaultsResponsePtrOutputWithContext(ctx context.Context) BatchEndpointDefaultsResponsePtrOutput {
+	return o
+}
+
+func (o BatchEndpointDefaultsResponsePtrOutput) Elem() BatchEndpointDefaultsResponseOutput {
+	return o.ApplyT(func(v *BatchEndpointDefaultsResponse) BatchEndpointDefaultsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BatchEndpointDefaultsResponse
+		return ret
+	}).(BatchEndpointDefaultsResponseOutput)
+}
+
+// Name of the deployment that will be default for the endpoint.
+// This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+func (o BatchEndpointDefaultsResponsePtrOutput) DeploymentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchEndpointDefaultsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Batch endpoint configuration.
 type BatchEndpointResponse struct {
-	// [Required] Inference endpoint authentication mode type
-	AuthMode *string `pulumi:"authMode"`
+	// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+	AuthMode string `pulumi:"authMode"`
+	// Default values for Batch Endpoint
+	Defaults *BatchEndpointDefaultsResponse `pulumi:"defaults"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
+	// Provisioning state for the endpoint.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint URI.
 	ScoringUri string `pulumi:"scoringUri"`
 	// Endpoint Swagger URI.
 	SwaggerUri string `pulumi:"swaggerUri"`
-	// Traffic rules on how the traffic will be routed across deployments.
-	Traffic map[string]int `pulumi:"traffic"`
 }
 
 // Batch endpoint configuration.
@@ -3864,9 +1675,14 @@ func (o BatchEndpointResponseOutput) ToBatchEndpointResponseOutputWithContext(ct
 	return o
 }
 
-// [Required] Inference endpoint authentication mode type
-func (o BatchEndpointResponseOutput) AuthMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BatchEndpointResponse) *string { return v.AuthMode }).(pulumi.StringPtrOutput)
+// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+func (o BatchEndpointResponseOutput) AuthMode() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchEndpointResponse) string { return v.AuthMode }).(pulumi.StringOutput)
+}
+
+// Default values for Batch Endpoint
+func (o BatchEndpointResponseOutput) Defaults() BatchEndpointDefaultsResponsePtrOutput {
+	return o.ApplyT(func(v BatchEndpointResponse) *BatchEndpointDefaultsResponse { return v.Defaults }).(BatchEndpointDefaultsResponsePtrOutput)
 }
 
 // Description of the inference endpoint.
@@ -3879,6 +1695,11 @@ func (o BatchEndpointResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BatchEndpointResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Provisioning state for the endpoint.
+func (o BatchEndpointResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchEndpointResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 // Endpoint URI.
 func (o BatchEndpointResponseOutput) ScoringUri() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchEndpointResponse) string { return v.ScoringUri }).(pulumi.StringOutput)
@@ -3889,253 +1710,29 @@ func (o BatchEndpointResponseOutput) SwaggerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchEndpointResponse) string { return v.SwaggerUri }).(pulumi.StringOutput)
 }
 
-// Traffic rules on how the traffic will be routed across deployments.
-func (o BatchEndpointResponseOutput) Traffic() pulumi.IntMapOutput {
-	return o.ApplyT(func(v BatchEndpointResponse) map[string]int { return v.Traffic }).(pulumi.IntMapOutput)
-}
-
-// Batch inference output configuration.
-type BatchOutputConfiguration struct {
-	// Customized output file name for append_row output action.
-	AppendRowFileName *string `pulumi:"appendRowFileName"`
-	// Indicates how the output will be organized.
-	OutputAction *string `pulumi:"outputAction"`
-}
-
-// BatchOutputConfigurationInput is an input type that accepts BatchOutputConfigurationArgs and BatchOutputConfigurationOutput values.
-// You can construct a concrete instance of `BatchOutputConfigurationInput` via:
-//
-//          BatchOutputConfigurationArgs{...}
-type BatchOutputConfigurationInput interface {
-	pulumi.Input
-
-	ToBatchOutputConfigurationOutput() BatchOutputConfigurationOutput
-	ToBatchOutputConfigurationOutputWithContext(context.Context) BatchOutputConfigurationOutput
-}
-
-// Batch inference output configuration.
-type BatchOutputConfigurationArgs struct {
-	// Customized output file name for append_row output action.
-	AppendRowFileName pulumi.StringPtrInput `pulumi:"appendRowFileName"`
-	// Indicates how the output will be organized.
-	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
-}
-
-func (BatchOutputConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchOutputConfiguration)(nil)).Elem()
-}
-
-func (i BatchOutputConfigurationArgs) ToBatchOutputConfigurationOutput() BatchOutputConfigurationOutput {
-	return i.ToBatchOutputConfigurationOutputWithContext(context.Background())
-}
-
-func (i BatchOutputConfigurationArgs) ToBatchOutputConfigurationOutputWithContext(ctx context.Context) BatchOutputConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchOutputConfigurationOutput)
-}
-
-func (i BatchOutputConfigurationArgs) ToBatchOutputConfigurationPtrOutput() BatchOutputConfigurationPtrOutput {
-	return i.ToBatchOutputConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i BatchOutputConfigurationArgs) ToBatchOutputConfigurationPtrOutputWithContext(ctx context.Context) BatchOutputConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchOutputConfigurationOutput).ToBatchOutputConfigurationPtrOutputWithContext(ctx)
-}
-
-// BatchOutputConfigurationPtrInput is an input type that accepts BatchOutputConfigurationArgs, BatchOutputConfigurationPtr and BatchOutputConfigurationPtrOutput values.
-// You can construct a concrete instance of `BatchOutputConfigurationPtrInput` via:
-//
-//          BatchOutputConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type BatchOutputConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToBatchOutputConfigurationPtrOutput() BatchOutputConfigurationPtrOutput
-	ToBatchOutputConfigurationPtrOutputWithContext(context.Context) BatchOutputConfigurationPtrOutput
-}
-
-type batchOutputConfigurationPtrType BatchOutputConfigurationArgs
-
-func BatchOutputConfigurationPtr(v *BatchOutputConfigurationArgs) BatchOutputConfigurationPtrInput {
-	return (*batchOutputConfigurationPtrType)(v)
-}
-
-func (*batchOutputConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BatchOutputConfiguration)(nil)).Elem()
-}
-
-func (i *batchOutputConfigurationPtrType) ToBatchOutputConfigurationPtrOutput() BatchOutputConfigurationPtrOutput {
-	return i.ToBatchOutputConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *batchOutputConfigurationPtrType) ToBatchOutputConfigurationPtrOutputWithContext(ctx context.Context) BatchOutputConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchOutputConfigurationPtrOutput)
-}
-
-// Batch inference output configuration.
-type BatchOutputConfigurationOutput struct{ *pulumi.OutputState }
-
-func (BatchOutputConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchOutputConfiguration)(nil)).Elem()
-}
-
-func (o BatchOutputConfigurationOutput) ToBatchOutputConfigurationOutput() BatchOutputConfigurationOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationOutput) ToBatchOutputConfigurationOutputWithContext(ctx context.Context) BatchOutputConfigurationOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationOutput) ToBatchOutputConfigurationPtrOutput() BatchOutputConfigurationPtrOutput {
-	return o.ToBatchOutputConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o BatchOutputConfigurationOutput) ToBatchOutputConfigurationPtrOutputWithContext(ctx context.Context) BatchOutputConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchOutputConfiguration) *BatchOutputConfiguration {
-		return &v
-	}).(BatchOutputConfigurationPtrOutput)
-}
-
-// Customized output file name for append_row output action.
-func (o BatchOutputConfigurationOutput) AppendRowFileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BatchOutputConfiguration) *string { return v.AppendRowFileName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates how the output will be organized.
-func (o BatchOutputConfigurationOutput) OutputAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BatchOutputConfiguration) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
-}
-
-type BatchOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (BatchOutputConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BatchOutputConfiguration)(nil)).Elem()
-}
-
-func (o BatchOutputConfigurationPtrOutput) ToBatchOutputConfigurationPtrOutput() BatchOutputConfigurationPtrOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationPtrOutput) ToBatchOutputConfigurationPtrOutputWithContext(ctx context.Context) BatchOutputConfigurationPtrOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationPtrOutput) Elem() BatchOutputConfigurationOutput {
-	return o.ApplyT(func(v *BatchOutputConfiguration) BatchOutputConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret BatchOutputConfiguration
-		return ret
-	}).(BatchOutputConfigurationOutput)
-}
-
-// Customized output file name for append_row output action.
-func (o BatchOutputConfigurationPtrOutput) AppendRowFileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BatchOutputConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AppendRowFileName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates how the output will be organized.
-func (o BatchOutputConfigurationPtrOutput) OutputAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BatchOutputConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OutputAction
-	}).(pulumi.StringPtrOutput)
-}
-
-// Batch inference output configuration.
-type BatchOutputConfigurationResponse struct {
-	// Customized output file name for append_row output action.
-	AppendRowFileName *string `pulumi:"appendRowFileName"`
-	// Indicates how the output will be organized.
-	OutputAction *string `pulumi:"outputAction"`
-}
-
-// Batch inference output configuration.
-type BatchOutputConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (BatchOutputConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchOutputConfigurationResponse)(nil)).Elem()
-}
-
-func (o BatchOutputConfigurationResponseOutput) ToBatchOutputConfigurationResponseOutput() BatchOutputConfigurationResponseOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationResponseOutput) ToBatchOutputConfigurationResponseOutputWithContext(ctx context.Context) BatchOutputConfigurationResponseOutput {
-	return o
-}
-
-// Customized output file name for append_row output action.
-func (o BatchOutputConfigurationResponseOutput) AppendRowFileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BatchOutputConfigurationResponse) *string { return v.AppendRowFileName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates how the output will be organized.
-func (o BatchOutputConfigurationResponseOutput) OutputAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BatchOutputConfigurationResponse) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
-}
-
-type BatchOutputConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BatchOutputConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BatchOutputConfigurationResponse)(nil)).Elem()
-}
-
-func (o BatchOutputConfigurationResponsePtrOutput) ToBatchOutputConfigurationResponsePtrOutput() BatchOutputConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationResponsePtrOutput) ToBatchOutputConfigurationResponsePtrOutputWithContext(ctx context.Context) BatchOutputConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o BatchOutputConfigurationResponsePtrOutput) Elem() BatchOutputConfigurationResponseOutput {
-	return o.ApplyT(func(v *BatchOutputConfigurationResponse) BatchOutputConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BatchOutputConfigurationResponse
-		return ret
-	}).(BatchOutputConfigurationResponseOutput)
-}
-
-// Customized output file name for append_row output action.
-func (o BatchOutputConfigurationResponsePtrOutput) AppendRowFileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BatchOutputConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AppendRowFileName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates how the output will be organized.
-func (o BatchOutputConfigurationResponsePtrOutput) OutputAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BatchOutputConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OutputAction
-	}).(pulumi.StringPtrOutput)
-}
-
 // Retry settings for a batch inference operation.
 type BatchRetrySettings struct {
 	// Maximum retry count for a mini-batch
 	MaxRetries *int `pulumi:"maxRetries"`
 	// Invocation timeout for a mini-batch, in ISO 8601 format.
 	Timeout *string `pulumi:"timeout"`
+}
+
+// Defaults sets the appropriate defaults for BatchRetrySettings
+func (val *BatchRetrySettings) Defaults() *BatchRetrySettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxRetries) {
+		maxRetries_ := 3
+		tmp.MaxRetries = &maxRetries_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := "PT30S"
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }
 
 // BatchRetrySettingsInput is an input type that accepts BatchRetrySettingsArgs and BatchRetrySettingsOutput values.
@@ -4157,6 +1754,20 @@ type BatchRetrySettingsArgs struct {
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
+// Defaults sets the appropriate defaults for BatchRetrySettingsArgs
+func (val *BatchRetrySettingsArgs) Defaults() *BatchRetrySettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxRetries) {
+		tmp.MaxRetries = pulumi.IntPtr(3)
+	}
+	if isZero(tmp.Timeout) {
+		tmp.Timeout = pulumi.StringPtr("PT30S")
+	}
+	return &tmp
+}
 func (BatchRetrySettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchRetrySettings)(nil)).Elem()
 }
@@ -4297,6 +1908,23 @@ type BatchRetrySettingsResponse struct {
 	Timeout *string `pulumi:"timeout"`
 }
 
+// Defaults sets the appropriate defaults for BatchRetrySettingsResponse
+func (val *BatchRetrySettingsResponse) Defaults() *BatchRetrySettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxRetries) {
+		maxRetries_ := 3
+		tmp.MaxRetries = &maxRetries_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := "PT30S"
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
+}
+
 // Retry settings for a batch inference operation.
 type BatchRetrySettingsResponseOutput struct{ *pulumi.OutputState }
 
@@ -4366,232 +1994,348 @@ func (o BatchRetrySettingsResponsePtrOutput) Timeout() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ClientCredentialsResponse struct {
-	// The authority URL used for authentication.
-	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// The content of the certificate used for authentication.
-	Certificate *string `pulumi:"certificate"`
-	// The Client ID/Application ID
-	ClientId *string `pulumi:"clientId"`
-	// The client secret.
-	ClientSecret *string `pulumi:"clientSecret"`
-	//  Is it using certificate to authenticate. If false then use client secret.
-	IsCertAuth *bool `pulumi:"isCertAuth"`
-	// Resource Group.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The resource the service principal/app has access to.
-	ResourceUri *string `pulumi:"resourceUri"`
-	// Indicates which identity to use to authenticate service data access to customer's storage.
-	ServiceDataAccessAuthIdentity *string `pulumi:"serviceDataAccessAuthIdentity"`
-	// Subscription ID.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The ID of the tenant the service principal/app belongs to.
-	TenantId *string `pulumi:"tenantId"`
-	// The thumbprint of the certificate above.
-	Thumbprint *string `pulumi:"thumbprint"`
+// Defines a Sampling Algorithm that generates values based on previous values
+type BayesianSamplingAlgorithm struct {
+	// Expected value is 'Bayesian'.
+	SamplingAlgorithmType string `pulumi:"samplingAlgorithmType"`
 }
 
-type ClientCredentialsResponseOutput struct{ *pulumi.OutputState }
-
-func (ClientCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCredentialsResponse)(nil)).Elem()
+// Defines a Sampling Algorithm that generates values based on previous values
+type BayesianSamplingAlgorithmResponse struct {
+	// Expected value is 'Bayesian'.
+	SamplingAlgorithmType string `pulumi:"samplingAlgorithmType"`
 }
 
-func (o ClientCredentialsResponseOutput) ToClientCredentialsResponseOutput() ClientCredentialsResponseOutput {
+// Configuration settings for Docker build context
+type BuildContext struct {
+	// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+	// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+	ContextUri string `pulumi:"contextUri"`
+	// Path to the Dockerfile in the build context.
+	// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+	DockerfilePath *string `pulumi:"dockerfilePath"`
+}
+
+// Defaults sets the appropriate defaults for BuildContext
+func (val *BuildContext) Defaults() *BuildContext {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DockerfilePath) {
+		dockerfilePath_ := "Dockerfile"
+		tmp.DockerfilePath = &dockerfilePath_
+	}
+	return &tmp
+}
+
+// BuildContextInput is an input type that accepts BuildContextArgs and BuildContextOutput values.
+// You can construct a concrete instance of `BuildContextInput` via:
+//
+//          BuildContextArgs{...}
+type BuildContextInput interface {
+	pulumi.Input
+
+	ToBuildContextOutput() BuildContextOutput
+	ToBuildContextOutputWithContext(context.Context) BuildContextOutput
+}
+
+// Configuration settings for Docker build context
+type BuildContextArgs struct {
+	// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+	// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+	ContextUri pulumi.StringInput `pulumi:"contextUri"`
+	// Path to the Dockerfile in the build context.
+	// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+	DockerfilePath pulumi.StringPtrInput `pulumi:"dockerfilePath"`
+}
+
+// Defaults sets the appropriate defaults for BuildContextArgs
+func (val *BuildContextArgs) Defaults() *BuildContextArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DockerfilePath) {
+		tmp.DockerfilePath = pulumi.StringPtr("Dockerfile")
+	}
+	return &tmp
+}
+func (BuildContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildContext)(nil)).Elem()
+}
+
+func (i BuildContextArgs) ToBuildContextOutput() BuildContextOutput {
+	return i.ToBuildContextOutputWithContext(context.Background())
+}
+
+func (i BuildContextArgs) ToBuildContextOutputWithContext(ctx context.Context) BuildContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildContextOutput)
+}
+
+func (i BuildContextArgs) ToBuildContextPtrOutput() BuildContextPtrOutput {
+	return i.ToBuildContextPtrOutputWithContext(context.Background())
+}
+
+func (i BuildContextArgs) ToBuildContextPtrOutputWithContext(ctx context.Context) BuildContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildContextOutput).ToBuildContextPtrOutputWithContext(ctx)
+}
+
+// BuildContextPtrInput is an input type that accepts BuildContextArgs, BuildContextPtr and BuildContextPtrOutput values.
+// You can construct a concrete instance of `BuildContextPtrInput` via:
+//
+//          BuildContextArgs{...}
+//
+//  or:
+//
+//          nil
+type BuildContextPtrInput interface {
+	pulumi.Input
+
+	ToBuildContextPtrOutput() BuildContextPtrOutput
+	ToBuildContextPtrOutputWithContext(context.Context) BuildContextPtrOutput
+}
+
+type buildContextPtrType BuildContextArgs
+
+func BuildContextPtr(v *BuildContextArgs) BuildContextPtrInput {
+	return (*buildContextPtrType)(v)
+}
+
+func (*buildContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildContext)(nil)).Elem()
+}
+
+func (i *buildContextPtrType) ToBuildContextPtrOutput() BuildContextPtrOutput {
+	return i.ToBuildContextPtrOutputWithContext(context.Background())
+}
+
+func (i *buildContextPtrType) ToBuildContextPtrOutputWithContext(ctx context.Context) BuildContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildContextPtrOutput)
+}
+
+// Configuration settings for Docker build context
+type BuildContextOutput struct{ *pulumi.OutputState }
+
+func (BuildContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildContext)(nil)).Elem()
+}
+
+func (o BuildContextOutput) ToBuildContextOutput() BuildContextOutput {
 	return o
 }
 
-func (o ClientCredentialsResponseOutput) ToClientCredentialsResponseOutputWithContext(ctx context.Context) ClientCredentialsResponseOutput {
+func (o BuildContextOutput) ToBuildContextOutputWithContext(ctx context.Context) BuildContextOutput {
 	return o
 }
 
-// The authority URL used for authentication.
-func (o ClientCredentialsResponseOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
+func (o BuildContextOutput) ToBuildContextPtrOutput() BuildContextPtrOutput {
+	return o.ToBuildContextPtrOutputWithContext(context.Background())
 }
 
-// The content of the certificate used for authentication.
-func (o ClientCredentialsResponseOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+func (o BuildContextOutput) ToBuildContextPtrOutputWithContext(ctx context.Context) BuildContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildContext) *BuildContext {
+		return &v
+	}).(BuildContextPtrOutput)
 }
 
-// The Client ID/Application ID
-func (o ClientCredentialsResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+func (o BuildContextOutput) ContextUri() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildContext) string { return v.ContextUri }).(pulumi.StringOutput)
 }
 
-// The client secret.
-func (o ClientCredentialsResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+// Path to the Dockerfile in the build context.
+// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+func (o BuildContextOutput) DockerfilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildContext) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
 }
 
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o ClientCredentialsResponseOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *bool { return v.IsCertAuth }).(pulumi.BoolPtrOutput)
+type BuildContextPtrOutput struct{ *pulumi.OutputState }
+
+func (BuildContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildContext)(nil)).Elem()
 }
 
-// Resource Group.
-func (o ClientCredentialsResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
-}
-
-// The resource the service principal/app has access to.
-func (o ClientCredentialsResponseOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o ClientCredentialsResponseOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.ServiceDataAccessAuthIdentity }).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o ClientCredentialsResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o ClientCredentialsResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o ClientCredentialsResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientCredentialsResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type ClientCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ClientCredentialsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientCredentialsResponse)(nil)).Elem()
-}
-
-func (o ClientCredentialsResponsePtrOutput) ToClientCredentialsResponsePtrOutput() ClientCredentialsResponsePtrOutput {
+func (o BuildContextPtrOutput) ToBuildContextPtrOutput() BuildContextPtrOutput {
 	return o
 }
 
-func (o ClientCredentialsResponsePtrOutput) ToClientCredentialsResponsePtrOutputWithContext(ctx context.Context) ClientCredentialsResponsePtrOutput {
+func (o BuildContextPtrOutput) ToBuildContextPtrOutputWithContext(ctx context.Context) BuildContextPtrOutput {
 	return o
 }
 
-func (o ClientCredentialsResponsePtrOutput) Elem() ClientCredentialsResponseOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) ClientCredentialsResponse {
+func (o BuildContextPtrOutput) Elem() BuildContextOutput {
+	return o.ApplyT(func(v *BuildContext) BuildContext {
 		if v != nil {
 			return *v
 		}
-		var ret ClientCredentialsResponse
+		var ret BuildContext
 		return ret
-	}).(ClientCredentialsResponseOutput)
+	}).(BuildContextOutput)
 }
 
-// The authority URL used for authentication.
-func (o ClientCredentialsResponsePtrOutput) AuthorityUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+func (o BuildContextPtrOutput) ContextUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildContext) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AuthorityUrl
+		return &v.ContextUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of the certificate used for authentication.
-func (o ClientCredentialsResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+// Path to the Dockerfile in the build context.
+// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+func (o BuildContextPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildContext) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Certificate
+		return v.DockerfilePath
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Client ID/Application ID
-func (o ClientCredentialsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+// Configuration settings for Docker build context
+type BuildContextResponse struct {
+	// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+	// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+	ContextUri string `pulumi:"contextUri"`
+	// Path to the Dockerfile in the build context.
+	// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+	DockerfilePath *string `pulumi:"dockerfilePath"`
+}
+
+// Defaults sets the appropriate defaults for BuildContextResponse
+func (val *BuildContextResponse) Defaults() *BuildContextResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DockerfilePath) {
+		dockerfilePath_ := "Dockerfile"
+		tmp.DockerfilePath = &dockerfilePath_
+	}
+	return &tmp
+}
+
+// Configuration settings for Docker build context
+type BuildContextResponseOutput struct{ *pulumi.OutputState }
+
+func (BuildContextResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildContextResponse)(nil)).Elem()
+}
+
+func (o BuildContextResponseOutput) ToBuildContextResponseOutput() BuildContextResponseOutput {
+	return o
+}
+
+func (o BuildContextResponseOutput) ToBuildContextResponseOutputWithContext(ctx context.Context) BuildContextResponseOutput {
+	return o
+}
+
+// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+func (o BuildContextResponseOutput) ContextUri() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildContextResponse) string { return v.ContextUri }).(pulumi.StringOutput)
+}
+
+// Path to the Dockerfile in the build context.
+// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+func (o BuildContextResponseOutput) DockerfilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildContextResponse) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
+}
+
+type BuildContextResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BuildContextResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildContextResponse)(nil)).Elem()
+}
+
+func (o BuildContextResponsePtrOutput) ToBuildContextResponsePtrOutput() BuildContextResponsePtrOutput {
+	return o
+}
+
+func (o BuildContextResponsePtrOutput) ToBuildContextResponsePtrOutputWithContext(ctx context.Context) BuildContextResponsePtrOutput {
+	return o
+}
+
+func (o BuildContextResponsePtrOutput) Elem() BuildContextResponseOutput {
+	return o.ApplyT(func(v *BuildContextResponse) BuildContextResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BuildContextResponse
+		return ret
+	}).(BuildContextResponseOutput)
+}
+
+// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+// <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+func (o BuildContextResponsePtrOutput) ContextUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildContextResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ClientId
+		return &v.ContextUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client secret.
-func (o ClientCredentialsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
+// Path to the Dockerfile in the build context.
+// <seealso href="https://docs.docker.com/engine/reference/builder/" />
+func (o BuildContextResponsePtrOutput) DockerfilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildContextResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ClientSecret
+		return v.DockerfilePath
 	}).(pulumi.StringPtrOutput)
 }
 
-//  Is it using certificate to authenticate. If false then use client secret.
-func (o ClientCredentialsResponsePtrOutput) IsCertAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCertAuth
-	}).(pulumi.BoolPtrOutput)
+// Certificate datastore credentials configuration.
+type CertificateDatastoreCredentials struct {
+	// Authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// [Required] Service principal client ID.
+	ClientId string `pulumi:"clientId"`
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'Certificate'.
+	CredentialsType string `pulumi:"credentialsType"`
+	// Resource the service principal has access to.
+	ResourceUrl *string `pulumi:"resourceUrl"`
+	// [Required] Service principal secrets.
+	Secrets CertificateDatastoreSecrets `pulumi:"secrets"`
+	// [Required] ID of the tenant to which the service principal belongs.
+	TenantId string `pulumi:"tenantId"`
+	// [Required] Thumbprint of the certificate used for authentication.
+	Thumbprint string `pulumi:"thumbprint"`
 }
 
-// Resource Group.
-func (o ClientCredentialsResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
+// Certificate datastore credentials configuration.
+type CertificateDatastoreCredentialsResponse struct {
+	// Authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// [Required] Service principal client ID.
+	ClientId string `pulumi:"clientId"`
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'Certificate'.
+	CredentialsType string `pulumi:"credentialsType"`
+	// Resource the service principal has access to.
+	ResourceUrl *string `pulumi:"resourceUrl"`
+	// [Required] ID of the tenant to which the service principal belongs.
+	TenantId string `pulumi:"tenantId"`
+	// [Required] Thumbprint of the certificate used for authentication.
+	Thumbprint string `pulumi:"thumbprint"`
 }
 
-// The resource the service principal/app has access to.
-func (o ClientCredentialsResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates which identity to use to authenticate service data access to customer's storage.
-func (o ClientCredentialsResponsePtrOutput) ServiceDataAccessAuthIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDataAccessAuthIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription ID.
-func (o ClientCredentialsResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the tenant the service principal/app belongs to.
-func (o ClientCredentialsResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The thumbprint of the certificate above.
-func (o ClientCredentialsResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
+// Datastore certificate secrets.
+type CertificateDatastoreSecrets struct {
+	// Service principal certificate.
+	Certificate *string `pulumi:"certificate"`
+	// Enum to determine the datastore secrets type.
+	// Expected value is 'Certificate'.
+	SecretsType string `pulumi:"secretsType"`
 }
 
 // Configuration for a scoring code asset.
@@ -4834,10 +2578,25 @@ func (o CodeConfigurationResponsePtrOutput) ScoringScript() pulumi.StringPtrOutp
 type CodeContainerType struct {
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for CodeContainerType
+func (val *CodeContainerType) Defaults() *CodeContainerType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // CodeContainerTypeInput is an input type that accepts CodeContainerTypeArgs and CodeContainerTypeOutput values.
@@ -4855,12 +2614,25 @@ type CodeContainerTypeInput interface {
 type CodeContainerTypeArgs struct {
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for CodeContainerTypeArgs
+func (val *CodeContainerTypeArgs) Defaults() *CodeContainerTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (CodeContainerTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodeContainerType)(nil)).Elem()
 }
@@ -4893,6 +2665,11 @@ func (o CodeContainerTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeContainerType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Is the asset archived?
+func (o CodeContainerTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CodeContainerType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
 // The asset property dictionary.
 func (o CodeContainerTypeOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CodeContainerType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -4907,10 +2684,29 @@ func (o CodeContainerTypeOutput) Tags() pulumi.StringMapOutput {
 type CodeContainerResponse struct {
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The latest version inside this container.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The next auto incremental version
+	NextVersion string `pulumi:"nextVersion"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for CodeContainerResponse
+func (val *CodeContainerResponse) Defaults() *CodeContainerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // Container for code asset versions.
@@ -4933,6 +2729,21 @@ func (o CodeContainerResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeContainerResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Is the asset archived?
+func (o CodeContainerResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CodeContainerResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The latest version inside this container.
+func (o CodeContainerResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeContainerResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The next auto incremental version
+func (o CodeContainerResponseOutput) NextVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeContainerResponse) string { return v.NextVersion }).(pulumi.StringOutput)
+}
+
 // The asset property dictionary.
 func (o CodeContainerResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CodeContainerResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -4945,18 +2756,35 @@ func (o CodeContainerResponseOutput) Tags() pulumi.StringMapOutput {
 
 // Code asset version details.
 type CodeVersionType struct {
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId *string `pulumi:"datastoreId"`
+	// Uri where code is located
+	CodeUri *string `pulumi:"codeUri"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path string `pulumi:"path"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for CodeVersionType
+func (val *CodeVersionType) Defaults() *CodeVersionType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // CodeVersionTypeInput is an input type that accepts CodeVersionTypeArgs and CodeVersionTypeOutput values.
@@ -4972,20 +2800,34 @@ type CodeVersionTypeInput interface {
 
 // Code asset version details.
 type CodeVersionTypeArgs struct {
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId pulumi.StringPtrInput `pulumi:"datastoreId"`
+	// Uri where code is located
+	CodeUri pulumi.StringPtrInput `pulumi:"codeUri"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path pulumi.StringInput `pulumi:"path"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for CodeVersionTypeArgs
+func (val *CodeVersionTypeArgs) Defaults() *CodeVersionTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		tmp.IsAnonymous = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (CodeVersionTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodeVersionType)(nil)).Elem()
 }
@@ -5013,9 +2855,9 @@ func (o CodeVersionTypeOutput) ToCodeVersionTypeOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARM resource ID of the datastore where the asset is located.
-func (o CodeVersionTypeOutput) DatastoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CodeVersionType) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
+// Uri where code is located
+func (o CodeVersionTypeOutput) CodeUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeVersionType) *string { return v.CodeUri }).(pulumi.StringPtrOutput)
 }
 
 // The asset description text.
@@ -5028,9 +2870,9 @@ func (o CodeVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CodeVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// [Required] The path of the file/directory in the datastore.
-func (o CodeVersionTypeOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v CodeVersionType) string { return v.Path }).(pulumi.StringOutput)
+// Is the asset archived?
+func (o CodeVersionTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CodeVersionType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
 }
 
 // The asset property dictionary.
@@ -5045,18 +2887,35 @@ func (o CodeVersionTypeOutput) Tags() pulumi.StringMapOutput {
 
 // Code asset version details.
 type CodeVersionResponse struct {
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId *string `pulumi:"datastoreId"`
+	// Uri where code is located
+	CodeUri *string `pulumi:"codeUri"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path string `pulumi:"path"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for CodeVersionResponse
+func (val *CodeVersionResponse) Defaults() *CodeVersionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // Code asset version details.
@@ -5074,9 +2933,9 @@ func (o CodeVersionResponseOutput) ToCodeVersionResponseOutputWithContext(ctx co
 	return o
 }
 
-// ARM resource ID of the datastore where the asset is located.
-func (o CodeVersionResponseOutput) DatastoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CodeVersionResponse) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
+// Uri where code is located
+func (o CodeVersionResponseOutput) CodeUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeVersionResponse) *string { return v.CodeUri }).(pulumi.StringPtrOutput)
 }
 
 // The asset description text.
@@ -5089,9 +2948,9 @@ func (o CodeVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CodeVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// [Required] The path of the file/directory in the datastore.
-func (o CodeVersionResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v CodeVersionResponse) string { return v.Path }).(pulumi.StringOutput)
+// Is the asset archived?
+func (o CodeVersionResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CodeVersionResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
 }
 
 // The asset property dictionary.
@@ -5110,35 +2969,76 @@ type CommandJob struct {
 	CodeId *string `pulumi:"codeId"`
 	// [Required] The command to execute on startup of the job. eg. "python train.py"
 	Command string `pulumi:"command"`
-	// [Required] Compute binding for the job.
-	Compute ComputeConfiguration `pulumi:"compute"`
+	// ARM resource ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Display name of job.
+	DisplayName *string `pulumi:"displayName"`
 	// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
 	Distribution interface{} `pulumi:"distribution"`
-	// The ARM resource ID of the Environment specification for the job.
-	EnvironmentId *string `pulumi:"environmentId"`
+	// [Required] The ARM resource ID of the Environment specification for the job.
+	EnvironmentId string `pulumi:"environmentId"`
 	// Environment variables included in the job.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName *string `pulumi:"experimentName"`
-	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
 	// Defaults to AmlToken if null.
 	Identity interface{} `pulumi:"identity"`
 	// Mapping of input data bindings used in the job.
-	InputDataBindings map[string]InputDataBinding `pulumi:"inputDataBindings"`
+	Inputs map[string]interface{} `pulumi:"inputs"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// Enum to determine the type of job.
 	// Expected value is 'Command'.
 	JobType string `pulumi:"jobType"`
+	// Command Job limit.
+	Limits *CommandJobLimits `pulumi:"limits"`
 	// Mapping of output data bindings used in the job.
-	OutputDataBindings map[string]OutputDataBinding `pulumi:"outputDataBindings"`
-	// Job priority for scheduling policy. Only applies to AMLCompute.
-	// Private preview feature and only available to users on the allow list.
-	Priority *int `pulumi:"priority"`
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
+	// Compute Resource configuration for the job.
+	Resources *ResourceConfiguration `pulumi:"resources"`
+	// List of JobEndpoints.
+	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+	Services map[string]JobService `pulumi:"services"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for CommandJob
+func (val *CommandJob) Defaults() *CommandJob {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExperimentName) {
+		experimentName_ := "Default"
+		tmp.ExperimentName = &experimentName_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	tmp.Resources = tmp.Resources.Defaults()
+
+	return &tmp
+}
+
+// Command Job limit class.
+type CommandJobLimits struct {
+	// Expected value is 'Command'.
+	JobLimitsType string `pulumi:"jobLimitsType"`
+	// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// Command Job limit class.
+type CommandJobLimitsResponse struct {
+	// Expected value is 'Command'.
+	JobLimitsType string `pulumi:"jobLimitsType"`
 	// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
 	Timeout *string `pulumi:"timeout"`
 }
@@ -5149,48 +3049,66 @@ type CommandJobResponse struct {
 	CodeId *string `pulumi:"codeId"`
 	// [Required] The command to execute on startup of the job. eg. "python train.py"
 	Command string `pulumi:"command"`
-	// [Required] Compute binding for the job.
-	Compute ComputeConfigurationResponse `pulumi:"compute"`
+	// ARM resource ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Display name of job.
+	DisplayName *string `pulumi:"displayName"`
 	// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
 	Distribution interface{} `pulumi:"distribution"`
-	// The ARM resource ID of the Environment specification for the job.
-	EnvironmentId *string `pulumi:"environmentId"`
+	// [Required] The ARM resource ID of the Environment specification for the job.
+	EnvironmentId string `pulumi:"environmentId"`
 	// Environment variables included in the job.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName *string `pulumi:"experimentName"`
-	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
 	// Defaults to AmlToken if null.
 	Identity interface{} `pulumi:"identity"`
 	// Mapping of input data bindings used in the job.
-	InputDataBindings map[string]InputDataBindingResponse `pulumi:"inputDataBindings"`
-	// List of JobEndpoints.
-	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
-	InteractionEndpoints map[string]JobEndpointResponse `pulumi:"interactionEndpoints"`
+	Inputs map[string]interface{} `pulumi:"inputs"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// Enum to determine the type of job.
 	// Expected value is 'Command'.
 	JobType string `pulumi:"jobType"`
-	// Location of the job output logs and artifacts.
-	Output JobOutputResponse `pulumi:"output"`
+	// Command Job limit.
+	Limits *CommandJobLimitsResponse `pulumi:"limits"`
 	// Mapping of output data bindings used in the job.
-	OutputDataBindings map[string]OutputDataBindingResponse `pulumi:"outputDataBindings"`
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// Input parameters.
 	Parameters interface{} `pulumi:"parameters"`
-	// Job priority for scheduling policy. Only applies to AMLCompute.
-	// Private preview feature and only available to users on the allow list.
-	Priority *int `pulumi:"priority"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
-	// Specifies the job provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
+	// Compute Resource configuration for the job.
+	Resources *ResourceConfigurationResponse `pulumi:"resources"`
+	// List of JobEndpoints.
+	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+	Services map[string]JobServiceResponse `pulumi:"services"`
 	// Status of the job.
 	Status string `pulumi:"status"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
-	// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
-	Timeout *string `pulumi:"timeout"`
+}
+
+// Defaults sets the appropriate defaults for CommandJobResponse
+func (val *CommandJobResponse) Defaults() *CommandJobResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExperimentName) {
+		experimentName_ := "Default"
+		tmp.ExperimentName = &experimentName_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	tmp.Resources = tmp.Resources.Defaults()
+
+	return &tmp
 }
 
 // Component container definition.
@@ -5592,632 +3510,16 @@ func (o ComponentVersionResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ComponentVersionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Compute binding definition.
-type ComputeBinding struct {
-	// ID of the compute resource.
-	ComputeId *string `pulumi:"computeId"`
-	// Number of nodes.
-	NodeCount *int `pulumi:"nodeCount"`
-}
-
-// ComputeBindingInput is an input type that accepts ComputeBindingArgs and ComputeBindingOutput values.
-// You can construct a concrete instance of `ComputeBindingInput` via:
-//
-//          ComputeBindingArgs{...}
-type ComputeBindingInput interface {
-	pulumi.Input
-
-	ToComputeBindingOutput() ComputeBindingOutput
-	ToComputeBindingOutputWithContext(context.Context) ComputeBindingOutput
-}
-
-// Compute binding definition.
-type ComputeBindingArgs struct {
-	// ID of the compute resource.
-	ComputeId pulumi.StringPtrInput `pulumi:"computeId"`
-	// Number of nodes.
-	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
-}
-
-func (ComputeBindingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeBinding)(nil)).Elem()
-}
-
-func (i ComputeBindingArgs) ToComputeBindingOutput() ComputeBindingOutput {
-	return i.ToComputeBindingOutputWithContext(context.Background())
-}
-
-func (i ComputeBindingArgs) ToComputeBindingOutputWithContext(ctx context.Context) ComputeBindingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingOutput)
-}
-
-func (i ComputeBindingArgs) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
-	return i.ToComputeBindingPtrOutputWithContext(context.Background())
-}
-
-func (i ComputeBindingArgs) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingOutput).ToComputeBindingPtrOutputWithContext(ctx)
-}
-
-// ComputeBindingPtrInput is an input type that accepts ComputeBindingArgs, ComputeBindingPtr and ComputeBindingPtrOutput values.
-// You can construct a concrete instance of `ComputeBindingPtrInput` via:
-//
-//          ComputeBindingArgs{...}
-//
-//  or:
-//
-//          nil
-type ComputeBindingPtrInput interface {
-	pulumi.Input
-
-	ToComputeBindingPtrOutput() ComputeBindingPtrOutput
-	ToComputeBindingPtrOutputWithContext(context.Context) ComputeBindingPtrOutput
-}
-
-type computeBindingPtrType ComputeBindingArgs
-
-func ComputeBindingPtr(v *ComputeBindingArgs) ComputeBindingPtrInput {
-	return (*computeBindingPtrType)(v)
-}
-
-func (*computeBindingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeBinding)(nil)).Elem()
-}
-
-func (i *computeBindingPtrType) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
-	return i.ToComputeBindingPtrOutputWithContext(context.Background())
-}
-
-func (i *computeBindingPtrType) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingPtrOutput)
-}
-
-// Compute binding definition.
-type ComputeBindingOutput struct{ *pulumi.OutputState }
-
-func (ComputeBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeBinding)(nil)).Elem()
-}
-
-func (o ComputeBindingOutput) ToComputeBindingOutput() ComputeBindingOutput {
-	return o
-}
-
-func (o ComputeBindingOutput) ToComputeBindingOutputWithContext(ctx context.Context) ComputeBindingOutput {
-	return o
-}
-
-func (o ComputeBindingOutput) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
-	return o.ToComputeBindingPtrOutputWithContext(context.Background())
-}
-
-func (o ComputeBindingOutput) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeBinding) *ComputeBinding {
-		return &v
-	}).(ComputeBindingPtrOutput)
-}
-
-// ID of the compute resource.
-func (o ComputeBindingOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeBinding) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
-}
-
-// Number of nodes.
-func (o ComputeBindingOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeBinding) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
-}
-
-type ComputeBindingPtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeBindingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeBinding)(nil)).Elem()
-}
-
-func (o ComputeBindingPtrOutput) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
-	return o
-}
-
-func (o ComputeBindingPtrOutput) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
-	return o
-}
-
-func (o ComputeBindingPtrOutput) Elem() ComputeBindingOutput {
-	return o.ApplyT(func(v *ComputeBinding) ComputeBinding {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeBinding
-		return ret
-	}).(ComputeBindingOutput)
-}
-
-// ID of the compute resource.
-func (o ComputeBindingPtrOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeBinding) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Number of nodes.
-func (o ComputeBindingPtrOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeBinding) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NodeCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Compute binding definition.
-type ComputeBindingResponse struct {
-	// ID of the compute resource.
-	ComputeId *string `pulumi:"computeId"`
-	// Number of nodes.
-	NodeCount *int `pulumi:"nodeCount"`
-}
-
-// Compute binding definition.
-type ComputeBindingResponseOutput struct{ *pulumi.OutputState }
-
-func (ComputeBindingResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeBindingResponse)(nil)).Elem()
-}
-
-func (o ComputeBindingResponseOutput) ToComputeBindingResponseOutput() ComputeBindingResponseOutput {
-	return o
-}
-
-func (o ComputeBindingResponseOutput) ToComputeBindingResponseOutputWithContext(ctx context.Context) ComputeBindingResponseOutput {
-	return o
-}
-
-// ID of the compute resource.
-func (o ComputeBindingResponseOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeBindingResponse) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
-}
-
-// Number of nodes.
-func (o ComputeBindingResponseOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeBindingResponse) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
-}
-
-type ComputeBindingResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeBindingResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeBindingResponse)(nil)).Elem()
-}
-
-func (o ComputeBindingResponsePtrOutput) ToComputeBindingResponsePtrOutput() ComputeBindingResponsePtrOutput {
-	return o
-}
-
-func (o ComputeBindingResponsePtrOutput) ToComputeBindingResponsePtrOutputWithContext(ctx context.Context) ComputeBindingResponsePtrOutput {
-	return o
-}
-
-func (o ComputeBindingResponsePtrOutput) Elem() ComputeBindingResponseOutput {
-	return o.ApplyT(func(v *ComputeBindingResponse) ComputeBindingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeBindingResponse
-		return ret
-	}).(ComputeBindingResponseOutput)
-}
-
-// ID of the compute resource.
-func (o ComputeBindingResponsePtrOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeBindingResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Number of nodes.
-func (o ComputeBindingResponsePtrOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeBindingResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NodeCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Configuration for compute binding.
-type ComputeConfiguration struct {
-	// Number of instances or nodes.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// SKU type to run on.
-	InstanceType *string `pulumi:"instanceType"`
-	// Set to true for jobs running on local compute.
-	IsLocal *bool `pulumi:"isLocal"`
-	// Location for virtual cluster run.
-	Location *string `pulumi:"location"`
-	// Additional properties.
-	Properties map[string]string `pulumi:"properties"`
-	// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-	Target *string `pulumi:"target"`
-}
-
-// ComputeConfigurationInput is an input type that accepts ComputeConfigurationArgs and ComputeConfigurationOutput values.
-// You can construct a concrete instance of `ComputeConfigurationInput` via:
-//
-//          ComputeConfigurationArgs{...}
-type ComputeConfigurationInput interface {
-	pulumi.Input
-
-	ToComputeConfigurationOutput() ComputeConfigurationOutput
-	ToComputeConfigurationOutputWithContext(context.Context) ComputeConfigurationOutput
-}
-
-// Configuration for compute binding.
-type ComputeConfigurationArgs struct {
-	// Number of instances or nodes.
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// SKU type to run on.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// Set to true for jobs running on local compute.
-	IsLocal pulumi.BoolPtrInput `pulumi:"isLocal"`
-	// Location for virtual cluster run.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Additional properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-}
-
-func (ComputeConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeConfiguration)(nil)).Elem()
-}
-
-func (i ComputeConfigurationArgs) ToComputeConfigurationOutput() ComputeConfigurationOutput {
-	return i.ToComputeConfigurationOutputWithContext(context.Background())
-}
-
-func (i ComputeConfigurationArgs) ToComputeConfigurationOutputWithContext(ctx context.Context) ComputeConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeConfigurationOutput)
-}
-
-func (i ComputeConfigurationArgs) ToComputeConfigurationPtrOutput() ComputeConfigurationPtrOutput {
-	return i.ToComputeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ComputeConfigurationArgs) ToComputeConfigurationPtrOutputWithContext(ctx context.Context) ComputeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeConfigurationOutput).ToComputeConfigurationPtrOutputWithContext(ctx)
-}
-
-// ComputeConfigurationPtrInput is an input type that accepts ComputeConfigurationArgs, ComputeConfigurationPtr and ComputeConfigurationPtrOutput values.
-// You can construct a concrete instance of `ComputeConfigurationPtrInput` via:
-//
-//          ComputeConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ComputeConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToComputeConfigurationPtrOutput() ComputeConfigurationPtrOutput
-	ToComputeConfigurationPtrOutputWithContext(context.Context) ComputeConfigurationPtrOutput
-}
-
-type computeConfigurationPtrType ComputeConfigurationArgs
-
-func ComputeConfigurationPtr(v *ComputeConfigurationArgs) ComputeConfigurationPtrInput {
-	return (*computeConfigurationPtrType)(v)
-}
-
-func (*computeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeConfiguration)(nil)).Elem()
-}
-
-func (i *computeConfigurationPtrType) ToComputeConfigurationPtrOutput() ComputeConfigurationPtrOutput {
-	return i.ToComputeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *computeConfigurationPtrType) ToComputeConfigurationPtrOutputWithContext(ctx context.Context) ComputeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeConfigurationPtrOutput)
-}
-
-// Configuration for compute binding.
-type ComputeConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ComputeConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeConfiguration)(nil)).Elem()
-}
-
-func (o ComputeConfigurationOutput) ToComputeConfigurationOutput() ComputeConfigurationOutput {
-	return o
-}
-
-func (o ComputeConfigurationOutput) ToComputeConfigurationOutputWithContext(ctx context.Context) ComputeConfigurationOutput {
-	return o
-}
-
-func (o ComputeConfigurationOutput) ToComputeConfigurationPtrOutput() ComputeConfigurationPtrOutput {
-	return o.ToComputeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ComputeConfigurationOutput) ToComputeConfigurationPtrOutputWithContext(ctx context.Context) ComputeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeConfiguration) *ComputeConfiguration {
-		return &v
-	}).(ComputeConfigurationPtrOutput)
-}
-
-// Number of instances or nodes.
-func (o ComputeConfigurationOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeConfiguration) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
-}
-
-// SKU type to run on.
-func (o ComputeConfigurationOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeConfiguration) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// Set to true for jobs running on local compute.
-func (o ComputeConfigurationOutput) IsLocal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ComputeConfiguration) *bool { return v.IsLocal }).(pulumi.BoolPtrOutput)
-}
-
-// Location for virtual cluster run.
-func (o ComputeConfigurationOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeConfiguration) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Additional properties.
-func (o ComputeConfigurationOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ComputeConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-func (o ComputeConfigurationOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeConfiguration) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type ComputeConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeConfiguration)(nil)).Elem()
-}
-
-func (o ComputeConfigurationPtrOutput) ToComputeConfigurationPtrOutput() ComputeConfigurationPtrOutput {
-	return o
-}
-
-func (o ComputeConfigurationPtrOutput) ToComputeConfigurationPtrOutputWithContext(ctx context.Context) ComputeConfigurationPtrOutput {
-	return o
-}
-
-func (o ComputeConfigurationPtrOutput) Elem() ComputeConfigurationOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) ComputeConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeConfiguration
-		return ret
-	}).(ComputeConfigurationOutput)
-}
-
-// Number of instances or nodes.
-func (o ComputeConfigurationPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) *int {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// SKU type to run on.
-func (o ComputeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set to true for jobs running on local compute.
-func (o ComputeConfigurationPtrOutput) IsLocal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsLocal
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Location for virtual cluster run.
-func (o ComputeConfigurationPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Additional properties.
-func (o ComputeConfigurationPtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(pulumi.StringMapOutput)
-}
-
-// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-func (o ComputeConfigurationPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-// Configuration for compute binding.
-type ComputeConfigurationResponse struct {
-	// Number of instances or nodes.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// SKU type to run on.
-	InstanceType *string `pulumi:"instanceType"`
-	// Set to true for jobs running on local compute.
-	IsLocal *bool `pulumi:"isLocal"`
-	// Location for virtual cluster run.
-	Location *string `pulumi:"location"`
-	// Additional properties.
-	Properties map[string]string `pulumi:"properties"`
-	// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-	Target *string `pulumi:"target"`
-}
-
-// Configuration for compute binding.
-type ComputeConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (ComputeConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeConfigurationResponse)(nil)).Elem()
-}
-
-func (o ComputeConfigurationResponseOutput) ToComputeConfigurationResponseOutput() ComputeConfigurationResponseOutput {
-	return o
-}
-
-func (o ComputeConfigurationResponseOutput) ToComputeConfigurationResponseOutputWithContext(ctx context.Context) ComputeConfigurationResponseOutput {
-	return o
-}
-
-// Number of instances or nodes.
-func (o ComputeConfigurationResponseOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeConfigurationResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
-}
-
-// SKU type to run on.
-func (o ComputeConfigurationResponseOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeConfigurationResponse) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// Set to true for jobs running on local compute.
-func (o ComputeConfigurationResponseOutput) IsLocal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ComputeConfigurationResponse) *bool { return v.IsLocal }).(pulumi.BoolPtrOutput)
-}
-
-// Location for virtual cluster run.
-func (o ComputeConfigurationResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeConfigurationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Additional properties.
-func (o ComputeConfigurationResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ComputeConfigurationResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-func (o ComputeConfigurationResponseOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeConfigurationResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type ComputeConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeConfigurationResponse)(nil)).Elem()
-}
-
-func (o ComputeConfigurationResponsePtrOutput) ToComputeConfigurationResponsePtrOutput() ComputeConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o ComputeConfigurationResponsePtrOutput) ToComputeConfigurationResponsePtrOutputWithContext(ctx context.Context) ComputeConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o ComputeConfigurationResponsePtrOutput) Elem() ComputeConfigurationResponseOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) ComputeConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeConfigurationResponse
-		return ret
-	}).(ComputeConfigurationResponseOutput)
-}
-
-// Number of instances or nodes.
-func (o ComputeConfigurationResponsePtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// SKU type to run on.
-func (o ComputeConfigurationResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set to true for jobs running on local compute.
-func (o ComputeConfigurationResponsePtrOutput) IsLocal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsLocal
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Location for virtual cluster run.
-func (o ComputeConfigurationResponsePtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Additional properties.
-func (o ComputeConfigurationResponsePtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(pulumi.StringMapOutput)
-}
-
-// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
-func (o ComputeConfigurationResponsePtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
 // An Azure Machine Learning compute instance.
 type ComputeInstance struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'ComputeInstance'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
-	// Compute Instance properties
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Properties of ComputeInstance
 	Properties *ComputeInstanceProperties `pulumi:"properties"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
@@ -6250,6 +3552,22 @@ type ComputeInstanceConnectivityEndpointsResponse struct {
 	PublicIpAddress string `pulumi:"publicIpAddress"`
 }
 
+// Defines an Aml Instance container.
+type ComputeInstanceContainerResponse struct {
+	// Auto save settings.
+	Autosave *string `pulumi:"autosave"`
+	// Environment information of this container.
+	Environment *ComputeInstanceEnvironmentInfoResponse `pulumi:"environment"`
+	// Information of GPU.
+	Gpu *string `pulumi:"gpu"`
+	// Name of the ComputeInstance container.
+	Name *string `pulumi:"name"`
+	// network of this container.
+	Network *string `pulumi:"network"`
+	// services of this containers.
+	Services []interface{} `pulumi:"services"`
+}
+
 // Describes information on user who created this ComputeInstance.
 type ComputeInstanceCreatedByResponse struct {
 	// Uniquely identifies the user within his/her organization.
@@ -6260,6 +3578,61 @@ type ComputeInstanceCreatedByResponse struct {
 	UserOrgId string `pulumi:"userOrgId"`
 }
 
+// Defines an Aml Instance DataDisk.
+type ComputeInstanceDataDiskResponse struct {
+	// Caching type of Data Disk.
+	Caching *string `pulumi:"caching"`
+	// The initial disk size in gigabytes.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
+	Lun *int `pulumi:"lun"`
+	// type of this storage account.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+}
+
+// Defaults sets the appropriate defaults for ComputeInstanceDataDiskResponse
+func (val *ComputeInstanceDataDiskResponse) Defaults() *ComputeInstanceDataDiskResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.StorageAccountType) {
+		storageAccountType_ := "Standard_LRS"
+		tmp.StorageAccountType = &storageAccountType_
+	}
+	return &tmp
+}
+
+// Defines an Aml Instance DataMount.
+type ComputeInstanceDataMountResponse struct {
+	// who this data mount created by.
+	CreatedBy *string `pulumi:"createdBy"`
+	// Error of this data mount.
+	Error *string `pulumi:"error"`
+	// Mount Action.
+	MountAction *string `pulumi:"mountAction"`
+	// name of the ComputeInstance data mount.
+	MountName *string `pulumi:"mountName"`
+	// Path of this data mount.
+	MountPath *string `pulumi:"mountPath"`
+	// Mount state.
+	MountState *string `pulumi:"mountState"`
+	// The time when the disk mounted.
+	MountedOn *string `pulumi:"mountedOn"`
+	// Source of the ComputeInstance data mount.
+	Source *string `pulumi:"source"`
+	// Data source type.
+	SourceType *string `pulumi:"sourceType"`
+}
+
+// Environment information
+type ComputeInstanceEnvironmentInfoResponse struct {
+	// name of environment.
+	Name *string `pulumi:"name"`
+	// version of environment.
+	Version *string `pulumi:"version"`
+}
+
 // The last operation on ComputeInstance.
 type ComputeInstanceLastOperationResponse struct {
 	// Name of the last operation.
@@ -6268,6 +3641,8 @@ type ComputeInstanceLastOperationResponse struct {
 	OperationStatus *string `pulumi:"operationStatus"`
 	// Time of the last operation.
 	OperationTime *string `pulumi:"operationTime"`
+	// Trigger of operation.
+	OperationTrigger *string `pulumi:"operationTrigger"`
 }
 
 // Compute Instance properties
@@ -6276,6 +3651,8 @@ type ComputeInstanceProperties struct {
 	ApplicationSharingPolicy *string `pulumi:"applicationSharingPolicy"`
 	// The Compute Instance Authorization type. Available values are personal (default).
 	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
+	// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettings `pulumi:"personalComputeInstanceSettings"`
 	// Details of customized scripts to execute for setting up the cluster.
@@ -6307,40 +3684,8 @@ func (val *ComputeInstanceProperties) Defaults() *ComputeInstanceProperties {
 	return &tmp
 }
 
-// An Azure Machine Learning compute instance.
-type ComputeInstanceResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'ComputeInstance'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
-	// Compute Instance properties
-	Properties *ComputeInstanceResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the underlying compute
-	ResourceId *string `pulumi:"resourceId"`
-}
-
-// Defaults sets the appropriate defaults for ComputeInstanceResponse
-func (val *ComputeInstanceResponse) Defaults() *ComputeInstanceResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.Properties = tmp.Properties.Defaults()
-
-	return &tmp
-}
-
 // Compute Instance properties
-type ComputeInstanceResponseProperties struct {
+type ComputeInstancePropertiesResponse struct {
 	// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
 	ApplicationSharingPolicy *string `pulumi:"applicationSharingPolicy"`
 	// Describes available applications and their endpoints on this ComputeInstance.
@@ -6349,14 +3694,24 @@ type ComputeInstanceResponseProperties struct {
 	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
 	// Describes all connectivity endpoints available for this ComputeInstance.
 	ConnectivityEndpoints ComputeInstanceConnectivityEndpointsResponse `pulumi:"connectivityEndpoints"`
+	// Describes informations of containers on this ComputeInstance.
+	Containers []ComputeInstanceContainerResponse `pulumi:"containers"`
 	// Describes information on user who created this ComputeInstance.
 	CreatedBy ComputeInstanceCreatedByResponse `pulumi:"createdBy"`
+	// Describes informations of dataDisks on this ComputeInstance.
+	DataDisks []ComputeInstanceDataDiskResponse `pulumi:"dataDisks"`
+	// Describes informations of dataMounts on this ComputeInstance.
+	DataMounts []ComputeInstanceDataMountResponse `pulumi:"dataMounts"`
+	// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Collection of errors encountered on this ComputeInstance.
-	Errors []MachineLearningServiceErrorResponse `pulumi:"errors"`
+	Errors []ErrorResponseResponse `pulumi:"errors"`
 	// The last operation on ComputeInstance.
 	LastOperation ComputeInstanceLastOperationResponse `pulumi:"lastOperation"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettingsResponse `pulumi:"personalComputeInstanceSettings"`
+	// The list of schedules to be applied on the computes.
+	Schedules ComputeSchedulesResponse `pulumi:"schedules"`
 	// Details of customized scripts to execute for setting up the cluster.
 	SetupScripts *SetupScriptsResponse `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
@@ -6365,12 +3720,14 @@ type ComputeInstanceResponseProperties struct {
 	State string `pulumi:"state"`
 	// Virtual network subnet resource ID the compute nodes belong to.
 	Subnet *ResourceIdResponse `pulumi:"subnet"`
+	// ComputeInstance version.
+	Versions ComputeInstanceVersionResponse `pulumi:"versions"`
 	// Virtual Machine Size
 	VmSize *string `pulumi:"vmSize"`
 }
 
-// Defaults sets the appropriate defaults for ComputeInstanceResponseProperties
-func (val *ComputeInstanceResponseProperties) Defaults() *ComputeInstanceResponseProperties {
+// Defaults sets the appropriate defaults for ComputeInstancePropertiesResponse
+func (val *ComputeInstancePropertiesResponse) Defaults() *ComputeInstancePropertiesResponse {
 	if val == nil {
 		return nil
 	}
@@ -6384,6 +3741,44 @@ func (val *ComputeInstanceResponseProperties) Defaults() *ComputeInstanceRespons
 		tmp.ComputeInstanceAuthorizationType = &computeInstanceAuthorizationType_
 	}
 	tmp.SshSettings = tmp.SshSettings.Defaults()
+
+	return &tmp
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstanceResponse struct {
+	// Location for the underlying compute
+	ComputeLocation string `pulumi:"computeLocation"`
+	// The type of compute
+	// Expected value is 'ComputeInstance'.
+	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// Properties of ComputeInstance
+	Properties *ComputeInstancePropertiesResponse `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// Defaults sets the appropriate defaults for ComputeInstanceResponse
+func (val *ComputeInstanceResponse) Defaults() *ComputeInstanceResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
 
 	return &tmp
 }
@@ -6434,275 +3829,67 @@ func (val *ComputeInstanceSshSettingsResponse) Defaults() *ComputeInstanceSshSet
 	return &tmp
 }
 
-// The resource requirements for the container (cpu and memory).
+// Version of computeInstance.
+type ComputeInstanceVersionResponse struct {
+	// Runtime of compute instance.
+	Runtime *string `pulumi:"runtime"`
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedulesResponse struct {
+	// The list of compute start stop schedules to be applied.
+	ComputeStartStop []ComputeStartStopScheduleResponse `pulumi:"computeStartStop"`
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopScheduleResponse struct {
+	// The compute power action.
+	Action *string `pulumi:"action"`
+	// Schedule id.
+	Id string `pulumi:"id"`
+	// The current deployment state of schedule.
+	ProvisioningStatus string                `pulumi:"provisioningStatus"`
+	Schedule           *ScheduleBaseResponse `pulumi:"schedule"`
+}
+
+// Resource requirements for each container instance within an online deployment.
 type ContainerResourceRequirements struct {
-	// The minimum amount of CPU cores to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Cpu *float64 `pulumi:"cpu"`
-	// The maximum amount of CPU cores allowed to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	CpuLimit *float64 `pulumi:"cpuLimit"`
-	// The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-	Fpga *int `pulumi:"fpga"`
-	// The number of GPU cores in the container.
-	Gpu *int `pulumi:"gpu"`
-	// The minimum amount of memory (in GB) to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	MemoryInGB *float64 `pulumi:"memoryInGB"`
-	// The maximum amount of memory (in GB) allowed to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	MemoryInGBLimit *float64 `pulumi:"memoryInGBLimit"`
+	// Container resource limit info:
+	ContainerResourceLimits *ContainerResourceSettings `pulumi:"containerResourceLimits"`
+	// Container resource request info:
+	ContainerResourceRequests *ContainerResourceSettings `pulumi:"containerResourceRequests"`
 }
 
-// ContainerResourceRequirementsInput is an input type that accepts ContainerResourceRequirementsArgs and ContainerResourceRequirementsOutput values.
-// You can construct a concrete instance of `ContainerResourceRequirementsInput` via:
-//
-//          ContainerResourceRequirementsArgs{...}
-type ContainerResourceRequirementsInput interface {
-	pulumi.Input
-
-	ToContainerResourceRequirementsOutput() ContainerResourceRequirementsOutput
-	ToContainerResourceRequirementsOutputWithContext(context.Context) ContainerResourceRequirementsOutput
-}
-
-// The resource requirements for the container (cpu and memory).
-type ContainerResourceRequirementsArgs struct {
-	// The minimum amount of CPU cores to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
-	// The maximum amount of CPU cores allowed to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	CpuLimit pulumi.Float64PtrInput `pulumi:"cpuLimit"`
-	// The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-	Fpga pulumi.IntPtrInput `pulumi:"fpga"`
-	// The number of GPU cores in the container.
-	Gpu pulumi.IntPtrInput `pulumi:"gpu"`
-	// The minimum amount of memory (in GB) to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	MemoryInGB pulumi.Float64PtrInput `pulumi:"memoryInGB"`
-	// The maximum amount of memory (in GB) allowed to be used by the container. More info:
-	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	MemoryInGBLimit pulumi.Float64PtrInput `pulumi:"memoryInGBLimit"`
-}
-
-func (ContainerResourceRequirementsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerResourceRequirements)(nil)).Elem()
-}
-
-func (i ContainerResourceRequirementsArgs) ToContainerResourceRequirementsOutput() ContainerResourceRequirementsOutput {
-	return i.ToContainerResourceRequirementsOutputWithContext(context.Background())
-}
-
-func (i ContainerResourceRequirementsArgs) ToContainerResourceRequirementsOutputWithContext(ctx context.Context) ContainerResourceRequirementsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerResourceRequirementsOutput)
-}
-
-func (i ContainerResourceRequirementsArgs) ToContainerResourceRequirementsPtrOutput() ContainerResourceRequirementsPtrOutput {
-	return i.ToContainerResourceRequirementsPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerResourceRequirementsArgs) ToContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) ContainerResourceRequirementsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerResourceRequirementsOutput).ToContainerResourceRequirementsPtrOutputWithContext(ctx)
-}
-
-// ContainerResourceRequirementsPtrInput is an input type that accepts ContainerResourceRequirementsArgs, ContainerResourceRequirementsPtr and ContainerResourceRequirementsPtrOutput values.
-// You can construct a concrete instance of `ContainerResourceRequirementsPtrInput` via:
-//
-//          ContainerResourceRequirementsArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerResourceRequirementsPtrInput interface {
-	pulumi.Input
-
-	ToContainerResourceRequirementsPtrOutput() ContainerResourceRequirementsPtrOutput
-	ToContainerResourceRequirementsPtrOutputWithContext(context.Context) ContainerResourceRequirementsPtrOutput
-}
-
-type containerResourceRequirementsPtrType ContainerResourceRequirementsArgs
-
-func ContainerResourceRequirementsPtr(v *ContainerResourceRequirementsArgs) ContainerResourceRequirementsPtrInput {
-	return (*containerResourceRequirementsPtrType)(v)
-}
-
-func (*containerResourceRequirementsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerResourceRequirements)(nil)).Elem()
-}
-
-func (i *containerResourceRequirementsPtrType) ToContainerResourceRequirementsPtrOutput() ContainerResourceRequirementsPtrOutput {
-	return i.ToContainerResourceRequirementsPtrOutputWithContext(context.Background())
-}
-
-func (i *containerResourceRequirementsPtrType) ToContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) ContainerResourceRequirementsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerResourceRequirementsPtrOutput)
-}
-
-// The resource requirements for the container (cpu and memory).
-type ContainerResourceRequirementsOutput struct{ *pulumi.OutputState }
-
-func (ContainerResourceRequirementsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerResourceRequirements)(nil)).Elem()
-}
-
-func (o ContainerResourceRequirementsOutput) ToContainerResourceRequirementsOutput() ContainerResourceRequirementsOutput {
-	return o
-}
-
-func (o ContainerResourceRequirementsOutput) ToContainerResourceRequirementsOutputWithContext(ctx context.Context) ContainerResourceRequirementsOutput {
-	return o
-}
-
-func (o ContainerResourceRequirementsOutput) ToContainerResourceRequirementsPtrOutput() ContainerResourceRequirementsPtrOutput {
-	return o.ToContainerResourceRequirementsPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerResourceRequirementsOutput) ToContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) ContainerResourceRequirementsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerResourceRequirements) *ContainerResourceRequirements {
-		return &v
-	}).(ContainerResourceRequirementsPtrOutput)
-}
-
-// The minimum amount of CPU cores to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsOutput) Cpu() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ContainerResourceRequirements) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
-}
-
-// The maximum amount of CPU cores allowed to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsOutput) CpuLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ContainerResourceRequirements) *float64 { return v.CpuLimit }).(pulumi.Float64PtrOutput)
-}
-
-// The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-func (o ContainerResourceRequirementsOutput) Fpga() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerResourceRequirements) *int { return v.Fpga }).(pulumi.IntPtrOutput)
-}
-
-// The number of GPU cores in the container.
-func (o ContainerResourceRequirementsOutput) Gpu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerResourceRequirements) *int { return v.Gpu }).(pulumi.IntPtrOutput)
-}
-
-// The minimum amount of memory (in GB) to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsOutput) MemoryInGB() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ContainerResourceRequirements) *float64 { return v.MemoryInGB }).(pulumi.Float64PtrOutput)
-}
-
-// The maximum amount of memory (in GB) allowed to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsOutput) MemoryInGBLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ContainerResourceRequirements) *float64 { return v.MemoryInGBLimit }).(pulumi.Float64PtrOutput)
-}
-
-type ContainerResourceRequirementsPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerResourceRequirementsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerResourceRequirements)(nil)).Elem()
-}
-
-func (o ContainerResourceRequirementsPtrOutput) ToContainerResourceRequirementsPtrOutput() ContainerResourceRequirementsPtrOutput {
-	return o
-}
-
-func (o ContainerResourceRequirementsPtrOutput) ToContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) ContainerResourceRequirementsPtrOutput {
-	return o
-}
-
-func (o ContainerResourceRequirementsPtrOutput) Elem() ContainerResourceRequirementsOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) ContainerResourceRequirements {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerResourceRequirements
-		return ret
-	}).(ContainerResourceRequirementsOutput)
-}
-
-// The minimum amount of CPU cores to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsPtrOutput) Cpu() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Cpu
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The maximum amount of CPU cores allowed to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsPtrOutput) CpuLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.CpuLimit
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-func (o ContainerResourceRequirementsPtrOutput) Fpga() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Fpga
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of GPU cores in the container.
-func (o ContainerResourceRequirementsPtrOutput) Gpu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Gpu
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum amount of memory (in GB) to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsPtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.MemoryInGB
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The maximum amount of memory (in GB) allowed to be used by the container. More info:
-// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-func (o ContainerResourceRequirementsPtrOutput) MemoryInGBLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.MemoryInGBLimit
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The resource requirements for the container (cpu and memory).
+// Resource requirements for each container instance within an online deployment.
 type ContainerResourceRequirementsResponse struct {
-	// The minimum amount of CPU cores to be used by the container. More info:
+	// Container resource limit info:
+	ContainerResourceLimits *ContainerResourceSettingsResponse `pulumi:"containerResourceLimits"`
+	// Container resource request info:
+	ContainerResourceRequests *ContainerResourceSettingsResponse `pulumi:"containerResourceRequests"`
+}
+
+type ContainerResourceSettings struct {
+	// Number of vCPUs request/limit for container. More info:
 	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Cpu *float64 `pulumi:"cpu"`
-	// The maximum amount of CPU cores allowed to be used by the container. More info:
+	Cpu *string `pulumi:"cpu"`
+	// Number of Nvidia GPU cards request/limit for container. More info:
 	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	CpuLimit *float64 `pulumi:"cpuLimit"`
-	// The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-	Fpga *int `pulumi:"fpga"`
-	// The number of GPU cores in the container.
-	Gpu *int `pulumi:"gpu"`
-	// The minimum amount of memory (in GB) to be used by the container. More info:
+	Gpu *string `pulumi:"gpu"`
+	// Memory size request/limit for container. More info:
 	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	MemoryInGB *float64 `pulumi:"memoryInGB"`
-	// The maximum amount of memory (in GB) allowed to be used by the container. More info:
+	Memory *string `pulumi:"memory"`
+}
+
+type ContainerResourceSettingsResponse struct {
+	// Number of vCPUs request/limit for container. More info:
 	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	MemoryInGBLimit *float64 `pulumi:"memoryInGBLimit"`
+	Cpu *string `pulumi:"cpu"`
+	// Number of Nvidia GPU cards request/limit for container. More info:
+	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+	Gpu *string `pulumi:"gpu"`
+	// Memory size request/limit for container. More info:
+	// https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+	Memory *string `pulumi:"memory"`
 }
 
 type CosmosDbSettings struct {
@@ -6900,412 +4087,131 @@ func (o CosmosDbSettingsResponsePtrOutput) CollectionsThroughput() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Environment, models and assets needed for inferencing.
-type CreateServiceRequestEnvironmentImageRequest struct {
-	// The list of assets.
-	Assets []ImageAsset `pulumi:"assets"`
-	// The name of the driver file.
-	DriverProgram *string `pulumi:"driverProgram"`
-	// The details of the AZURE ML environment.
-	Environment *EnvironmentImageRequestEnvironment `pulumi:"environment"`
-	// The unique identifying details of the AZURE ML environment.
-	EnvironmentReference *EnvironmentImageRequestEnvironmentReference `pulumi:"environmentReference"`
-	// The list of model Ids.
-	ModelIds []string `pulumi:"modelIds"`
-	// The list of models.
-	Models []Model `pulumi:"models"`
+type CustomModelJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'custom_model'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
 }
 
-// CreateServiceRequestEnvironmentImageRequestInput is an input type that accepts CreateServiceRequestEnvironmentImageRequestArgs and CreateServiceRequestEnvironmentImageRequestOutput values.
-// You can construct a concrete instance of `CreateServiceRequestEnvironmentImageRequestInput` via:
-//
-//          CreateServiceRequestEnvironmentImageRequestArgs{...}
-type CreateServiceRequestEnvironmentImageRequestInput interface {
-	pulumi.Input
-
-	ToCreateServiceRequestEnvironmentImageRequestOutput() CreateServiceRequestEnvironmentImageRequestOutput
-	ToCreateServiceRequestEnvironmentImageRequestOutputWithContext(context.Context) CreateServiceRequestEnvironmentImageRequestOutput
+// Defaults sets the appropriate defaults for CustomModelJobInput
+func (val *CustomModelJobInput) Defaults() *CustomModelJobInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-// The Environment, models and assets needed for inferencing.
-type CreateServiceRequestEnvironmentImageRequestArgs struct {
-	// The list of assets.
-	Assets ImageAssetArrayInput `pulumi:"assets"`
-	// The name of the driver file.
-	DriverProgram pulumi.StringPtrInput `pulumi:"driverProgram"`
-	// The details of the AZURE ML environment.
-	Environment EnvironmentImageRequestEnvironmentPtrInput `pulumi:"environment"`
-	// The unique identifying details of the AZURE ML environment.
-	EnvironmentReference EnvironmentImageRequestEnvironmentReferencePtrInput `pulumi:"environmentReference"`
-	// The list of model Ids.
-	ModelIds pulumi.StringArrayInput `pulumi:"modelIds"`
-	// The list of models.
-	Models ModelArrayInput `pulumi:"models"`
+type CustomModelJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'custom_model'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
 }
 
-func (CreateServiceRequestEnvironmentImageRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateServiceRequestEnvironmentImageRequest)(nil)).Elem()
+// Defaults sets the appropriate defaults for CustomModelJobInputResponse
+func (val *CustomModelJobInputResponse) Defaults() *CustomModelJobInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-func (i CreateServiceRequestEnvironmentImageRequestArgs) ToCreateServiceRequestEnvironmentImageRequestOutput() CreateServiceRequestEnvironmentImageRequestOutput {
-	return i.ToCreateServiceRequestEnvironmentImageRequestOutputWithContext(context.Background())
+type CustomModelJobOutput struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'custom_model'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
 }
 
-func (i CreateServiceRequestEnvironmentImageRequestArgs) ToCreateServiceRequestEnvironmentImageRequestOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateServiceRequestEnvironmentImageRequestOutput)
+// Defaults sets the appropriate defaults for CustomModelJobOutput
+func (val *CustomModelJobOutput) Defaults() *CustomModelJobOutput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-func (i CreateServiceRequestEnvironmentImageRequestArgs) ToCreateServiceRequestEnvironmentImageRequestPtrOutput() CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return i.ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(context.Background())
+type CustomModelJobOutputResponse struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'custom_model'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
 }
 
-func (i CreateServiceRequestEnvironmentImageRequestArgs) ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateServiceRequestEnvironmentImageRequestOutput).ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(ctx)
-}
-
-// CreateServiceRequestEnvironmentImageRequestPtrInput is an input type that accepts CreateServiceRequestEnvironmentImageRequestArgs, CreateServiceRequestEnvironmentImageRequestPtr and CreateServiceRequestEnvironmentImageRequestPtrOutput values.
-// You can construct a concrete instance of `CreateServiceRequestEnvironmentImageRequestPtrInput` via:
-//
-//          CreateServiceRequestEnvironmentImageRequestArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateServiceRequestEnvironmentImageRequestPtrInput interface {
-	pulumi.Input
-
-	ToCreateServiceRequestEnvironmentImageRequestPtrOutput() CreateServiceRequestEnvironmentImageRequestPtrOutput
-	ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(context.Context) CreateServiceRequestEnvironmentImageRequestPtrOutput
-}
-
-type createServiceRequestEnvironmentImageRequestPtrType CreateServiceRequestEnvironmentImageRequestArgs
-
-func CreateServiceRequestEnvironmentImageRequestPtr(v *CreateServiceRequestEnvironmentImageRequestArgs) CreateServiceRequestEnvironmentImageRequestPtrInput {
-	return (*createServiceRequestEnvironmentImageRequestPtrType)(v)
-}
-
-func (*createServiceRequestEnvironmentImageRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateServiceRequestEnvironmentImageRequest)(nil)).Elem()
-}
-
-func (i *createServiceRequestEnvironmentImageRequestPtrType) ToCreateServiceRequestEnvironmentImageRequestPtrOutput() CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return i.ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *createServiceRequestEnvironmentImageRequestPtrType) ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateServiceRequestEnvironmentImageRequestPtrOutput)
-}
-
-// The Environment, models and assets needed for inferencing.
-type CreateServiceRequestEnvironmentImageRequestOutput struct{ *pulumi.OutputState }
-
-func (CreateServiceRequestEnvironmentImageRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateServiceRequestEnvironmentImageRequest)(nil)).Elem()
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestOutput) ToCreateServiceRequestEnvironmentImageRequestOutput() CreateServiceRequestEnvironmentImageRequestOutput {
-	return o
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestOutput) ToCreateServiceRequestEnvironmentImageRequestOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestOutput {
-	return o
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestOutput) ToCreateServiceRequestEnvironmentImageRequestPtrOutput() CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return o.ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(context.Background())
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestOutput) ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateServiceRequestEnvironmentImageRequest) *CreateServiceRequestEnvironmentImageRequest {
-		return &v
-	}).(CreateServiceRequestEnvironmentImageRequestPtrOutput)
-}
-
-// The list of assets.
-func (o CreateServiceRequestEnvironmentImageRequestOutput) Assets() ImageAssetArrayOutput {
-	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) []ImageAsset { return v.Assets }).(ImageAssetArrayOutput)
-}
-
-// The name of the driver file.
-func (o CreateServiceRequestEnvironmentImageRequestOutput) DriverProgram() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) *string { return v.DriverProgram }).(pulumi.StringPtrOutput)
-}
-
-// The details of the AZURE ML environment.
-func (o CreateServiceRequestEnvironmentImageRequestOutput) Environment() EnvironmentImageRequestEnvironmentPtrOutput {
-	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) *EnvironmentImageRequestEnvironment {
-		return v.Environment
-	}).(EnvironmentImageRequestEnvironmentPtrOutput)
-}
-
-// The unique identifying details of the AZURE ML environment.
-func (o CreateServiceRequestEnvironmentImageRequestOutput) EnvironmentReference() EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) *EnvironmentImageRequestEnvironmentReference {
-		return v.EnvironmentReference
-	}).(EnvironmentImageRequestEnvironmentReferencePtrOutput)
-}
-
-// The list of model Ids.
-func (o CreateServiceRequestEnvironmentImageRequestOutput) ModelIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) []string { return v.ModelIds }).(pulumi.StringArrayOutput)
-}
-
-// The list of models.
-func (o CreateServiceRequestEnvironmentImageRequestOutput) Models() ModelArrayOutput {
-	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) []Model { return v.Models }).(ModelArrayOutput)
-}
-
-type CreateServiceRequestEnvironmentImageRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateServiceRequestEnvironmentImageRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateServiceRequestEnvironmentImageRequest)(nil)).Elem()
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) ToCreateServiceRequestEnvironmentImageRequestPtrOutput() CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return o
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return o
-}
-
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) Elem() CreateServiceRequestEnvironmentImageRequestOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) CreateServiceRequestEnvironmentImageRequest {
-		if v != nil {
-			return *v
-		}
-		var ret CreateServiceRequestEnvironmentImageRequest
-		return ret
-	}).(CreateServiceRequestEnvironmentImageRequestOutput)
-}
-
-// The list of assets.
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) Assets() ImageAssetArrayOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) []ImageAsset {
-		if v == nil {
-			return nil
-		}
-		return v.Assets
-	}).(ImageAssetArrayOutput)
-}
-
-// The name of the driver file.
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) DriverProgram() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DriverProgram
-	}).(pulumi.StringPtrOutput)
-}
-
-// The details of the AZURE ML environment.
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) Environment() EnvironmentImageRequestEnvironmentPtrOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) *EnvironmentImageRequestEnvironment {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(EnvironmentImageRequestEnvironmentPtrOutput)
-}
-
-// The unique identifying details of the AZURE ML environment.
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) EnvironmentReference() EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) *EnvironmentImageRequestEnvironmentReference {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentReference
-	}).(EnvironmentImageRequestEnvironmentReferencePtrOutput)
-}
-
-// The list of model Ids.
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) ModelIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ModelIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// The list of models.
-func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) Models() ModelArrayOutput {
-	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) []Model {
-		if v == nil {
-			return nil
-		}
-		return v.Models
-	}).(ModelArrayOutput)
-}
-
-// The authentication keys.
-type CreateServiceRequestKeys struct {
-	// The primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The secondary key.
-	SecondaryKey *string `pulumi:"secondaryKey"`
-}
-
-// CreateServiceRequestKeysInput is an input type that accepts CreateServiceRequestKeysArgs and CreateServiceRequestKeysOutput values.
-// You can construct a concrete instance of `CreateServiceRequestKeysInput` via:
-//
-//          CreateServiceRequestKeysArgs{...}
-type CreateServiceRequestKeysInput interface {
-	pulumi.Input
-
-	ToCreateServiceRequestKeysOutput() CreateServiceRequestKeysOutput
-	ToCreateServiceRequestKeysOutputWithContext(context.Context) CreateServiceRequestKeysOutput
-}
-
-// The authentication keys.
-type CreateServiceRequestKeysArgs struct {
-	// The primary key.
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// The secondary key.
-	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
-}
-
-func (CreateServiceRequestKeysArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateServiceRequestKeys)(nil)).Elem()
-}
-
-func (i CreateServiceRequestKeysArgs) ToCreateServiceRequestKeysOutput() CreateServiceRequestKeysOutput {
-	return i.ToCreateServiceRequestKeysOutputWithContext(context.Background())
-}
-
-func (i CreateServiceRequestKeysArgs) ToCreateServiceRequestKeysOutputWithContext(ctx context.Context) CreateServiceRequestKeysOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateServiceRequestKeysOutput)
-}
-
-func (i CreateServiceRequestKeysArgs) ToCreateServiceRequestKeysPtrOutput() CreateServiceRequestKeysPtrOutput {
-	return i.ToCreateServiceRequestKeysPtrOutputWithContext(context.Background())
-}
-
-func (i CreateServiceRequestKeysArgs) ToCreateServiceRequestKeysPtrOutputWithContext(ctx context.Context) CreateServiceRequestKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateServiceRequestKeysOutput).ToCreateServiceRequestKeysPtrOutputWithContext(ctx)
-}
-
-// CreateServiceRequestKeysPtrInput is an input type that accepts CreateServiceRequestKeysArgs, CreateServiceRequestKeysPtr and CreateServiceRequestKeysPtrOutput values.
-// You can construct a concrete instance of `CreateServiceRequestKeysPtrInput` via:
-//
-//          CreateServiceRequestKeysArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateServiceRequestKeysPtrInput interface {
-	pulumi.Input
-
-	ToCreateServiceRequestKeysPtrOutput() CreateServiceRequestKeysPtrOutput
-	ToCreateServiceRequestKeysPtrOutputWithContext(context.Context) CreateServiceRequestKeysPtrOutput
-}
-
-type createServiceRequestKeysPtrType CreateServiceRequestKeysArgs
-
-func CreateServiceRequestKeysPtr(v *CreateServiceRequestKeysArgs) CreateServiceRequestKeysPtrInput {
-	return (*createServiceRequestKeysPtrType)(v)
-}
-
-func (*createServiceRequestKeysPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateServiceRequestKeys)(nil)).Elem()
-}
-
-func (i *createServiceRequestKeysPtrType) ToCreateServiceRequestKeysPtrOutput() CreateServiceRequestKeysPtrOutput {
-	return i.ToCreateServiceRequestKeysPtrOutputWithContext(context.Background())
-}
-
-func (i *createServiceRequestKeysPtrType) ToCreateServiceRequestKeysPtrOutputWithContext(ctx context.Context) CreateServiceRequestKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateServiceRequestKeysPtrOutput)
-}
-
-// The authentication keys.
-type CreateServiceRequestKeysOutput struct{ *pulumi.OutputState }
-
-func (CreateServiceRequestKeysOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateServiceRequestKeys)(nil)).Elem()
-}
-
-func (o CreateServiceRequestKeysOutput) ToCreateServiceRequestKeysOutput() CreateServiceRequestKeysOutput {
-	return o
-}
-
-func (o CreateServiceRequestKeysOutput) ToCreateServiceRequestKeysOutputWithContext(ctx context.Context) CreateServiceRequestKeysOutput {
-	return o
-}
-
-func (o CreateServiceRequestKeysOutput) ToCreateServiceRequestKeysPtrOutput() CreateServiceRequestKeysPtrOutput {
-	return o.ToCreateServiceRequestKeysPtrOutputWithContext(context.Background())
-}
-
-func (o CreateServiceRequestKeysOutput) ToCreateServiceRequestKeysPtrOutputWithContext(ctx context.Context) CreateServiceRequestKeysPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateServiceRequestKeys) *CreateServiceRequestKeys {
-		return &v
-	}).(CreateServiceRequestKeysPtrOutput)
-}
-
-// The primary key.
-func (o CreateServiceRequestKeysOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateServiceRequestKeys) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
-}
-
-// The secondary key.
-func (o CreateServiceRequestKeysOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateServiceRequestKeys) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
-}
-
-type CreateServiceRequestKeysPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateServiceRequestKeysPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateServiceRequestKeys)(nil)).Elem()
-}
-
-func (o CreateServiceRequestKeysPtrOutput) ToCreateServiceRequestKeysPtrOutput() CreateServiceRequestKeysPtrOutput {
-	return o
-}
-
-func (o CreateServiceRequestKeysPtrOutput) ToCreateServiceRequestKeysPtrOutputWithContext(ctx context.Context) CreateServiceRequestKeysPtrOutput {
-	return o
-}
-
-func (o CreateServiceRequestKeysPtrOutput) Elem() CreateServiceRequestKeysOutput {
-	return o.ApplyT(func(v *CreateServiceRequestKeys) CreateServiceRequestKeys {
-		if v != nil {
-			return *v
-		}
-		var ret CreateServiceRequestKeys
-		return ret
-	}).(CreateServiceRequestKeysOutput)
-}
-
-// The primary key.
-func (o CreateServiceRequestKeysPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateServiceRequestKeys) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secondary key.
-func (o CreateServiceRequestKeysPtrOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateServiceRequestKeys) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecondaryKey
-	}).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for CustomModelJobOutputResponse
+func (val *CustomModelJobOutputResponse) Defaults() *CustomModelJobOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
 // Container for data asset versions.
 type DataContainerType struct {
+	// [Required] Specifies the type of data.
+	DataType string `pulumi:"dataType"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for DataContainerType
+func (val *DataContainerType) Defaults() *DataContainerType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // DataContainerTypeInput is an input type that accepts DataContainerTypeArgs and DataContainerTypeOutput values.
@@ -7321,14 +4227,29 @@ type DataContainerTypeInput interface {
 
 // Container for data asset versions.
 type DataContainerTypeArgs struct {
+	// [Required] Specifies the type of data.
+	DataType pulumi.StringInput `pulumi:"dataType"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for DataContainerTypeArgs
+func (val *DataContainerTypeArgs) Defaults() *DataContainerTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (DataContainerTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataContainerType)(nil)).Elem()
 }
@@ -7356,9 +4277,19 @@ func (o DataContainerTypeOutput) ToDataContainerTypeOutputWithContext(ctx contex
 	return o
 }
 
+// [Required] Specifies the type of data.
+func (o DataContainerTypeOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataContainerType) string { return v.DataType }).(pulumi.StringOutput)
+}
+
 // The asset description text.
 func (o DataContainerTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataContainerType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Is the asset archived?
+func (o DataContainerTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataContainerType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
 }
 
 // The asset property dictionary.
@@ -7373,12 +4304,33 @@ func (o DataContainerTypeOutput) Tags() pulumi.StringMapOutput {
 
 // Container for data asset versions.
 type DataContainerResponse struct {
+	// [Required] Specifies the type of data.
+	DataType string `pulumi:"dataType"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The latest version inside this container.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The next auto incremental version
+	NextVersion string `pulumi:"nextVersion"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for DataContainerResponse
+func (val *DataContainerResponse) Defaults() *DataContainerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // Container for data asset versions.
@@ -7396,9 +4348,29 @@ func (o DataContainerResponseOutput) ToDataContainerResponseOutputWithContext(ct
 	return o
 }
 
+// [Required] Specifies the type of data.
+func (o DataContainerResponseOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataContainerResponse) string { return v.DataType }).(pulumi.StringOutput)
+}
+
 // The asset description text.
 func (o DataContainerResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataContainerResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Is the asset archived?
+func (o DataContainerResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataContainerResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The latest version inside this container.
+func (o DataContainerResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v DataContainerResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The next auto incremental version
+func (o DataContainerResponseOutput) NextVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v DataContainerResponse) string { return v.NextVersion }).(pulumi.StringOutput)
 }
 
 // The asset property dictionary.
@@ -7413,13 +4385,13 @@ func (o DataContainerResponseOutput) Tags() pulumi.StringMapOutput {
 
 // A DataFactory compute.
 type DataFactory struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'DataFactory'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
@@ -7427,16 +4399,22 @@ type DataFactory struct {
 // A DataFactory compute.
 type DataFactoryResponse struct {
 	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
+	ComputeLocation string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'DataFactory'.
 	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
 	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
 	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
 	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM resource id of the underlying compute
@@ -7445,44 +4423,50 @@ type DataFactoryResponse struct {
 
 // A DataLakeAnalytics compute.
 type DataLakeAnalytics struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'DataLakeAnalytics'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string                      `pulumi:"description"`
-	Properties  *DataLakeAnalyticsProperties `pulumi:"properties"`
-	// ARM resource id of the underlying compute
-	ResourceId *string `pulumi:"resourceId"`
-}
-
-type DataLakeAnalyticsProperties struct {
-	// DataLake Store Account Name
-	DataLakeStoreAccountName *string `pulumi:"dataLakeStoreAccountName"`
-}
-
-// A DataLakeAnalytics compute.
-type DataLakeAnalyticsResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'DataLakeAnalytics'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool                              `pulumi:"disableLocalAuth"`
+	Properties       *DataLakeAnalyticsSchemaProperties `pulumi:"properties"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// A DataLakeAnalytics compute.
+type DataLakeAnalyticsResponse struct {
+	// Location for the underlying compute
+	ComputeLocation string `pulumi:"computeLocation"`
+	// The type of compute
+	// Expected value is 'DataLakeAnalytics'.
+	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-	IsAttachedCompute bool                                 `pulumi:"isAttachedCompute"`
-	Properties        *DataLakeAnalyticsResponseProperties `pulumi:"properties"`
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string                                     `pulumi:"modifiedOn"`
+	Properties *DataLakeAnalyticsSchemaResponseProperties `pulumi:"properties"`
 	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
 	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
 
-type DataLakeAnalyticsResponseProperties struct {
+type DataLakeAnalyticsSchemaProperties struct {
+	// DataLake Store Account Name
+	DataLakeStoreAccountName *string `pulumi:"dataLakeStoreAccountName"`
+}
+
+type DataLakeAnalyticsSchemaResponseProperties struct {
 	// DataLake Store Account Name
 	DataLakeStoreAccountName *string `pulumi:"dataLakeStoreAccountName"`
 }
@@ -7509,198 +4493,31 @@ type DataPathAssetReferenceResponse struct {
 	ReferenceType string `pulumi:"referenceType"`
 }
 
-// Data asset version details.
-type DataVersionType struct {
-	// The Format of dataset.
-	DatasetType *string `pulumi:"datasetType"`
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId *string `pulumi:"datastoreId"`
-	// The asset description text.
-	Description *string `pulumi:"description"`
-	// If the name version are system generated (anonymous registration).
-	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path string `pulumi:"path"`
-	// The asset property dictionary.
-	Properties map[string]string `pulumi:"properties"`
-	// Tag dictionary. Tags can be added, removed, and updated.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// DataVersionTypeInput is an input type that accepts DataVersionTypeArgs and DataVersionTypeOutput values.
-// You can construct a concrete instance of `DataVersionTypeInput` via:
-//
-//          DataVersionTypeArgs{...}
-type DataVersionTypeInput interface {
-	pulumi.Input
-
-	ToDataVersionTypeOutput() DataVersionTypeOutput
-	ToDataVersionTypeOutputWithContext(context.Context) DataVersionTypeOutput
-}
-
-// Data asset version details.
-type DataVersionTypeArgs struct {
-	// The Format of dataset.
-	DatasetType pulumi.StringPtrInput `pulumi:"datasetType"`
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId pulumi.StringPtrInput `pulumi:"datastoreId"`
-	// The asset description text.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// If the name version are system generated (anonymous registration).
-	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path pulumi.StringInput `pulumi:"path"`
-	// The asset property dictionary.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Tag dictionary. Tags can be added, removed, and updated.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (DataVersionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataVersionType)(nil)).Elem()
-}
-
-func (i DataVersionTypeArgs) ToDataVersionTypeOutput() DataVersionTypeOutput {
-	return i.ToDataVersionTypeOutputWithContext(context.Background())
-}
-
-func (i DataVersionTypeArgs) ToDataVersionTypeOutputWithContext(ctx context.Context) DataVersionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataVersionTypeOutput)
-}
-
-// Data asset version details.
-type DataVersionTypeOutput struct{ *pulumi.OutputState }
-
-func (DataVersionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataVersionType)(nil)).Elem()
-}
-
-func (o DataVersionTypeOutput) ToDataVersionTypeOutput() DataVersionTypeOutput {
-	return o
-}
-
-func (o DataVersionTypeOutput) ToDataVersionTypeOutputWithContext(ctx context.Context) DataVersionTypeOutput {
-	return o
-}
-
-// The Format of dataset.
-func (o DataVersionTypeOutput) DatasetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataVersionType) *string { return v.DatasetType }).(pulumi.StringPtrOutput)
-}
-
-// ARM resource ID of the datastore where the asset is located.
-func (o DataVersionTypeOutput) DatastoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataVersionType) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
-}
-
-// The asset description text.
-func (o DataVersionTypeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataVersionType) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// If the name version are system generated (anonymous registration).
-func (o DataVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DataVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
-}
-
-// [Required] The path of the file/directory in the datastore.
-func (o DataVersionTypeOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DataVersionType) string { return v.Path }).(pulumi.StringOutput)
-}
-
-// The asset property dictionary.
-func (o DataVersionTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataVersionType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// Tag dictionary. Tags can be added, removed, and updated.
-func (o DataVersionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Data asset version details.
-type DataVersionResponse struct {
-	// The Format of dataset.
-	DatasetType *string `pulumi:"datasetType"`
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId *string `pulumi:"datastoreId"`
-	// The asset description text.
-	Description *string `pulumi:"description"`
-	// If the name version are system generated (anonymous registration).
-	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path string `pulumi:"path"`
-	// The asset property dictionary.
-	Properties map[string]string `pulumi:"properties"`
-	// Tag dictionary. Tags can be added, removed, and updated.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// Data asset version details.
-type DataVersionResponseOutput struct{ *pulumi.OutputState }
-
-func (DataVersionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataVersionResponse)(nil)).Elem()
-}
-
-func (o DataVersionResponseOutput) ToDataVersionResponseOutput() DataVersionResponseOutput {
-	return o
-}
-
-func (o DataVersionResponseOutput) ToDataVersionResponseOutputWithContext(ctx context.Context) DataVersionResponseOutput {
-	return o
-}
-
-// The Format of dataset.
-func (o DataVersionResponseOutput) DatasetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataVersionResponse) *string { return v.DatasetType }).(pulumi.StringPtrOutput)
-}
-
-// ARM resource ID of the datastore where the asset is located.
-func (o DataVersionResponseOutput) DatastoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataVersionResponse) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
-}
-
-// The asset description text.
-func (o DataVersionResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataVersionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// If the name version are system generated (anonymous registration).
-func (o DataVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DataVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
-}
-
-// [Required] The path of the file/directory in the datastore.
-func (o DataVersionResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DataVersionResponse) string { return v.Path }).(pulumi.StringOutput)
-}
-
-// The asset property dictionary.
-func (o DataVersionResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataVersionResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// Tag dictionary. Tags can be added, removed, and updated.
-func (o DataVersionResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataVersionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 // A DataFactory compute.
 type Databricks struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'Databricks'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
-	Description *string               `pulumi:"description"`
-	Properties  *DatabricksProperties `pulumi:"properties"`
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Properties of Databricks
+	Properties *DatabricksProperties `pulumi:"properties"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
 
+// Properties of Databricks
 type DatabricksProperties struct {
+	// Databricks access token
+	DatabricksAccessToken *string `pulumi:"databricksAccessToken"`
+	// Workspace Url
+	WorkspaceUrl *string `pulumi:"workspaceUrl"`
+}
+
+// Properties of Databricks
+type DatabricksPropertiesResponse struct {
 	// Databricks access token
 	DatabricksAccessToken *string `pulumi:"databricksAccessToken"`
 	// Workspace Url
@@ -7710,2096 +4527,312 @@ type DatabricksProperties struct {
 // A DataFactory compute.
 type DatabricksResponse struct {
 	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
+	ComputeLocation string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'Databricks'.
 	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-	IsAttachedCompute bool                          `pulumi:"isAttachedCompute"`
-	Properties        *DatabricksResponseProperties `pulumi:"properties"`
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// Properties of Databricks
+	Properties *DatabricksPropertiesResponse `pulumi:"properties"`
 	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
 	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
 
-type DatabricksResponseProperties struct {
-	// Databricks access token
-	DatabricksAccessToken *string `pulumi:"databricksAccessToken"`
-	// Workspace Url
-	WorkspaceUrl *string `pulumi:"workspaceUrl"`
+type DefaultScaleSettings struct {
+	// Expected value is 'Default'.
+	ScaleType string `pulumi:"scaleType"`
 }
 
-type DatasetCreateRequestDataPath struct {
-	// The datastore name.
-	DatastoreName *string `pulumi:"datastoreName"`
-	// Path within the datastore.
-	RelativePath *string `pulumi:"relativePath"`
+type DefaultScaleSettingsResponse struct {
+	// Expected value is 'Default'.
+	ScaleType string `pulumi:"scaleType"`
 }
 
-// DatasetCreateRequestDataPathInput is an input type that accepts DatasetCreateRequestDataPathArgs and DatasetCreateRequestDataPathOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestDataPathInput` via:
+type EncryptionKeyVaultProperties struct {
+	// For future use - The client id of the identity which will be used to access key vault.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier string `pulumi:"keyIdentifier"`
+	// The ArmId of the keyVault where the customer owned encryption key is present.
+	KeyVaultArmId string `pulumi:"keyVaultArmId"`
+}
+
+// EncryptionKeyVaultPropertiesInput is an input type that accepts EncryptionKeyVaultPropertiesArgs and EncryptionKeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `EncryptionKeyVaultPropertiesInput` via:
 //
-//          DatasetCreateRequestDataPathArgs{...}
-type DatasetCreateRequestDataPathInput interface {
+//          EncryptionKeyVaultPropertiesArgs{...}
+type EncryptionKeyVaultPropertiesInput interface {
 	pulumi.Input
 
-	ToDatasetCreateRequestDataPathOutput() DatasetCreateRequestDataPathOutput
-	ToDatasetCreateRequestDataPathOutputWithContext(context.Context) DatasetCreateRequestDataPathOutput
+	ToEncryptionKeyVaultPropertiesOutput() EncryptionKeyVaultPropertiesOutput
+	ToEncryptionKeyVaultPropertiesOutputWithContext(context.Context) EncryptionKeyVaultPropertiesOutput
 }
 
-type DatasetCreateRequestDataPathArgs struct {
-	// The datastore name.
-	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
-	// Path within the datastore.
-	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
+type EncryptionKeyVaultPropertiesArgs struct {
+	// For future use - The client id of the identity which will be used to access key vault.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
+	// The ArmId of the keyVault where the customer owned encryption key is present.
+	KeyVaultArmId pulumi.StringInput `pulumi:"keyVaultArmId"`
 }
 
-func (DatasetCreateRequestDataPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestDataPath)(nil)).Elem()
+func (EncryptionKeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyVaultProperties)(nil)).Elem()
 }
 
-func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathOutput() DatasetCreateRequestDataPathOutput {
-	return i.ToDatasetCreateRequestDataPathOutputWithContext(context.Background())
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesOutput() EncryptionKeyVaultPropertiesOutput {
+	return i.ToEncryptionKeyVaultPropertiesOutputWithContext(context.Background())
 }
 
-func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestDataPathOutput)
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyVaultPropertiesOutput)
 }
 
-func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
-	return i.ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Background())
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i DatasetCreateRequestDataPathArgs) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestDataPathOutput).ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx)
+func (i EncryptionKeyVaultPropertiesArgs) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyVaultPropertiesOutput).ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx)
 }
 
-// DatasetCreateRequestDataPathPtrInput is an input type that accepts DatasetCreateRequestDataPathArgs, DatasetCreateRequestDataPathPtr and DatasetCreateRequestDataPathPtrOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestDataPathPtrInput` via:
+// EncryptionKeyVaultPropertiesPtrInput is an input type that accepts EncryptionKeyVaultPropertiesArgs, EncryptionKeyVaultPropertiesPtr and EncryptionKeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `EncryptionKeyVaultPropertiesPtrInput` via:
 //
-//          DatasetCreateRequestDataPathArgs{...}
+//          EncryptionKeyVaultPropertiesArgs{...}
 //
 //  or:
 //
 //          nil
-type DatasetCreateRequestDataPathPtrInput interface {
+type EncryptionKeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput
-	ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Context) DatasetCreateRequestDataPathPtrOutput
+	ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput
+	ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Context) EncryptionKeyVaultPropertiesPtrOutput
 }
 
-type datasetCreateRequestDataPathPtrType DatasetCreateRequestDataPathArgs
+type encryptionKeyVaultPropertiesPtrType EncryptionKeyVaultPropertiesArgs
 
-func DatasetCreateRequestDataPathPtr(v *DatasetCreateRequestDataPathArgs) DatasetCreateRequestDataPathPtrInput {
-	return (*datasetCreateRequestDataPathPtrType)(v)
+func EncryptionKeyVaultPropertiesPtr(v *EncryptionKeyVaultPropertiesArgs) EncryptionKeyVaultPropertiesPtrInput {
+	return (*encryptionKeyVaultPropertiesPtrType)(v)
 }
 
-func (*datasetCreateRequestDataPathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestDataPath)(nil)).Elem()
+func (*encryptionKeyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyVaultProperties)(nil)).Elem()
 }
 
-func (i *datasetCreateRequestDataPathPtrType) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
-	return i.ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Background())
+func (i *encryptionKeyVaultPropertiesPtrType) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *datasetCreateRequestDataPathPtrType) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestDataPathPtrOutput)
+func (i *encryptionKeyVaultPropertiesPtrType) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyVaultPropertiesPtrOutput)
 }
 
-type DatasetCreateRequestDataPathOutput struct{ *pulumi.OutputState }
+type EncryptionKeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
-func (DatasetCreateRequestDataPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestDataPath)(nil)).Elem()
+func (EncryptionKeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyVaultProperties)(nil)).Elem()
 }
 
-func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathOutput() DatasetCreateRequestDataPathOutput {
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesOutput() EncryptionKeyVaultPropertiesOutput {
 	return o
 }
 
-func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathOutput {
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesOutput {
 	return o
 }
 
-func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
-	return o.ToDatasetCreateRequestDataPathPtrOutputWithContext(context.Background())
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ToEncryptionKeyVaultPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o DatasetCreateRequestDataPathOutput) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetCreateRequestDataPath) *DatasetCreateRequestDataPath {
+func (o EncryptionKeyVaultPropertiesOutput) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyVaultProperties) *EncryptionKeyVaultProperties {
 		return &v
-	}).(DatasetCreateRequestDataPathPtrOutput)
+	}).(EncryptionKeyVaultPropertiesPtrOutput)
 }
 
-// The datastore name.
-func (o DatasetCreateRequestDataPathOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestDataPath) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
+// For future use - The client id of the identity which will be used to access key vault.
+func (o EncryptionKeyVaultPropertiesOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
 
-// Path within the datastore.
-func (o DatasetCreateRequestDataPathOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestDataPath) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
+// Key vault uri to access the encryption key.
+func (o EncryptionKeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultProperties) string { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
 
-type DatasetCreateRequestDataPathPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestDataPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestDataPath)(nil)).Elem()
+// The ArmId of the keyVault where the customer owned encryption key is present.
+func (o EncryptionKeyVaultPropertiesOutput) KeyVaultArmId() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultProperties) string { return v.KeyVaultArmId }).(pulumi.StringOutput)
 }
 
-func (o DatasetCreateRequestDataPathPtrOutput) ToDatasetCreateRequestDataPathPtrOutput() DatasetCreateRequestDataPathPtrOutput {
+type EncryptionKeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionKeyVaultPropertiesPtrOutput) ToEncryptionKeyVaultPropertiesPtrOutput() EncryptionKeyVaultPropertiesPtrOutput {
 	return o
 }
 
-func (o DatasetCreateRequestDataPathPtrOutput) ToDatasetCreateRequestDataPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestDataPathPtrOutput {
+func (o EncryptionKeyVaultPropertiesPtrOutput) ToEncryptionKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesPtrOutput {
 	return o
 }
 
-func (o DatasetCreateRequestDataPathPtrOutput) Elem() DatasetCreateRequestDataPathOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestDataPath) DatasetCreateRequestDataPath {
+func (o EncryptionKeyVaultPropertiesPtrOutput) Elem() EncryptionKeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) EncryptionKeyVaultProperties {
 		if v != nil {
 			return *v
 		}
-		var ret DatasetCreateRequestDataPath
+		var ret EncryptionKeyVaultProperties
 		return ret
-	}).(DatasetCreateRequestDataPathOutput)
+	}).(EncryptionKeyVaultPropertiesOutput)
 }
 
-// The datastore name.
-func (o DatasetCreateRequestDataPathPtrOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestDataPath) *string {
+// For future use - The client id of the identity which will be used to access key vault.
+func (o EncryptionKeyVaultPropertiesPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DatastoreName
+		return v.IdentityClientId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Path within the datastore.
-func (o DatasetCreateRequestDataPathPtrOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestDataPath) *string {
+// Key vault uri to access the encryption key.
+func (o EncryptionKeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.RelativePath
+		return &v.KeyIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatasetCreateRequestParameters struct {
-	// Header type.
-	Header *string `pulumi:"header"`
-	// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
-	IncludePath *bool `pulumi:"includePath"`
-	// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
-	PartitionFormat *string                    `pulumi:"partitionFormat"`
-	Path            *DatasetCreateRequestPath  `pulumi:"path"`
-	Query           *DatasetCreateRequestQuery `pulumi:"query"`
-	// The separator used to split columns for 'delimited_files' sourceType.
-	Separator *string `pulumi:"separator"`
-	// Data source type.
-	SourceType *string `pulumi:"sourceType"`
+// The ArmId of the keyVault where the customer owned encryption key is present.
+func (o EncryptionKeyVaultPropertiesPtrOutput) KeyVaultArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultArmId
+	}).(pulumi.StringPtrOutput)
 }
 
-// Defaults sets the appropriate defaults for DatasetCreateRequestParameters
-func (val *DatasetCreateRequestParameters) Defaults() *DatasetCreateRequestParameters {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.IncludePath) {
-		includePath_ := false
-		tmp.IncludePath = &includePath_
-	}
-	return &tmp
+type EncryptionKeyVaultPropertiesResponse struct {
+	// For future use - The client id of the identity which will be used to access key vault.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier string `pulumi:"keyIdentifier"`
+	// The ArmId of the keyVault where the customer owned encryption key is present.
+	KeyVaultArmId string `pulumi:"keyVaultArmId"`
 }
 
-// DatasetCreateRequestParametersInput is an input type that accepts DatasetCreateRequestParametersArgs and DatasetCreateRequestParametersOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestParametersInput` via:
-//
-//          DatasetCreateRequestParametersArgs{...}
-type DatasetCreateRequestParametersInput interface {
-	pulumi.Input
+type EncryptionKeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
-	ToDatasetCreateRequestParametersOutput() DatasetCreateRequestParametersOutput
-	ToDatasetCreateRequestParametersOutputWithContext(context.Context) DatasetCreateRequestParametersOutput
+func (EncryptionKeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyVaultPropertiesResponse)(nil)).Elem()
 }
 
-type DatasetCreateRequestParametersArgs struct {
-	// Header type.
-	Header pulumi.StringPtrInput `pulumi:"header"`
-	// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
-	IncludePath pulumi.BoolPtrInput `pulumi:"includePath"`
-	// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
-	PartitionFormat pulumi.StringPtrInput             `pulumi:"partitionFormat"`
-	Path            DatasetCreateRequestPathPtrInput  `pulumi:"path"`
-	Query           DatasetCreateRequestQueryPtrInput `pulumi:"query"`
-	// The separator used to split columns for 'delimited_files' sourceType.
-	Separator pulumi.StringPtrInput `pulumi:"separator"`
-	// Data source type.
-	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
-}
-
-// Defaults sets the appropriate defaults for DatasetCreateRequestParametersArgs
-func (val *DatasetCreateRequestParametersArgs) Defaults() *DatasetCreateRequestParametersArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.IncludePath) {
-		tmp.IncludePath = pulumi.BoolPtr(false)
-	}
-	return &tmp
-}
-func (DatasetCreateRequestParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestParameters)(nil)).Elem()
-}
-
-func (i DatasetCreateRequestParametersArgs) ToDatasetCreateRequestParametersOutput() DatasetCreateRequestParametersOutput {
-	return i.ToDatasetCreateRequestParametersOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestParametersArgs) ToDatasetCreateRequestParametersOutputWithContext(ctx context.Context) DatasetCreateRequestParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestParametersOutput)
-}
-
-type DatasetCreateRequestParametersOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestParameters)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestParametersOutput) ToDatasetCreateRequestParametersOutput() DatasetCreateRequestParametersOutput {
+func (o EncryptionKeyVaultPropertiesResponseOutput) ToEncryptionKeyVaultPropertiesResponseOutput() EncryptionKeyVaultPropertiesResponseOutput {
 	return o
 }
 
-func (o DatasetCreateRequestParametersOutput) ToDatasetCreateRequestParametersOutputWithContext(ctx context.Context) DatasetCreateRequestParametersOutput {
+func (o EncryptionKeyVaultPropertiesResponseOutput) ToEncryptionKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesResponseOutput {
 	return o
 }
 
-// Header type.
-func (o DatasetCreateRequestParametersOutput) Header() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.Header }).(pulumi.StringPtrOutput)
+// For future use - The client id of the identity which will be used to access key vault.
+func (o EncryptionKeyVaultPropertiesResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
 
-// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
-func (o DatasetCreateRequestParametersOutput) IncludePath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *bool { return v.IncludePath }).(pulumi.BoolPtrOutput)
+// Key vault uri to access the encryption key.
+func (o EncryptionKeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) string { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
 
-// The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
-func (o DatasetCreateRequestParametersOutput) PartitionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.PartitionFormat }).(pulumi.StringPtrOutput)
+// The ArmId of the keyVault where the customer owned encryption key is present.
+func (o EncryptionKeyVaultPropertiesResponseOutput) KeyVaultArmId() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionKeyVaultPropertiesResponse) string { return v.KeyVaultArmId }).(pulumi.StringOutput)
 }
 
-func (o DatasetCreateRequestParametersOutput) Path() DatasetCreateRequestPathPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *DatasetCreateRequestPath { return v.Path }).(DatasetCreateRequestPathPtrOutput)
+type EncryptionKeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyVaultPropertiesResponse)(nil)).Elem()
 }
 
-func (o DatasetCreateRequestParametersOutput) Query() DatasetCreateRequestQueryPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *DatasetCreateRequestQuery { return v.Query }).(DatasetCreateRequestQueryPtrOutput)
-}
-
-// The separator used to split columns for 'delimited_files' sourceType.
-func (o DatasetCreateRequestParametersOutput) Separator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.Separator }).(pulumi.StringPtrOutput)
-}
-
-// Data source type.
-func (o DatasetCreateRequestParametersOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestParameters) *string { return v.SourceType }).(pulumi.StringPtrOutput)
-}
-
-type DatasetCreateRequestPath struct {
-	DataPath *DatasetCreateRequestDataPath `pulumi:"dataPath"`
-	// The Http URL.
-	HttpUrl *string `pulumi:"httpUrl"`
-}
-
-// DatasetCreateRequestPathInput is an input type that accepts DatasetCreateRequestPathArgs and DatasetCreateRequestPathOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestPathInput` via:
-//
-//          DatasetCreateRequestPathArgs{...}
-type DatasetCreateRequestPathInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestPathOutput() DatasetCreateRequestPathOutput
-	ToDatasetCreateRequestPathOutputWithContext(context.Context) DatasetCreateRequestPathOutput
-}
-
-type DatasetCreateRequestPathArgs struct {
-	DataPath DatasetCreateRequestDataPathPtrInput `pulumi:"dataPath"`
-	// The Http URL.
-	HttpUrl pulumi.StringPtrInput `pulumi:"httpUrl"`
-}
-
-func (DatasetCreateRequestPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestPath)(nil)).Elem()
-}
-
-func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathOutput() DatasetCreateRequestPathOutput {
-	return i.ToDatasetCreateRequestPathOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathOutputWithContext(ctx context.Context) DatasetCreateRequestPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestPathOutput)
-}
-
-func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
-	return i.ToDatasetCreateRequestPathPtrOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestPathArgs) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestPathOutput).ToDatasetCreateRequestPathPtrOutputWithContext(ctx)
-}
-
-// DatasetCreateRequestPathPtrInput is an input type that accepts DatasetCreateRequestPathArgs, DatasetCreateRequestPathPtr and DatasetCreateRequestPathPtrOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestPathPtrInput` via:
-//
-//          DatasetCreateRequestPathArgs{...}
-//
-//  or:
-//
-//          nil
-type DatasetCreateRequestPathPtrInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput
-	ToDatasetCreateRequestPathPtrOutputWithContext(context.Context) DatasetCreateRequestPathPtrOutput
-}
-
-type datasetCreateRequestPathPtrType DatasetCreateRequestPathArgs
-
-func DatasetCreateRequestPathPtr(v *DatasetCreateRequestPathArgs) DatasetCreateRequestPathPtrInput {
-	return (*datasetCreateRequestPathPtrType)(v)
-}
-
-func (*datasetCreateRequestPathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestPath)(nil)).Elem()
-}
-
-func (i *datasetCreateRequestPathPtrType) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
-	return i.ToDatasetCreateRequestPathPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetCreateRequestPathPtrType) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestPathPtrOutput)
-}
-
-type DatasetCreateRequestPathOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestPath)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathOutput() DatasetCreateRequestPathOutput {
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) ToEncryptionKeyVaultPropertiesResponsePtrOutput() EncryptionKeyVaultPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathOutputWithContext(ctx context.Context) DatasetCreateRequestPathOutput {
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) ToEncryptionKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyVaultPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
-	return o.ToDatasetCreateRequestPathPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetCreateRequestPathOutput) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetCreateRequestPath) *DatasetCreateRequestPath {
-		return &v
-	}).(DatasetCreateRequestPathPtrOutput)
-}
-
-func (o DatasetCreateRequestPathOutput) DataPath() DatasetCreateRequestDataPathPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestPath) *DatasetCreateRequestDataPath { return v.DataPath }).(DatasetCreateRequestDataPathPtrOutput)
-}
-
-// The Http URL.
-func (o DatasetCreateRequestPathOutput) HttpUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestPath) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
-}
-
-type DatasetCreateRequestPathPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestPath)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestPathPtrOutput) ToDatasetCreateRequestPathPtrOutput() DatasetCreateRequestPathPtrOutput {
-	return o
-}
-
-func (o DatasetCreateRequestPathPtrOutput) ToDatasetCreateRequestPathPtrOutputWithContext(ctx context.Context) DatasetCreateRequestPathPtrOutput {
-	return o
-}
-
-func (o DatasetCreateRequestPathPtrOutput) Elem() DatasetCreateRequestPathOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestPath) DatasetCreateRequestPath {
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) Elem() EncryptionKeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) EncryptionKeyVaultPropertiesResponse {
 		if v != nil {
 			return *v
 		}
-		var ret DatasetCreateRequestPath
+		var ret EncryptionKeyVaultPropertiesResponse
 		return ret
-	}).(DatasetCreateRequestPathOutput)
+	}).(EncryptionKeyVaultPropertiesResponseOutput)
 }
 
-func (o DatasetCreateRequestPathPtrOutput) DataPath() DatasetCreateRequestDataPathPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestPath) *DatasetCreateRequestDataPath {
+// For future use - The client id of the identity which will be used to access key vault.
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DataPath
-	}).(DatasetCreateRequestDataPathPtrOutput)
-}
-
-// The Http URL.
-func (o DatasetCreateRequestPathPtrOutput) HttpUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestPath) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HttpUrl
+		return v.IdentityClientId
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatasetCreateRequestQuery struct {
-	// The SQL/PostgreSQL/MySQL datastore name.
-	DatastoreName *string `pulumi:"datastoreName"`
-	// SQL Quey.
-	Query *string `pulumi:"query"`
-}
-
-// DatasetCreateRequestQueryInput is an input type that accepts DatasetCreateRequestQueryArgs and DatasetCreateRequestQueryOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestQueryInput` via:
-//
-//          DatasetCreateRequestQueryArgs{...}
-type DatasetCreateRequestQueryInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestQueryOutput() DatasetCreateRequestQueryOutput
-	ToDatasetCreateRequestQueryOutputWithContext(context.Context) DatasetCreateRequestQueryOutput
-}
-
-type DatasetCreateRequestQueryArgs struct {
-	// The SQL/PostgreSQL/MySQL datastore name.
-	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
-	// SQL Quey.
-	Query pulumi.StringPtrInput `pulumi:"query"`
-}
-
-func (DatasetCreateRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestQuery)(nil)).Elem()
-}
-
-func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryOutput() DatasetCreateRequestQueryOutput {
-	return i.ToDatasetCreateRequestQueryOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryOutputWithContext(ctx context.Context) DatasetCreateRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestQueryOutput)
-}
-
-func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
-	return i.ToDatasetCreateRequestQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestQueryArgs) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestQueryOutput).ToDatasetCreateRequestQueryPtrOutputWithContext(ctx)
-}
-
-// DatasetCreateRequestQueryPtrInput is an input type that accepts DatasetCreateRequestQueryArgs, DatasetCreateRequestQueryPtr and DatasetCreateRequestQueryPtrOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestQueryPtrInput` via:
-//
-//          DatasetCreateRequestQueryArgs{...}
-//
-//  or:
-//
-//          nil
-type DatasetCreateRequestQueryPtrInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput
-	ToDatasetCreateRequestQueryPtrOutputWithContext(context.Context) DatasetCreateRequestQueryPtrOutput
-}
-
-type datasetCreateRequestQueryPtrType DatasetCreateRequestQueryArgs
-
-func DatasetCreateRequestQueryPtr(v *DatasetCreateRequestQueryArgs) DatasetCreateRequestQueryPtrInput {
-	return (*datasetCreateRequestQueryPtrType)(v)
-}
-
-func (*datasetCreateRequestQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestQuery)(nil)).Elem()
-}
-
-func (i *datasetCreateRequestQueryPtrType) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
-	return i.ToDatasetCreateRequestQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetCreateRequestQueryPtrType) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestQueryPtrOutput)
-}
-
-type DatasetCreateRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestQuery)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryOutput() DatasetCreateRequestQueryOutput {
-	return o
-}
-
-func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryOutputWithContext(ctx context.Context) DatasetCreateRequestQueryOutput {
-	return o
-}
-
-func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
-	return o.ToDatasetCreateRequestQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetCreateRequestQueryOutput) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetCreateRequestQuery) *DatasetCreateRequestQuery {
-		return &v
-	}).(DatasetCreateRequestQueryPtrOutput)
-}
-
-// The SQL/PostgreSQL/MySQL datastore name.
-func (o DatasetCreateRequestQueryOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestQuery) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
-}
-
-// SQL Quey.
-func (o DatasetCreateRequestQueryOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestQuery) *string { return v.Query }).(pulumi.StringPtrOutput)
-}
-
-type DatasetCreateRequestQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestQuery)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestQueryPtrOutput) ToDatasetCreateRequestQueryPtrOutput() DatasetCreateRequestQueryPtrOutput {
-	return o
-}
-
-func (o DatasetCreateRequestQueryPtrOutput) ToDatasetCreateRequestQueryPtrOutputWithContext(ctx context.Context) DatasetCreateRequestQueryPtrOutput {
-	return o
-}
-
-func (o DatasetCreateRequestQueryPtrOutput) Elem() DatasetCreateRequestQueryOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestQuery) DatasetCreateRequestQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetCreateRequestQuery
-		return ret
-	}).(DatasetCreateRequestQueryOutput)
-}
-
-// The SQL/PostgreSQL/MySQL datastore name.
-func (o DatasetCreateRequestQueryPtrOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestQuery) *string {
+// Key vault uri to access the encryption key.
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DatastoreName
+		return &v.KeyIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
-// SQL Quey.
-func (o DatasetCreateRequestQueryPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestQuery) *string {
+// The ArmId of the keyVault where the customer owned encryption key is present.
+func (o EncryptionKeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyVaultPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Query
+		return &v.KeyVaultArmId
 	}).(pulumi.StringPtrOutput)
-}
-
-type DatasetCreateRequestRegistration struct {
-	// The description for the dataset.
-	Description *string `pulumi:"description"`
-	// The name of the dataset.
-	Name *string `pulumi:"name"`
-	// Tags associated with the dataset.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// DatasetCreateRequestRegistrationInput is an input type that accepts DatasetCreateRequestRegistrationArgs and DatasetCreateRequestRegistrationOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestRegistrationInput` via:
-//
-//          DatasetCreateRequestRegistrationArgs{...}
-type DatasetCreateRequestRegistrationInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestRegistrationOutput() DatasetCreateRequestRegistrationOutput
-	ToDatasetCreateRequestRegistrationOutputWithContext(context.Context) DatasetCreateRequestRegistrationOutput
-}
-
-type DatasetCreateRequestRegistrationArgs struct {
-	// The description for the dataset.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the dataset.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tags associated with the dataset.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (DatasetCreateRequestRegistrationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestRegistration)(nil)).Elem()
-}
-
-func (i DatasetCreateRequestRegistrationArgs) ToDatasetCreateRequestRegistrationOutput() DatasetCreateRequestRegistrationOutput {
-	return i.ToDatasetCreateRequestRegistrationOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestRegistrationArgs) ToDatasetCreateRequestRegistrationOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestRegistrationOutput)
-}
-
-type DatasetCreateRequestRegistrationOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestRegistration)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestRegistrationOutput) ToDatasetCreateRequestRegistrationOutput() DatasetCreateRequestRegistrationOutput {
-	return o
-}
-
-func (o DatasetCreateRequestRegistrationOutput) ToDatasetCreateRequestRegistrationOutputWithContext(ctx context.Context) DatasetCreateRequestRegistrationOutput {
-	return o
-}
-
-// The description for the dataset.
-func (o DatasetCreateRequestRegistrationOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestRegistration) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The name of the dataset.
-func (o DatasetCreateRequestRegistrationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestRegistration) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Tags associated with the dataset.
-func (o DatasetCreateRequestRegistrationOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetCreateRequestRegistration) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-type DatasetCreateRequestTimeSeries struct {
-	// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
-	CoarseGrainTimestamp *string `pulumi:"coarseGrainTimestamp"`
-	//  Column name to be used as FineGrainTimestamp
-	FineGrainTimestamp *string `pulumi:"fineGrainTimestamp"`
-}
-
-// DatasetCreateRequestTimeSeriesInput is an input type that accepts DatasetCreateRequestTimeSeriesArgs and DatasetCreateRequestTimeSeriesOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestTimeSeriesInput` via:
-//
-//          DatasetCreateRequestTimeSeriesArgs{...}
-type DatasetCreateRequestTimeSeriesInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestTimeSeriesOutput() DatasetCreateRequestTimeSeriesOutput
-	ToDatasetCreateRequestTimeSeriesOutputWithContext(context.Context) DatasetCreateRequestTimeSeriesOutput
-}
-
-type DatasetCreateRequestTimeSeriesArgs struct {
-	// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
-	CoarseGrainTimestamp pulumi.StringPtrInput `pulumi:"coarseGrainTimestamp"`
-	//  Column name to be used as FineGrainTimestamp
-	FineGrainTimestamp pulumi.StringPtrInput `pulumi:"fineGrainTimestamp"`
-}
-
-func (DatasetCreateRequestTimeSeriesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestTimeSeries)(nil)).Elem()
-}
-
-func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesOutput() DatasetCreateRequestTimeSeriesOutput {
-	return i.ToDatasetCreateRequestTimeSeriesOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestTimeSeriesOutput)
-}
-
-func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
-	return i.ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Background())
-}
-
-func (i DatasetCreateRequestTimeSeriesArgs) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestTimeSeriesOutput).ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx)
-}
-
-// DatasetCreateRequestTimeSeriesPtrInput is an input type that accepts DatasetCreateRequestTimeSeriesArgs, DatasetCreateRequestTimeSeriesPtr and DatasetCreateRequestTimeSeriesPtrOutput values.
-// You can construct a concrete instance of `DatasetCreateRequestTimeSeriesPtrInput` via:
-//
-//          DatasetCreateRequestTimeSeriesArgs{...}
-//
-//  or:
-//
-//          nil
-type DatasetCreateRequestTimeSeriesPtrInput interface {
-	pulumi.Input
-
-	ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput
-	ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Context) DatasetCreateRequestTimeSeriesPtrOutput
-}
-
-type datasetCreateRequestTimeSeriesPtrType DatasetCreateRequestTimeSeriesArgs
-
-func DatasetCreateRequestTimeSeriesPtr(v *DatasetCreateRequestTimeSeriesArgs) DatasetCreateRequestTimeSeriesPtrInput {
-	return (*datasetCreateRequestTimeSeriesPtrType)(v)
-}
-
-func (*datasetCreateRequestTimeSeriesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestTimeSeries)(nil)).Elem()
-}
-
-func (i *datasetCreateRequestTimeSeriesPtrType) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
-	return i.ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetCreateRequestTimeSeriesPtrType) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetCreateRequestTimeSeriesPtrOutput)
-}
-
-type DatasetCreateRequestTimeSeriesOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestTimeSeriesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetCreateRequestTimeSeries)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesOutput() DatasetCreateRequestTimeSeriesOutput {
-	return o
-}
-
-func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesOutput {
-	return o
-}
-
-func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
-	return o.ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetCreateRequestTimeSeriesOutput) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetCreateRequestTimeSeries) *DatasetCreateRequestTimeSeries {
-		return &v
-	}).(DatasetCreateRequestTimeSeriesPtrOutput)
-}
-
-// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
-func (o DatasetCreateRequestTimeSeriesOutput) CoarseGrainTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestTimeSeries) *string { return v.CoarseGrainTimestamp }).(pulumi.StringPtrOutput)
-}
-
-//  Column name to be used as FineGrainTimestamp
-func (o DatasetCreateRequestTimeSeriesOutput) FineGrainTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetCreateRequestTimeSeries) *string { return v.FineGrainTimestamp }).(pulumi.StringPtrOutput)
-}
-
-type DatasetCreateRequestTimeSeriesPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetCreateRequestTimeSeriesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetCreateRequestTimeSeries)(nil)).Elem()
-}
-
-func (o DatasetCreateRequestTimeSeriesPtrOutput) ToDatasetCreateRequestTimeSeriesPtrOutput() DatasetCreateRequestTimeSeriesPtrOutput {
-	return o
-}
-
-func (o DatasetCreateRequestTimeSeriesPtrOutput) ToDatasetCreateRequestTimeSeriesPtrOutputWithContext(ctx context.Context) DatasetCreateRequestTimeSeriesPtrOutput {
-	return o
-}
-
-func (o DatasetCreateRequestTimeSeriesPtrOutput) Elem() DatasetCreateRequestTimeSeriesOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestTimeSeries) DatasetCreateRequestTimeSeries {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetCreateRequestTimeSeries
-		return ret
-	}).(DatasetCreateRequestTimeSeriesOutput)
-}
-
-// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
-func (o DatasetCreateRequestTimeSeriesPtrOutput) CoarseGrainTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestTimeSeries) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CoarseGrainTimestamp
-	}).(pulumi.StringPtrOutput)
-}
-
-//  Column name to be used as FineGrainTimestamp
-func (o DatasetCreateRequestTimeSeriesPtrOutput) FineGrainTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetCreateRequestTimeSeries) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FineGrainTimestamp
-	}).(pulumi.StringPtrOutput)
-}
-
-// The dataset reference object.
-type DatasetReference struct {
-	// The id of the dataset reference.
-	Id *string `pulumi:"id"`
-	// The name of the dataset reference.
-	Name *string `pulumi:"name"`
-}
-
-// DatasetReferenceInput is an input type that accepts DatasetReferenceArgs and DatasetReferenceOutput values.
-// You can construct a concrete instance of `DatasetReferenceInput` via:
-//
-//          DatasetReferenceArgs{...}
-type DatasetReferenceInput interface {
-	pulumi.Input
-
-	ToDatasetReferenceOutput() DatasetReferenceOutput
-	ToDatasetReferenceOutputWithContext(context.Context) DatasetReferenceOutput
-}
-
-// The dataset reference object.
-type DatasetReferenceArgs struct {
-	// The id of the dataset reference.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the dataset reference.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DatasetReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetReference)(nil)).Elem()
-}
-
-func (i DatasetReferenceArgs) ToDatasetReferenceOutput() DatasetReferenceOutput {
-	return i.ToDatasetReferenceOutputWithContext(context.Background())
-}
-
-func (i DatasetReferenceArgs) ToDatasetReferenceOutputWithContext(ctx context.Context) DatasetReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetReferenceOutput)
-}
-
-// DatasetReferenceArrayInput is an input type that accepts DatasetReferenceArray and DatasetReferenceArrayOutput values.
-// You can construct a concrete instance of `DatasetReferenceArrayInput` via:
-//
-//          DatasetReferenceArray{ DatasetReferenceArgs{...} }
-type DatasetReferenceArrayInput interface {
-	pulumi.Input
-
-	ToDatasetReferenceArrayOutput() DatasetReferenceArrayOutput
-	ToDatasetReferenceArrayOutputWithContext(context.Context) DatasetReferenceArrayOutput
-}
-
-type DatasetReferenceArray []DatasetReferenceInput
-
-func (DatasetReferenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetReference)(nil)).Elem()
-}
-
-func (i DatasetReferenceArray) ToDatasetReferenceArrayOutput() DatasetReferenceArrayOutput {
-	return i.ToDatasetReferenceArrayOutputWithContext(context.Background())
-}
-
-func (i DatasetReferenceArray) ToDatasetReferenceArrayOutputWithContext(ctx context.Context) DatasetReferenceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetReferenceArrayOutput)
-}
-
-// The dataset reference object.
-type DatasetReferenceOutput struct{ *pulumi.OutputState }
-
-func (DatasetReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetReference)(nil)).Elem()
-}
-
-func (o DatasetReferenceOutput) ToDatasetReferenceOutput() DatasetReferenceOutput {
-	return o
-}
-
-func (o DatasetReferenceOutput) ToDatasetReferenceOutputWithContext(ctx context.Context) DatasetReferenceOutput {
-	return o
-}
-
-// The id of the dataset reference.
-func (o DatasetReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetReference) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The name of the dataset reference.
-func (o DatasetReferenceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetReference) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DatasetReferenceArrayOutput struct{ *pulumi.OutputState }
-
-func (DatasetReferenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetReference)(nil)).Elem()
-}
-
-func (o DatasetReferenceArrayOutput) ToDatasetReferenceArrayOutput() DatasetReferenceArrayOutput {
-	return o
-}
-
-func (o DatasetReferenceArrayOutput) ToDatasetReferenceArrayOutputWithContext(ctx context.Context) DatasetReferenceArrayOutput {
-	return o
-}
-
-func (o DatasetReferenceArrayOutput) Index(i pulumi.IntInput) DatasetReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetReference {
-		return vs[0].([]DatasetReference)[vs[1].(int)]
-	}).(DatasetReferenceOutput)
-}
-
-// The dataset reference object.
-type DatasetReferenceResponse struct {
-	// The id of the dataset reference.
-	Id *string `pulumi:"id"`
-	// The name of the dataset reference.
-	Name *string `pulumi:"name"`
-}
-
-// Machine Learning dataset object.
-type DatasetResponse struct {
-	// The dataset creation time (UTC).
-	CreatedTime string `pulumi:"createdTime"`
-	// Unique Dataset identifier.
-	DatasetId string `pulumi:"datasetId"`
-	// Dataset state
-	DatasetState *DatasetStateResponse `pulumi:"datasetState"`
-	// Dataset Type.
-	DatasetType string `pulumi:"datasetType"`
-	// Name of the default compute to be used for any Dataset actions (such as Profile, Write).
-	DefaultCompute string `pulumi:"defaultCompute"`
-	// Description about this dataset version.
-	Description string `pulumi:"description"`
-	// eTag description
-	Etag string `pulumi:"etag"`
-	// Flag to hide Dataset in UI
-	IsVisible bool `pulumi:"isVisible"`
-	// Last created Dataset definition.
-	Latest *DatasetResponseLatest `pulumi:"latest"`
-	// The dataset last modified time (UTC).
-	ModifiedTime string `pulumi:"modifiedTime"`
-	// Unique dataset name
-	Name string `pulumi:"name"`
-	// Tags for this dataset version.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// Machine Learning dataset object.
-type DatasetResponseOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetResponse)(nil)).Elem()
-}
-
-func (o DatasetResponseOutput) ToDatasetResponseOutput() DatasetResponseOutput {
-	return o
-}
-
-func (o DatasetResponseOutput) ToDatasetResponseOutputWithContext(ctx context.Context) DatasetResponseOutput {
-	return o
-}
-
-// The dataset creation time (UTC).
-func (o DatasetResponseOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
-}
-
-// Unique Dataset identifier.
-func (o DatasetResponseOutput) DatasetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.DatasetId }).(pulumi.StringOutput)
-}
-
-// Dataset state
-func (o DatasetResponseOutput) DatasetState() DatasetStateResponsePtrOutput {
-	return o.ApplyT(func(v DatasetResponse) *DatasetStateResponse { return v.DatasetState }).(DatasetStateResponsePtrOutput)
-}
-
-// Dataset Type.
-func (o DatasetResponseOutput) DatasetType() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.DatasetType }).(pulumi.StringOutput)
-}
-
-// Name of the default compute to be used for any Dataset actions (such as Profile, Write).
-func (o DatasetResponseOutput) DefaultCompute() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.DefaultCompute }).(pulumi.StringOutput)
-}
-
-// Description about this dataset version.
-func (o DatasetResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// eTag description
-func (o DatasetResponseOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Flag to hide Dataset in UI
-func (o DatasetResponseOutput) IsVisible() pulumi.BoolOutput {
-	return o.ApplyT(func(v DatasetResponse) bool { return v.IsVisible }).(pulumi.BoolOutput)
-}
-
-// Last created Dataset definition.
-func (o DatasetResponseOutput) Latest() DatasetResponseLatestPtrOutput {
-	return o.ApplyT(func(v DatasetResponse) *DatasetResponseLatest { return v.Latest }).(DatasetResponseLatestPtrOutput)
-}
-
-// The dataset last modified time (UTC).
-func (o DatasetResponseOutput) ModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
-}
-
-// Unique dataset name
-func (o DatasetResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Tags for this dataset version.
-func (o DatasetResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
-type DatasetResponseDataPath struct {
-	// Additional Properties.
-	AdditionalProperties map[string]interface{} `pulumi:"additionalProperties"`
-	// Azure path for Azure Blob or File
-	AzureFilePath string `pulumi:"azureFilePath"`
-	// Data store Name
-	DatastoreName string `pulumi:"datastoreName"`
-	// HTTP URL.
-	HttpUrl string `pulumi:"httpUrl"`
-	// Specify the partition format of path. Defaults to None.
-	PartitionFormat string `pulumi:"partitionFormat"`
-	// Whether or not to ignore unmatched path.
-	PartitionFormatIgnoreError bool `pulumi:"partitionFormatIgnoreError"`
-	// List of files expanded from a file GLOB specified
-	Paths []string `pulumi:"paths"`
-	// Relative path in the data store
-	RelativePath string `pulumi:"relativePath"`
-	// Sql Query/Table/Stored Procedure details.
-	SqlDataPath *DatasetResponseSqlDataPath `pulumi:"sqlDataPath"`
-}
-
-//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
-type DatasetResponseDataPathOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseDataPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetResponseDataPath)(nil)).Elem()
-}
-
-func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathOutput() DatasetResponseDataPathOutput {
-	return o
-}
-
-func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathOutputWithContext(ctx context.Context) DatasetResponseDataPathOutput {
-	return o
-}
-
-// Additional Properties.
-func (o DatasetResponseDataPathOutput) AdditionalProperties() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapOutput)
-}
-
-// Azure path for Azure Blob or File
-func (o DatasetResponseDataPathOutput) AzureFilePath() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.AzureFilePath }).(pulumi.StringOutput)
-}
-
-// Data store Name
-func (o DatasetResponseDataPathOutput) DatastoreName() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.DatastoreName }).(pulumi.StringOutput)
-}
-
-// HTTP URL.
-func (o DatasetResponseDataPathOutput) HttpUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.HttpUrl }).(pulumi.StringOutput)
-}
-
-// Specify the partition format of path. Defaults to None.
-func (o DatasetResponseDataPathOutput) PartitionFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.PartitionFormat }).(pulumi.StringOutput)
-}
-
-// Whether or not to ignore unmatched path.
-func (o DatasetResponseDataPathOutput) PartitionFormatIgnoreError() pulumi.BoolOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) bool { return v.PartitionFormatIgnoreError }).(pulumi.BoolOutput)
-}
-
-// List of files expanded from a file GLOB specified
-func (o DatasetResponseDataPathOutput) Paths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) []string { return v.Paths }).(pulumi.StringArrayOutput)
-}
-
-// Relative path in the data store
-func (o DatasetResponseDataPathOutput) RelativePath() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) string { return v.RelativePath }).(pulumi.StringOutput)
-}
-
-// Sql Query/Table/Stored Procedure details.
-func (o DatasetResponseDataPathOutput) SqlDataPath() DatasetResponseSqlDataPathPtrOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) *DatasetResponseSqlDataPath { return v.SqlDataPath }).(DatasetResponseSqlDataPathPtrOutput)
-}
-
-type DatasetResponseDataPathPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseDataPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetResponseDataPath)(nil)).Elem()
-}
-
-func (o DatasetResponseDataPathPtrOutput) ToDatasetResponseDataPathPtrOutput() DatasetResponseDataPathPtrOutput {
-	return o
-}
-
-func (o DatasetResponseDataPathPtrOutput) ToDatasetResponseDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseDataPathPtrOutput {
-	return o
-}
-
-func (o DatasetResponseDataPathPtrOutput) Elem() DatasetResponseDataPathOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) DatasetResponseDataPath {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetResponseDataPath
-		return ret
-	}).(DatasetResponseDataPathOutput)
-}
-
-// Additional Properties.
-func (o DatasetResponseDataPathPtrOutput) AdditionalProperties() pulumi.MapOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalProperties
-	}).(pulumi.MapOutput)
-}
-
-// Azure path for Azure Blob or File
-func (o DatasetResponseDataPathPtrOutput) AzureFilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AzureFilePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Data store Name
-func (o DatasetResponseDataPathPtrOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DatastoreName
-	}).(pulumi.StringPtrOutput)
-}
-
-// HTTP URL.
-func (o DatasetResponseDataPathPtrOutput) HttpUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HttpUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specify the partition format of path. Defaults to None.
-func (o DatasetResponseDataPathPtrOutput) PartitionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PartitionFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether or not to ignore unmatched path.
-func (o DatasetResponseDataPathPtrOutput) PartitionFormatIgnoreError() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.PartitionFormatIgnoreError
-	}).(pulumi.BoolPtrOutput)
-}
-
-// List of files expanded from a file GLOB specified
-func (o DatasetResponseDataPathPtrOutput) Paths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Paths
-	}).(pulumi.StringArrayOutput)
-}
-
-// Relative path in the data store
-func (o DatasetResponseDataPathPtrOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RelativePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sql Query/Table/Stored Procedure details.
-func (o DatasetResponseDataPathPtrOutput) SqlDataPath() DatasetResponseSqlDataPathPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) *DatasetResponseSqlDataPath {
-		if v == nil {
-			return nil
-		}
-		return v.SqlDataPath
-	}).(DatasetResponseSqlDataPathPtrOutput)
-}
-
-// Last created Dataset definition.
-type DatasetResponseLatest struct {
-	// User who created.
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
-	// The dataset creation time (UTC).
-	CreatedTime string `pulumi:"createdTime"`
-	//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
-	DataPath *DatasetResponseDataPath `pulumi:"dataPath"`
-	// Dataflow Json
-	Dataflow string `pulumi:"dataflow"`
-	// Dataset state
-	DatasetDefinitionState *DatasetStateResponse `pulumi:"datasetDefinitionState"`
-	// Unique Dataset identifier.
-	DatasetId string `pulumi:"datasetId"`
-	// Description about the dataset.
-	Description string `pulumi:"description"`
-	// eTag description
-	Etag string `pulumi:"etag"`
-	// Dataset FileType, specified by user.
-	FileType string `pulumi:"fileType"`
-	// The dataset last modified time (UTC).
-	ModifiedTime string `pulumi:"modifiedTime"`
-	// Summary of Definition changes.
-	Notes string `pulumi:"notes"`
-	// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
-	PartitionFormatInPath bool `pulumi:"partitionFormatInPath"`
-	// Properties stores information like name of time series column for time series dataset.
-	Properties map[string]interface{} `pulumi:"properties"`
-	// Indicates the saved dataset this definition is mapping to, populated on Get.
-	SavedDatasetId string `pulumi:"savedDatasetId"`
-	// Tags associated with the dataset.
-	Tags map[string]string `pulumi:"tags"`
-	//  Telemetry information about the dataset including information like which service the dataset was created from.
-	TelemetryInfo map[string]string `pulumi:"telemetryInfo"`
-	//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
-	UseDescriptionTagsFromDefinition bool `pulumi:"useDescriptionTagsFromDefinition"`
-	// An identifier uniquely identifies a definition change.
-	VersionId string `pulumi:"versionId"`
-}
-
-// Last created Dataset definition.
-type DatasetResponseLatestOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseLatestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetResponseLatest)(nil)).Elem()
-}
-
-func (o DatasetResponseLatestOutput) ToDatasetResponseLatestOutput() DatasetResponseLatestOutput {
-	return o
-}
-
-func (o DatasetResponseLatestOutput) ToDatasetResponseLatestOutputWithContext(ctx context.Context) DatasetResponseLatestOutput {
-	return o
-}
-
-// User who created.
-func (o DatasetResponseLatestOutput) CreatedBy() UserInfoResponsePtrOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) *UserInfoResponse { return v.CreatedBy }).(UserInfoResponsePtrOutput)
-}
-
-// The dataset creation time (UTC).
-func (o DatasetResponseLatestOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.CreatedTime }).(pulumi.StringOutput)
-}
-
-//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
-func (o DatasetResponseLatestOutput) DataPath() DatasetResponseDataPathPtrOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) *DatasetResponseDataPath { return v.DataPath }).(DatasetResponseDataPathPtrOutput)
-}
-
-// Dataflow Json
-func (o DatasetResponseLatestOutput) Dataflow() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Dataflow }).(pulumi.StringOutput)
-}
-
-// Dataset state
-func (o DatasetResponseLatestOutput) DatasetDefinitionState() DatasetStateResponsePtrOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) *DatasetStateResponse { return v.DatasetDefinitionState }).(DatasetStateResponsePtrOutput)
-}
-
-// Unique Dataset identifier.
-func (o DatasetResponseLatestOutput) DatasetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.DatasetId }).(pulumi.StringOutput)
-}
-
-// Description about the dataset.
-func (o DatasetResponseLatestOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// eTag description
-func (o DatasetResponseLatestOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Dataset FileType, specified by user.
-func (o DatasetResponseLatestOutput) FileType() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.FileType }).(pulumi.StringOutput)
-}
-
-// The dataset last modified time (UTC).
-func (o DatasetResponseLatestOutput) ModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.ModifiedTime }).(pulumi.StringOutput)
-}
-
-// Summary of Definition changes.
-func (o DatasetResponseLatestOutput) Notes() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.Notes }).(pulumi.StringOutput)
-}
-
-// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
-func (o DatasetResponseLatestOutput) PartitionFormatInPath() pulumi.BoolOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) bool { return v.PartitionFormatInPath }).(pulumi.BoolOutput)
-}
-
-// Properties stores information like name of time series column for time series dataset.
-func (o DatasetResponseLatestOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
-}
-
-// Indicates the saved dataset this definition is mapping to, populated on Get.
-func (o DatasetResponseLatestOutput) SavedDatasetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.SavedDatasetId }).(pulumi.StringOutput)
-}
-
-// Tags associated with the dataset.
-func (o DatasetResponseLatestOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-//  Telemetry information about the dataset including information like which service the dataset was created from.
-func (o DatasetResponseLatestOutput) TelemetryInfo() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) map[string]string { return v.TelemetryInfo }).(pulumi.StringMapOutput)
-}
-
-//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
-func (o DatasetResponseLatestOutput) UseDescriptionTagsFromDefinition() pulumi.BoolOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) bool { return v.UseDescriptionTagsFromDefinition }).(pulumi.BoolOutput)
-}
-
-// An identifier uniquely identifies a definition change.
-func (o DatasetResponseLatestOutput) VersionId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) string { return v.VersionId }).(pulumi.StringOutput)
-}
-
-type DatasetResponseLatestPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseLatestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetResponseLatest)(nil)).Elem()
-}
-
-func (o DatasetResponseLatestPtrOutput) ToDatasetResponseLatestPtrOutput() DatasetResponseLatestPtrOutput {
-	return o
-}
-
-func (o DatasetResponseLatestPtrOutput) ToDatasetResponseLatestPtrOutputWithContext(ctx context.Context) DatasetResponseLatestPtrOutput {
-	return o
-}
-
-func (o DatasetResponseLatestPtrOutput) Elem() DatasetResponseLatestOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) DatasetResponseLatest {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetResponseLatest
-		return ret
-	}).(DatasetResponseLatestOutput)
-}
-
-// User who created.
-func (o DatasetResponseLatestPtrOutput) CreatedBy() UserInfoResponsePtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *UserInfoResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(UserInfoResponsePtrOutput)
-}
-
-// The dataset creation time (UTC).
-func (o DatasetResponseLatestPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-//  Datastore and reference to location of data such as relativePath, Sql Query and etc.
-func (o DatasetResponseLatestPtrOutput) DataPath() DatasetResponseDataPathPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *DatasetResponseDataPath {
-		if v == nil {
-			return nil
-		}
-		return v.DataPath
-	}).(DatasetResponseDataPathPtrOutput)
-}
-
-// Dataflow Json
-func (o DatasetResponseLatestPtrOutput) Dataflow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Dataflow
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dataset state
-func (o DatasetResponseLatestPtrOutput) DatasetDefinitionState() DatasetStateResponsePtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *DatasetStateResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DatasetDefinitionState
-	}).(DatasetStateResponsePtrOutput)
-}
-
-// Unique Dataset identifier.
-func (o DatasetResponseLatestPtrOutput) DatasetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DatasetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description about the dataset.
-func (o DatasetResponseLatestPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// eTag description
-func (o DatasetResponseLatestPtrOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dataset FileType, specified by user.
-func (o DatasetResponseLatestPtrOutput) FileType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FileType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The dataset last modified time (UTC).
-func (o DatasetResponseLatestPtrOutput) ModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Summary of Definition changes.
-func (o DatasetResponseLatestPtrOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Notes
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
-func (o DatasetResponseLatestPtrOutput) PartitionFormatInPath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.PartitionFormatInPath
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Properties stores information like name of time series column for time series dataset.
-func (o DatasetResponseLatestPtrOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(pulumi.MapOutput)
-}
-
-// Indicates the saved dataset this definition is mapping to, populated on Get.
-func (o DatasetResponseLatestPtrOutput) SavedDatasetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SavedDatasetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tags associated with the dataset.
-func (o DatasetResponseLatestPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-//  Telemetry information about the dataset including information like which service the dataset was created from.
-func (o DatasetResponseLatestPtrOutput) TelemetryInfo() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.TelemetryInfo
-	}).(pulumi.StringMapOutput)
-}
-
-//  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
-func (o DatasetResponseLatestPtrOutput) UseDescriptionTagsFromDefinition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.UseDescriptionTagsFromDefinition
-	}).(pulumi.BoolPtrOutput)
-}
-
-// An identifier uniquely identifies a definition change.
-func (o DatasetResponseLatestPtrOutput) VersionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VersionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sql Query/Table/Stored Procedure details.
-type DatasetResponseSqlDataPath struct {
-	// SQL query timeout. Unit in seconds.
-	QueryTimeout float64 `pulumi:"queryTimeout"`
-	// SQL query
-	SqlQuery string `pulumi:"sqlQuery"`
-	// SQL storedProcedure name
-	SqlStoredProcedureName string `pulumi:"sqlStoredProcedureName"`
-	// SQL table name
-	SqlTableName string `pulumi:"sqlTableName"`
-}
-
-// Sql Query/Table/Stored Procedure details.
-type DatasetResponseSqlDataPathOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseSqlDataPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetResponseSqlDataPath)(nil)).Elem()
-}
-
-func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathOutput() DatasetResponseSqlDataPathOutput {
-	return o
-}
-
-func (o DatasetResponseSqlDataPathOutput) ToDatasetResponseSqlDataPathOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathOutput {
-	return o
-}
-
-// SQL query timeout. Unit in seconds.
-func (o DatasetResponseSqlDataPathOutput) QueryTimeout() pulumi.Float64Output {
-	return o.ApplyT(func(v DatasetResponseSqlDataPath) float64 { return v.QueryTimeout }).(pulumi.Float64Output)
-}
-
-// SQL query
-func (o DatasetResponseSqlDataPathOutput) SqlQuery() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseSqlDataPath) string { return v.SqlQuery }).(pulumi.StringOutput)
-}
-
-// SQL storedProcedure name
-func (o DatasetResponseSqlDataPathOutput) SqlStoredProcedureName() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseSqlDataPath) string { return v.SqlStoredProcedureName }).(pulumi.StringOutput)
-}
-
-// SQL table name
-func (o DatasetResponseSqlDataPathOutput) SqlTableName() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetResponseSqlDataPath) string { return v.SqlTableName }).(pulumi.StringOutput)
-}
-
-type DatasetResponseSqlDataPathPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetResponseSqlDataPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetResponseSqlDataPath)(nil)).Elem()
-}
-
-func (o DatasetResponseSqlDataPathPtrOutput) ToDatasetResponseSqlDataPathPtrOutput() DatasetResponseSqlDataPathPtrOutput {
-	return o
-}
-
-func (o DatasetResponseSqlDataPathPtrOutput) ToDatasetResponseSqlDataPathPtrOutputWithContext(ctx context.Context) DatasetResponseSqlDataPathPtrOutput {
-	return o
-}
-
-func (o DatasetResponseSqlDataPathPtrOutput) Elem() DatasetResponseSqlDataPathOutput {
-	return o.ApplyT(func(v *DatasetResponseSqlDataPath) DatasetResponseSqlDataPath {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetResponseSqlDataPath
-		return ret
-	}).(DatasetResponseSqlDataPathOutput)
-}
-
-// SQL query timeout. Unit in seconds.
-func (o DatasetResponseSqlDataPathPtrOutput) QueryTimeout() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryTimeout
-	}).(pulumi.Float64PtrOutput)
-}
-
-// SQL query
-func (o DatasetResponseSqlDataPathPtrOutput) SqlQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SqlQuery
-	}).(pulumi.StringPtrOutput)
-}
-
-// SQL storedProcedure name
-func (o DatasetResponseSqlDataPathPtrOutput) SqlStoredProcedureName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SqlStoredProcedureName
-	}).(pulumi.StringPtrOutput)
-}
-
-// SQL table name
-func (o DatasetResponseSqlDataPathPtrOutput) SqlTableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetResponseSqlDataPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SqlTableName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dataset state
-type DatasetStateResponse struct {
-	// Reference to better Dataset or a Definition
-	DeprecatedBy *DatasetStateResponseDeprecatedBy `pulumi:"deprecatedBy"`
-	// eTag description
-	Etag string `pulumi:"etag"`
-	// Dataset state
-	State *string `pulumi:"state"`
-}
-
-// Dataset state
-type DatasetStateResponseOutput struct{ *pulumi.OutputState }
-
-func (DatasetStateResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetStateResponse)(nil)).Elem()
-}
-
-func (o DatasetStateResponseOutput) ToDatasetStateResponseOutput() DatasetStateResponseOutput {
-	return o
-}
-
-func (o DatasetStateResponseOutput) ToDatasetStateResponseOutputWithContext(ctx context.Context) DatasetStateResponseOutput {
-	return o
-}
-
-// Reference to better Dataset or a Definition
-func (o DatasetStateResponseOutput) DeprecatedBy() DatasetStateResponseDeprecatedByPtrOutput {
-	return o.ApplyT(func(v DatasetStateResponse) *DatasetStateResponseDeprecatedBy { return v.DeprecatedBy }).(DatasetStateResponseDeprecatedByPtrOutput)
-}
-
-// eTag description
-func (o DatasetStateResponseOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetStateResponse) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Dataset state
-func (o DatasetStateResponseOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetStateResponse) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-type DatasetStateResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetStateResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetStateResponse)(nil)).Elem()
-}
-
-func (o DatasetStateResponsePtrOutput) ToDatasetStateResponsePtrOutput() DatasetStateResponsePtrOutput {
-	return o
-}
-
-func (o DatasetStateResponsePtrOutput) ToDatasetStateResponsePtrOutputWithContext(ctx context.Context) DatasetStateResponsePtrOutput {
-	return o
-}
-
-func (o DatasetStateResponsePtrOutput) Elem() DatasetStateResponseOutput {
-	return o.ApplyT(func(v *DatasetStateResponse) DatasetStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetStateResponse
-		return ret
-	}).(DatasetStateResponseOutput)
-}
-
-// Reference to better Dataset or a Definition
-func (o DatasetStateResponsePtrOutput) DeprecatedBy() DatasetStateResponseDeprecatedByPtrOutput {
-	return o.ApplyT(func(v *DatasetStateResponse) *DatasetStateResponseDeprecatedBy {
-		if v == nil {
-			return nil
-		}
-		return v.DeprecatedBy
-	}).(DatasetStateResponseDeprecatedByPtrOutput)
-}
-
-// eTag description
-func (o DatasetStateResponsePtrOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dataset state
-func (o DatasetStateResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// Reference to better Dataset or a Definition
-type DatasetStateResponseDeprecatedBy struct {
-	// Unique Dataset identifier.
-	DatasetId string `pulumi:"datasetId"`
-	// Definition Version
-	DefinitionVersion *string `pulumi:"definitionVersion"`
-}
-
-// Reference to better Dataset or a Definition
-type DatasetStateResponseDeprecatedByOutput struct{ *pulumi.OutputState }
-
-func (DatasetStateResponseDeprecatedByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetStateResponseDeprecatedBy)(nil)).Elem()
-}
-
-func (o DatasetStateResponseDeprecatedByOutput) ToDatasetStateResponseDeprecatedByOutput() DatasetStateResponseDeprecatedByOutput {
-	return o
-}
-
-func (o DatasetStateResponseDeprecatedByOutput) ToDatasetStateResponseDeprecatedByOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByOutput {
-	return o
-}
-
-// Unique Dataset identifier.
-func (o DatasetStateResponseDeprecatedByOutput) DatasetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetStateResponseDeprecatedBy) string { return v.DatasetId }).(pulumi.StringOutput)
-}
-
-// Definition Version
-func (o DatasetStateResponseDeprecatedByOutput) DefinitionVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetStateResponseDeprecatedBy) *string { return v.DefinitionVersion }).(pulumi.StringPtrOutput)
-}
-
-type DatasetStateResponseDeprecatedByPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetStateResponseDeprecatedByPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetStateResponseDeprecatedBy)(nil)).Elem()
-}
-
-func (o DatasetStateResponseDeprecatedByPtrOutput) ToDatasetStateResponseDeprecatedByPtrOutput() DatasetStateResponseDeprecatedByPtrOutput {
-	return o
-}
-
-func (o DatasetStateResponseDeprecatedByPtrOutput) ToDatasetStateResponseDeprecatedByPtrOutputWithContext(ctx context.Context) DatasetStateResponseDeprecatedByPtrOutput {
-	return o
-}
-
-func (o DatasetStateResponseDeprecatedByPtrOutput) Elem() DatasetStateResponseDeprecatedByOutput {
-	return o.ApplyT(func(v *DatasetStateResponseDeprecatedBy) DatasetStateResponseDeprecatedBy {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetStateResponseDeprecatedBy
-		return ret
-	}).(DatasetStateResponseDeprecatedByOutput)
-}
-
-// Unique Dataset identifier.
-func (o DatasetStateResponseDeprecatedByPtrOutput) DatasetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetStateResponseDeprecatedBy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DatasetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Definition Version
-func (o DatasetStateResponseDeprecatedByPtrOutput) DefinitionVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetStateResponseDeprecatedBy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefinitionVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Machine Learning datastore object.
-type DatastoreResponse struct {
-	AzureDataLakeSection    *AzureDataLakeSectionResponse    `pulumi:"azureDataLakeSection"`
-	AzureMySqlSection       *AzureMySqlSectionResponse       `pulumi:"azureMySqlSection"`
-	AzurePostgreSqlSection  *AzurePostgreSqlSectionResponse  `pulumi:"azurePostgreSqlSection"`
-	AzureSqlDatabaseSection *AzureSqlDatabaseSectionResponse `pulumi:"azureSqlDatabaseSection"`
-	AzureStorageSection     *AzureStorageSectionResponse     `pulumi:"azureStorageSection"`
-	// The User who created the datastore.
-	CreatedBy UserInfoResponse `pulumi:"createdBy"`
-	// The date and time when the datastore was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// The datastore type.
-	DataStoreType *string `pulumi:"dataStoreType"`
-	// Description of the datastore.
-	Description *string `pulumi:"description"`
-	// Data specific to GlusterFS.
-	GlusterFsSection *GlusterFsSectionResponse `pulumi:"glusterFsSection"`
-	// A read only property that denotes whether the service datastore has been validated with credentials.
-	HasBeenValidated *bool `pulumi:"hasBeenValidated"`
-	// Info about origin if it is linked.
-	LinkedInfo *LinkedInfoResponse `pulumi:"linkedInfo"`
-	// The User who modified the datastore.
-	ModifiedBy UserInfoResponse `pulumi:"modifiedBy"`
-	// The date and time when the datastore was last modified.
-	ModifiedTime string `pulumi:"modifiedTime"`
-	// Name of the datastore.
-	Name *string `pulumi:"name"`
-	// Tags for this datastore.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// Defaults sets the appropriate defaults for DatastoreResponse
-func (val *DatastoreResponse) Defaults() *DatastoreResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.HasBeenValidated) {
-		hasBeenValidated_ := false
-		tmp.HasBeenValidated = &hasBeenValidated_
-	}
-	return &tmp
-}
-
-// Machine Learning datastore object.
-type DatastoreResponseOutput struct{ *pulumi.OutputState }
-
-func (DatastoreResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreResponse)(nil)).Elem()
-}
-
-func (o DatastoreResponseOutput) ToDatastoreResponseOutput() DatastoreResponseOutput {
-	return o
-}
-
-func (o DatastoreResponseOutput) ToDatastoreResponseOutputWithContext(ctx context.Context) DatastoreResponseOutput {
-	return o
-}
-
-func (o DatastoreResponseOutput) AzureDataLakeSection() AzureDataLakeSectionResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *AzureDataLakeSectionResponse { return v.AzureDataLakeSection }).(AzureDataLakeSectionResponsePtrOutput)
-}
-
-func (o DatastoreResponseOutput) AzureMySqlSection() AzureMySqlSectionResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *AzureMySqlSectionResponse { return v.AzureMySqlSection }).(AzureMySqlSectionResponsePtrOutput)
-}
-
-func (o DatastoreResponseOutput) AzurePostgreSqlSection() AzurePostgreSqlSectionResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *AzurePostgreSqlSectionResponse { return v.AzurePostgreSqlSection }).(AzurePostgreSqlSectionResponsePtrOutput)
-}
-
-func (o DatastoreResponseOutput) AzureSqlDatabaseSection() AzureSqlDatabaseSectionResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *AzureSqlDatabaseSectionResponse { return v.AzureSqlDatabaseSection }).(AzureSqlDatabaseSectionResponsePtrOutput)
-}
-
-func (o DatastoreResponseOutput) AzureStorageSection() AzureStorageSectionResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *AzureStorageSectionResponse { return v.AzureStorageSection }).(AzureStorageSectionResponsePtrOutput)
-}
-
-// The User who created the datastore.
-func (o DatastoreResponseOutput) CreatedBy() UserInfoResponseOutput {
-	return o.ApplyT(func(v DatastoreResponse) UserInfoResponse { return v.CreatedBy }).(UserInfoResponseOutput)
-}
-
-// The date and time when the datastore was created.
-func (o DatastoreResponseOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DatastoreResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
-}
-
-// The datastore type.
-func (o DatastoreResponseOutput) DataStoreType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *string { return v.DataStoreType }).(pulumi.StringPtrOutput)
-}
-
-// Description of the datastore.
-func (o DatastoreResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Data specific to GlusterFS.
-func (o DatastoreResponseOutput) GlusterFsSection() GlusterFsSectionResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *GlusterFsSectionResponse { return v.GlusterFsSection }).(GlusterFsSectionResponsePtrOutput)
-}
-
-// A read only property that denotes whether the service datastore has been validated with credentials.
-func (o DatastoreResponseOutput) HasBeenValidated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *bool { return v.HasBeenValidated }).(pulumi.BoolPtrOutput)
-}
-
-// Info about origin if it is linked.
-func (o DatastoreResponseOutput) LinkedInfo() LinkedInfoResponsePtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *LinkedInfoResponse { return v.LinkedInfo }).(LinkedInfoResponsePtrOutput)
-}
-
-// The User who modified the datastore.
-func (o DatastoreResponseOutput) ModifiedBy() UserInfoResponseOutput {
-	return o.ApplyT(func(v DatastoreResponse) UserInfoResponse { return v.ModifiedBy }).(UserInfoResponseOutput)
-}
-
-// The date and time when the datastore was last modified.
-func (o DatastoreResponseOutput) ModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DatastoreResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
-}
-
-// Name of the datastore.
-func (o DatastoreResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatastoreResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Tags for this datastore.
-func (o DatastoreResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatastoreResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Class to represent configuration settings for Docker Build
-type DockerBuild struct {
-	// Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
-	// The path is relative to the asset path which must contain a single Blob URI value.
-	// <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
-	Context *string `pulumi:"context"`
-	// Enum to determine docker specification type. Must be either Build or Image.
-	// Expected value is 'Build'.
-	DockerSpecificationType string `pulumi:"dockerSpecificationType"`
-	// [Required] Docker command line instructions to assemble an image.
-	// <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
-	Dockerfile string `pulumi:"dockerfile"`
-	// The platform information of the docker image.
-	Platform *DockerImagePlatform `pulumi:"platform"`
-}
-
-// Class to represent configuration settings for Docker Build
-type DockerBuildResponse struct {
-	// Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
-	// The path is relative to the asset path which must contain a single Blob URI value.
-	// <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
-	Context *string `pulumi:"context"`
-	// Enum to determine docker specification type. Must be either Build or Image.
-	// Expected value is 'Build'.
-	DockerSpecificationType string `pulumi:"dockerSpecificationType"`
-	// [Required] Docker command line instructions to assemble an image.
-	// <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
-	Dockerfile string `pulumi:"dockerfile"`
-	// The platform information of the docker image.
-	Platform *DockerImagePlatformResponse `pulumi:"platform"`
-}
-
-// Class to represent configuration settings for Docker Build
-type DockerImage struct {
-	// [Required] Image name of a custom base image.
-	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
-	DockerImageUri string `pulumi:"dockerImageUri"`
-	// Enum to determine docker specification type. Must be either Build or Image.
-	// Expected value is 'Image'.
-	DockerSpecificationType string `pulumi:"dockerSpecificationType"`
-	// The platform information of the docker image.
-	Platform *DockerImagePlatform `pulumi:"platform"`
-}
-
-type DockerImagePlatform struct {
-	// The OS type the Environment.
-	OperatingSystemType *string `pulumi:"operatingSystemType"`
-}
-
-type DockerImagePlatformResponse struct {
-	// The OS type the Environment.
-	OperatingSystemType *string `pulumi:"operatingSystemType"`
-}
-
-// Class to represent configuration settings for Docker Build
-type DockerImageResponse struct {
-	// [Required] Image name of a custom base image.
-	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
-	DockerImageUri string `pulumi:"dockerImageUri"`
-	// Enum to determine docker specification type. Must be either Build or Image.
-	// Expected value is 'Image'.
-	DockerSpecificationType string `pulumi:"dockerSpecificationType"`
-	// The platform information of the docker image.
-	Platform *DockerImagePlatformResponse `pulumi:"platform"`
 }
 
 type EncryptionProperty struct {
 	// The identity that will be used to access the key vault for encryption at rest.
 	Identity *IdentityForCmk `pulumi:"identity"`
 	// Customer Key vault properties.
-	KeyVaultProperties KeyVaultProperties `pulumi:"keyVaultProperties"`
+	KeyVaultProperties EncryptionKeyVaultProperties `pulumi:"keyVaultProperties"`
 	// Indicates whether or not the encryption is enabled for the workspace.
 	Status string `pulumi:"status"`
 }
@@ -9819,7 +4852,7 @@ type EncryptionPropertyArgs struct {
 	// The identity that will be used to access the key vault for encryption at rest.
 	Identity IdentityForCmkPtrInput `pulumi:"identity"`
 	// Customer Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesInput `pulumi:"keyVaultProperties"`
+	KeyVaultProperties EncryptionKeyVaultPropertiesInput `pulumi:"keyVaultProperties"`
 	// Indicates whether or not the encryption is enabled for the workspace.
 	Status pulumi.StringInput `pulumi:"status"`
 }
@@ -9907,8 +4940,8 @@ func (o EncryptionPropertyOutput) Identity() IdentityForCmkPtrOutput {
 }
 
 // Customer Key vault properties.
-func (o EncryptionPropertyOutput) KeyVaultProperties() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v EncryptionProperty) KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesOutput)
+func (o EncryptionPropertyOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesOutput {
+	return o.ApplyT(func(v EncryptionProperty) EncryptionKeyVaultProperties { return v.KeyVaultProperties }).(EncryptionKeyVaultPropertiesOutput)
 }
 
 // Indicates whether or not the encryption is enabled for the workspace.
@@ -9951,13 +4984,13 @@ func (o EncryptionPropertyPtrOutput) Identity() IdentityForCmkPtrOutput {
 }
 
 // Customer Key vault properties.
-func (o EncryptionPropertyPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v *EncryptionProperty) *KeyVaultProperties {
+func (o EncryptionPropertyPtrOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *EncryptionProperty) *EncryptionKeyVaultProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyVaultProperties
-	}).(KeyVaultPropertiesPtrOutput)
+	}).(EncryptionKeyVaultPropertiesPtrOutput)
 }
 
 // Indicates whether or not the encryption is enabled for the workspace.
@@ -9974,7 +5007,7 @@ type EncryptionPropertyResponse struct {
 	// The identity that will be used to access the key vault for encryption at rest.
 	Identity *IdentityForCmkResponse `pulumi:"identity"`
 	// Customer Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	KeyVaultProperties EncryptionKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// Indicates whether or not the encryption is enabled for the workspace.
 	Status string `pulumi:"status"`
 }
@@ -9999,8 +5032,8 @@ func (o EncryptionPropertyResponseOutput) Identity() IdentityForCmkResponsePtrOu
 }
 
 // Customer Key vault properties.
-func (o EncryptionPropertyResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v EncryptionPropertyResponse) KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponseOutput)
+func (o EncryptionPropertyResponseOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v EncryptionPropertyResponse) EncryptionKeyVaultPropertiesResponse { return v.KeyVaultProperties }).(EncryptionKeyVaultPropertiesResponseOutput)
 }
 
 // Indicates whether or not the encryption is enabled for the workspace.
@@ -10043,13 +5076,13 @@ func (o EncryptionPropertyResponsePtrOutput) Identity() IdentityForCmkResponsePt
 }
 
 // Customer Key vault properties.
-func (o EncryptionPropertyResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *EncryptionPropertyResponse) *KeyVaultPropertiesResponse {
+func (o EncryptionPropertyResponsePtrOutput) KeyVaultProperties() EncryptionKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertyResponse) *EncryptionKeyVaultPropertiesResponse {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyVaultProperties
-	}).(KeyVaultPropertiesResponsePtrOutput)
+	}).(EncryptionKeyVaultPropertiesResponsePtrOutput)
 }
 
 // Indicates whether or not the encryption is enabled for the workspace.
@@ -10225,10 +5258,25 @@ func (o EndpointAuthKeysPtrOutput) SecondaryKey() pulumi.StringPtrOutput {
 type EnvironmentContainerType struct {
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for EnvironmentContainerType
+func (val *EnvironmentContainerType) Defaults() *EnvironmentContainerType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // EnvironmentContainerTypeInput is an input type that accepts EnvironmentContainerTypeArgs and EnvironmentContainerTypeOutput values.
@@ -10246,12 +5294,25 @@ type EnvironmentContainerTypeInput interface {
 type EnvironmentContainerTypeArgs struct {
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for EnvironmentContainerTypeArgs
+func (val *EnvironmentContainerTypeArgs) Defaults() *EnvironmentContainerTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EnvironmentContainerTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentContainerType)(nil)).Elem()
 }
@@ -10284,6 +5345,11 @@ func (o EnvironmentContainerTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentContainerType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Is the asset archived?
+func (o EnvironmentContainerTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnvironmentContainerType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
 // The asset property dictionary.
 func (o EnvironmentContainerTypeOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EnvironmentContainerType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -10298,10 +5364,29 @@ func (o EnvironmentContainerTypeOutput) Tags() pulumi.StringMapOutput {
 type EnvironmentContainerResponse struct {
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The latest version inside this container.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The next auto incremental version
+	NextVersion string `pulumi:"nextVersion"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for EnvironmentContainerResponse
+func (val *EnvironmentContainerResponse) Defaults() *EnvironmentContainerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // Container for environment specification versions.
@@ -10324,6 +5409,21 @@ func (o EnvironmentContainerResponseOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v EnvironmentContainerResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Is the asset archived?
+func (o EnvironmentContainerResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnvironmentContainerResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The latest version inside this container.
+func (o EnvironmentContainerResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentContainerResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The next auto incremental version
+func (o EnvironmentContainerResponseOutput) NextVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentContainerResponse) string { return v.NextVersion }).(pulumi.StringOutput)
+}
+
 // The asset property dictionary.
 func (o EnvironmentContainerResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EnvironmentContainerResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -10334,682 +5434,340 @@ func (o EnvironmentContainerResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EnvironmentContainerResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The details of the AZURE ML environment.
-type EnvironmentImageRequestEnvironment struct {
-	// The definition of a Docker container.
-	Docker *ModelEnvironmentDefinitionDocker `pulumi:"docker"`
-	// Definition of environment variables to be defined in the environment.
-	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
-	InferencingStackVersion *string `pulumi:"inferencingStackVersion"`
-	// The name of the environment.
-	Name *string `pulumi:"name"`
-	// Settings for a Python environment.
-	Python *ModelEnvironmentDefinitionPython `pulumi:"python"`
-	// Settings for a R environment.
-	R *ModelEnvironmentDefinitionR `pulumi:"r"`
-	// The configuration for a Spark environment.
-	Spark *ModelEnvironmentDefinitionSpark `pulumi:"spark"`
-	// The environment version.
-	Version *string `pulumi:"version"`
-}
-
-// EnvironmentImageRequestEnvironmentInput is an input type that accepts EnvironmentImageRequestEnvironmentArgs and EnvironmentImageRequestEnvironmentOutput values.
-// You can construct a concrete instance of `EnvironmentImageRequestEnvironmentInput` via:
-//
-//          EnvironmentImageRequestEnvironmentArgs{...}
-type EnvironmentImageRequestEnvironmentInput interface {
-	pulumi.Input
-
-	ToEnvironmentImageRequestEnvironmentOutput() EnvironmentImageRequestEnvironmentOutput
-	ToEnvironmentImageRequestEnvironmentOutputWithContext(context.Context) EnvironmentImageRequestEnvironmentOutput
-}
-
-// The details of the AZURE ML environment.
-type EnvironmentImageRequestEnvironmentArgs struct {
-	// The definition of a Docker container.
-	Docker ModelEnvironmentDefinitionDockerPtrInput `pulumi:"docker"`
-	// Definition of environment variables to be defined in the environment.
-	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
-	InferencingStackVersion pulumi.StringPtrInput `pulumi:"inferencingStackVersion"`
-	// The name of the environment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Settings for a Python environment.
-	Python ModelEnvironmentDefinitionPythonPtrInput `pulumi:"python"`
-	// Settings for a R environment.
-	R ModelEnvironmentDefinitionRPtrInput `pulumi:"r"`
-	// The configuration for a Spark environment.
-	Spark ModelEnvironmentDefinitionSparkPtrInput `pulumi:"spark"`
-	// The environment version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (EnvironmentImageRequestEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentImageRequestEnvironment)(nil)).Elem()
-}
-
-func (i EnvironmentImageRequestEnvironmentArgs) ToEnvironmentImageRequestEnvironmentOutput() EnvironmentImageRequestEnvironmentOutput {
-	return i.ToEnvironmentImageRequestEnvironmentOutputWithContext(context.Background())
-}
-
-func (i EnvironmentImageRequestEnvironmentArgs) ToEnvironmentImageRequestEnvironmentOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentImageRequestEnvironmentOutput)
-}
-
-func (i EnvironmentImageRequestEnvironmentArgs) ToEnvironmentImageRequestEnvironmentPtrOutput() EnvironmentImageRequestEnvironmentPtrOutput {
-	return i.ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentImageRequestEnvironmentArgs) ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentImageRequestEnvironmentOutput).ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(ctx)
-}
-
-// EnvironmentImageRequestEnvironmentPtrInput is an input type that accepts EnvironmentImageRequestEnvironmentArgs, EnvironmentImageRequestEnvironmentPtr and EnvironmentImageRequestEnvironmentPtrOutput values.
-// You can construct a concrete instance of `EnvironmentImageRequestEnvironmentPtrInput` via:
-//
-//          EnvironmentImageRequestEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentImageRequestEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentImageRequestEnvironmentPtrOutput() EnvironmentImageRequestEnvironmentPtrOutput
-	ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(context.Context) EnvironmentImageRequestEnvironmentPtrOutput
-}
-
-type environmentImageRequestEnvironmentPtrType EnvironmentImageRequestEnvironmentArgs
-
-func EnvironmentImageRequestEnvironmentPtr(v *EnvironmentImageRequestEnvironmentArgs) EnvironmentImageRequestEnvironmentPtrInput {
-	return (*environmentImageRequestEnvironmentPtrType)(v)
-}
-
-func (*environmentImageRequestEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentImageRequestEnvironment)(nil)).Elem()
-}
-
-func (i *environmentImageRequestEnvironmentPtrType) ToEnvironmentImageRequestEnvironmentPtrOutput() EnvironmentImageRequestEnvironmentPtrOutput {
-	return i.ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *environmentImageRequestEnvironmentPtrType) ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentImageRequestEnvironmentPtrOutput)
-}
-
-// The details of the AZURE ML environment.
-type EnvironmentImageRequestEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentImageRequestEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentImageRequestEnvironment)(nil)).Elem()
-}
-
-func (o EnvironmentImageRequestEnvironmentOutput) ToEnvironmentImageRequestEnvironmentOutput() EnvironmentImageRequestEnvironmentOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentOutput) ToEnvironmentImageRequestEnvironmentOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentOutput) ToEnvironmentImageRequestEnvironmentPtrOutput() EnvironmentImageRequestEnvironmentPtrOutput {
-	return o.ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentImageRequestEnvironmentOutput) ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentImageRequestEnvironment) *EnvironmentImageRequestEnvironment {
-		return &v
-	}).(EnvironmentImageRequestEnvironmentPtrOutput)
-}
-
-// The definition of a Docker container.
-func (o EnvironmentImageRequestEnvironmentOutput) Docker() ModelEnvironmentDefinitionDockerPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionDocker { return v.Docker }).(ModelEnvironmentDefinitionDockerPtrOutput)
-}
-
-// Definition of environment variables to be defined in the environment.
-func (o EnvironmentImageRequestEnvironmentOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
-}
-
-// The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
-func (o EnvironmentImageRequestEnvironmentOutput) InferencingStackVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *string { return v.InferencingStackVersion }).(pulumi.StringPtrOutput)
-}
-
-// The name of the environment.
-func (o EnvironmentImageRequestEnvironmentOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Settings for a Python environment.
-func (o EnvironmentImageRequestEnvironmentOutput) Python() ModelEnvironmentDefinitionPythonPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionPython { return v.Python }).(ModelEnvironmentDefinitionPythonPtrOutput)
-}
-
-// Settings for a R environment.
-func (o EnvironmentImageRequestEnvironmentOutput) R() ModelEnvironmentDefinitionRPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionR { return v.R }).(ModelEnvironmentDefinitionRPtrOutput)
-}
-
-// The configuration for a Spark environment.
-func (o EnvironmentImageRequestEnvironmentOutput) Spark() ModelEnvironmentDefinitionSparkPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionSpark { return v.Spark }).(ModelEnvironmentDefinitionSparkPtrOutput)
-}
-
-// The environment version.
-func (o EnvironmentImageRequestEnvironmentOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type EnvironmentImageRequestEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentImageRequestEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentImageRequestEnvironment)(nil)).Elem()
-}
-
-func (o EnvironmentImageRequestEnvironmentPtrOutput) ToEnvironmentImageRequestEnvironmentPtrOutput() EnvironmentImageRequestEnvironmentPtrOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentPtrOutput) ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentPtrOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentPtrOutput) Elem() EnvironmentImageRequestEnvironmentOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) EnvironmentImageRequestEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentImageRequestEnvironment
-		return ret
-	}).(EnvironmentImageRequestEnvironmentOutput)
-}
-
-// The definition of a Docker container.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) Docker() ModelEnvironmentDefinitionDockerPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionDocker {
-		if v == nil {
-			return nil
-		}
-		return v.Docker
-	}).(ModelEnvironmentDefinitionDockerPtrOutput)
-}
-
-// Definition of environment variables to be defined in the environment.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentVariables
-	}).(pulumi.StringMapOutput)
-}
-
-// The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
-func (o EnvironmentImageRequestEnvironmentPtrOutput) InferencingStackVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InferencingStackVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the environment.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Settings for a Python environment.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) Python() ModelEnvironmentDefinitionPythonPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionPython {
-		if v == nil {
-			return nil
-		}
-		return v.Python
-	}).(ModelEnvironmentDefinitionPythonPtrOutput)
-}
-
-// Settings for a R environment.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) R() ModelEnvironmentDefinitionRPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionR {
-		if v == nil {
-			return nil
-		}
-		return v.R
-	}).(ModelEnvironmentDefinitionRPtrOutput)
-}
-
-// The configuration for a Spark environment.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) Spark() ModelEnvironmentDefinitionSparkPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *ModelEnvironmentDefinitionSpark {
-		if v == nil {
-			return nil
-		}
-		return v.Spark
-	}).(ModelEnvironmentDefinitionSparkPtrOutput)
-}
-
-// The environment version.
-func (o EnvironmentImageRequestEnvironmentPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifying details of the AZURE ML environment.
-type EnvironmentImageRequestEnvironmentReference struct {
-	// Name of the environment.
-	Name *string `pulumi:"name"`
-	// Version of the environment.
-	Version *string `pulumi:"version"`
-}
-
-// EnvironmentImageRequestEnvironmentReferenceInput is an input type that accepts EnvironmentImageRequestEnvironmentReferenceArgs and EnvironmentImageRequestEnvironmentReferenceOutput values.
-// You can construct a concrete instance of `EnvironmentImageRequestEnvironmentReferenceInput` via:
-//
-//          EnvironmentImageRequestEnvironmentReferenceArgs{...}
-type EnvironmentImageRequestEnvironmentReferenceInput interface {
-	pulumi.Input
-
-	ToEnvironmentImageRequestEnvironmentReferenceOutput() EnvironmentImageRequestEnvironmentReferenceOutput
-	ToEnvironmentImageRequestEnvironmentReferenceOutputWithContext(context.Context) EnvironmentImageRequestEnvironmentReferenceOutput
-}
-
-// The unique identifying details of the AZURE ML environment.
-type EnvironmentImageRequestEnvironmentReferenceArgs struct {
-	// Name of the environment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Version of the environment.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (EnvironmentImageRequestEnvironmentReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentImageRequestEnvironmentReference)(nil)).Elem()
-}
-
-func (i EnvironmentImageRequestEnvironmentReferenceArgs) ToEnvironmentImageRequestEnvironmentReferenceOutput() EnvironmentImageRequestEnvironmentReferenceOutput {
-	return i.ToEnvironmentImageRequestEnvironmentReferenceOutputWithContext(context.Background())
-}
-
-func (i EnvironmentImageRequestEnvironmentReferenceArgs) ToEnvironmentImageRequestEnvironmentReferenceOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentImageRequestEnvironmentReferenceOutput)
-}
-
-func (i EnvironmentImageRequestEnvironmentReferenceArgs) ToEnvironmentImageRequestEnvironmentReferencePtrOutput() EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return i.ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentImageRequestEnvironmentReferenceArgs) ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentImageRequestEnvironmentReferenceOutput).ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(ctx)
-}
-
-// EnvironmentImageRequestEnvironmentReferencePtrInput is an input type that accepts EnvironmentImageRequestEnvironmentReferenceArgs, EnvironmentImageRequestEnvironmentReferencePtr and EnvironmentImageRequestEnvironmentReferencePtrOutput values.
-// You can construct a concrete instance of `EnvironmentImageRequestEnvironmentReferencePtrInput` via:
-//
-//          EnvironmentImageRequestEnvironmentReferenceArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentImageRequestEnvironmentReferencePtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentImageRequestEnvironmentReferencePtrOutput() EnvironmentImageRequestEnvironmentReferencePtrOutput
-	ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(context.Context) EnvironmentImageRequestEnvironmentReferencePtrOutput
-}
-
-type environmentImageRequestEnvironmentReferencePtrType EnvironmentImageRequestEnvironmentReferenceArgs
-
-func EnvironmentImageRequestEnvironmentReferencePtr(v *EnvironmentImageRequestEnvironmentReferenceArgs) EnvironmentImageRequestEnvironmentReferencePtrInput {
-	return (*environmentImageRequestEnvironmentReferencePtrType)(v)
-}
-
-func (*environmentImageRequestEnvironmentReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentImageRequestEnvironmentReference)(nil)).Elem()
-}
-
-func (i *environmentImageRequestEnvironmentReferencePtrType) ToEnvironmentImageRequestEnvironmentReferencePtrOutput() EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return i.ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *environmentImageRequestEnvironmentReferencePtrType) ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentImageRequestEnvironmentReferencePtrOutput)
-}
-
-// The unique identifying details of the AZURE ML environment.
-type EnvironmentImageRequestEnvironmentReferenceOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentImageRequestEnvironmentReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentImageRequestEnvironmentReference)(nil)).Elem()
-}
-
-func (o EnvironmentImageRequestEnvironmentReferenceOutput) ToEnvironmentImageRequestEnvironmentReferenceOutput() EnvironmentImageRequestEnvironmentReferenceOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentReferenceOutput) ToEnvironmentImageRequestEnvironmentReferenceOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferenceOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentReferenceOutput) ToEnvironmentImageRequestEnvironmentReferencePtrOutput() EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o.ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentImageRequestEnvironmentReferenceOutput) ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentImageRequestEnvironmentReference) *EnvironmentImageRequestEnvironmentReference {
-		return &v
-	}).(EnvironmentImageRequestEnvironmentReferencePtrOutput)
-}
-
-// Name of the environment.
-func (o EnvironmentImageRequestEnvironmentReferenceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironmentReference) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Version of the environment.
-func (o EnvironmentImageRequestEnvironmentReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentImageRequestEnvironmentReference) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type EnvironmentImageRequestEnvironmentReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentImageRequestEnvironmentReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentImageRequestEnvironmentReference)(nil)).Elem()
-}
-
-func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) ToEnvironmentImageRequestEnvironmentReferencePtrOutput() EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o
-}
-
-func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) Elem() EnvironmentImageRequestEnvironmentReferenceOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironmentReference) EnvironmentImageRequestEnvironmentReference {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentImageRequestEnvironmentReference
-		return ret
-	}).(EnvironmentImageRequestEnvironmentReferenceOutput)
-}
-
-// Name of the environment.
-func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironmentReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of the environment.
-func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironmentReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// The details of the AZURE ML environment.
-type EnvironmentImageResponseResponseEnvironment struct {
-	// The definition of a Docker container.
-	Docker *ModelEnvironmentDefinitionResponseResponseDocker `pulumi:"docker"`
-	// Definition of environment variables to be defined in the environment.
-	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
-	InferencingStackVersion *string `pulumi:"inferencingStackVersion"`
-	// The name of the environment.
-	Name *string `pulumi:"name"`
-	// Settings for a Python environment.
-	Python *ModelEnvironmentDefinitionResponseResponsePython `pulumi:"python"`
-	// Settings for a R environment.
-	R *ModelEnvironmentDefinitionResponseResponseR `pulumi:"r"`
-	// The configuration for a Spark environment.
-	Spark *ModelEnvironmentDefinitionResponseResponseSpark `pulumi:"spark"`
-	// The environment version.
-	Version *string `pulumi:"version"`
-}
-
-// The unique identifying details of the AZURE ML environment.
-type EnvironmentImageResponseResponseEnvironmentReference struct {
-	// Name of the environment.
-	Name *string `pulumi:"name"`
-	// Version of the environment.
-	Version *string `pulumi:"version"`
-}
-
-// Environment specification version details.
-// <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
-type EnvironmentSpecificationVersionType struct {
+// Environment version details.
+type EnvironmentVersionType struct {
+	// Configuration settings for Docker build context.
+	Build *BuildContext `pulumi:"build"`
 	// Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
 	// <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
 	CondaFile *string `pulumi:"condaFile"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
-	// Configuration settings for Docker.
-	Docker interface{} `pulumi:"docker"`
+	// Name of the image that will be used for the environment.
+	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+	Image *string `pulumi:"image"`
 	// Defines configuration specific to inference.
-	InferenceContainerProperties *InferenceContainerProperties `pulumi:"inferenceContainerProperties"`
+	InferenceConfig *InferenceContainerProperties `pulumi:"inferenceConfig"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The OS type of the environment.
+	OsType *string `pulumi:"osType"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// EnvironmentSpecificationVersionTypeInput is an input type that accepts EnvironmentSpecificationVersionTypeArgs and EnvironmentSpecificationVersionTypeOutput values.
-// You can construct a concrete instance of `EnvironmentSpecificationVersionTypeInput` via:
-//
-//          EnvironmentSpecificationVersionTypeArgs{...}
-type EnvironmentSpecificationVersionTypeInput interface {
-	pulumi.Input
+// Defaults sets the appropriate defaults for EnvironmentVersionType
+func (val *EnvironmentVersionType) Defaults() *EnvironmentVersionType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Build = tmp.Build.Defaults()
 
-	ToEnvironmentSpecificationVersionTypeOutput() EnvironmentSpecificationVersionTypeOutput
-	ToEnvironmentSpecificationVersionTypeOutputWithContext(context.Context) EnvironmentSpecificationVersionTypeOutput
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	if isZero(tmp.OsType) {
+		osType_ := "Linux"
+		tmp.OsType = &osType_
+	}
+	return &tmp
 }
 
-// Environment specification version details.
-// <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
-type EnvironmentSpecificationVersionTypeArgs struct {
+// EnvironmentVersionTypeInput is an input type that accepts EnvironmentVersionTypeArgs and EnvironmentVersionTypeOutput values.
+// You can construct a concrete instance of `EnvironmentVersionTypeInput` via:
+//
+//          EnvironmentVersionTypeArgs{...}
+type EnvironmentVersionTypeInput interface {
+	pulumi.Input
+
+	ToEnvironmentVersionTypeOutput() EnvironmentVersionTypeOutput
+	ToEnvironmentVersionTypeOutputWithContext(context.Context) EnvironmentVersionTypeOutput
+}
+
+// Environment version details.
+type EnvironmentVersionTypeArgs struct {
+	// Configuration settings for Docker build context.
+	Build BuildContextPtrInput `pulumi:"build"`
 	// Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
 	// <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
 	CondaFile pulumi.StringPtrInput `pulumi:"condaFile"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Configuration settings for Docker.
-	Docker pulumi.Input `pulumi:"docker"`
+	// Name of the image that will be used for the environment.
+	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Defines configuration specific to inference.
-	InferenceContainerProperties InferenceContainerPropertiesPtrInput `pulumi:"inferenceContainerProperties"`
+	InferenceConfig InferenceContainerPropertiesPtrInput `pulumi:"inferenceConfig"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
+	// The OS type of the environment.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
-func (EnvironmentSpecificationVersionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSpecificationVersionType)(nil)).Elem()
+// Defaults sets the appropriate defaults for EnvironmentVersionTypeArgs
+func (val *EnvironmentVersionTypeArgs) Defaults() *EnvironmentVersionTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.IsAnonymous) {
+		tmp.IsAnonymous = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.OsType) {
+		tmp.OsType = pulumi.StringPtr("Linux")
+	}
+	return &tmp
+}
+func (EnvironmentVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVersionType)(nil)).Elem()
 }
 
-func (i EnvironmentSpecificationVersionTypeArgs) ToEnvironmentSpecificationVersionTypeOutput() EnvironmentSpecificationVersionTypeOutput {
-	return i.ToEnvironmentSpecificationVersionTypeOutputWithContext(context.Background())
+func (i EnvironmentVersionTypeArgs) ToEnvironmentVersionTypeOutput() EnvironmentVersionTypeOutput {
+	return i.ToEnvironmentVersionTypeOutputWithContext(context.Background())
 }
 
-func (i EnvironmentSpecificationVersionTypeArgs) ToEnvironmentSpecificationVersionTypeOutputWithContext(ctx context.Context) EnvironmentSpecificationVersionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSpecificationVersionTypeOutput)
+func (i EnvironmentVersionTypeArgs) ToEnvironmentVersionTypeOutputWithContext(ctx context.Context) EnvironmentVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVersionTypeOutput)
 }
 
-// Environment specification version details.
-// <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
-type EnvironmentSpecificationVersionTypeOutput struct{ *pulumi.OutputState }
+// Environment version details.
+type EnvironmentVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentSpecificationVersionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSpecificationVersionType)(nil)).Elem()
+func (EnvironmentVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVersionType)(nil)).Elem()
 }
 
-func (o EnvironmentSpecificationVersionTypeOutput) ToEnvironmentSpecificationVersionTypeOutput() EnvironmentSpecificationVersionTypeOutput {
+func (o EnvironmentVersionTypeOutput) ToEnvironmentVersionTypeOutput() EnvironmentVersionTypeOutput {
 	return o
 }
 
-func (o EnvironmentSpecificationVersionTypeOutput) ToEnvironmentSpecificationVersionTypeOutputWithContext(ctx context.Context) EnvironmentSpecificationVersionTypeOutput {
+func (o EnvironmentVersionTypeOutput) ToEnvironmentVersionTypeOutputWithContext(ctx context.Context) EnvironmentVersionTypeOutput {
 	return o
+}
+
+// Configuration settings for Docker build context.
+func (o EnvironmentVersionTypeOutput) Build() BuildContextPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *BuildContext { return v.Build }).(BuildContextPtrOutput)
 }
 
 // Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
 // <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
-func (o EnvironmentSpecificationVersionTypeOutput) CondaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) *string { return v.CondaFile }).(pulumi.StringPtrOutput)
+func (o EnvironmentVersionTypeOutput) CondaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *string { return v.CondaFile }).(pulumi.StringPtrOutput)
 }
 
 // The asset description text.
-func (o EnvironmentSpecificationVersionTypeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o EnvironmentVersionTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for Docker.
-func (o EnvironmentSpecificationVersionTypeOutput) Docker() pulumi.AnyOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) interface{} { return v.Docker }).(pulumi.AnyOutput)
+// Name of the image that will be used for the environment.
+// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+func (o EnvironmentVersionTypeOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Defines configuration specific to inference.
-func (o EnvironmentSpecificationVersionTypeOutput) InferenceContainerProperties() InferenceContainerPropertiesPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) *InferenceContainerProperties {
-		return v.InferenceContainerProperties
-	}).(InferenceContainerPropertiesPtrOutput)
+func (o EnvironmentVersionTypeOutput) InferenceConfig() InferenceContainerPropertiesPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *InferenceContainerProperties { return v.InferenceConfig }).(InferenceContainerPropertiesPtrOutput)
 }
 
 // If the name version are system generated (anonymous registration).
-func (o EnvironmentSpecificationVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
+func (o EnvironmentVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
+}
+
+// Is the asset archived?
+func (o EnvironmentVersionTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The OS type of the environment.
+func (o EnvironmentVersionTypeOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The asset property dictionary.
-func (o EnvironmentSpecificationVersionTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o EnvironmentVersionTypeOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 // Tag dictionary. Tags can be added, removed, and updated.
-func (o EnvironmentSpecificationVersionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o EnvironmentVersionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Environment specification version details.
-// <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
-type EnvironmentSpecificationVersionResponse struct {
+// Environment version details.
+type EnvironmentVersionResponse struct {
+	// Configuration settings for Docker build context.
+	Build *BuildContextResponse `pulumi:"build"`
 	// Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
 	// <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
 	CondaFile *string `pulumi:"condaFile"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
-	// Configuration settings for Docker.
-	Docker interface{} `pulumi:"docker"`
-	// Environment specification is either user managed or curated by the Azure ML service
+	// Environment type is either user managed or curated by the Azure ML service
 	// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
-	EnvironmentSpecificationType string `pulumi:"environmentSpecificationType"`
+	EnvironmentType string `pulumi:"environmentType"`
+	// Name of the image that will be used for the environment.
+	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+	Image *string `pulumi:"image"`
 	// Defines configuration specific to inference.
-	InferenceContainerProperties *InferenceContainerPropertiesResponse `pulumi:"inferenceContainerProperties"`
+	InferenceConfig *InferenceContainerPropertiesResponse `pulumi:"inferenceConfig"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The OS type of the environment.
+	OsType *string `pulumi:"osType"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// Environment specification version details.
-// <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
-type EnvironmentSpecificationVersionResponseOutput struct{ *pulumi.OutputState }
+// Defaults sets the appropriate defaults for EnvironmentVersionResponse
+func (val *EnvironmentVersionResponse) Defaults() *EnvironmentVersionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Build = tmp.Build.Defaults()
 
-func (EnvironmentSpecificationVersionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSpecificationVersionResponse)(nil)).Elem()
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	if isZero(tmp.OsType) {
+		osType_ := "Linux"
+		tmp.OsType = &osType_
+	}
+	return &tmp
 }
 
-func (o EnvironmentSpecificationVersionResponseOutput) ToEnvironmentSpecificationVersionResponseOutput() EnvironmentSpecificationVersionResponseOutput {
+// Environment version details.
+type EnvironmentVersionResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVersionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVersionResponse)(nil)).Elem()
+}
+
+func (o EnvironmentVersionResponseOutput) ToEnvironmentVersionResponseOutput() EnvironmentVersionResponseOutput {
 	return o
 }
 
-func (o EnvironmentSpecificationVersionResponseOutput) ToEnvironmentSpecificationVersionResponseOutputWithContext(ctx context.Context) EnvironmentSpecificationVersionResponseOutput {
+func (o EnvironmentVersionResponseOutput) ToEnvironmentVersionResponseOutputWithContext(ctx context.Context) EnvironmentVersionResponseOutput {
 	return o
+}
+
+// Configuration settings for Docker build context.
+func (o EnvironmentVersionResponseOutput) Build() BuildContextResponsePtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *BuildContextResponse { return v.Build }).(BuildContextResponsePtrOutput)
 }
 
 // Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
 // <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
-func (o EnvironmentSpecificationVersionResponseOutput) CondaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) *string { return v.CondaFile }).(pulumi.StringPtrOutput)
+func (o EnvironmentVersionResponseOutput) CondaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *string { return v.CondaFile }).(pulumi.StringPtrOutput)
 }
 
 // The asset description text.
-func (o EnvironmentSpecificationVersionResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o EnvironmentVersionResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for Docker.
-func (o EnvironmentSpecificationVersionResponseOutput) Docker() pulumi.AnyOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) interface{} { return v.Docker }).(pulumi.AnyOutput)
-}
-
-// Environment specification is either user managed or curated by the Azure ML service
+// Environment type is either user managed or curated by the Azure ML service
 // <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
-func (o EnvironmentSpecificationVersionResponseOutput) EnvironmentSpecificationType() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) string { return v.EnvironmentSpecificationType }).(pulumi.StringOutput)
+func (o EnvironmentVersionResponseOutput) EnvironmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) string { return v.EnvironmentType }).(pulumi.StringOutput)
+}
+
+// Name of the image that will be used for the environment.
+// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+func (o EnvironmentVersionResponseOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Defines configuration specific to inference.
-func (o EnvironmentSpecificationVersionResponseOutput) InferenceContainerProperties() InferenceContainerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) *InferenceContainerPropertiesResponse {
-		return v.InferenceContainerProperties
-	}).(InferenceContainerPropertiesResponsePtrOutput)
+func (o EnvironmentVersionResponseOutput) InferenceConfig() InferenceContainerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *InferenceContainerPropertiesResponse { return v.InferenceConfig }).(InferenceContainerPropertiesResponsePtrOutput)
 }
 
 // If the name version are system generated (anonymous registration).
-func (o EnvironmentSpecificationVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
+func (o EnvironmentVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
+}
+
+// Is the asset archived?
+func (o EnvironmentVersionResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The OS type of the environment.
+func (o EnvironmentVersionResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The asset property dictionary.
-func (o EnvironmentSpecificationVersionResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o EnvironmentVersionResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 // Tag dictionary. Tags can be added, removed, and updated.
-func (o EnvironmentSpecificationVersionResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentSpecificationVersionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o EnvironmentVersionResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentVersionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Error detail information.
+// The resource management error additional info.
+type ErrorAdditionalInfoResponse struct {
+	// The additional info.
+	Info interface{} `pulumi:"info"`
+	// The additional info type.
+	Type string `pulumi:"type"`
+}
+
+// The error detail.
 type ErrorDetailResponse struct {
-	// Error code.
+	// The error additional info.
+	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
+	// The error code.
 	Code string `pulumi:"code"`
-	// Error message.
+	// The error details.
+	Details []ErrorDetailResponse `pulumi:"details"`
+	// The error message.
 	Message string `pulumi:"message"`
+	// The error target.
+	Target string `pulumi:"target"`
 }
 
-// Error response information.
+// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
 type ErrorResponseResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// An array of error detail objects.
-	Details []ErrorDetailResponse `pulumi:"details"`
-	// Error message.
-	Message string `pulumi:"message"`
+	// The error object.
+	Error *ErrorDetailResponse `pulumi:"error"`
 }
 
 type FlavorData struct {
@@ -11153,97 +5911,34 @@ func (o FlavorDataResponseMapOutput) MapIndex(k pulumi.StringInput) FlavorDataRe
 	}).(FlavorDataResponseOutput)
 }
 
-// Data specific to GlusterFS.
-type GlusterFsSectionResponse struct {
-	// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
-	ServerAddress string `pulumi:"serverAddress"`
-	// The name of the created GlusterFS volume.
-	VolumeName string `pulumi:"volumeName"`
+// Defines a Sampling Algorithm that exhaustively generates every value combination in the space
+type GridSamplingAlgorithm struct {
+	// Expected value is 'Grid'.
+	SamplingAlgorithmType string `pulumi:"samplingAlgorithmType"`
 }
 
-// Data specific to GlusterFS.
-type GlusterFsSectionResponseOutput struct{ *pulumi.OutputState }
-
-func (GlusterFsSectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlusterFsSectionResponse)(nil)).Elem()
-}
-
-func (o GlusterFsSectionResponseOutput) ToGlusterFsSectionResponseOutput() GlusterFsSectionResponseOutput {
-	return o
-}
-
-func (o GlusterFsSectionResponseOutput) ToGlusterFsSectionResponseOutputWithContext(ctx context.Context) GlusterFsSectionResponseOutput {
-	return o
-}
-
-// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
-func (o GlusterFsSectionResponseOutput) ServerAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GlusterFsSectionResponse) string { return v.ServerAddress }).(pulumi.StringOutput)
-}
-
-// The name of the created GlusterFS volume.
-func (o GlusterFsSectionResponseOutput) VolumeName() pulumi.StringOutput {
-	return o.ApplyT(func(v GlusterFsSectionResponse) string { return v.VolumeName }).(pulumi.StringOutput)
-}
-
-type GlusterFsSectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GlusterFsSectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlusterFsSectionResponse)(nil)).Elem()
-}
-
-func (o GlusterFsSectionResponsePtrOutput) ToGlusterFsSectionResponsePtrOutput() GlusterFsSectionResponsePtrOutput {
-	return o
-}
-
-func (o GlusterFsSectionResponsePtrOutput) ToGlusterFsSectionResponsePtrOutputWithContext(ctx context.Context) GlusterFsSectionResponsePtrOutput {
-	return o
-}
-
-func (o GlusterFsSectionResponsePtrOutput) Elem() GlusterFsSectionResponseOutput {
-	return o.ApplyT(func(v *GlusterFsSectionResponse) GlusterFsSectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GlusterFsSectionResponse
-		return ret
-	}).(GlusterFsSectionResponseOutput)
-}
-
-// The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
-func (o GlusterFsSectionResponsePtrOutput) ServerAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlusterFsSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ServerAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the created GlusterFS volume.
-func (o GlusterFsSectionResponsePtrOutput) VolumeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlusterFsSectionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VolumeName
-	}).(pulumi.StringPtrOutput)
+// Defines a Sampling Algorithm that exhaustively generates every value combination in the space
+type GridSamplingAlgorithmResponse struct {
+	// Expected value is 'Grid'.
+	SamplingAlgorithmType string `pulumi:"samplingAlgorithmType"`
 }
 
 // A HDInsight compute.
 type HDInsight struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'HDInsight'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
-	Description *string              `pulumi:"description"`
-	Properties  *HDInsightProperties `pulumi:"properties"`
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// HDInsight compute properties
+	Properties *HDInsightProperties `pulumi:"properties"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
 
+// HDInsight compute properties
 type HDInsightProperties struct {
 	// Public IP address of the master node of the cluster.
 	Address *string `pulumi:"address"`
@@ -11253,33 +5948,41 @@ type HDInsightProperties struct {
 	SshPort *int `pulumi:"sshPort"`
 }
 
-// A HDInsight compute.
-type HDInsightResponse struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
-	// The type of compute
-	// Expected value is 'HDInsight'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the Machine Learning compute.
-	Description *string `pulumi:"description"`
-	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-	IsAttachedCompute bool                         `pulumi:"isAttachedCompute"`
-	Properties        *HDInsightResponseProperties `pulumi:"properties"`
-	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
-	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ARM resource id of the underlying compute
-	ResourceId *string `pulumi:"resourceId"`
-}
-
-type HDInsightResponseProperties struct {
+// HDInsight compute properties
+type HDInsightPropertiesResponse struct {
 	// Public IP address of the master node of the cluster.
 	Address *string `pulumi:"address"`
 	// Admin credentials for master node of the cluster
 	AdministratorAccount *VirtualMachineSshCredentialsResponse `pulumi:"administratorAccount"`
 	// Port open for ssh connections on the master node of the cluster.
 	SshPort *int `pulumi:"sshPort"`
+}
+
+// A HDInsight compute.
+type HDInsightResponse struct {
+	// Location for the underlying compute
+	ComputeLocation string `pulumi:"computeLocation"`
+	// The type of compute
+	// Expected value is 'HDInsight'.
+	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// HDInsight compute properties
+	Properties *HDInsightPropertiesResponse `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 // Reference to an asset via its ARM resource ID.
@@ -11300,169 +6003,10 @@ type IdAssetReferenceResponse struct {
 	ReferenceType string `pulumi:"referenceType"`
 }
 
-// Identity for the resource.
-type Identity struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The user assigned identities associated with the resource.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
-}
-
-// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
-// You can construct a concrete instance of `IdentityInput` via:
-//
-//          IdentityArgs{...}
-type IdentityInput interface {
-	pulumi.Input
-
-	ToIdentityOutput() IdentityOutput
-	ToIdentityOutputWithContext(context.Context) IdentityOutput
-}
-
-// Identity for the resource.
-type IdentityArgs struct {
-	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
-	// The user assigned identities associated with the resource.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (IdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Identity)(nil)).Elem()
-}
-
-func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
-	return i.ToIdentityOutputWithContext(context.Background())
-}
-
-func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
-}
-
-func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
-	return i.ToIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
-}
-
-// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
-// You can construct a concrete instance of `IdentityPtrInput` via:
-//
-//          IdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type IdentityPtrInput interface {
-	pulumi.Input
-
-	ToIdentityPtrOutput() IdentityPtrOutput
-	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
-}
-
-type identityPtrType IdentityArgs
-
-func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
-	return (*identityPtrType)(v)
-}
-
-func (*identityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Identity)(nil)).Elem()
-}
-
-func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
-	return i.ToIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
-}
-
-// Identity for the resource.
-type IdentityOutput struct{ *pulumi.OutputState }
-
-func (IdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Identity)(nil)).Elem()
-}
-
-func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
-	return o
-}
-
-func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
-	return o
-}
-
-func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
-	return o.ToIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
-		return &v
-	}).(IdentityPtrOutput)
-}
-
-// The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
-}
-
-// The user assigned identities associated with the resource.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
-}
-
-type IdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Identity)(nil)).Elem()
-}
-
-func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
-	return o
-}
-
-func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o
-}
-
-func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
-}
-
-// The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
-}
-
-// The user assigned identities associated with the resource.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *Identity) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
-}
-
 // Identity that will be used to access key vault for encryption at rest
 type IdentityForCmk struct {
 	// The ArmId of the user assigned identity that will be used to access the customer managed key vault
-	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
 // IdentityForCmkInput is an input type that accepts IdentityForCmkArgs and IdentityForCmkOutput values.
@@ -11479,7 +6023,7 @@ type IdentityForCmkInput interface {
 // Identity that will be used to access key vault for encryption at rest
 type IdentityForCmkArgs struct {
 	// The ArmId of the user assigned identity that will be used to access the customer managed key vault
-	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
 func (IdentityForCmkArgs) ElementType() reflect.Type {
@@ -11561,8 +6105,8 @@ func (o IdentityForCmkOutput) ToIdentityForCmkPtrOutputWithContext(ctx context.C
 }
 
 // The ArmId of the user assigned identity that will be used to access the customer managed key vault
-func (o IdentityForCmkOutput) UserAssignedIdentity() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityForCmk) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
+func (o IdentityForCmkOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityForCmk) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 type IdentityForCmkPtrOutput struct{ *pulumi.OutputState }
@@ -11595,14 +6139,14 @@ func (o IdentityForCmkPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.UserAssignedIdentity
+		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
 // Identity that will be used to access key vault for encryption at rest
 type IdentityForCmkResponse struct {
 	// The ArmId of the user assigned identity that will be used to access the customer managed key vault
-	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
 // Identity that will be used to access key vault for encryption at rest
@@ -11621,8 +6165,8 @@ func (o IdentityForCmkResponseOutput) ToIdentityForCmkResponseOutputWithContext(
 }
 
 // The ArmId of the user assigned identity that will be used to access the customer managed key vault
-func (o IdentityForCmkResponseOutput) UserAssignedIdentity() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityForCmkResponse) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
+func (o IdentityForCmkResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityForCmkResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 type IdentityForCmkResponsePtrOutput struct{ *pulumi.OutputState }
@@ -11655,258 +6199,8 @@ func (o IdentityForCmkResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.UserAssignedIdentity
+		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
-}
-
-// Identity for the resource.
-type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The user assigned identities associated with the resource.
-	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
-}
-
-// Identity for the resource.
-type IdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (IdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
-}
-
-func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
-	return o
-}
-
-func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
-	return o
-}
-
-// The principal ID of resource identity.
-func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-// The tenant ID of resource.
-func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-// The identity type.
-func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// The user assigned identities associated with the resource.
-func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
-}
-
-type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
-}
-
-func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
-	return o
-}
-
-func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o
-}
-
-func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
-}
-
-// The principal ID of resource identity.
-func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The tenant ID of resource.
-func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity type.
-func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The user assigned identities associated with the resource.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityResponseMapOutput)
-}
-
-// An Image asset.
-type ImageAsset struct {
-	// The Asset Id.
-	Id *string `pulumi:"id"`
-	// The mime type.
-	MimeType *string `pulumi:"mimeType"`
-	// Whether the Asset is unpacked.
-	Unpack *bool `pulumi:"unpack"`
-	// The Url of the Asset.
-	Url *string `pulumi:"url"`
-}
-
-// ImageAssetInput is an input type that accepts ImageAssetArgs and ImageAssetOutput values.
-// You can construct a concrete instance of `ImageAssetInput` via:
-//
-//          ImageAssetArgs{...}
-type ImageAssetInput interface {
-	pulumi.Input
-
-	ToImageAssetOutput() ImageAssetOutput
-	ToImageAssetOutputWithContext(context.Context) ImageAssetOutput
-}
-
-// An Image asset.
-type ImageAssetArgs struct {
-	// The Asset Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The mime type.
-	MimeType pulumi.StringPtrInput `pulumi:"mimeType"`
-	// Whether the Asset is unpacked.
-	Unpack pulumi.BoolPtrInput `pulumi:"unpack"`
-	// The Url of the Asset.
-	Url pulumi.StringPtrInput `pulumi:"url"`
-}
-
-func (ImageAssetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageAsset)(nil)).Elem()
-}
-
-func (i ImageAssetArgs) ToImageAssetOutput() ImageAssetOutput {
-	return i.ToImageAssetOutputWithContext(context.Background())
-}
-
-func (i ImageAssetArgs) ToImageAssetOutputWithContext(ctx context.Context) ImageAssetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageAssetOutput)
-}
-
-// ImageAssetArrayInput is an input type that accepts ImageAssetArray and ImageAssetArrayOutput values.
-// You can construct a concrete instance of `ImageAssetArrayInput` via:
-//
-//          ImageAssetArray{ ImageAssetArgs{...} }
-type ImageAssetArrayInput interface {
-	pulumi.Input
-
-	ToImageAssetArrayOutput() ImageAssetArrayOutput
-	ToImageAssetArrayOutputWithContext(context.Context) ImageAssetArrayOutput
-}
-
-type ImageAssetArray []ImageAssetInput
-
-func (ImageAssetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageAsset)(nil)).Elem()
-}
-
-func (i ImageAssetArray) ToImageAssetArrayOutput() ImageAssetArrayOutput {
-	return i.ToImageAssetArrayOutputWithContext(context.Background())
-}
-
-func (i ImageAssetArray) ToImageAssetArrayOutputWithContext(ctx context.Context) ImageAssetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageAssetArrayOutput)
-}
-
-// An Image asset.
-type ImageAssetOutput struct{ *pulumi.OutputState }
-
-func (ImageAssetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageAsset)(nil)).Elem()
-}
-
-func (o ImageAssetOutput) ToImageAssetOutput() ImageAssetOutput {
-	return o
-}
-
-func (o ImageAssetOutput) ToImageAssetOutputWithContext(ctx context.Context) ImageAssetOutput {
-	return o
-}
-
-// The Asset Id.
-func (o ImageAssetOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageAsset) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The mime type.
-func (o ImageAssetOutput) MimeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageAsset) *string { return v.MimeType }).(pulumi.StringPtrOutput)
-}
-
-// Whether the Asset is unpacked.
-func (o ImageAssetOutput) Unpack() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ImageAsset) *bool { return v.Unpack }).(pulumi.BoolPtrOutput)
-}
-
-// The Url of the Asset.
-func (o ImageAssetOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageAsset) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-type ImageAssetArrayOutput struct{ *pulumi.OutputState }
-
-func (ImageAssetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageAsset)(nil)).Elem()
-}
-
-func (o ImageAssetArrayOutput) ToImageAssetArrayOutput() ImageAssetArrayOutput {
-	return o
-}
-
-func (o ImageAssetArrayOutput) ToImageAssetArrayOutputWithContext(ctx context.Context) ImageAssetArrayOutput {
-	return o
-}
-
-func (o ImageAssetArrayOutput) Index(i pulumi.IntInput) ImageAssetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageAsset {
-		return vs[0].([]ImageAsset)[vs[1].(int)]
-	}).(ImageAssetOutput)
-}
-
-// An Image asset.
-type ImageAssetResponse struct {
-	// The Asset Id.
-	Id *string `pulumi:"id"`
-	// The mime type.
-	MimeType *string `pulumi:"mimeType"`
-	// Whether the Asset is unpacked.
-	Unpack *bool `pulumi:"unpack"`
-	// The Url of the Asset.
-	Url *string `pulumi:"url"`
 }
 
 type InferenceContainerProperties struct {
@@ -12176,2169 +6470,310 @@ func (o InferenceContainerPropertiesResponsePtrOutput) ScoringRoute() RouteRespo
 	}).(RouteResponsePtrOutput)
 }
 
-type InputDataBinding struct {
-	// ARM resource ID of the registered dataVersion.
-	DataId *string `pulumi:"dataId"`
-	// Mechanism for accessing the data artifact.
-	Mode *string `pulumi:"mode"`
-	// Location of data inside the container process.
-	PathOnCompute *string `pulumi:"pathOnCompute"`
+// Instance type schema.
+type InstanceTypeSchema struct {
+	// Node Selector
+	NodeSelector map[string]string `pulumi:"nodeSelector"`
+	// Resource requests/limits for this instance type
+	Resources *InstanceTypeSchemaResources `pulumi:"resources"`
 }
 
-type InputDataBindingResponse struct {
-	// ARM resource ID of the registered dataVersion.
-	DataId *string `pulumi:"dataId"`
-	// Mechanism for accessing the data artifact.
-	Mode *string `pulumi:"mode"`
-	// Location of data inside the container process.
-	PathOnCompute *string `pulumi:"pathOnCompute"`
+// Resource requests/limits for this instance type
+type InstanceTypeSchemaResources struct {
+	// Resource limits for this instance type
+	Limits map[string]string `pulumi:"limits"`
+	// Resource requests for this instance type
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// Instance type schema.
+type InstanceTypeSchemaResponse struct {
+	// Node Selector
+	NodeSelector map[string]string `pulumi:"nodeSelector"`
+	// Resource requests/limits for this instance type
+	Resources *InstanceTypeSchemaResponseResources `pulumi:"resources"`
+}
+
+// Resource requests/limits for this instance type
+type InstanceTypeSchemaResponseResources struct {
+	// Resource limits for this instance type
+	Limits map[string]string `pulumi:"limits"`
+	// Resource requests for this instance type
+	Requests map[string]string `pulumi:"requests"`
 }
 
 // Job endpoint definition
-type JobEndpointResponse struct {
+type JobService struct {
 	// Url for endpoint.
 	Endpoint *string `pulumi:"endpoint"`
 	// Endpoint type.
-	JobEndpointType *string `pulumi:"jobEndpointType"`
+	JobServiceType *string `pulumi:"jobServiceType"`
 	// Port for endpoint.
 	Port *int `pulumi:"port"`
 	// Additional properties to set on the endpoint.
 	Properties map[string]string `pulumi:"properties"`
 }
 
-// Job output definition container information on where to find job output/logs.
-type JobOutputResponse struct {
-	// ARM ID of the datastore where the job logs and artifacts are stored, or null for the default container ("azureml") in the workspace's storage account.
-	DatastoreId string `pulumi:"datastoreId"`
-	// Path within the datastore to the job logs and artifacts.
-	Path string `pulumi:"path"`
+// Job endpoint definition
+type JobServiceResponse struct {
+	// Url for endpoint.
+	Endpoint *string `pulumi:"endpoint"`
+	// Any error in the service.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// Endpoint type.
+	JobServiceType *string `pulumi:"jobServiceType"`
+	// Port for endpoint.
+	Port *int `pulumi:"port"`
+	// Additional properties to set on the endpoint.
+	Properties map[string]string `pulumi:"properties"`
+	// Status of endpoint.
+	Status string `pulumi:"status"`
 }
 
-type K8sOnlineDeployment struct {
+// A Machine Learning compute based on Kubernetes Compute.
+type Kubernetes struct {
+	// The type of compute
+	// Expected value is 'Kubernetes'.
+	ComputeType string `pulumi:"computeType"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Properties of Kubernetes
+	Properties *KubernetesProperties `pulumi:"properties"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// Defaults sets the appropriate defaults for Kubernetes
+func (val *Kubernetes) Defaults() *Kubernetes {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+// Properties specific to a KubernetesOnlineDeployment.
+type KubernetesOnlineDeployment struct {
 	// If true, enables Application Insights logging.
 	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration *CodeConfiguration `pulumi:"codeConfiguration"`
-	// Resource requirements for each container instance within an online deployment.
+	// The resource requirements for the container (cpu and memory).
 	ContainerResourceRequirements *ContainerResourceRequirements `pulumi:"containerResourceRequirements"`
 	// Description of the endpoint deployment.
 	Description *string `pulumi:"description"`
 	// Enum to determine endpoint compute type.
-	// Expected value is 'K8S'.
+	// Expected value is 'Kubernetes'.
 	EndpointComputeType string `pulumi:"endpointComputeType"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Deployment container liveness/readiness probe configuration.
+	// Compute instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Liveness probe monitors the health of the container regularly.
 	LivenessProbe *ProbeSettings `pulumi:"livenessProbe"`
-	// Reference to the model asset for the endpoint deployment.
-	Model interface{} `pulumi:"model"`
+	// The URI path to the model.
+	Model *string `pulumi:"model"`
+	// The path to mount the model in custom container.
+	ModelMountPath *string `pulumi:"modelMountPath"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
-	// Online deployment scoring requests configuration.
+	// Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+	ReadinessProbe *ProbeSettings `pulumi:"readinessProbe"`
+	// Request settings for the deployment.
 	RequestSettings *OnlineRequestSettings `pulumi:"requestSettings"`
-	// Online deployment scaling configuration.
+	// Scale settings for the deployment.
+	// If it is null or not provided,
+	// it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+	// and to DefaultScaleSettings for ManagedOnlineDeployment.
 	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
-type K8sOnlineDeploymentResponse struct {
+// Defaults sets the appropriate defaults for KubernetesOnlineDeployment
+func (val *KubernetesOnlineDeployment) Defaults() *KubernetesOnlineDeployment {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppInsightsEnabled) {
+		appInsightsEnabled_ := false
+		tmp.AppInsightsEnabled = &appInsightsEnabled_
+	}
+	tmp.LivenessProbe = tmp.LivenessProbe.Defaults()
+
+	tmp.ReadinessProbe = tmp.ReadinessProbe.Defaults()
+
+	tmp.RequestSettings = tmp.RequestSettings.Defaults()
+
+	return &tmp
+}
+
+// Properties specific to a KubernetesOnlineDeployment.
+type KubernetesOnlineDeploymentResponse struct {
 	// If true, enables Application Insights logging.
 	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration *CodeConfigurationResponse `pulumi:"codeConfiguration"`
-	// Resource requirements for each container instance within an online deployment.
+	// The resource requirements for the container (cpu and memory).
 	ContainerResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"containerResourceRequirements"`
 	// Description of the endpoint deployment.
 	Description *string `pulumi:"description"`
 	// Enum to determine endpoint compute type.
-	// Expected value is 'K8S'.
+	// Expected value is 'Kubernetes'.
 	EndpointComputeType string `pulumi:"endpointComputeType"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Deployment container liveness/readiness probe configuration.
+	// Compute instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Liveness probe monitors the health of the container regularly.
 	LivenessProbe *ProbeSettingsResponse `pulumi:"livenessProbe"`
-	// Reference to the model asset for the endpoint deployment.
-	Model interface{} `pulumi:"model"`
+	// The URI path to the model.
+	Model *string `pulumi:"model"`
+	// The path to mount the model in custom container.
+	ModelMountPath *string `pulumi:"modelMountPath"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
 	// Provisioning state for the endpoint deployment.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Online deployment scoring requests configuration.
+	// Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+	ReadinessProbe *ProbeSettingsResponse `pulumi:"readinessProbe"`
+	// Request settings for the deployment.
 	RequestSettings *OnlineRequestSettingsResponse `pulumi:"requestSettings"`
-	// Online deployment scaling configuration.
+	// Scale settings for the deployment.
+	// If it is null or not provided,
+	// it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+	// and to DefaultScaleSettings for ManagedOnlineDeployment.
 	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
-type KeyVaultProperties struct {
-	// For future use - The client id of the identity which will be used to access key vault.
-	IdentityClientId *string `pulumi:"identityClientId"`
-	// Key vault uri to access the encryption key.
-	KeyIdentifier string `pulumi:"keyIdentifier"`
-	// The ArmId of the keyVault where the customer owned encryption key is present.
-	KeyVaultArmId string `pulumi:"keyVaultArmId"`
-}
-
-// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
-//
-//          KeyVaultPropertiesArgs{...}
-type KeyVaultPropertiesInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
-	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
-}
-
-type KeyVaultPropertiesArgs struct {
-	// For future use - The client id of the identity which will be used to access key vault.
-	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
-	// Key vault uri to access the encryption key.
-	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
-	// The ArmId of the keyVault where the customer owned encryption key is present.
-	KeyVaultArmId pulumi.StringInput `pulumi:"keyVaultArmId"`
-}
-
-func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
-	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput).ToKeyVaultPropertiesPtrOutputWithContext(ctx)
-}
-
-// KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
-//
-//          KeyVaultPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput
-	ToKeyVaultPropertiesPtrOutputWithContext(context.Context) KeyVaultPropertiesPtrOutput
-}
-
-type keyVaultPropertiesPtrType KeyVaultPropertiesArgs
-
-func KeyVaultPropertiesPtr(v *KeyVaultPropertiesArgs) KeyVaultPropertiesPtrInput {
-	return (*keyVaultPropertiesPtrType)(v)
-}
-
-func (*keyVaultPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
-}
-
-func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
-}
-
-type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return o.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
-		return &v
-	}).(KeyVaultPropertiesPtrOutput)
-}
-
-// For future use - The client id of the identity which will be used to access key vault.
-func (o KeyVaultPropertiesOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-// Key vault uri to access the encryption key.
-func (o KeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyIdentifier }).(pulumi.StringOutput)
-}
-
-// The ArmId of the keyVault where the customer owned encryption key is present.
-func (o KeyVaultPropertiesOutput) KeyVaultArmId() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyVaultArmId }).(pulumi.StringOutput)
-}
-
-type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
-}
-
-// For future use - The client id of the identity which will be used to access key vault.
-func (o KeyVaultPropertiesPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key vault uri to access the encryption key.
-func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ArmId of the keyVault where the customer owned encryption key is present.
-func (o KeyVaultPropertiesPtrOutput) KeyVaultArmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyVaultArmId
-	}).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultPropertiesResponse struct {
-	// For future use - The client id of the identity which will be used to access key vault.
-	IdentityClientId *string `pulumi:"identityClientId"`
-	// Key vault uri to access the encryption key.
-	KeyIdentifier string `pulumi:"keyIdentifier"`
-	// The ArmId of the keyVault where the customer owned encryption key is present.
-	KeyVaultArmId string `pulumi:"keyVaultArmId"`
-}
-
-type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
-	return o
-}
-
-// For future use - The client id of the identity which will be used to access key vault.
-func (o KeyVaultPropertiesResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-// Key vault uri to access the encryption key.
-func (o KeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyIdentifier }).(pulumi.StringOutput)
-}
-
-// The ArmId of the keyVault where the customer owned encryption key is present.
-func (o KeyVaultPropertiesResponseOutput) KeyVaultArmId() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyVaultArmId }).(pulumi.StringOutput)
-}
-
-type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
-}
-
-// For future use - The client id of the identity which will be used to access key vault.
-func (o KeyVaultPropertiesResponsePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key vault uri to access the encryption key.
-func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ArmId of the keyVault where the customer owned encryption key is present.
-func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyVaultArmId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Represents a category of labels in a labeling job.
-type LabelCategory struct {
-	// Indicates whether it is allowed to select multiple classes in this category.
-	AllowMultiSelect *bool `pulumi:"allowMultiSelect"`
-	// Dictionary of label classes in this category.
-	Classes map[string]LabelClass `pulumi:"classes"`
-	// Display name of the label category.
-	DisplayName *string `pulumi:"displayName"`
-}
-
-// LabelCategoryInput is an input type that accepts LabelCategoryArgs and LabelCategoryOutput values.
-// You can construct a concrete instance of `LabelCategoryInput` via:
-//
-//          LabelCategoryArgs{...}
-type LabelCategoryInput interface {
-	pulumi.Input
-
-	ToLabelCategoryOutput() LabelCategoryOutput
-	ToLabelCategoryOutputWithContext(context.Context) LabelCategoryOutput
-}
-
-// Represents a category of labels in a labeling job.
-type LabelCategoryArgs struct {
-	// Indicates whether it is allowed to select multiple classes in this category.
-	AllowMultiSelect pulumi.BoolPtrInput `pulumi:"allowMultiSelect"`
-	// Dictionary of label classes in this category.
-	Classes LabelClassMapInput `pulumi:"classes"`
-	// Display name of the label category.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-}
-
-func (LabelCategoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelCategory)(nil)).Elem()
-}
-
-func (i LabelCategoryArgs) ToLabelCategoryOutput() LabelCategoryOutput {
-	return i.ToLabelCategoryOutputWithContext(context.Background())
-}
-
-func (i LabelCategoryArgs) ToLabelCategoryOutputWithContext(ctx context.Context) LabelCategoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelCategoryOutput)
-}
-
-// LabelCategoryMapInput is an input type that accepts LabelCategoryMap and LabelCategoryMapOutput values.
-// You can construct a concrete instance of `LabelCategoryMapInput` via:
-//
-//          LabelCategoryMap{ "key": LabelCategoryArgs{...} }
-type LabelCategoryMapInput interface {
-	pulumi.Input
-
-	ToLabelCategoryMapOutput() LabelCategoryMapOutput
-	ToLabelCategoryMapOutputWithContext(context.Context) LabelCategoryMapOutput
-}
-
-type LabelCategoryMap map[string]LabelCategoryInput
-
-func (LabelCategoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LabelCategory)(nil)).Elem()
-}
-
-func (i LabelCategoryMap) ToLabelCategoryMapOutput() LabelCategoryMapOutput {
-	return i.ToLabelCategoryMapOutputWithContext(context.Background())
-}
-
-func (i LabelCategoryMap) ToLabelCategoryMapOutputWithContext(ctx context.Context) LabelCategoryMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelCategoryMapOutput)
-}
-
-// Represents a category of labels in a labeling job.
-type LabelCategoryOutput struct{ *pulumi.OutputState }
-
-func (LabelCategoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelCategory)(nil)).Elem()
-}
-
-func (o LabelCategoryOutput) ToLabelCategoryOutput() LabelCategoryOutput {
-	return o
-}
-
-func (o LabelCategoryOutput) ToLabelCategoryOutputWithContext(ctx context.Context) LabelCategoryOutput {
-	return o
-}
-
-// Indicates whether it is allowed to select multiple classes in this category.
-func (o LabelCategoryOutput) AllowMultiSelect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabelCategory) *bool { return v.AllowMultiSelect }).(pulumi.BoolPtrOutput)
-}
-
-// Dictionary of label classes in this category.
-func (o LabelCategoryOutput) Classes() LabelClassMapOutput {
-	return o.ApplyT(func(v LabelCategory) map[string]LabelClass { return v.Classes }).(LabelClassMapOutput)
-}
-
-// Display name of the label category.
-func (o LabelCategoryOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelCategory) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-type LabelCategoryMapOutput struct{ *pulumi.OutputState }
-
-func (LabelCategoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LabelCategory)(nil)).Elem()
-}
-
-func (o LabelCategoryMapOutput) ToLabelCategoryMapOutput() LabelCategoryMapOutput {
-	return o
-}
-
-func (o LabelCategoryMapOutput) ToLabelCategoryMapOutputWithContext(ctx context.Context) LabelCategoryMapOutput {
-	return o
-}
-
-func (o LabelCategoryMapOutput) MapIndex(k pulumi.StringInput) LabelCategoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelCategory {
-		return vs[0].(map[string]LabelCategory)[vs[1].(string)]
-	}).(LabelCategoryOutput)
-}
-
-// Represents a category of labels in a labeling job.
-type LabelCategoryResponse struct {
-	// Indicates whether it is allowed to select multiple classes in this category.
-	AllowMultiSelect *bool `pulumi:"allowMultiSelect"`
-	// Dictionary of label classes in this category.
-	Classes map[string]LabelClassResponse `pulumi:"classes"`
-	// Display name of the label category.
-	DisplayName *string `pulumi:"displayName"`
-}
-
-// Represents a category of labels in a labeling job.
-type LabelCategoryResponseOutput struct{ *pulumi.OutputState }
-
-func (LabelCategoryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelCategoryResponse)(nil)).Elem()
-}
-
-func (o LabelCategoryResponseOutput) ToLabelCategoryResponseOutput() LabelCategoryResponseOutput {
-	return o
-}
-
-func (o LabelCategoryResponseOutput) ToLabelCategoryResponseOutputWithContext(ctx context.Context) LabelCategoryResponseOutput {
-	return o
-}
-
-// Indicates whether it is allowed to select multiple classes in this category.
-func (o LabelCategoryResponseOutput) AllowMultiSelect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabelCategoryResponse) *bool { return v.AllowMultiSelect }).(pulumi.BoolPtrOutput)
-}
-
-// Dictionary of label classes in this category.
-func (o LabelCategoryResponseOutput) Classes() LabelClassResponseMapOutput {
-	return o.ApplyT(func(v LabelCategoryResponse) map[string]LabelClassResponse { return v.Classes }).(LabelClassResponseMapOutput)
-}
-
-// Display name of the label category.
-func (o LabelCategoryResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelCategoryResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-type LabelCategoryResponseMapOutput struct{ *pulumi.OutputState }
-
-func (LabelCategoryResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LabelCategoryResponse)(nil)).Elem()
-}
-
-func (o LabelCategoryResponseMapOutput) ToLabelCategoryResponseMapOutput() LabelCategoryResponseMapOutput {
-	return o
-}
-
-func (o LabelCategoryResponseMapOutput) ToLabelCategoryResponseMapOutputWithContext(ctx context.Context) LabelCategoryResponseMapOutput {
-	return o
-}
-
-func (o LabelCategoryResponseMapOutput) MapIndex(k pulumi.StringInput) LabelCategoryResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelCategoryResponse {
-		return vs[0].(map[string]LabelCategoryResponse)[vs[1].(string)]
-	}).(LabelCategoryResponseOutput)
-}
-
-// Represents a label or a category of labels in a labeling job.
-type LabelClass struct {
-	// Display name of the label class.
-	DisplayName *string `pulumi:"displayName"`
-	// Dictionary of subclasses of the label class.
-	Subclasses map[string]LabelClass `pulumi:"subclasses"`
-}
-
-// LabelClassInput is an input type that accepts LabelClassArgs and LabelClassOutput values.
-// You can construct a concrete instance of `LabelClassInput` via:
-//
-//          LabelClassArgs{...}
-type LabelClassInput interface {
-	pulumi.Input
-
-	ToLabelClassOutput() LabelClassOutput
-	ToLabelClassOutputWithContext(context.Context) LabelClassOutput
-}
-
-// Represents a label or a category of labels in a labeling job.
-type LabelClassArgs struct {
-	// Display name of the label class.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Dictionary of subclasses of the label class.
-	Subclasses LabelClassMapInput `pulumi:"subclasses"`
-}
-
-func (LabelClassArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelClass)(nil)).Elem()
-}
-
-func (i LabelClassArgs) ToLabelClassOutput() LabelClassOutput {
-	return i.ToLabelClassOutputWithContext(context.Background())
-}
-
-func (i LabelClassArgs) ToLabelClassOutputWithContext(ctx context.Context) LabelClassOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelClassOutput)
-}
-
-// LabelClassMapInput is an input type that accepts LabelClassMap and LabelClassMapOutput values.
-// You can construct a concrete instance of `LabelClassMapInput` via:
-//
-//          LabelClassMap{ "key": LabelClassArgs{...} }
-type LabelClassMapInput interface {
-	pulumi.Input
-
-	ToLabelClassMapOutput() LabelClassMapOutput
-	ToLabelClassMapOutputWithContext(context.Context) LabelClassMapOutput
-}
-
-type LabelClassMap map[string]LabelClassInput
-
-func (LabelClassMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LabelClass)(nil)).Elem()
-}
-
-func (i LabelClassMap) ToLabelClassMapOutput() LabelClassMapOutput {
-	return i.ToLabelClassMapOutputWithContext(context.Background())
-}
-
-func (i LabelClassMap) ToLabelClassMapOutputWithContext(ctx context.Context) LabelClassMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelClassMapOutput)
-}
-
-// Represents a label or a category of labels in a labeling job.
-type LabelClassOutput struct{ *pulumi.OutputState }
-
-func (LabelClassOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelClass)(nil)).Elem()
-}
-
-func (o LabelClassOutput) ToLabelClassOutput() LabelClassOutput {
-	return o
-}
-
-func (o LabelClassOutput) ToLabelClassOutputWithContext(ctx context.Context) LabelClassOutput {
-	return o
-}
-
-// Display name of the label class.
-func (o LabelClassOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelClass) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Dictionary of subclasses of the label class.
-func (o LabelClassOutput) Subclasses() LabelClassMapOutput {
-	return o.ApplyT(func(v LabelClass) map[string]LabelClass { return v.Subclasses }).(LabelClassMapOutput)
-}
-
-type LabelClassMapOutput struct{ *pulumi.OutputState }
-
-func (LabelClassMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LabelClass)(nil)).Elem()
-}
-
-func (o LabelClassMapOutput) ToLabelClassMapOutput() LabelClassMapOutput {
-	return o
-}
-
-func (o LabelClassMapOutput) ToLabelClassMapOutputWithContext(ctx context.Context) LabelClassMapOutput {
-	return o
-}
-
-func (o LabelClassMapOutput) MapIndex(k pulumi.StringInput) LabelClassOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelClass {
-		return vs[0].(map[string]LabelClass)[vs[1].(string)]
-	}).(LabelClassOutput)
-}
-
-// Represents a label or a category of labels in a labeling job.
-type LabelClassResponse struct {
-	// Display name of the label class.
-	DisplayName *string `pulumi:"displayName"`
-	// Dictionary of subclasses of the label class.
-	Subclasses map[string]LabelClassResponse `pulumi:"subclasses"`
-}
-
-// Represents a label or a category of labels in a labeling job.
-type LabelClassResponseOutput struct{ *pulumi.OutputState }
-
-func (LabelClassResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelClassResponse)(nil)).Elem()
-}
-
-func (o LabelClassResponseOutput) ToLabelClassResponseOutput() LabelClassResponseOutput {
-	return o
-}
-
-func (o LabelClassResponseOutput) ToLabelClassResponseOutputWithContext(ctx context.Context) LabelClassResponseOutput {
-	return o
-}
-
-// Display name of the label class.
-func (o LabelClassResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelClassResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Dictionary of subclasses of the label class.
-func (o LabelClassResponseOutput) Subclasses() LabelClassResponseMapOutput {
-	return o.ApplyT(func(v LabelClassResponse) map[string]LabelClassResponse { return v.Subclasses }).(LabelClassResponseMapOutput)
-}
-
-type LabelClassResponseMapOutput struct{ *pulumi.OutputState }
-
-func (LabelClassResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LabelClassResponse)(nil)).Elem()
-}
-
-func (o LabelClassResponseMapOutput) ToLabelClassResponseMapOutput() LabelClassResponseMapOutput {
-	return o
-}
-
-func (o LabelClassResponseMapOutput) ToLabelClassResponseMapOutputWithContext(ctx context.Context) LabelClassResponseMapOutput {
-	return o
-}
-
-func (o LabelClassResponseMapOutput) MapIndex(k pulumi.StringInput) LabelClassResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelClassResponse {
-		return vs[0].(map[string]LabelClassResponse)[vs[1].(string)]
-	}).(LabelClassResponseOutput)
-}
-
-// Represents configuration of dataset used in a labeling job.
-type LabelingDatasetConfiguration struct {
-	// Name of the data asset to perform labeling.
-	AssetName string `pulumi:"assetName"`
-	// AML dataset version.
-	DatasetVersion string `pulumi:"datasetVersion"`
-	// Indicates whether to enable incremental dataset refresh.
-	EnableIncrementalDatasetRefresh *bool `pulumi:"enableIncrementalDatasetRefresh"`
-}
-
-// LabelingDatasetConfigurationInput is an input type that accepts LabelingDatasetConfigurationArgs and LabelingDatasetConfigurationOutput values.
-// You can construct a concrete instance of `LabelingDatasetConfigurationInput` via:
-//
-//          LabelingDatasetConfigurationArgs{...}
-type LabelingDatasetConfigurationInput interface {
-	pulumi.Input
-
-	ToLabelingDatasetConfigurationOutput() LabelingDatasetConfigurationOutput
-	ToLabelingDatasetConfigurationOutputWithContext(context.Context) LabelingDatasetConfigurationOutput
-}
-
-// Represents configuration of dataset used in a labeling job.
-type LabelingDatasetConfigurationArgs struct {
-	// Name of the data asset to perform labeling.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// AML dataset version.
-	DatasetVersion pulumi.StringInput `pulumi:"datasetVersion"`
-	// Indicates whether to enable incremental dataset refresh.
-	EnableIncrementalDatasetRefresh pulumi.BoolPtrInput `pulumi:"enableIncrementalDatasetRefresh"`
-}
-
-func (LabelingDatasetConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingDatasetConfiguration)(nil)).Elem()
-}
-
-func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationOutput() LabelingDatasetConfigurationOutput {
-	return i.ToLabelingDatasetConfigurationOutputWithContext(context.Background())
-}
-
-func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationOutputWithContext(ctx context.Context) LabelingDatasetConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationOutput)
-}
-
-func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
-	return i.ToLabelingDatasetConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationOutput).ToLabelingDatasetConfigurationPtrOutputWithContext(ctx)
-}
-
-// LabelingDatasetConfigurationPtrInput is an input type that accepts LabelingDatasetConfigurationArgs, LabelingDatasetConfigurationPtr and LabelingDatasetConfigurationPtrOutput values.
-// You can construct a concrete instance of `LabelingDatasetConfigurationPtrInput` via:
-//
-//          LabelingDatasetConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type LabelingDatasetConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput
-	ToLabelingDatasetConfigurationPtrOutputWithContext(context.Context) LabelingDatasetConfigurationPtrOutput
-}
-
-type labelingDatasetConfigurationPtrType LabelingDatasetConfigurationArgs
-
-func LabelingDatasetConfigurationPtr(v *LabelingDatasetConfigurationArgs) LabelingDatasetConfigurationPtrInput {
-	return (*labelingDatasetConfigurationPtrType)(v)
-}
-
-func (*labelingDatasetConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingDatasetConfiguration)(nil)).Elem()
-}
-
-func (i *labelingDatasetConfigurationPtrType) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
-	return i.ToLabelingDatasetConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *labelingDatasetConfigurationPtrType) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationPtrOutput)
-}
-
-// Represents configuration of dataset used in a labeling job.
-type LabelingDatasetConfigurationOutput struct{ *pulumi.OutputState }
-
-func (LabelingDatasetConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingDatasetConfiguration)(nil)).Elem()
-}
-
-func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationOutput() LabelingDatasetConfigurationOutput {
-	return o
-}
-
-func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationOutputWithContext(ctx context.Context) LabelingDatasetConfigurationOutput {
-	return o
-}
-
-func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
-	return o.ToLabelingDatasetConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingDatasetConfiguration) *LabelingDatasetConfiguration {
-		return &v
-	}).(LabelingDatasetConfigurationPtrOutput)
-}
-
-// Name of the data asset to perform labeling.
-func (o LabelingDatasetConfigurationOutput) AssetName() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingDatasetConfiguration) string { return v.AssetName }).(pulumi.StringOutput)
-}
-
-// AML dataset version.
-func (o LabelingDatasetConfigurationOutput) DatasetVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingDatasetConfiguration) string { return v.DatasetVersion }).(pulumi.StringOutput)
-}
-
-// Indicates whether to enable incremental dataset refresh.
-func (o LabelingDatasetConfigurationOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabelingDatasetConfiguration) *bool { return v.EnableIncrementalDatasetRefresh }).(pulumi.BoolPtrOutput)
-}
-
-type LabelingDatasetConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (LabelingDatasetConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingDatasetConfiguration)(nil)).Elem()
-}
-
-func (o LabelingDatasetConfigurationPtrOutput) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
-	return o
-}
-
-func (o LabelingDatasetConfigurationPtrOutput) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
-	return o
-}
-
-func (o LabelingDatasetConfigurationPtrOutput) Elem() LabelingDatasetConfigurationOutput {
-	return o.ApplyT(func(v *LabelingDatasetConfiguration) LabelingDatasetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingDatasetConfiguration
-		return ret
-	}).(LabelingDatasetConfigurationOutput)
-}
-
-// Name of the data asset to perform labeling.
-func (o LabelingDatasetConfigurationPtrOutput) AssetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabelingDatasetConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AssetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// AML dataset version.
-func (o LabelingDatasetConfigurationPtrOutput) DatasetVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabelingDatasetConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DatasetVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether to enable incremental dataset refresh.
-func (o LabelingDatasetConfigurationPtrOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabelingDatasetConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableIncrementalDatasetRefresh
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Represents configuration of dataset used in a labeling job.
-type LabelingDatasetConfigurationResponse struct {
-	// Name of the data asset to perform labeling.
-	AssetName string `pulumi:"assetName"`
-	// AML dataset version.
-	DatasetVersion string `pulumi:"datasetVersion"`
-	// Indicates whether to enable incremental dataset refresh.
-	EnableIncrementalDatasetRefresh *bool `pulumi:"enableIncrementalDatasetRefresh"`
-}
-
-// Represents configuration of dataset used in a labeling job.
-type LabelingDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (LabelingDatasetConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingDatasetConfigurationResponse)(nil)).Elem()
-}
-
-func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponseOutput() LabelingDatasetConfigurationResponseOutput {
-	return o
-}
-
-func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponseOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponseOutput {
-	return o
-}
-
-// Name of the data asset to perform labeling.
-func (o LabelingDatasetConfigurationResponseOutput) AssetName() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) string { return v.AssetName }).(pulumi.StringOutput)
-}
-
-// AML dataset version.
-func (o LabelingDatasetConfigurationResponseOutput) DatasetVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) string { return v.DatasetVersion }).(pulumi.StringOutput)
-}
-
-// Indicates whether to enable incremental dataset refresh.
-func (o LabelingDatasetConfigurationResponseOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) *bool { return v.EnableIncrementalDatasetRefresh }).(pulumi.BoolPtrOutput)
-}
-
-type LabelingJobImageProperties struct {
-	// Annotation type of image labeling tasks.
-	AnnotationType *string `pulumi:"annotationType"`
-	// Media type of data asset.
-	MediaType string `pulumi:"mediaType"`
-}
-
-// LabelingJobImagePropertiesInput is an input type that accepts LabelingJobImagePropertiesArgs and LabelingJobImagePropertiesOutput values.
-// You can construct a concrete instance of `LabelingJobImagePropertiesInput` via:
-//
-//          LabelingJobImagePropertiesArgs{...}
-type LabelingJobImagePropertiesInput interface {
-	pulumi.Input
-
-	ToLabelingJobImagePropertiesOutput() LabelingJobImagePropertiesOutput
-	ToLabelingJobImagePropertiesOutputWithContext(context.Context) LabelingJobImagePropertiesOutput
-}
-
-type LabelingJobImagePropertiesArgs struct {
-	// Annotation type of image labeling tasks.
-	AnnotationType pulumi.StringPtrInput `pulumi:"annotationType"`
-	// Media type of data asset.
-	MediaType pulumi.StringInput `pulumi:"mediaType"`
-}
-
-func (LabelingJobImagePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobImageProperties)(nil)).Elem()
-}
-
-func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesOutput() LabelingJobImagePropertiesOutput {
-	return i.ToLabelingJobImagePropertiesOutputWithContext(context.Background())
-}
-
-func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesOutputWithContext(ctx context.Context) LabelingJobImagePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesOutput)
-}
-
-func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
-	return i.ToLabelingJobImagePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesOutput).ToLabelingJobImagePropertiesPtrOutputWithContext(ctx)
-}
-
-// LabelingJobImagePropertiesPtrInput is an input type that accepts LabelingJobImagePropertiesArgs, LabelingJobImagePropertiesPtr and LabelingJobImagePropertiesPtrOutput values.
-// You can construct a concrete instance of `LabelingJobImagePropertiesPtrInput` via:
-//
-//          LabelingJobImagePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type LabelingJobImagePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput
-	ToLabelingJobImagePropertiesPtrOutputWithContext(context.Context) LabelingJobImagePropertiesPtrOutput
-}
-
-type labelingJobImagePropertiesPtrType LabelingJobImagePropertiesArgs
-
-func LabelingJobImagePropertiesPtr(v *LabelingJobImagePropertiesArgs) LabelingJobImagePropertiesPtrInput {
-	return (*labelingJobImagePropertiesPtrType)(v)
-}
-
-func (*labelingJobImagePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingJobImageProperties)(nil)).Elem()
-}
-
-func (i *labelingJobImagePropertiesPtrType) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
-	return i.ToLabelingJobImagePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *labelingJobImagePropertiesPtrType) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesPtrOutput)
-}
-
-type LabelingJobImagePropertiesOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobImagePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobImageProperties)(nil)).Elem()
-}
-
-func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesOutput() LabelingJobImagePropertiesOutput {
-	return o
-}
-
-func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesOutputWithContext(ctx context.Context) LabelingJobImagePropertiesOutput {
-	return o
-}
-
-func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
-	return o.ToLabelingJobImagePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobImageProperties) *LabelingJobImageProperties {
-		return &v
-	}).(LabelingJobImagePropertiesPtrOutput)
-}
-
-// Annotation type of image labeling tasks.
-func (o LabelingJobImagePropertiesOutput) AnnotationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelingJobImageProperties) *string { return v.AnnotationType }).(pulumi.StringPtrOutput)
-}
-
-// Media type of data asset.
-func (o LabelingJobImagePropertiesOutput) MediaType() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingJobImageProperties) string { return v.MediaType }).(pulumi.StringOutput)
-}
-
-type LabelingJobImagePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobImagePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingJobImageProperties)(nil)).Elem()
-}
-
-func (o LabelingJobImagePropertiesPtrOutput) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
-	return o
-}
-
-func (o LabelingJobImagePropertiesPtrOutput) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
-	return o
-}
-
-func (o LabelingJobImagePropertiesPtrOutput) Elem() LabelingJobImagePropertiesOutput {
-	return o.ApplyT(func(v *LabelingJobImageProperties) LabelingJobImageProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobImageProperties
-		return ret
-	}).(LabelingJobImagePropertiesOutput)
-}
-
-// Annotation type of image labeling tasks.
-func (o LabelingJobImagePropertiesPtrOutput) AnnotationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabelingJobImageProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AnnotationType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Media type of data asset.
-func (o LabelingJobImagePropertiesPtrOutput) MediaType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabelingJobImageProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MediaType
-	}).(pulumi.StringPtrOutput)
-}
-
-type LabelingJobImagePropertiesResponse struct {
-	// Annotation type of image labeling tasks.
-	AnnotationType *string `pulumi:"annotationType"`
-	// Media type of data asset.
-	MediaType string `pulumi:"mediaType"`
-}
-
-type LabelingJobImagePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobImagePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponseOutput() LabelingJobImagePropertiesResponseOutput {
-	return o
-}
-
-func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponseOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponseOutput {
-	return o
-}
-
-// Annotation type of image labeling tasks.
-func (o LabelingJobImagePropertiesResponseOutput) AnnotationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelingJobImagePropertiesResponse) *string { return v.AnnotationType }).(pulumi.StringPtrOutput)
-}
-
-// Media type of data asset.
-func (o LabelingJobImagePropertiesResponseOutput) MediaType() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingJobImagePropertiesResponse) string { return v.MediaType }).(pulumi.StringOutput)
-}
-
-// Instructions for a labeling job.
-type LabelingJobInstructions struct {
-	// The link to a page with detailed labeling instructions for labelers.
-	Uri *string `pulumi:"uri"`
-}
-
-// LabelingJobInstructionsInput is an input type that accepts LabelingJobInstructionsArgs and LabelingJobInstructionsOutput values.
-// You can construct a concrete instance of `LabelingJobInstructionsInput` via:
-//
-//          LabelingJobInstructionsArgs{...}
-type LabelingJobInstructionsInput interface {
-	pulumi.Input
-
-	ToLabelingJobInstructionsOutput() LabelingJobInstructionsOutput
-	ToLabelingJobInstructionsOutputWithContext(context.Context) LabelingJobInstructionsOutput
-}
-
-// Instructions for a labeling job.
-type LabelingJobInstructionsArgs struct {
-	// The link to a page with detailed labeling instructions for labelers.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (LabelingJobInstructionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobInstructions)(nil)).Elem()
-}
-
-func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsOutput() LabelingJobInstructionsOutput {
-	return i.ToLabelingJobInstructionsOutputWithContext(context.Background())
-}
-
-func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsOutputWithContext(ctx context.Context) LabelingJobInstructionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsOutput)
-}
-
-func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
-	return i.ToLabelingJobInstructionsPtrOutputWithContext(context.Background())
-}
-
-func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsOutput).ToLabelingJobInstructionsPtrOutputWithContext(ctx)
-}
-
-// LabelingJobInstructionsPtrInput is an input type that accepts LabelingJobInstructionsArgs, LabelingJobInstructionsPtr and LabelingJobInstructionsPtrOutput values.
-// You can construct a concrete instance of `LabelingJobInstructionsPtrInput` via:
-//
-//          LabelingJobInstructionsArgs{...}
-//
-//  or:
-//
-//          nil
-type LabelingJobInstructionsPtrInput interface {
-	pulumi.Input
-
-	ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput
-	ToLabelingJobInstructionsPtrOutputWithContext(context.Context) LabelingJobInstructionsPtrOutput
-}
-
-type labelingJobInstructionsPtrType LabelingJobInstructionsArgs
-
-func LabelingJobInstructionsPtr(v *LabelingJobInstructionsArgs) LabelingJobInstructionsPtrInput {
-	return (*labelingJobInstructionsPtrType)(v)
-}
-
-func (*labelingJobInstructionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingJobInstructions)(nil)).Elem()
-}
-
-func (i *labelingJobInstructionsPtrType) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
-	return i.ToLabelingJobInstructionsPtrOutputWithContext(context.Background())
-}
-
-func (i *labelingJobInstructionsPtrType) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsPtrOutput)
-}
-
-// Instructions for a labeling job.
-type LabelingJobInstructionsOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobInstructionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobInstructions)(nil)).Elem()
-}
-
-func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsOutput() LabelingJobInstructionsOutput {
-	return o
-}
-
-func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsOutputWithContext(ctx context.Context) LabelingJobInstructionsOutput {
-	return o
-}
-
-func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
-	return o.ToLabelingJobInstructionsPtrOutputWithContext(context.Background())
-}
-
-func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInstructions) *LabelingJobInstructions {
-		return &v
-	}).(LabelingJobInstructionsPtrOutput)
-}
-
-// The link to a page with detailed labeling instructions for labelers.
-func (o LabelingJobInstructionsOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelingJobInstructions) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type LabelingJobInstructionsPtrOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobInstructionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingJobInstructions)(nil)).Elem()
-}
-
-func (o LabelingJobInstructionsPtrOutput) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
-	return o
-}
-
-func (o LabelingJobInstructionsPtrOutput) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
-	return o
-}
-
-func (o LabelingJobInstructionsPtrOutput) Elem() LabelingJobInstructionsOutput {
-	return o.ApplyT(func(v *LabelingJobInstructions) LabelingJobInstructions {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobInstructions
-		return ret
-	}).(LabelingJobInstructionsOutput)
-}
-
-// The link to a page with detailed labeling instructions for labelers.
-func (o LabelingJobInstructionsPtrOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabelingJobInstructions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Uri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Instructions for a labeling job.
-type LabelingJobInstructionsResponse struct {
-	// The link to a page with detailed labeling instructions for labelers.
-	Uri *string `pulumi:"uri"`
-}
-
-// Instructions for a labeling job.
-type LabelingJobInstructionsResponseOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobInstructionsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobInstructionsResponse)(nil)).Elem()
-}
-
-func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponseOutput() LabelingJobInstructionsResponseOutput {
-	return o
-}
-
-func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponseOutputWithContext(ctx context.Context) LabelingJobInstructionsResponseOutput {
-	return o
-}
-
-// The link to a page with detailed labeling instructions for labelers.
-func (o LabelingJobInstructionsResponseOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabelingJobInstructionsResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-// Definition of a labeling job.
-type LabelingJobProperties struct {
-	// Dataset configuration for the job.
-	DatasetConfiguration LabelingDatasetConfiguration `pulumi:"datasetConfiguration"`
-	// Instructions for the job.
-	JobInstructions LabelingJobInstructions `pulumi:"jobInstructions"`
-	// Label categories of the job.
-	LabelCategories map[string]LabelCategory `pulumi:"labelCategories"`
-	// Media specific properties in a labeling job.
-	LabelingJobMediaProperties LabelingJobImageProperties `pulumi:"labelingJobMediaProperties"`
-	// Machine learning assisted configuration for the job.
-	MlAssistConfiguration *MLAssistConfiguration `pulumi:"mlAssistConfiguration"`
-	// The job property dictionary. Properties can be added, but not removed or altered.
-	Properties map[string]string `pulumi:"properties"`
-	// The job tag dictionary. Tags can be added, removed, and updated.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// LabelingJobPropertiesInput is an input type that accepts LabelingJobPropertiesArgs and LabelingJobPropertiesOutput values.
-// You can construct a concrete instance of `LabelingJobPropertiesInput` via:
-//
-//          LabelingJobPropertiesArgs{...}
-type LabelingJobPropertiesInput interface {
-	pulumi.Input
-
-	ToLabelingJobPropertiesOutput() LabelingJobPropertiesOutput
-	ToLabelingJobPropertiesOutputWithContext(context.Context) LabelingJobPropertiesOutput
-}
-
-// Definition of a labeling job.
-type LabelingJobPropertiesArgs struct {
-	// Dataset configuration for the job.
-	DatasetConfiguration LabelingDatasetConfigurationInput `pulumi:"datasetConfiguration"`
-	// Instructions for the job.
-	JobInstructions LabelingJobInstructionsInput `pulumi:"jobInstructions"`
-	// Label categories of the job.
-	LabelCategories LabelCategoryMapInput `pulumi:"labelCategories"`
-	// Media specific properties in a labeling job.
-	LabelingJobMediaProperties LabelingJobImagePropertiesInput `pulumi:"labelingJobMediaProperties"`
-	// Machine learning assisted configuration for the job.
-	MlAssistConfiguration MLAssistConfigurationPtrInput `pulumi:"mlAssistConfiguration"`
-	// The job property dictionary. Properties can be added, but not removed or altered.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// The job tag dictionary. Tags can be added, removed, and updated.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (LabelingJobPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobProperties)(nil)).Elem()
-}
-
-func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesOutput() LabelingJobPropertiesOutput {
-	return i.ToLabelingJobPropertiesOutputWithContext(context.Background())
-}
-
-func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesOutputWithContext(ctx context.Context) LabelingJobPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesOutput)
-}
-
-func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
-	return i.ToLabelingJobPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesOutput).ToLabelingJobPropertiesPtrOutputWithContext(ctx)
-}
-
-// LabelingJobPropertiesPtrInput is an input type that accepts LabelingJobPropertiesArgs, LabelingJobPropertiesPtr and LabelingJobPropertiesPtrOutput values.
-// You can construct a concrete instance of `LabelingJobPropertiesPtrInput` via:
-//
-//          LabelingJobPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type LabelingJobPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput
-	ToLabelingJobPropertiesPtrOutputWithContext(context.Context) LabelingJobPropertiesPtrOutput
-}
-
-type labelingJobPropertiesPtrType LabelingJobPropertiesArgs
-
-func LabelingJobPropertiesPtr(v *LabelingJobPropertiesArgs) LabelingJobPropertiesPtrInput {
-	return (*labelingJobPropertiesPtrType)(v)
-}
-
-func (*labelingJobPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingJobProperties)(nil)).Elem()
-}
-
-func (i *labelingJobPropertiesPtrType) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
-	return i.ToLabelingJobPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *labelingJobPropertiesPtrType) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesPtrOutput)
-}
-
-// Definition of a labeling job.
-type LabelingJobPropertiesOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobProperties)(nil)).Elem()
-}
-
-func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesOutput() LabelingJobPropertiesOutput {
-	return o
-}
-
-func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesOutputWithContext(ctx context.Context) LabelingJobPropertiesOutput {
-	return o
-}
-
-func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
-	return o.ToLabelingJobPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobProperties) *LabelingJobProperties {
-		return &v
-	}).(LabelingJobPropertiesPtrOutput)
-}
-
-// Dataset configuration for the job.
-func (o LabelingJobPropertiesOutput) DatasetConfiguration() LabelingDatasetConfigurationOutput {
-	return o.ApplyT(func(v LabelingJobProperties) LabelingDatasetConfiguration { return v.DatasetConfiguration }).(LabelingDatasetConfigurationOutput)
-}
-
-// Instructions for the job.
-func (o LabelingJobPropertiesOutput) JobInstructions() LabelingJobInstructionsOutput {
-	return o.ApplyT(func(v LabelingJobProperties) LabelingJobInstructions { return v.JobInstructions }).(LabelingJobInstructionsOutput)
-}
-
-// Label categories of the job.
-func (o LabelingJobPropertiesOutput) LabelCategories() LabelCategoryMapOutput {
-	return o.ApplyT(func(v LabelingJobProperties) map[string]LabelCategory { return v.LabelCategories }).(LabelCategoryMapOutput)
-}
-
-// Media specific properties in a labeling job.
-func (o LabelingJobPropertiesOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesOutput {
-	return o.ApplyT(func(v LabelingJobProperties) LabelingJobImageProperties { return v.LabelingJobMediaProperties }).(LabelingJobImagePropertiesOutput)
-}
-
-// Machine learning assisted configuration for the job.
-func (o LabelingJobPropertiesOutput) MlAssistConfiguration() MLAssistConfigurationPtrOutput {
-	return o.ApplyT(func(v LabelingJobProperties) *MLAssistConfiguration { return v.MlAssistConfiguration }).(MLAssistConfigurationPtrOutput)
-}
-
-// The job property dictionary. Properties can be added, but not removed or altered.
-func (o LabelingJobPropertiesOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabelingJobProperties) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// The job tag dictionary. Tags can be added, removed, and updated.
-func (o LabelingJobPropertiesOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabelingJobProperties) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-type LabelingJobPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabelingJobProperties)(nil)).Elem()
-}
-
-func (o LabelingJobPropertiesPtrOutput) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
-	return o
-}
-
-func (o LabelingJobPropertiesPtrOutput) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
-	return o
-}
-
-func (o LabelingJobPropertiesPtrOutput) Elem() LabelingJobPropertiesOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) LabelingJobProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobProperties
-		return ret
-	}).(LabelingJobPropertiesOutput)
-}
-
-// Dataset configuration for the job.
-func (o LabelingJobPropertiesPtrOutput) DatasetConfiguration() LabelingDatasetConfigurationPtrOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) *LabelingDatasetConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.DatasetConfiguration
-	}).(LabelingDatasetConfigurationPtrOutput)
-}
-
-// Instructions for the job.
-func (o LabelingJobPropertiesPtrOutput) JobInstructions() LabelingJobInstructionsPtrOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) *LabelingJobInstructions {
-		if v == nil {
-			return nil
-		}
-		return &v.JobInstructions
-	}).(LabelingJobInstructionsPtrOutput)
-}
-
-// Label categories of the job.
-func (o LabelingJobPropertiesPtrOutput) LabelCategories() LabelCategoryMapOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) map[string]LabelCategory {
-		if v == nil {
-			return nil
-		}
-		return v.LabelCategories
-	}).(LabelCategoryMapOutput)
-}
-
-// Media specific properties in a labeling job.
-func (o LabelingJobPropertiesPtrOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesPtrOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) *LabelingJobImageProperties {
-		if v == nil {
-			return nil
-		}
-		return &v.LabelingJobMediaProperties
-	}).(LabelingJobImagePropertiesPtrOutput)
-}
-
-// Machine learning assisted configuration for the job.
-func (o LabelingJobPropertiesPtrOutput) MlAssistConfiguration() MLAssistConfigurationPtrOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) *MLAssistConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.MlAssistConfiguration
-	}).(MLAssistConfigurationPtrOutput)
-}
-
-// The job property dictionary. Properties can be added, but not removed or altered.
-func (o LabelingJobPropertiesPtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(pulumi.StringMapOutput)
-}
-
-// The job tag dictionary. Tags can be added, removed, and updated.
-func (o LabelingJobPropertiesPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Definition of a labeling job.
-type LabelingJobPropertiesResponse struct {
-	// Created time of the job in UTC timezone.
-	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
-	// Dataset configuration for the job.
-	DatasetConfiguration LabelingDatasetConfigurationResponse `pulumi:"datasetConfiguration"`
-	// Instructions for the job.
-	JobInstructions LabelingJobInstructionsResponse `pulumi:"jobInstructions"`
-	// Label categories of the job.
-	LabelCategories map[string]LabelCategoryResponse `pulumi:"labelCategories"`
-	// Media specific properties in a labeling job.
-	LabelingJobMediaProperties LabelingJobImagePropertiesResponse `pulumi:"labelingJobMediaProperties"`
-	// Machine learning assisted configuration for the job.
-	MlAssistConfiguration *MLAssistConfigurationResponse `pulumi:"mlAssistConfiguration"`
-	// Progress metrics of the job.
-	ProgressMetrics ProgressMetricsResponse `pulumi:"progressMetrics"`
-	// Internal id of the job(Previously called project).
-	ProjectId string `pulumi:"projectId"`
-	// The job property dictionary. Properties can be added, but not removed or altered.
-	Properties map[string]string `pulumi:"properties"`
-	// Status of the job.
-	Status string `pulumi:"status"`
-	// Status messages of the job.
-	StatusMessages []StatusMessageResponse `pulumi:"statusMessages"`
-	// The job tag dictionary. Tags can be added, removed, and updated.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// Definition of a labeling job.
-type LabelingJobPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LabelingJobPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJobPropertiesResponse)(nil)).Elem()
-}
-
-func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponseOutput() LabelingJobPropertiesResponseOutput {
-	return o
-}
-
-func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponseOutputWithContext(ctx context.Context) LabelingJobPropertiesResponseOutput {
-	return o
-}
-
-// Created time of the job in UTC timezone.
-func (o LabelingJobPropertiesResponseOutput) CreatedTimeUtc() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
-}
-
-// Dataset configuration for the job.
-func (o LabelingJobPropertiesResponseOutput) DatasetConfiguration() LabelingDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) LabelingDatasetConfigurationResponse {
-		return v.DatasetConfiguration
-	}).(LabelingDatasetConfigurationResponseOutput)
-}
-
-// Instructions for the job.
-func (o LabelingJobPropertiesResponseOutput) JobInstructions() LabelingJobInstructionsResponseOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) LabelingJobInstructionsResponse { return v.JobInstructions }).(LabelingJobInstructionsResponseOutput)
-}
-
-// Label categories of the job.
-func (o LabelingJobPropertiesResponseOutput) LabelCategories() LabelCategoryResponseMapOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) map[string]LabelCategoryResponse { return v.LabelCategories }).(LabelCategoryResponseMapOutput)
-}
-
-// Media specific properties in a labeling job.
-func (o LabelingJobPropertiesResponseOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesResponseOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) LabelingJobImagePropertiesResponse {
-		return v.LabelingJobMediaProperties
-	}).(LabelingJobImagePropertiesResponseOutput)
-}
-
-// Machine learning assisted configuration for the job.
-func (o LabelingJobPropertiesResponseOutput) MlAssistConfiguration() MLAssistConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) *MLAssistConfigurationResponse { return v.MlAssistConfiguration }).(MLAssistConfigurationResponsePtrOutput)
-}
-
-// Progress metrics of the job.
-func (o LabelingJobPropertiesResponseOutput) ProgressMetrics() ProgressMetricsResponseOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) ProgressMetricsResponse { return v.ProgressMetrics }).(ProgressMetricsResponseOutput)
-}
-
-// Internal id of the job(Previously called project).
-func (o LabelingJobPropertiesResponseOutput) ProjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) string { return v.ProjectId }).(pulumi.StringOutput)
-}
-
-// The job property dictionary. Properties can be added, but not removed or altered.
-func (o LabelingJobPropertiesResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// Status of the job.
-func (o LabelingJobPropertiesResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-// Status messages of the job.
-func (o LabelingJobPropertiesResponseOutput) StatusMessages() StatusMessageResponseArrayOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) []StatusMessageResponse { return v.StatusMessages }).(StatusMessageResponseArrayOutput)
-}
-
-// The job tag dictionary. Tags can be added, removed, and updated.
-func (o LabelingJobPropertiesResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabelingJobPropertiesResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Info about origin if it is linked.
-type LinkedInfoResponse struct {
-	// LinkedId id.
-	LinkedId *string `pulumi:"linkedId"`
-	// Linked resource name.
-	LinkedResourceName *string `pulumi:"linkedResourceName"`
-	// Datastore origin
-	Origin *string `pulumi:"origin"`
-}
-
-// Info about origin if it is linked.
-type LinkedInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (LinkedInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedInfoResponse)(nil)).Elem()
-}
-
-func (o LinkedInfoResponseOutput) ToLinkedInfoResponseOutput() LinkedInfoResponseOutput {
-	return o
-}
-
-func (o LinkedInfoResponseOutput) ToLinkedInfoResponseOutputWithContext(ctx context.Context) LinkedInfoResponseOutput {
-	return o
-}
-
-// LinkedId id.
-func (o LinkedInfoResponseOutput) LinkedId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedInfoResponse) *string { return v.LinkedId }).(pulumi.StringPtrOutput)
-}
-
-// Linked resource name.
-func (o LinkedInfoResponseOutput) LinkedResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedInfoResponse) *string { return v.LinkedResourceName }).(pulumi.StringPtrOutput)
-}
-
-// Datastore origin
-func (o LinkedInfoResponseOutput) Origin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedInfoResponse) *string { return v.Origin }).(pulumi.StringPtrOutput)
-}
-
-type LinkedInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedInfoResponse)(nil)).Elem()
-}
-
-func (o LinkedInfoResponsePtrOutput) ToLinkedInfoResponsePtrOutput() LinkedInfoResponsePtrOutput {
-	return o
-}
-
-func (o LinkedInfoResponsePtrOutput) ToLinkedInfoResponsePtrOutputWithContext(ctx context.Context) LinkedInfoResponsePtrOutput {
-	return o
-}
-
-func (o LinkedInfoResponsePtrOutput) Elem() LinkedInfoResponseOutput {
-	return o.ApplyT(func(v *LinkedInfoResponse) LinkedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedInfoResponse
-		return ret
-	}).(LinkedInfoResponseOutput)
-}
-
-// LinkedId id.
-func (o LinkedInfoResponsePtrOutput) LinkedId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LinkedId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Linked resource name.
-func (o LinkedInfoResponsePtrOutput) LinkedResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LinkedResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Datastore origin
-func (o LinkedInfoResponsePtrOutput) Origin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Origin
-	}).(pulumi.StringPtrOutput)
-}
-
-// LinkedService specific properties.
-type LinkedServiceProps struct {
-	// The creation time of the linked service.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Type of the link target.
-	LinkType *LinkedServiceLinkType `pulumi:"linkType"`
-	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId string `pulumi:"linkedServiceResourceId"`
-	// The last modified time of the linked service.
-	ModifiedTime *string `pulumi:"modifiedTime"`
-}
-
-// LinkedServicePropsInput is an input type that accepts LinkedServicePropsArgs and LinkedServicePropsOutput values.
-// You can construct a concrete instance of `LinkedServicePropsInput` via:
-//
-//          LinkedServicePropsArgs{...}
-type LinkedServicePropsInput interface {
-	pulumi.Input
-
-	ToLinkedServicePropsOutput() LinkedServicePropsOutput
-	ToLinkedServicePropsOutputWithContext(context.Context) LinkedServicePropsOutput
-}
-
-// LinkedService specific properties.
-type LinkedServicePropsArgs struct {
-	// The creation time of the linked service.
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// Type of the link target.
-	LinkType LinkedServiceLinkTypePtrInput `pulumi:"linkType"`
-	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId pulumi.StringInput `pulumi:"linkedServiceResourceId"`
-	// The last modified time of the linked service.
-	ModifiedTime pulumi.StringPtrInput `pulumi:"modifiedTime"`
-}
-
-func (LinkedServicePropsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceProps)(nil)).Elem()
-}
-
-func (i LinkedServicePropsArgs) ToLinkedServicePropsOutput() LinkedServicePropsOutput {
-	return i.ToLinkedServicePropsOutputWithContext(context.Background())
-}
-
-func (i LinkedServicePropsArgs) ToLinkedServicePropsOutputWithContext(ctx context.Context) LinkedServicePropsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePropsOutput)
-}
-
-func (i LinkedServicePropsArgs) ToLinkedServicePropsPtrOutput() LinkedServicePropsPtrOutput {
-	return i.ToLinkedServicePropsPtrOutputWithContext(context.Background())
-}
-
-func (i LinkedServicePropsArgs) ToLinkedServicePropsPtrOutputWithContext(ctx context.Context) LinkedServicePropsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePropsOutput).ToLinkedServicePropsPtrOutputWithContext(ctx)
-}
-
-// LinkedServicePropsPtrInput is an input type that accepts LinkedServicePropsArgs, LinkedServicePropsPtr and LinkedServicePropsPtrOutput values.
-// You can construct a concrete instance of `LinkedServicePropsPtrInput` via:
-//
-//          LinkedServicePropsArgs{...}
-//
-//  or:
-//
-//          nil
-type LinkedServicePropsPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServicePropsPtrOutput() LinkedServicePropsPtrOutput
-	ToLinkedServicePropsPtrOutputWithContext(context.Context) LinkedServicePropsPtrOutput
-}
-
-type linkedServicePropsPtrType LinkedServicePropsArgs
-
-func LinkedServicePropsPtr(v *LinkedServicePropsArgs) LinkedServicePropsPtrInput {
-	return (*linkedServicePropsPtrType)(v)
-}
-
-func (*linkedServicePropsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceProps)(nil)).Elem()
-}
-
-func (i *linkedServicePropsPtrType) ToLinkedServicePropsPtrOutput() LinkedServicePropsPtrOutput {
-	return i.ToLinkedServicePropsPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServicePropsPtrType) ToLinkedServicePropsPtrOutputWithContext(ctx context.Context) LinkedServicePropsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePropsPtrOutput)
-}
-
-// LinkedService specific properties.
-type LinkedServicePropsOutput struct{ *pulumi.OutputState }
-
-func (LinkedServicePropsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceProps)(nil)).Elem()
-}
-
-func (o LinkedServicePropsOutput) ToLinkedServicePropsOutput() LinkedServicePropsOutput {
-	return o
-}
-
-func (o LinkedServicePropsOutput) ToLinkedServicePropsOutputWithContext(ctx context.Context) LinkedServicePropsOutput {
-	return o
-}
-
-func (o LinkedServicePropsOutput) ToLinkedServicePropsPtrOutput() LinkedServicePropsPtrOutput {
-	return o.ToLinkedServicePropsPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServicePropsOutput) ToLinkedServicePropsPtrOutputWithContext(ctx context.Context) LinkedServicePropsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceProps) *LinkedServiceProps {
-		return &v
-	}).(LinkedServicePropsPtrOutput)
-}
-
-// The creation time of the linked service.
-func (o LinkedServicePropsOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServiceProps) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
-}
-
-// Type of the link target.
-func (o LinkedServicePropsOutput) LinkType() LinkedServiceLinkTypePtrOutput {
-	return o.ApplyT(func(v LinkedServiceProps) *LinkedServiceLinkType { return v.LinkType }).(LinkedServiceLinkTypePtrOutput)
-}
-
-// ResourceId of the link target of the linked service.
-func (o LinkedServicePropsOutput) LinkedServiceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedServiceProps) string { return v.LinkedServiceResourceId }).(pulumi.StringOutput)
-}
-
-// The last modified time of the linked service.
-func (o LinkedServicePropsOutput) ModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServiceProps) *string { return v.ModifiedTime }).(pulumi.StringPtrOutput)
-}
-
-type LinkedServicePropsPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServicePropsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceProps)(nil)).Elem()
-}
-
-func (o LinkedServicePropsPtrOutput) ToLinkedServicePropsPtrOutput() LinkedServicePropsPtrOutput {
-	return o
-}
-
-func (o LinkedServicePropsPtrOutput) ToLinkedServicePropsPtrOutputWithContext(ctx context.Context) LinkedServicePropsPtrOutput {
-	return o
-}
-
-func (o LinkedServicePropsPtrOutput) Elem() LinkedServicePropsOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) LinkedServiceProps {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceProps
-		return ret
-	}).(LinkedServicePropsOutput)
-}
-
-// The creation time of the linked service.
-func (o LinkedServicePropsPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of the link target.
-func (o LinkedServicePropsPtrOutput) LinkType() LinkedServiceLinkTypePtrOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) *LinkedServiceLinkType {
-		if v == nil {
-			return nil
-		}
-		return v.LinkType
-	}).(LinkedServiceLinkTypePtrOutput)
-}
-
-// ResourceId of the link target of the linked service.
-func (o LinkedServicePropsPtrOutput) LinkedServiceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LinkedServiceResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The last modified time of the linked service.
-func (o LinkedServicePropsPtrOutput) ModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// LinkedService specific properties.
-type LinkedServicePropsResponse struct {
-	// The creation time of the linked service.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Type of the link target.
-	LinkType *string `pulumi:"linkType"`
-	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId string `pulumi:"linkedServiceResourceId"`
-	// The last modified time of the linked service.
-	ModifiedTime *string `pulumi:"modifiedTime"`
-}
-
-// LinkedService specific properties.
-type LinkedServicePropsResponseOutput struct{ *pulumi.OutputState }
-
-func (LinkedServicePropsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServicePropsResponse)(nil)).Elem()
-}
-
-func (o LinkedServicePropsResponseOutput) ToLinkedServicePropsResponseOutput() LinkedServicePropsResponseOutput {
-	return o
-}
-
-func (o LinkedServicePropsResponseOutput) ToLinkedServicePropsResponseOutputWithContext(ctx context.Context) LinkedServicePropsResponseOutput {
-	return o
-}
-
-// The creation time of the linked service.
-func (o LinkedServicePropsResponseOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
-}
-
-// Type of the link target.
-func (o LinkedServicePropsResponseOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.LinkType }).(pulumi.StringPtrOutput)
-}
-
-// ResourceId of the link target of the linked service.
-func (o LinkedServicePropsResponseOutput) LinkedServiceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedServicePropsResponse) string { return v.LinkedServiceResourceId }).(pulumi.StringOutput)
-}
-
-// The last modified time of the linked service.
-func (o LinkedServicePropsResponseOutput) ModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.ModifiedTime }).(pulumi.StringPtrOutput)
-}
-
-// LinkedWorkspace specific properties.
-type LinkedWorkspaceProps struct {
-	// ResourceId of the link target of the linked workspace.
-	LinkedWorkspaceResourceId *string `pulumi:"linkedWorkspaceResourceId"`
-	// ResourceId of the user assigned identity for the linked workspace.
-	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
-}
-
-// LinkedWorkspacePropsInput is an input type that accepts LinkedWorkspacePropsArgs and LinkedWorkspacePropsOutput values.
-// You can construct a concrete instance of `LinkedWorkspacePropsInput` via:
-//
-//          LinkedWorkspacePropsArgs{...}
-type LinkedWorkspacePropsInput interface {
-	pulumi.Input
-
-	ToLinkedWorkspacePropsOutput() LinkedWorkspacePropsOutput
-	ToLinkedWorkspacePropsOutputWithContext(context.Context) LinkedWorkspacePropsOutput
-}
-
-// LinkedWorkspace specific properties.
-type LinkedWorkspacePropsArgs struct {
-	// ResourceId of the link target of the linked workspace.
-	LinkedWorkspaceResourceId pulumi.StringPtrInput `pulumi:"linkedWorkspaceResourceId"`
-	// ResourceId of the user assigned identity for the linked workspace.
-	UserAssignedIdentityResourceId pulumi.StringPtrInput `pulumi:"userAssignedIdentityResourceId"`
-}
-
-func (LinkedWorkspacePropsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedWorkspaceProps)(nil)).Elem()
-}
-
-func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsOutput() LinkedWorkspacePropsOutput {
-	return i.ToLinkedWorkspacePropsOutputWithContext(context.Background())
-}
-
-func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsOutputWithContext(ctx context.Context) LinkedWorkspacePropsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsOutput)
-}
-
-func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
-	return i.ToLinkedWorkspacePropsPtrOutputWithContext(context.Background())
-}
-
-func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsOutput).ToLinkedWorkspacePropsPtrOutputWithContext(ctx)
-}
-
-// LinkedWorkspacePropsPtrInput is an input type that accepts LinkedWorkspacePropsArgs, LinkedWorkspacePropsPtr and LinkedWorkspacePropsPtrOutput values.
-// You can construct a concrete instance of `LinkedWorkspacePropsPtrInput` via:
-//
-//          LinkedWorkspacePropsArgs{...}
-//
-//  or:
-//
-//          nil
-type LinkedWorkspacePropsPtrInput interface {
-	pulumi.Input
-
-	ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput
-	ToLinkedWorkspacePropsPtrOutputWithContext(context.Context) LinkedWorkspacePropsPtrOutput
-}
-
-type linkedWorkspacePropsPtrType LinkedWorkspacePropsArgs
-
-func LinkedWorkspacePropsPtr(v *LinkedWorkspacePropsArgs) LinkedWorkspacePropsPtrInput {
-	return (*linkedWorkspacePropsPtrType)(v)
-}
-
-func (*linkedWorkspacePropsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedWorkspaceProps)(nil)).Elem()
-}
-
-func (i *linkedWorkspacePropsPtrType) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
-	return i.ToLinkedWorkspacePropsPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedWorkspacePropsPtrType) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsPtrOutput)
-}
-
-// LinkedWorkspace specific properties.
-type LinkedWorkspacePropsOutput struct{ *pulumi.OutputState }
-
-func (LinkedWorkspacePropsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedWorkspaceProps)(nil)).Elem()
-}
-
-func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsOutput() LinkedWorkspacePropsOutput {
-	return o
-}
-
-func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsOutputWithContext(ctx context.Context) LinkedWorkspacePropsOutput {
-	return o
-}
-
-func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
-	return o.ToLinkedWorkspacePropsPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedWorkspaceProps) *LinkedWorkspaceProps {
-		return &v
-	}).(LinkedWorkspacePropsPtrOutput)
-}
-
-// ResourceId of the link target of the linked workspace.
-func (o LinkedWorkspacePropsOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedWorkspaceProps) *string { return v.LinkedWorkspaceResourceId }).(pulumi.StringPtrOutput)
-}
-
-// ResourceId of the user assigned identity for the linked workspace.
-func (o LinkedWorkspacePropsOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedWorkspaceProps) *string { return v.UserAssignedIdentityResourceId }).(pulumi.StringPtrOutput)
-}
-
-type LinkedWorkspacePropsPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedWorkspacePropsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedWorkspaceProps)(nil)).Elem()
-}
-
-func (o LinkedWorkspacePropsPtrOutput) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
-	return o
-}
-
-func (o LinkedWorkspacePropsPtrOutput) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
-	return o
-}
-
-func (o LinkedWorkspacePropsPtrOutput) Elem() LinkedWorkspacePropsOutput {
-	return o.ApplyT(func(v *LinkedWorkspaceProps) LinkedWorkspaceProps {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedWorkspaceProps
-		return ret
-	}).(LinkedWorkspacePropsOutput)
-}
-
-// ResourceId of the link target of the linked workspace.
-func (o LinkedWorkspacePropsPtrOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedWorkspaceProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LinkedWorkspaceResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// ResourceId of the user assigned identity for the linked workspace.
-func (o LinkedWorkspacePropsPtrOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedWorkspaceProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentityResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// LinkedWorkspace specific properties.
-type LinkedWorkspacePropsResponse struct {
-	// ResourceId of the link target of the linked workspace.
-	LinkedWorkspaceResourceId *string `pulumi:"linkedWorkspaceResourceId"`
-	// ResourceId of the user assigned identity for the linked workspace.
-	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
-}
-
-// LinkedWorkspace specific properties.
-type LinkedWorkspacePropsResponseOutput struct{ *pulumi.OutputState }
-
-func (LinkedWorkspacePropsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedWorkspacePropsResponse)(nil)).Elem()
-}
-
-func (o LinkedWorkspacePropsResponseOutput) ToLinkedWorkspacePropsResponseOutput() LinkedWorkspacePropsResponseOutput {
-	return o
-}
-
-func (o LinkedWorkspacePropsResponseOutput) ToLinkedWorkspacePropsResponseOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponseOutput {
-	return o
-}
-
-// ResourceId of the link target of the linked workspace.
-func (o LinkedWorkspacePropsResponseOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedWorkspacePropsResponse) *string { return v.LinkedWorkspaceResourceId }).(pulumi.StringPtrOutput)
-}
-
-// ResourceId of the user assigned identity for the linked workspace.
-func (o LinkedWorkspacePropsResponseOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedWorkspacePropsResponse) *string { return v.UserAssignedIdentityResourceId }).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for KubernetesOnlineDeploymentResponse
+func (val *KubernetesOnlineDeploymentResponse) Defaults() *KubernetesOnlineDeploymentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppInsightsEnabled) {
+		appInsightsEnabled_ := false
+		tmp.AppInsightsEnabled = &appInsightsEnabled_
+	}
+	tmp.LivenessProbe = tmp.LivenessProbe.Defaults()
+
+	tmp.ReadinessProbe = tmp.ReadinessProbe.Defaults()
+
+	tmp.RequestSettings = tmp.RequestSettings.Defaults()
+
+	return &tmp
+}
+
+// Kubernetes properties
+type KubernetesProperties struct {
+	// Default instance type
+	DefaultInstanceType *string `pulumi:"defaultInstanceType"`
+	// Extension instance release train.
+	ExtensionInstanceReleaseTrain *string `pulumi:"extensionInstanceReleaseTrain"`
+	// Extension principal-id.
+	ExtensionPrincipalId *string `pulumi:"extensionPrincipalId"`
+	// Instance Type Schema
+	InstanceTypes map[string]InstanceTypeSchema `pulumi:"instanceTypes"`
+	// Compute namespace
+	Namespace *string `pulumi:"namespace"`
+	// Relay connection string.
+	RelayConnectionString *string `pulumi:"relayConnectionString"`
+	// ServiceBus connection string.
+	ServiceBusConnectionString *string `pulumi:"serviceBusConnectionString"`
+	// VC name.
+	VcName *string `pulumi:"vcName"`
+}
+
+// Defaults sets the appropriate defaults for KubernetesProperties
+func (val *KubernetesProperties) Defaults() *KubernetesProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Namespace) {
+		namespace_ := "default"
+		tmp.Namespace = &namespace_
+	}
+	return &tmp
+}
+
+// Kubernetes properties
+type KubernetesPropertiesResponse struct {
+	// Default instance type
+	DefaultInstanceType *string `pulumi:"defaultInstanceType"`
+	// Extension instance release train.
+	ExtensionInstanceReleaseTrain *string `pulumi:"extensionInstanceReleaseTrain"`
+	// Extension principal-id.
+	ExtensionPrincipalId *string `pulumi:"extensionPrincipalId"`
+	// Instance Type Schema
+	InstanceTypes map[string]InstanceTypeSchemaResponse `pulumi:"instanceTypes"`
+	// Compute namespace
+	Namespace *string `pulumi:"namespace"`
+	// Relay connection string.
+	RelayConnectionString *string `pulumi:"relayConnectionString"`
+	// ServiceBus connection string.
+	ServiceBusConnectionString *string `pulumi:"serviceBusConnectionString"`
+	// VC name.
+	VcName *string `pulumi:"vcName"`
+}
+
+// Defaults sets the appropriate defaults for KubernetesPropertiesResponse
+func (val *KubernetesPropertiesResponse) Defaults() *KubernetesPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Namespace) {
+		namespace_ := "default"
+		tmp.Namespace = &namespace_
+	}
+	return &tmp
+}
+
+// A Machine Learning compute based on Kubernetes Compute.
+type KubernetesResponse struct {
+	// Location for the underlying compute
+	ComputeLocation string `pulumi:"computeLocation"`
+	// The type of compute
+	// Expected value is 'Kubernetes'.
+	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// Properties of Kubernetes
+	Properties *KubernetesPropertiesResponse `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// Defaults sets the appropriate defaults for KubernetesResponse
+func (val *KubernetesResponse) Defaults() *KubernetesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 type ListNotebookKeysResultResponse struct {
@@ -14368,354 +6803,302 @@ func (o ListNotebookKeysResultResponseOutput) SecondaryAccessKey() pulumi.String
 	return o.ApplyT(func(v ListNotebookKeysResultResponse) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
-// Represents configuration for machine learning assisted features in a labeling job.
-type MLAssistConfiguration struct {
-	// The compute designated for inferencing.
-	InferencingComputeBinding ComputeBinding `pulumi:"inferencingComputeBinding"`
-	// Indicates whether MLAssist feature is enabled.
-	MlAssistEnabled *bool `pulumi:"mlAssistEnabled"`
-	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-	ModelNamePrefix string `pulumi:"modelNamePrefix"`
-	// Prelabel accuracy threshold used in MLAssist feature.
-	PrelabelAccuracyThreshold *float64 `pulumi:"prelabelAccuracyThreshold"`
-	// The compute designated for training.
-	TrainingComputeBinding ComputeBinding `pulumi:"trainingComputeBinding"`
+// Literal input type.
+type LiteralJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'literal'.
+	JobInputType string `pulumi:"jobInputType"`
+	// [Required] Literal value for the input.
+	Value string `pulumi:"value"`
 }
 
-// MLAssistConfigurationInput is an input type that accepts MLAssistConfigurationArgs and MLAssistConfigurationOutput values.
-// You can construct a concrete instance of `MLAssistConfigurationInput` via:
-//
-//          MLAssistConfigurationArgs{...}
-type MLAssistConfigurationInput interface {
-	pulumi.Input
-
-	ToMLAssistConfigurationOutput() MLAssistConfigurationOutput
-	ToMLAssistConfigurationOutputWithContext(context.Context) MLAssistConfigurationOutput
+// Literal input type.
+type LiteralJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'literal'.
+	JobInputType string `pulumi:"jobInputType"`
+	// [Required] Literal value for the input.
+	Value string `pulumi:"value"`
 }
 
-// Represents configuration for machine learning assisted features in a labeling job.
-type MLAssistConfigurationArgs struct {
-	// The compute designated for inferencing.
-	InferencingComputeBinding ComputeBindingInput `pulumi:"inferencingComputeBinding"`
-	// Indicates whether MLAssist feature is enabled.
-	MlAssistEnabled pulumi.BoolPtrInput `pulumi:"mlAssistEnabled"`
-	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-	ModelNamePrefix pulumi.StringInput `pulumi:"modelNamePrefix"`
-	// Prelabel accuracy threshold used in MLAssist feature.
-	PrelabelAccuracyThreshold pulumi.Float64PtrInput `pulumi:"prelabelAccuracyThreshold"`
-	// The compute designated for training.
-	TrainingComputeBinding ComputeBindingInput `pulumi:"trainingComputeBinding"`
+type MLFlowModelJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'mlflow_model'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
 }
 
-func (MLAssistConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLAssistConfiguration)(nil)).Elem()
+// Defaults sets the appropriate defaults for MLFlowModelJobInput
+func (val *MLFlowModelJobInput) Defaults() *MLFlowModelJobInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-func (i MLAssistConfigurationArgs) ToMLAssistConfigurationOutput() MLAssistConfigurationOutput {
-	return i.ToMLAssistConfigurationOutputWithContext(context.Background())
+type MLFlowModelJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'mlflow_model'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
 }
 
-func (i MLAssistConfigurationArgs) ToMLAssistConfigurationOutputWithContext(ctx context.Context) MLAssistConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationOutput)
+// Defaults sets the appropriate defaults for MLFlowModelJobInputResponse
+func (val *MLFlowModelJobInputResponse) Defaults() *MLFlowModelJobInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-func (i MLAssistConfigurationArgs) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
-	return i.ToMLAssistConfigurationPtrOutputWithContext(context.Background())
+type MLFlowModelJobOutput struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'mlflow_model'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
 }
 
-func (i MLAssistConfigurationArgs) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationOutput).ToMLAssistConfigurationPtrOutputWithContext(ctx)
+// Defaults sets the appropriate defaults for MLFlowModelJobOutput
+func (val *MLFlowModelJobOutput) Defaults() *MLFlowModelJobOutput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-// MLAssistConfigurationPtrInput is an input type that accepts MLAssistConfigurationArgs, MLAssistConfigurationPtr and MLAssistConfigurationPtrOutput values.
-// You can construct a concrete instance of `MLAssistConfigurationPtrInput` via:
-//
-//          MLAssistConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type MLAssistConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput
-	ToMLAssistConfigurationPtrOutputWithContext(context.Context) MLAssistConfigurationPtrOutput
+type MLFlowModelJobOutputResponse struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'mlflow_model'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
 }
 
-type mlassistConfigurationPtrType MLAssistConfigurationArgs
-
-func MLAssistConfigurationPtr(v *MLAssistConfigurationArgs) MLAssistConfigurationPtrInput {
-	return (*mlassistConfigurationPtrType)(v)
+// Defaults sets the appropriate defaults for MLFlowModelJobOutputResponse
+func (val *MLFlowModelJobOutputResponse) Defaults() *MLFlowModelJobOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-func (*mlassistConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLAssistConfiguration)(nil)).Elem()
+// MLTable data definition
+type MLTableData struct {
+	// Enum to determine the type of data.
+	// Expected value is 'mltable'.
+	DataType string `pulumi:"dataType"`
+	// [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType
+	DataUri string `pulumi:"dataUri"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Uris referenced in the MLTable definition (required for lineage)
+	ReferencedUris []string `pulumi:"referencedUris"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-func (i *mlassistConfigurationPtrType) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
-	return i.ToMLAssistConfigurationPtrOutputWithContext(context.Background())
+// Defaults sets the appropriate defaults for MLTableData
+func (val *MLTableData) Defaults() *MLTableData {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
-func (i *mlassistConfigurationPtrType) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationPtrOutput)
+// MLTable data definition
+type MLTableDataResponse struct {
+	// Enum to determine the type of data.
+	// Expected value is 'mltable'.
+	DataType string `pulumi:"dataType"`
+	// [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType
+	DataUri string `pulumi:"dataUri"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Uris referenced in the MLTable definition (required for lineage)
+	ReferencedUris []string `pulumi:"referencedUris"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
 }
 
-// Represents configuration for machine learning assisted features in a labeling job.
-type MLAssistConfigurationOutput struct{ *pulumi.OutputState }
-
-func (MLAssistConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLAssistConfiguration)(nil)).Elem()
+// Defaults sets the appropriate defaults for MLTableDataResponse
+func (val *MLTableDataResponse) Defaults() *MLTableDataResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
-func (o MLAssistConfigurationOutput) ToMLAssistConfigurationOutput() MLAssistConfigurationOutput {
-	return o
+type MLTableJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'mltable'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
 }
 
-func (o MLAssistConfigurationOutput) ToMLAssistConfigurationOutputWithContext(ctx context.Context) MLAssistConfigurationOutput {
-	return o
+// Defaults sets the appropriate defaults for MLTableJobInput
+func (val *MLTableJobInput) Defaults() *MLTableJobInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-func (o MLAssistConfigurationOutput) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
-	return o.ToMLAssistConfigurationPtrOutputWithContext(context.Background())
+type MLTableJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'mltable'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
 }
 
-func (o MLAssistConfigurationOutput) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLAssistConfiguration) *MLAssistConfiguration {
-		return &v
-	}).(MLAssistConfigurationPtrOutput)
+// Defaults sets the appropriate defaults for MLTableJobInputResponse
+func (val *MLTableJobInputResponse) Defaults() *MLTableJobInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-// The compute designated for inferencing.
-func (o MLAssistConfigurationOutput) InferencingComputeBinding() ComputeBindingOutput {
-	return o.ApplyT(func(v MLAssistConfiguration) ComputeBinding { return v.InferencingComputeBinding }).(ComputeBindingOutput)
+type MLTableJobOutput struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'mltable'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
 }
 
-// Indicates whether MLAssist feature is enabled.
-func (o MLAssistConfigurationOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MLAssistConfiguration) *bool { return v.MlAssistEnabled }).(pulumi.BoolPtrOutput)
+// Defaults sets the appropriate defaults for MLTableJobOutput
+func (val *MLTableJobOutput) Defaults() *MLTableJobOutput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
-// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-func (o MLAssistConfigurationOutput) ModelNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v MLAssistConfiguration) string { return v.ModelNamePrefix }).(pulumi.StringOutput)
+type MLTableJobOutputResponse struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'mltable'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
 }
 
-// Prelabel accuracy threshold used in MLAssist feature.
-func (o MLAssistConfigurationOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v MLAssistConfiguration) *float64 { return v.PrelabelAccuracyThreshold }).(pulumi.Float64PtrOutput)
-}
-
-// The compute designated for training.
-func (o MLAssistConfigurationOutput) TrainingComputeBinding() ComputeBindingOutput {
-	return o.ApplyT(func(v MLAssistConfiguration) ComputeBinding { return v.TrainingComputeBinding }).(ComputeBindingOutput)
-}
-
-type MLAssistConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (MLAssistConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLAssistConfiguration)(nil)).Elem()
-}
-
-func (o MLAssistConfigurationPtrOutput) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
-	return o
-}
-
-func (o MLAssistConfigurationPtrOutput) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
-	return o
-}
-
-func (o MLAssistConfigurationPtrOutput) Elem() MLAssistConfigurationOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) MLAssistConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret MLAssistConfiguration
-		return ret
-	}).(MLAssistConfigurationOutput)
-}
-
-// The compute designated for inferencing.
-func (o MLAssistConfigurationPtrOutput) InferencingComputeBinding() ComputeBindingPtrOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) *ComputeBinding {
-		if v == nil {
-			return nil
-		}
-		return &v.InferencingComputeBinding
-	}).(ComputeBindingPtrOutput)
-}
-
-// Indicates whether MLAssist feature is enabled.
-func (o MLAssistConfigurationPtrOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.MlAssistEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-func (o MLAssistConfigurationPtrOutput) ModelNamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModelNamePrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Prelabel accuracy threshold used in MLAssist feature.
-func (o MLAssistConfigurationPtrOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.PrelabelAccuracyThreshold
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The compute designated for training.
-func (o MLAssistConfigurationPtrOutput) TrainingComputeBinding() ComputeBindingPtrOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) *ComputeBinding {
-		if v == nil {
-			return nil
-		}
-		return &v.TrainingComputeBinding
-	}).(ComputeBindingPtrOutput)
-}
-
-// Represents configuration for machine learning assisted features in a labeling job.
-type MLAssistConfigurationResponse struct {
-	// The compute designated for inferencing.
-	InferencingComputeBinding ComputeBindingResponse `pulumi:"inferencingComputeBinding"`
-	// Indicates whether MLAssist feature is enabled.
-	MlAssistEnabled *bool `pulumi:"mlAssistEnabled"`
-	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-	ModelNamePrefix string `pulumi:"modelNamePrefix"`
-	// Prelabel accuracy threshold used in MLAssist feature.
-	PrelabelAccuracyThreshold *float64 `pulumi:"prelabelAccuracyThreshold"`
-	// The compute designated for training.
-	TrainingComputeBinding ComputeBindingResponse `pulumi:"trainingComputeBinding"`
-}
-
-// Represents configuration for machine learning assisted features in a labeling job.
-type MLAssistConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (MLAssistConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLAssistConfigurationResponse)(nil)).Elem()
-}
-
-func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponseOutput() MLAssistConfigurationResponseOutput {
-	return o
-}
-
-func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponseOutputWithContext(ctx context.Context) MLAssistConfigurationResponseOutput {
-	return o
-}
-
-// The compute designated for inferencing.
-func (o MLAssistConfigurationResponseOutput) InferencingComputeBinding() ComputeBindingResponseOutput {
-	return o.ApplyT(func(v MLAssistConfigurationResponse) ComputeBindingResponse { return v.InferencingComputeBinding }).(ComputeBindingResponseOutput)
-}
-
-// Indicates whether MLAssist feature is enabled.
-func (o MLAssistConfigurationResponseOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MLAssistConfigurationResponse) *bool { return v.MlAssistEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-func (o MLAssistConfigurationResponseOutput) ModelNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v MLAssistConfigurationResponse) string { return v.ModelNamePrefix }).(pulumi.StringOutput)
-}
-
-// Prelabel accuracy threshold used in MLAssist feature.
-func (o MLAssistConfigurationResponseOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v MLAssistConfigurationResponse) *float64 { return v.PrelabelAccuracyThreshold }).(pulumi.Float64PtrOutput)
-}
-
-// The compute designated for training.
-func (o MLAssistConfigurationResponseOutput) TrainingComputeBinding() ComputeBindingResponseOutput {
-	return o.ApplyT(func(v MLAssistConfigurationResponse) ComputeBindingResponse { return v.TrainingComputeBinding }).(ComputeBindingResponseOutput)
-}
-
-type MLAssistConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MLAssistConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLAssistConfigurationResponse)(nil)).Elem()
-}
-
-func (o MLAssistConfigurationResponsePtrOutput) ToMLAssistConfigurationResponsePtrOutput() MLAssistConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o MLAssistConfigurationResponsePtrOutput) ToMLAssistConfigurationResponsePtrOutputWithContext(ctx context.Context) MLAssistConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o MLAssistConfigurationResponsePtrOutput) Elem() MLAssistConfigurationResponseOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) MLAssistConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MLAssistConfigurationResponse
-		return ret
-	}).(MLAssistConfigurationResponseOutput)
-}
-
-// The compute designated for inferencing.
-func (o MLAssistConfigurationResponsePtrOutput) InferencingComputeBinding() ComputeBindingResponsePtrOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) *ComputeBindingResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.InferencingComputeBinding
-	}).(ComputeBindingResponsePtrOutput)
-}
-
-// Indicates whether MLAssist feature is enabled.
-func (o MLAssistConfigurationResponsePtrOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.MlAssistEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-func (o MLAssistConfigurationResponsePtrOutput) ModelNamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModelNamePrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Prelabel accuracy threshold used in MLAssist feature.
-func (o MLAssistConfigurationResponsePtrOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.PrelabelAccuracyThreshold
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The compute designated for training.
-func (o MLAssistConfigurationResponsePtrOutput) TrainingComputeBinding() ComputeBindingResponsePtrOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) *ComputeBindingResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.TrainingComputeBinding
-	}).(ComputeBindingResponsePtrOutput)
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceErrorResponse struct {
-	// The error response.
-	Error ErrorResponseResponse `pulumi:"error"`
+// Defaults sets the appropriate defaults for MLTableJobOutputResponse
+func (val *MLTableJobOutputResponse) Defaults() *MLTableJobOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
 // Managed identity configuration.
@@ -14731,6 +7114,34 @@ type ManagedIdentity struct {
 	ResourceId *string `pulumi:"resourceId"`
 }
 
+type ManagedIdentityAuthTypeWorkspaceConnectionProperties struct {
+	// Authentication type of the connection target
+	// Expected value is 'ManagedIdentity'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                             `pulumi:"category"`
+	Credentials *WorkspaceConnectionManagedIdentity `pulumi:"credentials"`
+	Target      *string                             `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+type ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse struct {
+	// Authentication type of the connection target
+	// Expected value is 'ManagedIdentity'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                                     `pulumi:"category"`
+	Credentials *WorkspaceConnectionManagedIdentityResponse `pulumi:"credentials"`
+	Target      *string                                     `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
 // Managed identity configuration.
 type ManagedIdentityResponse struct {
 	// Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.
@@ -14744,6 +7155,7 @@ type ManagedIdentityResponse struct {
 	ResourceId *string `pulumi:"resourceId"`
 }
 
+// Properties specific to a ManagedOnlineDeployment.
 type ManagedOnlineDeployment struct {
 	// If true, enables Application Insights logging.
 	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
@@ -14754,26 +7166,51 @@ type ManagedOnlineDeployment struct {
 	// Enum to determine endpoint compute type.
 	// Expected value is 'Managed'.
 	EndpointComputeType string `pulumi:"endpointComputeType"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Compute instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// Deployment container liveness/readiness probe configuration.
+	// Liveness probe monitors the health of the container regularly.
 	LivenessProbe *ProbeSettings `pulumi:"livenessProbe"`
-	// Reference to the model asset for the endpoint deployment.
-	Model interface{} `pulumi:"model"`
+	// The URI path to the model.
+	Model *string `pulumi:"model"`
+	// The path to mount the model in custom container.
+	ModelMountPath *string `pulumi:"modelMountPath"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
-	// Deployment container liveness/readiness probe configuration.
+	// Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
 	ReadinessProbe *ProbeSettings `pulumi:"readinessProbe"`
-	// Online deployment scoring requests configuration.
+	// Request settings for the deployment.
 	RequestSettings *OnlineRequestSettings `pulumi:"requestSettings"`
-	// Online deployment scaling configuration.
+	// Scale settings for the deployment.
+	// If it is null or not provided,
+	// it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+	// and to DefaultScaleSettings for ManagedOnlineDeployment.
 	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
+// Defaults sets the appropriate defaults for ManagedOnlineDeployment
+func (val *ManagedOnlineDeployment) Defaults() *ManagedOnlineDeployment {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppInsightsEnabled) {
+		appInsightsEnabled_ := false
+		tmp.AppInsightsEnabled = &appInsightsEnabled_
+	}
+	tmp.LivenessProbe = tmp.LivenessProbe.Defaults()
+
+	tmp.ReadinessProbe = tmp.ReadinessProbe.Defaults()
+
+	tmp.RequestSettings = tmp.RequestSettings.Defaults()
+
+	return &tmp
+}
+
+// Properties specific to a ManagedOnlineDeployment.
 type ManagedOnlineDeploymentResponse struct {
 	// If true, enables Application Insights logging.
 	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
@@ -14784,51 +7221,325 @@ type ManagedOnlineDeploymentResponse struct {
 	// Enum to determine endpoint compute type.
 	// Expected value is 'Managed'.
 	EndpointComputeType string `pulumi:"endpointComputeType"`
-	// ARM resource ID of the environment specification for the endpoint deployment.
+	// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Compute instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// Deployment container liveness/readiness probe configuration.
+	// Liveness probe monitors the health of the container regularly.
 	LivenessProbe *ProbeSettingsResponse `pulumi:"livenessProbe"`
-	// Reference to the model asset for the endpoint deployment.
-	Model interface{} `pulumi:"model"`
+	// The URI path to the model.
+	Model *string `pulumi:"model"`
+	// The path to mount the model in custom container.
+	ModelMountPath *string `pulumi:"modelMountPath"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
 	// Provisioning state for the endpoint deployment.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Deployment container liveness/readiness probe configuration.
+	// Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
 	ReadinessProbe *ProbeSettingsResponse `pulumi:"readinessProbe"`
-	// Online deployment scoring requests configuration.
+	// Request settings for the deployment.
 	RequestSettings *OnlineRequestSettingsResponse `pulumi:"requestSettings"`
-	// Online deployment scaling configuration.
+	// Scale settings for the deployment.
+	// If it is null or not provided,
+	// it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+	// and to DefaultScaleSettings for ManagedOnlineDeployment.
 	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
-type ManualScaleSettings struct {
-	// Fixed number of instances for this deployment.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// Maximum number of instances for this deployment.
-	MaxInstances *int `pulumi:"maxInstances"`
-	// Minimum number of instances for this deployment.
-	MinInstances *int `pulumi:"minInstances"`
-	// Expected value is 'Manual'.
-	ScaleType string `pulumi:"scaleType"`
+// Defaults sets the appropriate defaults for ManagedOnlineDeploymentResponse
+func (val *ManagedOnlineDeploymentResponse) Defaults() *ManagedOnlineDeploymentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppInsightsEnabled) {
+		appInsightsEnabled_ := false
+		tmp.AppInsightsEnabled = &appInsightsEnabled_
+	}
+	tmp.LivenessProbe = tmp.LivenessProbe.Defaults()
+
+	tmp.ReadinessProbe = tmp.ReadinessProbe.Defaults()
+
+	tmp.RequestSettings = tmp.RequestSettings.Defaults()
+
+	return &tmp
 }
 
-type ManualScaleSettingsResponse struct {
-	// Fixed number of instances for this deployment.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// Maximum number of instances for this deployment.
-	MaxInstances *int `pulumi:"maxInstances"`
-	// Minimum number of instances for this deployment.
-	MinInstances *int `pulumi:"minInstances"`
-	// Expected value is 'Manual'.
-	ScaleType string `pulumi:"scaleType"`
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentity struct {
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs.
+// ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+type ManagedServiceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
+	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityArgs struct {
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
+	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
+}
+
+type managedServiceIdentityPtrType ManagedServiceIdentityArgs
+
+func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
+	return (*managedServiceIdentityPtrType)(v)
+}
+
+func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+		return &v
+	}).(ManagedServiceIdentityPtrOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityResponse struct {
+	// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
+}
+
+// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+// Defines an early termination policy based on running averages of the primary metric of all runs
 type MedianStoppingPolicy struct {
 	// Number of intervals by which to delay the first evaluation.
 	DelayEvaluation *int `pulumi:"delayEvaluation"`
@@ -14838,7 +7549,24 @@ type MedianStoppingPolicy struct {
 	PolicyType string `pulumi:"policyType"`
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs.
+// Defaults sets the appropriate defaults for MedianStoppingPolicy
+func (val *MedianStoppingPolicy) Defaults() *MedianStoppingPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelayEvaluation) {
+		delayEvaluation_ := 0
+		tmp.DelayEvaluation = &delayEvaluation_
+	}
+	if isZero(tmp.EvaluationInterval) {
+		evaluationInterval_ := 0
+		tmp.EvaluationInterval = &evaluationInterval_
+	}
+	return &tmp
+}
+
+// Defines an early termination policy based on running averages of the primary metric of all runs
 type MedianStoppingPolicyResponse struct {
 	// Number of intervals by which to delay the first evaluation.
 	DelayEvaluation *int `pulumi:"delayEvaluation"`
@@ -14848,293 +7576,45 @@ type MedianStoppingPolicyResponse struct {
 	PolicyType string `pulumi:"policyType"`
 }
 
-// An Azure Machine Learning Model.
-type Model struct {
-	// The Model creation time (UTC).
-	CreatedTime *string `pulumi:"createdTime"`
-	// The list of datasets associated with the model.
-	Datasets []DatasetReference `pulumi:"datasets"`
-	// Models derived from this model
-	DerivedModelIds []string `pulumi:"derivedModelIds"`
-	// The Model description text.
-	Description *string `pulumi:"description"`
-	// The name of the experiment where this model was created.
-	ExperimentName *string `pulumi:"experimentName"`
-	// The Model framework.
-	Framework *string `pulumi:"framework"`
-	// The Model framework version.
-	FrameworkVersion *string `pulumi:"frameworkVersion"`
-	// The Model Id.
-	Id *string `pulumi:"id"`
-	// The Model tag dictionary. Items are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
-	MimeType string `pulumi:"mimeType"`
-	// The Model last modified time (UTC).
-	ModifiedTime *string `pulumi:"modifiedTime"`
-	// The Model name.
-	Name string `pulumi:"name"`
-	// The Parent Model Id.
-	ParentModelId *string `pulumi:"parentModelId"`
-	// The Model property dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// Resource requirements for the model
-	ResourceRequirements *ContainerResourceRequirements `pulumi:"resourceRequirements"`
-	// The RunId that created this model.
-	RunId *string `pulumi:"runId"`
-	// Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-	SampleInputData *string `pulumi:"sampleInputData"`
-	// Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-	SampleOutputData *string `pulumi:"sampleOutputData"`
-	// Indicates whether we need to unpack the Model during docker Image creation.
-	Unpack *bool `pulumi:"unpack"`
-	// The URL of the Model. Usually a SAS URL.
-	Url string `pulumi:"url"`
-	// The Model version assigned by Model Management Service.
-	Version *float64 `pulumi:"version"`
-}
-
-// ModelInput is an input type that accepts ModelArgs and ModelOutput values.
-// You can construct a concrete instance of `ModelInput` via:
-//
-//          ModelArgs{...}
-type ModelInput interface {
-	pulumi.Input
-
-	ToModelOutput() ModelOutput
-	ToModelOutputWithContext(context.Context) ModelOutput
-}
-
-// An Azure Machine Learning Model.
-type ModelArgs struct {
-	// The Model creation time (UTC).
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// The list of datasets associated with the model.
-	Datasets DatasetReferenceArrayInput `pulumi:"datasets"`
-	// Models derived from this model
-	DerivedModelIds pulumi.StringArrayInput `pulumi:"derivedModelIds"`
-	// The Model description text.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the experiment where this model was created.
-	ExperimentName pulumi.StringPtrInput `pulumi:"experimentName"`
-	// The Model framework.
-	Framework pulumi.StringPtrInput `pulumi:"framework"`
-	// The Model framework version.
-	FrameworkVersion pulumi.StringPtrInput `pulumi:"frameworkVersion"`
-	// The Model Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Model tag dictionary. Items are mutable.
-	KvTags pulumi.StringMapInput `pulumi:"kvTags"`
-	// The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
-	MimeType pulumi.StringInput `pulumi:"mimeType"`
-	// The Model last modified time (UTC).
-	ModifiedTime pulumi.StringPtrInput `pulumi:"modifiedTime"`
-	// The Model name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Parent Model Id.
-	ParentModelId pulumi.StringPtrInput `pulumi:"parentModelId"`
-	// The Model property dictionary. Properties are immutable.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Resource requirements for the model
-	ResourceRequirements ContainerResourceRequirementsPtrInput `pulumi:"resourceRequirements"`
-	// The RunId that created this model.
-	RunId pulumi.StringPtrInput `pulumi:"runId"`
-	// Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-	SampleInputData pulumi.StringPtrInput `pulumi:"sampleInputData"`
-	// Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-	SampleOutputData pulumi.StringPtrInput `pulumi:"sampleOutputData"`
-	// Indicates whether we need to unpack the Model during docker Image creation.
-	Unpack pulumi.BoolPtrInput `pulumi:"unpack"`
-	// The URL of the Model. Usually a SAS URL.
-	Url pulumi.StringInput `pulumi:"url"`
-	// The Model version assigned by Model Management Service.
-	Version pulumi.Float64PtrInput `pulumi:"version"`
-}
-
-func (ModelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil)).Elem()
-}
-
-func (i ModelArgs) ToModelOutput() ModelOutput {
-	return i.ToModelOutputWithContext(context.Background())
-}
-
-func (i ModelArgs) ToModelOutputWithContext(ctx context.Context) ModelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelOutput)
-}
-
-// ModelArrayInput is an input type that accepts ModelArray and ModelArrayOutput values.
-// You can construct a concrete instance of `ModelArrayInput` via:
-//
-//          ModelArray{ ModelArgs{...} }
-type ModelArrayInput interface {
-	pulumi.Input
-
-	ToModelArrayOutput() ModelArrayOutput
-	ToModelArrayOutputWithContext(context.Context) ModelArrayOutput
-}
-
-type ModelArray []ModelInput
-
-func (ModelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Model)(nil)).Elem()
-}
-
-func (i ModelArray) ToModelArrayOutput() ModelArrayOutput {
-	return i.ToModelArrayOutputWithContext(context.Background())
-}
-
-func (i ModelArray) ToModelArrayOutputWithContext(ctx context.Context) ModelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelArrayOutput)
-}
-
-// An Azure Machine Learning Model.
-type ModelOutput struct{ *pulumi.OutputState }
-
-func (ModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil)).Elem()
-}
-
-func (o ModelOutput) ToModelOutput() ModelOutput {
-	return o
-}
-
-func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
-	return o
-}
-
-// The Model creation time (UTC).
-func (o ModelOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
-}
-
-// The list of datasets associated with the model.
-func (o ModelOutput) Datasets() DatasetReferenceArrayOutput {
-	return o.ApplyT(func(v Model) []DatasetReference { return v.Datasets }).(DatasetReferenceArrayOutput)
-}
-
-// Models derived from this model
-func (o ModelOutput) DerivedModelIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Model) []string { return v.DerivedModelIds }).(pulumi.StringArrayOutput)
-}
-
-// The Model description text.
-func (o ModelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The name of the experiment where this model was created.
-func (o ModelOutput) ExperimentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.ExperimentName }).(pulumi.StringPtrOutput)
-}
-
-// The Model framework.
-func (o ModelOutput) Framework() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.Framework }).(pulumi.StringPtrOutput)
-}
-
-// The Model framework version.
-func (o ModelOutput) FrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.FrameworkVersion }).(pulumi.StringPtrOutput)
-}
-
-// The Model Id.
-func (o ModelOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The Model tag dictionary. Items are mutable.
-func (o ModelOutput) KvTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Model) map[string]string { return v.KvTags }).(pulumi.StringMapOutput)
-}
-
-// The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
-func (o ModelOutput) MimeType() pulumi.StringOutput {
-	return o.ApplyT(func(v Model) string { return v.MimeType }).(pulumi.StringOutput)
-}
-
-// The Model last modified time (UTC).
-func (o ModelOutput) ModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.ModifiedTime }).(pulumi.StringPtrOutput)
-}
-
-// The Model name.
-func (o ModelOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Model) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Parent Model Id.
-func (o ModelOutput) ParentModelId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.ParentModelId }).(pulumi.StringPtrOutput)
-}
-
-// The Model property dictionary. Properties are immutable.
-func (o ModelOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Model) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// Resource requirements for the model
-func (o ModelOutput) ResourceRequirements() ContainerResourceRequirementsPtrOutput {
-	return o.ApplyT(func(v Model) *ContainerResourceRequirements { return v.ResourceRequirements }).(ContainerResourceRequirementsPtrOutput)
-}
-
-// The RunId that created this model.
-func (o ModelOutput) RunId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.RunId }).(pulumi.StringPtrOutput)
-}
-
-// Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-func (o ModelOutput) SampleInputData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.SampleInputData }).(pulumi.StringPtrOutput)
-}
-
-// Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-func (o ModelOutput) SampleOutputData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Model) *string { return v.SampleOutputData }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether we need to unpack the Model during docker Image creation.
-func (o ModelOutput) Unpack() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Model) *bool { return v.Unpack }).(pulumi.BoolPtrOutput)
-}
-
-// The URL of the Model. Usually a SAS URL.
-func (o ModelOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v Model) string { return v.Url }).(pulumi.StringOutput)
-}
-
-// The Model version assigned by Model Management Service.
-func (o ModelOutput) Version() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v Model) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
-}
-
-type ModelArrayOutput struct{ *pulumi.OutputState }
-
-func (ModelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Model)(nil)).Elem()
-}
-
-func (o ModelArrayOutput) ToModelArrayOutput() ModelArrayOutput {
-	return o
-}
-
-func (o ModelArrayOutput) ToModelArrayOutputWithContext(ctx context.Context) ModelArrayOutput {
-	return o
-}
-
-func (o ModelArrayOutput) Index(i pulumi.IntInput) ModelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Model {
-		return vs[0].([]Model)[vs[1].(int)]
-	}).(ModelOutput)
+// Defaults sets the appropriate defaults for MedianStoppingPolicyResponse
+func (val *MedianStoppingPolicyResponse) Defaults() *MedianStoppingPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelayEvaluation) {
+		delayEvaluation_ := 0
+		tmp.DelayEvaluation = &delayEvaluation_
+	}
+	if isZero(tmp.EvaluationInterval) {
+		evaluationInterval_ := 0
+		tmp.EvaluationInterval = &evaluationInterval_
+	}
+	return &tmp
 }
 
 type ModelContainerType struct {
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ModelContainerType
+func (val *ModelContainerType) Defaults() *ModelContainerType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // ModelContainerTypeInput is an input type that accepts ModelContainerTypeArgs and ModelContainerTypeOutput values.
@@ -15151,12 +7631,25 @@ type ModelContainerTypeInput interface {
 type ModelContainerTypeArgs struct {
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for ModelContainerTypeArgs
+func (val *ModelContainerTypeArgs) Defaults() *ModelContainerTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ModelContainerTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelContainerType)(nil)).Elem()
 }
@@ -15188,6 +7681,11 @@ func (o ModelContainerTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainerType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Is the asset archived?
+func (o ModelContainerTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelContainerType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
 // The asset property dictionary.
 func (o ModelContainerTypeOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelContainerType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -15201,10 +7699,29 @@ func (o ModelContainerTypeOutput) Tags() pulumi.StringMapOutput {
 type ModelContainerResponse struct {
 	// The asset description text.
 	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The latest version inside this container.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The next auto incremental version
+	NextVersion string `pulumi:"nextVersion"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ModelContainerResponse
+func (val *ModelContainerResponse) Defaults() *ModelContainerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 type ModelContainerResponseOutput struct{ *pulumi.OutputState }
@@ -15226,6 +7743,21 @@ func (o ModelContainerResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainerResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Is the asset archived?
+func (o ModelContainerResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelContainerResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The latest version inside this container.
+func (o ModelContainerResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The next auto incremental version
+func (o ModelContainerResponseOutput) NextVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerResponse) string { return v.NextVersion }).(pulumi.StringOutput)
+}
+
 // The asset property dictionary.
 func (o ModelContainerResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelContainerResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -15236,1119 +7768,43 @@ func (o ModelContainerResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelContainerResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Image registry that contains the base image.
-type ModelDockerSectionBaseImageRegistry struct {
-	Address  *string `pulumi:"address"`
-	Password *string `pulumi:"password"`
-	Username *string `pulumi:"username"`
-}
-
-// ModelDockerSectionBaseImageRegistryInput is an input type that accepts ModelDockerSectionBaseImageRegistryArgs and ModelDockerSectionBaseImageRegistryOutput values.
-// You can construct a concrete instance of `ModelDockerSectionBaseImageRegistryInput` via:
-//
-//          ModelDockerSectionBaseImageRegistryArgs{...}
-type ModelDockerSectionBaseImageRegistryInput interface {
-	pulumi.Input
-
-	ToModelDockerSectionBaseImageRegistryOutput() ModelDockerSectionBaseImageRegistryOutput
-	ToModelDockerSectionBaseImageRegistryOutputWithContext(context.Context) ModelDockerSectionBaseImageRegistryOutput
-}
-
-// Image registry that contains the base image.
-type ModelDockerSectionBaseImageRegistryArgs struct {
-	Address  pulumi.StringPtrInput `pulumi:"address"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	Username pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (ModelDockerSectionBaseImageRegistryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelDockerSectionBaseImageRegistry)(nil)).Elem()
-}
-
-func (i ModelDockerSectionBaseImageRegistryArgs) ToModelDockerSectionBaseImageRegistryOutput() ModelDockerSectionBaseImageRegistryOutput {
-	return i.ToModelDockerSectionBaseImageRegistryOutputWithContext(context.Background())
-}
-
-func (i ModelDockerSectionBaseImageRegistryArgs) ToModelDockerSectionBaseImageRegistryOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelDockerSectionBaseImageRegistryOutput)
-}
-
-func (i ModelDockerSectionBaseImageRegistryArgs) ToModelDockerSectionBaseImageRegistryPtrOutput() ModelDockerSectionBaseImageRegistryPtrOutput {
-	return i.ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(context.Background())
-}
-
-func (i ModelDockerSectionBaseImageRegistryArgs) ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelDockerSectionBaseImageRegistryOutput).ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(ctx)
-}
-
-// ModelDockerSectionBaseImageRegistryPtrInput is an input type that accepts ModelDockerSectionBaseImageRegistryArgs, ModelDockerSectionBaseImageRegistryPtr and ModelDockerSectionBaseImageRegistryPtrOutput values.
-// You can construct a concrete instance of `ModelDockerSectionBaseImageRegistryPtrInput` via:
-//
-//          ModelDockerSectionBaseImageRegistryArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelDockerSectionBaseImageRegistryPtrInput interface {
-	pulumi.Input
-
-	ToModelDockerSectionBaseImageRegistryPtrOutput() ModelDockerSectionBaseImageRegistryPtrOutput
-	ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(context.Context) ModelDockerSectionBaseImageRegistryPtrOutput
-}
-
-type modelDockerSectionBaseImageRegistryPtrType ModelDockerSectionBaseImageRegistryArgs
-
-func ModelDockerSectionBaseImageRegistryPtr(v *ModelDockerSectionBaseImageRegistryArgs) ModelDockerSectionBaseImageRegistryPtrInput {
-	return (*modelDockerSectionBaseImageRegistryPtrType)(v)
-}
-
-func (*modelDockerSectionBaseImageRegistryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelDockerSectionBaseImageRegistry)(nil)).Elem()
-}
-
-func (i *modelDockerSectionBaseImageRegistryPtrType) ToModelDockerSectionBaseImageRegistryPtrOutput() ModelDockerSectionBaseImageRegistryPtrOutput {
-	return i.ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(context.Background())
-}
-
-func (i *modelDockerSectionBaseImageRegistryPtrType) ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelDockerSectionBaseImageRegistryPtrOutput)
-}
-
-// Image registry that contains the base image.
-type ModelDockerSectionBaseImageRegistryOutput struct{ *pulumi.OutputState }
-
-func (ModelDockerSectionBaseImageRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelDockerSectionBaseImageRegistry)(nil)).Elem()
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) ToModelDockerSectionBaseImageRegistryOutput() ModelDockerSectionBaseImageRegistryOutput {
-	return o
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) ToModelDockerSectionBaseImageRegistryOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryOutput {
-	return o
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) ToModelDockerSectionBaseImageRegistryPtrOutput() ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o.ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(context.Background())
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelDockerSectionBaseImageRegistry) *ModelDockerSectionBaseImageRegistry {
-		return &v
-	}).(ModelDockerSectionBaseImageRegistryPtrOutput)
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelDockerSectionBaseImageRegistry) *string { return v.Address }).(pulumi.StringPtrOutput)
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelDockerSectionBaseImageRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-func (o ModelDockerSectionBaseImageRegistryOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelDockerSectionBaseImageRegistry) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-type ModelDockerSectionBaseImageRegistryPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelDockerSectionBaseImageRegistryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelDockerSectionBaseImageRegistry)(nil)).Elem()
-}
-
-func (o ModelDockerSectionBaseImageRegistryPtrOutput) ToModelDockerSectionBaseImageRegistryPtrOutput() ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o
-}
-
-func (o ModelDockerSectionBaseImageRegistryPtrOutput) ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o
-}
-
-func (o ModelDockerSectionBaseImageRegistryPtrOutput) Elem() ModelDockerSectionBaseImageRegistryOutput {
-	return o.ApplyT(func(v *ModelDockerSectionBaseImageRegistry) ModelDockerSectionBaseImageRegistry {
-		if v != nil {
-			return *v
-		}
-		var ret ModelDockerSectionBaseImageRegistry
-		return ret
-	}).(ModelDockerSectionBaseImageRegistryOutput)
-}
-
-func (o ModelDockerSectionBaseImageRegistryPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelDockerSectionBaseImageRegistry) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Address
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelDockerSectionBaseImageRegistryPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelDockerSectionBaseImageRegistry) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelDockerSectionBaseImageRegistryPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelDockerSectionBaseImageRegistry) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// Image registry that contains the base image.
-type ModelDockerSectionResponseResponseBaseImageRegistry struct {
-	Address *string `pulumi:"address"`
-}
-
-// The definition of a Docker container.
-type ModelEnvironmentDefinitionDocker struct {
-	// Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
-	BaseDockerfile *string `pulumi:"baseDockerfile"`
-	// Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-	BaseImage *string `pulumi:"baseImage"`
-	// Image registry that contains the base image.
-	BaseImageRegistry *ModelDockerSectionBaseImageRegistry `pulumi:"baseImageRegistry"`
-}
-
-// ModelEnvironmentDefinitionDockerInput is an input type that accepts ModelEnvironmentDefinitionDockerArgs and ModelEnvironmentDefinitionDockerOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionDockerInput` via:
-//
-//          ModelEnvironmentDefinitionDockerArgs{...}
-type ModelEnvironmentDefinitionDockerInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionDockerOutput() ModelEnvironmentDefinitionDockerOutput
-	ToModelEnvironmentDefinitionDockerOutputWithContext(context.Context) ModelEnvironmentDefinitionDockerOutput
-}
-
-// The definition of a Docker container.
-type ModelEnvironmentDefinitionDockerArgs struct {
-	// Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
-	BaseDockerfile pulumi.StringPtrInput `pulumi:"baseDockerfile"`
-	// Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-	BaseImage pulumi.StringPtrInput `pulumi:"baseImage"`
-	// Image registry that contains the base image.
-	BaseImageRegistry ModelDockerSectionBaseImageRegistryPtrInput `pulumi:"baseImageRegistry"`
-}
-
-func (ModelEnvironmentDefinitionDockerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionDocker)(nil)).Elem()
-}
-
-func (i ModelEnvironmentDefinitionDockerArgs) ToModelEnvironmentDefinitionDockerOutput() ModelEnvironmentDefinitionDockerOutput {
-	return i.ToModelEnvironmentDefinitionDockerOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionDockerArgs) ToModelEnvironmentDefinitionDockerOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionDockerOutput)
-}
-
-func (i ModelEnvironmentDefinitionDockerArgs) ToModelEnvironmentDefinitionDockerPtrOutput() ModelEnvironmentDefinitionDockerPtrOutput {
-	return i.ToModelEnvironmentDefinitionDockerPtrOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionDockerArgs) ToModelEnvironmentDefinitionDockerPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionDockerOutput).ToModelEnvironmentDefinitionDockerPtrOutputWithContext(ctx)
-}
-
-// ModelEnvironmentDefinitionDockerPtrInput is an input type that accepts ModelEnvironmentDefinitionDockerArgs, ModelEnvironmentDefinitionDockerPtr and ModelEnvironmentDefinitionDockerPtrOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionDockerPtrInput` via:
-//
-//          ModelEnvironmentDefinitionDockerArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelEnvironmentDefinitionDockerPtrInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionDockerPtrOutput() ModelEnvironmentDefinitionDockerPtrOutput
-	ToModelEnvironmentDefinitionDockerPtrOutputWithContext(context.Context) ModelEnvironmentDefinitionDockerPtrOutput
-}
-
-type modelEnvironmentDefinitionDockerPtrType ModelEnvironmentDefinitionDockerArgs
-
-func ModelEnvironmentDefinitionDockerPtr(v *ModelEnvironmentDefinitionDockerArgs) ModelEnvironmentDefinitionDockerPtrInput {
-	return (*modelEnvironmentDefinitionDockerPtrType)(v)
-}
-
-func (*modelEnvironmentDefinitionDockerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionDocker)(nil)).Elem()
-}
-
-func (i *modelEnvironmentDefinitionDockerPtrType) ToModelEnvironmentDefinitionDockerPtrOutput() ModelEnvironmentDefinitionDockerPtrOutput {
-	return i.ToModelEnvironmentDefinitionDockerPtrOutputWithContext(context.Background())
-}
-
-func (i *modelEnvironmentDefinitionDockerPtrType) ToModelEnvironmentDefinitionDockerPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionDockerPtrOutput)
-}
-
-// The definition of a Docker container.
-type ModelEnvironmentDefinitionDockerOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionDockerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionDocker)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionDockerOutput) ToModelEnvironmentDefinitionDockerOutput() ModelEnvironmentDefinitionDockerOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionDockerOutput) ToModelEnvironmentDefinitionDockerOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionDockerOutput) ToModelEnvironmentDefinitionDockerPtrOutput() ModelEnvironmentDefinitionDockerPtrOutput {
-	return o.ToModelEnvironmentDefinitionDockerPtrOutputWithContext(context.Background())
-}
-
-func (o ModelEnvironmentDefinitionDockerOutput) ToModelEnvironmentDefinitionDockerPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionDocker) *ModelEnvironmentDefinitionDocker {
-		return &v
-	}).(ModelEnvironmentDefinitionDockerPtrOutput)
-}
-
-// Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
-func (o ModelEnvironmentDefinitionDockerOutput) BaseDockerfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionDocker) *string { return v.BaseDockerfile }).(pulumi.StringPtrOutput)
-}
-
-// Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-func (o ModelEnvironmentDefinitionDockerOutput) BaseImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionDocker) *string { return v.BaseImage }).(pulumi.StringPtrOutput)
-}
-
-// Image registry that contains the base image.
-func (o ModelEnvironmentDefinitionDockerOutput) BaseImageRegistry() ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionDocker) *ModelDockerSectionBaseImageRegistry {
-		return v.BaseImageRegistry
-	}).(ModelDockerSectionBaseImageRegistryPtrOutput)
-}
-
-type ModelEnvironmentDefinitionDockerPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionDockerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionDocker)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionDockerPtrOutput) ToModelEnvironmentDefinitionDockerPtrOutput() ModelEnvironmentDefinitionDockerPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionDockerPtrOutput) ToModelEnvironmentDefinitionDockerPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionDockerPtrOutput) Elem() ModelEnvironmentDefinitionDockerOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionDocker) ModelEnvironmentDefinitionDocker {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionDocker
-		return ret
-	}).(ModelEnvironmentDefinitionDockerOutput)
-}
-
-// Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
-func (o ModelEnvironmentDefinitionDockerPtrOutput) BaseDockerfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionDocker) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaseDockerfile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-func (o ModelEnvironmentDefinitionDockerPtrOutput) BaseImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionDocker) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaseImage
-	}).(pulumi.StringPtrOutput)
-}
-
-// Image registry that contains the base image.
-func (o ModelEnvironmentDefinitionDockerPtrOutput) BaseImageRegistry() ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionDocker) *ModelDockerSectionBaseImageRegistry {
-		if v == nil {
-			return nil
-		}
-		return v.BaseImageRegistry
-	}).(ModelDockerSectionBaseImageRegistryPtrOutput)
-}
-
-// Settings for a Python environment.
-type ModelEnvironmentDefinitionPython struct {
-	BaseCondaEnvironment *string `pulumi:"baseCondaEnvironment"`
-	// A JObject containing Conda dependencies.
-	CondaDependencies interface{} `pulumi:"condaDependencies"`
-	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
-	InterpreterPath *string `pulumi:"interpreterPath"`
-	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
-	UserManagedDependencies *bool `pulumi:"userManagedDependencies"`
-}
-
-// ModelEnvironmentDefinitionPythonInput is an input type that accepts ModelEnvironmentDefinitionPythonArgs and ModelEnvironmentDefinitionPythonOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionPythonInput` via:
-//
-//          ModelEnvironmentDefinitionPythonArgs{...}
-type ModelEnvironmentDefinitionPythonInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionPythonOutput() ModelEnvironmentDefinitionPythonOutput
-	ToModelEnvironmentDefinitionPythonOutputWithContext(context.Context) ModelEnvironmentDefinitionPythonOutput
-}
-
-// Settings for a Python environment.
-type ModelEnvironmentDefinitionPythonArgs struct {
-	BaseCondaEnvironment pulumi.StringPtrInput `pulumi:"baseCondaEnvironment"`
-	// A JObject containing Conda dependencies.
-	CondaDependencies pulumi.Input `pulumi:"condaDependencies"`
-	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
-	InterpreterPath pulumi.StringPtrInput `pulumi:"interpreterPath"`
-	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
-	UserManagedDependencies pulumi.BoolPtrInput `pulumi:"userManagedDependencies"`
-}
-
-func (ModelEnvironmentDefinitionPythonArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionPython)(nil)).Elem()
-}
-
-func (i ModelEnvironmentDefinitionPythonArgs) ToModelEnvironmentDefinitionPythonOutput() ModelEnvironmentDefinitionPythonOutput {
-	return i.ToModelEnvironmentDefinitionPythonOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionPythonArgs) ToModelEnvironmentDefinitionPythonOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionPythonOutput)
-}
-
-func (i ModelEnvironmentDefinitionPythonArgs) ToModelEnvironmentDefinitionPythonPtrOutput() ModelEnvironmentDefinitionPythonPtrOutput {
-	return i.ToModelEnvironmentDefinitionPythonPtrOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionPythonArgs) ToModelEnvironmentDefinitionPythonPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionPythonOutput).ToModelEnvironmentDefinitionPythonPtrOutputWithContext(ctx)
-}
-
-// ModelEnvironmentDefinitionPythonPtrInput is an input type that accepts ModelEnvironmentDefinitionPythonArgs, ModelEnvironmentDefinitionPythonPtr and ModelEnvironmentDefinitionPythonPtrOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionPythonPtrInput` via:
-//
-//          ModelEnvironmentDefinitionPythonArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelEnvironmentDefinitionPythonPtrInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionPythonPtrOutput() ModelEnvironmentDefinitionPythonPtrOutput
-	ToModelEnvironmentDefinitionPythonPtrOutputWithContext(context.Context) ModelEnvironmentDefinitionPythonPtrOutput
-}
-
-type modelEnvironmentDefinitionPythonPtrType ModelEnvironmentDefinitionPythonArgs
-
-func ModelEnvironmentDefinitionPythonPtr(v *ModelEnvironmentDefinitionPythonArgs) ModelEnvironmentDefinitionPythonPtrInput {
-	return (*modelEnvironmentDefinitionPythonPtrType)(v)
-}
-
-func (*modelEnvironmentDefinitionPythonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionPython)(nil)).Elem()
-}
-
-func (i *modelEnvironmentDefinitionPythonPtrType) ToModelEnvironmentDefinitionPythonPtrOutput() ModelEnvironmentDefinitionPythonPtrOutput {
-	return i.ToModelEnvironmentDefinitionPythonPtrOutputWithContext(context.Background())
-}
-
-func (i *modelEnvironmentDefinitionPythonPtrType) ToModelEnvironmentDefinitionPythonPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionPythonPtrOutput)
-}
-
-// Settings for a Python environment.
-type ModelEnvironmentDefinitionPythonOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionPythonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionPython)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionPythonOutput) ToModelEnvironmentDefinitionPythonOutput() ModelEnvironmentDefinitionPythonOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionPythonOutput) ToModelEnvironmentDefinitionPythonOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionPythonOutput) ToModelEnvironmentDefinitionPythonPtrOutput() ModelEnvironmentDefinitionPythonPtrOutput {
-	return o.ToModelEnvironmentDefinitionPythonPtrOutputWithContext(context.Background())
-}
-
-func (o ModelEnvironmentDefinitionPythonOutput) ToModelEnvironmentDefinitionPythonPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionPython) *ModelEnvironmentDefinitionPython {
-		return &v
-	}).(ModelEnvironmentDefinitionPythonPtrOutput)
-}
-
-func (o ModelEnvironmentDefinitionPythonOutput) BaseCondaEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) *string { return v.BaseCondaEnvironment }).(pulumi.StringPtrOutput)
-}
-
-// A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionPythonOutput) CondaDependencies() pulumi.AnyOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) interface{} { return v.CondaDependencies }).(pulumi.AnyOutput)
-}
-
-// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
-func (o ModelEnvironmentDefinitionPythonOutput) InterpreterPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) *string { return v.InterpreterPath }).(pulumi.StringPtrOutput)
-}
-
-// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
-func (o ModelEnvironmentDefinitionPythonOutput) UserManagedDependencies() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) *bool { return v.UserManagedDependencies }).(pulumi.BoolPtrOutput)
-}
-
-type ModelEnvironmentDefinitionPythonPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionPythonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionPython)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionPythonPtrOutput) ToModelEnvironmentDefinitionPythonPtrOutput() ModelEnvironmentDefinitionPythonPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionPythonPtrOutput) ToModelEnvironmentDefinitionPythonPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionPythonPtrOutput) Elem() ModelEnvironmentDefinitionPythonOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) ModelEnvironmentDefinitionPython {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionPython
-		return ret
-	}).(ModelEnvironmentDefinitionPythonOutput)
-}
-
-func (o ModelEnvironmentDefinitionPythonPtrOutput) BaseCondaEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaseCondaEnvironment
-	}).(pulumi.StringPtrOutput)
-}
-
-// A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionPythonPtrOutput) CondaDependencies() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.CondaDependencies
-	}).(pulumi.AnyOutput)
-}
-
-// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
-func (o ModelEnvironmentDefinitionPythonPtrOutput) InterpreterPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InterpreterPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
-func (o ModelEnvironmentDefinitionPythonPtrOutput) UserManagedDependencies() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UserManagedDependencies
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Settings for a R environment.
-type ModelEnvironmentDefinitionR struct {
-	// The packages from Bioconductor.
-	BioConductorPackages []string `pulumi:"bioConductorPackages"`
-	// The CRAN packages to use.
-	CranPackages []RCranPackage `pulumi:"cranPackages"`
-	// The packages from custom urls.
-	CustomUrlPackages []string `pulumi:"customUrlPackages"`
-	// The packages directly from GitHub.
-	GitHubPackages []RGitHubPackage `pulumi:"gitHubPackages"`
-	// The version of R to be installed
-	RVersion *string `pulumi:"rVersion"`
-	// The Rscript path to use if an environment build is not required.
-	// The path specified gets used to call the user script.
-	RscriptPath *string `pulumi:"rscriptPath"`
-	// Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
-	SnapshotDate *string `pulumi:"snapshotDate"`
-	// Indicates whether the environment is managed by user or by AzureML.
-	UserManaged *bool `pulumi:"userManaged"`
-}
-
-// ModelEnvironmentDefinitionRInput is an input type that accepts ModelEnvironmentDefinitionRArgs and ModelEnvironmentDefinitionROutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionRInput` via:
-//
-//          ModelEnvironmentDefinitionRArgs{...}
-type ModelEnvironmentDefinitionRInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionROutput() ModelEnvironmentDefinitionROutput
-	ToModelEnvironmentDefinitionROutputWithContext(context.Context) ModelEnvironmentDefinitionROutput
-}
-
-// Settings for a R environment.
-type ModelEnvironmentDefinitionRArgs struct {
-	// The packages from Bioconductor.
-	BioConductorPackages pulumi.StringArrayInput `pulumi:"bioConductorPackages"`
-	// The CRAN packages to use.
-	CranPackages RCranPackageArrayInput `pulumi:"cranPackages"`
-	// The packages from custom urls.
-	CustomUrlPackages pulumi.StringArrayInput `pulumi:"customUrlPackages"`
-	// The packages directly from GitHub.
-	GitHubPackages RGitHubPackageArrayInput `pulumi:"gitHubPackages"`
-	// The version of R to be installed
-	RVersion pulumi.StringPtrInput `pulumi:"rVersion"`
-	// The Rscript path to use if an environment build is not required.
-	// The path specified gets used to call the user script.
-	RscriptPath pulumi.StringPtrInput `pulumi:"rscriptPath"`
-	// Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
-	SnapshotDate pulumi.StringPtrInput `pulumi:"snapshotDate"`
-	// Indicates whether the environment is managed by user or by AzureML.
-	UserManaged pulumi.BoolPtrInput `pulumi:"userManaged"`
-}
-
-func (ModelEnvironmentDefinitionRArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionR)(nil)).Elem()
-}
-
-func (i ModelEnvironmentDefinitionRArgs) ToModelEnvironmentDefinitionROutput() ModelEnvironmentDefinitionROutput {
-	return i.ToModelEnvironmentDefinitionROutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionRArgs) ToModelEnvironmentDefinitionROutputWithContext(ctx context.Context) ModelEnvironmentDefinitionROutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionROutput)
-}
-
-func (i ModelEnvironmentDefinitionRArgs) ToModelEnvironmentDefinitionRPtrOutput() ModelEnvironmentDefinitionRPtrOutput {
-	return i.ToModelEnvironmentDefinitionRPtrOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionRArgs) ToModelEnvironmentDefinitionRPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionRPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionROutput).ToModelEnvironmentDefinitionRPtrOutputWithContext(ctx)
-}
-
-// ModelEnvironmentDefinitionRPtrInput is an input type that accepts ModelEnvironmentDefinitionRArgs, ModelEnvironmentDefinitionRPtr and ModelEnvironmentDefinitionRPtrOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionRPtrInput` via:
-//
-//          ModelEnvironmentDefinitionRArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelEnvironmentDefinitionRPtrInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionRPtrOutput() ModelEnvironmentDefinitionRPtrOutput
-	ToModelEnvironmentDefinitionRPtrOutputWithContext(context.Context) ModelEnvironmentDefinitionRPtrOutput
-}
-
-type modelEnvironmentDefinitionRPtrType ModelEnvironmentDefinitionRArgs
-
-func ModelEnvironmentDefinitionRPtr(v *ModelEnvironmentDefinitionRArgs) ModelEnvironmentDefinitionRPtrInput {
-	return (*modelEnvironmentDefinitionRPtrType)(v)
-}
-
-func (*modelEnvironmentDefinitionRPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionR)(nil)).Elem()
-}
-
-func (i *modelEnvironmentDefinitionRPtrType) ToModelEnvironmentDefinitionRPtrOutput() ModelEnvironmentDefinitionRPtrOutput {
-	return i.ToModelEnvironmentDefinitionRPtrOutputWithContext(context.Background())
-}
-
-func (i *modelEnvironmentDefinitionRPtrType) ToModelEnvironmentDefinitionRPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionRPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionRPtrOutput)
-}
-
-// Settings for a R environment.
-type ModelEnvironmentDefinitionROutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionROutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionR)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionROutput) ToModelEnvironmentDefinitionROutput() ModelEnvironmentDefinitionROutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionROutput) ToModelEnvironmentDefinitionROutputWithContext(ctx context.Context) ModelEnvironmentDefinitionROutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionROutput) ToModelEnvironmentDefinitionRPtrOutput() ModelEnvironmentDefinitionRPtrOutput {
-	return o.ToModelEnvironmentDefinitionRPtrOutputWithContext(context.Background())
-}
-
-func (o ModelEnvironmentDefinitionROutput) ToModelEnvironmentDefinitionRPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionRPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionR) *ModelEnvironmentDefinitionR {
-		return &v
-	}).(ModelEnvironmentDefinitionRPtrOutput)
-}
-
-// The packages from Bioconductor.
-func (o ModelEnvironmentDefinitionROutput) BioConductorPackages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) []string { return v.BioConductorPackages }).(pulumi.StringArrayOutput)
-}
-
-// The CRAN packages to use.
-func (o ModelEnvironmentDefinitionROutput) CranPackages() RCranPackageArrayOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) []RCranPackage { return v.CranPackages }).(RCranPackageArrayOutput)
-}
-
-// The packages from custom urls.
-func (o ModelEnvironmentDefinitionROutput) CustomUrlPackages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) []string { return v.CustomUrlPackages }).(pulumi.StringArrayOutput)
-}
-
-// The packages directly from GitHub.
-func (o ModelEnvironmentDefinitionROutput) GitHubPackages() RGitHubPackageArrayOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) []RGitHubPackage { return v.GitHubPackages }).(RGitHubPackageArrayOutput)
-}
-
-// The version of R to be installed
-func (o ModelEnvironmentDefinitionROutput) RVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) *string { return v.RVersion }).(pulumi.StringPtrOutput)
-}
-
-// The Rscript path to use if an environment build is not required.
-// The path specified gets used to call the user script.
-func (o ModelEnvironmentDefinitionROutput) RscriptPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) *string { return v.RscriptPath }).(pulumi.StringPtrOutput)
-}
-
-// Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
-func (o ModelEnvironmentDefinitionROutput) SnapshotDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) *string { return v.SnapshotDate }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the environment is managed by user or by AzureML.
-func (o ModelEnvironmentDefinitionROutput) UserManaged() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionR) *bool { return v.UserManaged }).(pulumi.BoolPtrOutput)
-}
-
-type ModelEnvironmentDefinitionRPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionRPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionR)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionRPtrOutput) ToModelEnvironmentDefinitionRPtrOutput() ModelEnvironmentDefinitionRPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionRPtrOutput) ToModelEnvironmentDefinitionRPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionRPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionRPtrOutput) Elem() ModelEnvironmentDefinitionROutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) ModelEnvironmentDefinitionR {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionR
-		return ret
-	}).(ModelEnvironmentDefinitionROutput)
-}
-
-// The packages from Bioconductor.
-func (o ModelEnvironmentDefinitionRPtrOutput) BioConductorPackages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) []string {
-		if v == nil {
-			return nil
-		}
-		return v.BioConductorPackages
-	}).(pulumi.StringArrayOutput)
-}
-
-// The CRAN packages to use.
-func (o ModelEnvironmentDefinitionRPtrOutput) CranPackages() RCranPackageArrayOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) []RCranPackage {
-		if v == nil {
-			return nil
-		}
-		return v.CranPackages
-	}).(RCranPackageArrayOutput)
-}
-
-// The packages from custom urls.
-func (o ModelEnvironmentDefinitionRPtrOutput) CustomUrlPackages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomUrlPackages
-	}).(pulumi.StringArrayOutput)
-}
-
-// The packages directly from GitHub.
-func (o ModelEnvironmentDefinitionRPtrOutput) GitHubPackages() RGitHubPackageArrayOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) []RGitHubPackage {
-		if v == nil {
-			return nil
-		}
-		return v.GitHubPackages
-	}).(RGitHubPackageArrayOutput)
-}
-
-// The version of R to be installed
-func (o ModelEnvironmentDefinitionRPtrOutput) RVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Rscript path to use if an environment build is not required.
-// The path specified gets used to call the user script.
-func (o ModelEnvironmentDefinitionRPtrOutput) RscriptPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RscriptPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
-func (o ModelEnvironmentDefinitionRPtrOutput) SnapshotDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SnapshotDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the environment is managed by user or by AzureML.
-func (o ModelEnvironmentDefinitionRPtrOutput) UserManaged() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UserManaged
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The definition of a Docker container.
-type ModelEnvironmentDefinitionResponseResponseDocker struct {
-	// Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
-	BaseDockerfile *string `pulumi:"baseDockerfile"`
-	// Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-	BaseImage *string `pulumi:"baseImage"`
-	// Image registry that contains the base image.
-	BaseImageRegistry *ModelDockerSectionResponseResponseBaseImageRegistry `pulumi:"baseImageRegistry"`
-}
-
-// Settings for a Python environment.
-type ModelEnvironmentDefinitionResponseResponsePython struct {
-	BaseCondaEnvironment *string `pulumi:"baseCondaEnvironment"`
-	// A JObject containing Conda dependencies.
-	CondaDependencies interface{} `pulumi:"condaDependencies"`
-	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
-	InterpreterPath *string `pulumi:"interpreterPath"`
-	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
-	UserManagedDependencies *bool `pulumi:"userManagedDependencies"`
-}
-
-// Settings for a R environment.
-type ModelEnvironmentDefinitionResponseResponseR struct {
-	// The packages from Bioconductor.
-	BioConductorPackages []string `pulumi:"bioConductorPackages"`
-	// The CRAN packages to use.
-	CranPackages []RCranPackageResponse `pulumi:"cranPackages"`
-	// The packages from custom urls.
-	CustomUrlPackages []string `pulumi:"customUrlPackages"`
-	// The packages directly from GitHub.
-	GitHubPackages []RGitHubPackageResponseResponse `pulumi:"gitHubPackages"`
-	// The version of R to be installed
-	RVersion *string `pulumi:"rVersion"`
-	// The Rscript path to use if an environment build is not required.
-	// The path specified gets used to call the user script.
-	RscriptPath *string `pulumi:"rscriptPath"`
-	// Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
-	SnapshotDate *string `pulumi:"snapshotDate"`
-	// Indicates whether the environment is managed by user or by AzureML.
-	UserManaged *bool `pulumi:"userManaged"`
-}
-
-// The configuration for a Spark environment.
-type ModelEnvironmentDefinitionResponseResponseSpark struct {
-	// The Spark packages to use.
-	Packages []SparkMavenPackageResponse `pulumi:"packages"`
-	// Whether to precache the packages.
-	PrecachePackages *bool `pulumi:"precachePackages"`
-	// The list of spark repositories.
-	Repositories []string `pulumi:"repositories"`
-}
-
-// The configuration for a Spark environment.
-type ModelEnvironmentDefinitionSpark struct {
-	// The Spark packages to use.
-	Packages []SparkMavenPackage `pulumi:"packages"`
-	// Whether to precache the packages.
-	PrecachePackages *bool `pulumi:"precachePackages"`
-	// The list of spark repositories.
-	Repositories []string `pulumi:"repositories"`
-}
-
-// ModelEnvironmentDefinitionSparkInput is an input type that accepts ModelEnvironmentDefinitionSparkArgs and ModelEnvironmentDefinitionSparkOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionSparkInput` via:
-//
-//          ModelEnvironmentDefinitionSparkArgs{...}
-type ModelEnvironmentDefinitionSparkInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionSparkOutput() ModelEnvironmentDefinitionSparkOutput
-	ToModelEnvironmentDefinitionSparkOutputWithContext(context.Context) ModelEnvironmentDefinitionSparkOutput
-}
-
-// The configuration for a Spark environment.
-type ModelEnvironmentDefinitionSparkArgs struct {
-	// The Spark packages to use.
-	Packages SparkMavenPackageArrayInput `pulumi:"packages"`
-	// Whether to precache the packages.
-	PrecachePackages pulumi.BoolPtrInput `pulumi:"precachePackages"`
-	// The list of spark repositories.
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
-}
-
-func (ModelEnvironmentDefinitionSparkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionSpark)(nil)).Elem()
-}
-
-func (i ModelEnvironmentDefinitionSparkArgs) ToModelEnvironmentDefinitionSparkOutput() ModelEnvironmentDefinitionSparkOutput {
-	return i.ToModelEnvironmentDefinitionSparkOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionSparkArgs) ToModelEnvironmentDefinitionSparkOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionSparkOutput)
-}
-
-func (i ModelEnvironmentDefinitionSparkArgs) ToModelEnvironmentDefinitionSparkPtrOutput() ModelEnvironmentDefinitionSparkPtrOutput {
-	return i.ToModelEnvironmentDefinitionSparkPtrOutputWithContext(context.Background())
-}
-
-func (i ModelEnvironmentDefinitionSparkArgs) ToModelEnvironmentDefinitionSparkPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionSparkOutput).ToModelEnvironmentDefinitionSparkPtrOutputWithContext(ctx)
-}
-
-// ModelEnvironmentDefinitionSparkPtrInput is an input type that accepts ModelEnvironmentDefinitionSparkArgs, ModelEnvironmentDefinitionSparkPtr and ModelEnvironmentDefinitionSparkPtrOutput values.
-// You can construct a concrete instance of `ModelEnvironmentDefinitionSparkPtrInput` via:
-//
-//          ModelEnvironmentDefinitionSparkArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelEnvironmentDefinitionSparkPtrInput interface {
-	pulumi.Input
-
-	ToModelEnvironmentDefinitionSparkPtrOutput() ModelEnvironmentDefinitionSparkPtrOutput
-	ToModelEnvironmentDefinitionSparkPtrOutputWithContext(context.Context) ModelEnvironmentDefinitionSparkPtrOutput
-}
-
-type modelEnvironmentDefinitionSparkPtrType ModelEnvironmentDefinitionSparkArgs
-
-func ModelEnvironmentDefinitionSparkPtr(v *ModelEnvironmentDefinitionSparkArgs) ModelEnvironmentDefinitionSparkPtrInput {
-	return (*modelEnvironmentDefinitionSparkPtrType)(v)
-}
-
-func (*modelEnvironmentDefinitionSparkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionSpark)(nil)).Elem()
-}
-
-func (i *modelEnvironmentDefinitionSparkPtrType) ToModelEnvironmentDefinitionSparkPtrOutput() ModelEnvironmentDefinitionSparkPtrOutput {
-	return i.ToModelEnvironmentDefinitionSparkPtrOutputWithContext(context.Background())
-}
-
-func (i *modelEnvironmentDefinitionSparkPtrType) ToModelEnvironmentDefinitionSparkPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelEnvironmentDefinitionSparkPtrOutput)
-}
-
-// The configuration for a Spark environment.
-type ModelEnvironmentDefinitionSparkOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionSparkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelEnvironmentDefinitionSpark)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionSparkOutput) ToModelEnvironmentDefinitionSparkOutput() ModelEnvironmentDefinitionSparkOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionSparkOutput) ToModelEnvironmentDefinitionSparkOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionSparkOutput) ToModelEnvironmentDefinitionSparkPtrOutput() ModelEnvironmentDefinitionSparkPtrOutput {
-	return o.ToModelEnvironmentDefinitionSparkPtrOutputWithContext(context.Background())
-}
-
-func (o ModelEnvironmentDefinitionSparkOutput) ToModelEnvironmentDefinitionSparkPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionSpark) *ModelEnvironmentDefinitionSpark {
-		return &v
-	}).(ModelEnvironmentDefinitionSparkPtrOutput)
-}
-
-// The Spark packages to use.
-func (o ModelEnvironmentDefinitionSparkOutput) Packages() SparkMavenPackageArrayOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionSpark) []SparkMavenPackage { return v.Packages }).(SparkMavenPackageArrayOutput)
-}
-
-// Whether to precache the packages.
-func (o ModelEnvironmentDefinitionSparkOutput) PrecachePackages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionSpark) *bool { return v.PrecachePackages }).(pulumi.BoolPtrOutput)
-}
-
-// The list of spark repositories.
-func (o ModelEnvironmentDefinitionSparkOutput) Repositories() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionSpark) []string { return v.Repositories }).(pulumi.StringArrayOutput)
-}
-
-type ModelEnvironmentDefinitionSparkPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelEnvironmentDefinitionSparkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelEnvironmentDefinitionSpark)(nil)).Elem()
-}
-
-func (o ModelEnvironmentDefinitionSparkPtrOutput) ToModelEnvironmentDefinitionSparkPtrOutput() ModelEnvironmentDefinitionSparkPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionSparkPtrOutput) ToModelEnvironmentDefinitionSparkPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkPtrOutput {
-	return o
-}
-
-func (o ModelEnvironmentDefinitionSparkPtrOutput) Elem() ModelEnvironmentDefinitionSparkOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionSpark) ModelEnvironmentDefinitionSpark {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionSpark
-		return ret
-	}).(ModelEnvironmentDefinitionSparkOutput)
-}
-
-// The Spark packages to use.
-func (o ModelEnvironmentDefinitionSparkPtrOutput) Packages() SparkMavenPackageArrayOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionSpark) []SparkMavenPackage {
-		if v == nil {
-			return nil
-		}
-		return v.Packages
-	}).(SparkMavenPackageArrayOutput)
-}
-
-// Whether to precache the packages.
-func (o ModelEnvironmentDefinitionSparkPtrOutput) PrecachePackages() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionSpark) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PrecachePackages
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The list of spark repositories.
-func (o ModelEnvironmentDefinitionSparkPtrOutput) Repositories() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionSpark) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Repositories
-	}).(pulumi.StringArrayOutput)
-}
-
-// An Azure Machine Learning Model.
-type ModelResponse struct {
-	// The Model creation time (UTC).
-	CreatedTime *string `pulumi:"createdTime"`
-	// The list of datasets associated with the model.
-	Datasets []DatasetReferenceResponse `pulumi:"datasets"`
-	// Models derived from this model
-	DerivedModelIds []string `pulumi:"derivedModelIds"`
-	// The Model description text.
-	Description *string `pulumi:"description"`
-	// The name of the experiment where this model was created.
-	ExperimentName *string `pulumi:"experimentName"`
-	// The Model framework.
-	Framework *string `pulumi:"framework"`
-	// The Model framework version.
-	FrameworkVersion *string `pulumi:"frameworkVersion"`
-	// The Model Id.
-	Id *string `pulumi:"id"`
-	// The Model tag dictionary. Items are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
-	MimeType string `pulumi:"mimeType"`
-	// The Model last modified time (UTC).
-	ModifiedTime *string `pulumi:"modifiedTime"`
-	// The Model name.
-	Name string `pulumi:"name"`
-	// The Parent Model Id.
-	ParentModelId *string `pulumi:"parentModelId"`
-	// The Model property dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// Resource requirements for the model
-	ResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"resourceRequirements"`
-	// The RunId that created this model.
-	RunId *string `pulumi:"runId"`
-	// Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-	SampleInputData *string `pulumi:"sampleInputData"`
-	// Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-	SampleOutputData *string `pulumi:"sampleOutputData"`
-	// Indicates whether we need to unpack the Model during docker Image creation.
-	Unpack *bool `pulumi:"unpack"`
-	// The URL of the Model. Usually a SAS URL.
-	Url string `pulumi:"url"`
-	// The Model version assigned by Model Management Service.
-	Version *float64 `pulumi:"version"`
-}
-
 // Model asset version details.
 type ModelVersionType struct {
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId *string `pulumi:"datastoreId"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
 	// Mapping of model flavors to their properties.
 	Flavors map[string]FlavorData `pulumi:"flavors"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path string `pulumi:"path"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// Name of the training job which produced this model
+	JobName *string `pulumi:"jobName"`
+	// The storage format for this entity. Used for NCD.
+	ModelType *string `pulumi:"modelType"`
+	// The URI path to the model contents.
+	ModelUri *string `pulumi:"modelUri"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ModelVersionType
+func (val *ModelVersionType) Defaults() *ModelVersionType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // ModelVersionTypeInput is an input type that accepts ModelVersionTypeArgs and ModelVersionTypeOutput values.
@@ -16364,22 +7820,40 @@ type ModelVersionTypeInput interface {
 
 // Model asset version details.
 type ModelVersionTypeArgs struct {
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId pulumi.StringPtrInput `pulumi:"datastoreId"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Mapping of model flavors to their properties.
 	Flavors FlavorDataMapInput `pulumi:"flavors"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path pulumi.StringInput `pulumi:"path"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
+	// Name of the training job which produced this model
+	JobName pulumi.StringPtrInput `pulumi:"jobName"`
+	// The storage format for this entity. Used for NCD.
+	ModelType pulumi.StringPtrInput `pulumi:"modelType"`
+	// The URI path to the model contents.
+	ModelUri pulumi.StringPtrInput `pulumi:"modelUri"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for ModelVersionTypeArgs
+func (val *ModelVersionTypeArgs) Defaults() *ModelVersionTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		tmp.IsAnonymous = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ModelVersionTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelVersionType)(nil)).Elem()
 }
@@ -16407,11 +7881,6 @@ func (o ModelVersionTypeOutput) ToModelVersionTypeOutputWithContext(ctx context.
 	return o
 }
 
-// ARM resource ID of the datastore where the asset is located.
-func (o ModelVersionTypeOutput) DatastoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelVersionType) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
-}
-
 // The asset description text.
 func (o ModelVersionTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelVersionType) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -16427,9 +7896,24 @@ func (o ModelVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// [Required] The path of the file/directory in the datastore.
-func (o ModelVersionTypeOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelVersionType) string { return v.Path }).(pulumi.StringOutput)
+// Is the asset archived?
+func (o ModelVersionTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelVersionType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the training job which produced this model
+func (o ModelVersionTypeOutput) JobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelVersionType) *string { return v.JobName }).(pulumi.StringPtrOutput)
+}
+
+// The storage format for this entity. Used for NCD.
+func (o ModelVersionTypeOutput) ModelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelVersionType) *string { return v.ModelType }).(pulumi.StringPtrOutput)
+}
+
+// The URI path to the model contents.
+func (o ModelVersionTypeOutput) ModelUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelVersionType) *string { return v.ModelUri }).(pulumi.StringPtrOutput)
 }
 
 // The asset property dictionary.
@@ -16444,20 +7928,41 @@ func (o ModelVersionTypeOutput) Tags() pulumi.StringMapOutput {
 
 // Model asset version details.
 type ModelVersionResponse struct {
-	// ARM resource ID of the datastore where the asset is located.
-	DatastoreId *string `pulumi:"datastoreId"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
 	// Mapping of model flavors to their properties.
 	Flavors map[string]FlavorDataResponse `pulumi:"flavors"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// [Required] The path of the file/directory in the datastore.
-	Path string `pulumi:"path"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// Name of the training job which produced this model
+	JobName *string `pulumi:"jobName"`
+	// The storage format for this entity. Used for NCD.
+	ModelType *string `pulumi:"modelType"`
+	// The URI path to the model contents.
+	ModelUri *string `pulumi:"modelUri"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ModelVersionResponse
+func (val *ModelVersionResponse) Defaults() *ModelVersionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
 }
 
 // Model asset version details.
@@ -16475,11 +7980,6 @@ func (o ModelVersionResponseOutput) ToModelVersionResponseOutputWithContext(ctx 
 	return o
 }
 
-// ARM resource ID of the datastore where the asset is located.
-func (o ModelVersionResponseOutput) DatastoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelVersionResponse) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
-}
-
 // The asset description text.
 func (o ModelVersionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelVersionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -16495,9 +7995,24 @@ func (o ModelVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// [Required] The path of the file/directory in the datastore.
-func (o ModelVersionResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelVersionResponse) string { return v.Path }).(pulumi.StringOutput)
+// Is the asset archived?
+func (o ModelVersionResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelVersionResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the training job which produced this model
+func (o ModelVersionResponseOutput) JobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelVersionResponse) *string { return v.JobName }).(pulumi.StringPtrOutput)
+}
+
+// The storage format for this entity. Used for NCD.
+func (o ModelVersionResponseOutput) ModelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelVersionResponse) *string { return v.ModelType }).(pulumi.StringPtrOutput)
+}
+
+// The URI path to the model contents.
+func (o ModelVersionResponseOutput) ModelUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelVersionResponse) *string { return v.ModelUri }).(pulumi.StringPtrOutput)
 }
 
 // The asset property dictionary.
@@ -16542,6 +8057,46 @@ type NodeStateCountsResponse struct {
 	RunningNodeCount int `pulumi:"runningNodeCount"`
 	// Number of compute nodes which are in unusable state.
 	UnusableNodeCount int `pulumi:"unusableNodeCount"`
+}
+
+type NoneAuthTypeWorkspaceConnectionProperties struct {
+	// Authentication type of the connection target
+	// Expected value is 'None'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category *string `pulumi:"category"`
+	Target   *string `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+type NoneAuthTypeWorkspaceConnectionPropertiesResponse struct {
+	// Authentication type of the connection target
+	// Expected value is 'None'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category *string `pulumi:"category"`
+	Target   *string `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+// Empty/none datastore credentials.
+type NoneDatastoreCredentials struct {
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'None'.
+	CredentialsType string `pulumi:"credentialsType"`
+}
+
+// Empty/none datastore credentials.
+type NoneDatastoreCredentialsResponse struct {
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'None'.
+	CredentialsType string `pulumi:"credentialsType"`
 }
 
 type NotebookPreparationErrorResponse struct {
@@ -16669,8 +8224,11 @@ type ObjectiveResponse struct {
 
 // Online endpoint configuration
 type OnlineEndpointType struct {
-	// [Required] Inference endpoint authentication mode type
+	// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
 	AuthMode string `pulumi:"authMode"`
+	// ARM resource ID of the compute if it exists.
+	// optional
+	Compute *string `pulumi:"compute"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
 	// EndpointAuthKeys to set initially on an Endpoint.
@@ -16678,10 +8236,7 @@ type OnlineEndpointType struct {
 	Keys *EndpointAuthKeys `pulumi:"keys"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
-	// ARM resource ID of the compute if it exists.
-	// optional
-	Target *string `pulumi:"target"`
-	// Traffic rules on how the traffic will be routed across deployments.
+	// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
 	Traffic map[string]int `pulumi:"traffic"`
 }
 
@@ -16698,8 +8253,11 @@ type OnlineEndpointTypeInput interface {
 
 // Online endpoint configuration
 type OnlineEndpointTypeArgs struct {
-	// [Required] Inference endpoint authentication mode type
+	// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
 	AuthMode pulumi.StringInput `pulumi:"authMode"`
+	// ARM resource ID of the compute if it exists.
+	// optional
+	Compute pulumi.StringPtrInput `pulumi:"compute"`
 	// Description of the inference endpoint.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// EndpointAuthKeys to set initially on an Endpoint.
@@ -16707,10 +8265,7 @@ type OnlineEndpointTypeArgs struct {
 	Keys EndpointAuthKeysPtrInput `pulumi:"keys"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// ARM resource ID of the compute if it exists.
-	// optional
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Traffic rules on how the traffic will be routed across deployments.
+	// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
 	Traffic pulumi.IntMapInput `pulumi:"traffic"`
 }
 
@@ -16741,9 +8296,15 @@ func (o OnlineEndpointTypeOutput) ToOnlineEndpointTypeOutputWithContext(ctx cont
 	return o
 }
 
-// [Required] Inference endpoint authentication mode type
+// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
 func (o OnlineEndpointTypeOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEndpointType) string { return v.AuthMode }).(pulumi.StringOutput)
+}
+
+// ARM resource ID of the compute if it exists.
+// optional
+func (o OnlineEndpointTypeOutput) Compute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnlineEndpointType) *string { return v.Compute }).(pulumi.StringPtrOutput)
 }
 
 // Description of the inference endpoint.
@@ -16762,35 +8323,29 @@ func (o OnlineEndpointTypeOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v OnlineEndpointType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// ARM resource ID of the compute if it exists.
-// optional
-func (o OnlineEndpointTypeOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnlineEndpointType) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-// Traffic rules on how the traffic will be routed across deployments.
+// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
 func (o OnlineEndpointTypeOutput) Traffic() pulumi.IntMapOutput {
 	return o.ApplyT(func(v OnlineEndpointType) map[string]int { return v.Traffic }).(pulumi.IntMapOutput)
 }
 
 // Online endpoint configuration
 type OnlineEndpointResponse struct {
-	// [Required] Inference endpoint authentication mode type
+	// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
 	AuthMode string `pulumi:"authMode"`
+	// ARM resource ID of the compute if it exists.
+	// optional
+	Compute *string `pulumi:"compute"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
-	// State of endpoint provisioning.
+	// Provisioning state for the endpoint.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint URI.
 	ScoringUri string `pulumi:"scoringUri"`
 	// Endpoint Swagger URI.
 	SwaggerUri string `pulumi:"swaggerUri"`
-	// ARM resource ID of the compute if it exists.
-	// optional
-	Target *string `pulumi:"target"`
-	// Traffic rules on how the traffic will be routed across deployments.
+	// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
 	Traffic map[string]int `pulumi:"traffic"`
 }
 
@@ -16809,9 +8364,15 @@ func (o OnlineEndpointResponseOutput) ToOnlineEndpointResponseOutputWithContext(
 	return o
 }
 
-// [Required] Inference endpoint authentication mode type
+// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
 func (o OnlineEndpointResponseOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEndpointResponse) string { return v.AuthMode }).(pulumi.StringOutput)
+}
+
+// ARM resource ID of the compute if it exists.
+// optional
+func (o OnlineEndpointResponseOutput) Compute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnlineEndpointResponse) *string { return v.Compute }).(pulumi.StringPtrOutput)
 }
 
 // Description of the inference endpoint.
@@ -16824,7 +8385,7 @@ func (o OnlineEndpointResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v OnlineEndpointResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// State of endpoint provisioning.
+// Provisioning state for the endpoint.
 func (o OnlineEndpointResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEndpointResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -16839,57 +8400,75 @@ func (o OnlineEndpointResponseOutput) SwaggerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEndpointResponse) string { return v.SwaggerUri }).(pulumi.StringOutput)
 }
 
-// ARM resource ID of the compute if it exists.
-// optional
-func (o OnlineEndpointResponseOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnlineEndpointResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-// Traffic rules on how the traffic will be routed across deployments.
+// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
 func (o OnlineEndpointResponseOutput) Traffic() pulumi.IntMapOutput {
 	return o.ApplyT(func(v OnlineEndpointResponse) map[string]int { return v.Traffic }).(pulumi.IntMapOutput)
 }
 
 // Online deployment scoring requests configuration.
 type OnlineRequestSettings struct {
-	// The number of requests allowed to queue at once for this deployment.
+	// The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
 	MaxConcurrentRequestsPerInstance *int `pulumi:"maxConcurrentRequestsPerInstance"`
-	// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
+	// The maximum amount of time a request will stay in the queue in ISO 8601 format.
+	// Defaults to 500ms.
 	MaxQueueWait *string `pulumi:"maxQueueWait"`
-	// The request timeout in ISO 8601 format. Supports millisecond precision.
+	// The scoring timeout in ISO 8601 format.
+	// Defaults to 5000ms.
 	RequestTimeout *string `pulumi:"requestTimeout"`
+}
+
+// Defaults sets the appropriate defaults for OnlineRequestSettings
+func (val *OnlineRequestSettings) Defaults() *OnlineRequestSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxConcurrentRequestsPerInstance) {
+		maxConcurrentRequestsPerInstance_ := 1
+		tmp.MaxConcurrentRequestsPerInstance = &maxConcurrentRequestsPerInstance_
+	}
+	if isZero(tmp.MaxQueueWait) {
+		maxQueueWait_ := "PT0.5S"
+		tmp.MaxQueueWait = &maxQueueWait_
+	}
+	if isZero(tmp.RequestTimeout) {
+		requestTimeout_ := "PT5S"
+		tmp.RequestTimeout = &requestTimeout_
+	}
+	return &tmp
 }
 
 // Online deployment scoring requests configuration.
 type OnlineRequestSettingsResponse struct {
-	// The number of requests allowed to queue at once for this deployment.
+	// The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
 	MaxConcurrentRequestsPerInstance *int `pulumi:"maxConcurrentRequestsPerInstance"`
-	// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
+	// The maximum amount of time a request will stay in the queue in ISO 8601 format.
+	// Defaults to 500ms.
 	MaxQueueWait *string `pulumi:"maxQueueWait"`
-	// The request timeout in ISO 8601 format. Supports millisecond precision.
+	// The scoring timeout in ISO 8601 format.
+	// Defaults to 5000ms.
 	RequestTimeout *string `pulumi:"requestTimeout"`
 }
 
-type OutputDataBinding struct {
-	// ARM resource ID of the datastore where the data output will be stored.
-	DatastoreId *string `pulumi:"datastoreId"`
-	// Mechanism for data movement to datastore.
-	Mode *string `pulumi:"mode"`
-	// Location of data inside the container process.
-	PathOnCompute *string `pulumi:"pathOnCompute"`
-	// Path within the datastore to the data.
-	PathOnDatastore *string `pulumi:"pathOnDatastore"`
-}
-
-type OutputDataBindingResponse struct {
-	// ARM resource ID of the datastore where the data output will be stored.
-	DatastoreId *string `pulumi:"datastoreId"`
-	// Mechanism for data movement to datastore.
-	Mode *string `pulumi:"mode"`
-	// Location of data inside the container process.
-	PathOnCompute *string `pulumi:"pathOnCompute"`
-	// Path within the datastore to the data.
-	PathOnDatastore *string `pulumi:"pathOnDatastore"`
+// Defaults sets the appropriate defaults for OnlineRequestSettingsResponse
+func (val *OnlineRequestSettingsResponse) Defaults() *OnlineRequestSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxConcurrentRequestsPerInstance) {
+		maxConcurrentRequestsPerInstance_ := 1
+		tmp.MaxConcurrentRequestsPerInstance = &maxConcurrentRequestsPerInstance_
+	}
+	if isZero(tmp.MaxQueueWait) {
+		maxQueueWait_ := "PT0.5S"
+		tmp.MaxQueueWait = &maxQueueWait_
+	}
+	if isZero(tmp.RequestTimeout) {
+		requestTimeout_ := "PT5S"
+		tmp.RequestTimeout = &requestTimeout_
+	}
+	return &tmp
 }
 
 // Reference to an asset via its path in a job output.
@@ -16912,6 +8491,34 @@ type OutputPathAssetReferenceResponse struct {
 	// Enum to determine which reference method to use for an asset.
 	// Expected value is 'OutputPath'.
 	ReferenceType string `pulumi:"referenceType"`
+}
+
+type PATAuthTypeWorkspaceConnectionProperties struct {
+	// Authentication type of the connection target
+	// Expected value is 'PAT'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                                 `pulumi:"category"`
+	Credentials *WorkspaceConnectionPersonalAccessToken `pulumi:"credentials"`
+	Target      *string                                 `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+type PATAuthTypeWorkspaceConnectionPropertiesResponse struct {
+	// Authentication type of the connection target
+	// Expected value is 'PAT'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                                         `pulumi:"category"`
+	Credentials *WorkspaceConnectionPersonalAccessTokenResponse `pulumi:"credentials"`
+	Target      *string                                         `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
 }
 
 type PasswordResponse struct {
@@ -16973,15 +8580,121 @@ type PersonalComputeInstanceSettingsResponse struct {
 	AssignedUser *AssignedUserResponse `pulumi:"assignedUser"`
 }
 
+// Pipeline Job definition: defines generic to MFE attributes.
+type PipelineJob struct {
+	// ARM resource ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Display name of job.
+	DisplayName *string `pulumi:"displayName"`
+	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+	ExperimentName *string `pulumi:"experimentName"`
+	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+	// Defaults to AmlToken if null.
+	Identity interface{} `pulumi:"identity"`
+	// Inputs for the pipeline job.
+	Inputs map[string]interface{} `pulumi:"inputs"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// Enum to determine the type of job.
+	// Expected value is 'Pipeline'.
+	JobType string `pulumi:"jobType"`
+	// Jobs construct the Pipeline Job.
+	Jobs map[string]interface{} `pulumi:"jobs"`
+	// Outputs for the pipeline job
+	Outputs map[string]interface{} `pulumi:"outputs"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// List of JobEndpoints.
+	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+	Services map[string]JobService `pulumi:"services"`
+	// Pipeline settings, for things like ContinueRunOnStepFailure etc.
+	Settings interface{} `pulumi:"settings"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for PipelineJob
+func (val *PipelineJob) Defaults() *PipelineJob {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExperimentName) {
+		experimentName_ := "Default"
+		tmp.ExperimentName = &experimentName_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// Pipeline Job definition: defines generic to MFE attributes.
+type PipelineJobResponse struct {
+	// ARM resource ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Display name of job.
+	DisplayName *string `pulumi:"displayName"`
+	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+	ExperimentName *string `pulumi:"experimentName"`
+	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+	// Defaults to AmlToken if null.
+	Identity interface{} `pulumi:"identity"`
+	// Inputs for the pipeline job.
+	Inputs map[string]interface{} `pulumi:"inputs"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// Enum to determine the type of job.
+	// Expected value is 'Pipeline'.
+	JobType string `pulumi:"jobType"`
+	// Jobs construct the Pipeline Job.
+	Jobs map[string]interface{} `pulumi:"jobs"`
+	// Outputs for the pipeline job
+	Outputs map[string]interface{} `pulumi:"outputs"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// List of JobEndpoints.
+	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+	Services map[string]JobServiceResponse `pulumi:"services"`
+	// Pipeline settings, for things like ContinueRunOnStepFailure etc.
+	Settings interface{} `pulumi:"settings"`
+	// Status of the job.
+	Status string `pulumi:"status"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for PipelineJobResponse
+func (val *PipelineJobResponse) Defaults() *PipelineJobResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExperimentName) {
+		experimentName_ := "Default"
+		tmp.ExperimentName = &experimentName_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// Specifies the resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -16991,11 +8704,11 @@ type PrivateEndpointConnectionResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Read only system data
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -17014,14 +8727,14 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Specifies the resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The identity of the resource.
-func (o PrivateEndpointConnectionResponseOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+func (o PrivateEndpointConnectionResponseOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Specifies the location of the resource.
@@ -17029,7 +8742,7 @@ func (o PrivateEndpointConnectionResponseOutput) Location() pulumi.StringPtrOutp
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the resource.
+// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17056,7 +8769,7 @@ func (o PrivateEndpointConnectionResponseOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// Read only system data
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
@@ -17066,7 +8779,7 @@ func (o PrivateEndpointConnectionResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17295,6 +9008,31 @@ type ProbeSettings struct {
 	Timeout *string `pulumi:"timeout"`
 }
 
+// Defaults sets the appropriate defaults for ProbeSettings
+func (val *ProbeSettings) Defaults() *ProbeSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.FailureThreshold) {
+		failureThreshold_ := 30
+		tmp.FailureThreshold = &failureThreshold_
+	}
+	if isZero(tmp.Period) {
+		period_ := "PT10S"
+		tmp.Period = &period_
+	}
+	if isZero(tmp.SuccessThreshold) {
+		successThreshold_ := 1
+		tmp.SuccessThreshold = &successThreshold_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := "PT2S"
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
+}
+
 // Deployment container liveness/readiness probe configuration.
 type ProbeSettingsResponse struct {
 	// The number of failures to allow before returning an unhealthy status.
@@ -17309,51 +9047,29 @@ type ProbeSettingsResponse struct {
 	Timeout *string `pulumi:"timeout"`
 }
 
-// Progress metrics for a labeling job.
-type ProgressMetricsResponse struct {
-	// The completed datapoint count.
-	CompletedDatapointCount float64 `pulumi:"completedDatapointCount"`
-	// The time of last successful incremental dataset refresh in UTC.
-	IncrementalDatasetLastRefreshTime string `pulumi:"incrementalDatasetLastRefreshTime"`
-	// The skipped datapoint count.
-	SkippedDatapointCount float64 `pulumi:"skippedDatapointCount"`
-	// The total datapoint count.
-	TotalDatapointCount float64 `pulumi:"totalDatapointCount"`
-}
-
-// Progress metrics for a labeling job.
-type ProgressMetricsResponseOutput struct{ *pulumi.OutputState }
-
-func (ProgressMetricsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProgressMetricsResponse)(nil)).Elem()
-}
-
-func (o ProgressMetricsResponseOutput) ToProgressMetricsResponseOutput() ProgressMetricsResponseOutput {
-	return o
-}
-
-func (o ProgressMetricsResponseOutput) ToProgressMetricsResponseOutputWithContext(ctx context.Context) ProgressMetricsResponseOutput {
-	return o
-}
-
-// The completed datapoint count.
-func (o ProgressMetricsResponseOutput) CompletedDatapointCount() pulumi.Float64Output {
-	return o.ApplyT(func(v ProgressMetricsResponse) float64 { return v.CompletedDatapointCount }).(pulumi.Float64Output)
-}
-
-// The time of last successful incremental dataset refresh in UTC.
-func (o ProgressMetricsResponseOutput) IncrementalDatasetLastRefreshTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ProgressMetricsResponse) string { return v.IncrementalDatasetLastRefreshTime }).(pulumi.StringOutput)
-}
-
-// The skipped datapoint count.
-func (o ProgressMetricsResponseOutput) SkippedDatapointCount() pulumi.Float64Output {
-	return o.ApplyT(func(v ProgressMetricsResponse) float64 { return v.SkippedDatapointCount }).(pulumi.Float64Output)
-}
-
-// The total datapoint count.
-func (o ProgressMetricsResponseOutput) TotalDatapointCount() pulumi.Float64Output {
-	return o.ApplyT(func(v ProgressMetricsResponse) float64 { return v.TotalDatapointCount }).(pulumi.Float64Output)
+// Defaults sets the appropriate defaults for ProbeSettingsResponse
+func (val *ProbeSettingsResponse) Defaults() *ProbeSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.FailureThreshold) {
+		failureThreshold_ := 30
+		tmp.FailureThreshold = &failureThreshold_
+	}
+	if isZero(tmp.Period) {
+		period_ := "PT10S"
+		tmp.Period = &period_
+	}
+	if isZero(tmp.SuccessThreshold) {
+		successThreshold_ := 1
+		tmp.SuccessThreshold = &successThreshold_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := "PT2S"
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }
 
 // PyTorch distribution configuration.
@@ -17361,8 +9077,8 @@ type PyTorch struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'PyTorch'.
 	DistributionType string `pulumi:"distributionType"`
-	// Total process count for the distributed job.
-	ProcessCount *int `pulumi:"processCount"`
+	// Number of processes per node.
+	ProcessCountPerInstance *int `pulumi:"processCountPerInstance"`
 }
 
 // PyTorch distribution configuration.
@@ -17370,232 +9086,54 @@ type PyTorchResponse struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'PyTorch'.
 	DistributionType string `pulumi:"distributionType"`
-	// Total process count for the distributed job.
-	ProcessCount *int `pulumi:"processCount"`
+	// Number of processes per node.
+	ProcessCountPerInstance *int `pulumi:"processCountPerInstance"`
 }
 
-type RCranPackage struct {
-	// The package name.
-	Name *string `pulumi:"name"`
-	// The repository name.
-	Repository *string `pulumi:"repository"`
+// Defines a Sampling Algorithm that generates values randomly
+type RandomSamplingAlgorithm struct {
+	// The specific type of random algorithm
+	Rule *string `pulumi:"rule"`
+	// Expected value is 'Random'.
+	SamplingAlgorithmType string `pulumi:"samplingAlgorithmType"`
+	// An optional integer to use as the seed for random number generation
+	Seed *int `pulumi:"seed"`
 }
 
-// RCranPackageInput is an input type that accepts RCranPackageArgs and RCranPackageOutput values.
-// You can construct a concrete instance of `RCranPackageInput` via:
-//
-//          RCranPackageArgs{...}
-type RCranPackageInput interface {
-	pulumi.Input
-
-	ToRCranPackageOutput() RCranPackageOutput
-	ToRCranPackageOutputWithContext(context.Context) RCranPackageOutput
+// Defaults sets the appropriate defaults for RandomSamplingAlgorithm
+func (val *RandomSamplingAlgorithm) Defaults() *RandomSamplingAlgorithm {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Rule) {
+		rule_ := "Random"
+		tmp.Rule = &rule_
+	}
+	return &tmp
 }
 
-type RCranPackageArgs struct {
-	// The package name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The repository name.
-	Repository pulumi.StringPtrInput `pulumi:"repository"`
+// Defines a Sampling Algorithm that generates values randomly
+type RandomSamplingAlgorithmResponse struct {
+	// The specific type of random algorithm
+	Rule *string `pulumi:"rule"`
+	// Expected value is 'Random'.
+	SamplingAlgorithmType string `pulumi:"samplingAlgorithmType"`
+	// An optional integer to use as the seed for random number generation
+	Seed *int `pulumi:"seed"`
 }
 
-func (RCranPackageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RCranPackage)(nil)).Elem()
-}
-
-func (i RCranPackageArgs) ToRCranPackageOutput() RCranPackageOutput {
-	return i.ToRCranPackageOutputWithContext(context.Background())
-}
-
-func (i RCranPackageArgs) ToRCranPackageOutputWithContext(ctx context.Context) RCranPackageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RCranPackageOutput)
-}
-
-// RCranPackageArrayInput is an input type that accepts RCranPackageArray and RCranPackageArrayOutput values.
-// You can construct a concrete instance of `RCranPackageArrayInput` via:
-//
-//          RCranPackageArray{ RCranPackageArgs{...} }
-type RCranPackageArrayInput interface {
-	pulumi.Input
-
-	ToRCranPackageArrayOutput() RCranPackageArrayOutput
-	ToRCranPackageArrayOutputWithContext(context.Context) RCranPackageArrayOutput
-}
-
-type RCranPackageArray []RCranPackageInput
-
-func (RCranPackageArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RCranPackage)(nil)).Elem()
-}
-
-func (i RCranPackageArray) ToRCranPackageArrayOutput() RCranPackageArrayOutput {
-	return i.ToRCranPackageArrayOutputWithContext(context.Background())
-}
-
-func (i RCranPackageArray) ToRCranPackageArrayOutputWithContext(ctx context.Context) RCranPackageArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RCranPackageArrayOutput)
-}
-
-type RCranPackageOutput struct{ *pulumi.OutputState }
-
-func (RCranPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RCranPackage)(nil)).Elem()
-}
-
-func (o RCranPackageOutput) ToRCranPackageOutput() RCranPackageOutput {
-	return o
-}
-
-func (o RCranPackageOutput) ToRCranPackageOutputWithContext(ctx context.Context) RCranPackageOutput {
-	return o
-}
-
-// The package name.
-func (o RCranPackageOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RCranPackage) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The repository name.
-func (o RCranPackageOutput) Repository() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RCranPackage) *string { return v.Repository }).(pulumi.StringPtrOutput)
-}
-
-type RCranPackageArrayOutput struct{ *pulumi.OutputState }
-
-func (RCranPackageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RCranPackage)(nil)).Elem()
-}
-
-func (o RCranPackageArrayOutput) ToRCranPackageArrayOutput() RCranPackageArrayOutput {
-	return o
-}
-
-func (o RCranPackageArrayOutput) ToRCranPackageArrayOutputWithContext(ctx context.Context) RCranPackageArrayOutput {
-	return o
-}
-
-func (o RCranPackageArrayOutput) Index(i pulumi.IntInput) RCranPackageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RCranPackage {
-		return vs[0].([]RCranPackage)[vs[1].(int)]
-	}).(RCranPackageOutput)
-}
-
-type RCranPackageResponse struct {
-	// The package name.
-	Name *string `pulumi:"name"`
-	// The repository name.
-	Repository *string `pulumi:"repository"`
-}
-
-type RGitHubPackage struct {
-	// Personal access token to install from a private repo
-	AuthToken *string `pulumi:"authToken"`
-	// Repository address in the format username/repo[/subdir][@ref|#pull].
-	Repository *string `pulumi:"repository"`
-}
-
-// RGitHubPackageInput is an input type that accepts RGitHubPackageArgs and RGitHubPackageOutput values.
-// You can construct a concrete instance of `RGitHubPackageInput` via:
-//
-//          RGitHubPackageArgs{...}
-type RGitHubPackageInput interface {
-	pulumi.Input
-
-	ToRGitHubPackageOutput() RGitHubPackageOutput
-	ToRGitHubPackageOutputWithContext(context.Context) RGitHubPackageOutput
-}
-
-type RGitHubPackageArgs struct {
-	// Personal access token to install from a private repo
-	AuthToken pulumi.StringPtrInput `pulumi:"authToken"`
-	// Repository address in the format username/repo[/subdir][@ref|#pull].
-	Repository pulumi.StringPtrInput `pulumi:"repository"`
-}
-
-func (RGitHubPackageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RGitHubPackage)(nil)).Elem()
-}
-
-func (i RGitHubPackageArgs) ToRGitHubPackageOutput() RGitHubPackageOutput {
-	return i.ToRGitHubPackageOutputWithContext(context.Background())
-}
-
-func (i RGitHubPackageArgs) ToRGitHubPackageOutputWithContext(ctx context.Context) RGitHubPackageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RGitHubPackageOutput)
-}
-
-// RGitHubPackageArrayInput is an input type that accepts RGitHubPackageArray and RGitHubPackageArrayOutput values.
-// You can construct a concrete instance of `RGitHubPackageArrayInput` via:
-//
-//          RGitHubPackageArray{ RGitHubPackageArgs{...} }
-type RGitHubPackageArrayInput interface {
-	pulumi.Input
-
-	ToRGitHubPackageArrayOutput() RGitHubPackageArrayOutput
-	ToRGitHubPackageArrayOutputWithContext(context.Context) RGitHubPackageArrayOutput
-}
-
-type RGitHubPackageArray []RGitHubPackageInput
-
-func (RGitHubPackageArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RGitHubPackage)(nil)).Elem()
-}
-
-func (i RGitHubPackageArray) ToRGitHubPackageArrayOutput() RGitHubPackageArrayOutput {
-	return i.ToRGitHubPackageArrayOutputWithContext(context.Background())
-}
-
-func (i RGitHubPackageArray) ToRGitHubPackageArrayOutputWithContext(ctx context.Context) RGitHubPackageArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RGitHubPackageArrayOutput)
-}
-
-type RGitHubPackageOutput struct{ *pulumi.OutputState }
-
-func (RGitHubPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RGitHubPackage)(nil)).Elem()
-}
-
-func (o RGitHubPackageOutput) ToRGitHubPackageOutput() RGitHubPackageOutput {
-	return o
-}
-
-func (o RGitHubPackageOutput) ToRGitHubPackageOutputWithContext(ctx context.Context) RGitHubPackageOutput {
-	return o
-}
-
-// Personal access token to install from a private repo
-func (o RGitHubPackageOutput) AuthToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RGitHubPackage) *string { return v.AuthToken }).(pulumi.StringPtrOutput)
-}
-
-// Repository address in the format username/repo[/subdir][@ref|#pull].
-func (o RGitHubPackageOutput) Repository() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RGitHubPackage) *string { return v.Repository }).(pulumi.StringPtrOutput)
-}
-
-type RGitHubPackageArrayOutput struct{ *pulumi.OutputState }
-
-func (RGitHubPackageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RGitHubPackage)(nil)).Elem()
-}
-
-func (o RGitHubPackageArrayOutput) ToRGitHubPackageArrayOutput() RGitHubPackageArrayOutput {
-	return o
-}
-
-func (o RGitHubPackageArrayOutput) ToRGitHubPackageArrayOutputWithContext(ctx context.Context) RGitHubPackageArrayOutput {
-	return o
-}
-
-func (o RGitHubPackageArrayOutput) Index(i pulumi.IntInput) RGitHubPackageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RGitHubPackage {
-		return vs[0].([]RGitHubPackage)[vs[1].(int)]
-	}).(RGitHubPackageOutput)
-}
-
-type RGitHubPackageResponseResponse struct {
-	// Repository address in the format username/repo[/subdir][@ref|#pull].
-	Repository *string `pulumi:"repository"`
+// Defaults sets the appropriate defaults for RandomSamplingAlgorithmResponse
+func (val *RandomSamplingAlgorithmResponse) Defaults() *RandomSamplingAlgorithmResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Rule) {
+		rule_ := "Random"
+		tmp.Rule = &rule_
+	}
+	return &tmp
 }
 
 type RegistryListCredentialsResultResponse struct {
@@ -17630,6 +9168,310 @@ func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOut
 	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Username }).(pulumi.StringOutput)
 }
 
+type ResourceConfiguration struct {
+	// Optional number of instances or nodes used by the compute target.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Optional type of VM used as supported by the compute target.
+	InstanceType *string `pulumi:"instanceType"`
+	// Additional properties bag.
+	Properties map[string]interface{} `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for ResourceConfiguration
+func (val *ResourceConfiguration) Defaults() *ResourceConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstanceCount) {
+		instanceCount_ := 1
+		tmp.InstanceCount = &instanceCount_
+	}
+	return &tmp
+}
+
+// ResourceConfigurationInput is an input type that accepts ResourceConfigurationArgs and ResourceConfigurationOutput values.
+// You can construct a concrete instance of `ResourceConfigurationInput` via:
+//
+//          ResourceConfigurationArgs{...}
+type ResourceConfigurationInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationOutput() ResourceConfigurationOutput
+	ToResourceConfigurationOutputWithContext(context.Context) ResourceConfigurationOutput
+}
+
+type ResourceConfigurationArgs struct {
+	// Optional number of instances or nodes used by the compute target.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Optional type of VM used as supported by the compute target.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Additional properties bag.
+	Properties pulumi.MapInput `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for ResourceConfigurationArgs
+func (val *ResourceConfigurationArgs) Defaults() *ResourceConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstanceCount) {
+		tmp.InstanceCount = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
+func (ResourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfiguration)(nil)).Elem()
+}
+
+func (i ResourceConfigurationArgs) ToResourceConfigurationOutput() ResourceConfigurationOutput {
+	return i.ToResourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationArgs) ToResourceConfigurationOutputWithContext(ctx context.Context) ResourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationOutput)
+}
+
+func (i ResourceConfigurationArgs) ToResourceConfigurationPtrOutput() ResourceConfigurationPtrOutput {
+	return i.ToResourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationArgs) ToResourceConfigurationPtrOutputWithContext(ctx context.Context) ResourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationOutput).ToResourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationPtrInput is an input type that accepts ResourceConfigurationArgs, ResourceConfigurationPtr and ResourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationPtrInput` via:
+//
+//          ResourceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationPtrOutput() ResourceConfigurationPtrOutput
+	ToResourceConfigurationPtrOutputWithContext(context.Context) ResourceConfigurationPtrOutput
+}
+
+type resourceConfigurationPtrType ResourceConfigurationArgs
+
+func ResourceConfigurationPtr(v *ResourceConfigurationArgs) ResourceConfigurationPtrInput {
+	return (*resourceConfigurationPtrType)(v)
+}
+
+func (*resourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfiguration)(nil)).Elem()
+}
+
+func (i *resourceConfigurationPtrType) ToResourceConfigurationPtrOutput() ResourceConfigurationPtrOutput {
+	return i.ToResourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationPtrType) ToResourceConfigurationPtrOutputWithContext(ctx context.Context) ResourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationPtrOutput)
+}
+
+type ResourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfiguration)(nil)).Elem()
+}
+
+func (o ResourceConfigurationOutput) ToResourceConfigurationOutput() ResourceConfigurationOutput {
+	return o
+}
+
+func (o ResourceConfigurationOutput) ToResourceConfigurationOutputWithContext(ctx context.Context) ResourceConfigurationOutput {
+	return o
+}
+
+func (o ResourceConfigurationOutput) ToResourceConfigurationPtrOutput() ResourceConfigurationPtrOutput {
+	return o.ToResourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationOutput) ToResourceConfigurationPtrOutputWithContext(ctx context.Context) ResourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfiguration) *ResourceConfiguration {
+		return &v
+	}).(ResourceConfigurationPtrOutput)
+}
+
+// Optional number of instances or nodes used by the compute target.
+func (o ResourceConfigurationOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceConfiguration) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Optional type of VM used as supported by the compute target.
+func (o ResourceConfigurationOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceConfiguration) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Additional properties bag.
+func (o ResourceConfigurationOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ResourceConfiguration) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+}
+
+type ResourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfiguration)(nil)).Elem()
+}
+
+func (o ResourceConfigurationPtrOutput) ToResourceConfigurationPtrOutput() ResourceConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationPtrOutput) ToResourceConfigurationPtrOutputWithContext(ctx context.Context) ResourceConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationPtrOutput) Elem() ResourceConfigurationOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfiguration
+		return ret
+	}).(ResourceConfigurationOutput)
+}
+
+// Optional number of instances or nodes used by the compute target.
+func (o ResourceConfigurationPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Optional type of VM used as supported by the compute target.
+func (o ResourceConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional properties bag.
+func (o ResourceConfigurationPtrOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.MapOutput)
+}
+
+type ResourceConfigurationResponse struct {
+	// Optional number of instances or nodes used by the compute target.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Optional type of VM used as supported by the compute target.
+	InstanceType *string `pulumi:"instanceType"`
+	// Additional properties bag.
+	Properties map[string]interface{} `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for ResourceConfigurationResponse
+func (val *ResourceConfigurationResponse) Defaults() *ResourceConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstanceCount) {
+		instanceCount_ := 1
+		tmp.InstanceCount = &instanceCount_
+	}
+	return &tmp
+}
+
+type ResourceConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResponse)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResponseOutput) ToResourceConfigurationResponseOutput() ResourceConfigurationResponseOutput {
+	return o
+}
+
+func (o ResourceConfigurationResponseOutput) ToResourceConfigurationResponseOutputWithContext(ctx context.Context) ResourceConfigurationResponseOutput {
+	return o
+}
+
+// Optional number of instances or nodes used by the compute target.
+func (o ResourceConfigurationResponseOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Optional type of VM used as supported by the compute target.
+func (o ResourceConfigurationResponseOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationResponse) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Additional properties bag.
+func (o ResourceConfigurationResponseOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ResourceConfigurationResponse) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+}
+
+type ResourceConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResponse)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResponsePtrOutput) ToResourceConfigurationResponsePtrOutput() ResourceConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResponsePtrOutput) ToResourceConfigurationResponsePtrOutputWithContext(ctx context.Context) ResourceConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResponsePtrOutput) Elem() ResourceConfigurationResponseOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResponse) ResourceConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationResponse
+		return ret
+	}).(ResourceConfigurationResponseOutput)
+}
+
+// Optional number of instances or nodes used by the compute target.
+func (o ResourceConfigurationResponsePtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Optional type of VM used as supported by the compute target.
+func (o ResourceConfigurationResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional properties bag.
+func (o ResourceConfigurationResponsePtrOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResponse) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.MapOutput)
+}
+
 // Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
 type ResourceId struct {
 	// The ID of the resource
@@ -17640,278 +9482,6 @@ type ResourceId struct {
 type ResourceIdResponse struct {
 	// The ID of the resource
 	Id string `pulumi:"id"`
-}
-
-// Service identity associated with a resource.
-type ResourceIdentity struct {
-	// Defines values for a ResourceIdentity's type.
-	Type *string `pulumi:"type"`
-	// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-	UserAssignedIdentities map[string]UserAssignedIdentityMeta `pulumi:"userAssignedIdentities"`
-}
-
-// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
-// You can construct a concrete instance of `ResourceIdentityInput` via:
-//
-//          ResourceIdentityArgs{...}
-type ResourceIdentityInput interface {
-	pulumi.Input
-
-	ToResourceIdentityOutput() ResourceIdentityOutput
-	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
-}
-
-// Service identity associated with a resource.
-type ResourceIdentityArgs struct {
-	// Defines values for a ResourceIdentity's type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-	UserAssignedIdentities UserAssignedIdentityMetaMapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (ResourceIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
-	return i.ToResourceIdentityOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
-}
-
-// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
-// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
-//
-//          ResourceIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceIdentityPtrInput interface {
-	pulumi.Input
-
-	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
-	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
-}
-
-type resourceIdentityPtrType ResourceIdentityArgs
-
-func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
-	return (*resourceIdentityPtrType)(v)
-}
-
-func (*resourceIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
-}
-
-func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
-}
-
-// Service identity associated with a resource.
-type ResourceIdentityOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
-	return o
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
-	return o
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
-		return &v
-	}).(ResourceIdentityPtrOutput)
-}
-
-// Defines values for a ResourceIdentity's type.
-func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-func (o ResourceIdentityOutput) UserAssignedIdentities() UserAssignedIdentityMetaMapOutput {
-	return o.ApplyT(func(v ResourceIdentity) map[string]UserAssignedIdentityMeta { return v.UserAssignedIdentities }).(UserAssignedIdentityMetaMapOutput)
-}
-
-type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
-}
-
-func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return o
-}
-
-func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o
-}
-
-func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentity
-		return ret
-	}).(ResourceIdentityOutput)
-}
-
-// Defines values for a ResourceIdentity's type.
-func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-func (o ResourceIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMetaMapOutput {
-	return o.ApplyT(func(v *ResourceIdentity) map[string]UserAssignedIdentityMeta {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityMetaMapOutput)
-}
-
-// Service identity associated with a resource.
-type ResourceIdentityResponse struct {
-	// Client ID that is used when authenticating.
-	PrincipalId string `pulumi:"principalId"`
-	// AAD Tenant where this identity lives.
-	TenantId string `pulumi:"tenantId"`
-	// Defines values for a ResourceIdentity's type.
-	Type *string `pulumi:"type"`
-	// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-	UserAssignedIdentities map[string]UserAssignedIdentityMetaResponse `pulumi:"userAssignedIdentities"`
-}
-
-// Service identity associated with a resource.
-type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
-	return o
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
-	return o
-}
-
-// Client ID that is used when authenticating.
-func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-// AAD Tenant where this identity lives.
-func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-// Defines values for a ResourceIdentity's type.
-func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-func (o ResourceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityMetaResponseMapOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) map[string]UserAssignedIdentityMetaResponse {
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityMetaResponseMapOutput)
-}
-
-type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentityResponse
-		return ret
-	}).(ResourceIdentityResponseOutput)
-}
-
-// Client ID that is used when authenticating.
-func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// AAD Tenant where this identity lives.
-func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines values for a ResourceIdentity's type.
-func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
-func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityMetaResponseMapOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]UserAssignedIdentityMetaResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityMetaResponseMapOutput)
 }
 
 type Route struct {
@@ -18145,6 +9715,59 @@ func (o RouteResponsePtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type SASAuthTypeWorkspaceConnectionProperties struct {
+	// Authentication type of the connection target
+	// Expected value is 'SAS'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                                   `pulumi:"category"`
+	Credentials *WorkspaceConnectionSharedAccessSignature `pulumi:"credentials"`
+	Target      *string                                   `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+type SASAuthTypeWorkspaceConnectionPropertiesResponse struct {
+	// Authentication type of the connection target
+	// Expected value is 'SAS'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                                           `pulumi:"category"`
+	Credentials *WorkspaceConnectionSharedAccessSignatureResponse `pulumi:"credentials"`
+	Target      *string                                           `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+// SAS datastore credentials configuration.
+type SasDatastoreCredentials struct {
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'Sas'.
+	CredentialsType string `pulumi:"credentialsType"`
+	// [Required] Storage container secrets.
+	Secrets SasDatastoreSecrets `pulumi:"secrets"`
+}
+
+// SAS datastore credentials configuration.
+type SasDatastoreCredentialsResponse struct {
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'Sas'.
+	CredentialsType string `pulumi:"credentialsType"`
+}
+
+// Datastore SAS secrets.
+type SasDatastoreSecrets struct {
+	// Storage container SAS token.
+	SasToken *string `pulumi:"sasToken"`
+	// Enum to determine the datastore secrets type.
+	// Expected value is 'Sas'.
+	SecretsType string `pulumi:"secretsType"`
+}
+
 // scale settings for AML Compute
 type ScaleSettings struct {
 	// Max number of nodes to use
@@ -18189,6 +9812,12 @@ func (val *ScaleSettingsResponse) Defaults() *ScaleSettingsResponse {
 		tmp.MinNodeCount = &minNodeCount_
 	}
 	return &tmp
+}
+
+type ScheduleBaseResponse struct {
+	Id                 *string `pulumi:"id"`
+	ProvisioningStatus *string `pulumi:"provisioningStatus"`
+	Status             *string `pulumi:"status"`
 }
 
 // Script reference
@@ -18426,10 +10055,45 @@ func (o ServiceManagedResourcesSettingsResponsePtrOutput) CosmosDb() CosmosDbSet
 	}).(CosmosDbSettingsResponsePtrOutput)
 }
 
-// The error details.
-type ServiceResponseBaseResponseError struct {
-	// The error response.
-	Error ErrorResponseResponse `pulumi:"error"`
+// Service Principal datastore credentials configuration.
+type ServicePrincipalDatastoreCredentials struct {
+	// Authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// [Required] Service principal client ID.
+	ClientId string `pulumi:"clientId"`
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'ServicePrincipal'.
+	CredentialsType string `pulumi:"credentialsType"`
+	// Resource the service principal has access to.
+	ResourceUrl *string `pulumi:"resourceUrl"`
+	// [Required] Service principal secrets.
+	Secrets ServicePrincipalDatastoreSecrets `pulumi:"secrets"`
+	// [Required] ID of the tenant to which the service principal belongs.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// Service Principal datastore credentials configuration.
+type ServicePrincipalDatastoreCredentialsResponse struct {
+	// Authority URL used for authentication.
+	AuthorityUrl *string `pulumi:"authorityUrl"`
+	// [Required] Service principal client ID.
+	ClientId string `pulumi:"clientId"`
+	// Enum to determine the datastore credentials type.
+	// Expected value is 'ServicePrincipal'.
+	CredentialsType string `pulumi:"credentialsType"`
+	// Resource the service principal has access to.
+	ResourceUrl *string `pulumi:"resourceUrl"`
+	// [Required] ID of the tenant to which the service principal belongs.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// Datastore Service Principal secrets.
+type ServicePrincipalDatastoreSecrets struct {
+	// Service principal secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Enum to determine the datastore secrets type.
+	// Expected value is 'ServicePrincipal'.
+	SecretsType string `pulumi:"secretsType"`
 }
 
 // Details of customized scripts to execute for setting up the cluster.
@@ -18649,12 +10313,18 @@ func (o SharedPrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(SharedPrivateLinkResourceResponseOutput)
 }
 
-// Sku of the resource
+// The resource model definition representing SKU
 type Sku struct {
-	// Name of the sku
-	Name *string `pulumi:"name"`
-	// Tier of the sku like Basic or Enterprise
-	Tier *string `pulumi:"tier"`
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name string `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -18668,12 +10338,18 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku of the resource
+// The resource model definition representing SKU
 type SkuArgs struct {
-	// Name of the sku
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tier of the sku like Basic or Enterprise
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier SkuTierPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -18729,7 +10405,7 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku of the resource
+// The resource model definition representing SKU
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -18754,14 +10430,29 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Name of the sku
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Tier of the sku like Basic or Enterprise
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o SkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o SkuOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v Sku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -18788,35 +10479,71 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// Name of the sku
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Sku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of the sku like Basic or Enterprise
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
+		return v.Size
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku of the resource
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o SkuPtrOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuTier {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(SkuTierPtrOutput)
+}
+
+// The resource model definition representing SKU
 type SkuResponse struct {
-	// Name of the sku
-	Name *string `pulumi:"name"`
-	// Tier of the sku like Basic or Enterprise
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name string `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 	Tier *string `pulumi:"tier"`
 }
 
-// Sku of the resource
+// The resource model definition representing SKU
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -18831,12 +10558,27 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Name of the sku
-func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Tier of the sku like Basic or Enterprise
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -18865,17 +10607,47 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// Name of the sku
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of the sku like Basic or Enterprise
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -18883,118 +10655,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
-}
-
-type SparkMavenPackage struct {
-	Artifact *string `pulumi:"artifact"`
-	Group    *string `pulumi:"group"`
-	Version  *string `pulumi:"version"`
-}
-
-// SparkMavenPackageInput is an input type that accepts SparkMavenPackageArgs and SparkMavenPackageOutput values.
-// You can construct a concrete instance of `SparkMavenPackageInput` via:
-//
-//          SparkMavenPackageArgs{...}
-type SparkMavenPackageInput interface {
-	pulumi.Input
-
-	ToSparkMavenPackageOutput() SparkMavenPackageOutput
-	ToSparkMavenPackageOutputWithContext(context.Context) SparkMavenPackageOutput
-}
-
-type SparkMavenPackageArgs struct {
-	Artifact pulumi.StringPtrInput `pulumi:"artifact"`
-	Group    pulumi.StringPtrInput `pulumi:"group"`
-	Version  pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (SparkMavenPackageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkMavenPackage)(nil)).Elem()
-}
-
-func (i SparkMavenPackageArgs) ToSparkMavenPackageOutput() SparkMavenPackageOutput {
-	return i.ToSparkMavenPackageOutputWithContext(context.Background())
-}
-
-func (i SparkMavenPackageArgs) ToSparkMavenPackageOutputWithContext(ctx context.Context) SparkMavenPackageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkMavenPackageOutput)
-}
-
-// SparkMavenPackageArrayInput is an input type that accepts SparkMavenPackageArray and SparkMavenPackageArrayOutput values.
-// You can construct a concrete instance of `SparkMavenPackageArrayInput` via:
-//
-//          SparkMavenPackageArray{ SparkMavenPackageArgs{...} }
-type SparkMavenPackageArrayInput interface {
-	pulumi.Input
-
-	ToSparkMavenPackageArrayOutput() SparkMavenPackageArrayOutput
-	ToSparkMavenPackageArrayOutputWithContext(context.Context) SparkMavenPackageArrayOutput
-}
-
-type SparkMavenPackageArray []SparkMavenPackageInput
-
-func (SparkMavenPackageArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SparkMavenPackage)(nil)).Elem()
-}
-
-func (i SparkMavenPackageArray) ToSparkMavenPackageArrayOutput() SparkMavenPackageArrayOutput {
-	return i.ToSparkMavenPackageArrayOutputWithContext(context.Background())
-}
-
-func (i SparkMavenPackageArray) ToSparkMavenPackageArrayOutputWithContext(ctx context.Context) SparkMavenPackageArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkMavenPackageArrayOutput)
-}
-
-type SparkMavenPackageOutput struct{ *pulumi.OutputState }
-
-func (SparkMavenPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkMavenPackage)(nil)).Elem()
-}
-
-func (o SparkMavenPackageOutput) ToSparkMavenPackageOutput() SparkMavenPackageOutput {
-	return o
-}
-
-func (o SparkMavenPackageOutput) ToSparkMavenPackageOutputWithContext(ctx context.Context) SparkMavenPackageOutput {
-	return o
-}
-
-func (o SparkMavenPackageOutput) Artifact() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkMavenPackage) *string { return v.Artifact }).(pulumi.StringPtrOutput)
-}
-
-func (o SparkMavenPackageOutput) Group() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkMavenPackage) *string { return v.Group }).(pulumi.StringPtrOutput)
-}
-
-func (o SparkMavenPackageOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkMavenPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type SparkMavenPackageArrayOutput struct{ *pulumi.OutputState }
-
-func (SparkMavenPackageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SparkMavenPackage)(nil)).Elem()
-}
-
-func (o SparkMavenPackageArrayOutput) ToSparkMavenPackageArrayOutput() SparkMavenPackageArrayOutput {
-	return o
-}
-
-func (o SparkMavenPackageArrayOutput) ToSparkMavenPackageArrayOutputWithContext(ctx context.Context) SparkMavenPackageArrayOutput {
-	return o
-}
-
-func (o SparkMavenPackageArrayOutput) Index(i pulumi.IntInput) SparkMavenPackageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkMavenPackage {
-		return vs[0].([]SparkMavenPackage)[vs[1].(int)]
-	}).(SparkMavenPackageOutput)
-}
-
-type SparkMavenPackageResponse struct {
-	Artifact *string `pulumi:"artifact"`
-	Group    *string `pulumi:"group"`
-	Version  *string `pulumi:"version"`
 }
 
 // The ssl configuration for scoring
@@ -19005,6 +10665,10 @@ type SslConfiguration struct {
 	Cname *string `pulumi:"cname"`
 	// Key data
 	Key *string `pulumi:"key"`
+	// Leaf domain label of public endpoint
+	LeafDomainLabel *string `pulumi:"leafDomainLabel"`
+	// Indicates whether to overwrite existing domain label.
+	OverwriteExistingDomain *bool `pulumi:"overwriteExistingDomain"`
 	// Enable or disable ssl for scoring
 	Status *string `pulumi:"status"`
 }
@@ -19017,181 +10681,271 @@ type SslConfigurationResponse struct {
 	Cname *string `pulumi:"cname"`
 	// Key data
 	Key *string `pulumi:"key"`
+	// Leaf domain label of public endpoint
+	LeafDomainLabel *string `pulumi:"leafDomainLabel"`
+	// Indicates whether to overwrite existing domain label.
+	OverwriteExistingDomain *bool `pulumi:"overwriteExistingDomain"`
 	// Enable or disable ssl for scoring
 	Status *string `pulumi:"status"`
 }
 
-// Active message associated with project.
-type StatusMessageResponse struct {
-	// Service-defined message code.
-	Code string `pulumi:"code"`
-	// Time in UTC at which the message was created.
-	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
-	// Severity level of the status message.
-	Level string `pulumi:"level"`
-	// A human-readable representation of the message code.
-	Message string `pulumi:"message"`
-}
-
-// Active message associated with project.
-type StatusMessageResponseOutput struct{ *pulumi.OutputState }
-
-func (StatusMessageResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StatusMessageResponse)(nil)).Elem()
-}
-
-func (o StatusMessageResponseOutput) ToStatusMessageResponseOutput() StatusMessageResponseOutput {
-	return o
-}
-
-func (o StatusMessageResponseOutput) ToStatusMessageResponseOutputWithContext(ctx context.Context) StatusMessageResponseOutput {
-	return o
-}
-
-// Service-defined message code.
-func (o StatusMessageResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v StatusMessageResponse) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Time in UTC at which the message was created.
-func (o StatusMessageResponseOutput) CreatedTimeUtc() pulumi.StringOutput {
-	return o.ApplyT(func(v StatusMessageResponse) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
-}
-
-// Severity level of the status message.
-func (o StatusMessageResponseOutput) Level() pulumi.StringOutput {
-	return o.ApplyT(func(v StatusMessageResponse) string { return v.Level }).(pulumi.StringOutput)
-}
-
-// A human-readable representation of the message code.
-func (o StatusMessageResponseOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v StatusMessageResponse) string { return v.Message }).(pulumi.StringOutput)
-}
-
-type StatusMessageResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (StatusMessageResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StatusMessageResponse)(nil)).Elem()
-}
-
-func (o StatusMessageResponseArrayOutput) ToStatusMessageResponseArrayOutput() StatusMessageResponseArrayOutput {
-	return o
-}
-
-func (o StatusMessageResponseArrayOutput) ToStatusMessageResponseArrayOutputWithContext(ctx context.Context) StatusMessageResponseArrayOutput {
-	return o
-}
-
-func (o StatusMessageResponseArrayOutput) Index(i pulumi.IntInput) StatusMessageResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StatusMessageResponse {
-		return vs[0].([]StatusMessageResponse)[vs[1].(int)]
-	}).(StatusMessageResponseOutput)
-}
-
 // Sweep job definition.
 type SweepJob struct {
-	// [Required] Type of the hyperparameter sampling algorithms
-	Algorithm string `pulumi:"algorithm"`
-	// [Required] Compute binding for the job.
-	Compute ComputeConfiguration `pulumi:"compute"`
+	// ARM resource ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
-	// Early termination policies enable canceling poor-performing runs before they complete.
+	// Display name of job.
+	DisplayName *string `pulumi:"displayName"`
+	// Early termination policies enable canceling poor-performing runs before they complete
 	EarlyTermination interface{} `pulumi:"earlyTermination"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName *string `pulumi:"experimentName"`
-	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
 	// Defaults to AmlToken if null.
 	Identity interface{} `pulumi:"identity"`
+	// Mapping of input data bindings used in the job.
+	Inputs map[string]interface{} `pulumi:"inputs"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// Enum to determine the type of job.
 	// Expected value is 'Sweep'.
 	JobType string `pulumi:"jobType"`
-	// An upper bound on the number of trials performed in parallel.
-	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
-	// An upper bound on the number of trials to perform.
-	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
+	// Sweep Job limit.
+	Limits *SweepJobLimits `pulumi:"limits"`
 	// [Required] Optimization objective.
 	Objective Objective `pulumi:"objective"`
-	// Job priority for scheduling policy. Only applies to AMLCompute.
-	// Private preview feature and only available to users on the allow list.
-	Priority *int `pulumi:"priority"`
+	// Mapping of output data bindings used in the job.
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
+	// [Required] The hyperparameter sampling algorithm
+	SamplingAlgorithm interface{} `pulumi:"samplingAlgorithm"`
 	// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
-	SearchSpace map[string]interface{} `pulumi:"searchSpace"`
+	SearchSpace interface{} `pulumi:"searchSpace"`
+	// List of JobEndpoints.
+	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+	Services map[string]JobService `pulumi:"services"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
-	// The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+	// [Required] Trial component definition.
+	Trial TrialComponent `pulumi:"trial"`
+}
+
+// Defaults sets the appropriate defaults for SweepJob
+func (val *SweepJob) Defaults() *SweepJob {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExperimentName) {
+		experimentName_ := "Default"
+		tmp.ExperimentName = &experimentName_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	tmp.Trial = *tmp.Trial.Defaults()
+
+	return &tmp
+}
+
+// Sweep Job limit class.
+type SweepJobLimits struct {
+	// Expected value is 'Sweep'.
+	JobLimitsType string `pulumi:"jobLimitsType"`
+	// Sweep Job max concurrent trials.
+	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
+	// Sweep Job max total trials.
+	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
+	// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
 	Timeout *string `pulumi:"timeout"`
-	// Trial component definition.
-	Trial *TrialComponent `pulumi:"trial"`
+	// Sweep Job Trial timeout value.
+	TrialTimeout *string `pulumi:"trialTimeout"`
+}
+
+// Sweep Job limit class.
+type SweepJobLimitsResponse struct {
+	// Expected value is 'Sweep'.
+	JobLimitsType string `pulumi:"jobLimitsType"`
+	// Sweep Job max concurrent trials.
+	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
+	// Sweep Job max total trials.
+	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
+	// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+	Timeout *string `pulumi:"timeout"`
+	// Sweep Job Trial timeout value.
+	TrialTimeout *string `pulumi:"trialTimeout"`
 }
 
 // Sweep job definition.
 type SweepJobResponse struct {
-	// [Required] Type of the hyperparameter sampling algorithms
-	Algorithm string `pulumi:"algorithm"`
-	// [Required] Compute binding for the job.
-	Compute ComputeConfigurationResponse `pulumi:"compute"`
+	// ARM resource ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
-	// Early termination policies enable canceling poor-performing runs before they complete.
+	// Display name of job.
+	DisplayName *string `pulumi:"displayName"`
+	// Early termination policies enable canceling poor-performing runs before they complete
 	EarlyTermination interface{} `pulumi:"earlyTermination"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName *string `pulumi:"experimentName"`
-	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+	// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
 	// Defaults to AmlToken if null.
 	Identity interface{} `pulumi:"identity"`
-	// List of JobEndpoints.
-	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
-	InteractionEndpoints map[string]JobEndpointResponse `pulumi:"interactionEndpoints"`
+	// Mapping of input data bindings used in the job.
+	Inputs map[string]interface{} `pulumi:"inputs"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
 	// Enum to determine the type of job.
 	// Expected value is 'Sweep'.
 	JobType string `pulumi:"jobType"`
-	// An upper bound on the number of trials performed in parallel.
-	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
-	// An upper bound on the number of trials to perform.
-	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
+	// Sweep Job limit.
+	Limits *SweepJobLimitsResponse `pulumi:"limits"`
 	// [Required] Optimization objective.
 	Objective ObjectiveResponse `pulumi:"objective"`
-	// Location of the job output logs and artifacts.
-	Output JobOutputResponse `pulumi:"output"`
-	// Job priority for scheduling policy. Only applies to AMLCompute.
-	// Private preview feature and only available to users on the allow list.
-	Priority *int `pulumi:"priority"`
+	// Mapping of output data bindings used in the job.
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
-	// Specifies the job provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
+	// [Required] The hyperparameter sampling algorithm
+	SamplingAlgorithm interface{} `pulumi:"samplingAlgorithm"`
 	// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
-	SearchSpace map[string]interface{} `pulumi:"searchSpace"`
-	// The status of a job.
+	SearchSpace interface{} `pulumi:"searchSpace"`
+	// List of JobEndpoints.
+	// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+	Services map[string]JobServiceResponse `pulumi:"services"`
+	// Status of the job.
 	Status string `pulumi:"status"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
-	// The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
-	Timeout *string `pulumi:"timeout"`
-	// Trial component definition.
-	Trial *TrialComponentResponse `pulumi:"trial"`
+	// [Required] Trial component definition.
+	Trial TrialComponentResponse `pulumi:"trial"`
 }
 
-// Read only system data
+// Defaults sets the appropriate defaults for SweepJobResponse
+func (val *SweepJobResponse) Defaults() *SweepJobResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExperimentName) {
+		experimentName_ := "Default"
+		tmp.ExperimentName = &experimentName_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	tmp.Trial = *tmp.Trial.Defaults()
+
+	return &tmp
+}
+
+// A SynapseSpark compute.
+type SynapseSpark struct {
+	// The type of compute
+	// Expected value is 'SynapseSpark'.
+	ComputeType string `pulumi:"computeType"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool                   `pulumi:"disableLocalAuth"`
+	Properties       *SynapseSparkProperties `pulumi:"properties"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+type SynapseSparkProperties struct {
+	// Auto pause properties.
+	AutoPauseProperties *AutoPauseProperties `pulumi:"autoPauseProperties"`
+	// Auto scale properties.
+	AutoScaleProperties *AutoScaleProperties `pulumi:"autoScaleProperties"`
+	// The number of compute nodes currently assigned to the compute.
+	NodeCount *int `pulumi:"nodeCount"`
+	// Node size.
+	NodeSize *string `pulumi:"nodeSize"`
+	// Node size family.
+	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
+	// Pool name.
+	PoolName *string `pulumi:"poolName"`
+	// Name of the resource group in which workspace is located.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Spark version.
+	SparkVersion *string `pulumi:"sparkVersion"`
+	// Azure subscription identifier.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName *string `pulumi:"workspaceName"`
+}
+
+// A SynapseSpark compute.
+type SynapseSparkResponse struct {
+	// Location for the underlying compute
+	ComputeLocation string `pulumi:"computeLocation"`
+	// The type of compute
+	// Expected value is 'SynapseSpark'.
+	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string                          `pulumi:"modifiedOn"`
+	Properties *SynapseSparkResponseProperties `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+type SynapseSparkResponseProperties struct {
+	// Auto pause properties.
+	AutoPauseProperties *AutoPausePropertiesResponse `pulumi:"autoPauseProperties"`
+	// Auto scale properties.
+	AutoScaleProperties *AutoScalePropertiesResponse `pulumi:"autoScaleProperties"`
+	// The number of compute nodes currently assigned to the compute.
+	NodeCount *int `pulumi:"nodeCount"`
+	// Node size.
+	NodeSize *string `pulumi:"nodeSize"`
+	// Node size family.
+	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
+	// Pool name.
+	PoolName *string `pulumi:"poolName"`
+	// Name of the resource group in which workspace is located.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Spark version.
+	SparkVersion *string `pulumi:"sparkVersion"`
+	// Azure subscription identifier.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName *string `pulumi:"workspaceName"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
+	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
+	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
+	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
 	// The timestamp of resource last modification (UTC)
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
+	// The identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	// The type of identity that last modified the resource.
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-// Read only system data
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -19206,17 +10960,17 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The timestamp of resource creation (UTC)
+// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
+// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
+// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
@@ -19226,12 +10980,12 @@ func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
+// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
+// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -19246,6 +11000,82 @@ type SystemServiceResponse struct {
 	Version string `pulumi:"version"`
 }
 
+type TargetUtilizationScaleSettings struct {
+	// The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.
+	MaxInstances *int `pulumi:"maxInstances"`
+	// The minimum number of instances to always be present.
+	MinInstances *int `pulumi:"minInstances"`
+	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+	PollingInterval *string `pulumi:"pollingInterval"`
+	// Expected value is 'TargetUtilization'.
+	ScaleType string `pulumi:"scaleType"`
+	// Target CPU usage for the autoscaler.
+	TargetUtilizationPercentage *int `pulumi:"targetUtilizationPercentage"`
+}
+
+// Defaults sets the appropriate defaults for TargetUtilizationScaleSettings
+func (val *TargetUtilizationScaleSettings) Defaults() *TargetUtilizationScaleSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxInstances) {
+		maxInstances_ := 1
+		tmp.MaxInstances = &maxInstances_
+	}
+	if isZero(tmp.MinInstances) {
+		minInstances_ := 1
+		tmp.MinInstances = &minInstances_
+	}
+	if isZero(tmp.PollingInterval) {
+		pollingInterval_ := "PT1S"
+		tmp.PollingInterval = &pollingInterval_
+	}
+	if isZero(tmp.TargetUtilizationPercentage) {
+		targetUtilizationPercentage_ := 70
+		tmp.TargetUtilizationPercentage = &targetUtilizationPercentage_
+	}
+	return &tmp
+}
+
+type TargetUtilizationScaleSettingsResponse struct {
+	// The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.
+	MaxInstances *int `pulumi:"maxInstances"`
+	// The minimum number of instances to always be present.
+	MinInstances *int `pulumi:"minInstances"`
+	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+	PollingInterval *string `pulumi:"pollingInterval"`
+	// Expected value is 'TargetUtilization'.
+	ScaleType string `pulumi:"scaleType"`
+	// Target CPU usage for the autoscaler.
+	TargetUtilizationPercentage *int `pulumi:"targetUtilizationPercentage"`
+}
+
+// Defaults sets the appropriate defaults for TargetUtilizationScaleSettingsResponse
+func (val *TargetUtilizationScaleSettingsResponse) Defaults() *TargetUtilizationScaleSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxInstances) {
+		maxInstances_ := 1
+		tmp.MaxInstances = &maxInstances_
+	}
+	if isZero(tmp.MinInstances) {
+		minInstances_ := 1
+		tmp.MinInstances = &minInstances_
+	}
+	if isZero(tmp.PollingInterval) {
+		pollingInterval_ := "PT1S"
+		tmp.PollingInterval = &pollingInterval_
+	}
+	if isZero(tmp.TargetUtilizationPercentage) {
+		targetUtilizationPercentage_ := 70
+		tmp.TargetUtilizationPercentage = &targetUtilizationPercentage_
+	}
+	return &tmp
+}
+
 // TensorFlow distribution configuration.
 type TensorFlow struct {
 	// Enum to determine the job distribution type.
@@ -19253,8 +11083,21 @@ type TensorFlow struct {
 	DistributionType string `pulumi:"distributionType"`
 	// Number of parameter server tasks.
 	ParameterServerCount *int `pulumi:"parameterServerCount"`
-	// Number of workers. Overwrites the node count in compute binding.
+	// Number of workers. If not specified, will default to the instance count.
 	WorkerCount *int `pulumi:"workerCount"`
+}
+
+// Defaults sets the appropriate defaults for TensorFlow
+func (val *TensorFlow) Defaults() *TensorFlow {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ParameterServerCount) {
+		parameterServerCount_ := 0
+		tmp.ParameterServerCount = &parameterServerCount_
+	}
+	return &tmp
 }
 
 // TensorFlow distribution configuration.
@@ -19264,8 +11107,21 @@ type TensorFlowResponse struct {
 	DistributionType string `pulumi:"distributionType"`
 	// Number of parameter server tasks.
 	ParameterServerCount *int `pulumi:"parameterServerCount"`
-	// Number of workers. Overwrites the node count in compute binding.
+	// Number of workers. If not specified, will default to the instance count.
 	WorkerCount *int `pulumi:"workerCount"`
+}
+
+// Defaults sets the appropriate defaults for TensorFlowResponse
+func (val *TensorFlowResponse) Defaults() *TensorFlowResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ParameterServerCount) {
+		parameterServerCount_ := 0
+		tmp.ParameterServerCount = &parameterServerCount_
+	}
+	return &tmp
 }
 
 // Trial component definition.
@@ -19276,17 +11132,23 @@ type TrialComponent struct {
 	Command string `pulumi:"command"`
 	// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
 	Distribution interface{} `pulumi:"distribution"`
-	// The ARM resource ID of the Environment specification for the job.
-	EnvironmentId *string `pulumi:"environmentId"`
+	// [Required] The ARM resource ID of the Environment specification for the job.
+	EnvironmentId string `pulumi:"environmentId"`
 	// Environment variables included in the job.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Mapping of input data bindings used in the job.
-	InputDataBindings map[string]InputDataBinding `pulumi:"inputDataBindings"`
-	// Mapping of output data bindings used in the job.
-	OutputDataBindings map[string]OutputDataBinding `pulumi:"outputDataBindings"`
-	// The max run duration in ISO 8601 format, after which the trial component will be cancelled.
-	// Only supports duration with precision as low as Seconds.
-	Timeout *string `pulumi:"timeout"`
+	// Compute Resource configuration for the job.
+	Resources *ResourceConfiguration `pulumi:"resources"`
+}
+
+// Defaults sets the appropriate defaults for TrialComponent
+func (val *TrialComponent) Defaults() *TrialComponent {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Resources = tmp.Resources.Defaults()
+
+	return &tmp
 }
 
 // Trial component definition.
@@ -19297,17 +11159,123 @@ type TrialComponentResponse struct {
 	Command string `pulumi:"command"`
 	// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
 	Distribution interface{} `pulumi:"distribution"`
-	// The ARM resource ID of the Environment specification for the job.
-	EnvironmentId *string `pulumi:"environmentId"`
+	// [Required] The ARM resource ID of the Environment specification for the job.
+	EnvironmentId string `pulumi:"environmentId"`
 	// Environment variables included in the job.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Mapping of input data bindings used in the job.
-	InputDataBindings map[string]InputDataBindingResponse `pulumi:"inputDataBindings"`
-	// Mapping of output data bindings used in the job.
-	OutputDataBindings map[string]OutputDataBindingResponse `pulumi:"outputDataBindings"`
-	// The max run duration in ISO 8601 format, after which the trial component will be cancelled.
-	// Only supports duration with precision as low as Seconds.
-	Timeout *string `pulumi:"timeout"`
+	// Compute Resource configuration for the job.
+	Resources *ResourceConfigurationResponse `pulumi:"resources"`
+}
+
+// Defaults sets the appropriate defaults for TrialComponentResponse
+func (val *TrialComponentResponse) Defaults() *TrialComponentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Resources = tmp.Resources.Defaults()
+
+	return &tmp
+}
+
+type TritonModelJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'triton_model'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for TritonModelJobInput
+func (val *TritonModelJobInput) Defaults() *TritonModelJobInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type TritonModelJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'triton_model'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for TritonModelJobInputResponse
+func (val *TritonModelJobInputResponse) Defaults() *TritonModelJobInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type TritonModelJobOutput struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'triton_model'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for TritonModelJobOutput
+func (val *TritonModelJobOutput) Defaults() *TritonModelJobOutput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type TritonModelJobOutputResponse struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'triton_model'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for TritonModelJobOutputResponse
+func (val *TritonModelJobOutputResponse) Defaults() *TritonModelJobOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
 // Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
@@ -19322,6 +11290,27 @@ type TruncationSelectionPolicy struct {
 	TruncationPercentage *int `pulumi:"truncationPercentage"`
 }
 
+// Defaults sets the appropriate defaults for TruncationSelectionPolicy
+func (val *TruncationSelectionPolicy) Defaults() *TruncationSelectionPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelayEvaluation) {
+		delayEvaluation_ := 0
+		tmp.DelayEvaluation = &delayEvaluation_
+	}
+	if isZero(tmp.EvaluationInterval) {
+		evaluationInterval_ := 0
+		tmp.EvaluationInterval = &evaluationInterval_
+	}
+	if isZero(tmp.TruncationPercentage) {
+		truncationPercentage_ := 0
+		tmp.TruncationPercentage = &truncationPercentage_
+	}
+	return &tmp
+}
+
 // Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
 type TruncationSelectionPolicyResponse struct {
 	// Number of intervals by which to delay the first evaluation.
@@ -19332,6 +11321,371 @@ type TruncationSelectionPolicyResponse struct {
 	PolicyType string `pulumi:"policyType"`
 	// The percentage of runs to cancel at each evaluation interval.
 	TruncationPercentage *int `pulumi:"truncationPercentage"`
+}
+
+// Defaults sets the appropriate defaults for TruncationSelectionPolicyResponse
+func (val *TruncationSelectionPolicyResponse) Defaults() *TruncationSelectionPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelayEvaluation) {
+		delayEvaluation_ := 0
+		tmp.DelayEvaluation = &delayEvaluation_
+	}
+	if isZero(tmp.EvaluationInterval) {
+		evaluationInterval_ := 0
+		tmp.EvaluationInterval = &evaluationInterval_
+	}
+	if isZero(tmp.TruncationPercentage) {
+		truncationPercentage_ := 0
+		tmp.TruncationPercentage = &truncationPercentage_
+	}
+	return &tmp
+}
+
+// uri-file data version entity
+type UriFileDataVersion struct {
+	// Enum to determine the type of data.
+	// Expected value is 'uri_file'.
+	DataType string `pulumi:"dataType"`
+	// [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType
+	DataUri string `pulumi:"dataUri"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for UriFileDataVersion
+func (val *UriFileDataVersion) Defaults() *UriFileDataVersion {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// uri-file data version entity
+type UriFileDataVersionResponse struct {
+	// Enum to determine the type of data.
+	// Expected value is 'uri_file'.
+	DataType string `pulumi:"dataType"`
+	// [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType
+	DataUri string `pulumi:"dataUri"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for UriFileDataVersionResponse
+func (val *UriFileDataVersionResponse) Defaults() *UriFileDataVersionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+type UriFileJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'uri_file'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFileJobInput
+func (val *UriFileJobInput) Defaults() *UriFileJobInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type UriFileJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'uri_file'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFileJobInputResponse
+func (val *UriFileJobInputResponse) Defaults() *UriFileJobInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type UriFileJobOutput struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'uri_file'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFileJobOutput
+func (val *UriFileJobOutput) Defaults() *UriFileJobOutput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type UriFileJobOutputResponse struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'uri_file'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFileJobOutputResponse
+func (val *UriFileJobOutputResponse) Defaults() *UriFileJobOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+// uri-folder data version entity
+type UriFolderDataVersion struct {
+	// Enum to determine the type of data.
+	// Expected value is 'uri_folder'.
+	DataType string `pulumi:"dataType"`
+	// [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType
+	DataUri string `pulumi:"dataUri"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for UriFolderDataVersion
+func (val *UriFolderDataVersion) Defaults() *UriFolderDataVersion {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// uri-folder data version entity
+type UriFolderDataVersionResponse struct {
+	// Enum to determine the type of data.
+	// Expected value is 'uri_folder'.
+	DataType string `pulumi:"dataType"`
+	// [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType
+	DataUri string `pulumi:"dataUri"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for UriFolderDataVersionResponse
+func (val *UriFolderDataVersionResponse) Defaults() *UriFolderDataVersionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+type UriFolderJobInput struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'uri_folder'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFolderJobInput
+func (val *UriFolderJobInput) Defaults() *UriFolderJobInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type UriFolderJobInputResponse struct {
+	// Description for the input.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Input Type.
+	// Expected value is 'uri_folder'.
+	JobInputType string `pulumi:"jobInputType"`
+	// Input Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// [Required] Input Asset URI.
+	Uri string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFolderJobInputResponse
+func (val *UriFolderJobInputResponse) Defaults() *UriFolderJobInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadOnlyMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type UriFolderJobOutput struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'uri_folder'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFolderJobOutput
+func (val *UriFolderJobOutput) Defaults() *UriFolderJobOutput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+type UriFolderJobOutputResponse struct {
+	// Description for the output.
+	Description *string `pulumi:"description"`
+	// Enum to determine the Job Output Type.
+	// Expected value is 'uri_folder'.
+	JobOutputType string `pulumi:"jobOutputType"`
+	// Output Asset Delivery Mode.
+	Mode *string `pulumi:"mode"`
+	// Output Asset URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// Defaults sets the appropriate defaults for UriFolderJobOutputResponse
+func (val *UriFolderJobOutputResponse) Defaults() *UriFolderJobOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "ReadWriteMount"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
 // Settings for user account that gets created on each on the nodes of a compute.
@@ -19354,179 +11708,15 @@ type UserAccountCredentialsResponse struct {
 	AdminUserSshPublicKey *string `pulumi:"adminUserSshPublicKey"`
 }
 
-// User assigned identities associated with a resource.
-type UserAssignedIdentityMeta struct {
-	// Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
-	ClientId *string `pulumi:"clientId"`
-	// The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// UserAssignedIdentityMetaInput is an input type that accepts UserAssignedIdentityMetaArgs and UserAssignedIdentityMetaOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMetaInput` via:
-//
-//          UserAssignedIdentityMetaArgs{...}
-type UserAssignedIdentityMetaInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityMetaOutput() UserAssignedIdentityMetaOutput
-	ToUserAssignedIdentityMetaOutputWithContext(context.Context) UserAssignedIdentityMetaOutput
-}
-
-// User assigned identities associated with a resource.
-type UserAssignedIdentityMetaArgs struct {
-	// Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (UserAssignedIdentityMetaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMeta)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityMetaArgs) ToUserAssignedIdentityMetaOutput() UserAssignedIdentityMetaOutput {
-	return i.ToUserAssignedIdentityMetaOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMetaArgs) ToUserAssignedIdentityMetaOutputWithContext(ctx context.Context) UserAssignedIdentityMetaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMetaOutput)
-}
-
-// UserAssignedIdentityMetaMapInput is an input type that accepts UserAssignedIdentityMetaMap and UserAssignedIdentityMetaMapOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMetaMapInput` via:
-//
-//          UserAssignedIdentityMetaMap{ "key": UserAssignedIdentityMetaArgs{...} }
-type UserAssignedIdentityMetaMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityMetaMapOutput() UserAssignedIdentityMetaMapOutput
-	ToUserAssignedIdentityMetaMapOutputWithContext(context.Context) UserAssignedIdentityMetaMapOutput
-}
-
-type UserAssignedIdentityMetaMap map[string]UserAssignedIdentityMetaInput
-
-func (UserAssignedIdentityMetaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityMeta)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityMetaMap) ToUserAssignedIdentityMetaMapOutput() UserAssignedIdentityMetaMapOutput {
-	return i.ToUserAssignedIdentityMetaMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMetaMap) ToUserAssignedIdentityMetaMapOutputWithContext(ctx context.Context) UserAssignedIdentityMetaMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMetaMapOutput)
-}
-
-// User assigned identities associated with a resource.
-type UserAssignedIdentityMetaOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMetaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMeta)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMetaOutput) ToUserAssignedIdentityMetaOutput() UserAssignedIdentityMetaOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMetaOutput) ToUserAssignedIdentityMetaOutputWithContext(ctx context.Context) UserAssignedIdentityMetaOutput {
-	return o
-}
-
-// Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
-func (o UserAssignedIdentityMetaOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityMeta) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
-func (o UserAssignedIdentityMetaOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityMeta) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type UserAssignedIdentityMetaMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMetaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityMeta)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMetaMapOutput) ToUserAssignedIdentityMetaMapOutput() UserAssignedIdentityMetaMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMetaMapOutput) ToUserAssignedIdentityMetaMapOutputWithContext(ctx context.Context) UserAssignedIdentityMetaMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMetaMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityMetaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityMeta {
-		return vs[0].(map[string]UserAssignedIdentityMeta)[vs[1].(string)]
-	}).(UserAssignedIdentityMetaOutput)
-}
-
-// User assigned identities associated with a resource.
-type UserAssignedIdentityMetaResponse struct {
-	// Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
-	ClientId *string `pulumi:"clientId"`
-	// The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// User assigned identities associated with a resource.
-type UserAssignedIdentityMetaResponseOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMetaResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMetaResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMetaResponseOutput) ToUserAssignedIdentityMetaResponseOutput() UserAssignedIdentityMetaResponseOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMetaResponseOutput) ToUserAssignedIdentityMetaResponseOutputWithContext(ctx context.Context) UserAssignedIdentityMetaResponseOutput {
-	return o
-}
-
-// Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
-func (o UserAssignedIdentityMetaResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityMetaResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
-func (o UserAssignedIdentityMetaResponseOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityMetaResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type UserAssignedIdentityMetaResponseMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMetaResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityMetaResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMetaResponseMapOutput) ToUserAssignedIdentityMetaResponseMapOutput() UserAssignedIdentityMetaResponseMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMetaResponseMapOutput) ToUserAssignedIdentityMetaResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityMetaResponseMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMetaResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityMetaResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityMetaResponse {
-		return vs[0].(map[string]UserAssignedIdentityMetaResponse)[vs[1].(string)]
-	}).(UserAssignedIdentityMetaResponseOutput)
-}
-
-// User Assigned Identity
+// User assigned identity properties
 type UserAssignedIdentityResponse struct {
-	// The clientId(aka appId) of the user assigned identity.
+	// The client ID of the assigned identity.
 	ClientId string `pulumi:"clientId"`
-	// The principal ID of the user assigned identity.
+	// The principal ID of the assigned identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of the user assigned identity.
-	TenantId string `pulumi:"tenantId"`
 }
 
-// User Assigned Identity
+// User assigned identity properties
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
@@ -19541,19 +11731,14 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// The clientId(aka appId) of the user assigned identity.
+// The client ID of the assigned identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of the user assigned identity.
+// The principal ID of the assigned identity.
 func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-// The tenant ID of the user assigned identity.
-func (o UserAssignedIdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
@@ -19576,178 +11761,58 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 	}).(UserAssignedIdentityResponseOutput)
 }
 
-// User who created.
-type UserInfoResponse struct {
-	// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
-	UserAltSecId *string `pulumi:"userAltSecId"`
-	// A user identity provider. Eg live.com
-	UserIdp *string `pulumi:"userIdp"`
-	// The issuer which issued the token for this user.
-	UserIss *string `pulumi:"userIss"`
-	//  A user's full name or a service principal's app ID.
-	UserName *string `pulumi:"userName"`
-	// A user or service principal's object ID..
-	UserObjectId *string `pulumi:"userObjectId"`
-	// A user or service principal's PuID.
-	UserPuId *string `pulumi:"userPuId"`
-	// A user or service principal's tenant ID.
-	UserTenantId *string `pulumi:"userTenantId"`
+// User identity configuration.
+type UserIdentity struct {
+	// Enum to determine identity framework.
+	// Expected value is 'UserIdentity'.
+	IdentityType string `pulumi:"identityType"`
 }
 
-// User who created.
-type UserInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (UserInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserInfoResponse)(nil)).Elem()
+// User identity configuration.
+type UserIdentityResponse struct {
+	// Enum to determine identity framework.
+	// Expected value is 'UserIdentity'.
+	IdentityType string `pulumi:"identityType"`
 }
 
-func (o UserInfoResponseOutput) ToUserInfoResponseOutput() UserInfoResponseOutput {
-	return o
+type UsernamePasswordAuthTypeWorkspaceConnectionProperties struct {
+	// Authentication type of the connection target
+	// Expected value is 'UsernamePassword'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                              `pulumi:"category"`
+	Credentials *WorkspaceConnectionUsernamePassword `pulumi:"credentials"`
+	Target      *string                              `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
 }
 
-func (o UserInfoResponseOutput) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
-	return o
-}
-
-// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
-func (o UserInfoResponseOutput) UserAltSecId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserAltSecId }).(pulumi.StringPtrOutput)
-}
-
-// A user identity provider. Eg live.com
-func (o UserInfoResponseOutput) UserIdp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserIdp }).(pulumi.StringPtrOutput)
-}
-
-// The issuer which issued the token for this user.
-func (o UserInfoResponseOutput) UserIss() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserIss }).(pulumi.StringPtrOutput)
-}
-
-//  A user's full name or a service principal's app ID.
-func (o UserInfoResponseOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-// A user or service principal's object ID..
-func (o UserInfoResponseOutput) UserObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserObjectId }).(pulumi.StringPtrOutput)
-}
-
-// A user or service principal's PuID.
-func (o UserInfoResponseOutput) UserPuId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserPuId }).(pulumi.StringPtrOutput)
-}
-
-// A user or service principal's tenant ID.
-func (o UserInfoResponseOutput) UserTenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *string { return v.UserTenantId }).(pulumi.StringPtrOutput)
-}
-
-type UserInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UserInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserInfoResponse)(nil)).Elem()
-}
-
-func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
-	return o
-}
-
-func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return o
-}
-
-func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
-	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserInfoResponse
-		return ret
-	}).(UserInfoResponseOutput)
-}
-
-// A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
-func (o UserInfoResponsePtrOutput) UserAltSecId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAltSecId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A user identity provider. Eg live.com
-func (o UserInfoResponsePtrOutput) UserIdp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserIdp
-	}).(pulumi.StringPtrOutput)
-}
-
-// The issuer which issued the token for this user.
-func (o UserInfoResponsePtrOutput) UserIss() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserIss
-	}).(pulumi.StringPtrOutput)
-}
-
-//  A user's full name or a service principal's app ID.
-func (o UserInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// A user or service principal's object ID..
-func (o UserInfoResponsePtrOutput) UserObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A user or service principal's PuID.
-func (o UserInfoResponsePtrOutput) UserPuId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserPuId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A user or service principal's tenant ID.
-func (o UserInfoResponsePtrOutput) UserTenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserTenantId
-	}).(pulumi.StringPtrOutput)
+type UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse struct {
+	// Authentication type of the connection target
+	// Expected value is 'UsernamePassword'.
+	AuthType string `pulumi:"authType"`
+	// Category of the connection
+	Category    *string                                      `pulumi:"category"`
+	Credentials *WorkspaceConnectionUsernamePasswordResponse `pulumi:"credentials"`
+	Target      *string                                      `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
 }
 
 // A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachine struct {
-	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'VirtualMachine'.
 	ComputeType string `pulumi:"computeType"`
 	// The description of the Machine Learning compute.
-	Description *string                   `pulumi:"description"`
-	Properties  *VirtualMachineProperties `pulumi:"properties"`
+	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool                           `pulumi:"disableLocalAuth"`
+	Properties       *VirtualMachineSchemaProperties `pulumi:"properties"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
@@ -19764,42 +11829,56 @@ type VirtualMachineImageResponse struct {
 	Id string `pulumi:"id"`
 }
 
-type VirtualMachineProperties struct {
-	// Public IP address of the virtual machine.
-	Address *string `pulumi:"address"`
-	// Admin credentials for virtual machine
-	AdministratorAccount *VirtualMachineSshCredentials `pulumi:"administratorAccount"`
-	// Port open for ssh connections.
-	SshPort *int `pulumi:"sshPort"`
-	// Virtual Machine size
-	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
-}
-
 // A Machine Learning compute based on Azure Virtual Machines.
 type VirtualMachineResponse struct {
 	// Location for the underlying compute
-	ComputeLocation *string `pulumi:"computeLocation"`
+	ComputeLocation string `pulumi:"computeLocation"`
 	// The type of compute
 	// Expected value is 'VirtualMachine'.
 	ComputeType string `pulumi:"computeType"`
+	// The time at which the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
 	// The description of the Machine Learning compute.
 	Description *string `pulumi:"description"`
+	// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-	IsAttachedCompute bool                              `pulumi:"isAttachedCompute"`
-	Properties        *VirtualMachineResponseProperties `pulumi:"properties"`
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The time at which the compute was last modified.
+	ModifiedOn string                                  `pulumi:"modifiedOn"`
+	Properties *VirtualMachineSchemaResponseProperties `pulumi:"properties"`
 	// Errors during provisioning
-	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
+	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
 	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM resource id of the underlying compute
 	ResourceId *string `pulumi:"resourceId"`
 }
 
-type VirtualMachineResponseProperties struct {
+type VirtualMachineSchemaProperties struct {
+	// Public IP address of the virtual machine.
+	Address *string `pulumi:"address"`
+	// Admin credentials for virtual machine
+	AdministratorAccount *VirtualMachineSshCredentials `pulumi:"administratorAccount"`
+	// Indicates whether this compute will be used for running notebooks.
+	IsNotebookInstanceCompute *bool `pulumi:"isNotebookInstanceCompute"`
+	// Notebook server port open for ssh connections.
+	NotebookServerPort *int `pulumi:"notebookServerPort"`
+	// Port open for ssh connections.
+	SshPort *int `pulumi:"sshPort"`
+	// Virtual Machine size
+	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
+}
+
+type VirtualMachineSchemaResponseProperties struct {
 	// Public IP address of the virtual machine.
 	Address *string `pulumi:"address"`
 	// Admin credentials for virtual machine
 	AdministratorAccount *VirtualMachineSshCredentialsResponse `pulumi:"administratorAccount"`
+	// Indicates whether this compute will be used for running notebooks.
+	IsNotebookInstanceCompute *bool `pulumi:"isNotebookInstanceCompute"`
+	// Notebook server port open for ssh connections.
+	NotebookServerPort *int `pulumi:"notebookServerPort"`
 	// Port open for ssh connections.
 	SshPort *int `pulumi:"sshPort"`
 	// Virtual Machine size
@@ -19830,45 +11909,61 @@ type VirtualMachineSshCredentialsResponse struct {
 	Username *string `pulumi:"username"`
 }
 
+type WorkspaceConnectionManagedIdentity struct {
+	ClientId   *string `pulumi:"clientId"`
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+type WorkspaceConnectionManagedIdentityResponse struct {
+	ClientId   *string `pulumi:"clientId"`
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+type WorkspaceConnectionPersonalAccessToken struct {
+	Pat *string `pulumi:"pat"`
+}
+
+type WorkspaceConnectionPersonalAccessTokenResponse struct {
+	Pat *string `pulumi:"pat"`
+}
+
+type WorkspaceConnectionSharedAccessSignature struct {
+	Sas *string `pulumi:"sas"`
+}
+
+type WorkspaceConnectionSharedAccessSignatureResponse struct {
+	Sas *string `pulumi:"sas"`
+}
+
+type WorkspaceConnectionUsernamePassword struct {
+	Password *string `pulumi:"password"`
+	Username *string `pulumi:"username"`
+}
+
+type WorkspaceConnectionUsernamePasswordResponse struct {
+	Password *string `pulumi:"password"`
+	Username *string `pulumi:"username"`
+}
+
 func init() {
-	pulumi.RegisterOutputType(ACIServiceCreateRequestDataCollectionOutput{})
-	pulumi.RegisterOutputType(ACIServiceCreateRequestDataCollectionPtrOutput{})
-	pulumi.RegisterOutputType(ACIServiceCreateRequestEncryptionPropertiesOutput{})
-	pulumi.RegisterOutputType(ACIServiceCreateRequestEncryptionPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ACIServiceCreateRequestVnetConfigurationOutput{})
-	pulumi.RegisterOutputType(ACIServiceCreateRequestVnetConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AKSServiceCreateRequestAutoScalerOutput{})
-	pulumi.RegisterOutputType(AKSServiceCreateRequestAutoScalerPtrOutput{})
-	pulumi.RegisterOutputType(AKSServiceCreateRequestDataCollectionOutput{})
-	pulumi.RegisterOutputType(AKSServiceCreateRequestDataCollectionPtrOutput{})
-	pulumi.RegisterOutputType(AKSServiceCreateRequestLivenessProbeRequirementsOutput{})
-	pulumi.RegisterOutputType(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseOutput{})
 	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseArrayOutput{})
-	pulumi.RegisterOutputType(AzureDataLakeSectionResponseOutput{})
-	pulumi.RegisterOutputType(AzureDataLakeSectionResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzureMySqlSectionResponseOutput{})
-	pulumi.RegisterOutputType(AzureMySqlSectionResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzurePostgreSqlSectionResponseOutput{})
-	pulumi.RegisterOutputType(AzurePostgreSqlSectionResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzureSqlDatabaseSectionResponseOutput{})
-	pulumi.RegisterOutputType(AzureSqlDatabaseSectionResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzureStorageSectionResponseOutput{})
-	pulumi.RegisterOutputType(AzureStorageSectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(BatchDeploymentTypeOutput{})
 	pulumi.RegisterOutputType(BatchDeploymentResponseOutput{})
 	pulumi.RegisterOutputType(BatchEndpointTypeOutput{})
+	pulumi.RegisterOutputType(BatchEndpointDefaultsOutput{})
+	pulumi.RegisterOutputType(BatchEndpointDefaultsPtrOutput{})
+	pulumi.RegisterOutputType(BatchEndpointDefaultsResponseOutput{})
+	pulumi.RegisterOutputType(BatchEndpointDefaultsResponsePtrOutput{})
 	pulumi.RegisterOutputType(BatchEndpointResponseOutput{})
-	pulumi.RegisterOutputType(BatchOutputConfigurationOutput{})
-	pulumi.RegisterOutputType(BatchOutputConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(BatchOutputConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(BatchOutputConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(BatchRetrySettingsOutput{})
 	pulumi.RegisterOutputType(BatchRetrySettingsPtrOutput{})
 	pulumi.RegisterOutputType(BatchRetrySettingsResponseOutput{})
 	pulumi.RegisterOutputType(BatchRetrySettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClientCredentialsResponseOutput{})
-	pulumi.RegisterOutputType(ClientCredentialsResponsePtrOutput{})
+	pulumi.RegisterOutputType(BuildContextOutput{})
+	pulumi.RegisterOutputType(BuildContextPtrOutput{})
+	pulumi.RegisterOutputType(BuildContextResponseOutput{})
+	pulumi.RegisterOutputType(BuildContextResponsePtrOutput{})
 	pulumi.RegisterOutputType(CodeConfigurationOutput{})
 	pulumi.RegisterOutputType(CodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CodeConfigurationResponseOutput{})
@@ -19881,52 +11976,16 @@ func init() {
 	pulumi.RegisterOutputType(ComponentContainerResponseOutput{})
 	pulumi.RegisterOutputType(ComponentVersionTypeOutput{})
 	pulumi.RegisterOutputType(ComponentVersionResponseOutput{})
-	pulumi.RegisterOutputType(ComputeBindingOutput{})
-	pulumi.RegisterOutputType(ComputeBindingPtrOutput{})
-	pulumi.RegisterOutputType(ComputeBindingResponseOutput{})
-	pulumi.RegisterOutputType(ComputeBindingResponsePtrOutput{})
-	pulumi.RegisterOutputType(ComputeConfigurationOutput{})
-	pulumi.RegisterOutputType(ComputeConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ComputeConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(ComputeConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerResourceRequirementsOutput{})
-	pulumi.RegisterOutputType(ContainerResourceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CosmosDbSettingsOutput{})
 	pulumi.RegisterOutputType(CosmosDbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CosmosDbSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CosmosDbSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(CreateServiceRequestEnvironmentImageRequestOutput{})
-	pulumi.RegisterOutputType(CreateServiceRequestEnvironmentImageRequestPtrOutput{})
-	pulumi.RegisterOutputType(CreateServiceRequestKeysOutput{})
-	pulumi.RegisterOutputType(CreateServiceRequestKeysPtrOutput{})
 	pulumi.RegisterOutputType(DataContainerTypeOutput{})
 	pulumi.RegisterOutputType(DataContainerResponseOutput{})
-	pulumi.RegisterOutputType(DataVersionTypeOutput{})
-	pulumi.RegisterOutputType(DataVersionResponseOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestDataPathOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestDataPathPtrOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestParametersOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestPathOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestPathPtrOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestQueryOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestQueryPtrOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestRegistrationOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestTimeSeriesOutput{})
-	pulumi.RegisterOutputType(DatasetCreateRequestTimeSeriesPtrOutput{})
-	pulumi.RegisterOutputType(DatasetReferenceOutput{})
-	pulumi.RegisterOutputType(DatasetReferenceArrayOutput{})
-	pulumi.RegisterOutputType(DatasetResponseOutput{})
-	pulumi.RegisterOutputType(DatasetResponseDataPathOutput{})
-	pulumi.RegisterOutputType(DatasetResponseDataPathPtrOutput{})
-	pulumi.RegisterOutputType(DatasetResponseLatestOutput{})
-	pulumi.RegisterOutputType(DatasetResponseLatestPtrOutput{})
-	pulumi.RegisterOutputType(DatasetResponseSqlDataPathOutput{})
-	pulumi.RegisterOutputType(DatasetResponseSqlDataPathPtrOutput{})
-	pulumi.RegisterOutputType(DatasetStateResponseOutput{})
-	pulumi.RegisterOutputType(DatasetStateResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatasetStateResponseDeprecatedByOutput{})
-	pulumi.RegisterOutputType(DatasetStateResponseDeprecatedByPtrOutput{})
-	pulumi.RegisterOutputType(DatastoreResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyResponseOutput{})
@@ -19935,83 +11994,27 @@ func init() {
 	pulumi.RegisterOutputType(EndpointAuthKeysPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentImageRequestEnvironmentOutput{})
-	pulumi.RegisterOutputType(EnvironmentImageRequestEnvironmentPtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentImageRequestEnvironmentReferenceOutput{})
-	pulumi.RegisterOutputType(EnvironmentImageRequestEnvironmentReferencePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentSpecificationVersionTypeOutput{})
-	pulumi.RegisterOutputType(EnvironmentSpecificationVersionResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentVersionTypeOutput{})
+	pulumi.RegisterOutputType(EnvironmentVersionResponseOutput{})
 	pulumi.RegisterOutputType(FlavorDataOutput{})
 	pulumi.RegisterOutputType(FlavorDataMapOutput{})
 	pulumi.RegisterOutputType(FlavorDataResponseOutput{})
 	pulumi.RegisterOutputType(FlavorDataResponseMapOutput{})
-	pulumi.RegisterOutputType(GlusterFsSectionResponseOutput{})
-	pulumi.RegisterOutputType(GlusterFsSectionResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentityOutput{})
-	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityForCmkOutput{})
 	pulumi.RegisterOutputType(IdentityForCmkPtrOutput{})
 	pulumi.RegisterOutputType(IdentityForCmkResponseOutput{})
 	pulumi.RegisterOutputType(IdentityForCmkResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentityResponseOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImageAssetOutput{})
-	pulumi.RegisterOutputType(ImageAssetArrayOutput{})
 	pulumi.RegisterOutputType(InferenceContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(InferenceContainerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InferenceContainerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(InferenceContainerPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabelCategoryOutput{})
-	pulumi.RegisterOutputType(LabelCategoryMapOutput{})
-	pulumi.RegisterOutputType(LabelCategoryResponseOutput{})
-	pulumi.RegisterOutputType(LabelCategoryResponseMapOutput{})
-	pulumi.RegisterOutputType(LabelClassOutput{})
-	pulumi.RegisterOutputType(LabelClassMapOutput{})
-	pulumi.RegisterOutputType(LabelClassResponseOutput{})
-	pulumi.RegisterOutputType(LabelClassResponseMapOutput{})
-	pulumi.RegisterOutputType(LabelingDatasetConfigurationOutput{})
-	pulumi.RegisterOutputType(LabelingDatasetConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(LabelingDatasetConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(LabelingJobImagePropertiesOutput{})
-	pulumi.RegisterOutputType(LabelingJobImagePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(LabelingJobImagePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LabelingJobInstructionsOutput{})
-	pulumi.RegisterOutputType(LabelingJobInstructionsPtrOutput{})
-	pulumi.RegisterOutputType(LabelingJobInstructionsResponseOutput{})
-	pulumi.RegisterOutputType(LabelingJobPropertiesOutput{})
-	pulumi.RegisterOutputType(LabelingJobPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(LabelingJobPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LinkedInfoResponseOutput{})
-	pulumi.RegisterOutputType(LinkedInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(LinkedServicePropsOutput{})
-	pulumi.RegisterOutputType(LinkedServicePropsPtrOutput{})
-	pulumi.RegisterOutputType(LinkedServicePropsResponseOutput{})
-	pulumi.RegisterOutputType(LinkedWorkspacePropsOutput{})
-	pulumi.RegisterOutputType(LinkedWorkspacePropsPtrOutput{})
-	pulumi.RegisterOutputType(LinkedWorkspacePropsResponseOutput{})
 	pulumi.RegisterOutputType(ListNotebookKeysResultResponseOutput{})
-	pulumi.RegisterOutputType(MLAssistConfigurationOutput{})
-	pulumi.RegisterOutputType(MLAssistConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(MLAssistConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(MLAssistConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ModelOutput{})
-	pulumi.RegisterOutputType(ModelArrayOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerTypeOutput{})
 	pulumi.RegisterOutputType(ModelContainerResponseOutput{})
-	pulumi.RegisterOutputType(ModelDockerSectionBaseImageRegistryOutput{})
-	pulumi.RegisterOutputType(ModelDockerSectionBaseImageRegistryPtrOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionDockerOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionDockerPtrOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionPythonOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionPythonPtrOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionROutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionRPtrOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionSparkOutput{})
-	pulumi.RegisterOutputType(ModelEnvironmentDefinitionSparkPtrOutput{})
 	pulumi.RegisterOutputType(ModelVersionTypeOutput{})
 	pulumi.RegisterOutputType(ModelVersionResponseOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponseOutput{})
@@ -20027,16 +12030,11 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
-	pulumi.RegisterOutputType(ProgressMetricsResponseOutput{})
-	pulumi.RegisterOutputType(RCranPackageOutput{})
-	pulumi.RegisterOutputType(RCranPackageArrayOutput{})
-	pulumi.RegisterOutputType(RGitHubPackageOutput{})
-	pulumi.RegisterOutputType(RGitHubPackageArrayOutput{})
 	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(RouteOutput{})
 	pulumi.RegisterOutputType(RoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteResponseOutput{})
@@ -20053,17 +12051,7 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SparkMavenPackageOutput{})
-	pulumi.RegisterOutputType(SparkMavenPackageArrayOutput{})
-	pulumi.RegisterOutputType(StatusMessageResponseOutput{})
-	pulumi.RegisterOutputType(StatusMessageResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMetaOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMetaMapOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMetaResponseOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMetaResponseMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
-	pulumi.RegisterOutputType(UserInfoResponseOutput{})
-	pulumi.RegisterOutputType(UserInfoResponsePtrOutput{})
 }

@@ -19,6 +19,7 @@ class AppServiceEnvironmentArgs:
                  resource_group_name: pulumi.Input[str],
                  virtual_network: pulumi.Input['VirtualNetworkProfileArgs'],
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+                 dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
@@ -28,12 +29,14 @@ class AppServiceEnvironmentArgs:
                  multi_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AppServiceEnvironment resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network: Description of the Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[int] dedicated_host_count: Dedicated Host Count
         :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[Union[str, 'LoadBalancingMode']] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
@@ -44,11 +47,14 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[str] name: Name of the App Service Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[bool] zone_redundant: Whether or not this App Service Environment is zone-redundant.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network", virtual_network)
         if cluster_settings is not None:
             pulumi.set(__self__, "cluster_settings", cluster_settings)
+        if dedicated_host_count is not None:
+            pulumi.set(__self__, "dedicated_host_count", dedicated_host_count)
         if dns_suffix is not None:
             pulumi.set(__self__, "dns_suffix", dns_suffix)
         if front_end_scale_factor is not None:
@@ -69,6 +75,8 @@ class AppServiceEnvironmentArgs:
             pulumi.set(__self__, "tags", tags)
         if user_whitelisted_ip_ranges is not None:
             pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,6 +113,18 @@ class AppServiceEnvironmentArgs:
     @cluster_settings.setter
     def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
         pulumi.set(self, "cluster_settings", value)
+
+    @property
+    @pulumi.getter(name="dedicatedHostCount")
+    def dedicated_host_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Dedicated Host Count
+        """
+        return pulumi.get(self, "dedicated_host_count")
+
+    @dedicated_host_count.setter
+    def dedicated_host_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dedicated_host_count", value)
 
     @property
     @pulumi.getter(name="dnsSuffix")
@@ -226,6 +246,18 @@ class AppServiceEnvironmentArgs:
     def user_whitelisted_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_whitelisted_ip_ranges", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this App Service Environment is zone-redundant.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
+
 
 class AppServiceEnvironment(pulumi.CustomResource):
     @overload
@@ -233,6 +265,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
@@ -245,14 +278,16 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         App Service Environment ARM resource.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[int] dedicated_host_count: Dedicated Host Count
         :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[Union[str, 'LoadBalancingMode']] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
@@ -265,6 +300,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the Virtual Network.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this App Service Environment is zone-redundant.
         """
         ...
     @overload
@@ -274,7 +310,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App Service Environment ARM resource.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -292,6 +328,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
@@ -304,6 +341,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -317,6 +355,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__ = AppServiceEnvironmentArgs.__new__(AppServiceEnvironmentArgs)
 
             __props__.__dict__["cluster_settings"] = cluster_settings
+            __props__.__dict__["dedicated_host_count"] = dedicated_host_count
             __props__.__dict__["dns_suffix"] = dns_suffix
             __props__.__dict__["front_end_scale_factor"] = front_end_scale_factor
             __props__.__dict__["internal_load_balancing_mode"] = internal_load_balancing_mode
@@ -333,7 +372,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
             if virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network'")
             __props__.__dict__["virtual_network"] = virtual_network
-            __props__.__dict__["dedicated_host_count"] = None
+            __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["has_linux_workers"] = None
             __props__.__dict__["maximum_number_of_machines"] = None
             __props__.__dict__["multi_role_count"] = None
@@ -385,6 +424,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["user_whitelisted_ip_ranges"] = None
         __props__.__dict__["virtual_network"] = None
+        __props__.__dict__["zone_redundant"] = None
         return AppServiceEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -397,7 +437,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedHostCount")
-    def dedicated_host_count(self) -> pulumi.Output[int]:
+    def dedicated_host_count(self) -> pulumi.Output[Optional[int]]:
         """
         Dedicated Host Count
         """
@@ -547,4 +587,12 @@ class AppServiceEnvironment(pulumi.CustomResource):
         Description of the Virtual Network.
         """
         return pulumi.get(self, "virtual_network")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not this App Service Environment is zone-redundant.
+        """
+        return pulumi.get(self, "zone_redundant")
 

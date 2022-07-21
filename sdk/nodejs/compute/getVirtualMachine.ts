@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     if (!opts) {
@@ -46,6 +46,10 @@ export interface GetVirtualMachineResult {
      */
     readonly additionalCapabilities?: outputs.compute.AdditionalCapabilitiesResponse;
     /**
+     * Specifies the gallery applications that should be made available to the VM/VMSS
+     */
+    readonly applicationProfile?: outputs.compute.ApplicationProfileResponse;
+    /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
      */
     readonly availabilitySet?: outputs.compute.SubResourceResponse;
@@ -53,6 +57,10 @@ export interface GetVirtualMachineResult {
      * Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
      */
     readonly billingProfile?: outputs.compute.BillingProfileResponse;
+    /**
+     * Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+     */
+    readonly capacityReservation?: outputs.compute.CapacityReservationProfileResponse;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */
@@ -153,6 +161,10 @@ export interface GetVirtualMachineResult {
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    readonly timeCreated: string;
     /**
      * Resource type
      */

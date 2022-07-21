@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the gallery Application Version that you want to create or update.
-// API Version: 2020-09-30.
+// API Version: 2021-10-01.
 func LookupGalleryApplicationVersion(ctx *pulumi.Context, args *LookupGalleryApplicationVersionArgs, opts ...pulumi.InvokeOption) (*LookupGalleryApplicationVersionResult, error) {
 	var rv LookupGalleryApplicationVersionResult
 	err := ctx.Invoke("azure-native:compute:getGalleryApplicationVersion", args, &rv, opts...)

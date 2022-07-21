@@ -17,9 +17,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class OnlineEndpointResponse
     {
         /// <summary>
-        /// [Required] Inference endpoint authentication mode type
+        /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
         /// </summary>
         public readonly string AuthMode;
+        /// <summary>
+        /// ARM resource ID of the compute if it exists.
+        /// optional
+        /// </summary>
+        public readonly string? Compute;
         /// <summary>
         /// Description of the inference endpoint.
         /// </summary>
@@ -29,7 +34,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// State of endpoint provisioning.
+        /// Provisioning state for the endpoint.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -41,18 +46,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string SwaggerUri;
         /// <summary>
-        /// ARM resource ID of the compute if it exists.
-        /// optional
-        /// </summary>
-        public readonly string? Target;
-        /// <summary>
-        /// Traffic rules on how the traffic will be routed across deployments.
+        /// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
         /// </summary>
         public readonly ImmutableDictionary<string, int>? Traffic;
 
         [OutputConstructor]
         private OnlineEndpointResponse(
             string authMode,
+
+            string? compute,
 
             string? description,
 
@@ -64,17 +66,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string swaggerUri,
 
-            string? target,
-
             ImmutableDictionary<string, int>? traffic)
         {
             AuthMode = authMode;
+            Compute = compute;
             Description = description;
             Properties = properties;
             ProvisioningState = provisioningState;
             ScoringUri = scoringUri;
             SwaggerUri = swaggerUri;
-            Target = target;
             Traffic = traffic;
         }
     }

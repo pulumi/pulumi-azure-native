@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data needed to decrypt asset files encrypted with legacy storage encryption.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEncryptionKeyResult> {
     if (!opts) {

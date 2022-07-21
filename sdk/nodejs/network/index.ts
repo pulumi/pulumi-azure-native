@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./adminRule";
-export * from "./adminRuleCollection";
 export * from "./applicationGateway";
 export * from "./applicationGatewayPrivateEndpointConnection";
 export * from "./applicationSecurityGroup";
@@ -14,14 +12,9 @@ export * from "./azureFirewall";
 export * from "./bastionHost";
 export * from "./configurationPolicyGroup";
 export * from "./connectionMonitor";
-export * from "./connectivityConfiguration";
 export * from "./customIPPrefix";
 export * from "./ddosCustomPolicy";
 export * from "./ddosProtectionPlan";
-export * from "./defaultAdminRule";
-export * from "./defaultUserRule";
-export * from "./dnsForwardingRuleset";
-export * from "./dnsResolver";
 export * from "./dscpConfiguration";
 export * from "./endpoint";
 export * from "./experiment";
@@ -38,11 +31,8 @@ export * from "./firewallPolicy";
 export * from "./firewallPolicyRuleCollectionGroup";
 export * from "./firewallPolicyRuleGroup";
 export * from "./flowLog";
-export * from "./forwardingRule";
 export * from "./frontDoor";
 export * from "./getActiveSessions";
-export * from "./getAdminRule";
-export * from "./getAdminRuleCollection";
 export * from "./getApplicationGateway";
 export * from "./getApplicationGatewayBackendHealthOnDemand";
 export * from "./getApplicationGatewayPrivateEndpointConnection";
@@ -52,14 +42,9 @@ export * from "./getBastionHost";
 export * from "./getBastionShareableLink";
 export * from "./getConfigurationPolicyGroup";
 export * from "./getConnectionMonitor";
-export * from "./getConnectivityConfiguration";
 export * from "./getCustomIPPrefix";
 export * from "./getDdosCustomPolicy";
 export * from "./getDdosProtectionPlan";
-export * from "./getDefaultAdminRule";
-export * from "./getDefaultUserRule";
-export * from "./getDnsForwardingRuleset";
-export * from "./getDnsResolver";
 export * from "./getDnsResourceReferenceByTarResources";
 export * from "./getDscpConfiguration";
 export * from "./getEndpoint";
@@ -77,35 +62,25 @@ export * from "./getFirewallPolicy";
 export * from "./getFirewallPolicyRuleCollectionGroup";
 export * from "./getFirewallPolicyRuleGroup";
 export * from "./getFlowLog";
-export * from "./getForwardingRule";
 export * from "./getFrontDoor";
 export * from "./getHubRouteTable";
 export * from "./getHubVirtualNetworkConnection";
-export * from "./getInboundEndpoint";
 export * from "./getInboundNatRule";
+export * from "./getInterfaceEndpoint";
 export * from "./getIpAllocation";
 export * from "./getIpGroup";
 export * from "./getLoadBalancer";
 export * from "./getLoadBalancerBackendAddressPool";
 export * from "./getLocalNetworkGateway";
-export * from "./getManagementGroupNetworkManagerConnection";
 export * from "./getNatGateway";
 export * from "./getNatRule";
 export * from "./getNetworkExperimentProfile";
-export * from "./getNetworkGroup";
 export * from "./getNetworkInterface";
 export * from "./getNetworkInterfaceTapConfiguration";
-export * from "./getNetworkManager";
 export * from "./getNetworkProfile";
 export * from "./getNetworkSecurityGroup";
-export * from "./getNetworkSecurityPerimeter";
 export * from "./getNetworkVirtualAppliance";
 export * from "./getNetworkWatcher";
-export * from "./getNspAccessRule";
-export * from "./getNspAssociation";
-export * from "./getNspAssociationsProxy";
-export * from "./getNspProfile";
-export * from "./getOutboundEndpoint";
 export * from "./getP2sVpnGateway";
 export * from "./getP2sVpnGatewayP2sVpnConnectionHealth";
 export * from "./getP2sVpnGatewayP2sVpnConnectionHealthDetailed";
@@ -128,19 +103,12 @@ export * from "./getRouteFilterRule";
 export * from "./getRouteTable";
 export * from "./getRoutingIntent";
 export * from "./getRulesEngine";
-export * from "./getScopeConnection";
-export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityPartnerProvider";
 export * from "./getSecurityRule";
-export * from "./getSecurityUserConfiguration";
 export * from "./getServiceEndpointPolicy";
 export * from "./getServiceEndpointPolicyDefinition";
-export * from "./getStaticMember";
 export * from "./getSubnet";
-export * from "./getSubscriptionNetworkManagerConnection";
 export * from "./getTrafficManagerUserMetricsKey";
-export * from "./getUserRule";
-export * from "./getUserRuleCollection";
 export * from "./getVirtualApplianceSite";
 export * from "./getVirtualHub";
 export * from "./getVirtualHubBgpConnection";
@@ -169,43 +137,24 @@ export * from "./getWebApplicationFirewallPolicy";
 export * from "./getZone";
 export * from "./hubRouteTable";
 export * from "./hubVirtualNetworkConnection";
-export * from "./inboundEndpoint";
 export * from "./inboundNatRule";
+export * from "./interfaceEndpoint";
 export * from "./ipAllocation";
 export * from "./ipGroup";
-export * from "./listActiveConnectivityConfiguration";
-export * from "./listActiveSecurityAdminRule";
-export * from "./listActiveSecurityUserRule";
-export * from "./listDnsForwardingRulesetByVirtualNetwork";
-export * from "./listDnsResolverByVirtualNetwork";
-export * from "./listEffectiveConnectivityConfiguration";
-export * from "./listEffectiveVirtualNetworkByNetworkGroup";
-export * from "./listEffectiveVirtualNetworkByNetworkManager";
 export * from "./listFirewallPolicyIdpsSignature";
 export * from "./listFirewallPolicyIdpsSignaturesFilterValue";
-export * from "./listNetworkManagerDeploymentStatus";
-export * from "./listNetworkManagerEffectiveSecurityAdminRule";
 export * from "./loadBalancer";
 export * from "./loadBalancerBackendAddressPool";
 export * from "./localNetworkGateway";
-export * from "./managementGroupNetworkManagerConnection";
 export * from "./natGateway";
 export * from "./natRule";
 export * from "./networkExperimentProfile";
-export * from "./networkGroup";
 export * from "./networkInterface";
 export * from "./networkInterfaceTapConfiguration";
-export * from "./networkManager";
 export * from "./networkProfile";
 export * from "./networkSecurityGroup";
-export * from "./networkSecurityPerimeter";
 export * from "./networkVirtualAppliance";
 export * from "./networkWatcher";
-export * from "./nspAccessRule";
-export * from "./nspAssociation";
-export * from "./nspAssociationsProxy";
-export * from "./nspProfile";
-export * from "./outboundEndpoint";
 export * from "./p2sVpnGateway";
 export * from "./p2sVpnServerConfiguration";
 export * from "./packetCapture";
@@ -226,19 +175,12 @@ export * from "./routeFilterRule";
 export * from "./routeTable";
 export * from "./routingIntent";
 export * from "./rulesEngine";
-export * from "./scopeConnection";
-export * from "./securityAdminConfiguration";
 export * from "./securityPartnerProvider";
 export * from "./securityRule";
-export * from "./securityUserConfiguration";
 export * from "./serviceEndpointPolicy";
 export * from "./serviceEndpointPolicyDefinition";
-export * from "./staticMember";
 export * from "./subnet";
-export * from "./subscriptionNetworkManagerConnection";
 export * from "./trafficManagerUserMetricsKey";
-export * from "./userRule";
-export * from "./userRuleCollection";
 export * from "./virtualApplianceSite";
 export * from "./virtualHub";
 export * from "./virtualHubBgpConnection";
@@ -394,8 +336,6 @@ export {
 };
 
 // Import resources to register:
-import { AdminRule } from "./adminRule";
-import { AdminRuleCollection } from "./adminRuleCollection";
 import { ApplicationGateway } from "./applicationGateway";
 import { ApplicationGatewayPrivateEndpointConnection } from "./applicationGatewayPrivateEndpointConnection";
 import { ApplicationSecurityGroup } from "./applicationSecurityGroup";
@@ -403,14 +343,9 @@ import { AzureFirewall } from "./azureFirewall";
 import { BastionHost } from "./bastionHost";
 import { ConfigurationPolicyGroup } from "./configurationPolicyGroup";
 import { ConnectionMonitor } from "./connectionMonitor";
-import { ConnectivityConfiguration } from "./connectivityConfiguration";
 import { CustomIPPrefix } from "./customIPPrefix";
 import { DdosCustomPolicy } from "./ddosCustomPolicy";
 import { DdosProtectionPlan } from "./ddosProtectionPlan";
-import { DefaultAdminRule } from "./defaultAdminRule";
-import { DefaultUserRule } from "./defaultUserRule";
-import { DnsForwardingRuleset } from "./dnsForwardingRuleset";
-import { DnsResolver } from "./dnsResolver";
 import { DscpConfiguration } from "./dscpConfiguration";
 import { Endpoint } from "./endpoint";
 import { Experiment } from "./experiment";
@@ -427,35 +362,25 @@ import { FirewallPolicy } from "./firewallPolicy";
 import { FirewallPolicyRuleCollectionGroup } from "./firewallPolicyRuleCollectionGroup";
 import { FirewallPolicyRuleGroup } from "./firewallPolicyRuleGroup";
 import { FlowLog } from "./flowLog";
-import { ForwardingRule } from "./forwardingRule";
 import { FrontDoor } from "./frontDoor";
 import { HubRouteTable } from "./hubRouteTable";
 import { HubVirtualNetworkConnection } from "./hubVirtualNetworkConnection";
-import { InboundEndpoint } from "./inboundEndpoint";
 import { InboundNatRule } from "./inboundNatRule";
+import { InterfaceEndpoint } from "./interfaceEndpoint";
 import { IpAllocation } from "./ipAllocation";
 import { IpGroup } from "./ipGroup";
 import { LoadBalancer } from "./loadBalancer";
 import { LoadBalancerBackendAddressPool } from "./loadBalancerBackendAddressPool";
 import { LocalNetworkGateway } from "./localNetworkGateway";
-import { ManagementGroupNetworkManagerConnection } from "./managementGroupNetworkManagerConnection";
 import { NatGateway } from "./natGateway";
 import { NatRule } from "./natRule";
 import { NetworkExperimentProfile } from "./networkExperimentProfile";
-import { NetworkGroup } from "./networkGroup";
 import { NetworkInterface } from "./networkInterface";
 import { NetworkInterfaceTapConfiguration } from "./networkInterfaceTapConfiguration";
-import { NetworkManager } from "./networkManager";
 import { NetworkProfile } from "./networkProfile";
 import { NetworkSecurityGroup } from "./networkSecurityGroup";
-import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
 import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
 import { NetworkWatcher } from "./networkWatcher";
-import { NspAccessRule } from "./nspAccessRule";
-import { NspAssociation } from "./nspAssociation";
-import { NspAssociationsProxy } from "./nspAssociationsProxy";
-import { NspProfile } from "./nspProfile";
-import { OutboundEndpoint } from "./outboundEndpoint";
 import { P2sVpnGateway } from "./p2sVpnGateway";
 import { P2sVpnServerConfiguration } from "./p2sVpnServerConfiguration";
 import { PacketCapture } from "./packetCapture";
@@ -476,19 +401,12 @@ import { RouteFilterRule } from "./routeFilterRule";
 import { RouteTable } from "./routeTable";
 import { RoutingIntent } from "./routingIntent";
 import { RulesEngine } from "./rulesEngine";
-import { ScopeConnection } from "./scopeConnection";
-import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityPartnerProvider } from "./securityPartnerProvider";
 import { SecurityRule } from "./securityRule";
-import { SecurityUserConfiguration } from "./securityUserConfiguration";
 import { ServiceEndpointPolicy } from "./serviceEndpointPolicy";
 import { ServiceEndpointPolicyDefinition } from "./serviceEndpointPolicyDefinition";
-import { StaticMember } from "./staticMember";
 import { Subnet } from "./subnet";
-import { SubscriptionNetworkManagerConnection } from "./subscriptionNetworkManagerConnection";
 import { TrafficManagerUserMetricsKey } from "./trafficManagerUserMetricsKey";
-import { UserRule } from "./userRule";
-import { UserRuleCollection } from "./userRuleCollection";
 import { VirtualApplianceSite } from "./virtualApplianceSite";
 import { VirtualHub } from "./virtualHub";
 import { VirtualHubBgpConnection } from "./virtualHubBgpConnection";
@@ -515,10 +433,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:network:AdminRule":
-                return new AdminRule(name, <any>undefined, { urn })
-            case "azure-native:network:AdminRuleCollection":
-                return new AdminRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
             case "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
@@ -533,22 +447,12 @@ const _module = {
                 return new ConfigurationPolicyGroup(name, <any>undefined, { urn })
             case "azure-native:network:ConnectionMonitor":
                 return new ConnectionMonitor(name, <any>undefined, { urn })
-            case "azure-native:network:ConnectivityConfiguration":
-                return new ConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:CustomIPPrefix":
                 return new CustomIPPrefix(name, <any>undefined, { urn })
             case "azure-native:network:DdosCustomPolicy":
                 return new DdosCustomPolicy(name, <any>undefined, { urn })
             case "azure-native:network:DdosProtectionPlan":
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
-            case "azure-native:network:DefaultAdminRule":
-                return new DefaultAdminRule(name, <any>undefined, { urn })
-            case "azure-native:network:DefaultUserRule":
-                return new DefaultUserRule(name, <any>undefined, { urn })
-            case "azure-native:network:DnsForwardingRuleset":
-                return new DnsForwardingRuleset(name, <any>undefined, { urn })
-            case "azure-native:network:DnsResolver":
-                return new DnsResolver(name, <any>undefined, { urn })
             case "azure-native:network:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:Endpoint":
@@ -581,18 +485,16 @@ const _module = {
                 return new FirewallPolicyRuleGroup(name, <any>undefined, { urn })
             case "azure-native:network:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
-            case "azure-native:network:ForwardingRule":
-                return new ForwardingRule(name, <any>undefined, { urn })
             case "azure-native:network:FrontDoor":
                 return new FrontDoor(name, <any>undefined, { urn })
             case "azure-native:network:HubRouteTable":
                 return new HubRouteTable(name, <any>undefined, { urn })
             case "azure-native:network:HubVirtualNetworkConnection":
                 return new HubVirtualNetworkConnection(name, <any>undefined, { urn })
-            case "azure-native:network:InboundEndpoint":
-                return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
+            case "azure-native:network:InterfaceEndpoint":
+                return new InterfaceEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:IpAllocation":
                 return new IpAllocation(name, <any>undefined, { urn })
             case "azure-native:network:IpGroup":
@@ -603,42 +505,24 @@ const _module = {
                 return new LoadBalancerBackendAddressPool(name, <any>undefined, { urn })
             case "azure-native:network:LocalNetworkGateway":
                 return new LocalNetworkGateway(name, <any>undefined, { urn })
-            case "azure-native:network:ManagementGroupNetworkManagerConnection":
-                return new ManagementGroupNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
             case "azure-native:network:NatRule":
                 return new NatRule(name, <any>undefined, { urn })
             case "azure-native:network:NetworkExperimentProfile":
                 return new NetworkExperimentProfile(name, <any>undefined, { urn })
-            case "azure-native:network:NetworkGroup":
-                return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
             case "azure-native:network:NetworkInterfaceTapConfiguration":
                 return new NetworkInterfaceTapConfiguration(name, <any>undefined, { urn })
-            case "azure-native:network:NetworkManager":
-                return new NetworkManager(name, <any>undefined, { urn })
             case "azure-native:network:NetworkProfile":
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "azure-native:network:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-native:network:NetworkSecurityPerimeter":
-                return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network:NetworkVirtualAppliance":
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
             case "azure-native:network:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
-            case "azure-native:network:NspAccessRule":
-                return new NspAccessRule(name, <any>undefined, { urn })
-            case "azure-native:network:NspAssociation":
-                return new NspAssociation(name, <any>undefined, { urn })
-            case "azure-native:network:NspAssociationsProxy":
-                return new NspAssociationsProxy(name, <any>undefined, { urn })
-            case "azure-native:network:NspProfile":
-                return new NspProfile(name, <any>undefined, { urn })
-            case "azure-native:network:OutboundEndpoint":
-                return new OutboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:P2sVpnGateway":
                 return new P2sVpnGateway(name, <any>undefined, { urn })
             case "azure-native:network:P2sVpnServerConfiguration":
@@ -679,32 +563,18 @@ const _module = {
                 return new RoutingIntent(name, <any>undefined, { urn })
             case "azure-native:network:RulesEngine":
                 return new RulesEngine(name, <any>undefined, { urn })
-            case "azure-native:network:ScopeConnection":
-                return new ScopeConnection(name, <any>undefined, { urn })
-            case "azure-native:network:SecurityAdminConfiguration":
-                return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:SecurityPartnerProvider":
                 return new SecurityPartnerProvider(name, <any>undefined, { urn })
             case "azure-native:network:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-native:network:SecurityUserConfiguration":
-                return new SecurityUserConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicy":
                 return new ServiceEndpointPolicy(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicyDefinition":
                 return new ServiceEndpointPolicyDefinition(name, <any>undefined, { urn })
-            case "azure-native:network:StaticMember":
-                return new StaticMember(name, <any>undefined, { urn })
             case "azure-native:network:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "azure-native:network:SubscriptionNetworkManagerConnection":
-                return new SubscriptionNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network:TrafficManagerUserMetricsKey":
                 return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
-            case "azure-native:network:UserRule":
-                return new UserRule(name, <any>undefined, { urn })
-            case "azure-native:network:UserRuleCollection":
-                return new UserRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network:VirtualApplianceSite":
                 return new VirtualApplianceSite(name, <any>undefined, { urn })
             case "azure-native:network:VirtualHub":

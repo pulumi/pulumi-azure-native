@@ -11,7 +11,7 @@ import (
 )
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
-// API Version: 2021-02-01.
+// API Version: 2022-03-01.
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
 	var rv LookupProtectionContainerResult
 	err := ctx.Invoke("azure-native:recoveryservices:getProtectionContainer", args, &rv, opts...)

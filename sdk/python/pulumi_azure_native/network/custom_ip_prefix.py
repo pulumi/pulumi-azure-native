@@ -17,39 +17,51 @@ __all__ = ['CustomIPPrefixArgs', 'CustomIPPrefix']
 class CustomIPPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 authorization_message: Optional[pulumi.Input[str]] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input['SubResourceArgs']] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 signed_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomIPPrefix resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] authorization_message: Authorization message for WAN validation.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
+        :param pulumi.Input['SubResourceArgs'] custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the custom IP prefix.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] signed_message: Signed message for WAN validation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorization_message is not None:
+            pulumi.set(__self__, "authorization_message", authorization_message)
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
         if commissioned_state is not None:
             pulumi.set(__self__, "commissioned_state", commissioned_state)
         if custom_ip_prefix_name is not None:
             pulumi.set(__self__, "custom_ip_prefix_name", custom_ip_prefix_name)
+        if custom_ip_prefix_parent is not None:
+            pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if signed_message is not None:
+            pulumi.set(__self__, "signed_message", signed_message)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -66,6 +78,18 @@ class CustomIPPrefixArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authorizationMessage")
+    def authorization_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authorization message for WAN validation.
+        """
+        return pulumi.get(self, "authorization_message")
+
+    @authorization_message.setter
+    def authorization_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_message", value)
 
     @property
     @pulumi.getter
@@ -104,6 +128,18 @@ class CustomIPPrefixArgs:
         pulumi.set(self, "custom_ip_prefix_name", value)
 
     @property
+    @pulumi.getter(name="customIpPrefixParent")
+    def custom_ip_prefix_parent(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        """
+        return pulumi.get(self, "custom_ip_prefix_parent")
+
+    @custom_ip_prefix_parent.setter
+    def custom_ip_prefix_parent(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "custom_ip_prefix_parent", value)
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
@@ -140,6 +176,18 @@ class CustomIPPrefixArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="signedMessage")
+    def signed_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Signed message for WAN validation.
+        """
+        return pulumi.get(self, "signed_message")
+
+    @signed_message.setter
+    def signed_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signed_message", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -169,29 +217,35 @@ class CustomIPPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_message: Optional[pulumi.Input[str]] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signed_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Custom IP prefix resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorization_message: Authorization message for WAN validation.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the custom IP prefix.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] signed_message: Signed message for WAN validation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
@@ -203,7 +257,7 @@ class CustomIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom IP prefix resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.
@@ -220,13 +274,16 @@ class CustomIPPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_message: Optional[pulumi.Input[str]] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signed_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -241,18 +298,23 @@ class CustomIPPrefix(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomIPPrefixArgs.__new__(CustomIPPrefixArgs)
 
+            __props__.__dict__["authorization_message"] = authorization_message
             __props__.__dict__["cidr"] = cidr
             __props__.__dict__["commissioned_state"] = commissioned_state
             __props__.__dict__["custom_ip_prefix_name"] = custom_ip_prefix_name
+            __props__.__dict__["custom_ip_prefix_parent"] = custom_ip_prefix_parent
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["signed_message"] = signed_message
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["child_custom_ip_prefixes"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["failed_reason"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["public_ip_prefixes"] = None
@@ -282,19 +344,40 @@ class CustomIPPrefix(pulumi.CustomResource):
 
         __props__ = CustomIPPrefixArgs.__new__(CustomIPPrefixArgs)
 
+        __props__.__dict__["authorization_message"] = None
+        __props__.__dict__["child_custom_ip_prefixes"] = None
         __props__.__dict__["cidr"] = None
         __props__.__dict__["commissioned_state"] = None
+        __props__.__dict__["custom_ip_prefix_parent"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
+        __props__.__dict__["failed_reason"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_prefixes"] = None
         __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["signed_message"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
         return CustomIPPrefix(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="authorizationMessage")
+    def authorization_message(self) -> pulumi.Output[Optional[str]]:
+        """
+        Authorization message for WAN validation.
+        """
+        return pulumi.get(self, "authorization_message")
+
+    @property
+    @pulumi.getter(name="childCustomIpPrefixes")
+    def child_custom_ip_prefixes(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        The list of all Children for IPv6 /48 CustomIpPrefix.
+        """
+        return pulumi.get(self, "child_custom_ip_prefixes")
 
     @property
     @pulumi.getter
@@ -313,6 +396,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         return pulumi.get(self, "commissioned_state")
 
     @property
+    @pulumi.getter(name="customIpPrefixParent")
+    def custom_ip_prefix_parent(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+        """
+        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        """
+        return pulumi.get(self, "custom_ip_prefix_parent")
+
+    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
@@ -327,6 +418,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         The extended location of the custom IP prefix.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> pulumi.Output[str]:
+        """
+        The reason why resource is in failed state.
+        """
+        return pulumi.get(self, "failed_reason")
 
     @property
     @pulumi.getter
@@ -367,6 +466,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         The resource GUID property of the custom IP prefix resource.
         """
         return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="signedMessage")
+    def signed_message(self) -> pulumi.Output[Optional[str]]:
+        """
+        Signed message for WAN validation.
+        """
+        return pulumi.get(self, "signed_message")
 
     @property
     @pulumi.getter

@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
-// API Version: 2017-04-01.
+// Single item in a List or Get AuthorizationRule operation
+// API Version: 2021-11-01.
 func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHybridConnectionAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionAuthorizationRuleResult, error) {
 	var rv LookupHybridConnectionAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay:getHybridConnectionAuthorizationRule", args, &rv, opts...)
@@ -32,15 +32,19 @@ type LookupHybridConnectionAuthorizationRuleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Description of a namespace authorization rule.
+// Single item in a List or Get AuthorizationRule operation
 type LookupHybridConnectionAuthorizationRuleResult struct {
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The rights associated with the rule.
 	Rights []string `pulumi:"rights"`
-	// Resource type.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 }
 
@@ -72,7 +76,7 @@ func (LookupHybridConnectionAuthorizationRuleOutputArgs) ElementType() reflect.T
 	return reflect.TypeOf((*LookupHybridConnectionAuthorizationRuleArgs)(nil)).Elem()
 }
 
-// Description of a namespace authorization rule.
+// Single item in a List or Get AuthorizationRule operation
 type LookupHybridConnectionAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
 
 func (LookupHybridConnectionAuthorizationRuleResultOutput) ElementType() reflect.Type {
@@ -87,12 +91,17 @@ func (o LookupHybridConnectionAuthorizationRuleResultOutput) ToLookupHybridConne
 	return o
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupHybridConnectionAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupHybridConnectionAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -102,7 +111,12 @@ func (o LookupHybridConnectionAuthorizationRuleResultOutput) Rights() pulumi.Str
 	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// Resource type.
+// The system meta data relating to this resource.
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupHybridConnectionAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

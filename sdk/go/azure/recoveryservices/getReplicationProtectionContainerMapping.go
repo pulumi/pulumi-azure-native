@@ -11,7 +11,7 @@ import (
 )
 
 // Protection container mapping object.
-// API Version: 2018-07-10.
+// API Version: 2022-03-01.
 func LookupReplicationProtectionContainerMapping(ctx *pulumi.Context, args *LookupReplicationProtectionContainerMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectionContainerMappingResult, error) {
 	var rv LookupReplicationProtectionContainerMappingResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationProtectionContainerMapping", args, &rv, opts...)

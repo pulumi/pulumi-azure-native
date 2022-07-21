@@ -11,7 +11,7 @@ import (
 )
 
 // Response for list sim ids API service call.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func ListMobileNetworkSimIds(ctx *pulumi.Context, args *ListMobileNetworkSimIdsArgs, opts ...pulumi.InvokeOption) (*ListMobileNetworkSimIdsResult, error) {
 	var rv ListMobileNetworkSimIdsResult
 	err := ctx.Invoke("azure-native:mobilenetwork:listMobileNetworkSimIds", args, &rv, opts...)

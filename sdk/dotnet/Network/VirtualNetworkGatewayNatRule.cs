@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualNetworkGatewayNatRule Resource.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGatewayNatRule")]
     public partial class VirtualNetworkGatewayNatRule : Pulumi.CustomResource

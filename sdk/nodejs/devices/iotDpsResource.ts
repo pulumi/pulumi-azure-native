@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the provisioning service.
- * API Version: 2020-03-01.
+ * API Version: 2022-02-05.
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class IotDpsResource extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.devices.IotDpsSkuInfoResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.devices.SystemDataResponse>;
+    /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -93,6 +97,7 @@ export class IotDpsResource extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
@@ -100,6 +105,7 @@ export class IotDpsResource extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

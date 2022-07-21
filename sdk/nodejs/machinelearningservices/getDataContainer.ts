@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getDataContainer(args: GetDataContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataContainerResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetDataContainerArgs {
  */
 export interface GetDataContainerResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly dataContainerProperties: outputs.machinelearningservices.DataContainerResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -50,11 +54,7 @@ export interface GetDataContainerResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.DataContainerResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**

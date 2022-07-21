@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * API Version: 2021-10-15.
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
     }
 
     /**
+     * Analytical storage specific properties.
+     */
+    public readonly analyticalStorageConfiguration!: pulumi.Output<outputs.documentdb.AnalyticalStorageConfigurationResponse | undefined>;
+    /**
      * API specific properties.
      */
     public readonly apiProperties!: pulumi.Output<outputs.documentdb.ApiPropertiesResponse | undefined>;
@@ -48,6 +52,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * List of Cosmos DB capabilities for the account
      */
     public readonly capabilities!: pulumi.Output<outputs.documentdb.CapabilityResponse[] | undefined>;
+    /**
+     * The object that represents all properties related to capacity enforcement on an account.
+     */
+    public readonly capacity!: pulumi.Output<outputs.documentdb.CapacityResponse | undefined>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -61,6 +69,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly cors!: pulumi.Output<outputs.documentdb.CorsPolicyResponse[] | undefined>;
     /**
+     * Enum to indicate the mode of account creation.
+     */
+    public readonly createMode!: pulumi.Output<string | undefined>;
+    /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     public readonly databaseAccountOfferType!: pulumi.Output<string>;
@@ -72,6 +84,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
     public readonly disableKeyBasedMetadataWriteAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
     /**
      * The connection endpoint for the Cosmos DB database account.
      */
@@ -104,6 +120,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * Identity for the resource.
      */
     public readonly identity!: pulumi.Output<outputs.documentdb.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * A unique identifier assigned to the database account
+     */
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
     /**
      * List of IpRules.
      */
@@ -157,6 +177,14 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly readLocations!: pulumi.Output<outputs.documentdb.LocationResponse[]>;
     /**
+     * Parameters to indicate the information about the restore.
+     */
+    public readonly restoreParameters!: pulumi.Output<outputs.documentdb.RestoreParametersResponse | undefined>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.documentdb.SystemDataResponse>;
+    /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -194,15 +222,19 @@ export class DatabaseAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["analyticalStorageConfiguration"] = args ? args.analyticalStorageConfiguration : undefined;
             resourceInputs["apiProperties"] = args ? args.apiProperties : undefined;
             resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["connectorOffer"] = args ? args.connectorOffer : undefined;
             resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["createMode"] = (args ? args.createMode : undefined) ?? "Default";
             resourceInputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
             resourceInputs["defaultIdentity"] = args ? args.defaultIdentity : undefined;
             resourceInputs["disableKeyBasedMetadataWriteAccess"] = args ? args.disableKeyBasedMetadataWriteAccess : undefined;
+            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
             resourceInputs["enableAnalyticalStorage"] = args ? args.enableAnalyticalStorage : undefined;
             resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             resourceInputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
@@ -219,26 +251,33 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["networkAclBypassResourceIds"] = args ? args.networkAclBypassResourceIds : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restoreParameters"] = args ? args.restoreParameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             resourceInputs["documentEndpoint"] = undefined /*out*/;
             resourceInputs["failoverPolicies"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readLocations"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["writeLocations"] = undefined /*out*/;
         } else {
+            resourceInputs["analyticalStorageConfiguration"] = undefined /*out*/;
             resourceInputs["apiProperties"] = undefined /*out*/;
             resourceInputs["backupPolicy"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["connectorOffer"] = undefined /*out*/;
             resourceInputs["consistencyPolicy"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["createMode"] = undefined /*out*/;
             resourceInputs["databaseAccountOfferType"] = undefined /*out*/;
             resourceInputs["defaultIdentity"] = undefined /*out*/;
             resourceInputs["disableKeyBasedMetadataWriteAccess"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["documentEndpoint"] = undefined /*out*/;
             resourceInputs["enableAnalyticalStorage"] = undefined /*out*/;
             resourceInputs["enableAutomaticFailover"] = undefined /*out*/;
@@ -247,6 +286,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["enableMultipleWriteLocations"] = undefined /*out*/;
             resourceInputs["failoverPolicies"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["ipRules"] = undefined /*out*/;
             resourceInputs["isVirtualNetworkFilterEnabled"] = undefined /*out*/;
             resourceInputs["keyVaultKeyUri"] = undefined /*out*/;
@@ -260,6 +300,8 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["readLocations"] = undefined /*out*/;
+            resourceInputs["restoreParameters"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
@@ -281,6 +323,10 @@ export interface DatabaseAccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
+     * Analytical storage specific properties.
+     */
+    analyticalStorageConfiguration?: pulumi.Input<inputs.documentdb.AnalyticalStorageConfigurationArgs>;
+    /**
      * API specific properties. Currently, supported only for MongoDB API.
      */
     apiProperties?: pulumi.Input<inputs.documentdb.ApiPropertiesArgs>;
@@ -292,6 +338,10 @@ export interface DatabaseAccountArgs {
      * List of Cosmos DB capabilities for the account
      */
     capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.CapabilityArgs>[]>;
+    /**
+     * The object that represents all properties related to capacity enforcement on an account.
+     */
+    capacity?: pulumi.Input<inputs.documentdb.CapacityArgs>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -305,6 +355,10 @@ export interface DatabaseAccountArgs {
      */
     cors?: pulumi.Input<pulumi.Input<inputs.documentdb.CorsPolicyArgs>[]>;
     /**
+     * Enum to indicate the mode of account creation.
+     */
+    createMode?: pulumi.Input<string | enums.documentdb.CreateMode>;
+    /**
      * The offer type for the database
      */
     databaseAccountOfferType: pulumi.Input<enums.documentdb.DatabaseAccountOfferType>;
@@ -316,6 +370,10 @@ export interface DatabaseAccountArgs {
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
     disableKeyBasedMetadataWriteAccess?: pulumi.Input<boolean>;
+    /**
+     * Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether to enable storage analytics.
      */
@@ -380,6 +438,10 @@ export interface DatabaseAccountArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameters to indicate the information about the restore.
+     */
+    restoreParameters?: pulumi.Input<inputs.documentdb.RestoreParametersArgs>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */

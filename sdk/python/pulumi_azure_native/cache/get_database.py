@@ -21,7 +21,7 @@ class GetDatabaseResult:
     """
     Describes a database on the RedisEnterprise cluster
     """
-    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, geo_replication=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, resource_state=None, type=None):
         if client_protocol and not isinstance(client_protocol, str):
             raise TypeError("Expected argument 'client_protocol' to be a str")
         pulumi.set(__self__, "client_protocol", client_protocol)
@@ -31,6 +31,9 @@ class GetDatabaseResult:
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if geo_replication and not isinstance(geo_replication, dict):
+            raise TypeError("Expected argument 'geo_replication' to be a dict")
+        pulumi.set(__self__, "geo_replication", geo_replication)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -79,6 +82,14 @@ class GetDatabaseResult:
         Redis eviction policy - default is VolatileLRU
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="geoReplication")
+    def geo_replication(self) -> Optional['outputs.DatabasePropertiesResponseGeoReplication']:
+        """
+        Optional set of properties to configure geo replication for this database.
+        """
+        return pulumi.get(self, "geo_replication")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             client_protocol=self.client_protocol,
             clustering_policy=self.clustering_policy,
             eviction_policy=self.eviction_policy,
+            geo_replication=self.geo_replication,
             id=self.id,
             modules=self.modules,
             name=self.name,
@@ -170,7 +182,7 @@ def get_database(cluster_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Describes a database on the RedisEnterprise cluster
-    API Version: 2021-03-01.
+    API Version: 2022-01-01.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -191,6 +203,7 @@ def get_database(cluster_name: Optional[str] = None,
         client_protocol=__ret__.client_protocol,
         clustering_policy=__ret__.clustering_policy,
         eviction_policy=__ret__.eviction_policy,
+        geo_replication=__ret__.geo_replication,
         id=__ret__.id,
         modules=__ret__.modules,
         name=__ret__.name,
@@ -208,7 +221,7 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Describes a database on the RedisEnterprise cluster
-    API Version: 2021-03-01.
+    API Version: 2022-01-01.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

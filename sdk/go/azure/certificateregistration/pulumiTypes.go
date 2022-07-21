@@ -261,65 +261,41 @@ func (o CertificateDetailsResponseOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) int { return v.Version }).(pulumi.IntOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+type CertificateOrderContactResponse struct {
+	Email     *string `pulumi:"email"`
+	NameFirst *string `pulumi:"nameFirst"`
+	NameLast  *string `pulumi:"nameLast"`
+	Phone     *string `pulumi:"phone"`
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
+type CertificateOrderContactResponseOutput struct{ *pulumi.OutputState }
 
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+func (CertificateOrderContactResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderContactResponse)(nil)).Elem()
 }
 
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+func (o CertificateOrderContactResponseOutput) ToCertificateOrderContactResponseOutput() CertificateOrderContactResponseOutput {
 	return o
 }
 
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+func (o CertificateOrderContactResponseOutput) ToCertificateOrderContactResponseOutputWithContext(ctx context.Context) CertificateOrderContactResponseOutput {
 	return o
 }
 
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o CertificateOrderContactResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderContactResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+func (o CertificateOrderContactResponseOutput) NameFirst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderContactResponse) *string { return v.NameFirst }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+func (o CertificateOrderContactResponseOutput) NameLast() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderContactResponse) *string { return v.NameLast }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+func (o CertificateOrderContactResponseOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderContactResponse) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -328,5 +304,5 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(CertificateOrderContactResponseOutput{})
 }

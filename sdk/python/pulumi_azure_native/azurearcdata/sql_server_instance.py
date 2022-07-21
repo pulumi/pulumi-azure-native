@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlServerInstanceArgs', 'SqlServerInstance']
@@ -112,7 +113,7 @@ class SqlServerInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A SqlServerInstance.
-        API Version: 2021-06-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +131,7 @@ class SqlServerInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlServerInstance.
-        API Version: 2021-06-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param SqlServerInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -234,7 +235,7 @@ class SqlServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -250,7 +251,7 @@ class SqlServerInstance(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

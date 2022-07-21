@@ -67,6 +67,18 @@ const (
 	NtlmV1Disabled = NtlmV1("Disabled")
 )
 
+// Status for individual validator after running diagnostics.
+type Status string
+
+const (
+	StatusNone    = Status("None")
+	StatusRunning = Status("Running")
+	StatusOK      = Status("OK")
+	StatusFailure = Status("Failure")
+	StatusWarning = Status("Warning")
+	StatusSkipped = Status("Skipped")
+)
+
 // A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
 type SyncKerberosPasswords string
 

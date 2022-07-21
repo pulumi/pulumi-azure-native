@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provider details.
- * API Version: 2018-07-10.
+ * API Version: 2022-03-01.
  */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface GetReplicationRecoveryServicesProviderArgs {
      */
     fabricName: string;
     /**
-     * Recovery services provider name
+     * Recovery services provider name.
      */
     providerName: string;
     /**
@@ -78,7 +78,7 @@ export interface GetReplicationRecoveryServicesProviderOutputArgs {
      */
     fabricName: pulumi.Input<string>;
     /**
-     * Recovery services provider name
+     * Recovery services provider name.
      */
     providerName: pulumi.Input<string>;
     /**

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB Role Assignment
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Task<GetSqlResourceSqlRoleAssignmentResult> InvokeAsync(GetSqlResourceSqlRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Role Assignment
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Output<GetSqlResourceSqlRoleAssignmentResult> Invoke(GetSqlResourceSqlRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentInvokeArgs(), options.WithDefaults());

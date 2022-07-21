@@ -6,11 +6,14 @@ from enum import Enum
 
 __all__ = [
     'AbsoluteMarker',
+    'AlertsState',
     'DataStoreTypes',
     'DayOfWeek',
     'Month',
+    'SecretStoreType',
     'StorageSettingStoreTypes',
     'StorageSettingTypes',
+    'ValidationType',
     'WeekNumber',
 ]
 
@@ -21,6 +24,11 @@ class AbsoluteMarker(str, Enum):
     FIRST_OF_MONTH = "FirstOfMonth"
     FIRST_OF_WEEK = "FirstOfWeek"
     FIRST_OF_YEAR = "FirstOfYear"
+
+
+class AlertsState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class DataStoreTypes(str, Enum):
@@ -57,6 +65,14 @@ class Month(str, Enum):
     SEPTEMBER = "September"
 
 
+class SecretStoreType(str, Enum):
+    """
+    Gets or sets the type of secret store
+    """
+    INVALID = "Invalid"
+    AZURE_KEY_VAULT = "AzureKeyVault"
+
+
 class StorageSettingStoreTypes(str, Enum):
     """
     Gets or sets the type of the datastore.
@@ -72,6 +88,15 @@ class StorageSettingTypes(str, Enum):
     """
     GEO_REDUNDANT = "GeoRedundant"
     LOCALLY_REDUNDANT = "LocallyRedundant"
+    ZONE_REDUNDANT = "ZoneRedundant"
+
+
+class ValidationType(str, Enum):
+    """
+    Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+    """
+    SHALLOW_VALIDATION = "ShallowValidation"
+    DEEP_VALIDATION = "DeepValidation"
 
 
 class WeekNumber(str, Enum):

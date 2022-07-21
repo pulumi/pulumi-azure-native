@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly Outputs.NodePlacementConfigurationResponse? NodePlacementConfiguration;
         /// <summary>
+        /// Contains configuration for ephemeral OSDisk settings.
+        /// </summary>
+        public readonly Outputs.OSDiskResponse? OsDisk;
+        /// <summary>
         /// This property must not be specified if the imageReference specifies a Linux OS image.
         /// </summary>
         public readonly Outputs.WindowsConfigurationResponse? WindowsConfiguration;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             Outputs.NodePlacementConfigurationResponse? nodePlacementConfiguration,
 
+            Outputs.OSDiskResponse? osDisk,
+
             Outputs.WindowsConfigurationResponse? windowsConfiguration)
         {
             ContainerConfiguration = containerConfiguration;
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             LicenseType = licenseType;
             NodeAgentSkuId = nodeAgentSkuId;
             NodePlacementConfiguration = nodePlacementConfiguration;
+            OsDisk = osDisk;
             WindowsConfiguration = windowsConfiguration;
         }
     }

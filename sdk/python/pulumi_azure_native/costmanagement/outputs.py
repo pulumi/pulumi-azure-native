@@ -12,11 +12,6 @@ from ._enums import *
 
 __all__ = [
     'CommonExportPropertiesResponse',
-    'ConnectorCollectionErrorInfoResponse',
-    'ConnectorCollectionInfoResponse',
-    'CostAllocationProportionResponse',
-    'CostAllocationRuleDetailsResponse',
-    'CostAllocationRulePropertiesResponse',
     'ErrorDetailsResponse',
     'ExportDatasetConfigurationResponse',
     'ExportDatasetResponse',
@@ -28,12 +23,8 @@ __all__ = [
     'ExportRecurrencePeriodResponse',
     'ExportScheduleResponse',
     'ExportTimePeriodResponse',
-    'FileDestinationResponse',
     'KpiPropertiesResponse',
-    'NotificationPropertiesResponse',
     'PivotPropertiesResponse',
-    'ReportAggregationResponse',
-    'ReportComparisonExpressionResponse',
     'ReportConfigAggregationResponse',
     'ReportConfigComparisonExpressionResponse',
     'ReportConfigDatasetConfigurationResponse',
@@ -42,21 +33,7 @@ __all__ = [
     'ReportConfigGroupingResponse',
     'ReportConfigSortingResponse',
     'ReportConfigTimePeriodResponse',
-    'ReportDatasetConfigurationResponse',
-    'ReportDatasetResponse',
-    'ReportDefinitionResponse',
-    'ReportDeliveryDestinationResponse',
-    'ReportDeliveryInfoResponse',
-    'ReportFilterResponse',
-    'ReportGroupingResponse',
-    'ReportRecurrencePeriodResponse',
-    'ReportScheduleResponse',
-    'ReportTimePeriodResponse',
-    'SchedulePropertiesResponse',
     'SettingsPropertiesResponseCache',
-    'SourceCostAllocationResourceResponse',
-    'SystemDataResponse',
-    'TargetCostAllocationResourceResponse',
 ]
 
 @pulumi.output_type
@@ -71,6 +48,8 @@ class CommonExportPropertiesResponse(dict):
             suggest = "delivery_info"
         elif key == "nextRunTimeEstimate":
             suggest = "next_run_time_estimate"
+        elif key == "partitionData":
+            suggest = "partition_data"
         elif key == "runHistory":
             suggest = "run_history"
 
@@ -90,6 +69,7 @@ class CommonExportPropertiesResponse(dict):
                  delivery_info: 'outputs.ExportDeliveryInfoResponse',
                  next_run_time_estimate: str,
                  format: Optional[str] = None,
+                 partition_data: Optional[bool] = None,
                  run_history: Optional['outputs.ExportExecutionListResultResponse'] = None):
         """
         The common properties of the export.
@@ -97,6 +77,7 @@ class CommonExportPropertiesResponse(dict):
         :param 'ExportDeliveryInfoResponse' delivery_info: Has delivery information for the export.
         :param str next_run_time_estimate: If the export has an active schedule, provides an estimate of the next execution time.
         :param str format: The format of the export being delivered. Currently only 'Csv' is supported.
+        :param bool partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
         :param 'ExportExecutionListResultResponse' run_history: If requested, has the most recent execution history for the export.
         """
         pulumi.set(__self__, "definition", definition)
@@ -104,6 +85,8 @@ class CommonExportPropertiesResponse(dict):
         pulumi.set(__self__, "next_run_time_estimate", next_run_time_estimate)
         if format is not None:
             pulumi.set(__self__, "format", format)
+        if partition_data is not None:
+            pulumi.set(__self__, "partition_data", partition_data)
         if run_history is not None:
             pulumi.set(__self__, "run_history", run_history)
 
@@ -140,340 +123,20 @@ class CommonExportPropertiesResponse(dict):
         return pulumi.get(self, "format")
 
     @property
+    @pulumi.getter(name="partitionData")
+    def partition_data(self) -> Optional[bool]:
+        """
+        If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+        """
+        return pulumi.get(self, "partition_data")
+
+    @property
     @pulumi.getter(name="runHistory")
     def run_history(self) -> Optional['outputs.ExportExecutionListResultResponse']:
         """
         If requested, has the most recent execution history for the export.
         """
         return pulumi.get(self, "run_history")
-
-
-@pulumi.output_type
-class ConnectorCollectionErrorInfoResponse(dict):
-    """
-    Details of any error encountered on last collection attempt
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "errorCode":
-            suggest = "error_code"
-        elif key == "errorInnerMessage":
-            suggest = "error_inner_message"
-        elif key == "errorMessage":
-            suggest = "error_message"
-        elif key == "errorStartTime":
-            suggest = "error_start_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionErrorInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorCollectionErrorInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorCollectionErrorInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error_code: str,
-                 error_inner_message: str,
-                 error_message: str,
-                 error_start_time: str):
-        """
-        Details of any error encountered on last collection attempt
-        :param str error_code: Short error code
-        :param str error_inner_message: External Provider error message
-        :param str error_message: Detailed error message
-        :param str error_start_time: Time the error started occurring (Last time error occurred in lastChecked)
-        """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_inner_message", error_inner_message)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_start_time", error_start_time)
-
-    @property
-    @pulumi.getter(name="errorCode")
-    def error_code(self) -> str:
-        """
-        Short error code
-        """
-        return pulumi.get(self, "error_code")
-
-    @property
-    @pulumi.getter(name="errorInnerMessage")
-    def error_inner_message(self) -> str:
-        """
-        External Provider error message
-        """
-        return pulumi.get(self, "error_inner_message")
-
-    @property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
-        """
-        Detailed error message
-        """
-        return pulumi.get(self, "error_message")
-
-    @property
-    @pulumi.getter(name="errorStartTime")
-    def error_start_time(self) -> str:
-        """
-        Time the error started occurring (Last time error occurred in lastChecked)
-        """
-        return pulumi.get(self, "error_start_time")
-
-
-@pulumi.output_type
-class ConnectorCollectionInfoResponse(dict):
-    """
-    Collection and ingestion information
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastChecked":
-            suggest = "last_checked"
-        elif key == "lastUpdated":
-            suggest = "last_updated"
-        elif key == "sourceLastUpdated":
-            suggest = "source_last_updated"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorCollectionInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorCollectionInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 last_checked: str,
-                 last_updated: str,
-                 source_last_updated: str,
-                 error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None):
-        """
-        Collection and ingestion information
-        :param str last_checked: Last time the data acquisition process initiated connecting to the external provider
-        :param str last_updated: Last time the external data was updated into Azure
-        :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
-        """
-        pulumi.set(__self__, "last_checked", last_checked)
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "source_last_updated", source_last_updated)
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-
-    @property
-    @pulumi.getter(name="lastChecked")
-    def last_checked(self) -> str:
-        """
-        Last time the data acquisition process initiated connecting to the external provider
-        """
-        return pulumi.get(self, "last_checked")
-
-    @property
-    @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> str:
-        """
-        Last time the external data was updated into Azure
-        """
-        return pulumi.get(self, "last_updated")
-
-    @property
-    @pulumi.getter(name="sourceLastUpdated")
-    def source_last_updated(self) -> str:
-        """
-        Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-        """
-        return pulumi.get(self, "source_last_updated")
-
-    @property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.ConnectorCollectionErrorInfoResponse']:
-        """
-        Error information of last collection
-        """
-        return pulumi.get(self, "error")
-
-
-@pulumi.output_type
-class CostAllocationProportionResponse(dict):
-    """
-    Target resources and allocation
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 percentage: float):
-        """
-        Target resources and allocation
-        :param str name: Target resource for cost allocation
-        :param float percentage: Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "percentage", percentage)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Target resource for cost allocation
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def percentage(self) -> float:
-        """
-        Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
-        """
-        return pulumi.get(self, "percentage")
-
-
-@pulumi.output_type
-class CostAllocationRuleDetailsResponse(dict):
-    """
-    Resource details of the cost allocation rule
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceResources":
-            suggest = "source_resources"
-        elif key == "targetResources":
-            suggest = "target_resources"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CostAllocationRuleDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CostAllocationRuleDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CostAllocationRuleDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_resources: Optional[Sequence['outputs.SourceCostAllocationResourceResponse']] = None,
-                 target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None):
-        """
-        Resource details of the cost allocation rule
-        :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
-        :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
-        """
-        if source_resources is not None:
-            pulumi.set(__self__, "source_resources", source_resources)
-        if target_resources is not None:
-            pulumi.set(__self__, "target_resources", target_resources)
-
-    @property
-    @pulumi.getter(name="sourceResources")
-    def source_resources(self) -> Optional[Sequence['outputs.SourceCostAllocationResourceResponse']]:
-        """
-        Source resources for cost allocation. At this time, this list can contain no more than one element.
-        """
-        return pulumi.get(self, "source_resources")
-
-    @property
-    @pulumi.getter(name="targetResources")
-    def target_resources(self) -> Optional[Sequence['outputs.TargetCostAllocationResourceResponse']]:
-        """
-        Target resources for cost allocation. At this time, this list can contain no more than one element.
-        """
-        return pulumi.get(self, "target_resources")
-
-
-@pulumi.output_type
-class CostAllocationRulePropertiesResponse(dict):
-    """
-    The properties of a cost allocation rule
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdDate":
-            suggest = "created_date"
-        elif key == "updatedDate":
-            suggest = "updated_date"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CostAllocationRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CostAllocationRulePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CostAllocationRulePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_date: str,
-                 details: 'outputs.CostAllocationRuleDetailsResponse',
-                 status: str,
-                 updated_date: str,
-                 description: Optional[str] = None):
-        """
-        The properties of a cost allocation rule
-        :param str created_date: Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
-        :param 'CostAllocationRuleDetailsResponse' details: Resource information for the cost allocation rule
-        :param str status: Status of the rule
-        :param str updated_date: Time at which the rule was last updated.
-        :param str description: Description of a cost allocation rule.
-        """
-        pulumi.set(__self__, "created_date", created_date)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "updated_date", updated_date)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
-        """
-        Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
-        """
-        return pulumi.get(self, "created_date")
-
-    @property
-    @pulumi.getter
-    def details(self) -> 'outputs.CostAllocationRuleDetailsResponse':
-        """
-        Resource information for the cost allocation rule
-        """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Status of the rule
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="updatedDate")
-    def updated_date(self) -> str:
-        """
-        Time at which the rule was last updated.
-        """
-        return pulumi.get(self, "updated_date")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Description of a cost allocation rule.
-        """
-        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -646,7 +309,7 @@ class ExportDefinitionResponse(dict):
 @pulumi.output_type
 class ExportDeliveryDestinationResponse(dict):
     """
-    The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+    This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -655,6 +318,10 @@ class ExportDeliveryDestinationResponse(dict):
             suggest = "resource_id"
         elif key == "rootFolderPath":
             suggest = "root_folder_path"
+        elif key == "sasToken":
+            suggest = "sas_token"
+        elif key == "storageAccount":
+            suggest = "storage_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExportDeliveryDestinationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -669,32 +336,41 @@ class ExportDeliveryDestinationResponse(dict):
 
     def __init__(__self__, *,
                  container: str,
-                 resource_id: str,
-                 root_folder_path: Optional[str] = None):
+                 resource_id: Optional[str] = None,
+                 root_folder_path: Optional[str] = None,
+                 sas_token: Optional[str] = None,
+                 storage_account: Optional[str] = None):
         """
-        The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
-        :param str container: The name of the container where exports will be uploaded.
-        :param str resource_id: The resource id of the storage account where exports will be delivered.
+        This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+        :param str container: The name of the container where exports will be uploaded. If the container does not exist it will be created.
+        :param str resource_id: The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
         :param str root_folder_path: The name of the directory where exports will be uploaded.
+        :param str sas_token: A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+        :param str storage_account: The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
         if root_folder_path is not None:
             pulumi.set(__self__, "root_folder_path", root_folder_path)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if storage_account is not None:
+            pulumi.set(__self__, "storage_account", storage_account)
 
     @property
     @pulumi.getter
     def container(self) -> str:
         """
-        The name of the container where exports will be uploaded.
+        The name of the container where exports will be uploaded. If the container does not exist it will be created.
         """
         return pulumi.get(self, "container")
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> Optional[str]:
         """
-        The resource id of the storage account where exports will be delivered.
+        The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
         """
         return pulumi.get(self, "resource_id")
 
@@ -705,6 +381,22 @@ class ExportDeliveryDestinationResponse(dict):
         The name of the directory where exports will be uploaded.
         """
         return pulumi.get(self, "root_folder_path")
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[str]:
+        """
+        A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> Optional[str]:
+        """
+        The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
+        """
+        return pulumi.get(self, "storage_account")
 
 
 @pulumi.output_type
@@ -1112,46 +804,6 @@ class ExportTimePeriodResponse(dict):
 
 
 @pulumi.output_type
-class FileDestinationResponse(dict):
-    """
-    Destination of the view data. Currently only csv format is supported.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fileFormats":
-            suggest = "file_formats"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileDestinationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FileDestinationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FileDestinationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 file_formats: Optional[Sequence[str]] = None):
-        """
-        Destination of the view data. Currently only csv format is supported.
-        :param Sequence[str] file_formats: Destination of the view data. Currently only csv format is supported.
-        """
-        if file_formats is not None:
-            pulumi.set(__self__, "file_formats", file_formats)
-
-    @property
-    @pulumi.getter(name="fileFormats")
-    def file_formats(self) -> Optional[Sequence[str]]:
-        """
-        Destination of the view data. Currently only csv format is supported.
-        """
-        return pulumi.get(self, "file_formats")
-
-
-@pulumi.output_type
 class KpiPropertiesResponse(dict):
     """
     Each KPI must contain a 'type' and 'enabled' key.
@@ -1199,51 +851,6 @@ class KpiPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class NotificationPropertiesResponse(dict):
-    """
-    The properties of the scheduled action notification.
-    """
-    def __init__(__self__, *,
-                 subject: str,
-                 to: Sequence[str],
-                 message: Optional[str] = None):
-        """
-        The properties of the scheduled action notification.
-        :param str subject: Subject of the email. Length is limited to 70 characters.
-        :param Sequence[str] to: Array of email addresses.
-        :param str message: Optional message to be added in the email. Length is limited to 250 characters.
-        """
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "to", to)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @property
-    @pulumi.getter
-    def subject(self) -> str:
-        """
-        Subject of the email. Length is limited to 70 characters.
-        """
-        return pulumi.get(self, "subject")
-
-    @property
-    @pulumi.getter
-    def to(self) -> Sequence[str]:
-        """
-        Array of email addresses.
-        """
-        return pulumi.get(self, "to")
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        Optional message to be added in the email. Length is limited to 250 characters.
-        """
-        return pulumi.get(self, "message")
-
-
-@pulumi.output_type
 class PivotPropertiesResponse(dict):
     """
     Each pivot must contain a 'type' and 'name'.
@@ -1276,83 +883,6 @@ class PivotPropertiesResponse(dict):
         Data type to show in view.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ReportAggregationResponse(dict):
-    """
-    The aggregation expression to be used in the report.
-    """
-    def __init__(__self__, *,
-                 function: str,
-                 name: str):
-        """
-        The aggregation expression to be used in the report.
-        :param str function: The name of the aggregation function to use.
-        :param str name: The name of the column to aggregate.
-        """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def function(self) -> str:
-        """
-        The name of the aggregation function to use.
-        """
-        return pulumi.get(self, "function")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the column to aggregate.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class ReportComparisonExpressionResponse(dict):
-    """
-    The comparison expression to be used in the report.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        The comparison expression to be used in the report.
-        :param str name: The name of the column to use in comparison.
-        :param str operator: The operator to use for comparison.
-        :param Sequence[str] values: Array of values to use for comparison
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the column to use in comparison.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator to use for comparison.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Array of values to use for comparison
-        """
-        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -1550,10 +1080,6 @@ class ReportConfigFilterResponse(dict):
             suggest = "and_"
         elif key == "or":
             suggest = "or_"
-        elif key == "tagKey":
-            suggest = "tag_key"
-        elif key == "tagValue":
-            suggest = "tag_value"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ReportConfigFilterResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1570,16 +1096,12 @@ class ReportConfigFilterResponse(dict):
                  and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  dimensions: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
-                 tag_key: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
-                 tag_value: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
         :param Sequence['ReportConfigFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
         :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'ReportConfigComparisonExpressionResponse' tag_key: Has comparison expression for a tag key
-        :param 'ReportConfigComparisonExpressionResponse' tag_value: Has comparison expression for a tag value
         :param 'ReportConfigComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -1588,10 +1110,6 @@ class ReportConfigFilterResponse(dict):
             pulumi.set(__self__, "dimensions", dimensions)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
-        if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
-        if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -1618,22 +1136,6 @@ class ReportConfigFilterResponse(dict):
         The logical "OR" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "or_")
-
-    @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional['outputs.ReportConfigComparisonExpressionResponse']:
-        """
-        Has comparison expression for a tag key
-        """
-        return pulumi.get(self, "tag_key")
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional['outputs.ReportConfigComparisonExpressionResponse']:
-        """
-        Has comparison expression for a tag value
-        """
-        return pulumi.get(self, "tag_value")
 
     @property
     @pulumi.getter
@@ -1762,668 +1264,6 @@ class ReportConfigTimePeriodResponse(dict):
 
 
 @pulumi.output_type
-class ReportDatasetConfigurationResponse(dict):
-    """
-    The configuration of dataset in the report.
-    """
-    def __init__(__self__, *,
-                 columns: Optional[Sequence[str]] = None):
-        """
-        The configuration of dataset in the report.
-        :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[Sequence[str]]:
-        """
-        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-
-@pulumi.output_type
-class ReportDatasetResponse(dict):
-    """
-    The definition of data present in the report.
-    """
-    def __init__(__self__, *,
-                 aggregation: Optional[Mapping[str, 'outputs.ReportAggregationResponse']] = None,
-                 configuration: Optional['outputs.ReportDatasetConfigurationResponse'] = None,
-                 filter: Optional['outputs.ReportFilterResponse'] = None,
-                 granularity: Optional[str] = None,
-                 grouping: Optional[Sequence['outputs.ReportGroupingResponse']] = None):
-        """
-        The definition of data present in the report.
-        :param Mapping[str, 'ReportAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-        :param 'ReportDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'ReportFilterResponse' filter: Has filter expression to use in the report.
-        :param str granularity: The granularity of rows in the report.
-        :param Sequence['ReportGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        """
-        if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
-        if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
-        if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> Optional[Mapping[str, 'outputs.ReportAggregationResponse']]:
-        """
-        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> Optional['outputs.ReportDatasetConfigurationResponse']:
-        """
-        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-        """
-        return pulumi.get(self, "configuration")
-
-    @property
-    @pulumi.getter
-    def filter(self) -> Optional['outputs.ReportFilterResponse']:
-        """
-        Has filter expression to use in the report.
-        """
-        return pulumi.get(self, "filter")
-
-    @property
-    @pulumi.getter
-    def granularity(self) -> Optional[str]:
-        """
-        The granularity of rows in the report.
-        """
-        return pulumi.get(self, "granularity")
-
-    @property
-    @pulumi.getter
-    def grouping(self) -> Optional[Sequence['outputs.ReportGroupingResponse']]:
-        """
-        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        """
-        return pulumi.get(self, "grouping")
-
-
-@pulumi.output_type
-class ReportDefinitionResponse(dict):
-    """
-    The definition of a report.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timePeriod":
-            suggest = "time_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReportDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReportDefinitionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReportDefinitionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 timeframe: str,
-                 type: str,
-                 dataset: Optional['outputs.ReportDatasetResponse'] = None,
-                 time_period: Optional['outputs.ReportTimePeriodResponse'] = None):
-        """
-        The definition of a report.
-        :param str timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        :param str type: The type of the report.
-        :param 'ReportDatasetResponse' dataset: Has definition for data in this report.
-        :param 'ReportTimePeriodResponse' time_period: Has time period for pulling data for the report.
-        """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> str:
-        """
-        The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        """
-        return pulumi.get(self, "timeframe")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the report.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def dataset(self) -> Optional['outputs.ReportDatasetResponse']:
-        """
-        Has definition for data in this report.
-        """
-        return pulumi.get(self, "dataset")
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional['outputs.ReportTimePeriodResponse']:
-        """
-        Has time period for pulling data for the report.
-        """
-        return pulumi.get(self, "time_period")
-
-
-@pulumi.output_type
-class ReportDeliveryDestinationResponse(dict):
-    """
-    The destination information for the delivery of the report.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceId":
-            suggest = "resource_id"
-        elif key == "rootFolderPath":
-            suggest = "root_folder_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReportDeliveryDestinationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReportDeliveryDestinationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReportDeliveryDestinationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 container: str,
-                 resource_id: str,
-                 root_folder_path: Optional[str] = None):
-        """
-        The destination information for the delivery of the report.
-        :param str container: The name of the container where reports will be uploaded.
-        :param str resource_id: The resource id of the storage account where reports will be delivered.
-        :param str root_folder_path: The name of the directory where reports will be uploaded.
-        """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
-        if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
-
-    @property
-    @pulumi.getter
-    def container(self) -> str:
-        """
-        The name of the container where reports will be uploaded.
-        """
-        return pulumi.get(self, "container")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
-        """
-        The resource id of the storage account where reports will be delivered.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @property
-    @pulumi.getter(name="rootFolderPath")
-    def root_folder_path(self) -> Optional[str]:
-        """
-        The name of the directory where reports will be uploaded.
-        """
-        return pulumi.get(self, "root_folder_path")
-
-
-@pulumi.output_type
-class ReportDeliveryInfoResponse(dict):
-    """
-    The delivery information associated with a report.
-    """
-    def __init__(__self__, *,
-                 destination: 'outputs.ReportDeliveryDestinationResponse'):
-        """
-        The delivery information associated with a report.
-        :param 'ReportDeliveryDestinationResponse' destination: Has destination for the report being delivered.
-        """
-        pulumi.set(__self__, "destination", destination)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> 'outputs.ReportDeliveryDestinationResponse':
-        """
-        Has destination for the report being delivered.
-        """
-        return pulumi.get(self, "destination")
-
-
-@pulumi.output_type
-class ReportFilterResponse(dict):
-    """
-    The filter expression to be used in the report.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "and":
-            suggest = "and_"
-        elif key == "not":
-            suggest = "not_"
-        elif key == "or":
-            suggest = "or_"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReportFilterResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReportFilterResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReportFilterResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 and_: Optional[Sequence['outputs.ReportFilterResponse']] = None,
-                 dimension: Optional['outputs.ReportComparisonExpressionResponse'] = None,
-                 not_: Optional['outputs.ReportFilterResponse'] = None,
-                 or_: Optional[Sequence['outputs.ReportFilterResponse']] = None,
-                 tag: Optional['outputs.ReportComparisonExpressionResponse'] = None):
-        """
-        The filter expression to be used in the report.
-        :param Sequence['ReportFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
-        :param 'ReportComparisonExpressionResponse' dimension: Has comparison expression for a dimension
-        :param 'ReportFilterResponse' not_: The logical "NOT" expression.
-        :param Sequence['ReportFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
-        :param 'ReportComparisonExpressionResponse' tag: Has comparison expression for a tag
-        """
-        if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
-        if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
-        if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
-
-    @property
-    @pulumi.getter(name="and")
-    def and_(self) -> Optional[Sequence['outputs.ReportFilterResponse']]:
-        """
-        The logical "AND" expression. Must have at least 2 items.
-        """
-        return pulumi.get(self, "and_")
-
-    @property
-    @pulumi.getter
-    def dimension(self) -> Optional['outputs.ReportComparisonExpressionResponse']:
-        """
-        Has comparison expression for a dimension
-        """
-        return pulumi.get(self, "dimension")
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional['outputs.ReportFilterResponse']:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
-
-    @property
-    @pulumi.getter(name="or")
-    def or_(self) -> Optional[Sequence['outputs.ReportFilterResponse']]:
-        """
-        The logical "OR" expression. Must have at least 2 items.
-        """
-        return pulumi.get(self, "or_")
-
-    @property
-    @pulumi.getter
-    def tag(self) -> Optional['outputs.ReportComparisonExpressionResponse']:
-        """
-        Has comparison expression for a tag
-        """
-        return pulumi.get(self, "tag")
-
-
-@pulumi.output_type
-class ReportGroupingResponse(dict):
-    """
-    The group by expression to be used in the report.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        """
-        The group by expression to be used in the report.
-        :param str name: The name of the column to group.
-        :param str type: Has type of the column to group.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the column to group.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Has type of the column to group.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ReportRecurrencePeriodResponse(dict):
-    """
-    The start and end date for recurrence schedule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "from":
-            suggest = "from_"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReportRecurrencePeriodResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReportRecurrencePeriodResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReportRecurrencePeriodResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 from_: str,
-                 to: Optional[str] = None):
-        """
-        The start and end date for recurrence schedule.
-        :param str from_: The start date of recurrence.
-        :param str to: The end date of recurrence.
-        """
-        pulumi.set(__self__, "from_", from_)
-        if to is not None:
-            pulumi.set(__self__, "to", to)
-
-    @property
-    @pulumi.getter(name="from")
-    def from_(self) -> str:
-        """
-        The start date of recurrence.
-        """
-        return pulumi.get(self, "from_")
-
-    @property
-    @pulumi.getter
-    def to(self) -> Optional[str]:
-        """
-        The end date of recurrence.
-        """
-        return pulumi.get(self, "to")
-
-
-@pulumi.output_type
-class ReportScheduleResponse(dict):
-    """
-    The schedule associated with a report.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "recurrencePeriod":
-            suggest = "recurrence_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReportScheduleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReportScheduleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReportScheduleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 recurrence: str,
-                 recurrence_period: Optional['outputs.ReportRecurrencePeriodResponse'] = None,
-                 status: Optional[str] = None):
-        """
-        The schedule associated with a report.
-        :param str recurrence: The schedule recurrence.
-        :param 'ReportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        :param str status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-        """
-        pulumi.set(__self__, "recurrence", recurrence)
-        if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def recurrence(self) -> str:
-        """
-        The schedule recurrence.
-        """
-        return pulumi.get(self, "recurrence")
-
-    @property
-    @pulumi.getter(name="recurrencePeriod")
-    def recurrence_period(self) -> Optional['outputs.ReportRecurrencePeriodResponse']:
-        """
-        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        """
-        return pulumi.get(self, "recurrence_period")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class ReportTimePeriodResponse(dict):
-    """
-    The start and end date for pulling data for the report.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "from":
-            suggest = "from_"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReportTimePeriodResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReportTimePeriodResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReportTimePeriodResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 from_: str,
-                 to: str):
-        """
-        The start and end date for pulling data for the report.
-        :param str from_: The start date to pull data from.
-        :param str to: The end date to pull data to.
-        """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
-
-    @property
-    @pulumi.getter(name="from")
-    def from_(self) -> str:
-        """
-        The start date to pull data from.
-        """
-        return pulumi.get(self, "from_")
-
-    @property
-    @pulumi.getter
-    def to(self) -> str:
-        """
-        The end date to pull data to.
-        """
-        return pulumi.get(self, "to")
-
-
-@pulumi.output_type
-class SchedulePropertiesResponse(dict):
-    """
-    The properties of the schedule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endDate":
-            suggest = "end_date"
-        elif key == "startDate":
-            suggest = "start_date"
-        elif key == "dayOfMonth":
-            suggest = "day_of_month"
-        elif key == "daysOfWeek":
-            suggest = "days_of_week"
-        elif key == "hourOfDay":
-            suggest = "hour_of_day"
-        elif key == "weeksOfMonth":
-            suggest = "weeks_of_month"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SchedulePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SchedulePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 end_date: str,
-                 frequency: str,
-                 start_date: str,
-                 day_of_month: Optional[int] = None,
-                 days_of_week: Optional[Sequence[str]] = None,
-                 hour_of_day: Optional[int] = None,
-                 weeks_of_month: Optional[Sequence[str]] = None):
-        """
-        The properties of the schedule.
-        :param str end_date: The end date and time of the scheduled action (UTC).
-        :param str frequency: Frequency of the schedule.
-        :param str start_date: The start date and time of the scheduled action (UTC).
-        :param int day_of_month: UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.
-        :param Sequence[str] days_of_week: Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.
-        :param int hour_of_day: UTC time at which cost analysis data will be emailed.
-        :param Sequence[str] weeks_of_month: Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
-        """
-        pulumi.set(__self__, "end_date", end_date)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "start_date", start_date)
-        if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
-        if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
-        if hour_of_day is not None:
-            pulumi.set(__self__, "hour_of_day", hour_of_day)
-        if weeks_of_month is not None:
-            pulumi.set(__self__, "weeks_of_month", weeks_of_month)
-
-    @property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> str:
-        """
-        The end date and time of the scheduled action (UTC).
-        """
-        return pulumi.get(self, "end_date")
-
-    @property
-    @pulumi.getter
-    def frequency(self) -> str:
-        """
-        Frequency of the schedule.
-        """
-        return pulumi.get(self, "frequency")
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> str:
-        """
-        The start date and time of the scheduled action (UTC).
-        """
-        return pulumi.get(self, "start_date")
-
-    @property
-    @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> Optional[int]:
-        """
-        UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.
-        """
-        return pulumi.get(self, "day_of_month")
-
-    @property
-    @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[Sequence[str]]:
-        """
-        Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.
-        """
-        return pulumi.get(self, "days_of_week")
-
-    @property
-    @pulumi.getter(name="hourOfDay")
-    def hour_of_day(self) -> Optional[int]:
-        """
-        UTC time at which cost analysis data will be emailed.
-        """
-        return pulumi.get(self, "hour_of_day")
-
-    @property
-    @pulumi.getter(name="weeksOfMonth")
-    def weeks_of_month(self) -> Optional[Sequence[str]]:
-        """
-        Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
-        """
-        return pulumi.get(self, "weeks_of_month")
-
-
-@pulumi.output_type
 class SettingsPropertiesResponseCache(dict):
     def __init__(__self__, *,
                  channel: str,
@@ -2496,250 +1336,5 @@ class SettingsPropertiesResponseCache(dict):
         Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
         """
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class SourceCostAllocationResourceResponse(dict):
-    """
-    Source resources for cost allocation
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceType":
-            suggest = "resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SourceCostAllocationResourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SourceCostAllocationResourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SourceCostAllocationResourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 resource_type: str,
-                 values: Sequence[str]):
-        """
-        Source resources for cost allocation
-        :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-        :param str resource_type: Type of resources contained in this cost allocation rule
-        :param Sequence[str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
-        """
-        Type of resources contained in this cost allocation rule
-        """
-        return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Source Resources for cost allocation. This list cannot contain more than 25 values.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class TargetCostAllocationResourceResponse(dict):
-    """
-    Target resources for cost allocation.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "policyType":
-            suggest = "policy_type"
-        elif key == "resourceType":
-            suggest = "resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TargetCostAllocationResourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TargetCostAllocationResourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TargetCostAllocationResourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 policy_type: str,
-                 resource_type: str,
-                 values: Sequence['outputs.CostAllocationProportionResponse']):
-        """
-        Target resources for cost allocation.
-        :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-        :param str policy_type: Method of cost allocation for the rule
-        :param str resource_type: Type of resources contained in this cost allocation rule
-        :param Sequence['CostAllocationProportionResponse'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy_type", policy_type)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="policyType")
-    def policy_type(self) -> str:
-        """
-        Method of cost allocation for the rule
-        """
-        return pulumi.get(self, "policy_type")
-
-    @property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
-        """
-        Type of resources contained in this cost allocation rule
-        """
-        return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence['outputs.CostAllocationProportionResponse']:
-        """
-        Target resources for cost allocation. This list cannot contain more than 25 values.
-        """
-        return pulumi.get(self, "values")
 
 

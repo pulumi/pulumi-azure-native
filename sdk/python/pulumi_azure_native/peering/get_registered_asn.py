@@ -109,7 +109,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredAsnResult:
     """
     The customer's ASN that is registered by the peering service provider.
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peering_name: The name of the peering.
@@ -142,7 +142,7 @@ def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredAsnResult]:
     """
     The customer's ASN that is registered by the peering service provider.
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peering_name: The name of the peering.

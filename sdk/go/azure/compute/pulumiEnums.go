@@ -10,6 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// CPU architecture supported by an OS disk.
+type Architecture string
+
+const (
+	ArchitectureX64   = Architecture("x64")
+	ArchitectureArm64 = Architecture("Arm64")
+)
+
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
 type CachingTypes string
 
@@ -351,6 +359,25 @@ func (in *componentNamesPtr) ToComponentNamesPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentNamesPtrOutput)
 }
 
+// confidential VM encryption types
+type ConfidentialVMEncryptionType string
+
+const (
+	ConfidentialVMEncryptionTypeEncryptedVMGuestStateOnlyWithPmk = ConfidentialVMEncryptionType("EncryptedVMGuestStateOnlyWithPmk")
+	ConfidentialVMEncryptionTypeEncryptedWithPmk                 = ConfidentialVMEncryptionType("EncryptedWithPmk")
+	ConfidentialVMEncryptionTypeEncryptedWithCmk                 = ConfidentialVMEncryptionType("EncryptedWithCmk")
+)
+
+// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+type DataAccessAuthMode string
+
+const (
+	// When export/upload URL is used, the system checks if the user has an identity in Azure Active Directory and has necessary permissions to export/upload the data. Please refer to aka.ms/DisksAzureADAuth.
+	DataAccessAuthModeAzureActiveDirectory = DataAccessAuthMode("AzureActiveDirectory")
+	// No additional authentication would be performed when accessing export/upload URL.
+	DataAccessAuthModeNone = DataAccessAuthMode("None")
+)
+
 // Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
 type DedicatedHostLicenseTypes string
 
@@ -558,6 +585,12 @@ const (
 	DiskCreateOptionRestore = DiskCreateOption("Restore")
 	// Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
 	DiskCreateOptionUpload = DiskCreateOption("Upload")
+	// Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source.
+	DiskCreateOptionCopyStart = DiskCreateOption("CopyStart")
+	// Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+	DiskCreateOptionImportSecure = DiskCreateOption("ImportSecure")
+	// Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+	DiskCreateOptionUploadPreparedSecure = DiskCreateOption("UploadPreparedSecure")
 )
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
@@ -600,6 +633,8 @@ const (
 	DiskEncryptionSetTypeEncryptionAtRestWithCustomerKey = DiskEncryptionSetType("EncryptionAtRestWithCustomerKey")
 	// Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
 	DiskEncryptionSetTypeEncryptionAtRestWithPlatformAndCustomerKeys = DiskEncryptionSetType("EncryptionAtRestWithPlatformAndCustomerKeys")
+	// Confidential VM supported disk and VM guest state would be encrypted with customer managed key.
+	DiskEncryptionSetTypeConfidentialVmEncryptedWithCustomerKey = DiskEncryptionSetType("ConfidentialVmEncryptedWithCustomerKey")
 )
 
 // Specifies the SecurityType of the VM. Applicable for OS disks only.
@@ -608,6 +643,12 @@ type DiskSecurityTypes string
 const (
 	// Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
 	DiskSecurityTypesTrustedLaunch = DiskSecurityTypes("TrustedLaunch")
+	// Indicates Confidential VM disk with only VM guest state encrypted
+	DiskSecurityTypes_ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey = DiskSecurityTypes("ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey")
+	// Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a platform managed key
+	DiskSecurityTypes_ConfidentialVM_DiskEncryptedWithPlatformKey = DiskSecurityTypes("ConfidentialVM_DiskEncryptedWithPlatformKey")
+	// Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
+	DiskSecurityTypes_ConfidentialVM_DiskEncryptedWithCustomerKey = DiskSecurityTypes("ConfidentialVM_DiskEncryptedWithCustomerKey")
 )
 
 // The sku name.
@@ -645,6 +686,14 @@ type ExtendedLocationTypes string
 
 const (
 	ExtendedLocationTypesEdgeZone = ExtendedLocationTypes("EdgeZone")
+)
+
+// It is type of the extended location.
+type GalleryExtendedLocationType string
+
+const (
+	GalleryExtendedLocationTypeEdgeZone = GalleryExtendedLocationType("EdgeZone")
+	GalleryExtendedLocationTypeUnknown  = GalleryExtendedLocationType("Unknown")
 )
 
 // This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
@@ -1765,6 +1814,33 @@ const (
 	PublicIPAllocationMethodStatic  = PublicIPAllocationMethod("Static")
 )
 
+// Policy for controlling export on the disk.
+type PublicNetworkAccess string
+
+const (
+	// You can generate a SAS URI to access the underlying data of the disk publicly on the internet when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+	PublicNetworkAccessEnabled = PublicNetworkAccess("Enabled")
+	// You cannot access the underlying data of the disk publicly on the internet even when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
+// Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+type RepairAction string
+
+const (
+	RepairActionReplace = RepairAction("Replace")
+	RepairActionRestart = RepairAction("Restart")
+	RepairActionReimage = RepairAction("Reimage")
+)
+
+// Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+type ReplicationMode string
+
+const (
+	ReplicationModeFull    = ReplicationMode("Full")
+	ReplicationModeShallow = ReplicationMode("Shallow")
+)
+
 // The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 type ResourceIdentityType string
 
@@ -1932,11 +2008,20 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+// Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs.
+type SecurityEncryptionTypes string
+
+const (
+	SecurityEncryptionTypesVMGuestStateOnly     = SecurityEncryptionTypes("VMGuestStateOnly")
+	SecurityEncryptionTypesDiskWithVMGuestState = SecurityEncryptionTypes("DiskWithVMGuestState")
+)
+
+// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set.
 type SecurityTypes string
 
 const (
-	SecurityTypesTrustedLaunch = SecurityTypes("TrustedLaunch")
+	SecurityTypesTrustedLaunch  = SecurityTypes("TrustedLaunch")
+	SecurityTypesConfidentialVM = SecurityTypes("ConfidentialVM")
 )
 
 // Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
@@ -2291,7 +2376,7 @@ const (
 	StorageAccountType_Premium_LRS  = StorageAccountType("Premium_LRS")
 )
 
-// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 type StorageAccountTypes string
 
 const (

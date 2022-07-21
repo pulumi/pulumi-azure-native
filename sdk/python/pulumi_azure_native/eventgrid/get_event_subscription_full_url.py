@@ -48,7 +48,7 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionFullUrlResult:
     """
     Full endpoint url of an event subscription
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -73,7 +73,7 @@ def get_event_subscription_full_url_output(event_subscription_name: Optional[pul
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
     """
     Full endpoint url of an event subscription
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.

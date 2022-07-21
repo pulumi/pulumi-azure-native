@@ -12,7 +12,7 @@ import (
 )
 
 // The Connection Monitor Test class.
-// API Version: 2021-06-01.
+// API Version: 2022-01-01.
 type ConnectionMonitorTest struct {
 	pulumi.CustomResourceState
 

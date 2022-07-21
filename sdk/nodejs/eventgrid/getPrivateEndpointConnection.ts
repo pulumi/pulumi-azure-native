@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -24,11 +24,11 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the parent resource (namely, either, the topic name or domain name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
      */
     parentName: string;
     /**
-     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
      */
     parentType: string;
     /**
@@ -78,11 +78,11 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the parent resource (namely, either, the topic name or domain name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
      */
     parentName: pulumi.Input<string>;
     /**
-     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
      */
     parentType: pulumi.Input<string>;
     /**

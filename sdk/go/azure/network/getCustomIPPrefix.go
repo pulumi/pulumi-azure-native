@@ -11,7 +11,7 @@ import (
 )
 
 // Custom IP prefix resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupCustomIPPrefixResult, error) {
 	var rv LookupCustomIPPrefixResult
 	err := ctx.Invoke("azure-native:network:getCustomIPPrefix", args, &rv, opts...)
@@ -32,14 +32,22 @@ type LookupCustomIPPrefixArgs struct {
 
 // Custom IP prefix resource.
 type LookupCustomIPPrefixResult struct {
+	// Authorization message for WAN validation.
+	AuthorizationMessage *string `pulumi:"authorizationMessage"`
+	// The list of all Children for IPv6 /48 CustomIpPrefix.
+	ChildCustomIpPrefixes []SubResourceResponse `pulumi:"childCustomIpPrefixes"`
 	// The prefix range in CIDR notation. Should include the start address and the prefix length.
 	Cidr *string `pulumi:"cidr"`
 	// The commissioned state of the Custom IP Prefix.
 	CommissionedState *string `pulumi:"commissionedState"`
+	// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+	CustomIpPrefixParent *SubResourceResponse `pulumi:"customIpPrefixParent"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The extended location of the custom IP prefix.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	// The reason why resource is in failed state.
+	FailedReason string `pulumi:"failedReason"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -52,6 +60,8 @@ type LookupCustomIPPrefixResult struct {
 	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
 	// The resource GUID property of the custom IP prefix resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
+	// Signed message for WAN validation.
+	SignedMessage *string `pulumi:"signedMessage"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -101,6 +111,16 @@ func (o LookupCustomIPPrefixResultOutput) ToLookupCustomIPPrefixResultOutputWith
 	return o
 }
 
+// Authorization message for WAN validation.
+func (o LookupCustomIPPrefixResultOutput) AuthorizationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.AuthorizationMessage }).(pulumi.StringPtrOutput)
+}
+
+// The list of all Children for IPv6 /48 CustomIpPrefix.
+func (o LookupCustomIPPrefixResultOutput) ChildCustomIpPrefixes() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) []SubResourceResponse { return v.ChildCustomIpPrefixes }).(SubResourceResponseArrayOutput)
+}
+
 // The prefix range in CIDR notation. Should include the start address and the prefix length.
 func (o LookupCustomIPPrefixResultOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.Cidr }).(pulumi.StringPtrOutput)
@@ -111,6 +131,11 @@ func (o LookupCustomIPPrefixResultOutput) CommissionedState() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.CommissionedState }).(pulumi.StringPtrOutput)
 }
 
+// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+func (o LookupCustomIPPrefixResultOutput) CustomIpPrefixParent() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *SubResourceResponse { return v.CustomIpPrefixParent }).(SubResourceResponsePtrOutput)
+}
+
 // A unique read-only string that changes whenever the resource is updated.
 func (o LookupCustomIPPrefixResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.Etag }).(pulumi.StringOutput)
@@ -119,6 +144,11 @@ func (o LookupCustomIPPrefixResultOutput) Etag() pulumi.StringOutput {
 // The extended location of the custom IP prefix.
 func (o LookupCustomIPPrefixResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
 	return o.ApplyT(func(v LookupCustomIPPrefixResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The reason why resource is in failed state.
+func (o LookupCustomIPPrefixResultOutput) FailedReason() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.FailedReason }).(pulumi.StringOutput)
 }
 
 // Resource ID.
@@ -149,6 +179,11 @@ func (o LookupCustomIPPrefixResultOutput) PublicIpPrefixes() SubResourceResponse
 // The resource GUID property of the custom IP prefix resource.
 func (o LookupCustomIPPrefixResultOutput) ResourceGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Signed message for WAN validation.
+func (o LookupCustomIPPrefixResultOutput) SignedMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.SignedMessage }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags.

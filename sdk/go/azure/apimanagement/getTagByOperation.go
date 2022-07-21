@@ -11,7 +11,7 @@ import (
 )
 
 // Tag Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupTagByOperation(ctx *pulumi.Context, args *LookupTagByOperationArgs, opts ...pulumi.InvokeOption) (*LookupTagByOperationResult, error) {
 	var rv LookupTagByOperationResult
 	err := ctx.Invoke("azure-native:apimanagement:getTagByOperation", args, &rv, opts...)
@@ -38,11 +38,11 @@ type LookupTagByOperationArgs struct {
 type LookupTagByOperationResult struct {
 	// Tag name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -96,17 +96,17 @@ func (o LookupTagByOperationResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByOperationResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupTagByOperationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByOperationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupTagByOperationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByOperationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupTagByOperationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByOperationResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Auto track configuration.
+// Auto-tracking configuration.
 type AutoTrackingConfiguration string
 
 const (
@@ -176,7 +176,7 @@ func (in *autoTrackingConfigurationPtr) ToAutoTrackingConfigurationPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(AutoTrackingConfigurationPtrOutput)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 type Direction string
 
 const (
@@ -184,13 +184,12 @@ const (
 	DirectionDownlink = Direction("downlink")
 )
 
-// polarization. eg (RHCP, LHCP)
+// Polarization. e.g. (RHCP, LHCP).
 type Polarization string
 
 const (
 	PolarizationRHCP             = Polarization("RHCP")
 	PolarizationLHCP             = Polarization("LHCP")
-	PolarizationDualRhcpLhcp     = Polarization("dualRhcpLhcp")
 	PolarizationLinearVertical   = Polarization("linearVertical")
 	PolarizationLinearHorizontal = Polarization("linearHorizontal")
 )

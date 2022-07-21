@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy definition.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyDefinitionAtManagementGroup")]
     public partial class PolicyDefinitionAtManagementGroup : Pulumi.CustomResource
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("policyType")]
         public Output<string?> PolicyType { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/policyDefinitions).

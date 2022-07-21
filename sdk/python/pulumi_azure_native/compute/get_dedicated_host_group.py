@@ -158,10 +158,10 @@ def get_dedicated_host_group(expand: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-    API Version: 2020-12-01.
+    API Version: 2021-11-01.
 
 
-    :param str expand: The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
@@ -195,10 +195,10 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-    API Version: 2020-12-01.
+    API Version: 2021-11-01.
 
 
-    :param str expand: The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """

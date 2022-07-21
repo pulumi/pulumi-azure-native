@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Extension.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
     if (!opts) {
@@ -79,6 +79,10 @@ export interface GetVirtualMachineExtensionResult {
      */
     readonly protectedSettings?: any;
     /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    readonly protectedSettingsFromKeyVault?: any;
+    /**
      * The provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
@@ -90,6 +94,10 @@ export interface GetVirtualMachineExtensionResult {
      * Json formatted public settings for the extension.
      */
     readonly settings?: any;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    readonly suppressFailures?: boolean;
     /**
      * Resource tags
      */

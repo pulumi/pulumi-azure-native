@@ -11,7 +11,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsSlotResult, error) {
 	var rv ListWebAppConnectionStringsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppConnectionStringsSlot", args, &rv, opts...)

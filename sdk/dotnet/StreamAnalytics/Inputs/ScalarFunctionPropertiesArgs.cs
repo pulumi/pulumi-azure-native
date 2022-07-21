@@ -19,14 +19,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
         /// </summary>
         [Input("binding")]
-        public InputUnion<Inputs.AzureMachineLearningWebServiceFunctionBindingArgs, Inputs.JavaScriptFunctionBindingArgs>? Binding { get; set; }
+        public object? Binding { get; set; }
 
         [Input("inputs")]
         private InputList<Inputs.FunctionInputArgs>? _inputs;
-
-        /// <summary>
-        /// A list of inputs describing the parameters of the function.
-        /// </summary>
         public InputList<Inputs.FunctionInputArgs> Inputs
         {
             get => _inputs ?? (_inputs = new InputList<Inputs.FunctionInputArgs>());
@@ -34,7 +30,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         }
 
         /// <summary>
-        /// The output of the function.
+        /// Describes the output of a function.
         /// </summary>
         [Input("output")]
         public Input<Inputs.FunctionOutputArgs>? Output { get; set; }

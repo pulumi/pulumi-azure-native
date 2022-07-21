@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// SSH configuration for Linux-based VMs running on Azure.
+        /// The SSH configuration for Linux-based VMs running on Azure.
         /// </summary>
         [Input("ssh", required: true)]
         public Input<Inputs.ContainerServiceSshConfigurationArgs> Ssh { get; set; } = null!;

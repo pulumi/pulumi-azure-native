@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnServerConfigurationPolicyGroup Resource.
-    /// API Version: 2022-01-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConfigurationPolicyGroup")]
     public partial class ConfigurationPolicyGroup : Pulumi.CustomResource

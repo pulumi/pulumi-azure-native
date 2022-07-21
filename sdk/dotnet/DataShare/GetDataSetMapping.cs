@@ -9,19 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare
 {
-    [Obsolete(@"Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.")]
+    [Obsolete(@"Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, KustoTableDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.")]
     public static class GetDataSetMapping
     {
         /// <summary>
         /// A data set mapping data transfer object.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetDataSetMappingResult> InvokeAsync(GetDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-native:datashare:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A data set mapping data transfer object.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetDataSetMappingResult> Invoke(GetDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataSetMappingResult>("azure-native:datashare:getDataSetMapping", args ?? new GetDataSetMappingInvokeArgs(), options.WithDefaults());

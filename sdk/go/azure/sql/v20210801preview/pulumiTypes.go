@@ -15,7 +15,7 @@ type DatabaseIdentity struct {
 	// The identity type
 	Type *string `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // DatabaseIdentityInput is an input type that accepts DatabaseIdentityArgs and DatabaseIdentityOutput values.
@@ -34,7 +34,7 @@ type DatabaseIdentityArgs struct {
 	// The identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (DatabaseIdentityArgs) ElementType() reflect.Type {
@@ -121,8 +121,8 @@ func (o DatabaseIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The resource ids of the user assigned identities to use
-func (o DatabaseIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v DatabaseIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o DatabaseIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type DatabaseIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -160,13 +160,13 @@ func (o DatabaseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The resource ids of the user assigned identities to use
-func (o DatabaseIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *DatabaseIdentity) map[string]interface{} {
+func (o DatabaseIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Azure Active Directory identity configuration for a resource.
@@ -5453,7 +5453,7 @@ type ResourceIdentity struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type *string `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
@@ -5472,7 +5472,7 @@ type ResourceIdentityArgs struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityArgs) ElementType() reflect.Type {
@@ -5559,8 +5559,8 @@ func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The resource ids of the user assigned identities to use
-func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -5598,13 +5598,13 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The resource ids of the user assigned identities to use
-func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ResourceIdentity) map[string]interface{} {
+func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Azure Active Directory identity configuration for a resource.

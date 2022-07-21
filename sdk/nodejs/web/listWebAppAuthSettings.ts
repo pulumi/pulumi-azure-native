@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
     if (!opts) {

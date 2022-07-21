@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of a namespace authorization rule.
-    /// API Version: 2017-04-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -29,7 +35,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

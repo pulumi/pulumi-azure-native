@@ -144,7 +144,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:ActivityCustomEntityQuery"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery"},

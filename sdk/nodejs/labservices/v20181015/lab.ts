@@ -149,8 +149,6 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["userQuota"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices:Lab" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -7,12 +7,16 @@ from enum import Enum
 __all__ = [
     'AddonType',
     'AffinityType',
+    'AvailabilityStrategy',
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
+    'EncryptionState',
     'InternetEnum',
+    'MountOptionEnum',
     'PlacementPolicyState',
     'PlacementPolicyType',
     'PortMirroringDirectionEnum',
+    'ResourceIdentityType',
     'ScriptExecutionParameterType',
     'SslEnum',
 ]
@@ -24,6 +28,7 @@ class AddonType(str, Enum):
     """
     SRM = "SRM"
     VR = "VR"
+    HCX = "HCX"
 
 
 class AffinityType(str, Enum):
@@ -34,11 +39,20 @@ class AffinityType(str, Enum):
     ANTI_AFFINITY = "AntiAffinity"
 
 
+class AvailabilityStrategy(str, Enum):
+    """
+    The availability strategy for the private cloud
+    """
+    SINGLE_ZONE = "SingleZone"
+    DUAL_ZONE = "DualZone"
+
+
 class DhcpTypeEnum(str, Enum):
     """
     Type of DHCP: SERVER or RELAY.
     """
-    SERVE_R_RELAY = "SERVER, RELAY"
+    SERVER = "SERVER"
+    RELAY = "RELAY"
 
 
 class DnsServiceLogLevelEnum(str, Enum):
@@ -52,12 +66,28 @@ class DnsServiceLogLevelEnum(str, Enum):
     FATAL = "FATAL"
 
 
+class EncryptionState(str, Enum):
+    """
+    Status of customer managed encryption key
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class InternetEnum(str, Enum):
     """
     Connectivity to internet is enabled or disabled
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class MountOptionEnum(str, Enum):
+    """
+    Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+    """
+    MOUNT = "MOUNT"
+    ATTACH = "ATTACH"
 
 
 class PlacementPolicyState(str, Enum):
@@ -80,7 +110,17 @@ class PortMirroringDirectionEnum(str, Enum):
     """
     Direction of port mirroring profile.
     """
-    INGRES_S_EGRES_S_BIDIRECTIONAL = "INGRESS, EGRESS, BIDIRECTIONAL"
+    INGRESS = "INGRESS"
+    EGRESS = "EGRESS"
+    BIDIRECTIONAL = "BIDIRECTIONAL"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
 
 
 class ScriptExecutionParameterType(str, Enum):

@@ -16,16 +16,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class SweepJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Type of the hyperparameter sampling algorithms
+        /// ARM resource ID of the compute resource.
         /// </summary>
-        [Input("algorithm", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.SamplingAlgorithm> Algorithm { get; set; } = null!;
-
-        /// <summary>
-        /// [Required] Compute binding for the job.
-        /// </summary>
-        [Input("compute", required: true)]
-        public Input<Inputs.ComputeConfigurationArgs> Compute { get; set; } = null!;
+        [Input("computeId")]
+        public Input<string>? ComputeId { get; set; }
 
         /// <summary>
         /// The asset description text.
@@ -34,7 +28,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Early termination policies enable canceling poor-performing runs before they complete.
+        /// Display name of job.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Early termination policies enable canceling poor-performing runs before they complete
         /// </summary>
         [Input("earlyTermination")]
         public object? EarlyTermination { get; set; }
@@ -46,11 +46,29 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? ExperimentName { get; set; }
 
         /// <summary>
-        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
         /// Defaults to AmlToken if null.
         /// </summary>
         [Input("identity")]
-        public InputUnion<Inputs.AmlTokenArgs, Inputs.ManagedIdentityArgs>? Identity { get; set; }
+        public object? Identity { get; set; }
+
+        [Input("inputs")]
+        private InputMap<object>? _inputs;
+
+        /// <summary>
+        /// Mapping of input data bindings used in the job.
+        /// </summary>
+        public InputMap<object> Inputs
+        {
+            get => _inputs ?? (_inputs = new InputMap<object>());
+            set => _inputs = value;
+        }
+
+        /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        [Input("isArchived")]
+        public Input<bool>? IsArchived { get; set; }
 
         /// <summary>
         /// Enum to determine the type of job.
@@ -60,16 +78,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string> JobType { get; set; } = null!;
 
         /// <summary>
-        /// An upper bound on the number of trials performed in parallel.
+        /// Sweep Job limit.
         /// </summary>
-        [Input("maxConcurrentTrials")]
-        public Input<int>? MaxConcurrentTrials { get; set; }
-
-        /// <summary>
-        /// An upper bound on the number of trials to perform.
-        /// </summary>
-        [Input("maxTotalTrials")]
-        public Input<int>? MaxTotalTrials { get; set; }
+        [Input("limits")]
+        public Input<Inputs.SweepJobLimitsArgs>? Limits { get; set; }
 
         /// <summary>
         /// [Required] Optimization objective.
@@ -77,12 +89,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("objective", required: true)]
         public Input<Inputs.ObjectiveArgs> Objective { get; set; } = null!;
 
+        [Input("outputs")]
+        private InputMap<object>? _outputs;
+
         /// <summary>
-        /// Job priority for scheduling policy. Only applies to AMLCompute.
-        /// Private preview feature and only available to users on the allow list.
+        /// Mapping of output data bindings used in the job.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        public InputMap<object> Outputs
+        {
+            get => _outputs ?? (_outputs = new InputMap<object>());
+            set => _outputs = value;
+        }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -96,16 +113,29 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _properties = value;
         }
 
-        [Input("searchSpace", required: true)]
-        private InputMap<object>? _searchSpace;
+        /// <summary>
+        /// [Required] The hyperparameter sampling algorithm
+        /// </summary>
+        [Input("samplingAlgorithm", required: true)]
+        public object SamplingAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         /// </summary>
-        public InputMap<object> SearchSpace
+        [Input("searchSpace", required: true)]
+        public Input<object> SearchSpace { get; set; } = null!;
+
+        [Input("services")]
+        private InputMap<Inputs.JobServiceArgs>? _services;
+
+        /// <summary>
+        /// List of JobEndpoints.
+        /// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        /// </summary>
+        public InputMap<Inputs.JobServiceArgs> Services
         {
-            get => _searchSpace ?? (_searchSpace = new InputMap<object>());
-            set => _searchSpace = value;
+            get => _services ?? (_services = new InputMap<Inputs.JobServiceArgs>());
+            set => _services = value;
         }
 
         [Input("tags")]
@@ -121,19 +151,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
-        /// The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+        /// [Required] Trial component definition.
         /// </summary>
-        [Input("timeout")]
-        public Input<string>? Timeout { get; set; }
-
-        /// <summary>
-        /// Trial component definition.
-        /// </summary>
-        [Input("trial")]
-        public Input<Inputs.TrialComponentArgs>? Trial { get; set; }
+        [Input("trial", required: true)]
+        public Input<Inputs.TrialComponentArgs> Trial { get; set; } = null!;
 
         public SweepJobArgs()
         {
+            ExperimentName = "Default";
+            IsArchived = false;
         }
     }
 }

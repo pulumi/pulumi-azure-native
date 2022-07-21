@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident in Azure Security Insights.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export class Incident extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class Incident extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -109,11 +109,15 @@ export class Incident extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * The title of the incident
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -165,6 +169,7 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["relatedAnalyticRuleIds"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalData"] = undefined /*out*/;
@@ -185,6 +190,7 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["relatedAnalyticRuleIds"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["title"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -236,7 +242,7 @@ export interface IncidentArgs {
      */
     owner?: pulumi.Input<inputs.securityinsights.IncidentOwnerInfoArgs>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

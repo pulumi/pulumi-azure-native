@@ -11,7 +11,7 @@ import (
 )
 
 // The server encryption protector.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupEncryptionProtector(ctx *pulumi.Context, args *LookupEncryptionProtectorArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionProtectorResult, error) {
 	var rv LookupEncryptionProtectorResult
 	err := ctx.Invoke("azure-native:sql:getEncryptionProtector", args, &rv, opts...)

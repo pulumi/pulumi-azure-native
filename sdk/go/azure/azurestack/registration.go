@@ -12,7 +12,7 @@ import (
 )
 
 // Registration information.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 type Registration struct {
 	pulumi.CustomResourceState
 
@@ -22,12 +22,16 @@ type Registration struct {
 	CloudId pulumi.StringPtrOutput `pulumi:"cloudId"`
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The kind of the resource.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The object identifier associated with the Azure Stack connecting to Azure.
 	ObjectId pulumi.StringPtrOutput `pulumi:"objectId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Custom tags for the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of Resource.
@@ -165,6 +169,11 @@ func (o RegistrationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registration) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+// The kind of the resource.
+func (o RegistrationOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
 // Location of the resource.
 func (o RegistrationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -178,6 +187,11 @@ func (o RegistrationOutput) Name() pulumi.StringOutput {
 // The object identifier associated with the Azure Stack connecting to Azure.
 func (o RegistrationOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registration) pulumi.StringPtrOutput { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o RegistrationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Registration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Custom tags for the resource.

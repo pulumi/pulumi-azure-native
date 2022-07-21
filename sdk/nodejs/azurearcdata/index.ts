@@ -5,14 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./activeDirectoryConnector";
 export * from "./dataController";
-export * from "./getActiveDirectoryConnector";
 export * from "./getDataController";
-export * from "./getPostgresInstance";
 export * from "./getSqlManagedInstance";
 export * from "./getSqlServerInstance";
-export * from "./postgresInstance";
 export * from "./sqlManagedInstance";
 export * from "./sqlServerInstance";
 
@@ -35,9 +31,7 @@ export {
 };
 
 // Import resources to register:
-import { ActiveDirectoryConnector } from "./activeDirectoryConnector";
 import { DataController } from "./dataController";
-import { PostgresInstance } from "./postgresInstance";
 import { SqlManagedInstance } from "./sqlManagedInstance";
 import { SqlServerInstance } from "./sqlServerInstance";
 
@@ -45,12 +39,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:azurearcdata:ActiveDirectoryConnector":
-                return new ActiveDirectoryConnector(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:DataController":
                 return new DataController(name, <any>undefined, { urn })
-            case "azure-native:azurearcdata:PostgresInstance":
-                return new PostgresInstance(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlManagedInstance":
                 return new SqlManagedInstance(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerInstance":

@@ -11,7 +11,7 @@ import (
 )
 
 // Response of a list operation.
-// API Version: 2020-10-01.
+// API Version: 2022-01-01-preview.
 func ListMonitorMonitoredResources(ctx *pulumi.Context, args *ListMonitorMonitoredResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorMonitoredResourcesResult, error) {
 	var rv ListMonitorMonitoredResourcesResult
 	err := ctx.Invoke("azure-native:logz:listMonitorMonitoredResources", args, &rv, opts...)

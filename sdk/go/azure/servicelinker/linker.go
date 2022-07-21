@@ -12,7 +12,7 @@ import (
 )
 
 // Linker of source and target resource
-// API Version: 2021-11-01-preview.
+// API Version: 2022-05-01.
 type Linker struct {
 	pulumi.CustomResourceState
 
@@ -24,12 +24,14 @@ type Linker struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// connection scope in source service.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// An option to store secret value in secure place
 	SecretStore SecretStoreResponsePtrOutput `pulumi:"secretStore"`
 	// The system data.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The resource Id of target service.
-	TargetId pulumi.StringPtrOutput `pulumi:"targetId"`
+	// The target service properties
+	TargetService pulumi.AnyOutput `pulumi:"targetService"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The VNet solution.
@@ -98,10 +100,12 @@ type linkerArgs struct {
 	LinkerName *string `pulumi:"linkerName"`
 	// The fully qualified Azure Resource manager identifier of the resource to be connected.
 	ResourceUri string `pulumi:"resourceUri"`
+	// connection scope in source service.
+	Scope *string `pulumi:"scope"`
 	// An option to store secret value in secure place
 	SecretStore *SecretStore `pulumi:"secretStore"`
-	// The resource Id of target service.
-	TargetId *string `pulumi:"targetId"`
+	// The target service properties
+	TargetService interface{} `pulumi:"targetService"`
 	// The VNet solution.
 	VNetSolution *VNetSolution `pulumi:"vNetSolution"`
 }
@@ -116,10 +120,12 @@ type LinkerArgs struct {
 	LinkerName pulumi.StringPtrInput
 	// The fully qualified Azure Resource manager identifier of the resource to be connected.
 	ResourceUri pulumi.StringInput
+	// connection scope in source service.
+	Scope pulumi.StringPtrInput
 	// An option to store secret value in secure place
 	SecretStore SecretStorePtrInput
-	// The resource Id of target service.
-	TargetId pulumi.StringPtrInput
+	// The target service properties
+	TargetService pulumi.Input
 	// The VNet solution.
 	VNetSolution VNetSolutionPtrInput
 }
@@ -181,6 +187,11 @@ func (o LinkerOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Linker) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// connection scope in source service.
+func (o LinkerOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Linker) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
 // An option to store secret value in secure place
 func (o LinkerOutput) SecretStore() SecretStoreResponsePtrOutput {
 	return o.ApplyT(func(v *Linker) SecretStoreResponsePtrOutput { return v.SecretStore }).(SecretStoreResponsePtrOutput)
@@ -191,9 +202,9 @@ func (o LinkerOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Linker) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// The resource Id of target service.
-func (o LinkerOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Linker) pulumi.StringPtrOutput { return v.TargetId }).(pulumi.StringPtrOutput)
+// The target service properties
+func (o LinkerOutput) TargetService() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Linker) pulumi.AnyOutput { return v.TargetService }).(pulumi.AnyOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

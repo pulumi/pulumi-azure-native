@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// </summary>
         public readonly string? DnsNameLabel;
         /// <summary>
+        /// The value representing the security enum.
+        /// </summary>
+        public readonly string? DnsNameLabelReusePolicy;
+        /// <summary>
         /// The FQDN for the IP.
         /// </summary>
         public readonly string Fqdn;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         private IpAddressResponse(
             string? dnsNameLabel,
 
+            string? dnsNameLabelReusePolicy,
+
             string fqdn,
 
             string? ip,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
             string type)
         {
             DnsNameLabel = dnsNameLabel;
+            DnsNameLabelReusePolicy = dnsNameLabelReusePolicy;
             Fqdn = fqdn;
             Ip = ip;
             Ports = ports;

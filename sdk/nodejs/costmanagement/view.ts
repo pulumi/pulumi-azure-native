@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * States and configurations of Cost Analysis.
- * API Version: 2019-11-01.
+ * API Version: 2021-10-01.
  */
 export class View extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
-     * Selected currency.
+     * Currency of the current view.
      */
     public /*out*/ readonly currency!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly dataSet!: pulumi.Output<outputs.costmanagement.ReportConfigDatasetResponse | undefined>;
     /**
-     * Selected date range for viewing cost in.
+     * Date range of the current view.
      */
     public /*out*/ readonly dateRange!: pulumi.Output<string>;
     /**
@@ -69,9 +69,9 @@ export class View extends pulumi.CustomResource {
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
     /**
-     * Include monetary commitment
+     * If true, report includes monetary commitment.
      */
-    public /*out*/ readonly includeMonetaryCommitment!: pulumi.Output<boolean>;
+    public readonly includeMonetaryCommitment!: pulumi.Output<boolean | undefined>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
@@ -131,6 +131,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["dataSet"] = args ? args.dataSet : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
             resourceInputs["kpis"] = args ? args.kpis : undefined;
             resourceInputs["metric"] = args ? args.metric : undefined;
             resourceInputs["pivots"] = args ? args.pivots : undefined;
@@ -142,7 +143,6 @@ export class View extends pulumi.CustomResource {
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
             resourceInputs["dateRange"] = undefined /*out*/;
-            resourceInputs["includeMonetaryCommitment"] = undefined /*out*/;
             resourceInputs["modifiedOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
@@ -196,6 +196,10 @@ export interface ViewArgs {
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     eTag?: pulumi.Input<string>;
+    /**
+     * If true, report includes monetary commitment.
+     */
+    includeMonetaryCommitment?: pulumi.Input<boolean>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */

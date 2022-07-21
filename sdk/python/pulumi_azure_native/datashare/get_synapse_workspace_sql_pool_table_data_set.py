@@ -124,7 +124,7 @@ def get_synapse_workspace_sql_pool_table_data_set(account_name: Optional[str] = 
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSynapseWorkspaceSqlPoolTableDataSetResult:
     """
     A Synapse Workspace Sql Pool Table data set.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -161,7 +161,7 @@ def get_synapse_workspace_sql_pool_table_data_set_output(account_name: Optional[
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSynapseWorkspaceSqlPoolTableDataSetResult]:
     """
     A Synapse Workspace Sql Pool Table data set.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

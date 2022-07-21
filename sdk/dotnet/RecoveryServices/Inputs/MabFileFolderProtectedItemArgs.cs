@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        [Input("isArchiveEnabled")]
+        public Input<bool>? IsArchiveEnabled { get; set; }
+
+        /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
         [Input("isDeferredDeleteScheduleUpcoming")]
@@ -118,6 +124,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
+
+        /// <summary>
         /// backup item type.
         /// Expected value is 'MabFileFolderProtectedItem'.
         /// </summary>
@@ -129,6 +141,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("protectionState")]
         public Input<string>? ProtectionState { get; set; }
+
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
 
         /// <summary>
         /// ARM ID of the resource to be backed up.

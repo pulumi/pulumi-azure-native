@@ -28,6 +28,14 @@ const (
 	InitialDownloadPolicyAvoidTieredFiles           = InitialDownloadPolicy("AvoidTieredFiles")
 )
 
+// Policy for how the initial upload sync session is performed.
+type InitialUploadPolicy string
+
+const (
+	InitialUploadPolicyServerAuthoritative = InitialUploadPolicy("ServerAuthoritative")
+	InitialUploadPolicyMerge               = InitialUploadPolicy("Merge")
+)
+
 // Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 type LocalCacheMode string
 

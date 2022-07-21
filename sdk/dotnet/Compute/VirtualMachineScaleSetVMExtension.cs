@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a VMSS VM Extension.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVMExtension")]
     public partial class VirtualMachineScaleSetVMExtension : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<object?> ProtectedSettings { get; private set; } = null!;
 
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        [Output("protectedSettingsFromKeyVault")]
+        public Output<object?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         [Output("provisioningState")]
@@ -69,6 +75,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("settings")]
         public Output<object?> Settings { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        [Output("suppressFailures")]
+        public Output<bool?> SuppressFailures { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -175,6 +187,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<object>? ProtectedSettings { get; set; }
 
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<object>? ProtectedSettingsFromKeyVault { get; set; }
+
+        /// <summary>
         /// The name of the extension handler publisher.
         /// </summary>
         [Input("publisher")]
@@ -191,6 +209,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("settings")]
         public Input<object>? Settings { get; set; }
+
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        [Input("suppressFailures")]
+        public Input<bool>? SuppressFailures { get; set; }
 
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".

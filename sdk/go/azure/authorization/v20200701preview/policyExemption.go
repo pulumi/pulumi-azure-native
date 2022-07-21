@@ -53,12 +53,6 @@ func NewPolicyExemption(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:authorization:PolicyExemption"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PolicyExemption
 	err := ctx.RegisterResource("azure-native:authorization/v20200701preview:PolicyExemption", name, args, &resource, opts...)
 	if err != nil {

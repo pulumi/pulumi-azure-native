@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An action group resource.
- * API Version: 2019-06-01.
+ * API Version: 2022-06-01.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     if (!opts) {
@@ -60,6 +60,10 @@ export interface GetActionGroupResult {
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
     readonly enabled: boolean;
+    /**
+     * The list of event hub receivers that are part of this action group.
+     */
+    readonly eventHubReceivers?: outputs.insights.EventHubReceiverResponse[];
     /**
      * The short name of the action group. This will be used in SMS messages.
      */

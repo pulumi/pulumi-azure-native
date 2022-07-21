@@ -21,7 +21,7 @@ class GetProductResult:
     """
     Product information.
     """
-    def __init__(__self__, billing_part_number=None, compatibility=None, description=None, display_name=None, etag=None, gallery_item_identity=None, icon_uris=None, id=None, legal_terms=None, links=None, name=None, offer=None, offer_version=None, payload_length=None, privacy_policy=None, product_kind=None, product_properties=None, publisher_display_name=None, publisher_identifier=None, sku=None, type=None, vm_extension_type=None):
+    def __init__(__self__, billing_part_number=None, compatibility=None, description=None, display_name=None, etag=None, gallery_item_identity=None, icon_uris=None, id=None, legal_terms=None, links=None, name=None, offer=None, offer_version=None, payload_length=None, privacy_policy=None, product_kind=None, product_properties=None, publisher_display_name=None, publisher_identifier=None, sku=None, system_data=None, type=None, vm_extension_type=None):
         if billing_part_number and not isinstance(billing_part_number, str):
             raise TypeError("Expected argument 'billing_part_number' to be a str")
         pulumi.set(__self__, "billing_part_number", billing_part_number)
@@ -82,6 +82,9 @@ class GetProductResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -250,6 +253,14 @@ class GetProductResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -292,6 +303,7 @@ class AwaitableGetProductResult(GetProductResult):
             publisher_display_name=self.publisher_display_name,
             publisher_identifier=self.publisher_identifier,
             sku=self.sku,
+            system_data=self.system_data,
             type=self.type,
             vm_extension_type=self.vm_extension_type)
 
@@ -302,7 +314,7 @@ def get_product(product_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
     Product information.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.
@@ -340,6 +352,7 @@ def get_product(product_name: Optional[str] = None,
         publisher_display_name=__ret__.publisher_display_name,
         publisher_identifier=__ret__.publisher_identifier,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         vm_extension_type=__ret__.vm_extension_type)
 
@@ -351,7 +364,7 @@ def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
     Product information.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.

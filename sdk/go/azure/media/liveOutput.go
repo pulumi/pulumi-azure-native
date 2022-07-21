@@ -12,7 +12,7 @@ import (
 )
 
 // The Live Output.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 type LiveOutput struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type LiveOutput struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource state of the live output.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -256,6 +258,11 @@ func (o LiveOutputOutput) ProvisioningState() pulumi.StringOutput {
 // The resource state of the live output.
 func (o LiveOutputOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LiveOutputOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LiveOutput) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

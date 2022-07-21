@@ -18,10 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutomationRuleResult:
-    """
-    Represents an automation rule.
-    """
-    def __init__(__self__, actions=None, created_by=None, created_time_utc=None, display_name=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, order=None, triggering_logic=None, type=None):
+    def __init__(__self__, actions=None, created_by=None, created_time_utc=None, display_name=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, order=None, system_data=None, triggering_logic=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -52,6 +49,9 @@ class GetAutomationRuleResult:
         if order and not isinstance(order, int):
             raise TypeError("Expected argument 'order' to be a int")
         pulumi.set(__self__, "order", order)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if triggering_logic and not isinstance(triggering_logic, dict):
             raise TypeError("Expected argument 'triggering_logic' to be a dict")
         pulumi.set(__self__, "triggering_logic", triggering_logic)
@@ -71,7 +71,7 @@ class GetAutomationRuleResult:
     @pulumi.getter(name="createdBy")
     def created_by(self) -> 'outputs.ClientInfoResponse':
         """
-        Describes the client that created the automation rule
+        Information on the client (user or application) that made some action
         """
         return pulumi.get(self, "created_by")
 
@@ -87,7 +87,7 @@ class GetAutomationRuleResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
-        The display name of the automation  rule
+        The display name of the automation rule
         """
         return pulumi.get(self, "display_name")
 
@@ -103,7 +103,7 @@ class GetAutomationRuleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -111,7 +111,7 @@ class GetAutomationRuleResult:
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> 'outputs.ClientInfoResponse':
         """
-        Describes the client that last updated the automation rule
+        Information on the client (user or application) that made some action
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -127,7 +127,7 @@ class GetAutomationRuleResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -140,10 +140,18 @@ class GetAutomationRuleResult:
         return pulumi.get(self, "order")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="triggeringLogic")
     def triggering_logic(self) -> 'outputs.AutomationRuleTriggeringLogicResponse':
         """
-        The triggering logic of the automation rule
+        Describes automation rule triggering logic
         """
         return pulumi.get(self, "triggering_logic")
 
@@ -151,7 +159,7 @@ class GetAutomationRuleResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -172,28 +180,25 @@ class AwaitableGetAutomationRuleResult(GetAutomationRuleResult):
             last_modified_time_utc=self.last_modified_time_utc,
             name=self.name,
             order=self.order,
+            system_data=self.system_data,
             triggering_logic=self.triggering_logic,
             type=self.type)
 
 
 def get_automation_rule(automation_rule_id: Optional[str] = None,
-                        operational_insights_resource_provider: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
-    Represents an automation rule.
-    API Version: 2019-01-01-preview.
+    API Version: 2021-10-01.
 
 
     :param str automation_rule_id: Automation rule ID
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['automationRuleId'] = automation_rule_id
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:
@@ -213,24 +218,22 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
         last_modified_time_utc=__ret__.last_modified_time_utc,
         name=__ret__.name,
         order=__ret__.order,
+        system_data=__ret__.system_data,
         triggering_logic=__ret__.triggering_logic,
         type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_automation_rule)
 def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] = None,
-                               operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
-    Represents an automation rule.
-    API Version: 2019-01-01-preview.
+    API Version: 2021-10-01.
 
 
     :param str automation_rule_id: Automation rule ID
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     ...

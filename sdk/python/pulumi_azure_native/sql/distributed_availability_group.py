@@ -161,7 +161,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Distributed availability group between box and Sql Managed Instance.
-        API Version: 2021-05-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +182,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Distributed availability group between box and Sql Managed Instance.
-        API Version: 2021-05-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DistributedAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.

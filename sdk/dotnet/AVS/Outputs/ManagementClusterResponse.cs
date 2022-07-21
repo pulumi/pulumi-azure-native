@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS.Outputs
 {
 
     /// <summary>
-    /// The properties of a default cluster
+    /// The properties of a management cluster
     /// </summary>
     [OutputType]
     public sealed class ManagementClusterResponse

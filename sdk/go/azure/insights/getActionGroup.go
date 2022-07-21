@@ -11,7 +11,7 @@ import (
 )
 
 // An action group resource.
-// API Version: 2019-06-01.
+// API Version: 2022-06-01.
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	var rv LookupActionGroupResult
 	err := ctx.Invoke("azure-native:insights:getActionGroup", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupActionGroupResult struct {
 	EmailReceivers []EmailReceiverResponse `pulumi:"emailReceivers"`
 	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
 	Enabled bool `pulumi:"enabled"`
+	// The list of event hub receivers that are part of this action group.
+	EventHubReceivers []EventHubReceiverResponse `pulumi:"eventHubReceivers"`
 	// The short name of the action group. This will be used in SMS messages.
 	GroupShortName string `pulumi:"groupShortName"`
 	// Azure resource Id
@@ -151,6 +153,11 @@ func (o LookupActionGroupResultOutput) EmailReceivers() EmailReceiverResponseArr
 // Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
 func (o LookupActionGroupResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupActionGroupResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The list of event hub receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) EventHubReceivers() EventHubReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []EventHubReceiverResponse { return v.EventHubReceivers }).(EventHubReceiverResponseArrayOutput)
 }
 
 // The short name of the action group. This will be used in SMS messages.

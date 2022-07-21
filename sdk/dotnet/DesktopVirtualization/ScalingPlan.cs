@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a scaling plan definition.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-07-12.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
@@ -87,12 +87,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [Output("plan")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
-
-        /// <summary>
-        /// The ring number of scaling plan.
-        /// </summary>
-        [Output("ring")]
-        public Output<int?> Ring { get; private set; } = null!;
 
         /// <summary>
         /// List of ScalingSchedule definitions.
@@ -243,12 +237,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The ring number of scaling plan.
-        /// </summary>
-        [Input("ring")]
-        public Input<int>? Ring { get; set; }
 
         /// <summary>
         /// The name of the scaling plan.

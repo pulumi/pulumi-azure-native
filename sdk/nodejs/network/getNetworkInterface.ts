@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A network interface in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     if (!opts) {
@@ -41,6 +41,10 @@ export interface GetNetworkInterfaceArgs {
  * A network interface in a resource group.
  */
 export interface GetNetworkInterfaceResult {
+    /**
+     * Auxiliary mode of Network Interface resource.
+     */
+    readonly auxiliaryMode?: string;
     /**
      * The DNS settings in network interface.
      */
@@ -137,6 +141,14 @@ export interface GetNetworkInterfaceResult {
      * The reference to a virtual machine.
      */
     readonly virtualMachine: outputs.network.SubResourceResponse;
+    /**
+     * Whether the virtual machine this nic is attached to supports encryption.
+     */
+    readonly vnetEncryptionSupported: boolean;
+    /**
+     * WorkloadType of the NetworkInterface for BareMetal resources
+     */
+    readonly workloadType?: string;
 }
 
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {

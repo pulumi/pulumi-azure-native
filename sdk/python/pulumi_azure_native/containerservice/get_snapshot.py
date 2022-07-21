@@ -21,19 +21,34 @@ class GetSnapshotResult:
     """
     A node pool snapshot resource.
     """
-    def __init__(__self__, creation_data=None, id=None, location=None, name=None, snapshot_type=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, creation_data=None, enable_fips=None, id=None, kubernetes_version=None, location=None, name=None, node_image_version=None, os_sku=None, os_type=None, snapshot_type=None, system_data=None, tags=None, type=None, vm_size=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
+        if enable_fips and not isinstance(enable_fips, bool):
+            raise TypeError("Expected argument 'enable_fips' to be a bool")
+        pulumi.set(__self__, "enable_fips", enable_fips)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kubernetes_version and not isinstance(kubernetes_version, str):
+            raise TypeError("Expected argument 'kubernetes_version' to be a str")
+        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if node_image_version and not isinstance(node_image_version, str):
+            raise TypeError("Expected argument 'node_image_version' to be a str")
+        pulumi.set(__self__, "node_image_version", node_image_version)
+        if os_sku and not isinstance(os_sku, str):
+            raise TypeError("Expected argument 'os_sku' to be a str")
+        pulumi.set(__self__, "os_sku", os_sku)
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        pulumi.set(__self__, "os_type", os_type)
         if snapshot_type and not isinstance(snapshot_type, str):
             raise TypeError("Expected argument 'snapshot_type' to be a str")
         pulumi.set(__self__, "snapshot_type", snapshot_type)
@@ -46,6 +61,9 @@ class GetSnapshotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if vm_size and not isinstance(vm_size, str):
+            raise TypeError("Expected argument 'vm_size' to be a str")
+        pulumi.set(__self__, "vm_size", vm_size)
 
     @property
     @pulumi.getter(name="creationData")
@@ -56,18 +74,34 @@ class GetSnapshotResult:
         return pulumi.get(self, "creation_data")
 
     @property
+    @pulumi.getter(name="enableFIPS")
+    def enable_fips(self) -> bool:
+        """
+        Whether to use a FIPS-enabled OS.
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> str:
+        """
+        The version of Kubernetes.
+        """
+        return pulumi.get(self, "kubernetes_version")
 
     @property
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -75,9 +109,33 @@ class GetSnapshotResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeImageVersion")
+    def node_image_version(self) -> str:
+        """
+        The version of node image.
+        """
+        return pulumi.get(self, "node_image_version")
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> str:
+        """
+        Specifies an OS SKU. This value must not be specified if OSType is Windows.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The operating system type. The default is Linux.
+        """
+        return pulumi.get(self, "os_type")
 
     @property
     @pulumi.getter(name="snapshotType")
@@ -91,7 +149,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this snapshot.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -99,7 +157,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -107,9 +165,17 @@ class GetSnapshotResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> str:
+        """
+        The size of the VM.
+        """
+        return pulumi.get(self, "vm_size")
 
 
 class AwaitableGetSnapshotResult(GetSnapshotResult):
@@ -119,13 +185,19 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             yield self
         return GetSnapshotResult(
             creation_data=self.creation_data,
+            enable_fips=self.enable_fips,
             id=self.id,
+            kubernetes_version=self.kubernetes_version,
             location=self.location,
             name=self.name,
+            node_image_version=self.node_image_version,
+            os_sku=self.os_sku,
+            os_type=self.os_type,
             snapshot_type=self.snapshot_type,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vm_size=self.vm_size)
 
 
 def get_snapshot(resource_group_name: Optional[str] = None,
@@ -133,10 +205,10 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     A node pool snapshot resource.
-    API Version: 2021-08-01.
+    API Version: 2022-04-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
     __args__ = dict()
@@ -150,13 +222,19 @@ def get_snapshot(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSnapshotResult(
         creation_data=__ret__.creation_data,
+        enable_fips=__ret__.enable_fips,
         id=__ret__.id,
+        kubernetes_version=__ret__.kubernetes_version,
         location=__ret__.location,
         name=__ret__.name,
+        node_image_version=__ret__.node_image_version,
+        os_sku=__ret__.os_sku,
+        os_type=__ret__.os_type,
         snapshot_type=__ret__.snapshot_type,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        vm_size=__ret__.vm_size)
 
 
 @_utilities.lift_output_func(get_snapshot)
@@ -165,10 +243,10 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     A node pool snapshot resource.
-    API Version: 2021-08-01.
+    API Version: 2022-04-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
     ...

@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AllowedAudiencesValidationResponse',
+    'AllowedPrincipalsResponse',
     'ApiConnectionDefinitionResponseProperties',
     'ApiConnectionTestLinkResponse',
     'ApiDefinitionInfoResponse',
@@ -40,7 +41,6 @@ __all__ = [
     'AzureActiveDirectoryValidationResponse',
     'AzureBlobStorageApplicationLogsConfigResponse',
     'AzureBlobStorageHttpLogsConfigResponse',
-    'AzureResourceErrorInfoResponse',
     'AzureStaticWebAppsRegistrationResponse',
     'AzureStaticWebAppsResponse',
     'AzureStorageInfoValueResponse',
@@ -60,6 +60,7 @@ __all__ = [
     'ConnectionStatusDefinitionResponse',
     'ConsentLinkDefinitionResponse',
     'ContainerAppSecretResponse',
+    'ContainerAppsConfigurationResponse',
     'ContainerResourcesResponse',
     'ContainerResponse',
     'CookieExpirationResponse',
@@ -71,12 +72,11 @@ __all__ = [
     'DaprMetadataResponse',
     'DaprResponse',
     'DatabaseBackupSettingResponse',
+    'DefaultAuthorizationPolicyResponse',
     'EnabledConfigResponse',
     'EnvironmentVarResponse',
     'ErrorEntityResponse',
     'ExperimentsResponse',
-    'ExpressionResponse',
-    'ExpressionRootResponse',
     'ExtendedLocationResponse',
     'FacebookResponse',
     'FileSystemApplicationLogsConfigResponse',
@@ -109,7 +109,6 @@ __all__ = [
     'LoginRoutesResponse',
     'LoginScopesResponse',
     'ManagedServiceIdentityResponse',
-    'ManagedServiceIdentityResponseUserAssignedIdentities',
     'NameValuePairResponse',
     'NonceResponse',
     'OpenIdConnectClientCredentialResponse',
@@ -141,17 +140,16 @@ __all__ = [
     'StaticSiteUserProvidedFunctionAppResponse',
     'StatusCodesBasedTriggerResponse',
     'StatusCodesRangeBasedTriggerResponse',
-    'SystemDataResponse',
     'TemplateResponse',
     'TokenStoreResponse',
     'TrafficWeightResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
+    'UserAssignedIdentityResponse',
     'VirtualApplicationResponse',
     'VirtualDirectoryResponse',
     'VirtualNetworkProfileResponse',
     'VnetRouteResponse',
-    'WorkflowTriggerListCallbackUrlQueriesResponse',
     'WsdlDefinitionResponse',
     'WsdlServiceResponse',
 ]
@@ -194,6 +192,41 @@ class AllowedAudiencesValidationResponse(dict):
         The configuration settings of the allowed list of audiences from which to validate the JWT token.
         """
         return pulumi.get(self, "allowed_audiences")
+
+
+@pulumi.output_type
+class AllowedPrincipalsResponse(dict):
+    """
+    The configuration settings of the Azure Active Directory allowed principals.
+    """
+    def __init__(__self__, *,
+                 groups: Optional[Sequence[str]] = None,
+                 identities: Optional[Sequence[str]] = None):
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        :param Sequence[str] groups: The list of the allowed groups.
+        :param Sequence[str] identities: The list of the allowed identities.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if identities is not None:
+            pulumi.set(__self__, "identities", identities)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        """
+        The list of the allowed groups.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Optional[Sequence[str]]:
+        """
+        The list of the allowed identities.
+        """
+        return pulumi.get(self, "identities")
 
 
 @pulumi.output_type
@@ -1889,6 +1922,8 @@ class AzureActiveDirectoryValidationResponse(dict):
         suggest = None
         if key == "allowedAudiences":
             suggest = "allowed_audiences"
+        elif key == "defaultAuthorizationPolicy":
+            suggest = "default_authorization_policy"
         elif key == "jwtClaimChecks":
             suggest = "jwt_claim_checks"
 
@@ -1905,14 +1940,18 @@ class AzureActiveDirectoryValidationResponse(dict):
 
     def __init__(__self__, *,
                  allowed_audiences: Optional[Sequence[str]] = None,
+                 default_authorization_policy: Optional['outputs.DefaultAuthorizationPolicyResponse'] = None,
                  jwt_claim_checks: Optional['outputs.JwtClaimChecksResponse'] = None):
         """
         The configuration settings of the Azure Active Directory token validation flow.
         :param Sequence[str] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
+        :param 'DefaultAuthorizationPolicyResponse' default_authorization_policy: The configuration settings of the default authorization policy.
         :param 'JwtClaimChecksResponse' jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
         """
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if default_authorization_policy is not None:
+            pulumi.set(__self__, "default_authorization_policy", default_authorization_policy)
         if jwt_claim_checks is not None:
             pulumi.set(__self__, "jwt_claim_checks", jwt_claim_checks)
 
@@ -1923,6 +1962,14 @@ class AzureActiveDirectoryValidationResponse(dict):
         The list of audiences that can make successful authentication/authorization requests.
         """
         return pulumi.get(self, "allowed_audiences")
+
+    @property
+    @pulumi.getter(name="defaultAuthorizationPolicy")
+    def default_authorization_policy(self) -> Optional['outputs.DefaultAuthorizationPolicyResponse']:
+        """
+        The configuration settings of the default authorization policy.
+        """
+        return pulumi.get(self, "default_authorization_policy")
 
     @property
     @pulumi.getter(name="jwtClaimChecks")
@@ -2071,51 +2118,6 @@ class AzureBlobStorageHttpLogsConfigResponse(dict):
         SAS url to a azure blob container with read/write/list/delete permissions.
         """
         return pulumi.get(self, "sas_url")
-
-
-@pulumi.output_type
-class AzureResourceErrorInfoResponse(dict):
-    """
-    The azure resource error info.
-    """
-    def __init__(__self__, *,
-                 code: str,
-                 message: str,
-                 details: Optional[Sequence['outputs.AzureResourceErrorInfoResponse']] = None):
-        """
-        The azure resource error info.
-        :param str code: The error code.
-        :param str message: The error message.
-        :param Sequence['AzureResourceErrorInfoResponse'] details: The error details.
-        """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-
-    @property
-    @pulumi.getter
-    def code(self) -> str:
-        """
-        The error code.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        The error message.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.AzureResourceErrorInfoResponse']]:
-        """
-        The error details.
-        """
-        return pulumi.get(self, "details")
 
 
 @pulumi.output_type
@@ -3448,6 +3450,112 @@ class ContainerAppSecretResponse(dict):
 
 
 @pulumi.output_type
+class ContainerAppsConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSubnetResourceId":
+            suggest = "app_subnet_resource_id"
+        elif key == "controlPlaneSubnetResourceId":
+            suggest = "control_plane_subnet_resource_id"
+        elif key == "daprAIInstrumentationKey":
+            suggest = "dapr_ai_instrumentation_key"
+        elif key == "dockerBridgeCidr":
+            suggest = "docker_bridge_cidr"
+        elif key == "platformReservedCidr":
+            suggest = "platform_reserved_cidr"
+        elif key == "platformReservedDnsIP":
+            suggest = "platform_reserved_dns_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerAppsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerAppsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerAppsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_subnet_resource_id: Optional[str] = None,
+                 control_plane_subnet_resource_id: Optional[str] = None,
+                 dapr_ai_instrumentation_key: Optional[str] = None,
+                 docker_bridge_cidr: Optional[str] = None,
+                 platform_reserved_cidr: Optional[str] = None,
+                 platform_reserved_dns_ip: Optional[str] = None):
+        """
+        :param str app_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        :param str control_plane_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        :param str dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param str docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        :param str platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        :param str platform_reserved_dns_ip: An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+        if app_subnet_resource_id is not None:
+            pulumi.set(__self__, "app_subnet_resource_id", app_subnet_resource_id)
+        if control_plane_subnet_resource_id is not None:
+            pulumi.set(__self__, "control_plane_subnet_resource_id", control_plane_subnet_resource_id)
+        if dapr_ai_instrumentation_key is not None:
+            pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+        if docker_bridge_cidr is not None:
+            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if platform_reserved_cidr is not None:
+            pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
+        if platform_reserved_dns_ip is not None:
+            pulumi.set(__self__, "platform_reserved_dns_ip", platform_reserved_dns_ip)
+
+    @property
+    @pulumi.getter(name="appSubnetResourceId")
+    def app_subnet_resource_id(self) -> Optional[str]:
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "app_subnet_resource_id")
+
+    @property
+    @pulumi.getter(name="controlPlaneSubnetResourceId")
+    def control_plane_subnet_resource_id(self) -> Optional[str]:
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "control_plane_subnet_resource_id")
+
+    @property
+    @pulumi.getter(name="daprAIInstrumentationKey")
+    def dapr_ai_instrumentation_key(self) -> Optional[str]:
+        """
+        Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_instrumentation_key")
+
+    @property
+    @pulumi.getter(name="dockerBridgeCidr")
+    def docker_bridge_cidr(self) -> Optional[str]:
+        """
+        CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "docker_bridge_cidr")
+
+    @property
+    @pulumi.getter(name="platformReservedCidr")
+    def platform_reserved_cidr(self) -> Optional[str]:
+        """
+        IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        """
+        return pulumi.get(self, "platform_reserved_cidr")
+
+    @property
+    @pulumi.getter(name="platformReservedDnsIP")
+    def platform_reserved_dns_ip(self) -> Optional[str]:
+        """
+        An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+        return pulumi.get(self, "platform_reserved_dns_ip")
+
+
+@pulumi.output_type
 class ContainerResourcesResponse(dict):
     """
     Container App container resource requirements.
@@ -4240,6 +4348,60 @@ class DatabaseBackupSettingResponse(dict):
 
 
 @pulumi.output_type
+class DefaultAuthorizationPolicyResponse(dict):
+    """
+    The configuration settings of the Azure Active Directory default authorization policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedApplications":
+            suggest = "allowed_applications"
+        elif key == "allowedPrincipals":
+            suggest = "allowed_principals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultAuthorizationPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultAuthorizationPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultAuthorizationPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_applications: Optional[Sequence[str]] = None,
+                 allowed_principals: Optional['outputs.AllowedPrincipalsResponse'] = None):
+        """
+        The configuration settings of the Azure Active Directory default authorization policy.
+        :param Sequence[str] allowed_applications: The configuration settings of the Azure Active Directory allowed applications.
+        :param 'AllowedPrincipalsResponse' allowed_principals: The configuration settings of the Azure Active Directory allowed principals.
+        """
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_principals is not None:
+            pulumi.set(__self__, "allowed_principals", allowed_principals)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[Sequence[str]]:
+        """
+        The configuration settings of the Azure Active Directory allowed applications.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @property
+    @pulumi.getter(name="allowedPrincipals")
+    def allowed_principals(self) -> Optional['outputs.AllowedPrincipalsResponse']:
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        """
+        return pulumi.get(self, "allowed_principals")
+
+
+@pulumi.output_type
 class EnabledConfigResponse(dict):
     """
     Enabled configuration.
@@ -4354,22 +4516,28 @@ class ErrorEntityResponse(dict):
 
     def __init__(__self__, *,
                  code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.ErrorEntityResponse']] = None,
                  extended_code: Optional[str] = None,
                  inner_errors: Optional[Sequence['outputs.ErrorEntityResponse']] = None,
                  message: Optional[str] = None,
                  message_template: Optional[str] = None,
-                 parameters: Optional[Sequence[str]] = None):
+                 parameters: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None):
         """
         Body of the error response returned from the API.
         :param str code: Basic error code.
+        :param Sequence['ErrorEntityResponse'] details: Error Details.
         :param str extended_code: Type of error.
         :param Sequence['ErrorEntityResponse'] inner_errors: Inner errors.
         :param str message: Any details of the error.
         :param str message_template: Message template.
         :param Sequence[str] parameters: Parameters for the template.
+        :param str target: The error target.
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
         if extended_code is not None:
             pulumi.set(__self__, "extended_code", extended_code)
         if inner_errors is not None:
@@ -4380,6 +4548,8 @@ class ErrorEntityResponse(dict):
             pulumi.set(__self__, "message_template", message_template)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter
@@ -4388,6 +4558,14 @@ class ErrorEntityResponse(dict):
         Basic error code.
         """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.ErrorEntityResponse']]:
+        """
+        Error Details.
+        """
+        return pulumi.get(self, "details")
 
     @property
     @pulumi.getter(name="extendedCode")
@@ -4429,6 +4607,14 @@ class ErrorEntityResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
 
 @pulumi.output_type
 class ExperimentsResponse(dict):
@@ -4468,128 +4654,6 @@ class ExperimentsResponse(dict):
         List of ramp-up rules.
         """
         return pulumi.get(self, "ramp_up_rules")
-
-
-@pulumi.output_type
-class ExpressionResponse(dict):
-    """
-    The expression.
-    """
-    def __init__(__self__, *,
-                 error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
-                 subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
-                 text: Optional[str] = None,
-                 value: Optional[Any] = None):
-        """
-        The expression.
-        :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
-        :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
-        :param str text: The text.
-        """
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if subexpressions is not None:
-            pulumi.set(__self__, "subexpressions", subexpressions)
-        if text is not None:
-            pulumi.set(__self__, "text", text)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.AzureResourceErrorInfoResponse']:
-        """
-        The azure resource error info.
-        """
-        return pulumi.get(self, "error")
-
-    @property
-    @pulumi.getter
-    def subexpressions(self) -> Optional[Sequence['outputs.ExpressionResponse']]:
-        """
-        The sub expressions.
-        """
-        return pulumi.get(self, "subexpressions")
-
-    @property
-    @pulumi.getter
-    def text(self) -> Optional[str]:
-        """
-        The text.
-        """
-        return pulumi.get(self, "text")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[Any]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ExpressionRootResponse(dict):
-    """
-    The expression root.
-    """
-    def __init__(__self__, *,
-                 error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
-                 path: Optional[str] = None,
-                 subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
-                 text: Optional[str] = None,
-                 value: Optional[Any] = None):
-        """
-        The expression root.
-        :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
-        :param str path: The path.
-        :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
-        :param str text: The text.
-        """
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-        if subexpressions is not None:
-            pulumi.set(__self__, "subexpressions", subexpressions)
-        if text is not None:
-            pulumi.set(__self__, "text", text)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.AzureResourceErrorInfoResponse']:
-        """
-        The azure resource error info.
-        """
-        return pulumi.get(self, "error")
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[str]:
-        """
-        The path.
-        """
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter
-    def subexpressions(self) -> Optional[Sequence['outputs.ExpressionResponse']]:
-        """
-        The sub expressions.
-        """
-        return pulumi.get(self, "subexpressions")
-
-    @property
-    @pulumi.getter
-    def text(self) -> Optional[str]:
-        """
-        The text.
-        """
-        return pulumi.get(self, "text")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[Any]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6629,13 +6693,13 @@ class ManagedServiceIdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity.
         :param str principal_id: Principal Id of managed service identity.
         :param str tenant_id: Tenant of managed service identity.
         :param str type: Type of managed service identity.
-        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -6670,59 +6734,11 @@ class ManagedServiceIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: Client Id of user assigned identity
-        :param str principal_id: Principal Id of user assigned identity
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        Client Id of user assigned identity
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        Principal Id of user assigned identity
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -10196,116 +10212,6 @@ class StatusCodesRangeBasedTriggerResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
 class TemplateResponse(dict):
     """
     Container App versioned application definition.
@@ -10633,6 +10539,58 @@ class TwitterResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User Assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User Assigned identity.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class VirtualApplicationResponse(dict):
     """
     Virtual application in an app.
@@ -10945,77 +10903,6 @@ class VnetRouteResponse(dict):
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
         return pulumi.get(self, "start_address")
-
-
-@pulumi.output_type
-class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
-    """
-    Gets the workflow trigger callback URL query parameters.
-    """
-    def __init__(__self__, *,
-                 api_version: Optional[str] = None,
-                 se: Optional[str] = None,
-                 sig: Optional[str] = None,
-                 sp: Optional[str] = None,
-                 sv: Optional[str] = None):
-        """
-        Gets the workflow trigger callback URL query parameters.
-        :param str api_version: The api version.
-        :param str se: The SAS timestamp.
-        :param str sig: The SAS signature.
-        :param str sp: The SAS permissions.
-        :param str sv: The SAS version.
-        """
-        if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
-        if se is not None:
-            pulumi.set(__self__, "se", se)
-        if sig is not None:
-            pulumi.set(__self__, "sig", sig)
-        if sp is not None:
-            pulumi.set(__self__, "sp", sp)
-        if sv is not None:
-            pulumi.set(__self__, "sv", sv)
-
-    @property
-    @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[str]:
-        """
-        The api version.
-        """
-        return pulumi.get(self, "api_version")
-
-    @property
-    @pulumi.getter
-    def se(self) -> Optional[str]:
-        """
-        The SAS timestamp.
-        """
-        return pulumi.get(self, "se")
-
-    @property
-    @pulumi.getter
-    def sig(self) -> Optional[str]:
-        """
-        The SAS signature.
-        """
-        return pulumi.get(self, "sig")
-
-    @property
-    @pulumi.getter
-    def sp(self) -> Optional[str]:
-        """
-        The SAS permissions.
-        """
-        return pulumi.get(self, "sp")
-
-    @property
-    @pulumi.getter
-    def sv(self) -> Optional[str]:
-        """
-        The SAS version.
-        """
-        return pulumi.get(self, "sv")
 
 
 @pulumi.output_type

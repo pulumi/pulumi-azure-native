@@ -11,7 +11,7 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2022-02-01-preview.
+// API Version: 2022-05-01.
 func LookupComponentVersion(ctx *pulumi.Context, args *LookupComponentVersionArgs, opts ...pulumi.InvokeOption) (*LookupComponentVersionResult, error) {
 	var rv LookupComponentVersionResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getComponentVersion", args, &rv, opts...)
@@ -35,7 +35,7 @@ type LookupComponentVersionArgs struct {
 // Azure Resource Manager resource envelope.
 type LookupComponentVersionResult struct {
 	// [Required] Additional attributes of the entity.
-	ComponentVersionDetails ComponentVersionResponse `pulumi:"componentVersionDetails"`
+	ComponentVersionProperties ComponentVersionResponse `pulumi:"componentVersionProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
@@ -52,7 +52,7 @@ func (val *LookupComponentVersionResult) Defaults() *LookupComponentVersionResul
 		return nil
 	}
 	tmp := *val
-	tmp.ComponentVersionDetails = *tmp.ComponentVersionDetails.Defaults()
+	tmp.ComponentVersionProperties = *tmp.ComponentVersionProperties.Defaults()
 
 	return &tmp
 }
@@ -101,8 +101,8 @@ func (o LookupComponentVersionResultOutput) ToLookupComponentVersionResultOutput
 }
 
 // [Required] Additional attributes of the entity.
-func (o LookupComponentVersionResultOutput) ComponentVersionDetails() ComponentVersionResponseOutput {
-	return o.ApplyT(func(v LookupComponentVersionResult) ComponentVersionResponse { return v.ComponentVersionDetails }).(ComponentVersionResponseOutput)
+func (o LookupComponentVersionResultOutput) ComponentVersionProperties() ComponentVersionResponseOutput {
+	return o.ApplyT(func(v LookupComponentVersionResult) ComponentVersionResponse { return v.ComponentVersionProperties }).(ComponentVersionResponseOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

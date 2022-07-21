@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup of a Volume
- * API Version: 2020-12-01.
+ * API Version: 2022-01-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
     if (!opts) {
@@ -94,6 +94,10 @@ export interface GetBackupResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+     */
+    readonly useExistingSnapshot?: boolean;
     /**
      * Volume name
      */

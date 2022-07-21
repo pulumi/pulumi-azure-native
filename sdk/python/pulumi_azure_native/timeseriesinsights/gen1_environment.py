@@ -180,7 +180,7 @@ class Gen1Environment(pulumi.CustomResource):
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +203,7 @@ class Gen1Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param Gen1EnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -264,6 +264,7 @@ class Gen1Environment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["supports_customer_managed_key"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:Gen1Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -301,6 +302,7 @@ class Gen1Environment(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["storage_limit_exceeded_behavior"] = None
+        __props__.__dict__["supports_customer_managed_key"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Gen1Environment(resource_name, opts=opts, __props__=__props__)
@@ -401,6 +403,14 @@ class Gen1Environment(pulumi.CustomResource):
         The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         """
         return pulumi.get(self, "storage_limit_exceeded_behavior")
+
+    @property
+    @pulumi.getter(name="supportsCustomerManagedKey")
+    def supports_customer_managed_key(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+        """
+        return pulumi.get(self, "supports_customer_managed_key")
 
     @property
     @pulumi.getter

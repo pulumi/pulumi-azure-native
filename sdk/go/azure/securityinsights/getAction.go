@@ -11,7 +11,7 @@ import (
 )
 
 // Action for alert rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.InvokeOption) (*LookupActionResult, error) {
 	var rv LookupActionResult
 	err := ctx.Invoke("azure-native:securityinsights:getAction", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.In
 type LookupActionArgs struct {
 	// Action ID
 	ActionId string `pulumi:"actionId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
@@ -36,13 +36,15 @@ type LookupActionArgs struct {
 type LookupActionResult struct {
 	// Etag of the action.
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId string `pulumi:"logicAppResourceId"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The name of the logic app's workflow.
 	WorkflowId *string `pulumi:"workflowId"`
@@ -64,7 +66,7 @@ func LookupActionOutput(ctx *pulumi.Context, args LookupActionOutputArgs, opts .
 type LookupActionOutputArgs struct {
 	// Action ID
 	ActionId pulumi.StringInput `pulumi:"actionId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
@@ -96,7 +98,7 @@ func (o LookupActionResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupActionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupActionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActionResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -106,12 +108,17 @@ func (o LookupActionResultOutput) LogicAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActionResult) string { return v.LogicAppResourceId }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupActionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupActionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupActionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupActionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActionResult) string { return v.Type }).(pulumi.StringOutput)
 }

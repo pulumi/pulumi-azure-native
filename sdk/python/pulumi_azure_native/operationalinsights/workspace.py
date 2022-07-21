@@ -17,7 +17,6 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 e_tag: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input['WorkspaceFeaturesArgs']] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -32,7 +31,6 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] e_tag: The ETag of the workspace.
         :param pulumi.Input['WorkspaceFeaturesArgs'] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -46,8 +44,6 @@ class WorkspaceArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
         if features is not None:
             pulumi.set(__self__, "features", features)
         if force_cmk_for_query is not None:
@@ -82,18 +78,6 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ETag of the workspace.
-        """
-        return pulumi.get(self, "e_tag")
-
-    @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_tag", value)
 
     @property
     @pulumi.getter
@@ -233,7 +217,6 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -249,11 +232,10 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         The top level Workspace resource container.
-        API Version: 2020-10-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: The ETag of the workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -275,7 +257,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level Workspace resource container.
-        API Version: 2020-10-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -292,7 +274,6 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -317,7 +298,6 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["features"] = features
             __props__.__dict__["force_cmk_for_query"] = force_cmk_for_query
             __props__.__dict__["location"] = location
@@ -334,6 +314,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["created_date"] = None
             __props__.__dict__["customer_id"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["modified_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_link_scoped_resources"] = None
@@ -364,7 +345,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["created_date"] = None
         __props__.__dict__["customer_id"] = None
-        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["features"] = None
         __props__.__dict__["force_cmk_for_query"] = None
         __props__.__dict__["location"] = None
@@ -398,12 +379,12 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "customer_id")
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        The ETag of the workspace.
+        The etag of the workspace.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

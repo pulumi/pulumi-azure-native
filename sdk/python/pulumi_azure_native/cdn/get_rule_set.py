@@ -21,7 +21,7 @@ class GetRuleSetResult:
     """
     Friendly RuleSet name mapping to the any RuleSet or secret related information.
     """
-    def __init__(__self__, deployment_status=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, deployment_status=None, id=None, name=None, profile_name=None, provisioning_state=None, system_data=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -31,6 +31,9 @@ class GetRuleSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if profile_name and not isinstance(profile_name, str):
+            raise TypeError("Expected argument 'profile_name' to be a str")
+        pulumi.set(__self__, "profile_name", profile_name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -61,6 +64,14 @@ class GetRuleSetResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> str:
+        """
+        The name of the profile which holds the rule set.
+        """
+        return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -96,6 +107,7 @@ class AwaitableGetRuleSetResult(GetRuleSetResult):
             deployment_status=self.deployment_status,
             id=self.id,
             name=self.name,
+            profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             type=self.type)
@@ -107,10 +119,10 @@ def get_rule_set(profile_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleSetResult:
     """
     Friendly RuleSet name mapping to the any RuleSet or secret related information.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
@@ -128,6 +140,7 @@ def get_rule_set(profile_name: Optional[str] = None,
         deployment_status=__ret__.deployment_status,
         id=__ret__.id,
         name=__ret__.name,
+        profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
@@ -140,10 +153,10 @@ def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleSetResult]:
     """
     Friendly RuleSet name mapping to the any RuleSet or secret related information.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """

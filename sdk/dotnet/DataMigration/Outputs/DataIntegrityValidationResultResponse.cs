@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// List of failed table names of source and target pair
         /// </summary>
-        public readonly ImmutableDictionary<string, string> FailedObjects;
+        public readonly ImmutableDictionary<string, string>? FailedObjects;
         /// <summary>
         /// List of errors that happened while performing data integrity validation
         /// </summary>
-        public readonly Outputs.ValidationErrorResponse ValidationErrors;
+        public readonly Outputs.ValidationErrorResponse? ValidationErrors;
 
         [OutputConstructor]
         private DataIntegrityValidationResultResponse(
-            ImmutableDictionary<string, string> failedObjects,
+            ImmutableDictionary<string, string>? failedObjects,
 
-            Outputs.ValidationErrorResponse validationErrors)
+            Outputs.ValidationErrorResponse? validationErrors)
         {
             FailedObjects = failedObjects;
             ValidationErrors = validationErrors;

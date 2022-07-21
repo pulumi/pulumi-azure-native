@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetAssessmentResult:
     """
-    Security assessment on a resource
+    Security assessment on a resource - response format
     """
     def __init__(__self__, additional_data=None, display_name=None, id=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, status=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
@@ -119,7 +119,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.AssessmentStatusResponse':
+    def status(self) -> 'outputs.AssessmentStatusResponseResponse':
         """
         The result of the assessment
         """
@@ -157,8 +157,8 @@ def get_assessment(assessment_name: Optional[str] = None,
                    resource_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
-    Security assessment on a resource
-    API Version: 2020-01-01.
+    Security assessment on a resource - response format
+    API Version: 2021-06-01.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
@@ -194,8 +194,8 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           resource_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
     """
-    Security assessment on a resource
-    API Version: 2020-01-01.
+    Security assessment on a resource - response format
+    API Version: 2021-06-01.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type

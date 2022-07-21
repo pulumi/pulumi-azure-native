@@ -62,12 +62,6 @@ func NewKustoPoolAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:synapse:KustoPoolAttachedDatabaseConfiguration"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource KustoPoolAttachedDatabaseConfiguration
 	err := ctx.RegisterResource("azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration", name, args, &resource, opts...)
 	if err != nil {

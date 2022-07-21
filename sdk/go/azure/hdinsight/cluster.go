@@ -12,7 +12,7 @@ import (
 )
 
 // The HDInsight cluster.
-// API Version: 2018-06-01-preview.
+// API Version: 2021-06-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -20,16 +20,20 @@ type Cluster struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The identity of the cluster, if configured.
 	Identity ClusterIdentityResponsePtrOutput `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The properties of the cluster.
 	Properties ClusterGetPropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The availability zones.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -101,6 +105,8 @@ type clusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The availability zones.
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -117,6 +123,8 @@ type ClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The availability zones.
+	Zones pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -166,9 +174,9 @@ func (o ClusterOutput) Identity() ClusterIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterIdentityResponsePtrOutput { return v.Identity }).(ClusterIdentityResponsePtrOutput)
 }
 
-// The Azure Region where the resource lives
-func (o ClusterOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+// The geo-location where the resource lives
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the resource
@@ -181,14 +189,24 @@ func (o ClusterOutput) Properties() ClusterGetPropertiesResponseOutput {
 	return o.ApplyT(func(v *Cluster) ClusterGetPropertiesResponseOutput { return v.Properties }).(ClusterGetPropertiesResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ClusterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The availability zones.
+func (o ClusterOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

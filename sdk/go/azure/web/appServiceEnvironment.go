@@ -12,14 +12,14 @@ import (
 )
 
 // App Service Environment ARM resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type AppServiceEnvironment struct {
 	pulumi.CustomResourceState
 
 	// Custom settings for changing the behavior of the App Service Environment.
 	ClusterSettings NameValuePairResponseArrayOutput `pulumi:"clusterSettings"`
 	// Dedicated Host Count
-	DedicatedHostCount pulumi.IntOutput `pulumi:"dedicatedHostCount"`
+	DedicatedHostCount pulumi.IntPtrOutput `pulumi:"dedicatedHostCount"`
 	// DNS suffix of the App Service Environment.
 	DnsSuffix pulumi.StringPtrOutput `pulumi:"dnsSuffix"`
 	// Scale factor for front-ends.
@@ -57,6 +57,8 @@ type AppServiceEnvironment struct {
 	UserWhitelistedIpRanges pulumi.StringArrayOutput `pulumi:"userWhitelistedIpRanges"`
 	// Description of the Virtual Network.
 	VirtualNetwork VirtualNetworkProfileResponseOutput `pulumi:"virtualNetwork"`
+	// Whether or not this App Service Environment is zone-redundant.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewAppServiceEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -148,6 +150,8 @@ func (AppServiceEnvironmentState) ElementType() reflect.Type {
 type appServiceEnvironmentArgs struct {
 	// Custom settings for changing the behavior of the App Service Environment.
 	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
+	// Dedicated Host Count
+	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
 	// DNS suffix of the App Service Environment.
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// Scale factor for front-ends.
@@ -172,12 +176,16 @@ type appServiceEnvironmentArgs struct {
 	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 	// Description of the Virtual Network.
 	VirtualNetwork VirtualNetworkProfile `pulumi:"virtualNetwork"`
+	// Whether or not this App Service Environment is zone-redundant.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a AppServiceEnvironment resource.
 type AppServiceEnvironmentArgs struct {
 	// Custom settings for changing the behavior of the App Service Environment.
 	ClusterSettings NameValuePairArrayInput
+	// Dedicated Host Count
+	DedicatedHostCount pulumi.IntPtrInput
 	// DNS suffix of the App Service Environment.
 	DnsSuffix pulumi.StringPtrInput
 	// Scale factor for front-ends.
@@ -202,6 +210,8 @@ type AppServiceEnvironmentArgs struct {
 	UserWhitelistedIpRanges pulumi.StringArrayInput
 	// Description of the Virtual Network.
 	VirtualNetwork VirtualNetworkProfileInput
+	// Whether or not this App Service Environment is zone-redundant.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (AppServiceEnvironmentArgs) ElementType() reflect.Type {
@@ -247,8 +257,8 @@ func (o AppServiceEnvironmentOutput) ClusterSettings() NameValuePairResponseArra
 }
 
 // Dedicated Host Count
-func (o AppServiceEnvironmentOutput) DedicatedHostCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntOutput { return v.DedicatedHostCount }).(pulumi.IntOutput)
+func (o AppServiceEnvironmentOutput) DedicatedHostCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntPtrOutput { return v.DedicatedHostCount }).(pulumi.IntPtrOutput)
 }
 
 // DNS suffix of the App Service Environment.
@@ -340,6 +350,11 @@ func (o AppServiceEnvironmentOutput) UserWhitelistedIpRanges() pulumi.StringArra
 // Description of the Virtual Network.
 func (o AppServiceEnvironmentOutput) VirtualNetwork() VirtualNetworkProfileResponseOutput {
 	return o.ApplyT(func(v *AppServiceEnvironment) VirtualNetworkProfileResponseOutput { return v.VirtualNetwork }).(VirtualNetworkProfileResponseOutput)
+}
+
+// Whether or not this App Service Environment is zone-redundant.
+func (o AppServiceEnvironmentOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

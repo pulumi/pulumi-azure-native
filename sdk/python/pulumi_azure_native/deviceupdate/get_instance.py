@@ -170,7 +170,7 @@ def get_instance(account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Device Update instance details.
-    API Version: 2020-03-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str account_name: Account name.
@@ -208,7 +208,7 @@ def get_instance_output(account_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Device Update instance details.
-    API Version: 2020-03-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str account_name: Account name.

@@ -12,7 +12,7 @@ import (
 )
 
 // Description of queue Resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -40,15 +40,19 @@ type Queue struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
 	// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
 	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes pulumi.Float64PtrOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
 	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
@@ -58,7 +62,9 @@ type Queue struct {
 	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Resource type
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -158,6 +164,8 @@ type queueArgs struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The namespace name
@@ -198,6 +206,8 @@ type QueueArgs struct {
 	LockDuration pulumi.StringPtrInput
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount pulumi.IntPtrInput
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes pulumi.Float64PtrInput
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The namespace name
@@ -311,6 +321,11 @@ func (o QueueOutput) ForwardTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.ForwardTo }).(pulumi.StringPtrOutput)
 }
 
+// The geo-location where the resource lives
+func (o QueueOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
 // ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
 func (o QueueOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.LockDuration }).(pulumi.StringPtrOutput)
@@ -319,6 +334,11 @@ func (o QueueOutput) LockDuration() pulumi.StringPtrOutput {
 // The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 func (o QueueOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+func (o QueueOutput) MaxMessageSizeInKilobytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.Float64PtrOutput { return v.MaxMessageSizeInKilobytes }).(pulumi.Float64PtrOutput)
 }
 
 // The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
@@ -331,7 +351,7 @@ func (o QueueOutput) MessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v *Queue) pulumi.Float64Output { return v.MessageCount }).(pulumi.Float64Output)
 }
 
-// Resource name
+// The name of the resource
 func (o QueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -356,7 +376,12 @@ func (o QueueOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Resource type
+// The system meta data relating to this resource.
+func (o QueueOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Queue) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o QueueOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

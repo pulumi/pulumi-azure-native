@@ -206,7 +206,7 @@ def get_nat_gateway(expand: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
     Nat Gateway resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -247,7 +247,7 @@ def get_nat_gateway_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Nat Gateway resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

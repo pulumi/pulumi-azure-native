@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LastOutputEventTimestampResponse> LastOutputEventTimestamps;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string? Name;
@@ -41,9 +45,21 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly object? Serialization;
         /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        public readonly double? SizeWindow;
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        public readonly string? TimeWindow;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Settings which determine whether to send watermarks to downstream.
+        /// </summary>
+        public readonly Outputs.OutputWatermarkPropertiesResponse? WatermarkSettings;
 
         [OutputConstructor]
         private OutputResponse(
@@ -55,19 +71,31 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string id,
 
+            ImmutableArray<Outputs.LastOutputEventTimestampResponse> lastOutputEventTimestamps,
+
             string? name,
 
             object? serialization,
 
-            string type)
+            double? sizeWindow,
+
+            string? timeWindow,
+
+            string type,
+
+            Outputs.OutputWatermarkPropertiesResponse? watermarkSettings)
         {
             Datasource = datasource;
             Diagnostics = diagnostics;
             Etag = etag;
             Id = id;
+            LastOutputEventTimestamps = lastOutputEventTimestamps;
             Name = name;
             Serialization = serialization;
+            SizeWindow = sizeWindow;
+            TimeWindow = timeWindow;
             Type = type;
+            WatermarkSettings = watermarkSettings;
         }
     }
 }

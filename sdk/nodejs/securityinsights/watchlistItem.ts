@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a Watchlist item in Azure Security Insights.
- * API Version: 2021-03-01-preview.
+ * Represents a Watchlist Item in Azure Security Insights.
+ * API Version: 2021-10-01.
  */
 export class WatchlistItem extends pulumi.CustomResource {
     /**
@@ -61,7 +61,7 @@ export class WatchlistItem extends pulumi.CustomResource {
      */
     public readonly itemsKeyValue!: pulumi.Output<any>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -73,7 +73,7 @@ export class WatchlistItem extends pulumi.CustomResource {
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -107,9 +107,6 @@ export class WatchlistItem extends pulumi.CustomResource {
             if ((!args || args.itemsKeyValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'itemsKeyValue'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +121,6 @@ export class WatchlistItem extends pulumi.CustomResource {
             resourceInputs["entityMapping"] = args ? args.entityMapping : undefined;
             resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
             resourceInputs["itemsKeyValue"] = args ? args.itemsKeyValue : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["updated"] = args ? args.updated : undefined;
@@ -185,10 +181,6 @@ export interface WatchlistItemArgs {
      */
     itemsKeyValue: any;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -205,7 +197,7 @@ export interface WatchlistItemArgs {
      */
     updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
     /**
-     * Watchlist Alias
+     * The watchlist alias
      */
     watchlistAlias: pulumi.Input<string>;
     /**

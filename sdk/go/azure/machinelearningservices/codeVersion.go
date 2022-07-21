@@ -12,15 +12,15 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 type CodeVersion struct {
 	pulumi.CustomResourceState
 
+	// [Required] Additional attributes of the entity.
+	CodeVersionProperties CodeVersionResponseOutput `pulumi:"codeVersionProperties"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties CodeVersionResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -33,11 +33,11 @@ func NewCodeVersion(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CodeVersionProperties == nil {
+		return nil, errors.New("invalid value for required argument 'CodeVersionProperties'")
+	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
-	}
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -45,6 +45,7 @@ func NewCodeVersion(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	args.CodeVersionProperties = args.CodeVersionProperties.ToCodeVersionTypeOutput().ApplyT(func(v CodeVersionType) CodeVersionType { return *v.Defaults() }).(CodeVersionTypeOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:CodeVersion"),
@@ -89,13 +90,13 @@ func (CodeVersionState) ElementType() reflect.Type {
 }
 
 type codeVersionArgs struct {
-	// Container name.
-	Name string `pulumi:"name"`
 	// [Required] Additional attributes of the entity.
-	Properties CodeVersionType `pulumi:"properties"`
+	CodeVersionProperties CodeVersionType `pulumi:"codeVersionProperties"`
+	// Container name. This is case-sensitive.
+	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Version identifier.
+	// Version identifier. This is case-sensitive.
 	Version *string `pulumi:"version"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -103,13 +104,13 @@ type codeVersionArgs struct {
 
 // The set of arguments for constructing a CodeVersion resource.
 type CodeVersionArgs struct {
-	// Container name.
-	Name pulumi.StringInput
 	// [Required] Additional attributes of the entity.
-	Properties CodeVersionTypeInput
+	CodeVersionProperties CodeVersionTypeInput
+	// Container name. This is case-sensitive.
+	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Version identifier.
+	// Version identifier. This is case-sensitive.
 	Version pulumi.StringPtrInput
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput
@@ -152,17 +153,17 @@ func (o CodeVersionOutput) ToCodeVersionOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o CodeVersionOutput) CodeVersionProperties() CodeVersionResponseOutput {
+	return o.ApplyT(func(v *CodeVersion) CodeVersionResponseOutput { return v.CodeVersionProperties }).(CodeVersionResponseOutput)
+}
+
 // The name of the resource
 func (o CodeVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o CodeVersionOutput) Properties() CodeVersionResponseOutput {
-	return o.ApplyT(func(v *CodeVersion) CodeVersionResponseOutput { return v.Properties }).(CodeVersionResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o CodeVersionOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *CodeVersion) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

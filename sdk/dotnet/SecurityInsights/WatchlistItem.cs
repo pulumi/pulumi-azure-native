@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
-    /// Represents a Watchlist item in Azure Security Insights.
-    /// API Version: 2021-03-01-preview.
+    /// Represents a Watchlist Item in Azure Security Insights.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:WatchlistItem")]
     public partial class WatchlistItem : Pulumi.CustomResource
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<object> ItemsKeyValue { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -190,12 +190,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<object> ItemsKeyValue { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -220,7 +214,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.WatchlistUserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
-        /// Watchlist Alias
+        /// The watchlist alias
         /// </summary>
         [Input("watchlistAlias", required: true)]
         public Input<string> WatchlistAlias { get; set; } = null!;

@@ -11,7 +11,7 @@ import (
 )
 
 // Tag Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupTagByApi(ctx *pulumi.Context, args *LookupTagByApiArgs, opts ...pulumi.InvokeOption) (*LookupTagByApiResult, error) {
 	var rv LookupTagByApiResult
 	err := ctx.Invoke("azure-native:apimanagement:getTagByApi", args, &rv, opts...)
@@ -36,11 +36,11 @@ type LookupTagByApiArgs struct {
 type LookupTagByApiResult struct {
 	// Tag name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -92,17 +92,17 @@ func (o LookupTagByApiResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByApiResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupTagByApiResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByApiResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupTagByApiResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByApiResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupTagByApiResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagByApiResult) string { return v.Type }).(pulumi.StringOutput)
 }

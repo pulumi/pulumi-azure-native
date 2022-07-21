@@ -16,21 +16,36 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
     public sealed class ApplicationHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether warnings are treated with the same severity as errors.
+        /// </summary>
+        [Input("considerWarningAsError", required: true)]
+        public Input<bool> ConsiderWarningAsError { get; set; } = null!;
+
+        /// <summary>
         /// The health policy used by default to evaluate the health of a service type.
         /// </summary>
         [Input("defaultServiceTypeHealthPolicy")]
         public Input<Inputs.ServiceTypeHealthPolicyArgs>? DefaultServiceTypeHealthPolicy { get; set; }
 
-        [Input("serviceTypeHealthPolicies")]
-        private InputMap<Inputs.ServiceTypeHealthPolicyArgs>? _serviceTypeHealthPolicies;
+        /// <summary>
+        /// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+        /// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+        /// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+        /// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+        /// </summary>
+        [Input("maxPercentUnhealthyDeployedApplications", required: true)]
+        public Input<int> MaxPercentUnhealthyDeployedApplications { get; set; } = null!;
+
+        [Input("serviceTypeHealthPolicyMap")]
+        private InputMap<Inputs.ServiceTypeHealthPolicyArgs>? _serviceTypeHealthPolicyMap;
 
         /// <summary>
         /// The map with service type health policy per service type name. The map is empty by default.
         /// </summary>
-        public InputMap<Inputs.ServiceTypeHealthPolicyArgs> ServiceTypeHealthPolicies
+        public InputMap<Inputs.ServiceTypeHealthPolicyArgs> ServiceTypeHealthPolicyMap
         {
-            get => _serviceTypeHealthPolicies ?? (_serviceTypeHealthPolicies = new InputMap<Inputs.ServiceTypeHealthPolicyArgs>());
-            set => _serviceTypeHealthPolicies = value;
+            get => _serviceTypeHealthPolicyMap ?? (_serviceTypeHealthPolicyMap = new InputMap<Inputs.ServiceTypeHealthPolicyArgs>());
+            set => _serviceTypeHealthPolicyMap = value;
         }
 
         public ApplicationHealthPolicyArgs()

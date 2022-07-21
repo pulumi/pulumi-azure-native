@@ -11,7 +11,7 @@ import (
 )
 
 // Device resource.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getDevice", args, &rv, opts...)
@@ -44,6 +44,8 @@ type LookupDeviceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current device status.
 	Status string `pulumi:"status"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -122,6 +124,11 @@ func (o LookupDeviceResultOutput) ProvisioningState() pulumi.StringOutput {
 // The current device status.
 func (o LookupDeviceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupDeviceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDeviceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

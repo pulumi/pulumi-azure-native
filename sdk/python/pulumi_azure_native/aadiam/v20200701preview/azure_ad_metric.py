@@ -151,8 +151,6 @@ class AzureADMetric(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aadiam:azureADMetric")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureADMetric, __self__).__init__(
             'azure-native:aadiam/v20200701preview:azureADMetric',
             resource_name,

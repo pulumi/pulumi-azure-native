@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * vCenter definition.
- * API Version: 2018-07-10.
+ * API Version: 2022-03-01.
  */
 export class ReplicationvCenter extends pulumi.CustomResource {
     /**
@@ -77,7 +77,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["vCenterName"] = args ? args.vCenterName : undefined;
+            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -115,7 +115,7 @@ export interface ReplicationvCenterArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName?: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string>;
 }

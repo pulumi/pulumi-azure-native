@@ -11,7 +11,7 @@ import (
 )
 
 // App resource payload
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
 	err := ctx.Invoke("azure-native:appplatform:getApp", args, &rv, opts...)
@@ -44,6 +44,8 @@ type LookupAppResult struct {
 	Name string `pulumi:"name"`
 	// Properties of the App resource
 	Properties AppResourcePropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -125,6 +127,11 @@ func (o LookupAppResultOutput) Name() pulumi.StringOutput {
 // Properties of the App resource
 func (o LookupAppResultOutput) Properties() AppResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupAppResult) AppResourcePropertiesResponse { return v.Properties }).(AppResourcePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupAppResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAppResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

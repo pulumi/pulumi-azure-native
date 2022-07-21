@@ -116,21 +116,17 @@ class LedgerPropertiesArgs:
     def __init__(__self__, *,
                  aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
                  cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
-                 ledger_storage_account: Optional[pulumi.Input[str]] = None,
                  ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None):
         """
         Additional Confidential Ledger properties.
         :param pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]] aad_based_security_principals: Array of all AAD based Security Principals.
         :param pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]] cert_based_security_principals: Array of all cert based Security Principals.
-        :param pulumi.Input[str] ledger_storage_account: Name of the Blob Storage Account for saving ledger files
         :param pulumi.Input[Union[str, 'LedgerType']] ledger_type: Type of Confidential Ledger
         """
         if aad_based_security_principals is not None:
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
-        if ledger_storage_account is not None:
-            pulumi.set(__self__, "ledger_storage_account", ledger_storage_account)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
 
@@ -157,18 +153,6 @@ class LedgerPropertiesArgs:
     @cert_based_security_principals.setter
     def cert_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]]):
         pulumi.set(self, "cert_based_security_principals", value)
-
-    @property
-    @pulumi.getter(name="ledgerStorageAccount")
-    def ledger_storage_account(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Blob Storage Account for saving ledger files
-        """
-        return pulumi.get(self, "ledger_storage_account")
-
-    @ledger_storage_account.setter
-    def ledger_storage_account(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ledger_storage_account", value)
 
     @property
     @pulumi.getter(name="ledgerType")

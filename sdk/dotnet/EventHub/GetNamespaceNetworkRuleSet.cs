@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.EventHub
     public static class GetNamespaceNetworkRuleSet
     {
         /// <summary>
-        /// Description of NetworkRuleSet resource.
-        /// API Version: 2017-04-01.
+        /// Description of topic resource.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of NetworkRuleSet resource.
-        /// API Version: 2017-04-01.
+        /// Description of topic resource.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
@@ -82,11 +82,27 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly ImmutableArray<Outputs.NWRuleSetIpRulesResponse> IpRules;
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        public readonly bool? TrustedServiceAccessEnabled;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -102,7 +118,15 @@ namespace Pulumi.AzureNative.EventHub
 
             ImmutableArray<Outputs.NWRuleSetIpRulesResponse> ipRules,
 
+            string location,
+
             string name,
+
+            string? publicNetworkAccess,
+
+            Outputs.SystemDataResponse systemData,
+
+            bool? trustedServiceAccessEnabled,
 
             string type,
 
@@ -111,7 +135,11 @@ namespace Pulumi.AzureNative.EventHub
             DefaultAction = defaultAction;
             Id = id;
             IpRules = ipRules;
+            Location = location;
             Name = name;
+            PublicNetworkAccess = publicNetworkAccess;
+            SystemData = systemData;
+            TrustedServiceAccessEnabled = trustedServiceAccessEnabled;
             Type = type;
             VirtualNetworkRules = virtualNetworkRules;
         }

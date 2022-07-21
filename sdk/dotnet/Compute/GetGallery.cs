@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Specifies information about the Shared Image Gallery that you want to create or update.
-        /// API Version: 2020-09-30.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the Shared Image Gallery that you want to create or update.
-        /// API Version: 2020-09-30.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GetGalleryArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The expand query option to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
         /// <summary>
         /// The name of the Shared Image Gallery.
         /// </summary>
@@ -54,6 +60,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GetGalleryInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The expand query option to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         /// <summary>
         /// The name of the Shared Image Gallery.
         /// </summary>
@@ -110,6 +122,14 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SharingProfileResponse? SharingProfile;
         /// <summary>
+        /// Sharing status of current gallery.
+        /// </summary>
+        public readonly Outputs.SharingStatusResponse SharingStatus;
+        /// <summary>
+        /// Contains information about the soft deletion policy of the gallery.
+        /// </summary>
+        public readonly Outputs.SoftDeletePolicyResponse? SoftDeletePolicy;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -134,6 +154,10 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SharingProfileResponse? sharingProfile,
 
+            Outputs.SharingStatusResponse sharingStatus,
+
+            Outputs.SoftDeletePolicyResponse? softDeletePolicy,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -145,6 +169,8 @@ namespace Pulumi.AzureNative.Compute
             Name = name;
             ProvisioningState = provisioningState;
             SharingProfile = sharingProfile;
+            SharingStatus = sharingStatus;
+            SoftDeletePolicy = softDeletePolicy;
             Tags = tags;
             Type = type;
         }

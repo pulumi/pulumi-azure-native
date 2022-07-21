@@ -11,7 +11,7 @@ import (
 )
 
 // Workload group operations for a sql pool
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func LookupSqlPoolWorkloadGroup(ctx *pulumi.Context, args *LookupSqlPoolWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadGroupResult, error) {
 	var rv LookupSqlPoolWorkloadGroupResult
 	err := ctx.Invoke("azure-native:synapse:getSqlPoolWorkloadGroup", args, &rv, opts...)
@@ -28,7 +28,7 @@ type LookupSqlPoolWorkloadGroupArgs struct {
 	SqlPoolName string `pulumi:"sqlPoolName"`
 	// The name of the workload group.
 	WorkloadGroupName string `pulumi:"workloadGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -74,7 +74,7 @@ type LookupSqlPoolWorkloadGroupOutputArgs struct {
 	SqlPoolName pulumi.StringInput `pulumi:"sqlPoolName"`
 	// The name of the workload group.
 	WorkloadGroupName pulumi.StringInput `pulumi:"workloadGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 

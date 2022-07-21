@@ -84,7 +84,7 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCommunicationServiceKeysResult:
     """
     A class representing the access keys of a CommunicationService.
-    API Version: 2020-08-20.
+    API Version: 2021-10-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -112,7 +112,7 @@ def list_communication_service_keys_output(communication_service_name: Optional[
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCommunicationServiceKeysResult]:
     """
     A class representing the access keys of a CommunicationService.
-    API Version: 2020-08-20.
+    API Version: 2021-10-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

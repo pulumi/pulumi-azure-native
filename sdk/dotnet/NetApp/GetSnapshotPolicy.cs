@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Snapshot policy information
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Snapshot policy information
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
@@ -90,15 +90,19 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Schedule for hourly snapshots
         /// </summary>
         public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -106,7 +110,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly Outputs.MonthlyScheduleResponse? MonthlySchedule;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -114,11 +118,15 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -132,6 +140,8 @@ namespace Pulumi.AzureNative.NetApp
 
             bool? enabled,
 
+            string etag,
+
             Outputs.HourlyScheduleResponse? hourlySchedule,
 
             string id,
@@ -144,6 +154,8 @@ namespace Pulumi.AzureNative.NetApp
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -152,12 +164,14 @@ namespace Pulumi.AzureNative.NetApp
         {
             DailySchedule = dailySchedule;
             Enabled = enabled;
+            Etag = etag;
             HourlySchedule = hourlySchedule;
             Id = id;
             Location = location;
             MonthlySchedule = monthlySchedule;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             WeeklySchedule = weeklySchedule;

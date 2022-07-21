@@ -11,14 +11,14 @@ import (
 )
 
 // Class representing an iot hub data connection.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupIotHubDataConnection(ctx *pulumi.Context, args *LookupIotHubDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupIotHubDataConnectionResult, error) {
 	var rv LookupIotHubDataConnectionResult
 	err := ctx.Invoke("azure-native:kusto:getIotHubDataConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupIotHubDataConnectionArgs struct {
@@ -38,6 +38,8 @@ type LookupIotHubDataConnectionResult struct {
 	ConsumerGroup string `pulumi:"consumerGroup"`
 	// The data format of the message. Optionally the data format can be added to each message.
 	DataFormat *string `pulumi:"dataFormat"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed
+	DatabaseRouting *string `pulumi:"databaseRouting"`
 	// System properties of the iot hub
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -61,6 +63,19 @@ type LookupIotHubDataConnectionResult struct {
 	TableName *string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupIotHubDataConnectionResult
+func (val *LookupIotHubDataConnectionResult) Defaults() *LookupIotHubDataConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DatabaseRouting) {
+		databaseRouting_ := "Single"
+		tmp.DatabaseRouting = &databaseRouting_
+	}
+	return &tmp
 }
 
 func LookupIotHubDataConnectionOutput(ctx *pulumi.Context, args LookupIotHubDataConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupIotHubDataConnectionResultOutput {
@@ -114,6 +129,11 @@ func (o LookupIotHubDataConnectionResultOutput) ConsumerGroup() pulumi.StringOut
 // The data format of the message. Optionally the data format can be added to each message.
 func (o LookupIotHubDataConnectionResultOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIotHubDataConnectionResult) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// Indication for database routing information from the data connection, by default only database routing information is allowed
+func (o LookupIotHubDataConnectionResultOutput) DatabaseRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotHubDataConnectionResult) *string { return v.DatabaseRouting }).(pulumi.StringPtrOutput)
 }
 
 // System properties of the iot hub

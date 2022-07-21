@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * API Version: 2021-03-01.
+ * API Version: 2022-05-01.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     if (!opts) {
@@ -77,9 +77,13 @@ export interface GetCacheResult {
      */
     readonly networkSettings?: outputs.storagecache.CacheNetworkSettingsResponse;
     /**
+     * Specifies the priming jobs defined in the cache.
+     */
+    readonly primingJobs: outputs.storagecache.PrimingJobResponse[];
+    /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Specifies security settings of the cache.
      */
@@ -88,6 +92,10 @@ export interface GetCacheResult {
      * SKU for the Cache.
      */
     readonly sku?: outputs.storagecache.CacheResponseSku;
+    /**
+     * Specifies the space allocation percentage for each storage target in the cache.
+     */
+    readonly spaceAllocation: outputs.storagecache.StorageTargetSpaceAllocationResponse[];
     /**
      * Subnet used for the Cache.
      */
@@ -105,9 +113,17 @@ export interface GetCacheResult {
      */
     readonly type: string;
     /**
+     * Upgrade settings of the Cache.
+     */
+    readonly upgradeSettings?: outputs.storagecache.CacheUpgradeSettingsResponse;
+    /**
      * Upgrade status of the Cache.
      */
-    readonly upgradeStatus?: outputs.storagecache.CacheUpgradeStatusResponse;
+    readonly upgradeStatus: outputs.storagecache.CacheUpgradeStatusResponse;
+    /**
+     * Availability zones for resources. This field should only contain a single element in the array.
+     */
+    readonly zones?: string[];
 }
 
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {

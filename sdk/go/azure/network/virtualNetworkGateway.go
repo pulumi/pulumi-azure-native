@@ -12,7 +12,7 @@ import (
 )
 
 // A common class for general resource information.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,12 @@ type VirtualNetworkGateway struct {
 	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
 	// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
 	CustomRoutes AddressSpaceResponsePtrOutput `pulumi:"customRoutes"`
+	// disableIPSecReplayProtection flag.
+	DisableIPSecReplayProtection pulumi.BoolPtrOutput `pulumi:"disableIPSecReplayProtection"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
+	// EnableBgpRouteTranslationForNat flag.
+	EnableBgpRouteTranslationForNat pulumi.BoolPtrOutput `pulumi:"enableBgpRouteTranslationForNat"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding pulumi.BoolPtrOutput `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -44,6 +48,8 @@ type VirtualNetworkGateway struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// NatRules for virtual network gateway.
+	NatRules VirtualNetworkGatewayNatRuleResponseArrayOutput `pulumi:"natRules"`
 	// The provisioning state of the virtual network gateway resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource GUID property of the virtual network gateway resource.
@@ -235,8 +241,12 @@ type virtualNetworkGatewayArgs struct {
 	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
 	// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
 	CustomRoutes *AddressSpace `pulumi:"customRoutes"`
+	// disableIPSecReplayProtection flag.
+	DisableIPSecReplayProtection *bool `pulumi:"disableIPSecReplayProtection"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
+	// EnableBgpRouteTranslationForNat flag.
+	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -253,6 +263,8 @@ type virtualNetworkGatewayArgs struct {
 	IpConfigurations []VirtualNetworkGatewayIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// NatRules for virtual network gateway.
+	NatRules []VirtualNetworkGatewayNatRuleType `pulumi:"natRules"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
@@ -279,8 +291,12 @@ type VirtualNetworkGatewayArgs struct {
 	BgpSettings BgpSettingsPtrInput
 	// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
 	CustomRoutes AddressSpacePtrInput
+	// disableIPSecReplayProtection flag.
+	DisableIPSecReplayProtection pulumi.BoolPtrInput
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp pulumi.BoolPtrInput
+	// EnableBgpRouteTranslationForNat flag.
+	EnableBgpRouteTranslationForNat pulumi.BoolPtrInput
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding pulumi.BoolPtrInput
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -297,6 +313,8 @@ type VirtualNetworkGatewayArgs struct {
 	IpConfigurations VirtualNetworkGatewayIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// NatRules for virtual network gateway.
+	NatRules VirtualNetworkGatewayNatRuleTypeArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
@@ -367,9 +385,19 @@ func (o VirtualNetworkGatewayOutput) CustomRoutes() AddressSpaceResponsePtrOutpu
 	return o.ApplyT(func(v *VirtualNetworkGateway) AddressSpaceResponsePtrOutput { return v.CustomRoutes }).(AddressSpaceResponsePtrOutput)
 }
 
+// disableIPSecReplayProtection flag.
+func (o VirtualNetworkGatewayOutput) DisableIPSecReplayProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.DisableIPSecReplayProtection }).(pulumi.BoolPtrOutput)
+}
+
 // Whether BGP is enabled for this virtual network gateway or not.
 func (o VirtualNetworkGatewayOutput) EnableBgp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// EnableBgpRouteTranslationForNat flag.
+func (o VirtualNetworkGatewayOutput) EnableBgpRouteTranslationForNat() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.EnableBgpRouteTranslationForNat }).(pulumi.BoolPtrOutput)
 }
 
 // Whether dns forwarding is enabled or not.
@@ -422,6 +450,11 @@ func (o VirtualNetworkGatewayOutput) Location() pulumi.StringPtrOutput {
 // Resource name.
 func (o VirtualNetworkGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// NatRules for virtual network gateway.
+func (o VirtualNetworkGatewayOutput) NatRules() VirtualNetworkGatewayNatRuleResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayNatRuleResponseArrayOutput { return v.NatRules }).(VirtualNetworkGatewayNatRuleResponseArrayOutput)
 }
 
 // The provisioning state of the virtual network gateway resource.

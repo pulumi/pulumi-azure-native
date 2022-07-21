@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An event source that receives its data from an Azure IoTHub.
- * API Version: 2020-05-15.
+ * API Version: 2021-06-30-preview.
  */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
     if (!opts) {

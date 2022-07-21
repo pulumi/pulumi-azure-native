@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Backup of a Volume
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup of a Volume
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
@@ -150,6 +150,10 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        /// </summary>
+        public readonly bool? UseExistingSnapshot;
+        /// <summary>
         /// Volume name
         /// </summary>
         public readonly string VolumeName;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.NetApp
 
             string type,
 
+            bool? useExistingSnapshot,
+
             string volumeName)
         {
             BackupId = backupId;
@@ -191,6 +197,7 @@ namespace Pulumi.AzureNative.NetApp
             ProvisioningState = provisioningState;
             Size = size;
             Type = type;
+            UseExistingSnapshot = useExistingSnapshot;
             VolumeName = volumeName;
         }
     }

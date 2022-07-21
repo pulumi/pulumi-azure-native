@@ -11,7 +11,7 @@ import (
 )
 
 // The response of the GetSsoToken operation.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func GetApiManagementServiceSsoToken(ctx *pulumi.Context, args *GetApiManagementServiceSsoTokenArgs, opts ...pulumi.InvokeOption) (*GetApiManagementServiceSsoTokenResult, error) {
 	var rv GetApiManagementServiceSsoTokenResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiManagementServiceSsoToken", args, &rv, opts...)

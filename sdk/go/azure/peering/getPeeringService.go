@@ -11,7 +11,7 @@ import (
 )
 
 // Peering Service
-// API Version: 2021-01-01.
+// API Version: 2022-01-01.
 func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServiceResult, error) {
 	var rv LookupPeeringServiceResult
 	err := ctx.Invoke("azure-native:peering:getPeeringService", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupPeeringServiceResult struct {
 	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
+	// The Log Analytics Workspace Properties
+	LogAnalyticsWorkspaceProperties *LogAnalyticsWorkspacePropertiesResponse `pulumi:"logAnalyticsWorkspaceProperties"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The location (state/province) of the customer.
@@ -101,6 +103,13 @@ func (o LookupPeeringServiceResultOutput) Id() pulumi.StringOutput {
 // The location of the resource.
 func (o LookupPeeringServiceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Log Analytics Workspace Properties
+func (o LookupPeeringServiceResultOutput) LogAnalyticsWorkspaceProperties() LogAnalyticsWorkspacePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupPeeringServiceResult) *LogAnalyticsWorkspacePropertiesResponse {
+		return v.LogAnalyticsWorkspaceProperties
+	}).(LogAnalyticsWorkspacePropertiesResponsePtrOutput)
 }
 
 // The name of the resource.

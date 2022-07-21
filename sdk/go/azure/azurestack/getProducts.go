@@ -11,7 +11,7 @@ import (
 )
 
 // Pageable list of products.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 func GetProducts(ctx *pulumi.Context, args *GetProductsArgs, opts ...pulumi.InvokeOption) (*GetProductsResult, error) {
 	var rv GetProductsResult
 	err := ctx.Invoke("azure-native:azurestack:getProducts", args, &rv, opts...)

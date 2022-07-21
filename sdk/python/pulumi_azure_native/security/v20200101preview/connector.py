@@ -131,8 +131,6 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["hybrid_compute_settings"] = hybrid_compute_settings
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:Connector")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azure-native:security/v20200101preview:Connector',
             resource_name,

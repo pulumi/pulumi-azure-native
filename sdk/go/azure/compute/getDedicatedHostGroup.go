@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-// API Version: 2020-12-01.
+// API Version: 2021-11-01.
 func LookupDedicatedHostGroup(ctx *pulumi.Context, args *LookupDedicatedHostGroupArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostGroupResult, error) {
 	var rv LookupDedicatedHostGroupResult
 	err := ctx.Invoke("azure-native:compute:getDedicatedHostGroup", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupDedicatedHostGroup(ctx *pulumi.Context, args *LookupDedicatedHostGrou
 }
 
 type LookupDedicatedHostGroupArgs struct {
-	// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+	// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
 	Expand *string `pulumi:"expand"`
 	// The name of the dedicated host group.
 	HostGroupName string `pulumi:"hostGroupName"`
@@ -68,7 +68,7 @@ func LookupDedicatedHostGroupOutput(ctx *pulumi.Context, args LookupDedicatedHos
 }
 
 type LookupDedicatedHostGroupOutputArgs struct {
-	// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+	// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
 	Expand pulumi.StringPtrInput `pulumi:"expand"`
 	// The name of the dedicated host group.
 	HostGroupName pulumi.StringInput `pulumi:"hostGroupName"`

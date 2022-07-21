@@ -5,7 +5,10 @@
 from enum import Enum
 
 __all__ = [
+    'AcquireStorageAccountLock',
     'AgentAutoUpdateStatus',
+    'AlertsState',
+    'AutomationAccountAuthenticationType',
     'BackupItemType',
     'BackupManagementType',
     'ContainerType',
@@ -13,8 +16,10 @@ __all__ = [
     'DataSourceType',
     'DayOfWeek',
     'DiskAccountType',
+    'ExtendedLocationType',
     'FailoverDeploymentModel',
     'HealthStatus',
+    'IAASVMPolicyType',
     'InfrastructureEncryptionState',
     'LastBackupStatus',
     'LicenseType',
@@ -25,9 +30,11 @@ __all__ = [
     'PrivateEndpointConnectionStatus',
     'ProtectedItemHealthStatus',
     'ProtectedItemState',
+    'ProtectionIntentItemType',
     'ProtectionState',
     'ProtectionStatus',
     'ProvisioningState',
+    'RecoveryPlanActionLocation',
     'RecoveryPlanGroupType',
     'ReplicationProtectedItemOperation',
     'ResourceHealthStatus',
@@ -37,10 +44,19 @@ __all__ = [
     'ScheduleRunType',
     'SetMultiVmSyncStatus',
     'SkuName',
+    'SqlServerLicenseType',
     'WeekOfMonth',
     'WorkloadItemType',
     'WorkloadType',
 ]
+
+
+class AcquireStorageAccountLock(str, Enum):
+    """
+    Whether storage account lock is to be acquired for this container or not.
+    """
+    ACQUIRE = "Acquire"
+    NOT_ACQUIRE = "NotAcquire"
 
 
 class AgentAutoUpdateStatus(str, Enum):
@@ -49,6 +65,19 @@ class AgentAutoUpdateStatus(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class AlertsState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class AutomationAccountAuthenticationType(str, Enum):
+    """
+    A value indicating the type authentication to use for automation Account.
+    """
+    RUN_AS_ACCOUNT = "RunAsAccount"
+    SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
 
 
 class BackupItemType(str, Enum):
@@ -109,6 +138,9 @@ class ContainerType(str, Enum):
     SQLAG_WORK_LOAD_CONTAINER = "SQLAGWorkLoadContainer"
     STORAGE_CONTAINER = "StorageContainer"
     GENERIC_CONTAINER = "GenericContainer"
+    MICROSOFT_CLASSIC_COMPUTE_VIRTUAL_MACHINES = "Microsoft.ClassicCompute/virtualMachines"
+    MICROSOFT_COMPUTE_VIRTUAL_MACHINES = "Microsoft.Compute/virtualMachines"
+    AZURE_WORKLOAD_CONTAINER = "AzureWorkloadContainer"
 
 
 class CreateMode(str, Enum):
@@ -160,6 +192,13 @@ class DiskAccountType(str, Enum):
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
 
 
+class ExtendedLocationType(str, Enum):
+    """
+    The extended location type.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
 class FailoverDeploymentModel(str, Enum):
     """
     The failover deployment model.
@@ -177,6 +216,12 @@ class HealthStatus(str, Enum):
     ACTION_REQUIRED = "ActionRequired"
     ACTION_SUGGESTED = "ActionSuggested"
     INVALID = "Invalid"
+
+
+class IAASVMPolicyType(str, Enum):
+    INVALID = "Invalid"
+    V1 = "V1"
+    V2 = "V2"
 
 
 class InfrastructureEncryptionState(str, Enum):
@@ -281,6 +326,18 @@ class ProtectedItemState(str, Enum):
     PROTECTION_PAUSED = "ProtectionPaused"
 
 
+class ProtectionIntentItemType(str, Enum):
+    """
+    backup protectionIntent type.
+    """
+    INVALID = "Invalid"
+    AZURE_RESOURCE_ITEM = "AzureResourceItem"
+    RECOVERY_SERVICE_VAULT_ITEM = "RecoveryServiceVaultItem"
+    AZURE_WORKLOAD_CONTAINER_AUTO_PROTECTION_INTENT = "AzureWorkloadContainerAutoProtectionIntent"
+    AZURE_WORKLOAD_AUTO_PROTECTION_INTENT = "AzureWorkloadAutoProtectionIntent"
+    AZURE_WORKLOAD_SQL_AUTO_PROTECTION_INTENT = "AzureWorkloadSQLAutoProtectionIntent"
+
+
 class ProtectionState(str, Enum):
     """
     Backup state of this backup item.
@@ -314,6 +371,14 @@ class ProvisioningState(str, Enum):
     PENDING = "Pending"
 
 
+class RecoveryPlanActionLocation(str, Enum):
+    """
+    The fabric location.
+    """
+    PRIMARY = "Primary"
+    RECOVERY = "Recovery"
+
+
 class RecoveryPlanGroupType(str, Enum):
     """
     The group type.
@@ -333,6 +398,7 @@ class ReplicationProtectedItemOperation(str, Enum):
     TEST_FAILOVER_CLEANUP = "TestFailoverCleanup"
     FAILBACK = "Failback"
     FINALIZE_FAILBACK = "FinalizeFailback"
+    CANCEL_FAILOVER = "CancelFailover"
     CHANGE_PIT = "ChangePit"
     REPAIR_REPLICATION = "RepairReplication"
     SWITCH_PROTECTION = "SwitchProtection"
@@ -388,6 +454,7 @@ class ScheduleRunType(str, Enum):
     INVALID = "Invalid"
     DAILY = "Daily"
     WEEKLY = "Weekly"
+    HOURLY = "Hourly"
 
 
 class SetMultiVmSyncStatus(str, Enum):
@@ -400,10 +467,20 @@ class SetMultiVmSyncStatus(str, Enum):
 
 class SkuName(str, Enum):
     """
-    The Sku name.
+    Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
     """
     STANDARD = "Standard"
     RS0 = "RS0"
+
+
+class SqlServerLicenseType(str, Enum):
+    """
+    The SQL Server license type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    PAYG = "PAYG"
+    AHUB = "AHUB"
 
 
 class WeekOfMonth(str, Enum):

@@ -8,61 +8,29 @@ using Pulumi;
 namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
-    /// Indicates if the given action rule is enabled or disabled
+    /// Action that should be applied.
     /// </summary>
     [EnumType]
-    public readonly struct ActionRuleStatus : IEquatable<ActionRuleStatus>
+    public readonly struct ActionType : IEquatable<ActionType>
     {
         private readonly string _value;
 
-        private ActionRuleStatus(string value)
+        private ActionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ActionRuleStatus Enabled { get; } = new ActionRuleStatus("Enabled");
-        public static ActionRuleStatus Disabled { get; } = new ActionRuleStatus("Disabled");
+        public static ActionType AddActionGroups { get; } = new ActionType("AddActionGroups");
+        public static ActionType RemoveAllActionGroups { get; } = new ActionType("RemoveAllActionGroups");
 
-        public static bool operator ==(ActionRuleStatus left, ActionRuleStatus right) => left.Equals(right);
-        public static bool operator !=(ActionRuleStatus left, ActionRuleStatus right) => !left.Equals(right);
+        public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
+        public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
 
-        public static explicit operator string(ActionRuleStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionRuleStatus other && Equals(other);
-        public bool Equals(ActionRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(ActionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates type of action rule
-    /// </summary>
-    [EnumType]
-    public readonly struct ActionRuleType : IEquatable<ActionRuleType>
-    {
-        private readonly string _value;
-
-        private ActionRuleType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ActionRuleType Suppression { get; } = new ActionRuleType("Suppression");
-        public static ActionRuleType ActionGroup { get; } = new ActionRuleType("ActionGroup");
-        public static ActionRuleType Diagnostics { get; } = new ActionRuleType("Diagnostics");
-
-        public static bool operator ==(ActionRuleType left, ActionRuleType right) => left.Equals(right);
-        public static bool operator !=(ActionRuleType left, ActionRuleType right) => !left.Equals(right);
-
-        public static explicit operator string(ActionRuleType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionRuleType other && Equals(other);
-        public bool Equals(ActionRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ActionType other && Equals(other);
+        public bool Equals(ActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -102,7 +70,83 @@ namespace Pulumi.AzureNative.AlertsManagement
     }
 
     /// <summary>
-    /// operator for a given condition
+    /// Days of week.
+    /// </summary>
+    [EnumType]
+    public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
+    {
+        private readonly string _value;
+
+        private DaysOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
+        public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
+        public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
+        public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
+        public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
+        public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
+        public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
+
+        public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
+        public static bool operator !=(DaysOfWeek left, DaysOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DaysOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaysOfWeek other && Equals(other);
+        public bool Equals(DaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Field for a given condition.
+    /// </summary>
+    [EnumType]
+    public readonly struct Field : IEquatable<Field>
+    {
+        private readonly string _value;
+
+        private Field(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Field Severity { get; } = new Field("Severity");
+        public static Field MonitorService { get; } = new Field("MonitorService");
+        public static Field MonitorCondition { get; } = new Field("MonitorCondition");
+        public static Field SignalType { get; } = new Field("SignalType");
+        public static Field TargetResourceType { get; } = new Field("TargetResourceType");
+        public static Field TargetResource { get; } = new Field("TargetResource");
+        public static Field TargetResourceGroup { get; } = new Field("TargetResourceGroup");
+        public static Field AlertRuleId { get; } = new Field("AlertRuleId");
+        public static Field AlertRuleName { get; } = new Field("AlertRuleName");
+        public static Field Description { get; } = new Field("Description");
+        public static Field AlertContext { get; } = new Field("AlertContext");
+
+        public static bool operator ==(Field left, Field right) => left.Equals(right);
+        public static bool operator !=(Field left, Field right) => !left.Equals(right);
+
+        public static explicit operator string(Field value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Field other && Equals(other);
+        public bool Equals(Field other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator for a given condition.
     /// </summary>
     [EnumType]
     public readonly struct Operator : IEquatable<Operator>
@@ -135,30 +179,30 @@ namespace Pulumi.AzureNative.AlertsManagement
     }
 
     /// <summary>
-    /// type of target scope
+    /// Specifies when the recurrence should be applied.
     /// </summary>
     [EnumType]
-    public readonly struct ScopeType : IEquatable<ScopeType>
+    public readonly struct RecurrenceType : IEquatable<RecurrenceType>
     {
         private readonly string _value;
 
-        private ScopeType(string value)
+        private RecurrenceType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ScopeType ResourceGroup { get; } = new ScopeType("ResourceGroup");
-        public static ScopeType Resource { get; } = new ScopeType("Resource");
-        public static ScopeType Subscription { get; } = new ScopeType("Subscription");
+        public static RecurrenceType Daily { get; } = new RecurrenceType("Daily");
+        public static RecurrenceType Weekly { get; } = new RecurrenceType("Weekly");
+        public static RecurrenceType Monthly { get; } = new RecurrenceType("Monthly");
 
-        public static bool operator ==(ScopeType left, ScopeType right) => left.Equals(right);
-        public static bool operator !=(ScopeType left, ScopeType right) => !left.Equals(right);
+        public static bool operator ==(RecurrenceType left, RecurrenceType right) => left.Equals(right);
+        public static bool operator !=(RecurrenceType left, RecurrenceType right) => !left.Equals(right);
 
-        public static explicit operator string(ScopeType value) => value._value;
+        public static explicit operator string(RecurrenceType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ScopeType other && Equals(other);
-        public bool Equals(ScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is RecurrenceType other && Equals(other);
+        public bool Equals(RecurrenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -193,40 +237,6 @@ namespace Pulumi.AzureNative.AlertsManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Severity other && Equals(other);
         public bool Equals(Severity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies when the suppression should be applied
-    /// </summary>
-    [EnumType]
-    public readonly struct SuppressionType : IEquatable<SuppressionType>
-    {
-        private readonly string _value;
-
-        private SuppressionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SuppressionType Always { get; } = new SuppressionType("Always");
-        public static SuppressionType Once { get; } = new SuppressionType("Once");
-        public static SuppressionType Daily { get; } = new SuppressionType("Daily");
-        public static SuppressionType Weekly { get; } = new SuppressionType("Weekly");
-        public static SuppressionType Monthly { get; } = new SuppressionType("Monthly");
-
-        public static bool operator ==(SuppressionType left, SuppressionType right) => left.Equals(right);
-        public static bool operator !=(SuppressionType left, SuppressionType right) => !left.Equals(right);
-
-        public static explicit operator string(SuppressionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SuppressionType other && Equals(other);
-        public bool Equals(SuppressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

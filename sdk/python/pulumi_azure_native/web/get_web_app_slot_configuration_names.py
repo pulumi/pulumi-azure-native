@@ -120,7 +120,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotConfigurationNamesResult:
     """
     Slot Config names azure resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -151,7 +151,7 @@ def get_web_app_slot_configuration_names_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotConfigurationNamesResult]:
     """
     Slot Config names azure resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

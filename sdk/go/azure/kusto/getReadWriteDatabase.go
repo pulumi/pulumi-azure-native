@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing a read write database.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupReadWriteDatabase(ctx *pulumi.Context, args *LookupReadWriteDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupReadWriteDatabaseResult, error) {
 	var rv LookupReadWriteDatabaseResult
 	err := ctx.Invoke("azure-native:kusto:getReadWriteDatabase", args, &rv, opts...)

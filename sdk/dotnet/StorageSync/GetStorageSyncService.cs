@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Storage Sync Service object.
-        /// API Version: 2020-03-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Storage Sync Service object.
-        /// API Version: 2020-03-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetStorageSyncServiceResult> Invoke(GetStorageSyncServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceInvokeArgs(), options.WithDefaults());
@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string StorageSyncServiceUid;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.StorageSync
 
             string storageSyncServiceUid,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNative.StorageSync
             ProvisioningState = provisioningState;
             StorageSyncServiceStatus = storageSyncServiceStatus;
             StorageSyncServiceUid = storageSyncServiceUid;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -11,7 +11,7 @@ import (
 )
 
 // Virtual Network resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetwork", args, &rv, opts...)
@@ -44,10 +44,14 @@ type LookupVirtualNetworkResult struct {
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
+	// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+	Encryption *VirtualNetworkEncryptionResponse `pulumi:"encryption"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The extended location of the virtual network.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	// The FlowTimeout value (in minutes) for the Virtual Network
+	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.
@@ -158,6 +162,11 @@ func (o LookupVirtualNetworkResultOutput) EnableVmProtection() pulumi.BoolPtrOut
 	return o.ApplyT(func(v LookupVirtualNetworkResult) *bool { return v.EnableVmProtection }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+func (o LookupVirtualNetworkResultOutput) Encryption() VirtualNetworkEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *VirtualNetworkEncryptionResponse { return v.Encryption }).(VirtualNetworkEncryptionResponsePtrOutput)
+}
+
 // A unique read-only string that changes whenever the resource is updated.
 func (o LookupVirtualNetworkResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Etag }).(pulumi.StringOutput)
@@ -166,6 +175,11 @@ func (o LookupVirtualNetworkResultOutput) Etag() pulumi.StringOutput {
 // The extended location of the virtual network.
 func (o LookupVirtualNetworkResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The FlowTimeout value (in minutes) for the Virtual Network
+func (o LookupVirtualNetworkResultOutput) FlowTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *int { return v.FlowTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Resource ID.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Push settings for the App.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
     if (!opts) {

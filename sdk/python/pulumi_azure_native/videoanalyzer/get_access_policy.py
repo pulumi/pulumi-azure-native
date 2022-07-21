@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetAccessPolicyResult:
     """
-    Policy that determines how a video can be accessed.
+    Access policies help define the authentication rules, and control access to specific video resources.
     """
     def __init__(__self__, authentication=None, id=None, name=None, role=None, system_data=None, type=None):
         if authentication and not isinstance(authentication, dict):
@@ -77,7 +77,7 @@ class GetAccessPolicyResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -109,11 +109,11 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
-    Policy that determines how a video can be accessed.
-    API Version: 2021-05-01-preview.
+    Access policies help define the authentication rules, and control access to specific video resources.
+    API Version: 2021-11-01-preview.
 
 
-    :param str access_policy_name: The name of the access policy to retrieve.
+    :param str access_policy_name: The Access Policy name.
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -142,11 +142,11 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
-    Policy that determines how a video can be accessed.
-    API Version: 2021-05-01-preview.
+    Access policies help define the authentication rules, and control access to specific video resources.
+    API Version: 2021-11-01-preview.
 
 
-    :param str access_policy_name: The name of the access policy to retrieve.
+    :param str access_policy_name: The Access Policy name.
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

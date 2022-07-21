@@ -10,14 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-type KustomizationValidationType string
+// The identity type.
+type AKSIdentityType string
 
 const (
-	KustomizationValidationTypeNone   = KustomizationValidationType("none")
-	KustomizationValidationTypeClient = KustomizationValidationType("client")
-	KustomizationValidationTypeServer = KustomizationValidationType("server")
+	AKSIdentityTypeSystemAssigned = AKSIdentityType("SystemAssigned")
+	AKSIdentityTypeUserAssigned   = AKSIdentityType("UserAssigned")
 )
+
+func (AKSIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSIdentityType)(nil)).Elem()
+}
+
+func (e AKSIdentityType) ToAKSIdentityTypeOutput() AKSIdentityTypeOutput {
+	return pulumi.ToOutput(e).(AKSIdentityTypeOutput)
+}
+
+func (e AKSIdentityType) ToAKSIdentityTypeOutputWithContext(ctx context.Context) AKSIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AKSIdentityTypeOutput)
+}
+
+func (e AKSIdentityType) ToAKSIdentityTypePtrOutput() AKSIdentityTypePtrOutput {
+	return e.ToAKSIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e AKSIdentityType) ToAKSIdentityTypePtrOutputWithContext(ctx context.Context) AKSIdentityTypePtrOutput {
+	return AKSIdentityType(e).ToAKSIdentityTypeOutputWithContext(ctx).ToAKSIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e AKSIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AKSIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AKSIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AKSIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AKSIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (AKSIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSIdentityType)(nil)).Elem()
+}
+
+func (o AKSIdentityTypeOutput) ToAKSIdentityTypeOutput() AKSIdentityTypeOutput {
+	return o
+}
+
+func (o AKSIdentityTypeOutput) ToAKSIdentityTypeOutputWithContext(ctx context.Context) AKSIdentityTypeOutput {
+	return o
+}
+
+func (o AKSIdentityTypeOutput) ToAKSIdentityTypePtrOutput() AKSIdentityTypePtrOutput {
+	return o.ToAKSIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o AKSIdentityTypeOutput) ToAKSIdentityTypePtrOutputWithContext(ctx context.Context) AKSIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSIdentityType) *AKSIdentityType {
+		return &v
+	}).(AKSIdentityTypePtrOutput)
+}
+
+func (o AKSIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AKSIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AKSIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AKSIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AKSIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AKSIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AKSIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AKSIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSIdentityType)(nil)).Elem()
+}
+
+func (o AKSIdentityTypePtrOutput) ToAKSIdentityTypePtrOutput() AKSIdentityTypePtrOutput {
+	return o
+}
+
+func (o AKSIdentityTypePtrOutput) ToAKSIdentityTypePtrOutputWithContext(ctx context.Context) AKSIdentityTypePtrOutput {
+	return o
+}
+
+func (o AKSIdentityTypePtrOutput) Elem() AKSIdentityTypeOutput {
+	return o.ApplyT(func(v *AKSIdentityType) AKSIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret AKSIdentityType
+		return ret
+	}).(AKSIdentityTypeOutput)
+}
+
+func (o AKSIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AKSIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AKSIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AKSIdentityTypeInput is an input type that accepts AKSIdentityTypeArgs and AKSIdentityTypeOutput values.
+// You can construct a concrete instance of `AKSIdentityTypeInput` via:
+//
+//          AKSIdentityTypeArgs{...}
+type AKSIdentityTypeInput interface {
+	pulumi.Input
+
+	ToAKSIdentityTypeOutput() AKSIdentityTypeOutput
+	ToAKSIdentityTypeOutputWithContext(context.Context) AKSIdentityTypeOutput
+}
+
+var aksidentityTypePtrType = reflect.TypeOf((**AKSIdentityType)(nil)).Elem()
+
+type AKSIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToAKSIdentityTypePtrOutput() AKSIdentityTypePtrOutput
+	ToAKSIdentityTypePtrOutputWithContext(context.Context) AKSIdentityTypePtrOutput
+}
+
+type aksidentityTypePtr string
+
+func AKSIdentityTypePtr(v string) AKSIdentityTypePtrInput {
+	return (*aksidentityTypePtr)(&v)
+}
+
+func (*aksidentityTypePtr) ElementType() reflect.Type {
+	return aksidentityTypePtrType
+}
+
+func (in *aksidentityTypePtr) ToAKSIdentityTypePtrOutput() AKSIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(AKSIdentityTypePtrOutput)
+}
+
+func (in *aksidentityTypePtr) ToAKSIdentityTypePtrOutputWithContext(ctx context.Context) AKSIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AKSIdentityTypePtrOutput)
+}
 
 // Level of the status.
 type LevelType string
@@ -43,31 +199,11 @@ const (
 	OperatorTypeFlux = OperatorType("Flux")
 )
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-type PrivateEndpointServiceConnectionStatus string
-
-const (
-	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
-	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
-	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
-)
-
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-type PublicNetworkAccessType string
-
-const (
-	// Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-	PublicNetworkAccessTypeEnabled = PublicNetworkAccessType("Enabled")
-	// Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-	PublicNetworkAccessTypeDisabled = PublicNetworkAccessType("Disabled")
-)
-
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+// The identity type.
 type ResourceIdentityType string
 
 const (
 	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
-	ResourceIdentityTypeNone           = ResourceIdentityType("None")
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {
@@ -240,9 +376,13 @@ type SourceKindType string
 
 const (
 	SourceKindTypeGitRepository = SourceKindType("GitRepository")
+	SourceKindTypeBucket        = SourceKindType("Bucket")
+	SourceKindTypeAzureBlob     = SourceKindType("AzureBlob")
 )
 
 func init() {
+	pulumi.RegisterOutputType(AKSIdentityTypeOutput{})
+	pulumi.RegisterOutputType(AKSIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 }

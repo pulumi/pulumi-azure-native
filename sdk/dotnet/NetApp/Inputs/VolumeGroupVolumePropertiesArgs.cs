@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.EnableSubvolumes>? EnableSubvolumes { get; set; }
 
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         /// </summary>
         [Input("encryptionKeySource")]
-        public Input<string>? EncryptionKeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.EncryptionKeySource>? EncryptionKeySource { get; set; }
 
         /// <summary>
         /// Set of export policy rules
@@ -241,6 +241,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
             DefaultGroupQuotaInKiBs = 0;
             DefaultUserQuotaInKiBs = 0;
             EnableSubvolumes = "Disabled";
+            EncryptionKeySource = "Microsoft.NetApp";
             IsDefaultQuotaEnabled = false;
             KerberosEnabled = false;
             LdapEnabled = false;

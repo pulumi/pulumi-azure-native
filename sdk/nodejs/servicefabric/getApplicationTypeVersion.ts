@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * An application type version resource for the specified application type name resource.
- * API Version: 2020-03-01.
+ * API Version: 2022-01-01.
  */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
     if (!opts) {
@@ -50,19 +51,11 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly appPackageUrl: string;
     /**
-     * List of application type parameters that can be overridden when creating or updating the application.
-     */
-    readonly defaultParameterList: {[key: string]: string};
-    /**
-     * Azure resource etag.
-     */
-    readonly etag: string;
-    /**
      * Azure resource identifier.
      */
     readonly id: string;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     readonly location?: string;
     /**
@@ -73,6 +66,10 @@ export interface GetApplicationTypeVersionResult {
      * The current deployment or provisioning state, which only appears in the response
      */
     readonly provisioningState: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */

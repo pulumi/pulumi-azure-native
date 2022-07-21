@@ -11,7 +11,7 @@ import (
 )
 
 // Workload classifier operations for a data warehouse
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadClassifierResult, error) {
 	var rv LookupSqlPoolWorkloadClassifierResult
 	err := ctx.Invoke("azure-native:synapse:getSqlPoolWorkloadClassifier", args, &rv, opts...)
@@ -30,7 +30,7 @@ type LookupSqlPoolWorkloadClassifierArgs struct {
 	WorkloadClassifierName string `pulumi:"workloadClassifierName"`
 	// The name of the workload group.
 	WorkloadGroupName string `pulumi:"workloadGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -78,7 +78,7 @@ type LookupSqlPoolWorkloadClassifierOutputArgs struct {
 	WorkloadClassifierName pulumi.StringInput `pulumi:"workloadClassifierName"`
 	// The name of the workload group.
 	WorkloadGroupName pulumi.StringInput `pulumi:"workloadGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 

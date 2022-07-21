@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get User Token response details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getUserSharedAccessToken(args: GetUserSharedAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSharedAccessTokenResult> {
     if (!opts) {

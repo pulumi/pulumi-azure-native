@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// 
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the parent resource (namely, either, the topic name or domain name).
+        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
         /// </summary>
         [Input("parentName", required: true)]
         public string ParentName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the parent resource. This can be either \'topics\' or \'domains\'.
+        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
         /// </summary>
         [Input("parentType", required: true)]
         public string ParentType { get; set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the parent resource (namely, either, the topic name or domain name).
+        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
         /// </summary>
         [Input("parentName", required: true)]
         public Input<string> ParentName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the parent resource. This can be either \'topics\' or \'domains\'.
+        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
         /// </summary>
         [Input("parentType", required: true)]
         public Input<string> ParentType { get; set; } = null!;

@@ -27,12 +27,6 @@ func NewIngestionSetting(ctx *pulumi.Context,
 		args = &IngestionSettingArgs{}
 	}
 
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:IngestionSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource IngestionSetting
 	err := ctx.RegisterResource("azure-native:security/v20210115preview:IngestionSetting", name, args, &resource, opts...)
 	if err != nil {

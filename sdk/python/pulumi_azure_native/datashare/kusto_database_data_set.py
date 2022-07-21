@@ -126,7 +126,7 @@ class KustoDatabaseDataSet(pulumi.CustomResource):
                  __props__=None):
         """
         A kusto database data set.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class KustoDatabaseDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A kusto database data set.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param KustoDatabaseDataSetArgs args: The arguments to use to populate this resource's properties.

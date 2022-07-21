@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// A class representing a CommunicationService resource.
-        /// API Version: 2020-08-20.
+        /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class representing a CommunicationService resource.
-        /// API Version: 2020-08-20.
+        /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithDefaults());
@@ -86,9 +86,13 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string ImmutableResourceId;
         /// <summary>
-        /// The Azure location where the CommunicationService is running.
+        /// List of email Domain resource Ids.
         /// </summary>
-        public readonly string? Location;
+        public readonly ImmutableArray<string> LinkedDomains;
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -102,11 +106,11 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -128,7 +132,9 @@ namespace Pulumi.AzureNative.Communication
 
             string immutableResourceId,
 
-            string? location,
+            ImmutableArray<string> linkedDomains,
+
+            string location,
 
             string name,
 
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.Communication
             HostName = hostName;
             Id = id;
             ImmutableResourceId = immutableResourceId;
+            LinkedDomains = linkedDomains;
             Location = location;
             Name = name;
             NotificationHubId = notificationHubId;

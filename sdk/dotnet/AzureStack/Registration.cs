@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStack
 {
     /// <summary>
     /// Registration information.
-    /// API Version: 2017-06-01.
+    /// API Version: 2020-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:Registration")]
     public partial class Registration : Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.AzureStack
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The kind of the resource.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
@@ -51,6 +57,12 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         [Output("objectId")]
         public Output<string?> ObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Custom tags for the resource.

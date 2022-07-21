@@ -113,7 +113,7 @@ class PartnerConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Partner configuration information
-        API Version: 2021-10-15-preview.
+        API Version: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class PartnerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Partner configuration information
-        API Version: 2021-10-15-preview.
+        API Version: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerConfigurationArgs args: The arguments to use to populate this resource's properties.

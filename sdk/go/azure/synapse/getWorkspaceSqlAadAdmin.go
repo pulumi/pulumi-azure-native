@@ -11,7 +11,7 @@ import (
 )
 
 // Workspace active directory administrator
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func LookupWorkspaceSqlAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceSqlAadAdminArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceSqlAadAdminResult, error) {
 	var rv LookupWorkspaceSqlAadAdminResult
 	err := ctx.Invoke("azure-native:synapse:getWorkspaceSqlAadAdmin", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupWorkspaceSqlAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceSqlAad
 type LookupWorkspaceSqlAadAdminArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -62,7 +62,7 @@ func LookupWorkspaceSqlAadAdminOutput(ctx *pulumi.Context, args LookupWorkspaceS
 type LookupWorkspaceSqlAadAdminOutputArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 

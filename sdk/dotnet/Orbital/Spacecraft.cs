@@ -11,23 +11,11 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a spacecraft resource to schedule a contact.
-    /// API Version: 2021-04-04-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Spacecraft")]
     public partial class Spacecraft : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Authorization status of spacecraft.
-        /// </summary>
-        [Output("authorizationStatus")]
-        public Output<string> AuthorizationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Details of the authorization status.
-        /// </summary>
-        [Output("authorizationStatusExtended")]
-        public Output<string> AuthorizationStatusExtended { get; private set; } = null!;
-
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -35,7 +23,7 @@ namespace Pulumi.AzureNative.Orbital
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Links of the Spacecraft
+        /// Immutable list of Spacecraft links.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.SpacecraftLinkResponse>> Links { get; private set; } = null!;
@@ -71,19 +59,19 @@ namespace Pulumi.AzureNative.Orbital
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Title line of Two Line Element (TLE).
+        /// Title line of the two-line element set (TLE).
         /// </summary>
         [Output("titleLine")]
         public Output<string?> TitleLine { get; private set; } = null!;
 
         /// <summary>
-        /// Line 1 of Two Line Element (TLE).
+        /// Line 1 of the two-line element set (TLE).
         /// </summary>
         [Output("tleLine1")]
         public Output<string?> TleLine1 { get; private set; } = null!;
 
         /// <summary>
-        /// Line 2 of Two Line Element (TLE).
+        /// Line 2 of the two-line element set (TLE).
         /// </summary>
         [Output("tleLine2")]
         public Output<string?> TleLine2 { get; private set; } = null!;
@@ -148,7 +136,7 @@ namespace Pulumi.AzureNative.Orbital
         private InputList<Inputs.SpacecraftLinkArgs>? _links;
 
         /// <summary>
-        /// Links of the Spacecraft
+        /// Immutable list of Spacecraft links.
         /// </summary>
         public InputList<Inputs.SpacecraftLinkArgs> Links
         {
@@ -175,7 +163,7 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName")]
         public Input<string>? SpacecraftName { get; set; }
@@ -193,19 +181,19 @@ namespace Pulumi.AzureNative.Orbital
         }
 
         /// <summary>
-        /// Title line of Two Line Element (TLE).
+        /// Title line of the two-line element set (TLE).
         /// </summary>
         [Input("titleLine")]
         public Input<string>? TitleLine { get; set; }
 
         /// <summary>
-        /// Line 1 of Two Line Element (TLE).
+        /// Line 1 of the two-line element set (TLE).
         /// </summary>
         [Input("tleLine1")]
         public Input<string>? TleLine1 { get; set; }
 
         /// <summary>
-        /// Line 2 of Two Line Element (TLE).
+        /// Line 2 of the two-line element set (TLE).
         /// </summary>
         [Input("tleLine2")]
         public Input<string>? TleLine2 { get; set; }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     {
         /// <summary>
         /// A SQL Server availability group listener.
-        /// API Version: 2017-03-01-preview.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL Server availability group listener.
-        /// API Version: 2017-03-01-preview.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithDefaults());
@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Input("availabilityGroupListenerName", required: true)]
         public string AvailabilityGroupListenerName { get; set; } = null!;
+
+        /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -61,6 +67,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Input<string> AvailabilityGroupListenerName { get; set; } = null!;
 
         /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -82,6 +94,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class GetAvailabilityGroupListenerResult
     {
         /// <summary>
+        /// Availability Group configuration.
+        /// </summary>
+        public readonly Outputs.AgConfigurationResponse? AvailabilityGroupConfiguration;
+        /// <summary>
         /// Name of the availability group.
         /// </summary>
         public readonly string? AvailabilityGroupName;
@@ -98,6 +114,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerConfigurationResponse> LoadBalancerConfigurations;
         /// <summary>
+        /// List of multi subnet IP configurations for an AG listener.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MultiSubnetIpConfigurationResponse> MultiSubnetIpConfigurations;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -110,12 +130,18 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAvailabilityGroupListenerResult(
+            Outputs.AgConfigurationResponse? availabilityGroupConfiguration,
+
             string? availabilityGroupName,
 
             bool? createDefaultAvailabilityGroupIfNotExist,
@@ -124,21 +150,28 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             ImmutableArray<Outputs.LoadBalancerConfigurationResponse> loadBalancerConfigurations,
 
+            ImmutableArray<Outputs.MultiSubnetIpConfigurationResponse> multiSubnetIpConfigurations,
+
             string name,
 
             int? port,
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            AvailabilityGroupConfiguration = availabilityGroupConfiguration;
             AvailabilityGroupName = availabilityGroupName;
             CreateDefaultAvailabilityGroupIfNotExist = createDefaultAvailabilityGroupIfNotExist;
             Id = id;
             LoadBalancerConfigurations = loadBalancerConfigurations;
+            MultiSubnetIpConfigurations = multiSubnetIpConfigurations;
             Name = name;
             Port = port;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

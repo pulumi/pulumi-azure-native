@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The routing intent child resource of a Virtual hub.
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export class RoutingIntent extends pulumi.CustomResource {
     /**

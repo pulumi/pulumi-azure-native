@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// FirewallPolicy Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Explicit Proxy Settings definition.
+        /// </summary>
+        [Output("explicitProxySettings")]
+        public Output<Outputs.ExplicitProxySettingsResponse?> ExplicitProxySettings { get; private set; } = null!;
 
         /// <summary>
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
@@ -99,6 +105,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("snat")]
         public Output<Outputs.FirewallPolicySNATResponse?> Snat { get; private set; } = null!;
+
+        /// <summary>
+        /// SQL Settings definition.
+        /// </summary>
+        [Output("sql")]
+        public Output<Outputs.FirewallPolicySQLResponse?> Sql { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -209,6 +221,12 @@ namespace Pulumi.AzureNative.Network
         public Input<Inputs.DnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
+        /// Explicit Proxy Settings definition.
+        /// </summary>
+        [Input("explicitProxySettings")]
+        public Input<Inputs.ExplicitProxySettingsArgs>? ExplicitProxySettings { get; set; }
+
+        /// <summary>
         /// The name of the Firewall Policy.
         /// </summary>
         [Input("firewallPolicyName")]
@@ -261,6 +279,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("snat")]
         public Input<Inputs.FirewallPolicySNATArgs>? Snat { get; set; }
+
+        /// <summary>
+        /// SQL Settings definition.
+        /// </summary>
+        [Input("sql")]
+        public Input<Inputs.FirewallPolicySQLArgs>? Sql { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

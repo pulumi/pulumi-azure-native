@@ -11,7 +11,7 @@ import (
 )
 
 // Sim policy resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupSimPolicy(ctx *pulumi.Context, args *LookupSimPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSimPolicyResult, error) {
 	var rv LookupSimPolicyResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getSimPolicy", args, &rv, opts...)
@@ -60,6 +60,8 @@ type LookupSimPolicyResult struct {
 	RfspIndex *int `pulumi:"rfspIndex"`
 	// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
 	SliceConfigurations []SliceConfigurationResponse `pulumi:"sliceConfigurations"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -190,6 +192,11 @@ func (o LookupSimPolicyResultOutput) RfspIndex() pulumi.IntPtrOutput {
 // The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
 func (o LookupSimPolicyResultOutput) SliceConfigurations() SliceConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v LookupSimPolicyResult) []SliceConfigurationResponse { return v.SliceConfigurations }).(SliceConfigurationResponseArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSimPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSimPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

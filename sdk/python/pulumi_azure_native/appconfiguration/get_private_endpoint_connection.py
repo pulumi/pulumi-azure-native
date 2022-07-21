@@ -110,7 +110,7 @@ def get_private_endpoint_connection(config_store_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
-    API Version: 2020-06-01.
+    API Version: 2022-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -143,7 +143,7 @@ def get_private_endpoint_connection_output(config_store_name: Optional[pulumi.In
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     A private endpoint connection
-    API Version: 2020-06-01.
+    API Version: 2022-05-01.
 
 
     :param str config_store_name: The name of the configuration store.

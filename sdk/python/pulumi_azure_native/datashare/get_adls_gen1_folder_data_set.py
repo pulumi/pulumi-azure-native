@@ -160,7 +160,7 @@ def get_adls_gen1_folder_data_set(account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen1FolderDataSetResult:
     """
     An ADLS Gen 1 folder data set.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -200,7 +200,7 @@ def get_adls_gen1_folder_data_set_output(account_name: Optional[pulumi.Input[str
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen1FolderDataSetResult]:
     """
     An ADLS Gen 1 folder data set.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

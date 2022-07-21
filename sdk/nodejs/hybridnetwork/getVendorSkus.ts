@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sku sub resource.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
     if (!opts) {
@@ -61,6 +61,10 @@ export interface GetVendorSkusResult {
      */
     readonly networkFunctionTemplate?: outputs.hybridnetwork.NetworkFunctionTemplateResponse;
     /**
+     * The network function type.
+     */
+    readonly networkFunctionType?: string;
+    /**
      * Indicates if the vendor sku is in preview mode.
      */
     readonly preview?: boolean;
@@ -72,6 +76,10 @@ export interface GetVendorSkusResult {
      * The sku type.
      */
     readonly skuType?: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("encryption")]
         public Input<Inputs.VaultPropertiesEncryptionArgs>? Encryption { get; set; }
 
+        /// <summary>
+        /// Monitoring Settings of the vault
+        /// </summary>
+        [Input("monitoringSettings")]
+        public Input<Inputs.MonitoringSettingsArgs>? MonitoringSettings { get; set; }
+
         public VaultPropertiesArgs()
         {
         }

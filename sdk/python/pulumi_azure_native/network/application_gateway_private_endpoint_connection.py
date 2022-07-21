@@ -128,7 +128,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Private Endpoint connection on an application gateway.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private Endpoint connection on an application gateway.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGatewayPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

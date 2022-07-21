@@ -11,7 +11,7 @@ import (
 )
 
 // Snapshot of a Volume
-// API Version: 2020-12-01.
+// API Version: 2022-01-01.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("azure-native:netapp:getSnapshot", args, &rv, opts...)

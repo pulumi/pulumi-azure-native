@@ -32,6 +32,16 @@ export const ConnectionStatus = {
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
+export const CreateMode = {
+    Recover: "Recover",
+    Default: "Default",
+} as const;
+
+/**
+ * Indicates whether the configuration store need to be recovered.
+ */
+export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
+
 export const IdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",

@@ -11,14 +11,14 @@ import (
 )
 
 // Class representing an event hub data connection.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupEventHubDataConnection(ctx *pulumi.Context, args *LookupEventHubDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEventHubDataConnectionResult, error) {
 	var rv LookupEventHubDataConnectionResult
 	err := ctx.Invoke("azure-native:kusto:getEventHubDataConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupEventHubDataConnectionArgs struct {
@@ -40,6 +40,8 @@ type LookupEventHubDataConnectionResult struct {
 	ConsumerGroup string `pulumi:"consumerGroup"`
 	// The data format of the message. Optionally the data format can be added to each message.
 	DataFormat *string `pulumi:"dataFormat"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed
+	DatabaseRouting *string `pulumi:"databaseRouting"`
 	// The resource ID of the event hub to be used to create a data connection.
 	EventHubResourceId string `pulumi:"eventHubResourceId"`
 	// System properties of the event hub
@@ -51,7 +53,9 @@ type LookupEventHubDataConnectionResult struct {
 	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	// The object ID of the managedIdentityResourceId
+	ManagedIdentityObjectId string `pulumi:"managedIdentityObjectId"`
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
@@ -63,6 +67,19 @@ type LookupEventHubDataConnectionResult struct {
 	TableName *string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupEventHubDataConnectionResult
+func (val *LookupEventHubDataConnectionResult) Defaults() *LookupEventHubDataConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DatabaseRouting) {
+		databaseRouting_ := "Single"
+		tmp.DatabaseRouting = &databaseRouting_
+	}
+	return &tmp
 }
 
 func LookupEventHubDataConnectionOutput(ctx *pulumi.Context, args LookupEventHubDataConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventHubDataConnectionResultOutput {
@@ -123,6 +140,11 @@ func (o LookupEventHubDataConnectionResultOutput) DataFormat() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
 }
 
+// Indication for database routing information from the data connection, by default only database routing information is allowed
+func (o LookupEventHubDataConnectionResultOutput) DatabaseRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.DatabaseRouting }).(pulumi.StringPtrOutput)
+}
+
 // The resource ID of the event hub to be used to create a data connection.
 func (o LookupEventHubDataConnectionResultOutput) EventHubResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.EventHubResourceId }).(pulumi.StringOutput)
@@ -149,7 +171,12 @@ func (o LookupEventHubDataConnectionResultOutput) Location() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+// The object ID of the managedIdentityResourceId
+func (o LookupEventHubDataConnectionResultOutput) ManagedIdentityObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.ManagedIdentityObjectId }).(pulumi.StringOutput)
+}
+
+// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 func (o LookupEventHubDataConnectionResultOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.ManagedIdentityResourceId }).(pulumi.StringPtrOutput)
 }

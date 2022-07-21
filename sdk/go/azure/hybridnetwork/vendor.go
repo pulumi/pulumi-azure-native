@@ -11,7 +11,7 @@ import (
 )
 
 // Vendor resource.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 type Vendor struct {
 	pulumi.CustomResourceState
 
@@ -21,6 +21,8 @@ type Vendor struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// A list of IDs of the vendor skus offered by the vendor.
 	Skus SubResourceResponseArrayOutput `pulumi:"skus"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -136,6 +138,11 @@ func (o VendorOutput) ProvisioningState() pulumi.StringOutput {
 // A list of IDs of the vendor skus offered by the vendor.
 func (o VendorOutput) Skus() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v *Vendor) SubResourceResponseArrayOutput { return v.Skus }).(SubResourceResponseArrayOutput)
+}
+
+// The system meta data relating to this resource.
+func (o VendorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Vendor) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

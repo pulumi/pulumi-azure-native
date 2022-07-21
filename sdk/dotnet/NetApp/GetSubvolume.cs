@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Subvolume Information properties
-        /// API Version: 2021-10-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetSubvolumeResult> InvokeAsync(GetSubvolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeResult>("azure-native:netapp:getSubvolume", args ?? new GetSubvolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Subvolume Information properties
-        /// API Version: 2021-10-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetSubvolumeResult> Invoke(GetSubvolumeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubvolumeResult>("azure-native:netapp:getSubvolume", args ?? new GetSubvolumeInvokeArgs(), options.WithDefaults());
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

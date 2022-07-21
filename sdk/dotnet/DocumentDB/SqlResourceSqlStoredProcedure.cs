@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB storedProcedure.
-    /// API Version: 2021-03-15.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlStoredProcedure")]
     public partial class SqlResourceSqlStoredProcedure : Pulumi.CustomResource

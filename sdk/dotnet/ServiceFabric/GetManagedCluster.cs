@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The manged cluster resource
         /// 
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The manged cluster resource
         /// 
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
@@ -72,19 +72,31 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetManagedClusterResult
     {
         /// <summary>
-        /// client certificates for the cluster.
+        /// List of add-on features to enable on the cluster.
         /// </summary>
         public readonly ImmutableArray<string> AddonFeatures;
         /// <summary>
-        /// vm admin user password.
+        /// VM admin user password.
         /// </summary>
         public readonly string? AdminPassword;
         /// <summary>
-        /// vm admin user name.
+        /// VM admin user name.
         /// </summary>
         public readonly string AdminUserName;
         /// <summary>
-        /// Azure active directory.
+        /// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+        /// </summary>
+        public readonly bool? AllowRdpAccess;
+        /// <summary>
+        /// The policy used to clean up unused versions.
+        /// </summary>
+        public readonly Outputs.ApplicationTypeVersionsCleanupPolicyResponse? ApplicationTypeVersionsCleanupPolicy;
+        /// <summary>
+        /// Auxiliary subnets for the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponse> AuxiliarySubnets;
+        /// <summary>
+        /// The AAD authentication settings of the cluster.
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
         /// <summary>
@@ -92,15 +104,15 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly int? ClientConnectionPort;
         /// <summary>
-        /// client certificates for the cluster.
+        /// Client certificates that are allowed to manage the cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClientCertificateResponse> Clients;
         /// <summary>
-        /// The cluster certificate thumbprint used node to node communication.
+        /// List of thumbprints of the cluster certificates.
         /// </summary>
-        public readonly string ClusterCertificateThumbprint;
+        public readonly ImmutableArray<string> ClusterCertificateThumbprints;
         /// <summary>
-        /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        /// The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         /// </summary>
         public readonly string? ClusterCodeVersion;
         /// <summary>
@@ -112,9 +124,29 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string ClusterState;
         /// <summary>
+        /// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+        /// </summary>
+        public readonly string? ClusterUpgradeCadence;
+        /// <summary>
+        /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+        /// </summary>
+        public readonly string? ClusterUpgradeMode;
+        /// <summary>
         /// The cluster dns name.
         /// </summary>
         public readonly string DnsName;
+        /// <summary>
+        /// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+        /// </summary>
+        public readonly bool? EnableAutoOSUpgrade;
+        /// <summary>
+        /// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+        /// </summary>
+        public readonly bool? EnableIpv6;
+        /// <summary>
+        /// Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+        /// </summary>
+        public readonly bool? EnableServicePublicIP;
         /// <summary>
         /// Azure resource etag.
         /// </summary>
@@ -124,11 +156,11 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
         /// <summary>
-        /// the cluster Fully qualified domain name.
+        /// The fully qualified domain name associated with the public load balancer of the cluster.
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// The port used for http connections to the cluster.
+        /// The port used for HTTP connections to the cluster.
         /// </summary>
         public readonly int? HttpGatewayConnectionPort;
         /// <summary>
@@ -136,7 +168,19 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Describes load balancing rules.
+        /// The list of IP tags associated with the default public IP address of the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPTagResponse> IpTags;
+        /// <summary>
+        /// The IPv4 address associated with the public load balancer of the cluster.
+        /// </summary>
+        public readonly string Ipv4Address;
+        /// <summary>
+        /// IPv6 address for the cluster if IPv6 is enabled.
+        /// </summary>
+        public readonly string Ipv6Address;
+        /// <summary>
+        /// Load balancing rules that are applied to the public load balancer of the cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
         /// <summary>
@@ -148,13 +192,29 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkSecurityRuleResponse> NetworkSecurityRules;
+        /// <summary>
         /// The provisioning state of the managed cluster resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Service endpoints for subnets in the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointResponse> ServiceEndpoints;
+        /// <summary>
         /// The sku of the managed cluster
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+        /// </summary>
+        public readonly string? SubnetId;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -163,6 +223,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Azure resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Indicates if the cluster has zone resiliency.
+        /// </summary>
+        public readonly bool? ZonalResiliency;
 
         [OutputConstructor]
         private GetManagedClusterResult(
@@ -172,13 +236,19 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string adminUserName,
 
+            bool? allowRdpAccess,
+
+            Outputs.ApplicationTypeVersionsCleanupPolicyResponse? applicationTypeVersionsCleanupPolicy,
+
+            ImmutableArray<Outputs.SubnetResponse> auxiliarySubnets,
+
             Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
 
             int? clientConnectionPort,
 
             ImmutableArray<Outputs.ClientCertificateResponse> clients,
 
-            string clusterCertificateThumbprint,
+            ImmutableArray<string> clusterCertificateThumbprints,
 
             string? clusterCodeVersion,
 
@@ -186,7 +256,17 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string clusterState,
 
+            string? clusterUpgradeCadence,
+
+            string? clusterUpgradeMode,
+
             string dnsName,
+
+            bool? enableAutoOSUpgrade,
+
+            bool? enableIpv6,
+
+            bool? enableServicePublicIP,
 
             string etag,
 
@@ -198,43 +278,75 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string id,
 
+            ImmutableArray<Outputs.IPTagResponse> ipTags,
+
+            string ipv4Address,
+
+            string ipv6Address,
+
             ImmutableArray<Outputs.LoadBalancingRuleResponse> loadBalancingRules,
 
             string location,
 
             string name,
 
+            ImmutableArray<Outputs.NetworkSecurityRuleResponse> networkSecurityRules,
+
             string provisioningState,
+
+            ImmutableArray<Outputs.ServiceEndpointResponse> serviceEndpoints,
 
             Outputs.SkuResponse? sku,
 
+            string? subnetId,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            bool? zonalResiliency)
         {
             AddonFeatures = addonFeatures;
             AdminPassword = adminPassword;
             AdminUserName = adminUserName;
+            AllowRdpAccess = allowRdpAccess;
+            ApplicationTypeVersionsCleanupPolicy = applicationTypeVersionsCleanupPolicy;
+            AuxiliarySubnets = auxiliarySubnets;
             AzureActiveDirectory = azureActiveDirectory;
             ClientConnectionPort = clientConnectionPort;
             Clients = clients;
-            ClusterCertificateThumbprint = clusterCertificateThumbprint;
+            ClusterCertificateThumbprints = clusterCertificateThumbprints;
             ClusterCodeVersion = clusterCodeVersion;
             ClusterId = clusterId;
             ClusterState = clusterState;
+            ClusterUpgradeCadence = clusterUpgradeCadence;
+            ClusterUpgradeMode = clusterUpgradeMode;
             DnsName = dnsName;
+            EnableAutoOSUpgrade = enableAutoOSUpgrade;
+            EnableIpv6 = enableIpv6;
+            EnableServicePublicIP = enableServicePublicIP;
             Etag = etag;
             FabricSettings = fabricSettings;
             Fqdn = fqdn;
             HttpGatewayConnectionPort = httpGatewayConnectionPort;
             Id = id;
+            IpTags = ipTags;
+            Ipv4Address = ipv4Address;
+            Ipv6Address = ipv6Address;
             LoadBalancingRules = loadBalancingRules;
             Location = location;
             Name = name;
+            NetworkSecurityRules = networkSecurityRules;
             ProvisioningState = provisioningState;
+            ServiceEndpoints = serviceEndpoints;
             Sku = sku;
+            SubnetId = subnetId;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
+            ZonalResiliency = zonalResiliency;
         }
     }
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Topic
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -37,9 +37,21 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
+     * Data Residency Boundary of the resource.
+     */
+    public readonly dataResidencyBoundary!: pulumi.Output<string | undefined>;
+    /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
      * Endpoint for the topic.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * Identity information for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
@@ -101,6 +113,9 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["dataResidencyBoundary"] = args ? args.dataResidencyBoundary : undefined;
+            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
@@ -117,7 +132,10 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["dataResidencyBoundary"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inboundIpRules"] = undefined /*out*/;
             resourceInputs["inputSchema"] = undefined /*out*/;
             resourceInputs["inputSchemaMapping"] = undefined /*out*/;
@@ -142,6 +160,18 @@ export class Topic extends pulumi.CustomResource {
  * The set of arguments for constructing a Topic resource.
  */
 export interface TopicArgs {
+    /**
+     * Data Residency Boundary of the resource.
+     */
+    dataResidencyBoundary?: pulumi.Input<string | enums.eventgrid.DataResidencyBoundary>;
+    /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
+    /**
+     * Identity information for the resource.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */

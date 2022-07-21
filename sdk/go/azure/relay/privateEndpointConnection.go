@@ -11,24 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private endpoint connection resource.
-// API Version: 2018-01-01-preview.
+// Properties of the PrivateEndpointConnection.
+// API Version: 2021-11-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint object.
+	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -86,38 +86,34 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of the private endpoint object.
+	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// The PrivateEndpointConnection name.
+	// The PrivateEndpointConnection name
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties of the private endpoint object.
+	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint PrivateEndpointPtrInput
-	// The PrivateEndpointConnection name.
+	// The PrivateEndpointConnection name
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStatePtrInput
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -157,39 +153,39 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
-// Resource location.
+// The geo-location where the resource lives
 func (o PrivateEndpointConnectionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of the private endpoint object.
+// The Private Endpoint resource for this Connection.
 func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// Approval state of the private link connection.
-func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateLinkServiceConnectionStateResponsePtrOutput {
+// Details about the state of the connection.
+func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() ConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) ConnectionStateResponsePtrOutput {
 		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+	}).(ConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint connection.
-func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+// Provisioning state of the Private Endpoint Connection.
+func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags.
-func (o PrivateEndpointConnectionOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+// The system meta data relating to this resource.
+func (o PrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Resource type.
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o PrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

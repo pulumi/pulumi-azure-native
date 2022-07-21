@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Storage mapping object.
-        /// API Version: 2018-07-10.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetReplicationStorageClassificationMappingResult> InvokeAsync(GetReplicationStorageClassificationMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Storage mapping object.
-        /// API Version: 2018-07-10.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetReplicationStorageClassificationMappingResult> Invoke(GetReplicationStorageClassificationMappingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingInvokeArgs(), options.WithDefaults());

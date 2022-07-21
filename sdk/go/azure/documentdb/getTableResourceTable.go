@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure Cosmos DB Table.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func LookupTableResourceTable(ctx *pulumi.Context, args *LookupTableResourceTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResourceTableResult, error) {
 	var rv LookupTableResourceTableResult
 	err := ctx.Invoke("azure-native:documentdb:getTableResourceTable", args, &rv, opts...)

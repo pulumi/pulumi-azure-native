@@ -11,7 +11,7 @@ import (
 )
 
 // Type of the Storage Target.
-// API Version: 2021-03-01.
+// API Version: 2022-05-01.
 func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opts ...pulumi.InvokeOption) (*LookupStorageTargetResult, error) {
 	var rv LookupStorageTargetResult
 	err := ctx.Invoke("azure-native:storagecache:getStorageTarget", args, &rv, opts...)
@@ -32,6 +32,8 @@ type LookupStorageTargetArgs struct {
 
 // Type of the Storage Target.
 type LookupStorageTargetResult struct {
+	// The percentage of cache space allocated for this storage target
+	AllocationPercentage int `pulumi:"allocationPercentage"`
 	// Properties when targetType is blobNfs.
 	BlobNfs *BlobNfsTargetResponse `pulumi:"blobNfs"`
 	// Properties when targetType is clfs.
@@ -47,7 +49,9 @@ type LookupStorageTargetResult struct {
 	// Properties when targetType is nfs3.
 	Nfs3 *Nfs3TargetResponse `pulumi:"nfs3"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Storage target operational state.
+	State *string `pulumi:"state"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the Storage Target.
@@ -99,6 +103,11 @@ func (o LookupStorageTargetResultOutput) ToLookupStorageTargetResultOutputWithCo
 	return o
 }
 
+// The percentage of cache space allocated for this storage target
+func (o LookupStorageTargetResultOutput) AllocationPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) int { return v.AllocationPercentage }).(pulumi.IntOutput)
+}
+
 // Properties when targetType is blobNfs.
 func (o LookupStorageTargetResultOutput) BlobNfs() BlobNfsTargetResponsePtrOutput {
 	return o.ApplyT(func(v LookupStorageTargetResult) *BlobNfsTargetResponse { return v.BlobNfs }).(BlobNfsTargetResponsePtrOutput)
@@ -135,8 +144,13 @@ func (o LookupStorageTargetResultOutput) Nfs3() Nfs3TargetResponsePtrOutput {
 }
 
 // ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-func (o LookupStorageTargetResultOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStorageTargetResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o LookupStorageTargetResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Storage target operational state.
+func (o LookupStorageTargetResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The system meta data relating to this resource.

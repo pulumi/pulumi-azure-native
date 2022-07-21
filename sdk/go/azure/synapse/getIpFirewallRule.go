@@ -11,7 +11,7 @@ import (
 )
 
 // IP firewall rule
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupIpFirewallRuleResult, error) {
 	var rv LookupIpFirewallRuleResult
 	err := ctx.Invoke("azure-native:synapse:getIpFirewallRule", args, &rv, opts...)
@@ -26,7 +26,7 @@ type LookupIpFirewallRuleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The IP firewall rule name
 	RuleName string `pulumi:"ruleName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -64,7 +64,7 @@ type LookupIpFirewallRuleOutputArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The IP firewall rule name
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 

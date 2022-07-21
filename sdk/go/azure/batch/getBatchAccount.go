@@ -11,14 +11,14 @@ import (
 )
 
 // Contains information about an Azure Batch account.
-// API Version: 2021-01-01.
+// API Version: 2022-06-01.
 func LookupBatchAccount(ctx *pulumi.Context, args *LookupBatchAccountArgs, opts ...pulumi.InvokeOption) (*LookupBatchAccountResult, error) {
 	var rv LookupBatchAccountResult
 	err := ctx.Invoke("azure-native:batch:getBatchAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBatchAccountArgs struct {
@@ -33,13 +33,15 @@ type LookupBatchAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint              string `pulumi:"accountEndpoint"`
 	ActiveJobAndJobScheduleQuota int    `pulumi:"activeJobAndJobScheduleQuota"`
+	// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+	AllowedAuthenticationModes []string `pulumi:"allowedAuthenticationModes"`
 	// Contains information about the auto-storage account associated with a Batch account.
 	AutoStorage AutoStoragePropertiesResponse `pulumi:"autoStorage"`
 	// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
 	DedicatedCoreQuota int `pulumi:"dedicatedCoreQuota"`
 	// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
 	DedicatedCoreQuotaPerVMFamily []VirtualMachineFamilyCoreQuotaResponse `pulumi:"dedicatedCoreQuotaPerVMFamily"`
-	// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+	// If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
 	DedicatedCoreQuotaPerVMFamilyEnforced bool `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
 	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 	Encryption EncryptionPropertiesResponse `pulumi:"encryption"`
@@ -55,6 +57,10 @@ type LookupBatchAccountResult struct {
 	LowPriorityCoreQuota int `pulumi:"lowPriorityCoreQuota"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
+	// The network profile only takes effect when publicNetworkAccess is enabled.
+	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
+	// The endpoint used by compute node to connect to the Batch node management service.
+	NodeManagementEndpoint string `pulumi:"nodeManagementEndpoint"`
 	// The allocation mode for creating pools in the Batch account.
 	PoolAllocationMode string `pulumi:"poolAllocationMode"`
 	PoolQuota          int    `pulumi:"poolQuota"`
@@ -63,11 +69,22 @@ type LookupBatchAccountResult struct {
 	// The provisioned state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupBatchAccountResult
+func (val *LookupBatchAccountResult) Defaults() *LookupBatchAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoStorage = *tmp.AutoStorage.Defaults()
+
+	return &tmp
 }
 
 func LookupBatchAccountOutput(ctx *pulumi.Context, args LookupBatchAccountOutputArgs, opts ...pulumi.InvokeOption) LookupBatchAccountResultOutput {
@@ -118,6 +135,11 @@ func (o LookupBatchAccountResultOutput) ActiveJobAndJobScheduleQuota() pulumi.In
 	return o.ApplyT(func(v LookupBatchAccountResult) int { return v.ActiveJobAndJobScheduleQuota }).(pulumi.IntOutput)
 }
 
+// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+func (o LookupBatchAccountResultOutput) AllowedAuthenticationModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) []string { return v.AllowedAuthenticationModes }).(pulumi.StringArrayOutput)
+}
+
 // Contains information about the auto-storage account associated with a Batch account.
 func (o LookupBatchAccountResultOutput) AutoStorage() AutoStoragePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupBatchAccountResult) AutoStoragePropertiesResponse { return v.AutoStorage }).(AutoStoragePropertiesResponseOutput)
@@ -135,7 +157,7 @@ func (o LookupBatchAccountResultOutput) DedicatedCoreQuotaPerVMFamily() VirtualM
 	}).(VirtualMachineFamilyCoreQuotaResponseArrayOutput)
 }
 
-// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+// If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
 func (o LookupBatchAccountResultOutput) DedicatedCoreQuotaPerVMFamilyEnforced() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBatchAccountResult) bool { return v.DedicatedCoreQuotaPerVMFamilyEnforced }).(pulumi.BoolOutput)
 }
@@ -175,6 +197,16 @@ func (o LookupBatchAccountResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The network profile only takes effect when publicNetworkAccess is enabled.
+func (o LookupBatchAccountResultOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// The endpoint used by compute node to connect to the Batch node management service.
+func (o LookupBatchAccountResultOutput) NodeManagementEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.NodeManagementEndpoint }).(pulumi.StringOutput)
+}
+
 // The allocation mode for creating pools in the Batch account.
 func (o LookupBatchAccountResultOutput) PoolAllocationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.PoolAllocationMode }).(pulumi.StringOutput)
@@ -197,8 +229,8 @@ func (o LookupBatchAccountResultOutput) ProvisioningState() pulumi.StringOutput 
 }
 
 // If not specified, the default value is 'enabled'.
-func (o LookupBatchAccountResultOutput) PublicNetworkAccess() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+func (o LookupBatchAccountResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The tags of the resource.

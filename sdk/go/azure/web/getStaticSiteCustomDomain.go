@@ -11,7 +11,7 @@ import (
 )
 
 // Static Site Custom Domain Overview ARM resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupStaticSiteCustomDomain(ctx *pulumi.Context, args *LookupStaticSiteCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteCustomDomainResult, error) {
 	var rv LookupStaticSiteCustomDomainResult
 	err := ctx.Invoke("azure-native:web:getStaticSiteCustomDomain", args, &rv, opts...)

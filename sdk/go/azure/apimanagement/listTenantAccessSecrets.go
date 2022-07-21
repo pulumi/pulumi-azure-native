@@ -11,7 +11,7 @@ import (
 )
 
 // Tenant access information contract of the API Management service.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func ListTenantAccessSecrets(ctx *pulumi.Context, args *ListTenantAccessSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessSecretsResult, error) {
 	var rv ListTenantAccessSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listTenantAccessSecrets", args, &rv, opts...)

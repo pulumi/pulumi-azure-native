@@ -12,7 +12,7 @@ import (
 )
 
 // Contains the job information.
-// API Version: 2020-08-01.
+// API Version: 2021-01-01.
 type Job struct {
 	pulumi.CustomResourceState
 

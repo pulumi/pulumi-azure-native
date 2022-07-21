@@ -11,7 +11,7 @@ import (
 )
 
 // Response for list BGP peer status API service call.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func GetVirtualNetworkGatewayBgpPeerStatus(ctx *pulumi.Context, args *GetVirtualNetworkGatewayBgpPeerStatusArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayBgpPeerStatusResult, error) {
 	var rv GetVirtualNetworkGatewayBgpPeerStatusResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)

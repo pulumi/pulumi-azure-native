@@ -11,7 +11,7 @@ import (
 )
 
 // Arc Addon.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupArcAddon(ctx *pulumi.Context, args *LookupArcAddonArgs, opts ...pulumi.InvokeOption) (*LookupArcAddonResult, error) {
 	var rv LookupArcAddonResult
 	err := ctx.Invoke("azure-native:databoxedge:getArcAddon", args, &rv, opts...)
@@ -55,7 +55,7 @@ type LookupArcAddonResult struct {
 	ResourceName string `pulumi:"resourceName"`
 	// Arc resource subscription Id
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// Addon type
+	// Metadata pertaining to creation and last modification of Addon
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -157,7 +157,7 @@ func (o LookupArcAddonResultOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupArcAddonResult) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
-// Addon type
+// Metadata pertaining to creation and last modification of Addon
 func (o LookupArcAddonResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupArcAddonResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

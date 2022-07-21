@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a server.
-// API Version: 2017-12-01.
+// API Version: 2021-05-01.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:dbformysql:getServer", args, &rv, opts...)
@@ -32,46 +32,46 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// Status showing whether the server data encryption is enabled with customer-managed keys.
-	ByokEnforcement string `pulumi:"byokEnforcement"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Backup related properties of a server.
+	Backup *BackupResponse `pulumi:"backup"`
+	// The Data Encryption for CMK.
+	DataEncryption *DataEncryptionResponse `pulumi:"dataEncryption"`
 	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
+	// High availability related properties of a server.
+	HighAvailability *HighAvailabilityResponse `pulumi:"highAvailability"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
+	// The cmk identity for the server.
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The master server id of a replica server.
-	MasterServerId *string `pulumi:"masterServerId"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a master server can have.
-	ReplicaCapacity *int `pulumi:"replicaCapacity"`
-	// The replication role of the server.
+	// Network related properties of a server.
+	Network *NetworkResponse `pulumi:"network"`
+	// The maximum number of replicas that a primary server can have.
+	ReplicaCapacity int `pulumi:"replicaCapacity"`
+	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
+	// The source MySQL server id.
+	SourceServerResourceId *string `pulumi:"sourceServerResourceId"`
+	// The state of a server.
+	State string `pulumi:"state"`
+	// Storage related properties of a server.
+	Storage *StorageResponse `pulumi:"storage"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
-	// A state of a server that is visible to user.
-	UserVisibleState *string `pulumi:"userVisibleState"`
 	// Server version.
 	Version *string `pulumi:"version"`
 }
@@ -120,19 +120,29 @@ func (o LookupServerResultOutput) AdministratorLogin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
-// Status showing whether the server data encryption is enabled with customer-managed keys.
-func (o LookupServerResultOutput) ByokEnforcement() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerResult) string { return v.ByokEnforcement }).(pulumi.StringOutput)
+// availability Zone information of the server.
+func (o LookupServerResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// Earliest restore point creation time (ISO8601 format)
-func (o LookupServerResultOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.EarliestRestoreDate }).(pulumi.StringPtrOutput)
+// Backup related properties of a server.
+func (o LookupServerResultOutput) Backup() BackupResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *BackupResponse { return v.Backup }).(BackupResponsePtrOutput)
+}
+
+// The Data Encryption for CMK.
+func (o LookupServerResultOutput) DataEncryption() DataEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *DataEncryptionResponse { return v.DataEncryption }).(DataEncryptionResponsePtrOutput)
 }
 
 // The fully qualified domain name of a server.
-func (o LookupServerResultOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.FullyQualifiedDomainName }).(pulumi.StringPtrOutput)
+func (o LookupServerResultOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// High availability related properties of a server.
+func (o LookupServerResultOutput) HighAvailability() HighAvailabilityResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *HighAvailabilityResponse { return v.HighAvailability }).(HighAvailabilityResponsePtrOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -140,14 +150,9 @@ func (o LookupServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Azure Active Directory identity of the server.
-func (o LookupServerResultOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
-}
-
-// Status showing whether the server enabled infrastructure encryption.
-func (o LookupServerResultOutput) InfrastructureEncryption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.InfrastructureEncryption }).(pulumi.StringPtrOutput)
+// The cmk identity for the server.
+func (o LookupServerResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives
@@ -155,14 +160,9 @@ func (o LookupServerResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The master server id of a replica server.
-func (o LookupServerResultOutput) MasterServerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.MasterServerId }).(pulumi.StringPtrOutput)
-}
-
-// Enforce a minimal Tls version for the server.
-func (o LookupServerResultOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+// Maintenance window of a server.
+func (o LookupServerResultOutput) MaintenanceWindow() MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *MaintenanceWindowResponse { return v.MaintenanceWindow }).(MaintenanceWindowResponsePtrOutput)
 }
 
 // The name of the resource
@@ -170,24 +170,17 @@ func (o LookupServerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of private endpoint connections on a server
-func (o LookupServerResultOutput) PrivateEndpointConnections() ServerPrivateEndpointConnectionResponseArrayOutput {
-	return o.ApplyT(func(v LookupServerResult) []ServerPrivateEndpointConnectionResponse {
-		return v.PrivateEndpointConnections
-	}).(ServerPrivateEndpointConnectionResponseArrayOutput)
+// Network related properties of a server.
+func (o LookupServerResultOutput) Network() NetworkResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *NetworkResponse { return v.Network }).(NetworkResponsePtrOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-func (o LookupServerResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+// The maximum number of replicas that a primary server can have.
+func (o LookupServerResultOutput) ReplicaCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServerResult) int { return v.ReplicaCapacity }).(pulumi.IntOutput)
 }
 
-// The maximum number of replicas that a master server can have.
-func (o LookupServerResultOutput) ReplicaCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *int { return v.ReplicaCapacity }).(pulumi.IntPtrOutput)
-}
-
-// The replication role of the server.
+// The replication role.
 func (o LookupServerResultOutput) ReplicationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.ReplicationRole }).(pulumi.StringPtrOutput)
 }
@@ -197,14 +190,24 @@ func (o LookupServerResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// Enable ssl enforcement or not when connect to server.
-func (o LookupServerResultOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+// The source MySQL server id.
+func (o LookupServerResultOutput) SourceServerResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.SourceServerResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Storage profile of a server.
-func (o LookupServerResultOutput) StorageProfile() StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *StorageProfileResponse { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+// The state of a server.
+func (o LookupServerResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Storage related properties of a server.
+func (o LookupServerResultOutput) Storage() StorageResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *StorageResponse { return v.Storage }).(StorageResponsePtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupServerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.
@@ -215,11 +218,6 @@ func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupServerResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A state of a server that is visible to user.
-func (o LookupServerResultOutput) UserVisibleState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.UserVisibleState }).(pulumi.StringPtrOutput)
 }
 
 // Server version.

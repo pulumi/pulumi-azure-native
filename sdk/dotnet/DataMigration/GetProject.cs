@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// A project resource
-        /// API Version: 2018-04-19.
+        /// API Version: 2021-06-30.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// A project resource
-        /// API Version: 2018-04-19.
+        /// API Version: 2021-06-30.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public readonly string SourcePlatform;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.DataMigration
 
             string sourcePlatform,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             object? targetConnectionInfo,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.DataMigration
             ProvisioningState = provisioningState;
             SourceConnectionInfo = sourceConnectionInfo;
             SourcePlatform = sourcePlatform;
+            SystemData = systemData;
             Tags = tags;
             TargetConnectionInfo = targetConnectionInfo;
             TargetPlatform = targetPlatform;

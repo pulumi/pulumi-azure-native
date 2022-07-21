@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Details of a particular extension in HCI Cluster.
- * API Version: 2021-01-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
     if (!opts) {

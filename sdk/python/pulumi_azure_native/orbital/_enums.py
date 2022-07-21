@@ -14,7 +14,7 @@ __all__ = [
 
 class AutoTrackingConfiguration(str, Enum):
     """
-    Auto track configuration.
+    Auto-tracking configuration.
     """
     DISABLED = "disabled"
     X_BAND = "xBand"
@@ -23,7 +23,7 @@ class AutoTrackingConfiguration(str, Enum):
 
 class Direction(str, Enum):
     """
-    Direction (uplink or downlink)
+    Direction (uplink or downlink).
     """
     UPLINK = "uplink"
     DOWNLINK = "downlink"
@@ -31,11 +31,10 @@ class Direction(str, Enum):
 
 class Polarization(str, Enum):
     """
-    polarization. eg (RHCP, LHCP)
+    Polarization. e.g. (RHCP, LHCP).
     """
     RHCP = "RHCP"
     LHCP = "LHCP"
-    DUAL_RHCP_LHCP = "dualRhcpLhcp"
     LINEAR_VERTICAL = "linearVertical"
     LINEAR_HORIZONTAL = "linearHorizontal"
 

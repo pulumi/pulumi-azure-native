@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A Kubernetes cluster specialized for web workloads by Azure App Service
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:KubeEnvironment")]
     public partial class KubeEnvironment : Pulumi.CustomResource
@@ -36,6 +36,12 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.ArcConfigurationResponse?> ArcConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        /// </summary>
+        [Output("containerAppsConfiguration")]
+        public Output<Outputs.ContainerAppsConfigurationResponse?> ContainerAppsConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Default Domain Name for the cluster
         /// </summary>
         [Output("defaultDomain")]
@@ -46,6 +52,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("deploymentErrors")]
         public Output<string> DeploymentErrors { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        /// </summary>
+        [Output("environmentType")]
+        public Output<string?> EnvironmentType { get; private set; } = null!;
 
         /// <summary>
         /// Extended Location.
@@ -172,6 +184,18 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("arcConfiguration")]
         public Input<Inputs.ArcConfigurationArgs>? ArcConfiguration { get; set; }
+
+        /// <summary>
+        /// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        /// </summary>
+        [Input("containerAppsConfiguration")]
+        public Input<Inputs.ContainerAppsConfigurationArgs>? ContainerAppsConfiguration { get; set; }
+
+        /// <summary>
+        /// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        /// </summary>
+        [Input("environmentType")]
+        public Input<string>? EnvironmentType { get; set; }
 
         /// <summary>
         /// Extended Location.

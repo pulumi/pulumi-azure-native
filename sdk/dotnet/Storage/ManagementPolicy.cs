@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
-    /// API Version: 2021-02-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ManagementPolicy")]
     public partial class ManagementPolicy : Pulumi.CustomResource

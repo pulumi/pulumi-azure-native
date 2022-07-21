@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-02-01-preview.
+// API Version: 2022-03-01.
 type ResourceGuardProxy struct {
 	pulumi.CustomResourceState
 

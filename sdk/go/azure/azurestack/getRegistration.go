@@ -11,7 +11,7 @@ import (
 )
 
 // Registration information.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
 	err := ctx.Invoke("azure-native:azurestack:getRegistration", args, &rv, opts...)
@@ -38,12 +38,16 @@ type LookupRegistrationResult struct {
 	Etag *string `pulumi:"etag"`
 	// ID of the resource.
 	Id string `pulumi:"id"`
+	// The kind of the resource.
+	Kind string `pulumi:"kind"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// The object identifier associated with the Azure Stack connecting to Azure.
 	ObjectId *string `pulumi:"objectId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Custom tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Resource.
@@ -109,6 +113,11 @@ func (o LookupRegistrationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The kind of the resource.
+func (o LookupRegistrationResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
 // Location of the resource.
 func (o LookupRegistrationResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Location }).(pulumi.StringOutput)
@@ -122,6 +131,11 @@ func (o LookupRegistrationResultOutput) Name() pulumi.StringOutput {
 // The object identifier associated with the Azure Stack connecting to Azure.
 func (o LookupRegistrationResultOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistrationResult) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupRegistrationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Custom tags for the resource.

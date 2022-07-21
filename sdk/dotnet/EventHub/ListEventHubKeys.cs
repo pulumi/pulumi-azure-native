@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Namespace/EventHub Connection String
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/EventHub Connection String
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());

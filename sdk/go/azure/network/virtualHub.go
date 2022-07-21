@@ -12,7 +12,7 @@ import (
 )
 
 // VirtualHub Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualHub struct {
 	pulumi.CustomResourceState
 
@@ -28,14 +28,20 @@ type VirtualHub struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.
 	ExpressRouteGateway SubResourceResponsePtrOutput `pulumi:"expressRouteGateway"`
+	// The hubRoutingPreference of this VirtualHub.
+	HubRoutingPreference pulumi.StringPtrOutput `pulumi:"hubRoutingPreference"`
 	// List of references to IpConfigurations.
 	IpConfigurations SubResourceResponseArrayOutput `pulumi:"ipConfigurations"`
+	// Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourceResponsePtrOutput `pulumi:"p2SVpnGateway"`
+	// The preferred gateway to route on-prem traffic
+	PreferredRoutingGateway pulumi.StringPtrOutput `pulumi:"preferredRoutingGateway"`
 	// The provisioning state of the virtual hub resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
@@ -198,12 +204,16 @@ type virtualHubArgs struct {
 	AzureFirewall *SubResource `pulumi:"azureFirewall"`
 	// The expressRouteGateway associated with this VirtualHub.
 	ExpressRouteGateway *SubResource `pulumi:"expressRouteGateway"`
+	// The hubRoutingPreference of this VirtualHub.
+	HubRoutingPreference *string `pulumi:"hubRoutingPreference"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResource `pulumi:"p2SVpnGateway"`
+	// The preferred gateway to route on-prem traffic
+	PreferredRoutingGateway *string `pulumi:"preferredRoutingGateway"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routeTable associated with this virtual hub.
@@ -240,12 +250,16 @@ type VirtualHubArgs struct {
 	AzureFirewall SubResourcePtrInput
 	// The expressRouteGateway associated with this VirtualHub.
 	ExpressRouteGateway SubResourcePtrInput
+	// The hubRoutingPreference of this VirtualHub.
+	HubRoutingPreference pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourcePtrInput
+	// The preferred gateway to route on-prem traffic
+	PreferredRoutingGateway pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// The routeTable associated with this virtual hub.
@@ -339,9 +353,19 @@ func (o VirtualHubOutput) ExpressRouteGateway() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.ExpressRouteGateway }).(SubResourceResponsePtrOutput)
 }
 
+// The hubRoutingPreference of this VirtualHub.
+func (o VirtualHubOutput) HubRoutingPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.HubRoutingPreference }).(pulumi.StringPtrOutput)
+}
+
 // List of references to IpConfigurations.
 func (o VirtualHubOutput) IpConfigurations() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v *VirtualHub) SubResourceResponseArrayOutput { return v.IpConfigurations }).(SubResourceResponseArrayOutput)
+}
+
+// Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+func (o VirtualHubOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Resource location.
@@ -357,6 +381,11 @@ func (o VirtualHubOutput) Name() pulumi.StringOutput {
 // The P2SVpnGateway associated with this VirtualHub.
 func (o VirtualHubOutput) P2SVpnGateway() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.P2SVpnGateway }).(SubResourceResponsePtrOutput)
+}
+
+// The preferred gateway to route on-prem traffic
+func (o VirtualHubOutput) PreferredRoutingGateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.PreferredRoutingGateway }).(pulumi.StringPtrOutput)
 }
 
 // The provisioning state of the virtual hub resource.

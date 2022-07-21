@@ -12,7 +12,7 @@ import (
 )
 
 // Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ProductGroup struct {
 	pulumi.CustomResourceState
 
@@ -24,9 +24,9 @@ type ProductGroup struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -196,12 +196,12 @@ func (o ProductGroupOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductGroup) pulumi.StringPtrOutput { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ProductGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ProductGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

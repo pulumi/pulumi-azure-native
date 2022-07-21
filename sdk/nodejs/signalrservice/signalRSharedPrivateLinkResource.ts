@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Shared Private Link Resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2022-02-01.
  */
 export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
      */
     public readonly privateLinkResourceId!: pulumi.Output<string>;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**

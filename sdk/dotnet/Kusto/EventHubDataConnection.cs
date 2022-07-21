@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an event hub data connection.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventHubDataConnection")]
     public partial class EventHubDataConnection : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Output("databaseRouting")]
+        public Output<string?> DatabaseRouting { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the event hub to be used to create a data connection.
@@ -60,7 +66,13 @@ namespace Pulumi.AzureNative.Kusto
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// The object ID of the managedIdentityResourceId
+        /// </summary>
+        [Output("managedIdentityObjectId")]
+        public Output<string> ManagedIdentityObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Output("managedIdentityResourceId")]
         public Output<string?> ManagedIdentityResourceId { get; private set; } = null!;
@@ -197,6 +209,12 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Input("databaseRouting")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DatabaseRouting>? DatabaseRouting { get; set; }
+
+        /// <summary>
         /// The resource ID of the event hub to be used to create a data connection.
         /// </summary>
         [Input("eventHubResourceId", required: true)]
@@ -228,7 +246,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Input("managedIdentityResourceId")]
         public Input<string>? ManagedIdentityResourceId { get; set; }
@@ -253,6 +271,7 @@ namespace Pulumi.AzureNative.Kusto
 
         public EventHubDataConnectionArgs()
         {
+            DatabaseRouting = "Single";
         }
     }
 }

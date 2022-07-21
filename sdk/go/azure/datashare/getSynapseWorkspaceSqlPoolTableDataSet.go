@@ -11,7 +11,7 @@ import (
 )
 
 // A Synapse Workspace Sql Pool Table data set.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupSynapseWorkspaceSqlPoolTableDataSet(ctx *pulumi.Context, args *LookupSynapseWorkspaceSqlPoolTableDataSetArgs, opts ...pulumi.InvokeOption) (*LookupSynapseWorkspaceSqlPoolTableDataSetResult, error) {
 	var rv LookupSynapseWorkspaceSqlPoolTableDataSetResult
 	err := ctx.Invoke("azure-native:datashare:getSynapseWorkspaceSqlPoolTableDataSet", args, &rv, opts...)

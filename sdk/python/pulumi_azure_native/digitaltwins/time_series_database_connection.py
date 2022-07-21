@@ -94,7 +94,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a time series database connection resource.
-        API Version: 2021-06-30-preview.
+        API Version: 2022-05-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a time series database connection resource.
-        API Version: 2021-06-30-preview.
+        API Version: 2022-05-31.
 
         :param str resource_name: The name of the resource.
         :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

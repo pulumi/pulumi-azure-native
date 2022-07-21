@@ -11,14 +11,14 @@ import (
 )
 
 // Single Namespace item in List or Get Operation
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:eventhub:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupNamespaceArgs struct {
@@ -30,10 +30,20 @@ type LookupNamespaceArgs struct {
 
 // Single Namespace item in List or Get Operation
 type LookupNamespaceResult struct {
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName *string `pulumi:"alternateName"`
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId *string `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// This property disables SAS authentication for the Event Hubs namespace.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -46,18 +56,37 @@ type LookupNamespaceResult struct {
 	MetricId string `pulumi:"metricId"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// List of private endpoint connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the Namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku *SkuResponse `pulumi:"sku"`
+	// Status of the Namespace.
+	Status string `pulumi:"status"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The time the Namespace was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+}
+
+// Defaults sets the appropriate defaults for LookupNamespaceResult
+func (val *LookupNamespaceResult) Defaults() *LookupNamespaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = tmp.Encryption.Defaults()
+
+	return &tmp
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -99,14 +128,39 @@ func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ct
 	return o
 }
 
+// Alternate name specified when alias and namespace names are same.
+func (o LookupNamespaceResultOutput) AlternateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.AlternateName }).(pulumi.StringPtrOutput)
+}
+
+// Cluster ARM ID of the Namespace.
+func (o LookupNamespaceResultOutput) ClusterArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.ClusterArmId }).(pulumi.StringPtrOutput)
+}
+
 // The time the Namespace was created.
 func (o LookupNamespaceResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// This property disables SAS authentication for the Event Hubs namespace.
+func (o LookupNamespaceResultOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Properties of BYOK Encryption description
+func (o LookupNamespaceResultOutput) Encryption() EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *EncryptionResponse { return v.Encryption }).(EncryptionResponsePtrOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Properties of BYOK Identity description
+func (o LookupNamespaceResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -139,6 +193,11 @@ func (o LookupNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of private endpoint connections.
+func (o LookupNamespaceResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // Provisioning state of the Namespace.
 func (o LookupNamespaceResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -154,6 +213,16 @@ func (o LookupNamespaceResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
+// Status of the Namespace.
+func (o LookupNamespaceResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupNamespaceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -167,6 +236,11 @@ func (o LookupNamespaceResultOutput) Type() pulumi.StringOutput {
 // The time the Namespace was updated.
 func (o LookupNamespaceResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+func (o LookupNamespaceResultOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

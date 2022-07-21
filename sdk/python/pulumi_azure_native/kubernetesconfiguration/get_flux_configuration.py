@@ -21,7 +21,13 @@ class GetFluxConfigurationResult:
     """
     The Flux Configuration object returned in Get & Put response.
     """
-    def __init__(__self__, compliance_state=None, configuration_protected_settings=None, error_message=None, git_repository=None, id=None, kustomizations=None, last_source_synced_at=None, last_source_synced_commit_id=None, name=None, namespace=None, provisioning_state=None, repository_public_key=None, scope=None, source_kind=None, statuses=None, suspend=None, system_data=None, type=None):
+    def __init__(__self__, azure_blob=None, bucket=None, compliance_state=None, configuration_protected_settings=None, error_message=None, git_repository=None, id=None, kustomizations=None, name=None, namespace=None, provisioning_state=None, repository_public_key=None, scope=None, source_kind=None, source_synced_commit_id=None, source_updated_at=None, status_updated_at=None, statuses=None, suspend=None, system_data=None, type=None):
+        if azure_blob and not isinstance(azure_blob, dict):
+            raise TypeError("Expected argument 'azure_blob' to be a dict")
+        pulumi.set(__self__, "azure_blob", azure_blob)
+        if bucket and not isinstance(bucket, dict):
+            raise TypeError("Expected argument 'bucket' to be a dict")
+        pulumi.set(__self__, "bucket", bucket)
         if compliance_state and not isinstance(compliance_state, str):
             raise TypeError("Expected argument 'compliance_state' to be a str")
         pulumi.set(__self__, "compliance_state", compliance_state)
@@ -40,12 +46,6 @@ class GetFluxConfigurationResult:
         if kustomizations and not isinstance(kustomizations, dict):
             raise TypeError("Expected argument 'kustomizations' to be a dict")
         pulumi.set(__self__, "kustomizations", kustomizations)
-        if last_source_synced_at and not isinstance(last_source_synced_at, str):
-            raise TypeError("Expected argument 'last_source_synced_at' to be a str")
-        pulumi.set(__self__, "last_source_synced_at", last_source_synced_at)
-        if last_source_synced_commit_id and not isinstance(last_source_synced_commit_id, str):
-            raise TypeError("Expected argument 'last_source_synced_commit_id' to be a str")
-        pulumi.set(__self__, "last_source_synced_commit_id", last_source_synced_commit_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -64,6 +64,15 @@ class GetFluxConfigurationResult:
         if source_kind and not isinstance(source_kind, str):
             raise TypeError("Expected argument 'source_kind' to be a str")
         pulumi.set(__self__, "source_kind", source_kind)
+        if source_synced_commit_id and not isinstance(source_synced_commit_id, str):
+            raise TypeError("Expected argument 'source_synced_commit_id' to be a str")
+        pulumi.set(__self__, "source_synced_commit_id", source_synced_commit_id)
+        if source_updated_at and not isinstance(source_updated_at, str):
+            raise TypeError("Expected argument 'source_updated_at' to be a str")
+        pulumi.set(__self__, "source_updated_at", source_updated_at)
+        if status_updated_at and not isinstance(status_updated_at, str):
+            raise TypeError("Expected argument 'status_updated_at' to be a str")
+        pulumi.set(__self__, "status_updated_at", status_updated_at)
         if statuses and not isinstance(statuses, list):
             raise TypeError("Expected argument 'statuses' to be a list")
         pulumi.set(__self__, "statuses", statuses)
@@ -76,6 +85,22 @@ class GetFluxConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureBlob")
+    def azure_blob(self) -> Optional['outputs.AzureBlobDefinitionResponse']:
+        """
+        Parameters to reconcile to the AzureBlob source kind type.
+        """
+        return pulumi.get(self, "azure_blob")
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional['outputs.BucketDefinitionResponse']:
+        """
+        Parameters to reconcile to the Bucket source kind type.
+        """
+        return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="complianceState")
@@ -126,22 +151,6 @@ class GetFluxConfigurationResult:
         return pulumi.get(self, "kustomizations")
 
     @property
-    @pulumi.getter(name="lastSourceSyncedAt")
-    def last_source_synced_at(self) -> str:
-        """
-        Datetime the fluxConfiguration last synced its source on the cluster.
-        """
-        return pulumi.get(self, "last_source_synced_at")
-
-    @property
-    @pulumi.getter(name="lastSourceSyncedCommitId")
-    def last_source_synced_commit_id(self) -> str:
-        """
-        Branch and SHA of the last source commit synced with the cluster.
-        """
-        return pulumi.get(self, "last_source_synced_commit_id")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -190,6 +199,30 @@ class GetFluxConfigurationResult:
         return pulumi.get(self, "source_kind")
 
     @property
+    @pulumi.getter(name="sourceSyncedCommitId")
+    def source_synced_commit_id(self) -> str:
+        """
+        Branch and/or SHA of the source commit synced with the cluster.
+        """
+        return pulumi.get(self, "source_synced_commit_id")
+
+    @property
+    @pulumi.getter(name="sourceUpdatedAt")
+    def source_updated_at(self) -> str:
+        """
+        Datetime the fluxConfiguration synced its source on the cluster.
+        """
+        return pulumi.get(self, "source_updated_at")
+
+    @property
+    @pulumi.getter(name="statusUpdatedAt")
+    def status_updated_at(self) -> str:
+        """
+        Datetime the fluxConfiguration synced its status on the cluster with Azure.
+        """
+        return pulumi.get(self, "status_updated_at")
+
+    @property
     @pulumi.getter
     def statuses(self) -> Sequence['outputs.ObjectStatusDefinitionResponse']:
         """
@@ -228,20 +261,23 @@ class AwaitableGetFluxConfigurationResult(GetFluxConfigurationResult):
         if False:
             yield self
         return GetFluxConfigurationResult(
+            azure_blob=self.azure_blob,
+            bucket=self.bucket,
             compliance_state=self.compliance_state,
             configuration_protected_settings=self.configuration_protected_settings,
             error_message=self.error_message,
             git_repository=self.git_repository,
             id=self.id,
             kustomizations=self.kustomizations,
-            last_source_synced_at=self.last_source_synced_at,
-            last_source_synced_commit_id=self.last_source_synced_commit_id,
             name=self.name,
             namespace=self.namespace,
             provisioning_state=self.provisioning_state,
             repository_public_key=self.repository_public_key,
             scope=self.scope,
             source_kind=self.source_kind,
+            source_synced_commit_id=self.source_synced_commit_id,
+            source_updated_at=self.source_updated_at,
+            status_updated_at=self.status_updated_at,
             statuses=self.statuses,
             suspend=self.suspend,
             system_data=self.system_data,
@@ -256,12 +292,12 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluxConfigurationResult:
     """
     The Flux Configuration object returned in Get & Put response.
-    API Version: 2021-11-01-preview.
+    API Version: 2022-07-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
-    :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-    :param str cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+    :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+    :param str cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
     :param str flux_configuration_name: Name of the Flux Configuration.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -278,20 +314,23 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetesconfiguration:getFluxConfiguration', __args__, opts=opts, typ=GetFluxConfigurationResult).value
 
     return AwaitableGetFluxConfigurationResult(
+        azure_blob=__ret__.azure_blob,
+        bucket=__ret__.bucket,
         compliance_state=__ret__.compliance_state,
         configuration_protected_settings=__ret__.configuration_protected_settings,
         error_message=__ret__.error_message,
         git_repository=__ret__.git_repository,
         id=__ret__.id,
         kustomizations=__ret__.kustomizations,
-        last_source_synced_at=__ret__.last_source_synced_at,
-        last_source_synced_commit_id=__ret__.last_source_synced_commit_id,
         name=__ret__.name,
         namespace=__ret__.namespace,
         provisioning_state=__ret__.provisioning_state,
         repository_public_key=__ret__.repository_public_key,
         scope=__ret__.scope,
         source_kind=__ret__.source_kind,
+        source_synced_commit_id=__ret__.source_synced_commit_id,
+        source_updated_at=__ret__.source_updated_at,
+        status_updated_at=__ret__.status_updated_at,
         statuses=__ret__.statuses,
         suspend=__ret__.suspend,
         system_data=__ret__.system_data,
@@ -307,12 +346,12 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """
     The Flux Configuration object returned in Get & Put response.
-    API Version: 2021-11-01-preview.
+    API Version: 2022-07-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
-    :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-    :param str cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+    :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+    :param str cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
     :param str flux_configuration_name: Name of the Flux Configuration.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

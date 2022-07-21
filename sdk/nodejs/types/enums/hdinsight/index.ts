@@ -54,6 +54,16 @@ export const OSType = {
  */
 export type OSType = (typeof OSType)[keyof typeof OSType];
 
+export const PrivateIPAllocationMethod = {
+    Dynamic: "dynamic",
+    Static: "static",
+} as const;
+
+/**
+ * The method that private IP address is allocated.
+ */
+export type PrivateIPAllocationMethod = (typeof PrivateIPAllocationMethod)[keyof typeof PrivateIPAllocationMethod];
+
 export const PrivateLink = {
     Disabled: "Disabled",
     Enabled: "Enabled",

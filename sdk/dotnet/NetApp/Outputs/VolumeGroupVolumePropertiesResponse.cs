@@ -65,7 +65,11 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? EnableSubvolumes;
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        /// </summary>
+        public readonly bool Encrypted;
+        /// <summary>
+        /// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         /// </summary>
         public readonly string? EncryptionKeySource;
         /// <summary>
@@ -224,6 +228,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? enableSubvolumes,
 
+            bool encrypted,
+
             string? encryptionKeySource,
 
             Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
@@ -304,6 +310,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             DefaultGroupQuotaInKiBs = defaultGroupQuotaInKiBs;
             DefaultUserQuotaInKiBs = defaultUserQuotaInKiBs;
             EnableSubvolumes = enableSubvolumes;
+            Encrypted = encrypted;
             EncryptionKeySource = encryptionKeySource;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;

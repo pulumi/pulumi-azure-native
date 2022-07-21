@@ -17,6 +17,7 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
                  dns_settings: Optional[pulumi.Input['NetworkInterfaceDnsSettingsArgs']] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
@@ -29,10 +30,12 @@ class NetworkInterfaceArgs:
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
                  nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
                  private_link_service: Optional[pulumi.Input['PrivateLinkServiceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workload_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param pulumi.Input['NetworkInterfaceDnsSettingsArgs'] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
@@ -46,8 +49,11 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
         :param pulumi.Input['PrivateLinkServiceArgs'] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if enable_accelerated_networking is not None:
@@ -74,6 +80,8 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "private_link_service", private_link_service)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +94,18 @@ class NetworkInterfaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]]:
+        """
+        Auxiliary mode of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @auxiliary_mode.setter
+    def auxiliary_mode(self, value: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]]):
+        pulumi.set(self, "auxiliary_mode", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -243,12 +263,25 @@ class NetworkInterfaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        WorkloadType of the NetworkInterface for BareMetal resources
+        """
+        return pulumi.get(self, "workload_type")
+
+    @workload_type.setter
+    def workload_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_type", value)
+
 
 class NetworkInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
@@ -263,13 +296,15 @@ class NetworkInterface(pulumi.CustomResource):
                  private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workload_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A network interface in a resource group.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
@@ -284,6 +319,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
         ...
     @overload
@@ -293,7 +329,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A network interface in a resource group.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -310,6 +346,7 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
@@ -324,6 +361,7 @@ class NetworkInterface(pulumi.CustomResource):
                  private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workload_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -336,6 +374,7 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+            __props__.__dict__["auxiliary_mode"] = auxiliary_mode
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
             __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
@@ -352,6 +391,7 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workload_type"] = workload_type
             __props__.__dict__["dscp_configuration"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["hosted_workloads"] = None
@@ -364,6 +404,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["tap_configurations"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine"] = None
+            __props__.__dict__["vnet_encryption_supported"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkInterface, __self__).__init__(
@@ -388,6 +429,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+        __props__.__dict__["auxiliary_mode"] = None
         __props__.__dict__["dns_settings"] = None
         __props__.__dict__["dscp_configuration"] = None
         __props__.__dict__["enable_accelerated_networking"] = None
@@ -411,7 +453,17 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["tap_configurations"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine"] = None
+        __props__.__dict__["vnet_encryption_supported"] = None
+        __props__.__dict__["workload_type"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Auxiliary mode of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_mode")
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -596,4 +648,20 @@ class NetworkInterface(pulumi.CustomResource):
         The reference to a virtual machine.
         """
         return pulumi.get(self, "virtual_machine")
+
+    @property
+    @pulumi.getter(name="vnetEncryptionSupported")
+    def vnet_encryption_supported(self) -> pulumi.Output[bool]:
+        """
+        Whether the virtual machine this nic is attached to supports encryption.
+        """
+        return pulumi.get(self, "vnet_encryption_supported")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        WorkloadType of the NetworkInterface for BareMetal resources
+        """
+        return pulumi.get(self, "workload_type")
 

@@ -11,7 +11,7 @@ import (
 )
 
 // A server firewall rule.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
 	err := ctx.Invoke("azure-native:sql:getFirewallRule", args, &rv, opts...)

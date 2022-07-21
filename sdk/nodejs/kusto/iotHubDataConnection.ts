@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an iot hub data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      * The data format of the message. Optionally the data format can be added to each message.
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    public readonly databaseRouting!: pulumi.Output<string | undefined>;
     /**
      * System properties of the iot hub
      */
@@ -123,6 +127,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRouting"] = (args ? args.databaseRouting : undefined) ?? "Single";
             resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             resourceInputs["iotHubResourceId"] = args ? args.iotHubResourceId : undefined;
             resourceInputs["kind"] = "IotHub";
@@ -137,6 +142,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
         } else {
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["databaseRouting"] = undefined /*out*/;
             resourceInputs["eventSystemProperties"] = undefined /*out*/;
             resourceInputs["iotHubResourceId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -179,6 +185,10 @@ export interface IotHubDataConnectionArgs {
      * The name of the database in the Kusto cluster.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
     /**
      * System properties of the iot hub
      */

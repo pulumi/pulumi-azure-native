@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     public sealed class EventHubStreamInputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         /// </summary>
         [Input("consumerGroupName")]
@@ -26,6 +32,18 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// </summary>
         [Input("eventHubName")]
         public Input<string>? EventHubName { get; set; }
+
+        /// <summary>
+        /// The partition count of the event hub data source. Range 1 - 256.
+        /// </summary>
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
+
+        /// <summary>
+        /// The number of messages that the message receiver can simultaneously request.
+        /// </summary>
+        [Input("prefetchCount")]
+        public Input<int>? PrefetchCount { get; set; }
 
         /// <summary>
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.

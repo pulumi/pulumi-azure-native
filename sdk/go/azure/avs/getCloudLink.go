@@ -11,7 +11,7 @@ import (
 )
 
 // A cloud link resource
-// API Version: 2021-06-01.
+// API Version: 2021-12-01.
 func LookupCloudLink(ctx *pulumi.Context, args *LookupCloudLinkArgs, opts ...pulumi.InvokeOption) (*LookupCloudLinkResult, error) {
 	var rv LookupCloudLinkResult
 	err := ctx.Invoke("azure-native:avs:getCloudLink", args, &rv, opts...)

@@ -12,12 +12,14 @@ import (
 )
 
 // An elastic pool.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
 	// The creation date of the elastic pool (ISO8601 format).
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+	HighAvailabilityReplicaCount pulumi.IntPtrOutput `pulumi:"highAvailabilityReplicaCount"`
 	// Kind of elastic pool. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The license type to apply for this elastic pool.
@@ -28,6 +30,8 @@ type ElasticPool struct {
 	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
+	// Minimal capacity that serverless pool will not shrink below, if not paused
+	MinCapacity pulumi.Float64PtrOutput `pulumi:"minCapacity"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The per database settings for the elastic pool.
@@ -123,6 +127,8 @@ func (ElasticPoolState) ElementType() reflect.Type {
 type elasticPoolArgs struct {
 	// The name of the elastic pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
+	// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// The license type to apply for this elastic pool.
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
@@ -131,6 +137,8 @@ type elasticPoolArgs struct {
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
+	// Minimal capacity that serverless pool will not shrink below, if not paused
+	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The per database settings for the elastic pool.
 	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -151,6 +159,8 @@ type elasticPoolArgs struct {
 type ElasticPoolArgs struct {
 	// The name of the elastic pool.
 	ElasticPoolName pulumi.StringPtrInput
+	// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+	HighAvailabilityReplicaCount pulumi.IntPtrInput
 	// The license type to apply for this elastic pool.
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
@@ -159,6 +169,8 @@ type ElasticPoolArgs struct {
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes pulumi.Float64PtrInput
+	// Minimal capacity that serverless pool will not shrink below, if not paused
+	MinCapacity pulumi.Float64PtrInput
 	// The per database settings for the elastic pool.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -217,6 +229,11 @@ func (o ElasticPoolOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+func (o ElasticPoolOutput) HighAvailabilityReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.IntPtrOutput { return v.HighAvailabilityReplicaCount }).(pulumi.IntPtrOutput)
+}
+
 // Kind of elastic pool. This is metadata used for the Azure portal experience.
 func (o ElasticPoolOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
@@ -240,6 +257,11 @@ func (o ElasticPoolOutput) MaintenanceConfigurationId() pulumi.StringPtrOutput {
 // The storage limit for the database elastic pool in bytes.
 func (o ElasticPoolOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.Float64PtrOutput { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Minimal capacity that serverless pool will not shrink below, if not paused
+func (o ElasticPoolOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.Float64PtrOutput { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Resource name.

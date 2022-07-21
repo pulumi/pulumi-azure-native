@@ -12,7 +12,7 @@ import (
 )
 
 // IoT Addon.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type IoTAddon struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +31,7 @@ type IoTAddon struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Addon Provisioning State
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Addon type
+	// Metadata pertaining to creation and last modification of Addon
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -236,7 +236,7 @@ func (o IoTAddonOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Addon type
+// Metadata pertaining to creation and last modification of Addon
 func (o IoTAddonOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *IoTAddon) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A datastore resource
- * API Version: 2021-01-01-preview.
+ * API Version: 2021-12-01.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
     if (!opts) {
@@ -66,6 +66,10 @@ export interface GetDatastoreResult {
      * The state of the datastore provisioning
      */
     readonly provisioningState: string;
+    /**
+     * The operational status of the datastore
+     */
+    readonly status: string;
     /**
      * Resource type.
      */

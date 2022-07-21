@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Tap configuration in a Network Interface.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tap configuration in a Network Interface.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetNetworkInterfaceTapConfigurationResult> Invoke(GetNetworkInterfaceTapConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceTapConfigurationResult>("azure-native:network:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationInvokeArgs(), options.WithDefaults());

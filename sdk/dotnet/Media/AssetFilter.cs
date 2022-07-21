@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// An Asset Filter.
-    /// API Version: 2020-05-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:AssetFilter")]
     public partial class AssetFilter : Pulumi.CustomResource

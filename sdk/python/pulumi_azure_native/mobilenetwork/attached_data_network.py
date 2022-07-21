@@ -305,7 +305,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Attached data network resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,7 +338,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attached data network resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AttachedDataNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -409,6 +409,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__.__dict__["user_plane_data_interface"] = user_plane_data_interface
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -444,6 +445,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["napt_configuration"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_equipment_address_pool_prefix"] = None
@@ -531,6 +533,14 @@ class AttachedDataNetwork(pulumi.CustomResource):
         The provisioning state of the attached data network resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

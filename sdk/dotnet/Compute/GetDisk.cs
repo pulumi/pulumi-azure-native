@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Disk resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Disk resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDiskArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskName", required: true)]
         public string DiskName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDiskInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskName", required: true)]
         public Input<string> DiskName { get; set; } = null!;
@@ -74,9 +74,17 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly bool? BurstingEnabled;
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        public readonly double? CompletionPercent;
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         public readonly Outputs.CreationDataResponse CreationData;
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        public readonly string? DataAccessAuthMode;
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
         /// </summary>
@@ -166,6 +174,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         /// </summary>
         public readonly Outputs.PurchasePlanResponse? PurchasePlan;
@@ -181,6 +193,10 @@ namespace Pulumi.AzureNative.Compute
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         /// </summary>
         public readonly Outputs.DiskSkuResponse? Sku;
+        /// <summary>
+        /// List of supported capabilities for the image from which the OS disk was created.
+        /// </summary>
+        public readonly Outputs.SupportedCapabilitiesResponse? SupportedCapabilities;
         /// <summary>
         /// Indicates the OS on a disk supports hibernation.
         /// </summary>
@@ -214,7 +230,11 @@ namespace Pulumi.AzureNative.Compute
         private GetDiskResult(
             bool? burstingEnabled,
 
+            double? completionPercent,
+
             Outputs.CreationDataResponse creationData,
+
+            string? dataAccessAuthMode,
 
             string? diskAccessId,
 
@@ -260,6 +280,8 @@ namespace Pulumi.AzureNative.Compute
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.PurchasePlanResponse? purchasePlan,
 
             Outputs.DiskSecurityProfileResponse? securityProfile,
@@ -267,6 +289,8 @@ namespace Pulumi.AzureNative.Compute
             ImmutableArray<Outputs.ShareInfoElementResponse> shareInfo,
 
             Outputs.DiskSkuResponse? sku,
+
+            Outputs.SupportedCapabilitiesResponse? supportedCapabilities,
 
             bool? supportsHibernation,
 
@@ -283,7 +307,9 @@ namespace Pulumi.AzureNative.Compute
             ImmutableArray<string> zones)
         {
             BurstingEnabled = burstingEnabled;
+            CompletionPercent = completionPercent;
             CreationData = creationData;
+            DataAccessAuthMode = dataAccessAuthMode;
             DiskAccessId = diskAccessId;
             DiskIOPSReadOnly = diskIOPSReadOnly;
             DiskIOPSReadWrite = diskIOPSReadWrite;
@@ -306,10 +332,12 @@ namespace Pulumi.AzureNative.Compute
             OsType = osType;
             PropertyUpdatesInProgress = propertyUpdatesInProgress;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             PurchasePlan = purchasePlan;
             SecurityProfile = securityProfile;
             ShareInfo = shareInfo;
             Sku = sku;
+            SupportedCapabilities = supportedCapabilities;
             SupportsHibernation = supportsHibernation;
             Tags = tags;
             Tier = tier;

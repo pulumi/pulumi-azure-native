@@ -20,7 +20,10 @@ class GetBackupShortTermRetentionPolicyResult:
     """
     A short term retention policy.
     """
-    def __init__(__self__, id=None, name=None, retention_days=None, type=None):
+    def __init__(__self__, diff_backup_interval_in_hours=None, id=None, name=None, retention_days=None, type=None):
+        if diff_backup_interval_in_hours and not isinstance(diff_backup_interval_in_hours, int):
+            raise TypeError("Expected argument 'diff_backup_interval_in_hours' to be a int")
+        pulumi.set(__self__, "diff_backup_interval_in_hours", diff_backup_interval_in_hours)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -33,6 +36,14 @@ class GetBackupShortTermRetentionPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="diffBackupIntervalInHours")
+    def diff_backup_interval_in_hours(self) -> Optional[int]:
+        """
+        The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        """
+        return pulumi.get(self, "diff_backup_interval_in_hours")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetBackupShortTermRetentionPolicyResult(GetBackupShortTermRetenti
         if False:
             yield self
         return GetBackupShortTermRetentionPolicyResult(
+            diff_backup_interval_in_hours=self.diff_backup_interval_in_hours,
             id=self.id,
             name=self.name,
             retention_days=self.retention_days,
@@ -86,7 +98,7 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupShortTermRetentionPolicyResult:
     """
     A short term retention policy.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -106,6 +118,7 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getBackupShortTermRetentionPolicy', __args__, opts=opts, typ=GetBackupShortTermRetentionPolicyResult).value
 
     return AwaitableGetBackupShortTermRetentionPolicyResult(
+        diff_backup_interval_in_hours=__ret__.diff_backup_interval_in_hours,
         id=__ret__.id,
         name=__ret__.name,
         retention_days=__ret__.retention_days,
@@ -120,7 +133,7 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupShortTermRetentionPolicyResult]:
     """
     A short term retention policy.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str database_name: The name of the database.

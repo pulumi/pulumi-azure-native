@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The properties of the EventHubConsumerGroupInfo object.
-        /// API Version: 2020-08-31.
+        /// API Version: 2021-07-02.
         /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of the EventHubConsumerGroupInfo object.
-        /// API Version: 2020-08-31.
+        /// API Version: 2021-07-02.
         /// </summary>
         public static Output<GetIotHubResourceEventHubConsumerGroupResult> Invoke(GetIotHubResourceEventHubConsumerGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupInvokeArgs(), options.WithDefaults());
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Devices
         /// <summary>
         /// The tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Properties;
+        public readonly object Properties;
         /// <summary>
         /// the resource type.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Devices
 
             string name,
 
-            ImmutableDictionary<string, string> properties,
+            object properties,
 
             string type)
         {

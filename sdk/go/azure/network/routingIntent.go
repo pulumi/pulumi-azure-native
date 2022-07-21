@@ -12,7 +12,7 @@ import (
 )
 
 // The routing intent child resource of a Virtual hub.
-// API Version: 2022-01-01.
+// API Version: 2021-08-01.
 type RoutingIntent struct {
 	pulumi.CustomResourceState
 

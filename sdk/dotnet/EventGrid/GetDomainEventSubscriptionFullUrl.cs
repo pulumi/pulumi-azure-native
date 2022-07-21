@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Full endpoint url of an event subscription
-        /// API Version: 2021-10-15-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetDomainEventSubscriptionFullUrlResult> InvokeAsync(GetDomainEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainEventSubscriptionFullUrlResult>("azure-native:eventgrid:getDomainEventSubscriptionFullUrl", args ?? new GetDomainEventSubscriptionFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Full endpoint url of an event subscription
-        /// API Version: 2021-10-15-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetDomainEventSubscriptionFullUrlResult> Invoke(GetDomainEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainEventSubscriptionFullUrlResult>("azure-native:eventgrid:getDomainEventSubscriptionFullUrl", args ?? new GetDomainEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());

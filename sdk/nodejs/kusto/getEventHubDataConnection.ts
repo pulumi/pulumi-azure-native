@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
     if (!opts) {
@@ -58,6 +58,10 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly dataFormat?: string;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    readonly databaseRouting?: string;
+    /**
      * The resource ID of the event hub to be used to create a data connection.
      */
     readonly eventHubResourceId: string;
@@ -79,7 +83,11 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly location?: string;
     /**
-     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     * The object ID of the managedIdentityResourceId
+     */
+    readonly managedIdentityObjectId: string;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
      */
     readonly managedIdentityResourceId?: string;
     /**

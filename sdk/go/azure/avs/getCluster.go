@@ -11,7 +11,7 @@ import (
 )
 
 // A cluster resource
-// API Version: 2020-03-20.
+// API Version: 2021-12-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:avs:getCluster", args, &rv, opts...)
@@ -35,7 +35,7 @@ type LookupClusterResult struct {
 	// The identity
 	ClusterId int `pulumi:"clusterId"`
 	// The cluster size
-	ClusterSize int `pulumi:"clusterSize"`
+	ClusterSize *int `pulumi:"clusterSize"`
 	// The hosts
 	Hosts []string `pulumi:"hosts"`
 	// Resource ID.
@@ -97,8 +97,8 @@ func (o LookupClusterResultOutput) ClusterId() pulumi.IntOutput {
 }
 
 // The cluster size
-func (o LookupClusterResultOutput) ClusterSize() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.ClusterSize }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) ClusterSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.ClusterSize }).(pulumi.IntPtrOutput)
 }
 
 // The hosts

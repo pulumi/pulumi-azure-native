@@ -11,7 +11,7 @@ import (
 )
 
 // The set of available keys for this server.
-// API Version: 2022-04-21.
+// API Version: 2022-06-01.
 func ListFluidRelayServerKeys(ctx *pulumi.Context, args *ListFluidRelayServerKeysArgs, opts ...pulumi.InvokeOption) (*ListFluidRelayServerKeysResult, error) {
 	var rv ListFluidRelayServerKeysResult
 	err := ctx.Invoke("azure-native:fluidrelay:listFluidRelayServerKeys", args, &rv, opts...)

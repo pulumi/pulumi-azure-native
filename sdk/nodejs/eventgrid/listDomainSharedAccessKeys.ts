@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Shared access keys of the Domain.
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
     if (!opts) {

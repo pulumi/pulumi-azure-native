@@ -97,7 +97,7 @@ def list_web_app_connection_strings(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsResult:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -126,7 +126,7 @@ def list_web_app_connection_strings_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppConnectionStringsResult]:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

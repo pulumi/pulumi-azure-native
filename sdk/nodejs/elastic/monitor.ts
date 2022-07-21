@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Monitor resource.
- * API Version: 2020-07-01.
+ * API Version: 2021-10-01-preview.
  */
 export class Monitor extends pulumi.CustomResource {
     /**

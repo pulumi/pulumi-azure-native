@@ -11,7 +11,6 @@ from ._enums import *
 
 __all__ = [
     'IdentityArgs',
-    'ObjectAnchorsAccountIdentityArgs',
     'SkuArgs',
 ]
 
@@ -21,29 +20,6 @@ class IdentityArgs:
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
-        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ObjectAnchorsAccountIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
-        """
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:

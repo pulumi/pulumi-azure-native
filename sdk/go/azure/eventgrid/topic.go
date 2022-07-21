@@ -12,12 +12,18 @@ import (
 )
 
 // EventGrid Topic
-// API Version: 2020-06-01.
+// API Version: 2022-06-15.
 type Topic struct {
 	pulumi.CustomResourceState
 
+	// Data Residency Boundary of the resource.
+	DataResidencyBoundary pulumi.StringPtrOutput `pulumi:"dataResidencyBoundary"`
+	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
 	// Endpoint for the topic.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// Identity information for the resource.
+	Identity IdentityInfoResponsePtrOutput `pulumi:"identity"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules InboundIpRuleResponseArrayOutput `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
@@ -53,6 +59,9 @@ func NewTopic(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if isZero(args.DisableLocalAuth) {
+		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
 	if isZero(args.InputSchema) {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
@@ -143,6 +152,12 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// Data Residency Boundary of the resource.
+	DataResidencyBoundary *string `pulumi:"dataResidencyBoundary"`
+	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Identity information for the resource.
+	Identity *IdentityInfo `pulumi:"identity"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules []InboundIpRule `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
@@ -164,6 +179,12 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// Data Residency Boundary of the resource.
+	DataResidencyBoundary pulumi.StringPtrInput
+	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+	DisableLocalAuth pulumi.BoolPtrInput
+	// Identity information for the resource.
+	Identity IdentityInfoPtrInput
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules InboundIpRuleArrayInput
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
@@ -220,9 +241,24 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
+// Data Residency Boundary of the resource.
+func (o TopicOutput) DataResidencyBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DataResidencyBoundary }).(pulumi.StringPtrOutput)
+}
+
+// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+func (o TopicOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
 // Endpoint for the topic.
 func (o TopicOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Identity information for the resource.
+func (o TopicOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Topic) IdentityInfoResponsePtrOutput { return v.Identity }).(IdentityInfoResponsePtrOutput)
 }
 
 // This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.

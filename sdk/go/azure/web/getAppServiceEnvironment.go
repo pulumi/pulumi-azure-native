@@ -11,7 +11,7 @@ import (
 )
 
 // App Service Environment ARM resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupAppServiceEnvironment(ctx *pulumi.Context, args *LookupAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceEnvironmentResult, error) {
 	var rv LookupAppServiceEnvironmentResult
 	err := ctx.Invoke("azure-native:web:getAppServiceEnvironment", args, &rv, opts...)
@@ -33,7 +33,7 @@ type LookupAppServiceEnvironmentResult struct {
 	// Custom settings for changing the behavior of the App Service Environment.
 	ClusterSettings []NameValuePairResponse `pulumi:"clusterSettings"`
 	// Dedicated Host Count
-	DedicatedHostCount int `pulumi:"dedicatedHostCount"`
+	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
 	// DNS suffix of the App Service Environment.
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// Scale factor for front-ends.
@@ -73,6 +73,8 @@ type LookupAppServiceEnvironmentResult struct {
 	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 	// Description of the Virtual Network.
 	VirtualNetwork VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+	// Whether or not this App Service Environment is zone-redundant.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 func LookupAppServiceEnvironmentOutput(ctx *pulumi.Context, args LookupAppServiceEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupAppServiceEnvironmentResultOutput {
@@ -120,8 +122,8 @@ func (o LookupAppServiceEnvironmentResultOutput) ClusterSettings() NameValuePair
 }
 
 // Dedicated Host Count
-func (o LookupAppServiceEnvironmentResultOutput) DedicatedHostCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupAppServiceEnvironmentResult) int { return v.DedicatedHostCount }).(pulumi.IntOutput)
+func (o LookupAppServiceEnvironmentResultOutput) DedicatedHostCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAppServiceEnvironmentResult) *int { return v.DedicatedHostCount }).(pulumi.IntPtrOutput)
 }
 
 // DNS suffix of the App Service Environment.
@@ -218,6 +220,11 @@ func (o LookupAppServiceEnvironmentResultOutput) UserWhitelistedIpRanges() pulum
 // Description of the Virtual Network.
 func (o LookupAppServiceEnvironmentResultOutput) VirtualNetwork() VirtualNetworkProfileResponseOutput {
 	return o.ApplyT(func(v LookupAppServiceEnvironmentResult) VirtualNetworkProfileResponse { return v.VirtualNetwork }).(VirtualNetworkProfileResponseOutput)
+}
+
+// Whether or not this App Service Environment is zone-redundant.
+func (o LookupAppServiceEnvironmentResultOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAppServiceEnvironmentResult) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

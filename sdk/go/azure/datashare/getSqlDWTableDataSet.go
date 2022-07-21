@@ -11,7 +11,7 @@ import (
 )
 
 // A SQL DW table data set.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupSqlDWTableDataSet(ctx *pulumi.Context, args *LookupSqlDWTableDataSetArgs, opts ...pulumi.InvokeOption) (*LookupSqlDWTableDataSetResult, error) {
 	var rv LookupSqlDWTableDataSetResult
 	err := ctx.Invoke("azure-native:datashare:getSqlDWTableDataSet", args, &rv, opts...)

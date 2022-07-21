@@ -51,7 +51,7 @@ def get_build_service_build_result_log(build_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceBuildResultLogResult:
     """
     Build result log resource properties payload
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01.
 
 
     :param str build_name: The name of the build resource.
@@ -85,7 +85,7 @@ def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceBuildResultLogResult]:
     """
     Build result log resource properties payload
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01.
 
 
     :param str build_name: The name of the build resource.

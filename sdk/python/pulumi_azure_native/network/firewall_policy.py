@@ -19,6 +19,7 @@ class FirewallPolicyArgs:
                  resource_group_name: pulumi.Input[str],
                  base_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
                  dns_settings: Optional[pulumi.Input['DnsSettingsArgs']] = None,
+                 explicit_proxy_settings: Optional[pulumi.Input['ExplicitProxySettingsArgs']] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
@@ -27,6 +28,7 @@ class FirewallPolicyArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['FirewallPolicySkuArgs']] = None,
                  snat: Optional[pulumi.Input['FirewallPolicySNATArgs']] = None,
+                 sql: Optional[pulumi.Input['FirewallPolicySQLArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
                  threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None,
@@ -36,6 +38,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SubResourceArgs'] base_policy: The parent firewall policy from which rules are inherited.
         :param pulumi.Input['DnsSettingsArgs'] dns_settings: DNS Proxy Settings definition.
+        :param pulumi.Input['ExplicitProxySettingsArgs'] explicit_proxy_settings: Explicit Proxy Settings definition.
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the firewall policy.
@@ -44,6 +47,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['FirewallPolicySkuArgs'] sku: The Firewall Policy SKU.
         :param pulumi.Input['FirewallPolicySNATArgs'] snat: The private IP addresses/IP ranges to which traffic will not be SNAT.
+        :param pulumi.Input['FirewallPolicySQLArgs'] sql: SQL Settings definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs'] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
@@ -54,6 +58,8 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "base_policy", base_policy)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
+        if explicit_proxy_settings is not None:
+            pulumi.set(__self__, "explicit_proxy_settings", explicit_proxy_settings)
         if firewall_policy_name is not None:
             pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         if id is not None:
@@ -70,6 +76,8 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "sku", sku)
         if snat is not None:
             pulumi.set(__self__, "snat", snat)
+        if sql is not None:
+            pulumi.set(__self__, "sql", sql)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if threat_intel_mode is not None:
@@ -114,6 +122,18 @@ class FirewallPolicyArgs:
     @dns_settings.setter
     def dns_settings(self, value: Optional[pulumi.Input['DnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
+
+    @property
+    @pulumi.getter(name="explicitProxySettings")
+    def explicit_proxy_settings(self) -> Optional[pulumi.Input['ExplicitProxySettingsArgs']]:
+        """
+        Explicit Proxy Settings definition.
+        """
+        return pulumi.get(self, "explicit_proxy_settings")
+
+    @explicit_proxy_settings.setter
+    def explicit_proxy_settings(self, value: Optional[pulumi.Input['ExplicitProxySettingsArgs']]):
+        pulumi.set(self, "explicit_proxy_settings", value)
 
     @property
     @pulumi.getter(name="firewallPolicyName")
@@ -213,6 +233,18 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter
+    def sql(self) -> Optional[pulumi.Input['FirewallPolicySQLArgs']]:
+        """
+        SQL Settings definition.
+        """
+        return pulumi.get(self, "sql")
+
+    @sql.setter
+    def sql(self, value: Optional[pulumi.Input['FirewallPolicySQLArgs']]):
+        pulumi.set(self, "sql", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -267,6 +299,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['DnsSettingsArgs']]] = None,
+                 explicit_proxy_settings: Optional[pulumi.Input[pulumi.InputType['ExplicitProxySettingsArgs']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
@@ -276,6 +309,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']]] = None,
                  snat: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySNATArgs']]] = None,
+                 sql: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySQLArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
                  threat_intel_whitelist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']]] = None,
@@ -283,12 +317,13 @@ class FirewallPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         FirewallPolicy Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] base_policy: The parent firewall policy from which rules are inherited.
         :param pulumi.Input[pulumi.InputType['DnsSettingsArgs']] dns_settings: DNS Proxy Settings definition.
+        :param pulumi.Input[pulumi.InputType['ExplicitProxySettingsArgs']] explicit_proxy_settings: Explicit Proxy Settings definition.
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the firewall policy.
@@ -298,6 +333,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']] sku: The Firewall Policy SKU.
         :param pulumi.Input[pulumi.InputType['FirewallPolicySNATArgs']] snat: The private IP addresses/IP ranges to which traffic will not be SNAT.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicySQLArgs']] sql: SQL Settings definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
@@ -311,7 +347,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         FirewallPolicy Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -330,6 +366,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['DnsSettingsArgs']]] = None,
+                 explicit_proxy_settings: Optional[pulumi.Input[pulumi.InputType['ExplicitProxySettingsArgs']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
@@ -339,6 +376,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']]] = None,
                  snat: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySNATArgs']]] = None,
+                 sql: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySQLArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
                  threat_intel_whitelist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']]] = None,
@@ -357,6 +395,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
             __props__.__dict__["base_policy"] = base_policy
             __props__.__dict__["dns_settings"] = dns_settings
+            __props__.__dict__["explicit_proxy_settings"] = explicit_proxy_settings
             __props__.__dict__["firewall_policy_name"] = firewall_policy_name
             __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity
@@ -368,6 +407,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["snat"] = snat
+            __props__.__dict__["sql"] = sql
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
@@ -407,6 +447,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["child_policies"] = None
         __props__.__dict__["dns_settings"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["explicit_proxy_settings"] = None
         __props__.__dict__["firewalls"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["insights"] = None
@@ -417,6 +458,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["rule_collection_groups"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["snat"] = None
+        __props__.__dict__["sql"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["threat_intel_mode"] = None
         __props__.__dict__["threat_intel_whitelist"] = None
@@ -455,6 +497,14 @@ class FirewallPolicy(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="explicitProxySettings")
+    def explicit_proxy_settings(self) -> pulumi.Output[Optional['outputs.ExplicitProxySettingsResponse']]:
+        """
+        Explicit Proxy Settings definition.
+        """
+        return pulumi.get(self, "explicit_proxy_settings")
 
     @property
     @pulumi.getter
@@ -535,6 +585,14 @@ class FirewallPolicy(pulumi.CustomResource):
         The private IP addresses/IP ranges to which traffic will not be SNAT.
         """
         return pulumi.get(self, "snat")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> pulumi.Output[Optional['outputs.FirewallPolicySQLResponse']]:
+        """
+        SQL Settings definition.
+        """
+        return pulumi.get(self, "sql")
 
     @property
     @pulumi.getter

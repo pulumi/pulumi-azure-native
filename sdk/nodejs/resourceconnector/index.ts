@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./appliance";
 export * from "./getAppliance";
-export * from "./listApplianceClusterCustomerUserCredential";
 export * from "./listApplianceClusterUserCredential";
 
 // Export enums:

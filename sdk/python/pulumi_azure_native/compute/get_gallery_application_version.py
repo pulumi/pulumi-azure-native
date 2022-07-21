@@ -136,7 +136,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationVersionResult:
     """
     Specifies information about the gallery Application Version that you want to create or update.
-    API Version: 2020-09-30.
+    API Version: 2021-10-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -177,7 +177,7 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationVersionResult]:
     """
     Specifies information about the gallery Application Version that you want to create or update.
-    API Version: 2020-09-30.
+    API Version: 2021-10-01.
 
 
     :param str expand: The expand expression to apply on the operation.

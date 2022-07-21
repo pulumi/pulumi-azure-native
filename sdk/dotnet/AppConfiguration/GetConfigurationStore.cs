@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppConfiguration
     {
         /// <summary>
         /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
@@ -74,6 +74,14 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Disables all authentication methods other than AAD authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// Property specifying whether protection against purge is enabled for this configuration store.
+        /// </summary>
+        public readonly bool? EnablePurgeProtection;
+        /// <summary>
         /// The encryption settings of the configuration store.
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse? Encryption;
@@ -82,7 +90,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// The resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -90,11 +98,11 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
-        /// The location of the resource. This cannot be changed after the resource is created.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -114,17 +122,29 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// The tags of the resource.
+        /// The amount of time in days that the configuration store will be retained when it is soft deleted.
+        /// </summary>
+        public readonly int? SoftDeleteRetentionInDays;
+        /// <summary>
+        /// Resource system metadata.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetConfigurationStoreResult(
             string creationDate,
+
+            bool? disableLocalAuth,
+
+            bool? enablePurgeProtection,
 
             Outputs.EncryptionPropertiesResponse? encryption,
 
@@ -146,11 +166,17 @@ namespace Pulumi.AzureNative.AppConfiguration
 
             Outputs.SkuResponse sku,
 
+            int? softDeleteRetentionInDays,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             CreationDate = creationDate;
+            DisableLocalAuth = disableLocalAuth;
+            EnablePurgeProtection = enablePurgeProtection;
             Encryption = encryption;
             Endpoint = endpoint;
             Id = id;
@@ -161,6 +187,8 @@ namespace Pulumi.AzureNative.AppConfiguration
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
+            SoftDeleteRetentionInDays = softDeleteRetentionInDays;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

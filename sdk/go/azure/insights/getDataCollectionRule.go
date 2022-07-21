@@ -11,7 +11,7 @@ import (
 )
 
 // Definition of ARM tracked top level resource.
-// API Version: 2019-11-01-preview.
+// API Version: 2021-04-01.
 func LookupDataCollectionRule(ctx *pulumi.Context, args *LookupDataCollectionRuleArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleResult, error) {
 	var rv LookupDataCollectionRuleResult
 	err := ctx.Invoke("azure-native:insights:getDataCollectionRule", args, &rv, opts...)
@@ -53,6 +53,8 @@ type LookupDataCollectionRuleResult struct {
 	Name string `pulumi:"name"`
 	// The resource provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData DataCollectionRuleResourceResponseSystemData `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -152,6 +154,13 @@ func (o LookupDataCollectionRuleResultOutput) Name() pulumi.StringOutput {
 // The resource provisioning state.
 func (o LookupDataCollectionRuleResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupDataCollectionRuleResultOutput) SystemData() DataCollectionRuleResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) DataCollectionRuleResourceResponseSystemData {
+		return v.SystemData
+	}).(DataCollectionRuleResourceResponseSystemDataOutput)
 }
 
 // Resource tags.

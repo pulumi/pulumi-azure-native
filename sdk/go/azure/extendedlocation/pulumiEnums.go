@@ -10,5 +10,13 @@ const (
 	HostTypeKubernetes = HostType("Kubernetes")
 )
 
+// The identity type.
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone           = ResourceIdentityType("None")
+)
+
 func init() {
 }

@@ -142,7 +142,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a managed private endpoint.
-        API Version: 2021-08-27.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a managed private endpoint.
-        API Version: 2021-08-27.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.

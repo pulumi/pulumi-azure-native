@@ -164,7 +164,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of ARM tracked top level resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of ARM tracked top level resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -282,7 +282,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="configurationAccess")
     def configuration_access(self) -> pulumi.Output[Optional['outputs.DataCollectionEndpointResponseConfigurationAccess']]:
         """
-        The endpoint used by clients to access their configuration.
+        The endpoint used by agents to access their configuration.
         """
         return pulumi.get(self, "configuration_access")
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
-        /// API Version: 2021-10-01-preview.
+        /// API Version: 2021-11-15-preview.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
-        /// API Version: 2021-10-01-preview.
+        /// API Version: 2021-11-15-preview.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());

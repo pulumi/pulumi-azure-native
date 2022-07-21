@@ -12,7 +12,7 @@ import (
 )
 
 // An event source that receives its data from an Azure EventHub.
-// API Version: 2020-05-15.
+// API Version: 2021-06-30-preview.
 type EventHubEventSource struct {
 	pulumi.CustomResourceState
 

@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
     public sealed class VirtualNetworkConfigResponse
     {
         /// <summary>
+        /// Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
+        /// </summary>
+        public readonly string? ProxyVmSize;
+        /// <summary>
         /// Resource id of a pre-existing subnet.
         /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]
-        private VirtualNetworkConfigResponse(string? subnetId)
+        private VirtualNetworkConfigResponse(
+            string? proxyVmSize,
+
+            string? subnetId)
         {
+            ProxyVmSize = proxyVmSize;
             SubnetId = subnetId;
         }
     }

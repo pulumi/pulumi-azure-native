@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web
 {
     /// <summary>
-    /// Virtual Network information contract.
-    /// API Version: 2020-12-01.
+    /// Virtual Network information ARM resource.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppVnetConnection")]
     public partial class WebAppVnetConnection : Pulumi.CustomResource

@@ -182,7 +182,7 @@ def get_asset(account_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     An Asset.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -221,7 +221,7 @@ def get_asset_output(account_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
     """
     An Asset.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

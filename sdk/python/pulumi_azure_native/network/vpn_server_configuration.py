@@ -18,6 +18,7 @@ class VpnServerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  aad_authentication_parameters: Optional[pulumi.Input['AadAuthenticationParametersArgs']] = None,
+                 configuration_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class VpnServerConfigurationArgs:
         The set of arguments for constructing a VpnServerConfiguration resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnServerConfiguration.
         :param pulumi.Input['AadAuthenticationParametersArgs'] aad_authentication_parameters: The set of aad vpn authentication parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]] configuration_policy_groups: List of all VpnServerConfigurationPolicyGroups.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
@@ -56,6 +58,8 @@ class VpnServerConfigurationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aad_authentication_parameters is not None:
             pulumi.set(__self__, "aad_authentication_parameters", aad_authentication_parameters)
+        if configuration_policy_groups is not None:
+            pulumi.set(__self__, "configuration_policy_groups", configuration_policy_groups)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -110,6 +114,18 @@ class VpnServerConfigurationArgs:
     @aad_authentication_parameters.setter
     def aad_authentication_parameters(self, value: Optional[pulumi.Input['AadAuthenticationParametersArgs']]):
         pulumi.set(self, "aad_authentication_parameters", value)
+
+    @property
+    @pulumi.getter(name="configurationPolicyGroups")
+    def configuration_policy_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]]:
+        """
+        List of all VpnServerConfigurationPolicyGroups.
+        """
+        return pulumi.get(self, "configuration_policy_groups")
+
+    @configuration_policy_groups.setter
+    def configuration_policy_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]]):
+        pulumi.set(self, "configuration_policy_groups", value)
 
     @property
     @pulumi.getter
@@ -298,6 +314,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_authentication_parameters: Optional[pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']]] = None,
+                 configuration_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -317,11 +334,12 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         VpnServerConfiguration Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']] aad_authentication_parameters: The set of aad vpn authentication parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupArgs']]]] configuration_policy_groups: List of all VpnServerConfigurationPolicyGroups.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
@@ -347,7 +365,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnServerConfiguration Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param VpnServerConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -365,6 +383,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_authentication_parameters: Optional[pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']]] = None,
+                 configuration_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -394,6 +413,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__ = VpnServerConfigurationArgs.__new__(VpnServerConfigurationArgs)
 
             __props__.__dict__["aad_authentication_parameters"] = aad_authentication_parameters
+            __props__.__dict__["configuration_policy_groups"] = configuration_policy_groups
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -441,6 +461,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         __props__ = VpnServerConfigurationArgs.__new__(VpnServerConfigurationArgs)
 
         __props__.__dict__["aad_authentication_parameters"] = None
+        __props__.__dict__["configuration_policy_groups"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -467,6 +488,14 @@ class VpnServerConfiguration(pulumi.CustomResource):
         The set of aad vpn authentication parameters.
         """
         return pulumi.get(self, "aad_authentication_parameters")
+
+    @property
+    @pulumi.getter(name="configurationPolicyGroups")
+    def configuration_policy_groups(self) -> pulumi.Output[Optional[Sequence['outputs.VpnServerConfigurationPolicyGroupResponse']]]:
+        """
+        List of all VpnServerConfigurationPolicyGroups.
+        """
+        return pulumi.get(self, "configuration_policy_groups")
 
     @property
     @pulumi.getter

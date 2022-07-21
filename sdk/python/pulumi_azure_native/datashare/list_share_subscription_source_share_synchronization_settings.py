@@ -63,7 +63,7 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult:
     """
     List response for get source share Synchronization settings
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -95,7 +95,7 @@ def list_share_subscription_source_share_synchronization_settings_output(account
                                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSourceShareSynchronizationSettingsResult]:
     """
     List response for get source share Synchronization settings
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

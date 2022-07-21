@@ -12,7 +12,7 @@ import (
 )
 
 // Binding resource payload
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 type Binding struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type Binding struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the Binding resource
 	Properties BindingResourcePropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -170,6 +172,11 @@ func (o BindingOutput) Name() pulumi.StringOutput {
 // Properties of the Binding resource
 func (o BindingOutput) Properties() BindingResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v *Binding) BindingResourcePropertiesResponseOutput { return v.Properties }).(BindingResourcePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BindingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Binding) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

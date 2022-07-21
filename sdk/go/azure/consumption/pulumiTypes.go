@@ -288,8 +288,6 @@ type BudgetFilter struct {
 	And []BudgetFilterProperties `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimensions *BudgetComparisonExpression `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not *BudgetFilterProperties `pulumi:"not"`
 	// Has comparison expression for a tag
 	Tags *BudgetComparisonExpression `pulumi:"tags"`
 }
@@ -311,8 +309,6 @@ type BudgetFilterArgs struct {
 	And BudgetFilterPropertiesArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimensions BudgetComparisonExpressionPtrInput `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not BudgetFilterPropertiesPtrInput `pulumi:"not"`
 	// Has comparison expression for a tag
 	Tags BudgetComparisonExpressionPtrInput `pulumi:"tags"`
 }
@@ -405,11 +401,6 @@ func (o BudgetFilterOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilter) *BudgetComparisonExpression { return v.Dimensions }).(BudgetComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
-func (o BudgetFilterOutput) Not() BudgetFilterPropertiesPtrOutput {
-	return o.ApplyT(func(v BudgetFilter) *BudgetFilterProperties { return v.Not }).(BudgetFilterPropertiesPtrOutput)
-}
-
 // Has comparison expression for a tag
 func (o BudgetFilterOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilter) *BudgetComparisonExpression { return v.Tags }).(BudgetComparisonExpressionPtrOutput)
@@ -457,16 +448,6 @@ func (o BudgetFilterPtrOutput) Dimensions() BudgetComparisonExpressionPtrOutput 
 		}
 		return v.Dimensions
 	}).(BudgetComparisonExpressionPtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o BudgetFilterPtrOutput) Not() BudgetFilterPropertiesPtrOutput {
-	return o.ApplyT(func(v *BudgetFilter) *BudgetFilterProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(BudgetFilterPropertiesPtrOutput)
 }
 
 // Has comparison expression for a tag
@@ -518,47 +499,6 @@ func (i BudgetFilterPropertiesArgs) ToBudgetFilterPropertiesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesOutput)
 }
 
-func (i BudgetFilterPropertiesArgs) ToBudgetFilterPropertiesPtrOutput() BudgetFilterPropertiesPtrOutput {
-	return i.ToBudgetFilterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetFilterPropertiesArgs) ToBudgetFilterPropertiesPtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesOutput).ToBudgetFilterPropertiesPtrOutputWithContext(ctx)
-}
-
-// BudgetFilterPropertiesPtrInput is an input type that accepts BudgetFilterPropertiesArgs, BudgetFilterPropertiesPtr and BudgetFilterPropertiesPtrOutput values.
-// You can construct a concrete instance of `BudgetFilterPropertiesPtrInput` via:
-//
-//          BudgetFilterPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type BudgetFilterPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToBudgetFilterPropertiesPtrOutput() BudgetFilterPropertiesPtrOutput
-	ToBudgetFilterPropertiesPtrOutputWithContext(context.Context) BudgetFilterPropertiesPtrOutput
-}
-
-type budgetFilterPropertiesPtrType BudgetFilterPropertiesArgs
-
-func BudgetFilterPropertiesPtr(v *BudgetFilterPropertiesArgs) BudgetFilterPropertiesPtrInput {
-	return (*budgetFilterPropertiesPtrType)(v)
-}
-
-func (*budgetFilterPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetFilterProperties)(nil)).Elem()
-}
-
-func (i *budgetFilterPropertiesPtrType) ToBudgetFilterPropertiesPtrOutput() BudgetFilterPropertiesPtrOutput {
-	return i.ToBudgetFilterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetFilterPropertiesPtrType) ToBudgetFilterPropertiesPtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesPtrOutput)
-}
-
 // BudgetFilterPropertiesArrayInput is an input type that accepts BudgetFilterPropertiesArray and BudgetFilterPropertiesArrayOutput values.
 // You can construct a concrete instance of `BudgetFilterPropertiesArrayInput` via:
 //
@@ -599,16 +539,6 @@ func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesOutputWithContext(
 	return o
 }
 
-func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesPtrOutput() BudgetFilterPropertiesPtrOutput {
-	return o.ToBudgetFilterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesPtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterProperties) *BudgetFilterProperties {
-		return &v
-	}).(BudgetFilterPropertiesPtrOutput)
-}
-
 // Has comparison expression for a dimension
 func (o BudgetFilterPropertiesOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilterProperties) *BudgetComparisonExpression { return v.Dimensions }).(BudgetComparisonExpressionPtrOutput)
@@ -617,50 +547,6 @@ func (o BudgetFilterPropertiesOutput) Dimensions() BudgetComparisonExpressionPtr
 // Has comparison expression for a tag
 func (o BudgetFilterPropertiesOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v BudgetFilterProperties) *BudgetComparisonExpression { return v.Tags }).(BudgetComparisonExpressionPtrOutput)
-}
-
-type BudgetFilterPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetFilterPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetFilterProperties)(nil)).Elem()
-}
-
-func (o BudgetFilterPropertiesPtrOutput) ToBudgetFilterPropertiesPtrOutput() BudgetFilterPropertiesPtrOutput {
-	return o
-}
-
-func (o BudgetFilterPropertiesPtrOutput) ToBudgetFilterPropertiesPtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesPtrOutput {
-	return o
-}
-
-func (o BudgetFilterPropertiesPtrOutput) Elem() BudgetFilterPropertiesOutput {
-	return o.ApplyT(func(v *BudgetFilterProperties) BudgetFilterProperties {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetFilterProperties
-		return ret
-	}).(BudgetFilterPropertiesOutput)
-}
-
-// Has comparison expression for a dimension
-func (o BudgetFilterPropertiesPtrOutput) Dimensions() BudgetComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v *BudgetFilterProperties) *BudgetComparisonExpression {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(BudgetComparisonExpressionPtrOutput)
-}
-
-// Has comparison expression for a tag
-func (o BudgetFilterPropertiesPtrOutput) Tags() BudgetComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v *BudgetFilterProperties) *BudgetComparisonExpression {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(BudgetComparisonExpressionPtrOutput)
 }
 
 type BudgetFilterPropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -716,50 +602,6 @@ func (o BudgetFilterPropertiesResponseOutput) Tags() BudgetComparisonExpressionR
 	return o.ApplyT(func(v BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse { return v.Tags }).(BudgetComparisonExpressionResponsePtrOutput)
 }
 
-type BudgetFilterPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetFilterPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetFilterPropertiesResponse)(nil)).Elem()
-}
-
-func (o BudgetFilterPropertiesResponsePtrOutput) ToBudgetFilterPropertiesResponsePtrOutput() BudgetFilterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o BudgetFilterPropertiesResponsePtrOutput) ToBudgetFilterPropertiesResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o BudgetFilterPropertiesResponsePtrOutput) Elem() BudgetFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) BudgetFilterPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetFilterPropertiesResponse
-		return ret
-	}).(BudgetFilterPropertiesResponseOutput)
-}
-
-// Has comparison expression for a dimension
-func (o BudgetFilterPropertiesResponsePtrOutput) Dimensions() BudgetComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(BudgetComparisonExpressionResponsePtrOutput)
-}
-
-// Has comparison expression for a tag
-func (o BudgetFilterPropertiesResponsePtrOutput) Tags() BudgetComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) *BudgetComparisonExpressionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(BudgetComparisonExpressionResponsePtrOutput)
-}
-
 type BudgetFilterPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (BudgetFilterPropertiesResponseArrayOutput) ElementType() reflect.Type {
@@ -786,8 +628,6 @@ type BudgetFilterResponse struct {
 	And []BudgetFilterPropertiesResponse `pulumi:"and"`
 	// Has comparison expression for a dimension
 	Dimensions *BudgetComparisonExpressionResponse `pulumi:"dimensions"`
-	// The logical "NOT" expression.
-	Not *BudgetFilterPropertiesResponse `pulumi:"not"`
 	// Has comparison expression for a tag
 	Tags *BudgetComparisonExpressionResponse `pulumi:"tags"`
 }
@@ -815,11 +655,6 @@ func (o BudgetFilterResponseOutput) And() BudgetFilterPropertiesResponseArrayOut
 // Has comparison expression for a dimension
 func (o BudgetFilterResponseOutput) Dimensions() BudgetComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v BudgetFilterResponse) *BudgetComparisonExpressionResponse { return v.Dimensions }).(BudgetComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o BudgetFilterResponseOutput) Not() BudgetFilterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BudgetFilterResponse) *BudgetFilterPropertiesResponse { return v.Not }).(BudgetFilterPropertiesResponsePtrOutput)
 }
 
 // Has comparison expression for a tag
@@ -869,16 +704,6 @@ func (o BudgetFilterResponsePtrOutput) Dimensions() BudgetComparisonExpressionRe
 		}
 		return v.Dimensions
 	}).(BudgetComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o BudgetFilterResponsePtrOutput) Not() BudgetFilterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *BudgetFilterResponse) *BudgetFilterPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(BudgetFilterPropertiesResponsePtrOutput)
 }
 
 // Has comparison expression for a tag
@@ -1357,10 +1182,8 @@ func init() {
 	pulumi.RegisterOutputType(BudgetFilterOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPtrOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesOutput{})
-	pulumi.RegisterOutputType(BudgetFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(BudgetFilterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(BudgetFilterResponseOutput{})
 	pulumi.RegisterOutputType(BudgetFilterResponsePtrOutput{})

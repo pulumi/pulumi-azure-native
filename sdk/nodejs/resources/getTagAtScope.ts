@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Wrapper resource for tags API requests and responses.
- * API Version: 2019-10-01.
+ * API Version: 2021-04-01.
  */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
     if (!opts) {

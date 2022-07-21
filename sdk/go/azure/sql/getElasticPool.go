@@ -11,7 +11,7 @@ import (
 )
 
 // An elastic pool.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult
 	err := ctx.Invoke("azure-native:sql:getElasticPool", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupElasticPoolArgs struct {
 type LookupElasticPoolResult struct {
 	// The creation date of the elastic pool (ISO8601 format).
 	CreationDate string `pulumi:"creationDate"`
+	// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Kind of elastic pool. This is metadata used for the Azure portal experience.
@@ -46,6 +48,8 @@ type LookupElasticPoolResult struct {
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
+	// Minimal capacity that serverless pool will not shrink below, if not paused
+	MinCapacity *float64 `pulumi:"minCapacity"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The per database settings for the elastic pool.
@@ -110,6 +114,11 @@ func (o LookupElasticPoolResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+func (o LookupElasticPoolResultOutput) HighAvailabilityReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) *int { return v.HighAvailabilityReplicaCount }).(pulumi.IntPtrOutput)
+}
+
 // Resource ID.
 func (o LookupElasticPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.Id }).(pulumi.StringOutput)
@@ -138,6 +147,11 @@ func (o LookupElasticPoolResultOutput) MaintenanceConfigurationId() pulumi.Strin
 // The storage limit for the database elastic pool in bytes.
 func (o LookupElasticPoolResultOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupElasticPoolResult) *float64 { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Minimal capacity that serverless pool will not shrink below, if not paused
+func (o LookupElasticPoolResultOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Resource name.

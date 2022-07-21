@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the provisioning service.
- * API Version: 2020-03-01.
+ * API Version: 2022-02-05.
  */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
     if (!opts) {
@@ -60,6 +60,10 @@ export interface GetIotDpsResourceResult {
      * Sku info for a provisioning Service.
      */
     readonly sku: outputs.devices.IotDpsSkuInfoResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
     /**
      * The resource tags.
      */

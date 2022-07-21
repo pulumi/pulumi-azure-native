@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
-    /// Specifies the criteria for converting log to metric.
+    /// Dimension splitting and filtering definition
     /// </summary>
     public sealed class DimensionArgs : Pulumi.ResourceArgs
     {
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
         /// Operator for dimension values
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Insights.Operator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.DimensionOperator> Operator { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

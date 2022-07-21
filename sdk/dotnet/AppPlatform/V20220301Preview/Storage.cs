@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:Storage"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Storage"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Storage"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Storage"},

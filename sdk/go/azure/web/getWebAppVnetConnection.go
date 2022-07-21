@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network information contract.
-// API Version: 2020-12-01.
+// Virtual Network information ARM resource.
+// API Version: 2021-03-01.
 func LookupWebAppVnetConnection(ctx *pulumi.Context, args *LookupWebAppVnetConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppVnetConnectionResult, error) {
 	var rv LookupWebAppVnetConnectionResult
 	err := ctx.Invoke("azure-native:web:getWebAppVnetConnection", args, &rv, opts...)
@@ -30,7 +30,7 @@ type LookupWebAppVnetConnectionArgs struct {
 	VnetName string `pulumi:"vnetName"`
 }
 
-// Virtual Network information contract.
+// Virtual Network information ARM resource.
 type LookupWebAppVnetConnectionResult struct {
 	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
 	// Point-To-Site VPN connection.
@@ -83,7 +83,7 @@ func (LookupWebAppVnetConnectionOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupWebAppVnetConnectionArgs)(nil)).Elem()
 }
 
-// Virtual Network information contract.
+// Virtual Network information ARM resource.
 type LookupWebAppVnetConnectionResultOutput struct{ *pulumi.OutputState }
 
 func (LookupWebAppVnetConnectionResultOutput) ElementType() reflect.Type {

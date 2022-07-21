@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Arc Addon.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetArcAddonResult> InvokeAsync(GetArcAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Arc Addon.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string SubscriptionId;
         /// <summary>
-        /// Addon type
+        /// Metadata pertaining to creation and last modification of Addon
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

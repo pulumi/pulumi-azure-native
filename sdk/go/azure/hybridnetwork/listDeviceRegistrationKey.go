@@ -11,7 +11,7 @@ import (
 )
 
 // The device registration key.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 func ListDeviceRegistrationKey(ctx *pulumi.Context, args *ListDeviceRegistrationKeyArgs, opts ...pulumi.InvokeOption) (*ListDeviceRegistrationKeyResult, error) {
 	var rv ListDeviceRegistrationKeyResult
 	err := ctx.Invoke("azure-native:hybridnetwork:listDeviceRegistrationKey", args, &rv, opts...)

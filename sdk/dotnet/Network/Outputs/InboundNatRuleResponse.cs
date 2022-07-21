@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class InboundNatRuleResponse
     {
         /// <summary>
+        /// A reference to backendAddressPool resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? BackendAddressPool;
+        /// <summary>
         /// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         /// </summary>
         public readonly Outputs.NetworkInterfaceIPConfigurationResponse BackendIPConfiguration;
@@ -45,6 +49,14 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly int? FrontendPort;
         /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        public readonly int? FrontendPortRangeEnd;
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        public readonly int? FrontendPortRangeStart;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -71,6 +83,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private InboundNatRuleResponse(
+            Outputs.SubResourceResponse? backendAddressPool,
+
             Outputs.NetworkInterfaceIPConfigurationResponse backendIPConfiguration,
 
             int? backendPort,
@@ -85,6 +99,10 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             int? frontendPort,
 
+            int? frontendPortRangeEnd,
+
+            int? frontendPortRangeStart,
+
             string? id,
 
             int? idleTimeoutInMinutes,
@@ -97,6 +115,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string type)
         {
+            BackendAddressPool = backendAddressPool;
             BackendIPConfiguration = backendIPConfiguration;
             BackendPort = backendPort;
             EnableFloatingIP = enableFloatingIP;
@@ -104,6 +123,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             Etag = etag;
             FrontendIPConfiguration = frontendIPConfiguration;
             FrontendPort = frontendPort;
+            FrontendPortRangeEnd = frontendPortRangeEnd;
+            FrontendPortRangeStart = frontendPortRangeStart;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Name = name;

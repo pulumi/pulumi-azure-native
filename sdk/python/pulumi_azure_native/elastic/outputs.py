@@ -485,13 +485,15 @@ class MonitorPropertiesResponse(dict):
                  liftr_resource_preference: int,
                  elastic_properties: Optional['outputs.ElasticPropertiesResponse'] = None,
                  monitoring_status: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
         :param 'ElasticPropertiesResponse' elastic_properties: Elastic cloud properties.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param str provisioning_state: Provisioning state of the monitor resource.
+        :param str version: Version of elastic of the monitor resource
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
@@ -501,6 +503,8 @@ class MonitorPropertiesResponse(dict):
             pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="liftrResourceCategory")
@@ -538,6 +542,14 @@ class MonitorPropertiesResponse(dict):
         Provisioning state of the monitor resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of elastic of the monitor resource
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

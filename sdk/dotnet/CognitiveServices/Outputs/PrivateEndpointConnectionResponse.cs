@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// Entity Tag
+        /// Resource Etag.
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse? Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse? properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Etag = etag;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

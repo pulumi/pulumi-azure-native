@@ -12,7 +12,7 @@ import (
 )
 
 // Arc Addon.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type ArcAddon struct {
 	pulumi.CustomResourceState
 
@@ -35,7 +35,7 @@ type ArcAddon struct {
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// Arc resource subscription Id
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// Addon type
+	// Metadata pertaining to creation and last modification of Addon
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -257,7 +257,7 @@ func (o ArcAddonOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
-// Addon type
+// Metadata pertaining to creation and last modification of Addon
 func (o ArcAddonOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *ArcAddon) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

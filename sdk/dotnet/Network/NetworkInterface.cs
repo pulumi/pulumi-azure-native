@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A network interface in a resource group.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        [Output("auxiliaryMode")]
+        public Output<string?> AuxiliaryMode { get; private set; } = null!;
+
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
@@ -154,6 +160,18 @@ namespace Pulumi.AzureNative.Network
         [Output("virtualMachine")]
         public Output<Outputs.SubResourceResponse> VirtualMachine { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the virtual machine this nic is attached to supports encryption.
+        /// </summary>
+        [Output("vnetEncryptionSupported")]
+        public Output<bool> VnetEncryptionSupported { get; private set; } = null!;
+
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        [Output("workloadType")]
+        public Output<string?> WorkloadType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -243,6 +261,12 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        [Input("auxiliaryMode")]
+        public InputUnion<string, Pulumi.AzureNative.Network.NetworkInterfaceAuxiliaryMode>? AuxiliaryMode { get; set; }
+
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
@@ -338,6 +362,12 @@ namespace Pulumi.AzureNative.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        [Input("workloadType")]
+        public Input<string>? WorkloadType { get; set; }
 
         public NetworkInterfaceArgs()
         {

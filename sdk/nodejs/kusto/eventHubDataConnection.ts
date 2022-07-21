@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    public readonly databaseRouting!: pulumi.Output<string | undefined>;
+    /**
      * The resource ID of the event hub to be used to create a data connection.
      */
     public readonly eventHubResourceId!: pulumi.Output<string>;
@@ -66,7 +70,11 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     * The object ID of the managedIdentityResourceId
+     */
+    public /*out*/ readonly managedIdentityObjectId!: pulumi.Output<string>;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
      */
     public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -125,6 +133,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRouting"] = (args ? args.databaseRouting : undefined) ?? "Single";
             resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
             resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             resourceInputs["kind"] = "EventHub";
@@ -133,6 +142,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -140,10 +150,12 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["compression"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["databaseRouting"] = undefined /*out*/;
             resourceInputs["eventHubResourceId"] = undefined /*out*/;
             resourceInputs["eventSystemProperties"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["managedIdentityResourceId"] = undefined /*out*/;
             resourceInputs["mappingRuleName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -187,6 +199,10 @@ export interface EventHubDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
+    /**
      * The resource ID of the event hub to be used to create a data connection.
      */
     eventHubResourceId: pulumi.Input<string>;
@@ -204,7 +220,7 @@ export interface EventHubDataConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
      */
     managedIdentityResourceId?: pulumi.Input<string>;
     /**

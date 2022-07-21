@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure storage blob folder data set.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export class BlobFolderDataSet extends pulumi.CustomResource {
     /**

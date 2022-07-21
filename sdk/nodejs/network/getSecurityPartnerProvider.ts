@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Security Partner Provider resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
     if (!opts) {

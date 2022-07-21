@@ -66,6 +66,16 @@ export {
     v20220601preview,
 };
 
+export const AcquireStorageAccountLock = {
+    Acquire: "Acquire",
+    NotAcquire: "NotAcquire",
+} as const;
+
+/**
+ * Whether storage account lock is to be acquired for this container or not.
+ */
+export type AcquireStorageAccountLock = (typeof AcquireStorageAccountLock)[keyof typeof AcquireStorageAccountLock];
+
 export const AgentAutoUpdateStatus = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -75,6 +85,23 @@ export const AgentAutoUpdateStatus = {
  * A value indicating whether the auto update is enabled.
  */
 export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
+
+export const AlertsState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
+
+export const AutomationAccountAuthenticationType = {
+    RunAsAccount: "RunAsAccount",
+    SystemAssignedIdentity: "SystemAssignedIdentity",
+} as const;
+
+/**
+ * A value indicating the type authentication to use for automation Account.
+ */
+export type AutomationAccountAuthenticationType = (typeof AutomationAccountAuthenticationType)[keyof typeof AutomationAccountAuthenticationType];
 
 export const BackupItemType = {
     Invalid: "Invalid",
@@ -132,6 +159,9 @@ export const ContainerType = {
     SQLAGWorkLoadContainer: "SQLAGWorkLoadContainer",
     StorageContainer: "StorageContainer",
     GenericContainer: "GenericContainer",
+    Microsoft_ClassicCompute_virtualMachines: "Microsoft.ClassicCompute/virtualMachines",
+    Microsoft_Compute_virtualMachines: "Microsoft.Compute/virtualMachines",
+    AzureWorkloadContainer: "AzureWorkloadContainer",
 } as const;
 
 /**
@@ -199,6 +229,15 @@ export const DiskAccountType = {
  */
 export type DiskAccountType = (typeof DiskAccountType)[keyof typeof DiskAccountType];
 
+export const ExtendedLocationType = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The extended location type.
+ */
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
+
 export const FailoverDeploymentModel = {
     NotApplicable: "NotApplicable",
     Classic: "Classic",
@@ -221,6 +260,14 @@ export const HealthStatus = {
  * Health status of protected item.
  */
 export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
+
+export const IAASVMPolicyType = {
+    Invalid: "Invalid",
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+export type IAASVMPolicyType = (typeof IAASVMPolicyType)[keyof typeof IAASVMPolicyType];
 
 export const InfrastructureEncryptionState = {
     Enabled: "Enabled",
@@ -344,6 +391,20 @@ export const ProtectedItemState = {
  */
 export type ProtectedItemState = (typeof ProtectedItemState)[keyof typeof ProtectedItemState];
 
+export const ProtectionIntentItemType = {
+    Invalid: "Invalid",
+    AzureResourceItem: "AzureResourceItem",
+    RecoveryServiceVaultItem: "RecoveryServiceVaultItem",
+    AzureWorkloadContainerAutoProtectionIntent: "AzureWorkloadContainerAutoProtectionIntent",
+    AzureWorkloadAutoProtectionIntent: "AzureWorkloadAutoProtectionIntent",
+    AzureWorkloadSQLAutoProtectionIntent: "AzureWorkloadSQLAutoProtectionIntent",
+} as const;
+
+/**
+ * backup protectionIntent type.
+ */
+export type ProtectionIntentItemType = (typeof ProtectionIntentItemType)[keyof typeof ProtectionIntentItemType];
+
 export const ProtectionState = {
     Invalid: "Invalid",
     IRPending: "IRPending",
@@ -383,6 +444,16 @@ export const ProvisioningState = {
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
+export const RecoveryPlanActionLocation = {
+    Primary: "Primary",
+    Recovery: "Recovery",
+} as const;
+
+/**
+ * The fabric location.
+ */
+export type RecoveryPlanActionLocation = (typeof RecoveryPlanActionLocation)[keyof typeof RecoveryPlanActionLocation];
+
 export const RecoveryPlanGroupType = {
     Shutdown: "Shutdown",
     Boot: "Boot",
@@ -404,6 +475,7 @@ export const ReplicationProtectedItemOperation = {
     TestFailoverCleanup: "TestFailoverCleanup",
     Failback: "Failback",
     FinalizeFailback: "FinalizeFailback",
+    CancelFailover: "CancelFailover",
     ChangePit: "ChangePit",
     RepairReplication: "RepairReplication",
     SwitchProtection: "SwitchProtection",
@@ -466,6 +538,7 @@ export const ScheduleRunType = {
     Invalid: "Invalid",
     Daily: "Daily",
     Weekly: "Weekly",
+    Hourly: "Hourly",
 } as const;
 
 /**
@@ -489,9 +562,21 @@ export const SkuName = {
 } as const;
 
 /**
- * The Sku name.
+ * Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SqlServerLicenseType = {
+    NotSpecified: "NotSpecified",
+    NoLicenseType: "NoLicenseType",
+    PAYG: "PAYG",
+    AHUB: "AHUB",
+} as const;
+
+/**
+ * The SQL Server license type.
+ */
+export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
 
 export const WeekOfMonth = {
     First: "First",

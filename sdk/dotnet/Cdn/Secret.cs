@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly Secret name mapping to the any Secret or secret related information.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Secret")]
     public partial class Secret : Pulumi.CustomResource
@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the profile which holds the secret.
+        /// </summary>
+        [Output("profileName")]
+        public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status
@@ -106,7 +112,7 @@ namespace Pulumi.AzureNative.Cdn
         public object? Parameters { get; set; }
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the DigitalTwins service.
- * API Version: 2020-12-01.
+ * API Version: 2022-05-31.
  */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
     if (!opts) {
@@ -64,6 +64,9 @@ export interface GetDigitalTwinResult {
      * The resource name.
      */
     readonly name: string;
+    /**
+     * The private endpoint connections.
+     */
     readonly privateEndpointConnections?: outputs.digitaltwins.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state.
@@ -73,6 +76,10 @@ export interface GetDigitalTwinResult {
      * Public network access for the DigitalTwinsInstance.
      */
     readonly publicNetworkAccess?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
+     */
+    readonly systemData: outputs.digitaltwins.SystemDataResponse;
     /**
      * The resource tags.
      */

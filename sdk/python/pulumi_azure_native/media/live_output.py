@@ -193,7 +193,7 @@ class LiveOutput(pulumi.CustomResource):
                  __props__=None):
         """
         The Live Output.
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,7 +216,7 @@ class LiveOutput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Live Output.
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param LiveOutputArgs args: The arguments to use to populate this resource's properties.
@@ -280,6 +280,7 @@ class LiveOutput(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20200501:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20210601:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20211101:LiveOutput")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -316,6 +317,7 @@ class LiveOutput(pulumi.CustomResource):
         __props__.__dict__["output_snap_time"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return LiveOutput(resource_name, opts=opts, __props__=__props__)
 
@@ -406,6 +408,14 @@ class LiveOutput(pulumi.CustomResource):
         The resource state of the live output.
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

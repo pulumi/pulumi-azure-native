@@ -11,7 +11,7 @@ import (
 )
 
 // Extended description about the product required for installing it into Azure Stack.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 func ListProductDetails(ctx *pulumi.Context, args *ListProductDetailsArgs, opts ...pulumi.InvokeOption) (*ListProductDetailsResult, error) {
 	var rv ListProductDetailsResult
 	err := ctx.Invoke("azure-native:azurestack:listProductDetails", args, &rv, opts...)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Live Output.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
     if (!opts) {
@@ -94,6 +94,10 @@ export interface GetLiveOutputResult {
      * The resource state of the live output.
      */
     readonly resourceState: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

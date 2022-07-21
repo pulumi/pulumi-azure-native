@@ -47,12 +47,6 @@ func NewStaticSiteLinkedBackendForBuild(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:web:StaticSiteLinkedBackendForBuild"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource StaticSiteLinkedBackendForBuild
 	err := ctx.RegisterResource("azure-native:web/v20220301:StaticSiteLinkedBackendForBuild", name, args, &resource, opts...)
 	if err != nil {

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The storage account credential.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account credential.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithDefaults());
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
-        /// StorageAccountCredential object
+        /// Metadata pertaining to creation and last modification of StorageAccountCredential
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

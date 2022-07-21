@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     /// <summary>
     /// An event source that receives its data from an Azure IoTHub.
-    /// API Version: 2020-05-15.
+    /// API Version: 2021-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:IoTHubEventSource")]
     public partial class IoTHubEventSource : Pulumi.CustomResource

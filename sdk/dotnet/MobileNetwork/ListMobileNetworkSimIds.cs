@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Response for list sim ids API service call.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Task<ListMobileNetworkSimIdsResult> InvokeAsync(ListMobileNetworkSimIdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for list sim ids API service call.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Output<ListMobileNetworkSimIdsResult> Invoke(ListMobileNetworkSimIdsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsInvokeArgs(), options.WithDefaults());

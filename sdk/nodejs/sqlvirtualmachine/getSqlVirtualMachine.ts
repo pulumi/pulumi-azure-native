@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL virtual machine.
- * API Version: 2017-03-01-preview.
+ * API Version: 2022-02-01.
  */
 export function getSqlVirtualMachine(args: GetSqlVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineResult> {
     if (!opts) {
@@ -41,6 +41,10 @@ export interface GetSqlVirtualMachineArgs {
  * A SQL virtual machine.
  */
 export interface GetSqlVirtualMachineResult {
+    /**
+     * Assessment Settings.
+     */
+    readonly assessmentSettings?: outputs.sqlvirtualmachine.AssessmentSettingsResponse;
     /**
      * Auto backup settings for SQL Server.
      */
@@ -102,6 +106,10 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly storageConfigurationSettings?: outputs.sqlvirtualmachine.StorageConfigurationSettingsResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.sqlvirtualmachine.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -117,6 +125,10 @@ export interface GetSqlVirtualMachineResult {
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
     readonly wsfcDomainCredentials?: outputs.sqlvirtualmachine.WsfcDomainCredentialsResponse;
+    /**
+     * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+     */
+    readonly wsfcStaticIp?: string;
 }
 
 export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineResult> {

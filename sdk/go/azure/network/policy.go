@@ -12,7 +12,7 @@ import (
 )
 
 // Defines web application firewall policy.
-// API Version: 2020-11-01.
+// API Version: 2022-05-01.
 type Policy struct {
 	pulumi.CustomResourceState
 

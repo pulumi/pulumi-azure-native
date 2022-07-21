@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
+    /// Whether storage account lock is to be acquired for this container or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct AcquireStorageAccountLock : IEquatable<AcquireStorageAccountLock>
+    {
+        private readonly string _value;
+
+        private AcquireStorageAccountLock(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AcquireStorageAccountLock Acquire { get; } = new AcquireStorageAccountLock("Acquire");
+        public static AcquireStorageAccountLock NotAcquire { get; } = new AcquireStorageAccountLock("NotAcquire");
+
+        public static bool operator ==(AcquireStorageAccountLock left, AcquireStorageAccountLock right) => left.Equals(right);
+        public static bool operator !=(AcquireStorageAccountLock left, AcquireStorageAccountLock right) => !left.Equals(right);
+
+        public static explicit operator string(AcquireStorageAccountLock value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AcquireStorageAccountLock other && Equals(other);
+        public bool Equals(AcquireStorageAccountLock other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A value indicating whether the auto update is enabled.
     /// </summary>
     [EnumType]
@@ -31,6 +62,65 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AgentAutoUpdateStatus other && Equals(other);
         public bool Equals(AgentAutoUpdateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AlertsState : IEquatable<AlertsState>
+    {
+        private readonly string _value;
+
+        private AlertsState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertsState Enabled { get; } = new AlertsState("Enabled");
+        public static AlertsState Disabled { get; } = new AlertsState("Disabled");
+
+        public static bool operator ==(AlertsState left, AlertsState right) => left.Equals(right);
+        public static bool operator !=(AlertsState left, AlertsState right) => !left.Equals(right);
+
+        public static explicit operator string(AlertsState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertsState other && Equals(other);
+        public bool Equals(AlertsState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A value indicating the type authentication to use for automation Account.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationAccountAuthenticationType : IEquatable<AutomationAccountAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AutomationAccountAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationAccountAuthenticationType RunAsAccount { get; } = new AutomationAccountAuthenticationType("RunAsAccount");
+        public static AutomationAccountAuthenticationType SystemAssignedIdentity { get; } = new AutomationAccountAuthenticationType("SystemAssignedIdentity");
+
+        public static bool operator ==(AutomationAccountAuthenticationType left, AutomationAccountAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AutomationAccountAuthenticationType left, AutomationAccountAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationAccountAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationAccountAuthenticationType other && Equals(other);
+        public bool Equals(AutomationAccountAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -151,6 +241,9 @@ namespace Pulumi.AzureNative.RecoveryServices
         public static ContainerType SQLAGWorkLoadContainer { get; } = new ContainerType("SQLAGWorkLoadContainer");
         public static ContainerType StorageContainer { get; } = new ContainerType("StorageContainer");
         public static ContainerType GenericContainer { get; } = new ContainerType("GenericContainer");
+        public static ContainerType Microsoft_ClassicCompute_virtualMachines { get; } = new ContainerType("Microsoft.ClassicCompute/virtualMachines");
+        public static ContainerType Microsoft_Compute_virtualMachines { get; } = new ContainerType("Microsoft.Compute/virtualMachines");
+        public static ContainerType AzureWorkloadContainer { get; } = new ContainerType("AzureWorkloadContainer");
 
         public static bool operator ==(ContainerType left, ContainerType right) => left.Equals(right);
         public static bool operator !=(ContainerType left, ContainerType right) => !left.Equals(right);
@@ -309,6 +402,36 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
     /// <summary>
+    /// The extended location type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationType : IEquatable<ExtendedLocationType>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationType EdgeZone { get; } = new ExtendedLocationType("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationType left, ExtendedLocationType right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationType left, ExtendedLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationType other && Equals(other);
+        public bool Equals(ExtendedLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The failover deployment model.
     /// </summary>
     [EnumType]
@@ -366,6 +489,35 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HealthStatus other && Equals(other);
         public bool Equals(HealthStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IAASVMPolicyType : IEquatable<IAASVMPolicyType>
+    {
+        private readonly string _value;
+
+        private IAASVMPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IAASVMPolicyType Invalid { get; } = new IAASVMPolicyType("Invalid");
+        public static IAASVMPolicyType V1 { get; } = new IAASVMPolicyType("V1");
+        public static IAASVMPolicyType V2 { get; } = new IAASVMPolicyType("V2");
+
+        public static bool operator ==(IAASVMPolicyType left, IAASVMPolicyType right) => left.Equals(right);
+        public static bool operator !=(IAASVMPolicyType left, IAASVMPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(IAASVMPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IAASVMPolicyType other && Equals(other);
+        public bool Equals(IAASVMPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -706,6 +858,41 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
     /// <summary>
+    /// backup protectionIntent type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectionIntentItemType : IEquatable<ProtectionIntentItemType>
+    {
+        private readonly string _value;
+
+        private ProtectionIntentItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectionIntentItemType Invalid { get; } = new ProtectionIntentItemType("Invalid");
+        public static ProtectionIntentItemType AzureResourceItem { get; } = new ProtectionIntentItemType("AzureResourceItem");
+        public static ProtectionIntentItemType RecoveryServiceVaultItem { get; } = new ProtectionIntentItemType("RecoveryServiceVaultItem");
+        public static ProtectionIntentItemType AzureWorkloadContainerAutoProtectionIntent { get; } = new ProtectionIntentItemType("AzureWorkloadContainerAutoProtectionIntent");
+        public static ProtectionIntentItemType AzureWorkloadAutoProtectionIntent { get; } = new ProtectionIntentItemType("AzureWorkloadAutoProtectionIntent");
+        public static ProtectionIntentItemType AzureWorkloadSQLAutoProtectionIntent { get; } = new ProtectionIntentItemType("AzureWorkloadSQLAutoProtectionIntent");
+
+        public static bool operator ==(ProtectionIntentItemType left, ProtectionIntentItemType right) => left.Equals(right);
+        public static bool operator !=(ProtectionIntentItemType left, ProtectionIntentItemType right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectionIntentItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectionIntentItemType other && Equals(other);
+        public bool Equals(ProtectionIntentItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Backup state of this backup item.
     /// </summary>
     [EnumType]
@@ -808,6 +995,37 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
     /// <summary>
+    /// The fabric location.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecoveryPlanActionLocation : IEquatable<RecoveryPlanActionLocation>
+    {
+        private readonly string _value;
+
+        private RecoveryPlanActionLocation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecoveryPlanActionLocation Primary { get; } = new RecoveryPlanActionLocation("Primary");
+        public static RecoveryPlanActionLocation Recovery { get; } = new RecoveryPlanActionLocation("Recovery");
+
+        public static bool operator ==(RecoveryPlanActionLocation left, RecoveryPlanActionLocation right) => left.Equals(right);
+        public static bool operator !=(RecoveryPlanActionLocation left, RecoveryPlanActionLocation right) => !left.Equals(right);
+
+        public static explicit operator string(RecoveryPlanActionLocation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecoveryPlanActionLocation other && Equals(other);
+        public bool Equals(RecoveryPlanActionLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The group type.
     /// </summary>
     [EnumType]
@@ -858,6 +1076,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public static ReplicationProtectedItemOperation TestFailoverCleanup { get; } = new ReplicationProtectedItemOperation("TestFailoverCleanup");
         public static ReplicationProtectedItemOperation Failback { get; } = new ReplicationProtectedItemOperation("Failback");
         public static ReplicationProtectedItemOperation FinalizeFailback { get; } = new ReplicationProtectedItemOperation("FinalizeFailback");
+        public static ReplicationProtectedItemOperation CancelFailover { get; } = new ReplicationProtectedItemOperation("CancelFailover");
         public static ReplicationProtectedItemOperation ChangePit { get; } = new ReplicationProtectedItemOperation("ChangePit");
         public static ReplicationProtectedItemOperation RepairReplication { get; } = new ReplicationProtectedItemOperation("RepairReplication");
         public static ReplicationProtectedItemOperation SwitchProtection { get; } = new ReplicationProtectedItemOperation("SwitchProtection");
@@ -1028,6 +1247,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public static ScheduleRunType Invalid { get; } = new ScheduleRunType("Invalid");
         public static ScheduleRunType Daily { get; } = new ScheduleRunType("Daily");
         public static ScheduleRunType Weekly { get; } = new ScheduleRunType("Weekly");
+        public static ScheduleRunType Hourly { get; } = new ScheduleRunType("Hourly");
 
         public static bool operator ==(ScheduleRunType left, ScheduleRunType right) => left.Equals(right);
         public static bool operator !=(ScheduleRunType left, ScheduleRunType right) => !left.Equals(right);
@@ -1076,7 +1296,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
     /// <summary>
-    /// The Sku name.
+    /// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
     /// </summary>
     [EnumType]
     public readonly struct SkuName : IEquatable<SkuName>
@@ -1099,6 +1319,39 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SQL Server license type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlServerLicenseType : IEquatable<SqlServerLicenseType>
+    {
+        private readonly string _value;
+
+        private SqlServerLicenseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlServerLicenseType NotSpecified { get; } = new SqlServerLicenseType("NotSpecified");
+        public static SqlServerLicenseType NoLicenseType { get; } = new SqlServerLicenseType("NoLicenseType");
+        public static SqlServerLicenseType PAYG { get; } = new SqlServerLicenseType("PAYG");
+        public static SqlServerLicenseType AHUB { get; } = new SqlServerLicenseType("AHUB");
+
+        public static bool operator ==(SqlServerLicenseType left, SqlServerLicenseType right) => left.Equals(right);
+        public static bool operator !=(SqlServerLicenseType left, SqlServerLicenseType right) => !left.Equals(right);
+
+        public static explicit operator string(SqlServerLicenseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlServerLicenseType other && Equals(other);
+        public bool Equals(SqlServerLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

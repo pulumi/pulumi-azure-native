@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:SecurityAdminConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityAdminConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220101:SecurityAdminConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityAdminConfiguration"},

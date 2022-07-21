@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoutePort Authorization resource definition.
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export function getExpressRoutePortAuthorization(args: GetExpressRoutePortAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortAuthorizationResult> {
     if (!opts) {

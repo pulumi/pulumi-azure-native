@@ -21,7 +21,7 @@ class GetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
     """
-    def __init__(__self__, auto_replace_on_failure=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, type=None, virtual_machines=None):
+    def __init__(__self__, auto_replace_on_failure=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, time_created=None, type=None, virtual_machines=None):
         if auto_replace_on_failure and not isinstance(auto_replace_on_failure, bool):
             raise TypeError("Expected argument 'auto_replace_on_failure' to be a bool")
         pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
@@ -58,6 +58,9 @@ class GetDedicatedHostResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -162,6 +165,14 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -196,6 +207,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             provisioning_time=self.provisioning_time,
             sku=self.sku,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
             virtual_machines=self.virtual_machines)
 
@@ -207,10 +219,10 @@ def get_dedicated_host(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
-    API Version: 2020-12-01.
+    API Version: 2021-11-01.
 
 
-    :param str expand: The expand expression to apply on the operation.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
     :param str host_group_name: The name of the dedicated host group.
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.
@@ -239,6 +251,7 @@ def get_dedicated_host(expand: Optional[str] = None,
         provisioning_time=__ret__.provisioning_time,
         sku=__ret__.sku,
         tags=__ret__.tags,
+        time_created=__ret__.time_created,
         type=__ret__.type,
         virtual_machines=__ret__.virtual_machines)
 
@@ -251,10 +264,10 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Specifies information about the Dedicated host.
-    API Version: 2020-12-01.
+    API Version: 2021-11-01.
 
 
-    :param str expand: The expand expression to apply on the operation.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
     :param str host_group_name: The name of the dedicated host group.
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.

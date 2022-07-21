@@ -11,7 +11,7 @@ import (
 )
 
 // The response from the ListKeys operation.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
 	err := ctx.Invoke("azure-native:storage:listStorageAccountKeys", args, &rv, opts...)

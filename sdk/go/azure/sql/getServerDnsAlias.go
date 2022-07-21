@@ -11,7 +11,7 @@ import (
 )
 
 // A server DNS alias.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupServerDnsAlias(ctx *pulumi.Context, args *LookupServerDnsAliasArgs, opts ...pulumi.InvokeOption) (*LookupServerDnsAliasResult, error) {
 	var rv LookupServerDnsAliasResult
 	err := ctx.Invoke("azure-native:sql:getServerDnsAlias", args, &rv, opts...)

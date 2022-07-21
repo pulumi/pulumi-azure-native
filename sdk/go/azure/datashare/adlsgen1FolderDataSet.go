@@ -12,7 +12,7 @@ import (
 )
 
 // An ADLS Gen 1 folder data set.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type ADLSGen1FolderDataSet struct {
 	pulumi.CustomResourceState
 

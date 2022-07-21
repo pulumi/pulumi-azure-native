@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Distributed availability group between box and Sql Managed Instance.
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
     if (!opts) {

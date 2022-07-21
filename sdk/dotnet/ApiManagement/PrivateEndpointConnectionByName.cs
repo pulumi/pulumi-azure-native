@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-04-01-preview.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PrivateEndpointConnectionByName")]
     public partial class PrivateEndpointConnectionByName : Pulumi.CustomResource

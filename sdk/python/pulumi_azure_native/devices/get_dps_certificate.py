@@ -21,7 +21,7 @@ class GetDpsCertificateResult:
     """
     The X509 Certificate.
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -34,6 +34,9 @@ class GetDpsCertificateResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -71,6 +74,14 @@ class GetDpsCertificateResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -89,6 +100,7 @@ class AwaitableGetDpsCertificateResult(GetDpsCertificateResult):
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -98,7 +110,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDpsCertificateResult:
     """
     The X509 Certificate.
-    API Version: 2020-03-01.
+    API Version: 2022-02-05.
 
 
     :param str certificate_name: Name of the certificate to retrieve.
@@ -120,6 +132,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -130,7 +143,7 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDpsCertificateResult]:
     """
     The X509 Certificate.
-    API Version: 2020-03-01.
+    API Version: 2022-02-05.
 
 
     :param str certificate_name: Name of the certificate to retrieve.

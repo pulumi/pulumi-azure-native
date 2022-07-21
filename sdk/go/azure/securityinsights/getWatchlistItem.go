@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Watchlist item in Azure Security Insights.
-// API Version: 2021-03-01-preview.
+// Represents a Watchlist Item in Azure Security Insights.
+// API Version: 2021-10-01.
 func LookupWatchlistItem(ctx *pulumi.Context, args *LookupWatchlistItemArgs, opts ...pulumi.InvokeOption) (*LookupWatchlistItemResult, error) {
 	var rv LookupWatchlistItemResult
 	err := ctx.Invoke("azure-native:securityinsights:getWatchlistItem", args, &rv, opts...)
@@ -22,19 +22,17 @@ func LookupWatchlistItem(ctx *pulumi.Context, args *LookupWatchlistItemArgs, opt
 }
 
 type LookupWatchlistItemArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Watchlist Alias
+	// The watchlist alias
 	WatchlistAlias string `pulumi:"watchlistAlias"`
-	// Watchlist Item Id (GUID)
+	// The watchlist item id (GUID)
 	WatchlistItemId string `pulumi:"watchlistItemId"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
-// Represents a Watchlist item in Azure Security Insights.
+// Represents a Watchlist Item in Azure Security Insights.
 type LookupWatchlistItemResult struct {
 	// The time the watchlist item was created
 	Created *string `pulumi:"created"`
@@ -44,19 +42,19 @@ type LookupWatchlistItemResult struct {
 	EntityMapping interface{} `pulumi:"entityMapping"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// A flag that indicates if the watchlist item is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
 	// key-value pairs for a watchlist item
 	ItemsKeyValue interface{} `pulumi:"itemsKeyValue"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tenantId to which the watchlist item belongs to
 	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The last time the watchlist item was updated
 	Updated *string `pulumi:"updated"`
@@ -82,13 +80,11 @@ func LookupWatchlistItemOutput(ctx *pulumi.Context, args LookupWatchlistItemOutp
 }
 
 type LookupWatchlistItemOutputArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Watchlist Alias
+	// The watchlist alias
 	WatchlistAlias pulumi.StringInput `pulumi:"watchlistAlias"`
-	// Watchlist Item Id (GUID)
+	// The watchlist item id (GUID)
 	WatchlistItemId pulumi.StringInput `pulumi:"watchlistItemId"`
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -98,7 +94,7 @@ func (LookupWatchlistItemOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupWatchlistItemArgs)(nil)).Elem()
 }
 
-// Represents a Watchlist item in Azure Security Insights.
+// Represents a Watchlist Item in Azure Security Insights.
 type LookupWatchlistItemResultOutput struct{ *pulumi.OutputState }
 
 func (LookupWatchlistItemResultOutput) ElementType() reflect.Type {
@@ -133,7 +129,7 @@ func (o LookupWatchlistItemResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistItemResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupWatchlistItemResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistItemResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -148,7 +144,7 @@ func (o LookupWatchlistItemResultOutput) ItemsKeyValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupWatchlistItemResult) interface{} { return v.ItemsKeyValue }).(pulumi.AnyOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupWatchlistItemResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistItemResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -163,7 +159,7 @@ func (o LookupWatchlistItemResultOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistItemResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupWatchlistItemResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistItemResult) string { return v.Type }).(pulumi.StringOutput)
 }

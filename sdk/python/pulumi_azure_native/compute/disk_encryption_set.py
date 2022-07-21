@@ -28,7 +28,7 @@ class DiskEncryptionSetArgs:
         The set of arguments for constructing a DiskEncryptionSet resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['KeyForDiskEncryptionSetArgs'] active_key: The key vault key which is currently used by this disk encryption set.
-        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input['EncryptionSetIdentityArgs'] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
@@ -79,7 +79,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter(name="diskEncryptionSetName")
     def disk_encryption_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         """
         return pulumi.get(self, "disk_encryption_set_name")
 
@@ -164,12 +164,12 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  __props__=None):
         """
         disk encryption set resource.
-        API Version: 2020-12-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']] active_key: The key vault key which is currently used by this disk encryption set.
-        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
@@ -185,7 +185,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         disk encryption set resource.
-        API Version: 2020-12-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param DiskEncryptionSetArgs args: The arguments to use to populate this resource's properties.
@@ -232,6 +232,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rotation_to_latest_key_version_enabled"] = rotation_to_latest_key_version_enabled
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["auto_key_rotation_error"] = None
             __props__.__dict__["last_key_rotation_timestamp"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["previous_keys"] = None
@@ -262,6 +263,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__ = DiskEncryptionSetArgs.__new__(DiskEncryptionSetArgs)
 
         __props__.__dict__["active_key"] = None
+        __props__.__dict__["auto_key_rotation_error"] = None
         __props__.__dict__["encryption_type"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["last_key_rotation_timestamp"] = None
@@ -281,6 +283,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
         The key vault key which is currently used by this disk encryption set.
         """
         return pulumi.get(self, "active_key")
+
+    @property
+    @pulumi.getter(name="autoKeyRotationError")
+    def auto_key_rotation_error(self) -> pulumi.Output['outputs.ApiErrorResponse']:
+        """
+        The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+        """
+        return pulumi.get(self, "auto_key_rotation_error")
 
     @property
     @pulumi.getter(name="encryptionType")

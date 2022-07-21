@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the IoT hub.
- * API Version: 2020-08-31.
+ * API Version: 2021-07-02.
  */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
     if (!opts) {
@@ -45,6 +45,10 @@ export interface GetIotHubResourceResult {
      */
     readonly id: string;
     /**
+     * The managed identities for the IotHub.
+     */
+    readonly identity?: outputs.devices.ArmIdentityResponse;
+    /**
      * The resource location.
      */
     readonly location: string;
@@ -60,6 +64,10 @@ export interface GetIotHubResourceResult {
      * IotHub SKU info
      */
     readonly sku: outputs.devices.IotHubSkuInfoResponse;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
     /**
      * The resource tags.
      */

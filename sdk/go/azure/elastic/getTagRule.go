@@ -11,7 +11,7 @@ import (
 )
 
 // Capture logs and metrics of Azure resources based on ARM tags.
-// API Version: 2020-07-01.
+// API Version: 2021-10-01-preview.
 func LookupTagRule(ctx *pulumi.Context, args *LookupTagRuleArgs, opts ...pulumi.InvokeOption) (*LookupTagRuleResult, error) {
 	var rv LookupTagRuleResult
 	err := ctx.Invoke("azure-native:elastic:getTagRule", args, &rv, opts...)

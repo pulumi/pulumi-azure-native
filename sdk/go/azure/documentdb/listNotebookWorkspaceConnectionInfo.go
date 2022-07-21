@@ -11,7 +11,7 @@ import (
 )
 
 // The connection info for the given notebook workspace
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func ListNotebookWorkspaceConnectionInfo(ctx *pulumi.Context, args *ListNotebookWorkspaceConnectionInfoArgs, opts ...pulumi.InvokeOption) (*ListNotebookWorkspaceConnectionInfoResult, error) {
 	var rv ListNotebookWorkspaceConnectionInfoResult
 	err := ctx.Invoke("azure-native:documentdb:listNotebookWorkspaceConnectionInfo", args, &rv, opts...)

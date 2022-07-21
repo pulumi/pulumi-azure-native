@@ -37,12 +37,6 @@ func NewCustomEntityStoreAssignment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:CustomEntityStoreAssignment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource CustomEntityStoreAssignment
 	err := ctx.RegisterResource("azure-native:security/v20210701preview:CustomEntityStoreAssignment", name, args, &resource, opts...)
 	if err != nil {

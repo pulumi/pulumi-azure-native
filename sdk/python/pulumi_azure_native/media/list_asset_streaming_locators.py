@@ -50,7 +50,7 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetStreamingLocatorsResult:
     """
     The Streaming Locators associated with this Asset.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -78,7 +78,7 @@ def list_asset_streaming_locators_output(account_name: Optional[pulumi.Input[str
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAssetStreamingLocatorsResult]:
     """
     The Streaming Locators associated with this Asset.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

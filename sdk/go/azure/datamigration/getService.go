@@ -11,7 +11,7 @@ import (
 )
 
 // A Database Migration Service resource
-// API Version: 2018-04-19.
+// API Version: 2021-06-30.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:datamigration:getService", args, &rv, opts...)
@@ -46,10 +46,14 @@ type LookupServiceResult struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// Service SKU
 	Sku *ServiceSkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId string `pulumi:"virtualSubnetId"`
 }
@@ -133,6 +137,11 @@ func (o LookupServiceResultOutput) Sku() ServiceSkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceSkuResponse { return v.Sku }).(ServiceSkuResponsePtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -141,6 +150,11 @@ func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 // Resource type.
 func (o LookupServiceResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+func (o LookupServiceResultOutput) VirtualNicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.VirtualNicId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined

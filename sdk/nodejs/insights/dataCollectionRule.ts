@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2019-11-01-preview.
+ * API Version: 2021-04-01.
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**
@@ -78,6 +78,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.DataCollectionRuleResourceResponseSystemData>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -113,6 +117,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["immutableId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataFlows"] = undefined /*out*/;
@@ -125,6 +130,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

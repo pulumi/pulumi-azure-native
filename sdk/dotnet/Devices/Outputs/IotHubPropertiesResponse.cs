@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
     public sealed class IotHubPropertiesResponse
     {
         /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedFqdnList;
+        /// <summary>
         /// The shared access policies you can use to secure a connection to the IoT hub.
         /// </summary>
         public readonly ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleResponse> AuthorizationPolicies;
@@ -28,6 +32,22 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// IoT hub comments.
         /// </summary>
         public readonly string? Comments;
+        /// <summary>
+        /// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        public readonly bool? DisableDeviceSAS;
+        /// <summary>
+        /// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// If true, all module scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        public readonly bool? DisableModuleSAS;
+        /// <summary>
+        /// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+        /// </summary>
+        public readonly bool? EnableDataResidency;
         /// <summary>
         /// If True, file upload notifications are enabled.
         /// </summary>
@@ -77,6 +97,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+        /// </summary>
+        public readonly bool? RestrictOutboundNetworkAccess;
+        /// <summary>
         /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         /// </summary>
         public readonly Outputs.RoutingPropertiesResponse? Routing;
@@ -91,11 +115,21 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
         [OutputConstructor]
         private IotHubPropertiesResponse(
+            ImmutableArray<string> allowedFqdnList,
+
             ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleResponse> authorizationPolicies,
 
             Outputs.CloudToDevicePropertiesResponse? cloudToDevice,
 
             string? comments,
+
+            bool? disableDeviceSAS,
+
+            bool? disableLocalAuth,
+
+            bool? disableModuleSAS,
+
+            bool? enableDataResidency,
 
             bool? enableFileUploadNotifications,
 
@@ -121,15 +155,22 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string? publicNetworkAccess,
 
+            bool? restrictOutboundNetworkAccess,
+
             Outputs.RoutingPropertiesResponse? routing,
 
             string state,
 
             ImmutableDictionary<string, Outputs.StorageEndpointPropertiesResponse>? storageEndpoints)
         {
+            AllowedFqdnList = allowedFqdnList;
             AuthorizationPolicies = authorizationPolicies;
             CloudToDevice = cloudToDevice;
             Comments = comments;
+            DisableDeviceSAS = disableDeviceSAS;
+            DisableLocalAuth = disableLocalAuth;
+            DisableModuleSAS = disableModuleSAS;
+            EnableDataResidency = enableDataResidency;
             EnableFileUploadNotifications = enableFileUploadNotifications;
             EventHubEndpoints = eventHubEndpoints;
             Features = features;
@@ -142,6 +183,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
             Routing = routing;
             State = state;
             StorageEndpoints = storageEndpoints;

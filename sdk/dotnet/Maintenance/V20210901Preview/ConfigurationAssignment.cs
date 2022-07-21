@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:maintenance:ConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignment"},
                 },

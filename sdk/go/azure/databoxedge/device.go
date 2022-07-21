@@ -12,7 +12,7 @@ import (
 )
 
 // The Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type Device struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +21,9 @@ type Device struct {
 	// The Data Box Edge/Gateway device culture.
 	Culture pulumi.StringOutput `pulumi:"culture"`
 	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus pulumi.StringPtrOutput `pulumi:"dataBoxEdgeDeviceStatus"`
+	DataBoxEdgeDeviceStatus pulumi.StringOutput `pulumi:"dataBoxEdgeDeviceStatus"`
+	// The details of data-residency related properties for this resource
+	DataResidency DataResidencyResponsePtrOutput `pulumi:"dataResidency"`
 	// The Description of the Data Box Edge/Gateway device.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The device software version number of the device (eg: 1.2.18105.6).
@@ -42,7 +44,7 @@ type Device struct {
 	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// Msi identity of the resource
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The etag for the devices.
+	// The kind of the device.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -152,8 +154,8 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
+	// The details of data-residency related properties for this resource
+	DataResidency *DataResidency `pulumi:"dataResidency"`
 	// The device name.
 	DeviceName *string `pulumi:"deviceName"`
 	// Msi identity of the resource
@@ -170,8 +172,8 @@ type deviceArgs struct {
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
+	// The details of data-residency related properties for this resource
+	DataResidency DataResidencyPtrInput
 	// The device name.
 	DeviceName pulumi.StringPtrInput
 	// Msi identity of the resource
@@ -234,8 +236,13 @@ func (o DeviceOutput) Culture() pulumi.StringOutput {
 }
 
 // The status of the Data Box Edge/Gateway device.
-func (o DeviceOutput) DataBoxEdgeDeviceStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringPtrOutput)
+func (o DeviceOutput) DataBoxEdgeDeviceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringOutput)
+}
+
+// The details of data-residency related properties for this resource
+func (o DeviceOutput) DataResidency() DataResidencyResponsePtrOutput {
+	return o.ApplyT(func(v *Device) DataResidencyResponsePtrOutput { return v.DataResidency }).(DataResidencyResponsePtrOutput)
 }
 
 // The Description of the Data Box Edge/Gateway device.
@@ -288,7 +295,7 @@ func (o DeviceOutput) Identity() ResourceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *Device) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
 }
 
-// The etag for the devices.
+// The kind of the device.
 func (o DeviceOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }

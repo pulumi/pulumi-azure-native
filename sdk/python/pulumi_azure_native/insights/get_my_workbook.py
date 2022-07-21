@@ -21,7 +21,7 @@ class GetMyWorkbookResult:
     """
     An Application Insights private workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, system_data=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -55,6 +55,9 @@ class GetMyWorkbookResult:
         if storage_uri and not isinstance(storage_uri, str):
             raise TypeError("Expected argument 'storage_uri' to be a str")
         pulumi.set(__self__, "storage_uri", storage_uri)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -160,6 +163,14 @@ class GetMyWorkbookResult:
         return pulumi.get(self, "storage_uri")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -217,6 +228,7 @@ class AwaitableGetMyWorkbookResult(GetMyWorkbookResult):
             serialized_data=self.serialized_data,
             source_id=self.source_id,
             storage_uri=self.storage_uri,
+            system_data=self.system_data,
             tags=self.tags,
             time_modified=self.time_modified,
             type=self.type,
@@ -229,7 +241,7 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMyWorkbookResult:
     """
     An Application Insights private workbook definition.
-    API Version: 2020-10-20.
+    API Version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -256,6 +268,7 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
         serialized_data=__ret__.serialized_data,
         source_id=__ret__.source_id,
         storage_uri=__ret__.storage_uri,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type,
@@ -269,7 +282,7 @@ def get_my_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMyWorkbookResult]:
     """
     An Application Insights private workbook definition.
-    API Version: 2020-10-20.
+    API Version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

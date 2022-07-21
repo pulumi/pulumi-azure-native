@@ -25,21 +25,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string Command;
         /// <summary>
-        /// [Required] Compute binding for the job.
+        /// ARM resource ID of the compute resource.
         /// </summary>
-        public readonly Outputs.ComputeConfigurationResponse Compute;
+        public readonly string? ComputeId;
         /// <summary>
         /// The asset description text.
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Display name of job.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
         /// </summary>
         public readonly object? Distribution;
         /// <summary>
-        /// The ARM resource ID of the Environment specification for the job.
+        /// [Required] The ARM resource ID of the Environment specification for the job.
         /// </summary>
-        public readonly string? EnvironmentId;
+        public readonly string EnvironmentId;
         /// <summary>
         /// Environment variables included in the job.
         /// </summary>
@@ -49,49 +53,48 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? ExperimentName;
         /// <summary>
-        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
         /// Defaults to AmlToken if null.
         /// </summary>
-        public readonly Union<Outputs.AmlTokenResponse, Outputs.ManagedIdentityResponse>? Identity;
+        public readonly object? Identity;
         /// <summary>
         /// Mapping of input data bindings used in the job.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.InputDataBindingResponse>? InputDataBindings;
+        public readonly ImmutableDictionary<string, object>? Inputs;
         /// <summary>
-        /// List of JobEndpoints.
-        /// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        /// Is the asset archived?
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.JobEndpointResponse> InteractionEndpoints;
+        public readonly bool? IsArchived;
         /// <summary>
         /// Enum to determine the type of job.
         /// Expected value is 'Command'.
         /// </summary>
         public readonly string JobType;
         /// <summary>
-        /// Location of the job output logs and artifacts.
+        /// Command Job limit.
         /// </summary>
-        public readonly Outputs.JobOutputResponse Output;
+        public readonly Outputs.CommandJobLimitsResponse? Limits;
         /// <summary>
         /// Mapping of output data bindings used in the job.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.OutputDataBindingResponse>? OutputDataBindings;
+        public readonly ImmutableDictionary<string, object>? Outputs;
         /// <summary>
         /// Input parameters.
         /// </summary>
         public readonly object Parameters;
         /// <summary>
-        /// Job priority for scheduling policy. Only applies to AMLCompute.
-        /// Private preview feature and only available to users on the allow list.
-        /// </summary>
-        public readonly int? Priority;
-        /// <summary>
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// Specifies the job provisioning state.
+        /// Compute Resource configuration for the job.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ResourceConfigurationResponse? Resources;
+        /// <summary>
+        /// List of JobEndpoints.
+        /// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.JobServiceResponse>? Services;
         /// <summary>
         /// Status of the job.
         /// </summary>
@@ -100,10 +103,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Tag dictionary. Tags can be added, removed, and updated.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
-        /// </summary>
-        public readonly string? Timeout;
 
         [OutputConstructor]
         private CommandJobResponse(
@@ -111,65 +110,65 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string command,
 
-            Outputs.ComputeConfigurationResponse compute,
+            string? computeId,
 
             string? description,
 
+            string? displayName,
+
             object? distribution,
 
-            string? environmentId,
+            string environmentId,
 
             ImmutableDictionary<string, string>? environmentVariables,
 
             string? experimentName,
 
-            Union<Outputs.AmlTokenResponse, Outputs.ManagedIdentityResponse>? identity,
+            object? identity,
 
-            ImmutableDictionary<string, Outputs.InputDataBindingResponse>? inputDataBindings,
+            ImmutableDictionary<string, object>? inputs,
 
-            ImmutableDictionary<string, Outputs.JobEndpointResponse> interactionEndpoints,
+            bool? isArchived,
 
             string jobType,
 
-            Outputs.JobOutputResponse output,
+            Outputs.CommandJobLimitsResponse? limits,
 
-            ImmutableDictionary<string, Outputs.OutputDataBindingResponse>? outputDataBindings,
+            ImmutableDictionary<string, object>? outputs,
 
             object parameters,
 
-            int? priority,
-
             ImmutableDictionary<string, string>? properties,
 
-            string provisioningState,
+            Outputs.ResourceConfigurationResponse? resources,
+
+            ImmutableDictionary<string, Outputs.JobServiceResponse>? services,
 
             string status,
 
-            ImmutableDictionary<string, string>? tags,
-
-            string? timeout)
+            ImmutableDictionary<string, string>? tags)
         {
             CodeId = codeId;
             Command = command;
-            Compute = compute;
+            ComputeId = computeId;
             Description = description;
+            DisplayName = displayName;
             Distribution = distribution;
             EnvironmentId = environmentId;
             EnvironmentVariables = environmentVariables;
             ExperimentName = experimentName;
             Identity = identity;
-            InputDataBindings = inputDataBindings;
-            InteractionEndpoints = interactionEndpoints;
+            Inputs = inputs;
+            IsArchived = isArchived;
             JobType = jobType;
-            Output = output;
-            OutputDataBindings = outputDataBindings;
+            Limits = limits;
+            Outputs = outputs;
             Parameters = parameters;
-            Priority = priority;
             Properties = properties;
-            ProvisioningState = provisioningState;
+            Resources = resources;
+            Services = services;
             Status = status;
             Tags = tags;
-            Timeout = timeout;
         }
     }
 }

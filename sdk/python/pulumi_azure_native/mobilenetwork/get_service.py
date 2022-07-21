@@ -21,7 +21,7 @@ class GetServiceResult:
     """
     Service resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, pcc_rules=None, provisioning_state=None, service_precedence=None, service_qos_policy=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, pcc_rules=None, provisioning_state=None, service_precedence=None, service_qos_policy=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -61,6 +61,9 @@ class GetServiceResult:
         if service_qos_policy and not isinstance(service_qos_policy, dict):
             raise TypeError("Expected argument 'service_qos_policy' to be a dict")
         pulumi.set(__self__, "service_qos_policy", service_qos_policy)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -173,6 +176,14 @@ class GetServiceResult:
         return pulumi.get(self, "service_qos_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -208,6 +219,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             provisioning_state=self.provisioning_state,
             service_precedence=self.service_precedence,
             service_qos_policy=self.service_qos_policy,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -218,7 +230,7 @@ def get_service(mobile_network_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Service resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -249,6 +261,7 @@ def get_service(mobile_network_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         service_precedence=__ret__.service_precedence,
         service_qos_policy=__ret__.service_qos_policy,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -260,7 +273,7 @@ def get_service_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Service resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.

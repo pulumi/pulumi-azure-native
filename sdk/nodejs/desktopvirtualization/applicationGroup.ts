@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ApplicationGroup definition.
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-07-12.
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**

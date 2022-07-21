@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Domain ownership Identifier.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -49,10 +48,6 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      */
     public readonly ownershipId!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -79,13 +74,11 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownershipId"] = args ? args.ownershipId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ownershipId"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

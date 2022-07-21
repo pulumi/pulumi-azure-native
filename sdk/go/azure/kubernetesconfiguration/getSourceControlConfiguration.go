@@ -11,7 +11,7 @@ import (
 )
 
 // The SourceControl Configuration object returned in Get & Put response.
-// API Version: 2021-03-01.
+// API Version: 2022-07-01.
 func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceControlConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlConfigurationResult, error) {
 	var rv LookupSourceControlConfigurationResult
 	err := ctx.Invoke("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args, &rv, opts...)
@@ -24,11 +24,11 @@ func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceCon
 type LookupSourceControlConfigurationArgs struct {
 	// The name of the kubernetes cluster.
 	ClusterName string `pulumi:"clusterName"`
-	// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+	// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
 	ClusterResourceName string `pulumi:"clusterResourceName"`
-	// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+	// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
 	ClusterRp string `pulumi:"clusterRp"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Source Control Configuration.
 	SourceControlConfigurationName string `pulumi:"sourceControlConfigurationName"`
@@ -101,11 +101,11 @@ func LookupSourceControlConfigurationOutput(ctx *pulumi.Context, args LookupSour
 type LookupSourceControlConfigurationOutputArgs struct {
 	// The name of the kubernetes cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
-	// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+	// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
 	ClusterResourceName pulumi.StringInput `pulumi:"clusterResourceName"`
-	// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+	// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
 	ClusterRp pulumi.StringInput `pulumi:"clusterRp"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Name of the Source Control Configuration.
 	SourceControlConfigurationName pulumi.StringInput `pulumi:"sourceControlConfigurationName"`

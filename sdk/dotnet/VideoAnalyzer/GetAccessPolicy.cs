@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class GetAccessPolicy
     {
         /// <summary>
-        /// Policy that determines how a video can be accessed.
-        /// API Version: 2021-05-01-preview.
+        /// Access policies help define the authentication rules, and control access to specific video resources.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:videoanalyzer:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Policy that determines how a video can be accessed.
-        /// API Version: 2021-05-01-preview.
+        /// Access policies help define the authentication rules, and control access to specific video resources.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:videoanalyzer:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the access policy to retrieve.
+        /// The Access Policy name.
         /// </summary>
         [Input("accessPolicyName", required: true)]
         public string AccessPolicyName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the access policy to retrieve.
+        /// The Access Policy name.
         /// </summary>
         [Input("accessPolicyName", required: true)]
         public Input<string> AccessPolicyName { get; set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly string? Role;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

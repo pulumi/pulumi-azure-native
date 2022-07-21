@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// App resource payload
-    /// API Version: 2020-07-01.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:App")]
     public partial class App : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         [Output("properties")]
         public Output<Outputs.AppResourcePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

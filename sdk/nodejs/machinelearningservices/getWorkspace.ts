@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
 
 export interface GetWorkspaceArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -41,11 +41,11 @@ export interface GetWorkspaceResult {
      */
     readonly allowPublicAccessWhenBehindVnet?: boolean;
     /**
-     * ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+     * ARM id of the application insights associated with this workspace.
      */
     readonly applicationInsights?: string;
     /**
-     * ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+     * ARM id of the container registry associated with this workspace.
      */
     readonly containerRegistry?: string;
     /**
@@ -69,13 +69,13 @@ export interface GetWorkspaceResult {
      */
     readonly hbiWorkspace?: boolean;
     /**
-     * Specifies the resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
     /**
      * The compute name for image build
      */
@@ -89,7 +89,11 @@ export interface GetWorkspaceResult {
      */
     readonly location?: string;
     /**
-     * Specifies the name of the resource.
+     * The URI associated with this workspace that machine learning flow must point at to set up tracking.
+     */
+    readonly mlFlowTrackingUri: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -113,6 +117,10 @@ export interface GetWorkspaceResult {
      */
     readonly provisioningState: string;
     /**
+     * Whether requests from Public Network are allowed.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * The service managed resource settings.
      */
     readonly serviceManagedResourcesSettings?: outputs.machinelearningservices.ServiceManagedResourcesSettingsResponse;
@@ -133,7 +141,11 @@ export interface GetWorkspaceResult {
      */
     readonly storageAccount?: string;
     /**
-     * Read only system data
+     * If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
+     */
+    readonly storageHnsEnabled: boolean;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -141,9 +153,17 @@ export interface GetWorkspaceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Specifies the type of the resource.
+     * The tenant id associated with this workspace.
+     */
+    readonly tenantId: string;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+     */
+    readonly v1LegacyMode?: boolean;
     /**
      * The immutable id associated with this workspace.
      */
@@ -156,7 +176,7 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
 
 export interface GetWorkspaceOutputArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

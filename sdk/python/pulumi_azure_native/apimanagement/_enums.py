@@ -13,6 +13,8 @@ __all__ = [
     'BackendProtocol',
     'BearerTokenSendingMethod',
     'BearerTokenSendingMethods',
+    'CertificateSource',
+    'CertificateStatus',
     'ClientAuthenticationMethod',
     'Confirmation',
     'ContentFormat',
@@ -26,11 +28,11 @@ __all__ = [
     'LoggerType',
     'OperationNameFormat',
     'PolicyContentFormat',
-    'PolicyFragmentContentFormat',
     'PrivateEndpointServiceConnectionStatus',
     'ProductState',
     'Protocol',
     'ProvisioningState',
+    'PublicNetworkAccess',
     'SamplingType',
     'SchemaType',
     'SkuType',
@@ -60,6 +62,8 @@ class ApiType(str, Enum):
     """
     HTTP = "http"
     SOAP = "soap"
+    WEBSOCKET = "websocket"
+    GRAPHQL = "graphql"
 
 
 class ApimIdentityType(str, Enum):
@@ -130,6 +134,25 @@ class BearerTokenSendingMethods(str, Enum):
     """
 
 
+class CertificateSource(str, Enum):
+    """
+    Certificate Source.
+    """
+    MANAGED = "Managed"
+    KEY_VAULT = "KeyVault"
+    CUSTOM = "Custom"
+    BUILT_IN = "BuiltIn"
+
+
+class CertificateStatus(str, Enum):
+    """
+    Certificate Status.
+    """
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    IN_PROGRESS = "InProgress"
+
+
 class ClientAuthenticationMethod(str, Enum):
     BASIC = "Basic"
     """
@@ -198,6 +221,10 @@ class ContentFormat(str, Enum):
     OPENAPI_JSON_LINK = "openapi+json-link"
     """
     The OpenAPI 3.0 JSON document is hosted on a publicly accessible internet address.
+    """
+    GRAPHQL_LINK = "graphql-link"
+    """
+    The GraphQL API endpoint hosted on a publicly accessible internet address.
     """
 
 
@@ -364,20 +391,6 @@ class PolicyContentFormat(str, Enum):
     """
 
 
-class PolicyFragmentContentFormat(str, Enum):
-    """
-    Format of the policy fragment content.
-    """
-    XML = "xml"
-    """
-    The contents are inline and Content type is an XML document.
-    """
-    RAWXML = "rawxml"
-    """
-    The contents are inline and Content type is a non XML encoded policy document.
-    """
-
-
 class PrivateEndpointServiceConnectionStatus(str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -398,6 +411,8 @@ class ProductState(str, Enum):
 class Protocol(str, Enum):
     HTTP = "http"
     HTTPS = "https"
+    WS = "ws"
+    WSS = "wss"
 
 
 class ProvisioningState(str, Enum):
@@ -405,6 +420,14 @@ class ProvisioningState(str, Enum):
     Provisioning state.
     """
     CREATED = "created"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SamplingType(str, Enum):
@@ -463,9 +486,11 @@ class SkuType(str, Enum):
 
 class SoapApiType(str, Enum):
     """
-    Type of Api to create. 
-     * `http` creates a SOAP to REST API 
-     * `soap` creates a SOAP pass-through API .
+    Type of API to create. 
+     * `http` creates a REST API 
+     * `soap` creates a SOAP pass-through API  
+     * `websocket` creates websocket API 
+     * `graphql` creates GraphQL API.
     """
     SOAP_TO_REST = "http"
     """
@@ -473,7 +498,15 @@ class SoapApiType(str, Enum):
     """
     SOAP_PASS_THROUGH = "soap"
     """
-    Imports the Soap API having a SOAP front end.
+    Imports the SOAP API having a SOAP front end.
+    """
+    WEB_SOCKET = "websocket"
+    """
+    Imports the API having a Websocket front end.
+    """
+    GRAPH_QL = "graphql"
+    """
+    Imports the API having a GraphQL front end.
     """
 
 

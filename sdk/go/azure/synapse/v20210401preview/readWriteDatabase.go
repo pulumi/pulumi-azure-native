@@ -60,9 +60,6 @@ func NewReadWriteDatabase(ctx *pulumi.Context,
 	args.Kind = pulumi.String("ReadWrite")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:ReadWriteDatabase"),
 		},
 	})

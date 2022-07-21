@@ -12,12 +12,10 @@ import (
 )
 
 // Sim resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 type Sim struct {
 	pulumi.CustomResourceState
 
-	// The configuration state of the sim resource - complete or incomplete.
-	ConfigurationState pulumi.StringOutput `pulumi:"configurationState"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The identity that created the resource.
@@ -46,8 +44,12 @@ type Sim struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The simPolicy used by this sim.
 	SimPolicy SimPolicyResourceIdResponsePtrOutput `pulumi:"simPolicy"`
+	// The state of the sim resource.
+	SimState pulumi.StringOutput `pulumi:"simState"`
 	// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
 	StaticIpConfiguration SimStaticIpPropertiesResponseArrayOutput `pulumi:"staticIpConfiguration"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -223,11 +225,6 @@ func (o SimOutput) ToSimOutputWithContext(ctx context.Context) SimOutput {
 	return o
 }
 
-// The configuration state of the sim resource - complete or incomplete.
-func (o SimOutput) ConfigurationState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.ConfigurationState }).(pulumi.StringOutput)
-}
-
 // The timestamp of resource creation (UTC).
 func (o SimOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
@@ -298,9 +295,19 @@ func (o SimOutput) SimPolicy() SimPolicyResourceIdResponsePtrOutput {
 	return o.ApplyT(func(v *Sim) SimPolicyResourceIdResponsePtrOutput { return v.SimPolicy }).(SimPolicyResourceIdResponsePtrOutput)
 }
 
+// The state of the sim resource.
+func (o SimOutput) SimState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.SimState }).(pulumi.StringOutput)
+}
+
 // A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
 func (o SimOutput) StaticIpConfiguration() SimStaticIpPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *Sim) SimStaticIpPropertiesResponseArrayOutput { return v.StaticIpConfiguration }).(SimStaticIpPropertiesResponseArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SimOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Sim) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

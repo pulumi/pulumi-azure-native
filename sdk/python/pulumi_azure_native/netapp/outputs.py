@@ -16,6 +16,7 @@ __all__ = [
     'DailyScheduleResponse',
     'ExportPolicyRuleResponse',
     'HourlyScheduleResponse',
+    'LdapSearchScopeOptResponse',
     'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'PlacementKeyValuePairsResponse',
@@ -92,10 +93,14 @@ class ActiveDirectoryResponse(dict):
             suggest = "allow_local_nfs_users_with_ldap"
         elif key == "backupOperators":
             suggest = "backup_operators"
+        elif key == "encryptDCConnections":
+            suggest = "encrypt_dc_connections"
         elif key == "kdcIP":
             suggest = "kdc_ip"
         elif key == "ldapOverTLS":
             suggest = "ldap_over_tls"
+        elif key == "ldapSearchScope":
+            suggest = "ldap_search_scope"
         elif key == "ldapSigning":
             suggest = "ldap_signing"
         elif key == "organizationalUnit":
@@ -123,13 +128,16 @@ class ActiveDirectoryResponse(dict):
                  status_details: str,
                  active_directory_id: Optional[str] = None,
                  ad_name: Optional[str] = None,
+                 administrators: Optional[Sequence[str]] = None,
                  aes_encryption: Optional[bool] = None,
                  allow_local_nfs_users_with_ldap: Optional[bool] = None,
                  backup_operators: Optional[Sequence[str]] = None,
                  dns: Optional[str] = None,
                  domain: Optional[str] = None,
+                 encrypt_dc_connections: Optional[bool] = None,
                  kdc_ip: Optional[str] = None,
                  ldap_over_tls: Optional[bool] = None,
+                 ldap_search_scope: Optional['outputs.LdapSearchScopeOptResponse'] = None,
                  ldap_signing: Optional[bool] = None,
                  organizational_unit: Optional[str] = None,
                  password: Optional[str] = None,
@@ -144,13 +152,16 @@ class ActiveDirectoryResponse(dict):
         :param str status_details: Any details in regards to the Status of the Active Directory
         :param str active_directory_id: Id of the Active Directory
         :param str ad_name: Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+        :param Sequence[str] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
         :param bool aes_encryption: If enabled, AES encryption will be enabled for SMB communication.
         :param bool allow_local_nfs_users_with_ldap:  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
         :param Sequence[str] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         :param str dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param str domain: Name of the Active Directory domain
+        :param bool encrypt_dc_connections: If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
         :param str kdc_ip: kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
         :param bool ldap_over_tls: Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        :param 'LdapSearchScopeOptResponse' ldap_search_scope: LDAP Search scope options
         :param bool ldap_signing: Specifies whether or not the LDAP traffic needs to be signed.
         :param str organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
         :param str password: Plain text password of Active Directory domain administrator, value is masked in the response
@@ -166,6 +177,8 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if ad_name is not None:
             pulumi.set(__self__, "ad_name", ad_name)
+        if administrators is not None:
+            pulumi.set(__self__, "administrators", administrators)
         if aes_encryption is not None:
             pulumi.set(__self__, "aes_encryption", aes_encryption)
         if allow_local_nfs_users_with_ldap is not None:
@@ -176,10 +189,14 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "dns", dns)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if encrypt_dc_connections is not None:
+            pulumi.set(__self__, "encrypt_dc_connections", encrypt_dc_connections)
         if kdc_ip is not None:
             pulumi.set(__self__, "kdc_ip", kdc_ip)
         if ldap_over_tls is not None:
             pulumi.set(__self__, "ldap_over_tls", ldap_over_tls)
+        if ldap_search_scope is not None:
+            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
         if ldap_signing is not None:
             pulumi.set(__self__, "ldap_signing", ldap_signing)
         if organizational_unit is None:
@@ -232,6 +249,14 @@ class ActiveDirectoryResponse(dict):
         return pulumi.get(self, "ad_name")
 
     @property
+    @pulumi.getter
+    def administrators(self) -> Optional[Sequence[str]]:
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "administrators")
+
+    @property
     @pulumi.getter(name="aesEncryption")
     def aes_encryption(self) -> Optional[bool]:
         """
@@ -272,6 +297,14 @@ class ActiveDirectoryResponse(dict):
         return pulumi.get(self, "domain")
 
     @property
+    @pulumi.getter(name="encryptDCConnections")
+    def encrypt_dc_connections(self) -> Optional[bool]:
+        """
+        If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        """
+        return pulumi.get(self, "encrypt_dc_connections")
+
+    @property
     @pulumi.getter(name="kdcIP")
     def kdc_ip(self) -> Optional[str]:
         """
@@ -286,6 +319,14 @@ class ActiveDirectoryResponse(dict):
         Specifies whether or not the LDAP traffic needs to be secured via TLS.
         """
         return pulumi.get(self, "ldap_over_tls")
+
+    @property
+    @pulumi.getter(name="ldapSearchScope")
+    def ldap_search_scope(self) -> Optional['outputs.LdapSearchScopeOptResponse']:
+        """
+        LDAP Search scope options
+        """
+        return pulumi.get(self, "ldap_search_scope")
 
     @property
     @pulumi.getter(name="ldapSigning")
@@ -740,6 +781,74 @@ class HourlyScheduleResponse(dict):
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
+class LdapSearchScopeOptResponse(dict):
+    """
+    LDAP search scope 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupDN":
+            suggest = "group_dn"
+        elif key == "groupMembershipFilter":
+            suggest = "group_membership_filter"
+        elif key == "userDN":
+            suggest = "user_dn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LdapSearchScopeOptResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LdapSearchScopeOptResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LdapSearchScopeOptResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_dn: Optional[str] = None,
+                 group_membership_filter: Optional[str] = None,
+                 user_dn: Optional[str] = None):
+        """
+        LDAP search scope 
+        :param str group_dn: This specifies the group DN, which overrides the base DN for group lookups.
+        :param str group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        :param str user_dn: This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        if group_dn is not None:
+            pulumi.set(__self__, "group_dn", group_dn)
+        if group_membership_filter is not None:
+            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+        if user_dn is not None:
+            pulumi.set(__self__, "user_dn", user_dn)
+
+    @property
+    @pulumi.getter(name="groupDN")
+    def group_dn(self) -> Optional[str]:
+        """
+        This specifies the group DN, which overrides the base DN for group lookups.
+        """
+        return pulumi.get(self, "group_dn")
+
+    @property
+    @pulumi.getter(name="groupMembershipFilter")
+    def group_membership_filter(self) -> Optional[str]:
+        """
+        This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        """
+        return pulumi.get(self, "group_membership_filter")
+
+    @property
+    @pulumi.getter(name="userDN")
+    def user_dn(self) -> Optional[str]:
+        """
+        This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        return pulumi.get(self, "user_dn")
 
 
 @pulumi.output_type
@@ -1576,6 +1685,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  baremetal_tenant_id: str,
                  clone_progress: int,
                  creation_token: str,
+                 encrypted: bool,
                  file_system_id: str,
                  id: str,
                  maximum_number_of_files: float,
@@ -1624,6 +1734,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
         :param int clone_progress: When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
         :param str creation_token: A unique file path for the volume. Used when creating mount targets
+        :param bool encrypted: Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
         :param str file_system_id: Unique FileSystem Identifier.
         :param str id: Resource Id
         :param float maximum_number_of_files: Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
@@ -1645,7 +1756,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param float default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         :param float default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         :param str enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
-        :param str encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        :param str encryption_key_source: Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         :param 'VolumePropertiesResponseExportPolicy' export_policy: Set of export policy rules
         :param bool is_default_quota_enabled: Specifies if default quota is enabled for the volume.
         :param bool is_restoring: Restoring
@@ -1670,6 +1781,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
         pulumi.set(__self__, "clone_progress", clone_progress)
         pulumi.set(__self__, "creation_token", creation_token)
+        pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
@@ -1712,6 +1824,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             enable_subvolumes = 'Disabled'
         if enable_subvolumes is not None:
             pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+        if encryption_key_source is None:
+            encryption_key_source = 'Microsoft.NetApp'
         if encryption_key_source is not None:
             pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy is not None:
@@ -1798,6 +1912,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         A unique file path for the volume. Used when creating mount targets
         """
         return pulumi.get(self, "creation_token")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        """
+        return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -1971,7 +2093,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @pulumi.getter(name="encryptionKeySource")
     def encryption_key_source(self) -> Optional[str]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         """
         return pulumi.get(self, "encryption_key_source")
 

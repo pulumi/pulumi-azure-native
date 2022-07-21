@@ -116,7 +116,7 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraKeyspaceResult:
     """
     An Azure Cosmos DB Cassandra keyspace.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -150,7 +150,7 @@ def get_cassandra_resource_cassandra_keyspace_output(account_name: Optional[pulu
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraKeyspaceResult]:
     """
     An Azure Cosmos DB Cassandra keyspace.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

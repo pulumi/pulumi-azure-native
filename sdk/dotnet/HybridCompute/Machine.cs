@@ -11,67 +11,16 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a hybrid machine.
-    /// API Version: 2020-08-02.
+    /// API Version: 2022-03-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Machine")]
     public partial class Machine : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the AD fully qualified display name.
+        /// Identity for the resource.
         /// </summary>
-        [Output("adFqdn")]
-        public Output<string> AdFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// The hybrid machine agent full version.
-        /// </summary>
-        [Output("agentVersion")]
-        public Output<string> AgentVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Public Key that the client provides to be used during initial resource onboarding
-        /// </summary>
-        [Output("clientPublicKey")]
-        public Output<string?> ClientPublicKey { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the hybrid machine display name.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the DNS fully qualified display name.
-        /// </summary>
-        [Output("dnsFqdn")]
-        public Output<string> DnsFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the Windows domain name.
-        /// </summary>
-        [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
-
-        /// <summary>
-        /// Details about the error state.
-        /// </summary>
-        [Output("errorDetails")]
-        public Output<ImmutableArray<Outputs.ErrorDetailResponse>> ErrorDetails { get; private set; } = null!;
-
-        /// <summary>
-        /// Machine Extensions information
-        /// </summary>
-        [Output("extensions")]
-        public Output<ImmutableArray<Outputs.MachineExtensionInstanceViewResponse>> Extensions { get; private set; } = null!;
-
         [Output("identity")]
-        public Output<Outputs.MachineResponseIdentity?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// The time of the last status change.
-        /// </summary>
-        [Output("lastStatusChange")]
-        public Output<string> LastStatusChange { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -80,58 +29,22 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to the geographic location of the resource.
-        /// </summary>
-        [Output("locationData")]
-        public Output<Outputs.LocationDataResponse?> LocationData { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the hybrid machine FQDN.
-        /// </summary>
-        [Output("machineFqdn")]
-        public Output<string> MachineFqdn { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Operating System running on the hybrid machine.
+        /// Hybrid Compute Machine properties
         /// </summary>
-        [Output("osName")]
-        public Output<string> OsName { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.MachinePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the operating system settings for the hybrid machine.
+        /// The system meta data relating to this resource.
         /// </summary>
-        [Output("osProfile")]
-        public Output<Outputs.MachinePropertiesResponseOsProfile?> OsProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the Operating System product SKU.
-        /// </summary>
-        [Output("osSku")]
-        public Output<string> OsSku { get; private set; } = null!;
-
-        /// <summary>
-        /// The version of Operating System running on the hybrid machine.
-        /// </summary>
-        [Output("osVersion")]
-        public Output<string> OsVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state, which only appears in the response.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the hybrid machine agent.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -144,18 +57,6 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the hybrid machine unique ID.
-        /// </summary>
-        [Output("vmId")]
-        public Output<string?> VmId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the Arc Machine's unique SMBIOS ID
-        /// </summary>
-        [Output("vmUuid")]
-        public Output<string> VmUuid { get; private set; } = null!;
 
 
         /// <summary>
@@ -221,13 +122,10 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class MachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Public Key that the client provides to be used during initial resource onboarding
+        /// Identity for the resource.
         /// </summary>
-        [Input("clientPublicKey")]
-        public Input<string>? ClientPublicKey { get; set; }
-
         [Input("identity")]
-        public Input<Inputs.MachineIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -236,19 +134,19 @@ namespace Pulumi.AzureNative.HybridCompute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Metadata pertaining to the geographic location of the resource.
-        /// </summary>
-        [Input("locationData")]
-        public Input<Inputs.LocationDataArgs>? LocationData { get; set; }
-
-        /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("machineName")]
+        public Input<string>? MachineName { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// Hybrid Compute Machine properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.MachinePropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -264,12 +162,6 @@ namespace Pulumi.AzureNative.HybridCompute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Specifies the hybrid machine unique ID.
-        /// </summary>
-        [Input("vmId")]
-        public Input<string>? VmId { get; set; }
 
         public MachineArgs()
         {

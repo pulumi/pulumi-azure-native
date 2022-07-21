@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a bookmark in Azure Security Insights.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export class Bookmark extends pulumi.CustomResource {
     /**
@@ -65,7 +65,7 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -89,7 +89,11 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly queryStartTime!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -142,6 +146,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["created"] = undefined /*out*/;
@@ -157,6 +162,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["queryEndTime"] = undefined /*out*/;
             resourceInputs["queryResult"] = undefined /*out*/;
             resourceInputs["queryStartTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updated"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;
@@ -221,7 +227,7 @@ export interface BookmarkArgs {
      */
     queryStartTime?: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

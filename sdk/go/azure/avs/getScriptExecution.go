@@ -11,7 +11,7 @@ import (
 )
 
 // An instance of a script executed by a user - custom or AVS
-// API Version: 2021-06-01.
+// API Version: 2021-12-01.
 func LookupScriptExecution(ctx *pulumi.Context, args *LookupScriptExecutionArgs, opts ...pulumi.InvokeOption) (*LookupScriptExecutionResult, error) {
 	var rv LookupScriptExecutionResult
 	err := ctx.Invoke("azure-native:avs:getScriptExecution", args, &rv, opts...)

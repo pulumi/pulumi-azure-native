@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A FluidRelay Server.
- * API Version: 2021-03-12-preview.
+ * API Version: 2022-06-01.
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class FluidRelayServer extends pulumi.CustomResource {
     }
 
     /**
+     * All encryption configuration for a resource.
+     */
+    public readonly encryption!: pulumi.Output<outputs.fluidrelay.EncryptionPropertiesResponse | undefined>;
+    /**
      * The Fluid Relay Service endpoints for this server.
      */
     public /*out*/ readonly fluidRelayEndpoints!: pulumi.Output<outputs.fluidrelay.FluidRelayEndpointsResponse>;
@@ -45,17 +49,25 @@ export class FluidRelayServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly frsTenantId!: pulumi.Output<string>;
     /**
+     * The type of identity used for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.fluidrelay.IdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provision states for FluidRelay RP
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Sku of the storage associated with the resource
+     */
+    public readonly storagesku!: pulumi.Output<string | undefined>;
     /**
      * System meta data for this resource, including creation and modification information.
      */
@@ -83,21 +95,28 @@ export class FluidRelayServer extends pulumi.CustomResource {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["fluidRelayServerName"] = args ? args.fluidRelayServerName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["storagesku"] = args ? args.storagesku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["fluidRelayEndpoints"] = undefined /*out*/;
             resourceInputs["frsTenantId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["fluidRelayEndpoints"] = undefined /*out*/;
             resourceInputs["frsTenantId"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storagesku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -114,13 +133,21 @@ export class FluidRelayServer extends pulumi.CustomResource {
  */
 export interface FluidRelayServerArgs {
     /**
+     * All encryption configuration for a resource.
+     */
+    encryption?: pulumi.Input<inputs.fluidrelay.EncryptionPropertiesArgs>;
+    /**
+     * The Fluid Relay server resource name.
+     */
+    fluidRelayServerName?: pulumi.Input<string>;
+    /**
+     * The type of identity used for the resource.
+     */
+    identity?: pulumi.Input<inputs.fluidrelay.IdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * The resource name.
-     */
-    name?: pulumi.Input<string>;
     /**
      * Provision states for FluidRelay RP
      */
@@ -129,6 +156,10 @@ export interface FluidRelayServerArgs {
      * The resource group containing the resource.
      */
     resourceGroup: pulumi.Input<string>;
+    /**
+     * Sku of the storage associated with the resource
+     */
+    storagesku?: pulumi.Input<string | enums.fluidrelay.StorageSKU>;
     /**
      * Resource tags.
      */

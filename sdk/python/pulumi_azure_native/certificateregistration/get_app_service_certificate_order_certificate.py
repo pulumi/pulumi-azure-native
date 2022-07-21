@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetAppServiceCertificateOrderCertificateResult',
@@ -21,7 +20,7 @@ class GetAppServiceCertificateOrderCertificateResult:
     """
     Key Vault container ARM resource for a certificate that is purchased through Azure.
     """
-    def __init__(__self__, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,9 +42,6 @@ class GetAppServiceCertificateOrderCertificateResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -110,14 +106,6 @@ class GetAppServiceCertificateOrderCertificateResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -147,7 +135,6 @@ class AwaitableGetAppServiceCertificateOrderCertificateResult(GetAppServiceCerti
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -158,7 +145,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
     Key Vault container ARM resource for a certificate that is purchased through Azure.
-    API Version: 2020-10-01.
+    API Version: 2021-03-01.
 
 
     :param str certificate_order_name: Name of the certificate order.
@@ -183,7 +170,6 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -195,7 +181,7 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Key Vault container ARM resource for a certificate that is purchased through Azure.
-    API Version: 2020-10-01.
+    API Version: 2021-03-01.
 
 
     :param str certificate_order_name: Name of the certificate order.

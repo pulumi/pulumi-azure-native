@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Describes a Virtual Machine Extension.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Virtual Machine Extension.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetVirtualMachineExtensionResult> Invoke(GetVirtualMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -126,6 +126,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly object? ProtectedSettings;
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        public readonly object? ProtectedSettingsFromKeyVault;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -137,6 +141,10 @@ namespace Pulumi.AzureNative.Compute
         /// Json formatted public settings for the extension.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        public readonly bool? SuppressFailures;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -168,11 +176,15 @@ namespace Pulumi.AzureNative.Compute
 
             object? protectedSettings,
 
+            object? protectedSettingsFromKeyVault,
+
             string provisioningState,
 
             string? publisher,
 
             object? settings,
+
+            bool? suppressFailures,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -188,9 +200,11 @@ namespace Pulumi.AzureNative.Compute
             Location = location;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SuppressFailures = suppressFailures;
             Tags = tags;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;

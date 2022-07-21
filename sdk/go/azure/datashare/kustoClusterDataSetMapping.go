@@ -12,7 +12,7 @@ import (
 )
 
 // A Kusto cluster data set mapping
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type KustoClusterDataSetMapping struct {
 	pulumi.CustomResourceState
 

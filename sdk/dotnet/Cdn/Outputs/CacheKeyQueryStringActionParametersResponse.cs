@@ -16,7 +16,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     [OutputType]
     public sealed class CacheKeyQueryStringActionParametersResponse
     {
-        public readonly string OdataType;
         /// <summary>
         /// query parameters to include or exclude (comma separated).
         /// </summary>
@@ -25,18 +24,19 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Caching behavior for the requests
         /// </summary>
         public readonly string QueryStringBehavior;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private CacheKeyQueryStringActionParametersResponse(
-            string odataType,
-
             string? queryParameters,
 
-            string queryStringBehavior)
+            string queryStringBehavior,
+
+            string typeName)
         {
-            OdataType = odataType;
             QueryParameters = queryParameters;
             QueryStringBehavior = queryStringBehavior;
+            TypeName = typeName;
         }
     }
 }

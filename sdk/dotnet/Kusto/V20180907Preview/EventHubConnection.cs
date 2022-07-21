@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:EventHubConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:EventHubConnection"},
                 },
             };

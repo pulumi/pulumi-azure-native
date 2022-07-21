@@ -42,40 +42,6 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// Severity of the alert
-    /// </summary>
-    [EnumType]
-    public readonly struct AlertSeverity : IEquatable<AlertSeverity>
-    {
-        private readonly string _value;
-
-        private AlertSeverity(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AlertSeverity Zero { get; } = new AlertSeverity("0");
-        public static AlertSeverity One { get; } = new AlertSeverity("1");
-        public static AlertSeverity Two { get; } = new AlertSeverity("2");
-        public static AlertSeverity Three { get; } = new AlertSeverity("3");
-        public static AlertSeverity Four { get; } = new AlertSeverity("4");
-
-        public static bool operator ==(AlertSeverity left, AlertSeverity right) => left.Equals(right);
-        public static bool operator !=(AlertSeverity left, AlertSeverity right) => !left.Equals(right);
-
-        public static explicit operator string(AlertSeverity value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AlertSeverity other && Equals(other);
-        public bool Equals(AlertSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Type of application being monitored.
     /// </summary>
     [EnumType]
@@ -142,7 +108,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// the operator used to compare the data and the threshold.
+    /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
     /// </summary>
     [EnumType]
     public readonly struct ConditionOperator : IEquatable<ConditionOperator>
@@ -154,6 +120,7 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ConditionOperator EqualsValue { get; } = new ConditionOperator("Equals");
         public static ConditionOperator GreaterThan { get; } = new ConditionOperator("GreaterThan");
         public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("GreaterThanOrEqual");
         public static ConditionOperator LessThan { get; } = new ConditionOperator("LessThan");
@@ -167,40 +134,6 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConditionOperator other && Equals(other);
         public bool Equals(ConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConditionalOperator : IEquatable<ConditionalOperator>
-    {
-        private readonly string _value;
-
-        private ConditionalOperator(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConditionalOperator GreaterThanOrEqual { get; } = new ConditionalOperator("GreaterThanOrEqual");
-        public static ConditionalOperator LessThanOrEqual { get; } = new ConditionalOperator("LessThanOrEqual");
-        public static ConditionalOperator GreaterThan { get; } = new ConditionalOperator("GreaterThan");
-        public static ConditionalOperator LessThan { get; } = new ConditionalOperator("LessThan");
-        public static ConditionalOperator Equal { get; } = new ConditionalOperator("Equal");
-
-        public static bool operator ==(ConditionalOperator left, ConditionalOperator right) => left.Equals(right);
-        public static bool operator !=(ConditionalOperator left, ConditionalOperator right) => !left.Equals(right);
-
-        public static explicit operator string(ConditionalOperator value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConditionalOperator other && Equals(other);
-        public bool Equals(ConditionalOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -232,6 +165,37 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CriterionType other && Equals(other);
         public bool Equals(CriterionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator for dimension values
+    /// </summary>
+    [EnumType]
+    public readonly struct DimensionOperator : IEquatable<DimensionOperator>
+    {
+        private readonly string _value;
+
+        private DimensionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DimensionOperator Include { get; } = new DimensionOperator("Include");
+        public static DimensionOperator Exclude { get; } = new DimensionOperator("Exclude");
+
+        public static bool operator ==(DimensionOperator left, DimensionOperator right) => left.Equals(right);
+        public static bool operator !=(DimensionOperator left, DimensionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DimensionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DimensionOperator other && Equals(other);
+        public bool Equals(DimensionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -296,37 +260,6 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DynamicThresholdSensitivity other && Equals(other);
         public bool Equals(DynamicThresholdSensitivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-    /// </summary>
-    [EnumType]
-    public readonly struct Enabled : IEquatable<Enabled>
-    {
-        private readonly string _value;
-
-        private Enabled(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Enabled @True { get; } = new Enabled("true");
-        public static Enabled @False { get; } = new Enabled("false");
-
-        public static bool operator ==(Enabled left, Enabled right) => left.Equals(right);
-        public static bool operator !=(Enabled left, Enabled right) => !left.Equals(right);
-
-        public static explicit operator string(Enabled value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Enabled other && Equals(other);
-        public bool Equals(Enabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -492,7 +425,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// The kind of workbook. Choices are user and shared.
+    /// Indicates the type of scheduled query rule. The default is LogAlert.
     /// </summary>
     [EnumType]
     public readonly struct Kind : IEquatable<Kind>
@@ -504,8 +437,8 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Kind User { get; } = new Kind("user");
-        public static Kind Shared { get; } = new Kind("shared");
+        public static Kind LogAlert { get; } = new Kind("LogAlert");
+        public static Kind LogToMetric { get; } = new Kind("LogToMetric");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
         public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
@@ -843,6 +776,39 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the metric statistic type. How the metrics from multiple instances are combined.
     /// </summary>
     [EnumType]
@@ -869,37 +835,6 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MetricStatisticType other && Equals(other);
         public bool Equals(MetricStatisticType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Metric Trigger Type - 'Consecutive' or 'Total'
-    /// </summary>
-    [EnumType]
-    public readonly struct MetricTriggerType : IEquatable<MetricTriggerType>
-    {
-        private readonly string _value;
-
-        private MetricTriggerType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MetricTriggerType Consecutive { get; } = new MetricTriggerType("Consecutive");
-        public static MetricTriggerType Total { get; } = new MetricTriggerType("Total");
-
-        public static bool operator ==(MetricTriggerType left, MetricTriggerType right) => left.Equals(right);
-        public static bool operator !=(MetricTriggerType left, MetricTriggerType right) => !left.Equals(right);
-
-        public static explicit operator string(MetricTriggerType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MetricTriggerType other && Equals(other);
-        public bool Equals(MetricTriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -970,7 +905,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// Operator for dimension values
+    /// the criteria operator.
     /// </summary>
     [EnumType]
     public readonly struct Operator : IEquatable<Operator>
@@ -982,7 +917,11 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Operator Include { get; } = new Operator("Include");
+        public static Operator EqualsValue { get; } = new Operator("Equals");
+        public static Operator GreaterThan { get; } = new Operator("GreaterThan");
+        public static Operator GreaterThanOrEqual { get; } = new Operator("GreaterThanOrEqual");
+        public static Operator LessThan { get; } = new Operator("LessThan");
+        public static Operator LessThanOrEqual { get; } = new Operator("LessThanOrEqual");
 
         public static bool operator ==(Operator left, Operator right) => left.Equals(right);
         public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
@@ -1000,28 +939,35 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// Set value to 'ResultCount' .
+    /// The network access type for accessing Application Insights query.
     /// </summary>
     [EnumType]
-    public readonly struct QueryType : IEquatable<QueryType>
+    public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
     {
         private readonly string _value;
 
-        private QueryType(string value)
+        private PublicNetworkAccessType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static QueryType ResultCount { get; } = new QueryType("ResultCount");
+        /// <summary>
+        /// Enables connectivity to Application Insights through public DNS.
+        /// </summary>
+        public static PublicNetworkAccessType Enabled { get; } = new PublicNetworkAccessType("Enabled");
+        /// <summary>
+        /// Disables public connectivity to Application Insights through public DNS.
+        /// </summary>
+        public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
 
-        public static bool operator ==(QueryType left, QueryType right) => left.Equals(right);
-        public static bool operator !=(QueryType left, QueryType right) => !left.Equals(right);
+        public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
 
-        public static explicit operator string(QueryType value) => value._value;
+        public static explicit operator string(PublicNetworkAccessType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is QueryType other && Equals(other);
-        public bool Equals(QueryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
+        public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1193,6 +1139,40 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
+    /// Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeAggregation : IEquatable<TimeAggregation>
+    {
+        private readonly string _value;
+
+        private TimeAggregation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TimeAggregation Count { get; } = new TimeAggregation("Count");
+        public static TimeAggregation Average { get; } = new TimeAggregation("Average");
+        public static TimeAggregation Minimum { get; } = new TimeAggregation("Minimum");
+        public static TimeAggregation Maximum { get; } = new TimeAggregation("Maximum");
+        public static TimeAggregation Total { get; } = new TimeAggregation("Total");
+
+        public static bool operator ==(TimeAggregation left, TimeAggregation right) => left.Equals(right);
+        public static bool operator !=(TimeAggregation left, TimeAggregation right) => !left.Equals(right);
+
+        public static explicit operator string(TimeAggregation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeAggregation other && Equals(other);
+        public bool Equals(TimeAggregation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
     /// </summary>
     [EnumType]
@@ -1285,6 +1265,36 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebTestKind other && Equals(other);
         public bool Equals(WebTestKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of workbook. Only valid value is shared.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkbookSharedTypeKind : IEquatable<WorkbookSharedTypeKind>
+    {
+        private readonly string _value;
+
+        private WorkbookSharedTypeKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkbookSharedTypeKind Shared { get; } = new WorkbookSharedTypeKind("shared");
+
+        public static bool operator ==(WorkbookSharedTypeKind left, WorkbookSharedTypeKind right) => left.Equals(right);
+        public static bool operator !=(WorkbookSharedTypeKind left, WorkbookSharedTypeKind right) => !left.Equals(right);
+
+        public static explicit operator string(WorkbookSharedTypeKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkbookSharedTypeKind other && Equals(other);
+        public bool Equals(WorkbookSharedTypeKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

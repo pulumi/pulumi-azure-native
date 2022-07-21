@@ -255,7 +255,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Details of a particular extension in HCI Cluster.
-    API Version: 2021-01-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -303,7 +303,7 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Details of a particular extension in HCI Cluster.
-    API Version: 2021-01-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.

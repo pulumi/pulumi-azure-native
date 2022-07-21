@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk access resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskAccess")]
     public partial class DiskAccess : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The extended location where the disk access will be created. Extended location cannot be changed.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
         /// <summary>
         /// Resource location
         /// </summary>
@@ -114,10 +120,16 @@ namespace Pulumi.AzureNative.Compute
     public sealed class DiskAccessArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskAccessName")]
         public Input<string>? DiskAccessName { get; set; }
+
+        /// <summary>
+        /// The extended location where the disk access will be created. Extended location cannot be changed.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Resource location

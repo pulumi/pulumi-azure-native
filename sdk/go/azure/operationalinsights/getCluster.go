@@ -11,7 +11,7 @@ import (
 )
 
 // The top level Log Analytics cluster resource container.
-// API Version: 2020-10-01.
+// API Version: 2021-06-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:operationalinsights:getCluster", args, &rv, opts...)

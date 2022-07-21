@@ -11,7 +11,7 @@ import (
 )
 
 // Connection information for encrypting the on-premises data source credentials.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrationRuntimeConnectionInfoArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeConnectionInfoResult, error) {
 	var rv GetIntegrationRuntimeConnectionInfoResult
 	err := ctx.Invoke("azure-native:synapse:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)

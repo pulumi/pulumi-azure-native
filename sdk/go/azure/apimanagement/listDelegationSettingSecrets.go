@@ -11,7 +11,7 @@ import (
 )
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func ListDelegationSettingSecrets(ctx *pulumi.Context, args *ListDelegationSettingSecretsArgs, opts ...pulumi.InvokeOption) (*ListDelegationSettingSecretsResult, error) {
 	var rv ListDelegationSettingSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listDelegationSettingSecrets", args, &rv, opts...)

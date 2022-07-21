@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         [Input("adName")]
         public Input<string>? AdName { get; set; }
 
+        [Input("administrators")]
+        private InputList<string>? _administrators;
+
+        /// <summary>
+        /// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        /// </summary>
+        public InputList<string> Administrators
+        {
+            get => _administrators ?? (_administrators = new InputList<string>());
+            set => _administrators = value;
+        }
+
         /// <summary>
         /// If enabled, AES encryption will be enabled for SMB communication.
         /// </summary>
@@ -64,6 +76,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<string>? Domain { get; set; }
 
         /// <summary>
+        /// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        /// </summary>
+        [Input("encryptDCConnections")]
+        public Input<bool>? EncryptDCConnections { get; set; }
+
+        /// <summary>
         /// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
         /// </summary>
         [Input("kdcIP")]
@@ -74,6 +92,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// </summary>
         [Input("ldapOverTLS")]
         public Input<bool>? LdapOverTLS { get; set; }
+
+        /// <summary>
+        /// LDAP Search scope options
+        /// </summary>
+        [Input("ldapSearchScope")]
+        public Input<Inputs.LdapSearchScopeOptArgs>? LdapSearchScope { get; set; }
 
         /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be signed.

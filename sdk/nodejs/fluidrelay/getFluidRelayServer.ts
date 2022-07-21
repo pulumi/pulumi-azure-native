@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A FluidRelay Server.
- * API Version: 2021-03-12-preview.
+ * API Version: 2022-06-01.
  */
 export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerResult> {
     if (!opts) {
@@ -16,16 +16,16 @@ export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:fluidrelay:getFluidRelayServer", {
-        "name": args.name,
+        "fluidRelayServerName": args.fluidRelayServerName,
         "resourceGroup": args.resourceGroup,
     }, opts);
 }
 
 export interface GetFluidRelayServerArgs {
     /**
-     * The resource name.
+     * The Fluid Relay server resource name.
      */
-    name: string;
+    fluidRelayServerName: string;
     /**
      * The resource group containing the resource.
      */
@@ -36,6 +36,10 @@ export interface GetFluidRelayServerArgs {
  * A FluidRelay Server.
  */
 export interface GetFluidRelayServerResult {
+    /**
+     * All encryption configuration for a resource.
+     */
+    readonly encryption?: outputs.fluidrelay.EncryptionPropertiesResponse;
     /**
      * The Fluid Relay Service endpoints for this server.
      */
@@ -49,6 +53,10 @@ export interface GetFluidRelayServerResult {
      */
     readonly id: string;
     /**
+     * The type of identity used for the resource.
+     */
+    readonly identity?: outputs.fluidrelay.IdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -60,6 +68,10 @@ export interface GetFluidRelayServerResult {
      * Provision states for FluidRelay RP
      */
     readonly provisioningState?: string;
+    /**
+     * Sku of the storage associated with the resource
+     */
+    readonly storagesku?: string;
     /**
      * System meta data for this resource, including creation and modification information.
      */
@@ -80,9 +92,9 @@ export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, o
 
 export interface GetFluidRelayServerOutputArgs {
     /**
-     * The resource name.
+     * The Fluid Relay server resource name.
      */
-    name: pulumi.Input<string>;
+    fluidRelayServerName: pulumi.Input<string>;
     /**
      * The resource group containing the resource.
      */

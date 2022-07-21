@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * NSX DHCP
- * API Version: 2020-07-17-preview.
+ * API Version: 2021-12-01.
  */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
     if (!opts) {
@@ -41,14 +42,6 @@ export interface GetWorkloadNetworkDhcpArgs {
  */
 export interface GetWorkloadNetworkDhcpResult {
     /**
-     * Type of DHCP: SERVER or RELAY.
-     */
-    readonly dhcpType: string;
-    /**
-     * Display name of the DHCP entity.
-     */
-    readonly displayName?: string;
-    /**
      * Resource ID.
      */
     readonly id: string;
@@ -57,17 +50,9 @@ export interface GetWorkloadNetworkDhcpResult {
      */
     readonly name: string;
     /**
-     * The provisioning state
+     * DHCP properties.
      */
-    readonly provisioningState: string;
-    /**
-     * NSX revision number.
-     */
-    readonly revision?: number;
-    /**
-     * NSX Segments consuming DHCP.
-     */
-    readonly segments: string[];
+    readonly properties: outputs.avs.WorkloadNetworkDhcpRelayResponse | outputs.avs.WorkloadNetworkDhcpServerResponse;
     /**
      * Resource type.
      */

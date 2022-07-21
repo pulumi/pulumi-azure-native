@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly object? ProtectedSettings;
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        public readonly object? ProtectedSettingsFromKeyVault;
+        /// <summary>
         /// Collection of extension names after which this extension needs to be provisioned.
         /// </summary>
         public readonly ImmutableArray<string> ProvisionAfterExtensions;
@@ -56,6 +60,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Json formatted public settings for the extension.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        public readonly bool? SuppressFailures;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -79,6 +87,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             object? protectedSettings,
 
+            object? protectedSettingsFromKeyVault,
+
             ImmutableArray<string> provisionAfterExtensions,
 
             string provisioningState,
@@ -86,6 +96,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
             string? publisher,
 
             object? settings,
+
+            bool? suppressFailures,
 
             string type,
 
@@ -97,10 +109,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
             Id = id;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             ProvisionAfterExtensions = provisionAfterExtensions;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SuppressFailures = suppressFailures;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }

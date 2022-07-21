@@ -19,9 +19,9 @@ __all__ = [
 @pulumi.output_type
 class GetDscpConfigurationResult:
     """
-    DSCP Configuration in a resource group.
+    Differentiated Services Code Point configuration for any given network interface
     """
-    def __init__(__self__, associated_network_interfaces=None, destination_ip_ranges=None, destination_port_ranges=None, etag=None, id=None, location=None, markings=None, name=None, protocol=None, provisioning_state=None, qos_collection_id=None, resource_guid=None, source_ip_ranges=None, source_port_ranges=None, tags=None, type=None):
+    def __init__(__self__, associated_network_interfaces=None, destination_ip_ranges=None, destination_port_ranges=None, etag=None, id=None, location=None, markings=None, name=None, protocol=None, provisioning_state=None, qos_collection_id=None, qos_definition_collection=None, resource_guid=None, source_ip_ranges=None, source_port_ranges=None, tags=None, type=None):
         if associated_network_interfaces and not isinstance(associated_network_interfaces, list):
             raise TypeError("Expected argument 'associated_network_interfaces' to be a list")
         pulumi.set(__self__, "associated_network_interfaces", associated_network_interfaces)
@@ -55,6 +55,9 @@ class GetDscpConfigurationResult:
         if qos_collection_id and not isinstance(qos_collection_id, str):
             raise TypeError("Expected argument 'qos_collection_id' to be a str")
         pulumi.set(__self__, "qos_collection_id", qos_collection_id)
+        if qos_definition_collection and not isinstance(qos_definition_collection, list):
+            raise TypeError("Expected argument 'qos_definition_collection' to be a list")
+        pulumi.set(__self__, "qos_definition_collection", qos_definition_collection)
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
@@ -160,6 +163,14 @@ class GetDscpConfigurationResult:
         return pulumi.get(self, "qos_collection_id")
 
     @property
+    @pulumi.getter(name="qosDefinitionCollection")
+    def qos_definition_collection(self) -> Optional[Sequence['outputs.QosDefinitionResponse']]:
+        """
+        QoS object definitions
+        """
+        return pulumi.get(self, "qos_definition_collection")
+
+    @property
     @pulumi.getter(name="resourceGuid")
     def resource_guid(self) -> str:
         """
@@ -217,6 +228,7 @@ class AwaitableGetDscpConfigurationResult(GetDscpConfigurationResult):
             protocol=self.protocol,
             provisioning_state=self.provisioning_state,
             qos_collection_id=self.qos_collection_id,
+            qos_definition_collection=self.qos_definition_collection,
             resource_guid=self.resource_guid,
             source_ip_ranges=self.source_ip_ranges,
             source_port_ranges=self.source_port_ranges,
@@ -228,8 +240,8 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
-    DSCP Configuration in a resource group.
-    API Version: 2020-11-01.
+    Differentiated Services Code Point configuration for any given network interface
+    API Version: 2021-08-01.
 
 
     :param str dscp_configuration_name: The name of the resource.
@@ -256,6 +268,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
         protocol=__ret__.protocol,
         provisioning_state=__ret__.provisioning_state,
         qos_collection_id=__ret__.qos_collection_id,
+        qos_definition_collection=__ret__.qos_definition_collection,
         resource_guid=__ret__.resource_guid,
         source_ip_ranges=__ret__.source_ip_ranges,
         source_port_ranges=__ret__.source_port_ranges,
@@ -268,8 +281,8 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscpConfigurationResult]:
     """
-    DSCP Configuration in a resource group.
-    API Version: 2020-11-01.
+    Differentiated Services Code Point configuration for any given network interface
+    API Version: 2021-08-01.
 
 
     :param str dscp_configuration_name: The name of the resource.

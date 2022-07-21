@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of the shared access key.
- * API Version: 2020-03-01.
+ * API Version: 2022-02-05.
  */
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
     if (!opts) {

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDelegationSettingSecretsResult> {
     if (!opts) {

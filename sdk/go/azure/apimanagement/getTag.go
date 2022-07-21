@@ -11,7 +11,7 @@ import (
 )
 
 // Tag Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	var rv LookupTagResult
 	err := ctx.Invoke("azure-native:apimanagement:getTag", args, &rv, opts...)
@@ -34,11 +34,11 @@ type LookupTagArgs struct {
 type LookupTagResult struct {
 	// Tag name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -88,17 +88,17 @@ func (o LookupTagResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupTagResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupTagResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupTagResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -21,7 +21,10 @@ class GetServiceEndpointPolicyResult:
     """
     Service End point policy resource.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, resource_guid=None, service_endpoint_policy_definitions=None, subnets=None, tags=None, type=None):
+    def __init__(__self__, contextual_service_endpoint_policies=None, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, resource_guid=None, service_alias=None, service_endpoint_policy_definitions=None, subnets=None, tags=None, type=None):
+        if contextual_service_endpoint_policies and not isinstance(contextual_service_endpoint_policies, list):
+            raise TypeError("Expected argument 'contextual_service_endpoint_policies' to be a list")
+        pulumi.set(__self__, "contextual_service_endpoint_policies", contextual_service_endpoint_policies)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -43,6 +46,9 @@ class GetServiceEndpointPolicyResult:
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
+        if service_alias and not isinstance(service_alias, str):
+            raise TypeError("Expected argument 'service_alias' to be a str")
+        pulumi.set(__self__, "service_alias", service_alias)
         if service_endpoint_policy_definitions and not isinstance(service_endpoint_policy_definitions, list):
             raise TypeError("Expected argument 'service_endpoint_policy_definitions' to be a list")
         pulumi.set(__self__, "service_endpoint_policy_definitions", service_endpoint_policy_definitions)
@@ -55,6 +61,14 @@ class GetServiceEndpointPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="contextualServiceEndpointPolicies")
+    def contextual_service_endpoint_policies(self) -> Optional[Sequence[str]]:
+        """
+        A collection of contextual service endpoint policy.
+        """
+        return pulumi.get(self, "contextual_service_endpoint_policies")
 
     @property
     @pulumi.getter
@@ -113,6 +127,14 @@ class GetServiceEndpointPolicyResult:
         return pulumi.get(self, "resource_guid")
 
     @property
+    @pulumi.getter(name="serviceAlias")
+    def service_alias(self) -> Optional[str]:
+        """
+        The alias indicating if the policy belongs to a service
+        """
+        return pulumi.get(self, "service_alias")
+
+    @property
     @pulumi.getter(name="serviceEndpointPolicyDefinitions")
     def service_endpoint_policy_definitions(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionResponse']]:
         """
@@ -151,6 +173,7 @@ class AwaitableGetServiceEndpointPolicyResult(GetServiceEndpointPolicyResult):
         if False:
             yield self
         return GetServiceEndpointPolicyResult(
+            contextual_service_endpoint_policies=self.contextual_service_endpoint_policies,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
@@ -158,6 +181,7 @@ class AwaitableGetServiceEndpointPolicyResult(GetServiceEndpointPolicyResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
+            service_alias=self.service_alias,
             service_endpoint_policy_definitions=self.service_endpoint_policy_definitions,
             subnets=self.subnets,
             tags=self.tags,
@@ -170,7 +194,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyResult:
     """
     Service End point policy resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -188,6 +212,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getServiceEndpointPolicy', __args__, opts=opts, typ=GetServiceEndpointPolicyResult).value
 
     return AwaitableGetServiceEndpointPolicyResult(
+        contextual_service_endpoint_policies=__ret__.contextual_service_endpoint_policies,
         etag=__ret__.etag,
         id=__ret__.id,
         kind=__ret__.kind,
@@ -195,6 +220,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         resource_guid=__ret__.resource_guid,
+        service_alias=__ret__.service_alias,
         service_endpoint_policy_definitions=__ret__.service_endpoint_policy_definitions,
         subnets=__ret__.subnets,
         tags=__ret__.tags,
@@ -208,7 +234,7 @@ def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[st
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyResult]:
     """
     Service End point policy resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

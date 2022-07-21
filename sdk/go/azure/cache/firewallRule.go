@@ -12,17 +12,17 @@ import (
 )
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-// API Version: 2020-06-01.
+// API Version: 2021-06-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
 	// highest IP address included in the range
 	EndIP pulumi.StringOutput `pulumi:"endIP"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// lowest IP address included in the range
 	StartIP pulumi.StringOutput `pulumi:"startIP"`
-	// Resource type.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -172,7 +172,7 @@ func (o FirewallRuleOutput) EndIP() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIP }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o FirewallRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -182,7 +182,7 @@ func (o FirewallRuleOutput) StartIP() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.StartIP }).(pulumi.StringOutput)
 }
 
-// Resource type.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o FirewallRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

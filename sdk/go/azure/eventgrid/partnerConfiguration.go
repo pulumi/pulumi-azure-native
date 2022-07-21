@@ -12,7 +12,7 @@ import (
 )
 
 // Partner configuration information
-// API Version: 2021-10-15-preview.
+// API Version: 2022-06-15.
 type PartnerConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// The details of subscription under management group.
-    /// API Version: 2020-05-01.
+    /// API Version: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : Pulumi.CustomResource
@@ -29,10 +29,10 @@ namespace Pulumi.AzureNative.Management
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the parent management group.
+        /// The ID, name and displayName of the parent management group.
         /// </summary>
         [Output("parent")]
-        public Output<Outputs.DescendantParentGroupInfoResponse?> Parent { get; private set; } = null!;
+        public Output<Outputs.ParentGroupBagInfoResponse?> Parent { get; private set; } = null!;
 
         /// <summary>
         /// The state of the subscription.

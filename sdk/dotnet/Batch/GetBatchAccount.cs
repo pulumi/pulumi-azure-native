@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Contains information about an Azure Batch account.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about an Azure Batch account.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.Batch
         public readonly string AccountEndpoint;
         public readonly int ActiveJobAndJobScheduleQuota;
         /// <summary>
+        /// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedAuthenticationModes;
+        /// <summary>
         /// Contains information about the auto-storage account associated with a Batch account.
         /// </summary>
         public readonly Outputs.AutoStoragePropertiesResponse AutoStorage;
@@ -87,7 +91,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse> DedicatedCoreQuotaPerVMFamily;
         /// <summary>
-        /// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+        /// If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
         /// </summary>
         public readonly bool DedicatedCoreQuotaPerVMFamilyEnforced;
         /// <summary>
@@ -119,6 +123,14 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The network profile only takes effect when publicNetworkAccess is enabled.
+        /// </summary>
+        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
+        /// <summary>
+        /// The endpoint used by compute node to connect to the Batch node management service.
+        /// </summary>
+        public readonly string NodeManagementEndpoint;
+        /// <summary>
         /// The allocation mode for creating pools in the Batch account.
         /// </summary>
         public readonly string PoolAllocationMode;
@@ -134,7 +146,7 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// If not specified, the default value is 'enabled'.
         /// </summary>
-        public readonly string PublicNetworkAccess;
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -149,6 +161,8 @@ namespace Pulumi.AzureNative.Batch
             string accountEndpoint,
 
             int activeJobAndJobScheduleQuota,
+
+            ImmutableArray<string> allowedAuthenticationModes,
 
             Outputs.AutoStoragePropertiesResponse autoStorage,
 
@@ -172,6 +186,10 @@ namespace Pulumi.AzureNative.Batch
 
             string name,
 
+            Outputs.NetworkProfileResponse? networkProfile,
+
+            string nodeManagementEndpoint,
+
             string poolAllocationMode,
 
             int poolQuota,
@@ -180,7 +198,7 @@ namespace Pulumi.AzureNative.Batch
 
             string provisioningState,
 
-            string publicNetworkAccess,
+            string? publicNetworkAccess,
 
             ImmutableDictionary<string, string> tags,
 
@@ -188,6 +206,7 @@ namespace Pulumi.AzureNative.Batch
         {
             AccountEndpoint = accountEndpoint;
             ActiveJobAndJobScheduleQuota = activeJobAndJobScheduleQuota;
+            AllowedAuthenticationModes = allowedAuthenticationModes;
             AutoStorage = autoStorage;
             DedicatedCoreQuota = dedicatedCoreQuota;
             DedicatedCoreQuotaPerVMFamily = dedicatedCoreQuotaPerVMFamily;
@@ -199,6 +218,8 @@ namespace Pulumi.AzureNative.Batch
             Location = location;
             LowPriorityCoreQuota = lowPriorityCoreQuota;
             Name = name;
+            NetworkProfile = networkProfile;
+            NodeManagementEndpoint = nodeManagementEndpoint;
             PoolAllocationMode = poolAllocationMode;
             PoolQuota = poolQuota;
             PrivateEndpointConnections = privateEndpointConnections;

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A short term retention policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getBackupShortTermRetentionPolicy(args: GetBackupShortTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupShortTermRetentionPolicyResult> {
     if (!opts) {
@@ -45,6 +45,10 @@ export interface GetBackupShortTermRetentionPolicyArgs {
  * A short term retention policy.
  */
 export interface GetBackupShortTermRetentionPolicyResult {
+    /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    readonly diffBackupIntervalInHours?: number;
     /**
      * Resource ID.
      */

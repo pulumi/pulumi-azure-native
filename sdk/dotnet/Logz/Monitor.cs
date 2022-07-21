@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
-    /// API Version: 2020-10-01.
+    /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:Monitor")]
     public partial class Monitor : Pulumi.CustomResource

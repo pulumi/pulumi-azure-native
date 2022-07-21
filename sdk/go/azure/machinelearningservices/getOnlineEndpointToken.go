@@ -11,14 +11,14 @@ import (
 )
 
 // Service Token
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func GetOnlineEndpointToken(ctx *pulumi.Context, args *GetOnlineEndpointTokenArgs, opts ...pulumi.InvokeOption) (*GetOnlineEndpointTokenResult, error) {
 	var rv GetOnlineEndpointTokenResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getOnlineEndpointToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type GetOnlineEndpointTokenArgs struct {
@@ -32,7 +32,7 @@ type GetOnlineEndpointTokenArgs struct {
 
 // Service Token
 type GetOnlineEndpointTokenResult struct {
-	// Access token.
+	// Access token for endpoint authentication.
 	AccessToken *string `pulumi:"accessToken"`
 	// Access token expiry time (UTC).
 	ExpiryTimeUtc *float64 `pulumi:"expiryTimeUtc"`
@@ -40,6 +40,23 @@ type GetOnlineEndpointTokenResult struct {
 	RefreshAfterTimeUtc *float64 `pulumi:"refreshAfterTimeUtc"`
 	// Access token type.
 	TokenType *string `pulumi:"tokenType"`
+}
+
+// Defaults sets the appropriate defaults for GetOnlineEndpointTokenResult
+func (val *GetOnlineEndpointTokenResult) Defaults() *GetOnlineEndpointTokenResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExpiryTimeUtc) {
+		expiryTimeUtc_ := 0.0
+		tmp.ExpiryTimeUtc = &expiryTimeUtc_
+	}
+	if isZero(tmp.RefreshAfterTimeUtc) {
+		refreshAfterTimeUtc_ := 0.0
+		tmp.RefreshAfterTimeUtc = &refreshAfterTimeUtc_
+	}
+	return &tmp
 }
 
 func GetOnlineEndpointTokenOutput(ctx *pulumi.Context, args GetOnlineEndpointTokenOutputArgs, opts ...pulumi.InvokeOption) GetOnlineEndpointTokenResultOutput {
@@ -83,7 +100,7 @@ func (o GetOnlineEndpointTokenResultOutput) ToGetOnlineEndpointTokenResultOutput
 	return o
 }
 
-// Access token.
+// Access token for endpoint authentication.
 func (o GetOnlineEndpointTokenResultOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOnlineEndpointTokenResult) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }

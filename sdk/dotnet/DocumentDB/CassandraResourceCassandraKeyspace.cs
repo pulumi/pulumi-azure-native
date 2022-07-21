@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
-    /// API Version: 2021-03-15.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraResourceCassandraKeyspace")]
     public partial class CassandraResourceCassandraKeyspace : Pulumi.CustomResource

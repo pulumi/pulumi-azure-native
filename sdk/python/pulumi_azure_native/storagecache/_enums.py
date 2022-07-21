@@ -8,7 +8,7 @@ __all__ = [
     'CacheIdentityType',
     'NfsAccessRuleAccess',
     'NfsAccessRuleScope',
-    'ProvisioningStateType',
+    'OperationalStateType',
     'StorageTargetType',
     'UsernameSource',
 ]
@@ -19,6 +19,8 @@ class CacheIdentityType(str, Enum):
     The type of identity used for the cache
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
 
 
@@ -40,16 +42,14 @@ class NfsAccessRuleScope(str, Enum):
     HOST = "host"
 
 
-class ProvisioningStateType(str, Enum):
+class OperationalStateType(str, Enum):
     """
-    ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+    Storage target operational state.
     """
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELLED = "Cancelled"
-    CREATING = "Creating"
-    DELETING = "Deleting"
-    UPDATING = "Updating"
+    READY = "Ready"
+    BUSY = "Busy"
+    SUSPENDED = "Suspended"
+    FLUSHING = "Flushing"
 
 
 class StorageTargetType(str, Enum):

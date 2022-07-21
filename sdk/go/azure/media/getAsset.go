@@ -11,7 +11,7 @@ import (
 )
 
 // An Asset.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupAsset(ctx *pulumi.Context, args *LookupAssetArgs, opts ...pulumi.InvokeOption) (*LookupAssetResult, error) {
 	var rv LookupAssetResult
 	err := ctx.Invoke("azure-native:media:getAsset", args, &rv, opts...)

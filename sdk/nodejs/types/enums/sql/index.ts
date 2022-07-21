@@ -52,6 +52,18 @@ export const AutoExecuteStatus = {
  */
 export type AutoExecuteStatus = (typeof AutoExecuteStatus)[keyof typeof AutoExecuteStatus];
 
+export const BackupStorageRedundancy = {
+    Geo: "Geo",
+    Local: "Local",
+    Zone: "Zone",
+    GeoZone: "GeoZone",
+} as const;
+
+/**
+ * The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+ */
+export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
+
 export const BlobAuditingPolicyState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -116,6 +128,16 @@ export const DataMaskingState = {
  */
 export type DataMaskingState = (typeof DataMaskingState)[keyof typeof DataMaskingState];
 
+export const DatabaseIdentityType = {
+    None: "None",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The identity type
+ */
+export type DatabaseIdentityType = (typeof DatabaseIdentityType)[keyof typeof DatabaseIdentityType];
+
 export const DatabaseLicenseType = {
     LicenseIncluded: "LicenseIncluded",
     BasePrice: "BasePrice",
@@ -132,7 +154,7 @@ export const DatabaseReadScale = {
 } as const;
 
 /**
- * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+ * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
  */
 export type DatabaseReadScale = (typeof DatabaseReadScale)[keyof typeof DatabaseReadScale];
 
@@ -348,17 +370,6 @@ export const ReplicationMode = {
  */
 export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
 
-export const RequestedBackupStorageRedundancy = {
-    Geo: "Geo",
-    Local: "Local",
-    Zone: "Zone",
-} as const;
-
-/**
- * The storage account type to be used to store backups for this database.
- */
-export type RequestedBackupStorageRedundancy = (typeof RequestedBackupStorageRedundancy)[keyof typeof RequestedBackupStorageRedundancy];
-
 export const SampleName = {
     AdventureWorksLT: "AdventureWorksLT",
     WideWorldImportersStd: "WideWorldImportersStd",
@@ -379,6 +390,37 @@ export const SecondaryType = {
  * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
  */
 export type SecondaryType = (typeof SecondaryType)[keyof typeof SecondaryType];
+
+export const SecurityAlertPolicyEmailAccountAdmins = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies that the alert is sent to the account administrators.
+ */
+export type SecurityAlertPolicyEmailAccountAdmins = (typeof SecurityAlertPolicyEmailAccountAdmins)[keyof typeof SecurityAlertPolicyEmailAccountAdmins];
+
+export const SecurityAlertPolicyState = {
+    New: "New",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+ */
+export type SecurityAlertPolicyState = (typeof SecurityAlertPolicyState)[keyof typeof SecurityAlertPolicyState];
+
+export const SecurityAlertPolicyUseServerDefault = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies whether to use the default server policy.
+ */
+export type SecurityAlertPolicyUseServerDefault = (typeof SecurityAlertPolicyUseServerDefault)[keyof typeof SecurityAlertPolicyUseServerDefault];
 
 export const SecurityAlertsPolicyState = {
     Enabled: "Enabled",
@@ -410,26 +452,25 @@ export const ServerKeyType = {
  */
 export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
-export const ServerPublicNetworkAccess = {
+export const ServerNetworkAccessFlag = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
  */
-export type ServerPublicNetworkAccess = (typeof ServerPublicNetworkAccess)[keyof typeof ServerPublicNetworkAccess];
+export type ServerNetworkAccessFlag = (typeof ServerNetworkAccessFlag)[keyof typeof ServerNetworkAccessFlag];
 
-export const StorageAccountType = {
-    GRS: "GRS",
-    LRS: "LRS",
-    ZRS: "ZRS",
+export const ServicePrincipalType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
 } as const;
 
 /**
- * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+ * Service principal type.
  */
-export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
+export type ServicePrincipalType = (typeof ServicePrincipalType)[keyof typeof ServicePrincipalType];
 
 export const SyncConflictResolutionPolicy = {
     HubWin: "HubWin",
@@ -462,12 +503,12 @@ export const SyncMemberDbType = {
  */
 export type SyncMemberDbType = (typeof SyncMemberDbType)[keyof typeof SyncMemberDbType];
 
-export const TransparentDataEncryptionStatus = {
+export const TransparentDataEncryptionState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * The status of the database transparent data encryption.
+ * Specifies the state of the transparent data encryption.
  */
-export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];
+export type TransparentDataEncryptionState = (typeof TransparentDataEncryptionState)[keyof typeof TransparentDataEncryptionState];

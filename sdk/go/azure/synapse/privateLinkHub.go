@@ -12,7 +12,7 @@ import (
 )
 
 // A privateLinkHub
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type PrivateLinkHub struct {
 	pulumi.CustomResourceState
 

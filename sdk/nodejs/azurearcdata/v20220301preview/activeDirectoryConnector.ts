@@ -86,8 +86,6 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:ActiveDirectoryConnector" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActiveDirectoryConnector.__pulumiType, name, resourceInputs, opts);
     }
 }

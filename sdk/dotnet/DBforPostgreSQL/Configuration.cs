@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a Configuration.
-    /// API Version: 2017-12-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
@@ -41,6 +41,30 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration documentation link.
+        /// </summary>
+        [Output("documentationLink")]
+        public Output<string> DocumentationLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration is pending restart or not.
+        /// </summary>
+        [Output("isConfigPendingRestart")]
+        public Output<bool> IsConfigPendingRestart { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration dynamic or static.
+        /// </summary>
+        [Output("isDynamicConfig")]
+        public Output<bool> IsDynamicConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration read-only or not.
+        /// </summary>
+        [Output("isReadOnly")]
+        public Output<bool> IsReadOnly { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -53,10 +77,22 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration unit.
+        /// </summary>
+        [Output("unit")]
+        public Output<string> Unit { get; private set; } = null!;
 
         /// <summary>
         /// Value of the configuration.
@@ -89,8 +125,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

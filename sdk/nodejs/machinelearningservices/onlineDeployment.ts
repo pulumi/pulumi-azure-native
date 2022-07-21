@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export class OnlineDeployment extends pulumi.CustomResource {
     /**
@@ -36,9 +36,9 @@ export class OnlineDeployment extends pulumi.CustomResource {
     }
 
     /**
-     * Service identity associated with a resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearningservices.ResourceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -54,9 +54,13 @@ export class OnlineDeployment extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.K8sOnlineDeploymentResponse | outputs.machinelearningservices.ManagedOnlineDeploymentResponse>;
+    public readonly onlineDeploymentProperties!: pulumi.Output<outputs.machinelearningservices.KubernetesOnlineDeploymentResponse | outputs.machinelearningservices.ManagedOnlineDeploymentResponse>;
     /**
-     * System data associated with resource provider
+     * Sku details required for ARM contract for Autoscaling.
+     */
+    public readonly sku!: pulumi.Output<outputs.machinelearningservices.SkuResponse | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -82,8 +86,8 @@ export class OnlineDeployment extends pulumi.CustomResource {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.onlineDeploymentProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'onlineDeploymentProperties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -96,8 +100,9 @@ export class OnlineDeployment extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["onlineDeploymentProperties"] = args ? args.onlineDeploymentProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -108,7 +113,8 @@ export class OnlineDeployment extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["onlineDeploymentProperties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -133,9 +139,9 @@ export interface OnlineDeploymentArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * Service identity associated with a resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -147,11 +153,15 @@ export interface OnlineDeploymentArgs {
     /**
      * [Required] Additional attributes of the entity.
      */
-    properties: pulumi.Input<inputs.machinelearningservices.K8sOnlineDeploymentArgs | inputs.machinelearningservices.ManagedOnlineDeploymentArgs>;
+    onlineDeploymentProperties: pulumi.Input<inputs.machinelearningservices.KubernetesOnlineDeploymentArgs | inputs.machinelearningservices.ManagedOnlineDeploymentArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sku details required for ARM contract for Autoscaling.
+     */
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * Resource tags.
      */

@@ -11,7 +11,7 @@ import (
 )
 
 // FirewallPolicy Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	var rv LookupFirewallPolicyResult
 	err := ctx.Invoke("azure-native:network:getFirewallPolicy", args, &rv, opts...)
@@ -40,6 +40,8 @@ type LookupFirewallPolicyResult struct {
 	DnsSettings *DnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Explicit Proxy Settings definition.
+	ExplicitProxySettings *ExplicitProxySettingsResponse `pulumi:"explicitProxySettings"`
 	// List of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
 	// Resource ID.
@@ -62,6 +64,8 @@ type LookupFirewallPolicyResult struct {
 	Sku *FirewallPolicySkuResponse `pulumi:"sku"`
 	// The private IP addresses/IP ranges to which traffic will not be SNAT.
 	Snat *FirewallPolicySNATResponse `pulumi:"snat"`
+	// SQL Settings definition.
+	Sql *FirewallPolicySQLResponse `pulumi:"sql"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
@@ -135,6 +139,11 @@ func (o LookupFirewallPolicyResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
 }
 
+// Explicit Proxy Settings definition.
+func (o LookupFirewallPolicyResultOutput) ExplicitProxySettings() ExplicitProxySettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) *ExplicitProxySettingsResponse { return v.ExplicitProxySettings }).(ExplicitProxySettingsResponsePtrOutput)
+}
+
 // List of references to Azure Firewalls that this Firewall Policy is associated with.
 func (o LookupFirewallPolicyResultOutput) Firewalls() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) []SubResourceResponse { return v.Firewalls }).(SubResourceResponseArrayOutput)
@@ -190,6 +199,11 @@ func (o LookupFirewallPolicyResultOutput) Sku() FirewallPolicySkuResponsePtrOutp
 // The private IP addresses/IP ranges to which traffic will not be SNAT.
 func (o LookupFirewallPolicyResultOutput) Snat() FirewallPolicySNATResponsePtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *FirewallPolicySNATResponse { return v.Snat }).(FirewallPolicySNATResponsePtrOutput)
+}
+
+// SQL Settings definition.
+func (o LookupFirewallPolicyResultOutput) Sql() FirewallPolicySQLResponsePtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) *FirewallPolicySQLResponse { return v.Sql }).(FirewallPolicySQLResponsePtrOutput)
 }
 
 // Resource tags.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents Amazon Web Services CloudTrail data connector.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export function getAwsCloudTrailDataConnector(args: GetAwsCloudTrailDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCloudTrailDataConnectorResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetAwsCloudTrailDataConnectorArgs {
      */
     dataConnectorId: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -54,7 +54,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -63,11 +63,15 @@ export interface GetAwsCloudTrailDataConnectorResult {
      */
     readonly kind: "AmazonWebServicesCloudTrail";
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -82,7 +86,7 @@ export interface GetAwsCloudTrailDataConnectorOutputArgs {
      */
     dataConnectorId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

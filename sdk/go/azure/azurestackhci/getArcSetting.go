@@ -11,7 +11,7 @@ import (
 )
 
 // ArcSetting details.
-// API Version: 2021-01-01-preview.
+// API Version: 2022-05-01.
 func LookupArcSetting(ctx *pulumi.Context, args *LookupArcSettingArgs, opts ...pulumi.InvokeOption) (*LookupArcSettingResult, error) {
 	var rv LookupArcSettingResult
 	err := ctx.Invoke("azure-native:azurestackhci:getArcSetting", args, &rv, opts...)
@@ -34,8 +34,18 @@ type LookupArcSettingArgs struct {
 type LookupArcSettingResult struct {
 	// Aggregate state of Arc agent across the nodes in this HCI cluster.
 	AggregateState string `pulumi:"aggregateState"`
+	// App id of arc AAD identity.
+	ArcApplicationClientId *string `pulumi:"arcApplicationClientId"`
+	// Object id of arc AAD identity.
+	ArcApplicationObjectId *string `pulumi:"arcApplicationObjectId"`
+	// Tenant id of arc AAD identity.
+	ArcApplicationTenantId *string `pulumi:"arcApplicationTenantId"`
 	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
-	ArcInstanceResourceGroup string `pulumi:"arcInstanceResourceGroup"`
+	ArcInstanceResourceGroup *string `pulumi:"arcInstanceResourceGroup"`
+	// Object id of arc AAD service principal.
+	ArcServicePrincipalObjectId *string `pulumi:"arcServicePrincipalObjectId"`
+	// contains connectivity related configuration for ARC resources
+	ConnectivityProperties []ArcConnectivityPropertiesResponse `pulumi:"connectivityProperties"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
@@ -106,9 +116,34 @@ func (o LookupArcSettingResultOutput) AggregateState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupArcSettingResult) string { return v.AggregateState }).(pulumi.StringOutput)
 }
 
+// App id of arc AAD identity.
+func (o LookupArcSettingResultOutput) ArcApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.ArcApplicationClientId }).(pulumi.StringPtrOutput)
+}
+
+// Object id of arc AAD identity.
+func (o LookupArcSettingResultOutput) ArcApplicationObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.ArcApplicationObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant id of arc AAD identity.
+func (o LookupArcSettingResultOutput) ArcApplicationTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.ArcApplicationTenantId }).(pulumi.StringPtrOutput)
+}
+
 // The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
-func (o LookupArcSettingResultOutput) ArcInstanceResourceGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupArcSettingResult) string { return v.ArcInstanceResourceGroup }).(pulumi.StringOutput)
+func (o LookupArcSettingResultOutput) ArcInstanceResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.ArcInstanceResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Object id of arc AAD service principal.
+func (o LookupArcSettingResultOutput) ArcServicePrincipalObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.ArcServicePrincipalObjectId }).(pulumi.StringPtrOutput)
+}
+
+// contains connectivity related configuration for ARC resources
+func (o LookupArcSettingResultOutput) ConnectivityProperties() ArcConnectivityPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) []ArcConnectivityPropertiesResponse { return v.ConnectivityProperties }).(ArcConnectivityPropertiesResponseArrayOutput)
 }
 
 // The timestamp of resource creation (UTC).

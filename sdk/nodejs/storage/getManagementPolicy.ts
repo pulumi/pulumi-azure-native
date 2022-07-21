@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Get Storage Account ManagementPolicies operation response.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
     if (!opts) {

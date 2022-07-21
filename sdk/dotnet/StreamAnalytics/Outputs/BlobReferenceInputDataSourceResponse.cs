@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class BlobReferenceInputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
+        /// The name of the blob input.
+        /// </summary>
+        public readonly string? BlobName;
+        /// <summary>
         /// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? Container;
@@ -25,9 +33,25 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? DateFormat;
         /// <summary>
+        /// The path pattern of the delta snapshot.
+        /// </summary>
+        public readonly string? DeltaPathPattern;
+        /// <summary>
+        /// The interval that the user generates a delta snapshot of this reference blob input data source.
+        /// </summary>
+        public readonly string? DeltaSnapshotRefreshRate;
+        /// <summary>
+        /// The refresh interval of the blob input data source.
+        /// </summary>
+        public readonly string? FullSnapshotRefreshRate;
+        /// <summary>
         /// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
         /// </summary>
         public readonly string? PathPattern;
+        /// <summary>
+        /// The partition count of the blob input data source. Range 1 - 256.
+        /// </summary>
+        public readonly int? SourcePartitionCount;
         /// <summary>
         /// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         /// </summary>
@@ -44,11 +68,23 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private BlobReferenceInputDataSourceResponse(
+            string? authenticationMode,
+
+            string? blobName,
+
             string? container,
 
             string? dateFormat,
 
+            string? deltaPathPattern,
+
+            string? deltaSnapshotRefreshRate,
+
+            string? fullSnapshotRefreshRate,
+
             string? pathPattern,
+
+            int? sourcePartitionCount,
 
             ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
 
@@ -56,9 +92,15 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string type)
         {
+            AuthenticationMode = authenticationMode;
+            BlobName = blobName;
             Container = container;
             DateFormat = dateFormat;
+            DeltaPathPattern = deltaPathPattern;
+            DeltaSnapshotRefreshRate = deltaSnapshotRefreshRate;
+            FullSnapshotRefreshRate = fullSnapshotRefreshRate;
             PathPattern = pathPattern;
+            SourcePartitionCount = sourcePartitionCount;
             StorageAccounts = storageAccounts;
             TimeFormat = timeFormat;
             Type = type;

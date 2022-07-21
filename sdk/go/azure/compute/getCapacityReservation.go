@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the capacity reservation.
-// API Version: 2021-04-01.
+// API Version: 2021-11-01.
 func LookupCapacityReservation(ctx *pulumi.Context, args *LookupCapacityReservationArgs, opts ...pulumi.InvokeOption) (*LookupCapacityReservationResult, error) {
 	var rv LookupCapacityReservationResult
 	err := ctx.Invoke("azure-native:compute:getCapacityReservation", args, &rv, opts...)
@@ -52,6 +52,8 @@ type LookupCapacityReservationResult struct {
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated string `pulumi:"timeCreated"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of all virtual machine resource ids that are associated with the capacity reservation.
@@ -146,6 +148,11 @@ func (o LookupCapacityReservationResultOutput) Sku() SkuResponseOutput {
 // Resource tags
 func (o LookupCapacityReservationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o LookupCapacityReservationResultOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type

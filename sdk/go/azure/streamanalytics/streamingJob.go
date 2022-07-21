@@ -12,12 +12,16 @@ import (
 )
 
 // A streaming job object, containing all information associated with the named streaming job.
-// API Version: 2016-03-01.
+// API Version: 2021-10-01-preview.
 type StreamingJob struct {
 	pulumi.CustomResourceState
 
+	// The cluster which streaming jobs will run on.
+	Cluster ClusterInfoResponsePtrOutput `pulumi:"cluster"`
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel pulumi.StringPtrOutput `pulumi:"compatibilityLevel"`
+	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+	ContentStoragePolicy pulumi.StringPtrOutput `pulumi:"contentStoragePolicy"`
 	// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -30,14 +34,22 @@ type StreamingJob struct {
 	EventsOutOfOrderMaxDelayInSeconds pulumi.IntPtrOutput `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
 	// Indicates the policy to apply to events that arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy pulumi.StringPtrOutput `pulumi:"eventsOutOfOrderPolicy"`
+	// The storage account where the custom code artifacts are located.
+	Externals ExternalResponsePtrOutput `pulumi:"externals"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Functions FunctionResponseArrayOutput `pulumi:"functions"`
+	// Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs InputResponseArrayOutput `pulumi:"inputs"`
 	// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
 	JobId pulumi.StringOutput `pulumi:"jobId"`
 	// Describes the state of the streaming job.
 	JobState pulumi.StringOutput `pulumi:"jobState"`
+	// The properties that are associated with an Azure Storage account with MSI
+	JobStorageAccount JobStorageAccountResponsePtrOutput `pulumi:"jobStorageAccount"`
+	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+	JobType pulumi.StringPtrOutput `pulumi:"jobType"`
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
 	LastOutputEventTime pulumi.StringOutput `pulumi:"lastOutputEventTime"`
 	// The geo-location where the resource lives
@@ -73,6 +85,9 @@ func NewStreamingJob(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Transformation != nil {
+		args.Transformation = args.Transformation.ToTransformationPtrOutput().ApplyT(func(v *Transformation) *Transformation { return v.Defaults() }).(TransformationPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -121,8 +136,12 @@ func (StreamingJobState) ElementType() reflect.Type {
 }
 
 type streamingJobArgs struct {
+	// The cluster which streaming jobs will run on.
+	Cluster *ClusterInfo `pulumi:"cluster"`
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
 	DataLocale *string `pulumi:"dataLocale"`
 	// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
@@ -131,12 +150,20 @@ type streamingJobArgs struct {
 	EventsOutOfOrderMaxDelayInSeconds *int `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
 	// Indicates the policy to apply to events that arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
+	// The storage account where the custom code artifacts are located.
+	Externals *External `pulumi:"externals"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Functions []FunctionType `pulumi:"functions"`
+	// Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+	Identity *Identity `pulumi:"identity"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs []InputType `pulumi:"inputs"`
 	// The name of the streaming job.
 	JobName *string `pulumi:"jobName"`
+	// The properties that are associated with an Azure Storage account with MSI
+	JobStorageAccount *JobStorageAccount `pulumi:"jobStorageAccount"`
+	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+	JobType *string `pulumi:"jobType"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
@@ -147,7 +174,7 @@ type streamingJobArgs struct {
 	OutputStartTime *string `pulumi:"outputStartTime"`
 	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
 	Outputs []OutputType `pulumi:"outputs"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku *Sku `pulumi:"sku"`
@@ -159,8 +186,12 @@ type streamingJobArgs struct {
 
 // The set of arguments for constructing a StreamingJob resource.
 type StreamingJobArgs struct {
+	// The cluster which streaming jobs will run on.
+	Cluster ClusterInfoPtrInput
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel pulumi.StringPtrInput
+	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+	ContentStoragePolicy pulumi.StringPtrInput
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
 	DataLocale pulumi.StringPtrInput
 	// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
@@ -169,12 +200,20 @@ type StreamingJobArgs struct {
 	EventsOutOfOrderMaxDelayInSeconds pulumi.IntPtrInput
 	// Indicates the policy to apply to events that arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy pulumi.StringPtrInput
+	// The storage account where the custom code artifacts are located.
+	Externals ExternalPtrInput
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Functions FunctionTypeArrayInput
+	// Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+	Identity IdentityPtrInput
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs InputTypeArrayInput
 	// The name of the streaming job.
 	JobName pulumi.StringPtrInput
+	// The properties that are associated with an Azure Storage account with MSI
+	JobStorageAccount JobStorageAccountPtrInput
+	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+	JobType pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
@@ -185,7 +224,7 @@ type StreamingJobArgs struct {
 	OutputStartTime pulumi.StringPtrInput
 	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
 	Outputs OutputTypeArrayInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku SkuPtrInput
@@ -232,9 +271,19 @@ func (o StreamingJobOutput) ToStreamingJobOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The cluster which streaming jobs will run on.
+func (o StreamingJobOutput) Cluster() ClusterInfoResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingJob) ClusterInfoResponsePtrOutput { return v.Cluster }).(ClusterInfoResponsePtrOutput)
+}
+
 // Controls certain runtime behaviors of the streaming job.
 func (o StreamingJobOutput) CompatibilityLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingJob) pulumi.StringPtrOutput { return v.CompatibilityLevel }).(pulumi.StringPtrOutput)
+}
+
+// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+func (o StreamingJobOutput) ContentStoragePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingJob) pulumi.StringPtrOutput { return v.ContentStoragePolicy }).(pulumi.StringPtrOutput)
 }
 
 // Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
@@ -267,9 +316,19 @@ func (o StreamingJobOutput) EventsOutOfOrderPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingJob) pulumi.StringPtrOutput { return v.EventsOutOfOrderPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The storage account where the custom code artifacts are located.
+func (o StreamingJobOutput) Externals() ExternalResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingJob) ExternalResponsePtrOutput { return v.Externals }).(ExternalResponsePtrOutput)
+}
+
 // A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 func (o StreamingJobOutput) Functions() FunctionResponseArrayOutput {
 	return o.ApplyT(func(v *StreamingJob) FunctionResponseArrayOutput { return v.Functions }).(FunctionResponseArrayOutput)
+}
+
+// Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+func (o StreamingJobOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingJob) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
@@ -285,6 +344,16 @@ func (o StreamingJobOutput) JobId() pulumi.StringOutput {
 // Describes the state of the streaming job.
 func (o StreamingJobOutput) JobState() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingJob) pulumi.StringOutput { return v.JobState }).(pulumi.StringOutput)
+}
+
+// The properties that are associated with an Azure Storage account with MSI
+func (o StreamingJobOutput) JobStorageAccount() JobStorageAccountResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingJob) JobStorageAccountResponsePtrOutput { return v.JobStorageAccount }).(JobStorageAccountResponsePtrOutput)
+}
+
+// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+func (o StreamingJobOutput) JobType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingJob) pulumi.StringPtrOutput { return v.JobType }).(pulumi.StringPtrOutput)
 }
 
 // Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.

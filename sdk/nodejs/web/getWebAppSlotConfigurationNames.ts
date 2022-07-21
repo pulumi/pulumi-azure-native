@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Slot Config names azure resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
     if (!opts) {

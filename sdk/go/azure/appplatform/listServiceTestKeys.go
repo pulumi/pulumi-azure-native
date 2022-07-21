@@ -11,7 +11,7 @@ import (
 )
 
 // Test keys payload
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func ListServiceTestKeys(ctx *pulumi.Context, args *ListServiceTestKeysArgs, opts ...pulumi.InvokeOption) (*ListServiceTestKeysResult, error) {
 	var rv ListServiceTestKeysResult
 	err := ctx.Invoke("azure-native:appplatform:listServiceTestKeys", args, &rv, opts...)

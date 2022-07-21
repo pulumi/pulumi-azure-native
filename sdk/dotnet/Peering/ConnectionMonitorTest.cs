@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// The Connection Monitor Test class.
-    /// API Version: 2021-06-01.
+    /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:ConnectionMonitorTest")]
     public partial class ConnectionMonitorTest : Pulumi.CustomResource

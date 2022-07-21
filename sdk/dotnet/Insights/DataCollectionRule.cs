@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
-    /// API Version: 2019-11-01-preview.
+    /// API Version: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRule")]
     public partial class DataCollectionRule : Pulumi.CustomResource
@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.DataCollectionRuleResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

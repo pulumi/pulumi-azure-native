@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Describes the RedisEnterprise cluster
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes the RedisEnterprise cluster
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());

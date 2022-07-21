@@ -14,20 +14,46 @@ const (
 	AuthTypeSecret                      = AuthType("secret")
 )
 
+// The azure resource type.
+type AzureResourceType string
+
+const (
+	AzureResourceTypeKeyVault = AzureResourceType("KeyVault")
+)
+
 // The application client type
 type ClientType string
 
 const (
-	ClientTypeNone       = ClientType("none")
-	ClientTypeDotnet     = ClientType("dotnet")
-	ClientTypeJava       = ClientType("java")
-	ClientTypePython     = ClientType("python")
-	ClientTypeGo         = ClientType("go")
-	ClientTypePhp        = ClientType("php")
-	ClientTypeRuby       = ClientType("ruby")
-	ClientTypeDjango     = ClientType("django")
-	ClientTypeNodejs     = ClientType("nodejs")
-	ClientTypeSpringBoot = ClientType("springBoot")
+	ClientTypeNone              = ClientType("none")
+	ClientTypeDotnet            = ClientType("dotnet")
+	ClientTypeJava              = ClientType("java")
+	ClientTypePython            = ClientType("python")
+	ClientTypeGo                = ClientType("go")
+	ClientTypePhp               = ClientType("php")
+	ClientTypeRuby              = ClientType("ruby")
+	ClientTypeDjango            = ClientType("django")
+	ClientTypeNodejs            = ClientType("nodejs")
+	ClientTypeSpringBoot        = ClientType("springBoot")
+	ClientType_Kafka_springBoot = ClientType("kafka-springBoot")
+)
+
+// The secret type.
+type SecretType string
+
+const (
+	SecretTypeRawValue                = SecretType("rawValue")
+	SecretTypeKeyVaultSecretUri       = SecretType("keyVaultSecretUri")
+	SecretTypeKeyVaultSecretReference = SecretType("keyVaultSecretReference")
+)
+
+// The target service type.
+type TargetServiceType string
+
+const (
+	TargetServiceTypeAzureResource            = TargetServiceType("AzureResource")
+	TargetServiceTypeConfluentBootstrapServer = TargetServiceType("ConfluentBootstrapServer")
+	TargetServiceTypeConfluentSchemaRegistry  = TargetServiceType("ConfluentSchemaRegistry")
 )
 
 // Type of VNet solution.

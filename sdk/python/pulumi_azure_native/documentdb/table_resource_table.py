@@ -144,7 +144,7 @@ class TableResourceTable(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB Table.
-        API Version: 2021-03-15.
+        API Version: 2021-10-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +164,7 @@ class TableResourceTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Table.
-        API Version: 2021-03-15.
+        API Version: 2021-10-15.
 
         :param str resource_name: The name of the resource.
         :param TableResourceTableArgs args: The arguments to use to populate this resource's properties.

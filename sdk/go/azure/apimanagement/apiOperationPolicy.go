@@ -12,15 +12,15 @@ import (
 )
 
 // Policy Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
 
 	// Format of the policyContent.
 	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Contents of the Policy as defined by the format.
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -198,12 +198,12 @@ func (o ApiOperationPolicyOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiOperationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiOperationPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

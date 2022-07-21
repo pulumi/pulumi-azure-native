@@ -193,6 +193,13 @@ const (
 	ExpressionEvaluationOptionsScopeTypeInner        = ExpressionEvaluationOptionsScopeType("Inner")
 )
 
+// The extended location type.
+type ExtendedLocationType string
+
+const (
+	ExtendedLocationTypeEdgeZone = ExtendedLocationType("EdgeZone")
+)
+
 // Type of the managed identity.
 type ManagedServiceIdentityType string
 

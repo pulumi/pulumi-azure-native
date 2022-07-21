@@ -11,7 +11,7 @@ import (
 )
 
 // Integration runtime status response.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntimeStatusArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeStatusResult, error) {
 	var rv GetIntegrationRuntimeStatusResult
 	err := ctx.Invoke("azure-native:synapse:getIntegrationRuntimeStatus", args, &rv, opts...)

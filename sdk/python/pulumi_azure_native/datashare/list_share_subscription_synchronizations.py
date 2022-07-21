@@ -65,7 +65,7 @@ def list_share_subscription_synchronizations(account_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationsResult:
     """
     A consumer side list of share subscription synchronizations
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -103,7 +103,7 @@ def list_share_subscription_synchronizations_output(account_name: Optional[pulum
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationsResult]:
     """
     A consumer side list of share subscription synchronizations
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

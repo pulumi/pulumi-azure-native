@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Compute role.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:databoxedge:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Compute role.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("azure-native:databoxedge:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

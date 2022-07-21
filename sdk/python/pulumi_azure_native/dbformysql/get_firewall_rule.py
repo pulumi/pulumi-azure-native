@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetFirewallRuleResult',
@@ -20,7 +21,7 @@ class GetFirewallRuleResult:
     """
     Represents a server firewall rule.
     """
-    def __init__(__self__, end_ip_address=None, id=None, name=None, start_ip_address=None, type=None):
+    def __init__(__self__, end_ip_address=None, id=None, name=None, start_ip_address=None, system_data=None, type=None):
         if end_ip_address and not isinstance(end_ip_address, str):
             raise TypeError("Expected argument 'end_ip_address' to be a str")
         pulumi.set(__self__, "end_ip_address", end_ip_address)
@@ -33,6 +34,9 @@ class GetFirewallRuleResult:
         if start_ip_address and not isinstance(start_ip_address, str):
             raise TypeError("Expected argument 'start_ip_address' to be a str")
         pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -70,6 +74,14 @@ class GetFirewallRuleResult:
         return pulumi.get(self, "start_ip_address")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -88,6 +100,7 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
             id=self.id,
             name=self.name,
             start_ip_address=self.start_ip_address,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -97,7 +110,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Represents a server firewall rule.
-    API Version: 2017-12-01.
+    API Version: 2021-05-01.
 
 
     :param str firewall_rule_name: The name of the server firewall rule.
@@ -119,6 +132,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         start_ip_address=__ret__.start_ip_address,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -129,7 +143,7 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Represents a server firewall rule.
-    API Version: 2017-12-01.
+    API Version: 2021-05-01.
 
 
     :param str firewall_rule_name: The name of the server firewall rule.

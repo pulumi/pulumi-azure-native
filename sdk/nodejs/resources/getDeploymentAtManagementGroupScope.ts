@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment information.
- * API Version: 2021-01-01.
+ * API Version: 2021-04-01.
  */
 export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagementGroupScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtManagementGroupScopeResult> {
     if (!opts) {

@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
 
         /// <summary>
+        /// Whether the server name indication should be picked from the backend settings for Tls protocol. Default value is false.
+        /// </summary>
+        [Input("pickHostNameFromBackendSettings")]
+        public Input<bool>? PickHostNameFromBackendSettings { get; set; }
+
+        /// <summary>
         /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         /// </summary>
         [Input("port")]

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Configuration.
-// API Version: 2017-12-01.
+// API Version: 2021-06-01.
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -24,12 +24,24 @@ type Configuration struct {
 	DefaultValue pulumi.StringOutput `pulumi:"defaultValue"`
 	// Description of the configuration.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// Configuration documentation link.
+	DocumentationLink pulumi.StringOutput `pulumi:"documentationLink"`
+	// Configuration is pending restart or not.
+	IsConfigPendingRestart pulumi.BoolOutput `pulumi:"isConfigPendingRestart"`
+	// Configuration dynamic or static.
+	IsDynamicConfig pulumi.BoolOutput `pulumi:"isDynamicConfig"`
+	// Configuration read-only or not.
+	IsReadOnly pulumi.BoolOutput `pulumi:"isReadOnly"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Source of the configuration.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Configuration unit.
+	Unit pulumi.StringOutput `pulumi:"unit"`
 	// Value of the configuration.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
@@ -49,10 +61,25 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:Configuration"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200214preview:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Configuration"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200214privatepreview:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210410privatepreview:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210601:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210601preview:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210615privatepreview:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20220120preview:Configuration"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -171,6 +198,26 @@ func (o ConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// Configuration documentation link.
+func (o ConfigurationOutput) DocumentationLink() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.DocumentationLink }).(pulumi.StringOutput)
+}
+
+// Configuration is pending restart or not.
+func (o ConfigurationOutput) IsConfigPendingRestart() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.BoolOutput { return v.IsConfigPendingRestart }).(pulumi.BoolOutput)
+}
+
+// Configuration dynamic or static.
+func (o ConfigurationOutput) IsDynamicConfig() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.BoolOutput { return v.IsDynamicConfig }).(pulumi.BoolOutput)
+}
+
+// Configuration read-only or not.
+func (o ConfigurationOutput) IsReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.BoolOutput { return v.IsReadOnly }).(pulumi.BoolOutput)
+}
+
 // The name of the resource
 func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -181,9 +228,19 @@ func (o ConfigurationOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }
 
+// The system metadata relating to this resource.
+func (o ConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Configuration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration unit.
+func (o ConfigurationOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Unit }).(pulumi.StringOutput)
 }
 
 // Value of the configuration.

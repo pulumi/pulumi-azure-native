@@ -278,7 +278,7 @@ class IoTHubEventSource(pulumi.CustomResource):
                  __props__=None):
         """
         An event source that receives its data from an Azure IoTHub.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +307,7 @@ class IoTHubEventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event source that receives its data from an Azure IoTHub.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param IoTHubEventSourceArgs args: The arguments to use to populate this resource's properties.

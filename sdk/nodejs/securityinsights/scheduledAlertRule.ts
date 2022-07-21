@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents scheduled alert rule.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export class ScheduledAlertRule extends pulumi.CustomResource {
     /**
@@ -37,9 +37,17 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
     }
 
     /**
+     * The alert details override settings
+     */
+    public readonly alertDetailsOverride!: pulumi.Output<outputs.securityinsights.AlertDetailsOverrideResponse | undefined>;
+    /**
      * The Name of the alert rule template used to create this rule.
      */
     public readonly alertRuleTemplateName!: pulumi.Output<string | undefined>;
+    /**
+     * Dictionary of string key-value pairs of columns to be attached to the alert
+     */
+    public readonly customDetails!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The description of the alert rule.
      */
@@ -53,9 +61,21 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
+     * Array of the entity mappings of the alert rule
+     */
+    public readonly entityMappings!: pulumi.Output<outputs.securityinsights.EntityMappingResponse[] | undefined>;
+    /**
      * Etag of the azure resource
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The event grouping settings.
+     */
+    public readonly eventGroupingSettings!: pulumi.Output<outputs.securityinsights.EventGroupingSettingsResponse | undefined>;
+    /**
+     * The settings of the incidents that created from alerts triggered by this analytics rule
+     */
+    public readonly incidentConfiguration!: pulumi.Output<outputs.securityinsights.IncidentConfigurationResponse | undefined>;
     /**
      * The kind of the alert rule
      * Expected value is 'Scheduled'.
@@ -66,7 +86,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -94,9 +114,17 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      */
     public readonly suppressionEnabled!: pulumi.Output<boolean>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * The tactics of the alert rule
      */
     public readonly tactics!: pulumi.Output<string[] | undefined>;
+    /**
+     * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+     */
+    public readonly templateVersion!: pulumi.Output<string | undefined>;
     /**
      * The operation against the threshold that triggers alert rule.
      */
@@ -106,7 +134,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      */
     public readonly triggerThreshold!: pulumi.Output<number>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -160,10 +188,15 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["alertDetailsOverride"] = args ? args.alertDetailsOverride : undefined;
             resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
+            resourceInputs["customDetails"] = args ? args.customDetails : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
+            resourceInputs["eventGroupingSettings"] = args ? args.eventGroupingSettings : undefined;
+            resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             resourceInputs["kind"] = "Scheduled";
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["queryFrequency"] = args ? args.queryFrequency : undefined;
@@ -174,19 +207,26 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
             resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["templateVersion"] = args ? args.templateVersion : undefined;
             resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
             resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["alertDetailsOverride"] = undefined /*out*/;
             resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
+            resourceInputs["customDetails"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["entityMappings"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventGroupingSettings"] = undefined /*out*/;
+            resourceInputs["incidentConfiguration"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -196,7 +236,9 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["severity"] = undefined /*out*/;
             resourceInputs["suppressionDuration"] = undefined /*out*/;
             resourceInputs["suppressionEnabled"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["templateVersion"] = undefined /*out*/;
             resourceInputs["triggerOperator"] = undefined /*out*/;
             resourceInputs["triggerThreshold"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -213,9 +255,17 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
  */
 export interface ScheduledAlertRuleArgs {
     /**
+     * The alert details override settings
+     */
+    alertDetailsOverride?: pulumi.Input<inputs.securityinsights.AlertDetailsOverrideArgs>;
+    /**
      * The Name of the alert rule template used to create this rule.
      */
     alertRuleTemplateName?: pulumi.Input<string>;
+    /**
+     * Dictionary of string key-value pairs of columns to be attached to the alert
+     */
+    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The description of the alert rule.
      */
@@ -228,6 +278,18 @@ export interface ScheduledAlertRuleArgs {
      * Determines whether this alert rule is enabled or disabled.
      */
     enabled: pulumi.Input<boolean>;
+    /**
+     * Array of the entity mappings of the alert rule
+     */
+    entityMappings?: pulumi.Input<pulumi.Input<inputs.securityinsights.EntityMappingArgs>[]>;
+    /**
+     * The event grouping settings.
+     */
+    eventGroupingSettings?: pulumi.Input<inputs.securityinsights.EventGroupingSettingsArgs>;
+    /**
+     * The settings of the incidents that created from alerts triggered by this analytics rule
+     */
+    incidentConfiguration?: pulumi.Input<inputs.securityinsights.IncidentConfigurationArgs>;
     /**
      * The kind of the alert rule
      * Expected value is 'Scheduled'.
@@ -246,7 +308,7 @@ export interface ScheduledAlertRuleArgs {
      */
     queryPeriod: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -269,6 +331,10 @@ export interface ScheduledAlertRuleArgs {
      * The tactics of the alert rule
      */
     tactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[]>;
+    /**
+     * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+     */
+    templateVersion?: pulumi.Input<string>;
     /**
      * The operation against the threshold that triggers alert rule.
      */

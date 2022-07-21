@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
@@ -49,9 +49,17 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly customRoutes!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
+     * disableIPSecReplayProtection flag.
+     */
+    public readonly disableIPSecReplayProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
     public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
+     * EnableBgpRouteTranslationForNat flag.
+     */
+    public readonly enableBgpRouteTranslationForNat!: pulumi.Output<boolean | undefined>;
     /**
      * Whether dns forwarding is enabled or not.
      */
@@ -92,6 +100,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * NatRules for virtual network gateway.
+     */
+    public readonly natRules!: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleResponse[] | undefined>;
     /**
      * The provisioning state of the virtual network gateway resource.
      */
@@ -146,7 +158,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["activeActive"] = args ? args.activeActive : undefined;
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["customRoutes"] = args ? args.customRoutes : undefined;
+            resourceInputs["disableIPSecReplayProtection"] = args ? args.disableIPSecReplayProtection : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
+            resourceInputs["enableBgpRouteTranslationForNat"] = args ? args.enableBgpRouteTranslationForNat : undefined;
             resourceInputs["enableDnsForwarding"] = args ? args.enableDnsForwarding : undefined;
             resourceInputs["enablePrivateIpAddress"] = args ? args.enablePrivateIpAddress : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
@@ -155,6 +169,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["natRules"] = args ? args.natRules : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -173,7 +188,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["activeActive"] = undefined /*out*/;
             resourceInputs["bgpSettings"] = undefined /*out*/;
             resourceInputs["customRoutes"] = undefined /*out*/;
+            resourceInputs["disableIPSecReplayProtection"] = undefined /*out*/;
             resourceInputs["enableBgp"] = undefined /*out*/;
+            resourceInputs["enableBgpRouteTranslationForNat"] = undefined /*out*/;
             resourceInputs["enableDnsForwarding"] = undefined /*out*/;
             resourceInputs["enablePrivateIpAddress"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -184,6 +201,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["natRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -218,9 +236,17 @@ export interface VirtualNetworkGatewayArgs {
      */
     customRoutes?: pulumi.Input<inputs.network.AddressSpaceArgs>;
     /**
+     * disableIPSecReplayProtection flag.
+     */
+    disableIPSecReplayProtection?: pulumi.Input<boolean>;
+    /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
     enableBgp?: pulumi.Input<boolean>;
+    /**
+     * EnableBgpRouteTranslationForNat flag.
+     */
+    enableBgpRouteTranslationForNat?: pulumi.Input<boolean>;
     /**
      * Whether dns forwarding is enabled or not.
      */
@@ -253,6 +279,10 @@ export interface VirtualNetworkGatewayArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * NatRules for virtual network gateway.
+     */
+    natRules?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleArgs>[]>;
     /**
      * The name of the resource group.
      */

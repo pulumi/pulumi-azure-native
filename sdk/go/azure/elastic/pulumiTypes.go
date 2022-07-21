@@ -1287,6 +1287,8 @@ type MonitorProperties struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// User information.
 	UserInfo *UserInfo `pulumi:"userInfo"`
+	// Version of elastic of the monitor resource
+	Version *string `pulumi:"version"`
 }
 
 // MonitorPropertiesInput is an input type that accepts MonitorPropertiesArgs and MonitorPropertiesOutput values.
@@ -1308,6 +1310,8 @@ type MonitorPropertiesArgs struct {
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// User information.
 	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
+	// Version of elastic of the monitor resource
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (MonitorPropertiesArgs) ElementType() reflect.Type {
@@ -1403,6 +1407,11 @@ func (o MonitorPropertiesOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *UserInfo { return v.UserInfo }).(UserInfoPtrOutput)
 }
 
+// Version of elastic of the monitor resource
+func (o MonitorPropertiesOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 type MonitorPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesPtrOutput) ElementType() reflect.Type {
@@ -1457,6 +1466,16 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	}).(UserInfoPtrOutput)
 }
 
+// Version of elastic of the monitor resource
+func (o MonitorPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties specific to the monitor resource.
 type MonitorPropertiesResponse struct {
 	// Elastic cloud properties.
@@ -1468,6 +1487,8 @@ type MonitorPropertiesResponse struct {
 	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// Provisioning state of the monitor resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Version of elastic of the monitor resource
+	Version *string `pulumi:"version"`
 }
 
 // Properties specific to the monitor resource.
@@ -1507,6 +1528,11 @@ func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringPtrOutp
 // Provisioning state of the monitor resource.
 func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Version of elastic of the monitor resource
+func (o MonitorPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // The properties of a resource currently being monitored by the Elastic monitor resource.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// An object that represents a container registry.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a container registry.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
@@ -78,9 +78,25 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Enable a single data endpoint per region for serving data.
+        /// </summary>
+        public readonly bool? DataEndpointEnabled;
+        /// <summary>
+        /// List of host names that will serve data when dataEndpointEnabled is true.
+        /// </summary>
+        public readonly ImmutableArray<string> DataEndpointHostNames;
+        /// <summary>
+        /// The encryption settings of container registry.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertyResponse? Encryption;
+        /// <summary>
         /// The resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the container registry.
+        /// </summary>
+        public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
@@ -94,6 +110,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted registry.
+        /// </summary>
+        public readonly string? NetworkRuleBypassOptions;
+        /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
@@ -102,9 +122,17 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly Outputs.PoliciesResponse? Policies;
         /// <summary>
+        /// List of private endpoint connections for a container registry.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
@@ -114,9 +142,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly Outputs.StatusResponse Status;
         /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -125,6 +153,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Whether or not zone redundancy is enabled for this container registry
+        /// </summary>
+        public readonly string? ZoneRedundancy;
 
         [OutputConstructor]
         private GetRegistryResult(
@@ -132,7 +164,15 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string creationDate,
 
+            bool? dataEndpointEnabled,
+
+            ImmutableArray<string> dataEndpointHostNames,
+
+            Outputs.EncryptionPropertyResponse? encryption,
+
             string id,
+
+            Outputs.IdentityPropertiesResponse? identity,
 
             string location,
 
@@ -140,36 +180,52 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string name,
 
+            string? networkRuleBypassOptions,
+
             Outputs.NetworkRuleSetResponse? networkRuleSet,
 
             Outputs.PoliciesResponse? policies,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SkuResponse sku,
 
             Outputs.StatusResponse status,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? zoneRedundancy)
         {
             AdminUserEnabled = adminUserEnabled;
             CreationDate = creationDate;
+            DataEndpointEnabled = dataEndpointEnabled;
+            DataEndpointHostNames = dataEndpointHostNames;
+            Encryption = encryption;
             Id = id;
+            Identity = identity;
             Location = location;
             LoginServer = loginServer;
             Name = name;
+            NetworkRuleBypassOptions = networkRuleBypassOptions;
             NetworkRuleSet = networkRuleSet;
             Policies = policies;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Status = status;
-            StorageAccount = storageAccount;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
+            ZoneRedundancy = zoneRedundancy;
         }
     }
 }

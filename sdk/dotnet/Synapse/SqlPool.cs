@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A SQL Analytics pool
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPool")]
     public partial class SqlPool : Pulumi.CustomResource
@@ -23,24 +23,10 @@ namespace Pulumi.AzureNative.Synapse
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of sql pool creation.
-        /// 
-        /// Default: regular sql pool creation.
-        /// 
-        /// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-        /// 
-        /// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-        /// 
-        /// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        /// </summary>
-        [Output("createMode")]
-        public Output<string?> CreateMode { get; private set; } = null!;
-
-        /// <summary>
         /// Date the SQL pool was created
         /// </summary>
         [Output("creationDate")]
-        public Output<string?> CreationDate { get; private set; } = null!;
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -85,16 +71,16 @@ namespace Pulumi.AzureNative.Synapse
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Source database to create from
+        /// Specifies the time that the sql pool was deleted
         /// </summary>
-        [Output("sourceDatabaseId")]
-        public Output<string?> SourceDatabaseId { get; private set; } = null!;
+        [Output("sourceDatabaseDeletionDate")]
+        public Output<string?> SourceDatabaseDeletionDate { get; private set; } = null!;
 
         /// <summary>
         /// Resource status
         /// </summary>
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// The storage account type used to store backups for this sql pool.
@@ -191,12 +177,6 @@ namespace Pulumi.AzureNative.Synapse
         public InputUnion<string, Pulumi.AzureNative.Synapse.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
-        /// Date the SQL pool was created
-        /// </summary>
-        [Input("creationDate")]
-        public Input<string>? CreationDate { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -239,6 +219,12 @@ namespace Pulumi.AzureNative.Synapse
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
+        /// Specifies the time that the sql pool was deleted
+        /// </summary>
+        [Input("sourceDatabaseDeletionDate")]
+        public Input<string>? SourceDatabaseDeletionDate { get; set; }
+
+        /// <summary>
         /// Source database to create from
         /// </summary>
         [Input("sourceDatabaseId")]
@@ -249,12 +235,6 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Input("sqlPoolName")]
         public Input<string>? SqlPoolName { get; set; }
-
-        /// <summary>
-        /// Resource status
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// The storage account type used to store backups for this sql pool.
@@ -275,13 +255,15 @@ namespace Pulumi.AzureNative.Synapse
         }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
         public SqlPoolArgs()
         {
+            Collation = "";
+            StorageAccountType = "GRS";
         }
     }
 }

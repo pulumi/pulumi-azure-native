@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response to a live token query.
- * API Version: 2020-06-02-preview.
+ * API Version: 2021-10-14.
  */
 export function getLiveToken(args: GetLiveTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveTokenResult> {
     if (!opts) {

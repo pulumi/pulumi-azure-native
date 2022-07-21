@@ -15,14 +15,14 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// </summary>
     public sealed class OriginGroupOverrideActionParametersArgs : Pulumi.ResourceArgs
     {
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
-
         /// <summary>
         /// defines the OriginGroup that would override the DefaultOriginGroup.
         /// </summary>
         [Input("originGroup", required: true)]
         public Input<Inputs.ResourceReferenceArgs> OriginGroup { get; set; } = null!;
+
+        [Input("typeName", required: true)]
+        public Input<string> TypeName { get; set; } = null!;
 
         public OriginGroupOverrideActionParametersArgs()
         {

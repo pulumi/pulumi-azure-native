@@ -184,7 +184,7 @@ def get_scheduled_trigger(account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledTriggerResult:
     """
     A type of trigger based on schedule
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -226,7 +226,7 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledTriggerResult]:
     """
     A type of trigger based on schedule
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class LoadBalancerBackendAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+        /// </summary>
+        [Input("adminState")]
+        public InputUnion<string, Pulumi.AzureNative.Network.LoadBalancerBackendAddressAdminState>? AdminState { get; set; }
+
+        /// <summary>
         /// IP Address belonging to the referenced virtual network.
         /// </summary>
         [Input("ipAddress")]

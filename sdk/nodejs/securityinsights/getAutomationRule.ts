@@ -6,8 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents an automation rule.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
     if (!opts) {
@@ -17,7 +16,6 @@ export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getAutomationRule", {
         "automationRuleId": args.automationRuleId,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -29,11 +27,7 @@ export interface GetAutomationRuleArgs {
      */
     automationRuleId: string;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
-    /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -42,16 +36,13 @@ export interface GetAutomationRuleArgs {
     workspaceName: string;
 }
 
-/**
- * Represents an automation rule.
- */
 export interface GetAutomationRuleResult {
     /**
      * The actions to execute when the automation rule is triggered
      */
     readonly actions: (outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[];
     /**
-     * Describes the client that created the automation rule
+     * Information on the client (user or application) that made some action
      */
     readonly createdBy: outputs.securityinsights.ClientInfoResponse;
     /**
@@ -59,7 +50,7 @@ export interface GetAutomationRuleResult {
      */
     readonly createdTimeUtc: string;
     /**
-     * The display name of the automation  rule
+     * The display name of the automation rule
      */
     readonly displayName: string;
     /**
@@ -67,11 +58,11 @@ export interface GetAutomationRuleResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Describes the client that last updated the automation rule
+     * Information on the client (user or application) that made some action
      */
     readonly lastModifiedBy: outputs.securityinsights.ClientInfoResponse;
     /**
@@ -79,7 +70,7 @@ export interface GetAutomationRuleResult {
      */
     readonly lastModifiedTimeUtc: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -87,11 +78,15 @@ export interface GetAutomationRuleResult {
      */
     readonly order: number;
     /**
-     * The triggering logic of the automation rule
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
+     * Describes automation rule triggering logic
      */
     readonly triggeringLogic: outputs.securityinsights.AutomationRuleTriggeringLogicResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -106,11 +101,7 @@ export interface GetAutomationRuleOutputArgs {
      */
     automationRuleId: pulumi.Input<string>;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -518,119 +518,6 @@ func (o AutoScalePropertiesResponsePtrOutput) MinNodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Azure SKU definition.
-type AzureSku struct {
-	// The number of instances of the cluster.
-	Capacity *int `pulumi:"capacity"`
-	// SKU name.
-	Name string `pulumi:"name"`
-	// SKU tier.
-	Tier string `pulumi:"tier"`
-}
-
-// AzureSkuInput is an input type that accepts AzureSkuArgs and AzureSkuOutput values.
-// You can construct a concrete instance of `AzureSkuInput` via:
-//
-//          AzureSkuArgs{...}
-type AzureSkuInput interface {
-	pulumi.Input
-
-	ToAzureSkuOutput() AzureSkuOutput
-	ToAzureSkuOutputWithContext(context.Context) AzureSkuOutput
-}
-
-// Azure SKU definition.
-type AzureSkuArgs struct {
-	// The number of instances of the cluster.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// SKU name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SKU tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
-}
-
-func (AzureSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSku)(nil)).Elem()
-}
-
-func (i AzureSkuArgs) ToAzureSkuOutput() AzureSkuOutput {
-	return i.ToAzureSkuOutputWithContext(context.Background())
-}
-
-func (i AzureSkuArgs) ToAzureSkuOutputWithContext(ctx context.Context) AzureSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuOutput)
-}
-
-// Azure SKU definition.
-type AzureSkuOutput struct{ *pulumi.OutputState }
-
-func (AzureSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSku)(nil)).Elem()
-}
-
-func (o AzureSkuOutput) ToAzureSkuOutput() AzureSkuOutput {
-	return o
-}
-
-func (o AzureSkuOutput) ToAzureSkuOutputWithContext(ctx context.Context) AzureSkuOutput {
-	return o
-}
-
-// The number of instances of the cluster.
-func (o AzureSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AzureSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// SKU name.
-func (o AzureSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SKU tier.
-func (o AzureSkuOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSku) string { return v.Tier }).(pulumi.StringOutput)
-}
-
-// Azure SKU definition.
-type AzureSkuResponse struct {
-	// The number of instances of the cluster.
-	Capacity *int `pulumi:"capacity"`
-	// SKU name.
-	Name string `pulumi:"name"`
-	// SKU tier.
-	Tier string `pulumi:"tier"`
-}
-
-// Azure SKU definition.
-type AzureSkuResponseOutput struct{ *pulumi.OutputState }
-
-func (AzureSkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSkuResponse)(nil)).Elem()
-}
-
-func (o AzureSkuResponseOutput) ToAzureSkuResponseOutput() AzureSkuResponseOutput {
-	return o
-}
-
-func (o AzureSkuResponseOutput) ToAzureSkuResponseOutputWithContext(ctx context.Context) AzureSkuResponseOutput {
-	return o
-}
-
-// The number of instances of the cluster.
-func (o AzureSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AzureSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// SKU name.
-func (o AzureSkuResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SKU tier.
-func (o AzureSkuResponseOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
-}
-
 // The custom setup of running cmdkey commands.
 type CmdkeySetup struct {
 	// The password of data source access.
@@ -679,8 +566,210 @@ type ComponentSetupResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Initial workspace AAD admin properties for a CSP subscription
+type CspWorkspaceAdminProperties struct {
+	// AAD object ID of initial workspace admin
+	InitialWorkspaceAdminObjectId *string `pulumi:"initialWorkspaceAdminObjectId"`
+}
+
+// CspWorkspaceAdminPropertiesInput is an input type that accepts CspWorkspaceAdminPropertiesArgs and CspWorkspaceAdminPropertiesOutput values.
+// You can construct a concrete instance of `CspWorkspaceAdminPropertiesInput` via:
+//
+//          CspWorkspaceAdminPropertiesArgs{...}
+type CspWorkspaceAdminPropertiesInput interface {
+	pulumi.Input
+
+	ToCspWorkspaceAdminPropertiesOutput() CspWorkspaceAdminPropertiesOutput
+	ToCspWorkspaceAdminPropertiesOutputWithContext(context.Context) CspWorkspaceAdminPropertiesOutput
+}
+
+// Initial workspace AAD admin properties for a CSP subscription
+type CspWorkspaceAdminPropertiesArgs struct {
+	// AAD object ID of initial workspace admin
+	InitialWorkspaceAdminObjectId pulumi.StringPtrInput `pulumi:"initialWorkspaceAdminObjectId"`
+}
+
+func (CspWorkspaceAdminPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CspWorkspaceAdminProperties)(nil)).Elem()
+}
+
+func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesOutput() CspWorkspaceAdminPropertiesOutput {
+	return i.ToCspWorkspaceAdminPropertiesOutputWithContext(context.Background())
+}
+
+func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesOutput)
+}
+
+func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
+	return i.ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesOutput).ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx)
+}
+
+// CspWorkspaceAdminPropertiesPtrInput is an input type that accepts CspWorkspaceAdminPropertiesArgs, CspWorkspaceAdminPropertiesPtr and CspWorkspaceAdminPropertiesPtrOutput values.
+// You can construct a concrete instance of `CspWorkspaceAdminPropertiesPtrInput` via:
+//
+//          CspWorkspaceAdminPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CspWorkspaceAdminPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput
+	ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Context) CspWorkspaceAdminPropertiesPtrOutput
+}
+
+type cspWorkspaceAdminPropertiesPtrType CspWorkspaceAdminPropertiesArgs
+
+func CspWorkspaceAdminPropertiesPtr(v *CspWorkspaceAdminPropertiesArgs) CspWorkspaceAdminPropertiesPtrInput {
+	return (*cspWorkspaceAdminPropertiesPtrType)(v)
+}
+
+func (*cspWorkspaceAdminPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CspWorkspaceAdminProperties)(nil)).Elem()
+}
+
+func (i *cspWorkspaceAdminPropertiesPtrType) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
+	return i.ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *cspWorkspaceAdminPropertiesPtrType) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesPtrOutput)
+}
+
+// Initial workspace AAD admin properties for a CSP subscription
+type CspWorkspaceAdminPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CspWorkspaceAdminPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CspWorkspaceAdminProperties)(nil)).Elem()
+}
+
+func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesOutput() CspWorkspaceAdminPropertiesOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
+	return o.ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CspWorkspaceAdminProperties) *CspWorkspaceAdminProperties {
+		return &v
+	}).(CspWorkspaceAdminPropertiesPtrOutput)
+}
+
+// AAD object ID of initial workspace admin
+func (o CspWorkspaceAdminPropertiesOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CspWorkspaceAdminProperties) *string { return v.InitialWorkspaceAdminObjectId }).(pulumi.StringPtrOutput)
+}
+
+type CspWorkspaceAdminPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CspWorkspaceAdminPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CspWorkspaceAdminProperties)(nil)).Elem()
+}
+
+func (o CspWorkspaceAdminPropertiesPtrOutput) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesPtrOutput) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesPtrOutput) Elem() CspWorkspaceAdminPropertiesOutput {
+	return o.ApplyT(func(v *CspWorkspaceAdminProperties) CspWorkspaceAdminProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CspWorkspaceAdminProperties
+		return ret
+	}).(CspWorkspaceAdminPropertiesOutput)
+}
+
+// AAD object ID of initial workspace admin
+func (o CspWorkspaceAdminPropertiesPtrOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CspWorkspaceAdminProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialWorkspaceAdminObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Initial workspace AAD admin properties for a CSP subscription
+type CspWorkspaceAdminPropertiesResponse struct {
+	// AAD object ID of initial workspace admin
+	InitialWorkspaceAdminObjectId *string `pulumi:"initialWorkspaceAdminObjectId"`
+}
+
+// Initial workspace AAD admin properties for a CSP subscription
+type CspWorkspaceAdminPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (CspWorkspaceAdminPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CspWorkspaceAdminPropertiesResponse)(nil)).Elem()
+}
+
+func (o CspWorkspaceAdminPropertiesResponseOutput) ToCspWorkspaceAdminPropertiesResponseOutput() CspWorkspaceAdminPropertiesResponseOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesResponseOutput) ToCspWorkspaceAdminPropertiesResponseOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponseOutput {
+	return o
+}
+
+// AAD object ID of initial workspace admin
+func (o CspWorkspaceAdminPropertiesResponseOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CspWorkspaceAdminPropertiesResponse) *string { return v.InitialWorkspaceAdminObjectId }).(pulumi.StringPtrOutput)
+}
+
+type CspWorkspaceAdminPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CspWorkspaceAdminPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CspWorkspaceAdminPropertiesResponse)(nil)).Elem()
+}
+
+func (o CspWorkspaceAdminPropertiesResponsePtrOutput) ToCspWorkspaceAdminPropertiesResponsePtrOutput() CspWorkspaceAdminPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesResponsePtrOutput) ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CspWorkspaceAdminPropertiesResponsePtrOutput) Elem() CspWorkspaceAdminPropertiesResponseOutput {
+	return o.ApplyT(func(v *CspWorkspaceAdminPropertiesResponse) CspWorkspaceAdminPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CspWorkspaceAdminPropertiesResponse
+		return ret
+	}).(CspWorkspaceAdminPropertiesResponseOutput)
+}
+
+// AAD object ID of initial workspace admin
+func (o CspWorkspaceAdminPropertiesResponsePtrOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CspWorkspaceAdminPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialWorkspaceAdminObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetails struct {
+	// Key encryption key
+	KekIdentity *KekIdentityProperties `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key *WorkspaceKeyDetails `pulumi:"key"`
 }
@@ -698,6 +787,8 @@ type CustomerManagedKeyDetailsInput interface {
 
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsArgs struct {
+	// Key encryption key
+	KekIdentity KekIdentityPropertiesPtrInput `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key WorkspaceKeyDetailsPtrInput `pulumi:"key"`
 }
@@ -780,6 +871,11 @@ func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsPtrOutputWit
 	}).(CustomerManagedKeyDetailsPtrOutput)
 }
 
+// Key encryption key
+func (o CustomerManagedKeyDetailsOutput) KekIdentity() KekIdentityPropertiesPtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetails) *KekIdentityProperties { return v.KekIdentity }).(KekIdentityPropertiesPtrOutput)
+}
+
 // The key object of the workspace
 func (o CustomerManagedKeyDetailsOutput) Key() WorkspaceKeyDetailsPtrOutput {
 	return o.ApplyT(func(v CustomerManagedKeyDetails) *WorkspaceKeyDetails { return v.Key }).(WorkspaceKeyDetailsPtrOutput)
@@ -809,6 +905,16 @@ func (o CustomerManagedKeyDetailsPtrOutput) Elem() CustomerManagedKeyDetailsOutp
 	}).(CustomerManagedKeyDetailsOutput)
 }
 
+// Key encryption key
+func (o CustomerManagedKeyDetailsPtrOutput) KekIdentity() KekIdentityPropertiesPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetails) *KekIdentityProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KekIdentity
+	}).(KekIdentityPropertiesPtrOutput)
+}
+
 // The key object of the workspace
 func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKeyDetails) *WorkspaceKeyDetails {
@@ -821,6 +927,8 @@ func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
 
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsResponse struct {
+	// Key encryption key
+	KekIdentity *KekIdentityPropertiesResponse `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key *WorkspaceKeyDetailsResponse `pulumi:"key"`
 	// The customer managed key status on the workspace
@@ -840,6 +948,11 @@ func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResp
 
 func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponseOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponseOutput {
 	return o
+}
+
+// Key encryption key
+func (o CustomerManagedKeyDetailsResponseOutput) KekIdentity() KekIdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *KekIdentityPropertiesResponse { return v.KekIdentity }).(KekIdentityPropertiesResponsePtrOutput)
 }
 
 // The key object of the workspace
@@ -876,6 +989,16 @@ func (o CustomerManagedKeyDetailsResponsePtrOutput) Elem() CustomerManagedKeyDet
 	}).(CustomerManagedKeyDetailsResponseOutput)
 }
 
+// Key encryption key
+func (o CustomerManagedKeyDetailsResponsePtrOutput) KekIdentity() KekIdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *KekIdentityPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KekIdentity
+	}).(KekIdentityPropertiesResponsePtrOutput)
+}
+
 // The key object of the workspace
 func (o CustomerManagedKeyDetailsResponsePtrOutput) Key() WorkspaceKeyDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *WorkspaceKeyDetailsResponse {
@@ -900,8 +1023,12 @@ func (o CustomerManagedKeyDetailsResponsePtrOutput) Status() pulumi.StringPtrOut
 type DataLakeStorageAccountDetails struct {
 	// Account URL
 	AccountUrl *string `pulumi:"accountUrl"`
+	// Create managed private endpoint to this storage account or not
+	CreateManagedPrivateEndpoint *bool `pulumi:"createManagedPrivateEndpoint"`
 	// Filesystem name
 	Filesystem *string `pulumi:"filesystem"`
+	// ARM resource Id of this storage account
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 // DataLakeStorageAccountDetailsInput is an input type that accepts DataLakeStorageAccountDetailsArgs and DataLakeStorageAccountDetailsOutput values.
@@ -919,8 +1046,12 @@ type DataLakeStorageAccountDetailsInput interface {
 type DataLakeStorageAccountDetailsArgs struct {
 	// Account URL
 	AccountUrl pulumi.StringPtrInput `pulumi:"accountUrl"`
+	// Create managed private endpoint to this storage account or not
+	CreateManagedPrivateEndpoint pulumi.BoolPtrInput `pulumi:"createManagedPrivateEndpoint"`
 	// Filesystem name
 	Filesystem pulumi.StringPtrInput `pulumi:"filesystem"`
+	// ARM resource Id of this storage account
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (DataLakeStorageAccountDetailsArgs) ElementType() reflect.Type {
@@ -1006,9 +1137,19 @@ func (o DataLakeStorageAccountDetailsOutput) AccountUrl() pulumi.StringPtrOutput
 	return o.ApplyT(func(v DataLakeStorageAccountDetails) *string { return v.AccountUrl }).(pulumi.StringPtrOutput)
 }
 
+// Create managed private endpoint to this storage account or not
+func (o DataLakeStorageAccountDetailsOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataLakeStorageAccountDetails) *bool { return v.CreateManagedPrivateEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 // Filesystem name
 func (o DataLakeStorageAccountDetailsOutput) Filesystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeStorageAccountDetails) *string { return v.Filesystem }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource Id of this storage account
+func (o DataLakeStorageAccountDetailsOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataLakeStorageAccountDetails) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type DataLakeStorageAccountDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -1045,6 +1186,16 @@ func (o DataLakeStorageAccountDetailsPtrOutput) AccountUrl() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Create managed private endpoint to this storage account or not
+func (o DataLakeStorageAccountDetailsPtrOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataLakeStorageAccountDetails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CreateManagedPrivateEndpoint
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Filesystem name
 func (o DataLakeStorageAccountDetailsPtrOutput) Filesystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeStorageAccountDetails) *string {
@@ -1055,12 +1206,26 @@ func (o DataLakeStorageAccountDetailsPtrOutput) Filesystem() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARM resource Id of this storage account
+func (o DataLakeStorageAccountDetailsPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataLakeStorageAccountDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetailsResponse struct {
 	// Account URL
 	AccountUrl *string `pulumi:"accountUrl"`
+	// Create managed private endpoint to this storage account or not
+	CreateManagedPrivateEndpoint *bool `pulumi:"createManagedPrivateEndpoint"`
 	// Filesystem name
 	Filesystem *string `pulumi:"filesystem"`
+	// ARM resource Id of this storage account
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 // Details of the data lake storage account associated with the workspace
@@ -1083,9 +1248,19 @@ func (o DataLakeStorageAccountDetailsResponseOutput) AccountUrl() pulumi.StringP
 	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *string { return v.AccountUrl }).(pulumi.StringPtrOutput)
 }
 
+// Create managed private endpoint to this storage account or not
+func (o DataLakeStorageAccountDetailsResponseOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *bool { return v.CreateManagedPrivateEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 // Filesystem name
 func (o DataLakeStorageAccountDetailsResponseOutput) Filesystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *string { return v.Filesystem }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource Id of this storage account
+func (o DataLakeStorageAccountDetailsResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type DataLakeStorageAccountDetailsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1122,6 +1297,16 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) AccountUrl() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Create managed private endpoint to this storage account or not
+func (o DataLakeStorageAccountDetailsResponsePtrOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataLakeStorageAccountDetailsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CreateManagedPrivateEndpoint
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Filesystem name
 func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeStorageAccountDetailsResponse) *string {
@@ -1132,36 +1317,24 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A class that contains database statistics information.
-type DatabaseStatisticsResponse struct {
-	// The database size - the total size of compressed data and index in bytes.
-	Size *float64 `pulumi:"size"`
-}
-
-// A class that contains database statistics information.
-type DatabaseStatisticsResponseOutput struct{ *pulumi.OutputState }
-
-func (DatabaseStatisticsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseStatisticsResponse)(nil)).Elem()
-}
-
-func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponseOutput() DatabaseStatisticsResponseOutput {
-	return o
-}
-
-func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponseOutputWithContext(ctx context.Context) DatabaseStatisticsResponseOutput {
-	return o
-}
-
-// The database size - the total size of compressed data and index in bytes.
-func (o DatabaseStatisticsResponseOutput) Size() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DatabaseStatisticsResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
+// ARM resource Id of this storage account
+func (o DataLakeStorageAccountDetailsResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataLakeStorageAccountDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Dynamic Executor Allocation Properties
 type DynamicExecutorAllocation struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors *int `pulumi:"minExecutors"`
 }
 
 // DynamicExecutorAllocationInput is an input type that accepts DynamicExecutorAllocationArgs and DynamicExecutorAllocationOutput values.
@@ -1179,6 +1352,10 @@ type DynamicExecutorAllocationInput interface {
 type DynamicExecutorAllocationArgs struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors pulumi.IntPtrInput `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors pulumi.IntPtrInput `pulumi:"minExecutors"`
 }
 
 func (DynamicExecutorAllocationArgs) ElementType() reflect.Type {
@@ -1264,6 +1441,16 @@ func (o DynamicExecutorAllocationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
+}
+
 type DynamicExecutorAllocationPtrOutput struct{ *pulumi.OutputState }
 
 func (DynamicExecutorAllocationPtrOutput) ElementType() reflect.Type {
@@ -1298,10 +1485,34 @@ func (o DynamicExecutorAllocationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationPtrOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationPtrOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
 // Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationResponse struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors *int `pulumi:"minExecutors"`
 }
 
 // Dynamic Executor Allocation Properties
@@ -1322,6 +1533,16 @@ func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResp
 // Indicates whether Dynamic Executor Allocation is enabled or not.
 func (o DynamicExecutorAllocationResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationResponseOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationResponseOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
 }
 
 type DynamicExecutorAllocationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1356,6 +1577,26 @@ func (o DynamicExecutorAllocationResponsePtrOutput) Enabled() pulumi.BoolPtrOutp
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationResponsePtrOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationResponsePtrOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutors
+	}).(pulumi.IntPtrOutput)
 }
 
 // Details of the encryption associated with the workspace
@@ -1613,66 +1854,6 @@ type EnvironmentVariableSetupResponse struct {
 	VariableValue string `pulumi:"variableValue"`
 }
 
-// A class representing follower database request.
-type FollowerDatabaseDefinitionResponse struct {
-	// Resource name of the attached database configuration in the follower cluster.
-	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
-	// The database name owned by this cluster that was followed. * in case following all databases.
-	DatabaseName string `pulumi:"databaseName"`
-	// Resource id of the cluster that follows a database owned by this cluster.
-	KustoPoolResourceId string `pulumi:"kustoPoolResourceId"`
-}
-
-// A class representing follower database request.
-type FollowerDatabaseDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (FollowerDatabaseDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FollowerDatabaseDefinitionResponse)(nil)).Elem()
-}
-
-func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionResponseOutput() FollowerDatabaseDefinitionResponseOutput {
-	return o
-}
-
-func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionResponseOutputWithContext(ctx context.Context) FollowerDatabaseDefinitionResponseOutput {
-	return o
-}
-
-// Resource name of the attached database configuration in the follower cluster.
-func (o FollowerDatabaseDefinitionResponseOutput) AttachedDatabaseConfigurationName() pulumi.StringOutput {
-	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.AttachedDatabaseConfigurationName }).(pulumi.StringOutput)
-}
-
-// The database name owned by this cluster that was followed. * in case following all databases.
-func (o FollowerDatabaseDefinitionResponseOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-// Resource id of the cluster that follows a database owned by this cluster.
-func (o FollowerDatabaseDefinitionResponseOutput) KustoPoolResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.KustoPoolResourceId }).(pulumi.StringOutput)
-}
-
-type FollowerDatabaseDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (FollowerDatabaseDefinitionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FollowerDatabaseDefinitionResponse)(nil)).Elem()
-}
-
-func (o FollowerDatabaseDefinitionResponseArrayOutput) ToFollowerDatabaseDefinitionResponseArrayOutput() FollowerDatabaseDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o FollowerDatabaseDefinitionResponseArrayOutput) ToFollowerDatabaseDefinitionResponseArrayOutputWithContext(ctx context.Context) FollowerDatabaseDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) FollowerDatabaseDefinitionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FollowerDatabaseDefinitionResponse {
-		return vs[0].([]FollowerDatabaseDefinitionResponse)[vs[1].(int)]
-	}).(FollowerDatabaseDefinitionResponseOutput)
-}
-
 // The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputeProperties struct {
 	// Data flow properties for managed integration runtime.
@@ -1719,6 +1900,18 @@ type IntegrationRuntimeCustomSetupScriptPropertiesResponse struct {
 	BlobContainerUri *string `pulumi:"blobContainerUri"`
 	// The SAS token of the Azure blob container.
 	SasToken *SecureStringResponse `pulumi:"sasToken"`
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetwork struct {
+	// The ID of subnet to which Azure-SSIS integration runtime will join.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetworkResponse struct {
+	// The ID of subnet to which Azure-SSIS integration runtime will join.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // Data flow properties for managed integration runtime.
@@ -1841,50 +2034,240 @@ type IntegrationRuntimeVNetPropertiesResponse struct {
 	VNetId *string `pulumi:"vNetId"`
 }
 
-// The language extension object.
-type LanguageExtensionResponse struct {
-	// The language extension name.
-	LanguageExtensionName *string `pulumi:"languageExtensionName"`
+// Key encryption key properties
+type KekIdentityProperties struct {
+	// Boolean specifying whether to use system assigned identity or not
+	UseSystemAssignedIdentity interface{} `pulumi:"useSystemAssignedIdentity"`
+	// User assigned identity resource Id
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
-// The language extension object.
-type LanguageExtensionResponseOutput struct{ *pulumi.OutputState }
+// KekIdentityPropertiesInput is an input type that accepts KekIdentityPropertiesArgs and KekIdentityPropertiesOutput values.
+// You can construct a concrete instance of `KekIdentityPropertiesInput` via:
+//
+//          KekIdentityPropertiesArgs{...}
+type KekIdentityPropertiesInput interface {
+	pulumi.Input
 
-func (LanguageExtensionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LanguageExtensionResponse)(nil)).Elem()
+	ToKekIdentityPropertiesOutput() KekIdentityPropertiesOutput
+	ToKekIdentityPropertiesOutputWithContext(context.Context) KekIdentityPropertiesOutput
 }
 
-func (o LanguageExtensionResponseOutput) ToLanguageExtensionResponseOutput() LanguageExtensionResponseOutput {
+// Key encryption key properties
+type KekIdentityPropertiesArgs struct {
+	// Boolean specifying whether to use system assigned identity or not
+	UseSystemAssignedIdentity pulumi.Input `pulumi:"useSystemAssignedIdentity"`
+	// User assigned identity resource Id
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (KekIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KekIdentityProperties)(nil)).Elem()
+}
+
+func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesOutput() KekIdentityPropertiesOutput {
+	return i.ToKekIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesOutputWithContext(ctx context.Context) KekIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesOutput)
+}
+
+func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
+	return i.ToKekIdentityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesOutput).ToKekIdentityPropertiesPtrOutputWithContext(ctx)
+}
+
+// KekIdentityPropertiesPtrInput is an input type that accepts KekIdentityPropertiesArgs, KekIdentityPropertiesPtr and KekIdentityPropertiesPtrOutput values.
+// You can construct a concrete instance of `KekIdentityPropertiesPtrInput` via:
+//
+//          KekIdentityPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KekIdentityPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput
+	ToKekIdentityPropertiesPtrOutputWithContext(context.Context) KekIdentityPropertiesPtrOutput
+}
+
+type kekIdentityPropertiesPtrType KekIdentityPropertiesArgs
+
+func KekIdentityPropertiesPtr(v *KekIdentityPropertiesArgs) KekIdentityPropertiesPtrInput {
+	return (*kekIdentityPropertiesPtrType)(v)
+}
+
+func (*kekIdentityPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KekIdentityProperties)(nil)).Elem()
+}
+
+func (i *kekIdentityPropertiesPtrType) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
+	return i.ToKekIdentityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *kekIdentityPropertiesPtrType) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesPtrOutput)
+}
+
+// Key encryption key properties
+type KekIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KekIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KekIdentityProperties)(nil)).Elem()
+}
+
+func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesOutput() KekIdentityPropertiesOutput {
 	return o
 }
 
-func (o LanguageExtensionResponseOutput) ToLanguageExtensionResponseOutputWithContext(ctx context.Context) LanguageExtensionResponseOutput {
+func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesOutputWithContext(ctx context.Context) KekIdentityPropertiesOutput {
 	return o
 }
 
-// The language extension name.
-func (o LanguageExtensionResponseOutput) LanguageExtensionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LanguageExtensionResponse) *string { return v.LanguageExtensionName }).(pulumi.StringPtrOutput)
+func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
+	return o.ToKekIdentityPropertiesPtrOutputWithContext(context.Background())
 }
 
-type LanguageExtensionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (LanguageExtensionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LanguageExtensionResponse)(nil)).Elem()
+func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KekIdentityProperties) *KekIdentityProperties {
+		return &v
+	}).(KekIdentityPropertiesPtrOutput)
 }
 
-func (o LanguageExtensionResponseArrayOutput) ToLanguageExtensionResponseArrayOutput() LanguageExtensionResponseArrayOutput {
+// Boolean specifying whether to use system assigned identity or not
+func (o KekIdentityPropertiesOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v KekIdentityProperties) interface{} { return v.UseSystemAssignedIdentity }).(pulumi.AnyOutput)
+}
+
+// User assigned identity resource Id
+func (o KekIdentityPropertiesOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KekIdentityProperties) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type KekIdentityPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KekIdentityPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KekIdentityProperties)(nil)).Elem()
+}
+
+func (o KekIdentityPropertiesPtrOutput) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
 	return o
 }
 
-func (o LanguageExtensionResponseArrayOutput) ToLanguageExtensionResponseArrayOutputWithContext(ctx context.Context) LanguageExtensionResponseArrayOutput {
+func (o KekIdentityPropertiesPtrOutput) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
 	return o
 }
 
-func (o LanguageExtensionResponseArrayOutput) Index(i pulumi.IntInput) LanguageExtensionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LanguageExtensionResponse {
-		return vs[0].([]LanguageExtensionResponse)[vs[1].(int)]
-	}).(LanguageExtensionResponseOutput)
+func (o KekIdentityPropertiesPtrOutput) Elem() KekIdentityPropertiesOutput {
+	return o.ApplyT(func(v *KekIdentityProperties) KekIdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KekIdentityProperties
+		return ret
+	}).(KekIdentityPropertiesOutput)
+}
+
+// Boolean specifying whether to use system assigned identity or not
+func (o KekIdentityPropertiesPtrOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v *KekIdentityProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.AnyOutput)
+}
+
+// User assigned identity resource Id
+func (o KekIdentityPropertiesPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KekIdentityProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key encryption key properties
+type KekIdentityPropertiesResponse struct {
+	// Boolean specifying whether to use system assigned identity or not
+	UseSystemAssignedIdentity interface{} `pulumi:"useSystemAssignedIdentity"`
+	// User assigned identity resource Id
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// Key encryption key properties
+type KekIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KekIdentityPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KekIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o KekIdentityPropertiesResponseOutput) ToKekIdentityPropertiesResponseOutput() KekIdentityPropertiesResponseOutput {
+	return o
+}
+
+func (o KekIdentityPropertiesResponseOutput) ToKekIdentityPropertiesResponseOutputWithContext(ctx context.Context) KekIdentityPropertiesResponseOutput {
+	return o
+}
+
+// Boolean specifying whether to use system assigned identity or not
+func (o KekIdentityPropertiesResponseOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v KekIdentityPropertiesResponse) interface{} { return v.UseSystemAssignedIdentity }).(pulumi.AnyOutput)
+}
+
+// User assigned identity resource Id
+func (o KekIdentityPropertiesResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KekIdentityPropertiesResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type KekIdentityPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KekIdentityPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KekIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o KekIdentityPropertiesResponsePtrOutput) ToKekIdentityPropertiesResponsePtrOutput() KekIdentityPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KekIdentityPropertiesResponsePtrOutput) ToKekIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) KekIdentityPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KekIdentityPropertiesResponsePtrOutput) Elem() KekIdentityPropertiesResponseOutput {
+	return o.ApplyT(func(v *KekIdentityPropertiesResponse) KekIdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KekIdentityPropertiesResponse
+		return ret
+	}).(KekIdentityPropertiesResponseOutput)
+}
+
+// Boolean specifying whether to use system assigned identity or not
+func (o KekIdentityPropertiesResponsePtrOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v *KekIdentityPropertiesResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.AnyOutput)
+}
+
+// User assigned identity resource Id
+func (o KekIdentityPropertiesResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KekIdentityPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
 }
 
 // Library/package information of a Big Data pool powered by Apache Spark
@@ -2409,6 +2792,8 @@ type LinkedIntegrationRuntimeResponse struct {
 type ManagedIdentity struct {
 	// The type of managed identity for the workspace
 	Type *ResourceIdentityType `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -2426,6 +2811,8 @@ type ManagedIdentityInput interface {
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the workspace
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -2511,6 +2898,11 @@ func (o ManagedIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ManagedIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
+// The user assigned managed identities.
+func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPtrOutput) ElementType() reflect.Type {
@@ -2545,6 +2937,16 @@ func (o ManagedIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
+// The user assigned managed identities.
+func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
 // The workspace managed identity
 type ManagedIdentityResponse struct {
 	// The principal ID of the workspace managed identity
@@ -2553,6 +2955,8 @@ type ManagedIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The type of managed identity for the workspace
 	Type *string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities map[string]UserAssignedManagedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // The workspace managed identity
@@ -2583,6 +2987,13 @@ func (o ManagedIdentityResponseOutput) TenantId() pulumi.StringOutput {
 // The type of managed identity for the workspace
 func (o ManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user assigned managed identities.
+func (o ManagedIdentityResponseOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
 type ManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2639,12 +3050,28 @@ func (o ManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user assigned managed identities.
+func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
+}
+
 // Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntime struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputeProperties `pulumi:"computeProperties"`
+	// The name of virtual network to which Azure-SSIS integration runtime will join
+	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetwork `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The id of the managed virtual network.
+	Id *string `pulumi:"id"`
+	// The reference name of the managed virtual network
+	ReferenceName *string `pulumi:"referenceName"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
 	// The type of integration runtime.
@@ -2694,12 +3121,18 @@ type ManagedIntegrationRuntimeOperationResultResponse struct {
 type ManagedIntegrationRuntimeResponse struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputePropertiesResponse `pulumi:"computeProperties"`
+	// The name of virtual network to which Azure-SSIS integration runtime will join
+	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetworkResponse `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The id of the managed virtual network.
+	Id *string `pulumi:"id"`
+	// Integration runtime state, only valid for managed dedicated integration runtime.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The reference name of the managed virtual network
+	ReferenceName *string `pulumi:"referenceName"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisPropertiesResponse `pulumi:"ssisProperties"`
-	// Integration runtime state, only valid for managed dedicated integration runtime.
-	State string `pulumi:"state"`
 	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
@@ -4162,6 +4595,295 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigProperties struct {
+	// The type of the spark config properties file.
+	ConfigurationType *string `pulumi:"configurationType"`
+	// The spark config properties.
+	Content *string `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename *string `pulumi:"filename"`
+}
+
+// SparkConfigPropertiesInput is an input type that accepts SparkConfigPropertiesArgs and SparkConfigPropertiesOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesInput` via:
+//
+//          SparkConfigPropertiesArgs{...}
+type SparkConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput
+	ToSparkConfigPropertiesOutputWithContext(context.Context) SparkConfigPropertiesOutput
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesArgs struct {
+	// The type of the spark config properties file.
+	ConfigurationType pulumi.StringPtrInput `pulumi:"configurationType"`
+	// The spark config properties.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SparkConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigProperties)(nil)).Elem()
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput {
+	return i.ToSparkConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesOutputWithContext(ctx context.Context) SparkConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesOutput)
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return i.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesOutput).ToSparkConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// SparkConfigPropertiesPtrInput is an input type that accepts SparkConfigPropertiesArgs, SparkConfigPropertiesPtr and SparkConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesPtrInput` via:
+//
+//          SparkConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput
+	ToSparkConfigPropertiesPtrOutputWithContext(context.Context) SparkConfigPropertiesPtrOutput
+}
+
+type sparkConfigPropertiesPtrType SparkConfigPropertiesArgs
+
+func SparkConfigPropertiesPtr(v *SparkConfigPropertiesArgs) SparkConfigPropertiesPtrInput {
+	return (*sparkConfigPropertiesPtrType)(v)
+}
+
+func (*sparkConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigProperties)(nil)).Elem()
+}
+
+func (i *sparkConfigPropertiesPtrType) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return i.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkConfigPropertiesPtrType) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigProperties)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesOutputWithContext(ctx context.Context) SparkConfigPropertiesOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return o.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkConfigProperties) *SparkConfigProperties {
+		return &v
+	}).(SparkConfigPropertiesPtrOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SparkConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigProperties)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesPtrOutput) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesPtrOutput) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesPtrOutput) Elem() SparkConfigPropertiesOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) SparkConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SparkConfigProperties
+		return ret
+	}).(SparkConfigPropertiesOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponse struct {
+	// The type of the spark config properties file.
+	ConfigurationType *string `pulumi:"configurationType"`
+	// The spark config properties.
+	Content *string `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename *string `pulumi:"filename"`
+	// The last update time of the spark config properties file.
+	Time string `pulumi:"time"`
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponseOutput() SparkConfigPropertiesResponseOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponseOutputWithContext(ctx context.Context) SparkConfigPropertiesResponseOutput {
+	return o
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesResponseOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type SparkConfigPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) SparkConfigPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) Elem() SparkConfigPropertiesResponseOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) SparkConfigPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SparkConfigPropertiesResponse
+		return ret
+	}).(SparkConfigPropertiesResponseOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesResponsePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItem struct {
 	// The rule baseline result
@@ -4438,445 +5160,57 @@ type SsisVariableResponse struct {
 	Value *string `pulumi:"value"`
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+// User Assigned Managed Identity
+type UserAssignedManagedIdentityResponse struct {
+	// The client ID.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID.
+	PrincipalId string `pulumi:"principalId"`
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
+// User Assigned Managed Identity
+type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedManagedIdentityResponse)(nil)).Elem()
 }
 
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutput() UserAssignedManagedIdentityResponseOutput {
 	return o
 }
 
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseOutput {
 	return o
 }
 
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+// The client ID.
+func (o UserAssignedManagedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The identity that created the resource.
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+// The principal ID.
+func (o UserAssignedManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The type of identity that created the resource.
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+type UserAssignedManagedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedManagedIdentityResponse)(nil)).Elem()
 }
 
-// The timestamp of resource last modification (UTC)
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-// Tables that will be included and excluded in the follower database
-type TableLevelSharingProperties struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
-	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
-	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude []string `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude []string `pulumi:"tablesToInclude"`
-}
-
-// TableLevelSharingPropertiesInput is an input type that accepts TableLevelSharingPropertiesArgs and TableLevelSharingPropertiesOutput values.
-// You can construct a concrete instance of `TableLevelSharingPropertiesInput` via:
-//
-//          TableLevelSharingPropertiesArgs{...}
-type TableLevelSharingPropertiesInput interface {
-	pulumi.Input
-
-	ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput
-	ToTableLevelSharingPropertiesOutputWithContext(context.Context) TableLevelSharingPropertiesOutput
-}
-
-// Tables that will be included and excluded in the follower database
-type TableLevelSharingPropertiesArgs struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
-	MaterializedViewsToExclude pulumi.StringArrayInput `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
-	MaterializedViewsToInclude pulumi.StringArrayInput `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude pulumi.StringArrayInput `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude pulumi.StringArrayInput `pulumi:"tablesToInclude"`
-}
-
-func (TableLevelSharingPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableLevelSharingProperties)(nil)).Elem()
-}
-
-func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput {
-	return i.ToTableLevelSharingPropertiesOutputWithContext(context.Background())
-}
-
-func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesOutputWithContext(ctx context.Context) TableLevelSharingPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesOutput)
-}
-
-func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
-	return i.ToTableLevelSharingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesOutput).ToTableLevelSharingPropertiesPtrOutputWithContext(ctx)
-}
-
-// TableLevelSharingPropertiesPtrInput is an input type that accepts TableLevelSharingPropertiesArgs, TableLevelSharingPropertiesPtr and TableLevelSharingPropertiesPtrOutput values.
-// You can construct a concrete instance of `TableLevelSharingPropertiesPtrInput` via:
-//
-//          TableLevelSharingPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type TableLevelSharingPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput
-	ToTableLevelSharingPropertiesPtrOutputWithContext(context.Context) TableLevelSharingPropertiesPtrOutput
-}
-
-type tableLevelSharingPropertiesPtrType TableLevelSharingPropertiesArgs
-
-func TableLevelSharingPropertiesPtr(v *TableLevelSharingPropertiesArgs) TableLevelSharingPropertiesPtrInput {
-	return (*tableLevelSharingPropertiesPtrType)(v)
-}
-
-func (*tableLevelSharingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableLevelSharingProperties)(nil)).Elem()
-}
-
-func (i *tableLevelSharingPropertiesPtrType) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
-	return i.ToTableLevelSharingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *tableLevelSharingPropertiesPtrType) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesPtrOutput)
-}
-
-// Tables that will be included and excluded in the follower database
-type TableLevelSharingPropertiesOutput struct{ *pulumi.OutputState }
-
-func (TableLevelSharingPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableLevelSharingProperties)(nil)).Elem()
-}
-
-func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput {
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutput() UserAssignedManagedIdentityResponseMapOutput {
 	return o
 }
 
-func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesOutputWithContext(ctx context.Context) TableLevelSharingPropertiesOutput {
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseMapOutput {
 	return o
 }
 
-func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
-	return o.ToTableLevelSharingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableLevelSharingProperties) *TableLevelSharingProperties {
-		return &v
-	}).(TableLevelSharingPropertiesPtrOutput)
-}
-
-// List of external tables exclude from the follower database
-func (o TableLevelSharingPropertiesOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
-}
-
-// List of external tables to include in the follower database
-func (o TableLevelSharingPropertiesOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views exclude from the follower database
-func (o TableLevelSharingPropertiesOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views to include in the follower database
-func (o TableLevelSharingPropertiesOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
-}
-
-// List of tables to exclude from the follower database
-func (o TableLevelSharingPropertiesOutput) TablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
-}
-
-// List of tables to include in the follower database
-func (o TableLevelSharingPropertiesOutput) TablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
-}
-
-type TableLevelSharingPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (TableLevelSharingPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableLevelSharingProperties)(nil)).Elem()
-}
-
-func (o TableLevelSharingPropertiesPtrOutput) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
-	return o
-}
-
-func (o TableLevelSharingPropertiesPtrOutput) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
-	return o
-}
-
-func (o TableLevelSharingPropertiesPtrOutput) Elem() TableLevelSharingPropertiesOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) TableLevelSharingProperties {
-		if v != nil {
-			return *v
-		}
-		var ret TableLevelSharingProperties
-		return ret
-	}).(TableLevelSharingPropertiesOutput)
-}
-
-// List of external tables exclude from the follower database
-func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalTablesToExclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of external tables to include in the follower database
-func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalTablesToInclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views exclude from the follower database
-func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.MaterializedViewsToExclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views to include in the follower database
-func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.MaterializedViewsToInclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of tables to exclude from the follower database
-func (o TableLevelSharingPropertiesPtrOutput) TablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TablesToExclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of tables to include in the follower database
-func (o TableLevelSharingPropertiesPtrOutput) TablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TablesToInclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// Tables that will be included and excluded in the follower database
-type TableLevelSharingPropertiesResponse struct {
-	// List of external tables exclude from the follower database
-	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
-	// List of external tables to include in the follower database
-	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
-	// List of materialized views exclude from the follower database
-	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
-	// List of materialized views to include in the follower database
-	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
-	// List of tables to exclude from the follower database
-	TablesToExclude []string `pulumi:"tablesToExclude"`
-	// List of tables to include in the follower database
-	TablesToInclude []string `pulumi:"tablesToInclude"`
-}
-
-// Tables that will be included and excluded in the follower database
-type TableLevelSharingPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (TableLevelSharingPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableLevelSharingPropertiesResponse)(nil)).Elem()
-}
-
-func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponseOutput() TableLevelSharingPropertiesResponseOutput {
-	return o
-}
-
-func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponseOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponseOutput {
-	return o
-}
-
-// List of external tables exclude from the follower database
-func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
-}
-
-// List of external tables to include in the follower database
-func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views exclude from the follower database
-func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views to include in the follower database
-func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
-}
-
-// List of tables to exclude from the follower database
-func (o TableLevelSharingPropertiesResponseOutput) TablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
-}
-
-// List of tables to include in the follower database
-func (o TableLevelSharingPropertiesResponseOutput) TablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
-}
-
-type TableLevelSharingPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TableLevelSharingPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableLevelSharingPropertiesResponse)(nil)).Elem()
-}
-
-func (o TableLevelSharingPropertiesResponsePtrOutput) ToTableLevelSharingPropertiesResponsePtrOutput() TableLevelSharingPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TableLevelSharingPropertiesResponsePtrOutput) ToTableLevelSharingPropertiesResponsePtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TableLevelSharingPropertiesResponsePtrOutput) Elem() TableLevelSharingPropertiesResponseOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) TableLevelSharingPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TableLevelSharingPropertiesResponse
-		return ret
-	}).(TableLevelSharingPropertiesResponseOutput)
-}
-
-// List of external tables exclude from the follower database
-func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalTablesToExclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of external tables to include in the follower database
-func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalTablesToInclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views exclude from the follower database
-func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.MaterializedViewsToExclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of materialized views to include in the follower database
-func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.MaterializedViewsToInclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of tables to exclude from the follower database
-func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToExclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TablesToExclude
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of tables to include in the follower database
-func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TablesToInclude
-	}).(pulumi.StringArrayOutput)
+func (o UserAssignedManagedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedManagedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedManagedIdentityResponse {
+		return vs[0].(map[string]UserAssignedManagedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedManagedIdentityResponseOutput)
 }
 
 // Virtual Network Profile
@@ -6123,8 +6457,10 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AutoScalePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzureSkuOutput{})
-	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
+	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesOutput{})
+	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyDetailsOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyDetailsResponseOutput{})
@@ -6133,7 +6469,6 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatabaseStatisticsResponseOutput{})
 	pulumi.RegisterOutputType(DynamicExecutorAllocationOutput{})
 	pulumi.RegisterOutputType(DynamicExecutorAllocationPtrOutput{})
 	pulumi.RegisterOutputType(DynamicExecutorAllocationResponseOutput{})
@@ -6142,10 +6477,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionDetailsPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(LanguageExtensionResponseOutput{})
-	pulumi.RegisterOutputType(LanguageExtensionResponseArrayOutput{})
+	pulumi.RegisterOutputType(KekIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(KekIdentityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KekIdentityPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KekIdentityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LibraryInfoOutput{})
 	pulumi.RegisterOutputType(LibraryInfoArrayOutput{})
 	pulumi.RegisterOutputType(LibraryInfoResponseOutput{})
@@ -6182,15 +6517,16 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(TableLevelSharingPropertiesOutput{})
-	pulumi.RegisterOutputType(TableLevelSharingPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})

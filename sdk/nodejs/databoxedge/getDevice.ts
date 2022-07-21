@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
@@ -47,7 +47,11 @@ export interface GetDeviceResult {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: string;
+    readonly dataBoxEdgeDeviceStatus: string;
+    /**
+     * The details of data-residency related properties for this resource
+     */
+    readonly dataResidency?: outputs.databoxedge.DataResidencyResponse;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
@@ -93,7 +97,7 @@ export interface GetDeviceResult {
      */
     readonly identity?: outputs.databoxedge.ResourceIdentityResponse;
     /**
-     * The etag for the devices.
+     * The kind of the device.
      */
     readonly kind: string;
     /**

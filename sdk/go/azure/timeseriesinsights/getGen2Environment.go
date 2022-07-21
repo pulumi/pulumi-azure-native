@@ -11,7 +11,7 @@ import (
 )
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-// API Version: 2020-05-15.
+// API Version: 2021-06-30-preview.
 func LookupGen2Environment(ctx *pulumi.Context, args *LookupGen2EnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupGen2EnvironmentResult, error) {
 	var rv LookupGen2EnvironmentResult
 	err := ctx.Invoke("azure-native:timeseriesinsights:getGen2Environment", args, &rv, opts...)
@@ -55,6 +55,8 @@ type LookupGen2EnvironmentResult struct {
 	Status EnvironmentStatusResponse `pulumi:"status"`
 	// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
 	StorageConfiguration Gen2StorageConfigurationOutputResponse `pulumi:"storageConfiguration"`
+	// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+	SupportsCustomerManagedKey bool `pulumi:"supportsCustomerManagedKey"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The list of event properties which will be used to define the environment's time series id.
@@ -162,6 +164,11 @@ func (o LookupGen2EnvironmentResultOutput) StorageConfiguration() Gen2StorageCon
 	return o.ApplyT(func(v LookupGen2EnvironmentResult) Gen2StorageConfigurationOutputResponse {
 		return v.StorageConfiguration
 	}).(Gen2StorageConfigurationOutputResponseOutput)
+}
+
+// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+func (o LookupGen2EnvironmentResultOutput) SupportsCustomerManagedKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupGen2EnvironmentResult) bool { return v.SupportsCustomerManagedKey }).(pulumi.BoolOutput)
 }
 
 // Resource tags

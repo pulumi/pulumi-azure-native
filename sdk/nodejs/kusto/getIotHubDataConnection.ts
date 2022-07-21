@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an iot hub data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
     if (!opts) {
@@ -53,6 +53,10 @@ export interface GetIotHubDataConnectionResult {
      * The data format of the message. Optionally the data format can be added to each message.
      */
     readonly dataFormat?: string;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    readonly databaseRouting?: string;
     /**
      * System properties of the iot hub
      */

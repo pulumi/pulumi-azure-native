@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetGuestUsageResult',
@@ -20,7 +21,7 @@ class GetGuestUsageResult:
     """
     Guest Usages Resource
     """
-    def __init__(__self__, id=None, location=None, name=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, system_data=None, tags=None, tenant_id=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -30,6 +31,9 @@ class GetGuestUsageResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -65,6 +69,14 @@ class GetGuestUsageResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -98,6 +110,7 @@ class AwaitableGetGuestUsageResult(GetGuestUsageResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type)
@@ -108,11 +121,11 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestUsageResult:
     """
     Guest Usages Resource
-    API Version: 2020-05-01-preview.
+    API Version: 2021-04-01.
 
 
     :param str resource_group_name: The name of the resource group.
-    :param str resource_name: The initial domain name of the AAD tenant.
+    :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -127,6 +140,7 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
@@ -138,10 +152,10 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestUsageResult]:
     """
     Guest Usages Resource
-    API Version: 2020-05-01-preview.
+    API Version: 2021-04-01.
 
 
     :param str resource_group_name: The name of the resource group.
-    :param str resource_name: The initial domain name of the AAD tenant.
+    :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
     ...

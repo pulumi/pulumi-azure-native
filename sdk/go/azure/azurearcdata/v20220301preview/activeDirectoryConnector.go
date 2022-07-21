@@ -42,12 +42,6 @@ func NewActiveDirectoryConnector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	args.Properties = args.Properties.ToActiveDirectoryConnectorPropertiesOutput().ApplyT(func(v ActiveDirectoryConnectorProperties) ActiveDirectoryConnectorProperties { return *v.Defaults() }).(ActiveDirectoryConnectorPropertiesOutput)
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:azurearcdata:ActiveDirectoryConnector"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ActiveDirectoryConnector
 	err := ctx.RegisterResource("azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector", name, args, &resource, opts...)
 	if err != nil {

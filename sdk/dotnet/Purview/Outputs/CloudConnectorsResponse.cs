@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Purview.Outputs
 {
 
+    /// <summary>
+    /// External Cloud Service connectors
+    /// </summary>
     [OutputType]
     public sealed class CloudConnectorsResponse
     {

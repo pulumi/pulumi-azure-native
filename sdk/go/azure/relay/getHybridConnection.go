@@ -11,7 +11,7 @@ import (
 )
 
 // Description of hybrid connection resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupHybridConnection(ctx *pulumi.Context, args *LookupHybridConnectionArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionResult, error) {
 	var rv LookupHybridConnectionResult
 	err := ctx.Invoke("azure-native:relay:getHybridConnection", args, &rv, opts...)
@@ -34,15 +34,19 @@ type LookupHybridConnectionArgs struct {
 type LookupHybridConnectionResult struct {
 	// The time the hybrid connection was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
 	ListenerCount int `pulumi:"listenerCount"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
 	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
-	// Resource type.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -96,7 +100,7 @@ func (o LookupHybridConnectionResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupHybridConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -106,7 +110,12 @@ func (o LookupHybridConnectionResultOutput) ListenerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupHybridConnectionResult) int { return v.ListenerCount }).(pulumi.IntOutput)
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o LookupHybridConnectionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupHybridConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -116,7 +125,12 @@ func (o LookupHybridConnectionResultOutput) RequiresClientAuthorization() pulumi
 	return o.ApplyT(func(v LookupHybridConnectionResult) *bool { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type.
+// The system meta data relating to this resource.
+func (o LookupHybridConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupHybridConnectionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Type }).(pulumi.StringOutput)
 }

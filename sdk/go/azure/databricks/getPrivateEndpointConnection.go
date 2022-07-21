@@ -11,7 +11,7 @@ import (
 )
 
 // The private endpoint connection of a workspace
-// API Version: 2022-04-01-preview.
+// API Version: 2021-04-01-preview.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:databricks:getPrivateEndpointConnection", args, &rv, opts...)

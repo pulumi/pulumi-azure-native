@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain service.
- * API Version: 2021-03-01.
+ * API Version: 2021-05-01.
  */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
     if (!opts) {
@@ -36,6 +36,10 @@ export interface GetDomainServiceArgs {
  * Domain service.
  */
 export interface GetDomainServiceResult {
+    /**
+     * Configuration diagnostics data containing latest execution from client.
+     */
+    readonly configDiagnostics?: outputs.aad.ConfigDiagnosticsResponse;
     /**
      * Deployment Id
      */

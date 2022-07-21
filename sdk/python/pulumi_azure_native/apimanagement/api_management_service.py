@@ -30,6 +30,9 @@ class ApiManagementServiceArgs:
                  identity: Optional[pulumi.Input['ApiManagementServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -52,6 +55,9 @@ class ApiManagementServiceArgs:
         :param pulumi.Input['ApiManagementServiceIdentityArgs'] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
+        :param pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]] private_endpoint_connections: List of Private Endpoint Connections of this service.
+        :param pulumi.Input[str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[bool] restore: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -87,6 +93,12 @@ class ApiManagementServiceArgs:
             pulumi.set(__self__, "location", location)
         if notification_sender_email is not None:
             pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if restore is None:
             restore = False
         if restore is not None:
@@ -273,6 +285,42 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "notification_sender_email", value)
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]]:
+        """
+        List of Private Endpoint Connections of this service.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @private_endpoint_connections.setter
+    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]]):
+        pulumi.set(self, "private_endpoint_connections", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -360,6 +408,9 @@ class ApiManagementService(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -373,7 +424,7 @@ class ApiManagementService(pulumi.CustomResource):
                  __props__=None):
         """
         A single API Management service resource in List or Get response.
-        API Version: 2020-12-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,6 +438,9 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]] private_endpoint_connections: List of Private Endpoint Connections of this service.
+        :param pulumi.Input[str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[str] publisher_email: Publisher email.
         :param pulumi.Input[str] publisher_name: Publisher name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -406,7 +460,7 @@ class ApiManagementService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single API Management service resource in List or Get response.
-        API Version: 2020-12-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ApiManagementServiceArgs args: The arguments to use to populate this resource's properties.
@@ -433,6 +487,9 @@ class ApiManagementService(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -469,6 +526,9 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["notification_sender_email"] = notification_sender_email
+            __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
+            __props__.__dict__["public_ip_address_id"] = public_ip_address_id
+            __props__.__dict__["public_network_access"] = public_network_access
             if publisher_email is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_email'")
             __props__.__dict__["publisher_email"] = publisher_email
@@ -498,11 +558,13 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["gateway_url"] = None
             __props__.__dict__["management_api_url"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["platform_version"] = None
             __props__.__dict__["portal_url"] = None
             __props__.__dict__["private_ip_addresses"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["scm_url"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["target_provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiManagementService")])
@@ -546,15 +608,20 @@ class ApiManagementService(pulumi.CustomResource):
         __props__.__dict__["management_api_url"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_sender_email"] = None
+        __props__.__dict__["platform_version"] = None
         __props__.__dict__["portal_url"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["private_ip_addresses"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_addresses"] = None
+        __props__.__dict__["public_ip_address_id"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["publisher_email"] = None
         __props__.__dict__["publisher_name"] = None
         __props__.__dict__["restore"] = None
         __props__.__dict__["scm_url"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_provisioning_state"] = None
         __props__.__dict__["type"] = None
@@ -700,12 +767,28 @@ class ApiManagementService(pulumi.CustomResource):
         return pulumi.get(self, "notification_sender_email")
 
     @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> pulumi.Output[str]:
+        """
+        Compute Platform Version running the service in this location.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @property
     @pulumi.getter(name="portalUrl")
     def portal_url(self) -> pulumi.Output[str]:
         """
         Publisher portal endpoint Url of the API Management service.
         """
         return pulumi.get(self, "portal_url")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.RemotePrivateEndpointConnectionWrapperResponse']]]:
+        """
+        List of Private Endpoint Connections of this service.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="privateIPAddresses")
@@ -730,6 +813,22 @@ class ApiManagementService(pulumi.CustomResource):
         Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -770,6 +869,14 @@ class ApiManagementService(pulumi.CustomResource):
         SKU properties of the API Management service.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

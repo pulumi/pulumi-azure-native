@@ -197,6 +197,173 @@ func (in *connectionTypePtr) ToConnectionTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypePtrOutput)
 }
 
+// Indicates what lab virtual machines are created from.
+type CreateOption string
+
+const (
+	// An image is used to create all lab user virtual machines. When this option is set, no template VM will be created.
+	CreateOptionImage = CreateOption("Image")
+	// A template VM will be used to create all lab user virtual machines.
+	CreateOptionTemplateVM = CreateOption("TemplateVM")
+)
+
+func (CreateOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateOption)(nil)).Elem()
+}
+
+func (e CreateOption) ToCreateOptionOutput() CreateOptionOutput {
+	return pulumi.ToOutput(e).(CreateOptionOutput)
+}
+
+func (e CreateOption) ToCreateOptionOutputWithContext(ctx context.Context) CreateOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CreateOptionOutput)
+}
+
+func (e CreateOption) ToCreateOptionPtrOutput() CreateOptionPtrOutput {
+	return e.ToCreateOptionPtrOutputWithContext(context.Background())
+}
+
+func (e CreateOption) ToCreateOptionPtrOutputWithContext(ctx context.Context) CreateOptionPtrOutput {
+	return CreateOption(e).ToCreateOptionOutputWithContext(ctx).ToCreateOptionPtrOutputWithContext(ctx)
+}
+
+func (e CreateOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CreateOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CreateOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CreateOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CreateOptionOutput struct{ *pulumi.OutputState }
+
+func (CreateOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateOption)(nil)).Elem()
+}
+
+func (o CreateOptionOutput) ToCreateOptionOutput() CreateOptionOutput {
+	return o
+}
+
+func (o CreateOptionOutput) ToCreateOptionOutputWithContext(ctx context.Context) CreateOptionOutput {
+	return o
+}
+
+func (o CreateOptionOutput) ToCreateOptionPtrOutput() CreateOptionPtrOutput {
+	return o.ToCreateOptionPtrOutputWithContext(context.Background())
+}
+
+func (o CreateOptionOutput) ToCreateOptionPtrOutputWithContext(ctx context.Context) CreateOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateOption) *CreateOption {
+		return &v
+	}).(CreateOptionPtrOutput)
+}
+
+func (o CreateOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreateOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreateOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreateOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreateOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (CreateOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreateOption)(nil)).Elem()
+}
+
+func (o CreateOptionPtrOutput) ToCreateOptionPtrOutput() CreateOptionPtrOutput {
+	return o
+}
+
+func (o CreateOptionPtrOutput) ToCreateOptionPtrOutputWithContext(ctx context.Context) CreateOptionPtrOutput {
+	return o
+}
+
+func (o CreateOptionPtrOutput) Elem() CreateOptionOutput {
+	return o.ApplyT(func(v *CreateOption) CreateOption {
+		if v != nil {
+			return *v
+		}
+		var ret CreateOption
+		return ret
+	}).(CreateOptionOutput)
+}
+
+func (o CreateOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreateOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreateOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CreateOptionInput is an input type that accepts CreateOptionArgs and CreateOptionOutput values.
+// You can construct a concrete instance of `CreateOptionInput` via:
+//
+//          CreateOptionArgs{...}
+type CreateOptionInput interface {
+	pulumi.Input
+
+	ToCreateOptionOutput() CreateOptionOutput
+	ToCreateOptionOutputWithContext(context.Context) CreateOptionOutput
+}
+
+var createOptionPtrType = reflect.TypeOf((**CreateOption)(nil)).Elem()
+
+type CreateOptionPtrInput interface {
+	pulumi.Input
+
+	ToCreateOptionPtrOutput() CreateOptionPtrOutput
+	ToCreateOptionPtrOutputWithContext(context.Context) CreateOptionPtrOutput
+}
+
+type createOptionPtr string
+
+func CreateOptionPtr(v string) CreateOptionPtrInput {
+	return (*createOptionPtr)(&v)
+}
+
+func (*createOptionPtr) ElementType() reflect.Type {
+	return createOptionPtrType
+}
+
+func (in *createOptionPtr) ToCreateOptionPtrOutput() CreateOptionPtrOutput {
+	return pulumi.ToOutput(in).(CreateOptionPtrOutput)
+}
+
+func (in *createOptionPtr) ToCreateOptionPtrOutputWithContext(ctx context.Context) CreateOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CreateOptionPtrOutput)
+}
+
 // Whether a VM will get shutdown when it hasn't been connected to after a period of time.
 type EnableState string
 
@@ -361,16 +528,6 @@ func (in *enableStatePtr) ToEnableStatePtrOutput() EnableStatePtrOutput {
 func (in *enableStatePtr) ToEnableStatePtrOutputWithContext(ctx context.Context) EnableStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnableStatePtrOutput)
 }
-
-// Lab user access mode (open to all vs. restricted to those listed on the lab).
-type LabUserAccessMode string
-
-const (
-	// Only users registered with the lab can access VMs.
-	LabUserAccessModeRestricted = LabUserAccessMode("Restricted")
-	// Any user can register with the lab and access its VMs.
-	LabUserAccessModeOpen = LabUserAccessMode("Open")
-)
 
 // The size of the virtual machine
 type ManagedLabVmSize string
@@ -720,6 +877,173 @@ func (in *shutdownOnIdleModePtr) ToShutdownOnIdleModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ShutdownOnIdleModePtrOutput)
 }
 
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+type SkuTier string
+
+const (
+	SkuTierFree     = SkuTier("Free")
+	SkuTierBasic    = SkuTier("Basic")
+	SkuTierStandard = SkuTier("Standard")
+	SkuTierPremium  = SkuTier("Premium")
+)
+
+func (SkuTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuTier)(nil)).Elem()
+}
+
+func (e SkuTier) ToSkuTierOutput() SkuTierOutput {
+	return pulumi.ToOutput(e).(SkuTierOutput)
+}
+
+func (e SkuTier) ToSkuTierOutputWithContext(ctx context.Context) SkuTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuTierOutput)
+}
+
+func (e SkuTier) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return e.ToSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (e SkuTier) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return SkuTier(e).ToSkuTierOutputWithContext(ctx).ToSkuTierPtrOutputWithContext(ctx)
+}
+
+func (e SkuTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SkuTierOutput struct{ *pulumi.OutputState }
+
+func (SkuTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuTier)(nil)).Elem()
+}
+
+func (o SkuTierOutput) ToSkuTierOutput() SkuTierOutput {
+	return o
+}
+
+func (o SkuTierOutput) ToSkuTierOutputWithContext(ctx context.Context) SkuTierOutput {
+	return o
+}
+
+func (o SkuTierOutput) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return o.ToSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTierOutput) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuTier) *SkuTier {
+		return &v
+	}).(SkuTierPtrOutput)
+}
+
+func (o SkuTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SkuTierPtrOutput struct{ *pulumi.OutputState }
+
+func (SkuTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuTier)(nil)).Elem()
+}
+
+func (o SkuTierPtrOutput) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return o
+}
+
+func (o SkuTierPtrOutput) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return o
+}
+
+func (o SkuTierPtrOutput) Elem() SkuTierOutput {
+	return o.ApplyT(func(v *SkuTier) SkuTier {
+		if v != nil {
+			return *v
+		}
+		var ret SkuTier
+		return ret
+	}).(SkuTierOutput)
+}
+
+func (o SkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
+// You can construct a concrete instance of `SkuTierInput` via:
+//
+//          SkuTierArgs{...}
+type SkuTierInput interface {
+	pulumi.Input
+
+	ToSkuTierOutput() SkuTierOutput
+	ToSkuTierOutputWithContext(context.Context) SkuTierOutput
+}
+
+var skuTierPtrType = reflect.TypeOf((**SkuTier)(nil)).Elem()
+
+type SkuTierPtrInput interface {
+	pulumi.Input
+
+	ToSkuTierPtrOutput() SkuTierPtrOutput
+	ToSkuTierPtrOutputWithContext(context.Context) SkuTierPtrOutput
+}
+
+type skuTierPtr string
+
+func SkuTierPtr(v string) SkuTierPtrInput {
+	return (*skuTierPtr)(&v)
+}
+
+func (*skuTierPtr) ElementType() reflect.Type {
+	return skuTierPtrType
+}
+
+func (in *skuTierPtr) ToSkuTierPtrOutput() SkuTierPtrOutput {
+	return pulumi.ToOutput(in).(SkuTierPtrOutput)
+}
+
+func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
+}
+
 // Days of the week.
 type WeekDay string
 
@@ -945,12 +1269,16 @@ func (o WeekDayArrayOutput) Index(i pulumi.IntInput) WeekDayOutput {
 func init() {
 	pulumi.RegisterOutputType(ConnectionTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionTypePtrOutput{})
+	pulumi.RegisterOutputType(CreateOptionOutput{})
+	pulumi.RegisterOutputType(CreateOptionPtrOutput{})
 	pulumi.RegisterOutputType(EnableStateOutput{})
 	pulumi.RegisterOutputType(EnableStatePtrOutput{})
 	pulumi.RegisterOutputType(RecurrenceFrequencyOutput{})
 	pulumi.RegisterOutputType(RecurrenceFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(ShutdownOnIdleModeOutput{})
 	pulumi.RegisterOutputType(ShutdownOnIdleModePtrOutput{})
+	pulumi.RegisterOutputType(SkuTierOutput{})
+	pulumi.RegisterOutputType(SkuTierPtrOutput{})
 	pulumi.RegisterOutputType(WeekDayOutput{})
 	pulumi.RegisterOutputType(WeekDayPtrOutput{})
 	pulumi.RegisterOutputType(WeekDayArrayOutput{})

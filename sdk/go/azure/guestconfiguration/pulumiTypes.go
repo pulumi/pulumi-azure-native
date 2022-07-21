@@ -643,285 +643,19 @@ func (o ConfigurationParameterResponseArrayOutput) Index(i pulumi.IntInput) Conf
 }
 
 // Configuration setting of LCM (Local Configuration Manager).
-type ConfigurationSetting struct {
-	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
-	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite *bool `pulumi:"allowModuleOverwrite"`
-	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode *string `pulumi:"configurationMode"`
-	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-	ConfigurationModeFrequencyMins *float64 `pulumi:"configurationModeFrequencyMins"`
-	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded *bool `pulumi:"rebootIfNeeded"`
-	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins *float64 `pulumi:"refreshFrequencyMins"`
-}
-
-// Defaults sets the appropriate defaults for ConfigurationSetting
-func (val *ConfigurationSetting) Defaults() *ConfigurationSetting {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ConfigurationModeFrequencyMins) {
-		configurationModeFrequencyMins_ := 15.0
-		tmp.ConfigurationModeFrequencyMins = &configurationModeFrequencyMins_
-	}
-	if isZero(tmp.RefreshFrequencyMins) {
-		refreshFrequencyMins_ := 30.0
-		tmp.RefreshFrequencyMins = &refreshFrequencyMins_
-	}
-	return &tmp
-}
-
-// ConfigurationSettingInput is an input type that accepts ConfigurationSettingArgs and ConfigurationSettingOutput values.
-// You can construct a concrete instance of `ConfigurationSettingInput` via:
-//
-//          ConfigurationSettingArgs{...}
-type ConfigurationSettingInput interface {
-	pulumi.Input
-
-	ToConfigurationSettingOutput() ConfigurationSettingOutput
-	ToConfigurationSettingOutputWithContext(context.Context) ConfigurationSettingOutput
-}
-
-// Configuration setting of LCM (Local Configuration Manager).
-type ConfigurationSettingArgs struct {
-	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
-	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite pulumi.BoolPtrInput `pulumi:"allowModuleOverwrite"`
-	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode pulumi.StringPtrInput `pulumi:"configurationMode"`
-	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-	ConfigurationModeFrequencyMins pulumi.Float64PtrInput `pulumi:"configurationModeFrequencyMins"`
-	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded pulumi.BoolPtrInput `pulumi:"rebootIfNeeded"`
-	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
-}
-
-// Defaults sets the appropriate defaults for ConfigurationSettingArgs
-func (val *ConfigurationSettingArgs) Defaults() *ConfigurationSettingArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ConfigurationModeFrequencyMins) {
-		tmp.ConfigurationModeFrequencyMins = pulumi.Float64Ptr(15.0)
-	}
-	if isZero(tmp.RefreshFrequencyMins) {
-		tmp.RefreshFrequencyMins = pulumi.Float64Ptr(30.0)
-	}
-	return &tmp
-}
-func (ConfigurationSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSetting)(nil)).Elem()
-}
-
-func (i ConfigurationSettingArgs) ToConfigurationSettingOutput() ConfigurationSettingOutput {
-	return i.ToConfigurationSettingOutputWithContext(context.Background())
-}
-
-func (i ConfigurationSettingArgs) ToConfigurationSettingOutputWithContext(ctx context.Context) ConfigurationSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingOutput)
-}
-
-func (i ConfigurationSettingArgs) ToConfigurationSettingPtrOutput() ConfigurationSettingPtrOutput {
-	return i.ToConfigurationSettingPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationSettingArgs) ToConfigurationSettingPtrOutputWithContext(ctx context.Context) ConfigurationSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingOutput).ToConfigurationSettingPtrOutputWithContext(ctx)
-}
-
-// ConfigurationSettingPtrInput is an input type that accepts ConfigurationSettingArgs, ConfigurationSettingPtr and ConfigurationSettingPtrOutput values.
-// You can construct a concrete instance of `ConfigurationSettingPtrInput` via:
-//
-//          ConfigurationSettingArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigurationSettingPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationSettingPtrOutput() ConfigurationSettingPtrOutput
-	ToConfigurationSettingPtrOutputWithContext(context.Context) ConfigurationSettingPtrOutput
-}
-
-type configurationSettingPtrType ConfigurationSettingArgs
-
-func ConfigurationSettingPtr(v *ConfigurationSettingArgs) ConfigurationSettingPtrInput {
-	return (*configurationSettingPtrType)(v)
-}
-
-func (*configurationSettingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationSetting)(nil)).Elem()
-}
-
-func (i *configurationSettingPtrType) ToConfigurationSettingPtrOutput() ConfigurationSettingPtrOutput {
-	return i.ToConfigurationSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationSettingPtrType) ToConfigurationSettingPtrOutputWithContext(ctx context.Context) ConfigurationSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingPtrOutput)
-}
-
-// Configuration setting of LCM (Local Configuration Manager).
-type ConfigurationSettingOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSetting)(nil)).Elem()
-}
-
-func (o ConfigurationSettingOutput) ToConfigurationSettingOutput() ConfigurationSettingOutput {
-	return o
-}
-
-func (o ConfigurationSettingOutput) ToConfigurationSettingOutputWithContext(ctx context.Context) ConfigurationSettingOutput {
-	return o
-}
-
-func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutput() ConfigurationSettingPtrOutput {
-	return o.ToConfigurationSettingPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutputWithContext(ctx context.Context) ConfigurationSettingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetting) *ConfigurationSetting {
-		return &v
-	}).(ConfigurationSettingPtrOutput)
-}
-
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-func (o ConfigurationSettingOutput) ActionAfterReboot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *string { return v.ActionAfterReboot }).(pulumi.StringPtrOutput)
-}
-
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *bool { return v.AllowModuleOverwrite }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-func (o ConfigurationSettingOutput) ConfigurationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *string { return v.ConfigurationMode }).(pulumi.StringPtrOutput)
-}
-
-// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-func (o ConfigurationSettingOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64PtrOutput)
-}
-
-// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-func (o ConfigurationSettingOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *bool { return v.RebootIfNeeded }).(pulumi.BoolPtrOutput)
-}
-
-// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-func (o ConfigurationSettingOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *float64 { return v.RefreshFrequencyMins }).(pulumi.Float64PtrOutput)
-}
-
-type ConfigurationSettingPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationSettingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationSetting)(nil)).Elem()
-}
-
-func (o ConfigurationSettingPtrOutput) ToConfigurationSettingPtrOutput() ConfigurationSettingPtrOutput {
-	return o
-}
-
-func (o ConfigurationSettingPtrOutput) ToConfigurationSettingPtrOutputWithContext(ctx context.Context) ConfigurationSettingPtrOutput {
-	return o
-}
-
-func (o ConfigurationSettingPtrOutput) Elem() ConfigurationSettingOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) ConfigurationSetting {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationSetting
-		return ret
-	}).(ConfigurationSettingOutput)
-}
-
-// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-func (o ConfigurationSettingPtrOutput) ActionAfterReboot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ActionAfterReboot
-	}).(pulumi.StringPtrOutput)
-}
-
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingPtrOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowModuleOverwrite
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-func (o ConfigurationSettingPtrOutput) ConfigurationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-func (o ConfigurationSettingPtrOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationModeFrequencyMins
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-func (o ConfigurationSettingPtrOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RebootIfNeeded
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-func (o ConfigurationSettingPtrOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.RefreshFrequencyMins
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponse struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
+	ActionAfterReboot string `pulumi:"actionAfterReboot"`
 	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite *bool `pulumi:"allowModuleOverwrite"`
+	AllowModuleOverwrite bool `pulumi:"allowModuleOverwrite"`
 	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode *string `pulumi:"configurationMode"`
+	ConfigurationMode string `pulumi:"configurationMode"`
 	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-	ConfigurationModeFrequencyMins *float64 `pulumi:"configurationModeFrequencyMins"`
+	ConfigurationModeFrequencyMins float64 `pulumi:"configurationModeFrequencyMins"`
 	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded *bool `pulumi:"rebootIfNeeded"`
+	RebootIfNeeded bool `pulumi:"rebootIfNeeded"`
 	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins *float64 `pulumi:"refreshFrequencyMins"`
+	RefreshFrequencyMins float64 `pulumi:"refreshFrequencyMins"`
 }
 
 // Defaults sets the appropriate defaults for ConfigurationSettingResponse
@@ -931,12 +665,10 @@ func (val *ConfigurationSettingResponse) Defaults() *ConfigurationSettingRespons
 	}
 	tmp := *val
 	if isZero(tmp.ConfigurationModeFrequencyMins) {
-		configurationModeFrequencyMins_ := 15.0
-		tmp.ConfigurationModeFrequencyMins = &configurationModeFrequencyMins_
+		tmp.ConfigurationModeFrequencyMins = 15.0
 	}
 	if isZero(tmp.RefreshFrequencyMins) {
-		refreshFrequencyMins_ := 30.0
-		tmp.RefreshFrequencyMins = &refreshFrequencyMins_
+		tmp.RefreshFrequencyMins = 30.0
 	}
 	return &tmp
 }
@@ -957,33 +689,33 @@ func (o ConfigurationSettingResponseOutput) ToConfigurationSettingResponseOutput
 }
 
 // Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-func (o ConfigurationSettingResponseOutput) ActionAfterReboot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.ActionAfterReboot }).(pulumi.StringPtrOutput)
+func (o ConfigurationSettingResponseOutput) ActionAfterReboot() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) string { return v.ActionAfterReboot }).(pulumi.StringOutput)
 }
 
 // If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingResponseOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *bool { return v.AllowModuleOverwrite }).(pulumi.BoolPtrOutput)
+func (o ConfigurationSettingResponseOutput) AllowModuleOverwrite() pulumi.BoolOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) bool { return v.AllowModuleOverwrite }).(pulumi.BoolOutput)
 }
 
 // Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-func (o ConfigurationSettingResponseOutput) ConfigurationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.ConfigurationMode }).(pulumi.StringPtrOutput)
+func (o ConfigurationSettingResponseOutput) ConfigurationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) string { return v.ConfigurationMode }).(pulumi.StringOutput)
 }
 
 // How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-func (o ConfigurationSettingResponseOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64PtrOutput)
+func (o ConfigurationSettingResponseOutput) ConfigurationModeFrequencyMins() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfigurationSettingResponse) float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64Output)
 }
 
 // Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-func (o ConfigurationSettingResponseOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *bool { return v.RebootIfNeeded }).(pulumi.BoolPtrOutput)
+func (o ConfigurationSettingResponseOutput) RebootIfNeeded() pulumi.BoolOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) bool { return v.RebootIfNeeded }).(pulumi.BoolOutput)
 }
 
 // The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-func (o ConfigurationSettingResponseOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *float64 { return v.RefreshFrequencyMins }).(pulumi.Float64PtrOutput)
+func (o ConfigurationSettingResponseOutput) RefreshFrequencyMins() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfigurationSettingResponse) float64 { return v.RefreshFrequencyMins }).(pulumi.Float64Output)
 }
 
 type ConfigurationSettingResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1016,7 +748,7 @@ func (o ConfigurationSettingResponsePtrOutput) ActionAfterReboot() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return v.ActionAfterReboot
+		return &v.ActionAfterReboot
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1026,7 +758,7 @@ func (o ConfigurationSettingResponsePtrOutput) AllowModuleOverwrite() pulumi.Boo
 		if v == nil {
 			return nil
 		}
-		return v.AllowModuleOverwrite
+		return &v.AllowModuleOverwrite
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1036,7 +768,7 @@ func (o ConfigurationSettingResponsePtrOutput) ConfigurationMode() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return v.ConfigurationMode
+		return &v.ConfigurationMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1046,7 +778,7 @@ func (o ConfigurationSettingResponsePtrOutput) ConfigurationModeFrequencyMins() 
 		if v == nil {
 			return nil
 		}
-		return v.ConfigurationModeFrequencyMins
+		return &v.ConfigurationModeFrequencyMins
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -1056,7 +788,7 @@ func (o ConfigurationSettingResponsePtrOutput) RebootIfNeeded() pulumi.BoolPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.RebootIfNeeded
+		return &v.RebootIfNeeded
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1066,7 +798,7 @@ func (o ConfigurationSettingResponsePtrOutput) RefreshFrequencyMins() pulumi.Flo
 		if v == nil {
 			return nil
 		}
-		return v.RefreshFrequencyMins
+		return &v.RefreshFrequencyMins
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -1076,17 +808,6 @@ type GuestConfigurationAssignmentProperties struct {
 	Context *string `pulumi:"context"`
 	// The guest configuration to assign.
 	GuestConfiguration *GuestConfigurationNavigation `pulumi:"guestConfiguration"`
-}
-
-// Defaults sets the appropriate defaults for GuestConfigurationAssignmentProperties
-func (val *GuestConfigurationAssignmentProperties) Defaults() *GuestConfigurationAssignmentProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.GuestConfiguration = tmp.GuestConfiguration.Defaults()
-
-	return &tmp
 }
 
 // GuestConfigurationAssignmentPropertiesInput is an input type that accepts GuestConfigurationAssignmentPropertiesArgs and GuestConfigurationAssignmentPropertiesOutput values.
@@ -1108,15 +829,6 @@ type GuestConfigurationAssignmentPropertiesArgs struct {
 	GuestConfiguration GuestConfigurationNavigationPtrInput `pulumi:"guestConfiguration"`
 }
 
-// Defaults sets the appropriate defaults for GuestConfigurationAssignmentPropertiesArgs
-func (val *GuestConfigurationAssignmentPropertiesArgs) Defaults() *GuestConfigurationAssignmentPropertiesArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
 func (GuestConfigurationAssignmentPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationAssignmentProperties)(nil)).Elem()
 }
@@ -1377,8 +1089,6 @@ type GuestConfigurationNavigation struct {
 	ConfigurationParameter []ConfigurationParameter `pulumi:"configurationParameter"`
 	// The protected configuration parameters for the guest configuration.
 	ConfigurationProtectedParameter []ConfigurationParameter `pulumi:"configurationProtectedParameter"`
-	// The configuration setting for the guest configuration.
-	ConfigurationSetting *ConfigurationSetting `pulumi:"configurationSetting"`
 	// Combined hash of the guest configuration package and configuration parameters.
 	ContentHash *string `pulumi:"contentHash"`
 	// Uri of the storage where guest configuration package is uploaded.
@@ -1389,17 +1099,6 @@ type GuestConfigurationNavigation struct {
 	Name *string `pulumi:"name"`
 	// Version of the guest configuration.
 	Version *string `pulumi:"version"`
-}
-
-// Defaults sets the appropriate defaults for GuestConfigurationNavigation
-func (val *GuestConfigurationNavigation) Defaults() *GuestConfigurationNavigation {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.ConfigurationSetting = tmp.ConfigurationSetting.Defaults()
-
-	return &tmp
 }
 
 // GuestConfigurationNavigationInput is an input type that accepts GuestConfigurationNavigationArgs and GuestConfigurationNavigationOutput values.
@@ -1421,8 +1120,6 @@ type GuestConfigurationNavigationArgs struct {
 	ConfigurationParameter ConfigurationParameterArrayInput `pulumi:"configurationParameter"`
 	// The protected configuration parameters for the guest configuration.
 	ConfigurationProtectedParameter ConfigurationParameterArrayInput `pulumi:"configurationProtectedParameter"`
-	// The configuration setting for the guest configuration.
-	ConfigurationSetting ConfigurationSettingPtrInput `pulumi:"configurationSetting"`
 	// Combined hash of the guest configuration package and configuration parameters.
 	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// Uri of the storage where guest configuration package is uploaded.
@@ -1435,15 +1132,6 @@ type GuestConfigurationNavigationArgs struct {
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-// Defaults sets the appropriate defaults for GuestConfigurationNavigationArgs
-func (val *GuestConfigurationNavigationArgs) Defaults() *GuestConfigurationNavigationArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
 func (GuestConfigurationNavigationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationNavigation)(nil)).Elem()
 }
@@ -1539,11 +1227,6 @@ func (o GuestConfigurationNavigationOutput) ConfigurationProtectedParameter() Co
 	}).(ConfigurationParameterArrayOutput)
 }
 
-// The configuration setting for the guest configuration.
-func (o GuestConfigurationNavigationOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigation) *ConfigurationSetting { return v.ConfigurationSetting }).(ConfigurationSettingPtrOutput)
-}
-
 // Combined hash of the guest configuration package and configuration parameters.
 func (o GuestConfigurationNavigationOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
@@ -1623,16 +1306,6 @@ func (o GuestConfigurationNavigationPtrOutput) ConfigurationProtectedParameter()
 	}).(ConfigurationParameterArrayOutput)
 }
 
-// The configuration setting for the guest configuration.
-func (o GuestConfigurationNavigationPtrOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
-	return o.ApplyT(func(v *GuestConfigurationNavigation) *ConfigurationSetting {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationSetting
-	}).(ConfigurationSettingPtrOutput)
-}
-
 // Combined hash of the guest configuration package and configuration parameters.
 func (o GuestConfigurationNavigationPtrOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
@@ -1685,6 +1358,8 @@ func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput 
 
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponse struct {
+	// Specifies the origin of the configuration.
+	AssignmentSource string `pulumi:"assignmentSource"`
 	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 	AssignmentType *string `pulumi:"assignmentType"`
 	// The configuration parameters for the guest configuration.
@@ -1692,7 +1367,7 @@ type GuestConfigurationNavigationResponse struct {
 	// The protected configuration parameters for the guest configuration.
 	ConfigurationProtectedParameter []ConfigurationParameterResponse `pulumi:"configurationProtectedParameter"`
 	// The configuration setting for the guest configuration.
-	ConfigurationSetting *ConfigurationSettingResponse `pulumi:"configurationSetting"`
+	ConfigurationSetting ConfigurationSettingResponse `pulumi:"configurationSetting"`
 	// Combined hash of the guest configuration package and configuration parameters.
 	ContentHash *string `pulumi:"contentHash"`
 	// Specifies the content type of the configuration. Possible values could be Builtin or Custom.
@@ -1713,7 +1388,7 @@ func (val *GuestConfigurationNavigationResponse) Defaults() *GuestConfigurationN
 		return nil
 	}
 	tmp := *val
-	tmp.ConfigurationSetting = tmp.ConfigurationSetting.Defaults()
+	tmp.ConfigurationSetting = *tmp.ConfigurationSetting.Defaults()
 
 	return &tmp
 }
@@ -1731,6 +1406,11 @@ func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigati
 
 func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigationResponseOutputWithContext(ctx context.Context) GuestConfigurationNavigationResponseOutput {
 	return o
+}
+
+// Specifies the origin of the configuration.
+func (o GuestConfigurationNavigationResponseOutput) AssignmentSource() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) string { return v.AssignmentSource }).(pulumi.StringOutput)
 }
 
 // Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
@@ -1753,10 +1433,10 @@ func (o GuestConfigurationNavigationResponseOutput) ConfigurationProtectedParame
 }
 
 // The configuration setting for the guest configuration.
-func (o GuestConfigurationNavigationResponseOutput) ConfigurationSetting() ConfigurationSettingResponsePtrOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *ConfigurationSettingResponse {
+func (o GuestConfigurationNavigationResponseOutput) ConfigurationSetting() ConfigurationSettingResponseOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) ConfigurationSettingResponse {
 		return v.ConfigurationSetting
-	}).(ConfigurationSettingResponsePtrOutput)
+	}).(ConfigurationSettingResponseOutput)
 }
 
 // Combined hash of the guest configuration package and configuration parameters.
@@ -1813,6 +1493,16 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Elem() GuestConfiguration
 	}).(GuestConfigurationNavigationResponseOutput)
 }
 
+// Specifies the origin of the configuration.
+func (o GuestConfigurationNavigationResponsePtrOutput) AssignmentSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssignmentSource
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
 func (o GuestConfigurationNavigationResponsePtrOutput) AssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
@@ -1849,7 +1539,7 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationSetting() Co
 		if v == nil {
 			return nil
 		}
-		return v.ConfigurationSetting
+		return &v.ConfigurationSetting
 	}).(ConfigurationSettingResponsePtrOutput)
 }
 
@@ -1911,6 +1601,67 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Version() pulumi.StringPt
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Information about the VM.
@@ -2079,8 +1830,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseArrayOutput{})
-	pulumi.RegisterOutputType(ConfigurationSettingOutput{})
-	pulumi.RegisterOutputType(ConfigurationSettingPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesOutput{})
@@ -2090,6 +1839,7 @@ func init() {
 	pulumi.RegisterOutputType(GuestConfigurationNavigationPtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponseOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(VMInfoResponseOutput{})
 	pulumi.RegisterOutputType(VMInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(VMSSVMInfoResponseOutput{})

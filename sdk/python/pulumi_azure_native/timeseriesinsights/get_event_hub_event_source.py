@@ -231,7 +231,7 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubEventSourceResult:
     """
     An event source that receives its data from an Azure EventHub.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -274,7 +274,7 @@ def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[st
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
     """
     An event source that receives its data from an Azure EventHub.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

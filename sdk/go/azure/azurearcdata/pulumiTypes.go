@@ -10,1302 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// DNS server details
-type ActiveDirectoryConnectorDNSDetails struct {
-	// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-	DomainName *string `pulumi:"domainName"`
-	// List of Active Directory DNS server IP addresses.
-	NameserverIPAddresses []string `pulumi:"nameserverIPAddresses"`
-	// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-	PreferK8sDnsForPtrLookups *bool `pulumi:"preferK8sDnsForPtrLookups"`
-	// Replica count for DNS proxy service. Default value is 1.
-	Replicas *float64 `pulumi:"replicas"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDNSDetails
-func (val *ActiveDirectoryConnectorDNSDetails) Defaults() *ActiveDirectoryConnectorDNSDetails {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.PreferK8sDnsForPtrLookups) {
-		preferK8sDnsForPtrLookups_ := true
-		tmp.PreferK8sDnsForPtrLookups = &preferK8sDnsForPtrLookups_
-	}
-	if isZero(tmp.Replicas) {
-		replicas_ := 1.0
-		tmp.Replicas = &replicas_
-	}
-	return &tmp
-}
-
-// ActiveDirectoryConnectorDNSDetailsInput is an input type that accepts ActiveDirectoryConnectorDNSDetailsArgs and ActiveDirectoryConnectorDNSDetailsOutput values.
-// You can construct a concrete instance of `ActiveDirectoryConnectorDNSDetailsInput` via:
-//
-//          ActiveDirectoryConnectorDNSDetailsArgs{...}
-type ActiveDirectoryConnectorDNSDetailsInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryConnectorDNSDetailsOutput() ActiveDirectoryConnectorDNSDetailsOutput
-	ToActiveDirectoryConnectorDNSDetailsOutputWithContext(context.Context) ActiveDirectoryConnectorDNSDetailsOutput
-}
-
-// DNS server details
-type ActiveDirectoryConnectorDNSDetailsArgs struct {
-	// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// List of Active Directory DNS server IP addresses.
-	NameserverIPAddresses pulumi.StringArrayInput `pulumi:"nameserverIPAddresses"`
-	// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-	PreferK8sDnsForPtrLookups pulumi.BoolPtrInput `pulumi:"preferK8sDnsForPtrLookups"`
-	// Replica count for DNS proxy service. Default value is 1.
-	Replicas pulumi.Float64PtrInput `pulumi:"replicas"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDNSDetailsArgs
-func (val *ActiveDirectoryConnectorDNSDetailsArgs) Defaults() *ActiveDirectoryConnectorDNSDetailsArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.PreferK8sDnsForPtrLookups) {
-		tmp.PreferK8sDnsForPtrLookups = pulumi.BoolPtr(true)
-	}
-	if isZero(tmp.Replicas) {
-		tmp.Replicas = pulumi.Float64Ptr(1.0)
-	}
-	return &tmp
-}
-func (ActiveDirectoryConnectorDNSDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetails)(nil)).Elem()
-}
-
-func (i ActiveDirectoryConnectorDNSDetailsArgs) ToActiveDirectoryConnectorDNSDetailsOutput() ActiveDirectoryConnectorDNSDetailsOutput {
-	return i.ToActiveDirectoryConnectorDNSDetailsOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryConnectorDNSDetailsArgs) ToActiveDirectoryConnectorDNSDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDNSDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorDNSDetailsOutput)
-}
-
-// DNS server details
-type ActiveDirectoryConnectorDNSDetailsOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorDNSDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetails)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorDNSDetailsOutput) ToActiveDirectoryConnectorDNSDetailsOutput() ActiveDirectoryConnectorDNSDetailsOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorDNSDetailsOutput) ToActiveDirectoryConnectorDNSDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDNSDetailsOutput {
-	return o
-}
-
-// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-func (o ActiveDirectoryConnectorDNSDetailsOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) *string { return v.DomainName }).(pulumi.StringPtrOutput)
-}
-
-// List of Active Directory DNS server IP addresses.
-func (o ActiveDirectoryConnectorDNSDetailsOutput) NameserverIPAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) []string { return v.NameserverIPAddresses }).(pulumi.StringArrayOutput)
-}
-
-// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-func (o ActiveDirectoryConnectorDNSDetailsOutput) PreferK8sDnsForPtrLookups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) *bool { return v.PreferK8sDnsForPtrLookups }).(pulumi.BoolPtrOutput)
-}
-
-// Replica count for DNS proxy service. Default value is 1.
-func (o ActiveDirectoryConnectorDNSDetailsOutput) Replicas() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) *float64 { return v.Replicas }).(pulumi.Float64PtrOutput)
-}
-
-// DNS server details
-type ActiveDirectoryConnectorDNSDetailsResponse struct {
-	// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-	DomainName *string `pulumi:"domainName"`
-	// List of Active Directory DNS server IP addresses.
-	NameserverIPAddresses []string `pulumi:"nameserverIPAddresses"`
-	// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-	PreferK8sDnsForPtrLookups *bool `pulumi:"preferK8sDnsForPtrLookups"`
-	// Replica count for DNS proxy service. Default value is 1.
-	Replicas *float64 `pulumi:"replicas"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDNSDetailsResponse
-func (val *ActiveDirectoryConnectorDNSDetailsResponse) Defaults() *ActiveDirectoryConnectorDNSDetailsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.PreferK8sDnsForPtrLookups) {
-		preferK8sDnsForPtrLookups_ := true
-		tmp.PreferK8sDnsForPtrLookups = &preferK8sDnsForPtrLookups_
-	}
-	if isZero(tmp.Replicas) {
-		replicas_ := 1.0
-		tmp.Replicas = &replicas_
-	}
-	return &tmp
-}
-
-// DNS server details
-type ActiveDirectoryConnectorDNSDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorDNSDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetailsResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) ToActiveDirectoryConnectorDNSDetailsResponseOutput() ActiveDirectoryConnectorDNSDetailsResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) ToActiveDirectoryConnectorDNSDetailsResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDNSDetailsResponseOutput {
-	return o
-}
-
-// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) *string { return v.DomainName }).(pulumi.StringPtrOutput)
-}
-
-// List of Active Directory DNS server IP addresses.
-func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) NameserverIPAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) []string { return v.NameserverIPAddresses }).(pulumi.StringArrayOutput)
-}
-
-// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) PreferK8sDnsForPtrLookups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) *bool { return v.PreferK8sDnsForPtrLookups }).(pulumi.BoolPtrOutput)
-}
-
-// Replica count for DNS proxy service. Default value is 1.
-func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) Replicas() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) *float64 { return v.Replicas }).(pulumi.Float64PtrOutput)
-}
-
-// Active Directory domain details
-type ActiveDirectoryConnectorDomainDetails struct {
-	// null
-	DomainControllers ActiveDirectoryDomainControllers `pulumi:"domainControllers"`
-	// NETBIOS name of the Active Directory domain.
-	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
-	// The distinguished name of the Active Directory Organizational Unit.
-	OuDistinguishedName *string `pulumi:"ouDistinguishedName"`
-	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-	Realm string `pulumi:"realm"`
-	// The service account provisioning mode for this Active Directory connector.
-	ServiceAccountProvisioning *string `pulumi:"serviceAccountProvisioning"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDomainDetails
-func (val *ActiveDirectoryConnectorDomainDetails) Defaults() *ActiveDirectoryConnectorDomainDetails {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ServiceAccountProvisioning) {
-		serviceAccountProvisioning_ := "manual"
-		tmp.ServiceAccountProvisioning = &serviceAccountProvisioning_
-	}
-	return &tmp
-}
-
-// ActiveDirectoryConnectorDomainDetailsInput is an input type that accepts ActiveDirectoryConnectorDomainDetailsArgs and ActiveDirectoryConnectorDomainDetailsOutput values.
-// You can construct a concrete instance of `ActiveDirectoryConnectorDomainDetailsInput` via:
-//
-//          ActiveDirectoryConnectorDomainDetailsArgs{...}
-type ActiveDirectoryConnectorDomainDetailsInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryConnectorDomainDetailsOutput() ActiveDirectoryConnectorDomainDetailsOutput
-	ToActiveDirectoryConnectorDomainDetailsOutputWithContext(context.Context) ActiveDirectoryConnectorDomainDetailsOutput
-}
-
-// Active Directory domain details
-type ActiveDirectoryConnectorDomainDetailsArgs struct {
-	// null
-	DomainControllers ActiveDirectoryDomainControllersInput `pulumi:"domainControllers"`
-	// NETBIOS name of the Active Directory domain.
-	NetbiosDomainName pulumi.StringPtrInput `pulumi:"netbiosDomainName"`
-	// The distinguished name of the Active Directory Organizational Unit.
-	OuDistinguishedName pulumi.StringPtrInput `pulumi:"ouDistinguishedName"`
-	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-	Realm pulumi.StringInput `pulumi:"realm"`
-	// The service account provisioning mode for this Active Directory connector.
-	ServiceAccountProvisioning pulumi.StringPtrInput `pulumi:"serviceAccountProvisioning"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDomainDetailsArgs
-func (val *ActiveDirectoryConnectorDomainDetailsArgs) Defaults() *ActiveDirectoryConnectorDomainDetailsArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ServiceAccountProvisioning) {
-		tmp.ServiceAccountProvisioning = pulumi.StringPtr("manual")
-	}
-	return &tmp
-}
-func (ActiveDirectoryConnectorDomainDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetails)(nil)).Elem()
-}
-
-func (i ActiveDirectoryConnectorDomainDetailsArgs) ToActiveDirectoryConnectorDomainDetailsOutput() ActiveDirectoryConnectorDomainDetailsOutput {
-	return i.ToActiveDirectoryConnectorDomainDetailsOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryConnectorDomainDetailsArgs) ToActiveDirectoryConnectorDomainDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDomainDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorDomainDetailsOutput)
-}
-
-// Active Directory domain details
-type ActiveDirectoryConnectorDomainDetailsOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorDomainDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetails)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorDomainDetailsOutput) ToActiveDirectoryConnectorDomainDetailsOutput() ActiveDirectoryConnectorDomainDetailsOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorDomainDetailsOutput) ToActiveDirectoryConnectorDomainDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDomainDetailsOutput {
-	return o
-}
-
-// null
-func (o ActiveDirectoryConnectorDomainDetailsOutput) DomainControllers() ActiveDirectoryDomainControllersOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) ActiveDirectoryDomainControllers {
-		return v.DomainControllers
-	}).(ActiveDirectoryDomainControllersOutput)
-}
-
-// NETBIOS name of the Active Directory domain.
-func (o ActiveDirectoryConnectorDomainDetailsOutput) NetbiosDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
-}
-
-// The distinguished name of the Active Directory Organizational Unit.
-func (o ActiveDirectoryConnectorDomainDetailsOutput) OuDistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.OuDistinguishedName }).(pulumi.StringPtrOutput)
-}
-
-// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-func (o ActiveDirectoryConnectorDomainDetailsOutput) Realm() pulumi.StringOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) string { return v.Realm }).(pulumi.StringOutput)
-}
-
-// The service account provisioning mode for this Active Directory connector.
-func (o ActiveDirectoryConnectorDomainDetailsOutput) ServiceAccountProvisioning() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.ServiceAccountProvisioning }).(pulumi.StringPtrOutput)
-}
-
-// Active Directory domain details
-type ActiveDirectoryConnectorDomainDetailsResponse struct {
-	// null
-	DomainControllers ActiveDirectoryDomainControllersResponse `pulumi:"domainControllers"`
-	// NETBIOS name of the Active Directory domain.
-	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
-	// The distinguished name of the Active Directory Organizational Unit.
-	OuDistinguishedName *string `pulumi:"ouDistinguishedName"`
-	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-	Realm string `pulumi:"realm"`
-	// The service account provisioning mode for this Active Directory connector.
-	ServiceAccountProvisioning *string `pulumi:"serviceAccountProvisioning"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDomainDetailsResponse
-func (val *ActiveDirectoryConnectorDomainDetailsResponse) Defaults() *ActiveDirectoryConnectorDomainDetailsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ServiceAccountProvisioning) {
-		serviceAccountProvisioning_ := "manual"
-		tmp.ServiceAccountProvisioning = &serviceAccountProvisioning_
-	}
-	return &tmp
-}
-
-// Active Directory domain details
-type ActiveDirectoryConnectorDomainDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorDomainDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetailsResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) ToActiveDirectoryConnectorDomainDetailsResponseOutput() ActiveDirectoryConnectorDomainDetailsResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) ToActiveDirectoryConnectorDomainDetailsResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDomainDetailsResponseOutput {
-	return o
-}
-
-// null
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) DomainControllers() ActiveDirectoryDomainControllersResponseOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) ActiveDirectoryDomainControllersResponse {
-		return v.DomainControllers
-	}).(ActiveDirectoryDomainControllersResponseOutput)
-}
-
-// NETBIOS name of the Active Directory domain.
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) NetbiosDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
-}
-
-// The distinguished name of the Active Directory Organizational Unit.
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) OuDistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.OuDistinguishedName }).(pulumi.StringPtrOutput)
-}
-
-// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) Realm() pulumi.StringOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) string { return v.Realm }).(pulumi.StringOutput)
-}
-
-// The service account provisioning mode for this Active Directory connector.
-func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) ServiceAccountProvisioning() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.ServiceAccountProvisioning }).(pulumi.StringPtrOutput)
-}
-
-// The properties of an Active Directory connector resource
-type ActiveDirectoryConnectorProperties struct {
-	// Username and password for domain service account authentication.
-	DomainServiceAccountLoginInformation *BasicLoginInformation `pulumi:"domainServiceAccountLoginInformation"`
-	// null
-	Spec ActiveDirectoryConnectorSpec `pulumi:"spec"`
-	// null
-	Status *ActiveDirectoryConnectorStatus `pulumi:"status"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorProperties
-func (val *ActiveDirectoryConnectorProperties) Defaults() *ActiveDirectoryConnectorProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.Spec = *tmp.Spec.Defaults()
-
-	return &tmp
-}
-
-// ActiveDirectoryConnectorPropertiesInput is an input type that accepts ActiveDirectoryConnectorPropertiesArgs and ActiveDirectoryConnectorPropertiesOutput values.
-// You can construct a concrete instance of `ActiveDirectoryConnectorPropertiesInput` via:
-//
-//          ActiveDirectoryConnectorPropertiesArgs{...}
-type ActiveDirectoryConnectorPropertiesInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryConnectorPropertiesOutput() ActiveDirectoryConnectorPropertiesOutput
-	ToActiveDirectoryConnectorPropertiesOutputWithContext(context.Context) ActiveDirectoryConnectorPropertiesOutput
-}
-
-// The properties of an Active Directory connector resource
-type ActiveDirectoryConnectorPropertiesArgs struct {
-	// Username and password for domain service account authentication.
-	DomainServiceAccountLoginInformation BasicLoginInformationPtrInput `pulumi:"domainServiceAccountLoginInformation"`
-	// null
-	Spec ActiveDirectoryConnectorSpecInput `pulumi:"spec"`
-	// null
-	Status ActiveDirectoryConnectorStatusPtrInput `pulumi:"status"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorPropertiesArgs
-func (val *ActiveDirectoryConnectorPropertiesArgs) Defaults() *ActiveDirectoryConnectorPropertiesArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
-func (ActiveDirectoryConnectorPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorProperties)(nil)).Elem()
-}
-
-func (i ActiveDirectoryConnectorPropertiesArgs) ToActiveDirectoryConnectorPropertiesOutput() ActiveDirectoryConnectorPropertiesOutput {
-	return i.ToActiveDirectoryConnectorPropertiesOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryConnectorPropertiesArgs) ToActiveDirectoryConnectorPropertiesOutputWithContext(ctx context.Context) ActiveDirectoryConnectorPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorPropertiesOutput)
-}
-
-// The properties of an Active Directory connector resource
-type ActiveDirectoryConnectorPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorProperties)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorPropertiesOutput) ToActiveDirectoryConnectorPropertiesOutput() ActiveDirectoryConnectorPropertiesOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorPropertiesOutput) ToActiveDirectoryConnectorPropertiesOutputWithContext(ctx context.Context) ActiveDirectoryConnectorPropertiesOutput {
-	return o
-}
-
-// Username and password for domain service account authentication.
-func (o ActiveDirectoryConnectorPropertiesOutput) DomainServiceAccountLoginInformation() BasicLoginInformationPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) *BasicLoginInformation {
-		return v.DomainServiceAccountLoginInformation
-	}).(BasicLoginInformationPtrOutput)
-}
-
-// null
-func (o ActiveDirectoryConnectorPropertiesOutput) Spec() ActiveDirectoryConnectorSpecOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) ActiveDirectoryConnectorSpec { return v.Spec }).(ActiveDirectoryConnectorSpecOutput)
-}
-
-// null
-func (o ActiveDirectoryConnectorPropertiesOutput) Status() ActiveDirectoryConnectorStatusPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) *ActiveDirectoryConnectorStatus { return v.Status }).(ActiveDirectoryConnectorStatusPtrOutput)
-}
-
-// The properties of an Active Directory connector resource
-type ActiveDirectoryConnectorPropertiesResponse struct {
-	// Username and password for domain service account authentication.
-	DomainServiceAccountLoginInformation *BasicLoginInformationResponse `pulumi:"domainServiceAccountLoginInformation"`
-	// The provisioning state of the Active Directory connector resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// null
-	Spec ActiveDirectoryConnectorSpecResponse `pulumi:"spec"`
-	// null
-	Status *ActiveDirectoryConnectorStatusResponse `pulumi:"status"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorPropertiesResponse
-func (val *ActiveDirectoryConnectorPropertiesResponse) Defaults() *ActiveDirectoryConnectorPropertiesResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.Spec = *tmp.Spec.Defaults()
-
-	return &tmp
-}
-
-// The properties of an Active Directory connector resource
-type ActiveDirectoryConnectorPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorPropertiesResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorPropertiesResponseOutput) ToActiveDirectoryConnectorPropertiesResponseOutput() ActiveDirectoryConnectorPropertiesResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorPropertiesResponseOutput) ToActiveDirectoryConnectorPropertiesResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorPropertiesResponseOutput {
-	return o
-}
-
-// Username and password for domain service account authentication.
-func (o ActiveDirectoryConnectorPropertiesResponseOutput) DomainServiceAccountLoginInformation() BasicLoginInformationResponsePtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) *BasicLoginInformationResponse {
-		return v.DomainServiceAccountLoginInformation
-	}).(BasicLoginInformationResponsePtrOutput)
-}
-
-// The provisioning state of the Active Directory connector resource.
-func (o ActiveDirectoryConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// null
-func (o ActiveDirectoryConnectorPropertiesResponseOutput) Spec() ActiveDirectoryConnectorSpecResponseOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) ActiveDirectoryConnectorSpecResponse { return v.Spec }).(ActiveDirectoryConnectorSpecResponseOutput)
-}
-
-// null
-func (o ActiveDirectoryConnectorPropertiesResponseOutput) Status() ActiveDirectoryConnectorStatusResponsePtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) *ActiveDirectoryConnectorStatusResponse {
-		return v.Status
-	}).(ActiveDirectoryConnectorStatusResponsePtrOutput)
-}
-
-// The specifications of the AD Kubernetes resource.
-type ActiveDirectoryConnectorSpec struct {
-	// null
-	ActiveDirectory ActiveDirectoryConnectorDomainDetails `pulumi:"activeDirectory"`
-	// null
-	Dns ActiveDirectoryConnectorDNSDetails `pulumi:"dns"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorSpec
-func (val *ActiveDirectoryConnectorSpec) Defaults() *ActiveDirectoryConnectorSpec {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.ActiveDirectory = *tmp.ActiveDirectory.Defaults()
-
-	tmp.Dns = *tmp.Dns.Defaults()
-
-	return &tmp
-}
-
-// ActiveDirectoryConnectorSpecInput is an input type that accepts ActiveDirectoryConnectorSpecArgs and ActiveDirectoryConnectorSpecOutput values.
-// You can construct a concrete instance of `ActiveDirectoryConnectorSpecInput` via:
-//
-//          ActiveDirectoryConnectorSpecArgs{...}
-type ActiveDirectoryConnectorSpecInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryConnectorSpecOutput() ActiveDirectoryConnectorSpecOutput
-	ToActiveDirectoryConnectorSpecOutputWithContext(context.Context) ActiveDirectoryConnectorSpecOutput
-}
-
-// The specifications of the AD Kubernetes resource.
-type ActiveDirectoryConnectorSpecArgs struct {
-	// null
-	ActiveDirectory ActiveDirectoryConnectorDomainDetailsInput `pulumi:"activeDirectory"`
-	// null
-	Dns ActiveDirectoryConnectorDNSDetailsInput `pulumi:"dns"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorSpecArgs
-func (val *ActiveDirectoryConnectorSpecArgs) Defaults() *ActiveDirectoryConnectorSpecArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
-func (ActiveDirectoryConnectorSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorSpec)(nil)).Elem()
-}
-
-func (i ActiveDirectoryConnectorSpecArgs) ToActiveDirectoryConnectorSpecOutput() ActiveDirectoryConnectorSpecOutput {
-	return i.ToActiveDirectoryConnectorSpecOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryConnectorSpecArgs) ToActiveDirectoryConnectorSpecOutputWithContext(ctx context.Context) ActiveDirectoryConnectorSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorSpecOutput)
-}
-
-// The specifications of the AD Kubernetes resource.
-type ActiveDirectoryConnectorSpecOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorSpec)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorSpecOutput) ToActiveDirectoryConnectorSpecOutput() ActiveDirectoryConnectorSpecOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorSpecOutput) ToActiveDirectoryConnectorSpecOutputWithContext(ctx context.Context) ActiveDirectoryConnectorSpecOutput {
-	return o
-}
-
-// null
-func (o ActiveDirectoryConnectorSpecOutput) ActiveDirectory() ActiveDirectoryConnectorDomainDetailsOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorSpec) ActiveDirectoryConnectorDomainDetails { return v.ActiveDirectory }).(ActiveDirectoryConnectorDomainDetailsOutput)
-}
-
-// null
-func (o ActiveDirectoryConnectorSpecOutput) Dns() ActiveDirectoryConnectorDNSDetailsOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorSpec) ActiveDirectoryConnectorDNSDetails { return v.Dns }).(ActiveDirectoryConnectorDNSDetailsOutput)
-}
-
-// The specifications of the AD Kubernetes resource.
-type ActiveDirectoryConnectorSpecResponse struct {
-	// null
-	ActiveDirectory ActiveDirectoryConnectorDomainDetailsResponse `pulumi:"activeDirectory"`
-	// null
-	Dns ActiveDirectoryConnectorDNSDetailsResponse `pulumi:"dns"`
-}
-
-// Defaults sets the appropriate defaults for ActiveDirectoryConnectorSpecResponse
-func (val *ActiveDirectoryConnectorSpecResponse) Defaults() *ActiveDirectoryConnectorSpecResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.ActiveDirectory = *tmp.ActiveDirectory.Defaults()
-
-	tmp.Dns = *tmp.Dns.Defaults()
-
-	return &tmp
-}
-
-// The specifications of the AD Kubernetes resource.
-type ActiveDirectoryConnectorSpecResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorSpecResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorSpecResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorSpecResponseOutput) ToActiveDirectoryConnectorSpecResponseOutput() ActiveDirectoryConnectorSpecResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorSpecResponseOutput) ToActiveDirectoryConnectorSpecResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorSpecResponseOutput {
-	return o
-}
-
-// null
-func (o ActiveDirectoryConnectorSpecResponseOutput) ActiveDirectory() ActiveDirectoryConnectorDomainDetailsResponseOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorSpecResponse) ActiveDirectoryConnectorDomainDetailsResponse {
-		return v.ActiveDirectory
-	}).(ActiveDirectoryConnectorDomainDetailsResponseOutput)
-}
-
-// null
-func (o ActiveDirectoryConnectorSpecResponseOutput) Dns() ActiveDirectoryConnectorDNSDetailsResponseOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorSpecResponse) ActiveDirectoryConnectorDNSDetailsResponse { return v.Dns }).(ActiveDirectoryConnectorDNSDetailsResponseOutput)
-}
-
-// The status of the Kubernetes custom resource.
-type ActiveDirectoryConnectorStatus struct {
-	// The time that the custom resource was last updated.
-	LastUpdateTime *string `pulumi:"lastUpdateTime"`
-	// The version of the replicaSet associated with the AD connector custom resource.
-	ObservedGeneration *float64 `pulumi:"observedGeneration"`
-	// The state of the AD connector custom resource.
-	State *string `pulumi:"state"`
-}
-
-// ActiveDirectoryConnectorStatusInput is an input type that accepts ActiveDirectoryConnectorStatusArgs and ActiveDirectoryConnectorStatusOutput values.
-// You can construct a concrete instance of `ActiveDirectoryConnectorStatusInput` via:
-//
-//          ActiveDirectoryConnectorStatusArgs{...}
-type ActiveDirectoryConnectorStatusInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryConnectorStatusOutput() ActiveDirectoryConnectorStatusOutput
-	ToActiveDirectoryConnectorStatusOutputWithContext(context.Context) ActiveDirectoryConnectorStatusOutput
-}
-
-// The status of the Kubernetes custom resource.
-type ActiveDirectoryConnectorStatusArgs struct {
-	// The time that the custom resource was last updated.
-	LastUpdateTime pulumi.StringPtrInput `pulumi:"lastUpdateTime"`
-	// The version of the replicaSet associated with the AD connector custom resource.
-	ObservedGeneration pulumi.Float64PtrInput `pulumi:"observedGeneration"`
-	// The state of the AD connector custom resource.
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (ActiveDirectoryConnectorStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorStatus)(nil)).Elem()
-}
-
-func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusOutput() ActiveDirectoryConnectorStatusOutput {
-	return i.ToActiveDirectoryConnectorStatusOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorStatusOutput)
-}
-
-func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
-	return i.ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorStatusOutput).ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx)
-}
-
-// ActiveDirectoryConnectorStatusPtrInput is an input type that accepts ActiveDirectoryConnectorStatusArgs, ActiveDirectoryConnectorStatusPtr and ActiveDirectoryConnectorStatusPtrOutput values.
-// You can construct a concrete instance of `ActiveDirectoryConnectorStatusPtrInput` via:
-//
-//          ActiveDirectoryConnectorStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type ActiveDirectoryConnectorStatusPtrInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput
-	ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Context) ActiveDirectoryConnectorStatusPtrOutput
-}
-
-type activeDirectoryConnectorStatusPtrType ActiveDirectoryConnectorStatusArgs
-
-func ActiveDirectoryConnectorStatusPtr(v *ActiveDirectoryConnectorStatusArgs) ActiveDirectoryConnectorStatusPtrInput {
-	return (*activeDirectoryConnectorStatusPtrType)(v)
-}
-
-func (*activeDirectoryConnectorStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryConnectorStatus)(nil)).Elem()
-}
-
-func (i *activeDirectoryConnectorStatusPtrType) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
-	return i.ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *activeDirectoryConnectorStatusPtrType) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorStatusPtrOutput)
-}
-
-// The status of the Kubernetes custom resource.
-type ActiveDirectoryConnectorStatusOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorStatus)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusOutput() ActiveDirectoryConnectorStatusOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
-	return o.ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryConnectorStatus) *ActiveDirectoryConnectorStatus {
-		return &v
-	}).(ActiveDirectoryConnectorStatusPtrOutput)
-}
-
-// The time that the custom resource was last updated.
-func (o ActiveDirectoryConnectorStatusOutput) LastUpdateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorStatus) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
-}
-
-// The version of the replicaSet associated with the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusOutput) ObservedGeneration() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorStatus) *float64 { return v.ObservedGeneration }).(pulumi.Float64PtrOutput)
-}
-
-// The state of the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorStatus) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-type ActiveDirectoryConnectorStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryConnectorStatus)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorStatusPtrOutput) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusPtrOutput) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusPtrOutput) Elem() ActiveDirectoryConnectorStatusOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) ActiveDirectoryConnectorStatus {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveDirectoryConnectorStatus
-		return ret
-	}).(ActiveDirectoryConnectorStatusOutput)
-}
-
-// The time that the custom resource was last updated.
-func (o ActiveDirectoryConnectorStatusPtrOutput) LastUpdateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUpdateTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the replicaSet associated with the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusPtrOutput) ObservedGeneration() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ObservedGeneration
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The state of the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the Kubernetes custom resource.
-type ActiveDirectoryConnectorStatusResponse struct {
-	// The time that the custom resource was last updated.
-	LastUpdateTime *string `pulumi:"lastUpdateTime"`
-	// The version of the replicaSet associated with the AD connector custom resource.
-	ObservedGeneration *float64 `pulumi:"observedGeneration"`
-	// The state of the AD connector custom resource.
-	State *string `pulumi:"state"`
-}
-
-// The status of the Kubernetes custom resource.
-type ActiveDirectoryConnectorStatusResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorStatusResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryConnectorStatusResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorStatusResponseOutput) ToActiveDirectoryConnectorStatusResponseOutput() ActiveDirectoryConnectorStatusResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusResponseOutput) ToActiveDirectoryConnectorStatusResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusResponseOutput {
-	return o
-}
-
-// The time that the custom resource was last updated.
-func (o ActiveDirectoryConnectorStatusResponseOutput) LastUpdateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorStatusResponse) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
-}
-
-// The version of the replicaSet associated with the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusResponseOutput) ObservedGeneration() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorStatusResponse) *float64 { return v.ObservedGeneration }).(pulumi.Float64PtrOutput)
-}
-
-// The state of the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusResponseOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryConnectorStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-type ActiveDirectoryConnectorStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryConnectorStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryConnectorStatusResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryConnectorStatusResponsePtrOutput) ToActiveDirectoryConnectorStatusResponsePtrOutput() ActiveDirectoryConnectorStatusResponsePtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusResponsePtrOutput) ToActiveDirectoryConnectorStatusResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusResponsePtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryConnectorStatusResponsePtrOutput) Elem() ActiveDirectoryConnectorStatusResponseOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) ActiveDirectoryConnectorStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveDirectoryConnectorStatusResponse
-		return ret
-	}).(ActiveDirectoryConnectorStatusResponseOutput)
-}
-
-// The time that the custom resource was last updated.
-func (o ActiveDirectoryConnectorStatusResponsePtrOutput) LastUpdateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUpdateTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the replicaSet associated with the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusResponsePtrOutput) ObservedGeneration() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ObservedGeneration
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The state of the AD connector custom resource.
-func (o ActiveDirectoryConnectorStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about a domain controller in the AD domain.
-type ActiveDirectoryDomainController struct {
-	// Fully-qualified domain name of a domain controller in the AD domain.
-	Hostname string `pulumi:"hostname"`
-}
-
-// ActiveDirectoryDomainControllerInput is an input type that accepts ActiveDirectoryDomainControllerArgs and ActiveDirectoryDomainControllerOutput values.
-// You can construct a concrete instance of `ActiveDirectoryDomainControllerInput` via:
-//
-//          ActiveDirectoryDomainControllerArgs{...}
-type ActiveDirectoryDomainControllerInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryDomainControllerOutput() ActiveDirectoryDomainControllerOutput
-	ToActiveDirectoryDomainControllerOutputWithContext(context.Context) ActiveDirectoryDomainControllerOutput
-}
-
-// Information about a domain controller in the AD domain.
-type ActiveDirectoryDomainControllerArgs struct {
-	// Fully-qualified domain name of a domain controller in the AD domain.
-	Hostname pulumi.StringInput `pulumi:"hostname"`
-}
-
-func (ActiveDirectoryDomainControllerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryDomainController)(nil)).Elem()
-}
-
-func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerOutput() ActiveDirectoryDomainControllerOutput {
-	return i.ToActiveDirectoryDomainControllerOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerOutput)
-}
-
-func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
-	return i.ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerOutput).ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx)
-}
-
-// ActiveDirectoryDomainControllerPtrInput is an input type that accepts ActiveDirectoryDomainControllerArgs, ActiveDirectoryDomainControllerPtr and ActiveDirectoryDomainControllerPtrOutput values.
-// You can construct a concrete instance of `ActiveDirectoryDomainControllerPtrInput` via:
-//
-//          ActiveDirectoryDomainControllerArgs{...}
-//
-//  or:
-//
-//          nil
-type ActiveDirectoryDomainControllerPtrInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput
-	ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Context) ActiveDirectoryDomainControllerPtrOutput
-}
-
-type activeDirectoryDomainControllerPtrType ActiveDirectoryDomainControllerArgs
-
-func ActiveDirectoryDomainControllerPtr(v *ActiveDirectoryDomainControllerArgs) ActiveDirectoryDomainControllerPtrInput {
-	return (*activeDirectoryDomainControllerPtrType)(v)
-}
-
-func (*activeDirectoryDomainControllerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryDomainController)(nil)).Elem()
-}
-
-func (i *activeDirectoryDomainControllerPtrType) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
-	return i.ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Background())
-}
-
-func (i *activeDirectoryDomainControllerPtrType) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerPtrOutput)
-}
-
-// ActiveDirectoryDomainControllerArrayInput is an input type that accepts ActiveDirectoryDomainControllerArray and ActiveDirectoryDomainControllerArrayOutput values.
-// You can construct a concrete instance of `ActiveDirectoryDomainControllerArrayInput` via:
-//
-//          ActiveDirectoryDomainControllerArray{ ActiveDirectoryDomainControllerArgs{...} }
-type ActiveDirectoryDomainControllerArrayInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryDomainControllerArrayOutput() ActiveDirectoryDomainControllerArrayOutput
-	ToActiveDirectoryDomainControllerArrayOutputWithContext(context.Context) ActiveDirectoryDomainControllerArrayOutput
-}
-
-type ActiveDirectoryDomainControllerArray []ActiveDirectoryDomainControllerInput
-
-func (ActiveDirectoryDomainControllerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveDirectoryDomainController)(nil)).Elem()
-}
-
-func (i ActiveDirectoryDomainControllerArray) ToActiveDirectoryDomainControllerArrayOutput() ActiveDirectoryDomainControllerArrayOutput {
-	return i.ToActiveDirectoryDomainControllerArrayOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryDomainControllerArray) ToActiveDirectoryDomainControllerArrayOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerArrayOutput)
-}
-
-// Information about a domain controller in the AD domain.
-type ActiveDirectoryDomainControllerOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryDomainController)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerOutput() ActiveDirectoryDomainControllerOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
-	return o.ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Background())
-}
-
-func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryDomainController) *ActiveDirectoryDomainController {
-		return &v
-	}).(ActiveDirectoryDomainControllerPtrOutput)
-}
-
-// Fully-qualified domain name of a domain controller in the AD domain.
-func (o ActiveDirectoryDomainControllerOutput) Hostname() pulumi.StringOutput {
-	return o.ApplyT(func(v ActiveDirectoryDomainController) string { return v.Hostname }).(pulumi.StringOutput)
-}
-
-type ActiveDirectoryDomainControllerPtrOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryDomainController)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllerPtrOutput) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerPtrOutput) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerPtrOutput) Elem() ActiveDirectoryDomainControllerOutput {
-	return o.ApplyT(func(v *ActiveDirectoryDomainController) ActiveDirectoryDomainController {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveDirectoryDomainController
-		return ret
-	}).(ActiveDirectoryDomainControllerOutput)
-}
-
-// Fully-qualified domain name of a domain controller in the AD domain.
-func (o ActiveDirectoryDomainControllerPtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryDomainController) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Hostname
-	}).(pulumi.StringPtrOutput)
-}
-
-type ActiveDirectoryDomainControllerArrayOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveDirectoryDomainController)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllerArrayOutput) ToActiveDirectoryDomainControllerArrayOutput() ActiveDirectoryDomainControllerArrayOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerArrayOutput) ToActiveDirectoryDomainControllerArrayOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerArrayOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryDomainControllerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveDirectoryDomainController {
-		return vs[0].([]ActiveDirectoryDomainController)[vs[1].(int)]
-	}).(ActiveDirectoryDomainControllerOutput)
-}
-
-// Information about a domain controller in the AD domain.
-type ActiveDirectoryDomainControllerResponse struct {
-	// Fully-qualified domain name of a domain controller in the AD domain.
-	Hostname string `pulumi:"hostname"`
-}
-
-// Information about a domain controller in the AD domain.
-type ActiveDirectoryDomainControllerResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllerResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryDomainControllerResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllerResponseOutput) ToActiveDirectoryDomainControllerResponseOutput() ActiveDirectoryDomainControllerResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerResponseOutput) ToActiveDirectoryDomainControllerResponseOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerResponseOutput {
-	return o
-}
-
-// Fully-qualified domain name of a domain controller in the AD domain.
-func (o ActiveDirectoryDomainControllerResponseOutput) Hostname() pulumi.StringOutput {
-	return o.ApplyT(func(v ActiveDirectoryDomainControllerResponse) string { return v.Hostname }).(pulumi.StringOutput)
-}
-
-type ActiveDirectoryDomainControllerResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllerResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryDomainControllerResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllerResponsePtrOutput) ToActiveDirectoryDomainControllerResponsePtrOutput() ActiveDirectoryDomainControllerResponsePtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerResponsePtrOutput) ToActiveDirectoryDomainControllerResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerResponsePtrOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerResponsePtrOutput) Elem() ActiveDirectoryDomainControllerResponseOutput {
-	return o.ApplyT(func(v *ActiveDirectoryDomainControllerResponse) ActiveDirectoryDomainControllerResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveDirectoryDomainControllerResponse
-		return ret
-	}).(ActiveDirectoryDomainControllerResponseOutput)
-}
-
-// Fully-qualified domain name of a domain controller in the AD domain.
-func (o ActiveDirectoryDomainControllerResponsePtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActiveDirectoryDomainControllerResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Hostname
-	}).(pulumi.StringPtrOutput)
-}
-
-type ActiveDirectoryDomainControllerResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllerResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveDirectoryDomainControllerResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllerResponseArrayOutput) ToActiveDirectoryDomainControllerResponseArrayOutput() ActiveDirectoryDomainControllerResponseArrayOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerResponseArrayOutput) ToActiveDirectoryDomainControllerResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerResponseArrayOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllerResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryDomainControllerResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveDirectoryDomainControllerResponse {
-		return vs[0].([]ActiveDirectoryDomainControllerResponse)[vs[1].(int)]
-	}).(ActiveDirectoryDomainControllerResponseOutput)
-}
-
-// Details about the Active Directory domain controllers associated with this AD connector instance
-type ActiveDirectoryDomainControllers struct {
-	// Information about the Primary Domain Controller (PDC) in the AD domain.
-	PrimaryDomainController *ActiveDirectoryDomainController `pulumi:"primaryDomainController"`
-	// null
-	SecondaryDomainControllers []ActiveDirectoryDomainController `pulumi:"secondaryDomainControllers"`
-}
-
-// ActiveDirectoryDomainControllersInput is an input type that accepts ActiveDirectoryDomainControllersArgs and ActiveDirectoryDomainControllersOutput values.
-// You can construct a concrete instance of `ActiveDirectoryDomainControllersInput` via:
-//
-//          ActiveDirectoryDomainControllersArgs{...}
-type ActiveDirectoryDomainControllersInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryDomainControllersOutput() ActiveDirectoryDomainControllersOutput
-	ToActiveDirectoryDomainControllersOutputWithContext(context.Context) ActiveDirectoryDomainControllersOutput
-}
-
-// Details about the Active Directory domain controllers associated with this AD connector instance
-type ActiveDirectoryDomainControllersArgs struct {
-	// Information about the Primary Domain Controller (PDC) in the AD domain.
-	PrimaryDomainController ActiveDirectoryDomainControllerPtrInput `pulumi:"primaryDomainController"`
-	// null
-	SecondaryDomainControllers ActiveDirectoryDomainControllerArrayInput `pulumi:"secondaryDomainControllers"`
-}
-
-func (ActiveDirectoryDomainControllersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryDomainControllers)(nil)).Elem()
-}
-
-func (i ActiveDirectoryDomainControllersArgs) ToActiveDirectoryDomainControllersOutput() ActiveDirectoryDomainControllersOutput {
-	return i.ToActiveDirectoryDomainControllersOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryDomainControllersArgs) ToActiveDirectoryDomainControllersOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllersOutput)
-}
-
-// Details about the Active Directory domain controllers associated with this AD connector instance
-type ActiveDirectoryDomainControllersOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryDomainControllers)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllersOutput) ToActiveDirectoryDomainControllersOutput() ActiveDirectoryDomainControllersOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllersOutput) ToActiveDirectoryDomainControllersOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllersOutput {
-	return o
-}
-
-// Information about the Primary Domain Controller (PDC) in the AD domain.
-func (o ActiveDirectoryDomainControllersOutput) PrimaryDomainController() ActiveDirectoryDomainControllerPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryDomainControllers) *ActiveDirectoryDomainController {
-		return v.PrimaryDomainController
-	}).(ActiveDirectoryDomainControllerPtrOutput)
-}
-
-// null
-func (o ActiveDirectoryDomainControllersOutput) SecondaryDomainControllers() ActiveDirectoryDomainControllerArrayOutput {
-	return o.ApplyT(func(v ActiveDirectoryDomainControllers) []ActiveDirectoryDomainController {
-		return v.SecondaryDomainControllers
-	}).(ActiveDirectoryDomainControllerArrayOutput)
-}
-
-// Details about the Active Directory domain controllers associated with this AD connector instance
-type ActiveDirectoryDomainControllersResponse struct {
-	// Information about the Primary Domain Controller (PDC) in the AD domain.
-	PrimaryDomainController *ActiveDirectoryDomainControllerResponse `pulumi:"primaryDomainController"`
-	// null
-	SecondaryDomainControllers []ActiveDirectoryDomainControllerResponse `pulumi:"secondaryDomainControllers"`
-}
-
-// Details about the Active Directory domain controllers associated with this AD connector instance
-type ActiveDirectoryDomainControllersResponseOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryDomainControllersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryDomainControllersResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryDomainControllersResponseOutput) ToActiveDirectoryDomainControllersResponseOutput() ActiveDirectoryDomainControllersResponseOutput {
-	return o
-}
-
-func (o ActiveDirectoryDomainControllersResponseOutput) ToActiveDirectoryDomainControllersResponseOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllersResponseOutput {
-	return o
-}
-
-// Information about the Primary Domain Controller (PDC) in the AD domain.
-func (o ActiveDirectoryDomainControllersResponseOutput) PrimaryDomainController() ActiveDirectoryDomainControllerResponsePtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryDomainControllersResponse) *ActiveDirectoryDomainControllerResponse {
-		return v.PrimaryDomainController
-	}).(ActiveDirectoryDomainControllerResponsePtrOutput)
-}
-
-// null
-func (o ActiveDirectoryDomainControllersResponseOutput) SecondaryDomainControllers() ActiveDirectoryDomainControllerResponseArrayOutput {
-	return o.ApplyT(func(v ActiveDirectoryDomainControllersResponse) []ActiveDirectoryDomainControllerResponse {
-		return v.SecondaryDomainControllers
-	}).(ActiveDirectoryDomainControllerResponseArrayOutput)
-}
-
 // Username and password for basic login authentication.
 type BasicLoginInformation struct {
 	// Login password.
@@ -1527,20 +231,43 @@ func (o BasicLoginInformationResponsePtrOutput) Username() pulumi.StringPtrOutpu
 
 // The data controller properties.
 type DataControllerProperties struct {
-	// Username and password for basic login authentication.
+	// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
 	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
+	// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+	ClusterId *string `pulumi:"clusterId"`
+	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+	ExtensionId *string `pulumi:"extensionId"`
+	// The infrastructure the data controller is running on.
+	Infrastructure *Infrastructure `pulumi:"infrastructure"`
 	// The raw kubernetes information
 	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// Log analytics workspace id and primary key
 	LogAnalyticsWorkspaceConfig *LogAnalyticsWorkspaceConfig `pulumi:"logAnalyticsWorkspaceConfig"`
+	// Login credential for logs dashboard on the Kubernetes cluster.
+	LogsDashboardCredential *BasicLoginInformation `pulumi:"logsDashboardCredential"`
+	// Login credential for metrics dashboard on the Kubernetes cluster.
+	MetricsDashboardCredential *BasicLoginInformation `pulumi:"metricsDashboardCredential"`
 	// Properties from the Kubernetes data controller
 	OnPremiseProperty *OnPremiseProperty `pulumi:"onPremiseProperty"`
-	// Service principal for uploading billing, metrics and logs.
+	// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
 	UploadServicePrincipal *UploadServicePrincipal `pulumi:"uploadServicePrincipal"`
 	// Properties on upload watermark.  Mostly timestamp for each upload data type
 	UploadWatermark *UploadWatermark `pulumi:"uploadWatermark"`
+}
+
+// Defaults sets the appropriate defaults for DataControllerProperties
+func (val *DataControllerProperties) Defaults() *DataControllerProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		infrastructure_ := Infrastructure("other")
+		tmp.Infrastructure = &infrastructure_
+	}
+	return &tmp
 }
 
 // DataControllerPropertiesInput is an input type that accepts DataControllerPropertiesArgs and DataControllerPropertiesOutput values.
@@ -1556,22 +283,43 @@ type DataControllerPropertiesInput interface {
 
 // The data controller properties.
 type DataControllerPropertiesArgs struct {
-	// Username and password for basic login authentication.
+	// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
 	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
+	// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
+	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+	ExtensionId pulumi.StringPtrInput `pulumi:"extensionId"`
+	// The infrastructure the data controller is running on.
+	Infrastructure InfrastructurePtrInput `pulumi:"infrastructure"`
 	// The raw kubernetes information
 	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
 	// Log analytics workspace id and primary key
 	LogAnalyticsWorkspaceConfig LogAnalyticsWorkspaceConfigPtrInput `pulumi:"logAnalyticsWorkspaceConfig"`
+	// Login credential for logs dashboard on the Kubernetes cluster.
+	LogsDashboardCredential BasicLoginInformationPtrInput `pulumi:"logsDashboardCredential"`
+	// Login credential for metrics dashboard on the Kubernetes cluster.
+	MetricsDashboardCredential BasicLoginInformationPtrInput `pulumi:"metricsDashboardCredential"`
 	// Properties from the Kubernetes data controller
 	OnPremiseProperty OnPremisePropertyPtrInput `pulumi:"onPremiseProperty"`
-	// Service principal for uploading billing, metrics and logs.
+	// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
 	UploadServicePrincipal UploadServicePrincipalPtrInput `pulumi:"uploadServicePrincipal"`
 	// Properties on upload watermark.  Mostly timestamp for each upload data type
 	UploadWatermark UploadWatermarkPtrInput `pulumi:"uploadWatermark"`
 }
 
+// Defaults sets the appropriate defaults for DataControllerPropertiesArgs
+func (val *DataControllerPropertiesArgs) Defaults() *DataControllerPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		tmp.Infrastructure = Infrastructure("other")
+	}
+	return &tmp
+}
 func (DataControllerPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataControllerProperties)(nil)).Elem()
 }
@@ -1599,9 +347,24 @@ func (o DataControllerPropertiesOutput) ToDataControllerPropertiesOutputWithCont
 	return o
 }
 
-// Username and password for basic login authentication.
+// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
 func (o DataControllerPropertiesOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *BasicLoginInformation { return v.BasicLoginInformation }).(BasicLoginInformationPtrOutput)
+}
+
+// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+func (o DataControllerPropertiesOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataControllerProperties) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
+// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+func (o DataControllerPropertiesOutput) ExtensionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataControllerProperties) *string { return v.ExtensionId }).(pulumi.StringPtrOutput)
+}
+
+// The infrastructure the data controller is running on.
+func (o DataControllerPropertiesOutput) Infrastructure() InfrastructurePtrOutput {
+	return o.ApplyT(func(v DataControllerProperties) *Infrastructure { return v.Infrastructure }).(InfrastructurePtrOutput)
 }
 
 // The raw kubernetes information
@@ -1619,12 +382,22 @@ func (o DataControllerPropertiesOutput) LogAnalyticsWorkspaceConfig() LogAnalyti
 	return o.ApplyT(func(v DataControllerProperties) *LogAnalyticsWorkspaceConfig { return v.LogAnalyticsWorkspaceConfig }).(LogAnalyticsWorkspaceConfigPtrOutput)
 }
 
+// Login credential for logs dashboard on the Kubernetes cluster.
+func (o DataControllerPropertiesOutput) LogsDashboardCredential() BasicLoginInformationPtrOutput {
+	return o.ApplyT(func(v DataControllerProperties) *BasicLoginInformation { return v.LogsDashboardCredential }).(BasicLoginInformationPtrOutput)
+}
+
+// Login credential for metrics dashboard on the Kubernetes cluster.
+func (o DataControllerPropertiesOutput) MetricsDashboardCredential() BasicLoginInformationPtrOutput {
+	return o.ApplyT(func(v DataControllerProperties) *BasicLoginInformation { return v.MetricsDashboardCredential }).(BasicLoginInformationPtrOutput)
+}
+
 // Properties from the Kubernetes data controller
 func (o DataControllerPropertiesOutput) OnPremiseProperty() OnPremisePropertyPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *OnPremiseProperty { return v.OnPremiseProperty }).(OnPremisePropertyPtrOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
+// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
 func (o DataControllerPropertiesOutput) UploadServicePrincipal() UploadServicePrincipalPtrOutput {
 	return o.ApplyT(func(v DataControllerProperties) *UploadServicePrincipal { return v.UploadServicePrincipal }).(UploadServicePrincipalPtrOutput)
 }
@@ -1636,21 +409,44 @@ func (o DataControllerPropertiesOutput) UploadWatermark() UploadWatermarkPtrOutp
 
 // The data controller properties.
 type DataControllerPropertiesResponse struct {
-	// Username and password for basic login authentication.
+	// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
+	// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+	ClusterId *string `pulumi:"clusterId"`
+	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+	ExtensionId *string `pulumi:"extensionId"`
+	// The infrastructure the data controller is running on.
+	Infrastructure *string `pulumi:"infrastructure"`
 	// The raw kubernetes information
 	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// Log analytics workspace id and primary key
 	LogAnalyticsWorkspaceConfig *LogAnalyticsWorkspaceConfigResponse `pulumi:"logAnalyticsWorkspaceConfig"`
+	// Login credential for logs dashboard on the Kubernetes cluster.
+	LogsDashboardCredential *BasicLoginInformationResponse `pulumi:"logsDashboardCredential"`
+	// Login credential for metrics dashboard on the Kubernetes cluster.
+	MetricsDashboardCredential *BasicLoginInformationResponse `pulumi:"metricsDashboardCredential"`
 	// Properties from the Kubernetes data controller
 	OnPremiseProperty *OnPremisePropertyResponse `pulumi:"onPremiseProperty"`
 	ProvisioningState string                     `pulumi:"provisioningState"`
-	// Service principal for uploading billing, metrics and logs.
+	// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
 	UploadServicePrincipal *UploadServicePrincipalResponse `pulumi:"uploadServicePrincipal"`
 	// Properties on upload watermark.  Mostly timestamp for each upload data type
 	UploadWatermark *UploadWatermarkResponse `pulumi:"uploadWatermark"`
+}
+
+// Defaults sets the appropriate defaults for DataControllerPropertiesResponse
+func (val *DataControllerPropertiesResponse) Defaults() *DataControllerPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		infrastructure_ := "other"
+		tmp.Infrastructure = &infrastructure_
+	}
+	return &tmp
 }
 
 // The data controller properties.
@@ -1668,11 +464,26 @@ func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesRespon
 	return o
 }
 
-// Username and password for basic login authentication.
+// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
 func (o DataControllerPropertiesResponseOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *BasicLoginInformationResponse {
 		return v.BasicLoginInformation
 	}).(BasicLoginInformationResponsePtrOutput)
+}
+
+// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+func (o DataControllerPropertiesResponseOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataControllerPropertiesResponse) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
+// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+func (o DataControllerPropertiesResponseOutput) ExtensionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataControllerPropertiesResponse) *string { return v.ExtensionId }).(pulumi.StringPtrOutput)
+}
+
+// The infrastructure the data controller is running on.
+func (o DataControllerPropertiesResponseOutput) Infrastructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataControllerPropertiesResponse) *string { return v.Infrastructure }).(pulumi.StringPtrOutput)
 }
 
 // The raw kubernetes information
@@ -1692,6 +503,20 @@ func (o DataControllerPropertiesResponseOutput) LogAnalyticsWorkspaceConfig() Lo
 	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
 
+// Login credential for logs dashboard on the Kubernetes cluster.
+func (o DataControllerPropertiesResponseOutput) LogsDashboardCredential() BasicLoginInformationResponsePtrOutput {
+	return o.ApplyT(func(v DataControllerPropertiesResponse) *BasicLoginInformationResponse {
+		return v.LogsDashboardCredential
+	}).(BasicLoginInformationResponsePtrOutput)
+}
+
+// Login credential for metrics dashboard on the Kubernetes cluster.
+func (o DataControllerPropertiesResponseOutput) MetricsDashboardCredential() BasicLoginInformationResponsePtrOutput {
+	return o.ApplyT(func(v DataControllerPropertiesResponse) *BasicLoginInformationResponse {
+		return v.MetricsDashboardCredential
+	}).(BasicLoginInformationResponsePtrOutput)
+}
+
 // Properties from the Kubernetes data controller
 func (o DataControllerPropertiesResponseOutput) OnPremiseProperty() OnPremisePropertyResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *OnPremisePropertyResponse { return v.OnPremiseProperty }).(OnPremisePropertyResponsePtrOutput)
@@ -1701,7 +526,7 @@ func (o DataControllerPropertiesResponseOutput) ProvisioningState() pulumi.Strin
 	return o.ApplyT(func(v DataControllerPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Service principal for uploading billing, metrics and logs.
+// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
 func (o DataControllerPropertiesResponseOutput) UploadServicePrincipal() UploadServicePrincipalResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *UploadServicePrincipalResponse {
 		return v.UploadServicePrincipal
@@ -1947,6 +772,642 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+type K8sResourceRequirements struct {
+	// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+	Limits map[string]string `pulumi:"limits"`
+	// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// K8sResourceRequirementsInput is an input type that accepts K8sResourceRequirementsArgs and K8sResourceRequirementsOutput values.
+// You can construct a concrete instance of `K8sResourceRequirementsInput` via:
+//
+//          K8sResourceRequirementsArgs{...}
+type K8sResourceRequirementsInput interface {
+	pulumi.Input
+
+	ToK8sResourceRequirementsOutput() K8sResourceRequirementsOutput
+	ToK8sResourceRequirementsOutputWithContext(context.Context) K8sResourceRequirementsOutput
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+type K8sResourceRequirementsArgs struct {
+	// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+	Limits pulumi.StringMapInput `pulumi:"limits"`
+	// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+	Requests pulumi.StringMapInput `pulumi:"requests"`
+}
+
+func (K8sResourceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sResourceRequirements)(nil)).Elem()
+}
+
+func (i K8sResourceRequirementsArgs) ToK8sResourceRequirementsOutput() K8sResourceRequirementsOutput {
+	return i.ToK8sResourceRequirementsOutputWithContext(context.Background())
+}
+
+func (i K8sResourceRequirementsArgs) ToK8sResourceRequirementsOutputWithContext(ctx context.Context) K8sResourceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sResourceRequirementsOutput)
+}
+
+func (i K8sResourceRequirementsArgs) ToK8sResourceRequirementsPtrOutput() K8sResourceRequirementsPtrOutput {
+	return i.ToK8sResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i K8sResourceRequirementsArgs) ToK8sResourceRequirementsPtrOutputWithContext(ctx context.Context) K8sResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sResourceRequirementsOutput).ToK8sResourceRequirementsPtrOutputWithContext(ctx)
+}
+
+// K8sResourceRequirementsPtrInput is an input type that accepts K8sResourceRequirementsArgs, K8sResourceRequirementsPtr and K8sResourceRequirementsPtrOutput values.
+// You can construct a concrete instance of `K8sResourceRequirementsPtrInput` via:
+//
+//          K8sResourceRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type K8sResourceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToK8sResourceRequirementsPtrOutput() K8sResourceRequirementsPtrOutput
+	ToK8sResourceRequirementsPtrOutputWithContext(context.Context) K8sResourceRequirementsPtrOutput
+}
+
+type k8sResourceRequirementsPtrType K8sResourceRequirementsArgs
+
+func K8sResourceRequirementsPtr(v *K8sResourceRequirementsArgs) K8sResourceRequirementsPtrInput {
+	return (*k8sResourceRequirementsPtrType)(v)
+}
+
+func (*k8sResourceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sResourceRequirements)(nil)).Elem()
+}
+
+func (i *k8sResourceRequirementsPtrType) ToK8sResourceRequirementsPtrOutput() K8sResourceRequirementsPtrOutput {
+	return i.ToK8sResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *k8sResourceRequirementsPtrType) ToK8sResourceRequirementsPtrOutputWithContext(ctx context.Context) K8sResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sResourceRequirementsPtrOutput)
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+type K8sResourceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (K8sResourceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sResourceRequirements)(nil)).Elem()
+}
+
+func (o K8sResourceRequirementsOutput) ToK8sResourceRequirementsOutput() K8sResourceRequirementsOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsOutput) ToK8sResourceRequirementsOutputWithContext(ctx context.Context) K8sResourceRequirementsOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsOutput) ToK8sResourceRequirementsPtrOutput() K8sResourceRequirementsPtrOutput {
+	return o.ToK8sResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o K8sResourceRequirementsOutput) ToK8sResourceRequirementsPtrOutputWithContext(ctx context.Context) K8sResourceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v K8sResourceRequirements) *K8sResourceRequirements {
+		return &v
+	}).(K8sResourceRequirementsPtrOutput)
+}
+
+// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v K8sResourceRequirements) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
+}
+
+// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v K8sResourceRequirements) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
+}
+
+type K8sResourceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (K8sResourceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sResourceRequirements)(nil)).Elem()
+}
+
+func (o K8sResourceRequirementsPtrOutput) ToK8sResourceRequirementsPtrOutput() K8sResourceRequirementsPtrOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsPtrOutput) ToK8sResourceRequirementsPtrOutputWithContext(ctx context.Context) K8sResourceRequirementsPtrOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsPtrOutput) Elem() K8sResourceRequirementsOutput {
+	return o.ApplyT(func(v *K8sResourceRequirements) K8sResourceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret K8sResourceRequirements
+		return ret
+	}).(K8sResourceRequirementsOutput)
+}
+
+// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsPtrOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *K8sResourceRequirements) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Limits
+	}).(pulumi.StringMapOutput)
+}
+
+// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsPtrOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *K8sResourceRequirements) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Requests
+	}).(pulumi.StringMapOutput)
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+type K8sResourceRequirementsResponse struct {
+	// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+	Limits map[string]string `pulumi:"limits"`
+	// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+type K8sResourceRequirementsResponseOutput struct{ *pulumi.OutputState }
+
+func (K8sResourceRequirementsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sResourceRequirementsResponse)(nil)).Elem()
+}
+
+func (o K8sResourceRequirementsResponseOutput) ToK8sResourceRequirementsResponseOutput() K8sResourceRequirementsResponseOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsResponseOutput) ToK8sResourceRequirementsResponseOutputWithContext(ctx context.Context) K8sResourceRequirementsResponseOutput {
+	return o
+}
+
+// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsResponseOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v K8sResourceRequirementsResponse) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
+}
+
+// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsResponseOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v K8sResourceRequirementsResponse) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
+}
+
+type K8sResourceRequirementsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (K8sResourceRequirementsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sResourceRequirementsResponse)(nil)).Elem()
+}
+
+func (o K8sResourceRequirementsResponsePtrOutput) ToK8sResourceRequirementsResponsePtrOutput() K8sResourceRequirementsResponsePtrOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsResponsePtrOutput) ToK8sResourceRequirementsResponsePtrOutputWithContext(ctx context.Context) K8sResourceRequirementsResponsePtrOutput {
+	return o
+}
+
+func (o K8sResourceRequirementsResponsePtrOutput) Elem() K8sResourceRequirementsResponseOutput {
+	return o.ApplyT(func(v *K8sResourceRequirementsResponse) K8sResourceRequirementsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret K8sResourceRequirementsResponse
+		return ret
+	}).(K8sResourceRequirementsResponseOutput)
+}
+
+// Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsResponsePtrOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *K8sResourceRequirementsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Limits
+	}).(pulumi.StringMapOutput)
+}
+
+// Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+func (o K8sResourceRequirementsResponsePtrOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *K8sResourceRequirementsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Requests
+	}).(pulumi.StringMapOutput)
+}
+
+// The kubernetes scheduling information.
+type K8sScheduling struct {
+	// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+	Default *K8sSchedulingOptions `pulumi:"default"`
+}
+
+// K8sSchedulingInput is an input type that accepts K8sSchedulingArgs and K8sSchedulingOutput values.
+// You can construct a concrete instance of `K8sSchedulingInput` via:
+//
+//          K8sSchedulingArgs{...}
+type K8sSchedulingInput interface {
+	pulumi.Input
+
+	ToK8sSchedulingOutput() K8sSchedulingOutput
+	ToK8sSchedulingOutputWithContext(context.Context) K8sSchedulingOutput
+}
+
+// The kubernetes scheduling information.
+type K8sSchedulingArgs struct {
+	// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+	Default K8sSchedulingOptionsPtrInput `pulumi:"default"`
+}
+
+func (K8sSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sScheduling)(nil)).Elem()
+}
+
+func (i K8sSchedulingArgs) ToK8sSchedulingOutput() K8sSchedulingOutput {
+	return i.ToK8sSchedulingOutputWithContext(context.Background())
+}
+
+func (i K8sSchedulingArgs) ToK8sSchedulingOutputWithContext(ctx context.Context) K8sSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sSchedulingOutput)
+}
+
+func (i K8sSchedulingArgs) ToK8sSchedulingPtrOutput() K8sSchedulingPtrOutput {
+	return i.ToK8sSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i K8sSchedulingArgs) ToK8sSchedulingPtrOutputWithContext(ctx context.Context) K8sSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sSchedulingOutput).ToK8sSchedulingPtrOutputWithContext(ctx)
+}
+
+// K8sSchedulingPtrInput is an input type that accepts K8sSchedulingArgs, K8sSchedulingPtr and K8sSchedulingPtrOutput values.
+// You can construct a concrete instance of `K8sSchedulingPtrInput` via:
+//
+//          K8sSchedulingArgs{...}
+//
+//  or:
+//
+//          nil
+type K8sSchedulingPtrInput interface {
+	pulumi.Input
+
+	ToK8sSchedulingPtrOutput() K8sSchedulingPtrOutput
+	ToK8sSchedulingPtrOutputWithContext(context.Context) K8sSchedulingPtrOutput
+}
+
+type k8sSchedulingPtrType K8sSchedulingArgs
+
+func K8sSchedulingPtr(v *K8sSchedulingArgs) K8sSchedulingPtrInput {
+	return (*k8sSchedulingPtrType)(v)
+}
+
+func (*k8sSchedulingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sScheduling)(nil)).Elem()
+}
+
+func (i *k8sSchedulingPtrType) ToK8sSchedulingPtrOutput() K8sSchedulingPtrOutput {
+	return i.ToK8sSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i *k8sSchedulingPtrType) ToK8sSchedulingPtrOutputWithContext(ctx context.Context) K8sSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sSchedulingPtrOutput)
+}
+
+// The kubernetes scheduling information.
+type K8sSchedulingOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sScheduling)(nil)).Elem()
+}
+
+func (o K8sSchedulingOutput) ToK8sSchedulingOutput() K8sSchedulingOutput {
+	return o
+}
+
+func (o K8sSchedulingOutput) ToK8sSchedulingOutputWithContext(ctx context.Context) K8sSchedulingOutput {
+	return o
+}
+
+func (o K8sSchedulingOutput) ToK8sSchedulingPtrOutput() K8sSchedulingPtrOutput {
+	return o.ToK8sSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (o K8sSchedulingOutput) ToK8sSchedulingPtrOutputWithContext(ctx context.Context) K8sSchedulingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v K8sScheduling) *K8sScheduling {
+		return &v
+	}).(K8sSchedulingPtrOutput)
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+func (o K8sSchedulingOutput) Default() K8sSchedulingOptionsPtrOutput {
+	return o.ApplyT(func(v K8sScheduling) *K8sSchedulingOptions { return v.Default }).(K8sSchedulingOptionsPtrOutput)
+}
+
+type K8sSchedulingPtrOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sScheduling)(nil)).Elem()
+}
+
+func (o K8sSchedulingPtrOutput) ToK8sSchedulingPtrOutput() K8sSchedulingPtrOutput {
+	return o
+}
+
+func (o K8sSchedulingPtrOutput) ToK8sSchedulingPtrOutputWithContext(ctx context.Context) K8sSchedulingPtrOutput {
+	return o
+}
+
+func (o K8sSchedulingPtrOutput) Elem() K8sSchedulingOutput {
+	return o.ApplyT(func(v *K8sScheduling) K8sScheduling {
+		if v != nil {
+			return *v
+		}
+		var ret K8sScheduling
+		return ret
+	}).(K8sSchedulingOutput)
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+func (o K8sSchedulingPtrOutput) Default() K8sSchedulingOptionsPtrOutput {
+	return o.ApplyT(func(v *K8sScheduling) *K8sSchedulingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(K8sSchedulingOptionsPtrOutput)
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+type K8sSchedulingOptions struct {
+	// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+	Resources *K8sResourceRequirements `pulumi:"resources"`
+}
+
+// K8sSchedulingOptionsInput is an input type that accepts K8sSchedulingOptionsArgs and K8sSchedulingOptionsOutput values.
+// You can construct a concrete instance of `K8sSchedulingOptionsInput` via:
+//
+//          K8sSchedulingOptionsArgs{...}
+type K8sSchedulingOptionsInput interface {
+	pulumi.Input
+
+	ToK8sSchedulingOptionsOutput() K8sSchedulingOptionsOutput
+	ToK8sSchedulingOptionsOutputWithContext(context.Context) K8sSchedulingOptionsOutput
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+type K8sSchedulingOptionsArgs struct {
+	// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+	Resources K8sResourceRequirementsPtrInput `pulumi:"resources"`
+}
+
+func (K8sSchedulingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sSchedulingOptions)(nil)).Elem()
+}
+
+func (i K8sSchedulingOptionsArgs) ToK8sSchedulingOptionsOutput() K8sSchedulingOptionsOutput {
+	return i.ToK8sSchedulingOptionsOutputWithContext(context.Background())
+}
+
+func (i K8sSchedulingOptionsArgs) ToK8sSchedulingOptionsOutputWithContext(ctx context.Context) K8sSchedulingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sSchedulingOptionsOutput)
+}
+
+func (i K8sSchedulingOptionsArgs) ToK8sSchedulingOptionsPtrOutput() K8sSchedulingOptionsPtrOutput {
+	return i.ToK8sSchedulingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i K8sSchedulingOptionsArgs) ToK8sSchedulingOptionsPtrOutputWithContext(ctx context.Context) K8sSchedulingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sSchedulingOptionsOutput).ToK8sSchedulingOptionsPtrOutputWithContext(ctx)
+}
+
+// K8sSchedulingOptionsPtrInput is an input type that accepts K8sSchedulingOptionsArgs, K8sSchedulingOptionsPtr and K8sSchedulingOptionsPtrOutput values.
+// You can construct a concrete instance of `K8sSchedulingOptionsPtrInput` via:
+//
+//          K8sSchedulingOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type K8sSchedulingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToK8sSchedulingOptionsPtrOutput() K8sSchedulingOptionsPtrOutput
+	ToK8sSchedulingOptionsPtrOutputWithContext(context.Context) K8sSchedulingOptionsPtrOutput
+}
+
+type k8sSchedulingOptionsPtrType K8sSchedulingOptionsArgs
+
+func K8sSchedulingOptionsPtr(v *K8sSchedulingOptionsArgs) K8sSchedulingOptionsPtrInput {
+	return (*k8sSchedulingOptionsPtrType)(v)
+}
+
+func (*k8sSchedulingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sSchedulingOptions)(nil)).Elem()
+}
+
+func (i *k8sSchedulingOptionsPtrType) ToK8sSchedulingOptionsPtrOutput() K8sSchedulingOptionsPtrOutput {
+	return i.ToK8sSchedulingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *k8sSchedulingOptionsPtrType) ToK8sSchedulingOptionsPtrOutputWithContext(ctx context.Context) K8sSchedulingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(K8sSchedulingOptionsPtrOutput)
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+type K8sSchedulingOptionsOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sSchedulingOptions)(nil)).Elem()
+}
+
+func (o K8sSchedulingOptionsOutput) ToK8sSchedulingOptionsOutput() K8sSchedulingOptionsOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsOutput) ToK8sSchedulingOptionsOutputWithContext(ctx context.Context) K8sSchedulingOptionsOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsOutput) ToK8sSchedulingOptionsPtrOutput() K8sSchedulingOptionsPtrOutput {
+	return o.ToK8sSchedulingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o K8sSchedulingOptionsOutput) ToK8sSchedulingOptionsPtrOutputWithContext(ctx context.Context) K8sSchedulingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v K8sSchedulingOptions) *K8sSchedulingOptions {
+		return &v
+	}).(K8sSchedulingOptionsPtrOutput)
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+func (o K8sSchedulingOptionsOutput) Resources() K8sResourceRequirementsPtrOutput {
+	return o.ApplyT(func(v K8sSchedulingOptions) *K8sResourceRequirements { return v.Resources }).(K8sResourceRequirementsPtrOutput)
+}
+
+type K8sSchedulingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sSchedulingOptions)(nil)).Elem()
+}
+
+func (o K8sSchedulingOptionsPtrOutput) ToK8sSchedulingOptionsPtrOutput() K8sSchedulingOptionsPtrOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsPtrOutput) ToK8sSchedulingOptionsPtrOutputWithContext(ctx context.Context) K8sSchedulingOptionsPtrOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsPtrOutput) Elem() K8sSchedulingOptionsOutput {
+	return o.ApplyT(func(v *K8sSchedulingOptions) K8sSchedulingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret K8sSchedulingOptions
+		return ret
+	}).(K8sSchedulingOptionsOutput)
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+func (o K8sSchedulingOptionsPtrOutput) Resources() K8sResourceRequirementsPtrOutput {
+	return o.ApplyT(func(v *K8sSchedulingOptions) *K8sResourceRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(K8sResourceRequirementsPtrOutput)
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+type K8sSchedulingOptionsResponse struct {
+	// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+	Resources *K8sResourceRequirementsResponse `pulumi:"resources"`
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+type K8sSchedulingOptionsResponseOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingOptionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sSchedulingOptionsResponse)(nil)).Elem()
+}
+
+func (o K8sSchedulingOptionsResponseOutput) ToK8sSchedulingOptionsResponseOutput() K8sSchedulingOptionsResponseOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsResponseOutput) ToK8sSchedulingOptionsResponseOutputWithContext(ctx context.Context) K8sSchedulingOptionsResponseOutput {
+	return o
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+func (o K8sSchedulingOptionsResponseOutput) Resources() K8sResourceRequirementsResponsePtrOutput {
+	return o.ApplyT(func(v K8sSchedulingOptionsResponse) *K8sResourceRequirementsResponse { return v.Resources }).(K8sResourceRequirementsResponsePtrOutput)
+}
+
+type K8sSchedulingOptionsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingOptionsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sSchedulingOptionsResponse)(nil)).Elem()
+}
+
+func (o K8sSchedulingOptionsResponsePtrOutput) ToK8sSchedulingOptionsResponsePtrOutput() K8sSchedulingOptionsResponsePtrOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsResponsePtrOutput) ToK8sSchedulingOptionsResponsePtrOutputWithContext(ctx context.Context) K8sSchedulingOptionsResponsePtrOutput {
+	return o
+}
+
+func (o K8sSchedulingOptionsResponsePtrOutput) Elem() K8sSchedulingOptionsResponseOutput {
+	return o.ApplyT(func(v *K8sSchedulingOptionsResponse) K8sSchedulingOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret K8sSchedulingOptionsResponse
+		return ret
+	}).(K8sSchedulingOptionsResponseOutput)
+}
+
+// The kubernetes resource limits and requests used to restrict or reserve resource usage.
+func (o K8sSchedulingOptionsResponsePtrOutput) Resources() K8sResourceRequirementsResponsePtrOutput {
+	return o.ApplyT(func(v *K8sSchedulingOptionsResponse) *K8sResourceRequirementsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(K8sResourceRequirementsResponsePtrOutput)
+}
+
+// The kubernetes scheduling information.
+type K8sSchedulingResponse struct {
+	// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+	Default *K8sSchedulingOptionsResponse `pulumi:"default"`
+}
+
+// The kubernetes scheduling information.
+type K8sSchedulingResponseOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*K8sSchedulingResponse)(nil)).Elem()
+}
+
+func (o K8sSchedulingResponseOutput) ToK8sSchedulingResponseOutput() K8sSchedulingResponseOutput {
+	return o
+}
+
+func (o K8sSchedulingResponseOutput) ToK8sSchedulingResponseOutputWithContext(ctx context.Context) K8sSchedulingResponseOutput {
+	return o
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+func (o K8sSchedulingResponseOutput) Default() K8sSchedulingOptionsResponsePtrOutput {
+	return o.ApplyT(func(v K8sSchedulingResponse) *K8sSchedulingOptionsResponse { return v.Default }).(K8sSchedulingOptionsResponsePtrOutput)
+}
+
+type K8sSchedulingResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (K8sSchedulingResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**K8sSchedulingResponse)(nil)).Elem()
+}
+
+func (o K8sSchedulingResponsePtrOutput) ToK8sSchedulingResponsePtrOutput() K8sSchedulingResponsePtrOutput {
+	return o
+}
+
+func (o K8sSchedulingResponsePtrOutput) ToK8sSchedulingResponsePtrOutputWithContext(ctx context.Context) K8sSchedulingResponsePtrOutput {
+	return o
+}
+
+func (o K8sSchedulingResponsePtrOutput) Elem() K8sSchedulingResponseOutput {
+	return o.ApplyT(func(v *K8sSchedulingResponse) K8sSchedulingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret K8sSchedulingResponse
+		return ret
+	}).(K8sSchedulingResponseOutput)
+}
+
+// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+func (o K8sSchedulingResponsePtrOutput) Default() K8sSchedulingOptionsResponsePtrOutput {
+	return o.ApplyT(func(v *K8sSchedulingResponse) *K8sSchedulingOptionsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(K8sSchedulingOptionsResponsePtrOutput)
 }
 
 // Log analytics workspace id and primary key
@@ -2440,584 +1901,440 @@ func (o OnPremisePropertyResponsePtrOutput) SigningCertificateThumbprint() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Postgres Instance properties.
-type PostgresInstanceProperties struct {
-	// The instance admin
-	Admin *string `pulumi:"admin"`
-	// Username and password for basic authentication.
-	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId *string `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate *string `pulumi:"lastUploadedDate"`
+// The raw kubernetes information.
+type SqlManagedInstanceK8sRaw struct {
+	// The kubernetes spec information.
+	Spec *SqlManagedInstanceK8sSpec `pulumi:"spec"`
 }
 
-// PostgresInstancePropertiesInput is an input type that accepts PostgresInstancePropertiesArgs and PostgresInstancePropertiesOutput values.
-// You can construct a concrete instance of `PostgresInstancePropertiesInput` via:
+// SqlManagedInstanceK8sRawInput is an input type that accepts SqlManagedInstanceK8sRawArgs and SqlManagedInstanceK8sRawOutput values.
+// You can construct a concrete instance of `SqlManagedInstanceK8sRawInput` via:
 //
-//          PostgresInstancePropertiesArgs{...}
-type PostgresInstancePropertiesInput interface {
+//          SqlManagedInstanceK8sRawArgs{...}
+type SqlManagedInstanceK8sRawInput interface {
 	pulumi.Input
 
-	ToPostgresInstancePropertiesOutput() PostgresInstancePropertiesOutput
-	ToPostgresInstancePropertiesOutputWithContext(context.Context) PostgresInstancePropertiesOutput
+	ToSqlManagedInstanceK8sRawOutput() SqlManagedInstanceK8sRawOutput
+	ToSqlManagedInstanceK8sRawOutputWithContext(context.Context) SqlManagedInstanceK8sRawOutput
 }
 
-// Postgres Instance properties.
-type PostgresInstancePropertiesArgs struct {
-	// The instance admin
-	Admin pulumi.StringPtrInput `pulumi:"admin"`
-	// Username and password for basic authentication.
-	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId pulumi.StringPtrInput `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
+// The raw kubernetes information.
+type SqlManagedInstanceK8sRawArgs struct {
+	// The kubernetes spec information.
+	Spec SqlManagedInstanceK8sSpecPtrInput `pulumi:"spec"`
 }
 
-func (PostgresInstancePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceProperties)(nil)).Elem()
+func (SqlManagedInstanceK8sRawArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceK8sRaw)(nil)).Elem()
 }
 
-func (i PostgresInstancePropertiesArgs) ToPostgresInstancePropertiesOutput() PostgresInstancePropertiesOutput {
-	return i.ToPostgresInstancePropertiesOutputWithContext(context.Background())
+func (i SqlManagedInstanceK8sRawArgs) ToSqlManagedInstanceK8sRawOutput() SqlManagedInstanceK8sRawOutput {
+	return i.ToSqlManagedInstanceK8sRawOutputWithContext(context.Background())
 }
 
-func (i PostgresInstancePropertiesArgs) ToPostgresInstancePropertiesOutputWithContext(ctx context.Context) PostgresInstancePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesOutput)
+func (i SqlManagedInstanceK8sRawArgs) ToSqlManagedInstanceK8sRawOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceK8sRawOutput)
 }
 
-// Postgres Instance properties.
-type PostgresInstancePropertiesOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstancePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceProperties)(nil)).Elem()
+func (i SqlManagedInstanceK8sRawArgs) ToSqlManagedInstanceK8sRawPtrOutput() SqlManagedInstanceK8sRawPtrOutput {
+	return i.ToSqlManagedInstanceK8sRawPtrOutputWithContext(context.Background())
 }
 
-func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesOutput() PostgresInstancePropertiesOutput {
-	return o
+func (i SqlManagedInstanceK8sRawArgs) ToSqlManagedInstanceK8sRawPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceK8sRawOutput).ToSqlManagedInstanceK8sRawPtrOutputWithContext(ctx)
 }
 
-func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesOutputWithContext(ctx context.Context) PostgresInstancePropertiesOutput {
-	return o
-}
-
-// The instance admin
-func (o PostgresInstancePropertiesOutput) Admin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.Admin }).(pulumi.StringPtrOutput)
-}
-
-// Username and password for basic authentication.
-func (o PostgresInstancePropertiesOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceProperties) *BasicLoginInformation { return v.BasicLoginInformation }).(BasicLoginInformationPtrOutput)
-}
-
-// The data controller id
-func (o PostgresInstancePropertiesOutput) DataControllerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
-}
-
-// The raw kubernetes information
-func (o PostgresInstancePropertiesOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v PostgresInstanceProperties) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
-}
-
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
-func (o PostgresInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
-}
-
-// Postgres Instance properties.
-type PostgresInstancePropertiesResponse struct {
-	// The instance admin
-	Admin *string `pulumi:"admin"`
-	// Username and password for basic authentication.
-	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
-	// The data controller id
-	DataControllerId *string `pulumi:"dataControllerId"`
-	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
-	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate  *string `pulumi:"lastUploadedDate"`
-	ProvisioningState string  `pulumi:"provisioningState"`
-}
-
-// Postgres Instance properties.
-type PostgresInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstancePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesResponseOutput() PostgresInstancePropertiesResponseOutput {
-	return o
-}
-
-func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesResponseOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponseOutput {
-	return o
-}
-
-// The instance admin
-func (o PostgresInstancePropertiesResponseOutput) Admin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *string { return v.Admin }).(pulumi.StringPtrOutput)
-}
-
-// Username and password for basic authentication.
-func (o PostgresInstancePropertiesResponseOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *BasicLoginInformationResponse {
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationResponsePtrOutput)
-}
-
-// The data controller id
-func (o PostgresInstancePropertiesResponseOutput) DataControllerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
-}
-
-// The raw kubernetes information
-func (o PostgresInstancePropertiesResponseOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
-}
-
-// Last uploaded date from Kubernetes cluster. Defaults to current date time
-func (o PostgresInstancePropertiesResponseOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
-}
-
-func (o PostgresInstancePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v PostgresInstancePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
-type PostgresInstanceSku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *PostgresInstanceSkuTier `pulumi:"tier"`
-}
-
-// Defaults sets the appropriate defaults for PostgresInstanceSku
-func (val *PostgresInstanceSku) Defaults() *PostgresInstanceSku {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Dev) {
-		dev_ := true
-		tmp.Dev = &dev_
-	}
-	if isZero(tmp.Tier) {
-		tier_ := PostgresInstanceSkuTier("Hyperscale")
-		tmp.Tier = &tier_
-	}
-	return &tmp
-}
-
-// PostgresInstanceSkuInput is an input type that accepts PostgresInstanceSkuArgs and PostgresInstanceSkuOutput values.
-// You can construct a concrete instance of `PostgresInstanceSkuInput` via:
+// SqlManagedInstanceK8sRawPtrInput is an input type that accepts SqlManagedInstanceK8sRawArgs, SqlManagedInstanceK8sRawPtr and SqlManagedInstanceK8sRawPtrOutput values.
+// You can construct a concrete instance of `SqlManagedInstanceK8sRawPtrInput` via:
 //
-//          PostgresInstanceSkuArgs{...}
-type PostgresInstanceSkuInput interface {
-	pulumi.Input
-
-	ToPostgresInstanceSkuOutput() PostgresInstanceSkuOutput
-	ToPostgresInstanceSkuOutputWithContext(context.Context) PostgresInstanceSkuOutput
-}
-
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
-type PostgresInstanceSkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev pulumi.BoolPtrInput `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
-}
-
-// Defaults sets the appropriate defaults for PostgresInstanceSkuArgs
-func (val *PostgresInstanceSkuArgs) Defaults() *PostgresInstanceSkuArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Dev) {
-		tmp.Dev = pulumi.BoolPtr(true)
-	}
-	if isZero(tmp.Tier) {
-		tmp.Tier = PostgresInstanceSkuTier("Hyperscale")
-	}
-	return &tmp
-}
-func (PostgresInstanceSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceSku)(nil)).Elem()
-}
-
-func (i PostgresInstanceSkuArgs) ToPostgresInstanceSkuOutput() PostgresInstanceSkuOutput {
-	return i.ToPostgresInstanceSkuOutputWithContext(context.Background())
-}
-
-func (i PostgresInstanceSkuArgs) ToPostgresInstanceSkuOutputWithContext(ctx context.Context) PostgresInstanceSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuOutput)
-}
-
-func (i PostgresInstanceSkuArgs) ToPostgresInstanceSkuPtrOutput() PostgresInstanceSkuPtrOutput {
-	return i.ToPostgresInstanceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i PostgresInstanceSkuArgs) ToPostgresInstanceSkuPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuOutput).ToPostgresInstanceSkuPtrOutputWithContext(ctx)
-}
-
-// PostgresInstanceSkuPtrInput is an input type that accepts PostgresInstanceSkuArgs, PostgresInstanceSkuPtr and PostgresInstanceSkuPtrOutput values.
-// You can construct a concrete instance of `PostgresInstanceSkuPtrInput` via:
-//
-//          PostgresInstanceSkuArgs{...}
+//          SqlManagedInstanceK8sRawArgs{...}
 //
 //  or:
 //
 //          nil
-type PostgresInstanceSkuPtrInput interface {
+type SqlManagedInstanceK8sRawPtrInput interface {
 	pulumi.Input
 
-	ToPostgresInstanceSkuPtrOutput() PostgresInstanceSkuPtrOutput
-	ToPostgresInstanceSkuPtrOutputWithContext(context.Context) PostgresInstanceSkuPtrOutput
+	ToSqlManagedInstanceK8sRawPtrOutput() SqlManagedInstanceK8sRawPtrOutput
+	ToSqlManagedInstanceK8sRawPtrOutputWithContext(context.Context) SqlManagedInstanceK8sRawPtrOutput
 }
 
-type postgresInstanceSkuPtrType PostgresInstanceSkuArgs
+type sqlManagedInstanceK8sRawPtrType SqlManagedInstanceK8sRawArgs
 
-func PostgresInstanceSkuPtr(v *PostgresInstanceSkuArgs) PostgresInstanceSkuPtrInput {
-	return (*postgresInstanceSkuPtrType)(v)
+func SqlManagedInstanceK8sRawPtr(v *SqlManagedInstanceK8sRawArgs) SqlManagedInstanceK8sRawPtrInput {
+	return (*sqlManagedInstanceK8sRawPtrType)(v)
 }
 
-func (*postgresInstanceSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceSku)(nil)).Elem()
+func (*sqlManagedInstanceK8sRawPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceK8sRaw)(nil)).Elem()
 }
 
-func (i *postgresInstanceSkuPtrType) ToPostgresInstanceSkuPtrOutput() PostgresInstanceSkuPtrOutput {
-	return i.ToPostgresInstanceSkuPtrOutputWithContext(context.Background())
+func (i *sqlManagedInstanceK8sRawPtrType) ToSqlManagedInstanceK8sRawPtrOutput() SqlManagedInstanceK8sRawPtrOutput {
+	return i.ToSqlManagedInstanceK8sRawPtrOutputWithContext(context.Background())
 }
 
-func (i *postgresInstanceSkuPtrType) ToPostgresInstanceSkuPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuPtrOutput)
+func (i *sqlManagedInstanceK8sRawPtrType) ToSqlManagedInstanceK8sRawPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceK8sRawPtrOutput)
 }
 
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
-type PostgresInstanceSkuOutput struct{ *pulumi.OutputState }
+// The raw kubernetes information.
+type SqlManagedInstanceK8sRawOutput struct{ *pulumi.OutputState }
 
-func (PostgresInstanceSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceSku)(nil)).Elem()
+func (SqlManagedInstanceK8sRawOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceK8sRaw)(nil)).Elem()
 }
 
-func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuOutput() PostgresInstanceSkuOutput {
+func (o SqlManagedInstanceK8sRawOutput) ToSqlManagedInstanceK8sRawOutput() SqlManagedInstanceK8sRawOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuOutputWithContext(ctx context.Context) PostgresInstanceSkuOutput {
+func (o SqlManagedInstanceK8sRawOutput) ToSqlManagedInstanceK8sRawOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuPtrOutput() PostgresInstanceSkuPtrOutput {
-	return o.ToPostgresInstanceSkuPtrOutputWithContext(context.Background())
+func (o SqlManagedInstanceK8sRawOutput) ToSqlManagedInstanceK8sRawPtrOutput() SqlManagedInstanceK8sRawPtrOutput {
+	return o.ToSqlManagedInstanceK8sRawPtrOutputWithContext(context.Background())
 }
 
-func (o PostgresInstanceSkuOutput) ToPostgresInstanceSkuPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceSku) *PostgresInstanceSku {
+func (o SqlManagedInstanceK8sRawOutput) ToSqlManagedInstanceK8sRawPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceK8sRaw) *SqlManagedInstanceK8sRaw {
 		return &v
-	}).(PostgresInstanceSkuPtrOutput)
+	}).(SqlManagedInstanceK8sRawPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o PostgresInstanceSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+// The kubernetes spec information.
+func (o SqlManagedInstanceK8sRawOutput) Spec() SqlManagedInstanceK8sSpecPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceK8sRaw) *SqlManagedInstanceK8sSpec { return v.Spec }).(SqlManagedInstanceK8sSpecPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-func (o PostgresInstanceSkuOutput) Dev() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
+type SqlManagedInstanceK8sRawPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sRawPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceK8sRaw)(nil)).Elem()
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o PostgresInstanceSkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU.  It is typically a letter+number code
-func (o PostgresInstanceSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o PostgresInstanceSkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuOutput) Tier() PostgresInstanceSkuTierPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *PostgresInstanceSkuTier { return v.Tier }).(PostgresInstanceSkuTierPtrOutput)
-}
-
-type PostgresInstanceSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstanceSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceSku)(nil)).Elem()
-}
-
-func (o PostgresInstanceSkuPtrOutput) ToPostgresInstanceSkuPtrOutput() PostgresInstanceSkuPtrOutput {
+func (o SqlManagedInstanceK8sRawPtrOutput) ToSqlManagedInstanceK8sRawPtrOutput() SqlManagedInstanceK8sRawPtrOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuPtrOutput) ToPostgresInstanceSkuPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuPtrOutput {
+func (o SqlManagedInstanceK8sRawPtrOutput) ToSqlManagedInstanceK8sRawPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawPtrOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuPtrOutput) Elem() PostgresInstanceSkuOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) PostgresInstanceSku {
+func (o SqlManagedInstanceK8sRawPtrOutput) Elem() SqlManagedInstanceK8sRawOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sRaw) SqlManagedInstanceK8sRaw {
 		if v != nil {
 			return *v
 		}
-		var ret PostgresInstanceSku
+		var ret SqlManagedInstanceK8sRaw
 		return ret
-	}).(PostgresInstanceSkuOutput)
+	}).(SqlManagedInstanceK8sRawOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o PostgresInstanceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *int {
+// The kubernetes spec information.
+func (o SqlManagedInstanceK8sRawPtrOutput) Spec() SqlManagedInstanceK8sSpecPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sRaw) *SqlManagedInstanceK8sSpec {
 		if v == nil {
 			return nil
 		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
+		return v.Spec
+	}).(SqlManagedInstanceK8sSpecPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-func (o PostgresInstanceSkuPtrOutput) Dev() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Dev
-	}).(pulumi.BoolPtrOutput)
+// The raw kubernetes information.
+type SqlManagedInstanceK8sRawResponse struct {
+	// The kubernetes spec information.
+	Spec *SqlManagedInstanceK8sSpecResponse `pulumi:"spec"`
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o PostgresInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
+// The raw kubernetes information.
+type SqlManagedInstanceK8sRawResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sRawResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceK8sRawResponse)(nil)).Elem()
 }
 
-// The name of the SKU.  It is typically a letter+number code
-func (o PostgresInstanceSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o PostgresInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuPtrOutput) Tier() PostgresInstanceSkuTierPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *PostgresInstanceSkuTier {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(PostgresInstanceSkuTierPtrOutput)
-}
-
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
-type PostgresInstanceSkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
-}
-
-// Defaults sets the appropriate defaults for PostgresInstanceSkuResponse
-func (val *PostgresInstanceSkuResponse) Defaults() *PostgresInstanceSkuResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Dev) {
-		dev_ := true
-		tmp.Dev = &dev_
-	}
-	if isZero(tmp.Tier) {
-		tier_ := "Hyperscale"
-		tmp.Tier = &tier_
-	}
-	return &tmp
-}
-
-// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
-type PostgresInstanceSkuResponseOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstanceSkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceSkuResponse)(nil)).Elem()
-}
-
-func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponseOutput() PostgresInstanceSkuResponseOutput {
+func (o SqlManagedInstanceK8sRawResponseOutput) ToSqlManagedInstanceK8sRawResponseOutput() SqlManagedInstanceK8sRawResponseOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponseOutputWithContext(ctx context.Context) PostgresInstanceSkuResponseOutput {
+func (o SqlManagedInstanceK8sRawResponseOutput) ToSqlManagedInstanceK8sRawResponseOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawResponseOutput {
 	return o
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o PostgresInstanceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+// The kubernetes spec information.
+func (o SqlManagedInstanceK8sRawResponseOutput) Spec() SqlManagedInstanceK8sSpecResponsePtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceK8sRawResponse) *SqlManagedInstanceK8sSpecResponse { return v.Spec }).(SqlManagedInstanceK8sSpecResponsePtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-func (o PostgresInstanceSkuResponseOutput) Dev() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
+type SqlManagedInstanceK8sRawResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sRawResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceK8sRawResponse)(nil)).Elem()
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o PostgresInstanceSkuResponseOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU.  It is typically a letter+number code
-func (o PostgresInstanceSkuResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o PostgresInstanceSkuResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type PostgresInstanceSkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstanceSkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceSkuResponse)(nil)).Elem()
-}
-
-func (o PostgresInstanceSkuResponsePtrOutput) ToPostgresInstanceSkuResponsePtrOutput() PostgresInstanceSkuResponsePtrOutput {
+func (o SqlManagedInstanceK8sRawResponsePtrOutput) ToSqlManagedInstanceK8sRawResponsePtrOutput() SqlManagedInstanceK8sRawResponsePtrOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuResponsePtrOutput) ToPostgresInstanceSkuResponsePtrOutputWithContext(ctx context.Context) PostgresInstanceSkuResponsePtrOutput {
+func (o SqlManagedInstanceK8sRawResponsePtrOutput) ToSqlManagedInstanceK8sRawResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sRawResponsePtrOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuResponsePtrOutput) Elem() PostgresInstanceSkuResponseOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) PostgresInstanceSkuResponse {
+func (o SqlManagedInstanceK8sRawResponsePtrOutput) Elem() SqlManagedInstanceK8sRawResponseOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sRawResponse) SqlManagedInstanceK8sRawResponse {
 		if v != nil {
 			return *v
 		}
-		var ret PostgresInstanceSkuResponse
+		var ret SqlManagedInstanceK8sRawResponse
 		return ret
-	}).(PostgresInstanceSkuResponseOutput)
+	}).(SqlManagedInstanceK8sRawResponseOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o PostgresInstanceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *int {
+// The kubernetes spec information.
+func (o SqlManagedInstanceK8sRawResponsePtrOutput) Spec() SqlManagedInstanceK8sSpecResponsePtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sRawResponse) *SqlManagedInstanceK8sSpecResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Capacity
+		return v.Spec
+	}).(SqlManagedInstanceK8sSpecResponsePtrOutput)
+}
+
+// The kubernetes spec information.
+type SqlManagedInstanceK8sSpec struct {
+	// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+	Replicas *int `pulumi:"replicas"`
+	// The kubernetes scheduling information.
+	Scheduling *K8sScheduling `pulumi:"scheduling"`
+}
+
+// SqlManagedInstanceK8sSpecInput is an input type that accepts SqlManagedInstanceK8sSpecArgs and SqlManagedInstanceK8sSpecOutput values.
+// You can construct a concrete instance of `SqlManagedInstanceK8sSpecInput` via:
+//
+//          SqlManagedInstanceK8sSpecArgs{...}
+type SqlManagedInstanceK8sSpecInput interface {
+	pulumi.Input
+
+	ToSqlManagedInstanceK8sSpecOutput() SqlManagedInstanceK8sSpecOutput
+	ToSqlManagedInstanceK8sSpecOutputWithContext(context.Context) SqlManagedInstanceK8sSpecOutput
+}
+
+// The kubernetes spec information.
+type SqlManagedInstanceK8sSpecArgs struct {
+	// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+	Replicas pulumi.IntPtrInput `pulumi:"replicas"`
+	// The kubernetes scheduling information.
+	Scheduling K8sSchedulingPtrInput `pulumi:"scheduling"`
+}
+
+func (SqlManagedInstanceK8sSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceK8sSpec)(nil)).Elem()
+}
+
+func (i SqlManagedInstanceK8sSpecArgs) ToSqlManagedInstanceK8sSpecOutput() SqlManagedInstanceK8sSpecOutput {
+	return i.ToSqlManagedInstanceK8sSpecOutputWithContext(context.Background())
+}
+
+func (i SqlManagedInstanceK8sSpecArgs) ToSqlManagedInstanceK8sSpecOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceK8sSpecOutput)
+}
+
+func (i SqlManagedInstanceK8sSpecArgs) ToSqlManagedInstanceK8sSpecPtrOutput() SqlManagedInstanceK8sSpecPtrOutput {
+	return i.ToSqlManagedInstanceK8sSpecPtrOutputWithContext(context.Background())
+}
+
+func (i SqlManagedInstanceK8sSpecArgs) ToSqlManagedInstanceK8sSpecPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceK8sSpecOutput).ToSqlManagedInstanceK8sSpecPtrOutputWithContext(ctx)
+}
+
+// SqlManagedInstanceK8sSpecPtrInput is an input type that accepts SqlManagedInstanceK8sSpecArgs, SqlManagedInstanceK8sSpecPtr and SqlManagedInstanceK8sSpecPtrOutput values.
+// You can construct a concrete instance of `SqlManagedInstanceK8sSpecPtrInput` via:
+//
+//          SqlManagedInstanceK8sSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlManagedInstanceK8sSpecPtrInput interface {
+	pulumi.Input
+
+	ToSqlManagedInstanceK8sSpecPtrOutput() SqlManagedInstanceK8sSpecPtrOutput
+	ToSqlManagedInstanceK8sSpecPtrOutputWithContext(context.Context) SqlManagedInstanceK8sSpecPtrOutput
+}
+
+type sqlManagedInstanceK8sSpecPtrType SqlManagedInstanceK8sSpecArgs
+
+func SqlManagedInstanceK8sSpecPtr(v *SqlManagedInstanceK8sSpecArgs) SqlManagedInstanceK8sSpecPtrInput {
+	return (*sqlManagedInstanceK8sSpecPtrType)(v)
+}
+
+func (*sqlManagedInstanceK8sSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceK8sSpec)(nil)).Elem()
+}
+
+func (i *sqlManagedInstanceK8sSpecPtrType) ToSqlManagedInstanceK8sSpecPtrOutput() SqlManagedInstanceK8sSpecPtrOutput {
+	return i.ToSqlManagedInstanceK8sSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlManagedInstanceK8sSpecPtrType) ToSqlManagedInstanceK8sSpecPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceK8sSpecPtrOutput)
+}
+
+// The kubernetes spec information.
+type SqlManagedInstanceK8sSpecOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceK8sSpec)(nil)).Elem()
+}
+
+func (o SqlManagedInstanceK8sSpecOutput) ToSqlManagedInstanceK8sSpecOutput() SqlManagedInstanceK8sSpecOutput {
+	return o
+}
+
+func (o SqlManagedInstanceK8sSpecOutput) ToSqlManagedInstanceK8sSpecOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecOutput {
+	return o
+}
+
+func (o SqlManagedInstanceK8sSpecOutput) ToSqlManagedInstanceK8sSpecPtrOutput() SqlManagedInstanceK8sSpecPtrOutput {
+	return o.ToSqlManagedInstanceK8sSpecPtrOutputWithContext(context.Background())
+}
+
+func (o SqlManagedInstanceK8sSpecOutput) ToSqlManagedInstanceK8sSpecPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceK8sSpec) *SqlManagedInstanceK8sSpec {
+		return &v
+	}).(SqlManagedInstanceK8sSpecPtrOutput)
+}
+
+// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+func (o SqlManagedInstanceK8sSpecOutput) Replicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceK8sSpec) *int { return v.Replicas }).(pulumi.IntPtrOutput)
+}
+
+// The kubernetes scheduling information.
+func (o SqlManagedInstanceK8sSpecOutput) Scheduling() K8sSchedulingPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceK8sSpec) *K8sScheduling { return v.Scheduling }).(K8sSchedulingPtrOutput)
+}
+
+type SqlManagedInstanceK8sSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceK8sSpec)(nil)).Elem()
+}
+
+func (o SqlManagedInstanceK8sSpecPtrOutput) ToSqlManagedInstanceK8sSpecPtrOutput() SqlManagedInstanceK8sSpecPtrOutput {
+	return o
+}
+
+func (o SqlManagedInstanceK8sSpecPtrOutput) ToSqlManagedInstanceK8sSpecPtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecPtrOutput {
+	return o
+}
+
+func (o SqlManagedInstanceK8sSpecPtrOutput) Elem() SqlManagedInstanceK8sSpecOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sSpec) SqlManagedInstanceK8sSpec {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstanceK8sSpec
+		return ret
+	}).(SqlManagedInstanceK8sSpecOutput)
+}
+
+// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+func (o SqlManagedInstanceK8sSpecPtrOutput) Replicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Replicas
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-func (o PostgresInstanceSkuResponsePtrOutput) Dev() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *bool {
+// The kubernetes scheduling information.
+func (o SqlManagedInstanceK8sSpecPtrOutput) Scheduling() K8sSchedulingPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sSpec) *K8sScheduling {
 		if v == nil {
 			return nil
 		}
-		return v.Dev
-	}).(pulumi.BoolPtrOutput)
+		return v.Scheduling
+	}).(K8sSchedulingPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o PostgresInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
+// The kubernetes spec information.
+type SqlManagedInstanceK8sSpecResponse struct {
+	// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+	Replicas *int `pulumi:"replicas"`
+	// The kubernetes scheduling information.
+	Scheduling *K8sSchedulingResponse `pulumi:"scheduling"`
 }
 
-// The name of the SKU.  It is typically a letter+number code
-func (o PostgresInstanceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
+// The kubernetes spec information.
+type SqlManagedInstanceK8sSpecResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sSpecResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceK8sSpecResponse)(nil)).Elem()
 }
 
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o PostgresInstanceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
+func (o SqlManagedInstanceK8sSpecResponseOutput) ToSqlManagedInstanceK8sSpecResponseOutput() SqlManagedInstanceK8sSpecResponseOutput {
+	return o
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuResponse) *string {
+func (o SqlManagedInstanceK8sSpecResponseOutput) ToSqlManagedInstanceK8sSpecResponseOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecResponseOutput {
+	return o
+}
+
+// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+func (o SqlManagedInstanceK8sSpecResponseOutput) Replicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceK8sSpecResponse) *int { return v.Replicas }).(pulumi.IntPtrOutput)
+}
+
+// The kubernetes scheduling information.
+func (o SqlManagedInstanceK8sSpecResponseOutput) Scheduling() K8sSchedulingResponsePtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceK8sSpecResponse) *K8sSchedulingResponse { return v.Scheduling }).(K8sSchedulingResponsePtrOutput)
+}
+
+type SqlManagedInstanceK8sSpecResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlManagedInstanceK8sSpecResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlManagedInstanceK8sSpecResponse)(nil)).Elem()
+}
+
+func (o SqlManagedInstanceK8sSpecResponsePtrOutput) ToSqlManagedInstanceK8sSpecResponsePtrOutput() SqlManagedInstanceK8sSpecResponsePtrOutput {
+	return o
+}
+
+func (o SqlManagedInstanceK8sSpecResponsePtrOutput) ToSqlManagedInstanceK8sSpecResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstanceK8sSpecResponsePtrOutput {
+	return o
+}
+
+func (o SqlManagedInstanceK8sSpecResponsePtrOutput) Elem() SqlManagedInstanceK8sSpecResponseOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sSpecResponse) SqlManagedInstanceK8sSpecResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlManagedInstanceK8sSpecResponse
+		return ret
+	}).(SqlManagedInstanceK8sSpecResponseOutput)
+}
+
+// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+func (o SqlManagedInstanceK8sSpecResponsePtrOutput) Replicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sSpecResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
+		return v.Replicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The kubernetes scheduling information.
+func (o SqlManagedInstanceK8sSpecResponsePtrOutput) Scheduling() K8sSchedulingResponsePtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceK8sSpecResponse) *K8sSchedulingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Scheduling
+	}).(K8sSchedulingResponsePtrOutput)
 }
 
 // Properties of sqlManagedInstance.
@@ -3026,16 +2343,35 @@ type SqlManagedInstanceProperties struct {
 	Admin *string `pulumi:"admin"`
 	// Username and password for basic authentication.
 	BasicLoginInformation *BasicLoginInformation `pulumi:"basicLoginInformation"`
+	// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+	ClusterId *string `pulumi:"clusterId"`
 	// null
 	DataControllerId *string `pulumi:"dataControllerId"`
 	// The instance end time
 	EndTime *string `pulumi:"endTime"`
+	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+	ExtensionId *string `pulumi:"extensionId"`
 	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
+	K8sRaw *SqlManagedInstanceK8sRaw `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
+	// The license type to apply for this managed instance.
+	LicenseType *string `pulumi:"licenseType"`
 	// The instance start time
 	StartTime *string `pulumi:"startTime"`
+}
+
+// Defaults sets the appropriate defaults for SqlManagedInstanceProperties
+func (val *SqlManagedInstanceProperties) Defaults() *SqlManagedInstanceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		licenseType_ := "BasePrice"
+		tmp.LicenseType = &licenseType_
+	}
+	return &tmp
 }
 
 // SqlManagedInstancePropertiesInput is an input type that accepts SqlManagedInstancePropertiesArgs and SqlManagedInstancePropertiesOutput values.
@@ -3055,18 +2391,35 @@ type SqlManagedInstancePropertiesArgs struct {
 	Admin pulumi.StringPtrInput `pulumi:"admin"`
 	// Username and password for basic authentication.
 	BasicLoginInformation BasicLoginInformationPtrInput `pulumi:"basicLoginInformation"`
+	// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
 	// null
 	DataControllerId pulumi.StringPtrInput `pulumi:"dataControllerId"`
 	// The instance end time
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+	ExtensionId pulumi.StringPtrInput `pulumi:"extensionId"`
 	// The raw kubernetes information
-	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
+	K8sRaw SqlManagedInstanceK8sRawPtrInput `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
+	// The license type to apply for this managed instance.
+	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 	// The instance start time
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
+// Defaults sets the appropriate defaults for SqlManagedInstancePropertiesArgs
+func (val *SqlManagedInstancePropertiesArgs) Defaults() *SqlManagedInstancePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		tmp.LicenseType = pulumi.StringPtr("BasePrice")
+	}
+	return &tmp
+}
 func (SqlManagedInstancePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstanceProperties)(nil)).Elem()
 }
@@ -3104,6 +2457,11 @@ func (o SqlManagedInstancePropertiesOutput) BasicLoginInformation() BasicLoginIn
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *BasicLoginInformation { return v.BasicLoginInformation }).(BasicLoginInformationPtrOutput)
 }
 
+// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+func (o SqlManagedInstancePropertiesOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
 // null
 func (o SqlManagedInstancePropertiesOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
@@ -3114,14 +2472,24 @@ func (o SqlManagedInstancePropertiesOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
+// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+func (o SqlManagedInstancePropertiesOutput) ExtensionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.ExtensionId }).(pulumi.StringPtrOutput)
+}
+
 // The raw kubernetes information
-func (o SqlManagedInstancePropertiesOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlManagedInstanceProperties) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
+func (o SqlManagedInstancePropertiesOutput) K8sRaw() SqlManagedInstanceK8sRawPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *SqlManagedInstanceK8sRaw { return v.K8sRaw }).(SqlManagedInstanceK8sRawPtrOutput)
 }
 
 // Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o SqlManagedInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
+}
+
+// The license type to apply for this managed instance.
+func (o SqlManagedInstancePropertiesOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 // The instance start time
@@ -3135,17 +2503,36 @@ type SqlManagedInstancePropertiesResponse struct {
 	Admin *string `pulumi:"admin"`
 	// Username and password for basic authentication.
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
+	// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+	ClusterId *string `pulumi:"clusterId"`
 	// null
 	DataControllerId *string `pulumi:"dataControllerId"`
 	// The instance end time
 	EndTime *string `pulumi:"endTime"`
+	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+	ExtensionId *string `pulumi:"extensionId"`
 	// The raw kubernetes information
-	K8sRaw interface{} `pulumi:"k8sRaw"`
+	K8sRaw *SqlManagedInstanceK8sRawResponse `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
-	LastUploadedDate  *string `pulumi:"lastUploadedDate"`
+	LastUploadedDate *string `pulumi:"lastUploadedDate"`
+	// The license type to apply for this managed instance.
+	LicenseType       *string `pulumi:"licenseType"`
 	ProvisioningState string  `pulumi:"provisioningState"`
 	// The instance start time
 	StartTime *string `pulumi:"startTime"`
+}
+
+// Defaults sets the appropriate defaults for SqlManagedInstancePropertiesResponse
+func (val *SqlManagedInstancePropertiesResponse) Defaults() *SqlManagedInstancePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		licenseType_ := "BasePrice"
+		tmp.LicenseType = &licenseType_
+	}
+	return &tmp
 }
 
 // Properties of sqlManagedInstance.
@@ -3175,6 +2562,11 @@ func (o SqlManagedInstancePropertiesResponseOutput) BasicLoginInformation() Basi
 	}).(BasicLoginInformationResponsePtrOutput)
 }
 
+// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+func (o SqlManagedInstancePropertiesResponseOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
 // null
 func (o SqlManagedInstancePropertiesResponseOutput) DataControllerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.DataControllerId }).(pulumi.StringPtrOutput)
@@ -3185,14 +2577,24 @@ func (o SqlManagedInstancePropertiesResponseOutput) EndTime() pulumi.StringPtrOu
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
+// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+func (o SqlManagedInstancePropertiesResponseOutput) ExtensionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.ExtensionId }).(pulumi.StringPtrOutput)
+}
+
 // The raw kubernetes information
-func (o SqlManagedInstancePropertiesResponseOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) interface{} { return v.K8sRaw }).(pulumi.AnyOutput)
+func (o SqlManagedInstancePropertiesResponseOutput) K8sRaw() SqlManagedInstanceK8sRawResponsePtrOutput {
+	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *SqlManagedInstanceK8sRawResponse { return v.K8sRaw }).(SqlManagedInstanceK8sRawResponsePtrOutput)
 }
 
 // Last uploaded date from Kubernetes cluster. Defaults to current date time
 func (o SqlManagedInstancePropertiesResponseOutput) LastUploadedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
+}
+
+// The license type to apply for this managed instance.
+func (o SqlManagedInstancePropertiesResponseOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 func (o SqlManagedInstancePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
@@ -3206,17 +2608,15 @@ func (o SqlManagedInstancePropertiesResponseOutput) StartTime() pulumi.StringPtr
 
 // The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
 	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Dev    *bool   `pulumi:"dev"`
 	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
+	// The name of the SKU.
 	Name string `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+	// The pricing tier for the instance.
 	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
 }
 
@@ -3250,17 +2650,15 @@ type SqlManagedInstanceSkuInput interface {
 
 // The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev pulumi.BoolPtrInput `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Dev    pulumi.BoolPtrInput   `pulumi:"dev"`
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
+	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+	// The pricing tier for the instance.
 	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
@@ -3356,7 +2754,6 @@ func (o SqlManagedInstanceSkuOutput) ToSqlManagedInstanceSkuPtrOutputWithContext
 	}).(SqlManagedInstanceSkuPtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -3366,12 +2763,11 @@ func (o SqlManagedInstanceSkuOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
+// The name of the SKU.
 func (o SqlManagedInstanceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3381,7 +2777,7 @@ func (o SqlManagedInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+// The pricing tier for the instance.
 func (o SqlManagedInstanceSkuOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSku) *SqlManagedInstanceSkuTier { return v.Tier }).(SqlManagedInstanceSkuTierPtrOutput)
 }
@@ -3410,7 +2806,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Elem() SqlManagedInstanceSkuOutput {
 	}).(SqlManagedInstanceSkuOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *int {
 		if v == nil {
@@ -3430,7 +2825,6 @@ func (o SqlManagedInstanceSkuPtrOutput) Dev() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
 		if v == nil {
@@ -3440,7 +2834,7 @@ func (o SqlManagedInstanceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
+// The name of the SKU.
 func (o SqlManagedInstanceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
 		if v == nil {
@@ -3460,7 +2854,7 @@ func (o SqlManagedInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+// The pricing tier for the instance.
 func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSku) *SqlManagedInstanceSkuTier {
 		if v == nil {
@@ -3472,17 +2866,15 @@ func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutpu
 
 // The resource model definition representing SKU for Azure Managed Instance - Azure Arc
 type SqlManagedInstanceSkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 	Capacity *int `pulumi:"capacity"`
 	// Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
-	Dev *bool `pulumi:"dev"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Dev    *bool   `pulumi:"dev"`
 	Family *string `pulumi:"family"`
-	// The name of the SKU.  It is typically a letter+number code
+	// The name of the SKU.
 	Name string `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+	// The pricing tier for the instance.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -3518,7 +2910,6 @@ func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponseOutp
 	return o
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -3528,12 +2919,11 @@ func (o SqlManagedInstanceSkuResponseOutput) Dev() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *bool { return v.Dev }).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
+// The name of the SKU.
 func (o SqlManagedInstanceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3543,7 +2933,7 @@ func (o SqlManagedInstanceSkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+// The pricing tier for the instance.
 func (o SqlManagedInstanceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -3572,7 +2962,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Elem() SqlManagedInstanceSkuResp
 	}).(SqlManagedInstanceSkuResponseOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *int {
 		if v == nil {
@@ -3592,7 +2981,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Dev() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3602,7 +2990,7 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU.  It is typically a letter+number code
+// The name of the SKU.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3622,7 +3010,7 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+// The pricing tier for the instance.
 func (o SqlManagedInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlManagedInstanceSkuResponse) *string {
 		if v == nil {
@@ -3634,6 +3022,10 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 
 // Properties of SqlServerInstance.
 type SqlServerInstanceProperties struct {
+	// Status of Azure Defender.
+	AzureDefenderStatus *string `pulumi:"azureDefenderStatus"`
+	// Timestamp of last Azure Defender status update.
+	AzureDefenderStatusLastUpdated *string `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation *string `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -3675,6 +3067,10 @@ type SqlServerInstancePropertiesInput interface {
 
 // Properties of SqlServerInstance.
 type SqlServerInstancePropertiesArgs struct {
+	// Status of Azure Defender.
+	AzureDefenderStatus pulumi.StringPtrInput `pulumi:"azureDefenderStatus"`
+	// Timestamp of last Azure Defender status update.
+	AzureDefenderStatusLastUpdated pulumi.StringPtrInput `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation pulumi.StringPtrInput `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -3781,6 +3177,16 @@ func (o SqlServerInstancePropertiesOutput) ToSqlServerInstancePropertiesPtrOutpu
 	}).(SqlServerInstancePropertiesPtrOutput)
 }
 
+// Status of Azure Defender.
+func (o SqlServerInstancePropertiesOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.AzureDefenderStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of last Azure Defender status update.
+func (o SqlServerInstancePropertiesOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.AzureDefenderStatusLastUpdated }).(pulumi.StringPtrOutput)
+}
+
 // SQL Server collation.
 func (o SqlServerInstancePropertiesOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.Collation }).(pulumi.StringPtrOutput)
@@ -3868,6 +3274,26 @@ func (o SqlServerInstancePropertiesPtrOutput) Elem() SqlServerInstanceProperties
 		var ret SqlServerInstanceProperties
 		return ret
 	}).(SqlServerInstancePropertiesOutput)
+}
+
+// Status of Azure Defender.
+func (o SqlServerInstancePropertiesPtrOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDefenderStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of last Azure Defender status update.
+func (o SqlServerInstancePropertiesPtrOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDefenderStatusLastUpdated
+	}).(pulumi.StringPtrOutput)
 }
 
 // SQL Server collation.
@@ -4002,6 +3428,10 @@ func (o SqlServerInstancePropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 
 // Properties of SqlServerInstance.
 type SqlServerInstancePropertiesResponse struct {
+	// Status of Azure Defender.
+	AzureDefenderStatus *string `pulumi:"azureDefenderStatus"`
+	// Timestamp of last Azure Defender status update.
+	AzureDefenderStatusLastUpdated *string `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation *string `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -4046,6 +3476,16 @@ func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstanceProperties
 
 func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstancePropertiesResponseOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponseOutput {
 	return o
+}
+
+// Status of Azure Defender.
+func (o SqlServerInstancePropertiesResponseOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.AzureDefenderStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of last Azure Defender status update.
+func (o SqlServerInstancePropertiesResponseOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.AzureDefenderStatusLastUpdated }).(pulumi.StringPtrOutput)
 }
 
 // SQL Server collation.
@@ -4122,23 +3562,23 @@ func (o SqlServerInstancePropertiesResponseOutput) Version() pulumi.StringPtrOut
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// Read only system data
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
+	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
+	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
+	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
 	// The timestamp of resource last modification (UTC)
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
+	// The identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	// The type of identity that last modified the resource.
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-// Read only system data
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -4153,17 +3593,17 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The timestamp of resource creation (UTC)
+// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
+// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
+// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
@@ -4173,12 +3613,12 @@ func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
+// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
+// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -4747,26 +4187,6 @@ func (o UploadWatermarkResponsePtrOutput) Usages() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorDNSDetailsOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorDNSDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorDomainDetailsOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorDomainDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorPropertiesOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorSpecOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorSpecResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusPtrOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusResponsePtrOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerPtrOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerArrayOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponsePtrOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponseArrayOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllersOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryDomainControllersResponseOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationPtrOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationResponseOutput{})
@@ -4777,6 +4197,18 @@ func init() {
 	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
+	pulumi.RegisterOutputType(K8sResourceRequirementsOutput{})
+	pulumi.RegisterOutputType(K8sResourceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(K8sResourceRequirementsResponseOutput{})
+	pulumi.RegisterOutputType(K8sResourceRequirementsResponsePtrOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingPtrOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingOptionsOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingOptionsResponseOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingOptionsResponsePtrOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingResponseOutput{})
+	pulumi.RegisterOutputType(K8sSchedulingResponsePtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsWorkspaceConfigOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsWorkspaceConfigPtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsWorkspaceConfigResponseOutput{})
@@ -4785,12 +4217,14 @@ func init() {
 	pulumi.RegisterOutputType(OnPremisePropertyPtrOutput{})
 	pulumi.RegisterOutputType(OnPremisePropertyResponseOutput{})
 	pulumi.RegisterOutputType(OnPremisePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(PostgresInstancePropertiesOutput{})
-	pulumi.RegisterOutputType(PostgresInstancePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(PostgresInstanceSkuOutput{})
-	pulumi.RegisterOutputType(PostgresInstanceSkuPtrOutput{})
-	pulumi.RegisterOutputType(PostgresInstanceSkuResponseOutput{})
-	pulumi.RegisterOutputType(PostgresInstanceSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sRawOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sRawPtrOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sRawResponseOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sRawResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sSpecOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sSpecPtrOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sSpecResponseOutput{})
+	pulumi.RegisterOutputType(SqlManagedInstanceK8sSpecResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstancePropertiesOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstancePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuOutput{})

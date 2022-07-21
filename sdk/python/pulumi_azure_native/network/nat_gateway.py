@@ -198,7 +198,7 @@ class NatGateway(pulumi.CustomResource):
                  __props__=None):
         """
         Nat Gateway resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Nat Gateway resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param NatGatewayInitArgs args: The arguments to use to populate this resource's properties.

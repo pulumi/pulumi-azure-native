@@ -21,10 +21,16 @@ class GetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     """
-    def __init__(__self__, creation_date=None, encryption=None, endpoint=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, disable_local_auth=None, enable_purge_protection=None, encryption=None, endpoint=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, soft_delete_retention_in_days=None, system_data=None, tags=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if enable_purge_protection and not isinstance(enable_purge_protection, bool):
+            raise TypeError("Expected argument 'enable_purge_protection' to be a bool")
+        pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -55,6 +61,12 @@ class GetConfigurationStoreResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if soft_delete_retention_in_days and not isinstance(soft_delete_retention_in_days, int):
+            raise TypeError("Expected argument 'soft_delete_retention_in_days' to be a int")
+        pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -69,6 +81,22 @@ class GetConfigurationStoreResult:
         The creation date of configuration store.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Disables all authentication methods other than AAD authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
+    @pulumi.getter(name="enablePurgeProtection")
+    def enable_purge_protection(self) -> Optional[bool]:
+        """
+        Property specifying whether protection against purge is enabled for this configuration store.
+        """
+        return pulumi.get(self, "enable_purge_protection")
 
     @property
     @pulumi.getter
@@ -90,7 +118,7 @@ class GetConfigurationStoreResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -106,7 +134,7 @@ class GetConfigurationStoreResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The location of the resource. This cannot be changed after the resource is created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -114,7 +142,7 @@ class GetConfigurationStoreResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -151,10 +179,26 @@ class GetConfigurationStoreResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> Optional[int]:
+        """
+        The amount of time in days that the configuration store will be retained when it is soft deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Resource system metadata.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -162,7 +206,7 @@ class GetConfigurationStoreResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -174,6 +218,8 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
             yield self
         return GetConfigurationStoreResult(
             creation_date=self.creation_date,
+            disable_local_auth=self.disable_local_auth,
+            enable_purge_protection=self.enable_purge_protection,
             encryption=self.encryption,
             endpoint=self.endpoint,
             id=self.id,
@@ -184,6 +230,8 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             sku=self.sku,
+            soft_delete_retention_in_days=self.soft_delete_retention_in_days,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -193,7 +241,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-    API Version: 2020-06-01.
+    API Version: 2022-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -210,6 +258,8 @@ def get_configuration_store(config_store_name: Optional[str] = None,
 
     return AwaitableGetConfigurationStoreResult(
         creation_date=__ret__.creation_date,
+        disable_local_auth=__ret__.disable_local_auth,
+        enable_purge_protection=__ret__.enable_purge_protection,
         encryption=__ret__.encryption,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
@@ -220,6 +270,8 @@ def get_configuration_store(config_store_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
+        soft_delete_retention_in_days=__ret__.soft_delete_retention_in_days,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -230,7 +282,7 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-    API Version: 2020-06-01.
+    API Version: 2022-05-01.
 
 
     :param str config_store_name: The name of the configuration store.

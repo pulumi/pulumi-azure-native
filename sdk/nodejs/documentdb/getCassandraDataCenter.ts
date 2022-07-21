@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed Cassandra data center.
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-15.
  */
 export function getCassandraDataCenter(args: GetCassandraDataCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraDataCenterResult> {
     if (!opts) {

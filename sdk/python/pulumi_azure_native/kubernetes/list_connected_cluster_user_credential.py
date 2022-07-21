@@ -64,7 +64,7 @@ def list_connected_cluster_user_credential(authentication_method: Optional[Union
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedClusterUserCredentialResult:
     """
     The list of credential result response.
-    API Version: 2022-05-01-preview.
+    API Version: 2021-10-01.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
@@ -96,7 +96,7 @@ def list_connected_cluster_user_credential_output(authentication_method: Optiona
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedClusterUserCredentialResult]:
     """
     The list of credential result response.
-    API Version: 2022-05-01-preview.
+    API Version: 2021-10-01.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.

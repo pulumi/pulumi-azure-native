@@ -242,7 +242,7 @@ def get_private_link_service(expand: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServiceResult:
     """
     Private link service resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -286,7 +286,7 @@ def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServiceResult]:
     """
     Private link service resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

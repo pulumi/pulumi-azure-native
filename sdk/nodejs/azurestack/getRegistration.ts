@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Registration information.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
     if (!opts) {
@@ -52,6 +53,10 @@ export interface GetRegistrationResult {
      */
     readonly id: string;
     /**
+     * The kind of the resource.
+     */
+    readonly kind: string;
+    /**
      * Location of the resource.
      */
     readonly location: string;
@@ -63,6 +68,10 @@ export interface GetRegistrationResult {
      * The object identifier associated with the Azure Stack connecting to Azure.
      */
     readonly objectId?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.azurestack.SystemDataResponse;
     /**
      * Custom tags for the resource.
      */

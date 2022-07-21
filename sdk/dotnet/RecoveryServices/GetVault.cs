@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Resource information, as returned by the resource provider.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:recoveryservices:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information, as returned by the resource provider.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:recoveryservices:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

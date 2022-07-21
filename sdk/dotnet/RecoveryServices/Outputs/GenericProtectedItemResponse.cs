@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        public readonly bool? IsArchiveEnabled;
+        /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
         public readonly bool? IsDeferredDeleteScheduleUpcoming;
@@ -69,6 +73,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? PolicyId;
         /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        public readonly string? PolicyName;
+        /// <summary>
         /// Indicates consistency of policy object and policy applied to this backup item.
         /// </summary>
         public readonly string? PolicyState;
@@ -85,6 +93,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Backup state of this backup item.
         /// </summary>
         public readonly string? ProtectionState;
+        /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
         /// <summary>
         /// Loosely coupled (type, value) associations (example - parent of a protected item)
         /// </summary>
@@ -116,6 +128,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? friendlyName,
 
+            bool? isArchiveEnabled,
+
             bool? isDeferredDeleteScheduleUpcoming,
 
             bool? isRehydrate,
@@ -126,6 +140,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? policyId,
 
+            string? policyName,
+
             string? policyState,
 
             double? protectedItemId,
@@ -133,6 +149,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string protectedItemType,
 
             string? protectionState,
+
+            ImmutableArray<string> resourceGuardOperationRequests,
 
             ImmutableDictionary<string, string>? sourceAssociations,
 
@@ -148,15 +166,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DeferredDeleteTimeRemaining = deferredDeleteTimeRemaining;
             FabricName = fabricName;
             FriendlyName = friendlyName;
+            IsArchiveEnabled = isArchiveEnabled;
             IsDeferredDeleteScheduleUpcoming = isDeferredDeleteScheduleUpcoming;
             IsRehydrate = isRehydrate;
             IsScheduledForDeferredDelete = isScheduledForDeferredDelete;
             LastRecoveryPoint = lastRecoveryPoint;
             PolicyId = policyId;
+            PolicyName = policyName;
             PolicyState = policyState;
             ProtectedItemId = protectedItemId;
             ProtectedItemType = protectedItemType;
             ProtectionState = protectionState;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             SourceAssociations = sourceAssociations;
             SourceResourceId = sourceResourceId;
             WorkloadType = workloadType;

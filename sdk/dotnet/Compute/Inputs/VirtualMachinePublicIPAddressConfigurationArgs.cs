@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.SubResourceArgs>? PublicIPPrefix { get; set; }
 
         /// <summary>
-        /// Describes the public IP Sku
+        /// Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.PublicIPAddressSkuArgs>? Sku { get; set; }

@@ -12,7 +12,7 @@ import (
 )
 
 // Identity Provider details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
@@ -24,7 +24,7 @@ type IdentityProvider struct {
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
 	PasswordResetPolicyName pulumi.StringPtrOutput `pulumi:"passwordResetPolicyName"`
@@ -36,7 +36,7 @@ type IdentityProvider struct {
 	SigninTenant pulumi.StringPtrOutput `pulumi:"signinTenant"`
 	// Signup Policy Name. Only applies to AAD B2C Identity Provider.
 	SignupPolicyName pulumi.StringPtrOutput `pulumi:"signupPolicyName"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -251,7 +251,7 @@ func (o IdentityProviderOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o IdentityProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -281,7 +281,7 @@ func (o IdentityProviderOutput) SignupPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.SignupPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o IdentityProviderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

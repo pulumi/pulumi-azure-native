@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sim resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<GetSimResult> {
     if (!opts) {
@@ -36,10 +36,6 @@ export interface GetSimArgs {
  * Sim resource.
  */
 export interface GetSimResult {
-    /**
-     * The configuration state of the sim resource - complete or incomplete.
-     */
-    readonly configurationState: string;
     /**
      * The timestamp of resource creation (UTC).
      */
@@ -101,9 +97,17 @@ export interface GetSimResult {
      */
     readonly simPolicy?: outputs.mobilenetwork.SimPolicyResourceIdResponse;
     /**
+     * The state of the sim resource.
+     */
+    readonly simState: string;
+    /**
      * A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
      */
     readonly staticIpConfiguration?: outputs.mobilenetwork.SimStaticIpPropertiesResponse[];
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

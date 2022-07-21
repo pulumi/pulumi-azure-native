@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bastion Host resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class BastionHost extends pulumi.CustomResource {
     /**
@@ -37,9 +37,29 @@ export class BastionHost extends pulumi.CustomResource {
     }
 
     /**
+     * Enable/Disable Copy/Paste feature of the Bastion Host resource.
+     */
+    public readonly disableCopyPaste!: pulumi.Output<boolean | undefined>;
+    /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
     public readonly dnsName!: pulumi.Output<string | undefined>;
+    /**
+     * Enable/Disable File Copy feature of the Bastion Host resource.
+     */
+    public readonly enableFileCopy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable/Disable IP Connect feature of the Bastion Host resource.
+     */
+    public readonly enableIpConnect!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable/Disable Shareable Link of the Bastion Host resource.
+     */
+    public readonly enableShareableLink!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable/Disable Tunneling feature of the Bastion Host resource.
+     */
+    public readonly enableTunneling!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -60,6 +80,14 @@ export class BastionHost extends pulumi.CustomResource {
      * The provisioning state of the bastion host resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The scale units for the Bastion Host resource.
+     */
+    public readonly scaleUnits!: pulumi.Output<number | undefined>;
+    /**
+     * The sku of this Bastion Host.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.SkuResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -84,23 +112,37 @@ export class BastionHost extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["bastionHostName"] = args ? args.bastionHostName : undefined;
+            resourceInputs["disableCopyPaste"] = (args ? args.disableCopyPaste : undefined) ?? false;
             resourceInputs["dnsName"] = args ? args.dnsName : undefined;
+            resourceInputs["enableFileCopy"] = (args ? args.enableFileCopy : undefined) ?? false;
+            resourceInputs["enableIpConnect"] = (args ? args.enableIpConnect : undefined) ?? false;
+            resourceInputs["enableShareableLink"] = (args ? args.enableShareableLink : undefined) ?? false;
+            resourceInputs["enableTunneling"] = (args ? args.enableTunneling : undefined) ?? false;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["disableCopyPaste"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enableFileCopy"] = undefined /*out*/;
+            resourceInputs["enableIpConnect"] = undefined /*out*/;
+            resourceInputs["enableShareableLink"] = undefined /*out*/;
+            resourceInputs["enableTunneling"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scaleUnits"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -120,9 +162,29 @@ export interface BastionHostArgs {
      */
     bastionHostName?: pulumi.Input<string>;
     /**
+     * Enable/Disable Copy/Paste feature of the Bastion Host resource.
+     */
+    disableCopyPaste?: pulumi.Input<boolean>;
+    /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
     dnsName?: pulumi.Input<string>;
+    /**
+     * Enable/Disable File Copy feature of the Bastion Host resource.
+     */
+    enableFileCopy?: pulumi.Input<boolean>;
+    /**
+     * Enable/Disable IP Connect feature of the Bastion Host resource.
+     */
+    enableIpConnect?: pulumi.Input<boolean>;
+    /**
+     * Enable/Disable Shareable Link of the Bastion Host resource.
+     */
+    enableShareableLink?: pulumi.Input<boolean>;
+    /**
+     * Enable/Disable Tunneling feature of the Bastion Host resource.
+     */
+    enableTunneling?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
@@ -139,6 +201,14 @@ export interface BastionHostArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The scale units for the Bastion Host resource.
+     */
+    scaleUnits?: pulumi.Input<number>;
+    /**
+     * The sku of this Bastion Host.
+     */
+    sku?: pulumi.Input<inputs.network.SkuArgs>;
     /**
      * Resource tags.
      */

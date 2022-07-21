@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2022-02-01-preview.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ComponentVersion")]
     public partial class ComponentVersion : Pulumi.CustomResource
@@ -19,8 +19,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Output("componentVersionDetails")]
-        public Output<Outputs.ComponentVersionResponse> ComponentVersionDetails { get; private set; } = null!;
+        [Output("componentVersionProperties")]
+        public Output<Outputs.ComponentVersionResponse> ComponentVersionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -93,8 +93,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("componentVersionDetails", required: true)]
-        public Input<Inputs.ComponentVersionArgs> ComponentVersionDetails { get; set; } = null!;
+        [Input("componentVersionProperties", required: true)]
+        public Input<Inputs.ComponentVersionArgs> ComponentVersionProperties { get; set; } = null!;
 
         /// <summary>
         /// Container name.

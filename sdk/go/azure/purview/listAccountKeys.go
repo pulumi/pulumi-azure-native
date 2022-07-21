@@ -11,7 +11,7 @@ import (
 )
 
 // The Account access keys.
-// API Version: 2020-12-01-preview.
+// API Version: 2021-07-01.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
 	err := ctx.Invoke("azure-native:purview:listAccountKeys", args, &rv, opts...)

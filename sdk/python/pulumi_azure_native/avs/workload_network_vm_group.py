@@ -126,7 +126,7 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
                  __props__=None):
         """
         NSX VM Group
-        API Version: 2020-07-17-preview.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX VM Group
-        API Version: 2020-07-17-preview.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkVMGroupArgs args: The arguments to use to populate this resource's properties.

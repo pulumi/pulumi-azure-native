@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Inbound NAT rule of the load balancer.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface GetInboundNatRuleArgs {
      */
     expand?: string;
     /**
-     * The name of the inbound nat rule.
+     * The name of the inbound NAT rule.
      */
     inboundNatRuleName: string;
     /**
@@ -46,6 +46,10 @@ export interface GetInboundNatRuleArgs {
  * Inbound NAT rule of the load balancer.
  */
 export interface GetInboundNatRuleResult {
+    /**
+     * A reference to backendAddressPool resource.
+     */
+    readonly backendAddressPool?: outputs.network.SubResourceResponse;
     /**
      * A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
      */
@@ -74,6 +78,14 @@ export interface GetInboundNatRuleResult {
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */
     readonly frontendPort?: number;
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+     */
+    readonly frontendPortRangeEnd?: number;
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+     */
+    readonly frontendPortRangeStart?: number;
     /**
      * Resource ID.
      */
@@ -110,7 +122,7 @@ export interface GetInboundNatRuleOutputArgs {
      */
     expand?: pulumi.Input<string>;
     /**
-     * The name of the inbound nat rule.
+     * The name of the inbound NAT rule.
      */
     inboundNatRuleName: pulumi.Input<string>;
     /**

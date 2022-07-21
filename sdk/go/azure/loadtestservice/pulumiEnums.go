@@ -3,12 +3,22 @@
 
 package loadtestservice
 
-// Type of managed service identity (either system assigned, or none).
-type SystemAssignedServiceIdentityType string
+// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+type ManagedServiceIdentityType string
 
 const (
-	SystemAssignedServiceIdentityTypeNone           = SystemAssignedServiceIdentityType("None")
-	SystemAssignedServiceIdentityTypeSystemAssigned = SystemAssignedServiceIdentityType("SystemAssigned")
+	ManagedServiceIdentityTypeNone                         = ManagedServiceIdentityType("None")
+	ManagedServiceIdentityTypeSystemAssigned               = ManagedServiceIdentityType("SystemAssigned")
+	ManagedServiceIdentityTypeUserAssigned                 = ManagedServiceIdentityType("UserAssigned")
+	ManagedServiceIdentityType_SystemAssigned_UserAssigned = ManagedServiceIdentityType("SystemAssigned,UserAssigned")
+)
+
+// Managed identity type to use for accessing encryption key Url
+type Type string
+
+const (
+	TypeSystemAssigned = Type("SystemAssigned")
+	TypeUserAssigned   = Type("UserAssigned")
 )
 
 func init() {

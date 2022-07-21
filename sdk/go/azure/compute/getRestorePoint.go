@@ -11,7 +11,7 @@ import (
 )
 
 // Restore Point details.
-// API Version: 2021-03-01.
+// API Version: 2021-11-01.
 func LookupRestorePoint(ctx *pulumi.Context, args *LookupRestorePointArgs, opts ...pulumi.InvokeOption) (*LookupRestorePointResult, error) {
 	var rv LookupRestorePointResult
 	err := ctx.Invoke("azure-native:compute:getRestorePoint", args, &rv, opts...)
@@ -22,6 +22,8 @@ func LookupRestorePoint(ctx *pulumi.Context, args *LookupRestorePointArgs, opts 
 }
 
 type LookupRestorePointArgs struct {
+	// The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
+	Expand *string `pulumi:"expand"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the restore point collection.
@@ -38,12 +40,16 @@ type LookupRestorePointResult struct {
 	ExcludeDisks []ApiEntityReferenceResponse `pulumi:"excludeDisks"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// The restore point instance view.
+	InstanceView RestorePointInstanceViewResponse `pulumi:"instanceView"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Gets the provisioning state of the restore point.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Gets the details of the VM captured at the time of the restore point creation.
 	SourceMetadata RestorePointSourceMetadataResponse `pulumi:"sourceMetadata"`
+	// Resource Id of the source restore point from which a copy needs to be created.
+	SourceRestorePoint *ApiEntityReferenceResponse `pulumi:"sourceRestorePoint"`
 	// Gets the creation time of the restore point.
 	TimeCreated *string `pulumi:"timeCreated"`
 	// Resource type
@@ -64,6 +70,8 @@ func LookupRestorePointOutput(ctx *pulumi.Context, args LookupRestorePointOutput
 }
 
 type LookupRestorePointOutputArgs struct {
+	// The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the restore point collection.
@@ -106,6 +114,11 @@ func (o LookupRestorePointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestorePointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The restore point instance view.
+func (o LookupRestorePointResultOutput) InstanceView() RestorePointInstanceViewResponseOutput {
+	return o.ApplyT(func(v LookupRestorePointResult) RestorePointInstanceViewResponse { return v.InstanceView }).(RestorePointInstanceViewResponseOutput)
+}
+
 // Resource name
 func (o LookupRestorePointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestorePointResult) string { return v.Name }).(pulumi.StringOutput)
@@ -119,6 +132,11 @@ func (o LookupRestorePointResultOutput) ProvisioningState() pulumi.StringOutput 
 // Gets the details of the VM captured at the time of the restore point creation.
 func (o LookupRestorePointResultOutput) SourceMetadata() RestorePointSourceMetadataResponseOutput {
 	return o.ApplyT(func(v LookupRestorePointResult) RestorePointSourceMetadataResponse { return v.SourceMetadata }).(RestorePointSourceMetadataResponseOutput)
+}
+
+// Resource Id of the source restore point from which a copy needs to be created.
+func (o LookupRestorePointResultOutput) SourceRestorePoint() ApiEntityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupRestorePointResult) *ApiEntityReferenceResponse { return v.SourceRestorePoint }).(ApiEntityReferenceResponsePtrOutput)
 }
 
 // Gets the creation time of the restore point.

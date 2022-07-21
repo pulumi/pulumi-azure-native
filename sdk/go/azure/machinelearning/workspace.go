@@ -12,7 +12,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-// API Version: 2016-04-01.
+// API Version: 2019-10-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The email id of the owner for this workspace.
 	OwnerEmail pulumi.StringOutput `pulumi:"ownerEmail"`
+	// The sku of the workspace.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The regional endpoint for the machine learning studio service which hosts this workspace.
 	StudioEndpoint pulumi.StringOutput `pulumi:"studioEndpoint"`
 	// The tags of the resource.
@@ -107,6 +109,8 @@ type workspaceArgs struct {
 	OwnerEmail string `pulumi:"ownerEmail"`
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The sku of the workspace.
+	Sku *Sku `pulumi:"sku"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The fully qualified arm id of the storage account associated with this workspace.
@@ -125,6 +129,8 @@ type WorkspaceArgs struct {
 	OwnerEmail pulumi.StringInput
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName pulumi.StringInput
+	// The sku of the workspace.
+	Sku SkuPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The fully qualified arm id of the storage account associated with this workspace.
@@ -193,6 +199,11 @@ func (o WorkspaceOutput) Name() pulumi.StringOutput {
 // The email id of the owner for this workspace.
 func (o WorkspaceOutput) OwnerEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.OwnerEmail }).(pulumi.StringOutput)
+}
+
+// The sku of the workspace.
+func (o WorkspaceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
 }
 
 // The regional endpoint for the machine learning studio service which hosts this workspace.

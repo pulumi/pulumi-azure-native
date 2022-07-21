@@ -44,12 +44,6 @@ func NewReport(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:costmanagement:Report"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Report
 	err := ctx.RegisterResource("azure-native:costmanagement/v20180801preview:Report", name, args, &resource, opts...)
 	if err != nil {

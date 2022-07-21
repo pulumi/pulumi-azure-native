@@ -12,8 +12,8 @@ from ._enums import *
 
 __all__ = [
     'EventHandlerResponse',
-    'EventHandlerSettingsResponse',
-    'EventHandlerTemplateResponse',
+    'LiveTraceCategoryResponse',
+    'LiveTraceConfigurationResponse',
     'ManagedIdentityResponse',
     'ManagedIdentitySettingsResponse',
     'NetworkACLResponse',
@@ -21,12 +21,13 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceLogCategoryResponse',
+    'ResourceLogConfigurationResponse',
     'ResourceSkuResponse',
     'SharedPrivateLinkResourceResponse',
     'SystemDataResponse',
     'UpstreamAuthSettingsResponse',
     'UserAssignedIdentityPropertyResponse',
-    'WebPubSubFeatureResponse',
     'WebPubSubHubPropertiesResponse',
     'WebPubSubNetworkACLsResponse',
     'WebPubSubTlsSettingsResponse',
@@ -122,121 +123,91 @@ class EventHandlerResponse(dict):
 
 
 @pulumi.output_type
-class EventHandlerSettingsResponse(dict):
+class LiveTraceCategoryResponse(dict):
     """
-    The settings for event handler in webpubsub service
+    Live trace category configuration of a Microsoft.SignalRService resource.
     """
     def __init__(__self__, *,
-                 items: Optional[Mapping[str, Sequence['outputs.EventHandlerTemplateResponse']]] = None):
+                 enabled: Optional[str] = None,
+                 name: Optional[str] = None):
         """
-        The settings for event handler in webpubsub service
-        :param Mapping[str, Sequence['EventHandlerTemplateResponse']] items: Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
+        Live trace category configuration of a Microsoft.SignalRService resource.
+        :param str enabled: Indicates whether or the live trace category is enabled.
+               Available values: true, false.
+               Case insensitive.
+        :param str name: Gets or sets the live trace category's name.
+               Available values: ConnectivityLogs, MessagingLogs.
+               Case insensitive.
         """
-        if items is not None:
-            pulumi.set(__self__, "items", items)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def items(self) -> Optional[Mapping[str, Sequence['outputs.EventHandlerTemplateResponse']]]:
+    def enabled(self) -> Optional[str]:
         """
-        Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
+        Indicates whether or the live trace category is enabled.
+        Available values: true, false.
+        Case insensitive.
         """
-        return pulumi.get(self, "items")
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the live trace category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
-class EventHandlerTemplateResponse(dict):
+class LiveTraceConfigurationResponse(dict):
     """
-    EventHandler template item settings.
+    Live trace configuration of a Microsoft.SignalRService resource.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "urlTemplate":
-            suggest = "url_template"
-        elif key == "systemEventPattern":
-            suggest = "system_event_pattern"
-        elif key == "userEventPattern":
-            suggest = "user_event_pattern"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventHandlerTemplateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventHandlerTemplateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventHandlerTemplateResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 url_template: str,
-                 auth: Optional['outputs.UpstreamAuthSettingsResponse'] = None,
-                 system_event_pattern: Optional[str] = None,
-                 user_event_pattern: Optional[str] = None):
+                 categories: Optional[Sequence['outputs.LiveTraceCategoryResponse']] = None,
+                 enabled: Optional[str] = None):
         """
-        EventHandler template item settings.
-        :param str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-               For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        :param 'UpstreamAuthSettingsResponse' auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
-        :param str system_event_pattern: Gets ot sets the system event pattern.
-               There are 2 kind of patterns supported:
-                   1. The single event name, for example, "connect", it matches "connect"
-                   2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-        :param str user_event_pattern: Gets or sets the matching pattern for event names.
-               There are 3 kind of patterns supported:
-                   1. "*", it to matches any event name
-                   2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-                   3. The single event name, for example, "event1", it matches "event1"
+        Live trace configuration of a Microsoft.SignalRService resource.
+        :param Sequence['LiveTraceCategoryResponse'] categories: Gets or sets the list of category configurations.
+        :param str enabled: Indicates whether or not enable live trace.
+               When it's set to true, live trace client can connect to the service.
+               Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+               Available values: true, false.
+               Case insensitive.
         """
-        pulumi.set(__self__, "url_template", url_template)
-        if auth is not None:
-            pulumi.set(__self__, "auth", auth)
-        if system_event_pattern is not None:
-            pulumi.set(__self__, "system_event_pattern", system_event_pattern)
-        if user_event_pattern is not None:
-            pulumi.set(__self__, "user_event_pattern", user_event_pattern)
-
-    @property
-    @pulumi.getter(name="urlTemplate")
-    def url_template(self) -> str:
-        """
-        Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-        For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        """
-        return pulumi.get(self, "url_template")
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if enabled is None:
+            enabled = 'false'
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def auth(self) -> Optional['outputs.UpstreamAuthSettingsResponse']:
+    def categories(self) -> Optional[Sequence['outputs.LiveTraceCategoryResponse']]:
         """
-        Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        Gets or sets the list of category configurations.
         """
-        return pulumi.get(self, "auth")
+        return pulumi.get(self, "categories")
 
     @property
-    @pulumi.getter(name="systemEventPattern")
-    def system_event_pattern(self) -> Optional[str]:
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
         """
-        Gets ot sets the system event pattern.
-        There are 2 kind of patterns supported:
-            1. The single event name, for example, "connect", it matches "connect"
-            2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
+        Indicates whether or not enable live trace.
+        When it's set to true, live trace client can connect to the service.
+        Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+        Available values: true, false.
+        Case insensitive.
         """
-        return pulumi.get(self, "system_event_pattern")
-
-    @property
-    @pulumi.getter(name="userEventPattern")
-    def user_event_pattern(self) -> Optional[str]:
-        """
-        Gets or sets the matching pattern for event names.
-        There are 3 kind of patterns supported:
-            1. "*", it to matches any event name
-            2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-            3. The single event name, for example, "event1", it matches "event1"
-        """
-        return pulumi.get(self, "user_event_pattern")
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -276,7 +247,7 @@ class ManagedIdentityResponse(dict):
                Only be used in response.
         :param str tenant_id: Get the tenant id for the system assigned identity.
                Only be used in response
-        :param str type: Represent the identity type: systemAssigned, userAssigned, None
+        :param str type: Represents the identity type: systemAssigned, userAssigned, None
         :param Mapping[str, 'UserAssignedIdentityPropertyResponse'] user_assigned_identities: Get or set the user assigned identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -308,7 +279,7 @@ class ManagedIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Represent the identity type: systemAssigned, userAssigned, None
+        Represents the identity type: systemAssigned, userAssigned, None
         """
         return pulumi.get(self, "type")
 
@@ -435,7 +406,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "systemData":
             suggest = "system_data"
@@ -456,6 +429,7 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[str],
                  id: str,
                  name: str,
                  provisioning_state: str,
@@ -465,14 +439,16 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection to an azure resource
+        :param Sequence[str] group_ids: Group IDs
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
-        :param str provisioning_state: Provisioning state of the private endpoint connection
+        :param str provisioning_state: Provisioning state of the resource.
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection
         """
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -482,6 +458,14 @@ class PrivateEndpointConnectionResponse(dict):
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        Group IDs
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -503,7 +487,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the private endpoint connection
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -527,7 +511,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -535,7 +519,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -625,6 +609,72 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ResourceLogCategoryResponse(dict):
+    """
+    Resource log category configuration of a Microsoft.SignalRService resource.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Resource log category configuration of a Microsoft.SignalRService resource.
+        :param str enabled: Indicates whether or the resource log category is enabled.
+               Available values: true, false.
+               Case insensitive.
+        :param str name: Gets or sets the resource log category's name.
+               Available values: ConnectivityLogs, MessagingLogs.
+               Case insensitive.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        Indicates whether or the resource log category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the resource log category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ResourceLogConfigurationResponse(dict):
+    """
+    Resource log configuration of a Microsoft.SignalRService resource.
+    """
+    def __init__(__self__, *,
+                 categories: Optional[Sequence['outputs.ResourceLogCategoryResponse']] = None):
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        :param Sequence['ResourceLogCategoryResponse'] categories: Gets or sets the list of category configurations.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[Sequence['outputs.ResourceLogCategoryResponse']]:
+        """
+        Gets or sets the list of category configurations.
+        """
+        return pulumi.get(self, "categories")
 
 
 @pulumi.output_type
@@ -757,7 +807,7 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
         :param str private_link_resource_id: The resource id of the resource the shared private link resource is for
-        :param str provisioning_state: Provisioning state of the shared private link resource
+        :param str provisioning_state: Provisioning state of the resource.
         :param str status: Status of the shared private link resource
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
@@ -810,7 +860,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the shared private link resource
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -1062,59 +1112,6 @@ class UserAssignedIdentityPropertyResponse(dict):
 
 
 @pulumi.output_type
-class WebPubSubFeatureResponse(dict):
-    """
-    Feature of a resource, which controls the runtime behavior.
-    """
-    def __init__(__self__, *,
-                 flag: str,
-                 value: str,
-                 properties: Optional[Mapping[str, str]] = None):
-        """
-        Feature of a resource, which controls the runtime behavior.
-        :param str flag: FeatureFlags is the supported features of Azure SignalR service.
-                - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-                - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-                - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-                
-        :param str value: Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-        :param Mapping[str, str] properties: Optional properties related to this feature.
-        """
-        pulumi.set(__self__, "flag", flag)
-        pulumi.set(__self__, "value", value)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def flag(self) -> str:
-        """
-        FeatureFlags is the supported features of Azure SignalR service.
-         - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-         - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-         - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-         
-        """
-        return pulumi.get(self, "flag")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, str]]:
-        """
-        Optional properties related to this feature.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
 class WebPubSubHubPropertiesResponse(dict):
     """
     Properties of a hub.
@@ -1202,12 +1199,10 @@ class WebPubSubNetworkACLsResponse(dict):
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for the resource
-        :param str default_action: Default action when no other rule matches
+        :param str default_action: Azure Networking ACL Action.
         :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponse' public_network: ACL for requests from public network
+        :param 'NetworkACLResponse' public_network: Network ACL
         """
-        if default_action is None:
-            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
@@ -1219,7 +1214,7 @@ class WebPubSubNetworkACLsResponse(dict):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[str]:
         """
-        Default action when no other rule matches
+        Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
 
@@ -1235,7 +1230,7 @@ class WebPubSubNetworkACLsResponse(dict):
     @pulumi.getter(name="publicNetwork")
     def public_network(self) -> Optional['outputs.NetworkACLResponse']:
         """
-        ACL for requests from public network
+        Network ACL
         """
         return pulumi.get(self, "public_network")
 

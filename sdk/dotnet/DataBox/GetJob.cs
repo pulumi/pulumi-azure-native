@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBox
     {
         /// <summary>
         /// Job Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Job Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

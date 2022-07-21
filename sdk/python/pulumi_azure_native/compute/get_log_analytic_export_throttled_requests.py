@@ -56,7 +56,7 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportThrottledRequestsResult:
     """
     LogAnalytics operation status response
-    API Version: 2020-12-01.
+    API Version: 2021-11-01.
 
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
@@ -102,7 +102,7 @@ def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: Op
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnalyticExportThrottledRequestsResult]:
     """
     LogAnalytics operation status response
-    API Version: 2020-12-01.
+    API Version: 2021-11-01.
 
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.

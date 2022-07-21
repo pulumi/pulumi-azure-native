@@ -12,24 +12,14 @@ import (
 )
 
 // A SQL Analytics pool
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type SqlPool struct {
 	pulumi.CustomResourceState
 
 	// Collation mode
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// Specifies the mode of sql pool creation.
-	//
-	// Default: regular sql pool creation.
-	//
-	// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-	//
-	// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// Date the SQL pool was created
-	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maximum size in bytes
@@ -44,10 +34,10 @@ type SqlPool struct {
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// SQL pool SKU
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Source database to create from
-	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
+	// Specifies the time that the sql pool was deleted
+	SourceDatabaseDeletionDate pulumi.StringPtrOutput `pulumi:"sourceDatabaseDeletionDate"`
 	// Resource status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The storage account type used to store backups for this sql pool.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Resource tags.
@@ -68,6 +58,12 @@ func NewSqlPool(ctx *pulumi.Context,
 	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
+	}
+	if isZero(args.Collation) {
+		args.Collation = pulumi.StringPtr("")
+	}
+	if isZero(args.StorageAccountType) {
+		args.StorageAccountType = pulumi.StringPtr("GRS")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -140,8 +136,6 @@ type sqlPoolArgs struct {
 	//
 	// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
 	CreateMode *string `pulumi:"createMode"`
-	// Date the SQL pool was created
-	CreationDate *string `pulumi:"creationDate"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Maximum size in bytes
@@ -156,17 +150,17 @@ type sqlPoolArgs struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// SQL pool SKU
 	Sku *Sku `pulumi:"sku"`
+	// Specifies the time that the sql pool was deleted
+	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// Source database to create from
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// SQL pool name
 	SqlPoolName *string `pulumi:"sqlPoolName"`
-	// Resource status
-	Status *string `pulumi:"status"`
 	// The storage account type used to store backups for this sql pool.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -184,8 +178,6 @@ type SqlPoolArgs struct {
 	//
 	// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
 	CreateMode pulumi.StringPtrInput
-	// Date the SQL pool was created
-	CreationDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Maximum size in bytes
@@ -200,17 +192,17 @@ type SqlPoolArgs struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// SQL pool SKU
 	Sku SkuPtrInput
+	// Specifies the time that the sql pool was deleted
+	SourceDatabaseDeletionDate pulumi.StringPtrInput
 	// Source database to create from
 	SourceDatabaseId pulumi.StringPtrInput
 	// SQL pool name
 	SqlPoolName pulumi.StringPtrInput
-	// Resource status
-	Status pulumi.StringPtrInput
 	// The storage account type used to store backups for this sql pool.
 	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 
@@ -256,22 +248,9 @@ func (o SqlPoolOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mode of sql pool creation.
-//
-// Default: regular sql pool creation.
-//
-// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-//
-// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-//
-// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-func (o SqlPoolOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
-}
-
 // Date the SQL pool was created
-func (o SqlPoolOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
+func (o SqlPoolOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
 // The geo-location where the resource lives
@@ -309,14 +288,14 @@ func (o SqlPoolOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *SqlPool) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// Source database to create from
-func (o SqlPoolOutput) SourceDatabaseId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.SourceDatabaseId }).(pulumi.StringPtrOutput)
+// Specifies the time that the sql pool was deleted
+func (o SqlPoolOutput) SourceDatabaseDeletionDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.SourceDatabaseDeletionDate }).(pulumi.StringPtrOutput)
 }
 
 // Resource status
-func (o SqlPoolOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+func (o SqlPoolOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // The storage account type used to store backups for this sql pool.

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraView"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView"},

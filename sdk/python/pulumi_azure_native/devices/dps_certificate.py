@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['DpsCertificateArgs', 'DpsCertificate']
 
@@ -16,25 +17,21 @@ class DpsCertificateArgs:
     def __init__(__self__, *,
                  provisioning_service_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 certificate: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 is_verified: Optional[pulumi.Input[bool]] = None):
+                 properties: Optional[pulumi.Input['CertificatePropertiesArgs']] = None):
         """
         The set of arguments for constructing a DpsCertificate resource.
         :param pulumi.Input[str] provisioning_service_name: The name of the provisioning service.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
-        :param pulumi.Input[str] certificate: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
         :param pulumi.Input[str] certificate_name: The name of the certificate create or update.
-        :param pulumi.Input[bool] is_verified: True indicates that the certificate will be created in verified state and proof of possession will not be required.
+        :param pulumi.Input['CertificatePropertiesArgs'] properties: properties of a certificate
         """
         pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
         if certificate_name is not None:
             pulumi.set(__self__, "certificate_name", certificate_name)
-        if is_verified is not None:
-            pulumi.set(__self__, "is_verified", is_verified)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="provisioningServiceName")
@@ -61,18 +58,6 @@ class DpsCertificateArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[str]]:
-        """
-        Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-        """
-        return pulumi.get(self, "certificate")
-
-    @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate", value)
-
-    @property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -85,16 +70,16 @@ class DpsCertificateArgs:
         pulumi.set(self, "certificate_name", value)
 
     @property
-    @pulumi.getter(name="isVerified")
-    def is_verified(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['CertificatePropertiesArgs']]:
         """
-        True indicates that the certificate will be created in verified state and proof of possession will not be required.
+        properties of a certificate
         """
-        return pulumi.get(self, "is_verified")
+        return pulumi.get(self, "properties")
 
-    @is_verified.setter
-    def is_verified(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_verified", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['CertificatePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class DpsCertificate(pulumi.CustomResource):
@@ -102,21 +87,19 @@ class DpsCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 is_verified: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The X509 Certificate.
-        API Version: 2020-03-01.
+        API Version: 2022-02-05.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
         :param pulumi.Input[str] certificate_name: The name of the certificate create or update.
-        :param pulumi.Input[bool] is_verified: True indicates that the certificate will be created in verified state and proof of possession will not be required.
+        :param pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']] properties: properties of a certificate
         :param pulumi.Input[str] provisioning_service_name: The name of the provisioning service.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         """
@@ -128,7 +111,7 @@ class DpsCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The X509 Certificate.
-        API Version: 2020-03-01.
+        API Version: 2022-02-05.
 
         :param str resource_name: The name of the resource.
         :param DpsCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -145,9 +128,8 @@ class DpsCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 is_verified: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -162,9 +144,8 @@ class DpsCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DpsCertificateArgs.__new__(DpsCertificateArgs)
 
-            __props__.__dict__["certificate"] = certificate
             __props__.__dict__["certificate_name"] = certificate_name
-            __props__.__dict__["is_verified"] = is_verified
+            __props__.__dict__["properties"] = properties
             if provisioning_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_service_name'")
             __props__.__dict__["provisioning_service_name"] = provisioning_service_name
@@ -173,7 +154,7 @@ class DpsCertificate(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20171115:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20180122:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200101:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200301:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200901preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20211015:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20220205:DpsCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -202,6 +183,7 @@ class DpsCertificate(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DpsCertificate(resource_name, opts=opts, __props__=__props__)
 
@@ -228,6 +210,14 @@ class DpsCertificate(pulumi.CustomResource):
         properties of a certificate
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

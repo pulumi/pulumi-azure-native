@@ -10,6 +10,9 @@ export * from "./listOpenShiftClusterAdminCredentials";
 export * from "./listOpenShiftClusterCredentials";
 export * from "./openShiftCluster";
 
+// Export enums:
+export * from "../types/enums/redhatopenshift";
+
 // Export sub-modules:
 import * as v20200430 from "./v20200430";
 import * as v20210901preview from "./v20210901preview";

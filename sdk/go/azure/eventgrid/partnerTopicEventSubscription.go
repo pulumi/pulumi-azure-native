@@ -12,7 +12,7 @@ import (
 )
 
 // Event Subscription
-// API Version: 2020-04-01-preview.
+// API Version: 2022-06-15.
 type PartnerTopicEventSubscription struct {
 	pulumi.CustomResourceState
 

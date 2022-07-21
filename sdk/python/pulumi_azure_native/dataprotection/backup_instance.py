@@ -19,13 +19,15 @@ class BackupInstanceInitArgs:
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['BackupInstanceArgs']] = None):
+                 properties: Optional[pulumi.Input['BackupInstanceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         :param pulumi.Input[str] backup_instance_name: The name of the backup instance
         :param pulumi.Input['BackupInstanceArgs'] properties: BackupInstanceResource properties
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Proxy Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
@@ -33,6 +35,8 @@ class BackupInstanceInitArgs:
             pulumi.set(__self__, "backup_instance_name", backup_instance_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -82,6 +86,18 @@ class BackupInstanceInitArgs:
     def properties(self, value: Optional[pulumi.Input['BackupInstanceArgs']]):
         pulumi.set(self, "properties", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Proxy Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class BackupInstance(pulumi.CustomResource):
     @overload
@@ -91,17 +107,19 @@ class BackupInstance(pulumi.CustomResource):
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['BackupInstanceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         BackupInstance Resource
-        API Version: 2021-01-01.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_instance_name: The name of the backup instance
         :param pulumi.Input[pulumi.InputType['BackupInstanceArgs']] properties: BackupInstanceResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Proxy Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
         ...
@@ -112,7 +130,7 @@ class BackupInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BackupInstance Resource
-        API Version: 2021-01-01.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.
@@ -132,6 +150,7 @@ class BackupInstance(pulumi.CustomResource):
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['BackupInstanceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -150,6 +169,7 @@ class BackupInstance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
@@ -183,6 +203,7 @@ class BackupInstance(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BackupInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -190,7 +211,7 @@ class BackupInstance(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name associated with the resource.
+        Proxy Resource name associated with the resource.
         """
         return pulumi.get(self, "name")
 
@@ -212,9 +233,17 @@ class BackupInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Proxy Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
         return pulumi.get(self, "type")
 

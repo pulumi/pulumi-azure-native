@@ -113,7 +113,7 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
-        API Version: 2018-01-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
-        API Version: 2018-01-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -176,6 +176,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["metric_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20211101:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:Cluster")])
@@ -208,6 +209,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
@@ -260,6 +262,14 @@ class Cluster(pulumi.CustomResource):
         Status of the Cluster resource
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

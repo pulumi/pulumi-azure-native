@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Log file URL payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentLogFileUrlResult> {
     if (!opts) {

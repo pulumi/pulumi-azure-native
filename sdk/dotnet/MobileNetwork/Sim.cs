@@ -11,17 +11,11 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Sim resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Sim")]
     public partial class Sim : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The configuration state of the sim resource - complete or incomplete.
-        /// </summary>
-        [Output("configurationState")]
-        public Output<string> ConfigurationState { get; private set; } = null!;
-
         /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
@@ -107,10 +101,22 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<Outputs.SimPolicyResourceIdResponse?> SimPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The state of the sim resource.
+        /// </summary>
+        [Output("simState")]
+        public Output<string> SimState { get; private set; } = null!;
+
+        /// <summary>
         /// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         /// </summary>
         [Output("staticIpConfiguration")]
         public Output<ImmutableArray<Outputs.SimStaticIpPropertiesResponse>> StaticIpConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

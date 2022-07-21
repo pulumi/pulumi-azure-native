@@ -10,903 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Review History Definition Instance.
-type AccessReviewHistoryInstance struct {
-	// The display name for the parent history definition.
-	DisplayName *string `pulumi:"displayName"`
-	// Date time when history data report expires and the associated data is deleted.
-	Expiration *string `pulumi:"expiration"`
-	// Date time when the history data report is scheduled to be generated.
-	FulfilledDateTime *string `pulumi:"fulfilledDateTime"`
-	// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
-	ReviewHistoryPeriodEndDateTime *string `pulumi:"reviewHistoryPeriodEndDateTime"`
-	// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
-	ReviewHistoryPeriodStartDateTime *string `pulumi:"reviewHistoryPeriodStartDateTime"`
-	// Date time when the history data report is scheduled to be generated.
-	RunDateTime *string `pulumi:"runDateTime"`
-}
-
-// AccessReviewHistoryInstanceInput is an input type that accepts AccessReviewHistoryInstanceArgs and AccessReviewHistoryInstanceOutput values.
-// You can construct a concrete instance of `AccessReviewHistoryInstanceInput` via:
-//
-//          AccessReviewHistoryInstanceArgs{...}
-type AccessReviewHistoryInstanceInput interface {
-	pulumi.Input
-
-	ToAccessReviewHistoryInstanceOutput() AccessReviewHistoryInstanceOutput
-	ToAccessReviewHistoryInstanceOutputWithContext(context.Context) AccessReviewHistoryInstanceOutput
-}
-
-// Access Review History Definition Instance.
-type AccessReviewHistoryInstanceArgs struct {
-	// The display name for the parent history definition.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Date time when history data report expires and the associated data is deleted.
-	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// Date time when the history data report is scheduled to be generated.
-	FulfilledDateTime pulumi.StringPtrInput `pulumi:"fulfilledDateTime"`
-	// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
-	ReviewHistoryPeriodEndDateTime pulumi.StringPtrInput `pulumi:"reviewHistoryPeriodEndDateTime"`
-	// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
-	ReviewHistoryPeriodStartDateTime pulumi.StringPtrInput `pulumi:"reviewHistoryPeriodStartDateTime"`
-	// Date time when the history data report is scheduled to be generated.
-	RunDateTime pulumi.StringPtrInput `pulumi:"runDateTime"`
-}
-
-func (AccessReviewHistoryInstanceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewHistoryInstance)(nil)).Elem()
-}
-
-func (i AccessReviewHistoryInstanceArgs) ToAccessReviewHistoryInstanceOutput() AccessReviewHistoryInstanceOutput {
-	return i.ToAccessReviewHistoryInstanceOutputWithContext(context.Background())
-}
-
-func (i AccessReviewHistoryInstanceArgs) ToAccessReviewHistoryInstanceOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewHistoryInstanceOutput)
-}
-
-// AccessReviewHistoryInstanceArrayInput is an input type that accepts AccessReviewHistoryInstanceArray and AccessReviewHistoryInstanceArrayOutput values.
-// You can construct a concrete instance of `AccessReviewHistoryInstanceArrayInput` via:
-//
-//          AccessReviewHistoryInstanceArray{ AccessReviewHistoryInstanceArgs{...} }
-type AccessReviewHistoryInstanceArrayInput interface {
-	pulumi.Input
-
-	ToAccessReviewHistoryInstanceArrayOutput() AccessReviewHistoryInstanceArrayOutput
-	ToAccessReviewHistoryInstanceArrayOutputWithContext(context.Context) AccessReviewHistoryInstanceArrayOutput
-}
-
-type AccessReviewHistoryInstanceArray []AccessReviewHistoryInstanceInput
-
-func (AccessReviewHistoryInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewHistoryInstance)(nil)).Elem()
-}
-
-func (i AccessReviewHistoryInstanceArray) ToAccessReviewHistoryInstanceArrayOutput() AccessReviewHistoryInstanceArrayOutput {
-	return i.ToAccessReviewHistoryInstanceArrayOutputWithContext(context.Background())
-}
-
-func (i AccessReviewHistoryInstanceArray) ToAccessReviewHistoryInstanceArrayOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewHistoryInstanceArrayOutput)
-}
-
-// Access Review History Definition Instance.
-type AccessReviewHistoryInstanceOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewHistoryInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewHistoryInstance)(nil)).Elem()
-}
-
-func (o AccessReviewHistoryInstanceOutput) ToAccessReviewHistoryInstanceOutput() AccessReviewHistoryInstanceOutput {
-	return o
-}
-
-func (o AccessReviewHistoryInstanceOutput) ToAccessReviewHistoryInstanceOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceOutput {
-	return o
-}
-
-// The display name for the parent history definition.
-func (o AccessReviewHistoryInstanceOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Date time when history data report expires and the associated data is deleted.
-func (o AccessReviewHistoryInstanceOutput) Expiration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.Expiration }).(pulumi.StringPtrOutput)
-}
-
-// Date time when the history data report is scheduled to be generated.
-func (o AccessReviewHistoryInstanceOutput) FulfilledDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.FulfilledDateTime }).(pulumi.StringPtrOutput)
-}
-
-// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
-func (o AccessReviewHistoryInstanceOutput) ReviewHistoryPeriodEndDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.ReviewHistoryPeriodEndDateTime }).(pulumi.StringPtrOutput)
-}
-
-// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
-func (o AccessReviewHistoryInstanceOutput) ReviewHistoryPeriodStartDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.ReviewHistoryPeriodStartDateTime }).(pulumi.StringPtrOutput)
-}
-
-// Date time when the history data report is scheduled to be generated.
-func (o AccessReviewHistoryInstanceOutput) RunDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.RunDateTime }).(pulumi.StringPtrOutput)
-}
-
-type AccessReviewHistoryInstanceArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewHistoryInstanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewHistoryInstance)(nil)).Elem()
-}
-
-func (o AccessReviewHistoryInstanceArrayOutput) ToAccessReviewHistoryInstanceArrayOutput() AccessReviewHistoryInstanceArrayOutput {
-	return o
-}
-
-func (o AccessReviewHistoryInstanceArrayOutput) ToAccessReviewHistoryInstanceArrayOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceArrayOutput {
-	return o
-}
-
-func (o AccessReviewHistoryInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewHistoryInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewHistoryInstance {
-		return vs[0].([]AccessReviewHistoryInstance)[vs[1].(int)]
-	}).(AccessReviewHistoryInstanceOutput)
-}
-
-// Access Review History Definition Instance.
-type AccessReviewHistoryInstanceResponse struct {
-	// The display name for the parent history definition.
-	DisplayName *string `pulumi:"displayName"`
-	// Uri which can be used to retrieve review history data. To generate this Uri, generateDownloadUri() must be called for a specific accessReviewHistoryDefinitionInstance. The link expires after a 24 hour period. Callers can see the expiration date time by looking at the 'se' parameter in the generated uri.
-	DownloadUri string `pulumi:"downloadUri"`
-	// Date time when history data report expires and the associated data is deleted.
-	Expiration *string `pulumi:"expiration"`
-	// Date time when the history data report is scheduled to be generated.
-	FulfilledDateTime *string `pulumi:"fulfilledDateTime"`
-	// The access review history definition instance id.
-	Id string `pulumi:"id"`
-	// The access review history definition instance unique id.
-	Name string `pulumi:"name"`
-	// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
-	ReviewHistoryPeriodEndDateTime *string `pulumi:"reviewHistoryPeriodEndDateTime"`
-	// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
-	ReviewHistoryPeriodStartDateTime *string `pulumi:"reviewHistoryPeriodStartDateTime"`
-	// Date time when the history data report is scheduled to be generated.
-	RunDateTime *string `pulumi:"runDateTime"`
-	// Status of the requested review history instance data. This is either requested, in-progress, done or error. The state transitions are as follows - Requested -> InProgress -> Done -> Expired
-	Status string `pulumi:"status"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// Access Review History Definition Instance.
-type AccessReviewHistoryInstanceResponseOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewHistoryInstanceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewHistoryInstanceResponse)(nil)).Elem()
-}
-
-func (o AccessReviewHistoryInstanceResponseOutput) ToAccessReviewHistoryInstanceResponseOutput() AccessReviewHistoryInstanceResponseOutput {
-	return o
-}
-
-func (o AccessReviewHistoryInstanceResponseOutput) ToAccessReviewHistoryInstanceResponseOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceResponseOutput {
-	return o
-}
-
-// The display name for the parent history definition.
-func (o AccessReviewHistoryInstanceResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Uri which can be used to retrieve review history data. To generate this Uri, generateDownloadUri() must be called for a specific accessReviewHistoryDefinitionInstance. The link expires after a 24 hour period. Callers can see the expiration date time by looking at the 'se' parameter in the generated uri.
-func (o AccessReviewHistoryInstanceResponseOutput) DownloadUri() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.DownloadUri }).(pulumi.StringOutput)
-}
-
-// Date time when history data report expires and the associated data is deleted.
-func (o AccessReviewHistoryInstanceResponseOutput) Expiration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.Expiration }).(pulumi.StringPtrOutput)
-}
-
-// Date time when the history data report is scheduled to be generated.
-func (o AccessReviewHistoryInstanceResponseOutput) FulfilledDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.FulfilledDateTime }).(pulumi.StringPtrOutput)
-}
-
-// The access review history definition instance id.
-func (o AccessReviewHistoryInstanceResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The access review history definition instance unique id.
-func (o AccessReviewHistoryInstanceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
-func (o AccessReviewHistoryInstanceResponseOutput) ReviewHistoryPeriodEndDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.ReviewHistoryPeriodEndDateTime }).(pulumi.StringPtrOutput)
-}
-
-// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
-func (o AccessReviewHistoryInstanceResponseOutput) ReviewHistoryPeriodStartDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.ReviewHistoryPeriodStartDateTime }).(pulumi.StringPtrOutput)
-}
-
-// Date time when the history data report is scheduled to be generated.
-func (o AccessReviewHistoryInstanceResponseOutput) RunDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.RunDateTime }).(pulumi.StringPtrOutput)
-}
-
-// Status of the requested review history instance data. This is either requested, in-progress, done or error. The state transitions are as follows - Requested -> InProgress -> Done -> Expired
-func (o AccessReviewHistoryInstanceResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-// The resource type.
-func (o AccessReviewHistoryInstanceResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AccessReviewHistoryInstanceResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewHistoryInstanceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewHistoryInstanceResponse)(nil)).Elem()
-}
-
-func (o AccessReviewHistoryInstanceResponseArrayOutput) ToAccessReviewHistoryInstanceResponseArrayOutput() AccessReviewHistoryInstanceResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewHistoryInstanceResponseArrayOutput) ToAccessReviewHistoryInstanceResponseArrayOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewHistoryInstanceResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewHistoryInstanceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewHistoryInstanceResponse {
-		return vs[0].([]AccessReviewHistoryInstanceResponse)[vs[1].(int)]
-	}).(AccessReviewHistoryInstanceResponseOutput)
-}
-
-// Access Review Instance.
-type AccessReviewInstance struct {
-	// This is the collection of backup reviewers.
-	BackupReviewers []AccessReviewReviewer `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime *string `pulumi:"endDateTime"`
-	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewer `pulumi:"reviewers"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime *string `pulumi:"startDateTime"`
-}
-
-// AccessReviewInstanceInput is an input type that accepts AccessReviewInstanceArgs and AccessReviewInstanceOutput values.
-// You can construct a concrete instance of `AccessReviewInstanceInput` via:
-//
-//          AccessReviewInstanceArgs{...}
-type AccessReviewInstanceInput interface {
-	pulumi.Input
-
-	ToAccessReviewInstanceOutput() AccessReviewInstanceOutput
-	ToAccessReviewInstanceOutputWithContext(context.Context) AccessReviewInstanceOutput
-}
-
-// Access Review Instance.
-type AccessReviewInstanceArgs struct {
-	// This is the collection of backup reviewers.
-	BackupReviewers AccessReviewReviewerArrayInput `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
-	// This is the collection of reviewers.
-	Reviewers AccessReviewReviewerArrayInput `pulumi:"reviewers"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
-}
-
-func (AccessReviewInstanceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewInstance)(nil)).Elem()
-}
-
-func (i AccessReviewInstanceArgs) ToAccessReviewInstanceOutput() AccessReviewInstanceOutput {
-	return i.ToAccessReviewInstanceOutputWithContext(context.Background())
-}
-
-func (i AccessReviewInstanceArgs) ToAccessReviewInstanceOutputWithContext(ctx context.Context) AccessReviewInstanceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceOutput)
-}
-
-// AccessReviewInstanceArrayInput is an input type that accepts AccessReviewInstanceArray and AccessReviewInstanceArrayOutput values.
-// You can construct a concrete instance of `AccessReviewInstanceArrayInput` via:
-//
-//          AccessReviewInstanceArray{ AccessReviewInstanceArgs{...} }
-type AccessReviewInstanceArrayInput interface {
-	pulumi.Input
-
-	ToAccessReviewInstanceArrayOutput() AccessReviewInstanceArrayOutput
-	ToAccessReviewInstanceArrayOutputWithContext(context.Context) AccessReviewInstanceArrayOutput
-}
-
-type AccessReviewInstanceArray []AccessReviewInstanceInput
-
-func (AccessReviewInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewInstance)(nil)).Elem()
-}
-
-func (i AccessReviewInstanceArray) ToAccessReviewInstanceArrayOutput() AccessReviewInstanceArrayOutput {
-	return i.ToAccessReviewInstanceArrayOutputWithContext(context.Background())
-}
-
-func (i AccessReviewInstanceArray) ToAccessReviewInstanceArrayOutputWithContext(ctx context.Context) AccessReviewInstanceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceArrayOutput)
-}
-
-// Access Review Instance.
-type AccessReviewInstanceOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewInstance)(nil)).Elem()
-}
-
-func (o AccessReviewInstanceOutput) ToAccessReviewInstanceOutput() AccessReviewInstanceOutput {
-	return o
-}
-
-func (o AccessReviewInstanceOutput) ToAccessReviewInstanceOutputWithContext(ctx context.Context) AccessReviewInstanceOutput {
-	return o
-}
-
-// This is the collection of backup reviewers.
-func (o AccessReviewInstanceOutput) BackupReviewers() AccessReviewReviewerArrayOutput {
-	return o.ApplyT(func(v AccessReviewInstance) []AccessReviewReviewer { return v.BackupReviewers }).(AccessReviewReviewerArrayOutput)
-}
-
-// The DateTime when the review instance is scheduled to end.
-func (o AccessReviewInstanceOutput) EndDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewInstance) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
-}
-
-// This is the collection of reviewers.
-func (o AccessReviewInstanceOutput) Reviewers() AccessReviewReviewerArrayOutput {
-	return o.ApplyT(func(v AccessReviewInstance) []AccessReviewReviewer { return v.Reviewers }).(AccessReviewReviewerArrayOutput)
-}
-
-// The DateTime when the review instance is scheduled to be start.
-func (o AccessReviewInstanceOutput) StartDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewInstance) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
-}
-
-type AccessReviewInstanceArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewInstanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewInstance)(nil)).Elem()
-}
-
-func (o AccessReviewInstanceArrayOutput) ToAccessReviewInstanceArrayOutput() AccessReviewInstanceArrayOutput {
-	return o
-}
-
-func (o AccessReviewInstanceArrayOutput) ToAccessReviewInstanceArrayOutputWithContext(ctx context.Context) AccessReviewInstanceArrayOutput {
-	return o
-}
-
-func (o AccessReviewInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewInstance {
-		return vs[0].([]AccessReviewInstance)[vs[1].(int)]
-	}).(AccessReviewInstanceOutput)
-}
-
-// Access Review Instance.
-type AccessReviewInstanceResponse struct {
-	// This is the collection of backup reviewers.
-	BackupReviewers []AccessReviewReviewerResponse `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime *string `pulumi:"endDateTime"`
-	// The access review instance id.
-	Id string `pulumi:"id"`
-	// The access review instance name.
-	Name string `pulumi:"name"`
-	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewerResponse `pulumi:"reviewers"`
-	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-	ReviewersType string `pulumi:"reviewersType"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime *string `pulumi:"startDateTime"`
-	// This read-only field specifies the status of an access review instance.
-	Status string `pulumi:"status"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// Access Review Instance.
-type AccessReviewInstanceResponseOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewInstanceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewInstanceResponse)(nil)).Elem()
-}
-
-func (o AccessReviewInstanceResponseOutput) ToAccessReviewInstanceResponseOutput() AccessReviewInstanceResponseOutput {
-	return o
-}
-
-func (o AccessReviewInstanceResponseOutput) ToAccessReviewInstanceResponseOutputWithContext(ctx context.Context) AccessReviewInstanceResponseOutput {
-	return o
-}
-
-// This is the collection of backup reviewers.
-func (o AccessReviewInstanceResponseOutput) BackupReviewers() AccessReviewReviewerResponseArrayOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) []AccessReviewReviewerResponse { return v.BackupReviewers }).(AccessReviewReviewerResponseArrayOutput)
-}
-
-// The DateTime when the review instance is scheduled to end.
-func (o AccessReviewInstanceResponseOutput) EndDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
-}
-
-// The access review instance id.
-func (o AccessReviewInstanceResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The access review instance name.
-func (o AccessReviewInstanceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// This is the collection of reviewers.
-func (o AccessReviewInstanceResponseOutput) Reviewers() AccessReviewReviewerResponseArrayOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) []AccessReviewReviewerResponse { return v.Reviewers }).(AccessReviewReviewerResponseArrayOutput)
-}
-
-// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-func (o AccessReviewInstanceResponseOutput) ReviewersType() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.ReviewersType }).(pulumi.StringOutput)
-}
-
-// The DateTime when the review instance is scheduled to be start.
-func (o AccessReviewInstanceResponseOutput) StartDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
-}
-
-// This read-only field specifies the status of an access review instance.
-func (o AccessReviewInstanceResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-// The resource type.
-func (o AccessReviewInstanceResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AccessReviewInstanceResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewInstanceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewInstanceResponse)(nil)).Elem()
-}
-
-func (o AccessReviewInstanceResponseArrayOutput) ToAccessReviewInstanceResponseArrayOutput() AccessReviewInstanceResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewInstanceResponseArrayOutput) ToAccessReviewInstanceResponseArrayOutputWithContext(ctx context.Context) AccessReviewInstanceResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewInstanceResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewInstanceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewInstanceResponse {
-		return vs[0].([]AccessReviewInstanceResponse)[vs[1].(int)]
-	}).(AccessReviewInstanceResponseOutput)
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewReviewer struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// AccessReviewReviewerInput is an input type that accepts AccessReviewReviewerArgs and AccessReviewReviewerOutput values.
-// You can construct a concrete instance of `AccessReviewReviewerInput` via:
-//
-//          AccessReviewReviewerArgs{...}
-type AccessReviewReviewerInput interface {
-	pulumi.Input
-
-	ToAccessReviewReviewerOutput() AccessReviewReviewerOutput
-	ToAccessReviewReviewerOutputWithContext(context.Context) AccessReviewReviewerOutput
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewReviewerArgs struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (AccessReviewReviewerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewReviewer)(nil)).Elem()
-}
-
-func (i AccessReviewReviewerArgs) ToAccessReviewReviewerOutput() AccessReviewReviewerOutput {
-	return i.ToAccessReviewReviewerOutputWithContext(context.Background())
-}
-
-func (i AccessReviewReviewerArgs) ToAccessReviewReviewerOutputWithContext(ctx context.Context) AccessReviewReviewerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerOutput)
-}
-
-// AccessReviewReviewerArrayInput is an input type that accepts AccessReviewReviewerArray and AccessReviewReviewerArrayOutput values.
-// You can construct a concrete instance of `AccessReviewReviewerArrayInput` via:
-//
-//          AccessReviewReviewerArray{ AccessReviewReviewerArgs{...} }
-type AccessReviewReviewerArrayInput interface {
-	pulumi.Input
-
-	ToAccessReviewReviewerArrayOutput() AccessReviewReviewerArrayOutput
-	ToAccessReviewReviewerArrayOutputWithContext(context.Context) AccessReviewReviewerArrayOutput
-}
-
-type AccessReviewReviewerArray []AccessReviewReviewerInput
-
-func (AccessReviewReviewerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewReviewer)(nil)).Elem()
-}
-
-func (i AccessReviewReviewerArray) ToAccessReviewReviewerArrayOutput() AccessReviewReviewerArrayOutput {
-	return i.ToAccessReviewReviewerArrayOutputWithContext(context.Background())
-}
-
-func (i AccessReviewReviewerArray) ToAccessReviewReviewerArrayOutputWithContext(ctx context.Context) AccessReviewReviewerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerArrayOutput)
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewReviewerOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewReviewerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewReviewer)(nil)).Elem()
-}
-
-func (o AccessReviewReviewerOutput) ToAccessReviewReviewerOutput() AccessReviewReviewerOutput {
-	return o
-}
-
-func (o AccessReviewReviewerOutput) ToAccessReviewReviewerOutputWithContext(ctx context.Context) AccessReviewReviewerOutput {
-	return o
-}
-
-// The id of the reviewer(user/servicePrincipal)
-func (o AccessReviewReviewerOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewReviewer) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type AccessReviewReviewerArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewReviewerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewReviewer)(nil)).Elem()
-}
-
-func (o AccessReviewReviewerArrayOutput) ToAccessReviewReviewerArrayOutput() AccessReviewReviewerArrayOutput {
-	return o
-}
-
-func (o AccessReviewReviewerArrayOutput) ToAccessReviewReviewerArrayOutputWithContext(ctx context.Context) AccessReviewReviewerArrayOutput {
-	return o
-}
-
-func (o AccessReviewReviewerArrayOutput) Index(i pulumi.IntInput) AccessReviewReviewerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewReviewer {
-		return vs[0].([]AccessReviewReviewer)[vs[1].(int)]
-	}).(AccessReviewReviewerOutput)
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewReviewerResponse struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId *string `pulumi:"principalId"`
-	// The identity type : user/servicePrincipal
-	PrincipalType string `pulumi:"principalType"`
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewReviewerResponseOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewReviewerResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewReviewerResponse)(nil)).Elem()
-}
-
-func (o AccessReviewReviewerResponseOutput) ToAccessReviewReviewerResponseOutput() AccessReviewReviewerResponseOutput {
-	return o
-}
-
-func (o AccessReviewReviewerResponseOutput) ToAccessReviewReviewerResponseOutputWithContext(ctx context.Context) AccessReviewReviewerResponseOutput {
-	return o
-}
-
-// The id of the reviewer(user/servicePrincipal)
-func (o AccessReviewReviewerResponseOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewReviewerResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-// The identity type : user/servicePrincipal
-func (o AccessReviewReviewerResponseOutput) PrincipalType() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewReviewerResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
-}
-
-type AccessReviewReviewerResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewReviewerResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewReviewerResponse)(nil)).Elem()
-}
-
-func (o AccessReviewReviewerResponseArrayOutput) ToAccessReviewReviewerResponseArrayOutput() AccessReviewReviewerResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewReviewerResponseArrayOutput) ToAccessReviewReviewerResponseArrayOutputWithContext(ctx context.Context) AccessReviewReviewerResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewReviewerResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewReviewerResponse {
-		return vs[0].([]AccessReviewReviewerResponse)[vs[1].(int)]
-	}).(AccessReviewReviewerResponseOutput)
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewScope struct {
-	// This is used to indicate the resource id(s) to exclude
-	ExcludeResourceId *string `pulumi:"excludeResourceId"`
-	// This is used to indicate the role definition id(s) to exclude
-	ExcludeRoleDefinitionId *string `pulumi:"excludeRoleDefinitionId"`
-	// Flag to indicate whether to expand nested memberships or not.
-	ExpandNestedMemberships *bool `pulumi:"expandNestedMemberships"`
-	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-	InactiveDuration *string `pulumi:"inactiveDuration"`
-	// Flag to indicate whether to expand nested memberships or not.
-	IncludeAccessBelowResource *bool `pulumi:"includeAccessBelowResource"`
-	// Flag to indicate whether to expand nested memberships or not.
-	IncludeInheritedAccess *bool `pulumi:"includeInheritedAccess"`
-}
-
-// AccessReviewScopeInput is an input type that accepts AccessReviewScopeArgs and AccessReviewScopeOutput values.
-// You can construct a concrete instance of `AccessReviewScopeInput` via:
-//
-//          AccessReviewScopeArgs{...}
-type AccessReviewScopeInput interface {
-	pulumi.Input
-
-	ToAccessReviewScopeOutput() AccessReviewScopeOutput
-	ToAccessReviewScopeOutputWithContext(context.Context) AccessReviewScopeOutput
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewScopeArgs struct {
-	// This is used to indicate the resource id(s) to exclude
-	ExcludeResourceId pulumi.StringPtrInput `pulumi:"excludeResourceId"`
-	// This is used to indicate the role definition id(s) to exclude
-	ExcludeRoleDefinitionId pulumi.StringPtrInput `pulumi:"excludeRoleDefinitionId"`
-	// Flag to indicate whether to expand nested memberships or not.
-	ExpandNestedMemberships pulumi.BoolPtrInput `pulumi:"expandNestedMemberships"`
-	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-	InactiveDuration pulumi.StringPtrInput `pulumi:"inactiveDuration"`
-	// Flag to indicate whether to expand nested memberships or not.
-	IncludeAccessBelowResource pulumi.BoolPtrInput `pulumi:"includeAccessBelowResource"`
-	// Flag to indicate whether to expand nested memberships or not.
-	IncludeInheritedAccess pulumi.BoolPtrInput `pulumi:"includeInheritedAccess"`
-}
-
-func (AccessReviewScopeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScope)(nil)).Elem()
-}
-
-func (i AccessReviewScopeArgs) ToAccessReviewScopeOutput() AccessReviewScopeOutput {
-	return i.ToAccessReviewScopeOutputWithContext(context.Background())
-}
-
-func (i AccessReviewScopeArgs) ToAccessReviewScopeOutputWithContext(ctx context.Context) AccessReviewScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScopeOutput)
-}
-
-// AccessReviewScopeArrayInput is an input type that accepts AccessReviewScopeArray and AccessReviewScopeArrayOutput values.
-// You can construct a concrete instance of `AccessReviewScopeArrayInput` via:
-//
-//          AccessReviewScopeArray{ AccessReviewScopeArgs{...} }
-type AccessReviewScopeArrayInput interface {
-	pulumi.Input
-
-	ToAccessReviewScopeArrayOutput() AccessReviewScopeArrayOutput
-	ToAccessReviewScopeArrayOutputWithContext(context.Context) AccessReviewScopeArrayOutput
-}
-
-type AccessReviewScopeArray []AccessReviewScopeInput
-
-func (AccessReviewScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewScope)(nil)).Elem()
-}
-
-func (i AccessReviewScopeArray) ToAccessReviewScopeArrayOutput() AccessReviewScopeArrayOutput {
-	return i.ToAccessReviewScopeArrayOutputWithContext(context.Background())
-}
-
-func (i AccessReviewScopeArray) ToAccessReviewScopeArrayOutputWithContext(ctx context.Context) AccessReviewScopeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScopeArrayOutput)
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewScopeOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScope)(nil)).Elem()
-}
-
-func (o AccessReviewScopeOutput) ToAccessReviewScopeOutput() AccessReviewScopeOutput {
-	return o
-}
-
-func (o AccessReviewScopeOutput) ToAccessReviewScopeOutputWithContext(ctx context.Context) AccessReviewScopeOutput {
-	return o
-}
-
-// This is used to indicate the resource id(s) to exclude
-func (o AccessReviewScopeOutput) ExcludeResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewScope) *string { return v.ExcludeResourceId }).(pulumi.StringPtrOutput)
-}
-
-// This is used to indicate the role definition id(s) to exclude
-func (o AccessReviewScopeOutput) ExcludeRoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewScope) *string { return v.ExcludeRoleDefinitionId }).(pulumi.StringPtrOutput)
-}
-
-// Flag to indicate whether to expand nested memberships or not.
-func (o AccessReviewScopeOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccessReviewScope) *bool { return v.ExpandNestedMemberships }).(pulumi.BoolPtrOutput)
-}
-
-// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-func (o AccessReviewScopeOutput) InactiveDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewScope) *string { return v.InactiveDuration }).(pulumi.StringPtrOutput)
-}
-
-// Flag to indicate whether to expand nested memberships or not.
-func (o AccessReviewScopeOutput) IncludeAccessBelowResource() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccessReviewScope) *bool { return v.IncludeAccessBelowResource }).(pulumi.BoolPtrOutput)
-}
-
-// Flag to indicate whether to expand nested memberships or not.
-func (o AccessReviewScopeOutput) IncludeInheritedAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccessReviewScope) *bool { return v.IncludeInheritedAccess }).(pulumi.BoolPtrOutput)
-}
-
-type AccessReviewScopeArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewScope)(nil)).Elem()
-}
-
-func (o AccessReviewScopeArrayOutput) ToAccessReviewScopeArrayOutput() AccessReviewScopeArrayOutput {
-	return o
-}
-
-func (o AccessReviewScopeArrayOutput) ToAccessReviewScopeArrayOutputWithContext(ctx context.Context) AccessReviewScopeArrayOutput {
-	return o
-}
-
-func (o AccessReviewScopeArrayOutput) Index(i pulumi.IntInput) AccessReviewScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewScope {
-		return vs[0].([]AccessReviewScope)[vs[1].(int)]
-	}).(AccessReviewScopeOutput)
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewScopeResponse struct {
-	// The role assignment state eligible/active to review
-	AssignmentState string `pulumi:"assignmentState"`
-	// This is used to indicate the resource id(s) to exclude
-	ExcludeResourceId *string `pulumi:"excludeResourceId"`
-	// This is used to indicate the role definition id(s) to exclude
-	ExcludeRoleDefinitionId *string `pulumi:"excludeRoleDefinitionId"`
-	// Flag to indicate whether to expand nested memberships or not.
-	ExpandNestedMemberships *bool `pulumi:"expandNestedMemberships"`
-	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-	InactiveDuration *string `pulumi:"inactiveDuration"`
-	// Flag to indicate whether to expand nested memberships or not.
-	IncludeAccessBelowResource *bool `pulumi:"includeAccessBelowResource"`
-	// Flag to indicate whether to expand nested memberships or not.
-	IncludeInheritedAccess *bool `pulumi:"includeInheritedAccess"`
-	// The identity type user/servicePrincipal to review
-	PrincipalType string `pulumi:"principalType"`
-	// ResourceId in which this review is getting created
-	ResourceId string `pulumi:"resourceId"`
-	// This is used to indicate the role being reviewed
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-}
-
-// Descriptor for what needs to be reviewed
-type AccessReviewScopeResponseOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewScopeResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScopeResponse)(nil)).Elem()
-}
-
-func (o AccessReviewScopeResponseOutput) ToAccessReviewScopeResponseOutput() AccessReviewScopeResponseOutput {
-	return o
-}
-
-func (o AccessReviewScopeResponseOutput) ToAccessReviewScopeResponseOutputWithContext(ctx context.Context) AccessReviewScopeResponseOutput {
-	return o
-}
-
-// The role assignment state eligible/active to review
-func (o AccessReviewScopeResponseOutput) AssignmentState() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.AssignmentState }).(pulumi.StringOutput)
-}
-
-// This is used to indicate the resource id(s) to exclude
-func (o AccessReviewScopeResponseOutput) ExcludeResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.ExcludeResourceId }).(pulumi.StringPtrOutput)
-}
-
-// This is used to indicate the role definition id(s) to exclude
-func (o AccessReviewScopeResponseOutput) ExcludeRoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.ExcludeRoleDefinitionId }).(pulumi.StringPtrOutput)
-}
-
-// Flag to indicate whether to expand nested memberships or not.
-func (o AccessReviewScopeResponseOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.ExpandNestedMemberships }).(pulumi.BoolPtrOutput)
-}
-
-// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-func (o AccessReviewScopeResponseOutput) InactiveDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.InactiveDuration }).(pulumi.StringPtrOutput)
-}
-
-// Flag to indicate whether to expand nested memberships or not.
-func (o AccessReviewScopeResponseOutput) IncludeAccessBelowResource() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.IncludeAccessBelowResource }).(pulumi.BoolPtrOutput)
-}
-
-// Flag to indicate whether to expand nested memberships or not.
-func (o AccessReviewScopeResponseOutput) IncludeInheritedAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.IncludeInheritedAccess }).(pulumi.BoolPtrOutput)
-}
-
-// The identity type user/servicePrincipal to review
-func (o AccessReviewScopeResponseOutput) PrincipalType() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
-}
-
-// ResourceId in which this review is getting created
-func (o AccessReviewScopeResponseOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.ResourceId }).(pulumi.StringOutput)
-}
-
-// This is used to indicate the role being reviewed
-func (o AccessReviewScopeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
-}
-
-type AccessReviewScopeResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessReviewScopeResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewScopeResponse)(nil)).Elem()
-}
-
-func (o AccessReviewScopeResponseArrayOutput) ToAccessReviewScopeResponseArrayOutput() AccessReviewScopeResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewScopeResponseArrayOutput) ToAccessReviewScopeResponseArrayOutputWithContext(ctx context.Context) AccessReviewScopeResponseArrayOutput {
-	return o
-}
-
-func (o AccessReviewScopeResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewScopeResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewScopeResponse {
-		return vs[0].([]AccessReviewScopeResponse)[vs[1].(int)]
-	}).(AccessReviewScopeResponseOutput)
-}
-
 // The approval settings.
 type ApprovalSettingsResponse struct {
 	// The type of rule
@@ -937,10 +40,12 @@ type ApprovalStageResponse struct {
 	PrimaryApprovers []UserSetResponse `pulumi:"primaryApprovers"`
 }
 
-// Identity for the resource.
+// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 type Identity struct {
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
+	// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
 	Type *ResourceIdentityType `pulumi:"type"`
+	// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -954,10 +59,12 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
+// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 type IdentityArgs struct {
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
+	// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1013,7 +120,7 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
+// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -1038,9 +145,14 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
+// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
 func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+}
+
+// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1067,7 +179,7 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
+// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
 func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
@@ -1077,17 +189,29 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
-type IdentityResponse struct {
-	// The principal ID of the resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of the resource identity.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type *string `pulumi:"type"`
+// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
 }
 
-// Identity for the resource.
+// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+type IdentityResponse struct {
+	// The principal ID of the resource identity.  This property will only be provided for a system assigned identity
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+	Type *string `pulumi:"type"`
+	// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+}
+
+// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -1102,19 +226,26 @@ func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The principal ID of the resource identity.
+// The principal ID of the resource identity.  This property will only be provided for a system assigned identity
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of the resource identity.
+// The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
+// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1141,7 +272,7 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	}).(IdentityResponseOutput)
 }
 
-// The principal ID of the resource identity.
+// The principal ID of the resource identity.  This property will only be provided for a system assigned identity
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1151,7 +282,7 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of the resource identity.
+// The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1161,7 +292,7 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
+// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1169,6 +300,67 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type IdentityResponseUserAssignedIdentities struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type IdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type IdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]IdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Lock owner properties.
@@ -2127,200 +1319,6 @@ func (o ParameterValuesValueResponseMapOutput) MapIndex(k pulumi.StringInput) Pa
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterValuesValueResponse {
 		return vs[0].(map[string]ParameterValuesValueResponse)[vs[1].(string)]
 	}).(ParameterValuesValueResponseOutput)
-}
-
-// Role definition permissions.
-type Permission struct {
-	// Allowed actions.
-	Actions []string `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions []string `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions []string `pulumi:"notActions"`
-	// Denied Data actions.
-	NotDataActions []string `pulumi:"notDataActions"`
-}
-
-// PermissionInput is an input type that accepts PermissionArgs and PermissionOutput values.
-// You can construct a concrete instance of `PermissionInput` via:
-//
-//          PermissionArgs{...}
-type PermissionInput interface {
-	pulumi.Input
-
-	ToPermissionOutput() PermissionOutput
-	ToPermissionOutputWithContext(context.Context) PermissionOutput
-}
-
-// Role definition permissions.
-type PermissionArgs struct {
-	// Allowed actions.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Denied Data actions.
-	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
-}
-
-func (PermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permission)(nil)).Elem()
-}
-
-func (i PermissionArgs) ToPermissionOutput() PermissionOutput {
-	return i.ToPermissionOutputWithContext(context.Background())
-}
-
-func (i PermissionArgs) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
-}
-
-// PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
-// You can construct a concrete instance of `PermissionArrayInput` via:
-//
-//          PermissionArray{ PermissionArgs{...} }
-type PermissionArrayInput interface {
-	pulumi.Input
-
-	ToPermissionArrayOutput() PermissionArrayOutput
-	ToPermissionArrayOutputWithContext(context.Context) PermissionArrayOutput
-}
-
-type PermissionArray []PermissionInput
-
-func (PermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Permission)(nil)).Elem()
-}
-
-func (i PermissionArray) ToPermissionArrayOutput() PermissionArrayOutput {
-	return i.ToPermissionArrayOutputWithContext(context.Background())
-}
-
-func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionArrayOutput)
-}
-
-// Role definition permissions.
-type PermissionOutput struct{ *pulumi.OutputState }
-
-func (PermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permission)(nil)).Elem()
-}
-
-func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
-	return o
-}
-
-func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
-	return o
-}
-
-// Allowed actions.
-func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.Actions }).(pulumi.StringArrayOutput)
-}
-
-// Allowed Data actions.
-func (o PermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
-}
-
-// Denied actions.
-func (o PermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
-}
-
-// Denied Data actions.
-func (o PermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Permission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
-}
-
-type PermissionArrayOutput struct{ *pulumi.OutputState }
-
-func (PermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Permission)(nil)).Elem()
-}
-
-func (o PermissionArrayOutput) ToPermissionArrayOutput() PermissionArrayOutput {
-	return o
-}
-
-func (o PermissionArrayOutput) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
-	return o
-}
-
-func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Permission {
-		return vs[0].([]Permission)[vs[1].(int)]
-	}).(PermissionOutput)
-}
-
-// Role definition permissions.
-type PermissionResponse struct {
-	// Allowed actions.
-	Actions []string `pulumi:"actions"`
-	// Allowed Data actions.
-	DataActions []string `pulumi:"dataActions"`
-	// Denied actions.
-	NotActions []string `pulumi:"notActions"`
-	// Denied Data actions.
-	NotDataActions []string `pulumi:"notDataActions"`
-}
-
-// Role definition permissions.
-type PermissionResponseOutput struct{ *pulumi.OutputState }
-
-func (PermissionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionResponse)(nil)).Elem()
-}
-
-func (o PermissionResponseOutput) ToPermissionResponseOutput() PermissionResponseOutput {
-	return o
-}
-
-func (o PermissionResponseOutput) ToPermissionResponseOutputWithContext(ctx context.Context) PermissionResponseOutput {
-	return o
-}
-
-// Allowed actions.
-func (o PermissionResponseOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PermissionResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
-}
-
-// Allowed Data actions.
-func (o PermissionResponseOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PermissionResponse) []string { return v.DataActions }).(pulumi.StringArrayOutput)
-}
-
-// Denied actions.
-func (o PermissionResponseOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PermissionResponse) []string { return v.NotActions }).(pulumi.StringArrayOutput)
-}
-
-// Denied Data actions.
-func (o PermissionResponseOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PermissionResponse) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
-}
-
-type PermissionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (PermissionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionResponse)(nil)).Elem()
-}
-
-func (o PermissionResponseArrayOutput) ToPermissionResponseArrayOutput() PermissionResponseArrayOutput {
-	return o
-}
-
-func (o PermissionResponseArrayOutput) ToPermissionResponseArrayOutputWithContext(ctx context.Context) PermissionResponseArrayOutput {
-	return o
-}
-
-func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionResponse {
-		return vs[0].([]PermissionResponse)[vs[1].(int)]
-	}).(PermissionResponseOutput)
 }
 
 // Expanded info of resource scope, role definition and policy
@@ -3552,26 +2550,12 @@ type UserSetResponse struct {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccessReviewHistoryInstanceOutput{})
-	pulumi.RegisterOutputType(AccessReviewHistoryInstanceArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewHistoryInstanceResponseOutput{})
-	pulumi.RegisterOutputType(AccessReviewHistoryInstanceResponseArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewInstanceOutput{})
-	pulumi.RegisterOutputType(AccessReviewInstanceArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewInstanceResponseOutput{})
-	pulumi.RegisterOutputType(AccessReviewInstanceResponseArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewReviewerOutput{})
-	pulumi.RegisterOutputType(AccessReviewReviewerArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewReviewerResponseOutput{})
-	pulumi.RegisterOutputType(AccessReviewReviewerResponseArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewScopeOutput{})
-	pulumi.RegisterOutputType(AccessReviewScopeArrayOutput{})
-	pulumi.RegisterOutputType(AccessReviewScopeResponseOutput{})
-	pulumi.RegisterOutputType(AccessReviewScopeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})
@@ -3592,10 +2576,6 @@ func init() {
 	pulumi.RegisterOutputType(ParameterValuesValueMapOutput{})
 	pulumi.RegisterOutputType(ParameterValuesValueResponseOutput{})
 	pulumi.RegisterOutputType(ParameterValuesValueResponseMapOutput{})
-	pulumi.RegisterOutputType(PermissionOutput{})
-	pulumi.RegisterOutputType(PermissionArrayOutput{})
-	pulumi.RegisterOutputType(PermissionResponseOutput{})
-	pulumi.RegisterOutputType(PermissionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePolicyOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePolicyPtrOutput{})

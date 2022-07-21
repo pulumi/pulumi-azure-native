@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL Server availability group listener.
-    /// API Version: 2017-03-01-preview.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Availability Group configuration.
+        /// </summary>
+        [Output("availabilityGroupConfiguration")]
+        public Output<Outputs.AgConfigurationResponse?> AvailabilityGroupConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Name of the availability group.
         /// </summary>
@@ -35,6 +41,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Output<ImmutableArray<Outputs.LoadBalancerConfigurationResponse>> LoadBalancerConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// List of multi subnet IP configurations for an AG listener.
+        /// </summary>
+        [Output("multiSubnetIpConfigurations")]
+        public Output<ImmutableArray<Outputs.MultiSubnetIpConfigurationResponse>> MultiSubnetIpConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -51,6 +63,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -111,6 +129,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class AvailabilityGroupListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Availability Group configuration.
+        /// </summary>
+        [Input("availabilityGroupConfiguration")]
+        public Input<Inputs.AgConfigurationArgs>? AvailabilityGroupConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the availability group listener.
         /// </summary>
         [Input("availabilityGroupListenerName")]
@@ -138,6 +162,18 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         {
             get => _loadBalancerConfigurations ?? (_loadBalancerConfigurations = new InputList<Inputs.LoadBalancerConfigurationArgs>());
             set => _loadBalancerConfigurations = value;
+        }
+
+        [Input("multiSubnetIpConfigurations")]
+        private InputList<Inputs.MultiSubnetIpConfigurationArgs>? _multiSubnetIpConfigurations;
+
+        /// <summary>
+        /// List of multi subnet IP configurations for an AG listener.
+        /// </summary>
+        public InputList<Inputs.MultiSubnetIpConfigurationArgs> MultiSubnetIpConfigurations
+        {
+            get => _multiSubnetIpConfigurations ?? (_multiSubnetIpConfigurations = new InputList<Inputs.MultiSubnetIpConfigurationArgs>());
+            set => _multiSubnetIpConfigurations = value;
         }
 
         /// <summary>

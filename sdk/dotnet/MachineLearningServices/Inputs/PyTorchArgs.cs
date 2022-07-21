@@ -23,10 +23,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string> DistributionType { get; set; } = null!;
 
         /// <summary>
-        /// Total process count for the distributed job.
+        /// Number of processes per node.
         /// </summary>
-        [Input("processCount")]
-        public Input<int>? ProcessCount { get; set; }
+        [Input("processCountPerInstance")]
+        public Input<int>? ProcessCountPerInstance { get; set; }
 
         public PyTorchArgs()
         {

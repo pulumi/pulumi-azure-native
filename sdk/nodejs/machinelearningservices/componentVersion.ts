@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-05-01.
  */
 export class ComponentVersion extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class ComponentVersion extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly componentVersionDetails!: pulumi.Output<outputs.machinelearningservices.ComponentVersionResponse>;
+    public readonly componentVersionProperties!: pulumi.Output<outputs.machinelearningservices.ComponentVersionResponse>;
     /**
      * The name of the resource
      */
@@ -64,8 +64,8 @@ export class ComponentVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.componentVersionDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'componentVersionDetails'");
+            if ((!args || args.componentVersionProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'componentVersionProperties'");
             }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
@@ -76,7 +76,7 @@ export class ComponentVersion extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["componentVersionDetails"] = args ? (args.componentVersionDetails ? pulumi.output(args.componentVersionDetails).apply(inputs.machinelearningservices.componentVersionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["componentVersionProperties"] = args ? (args.componentVersionProperties ? pulumi.output(args.componentVersionProperties).apply(inputs.machinelearningservices.componentVersionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -84,7 +84,7 @@ export class ComponentVersion extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["componentVersionDetails"] = undefined /*out*/;
+            resourceInputs["componentVersionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -103,7 +103,7 @@ export interface ComponentVersionArgs {
     /**
      * [Required] Additional attributes of the entity.
      */
-    componentVersionDetails: pulumi.Input<inputs.machinelearningservices.ComponentVersionArgs>;
+    componentVersionProperties: pulumi.Input<inputs.machinelearningservices.ComponentVersionArgs>;
     /**
      * Container name.
      */

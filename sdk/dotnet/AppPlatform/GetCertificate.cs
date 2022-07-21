@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Certificate resource payload.
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Certificate resource payload.
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
@@ -92,7 +92,11 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Properties of the certificate resource payload.
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponse Properties;
+        public readonly Union<Outputs.ContentCertificatePropertiesResponse, Outputs.KeyVaultCertificatePropertiesResponse> Properties;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -104,13 +108,16 @@ namespace Pulumi.AzureNative.AppPlatform
 
             string name,
 
-            Outputs.CertificatePropertiesResponse properties,
+            Union<Outputs.ContentCertificatePropertiesResponse, Outputs.KeyVaultCertificatePropertiesResponse> properties,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

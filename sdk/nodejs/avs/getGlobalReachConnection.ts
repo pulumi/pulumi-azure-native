@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A global reach connection resource
- * API Version: 2020-07-17-preview.
+ * API Version: 2021-12-01.
  */
 export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalReachConnectionResult> {
     if (!opts) {
@@ -52,6 +52,10 @@ export interface GetGlobalReachConnectionResult {
      * The connection status of the global reach connection
      */
     readonly circuitConnectionStatus: string;
+    /**
+     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+     */
+    readonly expressRouteId?: string;
     /**
      * Resource ID.
      */

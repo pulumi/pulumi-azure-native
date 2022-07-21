@@ -12,7 +12,7 @@ import (
 )
 
 // VpnGateway Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VpnGateway struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type VpnGateway struct {
 	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
 	// List of all vpn connections to the gateway.
 	Connections VpnConnectionResponseArrayOutput `pulumi:"connections"`
+	// Enable BGP routes translation for NAT on this VpnGateway.
+	EnableBgpRouteTranslationForNat pulumi.BoolPtrOutput `pulumi:"enableBgpRouteTranslationForNat"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// List of all IPs configured on the gateway.
@@ -174,6 +176,8 @@ type vpnGatewayArgs struct {
 	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
 	// List of all vpn connections to the gateway.
 	Connections []VpnConnectionType `pulumi:"connections"`
+	// Enable BGP routes translation for NAT on this VpnGateway.
+	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
 	// The name of the gateway.
 	GatewayName *string `pulumi:"gatewayName"`
 	// Resource ID.
@@ -200,6 +204,8 @@ type VpnGatewayArgs struct {
 	BgpSettings BgpSettingsPtrInput
 	// List of all vpn connections to the gateway.
 	Connections VpnConnectionTypeArrayInput
+	// Enable BGP routes translation for NAT on this VpnGateway.
+	EnableBgpRouteTranslationForNat pulumi.BoolPtrInput
 	// The name of the gateway.
 	GatewayName pulumi.StringPtrInput
 	// Resource ID.
@@ -265,6 +271,11 @@ func (o VpnGatewayOutput) BgpSettings() BgpSettingsResponsePtrOutput {
 // List of all vpn connections to the gateway.
 func (o VpnGatewayOutput) Connections() VpnConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *VpnGateway) VpnConnectionResponseArrayOutput { return v.Connections }).(VpnConnectionResponseArrayOutput)
+}
+
+// Enable BGP routes translation for NAT on this VpnGateway.
+func (o VpnGatewayOutput) EnableBgpRouteTranslationForNat() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.BoolPtrOutput { return v.EnableBgpRouteTranslationForNat }).(pulumi.BoolPtrOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.

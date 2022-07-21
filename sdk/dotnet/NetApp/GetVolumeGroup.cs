@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Volume group resource for create
-        /// API Version: 2021-10-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Volume group resource for create
-        /// API Version: 2021-10-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -102,10 +102,6 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -126,8 +122,6 @@ namespace Pulumi.AzureNative.NetApp
 
             string provisioningState,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type,
 
             ImmutableArray<Outputs.VolumeGroupVolumePropertiesResponse> volumes)
@@ -137,7 +131,6 @@ namespace Pulumi.AzureNative.NetApp
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            Tags = tags;
             Type = type;
             Volumes = volumes;
         }

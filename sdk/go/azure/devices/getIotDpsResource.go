@@ -11,7 +11,7 @@ import (
 )
 
 // The description of the provisioning service.
-// API Version: 2020-03-01.
+// API Version: 2022-02-05.
 func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourceResult, error) {
 	var rv LookupIotDpsResourceResult
 	err := ctx.Invoke("azure-native:devices:getIotDpsResource", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupIotDpsResourceResult struct {
 	Properties IotDpsPropertiesDescriptionResponse `pulumi:"properties"`
 	// Sku info for a provisioning Service.
 	Sku IotDpsSkuInfoResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
@@ -115,6 +117,11 @@ func (o LookupIotDpsResourceResultOutput) Properties() IotDpsPropertiesDescripti
 // Sku info for a provisioning Service.
 func (o LookupIotDpsResourceResultOutput) Sku() IotDpsSkuInfoResponseOutput {
 	return o.ApplyT(func(v LookupIotDpsResourceResult) IotDpsSkuInfoResponse { return v.Sku }).(IotDpsSkuInfoResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupIotDpsResourceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource tags.

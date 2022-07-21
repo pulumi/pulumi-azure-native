@@ -57,18 +57,6 @@ export const CommandLineSetting = {
  */
 export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
 
-export const DayOfWeek = {
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-    Sunday: "Sunday",
-} as const;
-
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
 export const HostPoolType = {
     /**
      * Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
@@ -148,17 +136,6 @@ export const PreferredAppGroupType = {
  * The type of preferred application group type, default to Desktop Application Group
  */
 export type PreferredAppGroupType = (typeof PreferredAppGroupType)[keyof typeof PreferredAppGroupType];
-
-export const PrivateEndpointServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const RegistrationTokenOperation = {
     Delete: "Delete",

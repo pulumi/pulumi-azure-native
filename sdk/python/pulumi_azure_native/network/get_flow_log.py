@@ -206,7 +206,7 @@ def get_flow_log(flow_log_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowLogResult:
     """
     A flow log resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str flow_log_name: The name of the flow log resource.
@@ -247,7 +247,7 @@ def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowLogResult]:
     """
     A flow log resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str flow_log_name: The name of the flow log resource.

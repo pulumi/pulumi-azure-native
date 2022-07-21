@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace key
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {
@@ -31,7 +31,7 @@ export interface GetKeyArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -76,7 +76,7 @@ export interface GetKeyOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

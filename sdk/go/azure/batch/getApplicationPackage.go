@@ -11,7 +11,7 @@ import (
 )
 
 // An application package which represents a particular version of an application.
-// API Version: 2021-01-01.
+// API Version: 2022-06-01.
 func LookupApplicationPackage(ctx *pulumi.Context, args *LookupApplicationPackageArgs, opts ...pulumi.InvokeOption) (*LookupApplicationPackageResult, error) {
 	var rv LookupApplicationPackageResult
 	err := ctx.Invoke("azure-native:batch:getApplicationPackage", args, &rv, opts...)

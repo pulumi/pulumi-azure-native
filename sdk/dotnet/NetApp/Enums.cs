@@ -143,6 +143,76 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
+    /// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionKeySource : IEquatable<EncryptionKeySource>
+    {
+        private readonly string _value;
+
+        private EncryptionKeySource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Microsoft-managed key encryption
+        /// </summary>
+        public static EncryptionKeySource Microsoft_NetApp { get; } = new EncryptionKeySource("Microsoft.NetApp");
+
+        public static bool operator ==(EncryptionKeySource left, EncryptionKeySource right) => left.Equals(right);
+        public static bool operator !=(EncryptionKeySource left, EncryptionKeySource right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionKeySource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionKeySource other && Equals(other);
+        public bool Equals(EncryptionKeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionType : IEquatable<EncryptionType>
+    {
+        private readonly string _value;
+
+        private EncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// EncryptionType Single, volumes will use single encryption at rest
+        /// </summary>
+        public static EncryptionType Single { get; } = new EncryptionType("Single");
+        /// <summary>
+        /// EncryptionType Double, volumes will use double encryption at rest
+        /// </summary>
+        public static EncryptionType Double { get; } = new EncryptionType("Double");
+
+        public static bool operator ==(EncryptionType left, EncryptionType right) => left.Equals(right);
+        public static bool operator !=(EncryptionType left, EncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
+        public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the local volume is the source or destination for the Volume Replication
     /// </summary>
     [EnumType]

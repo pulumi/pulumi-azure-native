@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A kusto cluster data set.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getKustoClusterDataSet(args: GetKustoClusterDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetResult> {
     if (!opts) {

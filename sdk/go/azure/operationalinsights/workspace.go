@@ -12,7 +12,7 @@ import (
 )
 
 // The top level Workspace resource container.
-// API Version: 2020-10-01.
+// API Version: 2021-06-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,8 @@ type Workspace struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// This is a read-only property. Represents the ID associated with the workspace.
 	CustomerId pulumi.StringOutput `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// The etag of the workspace.
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Workspace features.
 	Features WorkspaceFeaturesResponsePtrOutput `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
@@ -115,8 +115,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
 	// Workspace features.
 	Features *WorkspaceFeatures `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
@@ -145,8 +143,6 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrInput
 	// Workspace features.
 	Features WorkspaceFeaturesPtrInput
 	// Indicates whether customer managed storage is mandatory for query management.
@@ -220,9 +216,9 @@ func (o WorkspaceOutput) CustomerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CustomerId }).(pulumi.StringOutput)
 }
 
-// The ETag of the workspace.
-func (o WorkspaceOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+// The etag of the workspace.
+func (o WorkspaceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Workspace features.

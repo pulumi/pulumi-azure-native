@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStack
 {
     /// <summary>
     /// Customer subscription.
-    /// API Version: 2017-06-01.
+    /// API Version: 2020-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:CustomerSubscription")]
     public partial class CustomerSubscription : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tenant Id.

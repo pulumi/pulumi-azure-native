@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident comment
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-01.
  */
 export class IncidentComment extends pulumi.CustomResource {
     /**
@@ -57,7 +57,7 @@ export class IncidentComment extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -65,7 +65,7 @@ export class IncidentComment extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -86,9 +86,6 @@ export class IncidentComment extends pulumi.CustomResource {
             if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,7 +95,6 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["incidentCommentId"] = args ? args.incidentCommentId : undefined;
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["author"] = undefined /*out*/;
@@ -141,10 +137,6 @@ export interface IncidentCommentArgs {
      * The comment message
      */
     message: pulumi.Input<string>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

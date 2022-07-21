@@ -11,18 +11,18 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupCodeContainer(ctx *pulumi.Context, args *LookupCodeContainerArgs, opts ...pulumi.InvokeOption) (*LookupCodeContainerResult, error) {
 	var rv LookupCodeContainerResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getCodeContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupCodeContainerArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -32,16 +32,27 @@ type LookupCodeContainerArgs struct {
 
 // Azure Resource Manager resource envelope.
 type LookupCodeContainerResult struct {
+	// [Required] Additional attributes of the entity.
+	CodeContainerProperties CodeContainerResponse `pulumi:"codeContainerProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties CodeContainerResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupCodeContainerResult
+func (val *LookupCodeContainerResult) Defaults() *LookupCodeContainerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.CodeContainerProperties = *tmp.CodeContainerProperties.Defaults()
+
+	return &tmp
 }
 
 func LookupCodeContainerOutput(ctx *pulumi.Context, args LookupCodeContainerOutputArgs, opts ...pulumi.InvokeOption) LookupCodeContainerResultOutput {
@@ -58,7 +69,7 @@ func LookupCodeContainerOutput(ctx *pulumi.Context, args LookupCodeContainerOutp
 }
 
 type LookupCodeContainerOutputArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -85,6 +96,11 @@ func (o LookupCodeContainerResultOutput) ToLookupCodeContainerResultOutputWithCo
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupCodeContainerResultOutput) CodeContainerProperties() CodeContainerResponseOutput {
+	return o.ApplyT(func(v LookupCodeContainerResult) CodeContainerResponse { return v.CodeContainerProperties }).(CodeContainerResponseOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupCodeContainerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeContainerResult) string { return v.Id }).(pulumi.StringOutput)
@@ -95,12 +111,7 @@ func (o LookupCodeContainerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeContainerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupCodeContainerResultOutput) Properties() CodeContainerResponseOutput {
-	return o.ApplyT(func(v LookupCodeContainerResult) CodeContainerResponse { return v.Properties }).(CodeContainerResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupCodeContainerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupCodeContainerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

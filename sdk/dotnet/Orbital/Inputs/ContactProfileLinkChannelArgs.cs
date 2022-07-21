@@ -11,36 +11,36 @@ namespace Pulumi.AzureNative.Orbital.Inputs
 {
 
     /// <summary>
-    /// Contact Profile Link Channel
+    /// Contact Profile Link Channel.
     /// </summary>
     public sealed class ContactProfileLinkChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Bandwidth in MHz
+        /// Bandwidth in MHz.
         /// </summary>
         [Input("bandwidthMHz", required: true)]
         public Input<double> BandwidthMHz { get; set; } = null!;
 
         /// <summary>
-        /// Center Frequency in MHz
+        /// Center Frequency in MHz.
         /// </summary>
         [Input("centerFrequencyMHz", required: true)]
         public Input<double> CenterFrequencyMHz { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for decoding
+        /// Currently unused.
         /// </summary>
         [Input("decodingConfiguration")]
         public Input<string>? DecodingConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for demodulation
+        /// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         /// </summary>
         [Input("demodulationConfiguration")]
         public Input<string>? DemodulationConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for encoding
+        /// Currently unused.
         /// </summary>
         [Input("encodingConfiguration")]
         public Input<string>? EncodingConfiguration { get; set; }
@@ -52,10 +52,16 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         public Input<Inputs.EndPointArgs> EndPoint { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for modulation
+        /// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         /// </summary>
         [Input("modulationConfiguration")]
         public Input<string>? ModulationConfiguration { get; set; }
+
+        /// <summary>
+        /// Channel name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public ContactProfileLinkChannelArgs()
         {

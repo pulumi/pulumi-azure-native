@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:costmanagement:ScheduledAction"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledAction"},
                 },
             };

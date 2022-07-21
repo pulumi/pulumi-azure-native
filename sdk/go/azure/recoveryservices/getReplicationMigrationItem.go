@@ -11,7 +11,7 @@ import (
 )
 
 // Migration item.
-// API Version: 2018-07-10.
+// API Version: 2022-03-01.
 func LookupReplicationMigrationItem(ctx *pulumi.Context, args *LookupReplicationMigrationItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationMigrationItemResult, error) {
 	var rv LookupReplicationMigrationItemResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationMigrationItem", args, &rv, opts...)

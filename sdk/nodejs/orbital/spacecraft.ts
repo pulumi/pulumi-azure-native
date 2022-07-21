@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a spacecraft resource to schedule a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export class Spacecraft extends pulumi.CustomResource {
     /**
@@ -37,19 +37,11 @@ export class Spacecraft extends pulumi.CustomResource {
     }
 
     /**
-     * Authorization status of spacecraft.
-     */
-    public /*out*/ readonly authorizationStatus!: pulumi.Output<string>;
-    /**
-     * Details of the authorization status.
-     */
-    public /*out*/ readonly authorizationStatusExtended!: pulumi.Output<string>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Links of the Spacecraft
+     * Immutable list of Spacecraft links.
      */
     public readonly links!: pulumi.Output<outputs.orbital.SpacecraftLinkResponse[] | undefined>;
     /**
@@ -73,15 +65,15 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Title line of Two Line Element (TLE).
+     * Title line of the two-line element set (TLE).
      */
     public readonly titleLine!: pulumi.Output<string | undefined>;
     /**
-     * Line 1 of Two Line Element (TLE).
+     * Line 1 of the two-line element set (TLE).
      */
     public readonly tleLine1!: pulumi.Output<string | undefined>;
     /**
-     * Line 2 of Two Line Element (TLE).
+     * Line 2 of the two-line element set (TLE).
      */
     public readonly tleLine2!: pulumi.Output<string | undefined>;
     /**
@@ -115,15 +107,11 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["titleLine"] = args ? args.titleLine : undefined;
             resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
             resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
-            resourceInputs["authorizationStatus"] = undefined /*out*/;
-            resourceInputs["authorizationStatusExtended"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["authorizationStatus"] = undefined /*out*/;
-            resourceInputs["authorizationStatusExtended"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -148,7 +136,7 @@ export class Spacecraft extends pulumi.CustomResource {
  */
 export interface SpacecraftArgs {
     /**
-     * Links of the Spacecraft
+     * Immutable list of Spacecraft links.
      */
     links?: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLinkArgs>[]>;
     /**
@@ -164,7 +152,7 @@ export interface SpacecraftArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName?: pulumi.Input<string>;
     /**
@@ -172,15 +160,15 @@ export interface SpacecraftArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Title line of Two Line Element (TLE).
+     * Title line of the two-line element set (TLE).
      */
     titleLine?: pulumi.Input<string>;
     /**
-     * Line 1 of Two Line Element (TLE).
+     * Line 1 of the two-line element set (TLE).
      */
     tleLine1?: pulumi.Input<string>;
     /**
-     * Line 2 of Two Line Element (TLE).
+     * Line 2 of the two-line element set (TLE).
      */
     tleLine2?: pulumi.Input<string>;
 }

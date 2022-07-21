@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of the EventHubConsumerGroupInfo object.
-// API Version: 2020-08-31.
+// API Version: 2021-07-02.
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +21,7 @@ type IotHubResourceEventHubConsumerGroup struct {
 	// The Event Hub-compatible consumer group name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags.
-	Properties pulumi.StringMapOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// the resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -35,6 +35,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 
 	if args.EventHubEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EventHubEndpointName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -154,7 +157,7 @@ type iotHubResourceEventHubConsumerGroupArgs struct {
 	// The name of the consumer group to add.
 	Name *string `pulumi:"name"`
 	// The EventHub consumer group name.
-	Properties *EventHubConsumerGroupName `pulumi:"properties"`
+	Properties EventHubConsumerGroupName `pulumi:"properties"`
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoT hub.
@@ -168,7 +171,7 @@ type IotHubResourceEventHubConsumerGroupArgs struct {
 	// The name of the consumer group to add.
 	Name pulumi.StringPtrInput
 	// The EventHub consumer group name.
-	Properties EventHubConsumerGroupNamePtrInput
+	Properties EventHubConsumerGroupNameInput
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the IoT hub.
@@ -223,8 +226,8 @@ func (o IotHubResourceEventHubConsumerGroupOutput) Name() pulumi.StringOutput {
 }
 
 // The tags.
-func (o IotHubResourceEventHubConsumerGroupOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubResourceEventHubConsumerGroup) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+func (o IotHubResourceEventHubConsumerGroupOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IotHubResourceEventHubConsumerGroup) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // the resource type.

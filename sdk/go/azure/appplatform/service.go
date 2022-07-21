@@ -12,7 +12,7 @@ import (
 )
 
 // Service resource
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type Service struct {
 	Properties ClusterResourcePropertiesResponseOutput `pulumi:"properties"`
 	// Sku of the Service resource
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -39,6 +41,12 @@ func NewService(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToClusterResourcePropertiesPtrOutput().ApplyT(func(v *ClusterResourceProperties) *ClusterResourceProperties { return v.Defaults() }).(ClusterResourcePropertiesPtrOutput)
+	}
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToSkuPtrOutput().ApplyT(func(v *Sku) *Sku { return v.Defaults() }).(SkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -184,6 +192,11 @@ func (o ServiceOutput) Properties() ClusterResourcePropertiesResponseOutput {
 // Sku of the Service resource
 func (o ServiceOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *Service) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Service) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tags of the service which is a list of key value pairs that describe the resource.

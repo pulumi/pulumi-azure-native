@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -45,7 +49,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly rights!: pulumi.Output<string[]>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -73,11 +81,15 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

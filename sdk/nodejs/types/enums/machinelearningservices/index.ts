@@ -90,16 +90,6 @@ export const ClusterPurpose = {
  */
 export type ClusterPurpose = (typeof ClusterPurpose)[keyof typeof ClusterPurpose];
 
-export const ComputeEnvironmentType = {
-    ACI: "ACI",
-    AKS: "AKS",
-} as const;
-
-/**
- * The compute environment type for the service.
- */
-export type ComputeEnvironmentType = (typeof ComputeEnvironmentType)[keyof typeof ComputeEnvironmentType];
-
 export const ComputeInstanceAuthorizationType = {
     Personal: "personal",
 } as const;
@@ -111,6 +101,7 @@ export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizat
 
 export const ComputeType = {
     AKS: "AKS",
+    Kubernetes: "Kubernetes",
     AmlCompute: "AmlCompute",
     ComputeInstance: "ComputeInstance",
     DataFactory: "DataFactory",
@@ -118,12 +109,37 @@ export const ComputeType = {
     HDInsight: "HDInsight",
     Databricks: "Databricks",
     DataLakeAnalytics: "DataLakeAnalytics",
+    SynapseSpark: "SynapseSpark",
 } as const;
 
 /**
  * The type of compute
  */
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+export const ConnectionAuthType = {
+    PAT: "PAT",
+    ManagedIdentity: "ManagedIdentity",
+    UsernamePassword: "UsernamePassword",
+    None: "None",
+    SAS: "SAS",
+} as const;
+
+/**
+ * Authentication type of the connection target
+ */
+export type ConnectionAuthType = (typeof ConnectionAuthType)[keyof typeof ConnectionAuthType];
+
+export const ConnectionCategory = {
+    PythonFeed: "PythonFeed",
+    ContainerRegistry: "ContainerRegistry",
+    Git: "Git",
+} as const;
+
+/**
+ * Category of the connection
+ */
+export type ConnectionCategory = (typeof ConnectionCategory)[keyof typeof ConnectionCategory];
 
 export const ContainerType = {
     StorageInitializer: "StorageInitializer",
@@ -135,47 +151,41 @@ export const ContainerType = {
  */
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
-export const DataBindingMode = {
-    Mount: "Mount",
-    Download: "Download",
-    Upload: "Upload",
-    ReadOnlyMount: "ReadOnlyMount",
-    ReadWriteMount: "ReadWriteMount",
-    Direct: "Direct",
-    EvalMount: "EvalMount",
-    EvalDownload: "EvalDownload",
+export const CredentialsType = {
+    AccountKey: "AccountKey",
+    Certificate: "Certificate",
+    None: "None",
+    Sas: "Sas",
+    ServicePrincipal: "ServicePrincipal",
 } as const;
 
 /**
- * Mechanism for data movement to datastore.
+ * [Required] Credential type used to authentication with storage.
  */
-export type DataBindingMode = (typeof DataBindingMode)[keyof typeof DataBindingMode];
+export type CredentialsType = (typeof CredentialsType)[keyof typeof CredentialsType];
 
-export const DatasetType = {
-    Tabular: "tabular",
-    File: "file",
+export const DataType = {
+    Uri_file: "uri_file",
+    Uri_folder: "uri_folder",
+    Mltable: "mltable",
 } as const;
 
 /**
- * Specifies dataset type.
+ * [Required] Specifies the type of data.
  */
-export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
+export type DataType = (typeof DataType)[keyof typeof DataType];
 
-export const DatastoreTypeArm = {
-    Blob: "blob",
-    Adls: "adls",
-    Adls_gen2: "adls-gen2",
-    Dbfs: "dbfs",
-    File: "file",
-    Mysqldb: "mysqldb",
-    Sqldb: "sqldb",
-    Psqldb: "psqldb",
+export const DatastoreType = {
+    AzureBlob: "AzureBlob",
+    AzureDataLakeGen1: "AzureDataLakeGen1",
+    AzureDataLakeGen2: "AzureDataLakeGen2",
+    AzureFile: "AzureFile",
 } as const;
 
 /**
- * Specifies datastore type.
+ * [Required] Storage type backing the datastore.
  */
-export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
+export type DatastoreType = (typeof DatastoreType)[keyof typeof DatastoreType];
 
 export const DistributionType = {
     PyTorch: "PyTorch",
@@ -187,16 +197,6 @@ export const DistributionType = {
  * [Required] Specifies the type of distribution framework.
  */
 export type DistributionType = (typeof DistributionType)[keyof typeof DistributionType];
-
-export const DockerSpecificationType = {
-    Build: "Build",
-    Image: "Image",
-} as const;
-
-/**
- * [Required] Docker specification must be either Build or Image
- */
-export type DockerSpecificationType = (typeof DockerSpecificationType)[keyof typeof DockerSpecificationType];
 
 export const EarlyTerminationPolicyType = {
     Bandit: "Bandit",
@@ -226,13 +226,13 @@ export const EndpointAuthMode = {
 } as const;
 
 /**
- * [Required] Inference endpoint authentication mode type
+ * [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
  */
 export type EndpointAuthMode = (typeof EndpointAuthMode)[keyof typeof EndpointAuthMode];
 
 export const EndpointComputeType = {
     Managed: "Managed",
-    K8S: "K8S",
+    Kubernetes: "Kubernetes",
     AzureMLCompute: "AzureMLCompute",
 } as const;
 
@@ -251,21 +251,10 @@ export const Goal = {
  */
 export type Goal = (typeof Goal)[keyof typeof Goal];
 
-export const Header = {
-    All_files_have_same_headers: "all_files_have_same_headers",
-    Only_first_file_has_headers: "only_first_file_has_headers",
-    No_headers: "no_headers",
-    Combine_all_files_headers: "combine_all_files_headers",
-} as const;
-
-/**
- * Header type.
- */
-export type Header = (typeof Header)[keyof typeof Header];
-
 export const IdentityConfigurationType = {
     Managed: "Managed",
     AMLToken: "AMLToken",
+    UserIdentity: "UserIdentity",
 } as const;
 
 /**
@@ -273,21 +262,63 @@ export const IdentityConfigurationType = {
  */
 export type IdentityConfigurationType = (typeof IdentityConfigurationType)[keyof typeof IdentityConfigurationType];
 
-export const ImageAnnotationType = {
-    Classification: "Classification",
-    BoundingBox: "BoundingBox",
-    InstanceSegmentation: "InstanceSegmentation",
+export const InputDeliveryMode = {
+    ReadOnlyMount: "ReadOnlyMount",
+    ReadWriteMount: "ReadWriteMount",
+    Download: "Download",
+    Direct: "Direct",
+    EvalMount: "EvalMount",
+    EvalDownload: "EvalDownload",
 } as const;
 
 /**
- * Annotation type of image labeling tasks.
+ * Input Asset Delivery Mode.
  */
-export type ImageAnnotationType = (typeof ImageAnnotationType)[keyof typeof ImageAnnotationType];
+export type InputDeliveryMode = (typeof InputDeliveryMode)[keyof typeof InputDeliveryMode];
+
+export const JobInputType = {
+    Literal: "literal",
+    Uri_file: "uri_file",
+    Uri_folder: "uri_folder",
+    Mltable: "mltable",
+    Custom_model: "custom_model",
+    Mlflow_model: "mlflow_model",
+    Triton_model: "triton_model",
+} as const;
+
+/**
+ * [Required] Specifies the type of job.
+ */
+export type JobInputType = (typeof JobInputType)[keyof typeof JobInputType];
+
+export const JobLimitsType = {
+    Command: "Command",
+    Sweep: "Sweep",
+} as const;
+
+/**
+ * [Required] JobLimit type.
+ */
+export type JobLimitsType = (typeof JobLimitsType)[keyof typeof JobLimitsType];
+
+export const JobOutputType = {
+    Uri_file: "uri_file",
+    Uri_folder: "uri_folder",
+    Mltable: "mltable",
+    Custom_model: "custom_model",
+    Mlflow_model: "mlflow_model",
+    Triton_model: "triton_model",
+} as const;
+
+/**
+ * [Required] Specifies the type of job.
+ */
+export type JobOutputType = (typeof JobOutputType)[keyof typeof JobOutputType];
 
 export const JobType = {
     Command: "Command",
     Sweep: "Sweep",
-    Labeling: "Labeling",
+    Pipeline: "Pipeline",
 } as const;
 
 /**
@@ -295,24 +326,27 @@ export const JobType = {
  */
 export type JobType = (typeof JobType)[keyof typeof JobType];
 
-export const LinkedServiceLinkType = {
-    Synapse: "Synapse",
+export const LoadBalancerType = {
+    PublicIp: "PublicIp",
+    InternalLoadBalancer: "InternalLoadBalancer",
 } as const;
 
 /**
- * Type of the link target.
+ * Load Balancer Type
  */
-export type LinkedServiceLinkType = (typeof LinkedServiceLinkType)[keyof typeof LinkedServiceLinkType];
+export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
-export const MediaType = {
-    Image: "Image",
-    Text: "Text",
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * Media type of data asset.
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
-export type MediaType = (typeof MediaType)[keyof typeof MediaType];
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const OperatingSystemType = {
     Linux: "Linux",
@@ -320,7 +354,7 @@ export const OperatingSystemType = {
 } as const;
 
 /**
- * The OS type the Environment.
+ * The OS type of the environment.
  */
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
@@ -334,6 +368,16 @@ export const OsType = {
  */
 export type OsType = (typeof OsType)[keyof typeof OsType];
 
+export const OutputDeliveryMode = {
+    ReadWriteMount: "ReadWriteMount",
+    Upload: "Upload",
+} as const;
+
+/**
+ * Output Asset Delivery Mode.
+ */
+export type OutputDeliveryMode = (typeof OutputDeliveryMode)[keyof typeof OutputDeliveryMode];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
@@ -346,6 +390,26 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether requests from Public Network are allowed.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RandomSamplingAlgorithmRule = {
+    Random: "Random",
+    Sobol: "Sobol",
+} as const;
+
+/**
+ * The specific type of random algorithm
+ */
+export type RandomSamplingAlgorithmRule = (typeof RandomSamplingAlgorithmRule)[keyof typeof RandomSamplingAlgorithmRule];
 
 export const ReferenceType = {
     Id: "Id",
@@ -369,44 +433,20 @@ export const RemoteLoginPortPublicAccess = {
  */
 export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
 
-export const ResourceIdentityAssignment = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * Defines values for a ResourceIdentity's type.
- */
-export type ResourceIdentityAssignment = (typeof ResourceIdentityAssignment)[keyof typeof ResourceIdentityAssignment];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-    UserAssigned: "UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const SamplingAlgorithm = {
+export const SamplingAlgorithmType = {
     Grid: "Grid",
     Random: "Random",
     Bayesian: "Bayesian",
 } as const;
 
 /**
- * [Required] Type of the hyperparameter sampling algorithms
+ * [Required] The algorithm used for generating hyperparameter values, along with configuration properties
  */
-export type SamplingAlgorithm = (typeof SamplingAlgorithm)[keyof typeof SamplingAlgorithm];
+export type SamplingAlgorithmType = (typeof SamplingAlgorithmType)[keyof typeof SamplingAlgorithmType];
 
 export const ScaleType = {
-    Auto: "Auto",
-    Manual: "Manual",
+    Default: "Default",
+    TargetUtilization: "TargetUtilization",
 } as const;
 
 /**
@@ -414,16 +454,49 @@ export const ScaleType = {
  */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
-export const SourceType = {
-    Delimited_files: "delimited_files",
-    Json_lines_files: "json_lines_files",
-    Parquet_files: "parquet_files",
+export const SecretsType = {
+    AccountKey: "AccountKey",
+    Certificate: "Certificate",
+    Sas: "Sas",
+    ServicePrincipal: "ServicePrincipal",
 } as const;
 
 /**
- * Data source type.
+ * [Required] Credential type used to authentication with storage.
  */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+export type SecretsType = (typeof SecretsType)[keyof typeof SecretsType];
+
+export const ServiceDataAccessAuthIdentity = {
+    /**
+     * Do not use any identity for service data access.
+     */
+    None: "None",
+    /**
+     * Use the system assigned managed identity of the Workspace to authenticate service data access.
+     */
+    WorkspaceSystemAssignedIdentity: "WorkspaceSystemAssignedIdentity",
+    /**
+     * Use the user assigned managed identity of the Workspace to authenticate service data access.
+     */
+    WorkspaceUserAssignedIdentity: "WorkspaceUserAssignedIdentity",
+} as const;
+
+/**
+ * Indicates which identity to use to authenticate service data access to customer's storage.
+ */
+export type ServiceDataAccessAuthIdentity = (typeof ServiceDataAccessAuthIdentity)[keyof typeof ServiceDataAccessAuthIdentity];
+
+export const SkuTier = {
+    Free: "Free",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+} as const;
+
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const SshPublicAccess = {
     Enabled: "Enabled",
@@ -435,6 +508,17 @@ export const SshPublicAccess = {
  */
 export type SshPublicAccess = (typeof SshPublicAccess)[keyof typeof SshPublicAccess];
 
+export const SslConfigStatus = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+    Auto: "Auto",
+} as const;
+
+/**
+ * Enable or disable ssl for scoring
+ */
+export type SslConfigStatus = (typeof SslConfigStatus)[keyof typeof SslConfigStatus];
+
 export const ValueFormat = {
     JSON: "JSON",
 } as const;
@@ -443,16 +527,6 @@ export const ValueFormat = {
  * format for the workspace connection value
  */
 export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
-
-export const VariantType = {
-    Control: "Control",
-    Treatment: "Treatment",
-} as const;
-
-/**
- * The type of the variant.
- */
-export type VariantType = (typeof VariantType)[keyof typeof VariantType];
 
 export const VmPriority = {
     Dedicated: "Dedicated",

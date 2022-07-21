@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRoute gateway resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : Pulumi.CustomResource
@@ -147,6 +147,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("autoScaleConfiguration")]
         public Input<Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
+
+        [Input("expressRouteConnections")]
+        private InputList<Inputs.ExpressRouteConnectionArgs>? _expressRouteConnections;
+
+        /// <summary>
+        /// List of ExpressRoute connections to the ExpressRoute gateway.
+        /// </summary>
+        public InputList<Inputs.ExpressRouteConnectionArgs> ExpressRouteConnections
+        {
+            get => _expressRouteConnections ?? (_expressRouteConnections = new InputList<Inputs.ExpressRouteConnectionArgs>());
+            set => _expressRouteConnections = value;
+        }
 
         /// <summary>
         /// The name of the ExpressRoute gateway.

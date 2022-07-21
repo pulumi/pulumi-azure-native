@@ -149,7 +149,7 @@ class EventSource(pulumi.CustomResource):
                  __props__=None):
         """
         An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +169,7 @@ class EventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param EventSourceArgs args: The arguments to use to populate this resource's properties.

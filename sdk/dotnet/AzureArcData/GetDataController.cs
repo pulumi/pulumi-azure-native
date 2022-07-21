@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Data controller resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data controller resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public readonly Outputs.DataControllerPropertiesResponse Properties;
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

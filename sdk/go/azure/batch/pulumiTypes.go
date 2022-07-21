@@ -531,8 +531,25 @@ func (o AutoScaleSettingsResponsePtrOutput) Formula() pulumi.StringPtrOutput {
 
 // The properties related to the auto-storage account.
 type AutoStorageBaseProperties struct {
+	// The authentication mode which the Batch service will use to manage the auto-storage account.
+	AuthenticationMode *AutoStorageAuthenticationMode `pulumi:"authenticationMode"`
+	// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+	NodeIdentityReference *ComputeNodeIdentityReference `pulumi:"nodeIdentityReference"`
 	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// Defaults sets the appropriate defaults for AutoStorageBaseProperties
+func (val *AutoStorageBaseProperties) Defaults() *AutoStorageBaseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuthenticationMode) {
+		authenticationMode_ := AutoStorageAuthenticationMode("StorageKeys")
+		tmp.AuthenticationMode = &authenticationMode_
+	}
+	return &tmp
 }
 
 // AutoStorageBasePropertiesInput is an input type that accepts AutoStorageBasePropertiesArgs and AutoStorageBasePropertiesOutput values.
@@ -548,10 +565,25 @@ type AutoStorageBasePropertiesInput interface {
 
 // The properties related to the auto-storage account.
 type AutoStorageBasePropertiesArgs struct {
+	// The authentication mode which the Batch service will use to manage the auto-storage account.
+	AuthenticationMode AutoStorageAuthenticationModePtrInput `pulumi:"authenticationMode"`
+	// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+	NodeIdentityReference ComputeNodeIdentityReferencePtrInput `pulumi:"nodeIdentityReference"`
 	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
+// Defaults sets the appropriate defaults for AutoStorageBasePropertiesArgs
+func (val *AutoStorageBasePropertiesArgs) Defaults() *AutoStorageBasePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuthenticationMode) {
+		tmp.AuthenticationMode = AutoStorageAuthenticationMode("StorageKeys")
+	}
+	return &tmp
+}
 func (AutoStorageBasePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoStorageBaseProperties)(nil)).Elem()
 }
@@ -630,6 +662,16 @@ func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutputWit
 	}).(AutoStorageBasePropertiesPtrOutput)
 }
 
+// The authentication mode which the Batch service will use to manage the auto-storage account.
+func (o AutoStorageBasePropertiesOutput) AuthenticationMode() AutoStorageAuthenticationModePtrOutput {
+	return o.ApplyT(func(v AutoStorageBaseProperties) *AutoStorageAuthenticationMode { return v.AuthenticationMode }).(AutoStorageAuthenticationModePtrOutput)
+}
+
+// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+func (o AutoStorageBasePropertiesOutput) NodeIdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v AutoStorageBaseProperties) *ComputeNodeIdentityReference { return v.NodeIdentityReference }).(ComputeNodeIdentityReferencePtrOutput)
+}
+
 // The resource ID of the storage account to be used for auto-storage account.
 func (o AutoStorageBasePropertiesOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStorageBaseProperties) string { return v.StorageAccountId }).(pulumi.StringOutput)
@@ -659,6 +701,26 @@ func (o AutoStorageBasePropertiesPtrOutput) Elem() AutoStorageBasePropertiesOutp
 	}).(AutoStorageBasePropertiesOutput)
 }
 
+// The authentication mode which the Batch service will use to manage the auto-storage account.
+func (o AutoStorageBasePropertiesPtrOutput) AuthenticationMode() AutoStorageAuthenticationModePtrOutput {
+	return o.ApplyT(func(v *AutoStorageBaseProperties) *AutoStorageAuthenticationMode {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(AutoStorageAuthenticationModePtrOutput)
+}
+
+// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+func (o AutoStorageBasePropertiesPtrOutput) NodeIdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v *AutoStorageBaseProperties) *ComputeNodeIdentityReference {
+		if v == nil {
+			return nil
+		}
+		return v.NodeIdentityReference
+	}).(ComputeNodeIdentityReferencePtrOutput)
+}
+
 // The resource ID of the storage account to be used for auto-storage account.
 func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoStorageBaseProperties) *string {
@@ -671,10 +733,27 @@ func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrO
 
 // Contains information about the auto-storage account associated with a Batch account.
 type AutoStoragePropertiesResponse struct {
+	// The authentication mode which the Batch service will use to manage the auto-storage account.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The UTC time at which storage keys were last synchronized with the Batch account.
 	LastKeySync string `pulumi:"lastKeySync"`
+	// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+	NodeIdentityReference *ComputeNodeIdentityReferenceResponse `pulumi:"nodeIdentityReference"`
 	// The resource ID of the storage account to be used for auto-storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// Defaults sets the appropriate defaults for AutoStoragePropertiesResponse
+func (val *AutoStoragePropertiesResponse) Defaults() *AutoStoragePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuthenticationMode) {
+		authenticationMode_ := "StorageKeys"
+		tmp.AuthenticationMode = &authenticationMode_
+	}
+	return &tmp
 }
 
 // Contains information about the auto-storage account associated with a Batch account.
@@ -692,9 +771,21 @@ func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponseOutp
 	return o
 }
 
+// The authentication mode which the Batch service will use to manage the auto-storage account.
+func (o AutoStoragePropertiesResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoStoragePropertiesResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
 // The UTC time at which storage keys were last synchronized with the Batch account.
 func (o AutoStoragePropertiesResponseOutput) LastKeySync() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.LastKeySync }).(pulumi.StringOutput)
+}
+
+// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+func (o AutoStoragePropertiesResponseOutput) NodeIdentityReference() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v AutoStoragePropertiesResponse) *ComputeNodeIdentityReferenceResponse {
+		return v.NodeIdentityReference
+	}).(ComputeNodeIdentityReferenceResponsePtrOutput)
 }
 
 // The resource ID of the storage account to be used for auto-storage account.
@@ -934,15 +1025,17 @@ func (o AutoUserSpecificationResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 }
 
 type AzureBlobFileSystemConfiguration struct {
-	// This property is mutually exclusive with sasKey and one must be specified.
+	// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 	AccountKey  *string `pulumi:"accountKey"`
 	AccountName string  `pulumi:"accountName"`
 	// These are 'net use' options in Windows and 'mount' options in Linux.
 	BlobfuseOptions *string `pulumi:"blobfuseOptions"`
 	ContainerName   string  `pulumi:"containerName"`
+	// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+	IdentityReference *ComputeNodeIdentityReference `pulumi:"identityReference"`
 	// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 	RelativeMountPath string `pulumi:"relativeMountPath"`
-	// This property is mutually exclusive with accountKey and one must be specified.
+	// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 	SasKey *string `pulumi:"sasKey"`
 }
 
@@ -958,15 +1051,17 @@ type AzureBlobFileSystemConfigurationInput interface {
 }
 
 type AzureBlobFileSystemConfigurationArgs struct {
-	// This property is mutually exclusive with sasKey and one must be specified.
+	// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 	AccountKey  pulumi.StringPtrInput `pulumi:"accountKey"`
 	AccountName pulumi.StringInput    `pulumi:"accountName"`
 	// These are 'net use' options in Windows and 'mount' options in Linux.
 	BlobfuseOptions pulumi.StringPtrInput `pulumi:"blobfuseOptions"`
 	ContainerName   pulumi.StringInput    `pulumi:"containerName"`
+	// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+	IdentityReference ComputeNodeIdentityReferencePtrInput `pulumi:"identityReference"`
 	// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
-	// This property is mutually exclusive with accountKey and one must be specified.
+	// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 	SasKey pulumi.StringPtrInput `pulumi:"sasKey"`
 }
 
@@ -1047,7 +1142,7 @@ func (o AzureBlobFileSystemConfigurationOutput) ToAzureBlobFileSystemConfigurati
 	}).(AzureBlobFileSystemConfigurationPtrOutput)
 }
 
-// This property is mutually exclusive with sasKey and one must be specified.
+// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobFileSystemConfiguration) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
 }
@@ -1065,12 +1160,17 @@ func (o AzureBlobFileSystemConfigurationOutput) ContainerName() pulumi.StringOut
 	return o.ApplyT(func(v AzureBlobFileSystemConfiguration) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+func (o AzureBlobFileSystemConfigurationOutput) IdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v AzureBlobFileSystemConfiguration) *ComputeNodeIdentityReference { return v.IdentityReference }).(ComputeNodeIdentityReferencePtrOutput)
+}
+
 // All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 func (o AzureBlobFileSystemConfigurationOutput) RelativeMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFileSystemConfiguration) string { return v.RelativeMountPath }).(pulumi.StringOutput)
 }
 
-// This property is mutually exclusive with accountKey and one must be specified.
+// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationOutput) SasKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobFileSystemConfiguration) *string { return v.SasKey }).(pulumi.StringPtrOutput)
 }
@@ -1099,7 +1199,7 @@ func (o AzureBlobFileSystemConfigurationPtrOutput) Elem() AzureBlobFileSystemCon
 	}).(AzureBlobFileSystemConfigurationOutput)
 }
 
-// This property is mutually exclusive with sasKey and one must be specified.
+// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationPtrOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobFileSystemConfiguration) *string {
 		if v == nil {
@@ -1137,6 +1237,16 @@ func (o AzureBlobFileSystemConfigurationPtrOutput) ContainerName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+func (o AzureBlobFileSystemConfigurationPtrOutput) IdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v *AzureBlobFileSystemConfiguration) *ComputeNodeIdentityReference {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityReference
+	}).(ComputeNodeIdentityReferencePtrOutput)
+}
+
 // All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 func (o AzureBlobFileSystemConfigurationPtrOutput) RelativeMountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobFileSystemConfiguration) *string {
@@ -1147,7 +1257,7 @@ func (o AzureBlobFileSystemConfigurationPtrOutput) RelativeMountPath() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// This property is mutually exclusive with accountKey and one must be specified.
+// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationPtrOutput) SasKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobFileSystemConfiguration) *string {
 		if v == nil {
@@ -1158,15 +1268,17 @@ func (o AzureBlobFileSystemConfigurationPtrOutput) SasKey() pulumi.StringPtrOutp
 }
 
 type AzureBlobFileSystemConfigurationResponse struct {
-	// This property is mutually exclusive with sasKey and one must be specified.
+	// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 	AccountKey  *string `pulumi:"accountKey"`
 	AccountName string  `pulumi:"accountName"`
 	// These are 'net use' options in Windows and 'mount' options in Linux.
 	BlobfuseOptions *string `pulumi:"blobfuseOptions"`
 	ContainerName   string  `pulumi:"containerName"`
+	// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+	IdentityReference *ComputeNodeIdentityReferenceResponse `pulumi:"identityReference"`
 	// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 	RelativeMountPath string `pulumi:"relativeMountPath"`
-	// This property is mutually exclusive with accountKey and one must be specified.
+	// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 	SasKey *string `pulumi:"sasKey"`
 }
 
@@ -1184,7 +1296,7 @@ func (o AzureBlobFileSystemConfigurationResponseOutput) ToAzureBlobFileSystemCon
 	return o
 }
 
-// This property is mutually exclusive with sasKey and one must be specified.
+// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationResponseOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobFileSystemConfigurationResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
 }
@@ -1202,12 +1314,19 @@ func (o AzureBlobFileSystemConfigurationResponseOutput) ContainerName() pulumi.S
 	return o.ApplyT(func(v AzureBlobFileSystemConfigurationResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+func (o AzureBlobFileSystemConfigurationResponseOutput) IdentityReference() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v AzureBlobFileSystemConfigurationResponse) *ComputeNodeIdentityReferenceResponse {
+		return v.IdentityReference
+	}).(ComputeNodeIdentityReferenceResponsePtrOutput)
+}
+
 // All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 func (o AzureBlobFileSystemConfigurationResponseOutput) RelativeMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureBlobFileSystemConfigurationResponse) string { return v.RelativeMountPath }).(pulumi.StringOutput)
 }
 
-// This property is mutually exclusive with accountKey and one must be specified.
+// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationResponseOutput) SasKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobFileSystemConfigurationResponse) *string { return v.SasKey }).(pulumi.StringPtrOutput)
 }
@@ -1236,7 +1355,7 @@ func (o AzureBlobFileSystemConfigurationResponsePtrOutput) Elem() AzureBlobFileS
 	}).(AzureBlobFileSystemConfigurationResponseOutput)
 }
 
-// This property is mutually exclusive with sasKey and one must be specified.
+// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationResponsePtrOutput) AccountKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobFileSystemConfigurationResponse) *string {
 		if v == nil {
@@ -1274,6 +1393,16 @@ func (o AzureBlobFileSystemConfigurationResponsePtrOutput) ContainerName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+func (o AzureBlobFileSystemConfigurationResponsePtrOutput) IdentityReference() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *AzureBlobFileSystemConfigurationResponse) *ComputeNodeIdentityReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityReference
+	}).(ComputeNodeIdentityReferenceResponsePtrOutput)
+}
+
 // All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 func (o AzureBlobFileSystemConfigurationResponsePtrOutput) RelativeMountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobFileSystemConfigurationResponse) *string {
@@ -1284,7 +1413,7 @@ func (o AzureBlobFileSystemConfigurationResponsePtrOutput) RelativeMountPath() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// This property is mutually exclusive with accountKey and one must be specified.
+// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
 func (o AzureBlobFileSystemConfigurationResponsePtrOutput) SasKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobFileSystemConfigurationResponse) *string {
 		if v == nil {
@@ -1619,12 +1748,12 @@ func (o AzureFileShareConfigurationResponsePtrOutput) RelativeMountPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+// The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
 type BatchAccountIdentity struct {
 	// The type of identity used for the Batch account.
 	Type ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	// The list of user identities associated with the Batch account.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // BatchAccountIdentityInput is an input type that accepts BatchAccountIdentityArgs and BatchAccountIdentityOutput values.
@@ -1638,12 +1767,12 @@ type BatchAccountIdentityInput interface {
 	ToBatchAccountIdentityOutputWithContext(context.Context) BatchAccountIdentityOutput
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+// The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
 type BatchAccountIdentityArgs struct {
 	// The type of identity used for the Batch account.
 	Type ResourceIdentityTypeInput `pulumi:"type"`
-	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	// The list of user identities associated with the Batch account.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (BatchAccountIdentityArgs) ElementType() reflect.Type {
@@ -1699,7 +1828,7 @@ func (i *batchAccountIdentityPtrType) ToBatchAccountIdentityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountIdentityPtrOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+// The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
 type BatchAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountIdentityOutput) ElementType() reflect.Type {
@@ -1729,9 +1858,9 @@ func (o BatchAccountIdentityOutput) Type() ResourceIdentityTypeOutput {
 	return o.ApplyT(func(v BatchAccountIdentity) ResourceIdentityType { return v.Type }).(ResourceIdentityTypeOutput)
 }
 
-// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchAccountIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v BatchAccountIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+// The list of user identities associated with the Batch account.
+func (o BatchAccountIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BatchAccountIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type BatchAccountIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1768,17 +1897,17 @@ func (o BatchAccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchAccountIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *BatchAccountIdentity) map[string]interface{} {
+// The list of user identities associated with the Batch account.
+func (o BatchAccountIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BatchAccountIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+// The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
 type BatchAccountIdentityResponse struct {
 	// The principal id of the Batch account. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -1786,11 +1915,11 @@ type BatchAccountIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the Batch account.
 	Type string `pulumi:"type"`
-	// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]BatchAccountIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+	// The list of user identities associated with the Batch account.
+	UserAssignedIdentities map[string]UserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
-// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+// The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
 type BatchAccountIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountIdentityResponseOutput) ElementType() reflect.Type {
@@ -1820,11 +1949,11 @@ func (o BatchAccountIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAccountIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchAccountIdentityResponseOutput) UserAssignedIdentities() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v BatchAccountIdentityResponse) map[string]BatchAccountIdentityResponseUserAssignedIdentities {
+// The list of user identities associated with the Batch account.
+func (o BatchAccountIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentitiesResponseMapOutput {
+	return o.ApplyT(func(v BatchAccountIdentityResponse) map[string]UserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
-	}).(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput)
+	}).(UserAssignedIdentitiesResponseMapOutput)
 }
 
 type BatchAccountIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1881,73 +2010,22 @@ func (o BatchAccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchAccountIdentityResponsePtrOutput) UserAssignedIdentities() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v *BatchAccountIdentityResponse) map[string]BatchAccountIdentityResponseUserAssignedIdentities {
+// The list of user identities associated with the Batch account.
+func (o BatchAccountIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentitiesResponseMapOutput {
+	return o.ApplyT(func(v *BatchAccountIdentityResponse) map[string]UserAssignedIdentitiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput)
-}
-
-type BatchAccountIdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-}
-
-type BatchAccountIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
-
-func (BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesOutput() BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-// The client id of user assigned identity.
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The principal id of user assigned identity.
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-type BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
-
-func (BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BatchAccountIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutput() BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchAccountIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) BatchAccountIdentityResponseUserAssignedIdentitiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BatchAccountIdentityResponseUserAssignedIdentities {
-		return vs[0].(map[string]BatchAccountIdentityResponseUserAssignedIdentities)[vs[1].(string)]
-	}).(BatchAccountIdentityResponseUserAssignedIdentitiesOutput)
+	}).(UserAssignedIdentitiesResponseMapOutput)
 }
 
 // The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentity struct {
 	// The type of identity used for the Batch Pool.
 	Type PoolIdentityType `pulumi:"type"`
-	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	// The list of user identities associated with the Batch pool.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // BatchPoolIdentityInput is an input type that accepts BatchPoolIdentityArgs and BatchPoolIdentityOutput values.
@@ -1965,8 +2043,8 @@ type BatchPoolIdentityInput interface {
 type BatchPoolIdentityArgs struct {
 	// The type of identity used for the Batch Pool.
 	Type PoolIdentityTypeInput `pulumi:"type"`
-	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	// The list of user identities associated with the Batch pool.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (BatchPoolIdentityArgs) ElementType() reflect.Type {
@@ -2052,9 +2130,9 @@ func (o BatchPoolIdentityOutput) Type() PoolIdentityTypeOutput {
 	return o.ApplyT(func(v BatchPoolIdentity) PoolIdentityType { return v.Type }).(PoolIdentityTypeOutput)
 }
 
-// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchPoolIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v BatchPoolIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+// The list of user identities associated with the Batch pool.
+func (o BatchPoolIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BatchPoolIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type BatchPoolIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2091,22 +2169,22 @@ func (o BatchPoolIdentityPtrOutput) Type() PoolIdentityTypePtrOutput {
 	}).(PoolIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchPoolIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *BatchPoolIdentity) map[string]interface{} {
+// The list of user identities associated with the Batch pool.
+func (o BatchPoolIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BatchPoolIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
 type BatchPoolIdentityResponse struct {
 	// The type of identity used for the Batch Pool.
 	Type string `pulumi:"type"`
-	// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]BatchPoolIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+	// The list of user identities associated with the Batch pool.
+	UserAssignedIdentities map[string]UserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
 // The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
@@ -2129,11 +2207,11 @@ func (o BatchPoolIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchPoolIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchPoolIdentityResponseOutput) UserAssignedIdentities() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v BatchPoolIdentityResponse) map[string]BatchPoolIdentityResponseUserAssignedIdentities {
+// The list of user identities associated with the Batch pool.
+func (o BatchPoolIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentitiesResponseMapOutput {
+	return o.ApplyT(func(v BatchPoolIdentityResponse) map[string]UserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
-	}).(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput)
+	}).(UserAssignedIdentitiesResponseMapOutput)
 }
 
 type BatchPoolIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2170,65 +2248,14 @@ func (o BatchPoolIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o BatchPoolIdentityResponsePtrOutput) UserAssignedIdentities() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v *BatchPoolIdentityResponse) map[string]BatchPoolIdentityResponseUserAssignedIdentities {
+// The list of user identities associated with the Batch pool.
+func (o BatchPoolIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentitiesResponseMapOutput {
+	return o.ApplyT(func(v *BatchPoolIdentityResponse) map[string]UserAssignedIdentitiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput)
-}
-
-type BatchPoolIdentityResponseUserAssignedIdentities struct {
-	// The client id of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
-	PrincipalId string `pulumi:"principalId"`
-}
-
-type BatchPoolIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
-
-func (BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchPoolIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesOutput() BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-// The client id of user assigned identity.
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchPoolIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The principal id of user assigned identity.
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchPoolIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-type BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
-
-func (BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BatchPoolIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutput() BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) ToBatchPoolIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) BatchPoolIdentityResponseUserAssignedIdentitiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BatchPoolIdentityResponseUserAssignedIdentities {
-		return vs[0].(map[string]BatchPoolIdentityResponseUserAssignedIdentities)[vs[1].(string)]
-	}).(BatchPoolIdentityResponseUserAssignedIdentitiesOutput)
+	}).(UserAssignedIdentitiesResponseMapOutput)
 }
 
 type CIFSMountConfiguration struct {
@@ -2959,6 +2986,206 @@ func (o CloudServiceConfigurationResponsePtrOutput) OsVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+type ComputeNodeIdentityReference struct {
+	// The ARM resource id of the user assigned identity.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ComputeNodeIdentityReferenceInput is an input type that accepts ComputeNodeIdentityReferenceArgs and ComputeNodeIdentityReferenceOutput values.
+// You can construct a concrete instance of `ComputeNodeIdentityReferenceInput` via:
+//
+//          ComputeNodeIdentityReferenceArgs{...}
+type ComputeNodeIdentityReferenceInput interface {
+	pulumi.Input
+
+	ToComputeNodeIdentityReferenceOutput() ComputeNodeIdentityReferenceOutput
+	ToComputeNodeIdentityReferenceOutputWithContext(context.Context) ComputeNodeIdentityReferenceOutput
+}
+
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+type ComputeNodeIdentityReferenceArgs struct {
+	// The ARM resource id of the user assigned identity.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ComputeNodeIdentityReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeIdentityReference)(nil)).Elem()
+}
+
+func (i ComputeNodeIdentityReferenceArgs) ToComputeNodeIdentityReferenceOutput() ComputeNodeIdentityReferenceOutput {
+	return i.ToComputeNodeIdentityReferenceOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeIdentityReferenceArgs) ToComputeNodeIdentityReferenceOutputWithContext(ctx context.Context) ComputeNodeIdentityReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeIdentityReferenceOutput)
+}
+
+func (i ComputeNodeIdentityReferenceArgs) ToComputeNodeIdentityReferencePtrOutput() ComputeNodeIdentityReferencePtrOutput {
+	return i.ToComputeNodeIdentityReferencePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeIdentityReferenceArgs) ToComputeNodeIdentityReferencePtrOutputWithContext(ctx context.Context) ComputeNodeIdentityReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeIdentityReferenceOutput).ToComputeNodeIdentityReferencePtrOutputWithContext(ctx)
+}
+
+// ComputeNodeIdentityReferencePtrInput is an input type that accepts ComputeNodeIdentityReferenceArgs, ComputeNodeIdentityReferencePtr and ComputeNodeIdentityReferencePtrOutput values.
+// You can construct a concrete instance of `ComputeNodeIdentityReferencePtrInput` via:
+//
+//          ComputeNodeIdentityReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeNodeIdentityReferencePtrInput interface {
+	pulumi.Input
+
+	ToComputeNodeIdentityReferencePtrOutput() ComputeNodeIdentityReferencePtrOutput
+	ToComputeNodeIdentityReferencePtrOutputWithContext(context.Context) ComputeNodeIdentityReferencePtrOutput
+}
+
+type computeNodeIdentityReferencePtrType ComputeNodeIdentityReferenceArgs
+
+func ComputeNodeIdentityReferencePtr(v *ComputeNodeIdentityReferenceArgs) ComputeNodeIdentityReferencePtrInput {
+	return (*computeNodeIdentityReferencePtrType)(v)
+}
+
+func (*computeNodeIdentityReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeIdentityReference)(nil)).Elem()
+}
+
+func (i *computeNodeIdentityReferencePtrType) ToComputeNodeIdentityReferencePtrOutput() ComputeNodeIdentityReferencePtrOutput {
+	return i.ToComputeNodeIdentityReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *computeNodeIdentityReferencePtrType) ToComputeNodeIdentityReferencePtrOutputWithContext(ctx context.Context) ComputeNodeIdentityReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeIdentityReferencePtrOutput)
+}
+
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+type ComputeNodeIdentityReferenceOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeIdentityReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeIdentityReference)(nil)).Elem()
+}
+
+func (o ComputeNodeIdentityReferenceOutput) ToComputeNodeIdentityReferenceOutput() ComputeNodeIdentityReferenceOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferenceOutput) ToComputeNodeIdentityReferenceOutputWithContext(ctx context.Context) ComputeNodeIdentityReferenceOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferenceOutput) ToComputeNodeIdentityReferencePtrOutput() ComputeNodeIdentityReferencePtrOutput {
+	return o.ToComputeNodeIdentityReferencePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeIdentityReferenceOutput) ToComputeNodeIdentityReferencePtrOutputWithContext(ctx context.Context) ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeNodeIdentityReference) *ComputeNodeIdentityReference {
+		return &v
+	}).(ComputeNodeIdentityReferencePtrOutput)
+}
+
+// The ARM resource id of the user assigned identity.
+func (o ComputeNodeIdentityReferenceOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeNodeIdentityReference) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ComputeNodeIdentityReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeIdentityReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeIdentityReference)(nil)).Elem()
+}
+
+func (o ComputeNodeIdentityReferencePtrOutput) ToComputeNodeIdentityReferencePtrOutput() ComputeNodeIdentityReferencePtrOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferencePtrOutput) ToComputeNodeIdentityReferencePtrOutputWithContext(ctx context.Context) ComputeNodeIdentityReferencePtrOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferencePtrOutput) Elem() ComputeNodeIdentityReferenceOutput {
+	return o.ApplyT(func(v *ComputeNodeIdentityReference) ComputeNodeIdentityReference {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeNodeIdentityReference
+		return ret
+	}).(ComputeNodeIdentityReferenceOutput)
+}
+
+// The ARM resource id of the user assigned identity.
+func (o ComputeNodeIdentityReferencePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeNodeIdentityReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+type ComputeNodeIdentityReferenceResponse struct {
+	// The ARM resource id of the user assigned identity.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+type ComputeNodeIdentityReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeIdentityReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeIdentityReferenceResponse)(nil)).Elem()
+}
+
+func (o ComputeNodeIdentityReferenceResponseOutput) ToComputeNodeIdentityReferenceResponseOutput() ComputeNodeIdentityReferenceResponseOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferenceResponseOutput) ToComputeNodeIdentityReferenceResponseOutputWithContext(ctx context.Context) ComputeNodeIdentityReferenceResponseOutput {
+	return o
+}
+
+// The ARM resource id of the user assigned identity.
+func (o ComputeNodeIdentityReferenceResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeNodeIdentityReferenceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ComputeNodeIdentityReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeIdentityReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeIdentityReferenceResponse)(nil)).Elem()
+}
+
+func (o ComputeNodeIdentityReferenceResponsePtrOutput) ToComputeNodeIdentityReferenceResponsePtrOutput() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferenceResponsePtrOutput) ToComputeNodeIdentityReferenceResponsePtrOutputWithContext(ctx context.Context) ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ComputeNodeIdentityReferenceResponsePtrOutput) Elem() ComputeNodeIdentityReferenceResponseOutput {
+	return o.ApplyT(func(v *ComputeNodeIdentityReferenceResponse) ComputeNodeIdentityReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeNodeIdentityReferenceResponse
+		return ret
+	}).(ComputeNodeIdentityReferenceResponseOutput)
+}
+
+// The ARM resource id of the user assigned identity.
+func (o ComputeNodeIdentityReferenceResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeNodeIdentityReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ContainerConfiguration struct {
 	// This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
 	ContainerImageNames []string `pulumi:"containerImageNames"`
@@ -3220,10 +3447,12 @@ func (o ContainerConfigurationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ContainerRegistry struct {
-	Password string `pulumi:"password"`
+	// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+	IdentityReference *ComputeNodeIdentityReference `pulumi:"identityReference"`
+	Password          *string                       `pulumi:"password"`
 	// If omitted, the default is "docker.io".
 	RegistryServer *string `pulumi:"registryServer"`
-	UserName       string  `pulumi:"userName"`
+	UserName       *string `pulumi:"userName"`
 }
 
 // ContainerRegistryInput is an input type that accepts ContainerRegistryArgs and ContainerRegistryOutput values.
@@ -3238,10 +3467,12 @@ type ContainerRegistryInput interface {
 }
 
 type ContainerRegistryArgs struct {
-	Password pulumi.StringInput `pulumi:"password"`
+	// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+	IdentityReference ComputeNodeIdentityReferencePtrInput `pulumi:"identityReference"`
+	Password          pulumi.StringPtrInput                `pulumi:"password"`
 	// If omitted, the default is "docker.io".
 	RegistryServer pulumi.StringPtrInput `pulumi:"registryServer"`
-	UserName       pulumi.StringInput    `pulumi:"userName"`
+	UserName       pulumi.StringPtrInput `pulumi:"userName"`
 }
 
 func (ContainerRegistryArgs) ElementType() reflect.Type {
@@ -3346,8 +3577,13 @@ func (o ContainerRegistryOutput) ToContainerRegistryPtrOutputWithContext(ctx con
 	}).(ContainerRegistryPtrOutput)
 }
 
-func (o ContainerRegistryOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+func (o ContainerRegistryOutput) IdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v ContainerRegistry) *ComputeNodeIdentityReference { return v.IdentityReference }).(ComputeNodeIdentityReferencePtrOutput)
+}
+
+func (o ContainerRegistryOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // If omitted, the default is "docker.io".
@@ -3355,8 +3591,8 @@ func (o ContainerRegistryOutput) RegistryServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistry) *string { return v.RegistryServer }).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerRegistryOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
+func (o ContainerRegistryOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRegistry) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type ContainerRegistryPtrOutput struct{ *pulumi.OutputState }
@@ -3383,12 +3619,22 @@ func (o ContainerRegistryPtrOutput) Elem() ContainerRegistryOutput {
 	}).(ContainerRegistryOutput)
 }
 
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+func (o ContainerRegistryPtrOutput) IdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v *ContainerRegistry) *ComputeNodeIdentityReference {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityReference
+	}).(ComputeNodeIdentityReferencePtrOutput)
+}
+
 func (o ContainerRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistry) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Password
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3407,7 +3653,7 @@ func (o ContainerRegistryPtrOutput) UserName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.UserName
+		return v.UserName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3432,10 +3678,12 @@ func (o ContainerRegistryArrayOutput) Index(i pulumi.IntInput) ContainerRegistry
 }
 
 type ContainerRegistryResponse struct {
-	Password string `pulumi:"password"`
+	// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+	IdentityReference *ComputeNodeIdentityReferenceResponse `pulumi:"identityReference"`
+	Password          *string                               `pulumi:"password"`
 	// If omitted, the default is "docker.io".
 	RegistryServer *string `pulumi:"registryServer"`
-	UserName       string  `pulumi:"userName"`
+	UserName       *string `pulumi:"userName"`
 }
 
 type ContainerRegistryResponseOutput struct{ *pulumi.OutputState }
@@ -3452,8 +3700,13 @@ func (o ContainerRegistryResponseOutput) ToContainerRegistryResponseOutputWithCo
 	return o
 }
 
-func (o ContainerRegistryResponseOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryResponse) string { return v.Password }).(pulumi.StringOutput)
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+func (o ContainerRegistryResponseOutput) IdentityReference() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ContainerRegistryResponse) *ComputeNodeIdentityReferenceResponse { return v.IdentityReference }).(ComputeNodeIdentityReferenceResponsePtrOutput)
+}
+
+func (o ContainerRegistryResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRegistryResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // If omitted, the default is "docker.io".
@@ -3461,8 +3714,8 @@ func (o ContainerRegistryResponseOutput) RegistryServer() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ContainerRegistryResponse) *string { return v.RegistryServer }).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerRegistryResponseOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryResponse) string { return v.UserName }).(pulumi.StringOutput)
+func (o ContainerRegistryResponseOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRegistryResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type ContainerRegistryResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3489,12 +3742,22 @@ func (o ContainerRegistryResponsePtrOutput) Elem() ContainerRegistryResponseOutp
 	}).(ContainerRegistryResponseOutput)
 }
 
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+func (o ContainerRegistryResponsePtrOutput) IdentityReference() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryResponse) *ComputeNodeIdentityReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityReference
+	}).(ComputeNodeIdentityReferenceResponsePtrOutput)
+}
+
 func (o ContainerRegistryResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistryResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Password
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3513,7 +3776,7 @@ func (o ContainerRegistryResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.UserName
+		return v.UserName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4073,6 +4336,201 @@ func (o DeploymentConfigurationResponsePtrOutput) VirtualMachineConfiguration() 
 	}).(VirtualMachineConfigurationResponsePtrOutput)
 }
 
+type DiffDiskSettings struct {
+	// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	Placement *DiffDiskPlacement `pulumi:"placement"`
+}
+
+// DiffDiskSettingsInput is an input type that accepts DiffDiskSettingsArgs and DiffDiskSettingsOutput values.
+// You can construct a concrete instance of `DiffDiskSettingsInput` via:
+//
+//          DiffDiskSettingsArgs{...}
+type DiffDiskSettingsInput interface {
+	pulumi.Input
+
+	ToDiffDiskSettingsOutput() DiffDiskSettingsOutput
+	ToDiffDiskSettingsOutputWithContext(context.Context) DiffDiskSettingsOutput
+}
+
+type DiffDiskSettingsArgs struct {
+	// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	Placement DiffDiskPlacementPtrInput `pulumi:"placement"`
+}
+
+func (DiffDiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiffDiskSettings)(nil)).Elem()
+}
+
+func (i DiffDiskSettingsArgs) ToDiffDiskSettingsOutput() DiffDiskSettingsOutput {
+	return i.ToDiffDiskSettingsOutputWithContext(context.Background())
+}
+
+func (i DiffDiskSettingsArgs) ToDiffDiskSettingsOutputWithContext(ctx context.Context) DiffDiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiffDiskSettingsOutput)
+}
+
+func (i DiffDiskSettingsArgs) ToDiffDiskSettingsPtrOutput() DiffDiskSettingsPtrOutput {
+	return i.ToDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DiffDiskSettingsArgs) ToDiffDiskSettingsPtrOutputWithContext(ctx context.Context) DiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiffDiskSettingsOutput).ToDiffDiskSettingsPtrOutputWithContext(ctx)
+}
+
+// DiffDiskSettingsPtrInput is an input type that accepts DiffDiskSettingsArgs, DiffDiskSettingsPtr and DiffDiskSettingsPtrOutput values.
+// You can construct a concrete instance of `DiffDiskSettingsPtrInput` via:
+//
+//          DiffDiskSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DiffDiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDiffDiskSettingsPtrOutput() DiffDiskSettingsPtrOutput
+	ToDiffDiskSettingsPtrOutputWithContext(context.Context) DiffDiskSettingsPtrOutput
+}
+
+type diffDiskSettingsPtrType DiffDiskSettingsArgs
+
+func DiffDiskSettingsPtr(v *DiffDiskSettingsArgs) DiffDiskSettingsPtrInput {
+	return (*diffDiskSettingsPtrType)(v)
+}
+
+func (*diffDiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiffDiskSettings)(nil)).Elem()
+}
+
+func (i *diffDiskSettingsPtrType) ToDiffDiskSettingsPtrOutput() DiffDiskSettingsPtrOutput {
+	return i.ToDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *diffDiskSettingsPtrType) ToDiffDiskSettingsPtrOutputWithContext(ctx context.Context) DiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiffDiskSettingsPtrOutput)
+}
+
+type DiffDiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (DiffDiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiffDiskSettings)(nil)).Elem()
+}
+
+func (o DiffDiskSettingsOutput) ToDiffDiskSettingsOutput() DiffDiskSettingsOutput {
+	return o
+}
+
+func (o DiffDiskSettingsOutput) ToDiffDiskSettingsOutputWithContext(ctx context.Context) DiffDiskSettingsOutput {
+	return o
+}
+
+func (o DiffDiskSettingsOutput) ToDiffDiskSettingsPtrOutput() DiffDiskSettingsPtrOutput {
+	return o.ToDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DiffDiskSettingsOutput) ToDiffDiskSettingsPtrOutputWithContext(ctx context.Context) DiffDiskSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiffDiskSettings) *DiffDiskSettings {
+		return &v
+	}).(DiffDiskSettingsPtrOutput)
+}
+
+// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+func (o DiffDiskSettingsOutput) Placement() DiffDiskPlacementPtrOutput {
+	return o.ApplyT(func(v DiffDiskSettings) *DiffDiskPlacement { return v.Placement }).(DiffDiskPlacementPtrOutput)
+}
+
+type DiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DiffDiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiffDiskSettings)(nil)).Elem()
+}
+
+func (o DiffDiskSettingsPtrOutput) ToDiffDiskSettingsPtrOutput() DiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o DiffDiskSettingsPtrOutput) ToDiffDiskSettingsPtrOutputWithContext(ctx context.Context) DiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o DiffDiskSettingsPtrOutput) Elem() DiffDiskSettingsOutput {
+	return o.ApplyT(func(v *DiffDiskSettings) DiffDiskSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DiffDiskSettings
+		return ret
+	}).(DiffDiskSettingsOutput)
+}
+
+// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+func (o DiffDiskSettingsPtrOutput) Placement() DiffDiskPlacementPtrOutput {
+	return o.ApplyT(func(v *DiffDiskSettings) *DiffDiskPlacement {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(DiffDiskPlacementPtrOutput)
+}
+
+type DiffDiskSettingsResponse struct {
+	// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	Placement *string `pulumi:"placement"`
+}
+
+type DiffDiskSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (DiffDiskSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiffDiskSettingsResponse)(nil)).Elem()
+}
+
+func (o DiffDiskSettingsResponseOutput) ToDiffDiskSettingsResponseOutput() DiffDiskSettingsResponseOutput {
+	return o
+}
+
+func (o DiffDiskSettingsResponseOutput) ToDiffDiskSettingsResponseOutputWithContext(ctx context.Context) DiffDiskSettingsResponseOutput {
+	return o
+}
+
+// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+func (o DiffDiskSettingsResponseOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiffDiskSettingsResponse) *string { return v.Placement }).(pulumi.StringPtrOutput)
+}
+
+type DiffDiskSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DiffDiskSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiffDiskSettingsResponse)(nil)).Elem()
+}
+
+func (o DiffDiskSettingsResponsePtrOutput) ToDiffDiskSettingsResponsePtrOutput() DiffDiskSettingsResponsePtrOutput {
+	return o
+}
+
+func (o DiffDiskSettingsResponsePtrOutput) ToDiffDiskSettingsResponsePtrOutputWithContext(ctx context.Context) DiffDiskSettingsResponsePtrOutput {
+	return o
+}
+
+func (o DiffDiskSettingsResponsePtrOutput) Elem() DiffDiskSettingsResponseOutput {
+	return o.ApplyT(func(v *DiffDiskSettingsResponse) DiffDiskSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiffDiskSettingsResponse
+		return ret
+	}).(DiffDiskSettingsResponseOutput)
+}
+
+// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+func (o DiffDiskSettingsResponsePtrOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiffDiskSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(pulumi.StringPtrOutput)
+}
+
 // The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfiguration struct {
 	// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
@@ -4463,6 +4921,242 @@ func (o EncryptionPropertiesResponseOutput) KeySource() pulumi.StringPtrOutput {
 // Additional details when using Microsoft.KeyVault
 func (o EncryptionPropertiesResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// Network access profile for Batch endpoint.
+type EndpointAccessProfile struct {
+	// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+	DefaultAction EndpointAccessDefaultAction `pulumi:"defaultAction"`
+	// Array of IP ranges to filter client IP address.
+	IpRules []IPRule `pulumi:"ipRules"`
+}
+
+// EndpointAccessProfileInput is an input type that accepts EndpointAccessProfileArgs and EndpointAccessProfileOutput values.
+// You can construct a concrete instance of `EndpointAccessProfileInput` via:
+//
+//          EndpointAccessProfileArgs{...}
+type EndpointAccessProfileInput interface {
+	pulumi.Input
+
+	ToEndpointAccessProfileOutput() EndpointAccessProfileOutput
+	ToEndpointAccessProfileOutputWithContext(context.Context) EndpointAccessProfileOutput
+}
+
+// Network access profile for Batch endpoint.
+type EndpointAccessProfileArgs struct {
+	// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+	DefaultAction EndpointAccessDefaultActionInput `pulumi:"defaultAction"`
+	// Array of IP ranges to filter client IP address.
+	IpRules IPRuleArrayInput `pulumi:"ipRules"`
+}
+
+func (EndpointAccessProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessProfile)(nil)).Elem()
+}
+
+func (i EndpointAccessProfileArgs) ToEndpointAccessProfileOutput() EndpointAccessProfileOutput {
+	return i.ToEndpointAccessProfileOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessProfileArgs) ToEndpointAccessProfileOutputWithContext(ctx context.Context) EndpointAccessProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessProfileOutput)
+}
+
+func (i EndpointAccessProfileArgs) ToEndpointAccessProfilePtrOutput() EndpointAccessProfilePtrOutput {
+	return i.ToEndpointAccessProfilePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessProfileArgs) ToEndpointAccessProfilePtrOutputWithContext(ctx context.Context) EndpointAccessProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessProfileOutput).ToEndpointAccessProfilePtrOutputWithContext(ctx)
+}
+
+// EndpointAccessProfilePtrInput is an input type that accepts EndpointAccessProfileArgs, EndpointAccessProfilePtr and EndpointAccessProfilePtrOutput values.
+// You can construct a concrete instance of `EndpointAccessProfilePtrInput` via:
+//
+//          EndpointAccessProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointAccessProfilePtrInput interface {
+	pulumi.Input
+
+	ToEndpointAccessProfilePtrOutput() EndpointAccessProfilePtrOutput
+	ToEndpointAccessProfilePtrOutputWithContext(context.Context) EndpointAccessProfilePtrOutput
+}
+
+type endpointAccessProfilePtrType EndpointAccessProfileArgs
+
+func EndpointAccessProfilePtr(v *EndpointAccessProfileArgs) EndpointAccessProfilePtrInput {
+	return (*endpointAccessProfilePtrType)(v)
+}
+
+func (*endpointAccessProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointAccessProfile)(nil)).Elem()
+}
+
+func (i *endpointAccessProfilePtrType) ToEndpointAccessProfilePtrOutput() EndpointAccessProfilePtrOutput {
+	return i.ToEndpointAccessProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointAccessProfilePtrType) ToEndpointAccessProfilePtrOutputWithContext(ctx context.Context) EndpointAccessProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessProfilePtrOutput)
+}
+
+// Network access profile for Batch endpoint.
+type EndpointAccessProfileOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessProfile)(nil)).Elem()
+}
+
+func (o EndpointAccessProfileOutput) ToEndpointAccessProfileOutput() EndpointAccessProfileOutput {
+	return o
+}
+
+func (o EndpointAccessProfileOutput) ToEndpointAccessProfileOutputWithContext(ctx context.Context) EndpointAccessProfileOutput {
+	return o
+}
+
+func (o EndpointAccessProfileOutput) ToEndpointAccessProfilePtrOutput() EndpointAccessProfilePtrOutput {
+	return o.ToEndpointAccessProfilePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointAccessProfileOutput) ToEndpointAccessProfilePtrOutputWithContext(ctx context.Context) EndpointAccessProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointAccessProfile) *EndpointAccessProfile {
+		return &v
+	}).(EndpointAccessProfilePtrOutput)
+}
+
+// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+func (o EndpointAccessProfileOutput) DefaultAction() EndpointAccessDefaultActionOutput {
+	return o.ApplyT(func(v EndpointAccessProfile) EndpointAccessDefaultAction { return v.DefaultAction }).(EndpointAccessDefaultActionOutput)
+}
+
+// Array of IP ranges to filter client IP address.
+func (o EndpointAccessProfileOutput) IpRules() IPRuleArrayOutput {
+	return o.ApplyT(func(v EndpointAccessProfile) []IPRule { return v.IpRules }).(IPRuleArrayOutput)
+}
+
+type EndpointAccessProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointAccessProfile)(nil)).Elem()
+}
+
+func (o EndpointAccessProfilePtrOutput) ToEndpointAccessProfilePtrOutput() EndpointAccessProfilePtrOutput {
+	return o
+}
+
+func (o EndpointAccessProfilePtrOutput) ToEndpointAccessProfilePtrOutputWithContext(ctx context.Context) EndpointAccessProfilePtrOutput {
+	return o
+}
+
+func (o EndpointAccessProfilePtrOutput) Elem() EndpointAccessProfileOutput {
+	return o.ApplyT(func(v *EndpointAccessProfile) EndpointAccessProfile {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointAccessProfile
+		return ret
+	}).(EndpointAccessProfileOutput)
+}
+
+// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+func (o EndpointAccessProfilePtrOutput) DefaultAction() EndpointAccessDefaultActionPtrOutput {
+	return o.ApplyT(func(v *EndpointAccessProfile) *EndpointAccessDefaultAction {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(EndpointAccessDefaultActionPtrOutput)
+}
+
+// Array of IP ranges to filter client IP address.
+func (o EndpointAccessProfilePtrOutput) IpRules() IPRuleArrayOutput {
+	return o.ApplyT(func(v *EndpointAccessProfile) []IPRule {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(IPRuleArrayOutput)
+}
+
+// Network access profile for Batch endpoint.
+type EndpointAccessProfileResponse struct {
+	// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+	DefaultAction string `pulumi:"defaultAction"`
+	// Array of IP ranges to filter client IP address.
+	IpRules []IPRuleResponse `pulumi:"ipRules"`
+}
+
+// Network access profile for Batch endpoint.
+type EndpointAccessProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessProfileResponse)(nil)).Elem()
+}
+
+func (o EndpointAccessProfileResponseOutput) ToEndpointAccessProfileResponseOutput() EndpointAccessProfileResponseOutput {
+	return o
+}
+
+func (o EndpointAccessProfileResponseOutput) ToEndpointAccessProfileResponseOutputWithContext(ctx context.Context) EndpointAccessProfileResponseOutput {
+	return o
+}
+
+// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+func (o EndpointAccessProfileResponseOutput) DefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointAccessProfileResponse) string { return v.DefaultAction }).(pulumi.StringOutput)
+}
+
+// Array of IP ranges to filter client IP address.
+func (o EndpointAccessProfileResponseOutput) IpRules() IPRuleResponseArrayOutput {
+	return o.ApplyT(func(v EndpointAccessProfileResponse) []IPRuleResponse { return v.IpRules }).(IPRuleResponseArrayOutput)
+}
+
+type EndpointAccessProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointAccessProfileResponse)(nil)).Elem()
+}
+
+func (o EndpointAccessProfileResponsePtrOutput) ToEndpointAccessProfileResponsePtrOutput() EndpointAccessProfileResponsePtrOutput {
+	return o
+}
+
+func (o EndpointAccessProfileResponsePtrOutput) ToEndpointAccessProfileResponsePtrOutputWithContext(ctx context.Context) EndpointAccessProfileResponsePtrOutput {
+	return o
+}
+
+func (o EndpointAccessProfileResponsePtrOutput) Elem() EndpointAccessProfileResponseOutput {
+	return o.ApplyT(func(v *EndpointAccessProfileResponse) EndpointAccessProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointAccessProfileResponse
+		return ret
+	}).(EndpointAccessProfileResponseOutput)
+}
+
+// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+func (o EndpointAccessProfileResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccessProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of IP ranges to filter client IP address.
+func (o EndpointAccessProfileResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
+	return o.ApplyT(func(v *EndpointAccessProfileResponse) []IPRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(IPRuleResponseArrayOutput)
 }
 
 type EnvironmentSetting struct {
@@ -4915,6 +5609,168 @@ func (o FixedScaleSettingsResponsePtrOutput) TargetLowPriorityNodes() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Rule to filter client IP address.
+type IPRule struct {
+	// Action when client IP address is matched.
+	Action IPRuleAction `pulumi:"action"`
+	// IPv4 address, or IPv4 address range in CIDR format.
+	Value string `pulumi:"value"`
+}
+
+// IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
+// You can construct a concrete instance of `IPRuleInput` via:
+//
+//          IPRuleArgs{...}
+type IPRuleInput interface {
+	pulumi.Input
+
+	ToIPRuleOutput() IPRuleOutput
+	ToIPRuleOutputWithContext(context.Context) IPRuleOutput
+}
+
+// Rule to filter client IP address.
+type IPRuleArgs struct {
+	// Action when client IP address is matched.
+	Action IPRuleActionInput `pulumi:"action"`
+	// IPv4 address, or IPv4 address range in CIDR format.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IPRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRule)(nil)).Elem()
+}
+
+func (i IPRuleArgs) ToIPRuleOutput() IPRuleOutput {
+	return i.ToIPRuleOutputWithContext(context.Background())
+}
+
+func (i IPRuleArgs) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRuleOutput)
+}
+
+// IPRuleArrayInput is an input type that accepts IPRuleArray and IPRuleArrayOutput values.
+// You can construct a concrete instance of `IPRuleArrayInput` via:
+//
+//          IPRuleArray{ IPRuleArgs{...} }
+type IPRuleArrayInput interface {
+	pulumi.Input
+
+	ToIPRuleArrayOutput() IPRuleArrayOutput
+	ToIPRuleArrayOutputWithContext(context.Context) IPRuleArrayOutput
+}
+
+type IPRuleArray []IPRuleInput
+
+func (IPRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRule)(nil)).Elem()
+}
+
+func (i IPRuleArray) ToIPRuleArrayOutput() IPRuleArrayOutput {
+	return i.ToIPRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IPRuleArray) ToIPRuleArrayOutputWithContext(ctx context.Context) IPRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRuleArrayOutput)
+}
+
+// Rule to filter client IP address.
+type IPRuleOutput struct{ *pulumi.OutputState }
+
+func (IPRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRule)(nil)).Elem()
+}
+
+func (o IPRuleOutput) ToIPRuleOutput() IPRuleOutput {
+	return o
+}
+
+func (o IPRuleOutput) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutput {
+	return o
+}
+
+// Action when client IP address is matched.
+func (o IPRuleOutput) Action() IPRuleActionOutput {
+	return o.ApplyT(func(v IPRule) IPRuleAction { return v.Action }).(IPRuleActionOutput)
+}
+
+// IPv4 address, or IPv4 address range in CIDR format.
+func (o IPRuleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRule) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IPRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRule)(nil)).Elem()
+}
+
+func (o IPRuleArrayOutput) ToIPRuleArrayOutput() IPRuleArrayOutput {
+	return o
+}
+
+func (o IPRuleArrayOutput) ToIPRuleArrayOutputWithContext(ctx context.Context) IPRuleArrayOutput {
+	return o
+}
+
+func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRule {
+		return vs[0].([]IPRule)[vs[1].(int)]
+	}).(IPRuleOutput)
+}
+
+// Rule to filter client IP address.
+type IPRuleResponse struct {
+	// Action when client IP address is matched.
+	Action string `pulumi:"action"`
+	// IPv4 address, or IPv4 address range in CIDR format.
+	Value string `pulumi:"value"`
+}
+
+// Rule to filter client IP address.
+type IPRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (IPRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRuleResponse)(nil)).Elem()
+}
+
+func (o IPRuleResponseOutput) ToIPRuleResponseOutput() IPRuleResponseOutput {
+	return o
+}
+
+func (o IPRuleResponseOutput) ToIPRuleResponseOutputWithContext(ctx context.Context) IPRuleResponseOutput {
+	return o
+}
+
+// Action when client IP address is matched.
+func (o IPRuleResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRuleResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// IPv4 address, or IPv4 address range in CIDR format.
+func (o IPRuleResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRuleResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRuleResponse)(nil)).Elem()
+}
+
+func (o IPRuleResponseArrayOutput) ToIPRuleResponseArrayOutput() IPRuleResponseArrayOutput {
+	return o
+}
+
+func (o IPRuleResponseArrayOutput) ToIPRuleResponseArrayOutputWithContext(ctx context.Context) IPRuleResponseArrayOutput {
+	return o
+}
+
+func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRuleResponse {
+		return vs[0].([]IPRuleResponse)[vs[1].(int)]
+	}).(IPRuleResponseOutput)
+}
+
 type ImageReference struct {
 	// This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
 	Id *string `pulumi:"id"`
@@ -4922,7 +5778,7 @@ type ImageReference struct {
 	Offer *string `pulumi:"offer"`
 	// For example, Canonical or MicrosoftWindowsServer.
 	Publisher *string `pulumi:"publisher"`
-	// For example, 18.04-LTS or 2019-Datacenter.
+	// For example, 18.04-LTS or 2022-datacenter.
 	Sku *string `pulumi:"sku"`
 	// A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	Version *string `pulumi:"version"`
@@ -4946,7 +5802,7 @@ type ImageReferenceArgs struct {
 	Offer pulumi.StringPtrInput `pulumi:"offer"`
 	// For example, Canonical or MicrosoftWindowsServer.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// For example, 18.04-LTS or 2019-Datacenter.
+	// For example, 18.04-LTS or 2022-datacenter.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 	// A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -5044,7 +5900,7 @@ func (o ImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// For example, 18.04-LTS or 2019-Datacenter.
+// For example, 18.04-LTS or 2022-datacenter.
 func (o ImageReferenceOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -5108,7 +5964,7 @@ func (o ImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For example, 18.04-LTS or 2019-Datacenter.
+// For example, 18.04-LTS or 2022-datacenter.
 func (o ImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
 		if v == nil {
@@ -5135,7 +5991,7 @@ type ImageReferenceResponse struct {
 	Offer *string `pulumi:"offer"`
 	// For example, Canonical or MicrosoftWindowsServer.
 	Publisher *string `pulumi:"publisher"`
-	// For example, 18.04-LTS or 2019-Datacenter.
+	// For example, 18.04-LTS or 2022-datacenter.
 	Sku *string `pulumi:"sku"`
 	// A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	Version *string `pulumi:"version"`
@@ -5170,7 +6026,7 @@ func (o ImageReferenceResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// For example, 18.04-LTS or 2019-Datacenter.
+// For example, 18.04-LTS or 2022-datacenter.
 func (o ImageReferenceResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -5234,7 +6090,7 @@ func (o ImageReferenceResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For example, 18.04-LTS or 2019-Datacenter.
+// For example, 18.04-LTS or 2022-datacenter.
 func (o ImageReferenceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReferenceResponse) *string {
 		if v == nil {
@@ -6766,6 +7622,7 @@ func (o NFSMountConfigurationResponsePtrOutput) Source() pulumi.StringPtrOutput 
 
 // The network configuration for a pool.
 type NetworkConfiguration struct {
+	DynamicVNetAssignmentScope *DynamicVNetAssignmentScope `pulumi:"dynamicVNetAssignmentScope"`
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration *PoolEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// This property is only supported on Pools with the virtualMachineConfiguration property.
@@ -6787,6 +7644,7 @@ type NetworkConfigurationInput interface {
 
 // The network configuration for a pool.
 type NetworkConfigurationArgs struct {
+	DynamicVNetAssignmentScope DynamicVNetAssignmentScopePtrInput `pulumi:"dynamicVNetAssignmentScope"`
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration PoolEndpointConfigurationPtrInput `pulumi:"endpointConfiguration"`
 	// This property is only supported on Pools with the virtualMachineConfiguration property.
@@ -6873,6 +7731,10 @@ func (o NetworkConfigurationOutput) ToNetworkConfigurationPtrOutputWithContext(c
 	}).(NetworkConfigurationPtrOutput)
 }
 
+func (o NetworkConfigurationOutput) DynamicVNetAssignmentScope() DynamicVNetAssignmentScopePtrOutput {
+	return o.ApplyT(func(v NetworkConfiguration) *DynamicVNetAssignmentScope { return v.DynamicVNetAssignmentScope }).(DynamicVNetAssignmentScopePtrOutput)
+}
+
 // Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 func (o NetworkConfigurationOutput) EndpointConfiguration() PoolEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v NetworkConfiguration) *PoolEndpointConfiguration { return v.EndpointConfiguration }).(PoolEndpointConfigurationPtrOutput)
@@ -6912,6 +7774,15 @@ func (o NetworkConfigurationPtrOutput) Elem() NetworkConfigurationOutput {
 	}).(NetworkConfigurationOutput)
 }
 
+func (o NetworkConfigurationPtrOutput) DynamicVNetAssignmentScope() DynamicVNetAssignmentScopePtrOutput {
+	return o.ApplyT(func(v *NetworkConfiguration) *DynamicVNetAssignmentScope {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicVNetAssignmentScope
+	}).(DynamicVNetAssignmentScopePtrOutput)
+}
+
 // Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 func (o NetworkConfigurationPtrOutput) EndpointConfiguration() PoolEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *NetworkConfiguration) *PoolEndpointConfiguration {
@@ -6944,6 +7815,7 @@ func (o NetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 
 // The network configuration for a pool.
 type NetworkConfigurationResponse struct {
+	DynamicVNetAssignmentScope *string `pulumi:"dynamicVNetAssignmentScope"`
 	// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 	EndpointConfiguration *PoolEndpointConfigurationResponse `pulumi:"endpointConfiguration"`
 	// This property is only supported on Pools with the virtualMachineConfiguration property.
@@ -6965,6 +7837,10 @@ func (o NetworkConfigurationResponseOutput) ToNetworkConfigurationResponseOutput
 
 func (o NetworkConfigurationResponseOutput) ToNetworkConfigurationResponseOutputWithContext(ctx context.Context) NetworkConfigurationResponseOutput {
 	return o
+}
+
+func (o NetworkConfigurationResponseOutput) DynamicVNetAssignmentScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConfigurationResponse) *string { return v.DynamicVNetAssignmentScope }).(pulumi.StringPtrOutput)
 }
 
 // Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
@@ -7010,6 +7886,15 @@ func (o NetworkConfigurationResponsePtrOutput) Elem() NetworkConfigurationRespon
 	}).(NetworkConfigurationResponseOutput)
 }
 
+func (o NetworkConfigurationResponsePtrOutput) DynamicVNetAssignmentScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicVNetAssignmentScope
+	}).(pulumi.StringPtrOutput)
+}
+
 // Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
 func (o NetworkConfigurationResponsePtrOutput) EndpointConfiguration() PoolEndpointConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *NetworkConfigurationResponse) *PoolEndpointConfigurationResponse {
@@ -7038,6 +7923,242 @@ func (o NetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPtrOutput
 		}
 		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Network profile for Batch account, which contains network rule settings for each endpoint.
+type NetworkProfile struct {
+	// Network access profile for batchAccount endpoint (Batch account data plane API).
+	AccountAccess *EndpointAccessProfile `pulumi:"accountAccess"`
+	// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+	NodeManagementAccess *EndpointAccessProfile `pulumi:"nodeManagementAccess"`
+}
+
+// NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
+// You can construct a concrete instance of `NetworkProfileInput` via:
+//
+//          NetworkProfileArgs{...}
+type NetworkProfileInput interface {
+	pulumi.Input
+
+	ToNetworkProfileOutput() NetworkProfileOutput
+	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
+}
+
+// Network profile for Batch account, which contains network rule settings for each endpoint.
+type NetworkProfileArgs struct {
+	// Network access profile for batchAccount endpoint (Batch account data plane API).
+	AccountAccess EndpointAccessProfilePtrInput `pulumi:"accountAccess"`
+	// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+	NodeManagementAccess EndpointAccessProfilePtrInput `pulumi:"nodeManagementAccess"`
+}
+
+func (NetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfile)(nil)).Elem()
+}
+
+func (i NetworkProfileArgs) ToNetworkProfileOutput() NetworkProfileOutput {
+	return i.ToNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileArgs) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
+}
+
+func (i NetworkProfileArgs) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
+	return i.ToNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput).ToNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
+// You can construct a concrete instance of `NetworkProfilePtrInput` via:
+//
+//          NetworkProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToNetworkProfilePtrOutput() NetworkProfilePtrOutput
+	ToNetworkProfilePtrOutputWithContext(context.Context) NetworkProfilePtrOutput
+}
+
+type networkProfilePtrType NetworkProfileArgs
+
+func NetworkProfilePtr(v *NetworkProfileArgs) NetworkProfilePtrInput {
+	return (*networkProfilePtrType)(v)
+}
+
+func (*networkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfile)(nil)).Elem()
+}
+
+func (i *networkProfilePtrType) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
+	return i.ToNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
+}
+
+// Network profile for Batch account, which contains network rule settings for each endpoint.
+type NetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfile)(nil)).Elem()
+}
+
+func (o NetworkProfileOutput) ToNetworkProfileOutput() NetworkProfileOutput {
+	return o
+}
+
+func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
+	return o
+}
+
+func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
+	return o.ToNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
+		return &v
+	}).(NetworkProfilePtrOutput)
+}
+
+// Network access profile for batchAccount endpoint (Batch account data plane API).
+func (o NetworkProfileOutput) AccountAccess() EndpointAccessProfilePtrOutput {
+	return o.ApplyT(func(v NetworkProfile) *EndpointAccessProfile { return v.AccountAccess }).(EndpointAccessProfilePtrOutput)
+}
+
+// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+func (o NetworkProfileOutput) NodeManagementAccess() EndpointAccessProfilePtrOutput {
+	return o.ApplyT(func(v NetworkProfile) *EndpointAccessProfile { return v.NodeManagementAccess }).(EndpointAccessProfilePtrOutput)
+}
+
+type NetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfile)(nil)).Elem()
+}
+
+func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
+	return o
+}
+
+func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
+	return o
+}
+
+func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfile
+		return ret
+	}).(NetworkProfileOutput)
+}
+
+// Network access profile for batchAccount endpoint (Batch account data plane API).
+func (o NetworkProfilePtrOutput) AccountAccess() EndpointAccessProfilePtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) *EndpointAccessProfile {
+		if v == nil {
+			return nil
+		}
+		return v.AccountAccess
+	}).(EndpointAccessProfilePtrOutput)
+}
+
+// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+func (o NetworkProfilePtrOutput) NodeManagementAccess() EndpointAccessProfilePtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) *EndpointAccessProfile {
+		if v == nil {
+			return nil
+		}
+		return v.NodeManagementAccess
+	}).(EndpointAccessProfilePtrOutput)
+}
+
+// Network profile for Batch account, which contains network rule settings for each endpoint.
+type NetworkProfileResponse struct {
+	// Network access profile for batchAccount endpoint (Batch account data plane API).
+	AccountAccess *EndpointAccessProfileResponse `pulumi:"accountAccess"`
+	// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+	NodeManagementAccess *EndpointAccessProfileResponse `pulumi:"nodeManagementAccess"`
+}
+
+// Network profile for Batch account, which contains network rule settings for each endpoint.
+type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileResponseOutput) ToNetworkProfileResponseOutput() NetworkProfileResponseOutput {
+	return o
+}
+
+func (o NetworkProfileResponseOutput) ToNetworkProfileResponseOutputWithContext(ctx context.Context) NetworkProfileResponseOutput {
+	return o
+}
+
+// Network access profile for batchAccount endpoint (Batch account data plane API).
+func (o NetworkProfileResponseOutput) AccountAccess() EndpointAccessProfileResponsePtrOutput {
+	return o.ApplyT(func(v NetworkProfileResponse) *EndpointAccessProfileResponse { return v.AccountAccess }).(EndpointAccessProfileResponsePtrOutput)
+}
+
+// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+func (o NetworkProfileResponseOutput) NodeManagementAccess() EndpointAccessProfileResponsePtrOutput {
+	return o.ApplyT(func(v NetworkProfileResponse) *EndpointAccessProfileResponse { return v.NodeManagementAccess }).(EndpointAccessProfileResponsePtrOutput)
+}
+
+type NetworkProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutput() NetworkProfileResponsePtrOutput {
+	return o
+}
+
+func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
+	return o
+}
+
+func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfileResponse
+		return ret
+	}).(NetworkProfileResponseOutput)
+}
+
+// Network access profile for batchAccount endpoint (Batch account data plane API).
+func (o NetworkProfileResponsePtrOutput) AccountAccess() EndpointAccessProfileResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkProfileResponse) *EndpointAccessProfileResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AccountAccess
+	}).(EndpointAccessProfileResponsePtrOutput)
+}
+
+// Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
+func (o NetworkProfileResponsePtrOutput) NodeManagementAccess() EndpointAccessProfileResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkProfileResponse) *EndpointAccessProfileResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NodeManagementAccess
+	}).(EndpointAccessProfileResponsePtrOutput)
 }
 
 type NetworkSecurityGroupRule struct {
@@ -7424,6 +8545,194 @@ func (o NodePlacementConfigurationResponsePtrOutput) Policy() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type OSDisk struct {
+	EphemeralOSDiskSettings *DiffDiskSettings `pulumi:"ephemeralOSDiskSettings"`
+}
+
+// OSDiskInput is an input type that accepts OSDiskArgs and OSDiskOutput values.
+// You can construct a concrete instance of `OSDiskInput` via:
+//
+//          OSDiskArgs{...}
+type OSDiskInput interface {
+	pulumi.Input
+
+	ToOSDiskOutput() OSDiskOutput
+	ToOSDiskOutputWithContext(context.Context) OSDiskOutput
+}
+
+type OSDiskArgs struct {
+	EphemeralOSDiskSettings DiffDiskSettingsPtrInput `pulumi:"ephemeralOSDiskSettings"`
+}
+
+func (OSDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSDisk)(nil)).Elem()
+}
+
+func (i OSDiskArgs) ToOSDiskOutput() OSDiskOutput {
+	return i.ToOSDiskOutputWithContext(context.Background())
+}
+
+func (i OSDiskArgs) ToOSDiskOutputWithContext(ctx context.Context) OSDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSDiskOutput)
+}
+
+func (i OSDiskArgs) ToOSDiskPtrOutput() OSDiskPtrOutput {
+	return i.ToOSDiskPtrOutputWithContext(context.Background())
+}
+
+func (i OSDiskArgs) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSDiskOutput).ToOSDiskPtrOutputWithContext(ctx)
+}
+
+// OSDiskPtrInput is an input type that accepts OSDiskArgs, OSDiskPtr and OSDiskPtrOutput values.
+// You can construct a concrete instance of `OSDiskPtrInput` via:
+//
+//          OSDiskArgs{...}
+//
+//  or:
+//
+//          nil
+type OSDiskPtrInput interface {
+	pulumi.Input
+
+	ToOSDiskPtrOutput() OSDiskPtrOutput
+	ToOSDiskPtrOutputWithContext(context.Context) OSDiskPtrOutput
+}
+
+type osdiskPtrType OSDiskArgs
+
+func OSDiskPtr(v *OSDiskArgs) OSDiskPtrInput {
+	return (*osdiskPtrType)(v)
+}
+
+func (*osdiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OSDisk)(nil)).Elem()
+}
+
+func (i *osdiskPtrType) ToOSDiskPtrOutput() OSDiskPtrOutput {
+	return i.ToOSDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *osdiskPtrType) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSDiskPtrOutput)
+}
+
+type OSDiskOutput struct{ *pulumi.OutputState }
+
+func (OSDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSDisk)(nil)).Elem()
+}
+
+func (o OSDiskOutput) ToOSDiskOutput() OSDiskOutput {
+	return o
+}
+
+func (o OSDiskOutput) ToOSDiskOutputWithContext(ctx context.Context) OSDiskOutput {
+	return o
+}
+
+func (o OSDiskOutput) ToOSDiskPtrOutput() OSDiskPtrOutput {
+	return o.ToOSDiskPtrOutputWithContext(context.Background())
+}
+
+func (o OSDiskOutput) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDisk) *OSDisk {
+		return &v
+	}).(OSDiskPtrOutput)
+}
+
+func (o OSDiskOutput) EphemeralOSDiskSettings() DiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v OSDisk) *DiffDiskSettings { return v.EphemeralOSDiskSettings }).(DiffDiskSettingsPtrOutput)
+}
+
+type OSDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (OSDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OSDisk)(nil)).Elem()
+}
+
+func (o OSDiskPtrOutput) ToOSDiskPtrOutput() OSDiskPtrOutput {
+	return o
+}
+
+func (o OSDiskPtrOutput) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPtrOutput {
+	return o
+}
+
+func (o OSDiskPtrOutput) Elem() OSDiskOutput {
+	return o.ApplyT(func(v *OSDisk) OSDisk {
+		if v != nil {
+			return *v
+		}
+		var ret OSDisk
+		return ret
+	}).(OSDiskOutput)
+}
+
+func (o OSDiskPtrOutput) EphemeralOSDiskSettings() DiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *DiffDiskSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EphemeralOSDiskSettings
+	}).(DiffDiskSettingsPtrOutput)
+}
+
+type OSDiskResponse struct {
+	EphemeralOSDiskSettings *DiffDiskSettingsResponse `pulumi:"ephemeralOSDiskSettings"`
+}
+
+type OSDiskResponseOutput struct{ *pulumi.OutputState }
+
+func (OSDiskResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSDiskResponse)(nil)).Elem()
+}
+
+func (o OSDiskResponseOutput) ToOSDiskResponseOutput() OSDiskResponseOutput {
+	return o
+}
+
+func (o OSDiskResponseOutput) ToOSDiskResponseOutputWithContext(ctx context.Context) OSDiskResponseOutput {
+	return o
+}
+
+func (o OSDiskResponseOutput) EphemeralOSDiskSettings() DiffDiskSettingsResponsePtrOutput {
+	return o.ApplyT(func(v OSDiskResponse) *DiffDiskSettingsResponse { return v.EphemeralOSDiskSettings }).(DiffDiskSettingsResponsePtrOutput)
+}
+
+type OSDiskResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OSDiskResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OSDiskResponse)(nil)).Elem()
+}
+
+func (o OSDiskResponsePtrOutput) ToOSDiskResponsePtrOutput() OSDiskResponsePtrOutput {
+	return o
+}
+
+func (o OSDiskResponsePtrOutput) ToOSDiskResponsePtrOutputWithContext(ctx context.Context) OSDiskResponsePtrOutput {
+	return o
+}
+
+func (o OSDiskResponsePtrOutput) Elem() OSDiskResponseOutput {
+	return o.ApplyT(func(v *OSDiskResponse) OSDiskResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OSDiskResponse
+		return ret
+	}).(OSDiskResponseOutput)
+}
+
+func (o OSDiskResponsePtrOutput) EphemeralOSDiskSettings() DiffDiskSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *OSDiskResponse) *DiffDiskSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EphemeralOSDiskSettings
+	}).(DiffDiskSettingsResponsePtrOutput)
+}
+
 type PoolEndpointConfiguration struct {
 	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
 	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
@@ -7623,12 +8932,14 @@ func (o PoolEndpointConfigurationResponsePtrOutput) InboundNatPools() InboundNat
 type PrivateEndpointConnectionResponse struct {
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
+	// The value has one and only one group id.
+	GroupIds []string `pulumi:"groupIds"`
 	// The ID of the resource.
 	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The private endpoint of the private endpoint connection.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	// The private link service connection state of the private endpoint connection
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 string                                     `pulumi:"provisioningState"`
@@ -7656,6 +8967,11 @@ func (o PrivateEndpointConnectionResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
+// The value has one and only one group id.
+func (o PrivateEndpointConnectionResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
 // The ID of the resource.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -7667,8 +8983,8 @@ func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The private endpoint of the private endpoint connection.
-func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
 }
 
 // The private link service connection state of the private endpoint connection
@@ -7729,39 +9045,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContex
 
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-type PrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return o
-}
-
-func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o
-}
-
-func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
-}
-
-func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
 }
 
 // The private link service connection state of the private endpoint connection
@@ -7851,7 +9134,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfiguration struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision *IPAddressProvisioningType `pulumi:"provision"`
@@ -7870,7 +9153,7 @@ type PublicIPAddressConfigurationInput interface {
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationArgs struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision IPAddressProvisioningTypePtrInput `pulumi:"provision"`
@@ -7954,7 +9237,7 @@ func (o PublicIPAddressConfigurationOutput) ToPublicIPAddressConfigurationPtrOut
 	}).(PublicIPAddressConfigurationPtrOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PublicIPAddressConfiguration) []string { return v.IpAddressIds }).(pulumi.StringArrayOutput)
 }
@@ -7988,7 +9271,7 @@ func (o PublicIPAddressConfigurationPtrOutput) Elem() PublicIPAddressConfigurati
 	}).(PublicIPAddressConfigurationOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationPtrOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PublicIPAddressConfiguration) []string {
 		if v == nil {
@@ -8010,7 +9293,7 @@ func (o PublicIPAddressConfigurationPtrOutput) Provision() IPAddressProvisioning
 
 // The public IP Address configuration of the networking configuration of a Pool.
 type PublicIPAddressConfigurationResponse struct {
-	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
 	Provision *string `pulumi:"provision"`
@@ -8031,7 +9314,7 @@ func (o PublicIPAddressConfigurationResponseOutput) ToPublicIPAddressConfigurati
 	return o
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationResponseOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PublicIPAddressConfigurationResponse) []string { return v.IpAddressIds }).(pulumi.StringArrayOutput)
 }
@@ -8065,7 +9348,7 @@ func (o PublicIPAddressConfigurationResponsePtrOutput) Elem() PublicIPAddressCon
 	}).(PublicIPAddressConfigurationResponseOutput)
 }
 
-// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 func (o PublicIPAddressConfigurationResponsePtrOutput) IpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PublicIPAddressConfigurationResponse) []string {
 		if v == nil {
@@ -8205,9 +9488,11 @@ type ResourceFile struct {
 	FileMode *string `pulumi:"fileMode"`
 	// If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
 	FilePath *string `pulumi:"filePath"`
-	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
 	HttpUrl *string `pulumi:"httpUrl"`
-	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+	IdentityReference *ComputeNodeIdentityReference `pulumi:"identityReference"`
+	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
 	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
 }
 
@@ -8231,9 +9516,11 @@ type ResourceFileArgs struct {
 	FileMode pulumi.StringPtrInput `pulumi:"fileMode"`
 	// If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
 	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
-	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
 	HttpUrl pulumi.StringPtrInput `pulumi:"httpUrl"`
-	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+	IdentityReference ComputeNodeIdentityReferencePtrInput `pulumi:"identityReference"`
+	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
 	StorageContainerUrl pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
 }
 
@@ -8308,12 +9595,17 @@ func (o ResourceFileOutput) FilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceFile) *string { return v.FilePath }).(pulumi.StringPtrOutput)
 }
 
-// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
 func (o ResourceFileOutput) HttpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceFile) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
 }
 
-// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+func (o ResourceFileOutput) IdentityReference() ComputeNodeIdentityReferencePtrOutput {
+	return o.ApplyT(func(v ResourceFile) *ComputeNodeIdentityReference { return v.IdentityReference }).(ComputeNodeIdentityReferencePtrOutput)
+}
+
+// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
 func (o ResourceFileOutput) StorageContainerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceFile) *string { return v.StorageContainerUrl }).(pulumi.StringPtrOutput)
 }
@@ -8347,9 +9639,11 @@ type ResourceFileResponse struct {
 	FileMode *string `pulumi:"fileMode"`
 	// If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
 	FilePath *string `pulumi:"filePath"`
-	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
 	HttpUrl *string `pulumi:"httpUrl"`
-	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+	IdentityReference *ComputeNodeIdentityReferenceResponse `pulumi:"identityReference"`
+	// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
 	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
 }
 
@@ -8387,12 +9681,17 @@ func (o ResourceFileResponseOutput) FilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceFileResponse) *string { return v.FilePath }).(pulumi.StringPtrOutput)
 }
 
-// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
 func (o ResourceFileResponseOutput) HttpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceFileResponse) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
 }
 
-// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+func (o ResourceFileResponseOutput) IdentityReference() ComputeNodeIdentityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ResourceFileResponse) *ComputeNodeIdentityReferenceResponse { return v.IdentityReference }).(ComputeNodeIdentityReferenceResponsePtrOutput)
+}
+
+// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
 func (o ResourceFileResponseOutput) StorageContainerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceFileResponse) *string { return v.StorageContainerUrl }).(pulumi.StringPtrOutput)
 }
@@ -9734,6 +11033,59 @@ func (o UserAccountResponseArrayOutput) Index(i pulumi.IntInput) UserAccountResp
 	}).(UserAccountResponseOutput)
 }
 
+// The list of associated user identities.
+type UserAssignedIdentitiesResponse struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// The list of associated user identities.
+type UserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentitiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentitiesResponseOutput) ToUserAssignedIdentitiesResponseOutput() UserAssignedIdentitiesResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseOutput) ToUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) UserAssignedIdentitiesResponseOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o UserAssignedIdentitiesResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentitiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o UserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentitiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentitiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentitiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentitiesResponseMapOutput) ToUserAssignedIdentitiesResponseMapOutput() UserAssignedIdentitiesResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseMapOutput) ToUserAssignedIdentitiesResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentitiesResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentitiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentitiesResponse {
+		return vs[0].(map[string]UserAssignedIdentitiesResponse)[vs[1].(string)]
+	}).(UserAssignedIdentitiesResponseOutput)
+}
+
 // Specify either the userName or autoUser property, but not both.
 type UserIdentity struct {
 	// The userName and autoUser properties are mutually exclusive; you must specify one but not both.
@@ -10217,6 +11569,8 @@ type VirtualMachineConfiguration struct {
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
 	// This configuration will specify rules on how nodes in the pool will be physically allocated.
 	NodePlacementConfiguration *NodePlacementConfiguration `pulumi:"nodePlacementConfiguration"`
+	// Contains configuration for ephemeral OSDisk settings.
+	OsDisk *OSDisk `pulumi:"osDisk"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration *WindowsConfiguration `pulumi:"windowsConfiguration"`
 }
@@ -10251,6 +11605,8 @@ type VirtualMachineConfigurationArgs struct {
 	NodeAgentSkuId pulumi.StringInput `pulumi:"nodeAgentSkuId"`
 	// This configuration will specify rules on how nodes in the pool will be physically allocated.
 	NodePlacementConfiguration NodePlacementConfigurationPtrInput `pulumi:"nodePlacementConfiguration"`
+	// Contains configuration for ephemeral OSDisk settings.
+	OsDisk OSDiskPtrInput `pulumi:"osDisk"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration WindowsConfigurationPtrInput `pulumi:"windowsConfiguration"`
 }
@@ -10374,6 +11730,11 @@ func (o VirtualMachineConfigurationOutput) NodePlacementConfiguration() NodePlac
 	return o.ApplyT(func(v VirtualMachineConfiguration) *NodePlacementConfiguration { return v.NodePlacementConfiguration }).(NodePlacementConfigurationPtrOutput)
 }
 
+// Contains configuration for ephemeral OSDisk settings.
+func (o VirtualMachineConfigurationOutput) OsDisk() OSDiskPtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfiguration) *OSDisk { return v.OsDisk }).(OSDiskPtrOutput)
+}
+
 // This property must not be specified if the imageReference specifies a Linux OS image.
 func (o VirtualMachineConfigurationOutput) WindowsConfiguration() WindowsConfigurationPtrOutput {
 	return o.ApplyT(func(v VirtualMachineConfiguration) *WindowsConfiguration { return v.WindowsConfiguration }).(WindowsConfigurationPtrOutput)
@@ -10485,6 +11846,16 @@ func (o VirtualMachineConfigurationPtrOutput) NodePlacementConfiguration() NodeP
 	}).(NodePlacementConfigurationPtrOutput)
 }
 
+// Contains configuration for ephemeral OSDisk settings.
+func (o VirtualMachineConfigurationPtrOutput) OsDisk() OSDiskPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfiguration) *OSDisk {
+		if v == nil {
+			return nil
+		}
+		return v.OsDisk
+	}).(OSDiskPtrOutput)
+}
+
 // This property must not be specified if the imageReference specifies a Linux OS image.
 func (o VirtualMachineConfigurationPtrOutput) WindowsConfiguration() WindowsConfigurationPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfiguration) *WindowsConfiguration {
@@ -10514,6 +11885,8 @@ type VirtualMachineConfigurationResponse struct {
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
 	// This configuration will specify rules on how nodes in the pool will be physically allocated.
 	NodePlacementConfiguration *NodePlacementConfigurationResponse `pulumi:"nodePlacementConfiguration"`
+	// Contains configuration for ephemeral OSDisk settings.
+	OsDisk *OSDiskResponse `pulumi:"osDisk"`
 	// This property must not be specified if the imageReference specifies a Linux OS image.
 	WindowsConfiguration *WindowsConfigurationResponse `pulumi:"windowsConfiguration"`
 }
@@ -10578,6 +11951,11 @@ func (o VirtualMachineConfigurationResponseOutput) NodePlacementConfiguration() 
 	return o.ApplyT(func(v VirtualMachineConfigurationResponse) *NodePlacementConfigurationResponse {
 		return v.NodePlacementConfiguration
 	}).(NodePlacementConfigurationResponsePtrOutput)
+}
+
+// Contains configuration for ephemeral OSDisk settings.
+func (o VirtualMachineConfigurationResponseOutput) OsDisk() OSDiskResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationResponse) *OSDiskResponse { return v.OsDisk }).(OSDiskResponsePtrOutput)
 }
 
 // This property must not be specified if the imageReference specifies a Linux OS image.
@@ -10691,6 +12069,16 @@ func (o VirtualMachineConfigurationResponsePtrOutput) NodePlacementConfiguration
 		}
 		return v.NodePlacementConfiguration
 	}).(NodePlacementConfigurationResponsePtrOutput)
+}
+
+// Contains configuration for ephemeral OSDisk settings.
+func (o VirtualMachineConfigurationResponsePtrOutput) OsDisk() OSDiskResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) *OSDiskResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OsDisk
+	}).(OSDiskResponsePtrOutput)
 }
 
 // This property must not be specified if the imageReference specifies a Linux OS image.
@@ -11178,14 +12566,10 @@ func init() {
 	pulumi.RegisterOutputType(BatchAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityResponseOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(BatchAccountIdentityResponseUserAssignedIdentitiesOutput{})
-	pulumi.RegisterOutputType(BatchAccountIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(BatchPoolIdentityOutput{})
 	pulumi.RegisterOutputType(BatchPoolIdentityPtrOutput{})
 	pulumi.RegisterOutputType(BatchPoolIdentityResponseOutput{})
 	pulumi.RegisterOutputType(BatchPoolIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(BatchPoolIdentityResponseUserAssignedIdentitiesOutput{})
-	pulumi.RegisterOutputType(BatchPoolIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationResponseOutput{})
@@ -11198,6 +12582,10 @@ func init() {
 	pulumi.RegisterOutputType(CloudServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeNodeIdentityReferenceOutput{})
+	pulumi.RegisterOutputType(ComputeNodeIdentityReferencePtrOutput{})
+	pulumi.RegisterOutputType(ComputeNodeIdentityReferenceResponseOutput{})
+	pulumi.RegisterOutputType(ComputeNodeIdentityReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerConfigurationResponseOutput{})
@@ -11218,6 +12606,10 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(DiffDiskSettingsOutput{})
+	pulumi.RegisterOutputType(DiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DiffDiskSettingsResponseOutput{})
+	pulumi.RegisterOutputType(DiffDiskSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionConfigurationResponseOutput{})
@@ -11225,6 +12617,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EndpointAccessProfileOutput{})
+	pulumi.RegisterOutputType(EndpointAccessProfilePtrOutput{})
+	pulumi.RegisterOutputType(EndpointAccessProfileResponseOutput{})
+	pulumi.RegisterOutputType(EndpointAccessProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingResponseOutput{})
@@ -11233,6 +12629,10 @@ func init() {
 	pulumi.RegisterOutputType(FixedScaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FixedScaleSettingsResponseOutput{})
 	pulumi.RegisterOutputType(FixedScaleSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(IPRuleOutput{})
+	pulumi.RegisterOutputType(IPRuleArrayOutput{})
+	pulumi.RegisterOutputType(IPRuleResponseOutput{})
+	pulumi.RegisterOutputType(IPRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageReferenceOutput{})
 	pulumi.RegisterOutputType(ImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(ImageReferenceResponseOutput{})
@@ -11268,6 +12668,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileOutput{})
+	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
+	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleResponseOutput{})
@@ -11276,6 +12680,10 @@ func init() {
 	pulumi.RegisterOutputType(NodePlacementConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NodePlacementConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NodePlacementConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(OSDiskOutput{})
+	pulumi.RegisterOutputType(OSDiskPtrOutput{})
+	pulumi.RegisterOutputType(OSDiskResponseOutput{})
+	pulumi.RegisterOutputType(OSDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationResponseOutput{})
@@ -11283,7 +12691,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PublicIPAddressConfigurationOutput{})
@@ -11317,6 +12724,8 @@ func init() {
 	pulumi.RegisterOutputType(UserAccountArrayOutput{})
 	pulumi.RegisterOutputType(UserAccountResponseOutput{})
 	pulumi.RegisterOutputType(UserAccountResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentitiesResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentitiesResponseMapOutput{})
 	pulumi.RegisterOutputType(UserIdentityOutput{})
 	pulumi.RegisterOutputType(UserIdentityPtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})

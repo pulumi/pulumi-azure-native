@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sim policy resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
     if (!opts) {
@@ -97,6 +97,10 @@ export interface GetSimPolicyResult {
      * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
     readonly sliceConfigurations: outputs.mobilenetwork.SliceConfigurationResponse[];
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

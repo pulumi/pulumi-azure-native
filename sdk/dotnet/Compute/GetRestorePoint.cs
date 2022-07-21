@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Restore Point details.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetRestorePointResult> InvokeAsync(GetRestorePointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Restore Point details.
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetRestorePointResult> Invoke(GetRestorePointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointInvokeArgs(), options.WithDefaults());
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GetRestorePointArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
         /// <summary>
         /// The name of the resource group.
         /// </summary>
@@ -54,6 +60,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GetRestorePointInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         /// <summary>
         /// The name of the resource group.
         /// </summary>
@@ -94,6 +106,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The restore point instance view.
+        /// </summary>
+        public readonly Outputs.RestorePointInstanceViewResponse InstanceView;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -105,6 +121,10 @@ namespace Pulumi.AzureNative.Compute
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
         public readonly Outputs.RestorePointSourceMetadataResponse SourceMetadata;
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        public readonly Outputs.ApiEntityReferenceResponse? SourceRestorePoint;
         /// <summary>
         /// Gets the creation time of the restore point.
         /// </summary>
@@ -122,11 +142,15 @@ namespace Pulumi.AzureNative.Compute
 
             string id,
 
+            Outputs.RestorePointInstanceViewResponse instanceView,
+
             string name,
 
             string provisioningState,
 
             Outputs.RestorePointSourceMetadataResponse sourceMetadata,
+
+            Outputs.ApiEntityReferenceResponse? sourceRestorePoint,
 
             string? timeCreated,
 
@@ -135,9 +159,11 @@ namespace Pulumi.AzureNative.Compute
             ConsistencyMode = consistencyMode;
             ExcludeDisks = excludeDisks;
             Id = id;
+            InstanceView = instanceView;
             Name = name;
             ProvisioningState = provisioningState;
             SourceMetadata = sourceMetadata;
+            SourceRestorePoint = sourceRestorePoint;
             TimeCreated = timeCreated;
             Type = type;
         }

@@ -64,9 +64,6 @@ func NewKustoPoolPrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse:KustoPoolPrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment"),
 		},
 	})

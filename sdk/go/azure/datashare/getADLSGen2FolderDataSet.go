@@ -11,7 +11,7 @@ import (
 )
 
 // An ADLS Gen 2 folder data set.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupADLSGen2FolderDataSet(ctx *pulumi.Context, args *LookupADLSGen2FolderDataSetArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2FolderDataSetResult, error) {
 	var rv LookupADLSGen2FolderDataSetResult
 	err := ctx.Invoke("azure-native:datashare:getADLSGen2FolderDataSet", args, &rv, opts...)

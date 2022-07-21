@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
- * API Version: 2020-03-01.
+ * API Version: 2022-02-05.
  */
 export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourcePrivateEndpointConnectionResult> {
     if (!opts) {
@@ -53,6 +53,10 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
      * The properties of a private endpoint connection
      */
     readonly properties: outputs.devices.PrivateEndpointConnectionPropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
     /**
      * The resource type.
      */

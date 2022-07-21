@@ -11,7 +11,7 @@ import (
 )
 
 // An object that represents a webhook for a container registry.
-// API Version: 2019-05-01.
+// API Version: 2021-09-01.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
 	err := ctx.Invoke("azure-native:containerregistry:getWebhook", args, &rv, opts...)
@@ -46,6 +46,8 @@ type LookupWebhookResult struct {
 	Scope *string `pulumi:"scope"`
 	// The status of the webhook at the time the operation was called.
 	Status *string `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -126,6 +128,11 @@ func (o LookupWebhookResultOutput) Scope() pulumi.StringPtrOutput {
 // The status of the webhook at the time the operation was called.
 func (o LookupWebhookResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebhookResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupWebhookResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWebhookResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The tags of the resource.

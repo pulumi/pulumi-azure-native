@@ -56,12 +56,6 @@ func NewTable(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:operationalinsights:Table"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Table
 	err := ctx.RegisterResource("azure-native:operationalinsights/v20211201preview:Table", name, args, &resource, opts...)
 	if err != nil {

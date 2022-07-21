@@ -5,13 +5,23 @@
 from enum import Enum
 
 __all__ = [
-    'SigningKey',
+    'Kind',
+    'Name',
 ]
 
 
-class SigningKey(str, Enum):
+class Kind(str, Enum):
     """
-    The Map account key to use for signing.
+    Get or Set Kind property.
     """
-    PRIMARY_KEY = "primaryKey"
-    SECONDARY_KEY = "secondaryKey"
+    GEN1 = "Gen1"
+    GEN2 = "Gen2"
+
+
+class Name(str, Enum):
+    """
+    The name of the SKU, in standard format (such as S0).
+    """
+    S0 = "S0"
+    S1 = "S1"
+    G2 = "G2"

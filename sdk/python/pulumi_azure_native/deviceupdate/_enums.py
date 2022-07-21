@@ -9,6 +9,7 @@ __all__ = [
     'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'SKU',
 ]
 
 
@@ -44,3 +45,11 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class SKU(str, Enum):
+    """
+    Device Update Sku
+    """
+    FREE = "Free"
+    STANDARD = "Standard"

@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of ARM tracked top level resource.
-// API Version: 2019-11-01-preview.
+// API Version: 2021-04-01.
 type DataCollectionRule struct {
 	pulumi.CustomResourceState
 
@@ -37,6 +37,8 @@ type DataCollectionRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData DataCollectionRuleResourceResponseSystemDataOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -227,6 +229,11 @@ func (o DataCollectionRuleOutput) Name() pulumi.StringOutput {
 // The resource provisioning state.
 func (o DataCollectionRuleOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DataCollectionRuleOutput) SystemData() DataCollectionRuleResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleResourceResponseSystemDataOutput { return v.SystemData }).(DataCollectionRuleResourceResponseSystemDataOutput)
 }
 
 // Resource tags.

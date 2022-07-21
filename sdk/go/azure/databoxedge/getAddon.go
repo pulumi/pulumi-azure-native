@@ -11,7 +11,7 @@ import (
 )
 
 // Role Addon
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 //
 // Deprecated: Please use one of the variants: ArcAddon, IoTAddon.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
@@ -42,7 +42,7 @@ type LookupAddonResult struct {
 	Kind string `pulumi:"kind"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// Addon type
+	// Metadata pertaining to creation and last modification of Addon
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -106,7 +106,7 @@ func (o LookupAddonResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Addon type
+// Metadata pertaining to creation and last modification of Addon
 func (o LookupAddonResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupAddonResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

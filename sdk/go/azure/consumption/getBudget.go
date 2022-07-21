@@ -11,7 +11,7 @@ import (
 )
 
 // A budget resource.
-// API Version: 2019-10-01.
+// API Version: 2021-10-01.
 func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResult, error) {
 	var rv LookupBudgetResult
 	err := ctx.Invoke("azure-native:consumption:getBudget", args, &rv, opts...)

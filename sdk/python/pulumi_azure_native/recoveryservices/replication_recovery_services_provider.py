@@ -109,7 +109,7 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
                  __props__=None):
         """
         Provider details.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provider details.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationRecoveryServicesProviderArgs args: The arguments to use to populate this resource's properties.

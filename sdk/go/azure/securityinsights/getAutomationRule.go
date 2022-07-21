@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an automation rule.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-10-01.
 func LookupAutomationRule(ctx *pulumi.Context, args *LookupAutomationRuleArgs, opts ...pulumi.InvokeOption) (*LookupAutomationRuleResult, error) {
 	var rv LookupAutomationRuleResult
 	err := ctx.Invoke("azure-native:securityinsights:getAutomationRule", args, &rv, opts...)
@@ -24,39 +23,38 @@ func LookupAutomationRule(ctx *pulumi.Context, args *LookupAutomationRuleArgs, o
 type LookupAutomationRuleArgs struct {
 	// Automation rule ID
 	AutomationRuleId string `pulumi:"automationRuleId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
-// Represents an automation rule.
 type LookupAutomationRuleResult struct {
 	// The actions to execute when the automation rule is triggered
 	Actions []interface{} `pulumi:"actions"`
-	// Describes the client that created the automation rule
+	// Information on the client (user or application) that made some action
 	CreatedBy ClientInfoResponse `pulumi:"createdBy"`
 	// The time the automation rule was created
 	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
-	// The display name of the automation  rule
+	// The display name of the automation rule
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Describes the client that last updated the automation rule
+	// Information on the client (user or application) that made some action
 	LastModifiedBy ClientInfoResponse `pulumi:"lastModifiedBy"`
 	// The last time the automation rule was updated
 	LastModifiedTimeUtc string `pulumi:"lastModifiedTimeUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The order of execution of the automation rule
 	Order int `pulumi:"order"`
-	// The triggering logic of the automation rule
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Describes automation rule triggering logic
 	TriggeringLogic AutomationRuleTriggeringLogicResponse `pulumi:"triggeringLogic"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -76,9 +74,7 @@ func LookupAutomationRuleOutput(ctx *pulumi.Context, args LookupAutomationRuleOu
 type LookupAutomationRuleOutputArgs struct {
 	// Automation rule ID
 	AutomationRuleId pulumi.StringInput `pulumi:"automationRuleId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -88,7 +84,6 @@ func (LookupAutomationRuleOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupAutomationRuleArgs)(nil)).Elem()
 }
 
-// Represents an automation rule.
 type LookupAutomationRuleResultOutput struct{ *pulumi.OutputState }
 
 func (LookupAutomationRuleResultOutput) ElementType() reflect.Type {
@@ -108,7 +103,7 @@ func (o LookupAutomationRuleResultOutput) Actions() pulumi.ArrayOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
 }
 
-// Describes the client that created the automation rule
+// Information on the client (user or application) that made some action
 func (o LookupAutomationRuleResultOutput) CreatedBy() ClientInfoResponseOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) ClientInfoResponse { return v.CreatedBy }).(ClientInfoResponseOutput)
 }
@@ -118,7 +113,7 @@ func (o LookupAutomationRuleResultOutput) CreatedTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
 }
 
-// The display name of the automation  rule
+// The display name of the automation rule
 func (o LookupAutomationRuleResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -128,12 +123,12 @@ func (o LookupAutomationRuleResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupAutomationRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Describes the client that last updated the automation rule
+// Information on the client (user or application) that made some action
 func (o LookupAutomationRuleResultOutput) LastModifiedBy() ClientInfoResponseOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) ClientInfoResponse { return v.LastModifiedBy }).(ClientInfoResponseOutput)
 }
@@ -143,7 +138,7 @@ func (o LookupAutomationRuleResultOutput) LastModifiedTimeUtc() pulumi.StringOut
 	return o.ApplyT(func(v LookupAutomationRuleResult) string { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupAutomationRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -153,12 +148,17 @@ func (o LookupAutomationRuleResultOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) int { return v.Order }).(pulumi.IntOutput)
 }
 
-// The triggering logic of the automation rule
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupAutomationRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAutomationRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Describes automation rule triggering logic
 func (o LookupAutomationRuleResultOutput) TriggeringLogic() AutomationRuleTriggeringLogicResponseOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) AutomationRuleTriggeringLogicResponse { return v.TriggeringLogic }).(AutomationRuleTriggeringLogicResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupAutomationRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

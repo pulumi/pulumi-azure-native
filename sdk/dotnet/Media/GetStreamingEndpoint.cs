@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// The streaming endpoint.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// The streaming endpoint.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
@@ -158,6 +158,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly int ScaleUnits;
         /// <summary>
+        /// The streaming endpoint sku.
+        /// </summary>
+        public readonly Outputs.ArmStreamingEndpointCurrentSkuResponse? Sku;
+        /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -210,6 +214,8 @@ namespace Pulumi.AzureNative.Media
 
             int scaleUnits,
 
+            Outputs.ArmStreamingEndpointCurrentSkuResponse? sku,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -235,6 +241,7 @@ namespace Pulumi.AzureNative.Media
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             ScaleUnits = scaleUnits;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
     /// <summary>
-    /// Profile for Windows VMs in the container service cluster.
+    /// Profile for Windows VMs in the managed cluster.
     /// </summary>
     [OutputType]
     public sealed class ManagedClusterWindowsProfileResponse
@@ -21,15 +21,19 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? AdminPassword;
         /// <summary>
-        /// Specifies the name of the administrator account. &lt;br&gt;&lt;br&gt; **restriction:** Cannot end in "." &lt;br&gt;&lt;br&gt; **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". &lt;br&gt;&lt;br&gt; **Minimum-length:** 1 character &lt;br&gt;&lt;br&gt; **Max-length:** 20 characters
+        /// Specifies the name of the administrator account. &lt;br&gt;&lt;br&gt; **Restriction:** Cannot end in "." &lt;br&gt;&lt;br&gt; **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". &lt;br&gt;&lt;br&gt; **Minimum-length:** 1 character &lt;br&gt;&lt;br&gt; **Max-length:** 20 characters
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// Whether to enable CSI proxy.
+        /// For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
         /// </summary>
         public readonly bool? EnableCSIProxy;
         /// <summary>
-        /// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
+        /// The Windows gMSA Profile in the Managed Cluster.
+        /// </summary>
+        public readonly Outputs.WindowsGmsaProfileResponse? GmsaProfile;
+        /// <summary>
+        /// The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
         /// </summary>
         public readonly string? LicenseType;
 
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             bool? enableCSIProxy,
 
+            Outputs.WindowsGmsaProfileResponse? gmsaProfile,
+
             string? licenseType)
         {
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
             EnableCSIProxy = enableCSIProxy;
+            GmsaProfile = gmsaProfile;
             LicenseType = licenseType;
         }
     }

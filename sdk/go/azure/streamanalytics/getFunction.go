@@ -11,7 +11,7 @@ import (
 )
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-// API Version: 2016-03-01.
+// API Version: 2021-10-01-preview.
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	var rv LookupFunctionResult
 	err := ctx.Invoke("azure-native:streamanalytics:getFunction", args, &rv, opts...)
@@ -26,7 +26,7 @@ type LookupFunctionArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -37,7 +37,7 @@ type LookupFunctionResult struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
@@ -60,7 +60,7 @@ type LookupFunctionOutputArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// The name of the streaming job.
 	JobName pulumi.StringInput `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -94,8 +94,8 @@ func (o LookupFunctionResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The properties that are associated with a function.
-func (o LookupFunctionResultOutput) Properties() ScalarFunctionPropertiesResponseOutput {
-	return o.ApplyT(func(v LookupFunctionResult) ScalarFunctionPropertiesResponse { return v.Properties }).(ScalarFunctionPropertiesResponseOutput)
+func (o LookupFunctionResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupFunctionResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Resource type

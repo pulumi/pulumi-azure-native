@@ -157,7 +157,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a database principal assignment.
-        API Version: 2021-01-01.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +178,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database principal assignment.
-        API Version: 2021-01-01.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -235,6 +235,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["aad_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -264,6 +265,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
         __props__ = DatabasePrincipalAssignmentArgs.__new__(DatabasePrincipalAssignmentArgs)
 
+        __props__.__dict__["aad_object_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -274,6 +276,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = None
         __props__.__dict__["type"] = None
         return DatabasePrincipalAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> pulumi.Output[str]:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter

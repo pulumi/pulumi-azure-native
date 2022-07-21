@@ -163,7 +163,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachineProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices:Lab" }, { type: "azure-native:labservices/v20211001preview:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);
     }

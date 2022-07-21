@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The Encryption Scope resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure-native:storage:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Encryption Scope resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:storage:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());

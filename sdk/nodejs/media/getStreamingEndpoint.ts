@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The streaming endpoint.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
     if (!opts) {
@@ -117,6 +117,10 @@ export interface GetStreamingEndpointResult {
      * The number of scale units. Use the Scale operation to adjust this value.
      */
     readonly scaleUnits: number;
+    /**
+     * The streaming endpoint sku.
+     */
+    readonly sku?: outputs.media.ArmStreamingEndpointCurrentSkuResponse;
     /**
      * The system metadata relating to this resource.
      */

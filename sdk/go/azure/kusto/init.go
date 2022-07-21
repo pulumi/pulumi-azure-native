@@ -35,8 +35,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabasePrincipalAssignment{}
 	case "azure-native:kusto:EventGridDataConnection":
 		r = &EventGridDataConnection{}
-	case "azure-native:kusto:EventHubConnection":
-		r = &EventHubConnection{}
 	case "azure-native:kusto:EventHubDataConnection":
 		r = &EventHubDataConnection{}
 	case "azure-native:kusto:IotHubDataConnection":

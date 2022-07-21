@@ -11,7 +11,7 @@ import (
 )
 
 // Logger details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupLogger(ctx *pulumi.Context, args *LookupLoggerArgs, opts ...pulumi.InvokeOption) (*LookupLoggerResult, error) {
 	var rv LookupLoggerResult
 	err := ctx.Invoke("azure-native:apimanagement:getLogger", args, &rv, opts...)
@@ -37,17 +37,17 @@ type LookupLoggerResult struct {
 	Credentials map[string]string `pulumi:"credentials"`
 	// Logger description.
 	Description *string `pulumi:"description"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
 	IsBuffered *bool `pulumi:"isBuffered"`
 	// Logger type.
 	LoggerType string `pulumi:"loggerType"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
 	ResourceId *string `pulumi:"resourceId"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -103,7 +103,7 @@ func (o LookupLoggerResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoggerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupLoggerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoggerResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -118,7 +118,7 @@ func (o LookupLoggerResultOutput) LoggerType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoggerResult) string { return v.LoggerType }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupLoggerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoggerResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -128,7 +128,7 @@ func (o LookupLoggerResultOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoggerResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupLoggerResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoggerResult) string { return v.Type }).(pulumi.StringOutput)
 }

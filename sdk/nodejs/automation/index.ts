@@ -23,7 +23,6 @@ export * from "./getHybridRunbookWorker";
 export * from "./getHybridRunbookWorkerGroup";
 export * from "./getJobSchedule";
 export * from "./getModule";
-export * from "./getPrivateEndpointConnection";
 export * from "./getPython2Package";
 export * from "./getRunbook";
 export * from "./getSchedule";
@@ -37,7 +36,6 @@ export * from "./hybridRunbookWorkerGroup";
 export * from "./jobSchedule";
 export * from "./listKeyByAutomationAccount";
 export * from "./module";
-export * from "./privateEndpointConnection";
 export * from "./python2Package";
 export * from "./runbook";
 export * from "./schedule";
@@ -83,7 +81,6 @@ import { HybridRunbookWorker } from "./hybridRunbookWorker";
 import { HybridRunbookWorkerGroup } from "./hybridRunbookWorkerGroup";
 import { JobSchedule } from "./jobSchedule";
 import { Module } from "./module";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Python2Package } from "./python2Package";
 import { Runbook } from "./runbook";
 import { Schedule } from "./schedule";
@@ -119,8 +116,6 @@ const _module = {
                 return new JobSchedule(name, <any>undefined, { urn })
             case "azure-native:automation:Module":
                 return new Module(name, <any>undefined, { urn })
-            case "azure-native:automation:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:automation:Python2Package":
                 return new Python2Package(name, <any>undefined, { urn })
             case "azure-native:automation:Runbook":

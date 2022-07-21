@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:ApiPortal"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ApiPortal"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortal"},
                 },

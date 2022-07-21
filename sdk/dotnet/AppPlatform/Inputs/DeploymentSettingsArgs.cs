@@ -15,11 +15,17 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// </summary>
     public sealed class DeploymentSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("addonConfigs")]
+        private InputMap<ImmutableDictionary<string, object>>? _addonConfigs;
+
         /// <summary>
-        /// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        /// Collection of addons
         /// </summary>
-        [Input("cpu")]
-        public Input<int>? Cpu { get; set; }
+        public InputMap<ImmutableDictionary<string, object>> AddonConfigs
+        {
+            get => _addonConfigs ?? (_addonConfigs = new InputMap<ImmutableDictionary<string, object>>());
+            set => _addonConfigs = value;
+        }
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
@@ -34,34 +40,13 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         }
 
         /// <summary>
-        /// JVM parameter
+        /// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         /// </summary>
-        [Input("jvmOptions")]
-        public Input<string>? JvmOptions { get; set; }
-
-        /// <summary>
-        /// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-        /// </summary>
-        [Input("memoryInGB")]
-        public Input<int>? MemoryInGB { get; set; }
-
-        /// <summary>
-        /// The path to the .NET executable relative to zip root
-        /// </summary>
-        [Input("netCoreMainEntryPath")]
-        public Input<string>? NetCoreMainEntryPath { get; set; }
-
-        /// <summary>
-        /// Runtime version
-        /// </summary>
-        [Input("runtimeVersion")]
-        public InputUnion<string, Pulumi.AzureNative.AppPlatform.RuntimeVersion>? RuntimeVersion { get; set; }
+        [Input("resourceRequests")]
+        public Input<Inputs.ResourceRequestsArgs>? ResourceRequests { get; set; }
 
         public DeploymentSettingsArgs()
         {
-            Cpu = 1;
-            MemoryInGB = 1;
-            RuntimeVersion = "Java_8";
         }
     }
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // Workspace active directory administrator
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 type WorkspaceAadAdmin struct {
 	pulumi.CustomResourceState
 
@@ -109,7 +109,7 @@ type workspaceAadAdminArgs struct {
 	Sid *string `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId *string `pulumi:"tenantId"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -125,7 +125,7 @@ type WorkspaceAadAdminArgs struct {
 	Sid pulumi.StringPtrInput
 	// Tenant ID of the workspace active directory administrator
 	TenantId pulumi.StringPtrInput
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }
 

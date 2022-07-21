@@ -11,7 +11,7 @@ import (
 )
 
 // Class of response for listContentKeys action
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func ListStreamingLocatorContentKeys(ctx *pulumi.Context, args *ListStreamingLocatorContentKeysArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorContentKeysResult, error) {
 	var rv ListStreamingLocatorContentKeysResult
 	err := ctx.Invoke("azure-native:media:listStreamingLocatorContentKeys", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-// API Version: 2020-12-01-preview.
+// API Version: 2022-05-13.
 type Ledger struct {
 	pulumi.CustomResourceState
 

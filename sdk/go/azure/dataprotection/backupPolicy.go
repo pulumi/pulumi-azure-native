@@ -12,7 +12,7 @@ import (
 )
 
 // BaseBackupPolicy resource
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 

@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class represents the access keys of SignalR service.
-// API Version: 2020-05-01.
+// A class represents the access keys of the resource.
+// API Version: 2022-02-01.
 func ListSignalRKeys(ctx *pulumi.Context, args *ListSignalRKeysArgs, opts ...pulumi.InvokeOption) (*ListSignalRKeysResult, error) {
 	var rv ListSignalRKeysResult
 	err := ctx.Invoke("azure-native:signalrservice:listSignalRKeys", args, &rv, opts...)
@@ -24,17 +24,17 @@ func ListSignalRKeys(ctx *pulumi.Context, args *ListSignalRKeysArgs, opts ...pul
 type ListSignalRKeysArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SignalR resource.
+	// The name of the resource.
 	ResourceName string `pulumi:"resourceName"`
 }
 
-// A class represents the access keys of SignalR service.
+// A class represents the access keys of the resource.
 type ListSignalRKeysResult struct {
-	// SignalR connection string constructed via the primaryKey
+	// Connection string constructed via the primaryKey
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The primary access key.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// SignalR connection string constructed via the secondaryKey
+	// Connection string constructed via the secondaryKey
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The secondary access key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
@@ -56,7 +56,7 @@ func ListSignalRKeysOutput(ctx *pulumi.Context, args ListSignalRKeysOutputArgs, 
 type ListSignalRKeysOutputArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// The name of the SignalR resource.
+	// The name of the resource.
 	ResourceName pulumi.StringInput `pulumi:"resourceName"`
 }
 
@@ -64,7 +64,7 @@ func (ListSignalRKeysOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListSignalRKeysArgs)(nil)).Elem()
 }
 
-// A class represents the access keys of SignalR service.
+// A class represents the access keys of the resource.
 type ListSignalRKeysResultOutput struct{ *pulumi.OutputState }
 
 func (ListSignalRKeysResultOutput) ElementType() reflect.Type {
@@ -79,7 +79,7 @@ func (o ListSignalRKeysResultOutput) ToListSignalRKeysResultOutputWithContext(ct
 	return o
 }
 
-// SignalR connection string constructed via the primaryKey
+// Connection string constructed via the primaryKey
 func (o ListSignalRKeysResultOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -89,7 +89,7 @@ func (o ListSignalRKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// SignalR connection string constructed via the secondaryKey
+// Connection string constructed via the secondaryKey
 func (o ListSignalRKeysResultOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
 }

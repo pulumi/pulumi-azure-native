@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfigurationPolicyGroup Resource.
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export class ConfigurationPolicyGroup extends pulumi.CustomResource {
     /**

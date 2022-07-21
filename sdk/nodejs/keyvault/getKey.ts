@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The key resource.
- * API Version: 2019-09-01.
+ * API Version: 2021-10-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {

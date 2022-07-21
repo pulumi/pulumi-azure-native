@@ -11,7 +11,7 @@ import (
 )
 
 // A Kusto cluster data set mapping
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupKustoClusterDataSetMapping(ctx *pulumi.Context, args *LookupKustoClusterDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupKustoClusterDataSetMappingResult, error) {
 	var rv LookupKustoClusterDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare:getKustoClusterDataSetMapping", args, &rv, opts...)

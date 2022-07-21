@@ -11,7 +11,7 @@ import (
 )
 
 // Policy Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupApiOperationPolicy(ctx *pulumi.Context, args *LookupApiOperationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationPolicyResult, error) {
 	var rv LookupApiOperationPolicyResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiOperationPolicy", args, &rv, opts...)
@@ -40,11 +40,11 @@ type LookupApiOperationPolicyArgs struct {
 type LookupApiOperationPolicyResult struct {
 	// Format of the policyContent.
 	Format *string `pulumi:"format"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Contents of the Policy as defined by the format.
 	Value string `pulumi:"value"`
@@ -115,17 +115,17 @@ func (o LookupApiOperationPolicyResultOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiOperationPolicyResult) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiOperationPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiOperationPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiOperationPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }

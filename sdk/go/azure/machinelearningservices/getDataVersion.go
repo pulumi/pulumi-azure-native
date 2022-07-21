@@ -11,7 +11,7 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupDataVersion(ctx *pulumi.Context, args *LookupDataVersionArgs, opts ...pulumi.InvokeOption) (*LookupDataVersionResult, error) {
 	var rv LookupDataVersionResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getDataVersion", args, &rv, opts...)
@@ -34,13 +34,13 @@ type LookupDataVersionArgs struct {
 
 // Azure Resource Manager resource envelope.
 type LookupDataVersionResult struct {
+	// [Required] Additional attributes of the entity.
+	DataVersionBaseProperties interface{} `pulumi:"dataVersionBaseProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties DataVersionResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -89,6 +89,11 @@ func (o LookupDataVersionResultOutput) ToLookupDataVersionResultOutputWithContex
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupDataVersionResultOutput) DataVersionBaseProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDataVersionResult) interface{} { return v.DataVersionBaseProperties }).(pulumi.AnyOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupDataVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataVersionResult) string { return v.Id }).(pulumi.StringOutput)
@@ -99,12 +104,7 @@ func (o LookupDataVersionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataVersionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupDataVersionResultOutput) Properties() DataVersionResponseOutput {
-	return o.ApplyT(func(v LookupDataVersionResult) DataVersionResponse { return v.Properties }).(DataVersionResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupDataVersionResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupDataVersionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -136,7 +136,7 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsSlotResult:
     """
     Push settings for the App.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of web app.
@@ -171,7 +171,7 @@ def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSitePushSettingsSlotResult]:
     """
     Push settings for the App.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of web app.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetModelVersionResult> InvokeAsync(GetModelVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices:getModelVersion", args ?? new GetModelVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetModelVersionResult> Invoke(GetModelVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetModelVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Version identifier.
+        /// Version identifier. This is case-sensitive.
         /// </summary>
         [Input("version", required: true)]
         public string Version { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetModelVersionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Version identifier.
+        /// Version identifier. This is case-sensitive.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -98,15 +98,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.ModelVersionResponse ModelVersionProperties;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.ModelVersionResponse Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -118,17 +118,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetModelVersionResult(
             string id,
 
-            string name,
+            Outputs.ModelVersionResponse modelVersionProperties,
 
-            Outputs.ModelVersionResponse properties,
+            string name,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            ModelVersionProperties = modelVersionProperties;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -12,7 +12,7 @@ import (
 )
 
 // Alert rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 //
 // Deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.
 type AlertRule struct {
@@ -22,9 +22,11 @@ type AlertRule struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The alert rule kind
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -114,7 +116,7 @@ func (AlertRuleState) ElementType() reflect.Type {
 type alertRuleArgs struct {
 	// The alert rule kind
 	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId *string `pulumi:"ruleId"`
@@ -126,7 +128,7 @@ type alertRuleArgs struct {
 type AlertRuleArgs struct {
 	// The alert rule kind
 	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Alert rule ID
 	RuleId pulumi.StringPtrInput
@@ -181,12 +183,17 @@ func (o AlertRuleOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o AlertRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o AlertRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

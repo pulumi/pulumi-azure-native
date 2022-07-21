@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure Cosmos DB database account.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func LookupDatabaseAccount(ctx *pulumi.Context, args *LookupDatabaseAccountArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountResult, error) {
 	var rv LookupDatabaseAccountResult
 	err := ctx.Invoke("azure-native:documentdb:getDatabaseAccount", args, &rv, opts...)
@@ -30,24 +30,32 @@ type LookupDatabaseAccountArgs struct {
 
 // An Azure Cosmos DB database account.
 type LookupDatabaseAccountResult struct {
+	// Analytical storage specific properties.
+	AnalyticalStorageConfiguration *AnalyticalStorageConfigurationResponse `pulumi:"analyticalStorageConfiguration"`
 	// API specific properties.
 	ApiProperties *ApiPropertiesResponse `pulumi:"apiProperties"`
 	// The object representing the policy for taking backups on an account.
 	BackupPolicy interface{} `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
+	// The object that represents all properties related to capacity enforcement on an account.
+	Capacity *CapacityResponse `pulumi:"capacity"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
 	ConnectorOffer *string `pulumi:"connectorOffer"`
 	// The consistency policy for the Cosmos DB database account.
 	ConsistencyPolicy *ConsistencyPolicyResponse `pulumi:"consistencyPolicy"`
 	// The CORS policy for the Cosmos DB database account.
 	Cors []CorsPolicyResponse `pulumi:"cors"`
+	// Enum to indicate the mode of account creation.
+	CreateMode *string `pulumi:"createMode"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
 	DefaultIdentity *string `pulumi:"defaultIdentity"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
+	// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// The connection endpoint for the Cosmos DB database account.
 	DocumentEndpoint string `pulumi:"documentEndpoint"`
 	// Flag to indicate whether to enable storage analytics.
@@ -66,6 +74,8 @@ type LookupDatabaseAccountResult struct {
 	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// A unique identifier assigned to the database account
+	InstanceId string `pulumi:"instanceId"`
 	// List of IpRules.
 	IpRules []IpAddressOrRangeResponse `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -92,6 +102,10 @@ type LookupDatabaseAccountResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// An array that contains of the read locations enabled for the Cosmos DB account.
 	ReadLocations []LocationResponse `pulumi:"readLocations"`
+	// Parameters to indicate the information about the restore.
+	RestoreParameters *RestoreParametersResponse `pulumi:"restoreParameters"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
@@ -108,6 +122,10 @@ func (val *LookupDatabaseAccountResult) Defaults() *LookupDatabaseAccountResult 
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.CreateMode) {
+		createMode_ := "Default"
+		tmp.CreateMode = &createMode_
+	}
 	if isZero(tmp.Kind) {
 		kind_ := "GlobalDocumentDB"
 		tmp.Kind = &kind_
@@ -154,6 +172,13 @@ func (o LookupDatabaseAccountResultOutput) ToLookupDatabaseAccountResultOutputWi
 	return o
 }
 
+// Analytical storage specific properties.
+func (o LookupDatabaseAccountResultOutput) AnalyticalStorageConfiguration() AnalyticalStorageConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) *AnalyticalStorageConfigurationResponse {
+		return v.AnalyticalStorageConfiguration
+	}).(AnalyticalStorageConfigurationResponsePtrOutput)
+}
+
 // API specific properties.
 func (o LookupDatabaseAccountResultOutput) ApiProperties() ApiPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) *ApiPropertiesResponse { return v.ApiProperties }).(ApiPropertiesResponsePtrOutput)
@@ -167,6 +192,11 @@ func (o LookupDatabaseAccountResultOutput) BackupPolicy() pulumi.AnyOutput {
 // List of Cosmos DB capabilities for the account
 func (o LookupDatabaseAccountResultOutput) Capabilities() CapabilityResponseArrayOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) []CapabilityResponse { return v.Capabilities }).(CapabilityResponseArrayOutput)
+}
+
+// The object that represents all properties related to capacity enforcement on an account.
+func (o LookupDatabaseAccountResultOutput) Capacity() CapacityResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) *CapacityResponse { return v.Capacity }).(CapacityResponsePtrOutput)
 }
 
 // The cassandra connector offer type for the Cosmos DB database C* account.
@@ -184,6 +214,11 @@ func (o LookupDatabaseAccountResultOutput) Cors() CorsPolicyResponseArrayOutput 
 	return o.ApplyT(func(v LookupDatabaseAccountResult) []CorsPolicyResponse { return v.Cors }).(CorsPolicyResponseArrayOutput)
 }
 
+// Enum to indicate the mode of account creation.
+func (o LookupDatabaseAccountResultOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
 // The offer type for the Cosmos DB database account. Default value: Standard.
 func (o LookupDatabaseAccountResultOutput) DatabaseAccountOfferType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) string { return v.DatabaseAccountOfferType }).(pulumi.StringOutput)
@@ -197,6 +232,11 @@ func (o LookupDatabaseAccountResultOutput) DefaultIdentity() pulumi.StringPtrOut
 // Disable write operations on metadata resources (databases, containers, throughput) via account keys
 func (o LookupDatabaseAccountResultOutput) DisableKeyBasedMetadataWriteAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) *bool { return v.DisableKeyBasedMetadataWriteAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o LookupDatabaseAccountResultOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
 // The connection endpoint for the Cosmos DB database account.
@@ -242,6 +282,11 @@ func (o LookupDatabaseAccountResultOutput) Id() pulumi.StringOutput {
 // Identity for the resource.
 func (o LookupDatabaseAccountResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// A unique identifier assigned to the database account
+func (o LookupDatabaseAccountResultOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
 // List of IpRules.
@@ -309,6 +354,16 @@ func (o LookupDatabaseAccountResultOutput) PublicNetworkAccess() pulumi.StringPt
 // An array that contains of the read locations enabled for the Cosmos DB account.
 func (o LookupDatabaseAccountResultOutput) ReadLocations() LocationResponseArrayOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) []LocationResponse { return v.ReadLocations }).(LocationResponseArrayOutput)
+}
+
+// Parameters to indicate the information about the restore.
+func (o LookupDatabaseAccountResultOutput) RestoreParameters() RestoreParametersResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) *RestoreParametersResponse { return v.RestoreParameters }).(RestoreParametersResponsePtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupDatabaseAccountResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".

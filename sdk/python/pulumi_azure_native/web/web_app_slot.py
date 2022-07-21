@@ -27,6 +27,7 @@ class WebAppSlotArgs:
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
@@ -62,6 +63,7 @@ class WebAppSlotArgs:
         :param pulumi.Input[str] custom_domain_verification_id: Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
         :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
@@ -79,7 +81,7 @@ class WebAppSlotArgs:
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input['SiteConfigArgs'] site_config: Configuration of the app.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
@@ -105,6 +107,8 @@ class WebAppSlotArgs:
             pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if host_name_ssl_states is not None:
             pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
         if host_names_disabled is not None:
@@ -286,6 +290,18 @@ class WebAppSlotArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
 
     @property
     @pulumi.getter(name="hostNameSslStates")
@@ -473,7 +489,7 @@ class WebAppSlotArgs:
     @pulumi.getter
     def slot(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the deployment slot to create or update. The name 'production' is reserved.
+        Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         """
         return pulumi.get(self, "slot")
 
@@ -533,6 +549,7 @@ class WebAppSlot(pulumi.CustomResource):
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
@@ -557,7 +574,7 @@ class WebAppSlot(pulumi.CustomResource):
                  __props__=None):
         """
         A web app, a mobile app backend, or an API app.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -573,6 +590,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] custom_domain_verification_id: Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
         :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
@@ -592,7 +610,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
@@ -606,7 +624,7 @@ class WebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A web app, a mobile app backend, or an API app.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSlotArgs args: The arguments to use to populate this resource's properties.
@@ -632,6 +650,7 @@ class WebAppSlot(pulumi.CustomResource):
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
@@ -674,6 +693,7 @@ class WebAppSlot(pulumi.CustomResource):
             __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["host_name_ssl_states"] = host_name_ssl_states
             __props__.__dict__["host_names_disabled"] = host_names_disabled
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
@@ -761,6 +781,7 @@ class WebAppSlot(pulumi.CustomResource):
         __props__.__dict__["default_host_name"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["enabled_host_names"] = None
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["host_name_ssl_states"] = None
         __props__.__dict__["host_names"] = None
         __props__.__dict__["host_names_disabled"] = None
@@ -889,6 +910,14 @@ class WebAppSlot(pulumi.CustomResource):
         the app is not served on those hostnames.
         """
         return pulumi.get(self, "enabled_host_names")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hostNameSslStates")

@@ -162,7 +162,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings"},
                 },

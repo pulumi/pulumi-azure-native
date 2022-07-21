@@ -121,7 +121,7 @@ def get_workload_network_public_ip(private_cloud_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkPublicIPResult:
     """
     NSX Public IP Block
-    API Version: 2021-06-01.
+    API Version: 2021-12-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -155,7 +155,7 @@ def get_workload_network_public_ip_output(private_cloud_name: Optional[pulumi.In
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkPublicIPResult]:
     """
     NSX Public IP Block
-    API Version: 2021-06-01.
+    API Version: 2021-12-01.
 
 
     :param str private_cloud_name: Name of the private cloud

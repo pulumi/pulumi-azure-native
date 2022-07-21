@@ -214,7 +214,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                  __props__=None):
         """
         P2SVpnGateway Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +238,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         P2SVpnGateway Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param P2sVpnGatewayArgs args: The arguments to use to populate this resource's properties.

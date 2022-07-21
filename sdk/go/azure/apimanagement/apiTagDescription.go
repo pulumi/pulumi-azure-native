@@ -12,7 +12,7 @@ import (
 )
 
 // Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ApiTagDescription struct {
 	pulumi.CustomResourceState
 
@@ -24,11 +24,11 @@ type ApiTagDescription struct {
 	ExternalDocsDescription pulumi.StringPtrOutput `pulumi:"externalDocsDescription"`
 	// Absolute URL of external resources describing the tag.
 	ExternalDocsUrl pulumi.StringPtrOutput `pulumi:"externalDocsUrl"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Identifier of the tag in the form of /tags/{tagId}
 	TagId pulumi.StringPtrOutput `pulumi:"tagId"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -210,7 +210,7 @@ func (o ApiTagDescriptionOutput) ExternalDocsUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.ExternalDocsUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiTagDescriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -220,7 +220,7 @@ func (o ApiTagDescriptionOutput) TagId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.TagId }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiTagDescriptionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -11,35 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The User registered to a lab
-// API Version: 2018-10-15.
+// User of a lab that can register for and use virtual machines within the lab.
+// API Version: 2021-11-15-preview.
 type User struct {
 	pulumi.CustomResourceState
 
-	// The user email address, as it was specified during registration.
+	// The amount of usage quota time the user gets in addition to the lab usage quota.
+	AdditionalUsageQuota pulumi.StringPtrOutput `pulumi:"additionalUsageQuota"`
+	// Display name of the user, for example user's full name.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Email address of the user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// The user family name, as it was specified during registration.
-	FamilyName pulumi.StringOutput `pulumi:"familyName"`
-	// The user given name, as it was specified during registration.
-	GivenName pulumi.StringOutput `pulumi:"givenName"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
+	// Date and time when the invitation message was sent to the user.
+	InvitationSent pulumi.StringOutput `pulumi:"invitationSent"`
+	// State of the invitation message for the user.
+	InvitationState pulumi.StringOutput `pulumi:"invitationState"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The user tenant ID, as it was specified during registration.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// How long the user has used his VMs in this lab
+	// Current provisioning state of the user resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// State of the user's registration within the lab.
+	RegistrationState pulumi.StringOutput `pulumi:"registrationState"`
+	// Metadata pertaining to creation and last modification of the user resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// How long the user has used their virtual machines in this lab.
 	TotalUsage pulumi.StringOutput `pulumi:"totalUsage"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -49,8 +47,8 @@ func NewUser(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LabAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'LabAccountName'")
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
 	}
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
@@ -60,7 +58,10 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:labservices/v20181015:User"),
+			Type: pulumi.String("azure-native:labservices/v20211001preview:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:labservices/v20211115preview:User"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -96,41 +97,29 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
+	// The amount of usage quota time the user gets in addition to the lab usage quota.
+	AdditionalUsageQuota *string `pulumi:"additionalUsageQuota"`
+	// Email address of the user.
+	Email string `pulumi:"email"`
+	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
 	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The name of the user.
+	// The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
 	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The name of the lab.
+	// The amount of usage quota time the user gets in addition to the lab usage quota.
+	AdditionalUsageQuota pulumi.StringPtrInput
+	// Email address of the user.
+	Email pulumi.StringInput
+	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
 	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
-	// The name of the user.
+	// The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
 	UserName pulumi.StringPtrInput
 }
 
@@ -171,64 +160,59 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// The user email address, as it was specified during registration.
+// The amount of usage quota time the user gets in addition to the lab usage quota.
+func (o UserOutput) AdditionalUsageQuota() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.AdditionalUsageQuota }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the user, for example user's full name.
+func (o UserOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Email address of the user.
 func (o UserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// The user family name, as it was specified during registration.
-func (o UserOutput) FamilyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.FamilyName }).(pulumi.StringOutput)
+// Date and time when the invitation message was sent to the user.
+func (o UserOutput) InvitationSent() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.InvitationSent }).(pulumi.StringOutput)
 }
 
-// The user given name, as it was specified during registration.
-func (o UserOutput) GivenName() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.GivenName }).(pulumi.StringOutput)
+// State of the invitation message for the user.
+func (o UserOutput) InvitationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.InvitationState }).(pulumi.StringOutput)
 }
 
-// The details of the latest operation. ex: status, error
-func (o UserOutput) LatestOperationResult() LatestOperationResultResponseOutput {
-	return o.ApplyT(func(v *User) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
-}
-
-// The location of the resource.
-func (o UserOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
+// The name of the resource
 func (o UserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The provisioning status of the resource.
-func (o UserOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+// Current provisioning state of the user resource.
+func (o UserOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The tags of the resource.
-func (o UserOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+// State of the user's registration within the lab.
+func (o UserOutput) RegistrationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RegistrationState }).(pulumi.StringOutput)
 }
 
-// The user tenant ID, as it was specified during registration.
-func (o UserOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+// Metadata pertaining to creation and last modification of the user resource.
+func (o UserOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *User) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// How long the user has used his VMs in this lab
+// How long the user has used their virtual machines in this lab.
 func (o UserOutput) TotalUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.TotalUsage }).(pulumi.StringOutput)
 }
 
-// The type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o UserOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o UserOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func init() {

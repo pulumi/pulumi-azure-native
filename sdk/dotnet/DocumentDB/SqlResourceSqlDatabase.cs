@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
-    /// API Version: 2021-03-15.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlDatabase")]
     public partial class SqlResourceSqlDatabase : Pulumi.CustomResource

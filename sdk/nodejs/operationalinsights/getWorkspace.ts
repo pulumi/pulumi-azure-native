@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Workspace resource container.
- * API Version: 2020-10-01.
+ * API Version: 2021-06-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -45,9 +45,9 @@ export interface GetWorkspaceResult {
      */
     readonly customerId: string;
     /**
-     * The ETag of the workspace.
+     * The etag of the workspace.
      */
-    readonly eTag?: string;
+    readonly etag?: string;
     /**
      * Workspace features.
      */

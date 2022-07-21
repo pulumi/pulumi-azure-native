@@ -11,7 +11,7 @@ import (
 )
 
 // A consumer side list of share subscription synchronizations
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationsResult, error) {
 	var rv ListShareSubscriptionSynchronizationsResult
 	err := ctx.Invoke("azure-native:datashare:listShareSubscriptionSynchronizations", args, &rv, opts...)

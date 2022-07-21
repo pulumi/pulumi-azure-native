@@ -34,10 +34,16 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public Input<Inputs.SQLStorageSettingsArgs>? SqlLogSettings { get; set; }
 
         /// <summary>
+        /// SQL Server SystemDb Storage on DataPool if true.
+        /// </summary>
+        [Input("sqlSystemDbOnDataDisk")]
+        public Input<bool>? SqlSystemDbOnDataDisk { get; set; }
+
+        /// <summary>
         /// SQL Server TempDb Storage Settings.
         /// </summary>
         [Input("sqlTempDbSettings")]
-        public Input<Inputs.SQLStorageSettingsArgs>? SqlTempDbSettings { get; set; }
+        public Input<Inputs.SQLTempDbSettingsArgs>? SqlTempDbSettings { get; set; }
 
         /// <summary>
         /// Storage workload type.

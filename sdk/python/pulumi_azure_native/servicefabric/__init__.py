@@ -9,16 +9,12 @@ from ._enums import *
 from .application import *
 from .application_type import *
 from .application_type_version import *
-from .cluster import *
 from .get_application import *
 from .get_application_type import *
 from .get_application_type_version import *
-from .get_cluster import *
 from .get_managed_cluster import *
 from .get_node_type import *
 from .get_service import *
-from .getmanaged_az_resiliency_status import *
-from .list_list_upgradable_version_post import *
 from .managed_cluster import *
 from .node_type import *
 from .service import *

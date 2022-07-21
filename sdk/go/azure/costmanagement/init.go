@@ -21,24 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:costmanagement:CloudConnector":
-		r = &CloudConnector{}
-	case "azure-native:costmanagement:CostAllocationRule":
-		r = &CostAllocationRule{}
 	case "azure-native:costmanagement:Export":
 		r = &Export{}
-	case "azure-native:costmanagement:Report":
-		r = &Report{}
-	case "azure-native:costmanagement:ReportByBillingAccount":
-		r = &ReportByBillingAccount{}
-	case "azure-native:costmanagement:ReportByDepartment":
-		r = &ReportByDepartment{}
-	case "azure-native:costmanagement:ReportByResourceGroupName":
-		r = &ReportByResourceGroupName{}
-	case "azure-native:costmanagement:ScheduledAction":
-		r = &ScheduledAction{}
-	case "azure-native:costmanagement:ScheduledActionByScope":
-		r = &ScheduledActionByScope{}
 	case "azure-native:costmanagement:Setting":
 		r = &Setting{}
 	case "azure-native:costmanagement:View":

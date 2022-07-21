@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response on GET of a hybrid use benefit
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-12-01.
  */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
     if (!opts) {

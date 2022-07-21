@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Streaming Locators associated with this Asset.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetStreamingLocatorsResult> {
     if (!opts) {

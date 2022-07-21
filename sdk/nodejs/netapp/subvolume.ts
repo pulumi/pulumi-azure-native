@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subvolume Information properties
- * API Version: 2021-10-01.
+ * API Version: 2022-01-01.
  */
 export class Subvolume extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class Subvolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**

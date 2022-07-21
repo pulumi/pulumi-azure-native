@@ -11,23 +11,27 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
     /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {
         /// <summary>
-        /// The principal ID of the resource identity.
+        /// The principal ID of the resource identity.  This property will only be provided for a system assigned identity
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant ID of the resource identity.
+        /// The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type. This is the only required field when adding a system assigned identity to a resource.
+        /// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.IdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.IdentityResponseUserAssignedIdentities>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

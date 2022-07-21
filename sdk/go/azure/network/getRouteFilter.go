@@ -11,7 +11,7 @@ import (
 )
 
 // Route Filter Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterResult, error) {
 	var rv LookupRouteFilterResult
 	err := ctx.Invoke("azure-native:network:getRouteFilter", args, &rv, opts...)

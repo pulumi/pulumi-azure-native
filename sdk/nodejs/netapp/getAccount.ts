@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetApp account resource
- * API Version: 2020-12-01.
+ * API Version: 2022-01-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -45,15 +45,19 @@ export interface GetAccountResult {
      */
     readonly encryption?: outputs.netapp.AccountEncryptionResponse;
     /**
-     * Resource Id
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -61,15 +65,15 @@ export interface GetAccountResult {
      */
     readonly provisioningState: string;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.netapp.SystemDataResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

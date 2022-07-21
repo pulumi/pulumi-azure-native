@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Buildpack Binding Resource object
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getBuildpackBinding(args: GetBuildpackBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildpackBindingResult> {
     if (!opts) {

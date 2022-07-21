@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the DigitalTwins service.
- * API Version: 2020-12-01.
+ * API Version: 2022-05-31.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**
@@ -60,6 +60,9 @@ export class DigitalTwin extends pulumi.CustomResource {
      * The resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The private endpoint connections.
+     */
     public readonly privateEndpointConnections!: pulumi.Output<outputs.digitaltwins.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * The provisioning state.
@@ -69,6 +72,10 @@ export class DigitalTwin extends pulumi.CustomResource {
      * Public network access for the DigitalTwinsInstance.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.digitaltwins.SystemDataResponse>;
     /**
      * The resource tags.
      */
@@ -104,6 +111,7 @@ export class DigitalTwin extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -115,6 +123,7 @@ export class DigitalTwin extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -137,6 +146,9 @@ export interface DigitalTwinArgs {
      * The resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The private endpoint connections.
+     */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionArgs>[]>;
     /**
      * Public network access for the DigitalTwinsInstance.

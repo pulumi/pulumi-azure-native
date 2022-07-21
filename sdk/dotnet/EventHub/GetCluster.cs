@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Single Event Hubs Cluster resource in List or Get operations.
-        /// API Version: 2018-01-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single Event Hubs Cluster resource in List or Get operations.
-        /// API Version: 2018-01-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.EventHub
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.EventHub
             Name = name;
             Sku = sku;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;

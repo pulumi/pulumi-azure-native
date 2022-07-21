@@ -63,12 +63,6 @@ func NewScopeAccessReviewHistoryDefinitionById(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:authorization:ScopeAccessReviewHistoryDefinitionById"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ScopeAccessReviewHistoryDefinitionById
 	err := ctx.RegisterResource("azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById", name, args, &resource, opts...)
 	if err != nil {

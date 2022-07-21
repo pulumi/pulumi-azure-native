@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class ApplicationGatewayTrustedClientCertificateResponse
     {
         /// <summary>
+        /// Distinguished name of client certificate issuer.
+        /// </summary>
+        public readonly string ClientCertIssuerDN;
+        /// <summary>
         /// Certificate public data.
         /// </summary>
         public readonly string? Data;
@@ -40,9 +44,15 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Validated certificate data.
+        /// </summary>
+        public readonly string ValidatedCertData;
 
         [OutputConstructor]
         private ApplicationGatewayTrustedClientCertificateResponse(
+            string clientCertIssuerDN,
+
             string? data,
 
             string etag,
@@ -53,14 +63,18 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            string type)
+            string type,
+
+            string validatedCertData)
         {
+            ClientCertIssuerDN = clientCertIssuerDN;
             Data = data;
             Etag = etag;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Type = type;
+            ValidatedCertData = validatedCertData;
         }
     }
 }

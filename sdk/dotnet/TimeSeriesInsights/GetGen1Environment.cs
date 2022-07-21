@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-        /// API Version: 2020-05-15.
+        /// API Version: 2021-06-30-preview.
         /// </summary>
         public static Task<GetGen1EnvironmentResult> InvokeAsync(GetGen1EnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGen1EnvironmentResult>("azure-native:timeseriesinsights:getGen1Environment", args ?? new GetGen1EnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-        /// API Version: 2020-05-15.
+        /// API Version: 2021-06-30-preview.
         /// </summary>
         public static Output<GetGen1EnvironmentResult> Invoke(GetGen1EnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGen1EnvironmentResult>("azure-native:timeseriesinsights:getGen1Environment", args ?? new GetGen1EnvironmentInvokeArgs(), options.WithDefaults());
@@ -135,6 +135,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         public readonly string? StorageLimitExceededBehavior;
         /// <summary>
+        /// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+        /// </summary>
+        public readonly bool SupportsCustomerManagedKey;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -171,6 +175,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             string? storageLimitExceededBehavior,
 
+            bool supportsCustomerManagedKey,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
             Sku = sku;
             Status = status;
             StorageLimitExceededBehavior = storageLimitExceededBehavior;
+            SupportsCustomerManagedKey = supportsCustomerManagedKey;
             Tags = tags;
             Type = type;
         }

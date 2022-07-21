@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment resource payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.appplatform.SkuResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,16 +79,18 @@ export class Deployment extends pulumi.CustomResource {
             }
             resourceInputs["appName"] = args ? args.appName : undefined;
             resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.deploymentResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

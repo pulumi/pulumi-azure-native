@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public Input<string>? AccessKey2 { get; set; }
 
         /// <summary>
-        /// Specifies the authentication type being used for connecting to the endpoint.
+        /// Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         /// </summary>
         [Input("authenticationType")]
         public InputUnion<string, Pulumi.AzureNative.DigitalTwins.AuthenticationType>? AuthenticationType { get; set; }
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// EventGrid Topic Endpoint
+        /// EventGrid Topic Endpoint.
         /// </summary>
         [Input("topicEndpoint", required: true)]
         public Input<string> TopicEndpoint { get; set; } = null!;

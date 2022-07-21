@@ -12,17 +12,17 @@ import (
 )
 
 // Issue Comment Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ApiIssueComment struct {
 	pulumi.CustomResourceState
 
 	// Date and time when the comment was created.
 	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Comment text.
 	Text pulumi.StringOutput `pulumi:"text"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A resource identifier for the user who left the comment.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -204,7 +204,7 @@ func (o ApiIssueCommentOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiIssueCommentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -214,7 +214,7 @@ func (o ApiIssueCommentOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.Text }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiIssueCommentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

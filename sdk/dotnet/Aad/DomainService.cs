@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Aad
 {
     /// <summary>
     /// Domain service.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:DomainService")]
     public partial class DomainService : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration diagnostics data containing latest execution from client.
+        /// </summary>
+        [Output("configDiagnostics")]
+        public Output<Outputs.ConfigDiagnosticsResponse?> ConfigDiagnostics { get; private set; } = null!;
+
         /// <summary>
         /// Deployment Id
         /// </summary>
@@ -195,6 +201,12 @@ namespace Pulumi.AzureNative.Aad
 
     public sealed class DomainServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration diagnostics data containing latest execution from client.
+        /// </summary>
+        [Input("configDiagnostics")]
+        public Input<Inputs.ConfigDiagnosticsArgs>? ConfigDiagnostics { get; set; }
+
         /// <summary>
         /// Domain Configuration Type
         /// </summary>

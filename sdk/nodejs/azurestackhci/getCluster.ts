@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cluster details.
- * API Version: 2020-10-01.
+ * API Version: 2022-05-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -37,13 +37,21 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * Object id of cluster AAD identity.
+     */
+    readonly aadApplicationObjectId?: string;
+    /**
      * App id of cluster AAD identity.
      */
-    readonly aadClientId: string;
+    readonly aadClientId?: string;
+    /**
+     * Id of cluster identity service principal.
+     */
+    readonly aadServicePrincipalObjectId?: string;
     /**
      * Tenant id of cluster AAD identity.
      */
-    readonly aadTenantId: string;
+    readonly aadTenantId?: string;
     /**
      * Type of billing applied to the resource.
      */
@@ -52,6 +60,10 @@ export interface GetClusterResult {
      * Unique, immutable resource id.
      */
     readonly cloudId: string;
+    /**
+     * Endpoint configured for management from the Azure portal.
+     */
+    readonly cloudManagementEndpoint?: string;
     /**
      * The timestamp of resource creation (UTC).
      */
@@ -64,6 +76,10 @@ export interface GetClusterResult {
      * The type of identity that created the resource.
      */
     readonly createdByType?: string;
+    /**
+     * Desired properties of the cluster.
+     */
+    readonly desiredProperties?: outputs.azurestackhci.ClusterDesiredPropertiesResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -107,7 +123,11 @@ export interface GetClusterResult {
     /**
      * Properties reported by cluster agent.
      */
-    readonly reportedProperties?: outputs.azurestackhci.ClusterReportedPropertiesResponse;
+    readonly reportedProperties: outputs.azurestackhci.ClusterReportedPropertiesResponse;
+    /**
+     * Region specific DataPath Endpoint of the cluster.
+     */
+    readonly serviceEndpoint: string;
     /**
      * Status of the cluster agent.
      */

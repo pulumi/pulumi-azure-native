@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetWorkspaceConnection
     {
         /// <summary>
-        /// Workspace connection.
-        /// API Version: 2021-01-01.
+        /// 
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetWorkspaceConnectionResult> InvokeAsync(GetWorkspaceConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace connection.
-        /// API Version: 2021-01-01.
+        /// 
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetWorkspaceConnectionResult> Invoke(GetWorkspaceConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -82,64 +82,40 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetWorkspaceConnectionResult
     {
         /// <summary>
-        /// Authorization type of the workspace connection.
-        /// </summary>
-        public readonly string? AuthType;
-        /// <summary>
-        /// Category of the workspace connection.
-        /// </summary>
-        public readonly string? Category;
-        /// <summary>
-        /// ResourceId of the workspace connection.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Friendly name of the workspace connection.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        public readonly object Properties;
         /// <summary>
-        /// Target of the workspace connection.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? Target;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type of workspace connection.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        public readonly string? Value;
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        public readonly string? ValueFormat;
 
         [OutputConstructor]
         private GetWorkspaceConnectionResult(
-            string? authType,
-
-            string? category,
-
             string id,
 
             string name,
 
-            string? target,
+            object properties,
 
-            string type,
+            Outputs.SystemDataResponse systemData,
 
-            string? value,
-
-            string? valueFormat)
+            string type)
         {
-            AuthType = authType;
-            Category = category;
             Id = id;
             Name = name;
-            Target = target;
+            Properties = properties;
+            SystemData = systemData;
             Type = type;
-            Value = value;
-            ValueFormat = valueFormat;
         }
     }
 }

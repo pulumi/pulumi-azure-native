@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2022-02-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetComponentVersionResult> InvokeAsync(GetComponentVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("azure-native:machinelearningservices:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2022-02-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("azure-native:machinelearningservices:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Outputs.ComponentVersionResponse ComponentVersionDetails;
+        public readonly Outputs.ComponentVersionResponse ComponentVersionProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetComponentVersionResult(
-            Outputs.ComponentVersionResponse componentVersionDetails,
+            Outputs.ComponentVersionResponse componentVersionProperties,
 
             string id,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
-            ComponentVersionDetails = componentVersionDetails;
+            ComponentVersionProperties = componentVersionProperties;
             Id = id;
             Name = name;
             SystemData = systemData;

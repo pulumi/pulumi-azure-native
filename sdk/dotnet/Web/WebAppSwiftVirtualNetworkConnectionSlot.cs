@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot")]
     public partial class WebAppSwiftVirtualNetworkConnectionSlot : Pulumi.CustomResource
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("swiftSupported")]
         public Output<bool?> SwiftSupported { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

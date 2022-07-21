@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ClusterResourcePropertiesResponse
     {
         /// <summary>
+        /// Fully qualified dns name of the service instance
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// Network profile of the Service
         /// </summary>
         public readonly Outputs.NetworkProfileResponse? NetworkProfile;
@@ -32,21 +36,28 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Version of the Service
         /// </summary>
         public readonly int Version;
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private ClusterResourcePropertiesResponse(
+            string fqdn,
+
             Outputs.NetworkProfileResponse? networkProfile,
 
             string provisioningState,
 
             string serviceId,
 
-            int version)
+            int version,
+
+            bool? zoneRedundant)
         {
+            Fqdn = fqdn;
             NetworkProfile = networkProfile;
             ProvisioningState = provisioningState;
             ServiceId = serviceId;
             Version = version;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

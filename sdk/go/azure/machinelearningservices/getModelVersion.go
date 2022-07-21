@@ -11,22 +11,22 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupModelVersion(ctx *pulumi.Context, args *LookupModelVersionArgs, opts ...pulumi.InvokeOption) (*LookupModelVersionResult, error) {
 	var rv LookupModelVersionResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getModelVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupModelVersionArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Version identifier.
+	// Version identifier. This is case-sensitive.
 	Version string `pulumi:"version"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -36,14 +36,25 @@ type LookupModelVersionArgs struct {
 type LookupModelVersionResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// [Required] Additional attributes of the entity.
+	ModelVersionProperties ModelVersionResponse `pulumi:"modelVersionProperties"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties ModelVersionResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupModelVersionResult
+func (val *LookupModelVersionResult) Defaults() *LookupModelVersionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ModelVersionProperties = *tmp.ModelVersionProperties.Defaults()
+
+	return &tmp
 }
 
 func LookupModelVersionOutput(ctx *pulumi.Context, args LookupModelVersionOutputArgs, opts ...pulumi.InvokeOption) LookupModelVersionResultOutput {
@@ -60,11 +71,11 @@ func LookupModelVersionOutput(ctx *pulumi.Context, args LookupModelVersionOutput
 }
 
 type LookupModelVersionOutputArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Version identifier.
+	// Version identifier. This is case-sensitive.
 	Version pulumi.StringInput `pulumi:"version"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -94,17 +105,17 @@ func (o LookupModelVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupModelVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupModelVersionResultOutput) ModelVersionProperties() ModelVersionResponseOutput {
+	return o.ApplyT(func(v LookupModelVersionResult) ModelVersionResponse { return v.ModelVersionProperties }).(ModelVersionResponseOutput)
+}
+
 // The name of the resource
 func (o LookupModelVersionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupModelVersionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupModelVersionResultOutput) Properties() ModelVersionResponseOutput {
-	return o.ApplyT(func(v LookupModelVersionResult) ModelVersionResponse { return v.Properties }).(ModelVersionResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupModelVersionResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupModelVersionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

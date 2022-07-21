@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A class represents the access keys of SignalR service.
- * API Version: 2020-05-01.
+ * A class represents the access keys of the resource.
+ * API Version: 2022-02-01.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
     if (!opts) {
@@ -26,17 +26,17 @@ export interface ListSignalRKeysArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: string;
 }
 
 /**
- * A class represents the access keys of SignalR service.
+ * A class represents the access keys of the resource.
  */
 export interface ListSignalRKeysResult {
     /**
-     * SignalR connection string constructed via the primaryKey
+     * Connection string constructed via the primaryKey
      */
     readonly primaryConnectionString?: string;
     /**
@@ -44,7 +44,7 @@ export interface ListSignalRKeysResult {
      */
     readonly primaryKey?: string;
     /**
-     * SignalR connection string constructed via the secondaryKey
+     * Connection string constructed via the secondaryKey
      */
     readonly secondaryConnectionString?: string;
     /**
@@ -63,7 +63,7 @@ export interface ListSignalRKeysOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
 }

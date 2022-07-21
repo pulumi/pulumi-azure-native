@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['RegisteredServerArgs', 'RegisteredServer']
 
@@ -211,7 +212,7 @@ class RegisteredServer(pulumi.CustomResource):
                  __props__=None):
         """
         Registered Server resource.
-        API Version: 2020-03-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +236,7 @@ class RegisteredServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registered Server resource.
-        API Version: 2020-03-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param RegisteredServerArgs args: The arguments to use to populate this resource's properties.
@@ -302,8 +303,10 @@ class RegisteredServer(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_location"] = None
             __props__.__dict__["server_management_error_code"] = None
+            __props__.__dict__["server_name"] = None
             __props__.__dict__["service_location"] = None
             __props__.__dict__["storage_sync_service_uid"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync/v20170605preview:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20180402:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20180701:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20181001:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20190201:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20190301:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20190601:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20191001:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20200301:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20200901:RegisteredServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -348,10 +351,12 @@ class RegisteredServer(pulumi.CustomResource):
         __props__.__dict__["server_certificate"] = None
         __props__.__dict__["server_id"] = None
         __props__.__dict__["server_management_error_code"] = None
+        __props__.__dict__["server_name"] = None
         __props__.__dict__["server_os_version"] = None
         __props__.__dict__["server_role"] = None
         __props__.__dict__["service_location"] = None
         __props__.__dict__["storage_sync_service_uid"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RegisteredServer(resource_name, opts=opts, __props__=__props__)
 
@@ -508,6 +513,14 @@ class RegisteredServer(pulumi.CustomResource):
         return pulumi.get(self, "server_management_error_code")
 
     @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Output[str]:
+        """
+        Server name
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
     @pulumi.getter(name="serverOSVersion")
     def server_os_version(self) -> pulumi.Output[Optional[str]]:
         """
@@ -538,6 +551,14 @@ class RegisteredServer(pulumi.CustomResource):
         Registered Server storageSyncServiceUid
         """
         return pulumi.get(self, "storage_sync_service_uid")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

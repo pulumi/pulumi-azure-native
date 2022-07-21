@@ -16,13 +16,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     public sealed class CustomerCertificateParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Certificate issuing authority.
-        /// </summary>
-        [Input("certificateAuthority")]
-        public Input<string>? CertificateAuthority { get; set; }
-
-        /// <summary>
-        /// Resource reference to the KV secret
+        /// Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
         /// </summary>
         [Input("secretSource", required: true)]
         public Input<Inputs.ResourceReferenceArgs> SecretSource { get; set; } = null!;
@@ -46,7 +40,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         }
 
         /// <summary>
-        /// The type of the Secret to create.
+        /// The type of the secret resource.
         /// Expected value is 'CustomerCertificate'.
         /// </summary>
         [Input("type", required: true)]

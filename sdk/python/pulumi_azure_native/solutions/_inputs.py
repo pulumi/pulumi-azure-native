@@ -382,11 +382,11 @@ class ApplicationPolicyArgs:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -407,14 +407,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -515,13 +515,16 @@ class JitAuthorizationPoliciesArgs:
 class JitSchedulingPolicyArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
-                 start_time: pulumi.Input[str]):
+                 start_time: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'JitSchedulingType']]):
         """
         The JIT scheduling policies.
         :param pulumi.Input[str] start_time: The start time of the request.
+        :param pulumi.Input[Union[str, 'JitSchedulingType']] type: The type of JIT schedule.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -543,6 +546,18 @@ class JitSchedulingPolicyArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'JitSchedulingType']]:
+        """
+        The type of JIT schedule.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'JitSchedulingType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A SQL DB table data set.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:SqlDBTableDataSet")]
     public partial class SqlDBTableDataSet : Pulumi.CustomResource

@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents Fusion alert rule.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export class FusionAlertRule extends pulumi.CustomResource {
     /**
@@ -65,7 +66,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -73,11 +74,15 @@ export class FusionAlertRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly severity!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * The tactics of the alert rule
      */
     public /*out*/ readonly tactics!: pulumi.Output<string[]>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -119,6 +124,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -131,6 +137,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -159,7 +166,7 @@ export interface FusionAlertRuleArgs {
      */
     kind: pulumi.Input<"Fusion">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

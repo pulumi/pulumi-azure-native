@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for backup policy. Workload-specific backup policies are derived from this class.
- * API Version: 2021-02-01.
+ * API Version: 2022-03-01.
  */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
     if (!opts) {

@@ -57,6 +57,10 @@ export const ClassDiscriminator = {
      * Data Box Heavy orders.
      */
     DataBoxHeavy: "DataBoxHeavy",
+    /**
+     * Data Box Customer Disk orders.
+     */
+    DataBoxCustomerDisk: "DataBoxCustomerDisk",
 } as const;
 
 /**
@@ -185,6 +189,14 @@ export const NotificationStageName = {
      * Notification at data copy started stage.
      */
     DataCopy: "DataCopy",
+    /**
+     * Notification at job created stage.
+     */
+    Created: "Created",
+    /**
+     * Notification at shipped devices to customer stage.
+     */
+    ShippedToCustomer: "ShippedToCustomer",
 } as const;
 
 /**
@@ -205,12 +217,25 @@ export const SkuName = {
      * Data Box Heavy.
      */
     DataBoxHeavy: "DataBoxHeavy",
+    /**
+     * Data Box Customer Disk.
+     */
+    DataBoxCustomerDisk: "DataBoxCustomerDisk",
 } as const;
 
 /**
  * The sku name.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const StorageAccountAccessTier = {
+    /**
+     * Archive Access Tier shares requested by the customer.
+     */
+    Archive: "Archive",
+} as const;
+
+export type StorageAccountAccessTier = (typeof StorageAccountAccessTier)[keyof typeof StorageAccountAccessTier];
 
 export const TransferConfigurationType = {
     /**

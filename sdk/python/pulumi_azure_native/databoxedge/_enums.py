@@ -9,8 +9,8 @@ __all__ = [
     'AddonType',
     'AzureContainerDataFormat',
     'ClientPermissionType',
-    'DataBoxEdgeDeviceStatus',
     'DataPolicy',
+    'DataResidencyType',
     'DayOfWeek',
     'EncryptionAlgorithm',
     'MonitoringStatus',
@@ -65,25 +65,20 @@ class ClientPermissionType(str, Enum):
     READ_WRITE = "ReadWrite"
 
 
-class DataBoxEdgeDeviceStatus(str, Enum):
-    """
-    The status of the Data Box Edge/Gateway device.
-    """
-    READY_TO_SETUP = "ReadyToSetup"
-    ONLINE = "Online"
-    OFFLINE = "Offline"
-    NEEDS_ATTENTION = "NeedsAttention"
-    DISCONNECTED = "Disconnected"
-    PARTIALLY_DISCONNECTED = "PartiallyDisconnected"
-    MAINTENANCE = "Maintenance"
-
-
 class DataPolicy(str, Enum):
     """
     Data policy of the storage Account.
     """
     CLOUD = "Cloud"
     LOCAL = "Local"
+
+
+class DataResidencyType(str, Enum):
+    """
+    DataResidencyType enum
+    """
+    GEO_ZONE_REPLICATION = "GeoZoneReplication"
+    ZONE_REPLICATION = "ZoneReplication"
 
 
 class DayOfWeek(str, Enum):
@@ -217,10 +212,18 @@ class SkuName(str, Enum):
     EDGE_P_HIGH = "EdgeP_High"
     EDGE_P_R_BASE = "EdgePR_Base"
     EDGE_P_R_BASE_UPS = "EdgePR_Base_UPS"
+    EP2_64_1_VP_U_W = "EP2_64_1VPU_W"
+    EP2_128_1_T4_MX1_W = "EP2_128_1T4_Mx1_W"
+    EP2_256_2_T4_W = "EP2_256_2T4_W"
     EDGE_M_R_MINI = "EdgeMR_Mini"
     RC_A_SMALL = "RCA_Small"
     RC_A_LARGE = "RCA_Large"
     RDC = "RDC"
+    MANAGEMENT = "Management"
+    EP2_64_MX1_W = "EP2_64_Mx1_W"
+    EP2_128_GPU1_MX1_W = "EP2_128_GPU1_Mx1_W"
+    EP2_256_GPU2_MX1 = "EP2_256_GPU2_Mx1"
+    EDGE_M_R_TCP = "EdgeMR_TCP"
 
 
 class SkuTier(str, Enum):

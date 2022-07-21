@@ -12,7 +12,7 @@ import (
 )
 
 // A type of synchronization setting based on schedule
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type ScheduledSynchronizationSetting struct {
 	pulumi.CustomResourceState
 

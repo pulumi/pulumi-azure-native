@@ -11,7 +11,7 @@ import (
 )
 
 // Describes a Virtual Machine.
-// API Version: 2021-03-01.
+// API Version: 2021-11-01.
 func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResult, error) {
 	var rv LookupVirtualMachineResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachine", args, &rv, opts...)
@@ -34,10 +34,14 @@ type LookupVirtualMachineArgs struct {
 type LookupVirtualMachineResult struct {
 	// Specifies additional capabilities enabled or disabled on the virtual machine.
 	AdditionalCapabilities *AdditionalCapabilitiesResponse `pulumi:"additionalCapabilities"`
+	// Specifies the gallery applications that should be made available to the VM/VMSS
+	ApplicationProfile *ApplicationProfileResponse `pulumi:"applicationProfile"`
 	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
 	AvailabilitySet *SubResourceResponse `pulumi:"availabilitySet"`
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfileResponse `pulumi:"billingProfile"`
+	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+	CapacityReservation *CapacityReservationProfileResponse `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -88,6 +92,8 @@ type LookupVirtualMachineResult struct {
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated string `pulumi:"timeCreated"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
@@ -146,6 +152,11 @@ func (o LookupVirtualMachineResultOutput) AdditionalCapabilities() AdditionalCap
 	return o.ApplyT(func(v LookupVirtualMachineResult) *AdditionalCapabilitiesResponse { return v.AdditionalCapabilities }).(AdditionalCapabilitiesResponsePtrOutput)
 }
 
+// Specifies the gallery applications that should be made available to the VM/VMSS
+func (o LookupVirtualMachineResultOutput) ApplicationProfile() ApplicationProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) *ApplicationProfileResponse { return v.ApplicationProfile }).(ApplicationProfileResponsePtrOutput)
+}
+
 // Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
 func (o LookupVirtualMachineResultOutput) AvailabilitySet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) *SubResourceResponse { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
@@ -154,6 +165,11 @@ func (o LookupVirtualMachineResultOutput) AvailabilitySet() SubResourceResponseP
 // Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 func (o LookupVirtualMachineResultOutput) BillingProfile() BillingProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) *BillingProfileResponse { return v.BillingProfile }).(BillingProfileResponsePtrOutput)
+}
+
+// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+func (o LookupVirtualMachineResultOutput) CapacityReservation() CapacityReservationProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) *CapacityReservationProfileResponse { return v.CapacityReservation }).(CapacityReservationProfileResponsePtrOutput)
 }
 
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
@@ -279,6 +295,11 @@ func (o LookupVirtualMachineResultOutput) StorageProfile() StorageProfileRespons
 // Resource tags
 func (o LookupVirtualMachineResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o LookupVirtualMachineResultOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type

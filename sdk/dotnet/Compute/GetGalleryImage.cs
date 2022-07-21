@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Specifies information about the gallery image definition that you want to create or update.
-        /// API Version: 2020-09-30.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the gallery image definition that you want to create or update.
-        /// API Version: 2020-09-30.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.Compute
     [OutputType]
     public sealed class GetGalleryImageResult
     {
+        /// <summary>
+        /// The architecture of the image. Applicable to OS disks only.
+        /// </summary>
+        public readonly string? Architecture;
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryImageResult(
+            string? architecture,
+
             string? description,
 
             Outputs.DisallowedResponse? disallowed,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            Architecture = architecture;
             Description = description;
             Disallowed = disallowed;
             EndOfLifeDate = endOfLifeDate;

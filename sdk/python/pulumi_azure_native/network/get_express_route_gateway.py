@@ -71,7 +71,7 @@ class GetExpressRouteGatewayResult:
 
     @property
     @pulumi.getter(name="expressRouteConnections")
-    def express_route_connections(self) -> Sequence['outputs.ExpressRouteConnectionResponse']:
+    def express_route_connections(self) -> Optional[Sequence['outputs.ExpressRouteConnectionResponse']]:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
         """
@@ -157,7 +157,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteGatewayResult:
     """
     ExpressRoute gateway resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -191,7 +191,7 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
     """
     ExpressRoute gateway resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.

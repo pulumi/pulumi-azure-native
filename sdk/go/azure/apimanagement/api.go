@@ -11,20 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api details.
-// API Version: 2020-12-01.
+// API details.
+// API Version: 2021-08-01.
 type Api struct {
 	pulumi.CustomResourceState
 
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrOutput `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription pulumi.StringPtrOutput `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrOutput `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription pulumi.StringPtrOutput `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet ApiVersionSetContractDetailsResponsePtrOutput `pulumi:"apiVersionSet"`
@@ -32,6 +32,8 @@ type Api struct {
 	ApiVersionSetId pulumi.StringPtrOutput `pulumi:"apiVersionSetId"`
 	// Collection of authentication settings included into this API.
 	AuthenticationSettings AuthenticationSettingsContractResponsePtrOutput `pulumi:"authenticationSettings"`
+	// Contact information for the API.
+	Contact ApiContactInformationResponsePtrOutput `pulumi:"contact"`
 	// Description of the API. May include HTML formatting tags.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// API name. Must be 1 to 300 characters long.
@@ -40,7 +42,9 @@ type Api struct {
 	IsCurrent pulumi.BoolPtrOutput `pulumi:"isCurrent"`
 	// Indicates if API revision is accessible via the gateway.
 	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
-	// Resource name.
+	// License information for the API.
+	License ApiLicenseInformationResponsePtrOutput `pulumi:"license"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path pulumi.StringOutput `pulumi:"path"`
@@ -54,7 +58,9 @@ type Api struct {
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrOutput `pulumi:"subscriptionKeyParameterNames"`
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
-	// Resource type for API Management resource.
+	//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+	TermsOfServiceUrl pulumi.StringPtrOutput `pulumi:"termsOfServiceUrl"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -153,15 +159,15 @@ func (ApiState) ElementType() reflect.Type {
 type apiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId *string `pulumi:"apiId"`
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType *string `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet *ApiVersionSetContractDetails `pulumi:"apiVersionSet"`
@@ -169,6 +175,8 @@ type apiArgs struct {
 	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
 	// Collection of authentication settings included into this API.
 	AuthenticationSettings *AuthenticationSettingsContract `pulumi:"authenticationSettings"`
+	// Contact information for the API.
+	Contact *ApiContactInformation `pulumi:"contact"`
 	// Description of the API. May include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// API name. Must be 1 to 300 characters long.
@@ -177,19 +185,23 @@ type apiArgs struct {
 	Format *string `pulumi:"format"`
 	// Indicates if API revision is current api revision.
 	IsCurrent *bool `pulumi:"isCurrent"`
+	// License information for the API.
+	License *ApiLicenseInformation `pulumi:"license"`
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path string `pulumi:"path"`
 	// Describes on which protocols the operations in this API can be invoked.
-	Protocols []Protocol `pulumi:"protocols"`
+	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
 	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Type of Api to create.
-	//  * `http` creates a SOAP to REST API
-	//  * `soap` creates a SOAP pass-through API .
+	// Type of API to create.
+	//  * `http` creates a REST API
+	//  * `soap` creates a SOAP pass-through API
+	//  * `websocket` creates websocket API
+	//  * `graphql` creates GraphQL API.
 	SoapApiType *string `pulumi:"soapApiType"`
 	// API identifier of the source API.
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -197,6 +209,8 @@ type apiArgs struct {
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContract `pulumi:"subscriptionKeyParameterNames"`
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
+	//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+	TermsOfServiceUrl *string `pulumi:"termsOfServiceUrl"`
 	// Content value when Importing an API.
 	Value *string `pulumi:"value"`
 	// Criteria to limit import of WSDL to a subset of the document.
@@ -207,15 +221,15 @@ type apiArgs struct {
 type ApiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId pulumi.StringPtrInput
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrInput
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription pulumi.StringPtrInput
 	// Type of API.
 	ApiType pulumi.StringPtrInput
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrInput
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription pulumi.StringPtrInput
 	// Version set details
 	ApiVersionSet ApiVersionSetContractDetailsPtrInput
@@ -223,6 +237,8 @@ type ApiArgs struct {
 	ApiVersionSetId pulumi.StringPtrInput
 	// Collection of authentication settings included into this API.
 	AuthenticationSettings AuthenticationSettingsContractPtrInput
+	// Contact information for the API.
+	Contact ApiContactInformationPtrInput
 	// Description of the API. May include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// API name. Must be 1 to 300 characters long.
@@ -231,19 +247,23 @@ type ApiArgs struct {
 	Format pulumi.StringPtrInput
 	// Indicates if API revision is current api revision.
 	IsCurrent pulumi.BoolPtrInput
+	// License information for the API.
+	License ApiLicenseInformationPtrInput
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path pulumi.StringInput
 	// Describes on which protocols the operations in this API can be invoked.
-	Protocols ProtocolArrayInput
+	Protocols pulumi.StringArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
 	ServiceUrl pulumi.StringPtrInput
-	// Type of Api to create.
-	//  * `http` creates a SOAP to REST API
-	//  * `soap` creates a SOAP pass-through API .
+	// Type of API to create.
+	//  * `http` creates a REST API
+	//  * `soap` creates a SOAP pass-through API
+	//  * `websocket` creates websocket API
+	//  * `graphql` creates GraphQL API.
 	SoapApiType pulumi.StringPtrInput
 	// API identifier of the source API.
 	SourceApiId pulumi.StringPtrInput
@@ -251,6 +271,8 @@ type ApiArgs struct {
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractPtrInput
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired pulumi.BoolPtrInput
+	//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+	TermsOfServiceUrl pulumi.StringPtrInput
 	// Content value when Importing an API.
 	Value pulumi.StringPtrInput
 	// Criteria to limit import of WSDL to a subset of the document.
@@ -294,12 +316,12 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
 }
 
-// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+// Describes the revision of the API. If no value is provided, default revision 1 is created
 func (o ApiOutput) ApiRevision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiRevision }).(pulumi.StringPtrOutput)
 }
 
-// Description of the Api Revision.
+// Description of the API Revision.
 func (o ApiOutput) ApiRevisionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiRevisionDescription }).(pulumi.StringPtrOutput)
 }
@@ -309,12 +331,12 @@ func (o ApiOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the Version identifier of the API if the API is versioned
+// Indicates the version identifier of the API if the API is versioned
 func (o ApiOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
-// Description of the Api Version.
+// Description of the API Version.
 func (o ApiOutput) ApiVersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiVersionDescription }).(pulumi.StringPtrOutput)
 }
@@ -332,6 +354,11 @@ func (o ApiOutput) ApiVersionSetId() pulumi.StringPtrOutput {
 // Collection of authentication settings included into this API.
 func (o ApiOutput) AuthenticationSettings() AuthenticationSettingsContractResponsePtrOutput {
 	return o.ApplyT(func(v *Api) AuthenticationSettingsContractResponsePtrOutput { return v.AuthenticationSettings }).(AuthenticationSettingsContractResponsePtrOutput)
+}
+
+// Contact information for the API.
+func (o ApiOutput) Contact() ApiContactInformationResponsePtrOutput {
+	return o.ApplyT(func(v *Api) ApiContactInformationResponsePtrOutput { return v.Contact }).(ApiContactInformationResponsePtrOutput)
 }
 
 // Description of the API. May include HTML formatting tags.
@@ -354,7 +381,12 @@ func (o ApiOutput) IsOnline() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.IsOnline }).(pulumi.BoolOutput)
 }
 
-// Resource name.
+// License information for the API.
+func (o ApiOutput) License() ApiLicenseInformationResponsePtrOutput {
+	return o.ApplyT(func(v *Api) ApiLicenseInformationResponsePtrOutput { return v.License }).(ApiLicenseInformationResponsePtrOutput)
+}
+
+// The name of the resource
 func (o ApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -391,7 +423,12 @@ func (o ApiOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type for API Management resource.
+//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+func (o ApiOutput) TermsOfServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.TermsOfServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

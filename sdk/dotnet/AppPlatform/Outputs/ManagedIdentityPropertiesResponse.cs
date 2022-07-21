@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ManagedIdentityPropertiesResponse
     {
         /// <summary>
-        /// Principal Id
+        /// Principal Id of system-assigned managed identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// Tenant Id
+        /// Tenant Id of system-assigned managed identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

@@ -19,26 +19,44 @@ class ConfigurationStoreArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  config_store_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationStore resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input['SkuArgs'] sku: The sku of the configuration store.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
+        :param pulumi.Input['CreateMode'] create_mode: Indicates whether the configuration store need to be recovered.
+        :param pulumi.Input[bool] disable_local_auth: Disables all authentication methods other than AAD authentication.
+        :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this configuration store.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: The encryption settings of the configuration store.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The managed identity information, if configured.
-        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[int] soft_delete_retention_in_days: The amount of time in days that the configuration store will be retained when it is soft deleted.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if config_store_name is not None:
             pulumi.set(__self__, "config_store_name", config_store_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if disable_local_auth is None:
+            disable_local_auth = False
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if enable_purge_protection is None:
+            enable_purge_protection = False
+        if enable_purge_protection is not None:
+            pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
@@ -47,6 +65,10 @@ class ConfigurationStoreArgs:
             pulumi.set(__self__, "location", location)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if soft_delete_retention_in_days is None:
+            soft_delete_retention_in_days = 7
+        if soft_delete_retention_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -87,6 +109,42 @@ class ConfigurationStoreArgs:
         pulumi.set(self, "config_store_name", value)
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input['CreateMode']]:
+        """
+        Indicates whether the configuration store need to be recovered.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disables all authentication methods other than AAD authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter(name="enablePurgeProtection")
+    def enable_purge_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property specifying whether protection against purge is enabled for this configuration store.
+        """
+        return pulumi.get(self, "enable_purge_protection")
+
+    @enable_purge_protection.setter
+    def enable_purge_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_purge_protection", value)
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
         """
@@ -114,7 +172,7 @@ class ConfigurationStoreArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource. This cannot be changed after the resource is created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -135,10 +193,22 @@ class ConfigurationStoreArgs:
         pulumi.set(self, "public_network_access", value)
 
     @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in days that the configuration store will be retained when it is soft deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
+
+    @soft_delete_retention_in_days.setter
+    def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_in_days", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -153,28 +223,36 @@ class ConfigurationStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_store_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-        API Version: 2020-06-01.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
+        :param pulumi.Input['CreateMode'] create_mode: Indicates whether the configuration store need to be recovered.
+        :param pulumi.Input[bool] disable_local_auth: Disables all authentication methods other than AAD authentication.
+        :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this configuration store.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: The encryption settings of the configuration store.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The managed identity information, if configured.
-        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the configuration store.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[int] soft_delete_retention_in_days: The amount of time in days that the configuration store will be retained when it is soft deleted.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -184,7 +262,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-        API Version: 2020-06-01.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.
@@ -202,12 +280,16 @@ class ConfigurationStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_store_name: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -222,6 +304,13 @@ class ConfigurationStore(pulumi.CustomResource):
             __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
             __props__.__dict__["config_store_name"] = config_store_name
+            __props__.__dict__["create_mode"] = create_mode
+            if disable_local_auth is None:
+                disable_local_auth = False
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
+            if enable_purge_protection is None:
+                enable_purge_protection = False
+            __props__.__dict__["enable_purge_protection"] = enable_purge_protection
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -232,12 +321,16 @@ class ConfigurationStore(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            if soft_delete_retention_in_days is None:
+                soft_delete_retention_in_days = 7
+            __props__.__dict__["soft_delete_retention_in_days"] = soft_delete_retention_in_days
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20190201preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20191001:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20200601:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20200701preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20210301preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20211001preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20220501:ConfigurationStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -264,6 +357,8 @@ class ConfigurationStore(pulumi.CustomResource):
         __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
         __props__.__dict__["creation_date"] = None
+        __props__.__dict__["disable_local_auth"] = None
+        __props__.__dict__["enable_purge_protection"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["identity"] = None
@@ -273,6 +368,8 @@ class ConfigurationStore(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["soft_delete_retention_in_days"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
@@ -284,6 +381,22 @@ class ConfigurationStore(pulumi.CustomResource):
         The creation date of configuration store.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Disables all authentication methods other than AAD authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
+    @pulumi.getter(name="enablePurgeProtection")
+    def enable_purge_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Property specifying whether protection against purge is enabled for this configuration store.
+        """
+        return pulumi.get(self, "enable_purge_protection")
 
     @property
     @pulumi.getter
@@ -313,7 +426,7 @@ class ConfigurationStore(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location of the resource. This cannot be changed after the resource is created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -321,7 +434,7 @@ class ConfigurationStore(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -358,10 +471,26 @@ class ConfigurationStore(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of time in days that the configuration store will be retained when it is soft deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Resource system metadata.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -369,7 +498,7 @@ class ConfigurationStore(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

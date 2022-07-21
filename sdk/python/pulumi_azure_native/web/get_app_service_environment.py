@@ -21,7 +21,7 @@ class GetAppServiceEnvironmentResult:
     """
     App Service Environment ARM resource.
     """
-    def __init__(__self__, cluster_settings=None, dedicated_host_count=None, dns_suffix=None, front_end_scale_factor=None, has_linux_workers=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, provisioning_state=None, status=None, suspended=None, tags=None, type=None, user_whitelisted_ip_ranges=None, virtual_network=None):
+    def __init__(__self__, cluster_settings=None, dedicated_host_count=None, dns_suffix=None, front_end_scale_factor=None, has_linux_workers=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, provisioning_state=None, status=None, suspended=None, tags=None, type=None, user_whitelisted_ip_ranges=None, virtual_network=None, zone_redundant=None):
         if cluster_settings and not isinstance(cluster_settings, list):
             raise TypeError("Expected argument 'cluster_settings' to be a list")
         pulumi.set(__self__, "cluster_settings", cluster_settings)
@@ -85,6 +85,9 @@ class GetAppServiceEnvironmentResult:
         if virtual_network and not isinstance(virtual_network, dict):
             raise TypeError("Expected argument 'virtual_network' to be a dict")
         pulumi.set(__self__, "virtual_network", virtual_network)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="clusterSettings")
@@ -96,7 +99,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="dedicatedHostCount")
-    def dedicated_host_count(self) -> int:
+    def dedicated_host_count(self) -> Optional[int]:
         """
         Dedicated Host Count
         """
@@ -255,6 +258,14 @@ class GetAppServiceEnvironmentResult:
         """
         return pulumi.get(self, "virtual_network")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Whether or not this App Service Environment is zone-redundant.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
     # pylint: disable=using-constant-test
@@ -282,7 +293,8 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
             tags=self.tags,
             type=self.type,
             user_whitelisted_ip_ranges=self.user_whitelisted_ip_ranges,
-            virtual_network=self.virtual_network)
+            virtual_network=self.virtual_network,
+            zone_redundant=self.zone_redundant)
 
 
 def get_app_service_environment(name: Optional[str] = None,
@@ -290,7 +302,7 @@ def get_app_service_environment(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentResult:
     """
     App Service Environment ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -326,7 +338,8 @@ def get_app_service_environment(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         user_whitelisted_ip_ranges=__ret__.user_whitelisted_ip_ranges,
-        virtual_network=__ret__.virtual_network)
+        virtual_network=__ret__.virtual_network,
+        zone_redundant=__ret__.zone_redundant)
 
 
 @_utilities.lift_output_func(get_app_service_environment)
@@ -335,7 +348,7 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
     """
     App Service Environment ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the App Service Environment.

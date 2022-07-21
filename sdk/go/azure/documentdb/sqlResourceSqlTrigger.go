@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB trigger.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 type SqlResourceSqlTrigger struct {
 	pulumi.CustomResourceState
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetMigrationConfigResult',
@@ -20,10 +21,13 @@ class GetMigrationConfigResult:
     """
     Single item in List or Get Migration Config operation
     """
-    def __init__(__self__, id=None, migration_state=None, name=None, pending_replication_operations_count=None, post_migration_name=None, provisioning_state=None, target_namespace=None, type=None):
+    def __init__(__self__, id=None, location=None, migration_state=None, name=None, pending_replication_operations_count=None, post_migration_name=None, provisioning_state=None, system_data=None, target_namespace=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if migration_state and not isinstance(migration_state, str):
             raise TypeError("Expected argument 'migration_state' to be a str")
         pulumi.set(__self__, "migration_state", migration_state)
@@ -39,6 +43,9 @@ class GetMigrationConfigResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if target_namespace and not isinstance(target_namespace, str):
             raise TypeError("Expected argument 'target_namespace' to be a str")
         pulumi.set(__self__, "target_namespace", target_namespace)
@@ -50,9 +57,17 @@ class GetMigrationConfigResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="migrationState")
@@ -66,7 +81,7 @@ class GetMigrationConfigResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -95,6 +110,14 @@ class GetMigrationConfigResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> str:
         """
@@ -106,7 +129,7 @@ class GetMigrationConfigResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 
@@ -118,11 +141,13 @@ class AwaitableGetMigrationConfigResult(GetMigrationConfigResult):
             yield self
         return GetMigrationConfigResult(
             id=self.id,
+            location=self.location,
             migration_state=self.migration_state,
             name=self.name,
             pending_replication_operations_count=self.pending_replication_operations_count,
             post_migration_name=self.post_migration_name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             target_namespace=self.target_namespace,
             type=self.type)
 
@@ -133,7 +158,7 @@ def get_migration_config(config_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationConfigResult:
     """
     Single item in List or Get Migration Config operation
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str config_name: The configuration name. Should always be "$default".
@@ -152,11 +177,13 @@ def get_migration_config(config_name: Optional[str] = None,
 
     return AwaitableGetMigrationConfigResult(
         id=__ret__.id,
+        location=__ret__.location,
         migration_state=__ret__.migration_state,
         name=__ret__.name,
         pending_replication_operations_count=__ret__.pending_replication_operations_count,
         post_migration_name=__ret__.post_migration_name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         target_namespace=__ret__.target_namespace,
         type=__ret__.type)
 
@@ -168,7 +195,7 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationConfigResult]:
     """
     Single item in List or Get Migration Config operation
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str config_name: The configuration name. Should always be "$default".

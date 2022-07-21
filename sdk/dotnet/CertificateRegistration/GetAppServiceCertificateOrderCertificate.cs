@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CertificateRegistration
     {
         /// <summary>
         /// Key Vault container ARM resource for a certificate that is purchased through Azure.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Key Vault container ARM resource for a certificate that is purchased through Azure.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderCertificateResult> Invoke(GetAppServiceCertificateOrderCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithDefaults());
@@ -110,10 +110,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -138,8 +134,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -151,7 +145,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

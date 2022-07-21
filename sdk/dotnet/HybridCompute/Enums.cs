@@ -8,6 +8,70 @@ using Pulumi;
 namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
+    /// Specifies the assessment mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentModeTypes : IEquatable<AssessmentModeTypes>
+    {
+        private readonly string _value;
+
+        private AssessmentModeTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentModeTypes ImageDefault { get; } = new AssessmentModeTypes("ImageDefault");
+        public static AssessmentModeTypes AutomaticByPlatform { get; } = new AssessmentModeTypes("AutomaticByPlatform");
+
+        public static bool operator ==(AssessmentModeTypes left, AssessmentModeTypes right) => left.Equals(right);
+        public static bool operator !=(AssessmentModeTypes left, AssessmentModeTypes right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentModeTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentModeTypes other && Equals(other);
+        public bool Equals(AssessmentModeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the patch mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct PatchModeTypes : IEquatable<PatchModeTypes>
+    {
+        private readonly string _value;
+
+        private PatchModeTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchModeTypes ImageDefault { get; } = new PatchModeTypes("ImageDefault");
+        public static PatchModeTypes AutomaticByPlatform { get; } = new PatchModeTypes("AutomaticByPlatform");
+        public static PatchModeTypes AutomaticByOS { get; } = new PatchModeTypes("AutomaticByOS");
+        public static PatchModeTypes Manual { get; } = new PatchModeTypes("Manual");
+
+        public static bool operator ==(PatchModeTypes left, PatchModeTypes right) => left.Equals(right);
+        public static bool operator !=(PatchModeTypes left, PatchModeTypes right) => !left.Equals(right);
+
+        public static explicit operator string(PatchModeTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchModeTypes other && Equals(other);
+        public bool Equals(PatchModeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
     /// </summary>
     [EnumType]
@@ -37,6 +101,68 @@ namespace Pulumi.AzureNative.HybridCompute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
         public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The level code.
+    /// </summary>
+    [EnumType]
+    public readonly struct StatusLevelTypes : IEquatable<StatusLevelTypes>
+    {
+        private readonly string _value;
+
+        private StatusLevelTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StatusLevelTypes Info { get; } = new StatusLevelTypes("Info");
+        public static StatusLevelTypes Warning { get; } = new StatusLevelTypes("Warning");
+        public static StatusLevelTypes Error { get; } = new StatusLevelTypes("Error");
+
+        public static bool operator ==(StatusLevelTypes left, StatusLevelTypes right) => left.Equals(right);
+        public static bool operator !=(StatusLevelTypes left, StatusLevelTypes right) => !left.Equals(right);
+
+        public static explicit operator string(StatusLevelTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StatusLevelTypes other && Equals(other);
+        public bool Equals(StatusLevelTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

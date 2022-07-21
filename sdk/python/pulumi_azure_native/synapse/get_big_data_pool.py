@@ -118,7 +118,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[str]:
+    def creation_date(self) -> str:
         """
         The time when the Big Data pool was created.
         """
@@ -238,7 +238,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsResponse']:
+    def spark_config_properties(self) -> Optional['outputs.SparkConfigPropertiesResponse']:
         """
         Spark configuration file to specify additional properties
         """
@@ -314,12 +314,12 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBigDataPoolResult:
     """
     A Big Data pool
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['bigDataPoolName'] = big_data_pool_name
@@ -364,11 +364,11 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBigDataPoolResult]:
     """
     A Big Data pool
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

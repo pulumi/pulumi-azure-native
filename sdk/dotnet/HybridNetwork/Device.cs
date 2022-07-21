@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Device resource.
-    /// API Version: 2020-01-01-preview.
+    /// API Version: 2021-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Device")]
     public partial class Device : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

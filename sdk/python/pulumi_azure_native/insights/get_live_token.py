@@ -47,7 +47,7 @@ def get_live_token(resource_uri: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveTokenResult:
     """
     The response to a live token query.
-    API Version: 2020-06-02-preview.
+    API Version: 2021-10-14.
 
 
     :param str resource_uri: The identifier of the resource.
@@ -69,7 +69,7 @@ def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveTokenResult]:
     """
     The response to a live token query.
-    API Version: 2020-06-02-preview.
+    API Version: 2021-10-14.
 
 
     :param str resource_uri: The identifier of the resource.

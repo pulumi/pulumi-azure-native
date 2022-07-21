@@ -107,7 +107,7 @@ class AppServiceEnvironmentPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Remote Private Endpoint Connection ARM resource.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +124,7 @@ class AppServiceEnvironmentPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Remote Private Endpoint Connection ARM resource.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

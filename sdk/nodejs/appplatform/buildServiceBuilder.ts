@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * KPack Builder resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export class BuildServiceBuilder extends pulumi.CustomResource {
     /**

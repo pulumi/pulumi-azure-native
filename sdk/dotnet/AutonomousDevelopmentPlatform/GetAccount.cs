@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     {
         /// <summary>
         /// ADP account
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:autonomousdevelopmentplatform:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// ADP account
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:autonomousdevelopmentplatform:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

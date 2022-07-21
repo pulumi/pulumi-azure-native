@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// String dictionary resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListStaticSiteAppSettingsResult> InvokeAsync(ListStaticSiteAppSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteAppSettingsResult>("azure-native:web:listStaticSiteAppSettings", args ?? new ListStaticSiteAppSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListStaticSiteAppSettingsResult> Invoke(ListStaticSiteAppSettingsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListStaticSiteAppSettingsResult>("azure-native:web:listStaticSiteAppSettings", args ?? new ListStaticSiteAppSettingsInvokeArgs(), options.WithDefaults());

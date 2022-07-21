@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure Cosmos DB container.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func LookupSqlResourceSqlContainer(ctx *pulumi.Context, args *LookupSqlResourceSqlContainerArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlContainerResult, error) {
 	var rv LookupSqlResourceSqlContainerResult
 	err := ctx.Invoke("azure-native:documentdb:getSqlResourceSqlContainer", args, &rv, opts...)

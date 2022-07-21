@@ -150,8 +150,6 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ComponentLinkedStorageAccount")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComponentLinkedStorageAccount, __self__).__init__(
             'azure-native:insights/v20200301preview:ComponentLinkedStorageAccount',
             resource_name,

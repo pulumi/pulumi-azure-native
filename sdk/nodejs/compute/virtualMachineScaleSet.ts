@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
@@ -93,7 +93,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
-     * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+     * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     public readonly scaleInPolicy!: pulumi.Output<outputs.compute.ScaleInPolicyResponse | undefined>;
     /**
@@ -105,9 +105,17 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
     /**
+     * Specifies the Spot Restore properties for the virtual machine scale set.
+     */
+    public readonly spotRestorePolicy!: pulumi.Output<outputs.compute.SpotRestorePolicyResponse | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -125,7 +133,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProfileResponse | undefined>;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
@@ -163,6 +171,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["spotRestorePolicy"] = args ? args.spotRestorePolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
@@ -171,6 +180,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
@@ -191,7 +201,9 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["scaleInPolicy"] = undefined /*out*/;
             resourceInputs["singlePlacementGroup"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["spotRestorePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
@@ -263,7 +275,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+     * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     scaleInPolicy?: pulumi.Input<inputs.compute.ScaleInPolicyArgs>;
     /**
@@ -274,6 +286,10 @@ export interface VirtualMachineScaleSetArgs {
      * The virtual machine scale set sku.
      */
     sku?: pulumi.Input<inputs.compute.SkuArgs>;
+    /**
+     * Specifies the Spot Restore properties for the virtual machine scale set.
+     */
+    spotRestorePolicy?: pulumi.Input<inputs.compute.SpotRestorePolicyArgs>;
     /**
      * Resource tags
      */
@@ -291,7 +307,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     vmScaleSetName?: pulumi.Input<string>;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**

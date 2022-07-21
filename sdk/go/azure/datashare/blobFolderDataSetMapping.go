@@ -12,7 +12,7 @@ import (
 )
 
 // A Blob folder data set mapping.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type BlobFolderDataSetMapping struct {
 	pulumi.CustomResourceState
 

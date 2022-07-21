@@ -12,7 +12,7 @@ import (
 )
 
 // Issue Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ApiIssue struct {
 	pulumi.CustomResourceState
 
@@ -22,13 +22,13 @@ type ApiIssue struct {
 	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Text describing the issue.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the issue.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The issue title.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A resource identifier for the user created the issue.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -224,7 +224,7 @@ func (o ApiIssueOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiIssueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -239,7 +239,7 @@ func (o ApiIssueOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiIssueOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

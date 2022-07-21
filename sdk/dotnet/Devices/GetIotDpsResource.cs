@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The description of the provisioning service.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-02-05.
         /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the provisioning service.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-02-05.
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public readonly Outputs.IotDpsSkuInfoResponse Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.Devices
 
             Outputs.IotDpsSkuInfoResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Devices
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

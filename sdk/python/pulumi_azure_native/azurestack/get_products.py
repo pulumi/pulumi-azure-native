@@ -62,7 +62,7 @@ def get_products(product_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductsResult:
     """
     Pageable list of products.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.
@@ -91,7 +91,7 @@ def get_products_output(product_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductsResult]:
     """
     Pageable list of products.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.

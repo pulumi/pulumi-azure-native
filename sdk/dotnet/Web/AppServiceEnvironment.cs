@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// App Service Environment ARM resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : Pulumi.CustomResource
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web
         /// Dedicated Host Count
         /// </summary>
         [Output("dedicatedHostCount")]
-        public Output<int> DedicatedHostCount { get; private set; } = null!;
+        public Output<int?> DedicatedHostCount { get; private set; } = null!;
 
         /// <summary>
         /// DNS suffix of the App Service Environment.
@@ -137,6 +137,12 @@ namespace Pulumi.AzureNative.Web
         [Output("virtualNetwork")]
         public Output<Outputs.VirtualNetworkProfileResponse> VirtualNetwork { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not this App Service Environment is zone-redundant.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AppServiceEnvironment resource with the given unique name, arguments, and options.
@@ -209,6 +215,12 @@ namespace Pulumi.AzureNative.Web
             get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.NameValuePairArgs>());
             set => _clusterSettings = value;
         }
+
+        /// <summary>
+        /// Dedicated Host Count
+        /// </summary>
+        [Input("dedicatedHostCount")]
+        public Input<int>? DedicatedHostCount { get; set; }
 
         /// <summary>
         /// DNS suffix of the App Service Environment.
@@ -293,6 +305,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("virtualNetwork", required: true)]
         public Input<Inputs.VirtualNetworkProfileArgs> VirtualNetwork { get; set; } = null!;
+
+        /// <summary>
+        /// Whether or not this App Service Environment is zone-redundant.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public AppServiceEnvironmentArgs()
         {

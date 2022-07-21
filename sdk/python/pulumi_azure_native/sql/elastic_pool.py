@@ -19,10 +19,12 @@ class ElasticPoolArgs:
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None,
                  per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,10 +34,12 @@ class ElasticPoolArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
+        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         :param pulumi.Input[Union[str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that serverless pool will not shrink below, if not paused
         :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: The per database settings for the elastic pool.
         :param pulumi.Input['SkuArgs'] sku: The elastic pool SKU.
                
@@ -51,6 +55,8 @@ class ElasticPoolArgs:
         pulumi.set(__self__, "server_name", server_name)
         if elastic_pool_name is not None:
             pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+        if high_availability_replica_count is not None:
+            pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -59,6 +65,8 @@ class ElasticPoolArgs:
             pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
         if max_size_bytes is not None:
             pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+        if min_capacity is not None:
+            pulumi.set(__self__, "min_capacity", min_capacity)
         if per_database_settings is not None:
             pulumi.set(__self__, "per_database_settings", per_database_settings)
         if sku is not None:
@@ -103,6 +111,18 @@ class ElasticPoolArgs:
     @elastic_pool_name.setter
     def elastic_pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "elastic_pool_name", value)
+
+    @property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
+
+    @high_availability_replica_count.setter
+    def high_availability_replica_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "high_availability_replica_count", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -151,6 +171,18 @@ class ElasticPoolArgs:
     @max_size_bytes.setter
     def max_size_bytes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_size_bytes", value)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimal capacity that serverless pool will not shrink below, if not paused
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_capacity", value)
 
     @property
     @pulumi.getter(name="perDatabaseSettings")
@@ -213,10 +245,12 @@ class ElasticPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None,
                  per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -226,15 +260,17 @@ class ElasticPool(pulumi.CustomResource):
                  __props__=None):
         """
         An elastic pool.
-        API Version: 2020-11-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
+        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         :param pulumi.Input[Union[str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that serverless pool will not shrink below, if not paused
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: The per database settings for the elastic pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -256,7 +292,7 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An elastic pool.
-        API Version: 2020-11-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.
@@ -274,10 +310,12 @@ class ElasticPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None,
                  per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -297,10 +335,12 @@ class ElasticPool(pulumi.CustomResource):
             __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
             __props__.__dict__["elastic_pool_name"] = elastic_pool_name
+            __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             __props__.__dict__["max_size_bytes"] = max_size_bytes
+            __props__.__dict__["min_capacity"] = min_capacity
             __props__.__dict__["per_database_settings"] = per_database_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -341,11 +381,13 @@ class ElasticPool(pulumi.CustomResource):
         __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
         __props__.__dict__["creation_date"] = None
+        __props__.__dict__["high_availability_replica_count"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_configuration_id"] = None
         __props__.__dict__["max_size_bytes"] = None
+        __props__.__dict__["min_capacity"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["per_database_settings"] = None
         __props__.__dict__["sku"] = None
@@ -362,6 +404,14 @@ class ElasticPool(pulumi.CustomResource):
         The creation date of the elastic pool (ISO8601 format).
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
 
     @property
     @pulumi.getter
@@ -402,6 +452,14 @@ class ElasticPool(pulumi.CustomResource):
         The storage limit for the database elastic pool in bytes.
         """
         return pulumi.get(self, "max_size_bytes")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> pulumi.Output[Optional[float]]:
+        """
+        Minimal capacity that serverless pool will not shrink below, if not paused
+        """
+        return pulumi.get(self, "min_capacity")
 
     @property
     @pulumi.getter

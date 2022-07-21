@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Inputs
         }
 
         /// <summary>
-        /// Name of the Blob Storage Account for saving ledger files
-        /// </summary>
-        [Input("ledgerStorageAccount")]
-        public Input<string>? LedgerStorageAccount { get; set; }
-
-        /// <summary>
         /// Type of Confidential Ledger
         /// </summary>
         [Input("ledgerType")]

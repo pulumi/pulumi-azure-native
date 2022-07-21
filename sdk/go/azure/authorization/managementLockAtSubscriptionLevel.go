@@ -12,7 +12,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2017-04-01.
+// API Version: 2020-05-01.
 type ManagementLockAtSubscriptionLevel struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type ManagementLockAtSubscriptionLevel struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The owners of the lock.
 	Owners ManagementLockOwnerResponseArrayOutput `pulumi:"owners"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -162,6 +164,11 @@ func (o ManagementLockAtSubscriptionLevelOutput) Notes() pulumi.StringPtrOutput 
 // The owners of the lock.
 func (o ManagementLockAtSubscriptionLevelOutput) Owners() ManagementLockOwnerResponseArrayOutput {
 	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) ManagementLockOwnerResponseArrayOutput { return v.Owners }).(ManagementLockOwnerResponseArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ManagementLockAtSubscriptionLevelOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type of the lock - Microsoft.Authorization/locks.

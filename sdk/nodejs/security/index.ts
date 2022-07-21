@@ -7,50 +7,20 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./adaptiveApplicationControl";
 export * from "./advancedThreatProtection";
-export * from "./alertsSuppressionRule";
-export * from "./application";
 export * from "./assessment";
 export * from "./assessmentMetadataInSubscription";
-export * from "./assignment";
-export * from "./automation";
-export * from "./connector";
-export * from "./customAssessmentAutomation";
-export * from "./customEntityStoreAssignment";
 export * from "./deviceSecurityGroup";
 export * from "./getAdaptiveApplicationControl";
 export * from "./getAdvancedThreatProtection";
-export * from "./getAlertsSuppressionRule";
-export * from "./getApplication";
 export * from "./getAssessment";
 export * from "./getAssessmentMetadataInSubscription";
-export * from "./getAssignment";
-export * from "./getAutomation";
-export * from "./getConnector";
-export * from "./getCustomAssessmentAutomation";
-export * from "./getCustomEntityStoreAssignment";
 export * from "./getDeviceSecurityGroup";
-export * from "./getIngestionSetting";
 export * from "./getIotSecuritySolution";
 export * from "./getJitNetworkAccessPolicy";
-export * from "./getSecurityConnector";
-export * from "./getSecurityConnectorApplication";
-export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
-export * from "./getSqlVulnerabilityAssessmentBaselineRule";
-export * from "./getStandard";
-export * from "./getWorkspaceSetting";
-export * from "./ingestionSetting";
 export * from "./iotSecuritySolution";
 export * from "./jitNetworkAccessPolicy";
-export * from "./listIngestionSettingConnectionStrings";
-export * from "./listIngestionSettingTokens";
-export * from "./securityConnector";
-export * from "./securityConnectorApplication";
-export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
-export * from "./sqlVulnerabilityAssessmentBaselineRule";
-export * from "./standard";
-export * from "./workspaceSetting";
 
 // Export enums:
 export * from "../types/enums/security";
@@ -95,26 +65,12 @@ export {
 // Import resources to register:
 import { AdaptiveApplicationControl } from "./adaptiveApplicationControl";
 import { AdvancedThreatProtection } from "./advancedThreatProtection";
-import { AlertsSuppressionRule } from "./alertsSuppressionRule";
-import { Application } from "./application";
 import { Assessment } from "./assessment";
 import { AssessmentMetadataInSubscription } from "./assessmentMetadataInSubscription";
-import { Assignment } from "./assignment";
-import { Automation } from "./automation";
-import { Connector } from "./connector";
-import { CustomAssessmentAutomation } from "./customAssessmentAutomation";
-import { CustomEntityStoreAssignment } from "./customEntityStoreAssignment";
 import { DeviceSecurityGroup } from "./deviceSecurityGroup";
-import { IngestionSetting } from "./ingestionSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
 import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
-import { SecurityConnector } from "./securityConnector";
-import { SecurityConnectorApplication } from "./securityConnectorApplication";
-import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
-import { SqlVulnerabilityAssessmentBaselineRule } from "./sqlVulnerabilityAssessmentBaselineRule";
-import { Standard } from "./standard";
-import { WorkspaceSetting } from "./workspaceSetting";
 
 const _module = {
     version: utilities.getVersion(),
@@ -124,46 +80,18 @@ const _module = {
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
             case "azure-native:security:AdvancedThreatProtection":
                 return new AdvancedThreatProtection(name, <any>undefined, { urn })
-            case "azure-native:security:AlertsSuppressionRule":
-                return new AlertsSuppressionRule(name, <any>undefined, { urn })
-            case "azure-native:security:Application":
-                return new Application(name, <any>undefined, { urn })
             case "azure-native:security:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
             case "azure-native:security:AssessmentMetadataInSubscription":
                 return new AssessmentMetadataInSubscription(name, <any>undefined, { urn })
-            case "azure-native:security:Assignment":
-                return new Assignment(name, <any>undefined, { urn })
-            case "azure-native:security:Automation":
-                return new Automation(name, <any>undefined, { urn })
-            case "azure-native:security:Connector":
-                return new Connector(name, <any>undefined, { urn })
-            case "azure-native:security:CustomAssessmentAutomation":
-                return new CustomAssessmentAutomation(name, <any>undefined, { urn })
-            case "azure-native:security:CustomEntityStoreAssignment":
-                return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
-            case "azure-native:security:IngestionSetting":
-                return new IngestionSetting(name, <any>undefined, { urn })
             case "azure-native:security:IotSecuritySolution":
                 return new IotSecuritySolution(name, <any>undefined, { urn })
             case "azure-native:security:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
-            case "azure-native:security:SecurityConnector":
-                return new SecurityConnector(name, <any>undefined, { urn })
-            case "azure-native:security:SecurityConnectorApplication":
-                return new SecurityConnectorApplication(name, <any>undefined, { urn })
-            case "azure-native:security:SecurityContact":
-                return new SecurityContact(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
-                return new SqlVulnerabilityAssessmentBaselineRule(name, <any>undefined, { urn })
-            case "azure-native:security:Standard":
-                return new Standard(name, <any>undefined, { urn })
-            case "azure-native:security:WorkspaceSetting":
-                return new WorkspaceSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

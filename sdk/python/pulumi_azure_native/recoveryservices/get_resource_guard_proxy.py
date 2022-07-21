@@ -118,7 +118,7 @@ def get_resource_guard_proxy(resource_group_name: Optional[str] = None,
                              vault_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGuardProxyResult:
     """
-    API Version: 2021-02-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -150,7 +150,7 @@ def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[s
                                     vault_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGuardProxyResult]:
     """
-    API Version: 2021-02-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

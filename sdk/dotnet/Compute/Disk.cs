@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Disk resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Disk")]
     public partial class Disk : Pulumi.CustomResource
@@ -23,10 +23,22 @@ namespace Pulumi.AzureNative.Compute
         public Output<bool?> BurstingEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        [Output("completionPercent")]
+        public Output<double?> CompletionPercent { get; private set; } = null!;
+
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
         public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        [Output("dataAccessAuthMode")]
+        public Output<string?> DataAccessAuthMode { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -155,6 +167,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         /// </summary>
         [Output("purchasePlan")]
@@ -177,6 +195,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("sku")]
         public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// List of supported capabilities for the image from which the OS disk was created.
+        /// </summary>
+        [Output("supportedCapabilities")]
+        public Output<Outputs.SupportedCapabilitiesResponse?> SupportedCapabilities { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the OS on a disk supports hibernation.
@@ -290,10 +314,22 @@ namespace Pulumi.AzureNative.Compute
         public Input<bool>? BurstingEnabled { get; set; }
 
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        [Input("completionPercent")]
+        public Input<double>? CompletionPercent { get; set; }
+
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Input("creationData", required: true)]
         public Input<Inputs.CreationDataArgs> CreationData { get; set; } = null!;
+
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        [Input("dataAccessAuthMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DataAccessAuthMode>? DataAccessAuthMode { get; set; }
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -326,7 +362,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<double>? DiskMBpsReadWrite { get; set; }
 
         /// <summary>
-        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
@@ -386,6 +422,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Pulumi.AzureNative.Compute.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         /// </summary>
         [Input("purchasePlan")]
@@ -408,6 +450,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("sku")]
         public Input<Inputs.DiskSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// List of supported capabilities for the image from which the OS disk was created.
+        /// </summary>
+        [Input("supportedCapabilities")]
+        public Input<Inputs.SupportedCapabilitiesArgs>? SupportedCapabilities { get; set; }
 
         /// <summary>
         /// Indicates the OS on a disk supports hibernation.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Job Resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-02-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {
@@ -56,7 +56,7 @@ export interface GetJobResult {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse;
+    readonly details?: outputs.databox.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse;
     /**
      * Top level error for the job.
      */

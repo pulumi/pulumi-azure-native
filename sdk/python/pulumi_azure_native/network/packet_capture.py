@@ -184,7 +184,7 @@ class PacketCapture(pulumi.CustomResource):
                  __props__=None):
         """
         Information about packet capture session.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +206,7 @@ class PacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about packet capture session.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.

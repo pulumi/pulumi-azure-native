@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Partner Namespace.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export class PartnerNamespace extends pulumi.CustomResource {
     /**
@@ -61,6 +61,11 @@ export class PartnerNamespace extends pulumi.CustomResource {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     public readonly partnerRegistrationFullyQualifiedId!: pulumi.Output<string | undefined>;
+    /**
+     * This determines if events published to this partner namespace should use the source attribute in the event payload
+     * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+     */
+    public readonly partnerTopicRoutingMode!: pulumi.Output<string | undefined>;
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the partner namespace.
@@ -103,6 +108,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
             resourceInputs["partnerRegistrationFullyQualifiedId"] = args ? args.partnerRegistrationFullyQualifiedId : undefined;
+            resourceInputs["partnerTopicRoutingMode"] = (args ? args.partnerTopicRoutingMode : undefined) ?? "SourceEventAttribute";
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -119,6 +125,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnerRegistrationFullyQualifiedId"] = undefined /*out*/;
+            resourceInputs["partnerTopicRoutingMode"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
@@ -158,6 +165,11 @@ export interface PartnerNamespaceArgs {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     partnerRegistrationFullyQualifiedId?: pulumi.Input<string>;
+    /**
+     * This determines if events published to this partner namespace should use the source attribute in the event payload
+     * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+     */
+    partnerTopicRoutingMode?: pulumi.Input<string | enums.eventgrid.PartnerTopicRoutingMode>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />

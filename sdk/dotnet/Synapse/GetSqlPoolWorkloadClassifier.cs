@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Workload classifier operations for a data warehouse
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetSqlPoolWorkloadClassifierResult> InvokeAsync(GetSqlPoolWorkloadClassifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workload classifier operations for a data warehouse
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetSqlPoolWorkloadClassifierResult> Invoke(GetSqlPoolWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierInvokeArgs(), options.WithDefaults());
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Synapse
         public string WorkloadGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> WorkloadGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

@@ -12,7 +12,7 @@ import (
 )
 
 // Organization resource.
-// API Version: 2020-03-01.
+// API Version: 2021-12-01.
 type Organization struct {
 	pulumi.CustomResourceState
 
@@ -23,19 +23,21 @@ type Organization struct {
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Confluent offer detail
-	OfferDetail OrganizationResourcePropertiesResponseOfferDetailPtrOutput `pulumi:"offerDetail"`
+	OfferDetail OfferDetailResponseOutput `pulumi:"offerDetail"`
 	// Id of the Confluent organization.
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Provision states for confluent RP
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// SSO url for the Confluent organization.
 	SsoUrl pulumi.StringOutput `pulumi:"ssoUrl"`
+	// Metadata pertaining to creation and last modification of the resource
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Organization resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Subscriber detail
-	UserDetail OrganizationResourcePropertiesResponseUserDetailPtrOutput `pulumi:"userDetail"`
+	UserDetail UserDetailResponseOutput `pulumi:"userDetail"`
 }
 
 // NewOrganization registers a new resource with the given unique name, arguments, and options.
@@ -45,8 +47,14 @@ func NewOrganization(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.OfferDetail == nil {
+		return nil, errors.New("invalid value for required argument 'OfferDetail'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UserDetail == nil {
+		return nil, errors.New("invalid value for required argument 'UserDetail'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -101,7 +109,7 @@ type organizationArgs struct {
 	// Location of Organization resource
 	Location *string `pulumi:"location"`
 	// Confluent offer detail
-	OfferDetail *OrganizationResourcePropertiesOfferDetail `pulumi:"offerDetail"`
+	OfferDetail OfferDetail `pulumi:"offerDetail"`
 	// Organization resource name
 	OrganizationName *string `pulumi:"organizationName"`
 	// Resource group name
@@ -109,7 +117,7 @@ type organizationArgs struct {
 	// Organization resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Subscriber detail
-	UserDetail *OrganizationResourcePropertiesUserDetail `pulumi:"userDetail"`
+	UserDetail UserDetail `pulumi:"userDetail"`
 }
 
 // The set of arguments for constructing a Organization resource.
@@ -117,7 +125,7 @@ type OrganizationArgs struct {
 	// Location of Organization resource
 	Location pulumi.StringPtrInput
 	// Confluent offer detail
-	OfferDetail OrganizationResourcePropertiesOfferDetailPtrInput
+	OfferDetail OfferDetailInput
 	// Organization resource name
 	OrganizationName pulumi.StringPtrInput
 	// Resource group name
@@ -125,7 +133,7 @@ type OrganizationArgs struct {
 	// Organization resource tags
 	Tags pulumi.StringMapInput
 	// Subscriber detail
-	UserDetail OrganizationResourcePropertiesUserDetailPtrInput
+	UserDetail UserDetailInput
 }
 
 func (OrganizationArgs) ElementType() reflect.Type {
@@ -181,8 +189,8 @@ func (o OrganizationOutput) Name() pulumi.StringOutput {
 }
 
 // Confluent offer detail
-func (o OrganizationOutput) OfferDetail() OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return o.ApplyT(func(v *Organization) OrganizationResourcePropertiesResponseOfferDetailPtrOutput { return v.OfferDetail }).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
+func (o OrganizationOutput) OfferDetail() OfferDetailResponseOutput {
+	return o.ApplyT(func(v *Organization) OfferDetailResponseOutput { return v.OfferDetail }).(OfferDetailResponseOutput)
 }
 
 // Id of the Confluent organization.
@@ -200,6 +208,11 @@ func (o OrganizationOutput) SsoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.SsoUrl }).(pulumi.StringOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource
+func (o OrganizationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Organization) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Organization resource tags
 func (o OrganizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Organization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -211,8 +224,8 @@ func (o OrganizationOutput) Type() pulumi.StringOutput {
 }
 
 // Subscriber detail
-func (o OrganizationOutput) UserDetail() OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return o.ApplyT(func(v *Organization) OrganizationResourcePropertiesResponseUserDetailPtrOutput { return v.UserDetail }).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
+func (o OrganizationOutput) UserDetail() UserDetailResponseOutput {
+	return o.ApplyT(func(v *Organization) UserDetailResponseOutput { return v.UserDetail }).(UserDetailResponseOutput)
 }
 
 func init() {

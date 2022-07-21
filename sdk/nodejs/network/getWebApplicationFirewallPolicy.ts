@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines web application firewall policy.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
     if (!opts) {

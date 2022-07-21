@@ -162,7 +162,7 @@ class EmailTemplate(pulumi.CustomResource):
                  __props__=None):
         """
         Email Template details.
-        API Version: 2020-12-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class EmailTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Email Template details.
-        API Version: 2020-12-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -289,7 +289,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
         """
-        Whether the template is the default template provided by Api Management or has been edited.
+        Whether the template is the default template provided by API Management or has been edited.
         """
         return pulumi.get(self, "is_default")
 
@@ -297,7 +297,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -329,7 +329,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

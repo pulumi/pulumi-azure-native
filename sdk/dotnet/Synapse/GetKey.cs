@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// A workspace key
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A workspace key
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Synapse
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

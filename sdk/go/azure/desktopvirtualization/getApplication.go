@@ -11,7 +11,7 @@ import (
 )
 
 // Schema for Application properties.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-07-12.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:desktopvirtualization:getApplication", args, &rv, opts...)

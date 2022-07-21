@@ -76,16 +76,242 @@ type BlobShareResponse struct {
 	SasUri string `pulumi:"sasUri"`
 }
 
+// Properties for the task that validates the connection to and provides information about a MongoDB server
+type ConnectToMongoDbTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Describes a connection to a MongoDB data source
+	Input *MongoDbConnectionInfo `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Connect.MongoDb'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Properties for the task that validates the connection to and provides information about a MongoDB server
+type ConnectToMongoDbTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Describes a connection to a MongoDB data source
+	Input *MongoDbConnectionInfoResponse `pulumi:"input"`
+	// An array containing a single MongoDbClusterInfo object
+	Output []MongoDbClusterInfoResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Connect.MongoDb'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Input for the task that validates MySQL database connection
+type ConnectToSourceMySqlTaskInput struct {
+	// Permission group for validations
+	CheckPermissionsGroup *string `pulumi:"checkPermissionsGroup"`
+	// Flag for whether or not the migration is offline
+	IsOfflineMigration *bool `pulumi:"isOfflineMigration"`
+	// Information for connecting to MySQL source
+	SourceConnectionInfo MySqlConnectionInfo `pulumi:"sourceConnectionInfo"`
+	// Target Platform for the migration
+	TargetPlatform *string `pulumi:"targetPlatform"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToSourceMySqlTaskInput
+func (val *ConnectToSourceMySqlTaskInput) Defaults() *ConnectToSourceMySqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsOfflineMigration) {
+		isOfflineMigration_ := false
+		tmp.IsOfflineMigration = &isOfflineMigration_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that validates MySQL database connection
+type ConnectToSourceMySqlTaskInputResponse struct {
+	// Permission group for validations
+	CheckPermissionsGroup *string `pulumi:"checkPermissionsGroup"`
+	// Flag for whether or not the migration is offline
+	IsOfflineMigration *bool `pulumi:"isOfflineMigration"`
+	// Information for connecting to MySQL source
+	SourceConnectionInfo MySqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	// Target Platform for the migration
+	TargetPlatform *string `pulumi:"targetPlatform"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToSourceMySqlTaskInputResponse
+func (val *ConnectToSourceMySqlTaskInputResponse) Defaults() *ConnectToSourceMySqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsOfflineMigration) {
+		isOfflineMigration_ := false
+		tmp.IsOfflineMigration = &isOfflineMigration_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that validates MySQL database connection
+type ConnectToSourceMySqlTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *ConnectToSourceMySqlTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'ConnectToSource.MySql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToSourceMySqlTaskProperties
+func (val *ConnectToSourceMySqlTaskProperties) Defaults() *ConnectToSourceMySqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that validates MySQL database connection
+type ConnectToSourceMySqlTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *ConnectToSourceMySqlTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []ConnectToSourceNonSqlTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'ConnectToSource.MySql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToSourceMySqlTaskPropertiesResponse
+func (val *ConnectToSourceMySqlTaskPropertiesResponse) Defaults() *ConnectToSourceMySqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Output for connect to MySQL type source
+type ConnectToSourceNonSqlTaskOutputResponse struct {
+	// List of databases on the server
+	Databases []string `pulumi:"databases"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Server properties
+	ServerProperties ServerPropertiesResponse `pulumi:"serverProperties"`
+	// Server brand version
+	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
+	// Validation errors associated with the task
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
+}
+
+// Input for the task that validates Oracle database connection
+type ConnectToSourceOracleSyncTaskInput struct {
+	// Information for connecting to Oracle source
+	SourceConnectionInfo OracleConnectionInfo `pulumi:"sourceConnectionInfo"`
+}
+
+// Input for the task that validates Oracle database connection
+type ConnectToSourceOracleSyncTaskInputResponse struct {
+	// Information for connecting to Oracle source
+	SourceConnectionInfo OracleConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+}
+
+// Output for the task that validates Oracle database connection
+type ConnectToSourceOracleSyncTaskOutputResponse struct {
+	// List of schemas on source server
+	Databases []string `pulumi:"databases"`
+	// Source server brand version
+	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
+	// Version of the source server
+	SourceServerVersion string `pulumi:"sourceServerVersion"`
+	// Validation errors associated with the task
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
+}
+
+// Properties for the task that validates Oracle database connection
+type ConnectToSourceOracleSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *ConnectToSourceOracleSyncTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'ConnectToSource.Oracle.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Properties for the task that validates Oracle database connection
+type ConnectToSourceOracleSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *ConnectToSourceOracleSyncTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []ConnectToSourceOracleSyncTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'ConnectToSource.Oracle.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
 // Input for the task that validates connection to PostgreSQL and source server requirements
 type ConnectToSourcePostgreSqlSyncTaskInput struct {
 	// Connection information for source PostgreSQL server
 	SourceConnectionInfo PostgreSqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToSourcePostgreSqlSyncTaskInput
+func (val *ConnectToSourcePostgreSqlSyncTaskInput) Defaults() *ConnectToSourcePostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
+}
+
 // Input for the task that validates connection to PostgreSQL and source server requirements
 type ConnectToSourcePostgreSqlSyncTaskInputResponse struct {
 	// Connection information for source PostgreSQL server
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToSourcePostgreSqlSyncTaskInputResponse
+func (val *ConnectToSourcePostgreSqlSyncTaskInputResponse) Defaults() *ConnectToSourcePostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 // Output for the task that validates connection to PostgreSQL and source server requirements
@@ -104,6 +330,8 @@ type ConnectToSourcePostgreSqlSyncTaskOutputResponse struct {
 
 // Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
 type ConnectToSourcePostgreSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToSourcePostgreSqlSyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -111,8 +339,21 @@ type ConnectToSourcePostgreSqlSyncTaskProperties struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToSourcePostgreSqlSyncTaskProperties
+func (val *ConnectToSourcePostgreSqlSyncTaskProperties) Defaults() *ConnectToSourcePostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
 type ConnectToSourcePostgreSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -128,8 +369,21 @@ type ConnectToSourcePostgreSqlSyncTaskPropertiesResponse struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToSourcePostgreSqlSyncTaskPropertiesResponse
+func (val *ConnectToSourcePostgreSqlSyncTaskPropertiesResponse) Defaults() *ConnectToSourcePostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Properties for the task that validates connection to SQL Server and source server requirements for online migration
 type ConnectToSourceSqlServerSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToSourceSqlServerTaskInput `pulumi:"input"`
 	// Task type.
@@ -150,6 +404,8 @@ func (val *ConnectToSourceSqlServerSyncTaskProperties) Defaults() *ConnectToSour
 
 // Properties for the task that validates connection to SQL Server and source server requirements for online migration
 type ConnectToSourceSqlServerSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -182,10 +438,16 @@ type ConnectToSourceSqlServerTaskInput struct {
 	CheckPermissionsGroup *string `pulumi:"checkPermissionsGroup"`
 	// Flag for whether to collect agent jobs from source server.
 	CollectAgentJobs *bool `pulumi:"collectAgentJobs"`
+	// Flag for whether to collect databases from source server.
+	CollectDatabases *bool `pulumi:"collectDatabases"`
 	// Flag for whether to collect logins from source server.
 	CollectLogins *bool `pulumi:"collectLogins"`
+	// Flag for whether to collect TDE Certificate names from source server.
+	CollectTdeCertificateInfo *bool `pulumi:"collectTdeCertificateInfo"`
 	// Connection information for Source SQL Server
 	SourceConnectionInfo SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
+	// Flag for whether to validate SSIS catalog is reachable on the source server.
+	ValidateSsisCatalogOnly *bool `pulumi:"validateSsisCatalogOnly"`
 }
 
 // Defaults sets the appropriate defaults for ConnectToSourceSqlServerTaskInput
@@ -198,12 +460,24 @@ func (val *ConnectToSourceSqlServerTaskInput) Defaults() *ConnectToSourceSqlServ
 		collectAgentJobs_ := false
 		tmp.CollectAgentJobs = &collectAgentJobs_
 	}
+	if isZero(tmp.CollectDatabases) {
+		collectDatabases_ := true
+		tmp.CollectDatabases = &collectDatabases_
+	}
 	if isZero(tmp.CollectLogins) {
 		collectLogins_ := false
 		tmp.CollectLogins = &collectLogins_
 	}
+	if isZero(tmp.CollectTdeCertificateInfo) {
+		collectTdeCertificateInfo_ := false
+		tmp.CollectTdeCertificateInfo = &collectTdeCertificateInfo_
+	}
 	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
 
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
 	return &tmp
 }
 
@@ -213,10 +487,16 @@ type ConnectToSourceSqlServerTaskInputResponse struct {
 	CheckPermissionsGroup *string `pulumi:"checkPermissionsGroup"`
 	// Flag for whether to collect agent jobs from source server.
 	CollectAgentJobs *bool `pulumi:"collectAgentJobs"`
+	// Flag for whether to collect databases from source server.
+	CollectDatabases *bool `pulumi:"collectDatabases"`
 	// Flag for whether to collect logins from source server.
 	CollectLogins *bool `pulumi:"collectLogins"`
+	// Flag for whether to collect TDE Certificate names from source server.
+	CollectTdeCertificateInfo *bool `pulumi:"collectTdeCertificateInfo"`
 	// Connection information for Source SQL Server
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	// Flag for whether to validate SSIS catalog is reachable on the source server.
+	ValidateSsisCatalogOnly *bool `pulumi:"validateSsisCatalogOnly"`
 }
 
 // Defaults sets the appropriate defaults for ConnectToSourceSqlServerTaskInputResponse
@@ -229,34 +509,48 @@ func (val *ConnectToSourceSqlServerTaskInputResponse) Defaults() *ConnectToSourc
 		collectAgentJobs_ := false
 		tmp.CollectAgentJobs = &collectAgentJobs_
 	}
+	if isZero(tmp.CollectDatabases) {
+		collectDatabases_ := true
+		tmp.CollectDatabases = &collectDatabases_
+	}
 	if isZero(tmp.CollectLogins) {
 		collectLogins_ := false
 		tmp.CollectLogins = &collectLogins_
 	}
+	if isZero(tmp.CollectTdeCertificateInfo) {
+		collectTdeCertificateInfo_ := false
+		tmp.CollectTdeCertificateInfo = &collectTdeCertificateInfo_
+	}
 	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
 
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
 	return &tmp
 }
 
-// AgentJob level output for the task that validates connection to SQL Server and also validates source server requirements
+// Agent Job level output for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
-	// The state of the original AgentJob.
+	// The state of the original Agent Job.
 	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of AgentJob.
+	// The type of Agent Job.
 	JobCategory string `pulumi:"jobCategory"`
-	// The owner of the AgentJob
+	// The owner of the Agent Job
 	JobOwner string `pulumi:"jobOwner"`
-	// UTC Date and time when the AgentJob was last executed.
+	// UTC Date and time when the Agent Job was last executed.
 	LastExecutedOn string `pulumi:"lastExecutedOn"`
 	// Information about eligibility of agent job for migration.
 	MigrationEligibility MigrationEligibilityInfoResponse `pulumi:"migrationEligibility"`
-	// AgentJob name
+	// Agent Job name
 	Name string `pulumi:"name"`
 	// Type of result - database level or task level
 	// Expected value is 'AgentJobLevelOutput'.
 	ResultType string `pulumi:"resultType"`
+	// Validation errors
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
 
 // Database level output for the task that validates connection to SQL Server and also validates source server requirements
@@ -301,6 +595,8 @@ type ConnectToSourceSqlServerTaskOutputLoginLevelResponse struct {
 type ConnectToSourceSqlServerTaskOutputTaskLevelResponse struct {
 	// Source agent jobs as a map from agent job name to id.
 	AgentJobs map[string]string `pulumi:"agentJobs"`
+	// Mapping from database name to TDE certificate name, if applicable
+	DatabaseTdeCertificateMapping map[string]string `pulumi:"databaseTdeCertificateMapping"`
 	// Source databases as a map from database name to database id
 	Databases map[string]string `pulumi:"databases"`
 	// Result identifier
@@ -320,6 +616,8 @@ type ConnectToSourceSqlServerTaskOutputTaskLevelResponse struct {
 
 // Properties for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToSourceSqlServerTaskInput `pulumi:"input"`
 	// Task type.
@@ -340,6 +638,8 @@ func (val *ConnectToSourceSqlServerTaskProperties) Defaults() *ConnectToSourceSq
 
 // Properties for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -368,18 +668,56 @@ func (val *ConnectToSourceSqlServerTaskPropertiesResponse) Defaults() *ConnectTo
 
 // Input for the task that validates connection to Azure Database for MySQL and target server requirements
 type ConnectToTargetAzureDbForMySqlTaskInput struct {
+	// Flag for whether or not the migration is offline
+	IsOfflineMigration *bool `pulumi:"isOfflineMigration"`
 	// Connection information for source MySQL server
 	SourceConnectionInfo MySqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for MySQL server
 	TargetConnectionInfo MySqlConnectionInfo `pulumi:"targetConnectionInfo"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForMySqlTaskInput
+func (val *ConnectToTargetAzureDbForMySqlTaskInput) Defaults() *ConnectToTargetAzureDbForMySqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsOfflineMigration) {
+		isOfflineMigration_ := false
+		tmp.IsOfflineMigration = &isOfflineMigration_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
 // Input for the task that validates connection to Azure Database for MySQL and target server requirements
 type ConnectToTargetAzureDbForMySqlTaskInputResponse struct {
+	// Flag for whether or not the migration is offline
+	IsOfflineMigration *bool `pulumi:"isOfflineMigration"`
 	// Connection information for source MySQL server
 	SourceConnectionInfo MySqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for MySQL server
 	TargetConnectionInfo MySqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForMySqlTaskInputResponse
+func (val *ConnectToTargetAzureDbForMySqlTaskInputResponse) Defaults() *ConnectToTargetAzureDbForMySqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsOfflineMigration) {
+		isOfflineMigration_ := false
+		tmp.IsOfflineMigration = &isOfflineMigration_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 // Output for the task that validates connection to Azure Database for MySQL and target server requirements
@@ -398,6 +736,8 @@ type ConnectToTargetAzureDbForMySqlTaskOutputResponse struct {
 
 // Properties for the task that validates connection to Azure Database for MySQL and target server requirements
 type ConnectToTargetAzureDbForMySqlTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToTargetAzureDbForMySqlTaskInput `pulumi:"input"`
 	// Task type.
@@ -405,8 +745,21 @@ type ConnectToTargetAzureDbForMySqlTaskProperties struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForMySqlTaskProperties
+func (val *ConnectToTargetAzureDbForMySqlTaskProperties) Defaults() *ConnectToTargetAzureDbForMySqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Properties for the task that validates connection to Azure Database for MySQL and target server requirements
 type ConnectToTargetAzureDbForMySqlTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -422,6 +775,17 @@ type ConnectToTargetAzureDbForMySqlTaskPropertiesResponse struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForMySqlTaskPropertiesResponse
+func (val *ConnectToTargetAzureDbForMySqlTaskPropertiesResponse) Defaults() *ConnectToTargetAzureDbForMySqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskInput struct {
 	// Connection information for source PostgreSQL server
@@ -430,12 +794,38 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskInput struct {
 	TargetConnectionInfo PostgreSqlConnectionInfo `pulumi:"targetConnectionInfo"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForPostgreSqlSyncTaskInput
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
 // Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	// Connection information for source PostgreSQL server
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for PostgreSQL server
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 // Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements
@@ -454,6 +844,8 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse struct {
 
 // Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -461,8 +853,21 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -476,6 +881,122 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	// Task type.
 	// Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
 	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput struct {
+	// Connection information for target Azure Database for PostgreSQL server
+	TargetConnectionInfo PostgreSqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse struct {
+	// Connection information for target Azure Database for PostgreSQL server
+	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse struct {
+	// Mapping of schemas per database
+	DatabaseSchemaMap []ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap `pulumi:"databaseSchemaMap"`
+	// List of databases on target server
+	Databases []string `pulumi:"databases"`
+	// Target server brand version
+	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
+	// Version of the target server
+	TargetServerVersion string `pulumi:"targetServerVersion"`
+	// Validation errors associated with the task
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
+}
+
+type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap struct {
+	Database *string  `pulumi:"database"`
+	Schemas  []string `pulumi:"schemas"`
+}
+
+// Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration for Oracle source.
+type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration for Oracle source.
+type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 // Input for the task that validates connection to SQL DB and target server requirements
@@ -526,6 +1047,8 @@ type ConnectToTargetSqlDbTaskOutputResponse struct {
 
 // Properties for the task that validates connection to SQL DB and target server requirements
 type ConnectToTargetSqlDbTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToTargetSqlDbTaskInput `pulumi:"input"`
 	// Task type.
@@ -546,6 +1069,8 @@ func (val *ConnectToTargetSqlDbTaskProperties) Defaults() *ConnectToTargetSqlDbT
 
 // Properties for the task that validates connection to SQL DB and target server requirements
 type ConnectToTargetSqlDbTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -600,6 +1125,8 @@ type ConnectToTargetSqlMISyncTaskOutputResponse struct {
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
 type ConnectToTargetSqlMISyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToTargetSqlMISyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -609,6 +1136,8 @@ type ConnectToTargetSqlMISyncTaskProperties struct {
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
 type ConnectToTargetSqlMISyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -626,8 +1155,14 @@ type ConnectToTargetSqlMISyncTaskPropertiesResponse struct {
 
 // Input for the task that validates connection to Azure SQL Database Managed Instance.
 type ConnectToTargetSqlMITaskInput struct {
+	// Flag for whether to collect agent jobs from target SQL MI server.
+	CollectAgentJobs *bool `pulumi:"collectAgentJobs"`
+	// Flag for whether to collect logins from target SQL MI server.
+	CollectLogins *bool `pulumi:"collectLogins"`
 	// Connection information for target SQL Server
 	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+	// Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
+	ValidateSsisCatalogOnly *bool `pulumi:"validateSsisCatalogOnly"`
 }
 
 // Defaults sets the appropriate defaults for ConnectToTargetSqlMITaskInput
@@ -636,15 +1171,33 @@ func (val *ConnectToTargetSqlMITaskInput) Defaults() *ConnectToTargetSqlMITaskIn
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := true
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := true
+		tmp.CollectLogins = &collectLogins_
+	}
 	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
 
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
 	return &tmp
 }
 
 // Input for the task that validates connection to Azure SQL Database Managed Instance.
 type ConnectToTargetSqlMITaskInputResponse struct {
+	// Flag for whether to collect agent jobs from target SQL MI server.
+	CollectAgentJobs *bool `pulumi:"collectAgentJobs"`
+	// Flag for whether to collect logins from target SQL MI server.
+	CollectLogins *bool `pulumi:"collectLogins"`
 	// Connection information for target SQL Server
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+	// Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
+	ValidateSsisCatalogOnly *bool `pulumi:"validateSsisCatalogOnly"`
 }
 
 // Defaults sets the appropriate defaults for ConnectToTargetSqlMITaskInputResponse
@@ -653,8 +1206,20 @@ func (val *ConnectToTargetSqlMITaskInputResponse) Defaults() *ConnectToTargetSql
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := true
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := true
+		tmp.CollectLogins = &collectLogins_
+	}
 	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
 
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
 	return &tmp
 }
 
@@ -676,6 +1241,8 @@ type ConnectToTargetSqlMITaskOutputResponse struct {
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
 type ConnectToTargetSqlMITaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToTargetSqlMITaskInput `pulumi:"input"`
 	// Task type.
@@ -696,6 +1263,8 @@ func (val *ConnectToTargetSqlMITaskProperties) Defaults() *ConnectToTargetSqlMIT
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
 type ConnectToTargetSqlMITaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -766,6 +1335,8 @@ func (val *ConnectToTargetSqlSqlDbSyncTaskInputResponse) Defaults() *ConnectToTa
 
 // Properties for the task that validates connection to SQL DB and target server requirements for online migration
 type ConnectToTargetSqlSqlDbSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ConnectToTargetSqlSqlDbSyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -786,6 +1357,8 @@ func (val *ConnectToTargetSqlSqlDbSyncTaskProperties) Defaults() *ConnectToTarge
 
 // Properties for the task that validates connection to SQL DB and target server requirements for online migration
 type ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -812,128 +1385,12 @@ func (val *ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse) Defaults() *Connec
 	return &tmp
 }
 
-// Details on progress of ADF copy activity
-type CopyProgressDetailsResponse struct {
-	// Copy Duration in seconds
-	CopyDuration int `pulumi:"copyDuration"`
-	// Copy Start
-	CopyStart string `pulumi:"copyStart"`
-	// Copy throughput in KBps
-	CopyThroughput float64 `pulumi:"copyThroughput"`
-	// Bytes read
-	DataRead float64 `pulumi:"dataRead"`
-	// Bytes written
-	DataWritten float64 `pulumi:"dataWritten"`
-	// Type of parallel copy (Dynamic range, Physical partition, none).
-	ParallelCopyType string `pulumi:"parallelCopyType"`
-	// Rows Copied
-	RowsCopied float64 `pulumi:"rowsCopied"`
-	// Rows read
-	RowsRead float64 `pulumi:"rowsRead"`
-	// Status of the Copy activity (InProgress, Succeeded, Failed, Canceled).
-	Status string `pulumi:"status"`
-	// Table Name
-	TableName string `pulumi:"tableName"`
-	// The degree of parallelization.
-	UsedParallelCopies int `pulumi:"usedParallelCopies"`
-}
-
-// Details on progress of ADF copy activity
-type CopyProgressDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (CopyProgressDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CopyProgressDetailsResponse)(nil)).Elem()
-}
-
-func (o CopyProgressDetailsResponseOutput) ToCopyProgressDetailsResponseOutput() CopyProgressDetailsResponseOutput {
-	return o
-}
-
-func (o CopyProgressDetailsResponseOutput) ToCopyProgressDetailsResponseOutputWithContext(ctx context.Context) CopyProgressDetailsResponseOutput {
-	return o
-}
-
-// Copy Duration in seconds
-func (o CopyProgressDetailsResponseOutput) CopyDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) int { return v.CopyDuration }).(pulumi.IntOutput)
-}
-
-// Copy Start
-func (o CopyProgressDetailsResponseOutput) CopyStart() pulumi.StringOutput {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.CopyStart }).(pulumi.StringOutput)
-}
-
-// Copy throughput in KBps
-func (o CopyProgressDetailsResponseOutput) CopyThroughput() pulumi.Float64Output {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.CopyThroughput }).(pulumi.Float64Output)
-}
-
-// Bytes read
-func (o CopyProgressDetailsResponseOutput) DataRead() pulumi.Float64Output {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.DataRead }).(pulumi.Float64Output)
-}
-
-// Bytes written
-func (o CopyProgressDetailsResponseOutput) DataWritten() pulumi.Float64Output {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.DataWritten }).(pulumi.Float64Output)
-}
-
-// Type of parallel copy (Dynamic range, Physical partition, none).
-func (o CopyProgressDetailsResponseOutput) ParallelCopyType() pulumi.StringOutput {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.ParallelCopyType }).(pulumi.StringOutput)
-}
-
-// Rows Copied
-func (o CopyProgressDetailsResponseOutput) RowsCopied() pulumi.Float64Output {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.RowsCopied }).(pulumi.Float64Output)
-}
-
-// Rows read
-func (o CopyProgressDetailsResponseOutput) RowsRead() pulumi.Float64Output {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.RowsRead }).(pulumi.Float64Output)
-}
-
-// Status of the Copy activity (InProgress, Succeeded, Failed, Canceled).
-func (o CopyProgressDetailsResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-// Table Name
-func (o CopyProgressDetailsResponseOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.TableName }).(pulumi.StringOutput)
-}
-
-// The degree of parallelization.
-func (o CopyProgressDetailsResponseOutput) UsedParallelCopies() pulumi.IntOutput {
-	return o.ApplyT(func(v CopyProgressDetailsResponse) int { return v.UsedParallelCopies }).(pulumi.IntOutput)
-}
-
-type CopyProgressDetailsResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (CopyProgressDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CopyProgressDetailsResponse)(nil)).Elem()
-}
-
-func (o CopyProgressDetailsResponseArrayOutput) ToCopyProgressDetailsResponseArrayOutput() CopyProgressDetailsResponseArrayOutput {
-	return o
-}
-
-func (o CopyProgressDetailsResponseArrayOutput) ToCopyProgressDetailsResponseArrayOutputWithContext(ctx context.Context) CopyProgressDetailsResponseArrayOutput {
-	return o
-}
-
-func (o CopyProgressDetailsResponseArrayOutput) Index(i pulumi.IntInput) CopyProgressDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CopyProgressDetailsResponse {
-		return vs[0].([]CopyProgressDetailsResponse)[vs[1].(int)]
-	}).(CopyProgressDetailsResponseOutput)
-}
-
 // Results for checksum based Data Integrity validation results
 type DataIntegrityValidationResultResponse struct {
 	// List of failed table names of source and target pair
 	FailedObjects map[string]string `pulumi:"failedObjects"`
 	// List of errors that happened while performing data integrity validation
-	ValidationErrors ValidationErrorResponse `pulumi:"validationErrors"`
+	ValidationErrors *ValidationErrorResponse `pulumi:"validationErrors"`
 }
 
 // Basic summary of a data item migration
@@ -1142,470 +1599,6 @@ func (o DatabaseInfoResponseArrayOutput) Index(i pulumi.IntInput) DatabaseInfoRe
 	}).(DatabaseInfoResponseOutput)
 }
 
-// Database Migration Resource properties for SQL database.
-type DatabaseMigrationPropertiesSqlDb struct {
-	// Expected value is 'SqlDb'.
-	Kind string `pulumi:"kind"`
-	// ID tracking current migration operation.
-	MigrationOperationId *string `pulumi:"migrationOperationId"`
-	// Resource Id of the Migration Service.
-	MigrationService *string `pulumi:"migrationService"`
-	// Error message for migration provisioning failure, if any.
-	ProvisioningError *string `pulumi:"provisioningError"`
-	// Resource Id of the target resource (SQL VM or SQL Managed Instance).
-	Scope *string `pulumi:"scope"`
-	// Name of the source database.
-	SourceDatabaseName *string `pulumi:"sourceDatabaseName"`
-	// Source SQL Server connection details.
-	SourceSqlConnection *SqlConnectionInformation `pulumi:"sourceSqlConnection"`
-	// List of tables to copy.
-	TableList []string `pulumi:"tableList"`
-	// Database collation to be used for the target database.
-	TargetDatabaseCollation *string `pulumi:"targetDatabaseCollation"`
-	// Target SQL DB connection details.
-	TargetSqlConnection *SqlConnectionInformation `pulumi:"targetSqlConnection"`
-}
-
-// DatabaseMigrationPropertiesSqlDbInput is an input type that accepts DatabaseMigrationPropertiesSqlDbArgs and DatabaseMigrationPropertiesSqlDbOutput values.
-// You can construct a concrete instance of `DatabaseMigrationPropertiesSqlDbInput` via:
-//
-//          DatabaseMigrationPropertiesSqlDbArgs{...}
-type DatabaseMigrationPropertiesSqlDbInput interface {
-	pulumi.Input
-
-	ToDatabaseMigrationPropertiesSqlDbOutput() DatabaseMigrationPropertiesSqlDbOutput
-	ToDatabaseMigrationPropertiesSqlDbOutputWithContext(context.Context) DatabaseMigrationPropertiesSqlDbOutput
-}
-
-// Database Migration Resource properties for SQL database.
-type DatabaseMigrationPropertiesSqlDbArgs struct {
-	// Expected value is 'SqlDb'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// ID tracking current migration operation.
-	MigrationOperationId pulumi.StringPtrInput `pulumi:"migrationOperationId"`
-	// Resource Id of the Migration Service.
-	MigrationService pulumi.StringPtrInput `pulumi:"migrationService"`
-	// Error message for migration provisioning failure, if any.
-	ProvisioningError pulumi.StringPtrInput `pulumi:"provisioningError"`
-	// Resource Id of the target resource (SQL VM or SQL Managed Instance).
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// Name of the source database.
-	SourceDatabaseName pulumi.StringPtrInput `pulumi:"sourceDatabaseName"`
-	// Source SQL Server connection details.
-	SourceSqlConnection SqlConnectionInformationPtrInput `pulumi:"sourceSqlConnection"`
-	// List of tables to copy.
-	TableList pulumi.StringArrayInput `pulumi:"tableList"`
-	// Database collation to be used for the target database.
-	TargetDatabaseCollation pulumi.StringPtrInput `pulumi:"targetDatabaseCollation"`
-	// Target SQL DB connection details.
-	TargetSqlConnection SqlConnectionInformationPtrInput `pulumi:"targetSqlConnection"`
-}
-
-func (DatabaseMigrationPropertiesSqlDbArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
-}
-
-func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbOutput() DatabaseMigrationPropertiesSqlDbOutput {
-	return i.ToDatabaseMigrationPropertiesSqlDbOutputWithContext(context.Background())
-}
-
-func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMigrationPropertiesSqlDbOutput)
-}
-
-func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return i.ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Background())
-}
-
-func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMigrationPropertiesSqlDbOutput).ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx)
-}
-
-// DatabaseMigrationPropertiesSqlDbPtrInput is an input type that accepts DatabaseMigrationPropertiesSqlDbArgs, DatabaseMigrationPropertiesSqlDbPtr and DatabaseMigrationPropertiesSqlDbPtrOutput values.
-// You can construct a concrete instance of `DatabaseMigrationPropertiesSqlDbPtrInput` via:
-//
-//          DatabaseMigrationPropertiesSqlDbArgs{...}
-//
-//  or:
-//
-//          nil
-type DatabaseMigrationPropertiesSqlDbPtrInput interface {
-	pulumi.Input
-
-	ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput
-	ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput
-}
-
-type databaseMigrationPropertiesSqlDbPtrType DatabaseMigrationPropertiesSqlDbArgs
-
-func DatabaseMigrationPropertiesSqlDbPtr(v *DatabaseMigrationPropertiesSqlDbArgs) DatabaseMigrationPropertiesSqlDbPtrInput {
-	return (*databaseMigrationPropertiesSqlDbPtrType)(v)
-}
-
-func (*databaseMigrationPropertiesSqlDbPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
-}
-
-func (i *databaseMigrationPropertiesSqlDbPtrType) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return i.ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Background())
-}
-
-func (i *databaseMigrationPropertiesSqlDbPtrType) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMigrationPropertiesSqlDbPtrOutput)
-}
-
-// Database Migration Resource properties for SQL database.
-type DatabaseMigrationPropertiesSqlDbOutput struct{ *pulumi.OutputState }
-
-func (DatabaseMigrationPropertiesSqlDbOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
-}
-
-func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbOutput() DatabaseMigrationPropertiesSqlDbOutput {
-	return o
-}
-
-func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbOutput {
-	return o
-}
-
-func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return o.ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Background())
-}
-
-func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseMigrationPropertiesSqlDb) *DatabaseMigrationPropertiesSqlDb {
-		return &v
-	}).(DatabaseMigrationPropertiesSqlDbPtrOutput)
-}
-
-// Expected value is 'SqlDb'.
-func (o DatabaseMigrationPropertiesSqlDbOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// ID tracking current migration operation.
-func (o DatabaseMigrationPropertiesSqlDbOutput) MigrationOperationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.MigrationOperationId }).(pulumi.StringPtrOutput)
-}
-
-// Resource Id of the Migration Service.
-func (o DatabaseMigrationPropertiesSqlDbOutput) MigrationService() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.MigrationService }).(pulumi.StringPtrOutput)
-}
-
-// Error message for migration provisioning failure, if any.
-func (o DatabaseMigrationPropertiesSqlDbOutput) ProvisioningError() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.ProvisioningError }).(pulumi.StringPtrOutput)
-}
-
-// Resource Id of the target resource (SQL VM or SQL Managed Instance).
-func (o DatabaseMigrationPropertiesSqlDbOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-// Name of the source database.
-func (o DatabaseMigrationPropertiesSqlDbOutput) SourceDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.SourceDatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Source SQL Server connection details.
-func (o DatabaseMigrationPropertiesSqlDbOutput) SourceSqlConnection() SqlConnectionInformationPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation { return v.SourceSqlConnection }).(SqlConnectionInformationPtrOutput)
-}
-
-// List of tables to copy.
-func (o DatabaseMigrationPropertiesSqlDbOutput) TableList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) []string { return v.TableList }).(pulumi.StringArrayOutput)
-}
-
-// Database collation to be used for the target database.
-func (o DatabaseMigrationPropertiesSqlDbOutput) TargetDatabaseCollation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.TargetDatabaseCollation }).(pulumi.StringPtrOutput)
-}
-
-// Target SQL DB connection details.
-func (o DatabaseMigrationPropertiesSqlDbOutput) TargetSqlConnection() SqlConnectionInformationPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation { return v.TargetSqlConnection }).(SqlConnectionInformationPtrOutput)
-}
-
-type DatabaseMigrationPropertiesSqlDbPtrOutput struct{ *pulumi.OutputState }
-
-func (DatabaseMigrationPropertiesSqlDbPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
-}
-
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return o
-}
-
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
-	return o
-}
-
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) Elem() DatabaseMigrationPropertiesSqlDbOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) DatabaseMigrationPropertiesSqlDb {
-		if v != nil {
-			return *v
-		}
-		var ret DatabaseMigrationPropertiesSqlDb
-		return ret
-	}).(DatabaseMigrationPropertiesSqlDbOutput)
-}
-
-// Expected value is 'SqlDb'.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// ID tracking current migration operation.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) MigrationOperationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MigrationOperationId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Id of the Migration Service.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) MigrationService() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MigrationService
-	}).(pulumi.StringPtrOutput)
-}
-
-// Error message for migration provisioning failure, if any.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) ProvisioningError() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningError
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Id of the target resource (SQL VM or SQL Managed Instance).
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the source database.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) SourceDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceDatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Source SQL Server connection details.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) SourceSqlConnection() SqlConnectionInformationPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation {
-		if v == nil {
-			return nil
-		}
-		return v.SourceSqlConnection
-	}).(SqlConnectionInformationPtrOutput)
-}
-
-// List of tables to copy.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) TableList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TableList
-	}).(pulumi.StringArrayOutput)
-}
-
-// Database collation to be used for the target database.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) TargetDatabaseCollation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetDatabaseCollation
-	}).(pulumi.StringPtrOutput)
-}
-
-// Target SQL DB connection details.
-func (o DatabaseMigrationPropertiesSqlDbPtrOutput) TargetSqlConnection() SqlConnectionInformationPtrOutput {
-	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation {
-		if v == nil {
-			return nil
-		}
-		return v.TargetSqlConnection
-	}).(SqlConnectionInformationPtrOutput)
-}
-
-// Database Migration Resource properties for SQL database.
-type DatabaseMigrationPropertiesSqlDbResponse struct {
-	// Database migration end time.
-	EndedOn string `pulumi:"endedOn"`
-	// Expected value is 'SqlDb'.
-	Kind string `pulumi:"kind"`
-	// Error details in case of migration failure.
-	MigrationFailureError ErrorInfoResponse `pulumi:"migrationFailureError"`
-	// ID tracking current migration operation.
-	MigrationOperationId *string `pulumi:"migrationOperationId"`
-	// Resource Id of the Migration Service.
-	MigrationService *string `pulumi:"migrationService"`
-	// Migration status.
-	MigrationStatus string `pulumi:"migrationStatus"`
-	// Detailed migration status. Not included by default.
-	MigrationStatusDetails SqlDbMigrationStatusDetailsResponse `pulumi:"migrationStatusDetails"`
-	// Offline configuration.
-	OfflineConfiguration SqlDbOfflineConfigurationResponse `pulumi:"offlineConfiguration"`
-	// Error message for migration provisioning failure, if any.
-	ProvisioningError *string `pulumi:"provisioningError"`
-	// Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource Id of the target resource (SQL VM or SQL Managed Instance).
-	Scope *string `pulumi:"scope"`
-	// Name of the source database.
-	SourceDatabaseName *string `pulumi:"sourceDatabaseName"`
-	// Name of the source sql server.
-	SourceServerName string `pulumi:"sourceServerName"`
-	// Source SQL Server connection details.
-	SourceSqlConnection *SqlConnectionInformationResponse `pulumi:"sourceSqlConnection"`
-	// Database migration start time.
-	StartedOn string `pulumi:"startedOn"`
-	// List of tables to copy.
-	TableList []string `pulumi:"tableList"`
-	// Database collation to be used for the target database.
-	TargetDatabaseCollation *string `pulumi:"targetDatabaseCollation"`
-	// Target SQL DB connection details.
-	TargetSqlConnection *SqlConnectionInformationResponse `pulumi:"targetSqlConnection"`
-}
-
-// Database Migration Resource properties for SQL database.
-type DatabaseMigrationPropertiesSqlDbResponseOutput struct{ *pulumi.OutputState }
-
-func (DatabaseMigrationPropertiesSqlDbResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseMigrationPropertiesSqlDbResponse)(nil)).Elem()
-}
-
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ToDatabaseMigrationPropertiesSqlDbResponseOutput() DatabaseMigrationPropertiesSqlDbResponseOutput {
-	return o
-}
-
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ToDatabaseMigrationPropertiesSqlDbResponseOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbResponseOutput {
-	return o
-}
-
-// Database migration end time.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) EndedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.EndedOn }).(pulumi.StringOutput)
-}
-
-// Expected value is 'SqlDb'.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Error details in case of migration failure.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationFailureError() ErrorInfoResponseOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) ErrorInfoResponse { return v.MigrationFailureError }).(ErrorInfoResponseOutput)
-}
-
-// ID tracking current migration operation.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationOperationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.MigrationOperationId }).(pulumi.StringPtrOutput)
-}
-
-// Resource Id of the Migration Service.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationService() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.MigrationService }).(pulumi.StringPtrOutput)
-}
-
-// Migration status.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.MigrationStatus }).(pulumi.StringOutput)
-}
-
-// Detailed migration status. Not included by default.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationStatusDetails() SqlDbMigrationStatusDetailsResponseOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) SqlDbMigrationStatusDetailsResponse {
-		return v.MigrationStatusDetails
-	}).(SqlDbMigrationStatusDetailsResponseOutput)
-}
-
-// Offline configuration.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) OfflineConfiguration() SqlDbOfflineConfigurationResponseOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) SqlDbOfflineConfigurationResponse {
-		return v.OfflineConfiguration
-	}).(SqlDbOfflineConfigurationResponseOutput)
-}
-
-// Error message for migration provisioning failure, if any.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ProvisioningError() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.ProvisioningError }).(pulumi.StringPtrOutput)
-}
-
-// Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource Id of the target resource (SQL VM or SQL Managed Instance).
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-// Name of the source database.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) SourceDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.SourceDatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Name of the source sql server.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) SourceServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.SourceServerName }).(pulumi.StringOutput)
-}
-
-// Source SQL Server connection details.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) SourceSqlConnection() SqlConnectionInformationResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *SqlConnectionInformationResponse {
-		return v.SourceSqlConnection
-	}).(SqlConnectionInformationResponsePtrOutput)
-}
-
-// Database migration start time.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) StartedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.StartedOn }).(pulumi.StringOutput)
-}
-
-// List of tables to copy.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) TableList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) []string { return v.TableList }).(pulumi.StringArrayOutput)
-}
-
-// Database collation to be used for the target database.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) TargetDatabaseCollation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.TargetDatabaseCollation }).(pulumi.StringPtrOutput)
-}
-
-// Target SQL DB connection details.
-func (o DatabaseMigrationPropertiesSqlDbResponseOutput) TargetSqlConnection() SqlConnectionInformationResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *SqlConnectionInformationResponse {
-		return v.TargetSqlConnection
-	}).(SqlConnectionInformationResponsePtrOutput)
-}
-
 // Summary of database results in the migration
 type DatabaseSummaryResultResponse struct {
 	// Migration end time
@@ -1638,49 +1631,16 @@ type DatabaseTableResponse struct {
 	Name string `pulumi:"name"`
 }
 
-// Error details
-type ErrorInfoResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error message.
-	Message string `pulumi:"message"`
-}
-
-// Error details
-type ErrorInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (ErrorInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorInfoResponse)(nil)).Elem()
-}
-
-func (o ErrorInfoResponseOutput) ToErrorInfoResponseOutput() ErrorInfoResponseOutput {
-	return o
-}
-
-func (o ErrorInfoResponseOutput) ToErrorInfoResponseOutputWithContext(ctx context.Context) ErrorInfoResponseOutput {
-	return o
-}
-
-// Error code.
-func (o ErrorInfoResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorInfoResponse) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Error message.
-func (o ErrorInfoResponseOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorInfoResponse) string { return v.Message }).(pulumi.StringOutput)
-}
-
 // Description about the errors happen while performing migration validation
 type ExecutionStatisticsResponse struct {
 	// CPU Time in millisecond(s) for the query execution
-	CpuTimeMs float64 `pulumi:"cpuTimeMs"`
+	CpuTimeMs *float64 `pulumi:"cpuTimeMs"`
 	// Time taken in millisecond(s) for executing the query
-	ElapsedTimeMs float64 `pulumi:"elapsedTimeMs"`
+	ElapsedTimeMs *float64 `pulumi:"elapsedTimeMs"`
 	// No. of query executions
-	ExecutionCount float64 `pulumi:"executionCount"`
+	ExecutionCount *float64 `pulumi:"executionCount"`
 	// Indicates whether the query resulted in an error
-	HasErrors bool `pulumi:"hasErrors"`
+	HasErrors *bool `pulumi:"hasErrors"`
 	// List of sql Errors
 	SqlErrors []string `pulumi:"sqlErrors"`
 	// Dictionary of sql query execution wait types and the respective statistics
@@ -1759,6 +1719,8 @@ type GetTdeCertificatesSqlTaskOutputResponse struct {
 
 // Properties for the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *GetTdeCertificatesSqlTaskInput `pulumi:"input"`
 	// Task type.
@@ -1779,6 +1741,8 @@ func (val *GetTdeCertificatesSqlTaskProperties) Defaults() *GetTdeCertificatesSq
 
 // Properties for the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -1796,6 +1760,262 @@ type GetTdeCertificatesSqlTaskPropertiesResponse struct {
 
 // Defaults sets the appropriate defaults for GetTdeCertificatesSqlTaskPropertiesResponse
 func (val *GetTdeCertificatesSqlTaskPropertiesResponse) Defaults() *GetTdeCertificatesSqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that collects user tables for the given list of databases
+type GetUserTablesMySqlTaskInput struct {
+	// Connection information for SQL Server
+	ConnectionInfo MySqlConnectionInfo `pulumi:"connectionInfo"`
+	// List of database names to collect tables for
+	SelectedDatabases []string `pulumi:"selectedDatabases"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesMySqlTaskInput
+func (val *GetUserTablesMySqlTaskInput) Defaults() *GetUserTablesMySqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that collects user tables for the given list of databases
+type GetUserTablesMySqlTaskInputResponse struct {
+	// Connection information for SQL Server
+	ConnectionInfo MySqlConnectionInfoResponse `pulumi:"connectionInfo"`
+	// List of database names to collect tables for
+	SelectedDatabases []string `pulumi:"selectedDatabases"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesMySqlTaskInputResponse
+func (val *GetUserTablesMySqlTaskInputResponse) Defaults() *GetUserTablesMySqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Output of the task that collects user tables for the given list of databases
+type GetUserTablesMySqlTaskOutputResponse struct {
+	// Mapping from database name to list of tables
+	DatabasesToTables map[string][]DatabaseTableResponse `pulumi:"databasesToTables"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Validation errors
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
+}
+
+// Properties for the task that collects user tables for the given list of databases
+type GetUserTablesMySqlTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *GetUserTablesMySqlTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'GetUserTablesMySql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesMySqlTaskProperties
+func (val *GetUserTablesMySqlTaskProperties) Defaults() *GetUserTablesMySqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that collects user tables for the given list of databases
+type GetUserTablesMySqlTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *GetUserTablesMySqlTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []GetUserTablesMySqlTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'GetUserTablesMySql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesMySqlTaskPropertiesResponse
+func (val *GetUserTablesMySqlTaskPropertiesResponse) Defaults() *GetUserTablesMySqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
+type GetUserTablesOracleTaskInput struct {
+	// Information for connecting to Oracle source
+	ConnectionInfo OracleConnectionInfo `pulumi:"connectionInfo"`
+	// List of Oracle schemas for which to collect tables
+	SelectedSchemas []string `pulumi:"selectedSchemas"`
+}
+
+// Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
+type GetUserTablesOracleTaskInputResponse struct {
+	// Information for connecting to Oracle source
+	ConnectionInfo OracleConnectionInfoResponse `pulumi:"connectionInfo"`
+	// List of Oracle schemas for which to collect tables
+	SelectedSchemas []string `pulumi:"selectedSchemas"`
+}
+
+// Output for the task that gets the list of tables contained within a provided list of Oracle schemas.
+type GetUserTablesOracleTaskOutputResponse struct {
+	// The schema this result is for
+	SchemaName string `pulumi:"schemaName"`
+	// List of valid tables found for this schema
+	Tables []DatabaseTableResponse `pulumi:"tables"`
+	// Validation errors associated with the task
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
+}
+
+// Properties for the task that collects user tables for the given list of Oracle schemas
+type GetUserTablesOracleTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *GetUserTablesOracleTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'GetUserTablesOracle'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Properties for the task that collects user tables for the given list of Oracle schemas
+type GetUserTablesOracleTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *GetUserTablesOracleTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []GetUserTablesOracleTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'GetUserTablesOracle'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
+type GetUserTablesPostgreSqlTaskInput struct {
+	// Information for connecting to PostgreSQL source
+	ConnectionInfo PostgreSqlConnectionInfo `pulumi:"connectionInfo"`
+	// List of PostgreSQL databases for which to collect tables
+	SelectedDatabases []string `pulumi:"selectedDatabases"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesPostgreSqlTaskInput
+func (val *GetUserTablesPostgreSqlTaskInput) Defaults() *GetUserTablesPostgreSqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
+type GetUserTablesPostgreSqlTaskInputResponse struct {
+	// Information for connecting to PostgreSQL source
+	ConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"connectionInfo"`
+	// List of PostgreSQL databases for which to collect tables
+	SelectedDatabases []string `pulumi:"selectedDatabases"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesPostgreSqlTaskInputResponse
+func (val *GetUserTablesPostgreSqlTaskInputResponse) Defaults() *GetUserTablesPostgreSqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Output for the task that gets the list of tables for a provided list of PostgreSQL databases.
+type GetUserTablesPostgreSqlTaskOutputResponse struct {
+	// The database this result is for
+	DatabaseName string `pulumi:"databaseName"`
+	// List of valid tables found for this database
+	Tables []DatabaseTableResponse `pulumi:"tables"`
+	// Validation errors associated with the task
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
+}
+
+// Properties for the task that collects user tables for the given list of databases
+type GetUserTablesPostgreSqlTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *GetUserTablesPostgreSqlTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'GetUserTablesPostgreSql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesPostgreSqlTaskProperties
+func (val *GetUserTablesPostgreSqlTaskProperties) Defaults() *GetUserTablesPostgreSqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that collects user tables for the given list of databases
+type GetUserTablesPostgreSqlTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *GetUserTablesPostgreSqlTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []GetUserTablesPostgreSqlTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'GetUserTablesPostgreSql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for GetUserTablesPostgreSqlTaskPropertiesResponse
+func (val *GetUserTablesPostgreSqlTaskPropertiesResponse) Defaults() *GetUserTablesPostgreSqlTaskPropertiesResponse {
 	if val == nil {
 		return nil
 	}
@@ -1869,6 +2089,8 @@ type GetUserTablesSqlSyncTaskOutputResponse struct {
 
 // Properties for the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *GetUserTablesSqlSyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -1889,6 +2111,8 @@ func (val *GetUserTablesSqlSyncTaskProperties) Defaults() *GetUserTablesSqlSyncT
 
 // Properties for the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -1965,6 +2189,8 @@ type GetUserTablesSqlTaskOutputResponse struct {
 
 // Properties for the task that collects user tables for the given list of databases
 type GetUserTablesSqlTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *GetUserTablesSqlTaskInput `pulumi:"input"`
 	// Task type.
@@ -1985,6 +2211,8 @@ func (val *GetUserTablesSqlTaskProperties) Defaults() *GetUserTablesSqlTaskPrope
 
 // Properties for the task that collects user tables for the given list of databases
 type GetUserTablesSqlTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -2064,6 +2292,287 @@ type MigrateMISyncCompleteCommandPropertiesResponse struct {
 	State string `pulumi:"state"`
 }
 
+// Properties for the task that migrates data between MongoDB data sources
+type MigrateMongoDbTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Describes how a MongoDB data migration should be performed
+	Input *MongoDbMigrationSettings `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Migrate.MongoDb'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Properties for the task that migrates data between MongoDB data sources
+type MigrateMongoDbTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Describes how a MongoDB data migration should be performed
+	Input  *MongoDbMigrationSettingsResponse `pulumi:"input"`
+	Output []interface{}                     `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Migrate.MongoDb'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
+type MigrateMySqlAzureDbForMySqlOfflineDatabaseInput struct {
+	// Name of the database
+	Name *string `pulumi:"name"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
+	// Name of target database. Note: Target database will be truncated before starting migration.
+	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
+}
+
+// Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
+type MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse struct {
+	// Name of the database
+	Name *string `pulumi:"name"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
+	// Name of target database. Note: Target database will be truncated before starting migration.
+	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
+}
+
+// Input for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+type MigrateMySqlAzureDbForMySqlOfflineTaskInput struct {
+	// Setting to set the source server read only
+	MakeSourceServerReadOnly *bool `pulumi:"makeSourceServerReadOnly"`
+	// Optional parameters for fine tuning the data transfer rate during migration
+	OptionalAgentSettings map[string]string `pulumi:"optionalAgentSettings"`
+	// Databases to migrate
+	SelectedDatabases []MigrateMySqlAzureDbForMySqlOfflineDatabaseInput `pulumi:"selectedDatabases"`
+	// Connection information for source MySQL
+	SourceConnectionInfo MySqlConnectionInfo `pulumi:"sourceConnectionInfo"`
+	// Parameter to specify when the migration started
+	StartedOn *string `pulumi:"startedOn"`
+	// Connection information for target Azure Database for MySQL
+	TargetConnectionInfo MySqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlOfflineTaskInput
+func (val *MigrateMySqlAzureDbForMySqlOfflineTaskInput) Defaults() *MigrateMySqlAzureDbForMySqlOfflineTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MakeSourceServerReadOnly) {
+		makeSourceServerReadOnly_ := false
+		tmp.MakeSourceServerReadOnly = &makeSourceServerReadOnly_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+type MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse struct {
+	// Setting to set the source server read only
+	MakeSourceServerReadOnly *bool `pulumi:"makeSourceServerReadOnly"`
+	// Optional parameters for fine tuning the data transfer rate during migration
+	OptionalAgentSettings map[string]string `pulumi:"optionalAgentSettings"`
+	// Databases to migrate
+	SelectedDatabases []MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse `pulumi:"selectedDatabases"`
+	// Connection information for source MySQL
+	SourceConnectionInfo MySqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	// Parameter to specify when the migration started
+	StartedOn *string `pulumi:"startedOn"`
+	// Connection information for target Azure Database for MySQL
+	TargetConnectionInfo MySqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse
+func (val *MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse) Defaults() *MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MakeSourceServerReadOnly) {
+		makeSourceServerReadOnly_ := false
+		tmp.MakeSourceServerReadOnly = &makeSourceServerReadOnly_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+type MigrateMySqlAzureDbForMySqlOfflineTaskOutputDatabaseLevelResponse struct {
+	// Name of the database
+	DatabaseName string `pulumi:"databaseName"`
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Number of database/object errors.
+	ErrorCount float64 `pulumi:"errorCount"`
+	// Wildcard string prefix to use for querying all errors of the item
+	ErrorPrefix string `pulumi:"errorPrefix"`
+	// Migration exceptions and warnings.
+	ExceptionsAndWarnings []ReportableExceptionResponse `pulumi:"exceptionsAndWarnings"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Last time the storage was updated
+	LastStorageUpdate string `pulumi:"lastStorageUpdate"`
+	// Migration progress message
+	Message string `pulumi:"message"`
+	// Number of objects
+	NumberOfObjects float64 `pulumi:"numberOfObjects"`
+	// Number of successfully completed objects
+	NumberOfObjectsCompleted float64 `pulumi:"numberOfObjectsCompleted"`
+	// Summary of object results in the migration
+	ObjectSummary map[string]DataItemMigrationSummaryResultResponse `pulumi:"objectSummary"`
+	// Wildcard string prefix to use for querying all sub-tem results of the item
+	ResultPrefix string `pulumi:"resultPrefix"`
+	// Result type
+	// Expected value is 'DatabaseLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Migration stage that this database is in
+	Stage string `pulumi:"stage"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current state of migration
+	State string `pulumi:"state"`
+	// Status message
+	StatusMessage string `pulumi:"statusMessage"`
+}
+
+type MigrateMySqlAzureDbForMySqlOfflineTaskOutputErrorResponse struct {
+	// Migration error
+	Error ReportableExceptionResponse `pulumi:"error"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Result type
+	// Expected value is 'ErrorOutput'.
+	ResultType string `pulumi:"resultType"`
+}
+
+type MigrateMySqlAzureDbForMySqlOfflineTaskOutputMigrationLevelResponse struct {
+	// Summary of database results in the migration
+	DatabaseSummary map[string]DatabaseSummaryResultResponse `pulumi:"databaseSummary"`
+	// Selected databases as a map from database name to database id
+	Databases map[string]string `pulumi:"databases"`
+	// Duration of task execution in seconds.
+	DurationInSeconds float64 `pulumi:"durationInSeconds"`
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Migration exceptions and warnings.
+	ExceptionsAndWarnings []ReportableExceptionResponse `pulumi:"exceptionsAndWarnings"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Last time the storage was updated
+	LastStorageUpdate string `pulumi:"lastStorageUpdate"`
+	// Migration progress message
+	Message string `pulumi:"message"`
+	// Migration Report Result, provides unique url for downloading your migration report.
+	MigrationReportResult *MigrationReportResultResponse `pulumi:"migrationReportResult"`
+	// Result type
+	// Expected value is 'MigrationLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Source server brand version
+	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
+	// Source server version
+	SourceServerVersion string `pulumi:"sourceServerVersion"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current status of migration
+	Status string `pulumi:"status"`
+	// Migration status message
+	StatusMessage string `pulumi:"statusMessage"`
+	// Target server brand version
+	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
+	// Target server version
+	TargetServerVersion string `pulumi:"targetServerVersion"`
+}
+
+type MigrateMySqlAzureDbForMySqlOfflineTaskOutputTableLevelResponse struct {
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Wildcard string prefix to use for querying all errors of the item
+	ErrorPrefix string `pulumi:"errorPrefix"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Number of successfully completed items
+	ItemsCompletedCount float64 `pulumi:"itemsCompletedCount"`
+	// Number of items
+	ItemsCount float64 `pulumi:"itemsCount"`
+	// Last time the storage was updated
+	LastStorageUpdate string `pulumi:"lastStorageUpdate"`
+	// Name of the item
+	ObjectName string `pulumi:"objectName"`
+	// Wildcard string prefix to use for querying all sub-tem results of the item
+	ResultPrefix string `pulumi:"resultPrefix"`
+	// Result type
+	// Expected value is 'TableLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current state of migration
+	State string `pulumi:"state"`
+	// Status message
+	StatusMessage string `pulumi:"statusMessage"`
+}
+
+// Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+type MigrateMySqlAzureDbForMySqlOfflineTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *MigrateMySqlAzureDbForMySqlOfflineTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Migrate.MySql.AzureDbForMySql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlOfflineTaskProperties
+func (val *MigrateMySqlAzureDbForMySqlOfflineTaskProperties) Defaults() *MigrateMySqlAzureDbForMySqlOfflineTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+type MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []interface{} `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Migrate.MySql.AzureDbForMySql'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse
+func (val *MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse) Defaults() *MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Database specific information for MySQL to Azure Database for MySQL migration task inputs
 type MigrateMySqlAzureDbForMySqlSyncDatabaseInput struct {
 	// Migration settings which tune the migration behavior
@@ -2072,6 +2581,8 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInput struct {
 	Name *string `pulumi:"name"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
@@ -2086,6 +2597,8 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse struct {
 	Name *string `pulumi:"name"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
@@ -2102,6 +2615,19 @@ type MigrateMySqlAzureDbForMySqlSyncTaskInput struct {
 	TargetConnectionInfo MySqlConnectionInfo `pulumi:"targetConnectionInfo"`
 }
 
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlSyncTaskInput
+func (val *MigrateMySqlAzureDbForMySqlSyncTaskInput) Defaults() *MigrateMySqlAzureDbForMySqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
 // Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
 type MigrateMySqlAzureDbForMySqlSyncTaskInputResponse struct {
 	// Databases to migrate
@@ -2110,6 +2636,19 @@ type MigrateMySqlAzureDbForMySqlSyncTaskInputResponse struct {
 	SourceConnectionInfo MySqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for MySQL
 	TargetConnectionInfo MySqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlSyncTaskInputResponse
+func (val *MigrateMySqlAzureDbForMySqlSyncTaskInputResponse) Defaults() *MigrateMySqlAzureDbForMySqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse struct {
@@ -2228,6 +2767,8 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse struct {
 
 // Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
 type MigrateMySqlAzureDbForMySqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *MigrateMySqlAzureDbForMySqlSyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -2235,8 +2776,21 @@ type MigrateMySqlAzureDbForMySqlSyncTaskProperties struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlSyncTaskProperties
+func (val *MigrateMySqlAzureDbForMySqlSyncTaskProperties) Defaults() *MigrateMySqlAzureDbForMySqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
 // Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
 type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -2252,12 +2806,273 @@ type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse struct {
 	TaskType string `pulumi:"taskType"`
 }
 
+// Defaults sets the appropriate defaults for MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse
+func (val *MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse) Defaults() *MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
+type MigrateOracleAzureDbForPostgreSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *MigrateOracleAzureDbPostgreSqlSyncTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigrateOracleAzureDbForPostgreSqlSyncTaskProperties
+func (val *MigrateOracleAzureDbForPostgreSqlSyncTaskProperties) Defaults() *MigrateOracleAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
+type MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []interface{} `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse
+func (val *MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
+type MigrateOracleAzureDbPostgreSqlSyncDatabaseInput struct {
+	// How to handle object name casing: either Preserve or ToLower
+	CaseManipulation *string `pulumi:"caseManipulation"`
+	// Migration settings which tune the migration behavior
+	MigrationSetting map[string]string `pulumi:"migrationSetting"`
+	// Name of the migration pipeline
+	Name *string `pulumi:"name"`
+	// Name of the source schema
+	SchemaName *string `pulumi:"schemaName"`
+	// Source settings to tune source endpoint migration behavior
+	SourceSetting map[string]string `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
+	// Name of target database. Note: Target database will be truncated before starting migration.
+	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
+	// Target settings to tune target endpoint migration behavior
+	TargetSetting map[string]string `pulumi:"targetSetting"`
+}
+
+// Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
+type MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse struct {
+	// How to handle object name casing: either Preserve or ToLower
+	CaseManipulation *string `pulumi:"caseManipulation"`
+	// Migration settings which tune the migration behavior
+	MigrationSetting map[string]string `pulumi:"migrationSetting"`
+	// Name of the migration pipeline
+	Name *string `pulumi:"name"`
+	// Name of the source schema
+	SchemaName *string `pulumi:"schemaName"`
+	// Source settings to tune source endpoint migration behavior
+	SourceSetting map[string]string `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
+	// Name of target database. Note: Target database will be truncated before starting migration.
+	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
+	// Target settings to tune target endpoint migration behavior
+	TargetSetting map[string]string `pulumi:"targetSetting"`
+}
+
+// Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+type MigrateOracleAzureDbPostgreSqlSyncTaskInput struct {
+	// Databases to migrate
+	SelectedDatabases []MigrateOracleAzureDbPostgreSqlSyncDatabaseInput `pulumi:"selectedDatabases"`
+	// Connection information for source Oracle
+	SourceConnectionInfo OracleConnectionInfo `pulumi:"sourceConnectionInfo"`
+	// Connection information for target Azure Database for PostgreSQL
+	TargetConnectionInfo PostgreSqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateOracleAzureDbPostgreSqlSyncTaskInput
+func (val *MigrateOracleAzureDbPostgreSqlSyncTaskInput) Defaults() *MigrateOracleAzureDbPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+type MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse struct {
+	// Databases to migrate
+	SelectedDatabases []MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
+	// Connection information for source Oracle
+	SourceConnectionInfo OracleConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	// Connection information for target Azure Database for PostgreSQL
+	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse
+func (val *MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse) Defaults() *MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+type MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse struct {
+	// Error message
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// List of error events.
+	Events []SyncMigrationDatabaseErrorEventResponse `pulumi:"events"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Result type
+	// Expected value is 'DatabaseLevelErrorOutput'.
+	ResultType string `pulumi:"resultType"`
+}
+
+type MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse struct {
+	// Number of applied changes
+	AppliedChanges float64 `pulumi:"appliedChanges"`
+	// Number of cdc deletes
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
+	// Number of cdc inserts
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
+	// Number of cdc updates
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
+	// Name of the database
+	DatabaseName string `pulumi:"databaseName"`
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Number of tables completed in full load
+	FullLoadCompletedTables float64 `pulumi:"fullLoadCompletedTables"`
+	// Number of tables errored in full load
+	FullLoadErroredTables float64 `pulumi:"fullLoadErroredTables"`
+	// Number of tables loading in full load
+	FullLoadLoadingTables float64 `pulumi:"fullLoadLoadingTables"`
+	// Number of tables queued in full load
+	FullLoadQueuedTables float64 `pulumi:"fullLoadQueuedTables"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Number of incoming changes
+	IncomingChanges float64 `pulumi:"incomingChanges"`
+	// Indicates if initial load (full load) has been completed
+	InitializationCompleted bool `pulumi:"initializationCompleted"`
+	// CDC apply latency
+	Latency float64 `pulumi:"latency"`
+	// Migration state that this database is in
+	MigrationState string `pulumi:"migrationState"`
+	// Result type
+	// Expected value is 'DatabaseLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+}
+
+type MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse struct {
+	// Migration error
+	Error ReportableExceptionResponse `pulumi:"error"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Result type
+	// Expected value is 'ErrorOutput'.
+	ResultType string `pulumi:"resultType"`
+}
+
+type MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse struct {
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Result type
+	// Expected value is 'MigrationLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Source server name
+	SourceServer string `pulumi:"sourceServer"`
+	// Source server version
+	SourceServerVersion string `pulumi:"sourceServerVersion"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Target server name
+	TargetServer string `pulumi:"targetServer"`
+	// Target server version
+	TargetServerVersion string `pulumi:"targetServerVersion"`
+}
+
+type MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse struct {
+	// Number of applied deletes
+	CdcDeleteCounter float64 `pulumi:"cdcDeleteCounter"`
+	// Number of applied inserts
+	CdcInsertCounter float64 `pulumi:"cdcInsertCounter"`
+	// Number of applied updates
+	CdcUpdateCounter float64 `pulumi:"cdcUpdateCounter"`
+	// Number of data errors occurred
+	DataErrorsCounter float64 `pulumi:"dataErrorsCounter"`
+	// Name of the database
+	DatabaseName string `pulumi:"databaseName"`
+	// Full load end time
+	FullLoadEndedOn string `pulumi:"fullLoadEndedOn"`
+	// Estimate to finish full load
+	FullLoadEstFinishTime string `pulumi:"fullLoadEstFinishTime"`
+	// Full load start time
+	FullLoadStartedOn string `pulumi:"fullLoadStartedOn"`
+	// Number of rows applied in full load
+	FullLoadTotalRows float64 `pulumi:"fullLoadTotalRows"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Last modified time on target
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// Result type
+	// Expected value is 'TableLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Current state of the table migration
+	State string `pulumi:"state"`
+	// Name of the table
+	TableName string `pulumi:"tableName"`
+	// Total number of applied changes
+	TotalChangesApplied float64 `pulumi:"totalChangesApplied"`
+}
+
 // Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
 type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput struct {
 	// Migration settings which tune the migration behavior
 	MigrationSetting map[string]string `pulumi:"migrationSetting"`
 	// Name of the database
 	Name *string `pulumi:"name"`
+	// Tables selected for migration
+	SelectedTables []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput `pulumi:"selectedTables"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
@@ -2272,12 +3087,26 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse struct {
 	MigrationSetting map[string]string `pulumi:"migrationSetting"`
 	// Name of the database
 	Name *string `pulumi:"name"`
+	// Tables selected for migration
+	SelectedTables []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse `pulumi:"selectedTables"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
 	TargetSetting map[string]string `pulumi:"targetSetting"`
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput struct {
+	// Name of the table to migrate
+	Name *string `pulumi:"name"`
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse struct {
+	// Name of the table to migrate
+	Name *string `pulumi:"name"`
 }
 
 // Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
@@ -2290,6 +3119,19 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput struct {
 	TargetConnectionInfo PostgreSqlConnectionInfo `pulumi:"targetConnectionInfo"`
 }
 
+// Defaults sets the appropriate defaults for MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
 // Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	// Databases to migrate
@@ -2298,6 +3140,19 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for PostgreSQL
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse struct {
@@ -2370,12 +3225,18 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse s
 	ResultType string `pulumi:"resultType"`
 	// Source server name
 	SourceServer string `pulumi:"sourceServer"`
+	// Source server type.
+	SourceServerType string `pulumi:"sourceServerType"`
 	// Source server version
 	SourceServerVersion string `pulumi:"sourceServerVersion"`
 	// Migration start time
 	StartedOn string `pulumi:"startedOn"`
+	// Migration status
+	State string `pulumi:"state"`
 	// Target server name
 	TargetServer string `pulumi:"targetServer"`
+	// Target server type.
+	TargetServerType string `pulumi:"targetServerType"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
 }
@@ -2416,15 +3277,30 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse struc
 
 // Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput `pulumi:"input"`
 	// Task type.
-	// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync'.
+	// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
 	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 // Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -2436,8 +3312,19 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	// The state of the task. This is ignored if submitted.
 	State string `pulumi:"state"`
 	// Task type.
-	// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync'.
+	// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
 	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 // Database specific information for SQL to Azure SQL DB migration task inputs
@@ -2672,6 +3559,8 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse struct {
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
 type MigrateSqlServerSqlDbSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *MigrateSqlServerSqlDbSyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -2692,6 +3581,8 @@ func (val *MigrateSqlServerSqlDbSyncTaskProperties) Defaults() *MigrateSqlServer
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
 type MigrateSqlServerSqlDbSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -2772,7 +3663,6 @@ func (val *MigrateSqlServerSqlDbTaskInputResponse) Defaults() *MigrateSqlServerS
 	return &tmp
 }
 
-// Database level result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Name of the item
 	DatabaseName string `pulumi:"databaseName"`
@@ -2809,7 +3699,6 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	StatusMessage string `pulumi:"statusMessage"`
 }
 
-// Database validation result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse struct {
 	// Provides data integrity validation result between the source and target tables that are migrated.
 	DataIntegrityValidationResult DataIntegrityValidationResultResponse `pulumi:"dataIntegrityValidationResult"`
@@ -2836,7 +3725,6 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse struct
 	TargetDatabaseName string `pulumi:"targetDatabaseName"`
 }
 
-// Task errors for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputErrorResponse struct {
 	// Migration error
 	Error ReportableExceptionResponse `pulumi:"error"`
@@ -2847,7 +3735,6 @@ type MigrateSqlServerSqlDbTaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// Migration level result for Sql server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	// Summary of database results in the migration
 	DatabaseSummary map[string]DatabaseSummaryResultResponse `pulumi:"databaseSummary"`
@@ -2864,7 +3751,9 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	// Migration progress message
 	Message string `pulumi:"message"`
 	// Migration Report Result, provides unique url for downloading your migration report.
-	MigrationReport MigrationReportResultResponse `pulumi:"migrationReport"`
+	MigrationReportResult *MigrationReportResultResponse `pulumi:"migrationReportResult"`
+	// Migration Validation Results
+	MigrationValidationResult *MigrationValidationResultResponse `pulumi:"migrationValidationResult"`
 	// Result type
 	// Expected value is 'MigrationLevelOutput'.
 	ResultType string `pulumi:"resultType"`
@@ -2884,7 +3773,6 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	TargetServerVersion string `pulumi:"targetServerVersion"`
 }
 
-// Table level result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputTableLevelResponse struct {
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
@@ -2911,9 +3799,8 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponse struct {
 	StatusMessage string `pulumi:"statusMessage"`
 }
 
-// Validation result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputValidationResultResponse struct {
-	// Result identifier
+	// Migration validation result identifier
 	Id string `pulumi:"id"`
 	// Migration Identifier
 	MigrationId string `pulumi:"migrationId"`
@@ -2928,6 +3815,8 @@ type MigrateSqlServerSqlDbTaskOutputValidationResultResponse struct {
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
 type MigrateSqlServerSqlDbTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *MigrateSqlServerSqlDbTaskInput `pulumi:"input"`
 	// Task type.
@@ -2948,6 +3837,8 @@ func (val *MigrateSqlServerSqlDbTaskProperties) Defaults() *MigrateSqlServerSqlD
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
 type MigrateSqlServerSqlDbTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -3124,6 +4015,8 @@ type MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse struct {
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
 type MigrateSqlServerSqlMISyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *MigrateSqlServerSqlMISyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -3144,6 +4037,8 @@ func (val *MigrateSqlServerSqlMISyncTaskProperties) Defaults() *MigrateSqlServer
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
 type MigrateSqlServerSqlMISyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -3172,6 +4067,8 @@ func (val *MigrateSqlServerSqlMISyncTaskPropertiesResponse) Defaults() *MigrateS
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
 type MigrateSqlServerSqlMITaskInput struct {
+	// Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
+	AadDomainName *string `pulumi:"aadDomainName"`
 	// SAS URI of Azure Storage Account Container to be used for storing backup files.
 	BackupBlobShare BlobShare `pulumi:"backupBlobShare"`
 	// Backup file share information for all selected databases.
@@ -3205,6 +4102,8 @@ func (val *MigrateSqlServerSqlMITaskInput) Defaults() *MigrateSqlServerSqlMITask
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
 type MigrateSqlServerSqlMITaskInputResponse struct {
+	// Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
+	AadDomainName *string `pulumi:"aadDomainName"`
 	// SAS URI of Azure Storage Account Container to be used for storing backup files.
 	BackupBlobShare BlobShareResponse `pulumi:"backupBlobShare"`
 	// Backup file share information for all selected databases.
@@ -3354,6 +4253,8 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponse struct {
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
 type MigrateSqlServerSqlMITaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *MigrateSqlServerSqlMITaskInput `pulumi:"input"`
 	// Task type.
@@ -3374,6 +4275,8 @@ func (val *MigrateSqlServerSqlMITaskProperties) Defaults() *MigrateSqlServerSqlM
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
 type MigrateSqlServerSqlMITaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -3391,6 +4294,156 @@ type MigrateSqlServerSqlMITaskPropertiesResponse struct {
 
 // Defaults sets the appropriate defaults for MigrateSqlServerSqlMITaskPropertiesResponse
 func (val *MigrateSqlServerSqlMITaskPropertiesResponse) Defaults() *MigrateSqlServerSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
+type MigrateSsisTaskInput struct {
+	// Information for connecting to source
+	SourceConnectionInfo SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
+	// SSIS package migration information.
+	SsisMigrationInfo SsisMigrationInfo `pulumi:"ssisMigrationInfo"`
+	// Information for connecting to target
+	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateSsisTaskInput
+func (val *MigrateSsisTaskInput) Defaults() *MigrateSsisTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+// Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
+type MigrateSsisTaskInputResponse struct {
+	// Information for connecting to source
+	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	// SSIS package migration information.
+	SsisMigrationInfo SsisMigrationInfoResponse `pulumi:"ssisMigrationInfo"`
+	// Information for connecting to target
+	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+// Defaults sets the appropriate defaults for MigrateSsisTaskInputResponse
+func (val *MigrateSsisTaskInputResponse) Defaults() *MigrateSsisTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+type MigrateSsisTaskOutputMigrationLevelResponse struct {
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Migration exceptions and warnings.
+	ExceptionsAndWarnings []ReportableExceptionResponse `pulumi:"exceptionsAndWarnings"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Migration progress message
+	Message string `pulumi:"message"`
+	// Result type
+	// Expected value is 'MigrationLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Source server brand version
+	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
+	// Source server version
+	SourceServerVersion string `pulumi:"sourceServerVersion"`
+	// Stage of SSIS migration.
+	Stage string `pulumi:"stage"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current status of migration
+	Status string `pulumi:"status"`
+	// Target server brand version
+	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
+	// Target server version
+	TargetServerVersion string `pulumi:"targetServerVersion"`
+}
+
+type MigrateSsisTaskOutputProjectLevelResponse struct {
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Migration exceptions and warnings
+	ExceptionsAndWarnings []ReportableExceptionResponse `pulumi:"exceptionsAndWarnings"`
+	// Name of the folder
+	FolderName string `pulumi:"folderName"`
+	// Result identifier
+	Id string `pulumi:"id"`
+	// Migration progress message
+	Message string `pulumi:"message"`
+	// Name of the project
+	ProjectName string `pulumi:"projectName"`
+	// Result type
+	// Expected value is 'SsisProjectLevelOutput'.
+	ResultType string `pulumi:"resultType"`
+	// Stage of SSIS migration.
+	Stage string `pulumi:"stage"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current state of migration
+	State string `pulumi:"state"`
+}
+
+// Properties for task that migrates SSIS packages from SQL Server databases to Azure SQL Database Managed Instance.
+type MigrateSsisTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Task input
+	Input *MigrateSsisTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Migrate.Ssis'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigrateSsisTaskProperties
+func (val *MigrateSsisTaskProperties) Defaults() *MigrateSsisTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for task that migrates SSIS packages from SQL Server databases to Azure SQL Database Managed Instance.
+type MigrateSsisTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Task input
+	Input *MigrateSsisTaskInputResponse `pulumi:"input"`
+	// Task output. This is ignored if submitted.
+	Output []interface{} `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Migrate.Ssis'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for MigrateSsisTaskPropertiesResponse
+func (val *MigrateSsisTaskPropertiesResponse) Defaults() *MigrateSsisTaskPropertiesResponse {
 	if val == nil {
 		return nil
 	}
@@ -3442,9 +4495,9 @@ type MigrationEligibilityInfoResponse struct {
 // Migration validation report result, contains the url for downloading the generated report.
 type MigrationReportResultResponse struct {
 	// Migration validation result identifier
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The url of the report.
-	ReportUrl string `pulumi:"reportUrl"`
+	ReportUrl *string `pulumi:"reportUrl"`
 }
 
 // Migration Validation Database level summary result
@@ -3485,8 +4538,346 @@ type MigrationValidationOptionsResponse struct {
 	EnableSchemaValidation *bool `pulumi:"enableSchemaValidation"`
 }
 
+// Migration Validation Result
+type MigrationValidationResultResponse struct {
+	// Migration validation result identifier
+	Id string `pulumi:"id"`
+	// Migration Identifier
+	MigrationId string `pulumi:"migrationId"`
+	// Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
+	Status string `pulumi:"status"`
+	// Validation summary results for each database
+	SummaryResults map[string]MigrationValidationDatabaseSummaryResultResponse `pulumi:"summaryResults"`
+}
+
+// Describes a MongoDB data source
+type MongoDbClusterInfoResponse struct {
+	// A list of non-system databases in the cluster
+	Databases []MongoDbDatabaseInfoResponse `pulumi:"databases"`
+	// Whether the cluster supports sharded collections
+	SupportsSharding bool `pulumi:"supportsSharding"`
+	// The type of data source
+	Type string `pulumi:"type"`
+	// The version of the data source in the form x.y.z (e.g. 3.6.7). Not used if Type is BlobContainer.
+	Version string `pulumi:"version"`
+}
+
+// Describes a supported collection within a MongoDB database
+type MongoDbCollectionInfoResponse struct {
+	// The average document size, or -1 if the average size is unknown
+	AverageDocumentSize float64 `pulumi:"averageDocumentSize"`
+	// The estimated total data size, in bytes, or -1 if the size is unknown.
+	DataSize float64 `pulumi:"dataSize"`
+	// The name of the database containing the collection
+	DatabaseName string `pulumi:"databaseName"`
+	// The estimated total number of documents, or -1 if the document count is unknown
+	DocumentCount float64 `pulumi:"documentCount"`
+	// Whether the collection is a capped collection (i.e. whether it has a fixed size and acts like a circular buffer)
+	IsCapped bool `pulumi:"isCapped"`
+	// Whether the collection is system collection
+	IsSystemCollection bool `pulumi:"isSystemCollection"`
+	// Whether the collection is a view of another collection
+	IsView bool `pulumi:"isView"`
+	// The unqualified name of the database or collection
+	Name string `pulumi:"name"`
+	// The qualified name of the database or collection. For a collection, this is the database-qualified name.
+	QualifiedName string `pulumi:"qualifiedName"`
+	// The shard key on the collection, or null if the collection is not sharded
+	ShardKey *MongoDbShardKeyInfoResponse `pulumi:"shardKey"`
+	// Whether the database has sharding enabled. Note that the migration task will enable sharding on the target if necessary.
+	SupportsSharding bool `pulumi:"supportsSharding"`
+	// The name of the collection that this is a view of, if IsView is true
+	ViewOf *string `pulumi:"viewOf"`
+}
+
+// Describes the progress of a collection
+type MongoDbCollectionProgressResponse struct {
+	// The number of document bytes copied during the Copying stage
+	BytesCopied float64 `pulumi:"bytesCopied"`
+	// The number of documents copied during the Copying stage
+	DocumentsCopied float64 `pulumi:"documentsCopied"`
+	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
+	ElapsedTime string `pulumi:"elapsedTime"`
+	// The errors and warnings that have occurred for the current object. The keys are the error codes.
+	Errors map[string]MongoDbErrorResponse `pulumi:"errors"`
+	// The number of oplog events awaiting replay
+	EventsPending float64 `pulumi:"eventsPending"`
+	// The number of oplog events replayed so far
+	EventsReplayed float64 `pulumi:"eventsReplayed"`
+	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
+	LastEventTime *string `pulumi:"lastEventTime"`
+	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
+	LastReplayTime *string `pulumi:"lastReplayTime"`
+	// The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
+	Name *string `pulumi:"name"`
+	// The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
+	QualifiedName *string `pulumi:"qualifiedName"`
+	// The type of progress object
+	// Expected value is 'Collection'.
+	ResultType string `pulumi:"resultType"`
+	State      string `pulumi:"state"`
+	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
+	TotalBytes float64 `pulumi:"totalBytes"`
+	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
+	TotalDocuments float64 `pulumi:"totalDocuments"`
+}
+
+// Describes how an individual MongoDB collection should be migrated
+type MongoDbCollectionSettings struct {
+	// Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
+	CanDelete *bool `pulumi:"canDelete"`
+	// Describes a MongoDB shard key
+	ShardKey *MongoDbShardKeySetting `pulumi:"shardKey"`
+	// The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
+	TargetRUs *int `pulumi:"targetRUs"`
+}
+
+// Describes how an individual MongoDB collection should be migrated
+type MongoDbCollectionSettingsResponse struct {
+	// Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
+	CanDelete *bool `pulumi:"canDelete"`
+	// Describes a MongoDB shard key
+	ShardKey *MongoDbShardKeySettingResponse `pulumi:"shardKey"`
+	// The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
+	TargetRUs *int `pulumi:"targetRUs"`
+}
+
+// Describes a connection to a MongoDB data source
+type MongoDbConnectionInfo struct {
+	// A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
+	ConnectionString string `pulumi:"connectionString"`
+	// Password credential.
+	Password *string `pulumi:"password"`
+	// Type of connection info
+	// Expected value is 'MongoDbConnectionInfo'.
+	Type string `pulumi:"type"`
+	// User name
+	UserName *string `pulumi:"userName"`
+}
+
+// Describes a connection to a MongoDB data source
+type MongoDbConnectionInfoResponse struct {
+	// A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
+	ConnectionString string `pulumi:"connectionString"`
+	// Password credential.
+	Password *string `pulumi:"password"`
+	// Type of connection info
+	// Expected value is 'MongoDbConnectionInfo'.
+	Type string `pulumi:"type"`
+	// User name
+	UserName *string `pulumi:"userName"`
+}
+
+// Describes a database within a MongoDB data source
+type MongoDbDatabaseInfoResponse struct {
+	// The average document size, or -1 if the average size is unknown
+	AverageDocumentSize float64 `pulumi:"averageDocumentSize"`
+	// A list of supported collections in a MongoDB database
+	Collections []MongoDbCollectionInfoResponse `pulumi:"collections"`
+	// The estimated total data size, in bytes, or -1 if the size is unknown.
+	DataSize float64 `pulumi:"dataSize"`
+	// The estimated total number of documents, or -1 if the document count is unknown
+	DocumentCount float64 `pulumi:"documentCount"`
+	// The unqualified name of the database or collection
+	Name string `pulumi:"name"`
+	// The qualified name of the database or collection. For a collection, this is the database-qualified name.
+	QualifiedName string `pulumi:"qualifiedName"`
+	// Whether the database has sharding enabled. Note that the migration task will enable sharding on the target if necessary.
+	SupportsSharding bool `pulumi:"supportsSharding"`
+}
+
+// Describes the progress of a database
+type MongoDbDatabaseProgressResponse struct {
+	// The number of document bytes copied during the Copying stage
+	BytesCopied float64 `pulumi:"bytesCopied"`
+	// The progress of the collections in the database. The keys are the unqualified names of the collections
+	Collections map[string]MongoDbCollectionProgressResponse `pulumi:"collections"`
+	// The number of documents copied during the Copying stage
+	DocumentsCopied float64 `pulumi:"documentsCopied"`
+	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
+	ElapsedTime string `pulumi:"elapsedTime"`
+	// The errors and warnings that have occurred for the current object. The keys are the error codes.
+	Errors map[string]MongoDbErrorResponse `pulumi:"errors"`
+	// The number of oplog events awaiting replay
+	EventsPending float64 `pulumi:"eventsPending"`
+	// The number of oplog events replayed so far
+	EventsReplayed float64 `pulumi:"eventsReplayed"`
+	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
+	LastEventTime *string `pulumi:"lastEventTime"`
+	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
+	LastReplayTime *string `pulumi:"lastReplayTime"`
+	// The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
+	Name *string `pulumi:"name"`
+	// The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
+	QualifiedName *string `pulumi:"qualifiedName"`
+	// The type of progress object
+	// Expected value is 'Database'.
+	ResultType string `pulumi:"resultType"`
+	State      string `pulumi:"state"`
+	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
+	TotalBytes float64 `pulumi:"totalBytes"`
+	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
+	TotalDocuments float64 `pulumi:"totalDocuments"`
+}
+
+// Describes how an individual MongoDB database should be migrated
+type MongoDbDatabaseSettings struct {
+	// The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
+	Collections map[string]MongoDbCollectionSettings `pulumi:"collections"`
+	// The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
+	TargetRUs *int `pulumi:"targetRUs"`
+}
+
+// Describes how an individual MongoDB database should be migrated
+type MongoDbDatabaseSettingsResponse struct {
+	// The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
+	Collections map[string]MongoDbCollectionSettingsResponse `pulumi:"collections"`
+	// The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
+	TargetRUs *int `pulumi:"targetRUs"`
+}
+
+// Describes an error or warning that occurred during a MongoDB migration
+type MongoDbErrorResponse struct {
+	// The non-localized, machine-readable code that describes the error or warning
+	Code *string `pulumi:"code"`
+	// The number of times the error or warning has occurred
+	Count *int `pulumi:"count"`
+	// The localized, human-readable message that describes the error or warning
+	Message *string `pulumi:"message"`
+	// The type of error or warning
+	Type *string `pulumi:"type"`
+}
+
+// Describes the progress of the overall migration
+type MongoDbMigrationProgressResponse struct {
+	// The number of document bytes copied during the Copying stage
+	BytesCopied float64 `pulumi:"bytesCopied"`
+	// The progress of the databases in the migration. The keys are the names of the databases
+	Databases map[string]MongoDbDatabaseProgressResponse `pulumi:"databases"`
+	// The number of documents copied during the Copying stage
+	DocumentsCopied float64 `pulumi:"documentsCopied"`
+	// The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
+	ElapsedTime string `pulumi:"elapsedTime"`
+	// The errors and warnings that have occurred for the current object. The keys are the error codes.
+	Errors map[string]MongoDbErrorResponse `pulumi:"errors"`
+	// The number of oplog events awaiting replay
+	EventsPending float64 `pulumi:"eventsPending"`
+	// The number of oplog events replayed so far
+	EventsReplayed float64 `pulumi:"eventsReplayed"`
+	// The timestamp of the last oplog event received, or null if no oplog event has been received yet
+	LastEventTime *string `pulumi:"lastEventTime"`
+	// The timestamp of the last oplog event replayed, or null if no oplog event has been replayed yet
+	LastReplayTime *string `pulumi:"lastReplayTime"`
+	// The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
+	Name *string `pulumi:"name"`
+	// The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
+	QualifiedName *string `pulumi:"qualifiedName"`
+	// The type of progress object
+	// Expected value is 'Migration'.
+	ResultType string `pulumi:"resultType"`
+	State      string `pulumi:"state"`
+	// The total number of document bytes on the source at the beginning of the Copying stage, or -1 if the total size was unknown
+	TotalBytes float64 `pulumi:"totalBytes"`
+	// The total number of documents on the source at the beginning of the Copying stage, or -1 if the total count was unknown
+	TotalDocuments float64 `pulumi:"totalDocuments"`
+}
+
+// Describes how a MongoDB data migration should be performed
+type MongoDbMigrationSettings struct {
+	// The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
+	BoostRUs *int `pulumi:"boostRUs"`
+	// The databases on the source cluster to migrate to the target. The keys are the names of the databases.
+	Databases map[string]MongoDbDatabaseSettings `pulumi:"databases"`
+	// Describes how changes will be replicated from the source to the target. The default is OneTime.
+	Replication *string `pulumi:"replication"`
+	// Settings used to connect to the source cluster
+	Source MongoDbConnectionInfo `pulumi:"source"`
+	// Settings used to connect to the target cluster
+	Target MongoDbConnectionInfo `pulumi:"target"`
+	// Settings used to limit the resource usage of the migration
+	Throttling *MongoDbThrottlingSettings `pulumi:"throttling"`
+}
+
+// Describes how a MongoDB data migration should be performed
+type MongoDbMigrationSettingsResponse struct {
+	// The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
+	BoostRUs *int `pulumi:"boostRUs"`
+	// The databases on the source cluster to migrate to the target. The keys are the names of the databases.
+	Databases map[string]MongoDbDatabaseSettingsResponse `pulumi:"databases"`
+	// Describes how changes will be replicated from the source to the target. The default is OneTime.
+	Replication *string `pulumi:"replication"`
+	// Settings used to connect to the source cluster
+	Source MongoDbConnectionInfoResponse `pulumi:"source"`
+	// Settings used to connect to the target cluster
+	Target MongoDbConnectionInfoResponse `pulumi:"target"`
+	// Settings used to limit the resource usage of the migration
+	Throttling *MongoDbThrottlingSettingsResponse `pulumi:"throttling"`
+}
+
+// Describes a field reference within a MongoDB shard key
+type MongoDbShardKeyField struct {
+	// The name of the field
+	Name string `pulumi:"name"`
+	// The field ordering
+	Order string `pulumi:"order"`
+}
+
+// Describes a field reference within a MongoDB shard key
+type MongoDbShardKeyFieldResponse struct {
+	// The name of the field
+	Name string `pulumi:"name"`
+	// The field ordering
+	Order string `pulumi:"order"`
+}
+
+// Describes a MongoDB shard key
+type MongoDbShardKeyInfoResponse struct {
+	// The fields within the shard key
+	Fields []MongoDbShardKeyFieldResponse `pulumi:"fields"`
+	// Whether the shard key is unique
+	IsUnique bool `pulumi:"isUnique"`
+}
+
+// Describes a MongoDB shard key
+type MongoDbShardKeySetting struct {
+	// The fields within the shard key
+	Fields []MongoDbShardKeyField `pulumi:"fields"`
+	// Whether the shard key is unique
+	IsUnique bool `pulumi:"isUnique"`
+}
+
+// Describes a MongoDB shard key
+type MongoDbShardKeySettingResponse struct {
+	// The fields within the shard key
+	Fields []MongoDbShardKeyFieldResponse `pulumi:"fields"`
+	// Whether the shard key is unique
+	IsUnique bool `pulumi:"isUnique"`
+}
+
+// Specifies resource limits for the migration
+type MongoDbThrottlingSettings struct {
+	// The maximum number of work items (e.g. collection copies) that will be processed in parallel
+	MaxParallelism *int `pulumi:"maxParallelism"`
+	// The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
+	MinFreeCpu *int `pulumi:"minFreeCpu"`
+	// The number of megabytes of RAM that the migrator will try to avoid using
+	MinFreeMemoryMb *int `pulumi:"minFreeMemoryMb"`
+}
+
+// Specifies resource limits for the migration
+type MongoDbThrottlingSettingsResponse struct {
+	// The maximum number of work items (e.g. collection copies) that will be processed in parallel
+	MaxParallelism *int `pulumi:"maxParallelism"`
+	// The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
+	MinFreeCpu *int `pulumi:"minFreeCpu"`
+	// The number of megabytes of RAM that the migrator will try to avoid using
+	MinFreeMemoryMb *int `pulumi:"minFreeMemoryMb"`
+}
+
 // Information for connecting to MySQL server
 type MySqlConnectionInfo struct {
+	// Whether to encrypt the connection
+	EncryptConnection *bool `pulumi:"encryptConnection"`
 	// Password credential.
 	Password *string `pulumi:"password"`
 	// Port for Server
@@ -3498,10 +4889,25 @@ type MySqlConnectionInfo struct {
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
+}
+
+// Defaults sets the appropriate defaults for MySqlConnectionInfo
+func (val *MySqlConnectionInfo) Defaults() *MySqlConnectionInfo {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	return &tmp
 }
 
 // Information for connecting to MySQL server
 type MySqlConnectionInfoResponse struct {
+	// Whether to encrypt the connection
+	EncryptConnection *bool `pulumi:"encryptConnection"`
 	// Password credential.
 	Password *string `pulumi:"password"`
 	// Port for Server
@@ -3515,114 +4921,53 @@ type MySqlConnectionInfoResponse struct {
 	UserName *string `pulumi:"userName"`
 }
 
-type NodeMonitoringDataResponse struct {
-	//  Unmatched properties from the message are deserialized in this collection.
-	AdditionalProperties map[string]interface{} `pulumi:"additionalProperties"`
-	// Available memory (MB) on the integration runtime node.
-	AvailableMemoryInMB int `pulumi:"availableMemoryInMB"`
-	// Maximum concurrent jobs on the integration runtime node.
-	ConcurrentJobsLimit int `pulumi:"concurrentJobsLimit"`
-	// The number of jobs currently running on the integration runtime node.
-	ConcurrentJobsRunning int `pulumi:"concurrentJobsRunning"`
-	// CPU percentage on the integration runtime node.
-	CpuUtilization int `pulumi:"cpuUtilization"`
-	// The maximum concurrent jobs in this integration runtime.
-	MaxConcurrentJobs int `pulumi:"maxConcurrentJobs"`
-	// Name of the integration runtime node.
-	NodeName string `pulumi:"nodeName"`
-	// Received bytes on the integration runtime node.
-	ReceivedBytes float64 `pulumi:"receivedBytes"`
-	// Sent bytes on the integration runtime node.
-	SentBytes float64 `pulumi:"sentBytes"`
-}
-
-type NodeMonitoringDataResponseOutput struct{ *pulumi.OutputState }
-
-func (NodeMonitoringDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeMonitoringDataResponse)(nil)).Elem()
-}
-
-func (o NodeMonitoringDataResponseOutput) ToNodeMonitoringDataResponseOutput() NodeMonitoringDataResponseOutput {
-	return o
-}
-
-func (o NodeMonitoringDataResponseOutput) ToNodeMonitoringDataResponseOutputWithContext(ctx context.Context) NodeMonitoringDataResponseOutput {
-	return o
-}
-
-//  Unmatched properties from the message are deserialized in this collection.
-func (o NodeMonitoringDataResponseOutput) AdditionalProperties() pulumi.MapOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapOutput)
-}
-
-// Available memory (MB) on the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) AvailableMemoryInMB() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.AvailableMemoryInMB }).(pulumi.IntOutput)
-}
-
-// Maximum concurrent jobs on the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) ConcurrentJobsLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.ConcurrentJobsLimit }).(pulumi.IntOutput)
-}
-
-// The number of jobs currently running on the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) ConcurrentJobsRunning() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.ConcurrentJobsRunning }).(pulumi.IntOutput)
-}
-
-// CPU percentage on the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) CpuUtilization() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.CpuUtilization }).(pulumi.IntOutput)
-}
-
-// The maximum concurrent jobs in this integration runtime.
-func (o NodeMonitoringDataResponseOutput) MaxConcurrentJobs() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.MaxConcurrentJobs }).(pulumi.IntOutput)
-}
-
-// Name of the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) NodeName() pulumi.StringOutput {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) string { return v.NodeName }).(pulumi.StringOutput)
-}
-
-// Received bytes on the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) ReceivedBytes() pulumi.Float64Output {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) float64 { return v.ReceivedBytes }).(pulumi.Float64Output)
-}
-
-// Sent bytes on the integration runtime node.
-func (o NodeMonitoringDataResponseOutput) SentBytes() pulumi.Float64Output {
-	return o.ApplyT(func(v NodeMonitoringDataResponse) float64 { return v.SentBytes }).(pulumi.Float64Output)
-}
-
-type NodeMonitoringDataResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (NodeMonitoringDataResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeMonitoringDataResponse)(nil)).Elem()
-}
-
-func (o NodeMonitoringDataResponseArrayOutput) ToNodeMonitoringDataResponseArrayOutput() NodeMonitoringDataResponseArrayOutput {
-	return o
-}
-
-func (o NodeMonitoringDataResponseArrayOutput) ToNodeMonitoringDataResponseArrayOutputWithContext(ctx context.Context) NodeMonitoringDataResponseArrayOutput {
-	return o
-}
-
-func (o NodeMonitoringDataResponseArrayOutput) Index(i pulumi.IntInput) NodeMonitoringDataResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeMonitoringDataResponse {
-		return vs[0].([]NodeMonitoringDataResponse)[vs[1].(int)]
-	}).(NodeMonitoringDataResponseOutput)
+// Defaults sets the appropriate defaults for MySqlConnectionInfoResponse
+func (val *MySqlConnectionInfoResponse) Defaults() *MySqlConnectionInfoResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	return &tmp
 }
 
 // Error information in OData format.
 type ODataErrorResponse struct {
 	// The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
-	Code string `pulumi:"code"`
+	Code *string `pulumi:"code"`
 	// Inner errors that caused this error
 	Details []ODataErrorResponse `pulumi:"details"`
 	// The human-readable description of the error
-	Message string `pulumi:"message"`
+	Message *string `pulumi:"message"`
+}
+
+// Information for connecting to Oracle server
+type OracleConnectionInfo struct {
+	// EZConnect or TNSName connection string.
+	DataSource string `pulumi:"dataSource"`
+	// Password credential.
+	Password *string `pulumi:"password"`
+	// Type of connection info
+	// Expected value is 'OracleConnectionInfo'.
+	Type string `pulumi:"type"`
+	// User name
+	UserName *string `pulumi:"userName"`
+}
+
+// Information for connecting to Oracle server
+type OracleConnectionInfoResponse struct {
+	// EZConnect or TNSName connection string.
+	DataSource string `pulumi:"dataSource"`
+	// Password credential.
+	Password *string `pulumi:"password"`
+	// Type of connection info
+	// Expected value is 'OracleConnectionInfo'.
+	Type string `pulumi:"type"`
+	// User name
+	UserName *string `pulumi:"userName"`
 }
 
 // Information of orphaned users on the SQL server database.
@@ -3637,12 +4982,16 @@ type OrphanedUserInfoResponse struct {
 type PostgreSqlConnectionInfo struct {
 	// Name of the database
 	DatabaseName *string `pulumi:"databaseName"`
+	// Whether to encrypt the connection
+	EncryptConnection *bool `pulumi:"encryptConnection"`
 	// Password credential.
 	Password *string `pulumi:"password"`
 	// Port for Server
 	Port int `pulumi:"port"`
 	// Name of the server
 	ServerName string `pulumi:"serverName"`
+	// Whether to trust the server certificate
+	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
 	// Type of connection info
 	// Expected value is 'PostgreSqlConnectionInfo'.
 	Type string `pulumi:"type"`
@@ -3650,21 +4999,59 @@ type PostgreSqlConnectionInfo struct {
 	UserName *string `pulumi:"userName"`
 }
 
+// Defaults sets the appropriate defaults for PostgreSqlConnectionInfo
+func (val *PostgreSqlConnectionInfo) Defaults() *PostgreSqlConnectionInfo {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
+}
+
 // Information for connecting to PostgreSQL server
 type PostgreSqlConnectionInfoResponse struct {
 	// Name of the database
 	DatabaseName *string `pulumi:"databaseName"`
+	// Whether to encrypt the connection
+	EncryptConnection *bool `pulumi:"encryptConnection"`
 	// Password credential.
 	Password *string `pulumi:"password"`
 	// Port for Server
 	Port int `pulumi:"port"`
 	// Name of the server
 	ServerName string `pulumi:"serverName"`
+	// Whether to trust the server certificate
+	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
 	// Type of connection info
 	// Expected value is 'PostgreSqlConnectionInfo'.
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
+}
+
+// Defaults sets the appropriate defaults for PostgreSqlConnectionInfoResponse
+func (val *PostgreSqlConnectionInfoResponse) Defaults() *PostgreSqlConnectionInfoResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
 }
 
 // Base class for file properties.
@@ -3902,21 +5289,21 @@ func (o ProjectFilePropertiesResponseOutput) Size() pulumi.Float64Output {
 // Results for query analysis comparison between the source and target
 type QueryAnalysisValidationResultResponse struct {
 	// List of queries executed and it's execution results in source and target
-	QueryResults QueryExecutionResultResponse `pulumi:"queryResults"`
+	QueryResults *QueryExecutionResultResponse `pulumi:"queryResults"`
 	// Errors that are part of the execution
-	ValidationErrors ValidationErrorResponse `pulumi:"validationErrors"`
+	ValidationErrors *ValidationErrorResponse `pulumi:"validationErrors"`
 }
 
 // Describes query analysis results for execution in source and target
 type QueryExecutionResultResponse struct {
 	// Query text retrieved from the source server
-	QueryText string `pulumi:"queryText"`
+	QueryText *string `pulumi:"queryText"`
 	// Query analysis result from the source
-	SourceResult ExecutionStatisticsResponse `pulumi:"sourceResult"`
+	SourceResult *ExecutionStatisticsResponse `pulumi:"sourceResult"`
 	// Total no. of statements in the batch
-	StatementsInBatch float64 `pulumi:"statementsInBatch"`
+	StatementsInBatch *float64 `pulumi:"statementsInBatch"`
 	// Query analysis result from the target
-	TargetResult ExecutionStatisticsResponse `pulumi:"targetResult"`
+	TargetResult *ExecutionStatisticsResponse `pulumi:"targetResult"`
 }
 
 // Exception object for all custom exceptions
@@ -3924,37 +5311,37 @@ type ReportableExceptionResponse struct {
 	// Actionable steps for this exception
 	ActionableMessage *string `pulumi:"actionableMessage"`
 	// The path to the file where exception occurred
-	FilePath string `pulumi:"filePath"`
+	FilePath *string `pulumi:"filePath"`
 	// Coded numerical value that is assigned to a specific exception
-	HResult int `pulumi:"hResult"`
+	HResult *int `pulumi:"hResult"`
 	// The line number where exception occurred
-	LineNumber string `pulumi:"lineNumber"`
+	LineNumber *string `pulumi:"lineNumber"`
 	// Error message
-	Message string `pulumi:"message"`
+	Message *string `pulumi:"message"`
 	// Stack trace
-	StackTrace string `pulumi:"stackTrace"`
+	StackTrace *string `pulumi:"stackTrace"`
 }
 
 // Results for schema comparison between the source and target
 type SchemaComparisonValidationResultResponse struct {
 	// List of schema differences between the source and target databases
-	SchemaDifferences SchemaComparisonValidationResultTypeResponse `pulumi:"schemaDifferences"`
+	SchemaDifferences *SchemaComparisonValidationResultTypeResponse `pulumi:"schemaDifferences"`
 	// Count of source database objects
 	SourceDatabaseObjectCount map[string]float64 `pulumi:"sourceDatabaseObjectCount"`
 	// Count of target database objects
 	TargetDatabaseObjectCount map[string]float64 `pulumi:"targetDatabaseObjectCount"`
 	// List of errors that happened while performing schema compare validation
-	ValidationErrors ValidationErrorResponse `pulumi:"validationErrors"`
+	ValidationErrors *ValidationErrorResponse `pulumi:"validationErrors"`
 }
 
 // Description about the errors happen while performing migration validation
 type SchemaComparisonValidationResultTypeResponse struct {
 	// Name of the object that has the difference
-	ObjectName string `pulumi:"objectName"`
+	ObjectName *string `pulumi:"objectName"`
 	// Type of the object that has the difference. e.g (Table/View/StoredProcedure)
-	ObjectType string `pulumi:"objectType"`
+	ObjectType *string `pulumi:"objectType"`
 	// Update action type with respect to target
-	UpdateAction string `pulumi:"updateAction"`
+	UpdateAction *string `pulumi:"updateAction"`
 }
 
 // Info for certificate to be exported for TDE enabled databases.
@@ -3973,6 +5360,22 @@ type SelectedCertificateInputResponse struct {
 	Password string `pulumi:"password"`
 }
 
+// Server properties for MySQL type source
+type ServerPropertiesResponse struct {
+	// Number of databases in the server
+	ServerDatabaseCount int `pulumi:"serverDatabaseCount"`
+	// Edition of the database server
+	ServerEdition string `pulumi:"serverEdition"`
+	// Name of the server
+	ServerName string `pulumi:"serverName"`
+	// Version of the operating system
+	ServerOperatingSystemVersion string `pulumi:"serverOperatingSystemVersion"`
+	// Name of the server platform
+	ServerPlatform string `pulumi:"serverPlatform"`
+	// Version of the database server
+	ServerVersion string `pulumi:"serverVersion"`
+}
+
 // An Azure SKU instance
 type ServiceSku struct {
 	// The capacity of the SKU, if it supports scaling
@@ -3983,7 +5386,7 @@ type ServiceSku struct {
 	Name *string `pulumi:"name"`
 	// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
 	Size *string `pulumi:"size"`
-	// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+	// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 	Tier *string `pulumi:"tier"`
 }
 
@@ -4008,7 +5411,7 @@ type ServiceSkuArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
 	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+	// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -4110,7 +5513,7 @@ func (o ServiceSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 func (o ServiceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -4179,7 +5582,7 @@ func (o ServiceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 func (o ServiceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSku) *string {
 		if v == nil {
@@ -4199,7 +5602,7 @@ type ServiceSkuResponse struct {
 	Name *string `pulumi:"name"`
 	// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
 	Size *string `pulumi:"size"`
-	// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+	// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 	Tier *string `pulumi:"tier"`
 }
 
@@ -4238,7 +5641,7 @@ func (o ServiceSkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 func (o ServiceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -4307,7 +5710,7 @@ func (o ServiceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
 func (o ServiceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSkuResponse) *string {
 		if v == nil {
@@ -4397,452 +5800,24 @@ func (val *SqlConnectionInfoResponse) Defaults() *SqlConnectionInfoResponse {
 	return &tmp
 }
 
-// Source SQL Connection
-type SqlConnectionInformation struct {
-	// Authentication type.
-	Authentication *string `pulumi:"authentication"`
-	// Data source.
-	DataSource *string `pulumi:"dataSource"`
-	// Whether to encrypt connection or not.
-	EncryptConnection *bool `pulumi:"encryptConnection"`
-	// Password to connect to source SQL.
-	Password *string `pulumi:"password"`
-	// Whether to trust server certificate or not.
-	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
-	// User name to connect to source SQL.
-	UserName *string `pulumi:"userName"`
-}
-
-// SqlConnectionInformationInput is an input type that accepts SqlConnectionInformationArgs and SqlConnectionInformationOutput values.
-// You can construct a concrete instance of `SqlConnectionInformationInput` via:
-//
-//          SqlConnectionInformationArgs{...}
-type SqlConnectionInformationInput interface {
-	pulumi.Input
-
-	ToSqlConnectionInformationOutput() SqlConnectionInformationOutput
-	ToSqlConnectionInformationOutputWithContext(context.Context) SqlConnectionInformationOutput
-}
-
-// Source SQL Connection
-type SqlConnectionInformationArgs struct {
-	// Authentication type.
-	Authentication pulumi.StringPtrInput `pulumi:"authentication"`
-	// Data source.
-	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	// Whether to encrypt connection or not.
-	EncryptConnection pulumi.BoolPtrInput `pulumi:"encryptConnection"`
-	// Password to connect to source SQL.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Whether to trust server certificate or not.
-	TrustServerCertificate pulumi.BoolPtrInput `pulumi:"trustServerCertificate"`
-	// User name to connect to source SQL.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-}
-
-func (SqlConnectionInformationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlConnectionInformation)(nil)).Elem()
-}
-
-func (i SqlConnectionInformationArgs) ToSqlConnectionInformationOutput() SqlConnectionInformationOutput {
-	return i.ToSqlConnectionInformationOutputWithContext(context.Background())
-}
-
-func (i SqlConnectionInformationArgs) ToSqlConnectionInformationOutputWithContext(ctx context.Context) SqlConnectionInformationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInformationOutput)
-}
-
-func (i SqlConnectionInformationArgs) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
-	return i.ToSqlConnectionInformationPtrOutputWithContext(context.Background())
-}
-
-func (i SqlConnectionInformationArgs) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInformationOutput).ToSqlConnectionInformationPtrOutputWithContext(ctx)
-}
-
-// SqlConnectionInformationPtrInput is an input type that accepts SqlConnectionInformationArgs, SqlConnectionInformationPtr and SqlConnectionInformationPtrOutput values.
-// You can construct a concrete instance of `SqlConnectionInformationPtrInput` via:
-//
-//          SqlConnectionInformationArgs{...}
-//
-//  or:
-//
-//          nil
-type SqlConnectionInformationPtrInput interface {
-	pulumi.Input
-
-	ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput
-	ToSqlConnectionInformationPtrOutputWithContext(context.Context) SqlConnectionInformationPtrOutput
-}
-
-type sqlConnectionInformationPtrType SqlConnectionInformationArgs
-
-func SqlConnectionInformationPtr(v *SqlConnectionInformationArgs) SqlConnectionInformationPtrInput {
-	return (*sqlConnectionInformationPtrType)(v)
-}
-
-func (*sqlConnectionInformationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlConnectionInformation)(nil)).Elem()
-}
-
-func (i *sqlConnectionInformationPtrType) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
-	return i.ToSqlConnectionInformationPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlConnectionInformationPtrType) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInformationPtrOutput)
-}
-
-// Source SQL Connection
-type SqlConnectionInformationOutput struct{ *pulumi.OutputState }
-
-func (SqlConnectionInformationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlConnectionInformation)(nil)).Elem()
-}
-
-func (o SqlConnectionInformationOutput) ToSqlConnectionInformationOutput() SqlConnectionInformationOutput {
-	return o
-}
-
-func (o SqlConnectionInformationOutput) ToSqlConnectionInformationOutputWithContext(ctx context.Context) SqlConnectionInformationOutput {
-	return o
-}
-
-func (o SqlConnectionInformationOutput) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
-	return o.ToSqlConnectionInformationPtrOutputWithContext(context.Background())
-}
-
-func (o SqlConnectionInformationOutput) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectionInformation) *SqlConnectionInformation {
-		return &v
-	}).(SqlConnectionInformationPtrOutput)
-}
-
-// Authentication type.
-func (o SqlConnectionInformationOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.Authentication }).(pulumi.StringPtrOutput)
-}
-
-// Data source.
-func (o SqlConnectionInformationOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.DataSource }).(pulumi.StringPtrOutput)
-}
-
-// Whether to encrypt connection or not.
-func (o SqlConnectionInformationOutput) EncryptConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformation) *bool { return v.EncryptConnection }).(pulumi.BoolPtrOutput)
-}
-
-// Password to connect to source SQL.
-func (o SqlConnectionInformationOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Whether to trust server certificate or not.
-func (o SqlConnectionInformationOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformation) *bool { return v.TrustServerCertificate }).(pulumi.BoolPtrOutput)
-}
-
-// User name to connect to source SQL.
-func (o SqlConnectionInformationOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type SqlConnectionInformationPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlConnectionInformationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlConnectionInformation)(nil)).Elem()
-}
-
-func (o SqlConnectionInformationPtrOutput) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
-	return o
-}
-
-func (o SqlConnectionInformationPtrOutput) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
-	return o
-}
-
-func (o SqlConnectionInformationPtrOutput) Elem() SqlConnectionInformationOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) SqlConnectionInformation {
-		if v != nil {
-			return *v
-		}
-		var ret SqlConnectionInformation
-		return ret
-	}).(SqlConnectionInformationOutput)
-}
-
-// Authentication type.
-func (o SqlConnectionInformationPtrOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Authentication
-	}).(pulumi.StringPtrOutput)
-}
-
-// Data source.
-func (o SqlConnectionInformationPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to encrypt connection or not.
-func (o SqlConnectionInformationPtrOutput) EncryptConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptConnection
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Password to connect to source SQL.
-func (o SqlConnectionInformationPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to trust server certificate or not.
-func (o SqlConnectionInformationPtrOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TrustServerCertificate
-	}).(pulumi.BoolPtrOutput)
-}
-
-// User name to connect to source SQL.
-func (o SqlConnectionInformationPtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Source SQL Connection
-type SqlConnectionInformationResponse struct {
-	// Authentication type.
-	Authentication *string `pulumi:"authentication"`
-	// Data source.
-	DataSource *string `pulumi:"dataSource"`
-	// Whether to encrypt connection or not.
-	EncryptConnection *bool `pulumi:"encryptConnection"`
-	// Password to connect to source SQL.
-	Password *string `pulumi:"password"`
-	// Whether to trust server certificate or not.
-	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
-	// User name to connect to source SQL.
-	UserName *string `pulumi:"userName"`
-}
-
-// Source SQL Connection
-type SqlConnectionInformationResponseOutput struct{ *pulumi.OutputState }
-
-func (SqlConnectionInformationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlConnectionInformationResponse)(nil)).Elem()
-}
-
-func (o SqlConnectionInformationResponseOutput) ToSqlConnectionInformationResponseOutput() SqlConnectionInformationResponseOutput {
-	return o
-}
-
-func (o SqlConnectionInformationResponseOutput) ToSqlConnectionInformationResponseOutputWithContext(ctx context.Context) SqlConnectionInformationResponseOutput {
-	return o
-}
-
-// Authentication type.
-func (o SqlConnectionInformationResponseOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.Authentication }).(pulumi.StringPtrOutput)
-}
-
-// Data source.
-func (o SqlConnectionInformationResponseOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.DataSource }).(pulumi.StringPtrOutput)
-}
-
-// Whether to encrypt connection or not.
-func (o SqlConnectionInformationResponseOutput) EncryptConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformationResponse) *bool { return v.EncryptConnection }).(pulumi.BoolPtrOutput)
-}
-
-// Password to connect to source SQL.
-func (o SqlConnectionInformationResponseOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Whether to trust server certificate or not.
-func (o SqlConnectionInformationResponseOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformationResponse) *bool { return v.TrustServerCertificate }).(pulumi.BoolPtrOutput)
-}
-
-// User name to connect to source SQL.
-func (o SqlConnectionInformationResponseOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type SqlConnectionInformationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SqlConnectionInformationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlConnectionInformationResponse)(nil)).Elem()
-}
-
-func (o SqlConnectionInformationResponsePtrOutput) ToSqlConnectionInformationResponsePtrOutput() SqlConnectionInformationResponsePtrOutput {
-	return o
-}
-
-func (o SqlConnectionInformationResponsePtrOutput) ToSqlConnectionInformationResponsePtrOutputWithContext(ctx context.Context) SqlConnectionInformationResponsePtrOutput {
-	return o
-}
-
-func (o SqlConnectionInformationResponsePtrOutput) Elem() SqlConnectionInformationResponseOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) SqlConnectionInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SqlConnectionInformationResponse
-		return ret
-	}).(SqlConnectionInformationResponseOutput)
-}
-
-// Authentication type.
-func (o SqlConnectionInformationResponsePtrOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Authentication
-	}).(pulumi.StringPtrOutput)
-}
-
-// Data source.
-func (o SqlConnectionInformationResponsePtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to encrypt connection or not.
-func (o SqlConnectionInformationResponsePtrOutput) EncryptConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptConnection
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Password to connect to source SQL.
-func (o SqlConnectionInformationResponsePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to trust server certificate or not.
-func (o SqlConnectionInformationResponsePtrOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TrustServerCertificate
-	}).(pulumi.BoolPtrOutput)
-}
-
-// User name to connect to source SQL.
-func (o SqlConnectionInformationResponsePtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Detailed status of current Sql Db migration.
-type SqlDbMigrationStatusDetailsResponse struct {
-	// Details on progress of ADF copy activities.
-	ListOfCopyProgressDetails []CopyProgressDetailsResponse `pulumi:"listOfCopyProgressDetails"`
-	// Current State of Migration.
-	MigrationState string `pulumi:"migrationState"`
-	// Sql Data Copy errors, if any.
-	SqlDataCopyErrors []string `pulumi:"sqlDataCopyErrors"`
-}
-
-// Detailed status of current Sql Db migration.
-type SqlDbMigrationStatusDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (SqlDbMigrationStatusDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDbMigrationStatusDetailsResponse)(nil)).Elem()
-}
-
-func (o SqlDbMigrationStatusDetailsResponseOutput) ToSqlDbMigrationStatusDetailsResponseOutput() SqlDbMigrationStatusDetailsResponseOutput {
-	return o
-}
-
-func (o SqlDbMigrationStatusDetailsResponseOutput) ToSqlDbMigrationStatusDetailsResponseOutputWithContext(ctx context.Context) SqlDbMigrationStatusDetailsResponseOutput {
-	return o
-}
-
-// Details on progress of ADF copy activities.
-func (o SqlDbMigrationStatusDetailsResponseOutput) ListOfCopyProgressDetails() CopyProgressDetailsResponseArrayOutput {
-	return o.ApplyT(func(v SqlDbMigrationStatusDetailsResponse) []CopyProgressDetailsResponse {
-		return v.ListOfCopyProgressDetails
-	}).(CopyProgressDetailsResponseArrayOutput)
-}
-
-// Current State of Migration.
-func (o SqlDbMigrationStatusDetailsResponseOutput) MigrationState() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDbMigrationStatusDetailsResponse) string { return v.MigrationState }).(pulumi.StringOutput)
-}
-
-// Sql Data Copy errors, if any.
-func (o SqlDbMigrationStatusDetailsResponseOutput) SqlDataCopyErrors() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SqlDbMigrationStatusDetailsResponse) []string { return v.SqlDataCopyErrors }).(pulumi.StringArrayOutput)
-}
-
-// Offline configuration
-type SqlDbOfflineConfigurationResponse struct {
-	// Offline migration
-	Offline bool `pulumi:"offline"`
-}
-
-// Offline configuration
-type SqlDbOfflineConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (SqlDbOfflineConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDbOfflineConfigurationResponse)(nil)).Elem()
-}
-
-func (o SqlDbOfflineConfigurationResponseOutput) ToSqlDbOfflineConfigurationResponseOutput() SqlDbOfflineConfigurationResponseOutput {
-	return o
-}
-
-func (o SqlDbOfflineConfigurationResponseOutput) ToSqlDbOfflineConfigurationResponseOutputWithContext(ctx context.Context) SqlDbOfflineConfigurationResponseOutput {
-	return o
-}
-
-// Offline migration
-func (o SqlDbOfflineConfigurationResponseOutput) Offline() pulumi.BoolOutput {
-	return o.ApplyT(func(v SqlDbOfflineConfigurationResponse) bool { return v.Offline }).(pulumi.BoolOutput)
+// SSIS migration info with SSIS store type, overwrite policy.
+type SsisMigrationInfo struct {
+	// The overwrite option for the SSIS environment migration
+	EnvironmentOverwriteOption *string `pulumi:"environmentOverwriteOption"`
+	// The overwrite option for the SSIS project migration
+	ProjectOverwriteOption *string `pulumi:"projectOverwriteOption"`
+	// The SSIS store type of source, only SSIS catalog is supported now in DMS
+	SsisStoreType *string `pulumi:"ssisStoreType"`
+}
+
+// SSIS migration info with SSIS store type, overwrite policy.
+type SsisMigrationInfoResponse struct {
+	// The overwrite option for the SSIS environment migration
+	EnvironmentOverwriteOption *string `pulumi:"environmentOverwriteOption"`
+	// The overwrite option for the SSIS project migration
+	ProjectOverwriteOption *string `pulumi:"projectOverwriteOption"`
+	// The SSIS store type of source, only SSIS catalog is supported now in DMS
+	SsisStoreType *string `pulumi:"ssisStoreType"`
 }
 
 // Server role migration result
@@ -4865,15 +5840,23 @@ type SyncMigrationDatabaseErrorEventResponse struct {
 	TimestampString string `pulumi:"timestampString"`
 }
 
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	CreatedAt          *string `pulumi:"createdAt"`
-	CreatedBy          *string `pulumi:"createdBy"`
-	CreatedByType      *string `pulumi:"createdByType"`
-	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
-	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -4888,32 +5871,40 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx cont
 	return o
 }
 
+// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
+// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
+// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
 type ValidateMigrationInputSqlServerSqlDbSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ValidateSyncMigrationInputSqlServerTaskInput `pulumi:"input"`
 	// Task type.
@@ -4934,6 +5925,8 @@ func (val *ValidateMigrationInputSqlServerSqlDbSyncTaskProperties) Defaults() *V
 
 // Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
 type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -5026,6 +6019,8 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse struct {
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
 type ValidateMigrationInputSqlServerSqlMISyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ValidateMigrationInputSqlServerSqlMISyncTaskInput `pulumi:"input"`
 	// Task type.
@@ -5046,6 +6041,8 @@ func (val *ValidateMigrationInputSqlServerSqlMISyncTaskProperties) Defaults() *V
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
 type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -5156,6 +6153,8 @@ type ValidateMigrationInputSqlServerSqlMITaskOutputResponse struct {
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
 type ValidateMigrationInputSqlServerSqlMITaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Task input
 	Input *ValidateMigrationInputSqlServerSqlMITaskInput `pulumi:"input"`
 	// Task type.
@@ -5176,6 +6175,8 @@ func (val *ValidateMigrationInputSqlServerSqlMITaskProperties) Defaults() *Valid
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
 type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
 	// Array of errors. This is ignored if submitted.
@@ -5200,6 +6201,94 @@ func (val *ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse) Defaults(
 	tmp.Input = tmp.Input.Defaults()
 
 	return &tmp
+}
+
+// Properties for the task that validates a migration between MongoDB data sources
+type ValidateMongoDbTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Describes how a MongoDB data migration should be performed
+	Input *MongoDbMigrationSettings `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Validate.MongoDb'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Properties for the task that validates a migration between MongoDB data sources
+type ValidateMongoDbTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Describes how a MongoDB data migration should be performed
+	Input *MongoDbMigrationSettingsResponse `pulumi:"input"`
+	// An array containing a single MongoDbMigrationProgress object
+	Output []MongoDbMigrationProgressResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Validate.MongoDb'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
+type ValidateOracleAzureDbForPostgreSqlSyncTaskProperties struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+	Input *MigrateOracleAzureDbPostgreSqlSyncTaskInput `pulumi:"input"`
+	// Task type.
+	// Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ValidateOracleAzureDbForPostgreSqlSyncTaskProperties
+func (val *ValidateOracleAzureDbForPostgreSqlSyncTaskProperties) Defaults() *ValidateOracleAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
+type ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
+	// Key value pairs of client data to attach meta data information to task
+	ClientData map[string]string `pulumi:"clientData"`
+	// Array of command properties.
+	Commands []interface{} `pulumi:"commands"`
+	// Array of errors. This is ignored if submitted.
+	Errors []ODataErrorResponse `pulumi:"errors"`
+	// Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+	Input *MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse `pulumi:"input"`
+	// An array containing a single validation error response object
+	Output []ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse `pulumi:"output"`
+	// The state of the task. This is ignored if submitted.
+	State string `pulumi:"state"`
+	// Task type.
+	// Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
+	TaskType string `pulumi:"taskType"`
+}
+
+// Defaults sets the appropriate defaults for ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse
+func (val *ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+// Output for task that validates migration input for Oracle to Azure Database for PostgreSQL for online migrations
+type ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse struct {
+	// Errors associated with a selected database object
+	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
 
 // Input for task that validates migration input for SQL sync migrations
@@ -5261,19 +6350,19 @@ type ValidateSyncMigrationInputSqlServerTaskOutputResponse struct {
 // Description about the errors happen while performing migration validation
 type ValidationErrorResponse struct {
 	// Severity of the error
-	Severity string `pulumi:"severity"`
+	Severity *string `pulumi:"severity"`
 	// Error Text
-	Text string `pulumi:"text"`
+	Text *string `pulumi:"text"`
 }
 
 // Wait statistics gathered during query batch execution
 type WaitStatisticsResponse struct {
 	// Total no. of waits
-	WaitCount float64 `pulumi:"waitCount"`
+	WaitCount *float64 `pulumi:"waitCount"`
 	// Total wait time in millisecond(s)
-	WaitTimeMs float64 `pulumi:"waitTimeMs"`
+	WaitTimeMs *float64 `pulumi:"waitTimeMs"`
 	// Type of the Wait
-	WaitType string `pulumi:"waitType"`
+	WaitType *string `pulumi:"waitType"`
 }
 
 // Defaults sets the appropriate defaults for WaitStatisticsResponse
@@ -5283,23 +6372,16 @@ func (val *WaitStatisticsResponse) Defaults() *WaitStatisticsResponse {
 	}
 	tmp := *val
 	if isZero(tmp.WaitTimeMs) {
-		tmp.WaitTimeMs = 0.0
+		waitTimeMs_ := 0.0
+		tmp.WaitTimeMs = &waitTimeMs_
 	}
 	return &tmp
 }
 func init() {
-	pulumi.RegisterOutputType(CopyProgressDetailsResponseOutput{})
-	pulumi.RegisterOutputType(CopyProgressDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
-	pulumi.RegisterOutputType(DatabaseMigrationPropertiesSqlDbOutput{})
-	pulumi.RegisterOutputType(DatabaseMigrationPropertiesSqlDbPtrOutput{})
-	pulumi.RegisterOutputType(DatabaseMigrationPropertiesSqlDbResponseOutput{})
-	pulumi.RegisterOutputType(ErrorInfoResponseOutput{})
-	pulumi.RegisterOutputType(NodeMonitoringDataResponseOutput{})
-	pulumi.RegisterOutputType(NodeMonitoringDataResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesResponseOutput{})
@@ -5307,11 +6389,5 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ServiceSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SqlConnectionInformationOutput{})
-	pulumi.RegisterOutputType(SqlConnectionInformationPtrOutput{})
-	pulumi.RegisterOutputType(SqlConnectionInformationResponseOutput{})
-	pulumi.RegisterOutputType(SqlConnectionInformationResponsePtrOutput{})
-	pulumi.RegisterOutputType(SqlDbMigrationStatusDetailsResponseOutput{})
-	pulumi.RegisterOutputType(SqlDbOfflineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

@@ -392,7 +392,7 @@ type DriveStatus struct {
 	// A URI that points to the blob containing the drive manifest file.
 	ManifestUri *string `pulumi:"manifestUri"`
 	// Percentage completed for the drive.
-	PercentComplete *int `pulumi:"percentComplete"`
+	PercentComplete *float64 `pulumi:"percentComplete"`
 	// The drive's current state.
 	State *string `pulumi:"state"`
 	// A URI that points to the blob containing the verbose log for the data transfer operation.
@@ -444,7 +444,7 @@ type DriveStatusArgs struct {
 	// A URI that points to the blob containing the drive manifest file.
 	ManifestUri pulumi.StringPtrInput `pulumi:"manifestUri"`
 	// Percentage completed for the drive.
-	PercentComplete pulumi.IntPtrInput `pulumi:"percentComplete"`
+	PercentComplete pulumi.Float64PtrInput `pulumi:"percentComplete"`
 	// The drive's current state.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// A URI that points to the blob containing the verbose log for the data transfer operation.
@@ -560,8 +560,8 @@ func (o DriveStatusOutput) ManifestUri() pulumi.StringPtrOutput {
 }
 
 // Percentage completed for the drive.
-func (o DriveStatusOutput) PercentComplete() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DriveStatus) *int { return v.PercentComplete }).(pulumi.IntPtrOutput)
+func (o DriveStatusOutput) PercentComplete() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DriveStatus) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
 // The drive's current state.
@@ -615,7 +615,7 @@ type DriveStatusResponse struct {
 	// A URI that points to the blob containing the drive manifest file.
 	ManifestUri *string `pulumi:"manifestUri"`
 	// Percentage completed for the drive.
-	PercentComplete *int `pulumi:"percentComplete"`
+	PercentComplete *float64 `pulumi:"percentComplete"`
 	// The drive's current state.
 	State *string `pulumi:"state"`
 	// A URI that points to the blob containing the verbose log for the data transfer operation.
@@ -696,8 +696,8 @@ func (o DriveStatusResponseOutput) ManifestUri() pulumi.StringPtrOutput {
 }
 
 // Percentage completed for the drive.
-func (o DriveStatusResponseOutput) PercentComplete() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DriveStatusResponse) *int { return v.PercentComplete }).(pulumi.IntPtrOutput)
+func (o DriveStatusResponseOutput) PercentComplete() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DriveStatusResponse) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
 // The drive's current state.
@@ -1441,7 +1441,7 @@ type JobDetails struct {
 	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 	LogLevel *string `pulumi:"logLevel"`
 	// Overall percentage completed for the job.
-	PercentComplete *int `pulumi:"percentComplete"`
+	PercentComplete *float64 `pulumi:"percentComplete"`
 	// Specifies the provisioning state of the job.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the return address information for the job.
@@ -1515,7 +1515,7 @@ type JobDetailsArgs struct {
 	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
 	// Overall percentage completed for the job.
-	PercentComplete pulumi.IntPtrInput `pulumi:"percentComplete"`
+	PercentComplete pulumi.Float64PtrInput `pulumi:"percentComplete"`
 	// Specifies the provisioning state of the job.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Specifies the return address information for the job.
@@ -1679,8 +1679,8 @@ func (o JobDetailsOutput) LogLevel() pulumi.StringPtrOutput {
 }
 
 // Overall percentage completed for the job.
-func (o JobDetailsOutput) PercentComplete() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDetails) *int { return v.PercentComplete }).(pulumi.IntPtrOutput)
+func (o JobDetailsOutput) PercentComplete() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobDetails) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the provisioning state of the job.
@@ -1843,13 +1843,13 @@ func (o JobDetailsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 }
 
 // Overall percentage completed for the job.
-func (o JobDetailsPtrOutput) PercentComplete() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *JobDetails) *int {
+func (o JobDetailsPtrOutput) PercentComplete() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JobDetails) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.PercentComplete
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the provisioning state of the job.
@@ -1945,7 +1945,7 @@ type JobDetailsResponse struct {
 	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 	LogLevel *string `pulumi:"logLevel"`
 	// Overall percentage completed for the job.
-	PercentComplete *int `pulumi:"percentComplete"`
+	PercentComplete *float64 `pulumi:"percentComplete"`
 	// Specifies the provisioning state of the job.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the return address information for the job.
@@ -2051,8 +2051,8 @@ func (o JobDetailsResponseOutput) LogLevel() pulumi.StringPtrOutput {
 }
 
 // Overall percentage completed for the job.
-func (o JobDetailsResponseOutput) PercentComplete() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDetailsResponse) *int { return v.PercentComplete }).(pulumi.IntPtrOutput)
+func (o JobDetailsResponseOutput) PercentComplete() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobDetailsResponse) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the provisioning state of the job.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
- * API Version: 2020-08-31.
+ * API Version: 2021-07-02.
  */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
     if (!opts) {
@@ -60,7 +60,7 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
     /**
      * The tags.
      */
-    readonly properties: {[key: string]: string};
+    readonly properties: any;
     /**
      * the resource type.
      */

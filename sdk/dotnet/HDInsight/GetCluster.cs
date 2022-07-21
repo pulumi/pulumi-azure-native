@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HDInsight
     {
         /// <summary>
         /// The HDInsight cluster.
-        /// API Version: 2018-06-01-preview.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:hdinsight:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The HDInsight cluster.
-        /// API Version: 2018-06-01-preview.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:hdinsight:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.HDInsight
         /// </summary>
         public readonly Outputs.ClusterIdentityResponse? Identity;
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -94,13 +94,21 @@ namespace Pulumi.AzureNative.HDInsight
         /// </summary>
         public readonly Outputs.ClusterGetPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The availability zones.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -110,15 +118,19 @@ namespace Pulumi.AzureNative.HDInsight
 
             Outputs.ClusterIdentityResponse? identity,
 
-            string? location,
+            string location,
 
             string name,
 
             Outputs.ClusterGetPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> zones)
         {
             Etag = etag;
             Id = id;
@@ -126,8 +138,10 @@ namespace Pulumi.AzureNative.HDInsight
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
+            Zones = zones;
         }
     }
 }

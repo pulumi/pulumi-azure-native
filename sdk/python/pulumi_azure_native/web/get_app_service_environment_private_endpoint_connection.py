@@ -131,7 +131,7 @@ def get_app_service_environment_private_endpoint_connection(name: Optional[str] 
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentPrivateEndpointConnectionResult:
     """
     Remote Private Endpoint Connection ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -166,7 +166,7 @@ def get_app_service_environment_private_endpoint_connection_output(name: Optiona
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentPrivateEndpointConnectionResult]:
     """
     Remote Private Endpoint Connection ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the App Service Environment.

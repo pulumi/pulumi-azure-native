@@ -17,13 +17,35 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
     public sealed class InterfacePropertiesResponse
     {
         /// <summary>
+        /// The IPv4 address.
+        /// </summary>
+        public readonly string? Ipv4Address;
+        /// <summary>
+        /// The default IPv4 gateway (router).
+        /// </summary>
+        public readonly string? Ipv4Gateway;
+        /// <summary>
+        /// The IPv4 subnet.
+        /// </summary>
+        public readonly string? Ipv4Subnet;
+        /// <summary>
         /// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private InterfacePropertiesResponse(string name)
+        private InterfacePropertiesResponse(
+            string? ipv4Address,
+
+            string? ipv4Gateway,
+
+            string? ipv4Subnet,
+
+            string name)
         {
+            Ipv4Address = ipv4Address;
+            Ipv4Gateway = ipv4Gateway;
+            Ipv4Subnet = ipv4Subnet;
             Name = name;
         }
     }

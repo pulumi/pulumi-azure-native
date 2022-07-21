@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data controller resource
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export class DataController extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class DataController extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.azurearcdata.DataControllerPropertiesResponse>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.azurearcdata.SystemDataResponse>;
     /**
@@ -61,7 +61,7 @@ export class DataController extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -85,7 +85,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["dataControllerName"] = args ? args.dataControllerName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.dataControllerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;

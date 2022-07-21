@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a read only following database.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : Pulumi.CustomResource

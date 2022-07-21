@@ -18,7 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBatchDeploymentResult:
-    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, batch_deployment_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+        if batch_deployment_properties and not isinstance(batch_deployment_properties, dict):
+            raise TypeError("Expected argument 'batch_deployment_properties' to be a dict")
+        pulumi.set(__self__, "batch_deployment_properties", batch_deployment_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,9 +37,9 @@ class GetBatchDeploymentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -48,6 +51,14 @@ class GetBatchDeploymentResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="batchDeploymentProperties")
+    def batch_deployment_properties(self) -> 'outputs.BatchDeploymentResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "batch_deployment_properties")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -57,9 +68,9 @@ class GetBatchDeploymentResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Service identity associated with a resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -89,17 +100,17 @@ class GetBatchDeploymentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BatchDeploymentResponse':
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        [Required] Additional attributes of the entity.
+        Sku details required for ARM contract for Autoscaling.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -126,12 +137,13 @@ class AwaitableGetBatchDeploymentResult(GetBatchDeploymentResult):
         if False:
             yield self
         return GetBatchDeploymentResult(
+            batch_deployment_properties=self.batch_deployment_properties,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -143,7 +155,7 @@ def get_batch_deployment(deployment_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchDeploymentResult:
     """
-    API Version: 2021-03-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str deployment_name: The identifier for the Batch deployments.
@@ -163,12 +175,13 @@ def get_batch_deployment(deployment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getBatchDeployment', __args__, opts=opts, typ=GetBatchDeploymentResult).value
 
     return AwaitableGetBatchDeploymentResult(
+        batch_deployment_properties=__ret__.batch_deployment_properties,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        properties=__ret__.properties,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -181,7 +194,7 @@ def get_batch_deployment_output(deployment_name: Optional[pulumi.Input[str]] = N
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchDeploymentResult]:
     """
-    API Version: 2021-03-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str deployment_name: The identifier for the Batch deployments.

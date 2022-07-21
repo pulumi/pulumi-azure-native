@@ -12,7 +12,7 @@ import (
 )
 
 // Cloud Endpoint object.
-// API Version: 2020-03-01.
+// API Version: 2020-09-01.
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type CloudEndpoint struct {
 	AzureFileShareName pulumi.StringPtrOutput `pulumi:"azureFileShareName"`
 	// Backup Enabled
 	BackupEnabled pulumi.StringOutput `pulumi:"backupEnabled"`
+	// Cloud endpoint change enumeration status
+	ChangeEnumerationStatus CloudEndpointChangeEnumerationStatusResponseOutput `pulumi:"changeEnumerationStatus"`
 	// Friendly Name
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Resource Last Operation Name
@@ -36,6 +38,8 @@ type CloudEndpoint struct {
 	StorageAccountResourceId pulumi.StringPtrOutput `pulumi:"storageAccountResourceId"`
 	// Storage Account Tenant Id
 	StorageAccountTenantId pulumi.StringPtrOutput `pulumi:"storageAccountTenantId"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -206,6 +210,13 @@ func (o CloudEndpointOutput) BackupEnabled() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringOutput { return v.BackupEnabled }).(pulumi.StringOutput)
 }
 
+// Cloud endpoint change enumeration status
+func (o CloudEndpointOutput) ChangeEnumerationStatus() CloudEndpointChangeEnumerationStatusResponseOutput {
+	return o.ApplyT(func(v *CloudEndpoint) CloudEndpointChangeEnumerationStatusResponseOutput {
+		return v.ChangeEnumerationStatus
+	}).(CloudEndpointChangeEnumerationStatusResponseOutput)
+}
+
 // Friendly Name
 func (o CloudEndpointOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
@@ -244,6 +255,11 @@ func (o CloudEndpointOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
 // Storage Account Tenant Id
 func (o CloudEndpointOutput) StorageAccountTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.StorageAccountTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o CloudEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CloudEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

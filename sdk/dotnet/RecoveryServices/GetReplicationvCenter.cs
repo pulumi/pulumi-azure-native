@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// vCenter definition.
-        /// API Version: 2018-07-10.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-native:recoveryservices:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// vCenter definition.
-        /// API Version: 2018-07-10.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetReplicationvCenterResult> Invoke(GetReplicationvCenterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationvCenterResult>("azure-native:recoveryservices:getReplicationvCenter", args ?? new GetReplicationvCenterInvokeArgs(), options.WithDefaults());
@@ -48,10 +48,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// vCenter name.
+        /// vcenter name.
         /// </summary>
-        [Input("vCenterName", required: true)]
-        public string VCenterName { get; set; } = null!;
+        [Input("vcenterName", required: true)]
+        public string VcenterName { get; set; } = null!;
 
         public GetReplicationvCenterArgs()
         {
@@ -79,10 +79,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// vCenter name.
+        /// vcenter name.
         /// </summary>
-        [Input("vCenterName", required: true)]
-        public Input<string> VCenterName { get; set; } = null!;
+        [Input("vcenterName", required: true)]
+        public Input<string> VcenterName { get; set; } = null!;
 
         public GetReplicationvCenterInvokeArgs()
         {

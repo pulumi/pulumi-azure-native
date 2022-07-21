@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * API Version: 2017-12-01.
+ * API Version: 2021-06-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
     if (!opts) {
@@ -57,9 +58,25 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * Configuration documentation link.
+     */
+    readonly documentationLink: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Configuration is pending restart or not.
+     */
+    readonly isConfigPendingRestart: boolean;
+    /**
+     * Configuration dynamic or static.
+     */
+    readonly isDynamicConfig: boolean;
+    /**
+     * Configuration read-only or not.
+     */
+    readonly isReadOnly: boolean;
     /**
      * The name of the resource
      */
@@ -69,9 +86,17 @@ export interface GetConfigurationResult {
      */
     readonly source?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Configuration unit.
+     */
+    readonly unit: string;
     /**
      * Value of the configuration.
      */

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// The essential information related to the peer's ASN.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithDefaults());
 
         /// <summary>
         /// The essential information related to the peer's ASN.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The validation state of the ASN associated with the peer.
         /// </summary>
-        public readonly string? ValidationState;
+        public readonly string ValidationState;
 
         [OutputConstructor]
         private GetPeerAsnResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Peering
 
             string type,
 
-            string? validationState)
+            string validationState)
         {
             ErrorMessage = errorMessage;
             Id = id;

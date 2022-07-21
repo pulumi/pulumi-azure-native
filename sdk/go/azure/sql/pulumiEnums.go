@@ -183,6 +183,16 @@ func (in *autoExecuteStatusPtr) ToAutoExecuteStatusPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AutoExecuteStatusPtrOutput)
 }
 
+// The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+type BackupStorageRedundancy string
+
+const (
+	BackupStorageRedundancyGeo     = BackupStorageRedundancy("Geo")
+	BackupStorageRedundancyLocal   = BackupStorageRedundancy("Local")
+	BackupStorageRedundancyZone    = BackupStorageRedundancy("Zone")
+	BackupStorageRedundancyGeoZone = BackupStorageRedundancy("GeoZone")
+)
+
 // Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
 type BlobAuditingPolicyState string
 
@@ -553,6 +563,14 @@ func (in *dataMaskingStatePtr) ToDataMaskingStatePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(DataMaskingStatePtrOutput)
 }
 
+// The identity type
+type DatabaseIdentityType string
+
+const (
+	DatabaseIdentityTypeNone         = DatabaseIdentityType("None")
+	DatabaseIdentityTypeUserAssigned = DatabaseIdentityType("UserAssigned")
+)
+
 // The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
 type DatabaseLicenseType string
 
@@ -561,7 +579,7 @@ const (
 	DatabaseLicenseTypeBasePrice       = DatabaseLicenseType("BasePrice")
 )
 
-// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 type DatabaseReadScale string
 
 const (
@@ -1212,15 +1230,6 @@ const (
 	ReplicationModeSync  = ReplicationMode("Sync")
 )
 
-// The storage account type to be used to store backups for this database.
-type RequestedBackupStorageRedundancy string
-
-const (
-	RequestedBackupStorageRedundancyGeo   = RequestedBackupStorageRedundancy("Geo")
-	RequestedBackupStorageRedundancyLocal = RequestedBackupStorageRedundancy("Local")
-	RequestedBackupStorageRedundancyZone  = RequestedBackupStorageRedundancy("Zone")
-)
-
 // The name of the sample schema to apply when creating this database.
 type SampleName string
 
@@ -1236,6 +1245,31 @@ type SecondaryType string
 const (
 	SecondaryTypeGeo   = SecondaryType("Geo")
 	SecondaryTypeNamed = SecondaryType("Named")
+)
+
+// Specifies that the alert is sent to the account administrators.
+type SecurityAlertPolicyEmailAccountAdmins string
+
+const (
+	SecurityAlertPolicyEmailAccountAdminsEnabled  = SecurityAlertPolicyEmailAccountAdmins("Enabled")
+	SecurityAlertPolicyEmailAccountAdminsDisabled = SecurityAlertPolicyEmailAccountAdmins("Disabled")
+)
+
+// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+type SecurityAlertPolicyState string
+
+const (
+	SecurityAlertPolicyStateNew      = SecurityAlertPolicyState("New")
+	SecurityAlertPolicyStateEnabled  = SecurityAlertPolicyState("Enabled")
+	SecurityAlertPolicyStateDisabled = SecurityAlertPolicyState("Disabled")
+)
+
+// Specifies whether to use the default server policy.
+type SecurityAlertPolicyUseServerDefault string
+
+const (
+	SecurityAlertPolicyUseServerDefaultEnabled  = SecurityAlertPolicyUseServerDefault("Enabled")
+	SecurityAlertPolicyUseServerDefaultDisabled = SecurityAlertPolicyUseServerDefault("Disabled")
 )
 
 // Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
@@ -1578,21 +1612,20 @@ const (
 	ServerKeyTypeAzureKeyVault  = ServerKeyType("AzureKeyVault")
 )
 
-// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-type ServerPublicNetworkAccess string
+// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+type ServerNetworkAccessFlag string
 
 const (
-	ServerPublicNetworkAccessEnabled  = ServerPublicNetworkAccess("Enabled")
-	ServerPublicNetworkAccessDisabled = ServerPublicNetworkAccess("Disabled")
+	ServerNetworkAccessFlagEnabled  = ServerNetworkAccessFlag("Enabled")
+	ServerNetworkAccessFlagDisabled = ServerNetworkAccessFlag("Disabled")
 )
 
-// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-type StorageAccountType string
+// Service principal type.
+type ServicePrincipalType string
 
 const (
-	StorageAccountTypeGRS = StorageAccountType("GRS")
-	StorageAccountTypeLRS = StorageAccountType("LRS")
-	StorageAccountTypeZRS = StorageAccountType("ZRS")
+	ServicePrincipalTypeNone           = ServicePrincipalType("None")
+	ServicePrincipalTypeSystemAssigned = ServicePrincipalType("SystemAssigned")
 )
 
 // Conflict resolution policy of the sync group.
@@ -1620,13 +1653,170 @@ const (
 	SyncMemberDbTypeSqlServerDatabase = SyncMemberDbType("SqlServerDatabase")
 )
 
-// The status of the database transparent data encryption.
-type TransparentDataEncryptionStatus string
+// Specifies the state of the transparent data encryption.
+type TransparentDataEncryptionStateEnum string
 
 const (
-	TransparentDataEncryptionStatusEnabled  = TransparentDataEncryptionStatus("Enabled")
-	TransparentDataEncryptionStatusDisabled = TransparentDataEncryptionStatus("Disabled")
+	TransparentDataEncryptionStateEnumEnabled  = TransparentDataEncryptionStateEnum("Enabled")
+	TransparentDataEncryptionStateEnumDisabled = TransparentDataEncryptionStateEnum("Disabled")
 )
+
+func (TransparentDataEncryptionStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionStateEnum)(nil)).Elem()
+}
+
+func (e TransparentDataEncryptionStateEnum) ToTransparentDataEncryptionStateEnumOutput() TransparentDataEncryptionStateEnumOutput {
+	return pulumi.ToOutput(e).(TransparentDataEncryptionStateEnumOutput)
+}
+
+func (e TransparentDataEncryptionStateEnum) ToTransparentDataEncryptionStateEnumOutputWithContext(ctx context.Context) TransparentDataEncryptionStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransparentDataEncryptionStateEnumOutput)
+}
+
+func (e TransparentDataEncryptionStateEnum) ToTransparentDataEncryptionStateEnumPtrOutput() TransparentDataEncryptionStateEnumPtrOutput {
+	return e.ToTransparentDataEncryptionStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e TransparentDataEncryptionStateEnum) ToTransparentDataEncryptionStateEnumPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStateEnumPtrOutput {
+	return TransparentDataEncryptionStateEnum(e).ToTransparentDataEncryptionStateEnumOutputWithContext(ctx).ToTransparentDataEncryptionStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e TransparentDataEncryptionStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransparentDataEncryptionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransparentDataEncryptionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransparentDataEncryptionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransparentDataEncryptionStateEnumOutput struct{ *pulumi.OutputState }
+
+func (TransparentDataEncryptionStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionStateEnum)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToTransparentDataEncryptionStateEnumOutput() TransparentDataEncryptionStateEnumOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToTransparentDataEncryptionStateEnumOutputWithContext(ctx context.Context) TransparentDataEncryptionStateEnumOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToTransparentDataEncryptionStateEnumPtrOutput() TransparentDataEncryptionStateEnumPtrOutput {
+	return o.ToTransparentDataEncryptionStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToTransparentDataEncryptionStateEnumPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransparentDataEncryptionStateEnum) *TransparentDataEncryptionStateEnum {
+		return &v
+	}).(TransparentDataEncryptionStateEnumPtrOutput)
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransparentDataEncryptionStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransparentDataEncryptionStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransparentDataEncryptionStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (TransparentDataEncryptionStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransparentDataEncryptionStateEnum)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionStateEnumPtrOutput) ToTransparentDataEncryptionStateEnumPtrOutput() TransparentDataEncryptionStateEnumPtrOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStateEnumPtrOutput) ToTransparentDataEncryptionStateEnumPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStateEnumPtrOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStateEnumPtrOutput) Elem() TransparentDataEncryptionStateEnumOutput {
+	return o.ApplyT(func(v *TransparentDataEncryptionStateEnum) TransparentDataEncryptionStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret TransparentDataEncryptionStateEnum
+		return ret
+	}).(TransparentDataEncryptionStateEnumOutput)
+}
+
+func (o TransparentDataEncryptionStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransparentDataEncryptionStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransparentDataEncryptionStateEnumInput is an input type that accepts TransparentDataEncryptionStateEnumArgs and TransparentDataEncryptionStateEnumOutput values.
+// You can construct a concrete instance of `TransparentDataEncryptionStateEnumInput` via:
+//
+//          TransparentDataEncryptionStateEnumArgs{...}
+type TransparentDataEncryptionStateEnumInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionStateEnumOutput() TransparentDataEncryptionStateEnumOutput
+	ToTransparentDataEncryptionStateEnumOutputWithContext(context.Context) TransparentDataEncryptionStateEnumOutput
+}
+
+var transparentDataEncryptionStateEnumPtrType = reflect.TypeOf((**TransparentDataEncryptionStateEnum)(nil)).Elem()
+
+type TransparentDataEncryptionStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionStateEnumPtrOutput() TransparentDataEncryptionStateEnumPtrOutput
+	ToTransparentDataEncryptionStateEnumPtrOutputWithContext(context.Context) TransparentDataEncryptionStateEnumPtrOutput
+}
+
+type transparentDataEncryptionStateEnumPtr string
+
+func TransparentDataEncryptionStateEnumPtr(v string) TransparentDataEncryptionStateEnumPtrInput {
+	return (*transparentDataEncryptionStateEnumPtr)(&v)
+}
+
+func (*transparentDataEncryptionStateEnumPtr) ElementType() reflect.Type {
+	return transparentDataEncryptionStateEnumPtrType
+}
+
+func (in *transparentDataEncryptionStateEnumPtr) ToTransparentDataEncryptionStateEnumPtrOutput() TransparentDataEncryptionStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(TransparentDataEncryptionStateEnumPtrOutput)
+}
+
+func (in *transparentDataEncryptionStateEnumPtr) ToTransparentDataEncryptionStateEnumPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransparentDataEncryptionStateEnumPtrOutput)
+}
 
 func init() {
 	pulumi.RegisterOutputType(AutoExecuteStatusOutput{})
@@ -1645,4 +1835,6 @@ func init() {
 	pulumi.RegisterOutputType(SecurityAlertsPolicyStatePtrOutput{})
 	pulumi.RegisterOutputType(SensitivityLabelRankOutput{})
 	pulumi.RegisterOutputType(SensitivityLabelRankPtrOutput{})
+	pulumi.RegisterOutputType(TransparentDataEncryptionStateEnumOutput{})
+	pulumi.RegisterOutputType(TransparentDataEncryptionStateEnumPtrOutput{})
 }

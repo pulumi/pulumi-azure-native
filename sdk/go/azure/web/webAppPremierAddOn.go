@@ -12,7 +12,7 @@ import (
 )
 
 // Premier add-on.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type WebAppPremierAddOn struct {
 	pulumi.CustomResourceState
 

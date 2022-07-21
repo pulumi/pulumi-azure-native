@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Result of the Get delivery attributes operation.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the Get delivery attributes operation.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetEventSubscriptionDeliveryAttributesResult> Invoke(GetEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());

@@ -105,7 +105,7 @@ export class DataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:DataConnection" }, { type: "azure-native:synapse/v20210601preview:DataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601preview:DataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataConnection.__pulumiType, name, resourceInputs, opts);
     }

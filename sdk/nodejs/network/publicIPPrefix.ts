@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public IP prefix resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class PublicIPPrefix extends pulumi.CustomResource {
     /**

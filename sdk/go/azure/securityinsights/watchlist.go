@@ -12,11 +12,11 @@ import (
 )
 
 // Represents a Watchlist in Azure Security Insights.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 type Watchlist struct {
 	pulumi.CustomResourceState
 
-	// The content type of the raw content. Example : text/csv or text/tsv
+	// The content type of the raw content. For now, only text/csv is valid
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// The time the watchlist was created
 	Created pulumi.StringPtrOutput `pulumi:"created"`
@@ -36,13 +36,15 @@ type Watchlist struct {
 	ItemsSearchKey pulumi.StringOutput `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of lines in a csv/tsv content to skip before the header
+	// The number of lines in a csv content to skip before the header
 	NumberOfLinesToSkip pulumi.IntPtrOutput `pulumi:"numberOfLinesToSkip"`
 	// The provider of the watchlist
 	Provider pulumi.StringOutput `pulumi:"provider"`
-	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	// The raw content that represents to watchlist items to create. Example : This line will be skipped
+	// header1,header2
+	// value1,value2
 	RawContent pulumi.StringPtrOutput `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source pulumi.StringOutput `pulumi:"source"`
@@ -50,20 +52,18 @@ type Watchlist struct {
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tenantId where the watchlist belongs to
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The last time the watchlist was updated
 	Updated pulumi.StringPtrOutput `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"updatedBy"`
-	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
 	UploadStatus pulumi.StringPtrOutput `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias pulumi.StringPtrOutput `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId pulumi.StringPtrOutput `pulumi:"watchlistId"`
-	// The number of Watchlist Items in the Watchlist
-	WatchlistItemsCount pulumi.IntPtrOutput `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrOutput `pulumi:"watchlistType"`
 }
@@ -80,9 +80,6 @@ func NewWatchlist(ctx *pulumi.Context,
 	}
 	if args.ItemsSearchKey == nil {
 		return nil, errors.New("invalid value for required argument 'ItemsSearchKey'")
-	}
-	if args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
 	if args.Provider == nil {
 		return nil, errors.New("invalid value for required argument 'Provider'")
@@ -164,7 +161,7 @@ func (WatchlistState) ElementType() reflect.Type {
 }
 
 type watchlistArgs struct {
-	// The content type of the raw content. Example : text/csv or text/tsv
+	// The content type of the raw content. For now, only text/csv is valid
 	ContentType *string `pulumi:"contentType"`
 	// The time the watchlist was created
 	Created *string `pulumi:"created"`
@@ -182,13 +179,13 @@ type watchlistArgs struct {
 	ItemsSearchKey string `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
-	// The number of lines in a csv/tsv content to skip before the header
+	// The number of lines in a csv content to skip before the header
 	NumberOfLinesToSkip *int `pulumi:"numberOfLinesToSkip"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The provider of the watchlist
 	Provider string `pulumi:"provider"`
-	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	// The raw content that represents to watchlist items to create. Example : This line will be skipped
+	// header1,header2
+	// value1,value2
 	RawContent *string `pulumi:"rawContent"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -200,14 +197,12 @@ type watchlistArgs struct {
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *WatchlistUserInfo `pulumi:"updatedBy"`
-	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
 	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias *string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId *string `pulumi:"watchlistId"`
-	// The number of Watchlist Items in the Watchlist
-	WatchlistItemsCount *int `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
 	// The name of the workspace.
@@ -216,7 +211,7 @@ type watchlistArgs struct {
 
 // The set of arguments for constructing a Watchlist resource.
 type WatchlistArgs struct {
-	// The content type of the raw content. Example : text/csv or text/tsv
+	// The content type of the raw content. For now, only text/csv is valid
 	ContentType pulumi.StringPtrInput
 	// The time the watchlist was created
 	Created pulumi.StringPtrInput
@@ -234,13 +229,13 @@ type WatchlistArgs struct {
 	ItemsSearchKey pulumi.StringInput
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayInput
-	// The number of lines in a csv/tsv content to skip before the header
+	// The number of lines in a csv content to skip before the header
 	NumberOfLinesToSkip pulumi.IntPtrInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput
 	// The provider of the watchlist
 	Provider pulumi.StringInput
-	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	// The raw content that represents to watchlist items to create. Example : This line will be skipped
+	// header1,header2
+	// value1,value2
 	RawContent pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
@@ -252,14 +247,12 @@ type WatchlistArgs struct {
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
 	UpdatedBy WatchlistUserInfoPtrInput
-	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
 	UploadStatus pulumi.StringPtrInput
 	// The alias of the watchlist
 	WatchlistAlias pulumi.StringPtrInput
 	// The id (a Guid) of the watchlist
 	WatchlistId pulumi.StringPtrInput
-	// The number of Watchlist Items in the Watchlist
-	WatchlistItemsCount pulumi.IntPtrInput
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrInput
 	// The name of the workspace.
@@ -303,7 +296,7 @@ func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) Watch
 	return o
 }
 
-// The content type of the raw content. Example : text/csv or text/tsv
+// The content type of the raw content. For now, only text/csv is valid
 func (o WatchlistOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
 }
@@ -353,12 +346,12 @@ func (o WatchlistOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o WatchlistOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of lines in a csv/tsv content to skip before the header
+// The number of lines in a csv content to skip before the header
 func (o WatchlistOutput) NumberOfLinesToSkip() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.IntPtrOutput { return v.NumberOfLinesToSkip }).(pulumi.IntPtrOutput)
 }
@@ -368,7 +361,9 @@ func (o WatchlistOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Provider }).(pulumi.StringOutput)
 }
 
-// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+// The raw content that represents to watchlist items to create. Example : This line will be skipped
+// header1,header2
+// value1,value2
 func (o WatchlistOutput) RawContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.RawContent }).(pulumi.StringPtrOutput)
 }
@@ -388,7 +383,7 @@ func (o WatchlistOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o WatchlistOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -403,7 +398,7 @@ func (o WatchlistOutput) UpdatedBy() WatchlistUserInfoResponsePtrOutput {
 	return o.ApplyT(func(v *Watchlist) WatchlistUserInfoResponsePtrOutput { return v.UpdatedBy }).(WatchlistUserInfoResponsePtrOutput)
 }
 
-// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
 func (o WatchlistOutput) UploadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.UploadStatus }).(pulumi.StringPtrOutput)
 }
@@ -416,11 +411,6 @@ func (o WatchlistOutput) WatchlistAlias() pulumi.StringPtrOutput {
 // The id (a Guid) of the watchlist
 func (o WatchlistOutput) WatchlistId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.WatchlistId }).(pulumi.StringPtrOutput)
-}
-
-// The number of Watchlist Items in the Watchlist
-func (o WatchlistOutput) WatchlistItemsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Watchlist) pulumi.IntPtrOutput { return v.WatchlistItemsCount }).(pulumi.IntPtrOutput)
 }
 
 // The type of the watchlist

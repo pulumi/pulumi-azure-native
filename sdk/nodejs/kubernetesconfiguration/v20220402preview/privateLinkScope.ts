@@ -91,8 +91,6 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:PrivateLinkScope" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace/EventHub Connection String
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEventHubKeysResult> {
     if (!opts) {

@@ -11,7 +11,7 @@ import (
 )
 
 // Event Subscription
-// API Version: 2021-10-15-preview.
+// API Version: 2022-06-15.
 func LookupDomainEventSubscription(ctx *pulumi.Context, args *LookupDomainEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupDomainEventSubscriptionResult, error) {
 	var rv LookupDomainEventSubscriptionResult
 	err := ctx.Invoke("azure-native:eventgrid:getDomainEventSubscription", args, &rv, opts...)

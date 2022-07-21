@@ -557,10 +557,6 @@ func (o GroupConnectivityInformationResponseArrayOutput) Index(i pulumi.IntInput
 
 // Device Update account integration with IoT Hub settings.
 type IotHubSettings struct {
-	// EventHub connection string.
-	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
-	// IoTHub connection string.
-	IoTHubConnectionString *string `pulumi:"ioTHubConnectionString"`
 	// IoTHub resource ID
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -578,10 +574,6 @@ type IotHubSettingsInput interface {
 
 // Device Update account integration with IoT Hub settings.
 type IotHubSettingsArgs struct {
-	// EventHub connection string.
-	EventHubConnectionString pulumi.StringPtrInput `pulumi:"eventHubConnectionString"`
-	// IoTHub connection string.
-	IoTHubConnectionString pulumi.StringPtrInput `pulumi:"ioTHubConnectionString"`
 	// IoTHub resource ID
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
@@ -638,16 +630,6 @@ func (o IotHubSettingsOutput) ToIotHubSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// EventHub connection string.
-func (o IotHubSettingsOutput) EventHubConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubSettings) *string { return v.EventHubConnectionString }).(pulumi.StringPtrOutput)
-}
-
-// IoTHub connection string.
-func (o IotHubSettingsOutput) IoTHubConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubSettings) *string { return v.IoTHubConnectionString }).(pulumi.StringPtrOutput)
-}
-
 // IoTHub resource ID
 func (o IotHubSettingsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubSettings) string { return v.ResourceId }).(pulumi.StringOutput)
@@ -675,10 +657,6 @@ func (o IotHubSettingsArrayOutput) Index(i pulumi.IntInput) IotHubSettingsOutput
 
 // Device Update account integration with IoT Hub settings.
 type IotHubSettingsResponse struct {
-	// EventHub connection string.
-	EventHubConnectionString *string `pulumi:"eventHubConnectionString"`
-	// IoTHub connection string.
-	IoTHubConnectionString *string `pulumi:"ioTHubConnectionString"`
 	// IoTHub resource ID
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -696,16 +674,6 @@ func (o IotHubSettingsResponseOutput) ToIotHubSettingsResponseOutput() IotHubSet
 
 func (o IotHubSettingsResponseOutput) ToIotHubSettingsResponseOutputWithContext(ctx context.Context) IotHubSettingsResponseOutput {
 	return o
-}
-
-// EventHub connection string.
-func (o IotHubSettingsResponseOutput) EventHubConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubSettingsResponse) *string { return v.EventHubConnectionString }).(pulumi.StringPtrOutput)
-}
-
-// IoTHub connection string.
-func (o IotHubSettingsResponseOutput) IoTHubConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubSettingsResponse) *string { return v.IoTHubConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // IoTHub resource ID
@@ -733,12 +701,74 @@ func (o IotHubSettingsResponseArrayOutput) Index(i pulumi.IntInput) IotHubSettin
 	}).(IotHubSettingsResponseOutput)
 }
 
+type LocationResponse struct {
+	Name *string `pulumi:"name"`
+	// Whether the location is primary or failover
+	Role *string `pulumi:"role"`
+}
+
+// Defaults sets the appropriate defaults for LocationResponse
+func (val *LocationResponse) Defaults() *LocationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Role) {
+		role_ := "Primary"
+		tmp.Role = &role_
+	}
+	return &tmp
+}
+
+type LocationResponseOutput struct{ *pulumi.OutputState }
+
+func (LocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationResponse)(nil)).Elem()
+}
+
+func (o LocationResponseOutput) ToLocationResponseOutput() LocationResponseOutput {
+	return o
+}
+
+func (o LocationResponseOutput) ToLocationResponseOutputWithContext(ctx context.Context) LocationResponseOutput {
+	return o
+}
+
+func (o LocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether the location is primary or failover
+func (o LocationResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type LocationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationResponse)(nil)).Elem()
+}
+
+func (o LocationResponseArrayOutput) ToLocationResponseArrayOutput() LocationResponseArrayOutput {
+	return o
+}
+
+func (o LocationResponseArrayOutput) ToLocationResponseArrayOutputWithContext(ctx context.Context) LocationResponseArrayOutput {
+	return o
+}
+
+func (o LocationResponseArrayOutput) Index(i pulumi.IntInput) LocationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationResponse {
+		return vs[0].([]LocationResponse)[vs[1].(int)]
+	}).(LocationResponseOutput)
+}
+
 // Managed service identity (system assigned and/or user assigned identities)
 type ManagedServiceIdentity struct {
 	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
 	Type string `pulumi:"type"`
 	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
@@ -757,7 +787,7 @@ type ManagedServiceIdentityArgs struct {
 	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
 	Type pulumi.StringInput `pulumi:"type"`
 	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -844,8 +874,8 @@ func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -883,13 +913,13 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Managed service identity (system assigned and/or user assigned identities)
@@ -2582,6 +2612,8 @@ func init() {
 	pulumi.RegisterOutputType(IotHubSettingsArrayOutput{})
 	pulumi.RegisterOutputType(IotHubSettingsResponseOutput{})
 	pulumi.RegisterOutputType(IotHubSettingsResponseArrayOutput{})
+	pulumi.RegisterOutputType(LocationResponseOutput{})
+	pulumi.RegisterOutputType(LocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})

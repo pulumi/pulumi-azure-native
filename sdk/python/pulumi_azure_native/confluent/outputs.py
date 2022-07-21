@@ -9,14 +9,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'OrganizationResourcePropertiesResponseOfferDetail',
-    'OrganizationResourcePropertiesResponseUserDetail',
+    'OfferDetailResponse',
+    'SystemDataResponse',
+    'UserDetailResponse',
 ]
 
 @pulumi.output_type
-class OrganizationResourcePropertiesResponseOfferDetail(dict):
+class OfferDetailResponse(dict):
     """
-    Confluent offer detail
+    Confluent Offer detail
     """
     @staticmethod
     def __key_warning(key: str):
@@ -31,43 +32,70 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
             suggest = "term_unit"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OrganizationResourcePropertiesResponseOfferDetail. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OfferDetailResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OrganizationResourcePropertiesResponseOfferDetail.__key_warning(key)
+        OfferDetailResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OrganizationResourcePropertiesResponseOfferDetail.__key_warning(key)
+        OfferDetailResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 id: str,
+                 plan_id: str,
+                 plan_name: str,
+                 publisher_id: str,
                  status: str,
-                 id: Optional[str] = None,
-                 plan_id: Optional[str] = None,
-                 plan_name: Optional[str] = None,
-                 publisher_id: Optional[str] = None,
-                 term_unit: Optional[str] = None):
+                 term_unit: str):
         """
-        Confluent offer detail
-        :param str status: SaaS Offer Status
+        Confluent Offer detail
         :param str id: Offer Id
         :param str plan_id: Offer Plan Id
         :param str plan_name: Offer Plan Name
         :param str publisher_id: Publisher Id
+        :param str status: SaaS Offer Status
         :param str term_unit: Offer Plan Term unit
         """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "plan_name", plan_name)
+        pulumi.set(__self__, "publisher_id", publisher_id)
         pulumi.set(__self__, "status", status)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
-        if plan_name is not None:
-            pulumi.set(__self__, "plan_name", plan_name)
-        if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
-        if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
+        pulumi.set(__self__, "term_unit", term_unit)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Offer Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
+        """
+        Offer Plan Id
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="planName")
+    def plan_name(self) -> str:
+        """
+        Offer Plan Name
+        """
+        return pulumi.get(self, "plan_name")
+
+    @property
+    @pulumi.getter(name="publisherId")
+    def publisher_id(self) -> str:
+        """
+        Publisher Id
+        """
+        return pulumi.get(self, "publisher_id")
 
     @property
     @pulumi.getter
@@ -78,40 +106,8 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Offer Id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[str]:
-        """
-        Offer Plan Id
-        """
-        return pulumi.get(self, "plan_id")
-
-    @property
-    @pulumi.getter(name="planName")
-    def plan_name(self) -> Optional[str]:
-        """
-        Offer Plan Name
-        """
-        return pulumi.get(self, "plan_name")
-
-    @property
-    @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> Optional[str]:
-        """
-        Publisher Id
-        """
-        return pulumi.get(self, "publisher_id")
-
-    @property
     @pulumi.getter(name="termUnit")
-    def term_unit(self) -> Optional[str]:
+    def term_unit(self) -> str:
         """
         Offer Plan Term unit
         """
@@ -119,7 +115,117 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
 
 
 @pulumi.output_type
-class OrganizationResourcePropertiesResponseUserDetail(dict):
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserDetailResponse(dict):
     """
     Subscriber detail
     """
@@ -134,18 +240,18 @@ class OrganizationResourcePropertiesResponseUserDetail(dict):
             suggest = "last_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OrganizationResourcePropertiesResponseUserDetail. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserDetailResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OrganizationResourcePropertiesResponseUserDetail.__key_warning(key)
+        UserDetailResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OrganizationResourcePropertiesResponseUserDetail.__key_warning(key)
+        UserDetailResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 email_address: Optional[str] = None,
+                 email_address: str,
                  first_name: Optional[str] = None,
                  last_name: Optional[str] = None):
         """
@@ -154,8 +260,7 @@ class OrganizationResourcePropertiesResponseUserDetail(dict):
         :param str first_name: First name
         :param str last_name: Last name
         """
-        if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "email_address", email_address)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
@@ -163,7 +268,7 @@ class OrganizationResourcePropertiesResponseUserDetail(dict):
 
     @property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[str]:
+    def email_address(self) -> str:
         """
         Email address
         """

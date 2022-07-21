@@ -12,7 +12,7 @@ import (
 )
 
 // Response to put/get linked server (with properties) for Redis cache.
-// API Version: 2020-06-01.
+// API Version: 2021-06-01.
 type LinkedServer struct {
 	pulumi.CustomResourceState
 
@@ -20,13 +20,13 @@ type LinkedServer struct {
 	LinkedRedisCacheId pulumi.StringOutput `pulumi:"linkedRedisCacheId"`
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation pulumi.StringOutput `pulumi:"linkedRedisCacheLocation"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Terminal state of the link between primary and secondary redis cache.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Role of the linked server.
 	ServerRole pulumi.StringOutput `pulumi:"serverRole"`
-	// Resource type.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -185,7 +185,7 @@ func (o LinkedServerOutput) LinkedRedisCacheLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.LinkedRedisCacheLocation }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LinkedServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -200,7 +200,7 @@ func (o LinkedServerOutput) ServerRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.ServerRole }).(pulumi.StringOutput)
 }
 
-// Resource type.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LinkedServerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Video Analyzer for Media account.
- * API Version: 2021-10-18-preview.
+ * An Azure Video Indexer account.
+ * API Version: 2022-04-13-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetAccountArgs {
     /**
-     * The name of the Azure Video Analyzer for Media account.
+     * The name of the Azure Video Indexer account.
      */
     accountName: string;
     /**
@@ -33,7 +33,7 @@ export interface GetAccountArgs {
 }
 
 /**
- * An Azure Video Analyzer for Media account.
+ * An Azure Video Indexer account.
  */
 export interface GetAccountResult {
     /**
@@ -81,6 +81,10 @@ export interface GetAccountResult {
      */
     readonly tenantId: string;
     /**
+     * An integer representing the total seconds that have been indexed on the account
+     */
+    readonly totalSecondsIndexed: number;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -92,7 +96,7 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
 
 export interface GetAccountOutputArgs {
     /**
-     * The name of the Azure Video Analyzer for Media account.
+     * The name of the Azure Video Indexer account.
      */
     accountName: pulumi.Input<string>;
     /**

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.ManagedServices.Inputs
 {
 
     /// <summary>
-    /// Properties of a registration assignment.
+    /// The properties of the registration assignment.
     /// </summary>
     public sealed class RegistrationAssignmentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified path of the registration definition.
+        /// The fully qualified path of the registration definition.
         /// </summary>
         [Input("registrationDefinitionId", required: true)]
         public Input<string> RegistrationDefinitionId { get; set; } = null!;

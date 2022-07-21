@@ -12,7 +12,7 @@ import (
 )
 
 // Subvolume Information properties
-// API Version: 2021-10-01.
+// API Version: 2022-01-01.
 type Subvolume struct {
 	pulumi.CustomResourceState
 
@@ -24,7 +24,7 @@ type Subvolume struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -185,7 +185,7 @@ func (o SubvolumeOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subvolume) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The system meta data relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o SubvolumeOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Subvolume) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

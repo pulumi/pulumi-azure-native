@@ -11,7 +11,7 @@ import (
 )
 
 // Peerings in a virtual network resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupVirtualNetworkPeering(ctx *pulumi.Context, args *LookupVirtualNetworkPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkPeeringResult, error) {
 	var rv LookupVirtualNetworkPeeringResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkPeering", args, &rv, opts...)
@@ -48,14 +48,20 @@ type LookupVirtualNetworkPeeringResult struct {
 	Name *string `pulumi:"name"`
 	// The status of the virtual network peering.
 	PeeringState *string `pulumi:"peeringState"`
+	// The peering sync status of the virtual network peering.
+	PeeringSyncLevel *string `pulumi:"peeringSyncLevel"`
 	// The provisioning state of the virtual network peering resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The reference to the remote virtual network address space.
+	// The reference to the address space peered with the remote virtual network.
 	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
 	// The reference to the remote virtual network's Bgp Communities.
 	RemoteBgpCommunities *VirtualNetworkBgpCommunitiesResponse `pulumi:"remoteBgpCommunities"`
 	// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
+	// The reference to the current address space of the remote virtual network.
+	RemoteVirtualNetworkAddressSpace *AddressSpaceResponse `pulumi:"remoteVirtualNetworkAddressSpace"`
+	// The reference to the remote virtual network's encryption
+	RemoteVirtualNetworkEncryption VirtualNetworkEncryptionResponse `pulumi:"remoteVirtualNetworkEncryption"`
 	// The resourceGuid property of the Virtual Network peering resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Resource type.
@@ -145,12 +151,17 @@ func (o LookupVirtualNetworkPeeringResultOutput) PeeringState() pulumi.StringPtr
 	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.PeeringState }).(pulumi.StringPtrOutput)
 }
 
+// The peering sync status of the virtual network peering.
+func (o LookupVirtualNetworkPeeringResultOutput) PeeringSyncLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.PeeringSyncLevel }).(pulumi.StringPtrOutput)
+}
+
 // The provisioning state of the virtual network peering resource.
 func (o LookupVirtualNetworkPeeringResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The reference to the remote virtual network address space.
+// The reference to the address space peered with the remote virtual network.
 func (o LookupVirtualNetworkPeeringResultOutput) RemoteAddressSpace() AddressSpaceResponsePtrOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *AddressSpaceResponse { return v.RemoteAddressSpace }).(AddressSpaceResponsePtrOutput)
 }
@@ -165,6 +176,20 @@ func (o LookupVirtualNetworkPeeringResultOutput) RemoteBgpCommunities() VirtualN
 // The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 func (o LookupVirtualNetworkPeeringResultOutput) RemoteVirtualNetwork() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *SubResourceResponse { return v.RemoteVirtualNetwork }).(SubResourceResponsePtrOutput)
+}
+
+// The reference to the current address space of the remote virtual network.
+func (o LookupVirtualNetworkPeeringResultOutput) RemoteVirtualNetworkAddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *AddressSpaceResponse {
+		return v.RemoteVirtualNetworkAddressSpace
+	}).(AddressSpaceResponsePtrOutput)
+}
+
+// The reference to the remote virtual network's encryption
+func (o LookupVirtualNetworkPeeringResultOutput) RemoteVirtualNetworkEncryption() VirtualNetworkEncryptionResponseOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) VirtualNetworkEncryptionResponse {
+		return v.RemoteVirtualNetworkEncryption
+	}).(VirtualNetworkEncryptionResponseOutput)
 }
 
 // The resourceGuid property of the Virtual Network peering resource.

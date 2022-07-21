@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearningservices:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearningservices:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class ListWorkspaceKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class ListWorkspaceKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

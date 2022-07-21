@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:ReadWriteDatabase"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadWriteDatabase"},
                 },
             };

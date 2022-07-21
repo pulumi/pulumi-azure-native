@@ -11,7 +11,7 @@ import (
 )
 
 // An Asset Filter.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupAssetFilter(ctx *pulumi.Context, args *LookupAssetFilterArgs, opts ...pulumi.InvokeOption) (*LookupAssetFilterResult, error) {
 	var rv LookupAssetFilterResult
 	err := ctx.Invoke("azure-native:media:getAssetFilter", args, &rv, opts...)

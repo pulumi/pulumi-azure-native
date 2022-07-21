@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Volume group resource for create
- * API Version: 2021-10-01.
+ * API Version: 2022-01-01.
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
     if (!opts) {
@@ -61,10 +61,6 @@ export interface GetVolumeGroupResult {
      * Azure lifecycle management
      */
     readonly provisioningState: string;
-    /**
-     * Resource tags
-     */
-    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     if (!opts) {
@@ -85,6 +85,10 @@ export interface GetSiteResult {
      * The provisioning state of the site resource. **TODO**: Confirm if this is needed
      */
     readonly provisioningState: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

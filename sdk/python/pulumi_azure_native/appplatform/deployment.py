@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['DeploymentArgs', 'Deployment']
@@ -128,7 +127,7 @@ class Deployment(pulumi.CustomResource):
                  __props__=None):
         """
         Deployment resource payload
-        API Version: 2020-07-01.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +146,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment resource payload
-        API Version: 2020-07-01.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +194,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -223,6 +223,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
@@ -249,6 +250,14 @@ class Deployment(pulumi.CustomResource):
         Sku of the Deployment resource
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

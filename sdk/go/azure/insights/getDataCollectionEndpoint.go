@@ -11,7 +11,7 @@ import (
 )
 
 // Definition of ARM tracked top level resource.
-// API Version: 2021-09-01-preview.
+// API Version: 2021-04-01.
 func LookupDataCollectionEndpoint(ctx *pulumi.Context, args *LookupDataCollectionEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionEndpointResult, error) {
 	var rv LookupDataCollectionEndpointResult
 	err := ctx.Invoke("azure-native:insights:getDataCollectionEndpoint", args, &rv, opts...)
@@ -30,7 +30,7 @@ type LookupDataCollectionEndpointArgs struct {
 
 // Definition of ARM tracked top level resource.
 type LookupDataCollectionEndpointResult struct {
-	// The endpoint used by clients to access their configuration.
+	// The endpoint used by agents to access their configuration.
 	ConfigurationAccess *DataCollectionEndpointResponseConfigurationAccess `pulumi:"configurationAccess"`
 	// Description of the data collection endpoint.
 	Description *string `pulumi:"description"`
@@ -99,7 +99,7 @@ func (o LookupDataCollectionEndpointResultOutput) ToLookupDataCollectionEndpoint
 	return o
 }
 
-// The endpoint used by clients to access their configuration.
+// The endpoint used by agents to access their configuration.
 func (o LookupDataCollectionEndpointResultOutput) ConfigurationAccess() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
 	return o.ApplyT(func(v LookupDataCollectionEndpointResult) *DataCollectionEndpointResponseConfigurationAccess {
 		return v.ConfigurationAccess

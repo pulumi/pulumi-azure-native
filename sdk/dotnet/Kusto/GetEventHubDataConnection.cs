@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing an event hub data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an event hub data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string? DataFormat;
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        public readonly string? DatabaseRouting;
+        /// <summary>
         /// The resource ID of the event hub to be used to create a data connection.
         /// </summary>
         public readonly string EventHubResourceId;
@@ -127,7 +131,11 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// The object ID of the managedIdentityResourceId
+        /// </summary>
+        public readonly string ManagedIdentityObjectId;
+        /// <summary>
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         public readonly string? ManagedIdentityResourceId;
         /// <summary>
@@ -159,6 +167,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string? dataFormat,
 
+            string? databaseRouting,
+
             string eventHubResourceId,
 
             ImmutableArray<string> eventSystemProperties,
@@ -168,6 +178,8 @@ namespace Pulumi.AzureNative.Kusto
             string kind,
 
             string? location,
+
+            string managedIdentityObjectId,
 
             string? managedIdentityResourceId,
 
@@ -184,11 +196,13 @@ namespace Pulumi.AzureNative.Kusto
             Compression = compression;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
+            DatabaseRouting = databaseRouting;
             EventHubResourceId = eventHubResourceId;
             EventSystemProperties = eventSystemProperties;
             Id = id;
             Kind = kind;
             Location = location;
+            ManagedIdentityObjectId = managedIdentityObjectId;
             ManagedIdentityResourceId = managedIdentityResourceId;
             MappingRuleName = mappingRuleName;
             Name = name;

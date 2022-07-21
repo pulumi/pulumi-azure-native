@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Version Set Contract details.
-// API Version: 2020-12-01.
+// API Version Set Contract details.
+// API Version: 2021-08-01.
 func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opts ...pulumi.InvokeOption) (*LookupApiVersionSetResult, error) {
 	var rv LookupApiVersionSetResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiVersionSet", args, &rv, opts...)
@@ -30,17 +30,17 @@ type LookupApiVersionSetArgs struct {
 	VersionSetId string `pulumi:"versionSetId"`
 }
 
-// Api Version Set Contract details.
+// API Version Set Contract details.
 type LookupApiVersionSetResult struct {
 	// Description of API Version Set.
 	Description *string `pulumi:"description"`
 	// Name of API Version Set
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
@@ -76,7 +76,7 @@ func (LookupApiVersionSetOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupApiVersionSetArgs)(nil)).Elem()
 }
 
-// Api Version Set Contract details.
+// API Version Set Contract details.
 type LookupApiVersionSetResultOutput struct{ *pulumi.OutputState }
 
 func (LookupApiVersionSetResultOutput) ElementType() reflect.Type {
@@ -101,17 +101,17 @@ func (o LookupApiVersionSetResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiVersionSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiVersionSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiVersionSetResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -40,9 +40,6 @@ func NewStorage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:appplatform:Storage"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20220101preview:Storage"),
 		},
 		{

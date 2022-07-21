@@ -12,7 +12,7 @@ import (
 )
 
 // Network slice resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 type Slice struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type Slice struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
 	Snssai SnssaiResponseOutput `pulumi:"snssai"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -249,6 +251,11 @@ func (o SliceOutput) ProvisioningState() pulumi.StringOutput {
 // The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
 func (o SliceOutput) Snssai() SnssaiResponseOutput {
 	return o.ApplyT(func(v *Slice) SnssaiResponseOutput { return v.Snssai }).(SnssaiResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SliceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Slice) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

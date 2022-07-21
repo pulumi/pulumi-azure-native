@@ -13,6 +13,13 @@ const (
 	AbsoluteMarkerFirstOfYear  = AbsoluteMarker("FirstOfYear")
 )
 
+type AlertsState string
+
+const (
+	AlertsStateEnabled  = AlertsState("Enabled")
+	AlertsStateDisabled = AlertsState("Disabled")
+)
+
 // type of datastore; Operational/Vault/Archive
 type DataStoreTypes string
 
@@ -51,6 +58,14 @@ const (
 	MonthSeptember = Month("September")
 )
 
+// Gets or sets the type of secret store
+type SecretStoreType string
+
+const (
+	SecretStoreTypeInvalid       = SecretStoreType("Invalid")
+	SecretStoreTypeAzureKeyVault = SecretStoreType("AzureKeyVault")
+)
+
 // Gets or sets the type of the datastore.
 type StorageSettingStoreTypes string
 
@@ -66,6 +81,15 @@ type StorageSettingTypes string
 const (
 	StorageSettingTypesGeoRedundant     = StorageSettingTypes("GeoRedundant")
 	StorageSettingTypesLocallyRedundant = StorageSettingTypes("LocallyRedundant")
+	StorageSettingTypesZoneRedundant    = StorageSettingTypes("ZoneRedundant")
+)
+
+// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+type ValidationType string
+
+const (
+	ValidationTypeShallowValidation = ValidationType("ShallowValidation")
+	ValidationTypeDeepValidation    = ValidationType("DeepValidation")
 )
 
 type WeekNumber string

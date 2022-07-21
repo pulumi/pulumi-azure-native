@@ -1592,7 +1592,7 @@ type Identity struct {
 	// Type of managed service identity.
 	Type *ManagedServiceIdentityType `pulumi:"type"`
 	// Properties for User Assigned Identities
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1611,7 +1611,7 @@ type IdentityArgs struct {
 	// Type of managed service identity.
 	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
 	// Properties for User Assigned Identities
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1698,8 +1698,8 @@ func (o IdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
 }
 
 // Properties for User Assigned Identities
-func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1737,13 +1737,13 @@ func (o IdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
 }
 
 // Properties for User Assigned Identities
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *Identity) map[string]interface{} {
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Properties to configure Identity for Bring your Own Keys

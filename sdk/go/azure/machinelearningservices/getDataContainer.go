@@ -11,14 +11,14 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupDataContainer(ctx *pulumi.Context, args *LookupDataContainerArgs, opts ...pulumi.InvokeOption) (*LookupDataContainerResult, error) {
 	var rv LookupDataContainerResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getDataContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDataContainerArgs struct {
@@ -32,16 +32,27 @@ type LookupDataContainerArgs struct {
 
 // Azure Resource Manager resource envelope.
 type LookupDataContainerResult struct {
+	// [Required] Additional attributes of the entity.
+	DataContainerProperties DataContainerResponse `pulumi:"dataContainerProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties DataContainerResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupDataContainerResult
+func (val *LookupDataContainerResult) Defaults() *LookupDataContainerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DataContainerProperties = *tmp.DataContainerProperties.Defaults()
+
+	return &tmp
 }
 
 func LookupDataContainerOutput(ctx *pulumi.Context, args LookupDataContainerOutputArgs, opts ...pulumi.InvokeOption) LookupDataContainerResultOutput {
@@ -85,6 +96,11 @@ func (o LookupDataContainerResultOutput) ToLookupDataContainerResultOutputWithCo
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupDataContainerResultOutput) DataContainerProperties() DataContainerResponseOutput {
+	return o.ApplyT(func(v LookupDataContainerResult) DataContainerResponse { return v.DataContainerProperties }).(DataContainerResponseOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupDataContainerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataContainerResult) string { return v.Id }).(pulumi.StringOutput)
@@ -95,12 +111,7 @@ func (o LookupDataContainerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataContainerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupDataContainerResultOutput) Properties() DataContainerResponseOutput {
-	return o.ApplyT(func(v LookupDataContainerResult) DataContainerResponse { return v.Properties }).(DataContainerResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupDataContainerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupDataContainerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

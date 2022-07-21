@@ -28,16 +28,19 @@ class ApiArgs:
                  api_version_set: Optional[pulumi.Input['ApiVersionSetContractDetailsArgs']] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
                  authentication_settings: Optional[pulumi.Input['AuthenticationSettingsContractArgs']] = None,
+                 contact: Optional[pulumi.Input['ApiContactInformationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]] = None,
+                 license: Optional[pulumi.Input['ApiLicenseInformationArgs']] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input['SubscriptionKeyParameterNamesContractArgs']] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
+                 terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  wsdl_selector: Optional[pulumi.Input['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] = None):
         """
@@ -46,26 +49,31 @@ class ApiArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
-        :param pulumi.Input[str] api_revision_description: Description of the Api Revision.
+        :param pulumi.Input[str] api_revision: Describes the revision of the API. If no value is provided, default revision 1 is created
+        :param pulumi.Input[str] api_revision_description: Description of the API Revision.
         :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
-        :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
-        :param pulumi.Input[str] api_version_description: Description of the Api Version.
+        :param pulumi.Input[str] api_version: Indicates the version identifier of the API if the API is versioned
+        :param pulumi.Input[str] api_version_description: Description of the API Version.
         :param pulumi.Input['ApiVersionSetContractDetailsArgs'] api_version_set: Version set details
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
         :param pulumi.Input['AuthenticationSettingsContractArgs'] authentication_settings: Collection of authentication settings included into this API.
+        :param pulumi.Input['ApiContactInformationArgs'] contact: Contact information for the API.
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: API name. Must be 1 to 300 characters long.
         :param pulumi.Input[Union[str, 'ContentFormat']] format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[bool] is_current: Indicates if API revision is current api revision.
-        :param pulumi.Input[Sequence[pulumi.Input['Protocol']]] protocols: Describes on which protocols the operations in this API can be invoked.
+        :param pulumi.Input['ApiLicenseInformationArgs'] license: License information for the API.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of Api to create. 
-                * `http` creates a SOAP to REST API 
-                * `soap` creates a SOAP pass-through API .
+        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of API to create. 
+                * `http` creates a REST API 
+                * `soap` creates a SOAP pass-through API  
+                * `websocket` creates websocket API 
+                * `graphql` creates GraphQL API.
         :param pulumi.Input[str] source_api_id: API identifier of the source API.
         :param pulumi.Input['SubscriptionKeyParameterNamesContractArgs'] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
+        :param pulumi.Input[str] terms_of_service_url:  A URL to the Terms of Service for the API. MUST be in the format of a URL.
         :param pulumi.Input[str] value: Content value when Importing an API.
         :param pulumi.Input['ApiCreateOrUpdatePropertiesWsdlSelectorArgs'] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
@@ -90,6 +98,8 @@ class ApiArgs:
             pulumi.set(__self__, "api_version_set_id", api_version_set_id)
         if authentication_settings is not None:
             pulumi.set(__self__, "authentication_settings", authentication_settings)
+        if contact is not None:
+            pulumi.set(__self__, "contact", contact)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -98,6 +108,8 @@ class ApiArgs:
             pulumi.set(__self__, "format", format)
         if is_current is not None:
             pulumi.set(__self__, "is_current", is_current)
+        if license is not None:
+            pulumi.set(__self__, "license", license)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
         if service_url is not None:
@@ -110,6 +122,8 @@ class ApiArgs:
             pulumi.set(__self__, "subscription_key_parameter_names", subscription_key_parameter_names)
         if subscription_required is not None:
             pulumi.set(__self__, "subscription_required", subscription_required)
+        if terms_of_service_url is not None:
+            pulumi.set(__self__, "terms_of_service_url", terms_of_service_url)
         if value is not None:
             pulumi.set(__self__, "value", value)
         if wsdl_selector is not None:
@@ -167,7 +181,7 @@ class ApiArgs:
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -179,7 +193,7 @@ class ApiArgs:
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -203,7 +217,7 @@ class ApiArgs:
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -215,7 +229,7 @@ class ApiArgs:
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -258,6 +272,18 @@ class ApiArgs:
     @authentication_settings.setter
     def authentication_settings(self, value: Optional[pulumi.Input['AuthenticationSettingsContractArgs']]):
         pulumi.set(self, "authentication_settings", value)
+
+    @property
+    @pulumi.getter
+    def contact(self) -> Optional[pulumi.Input['ApiContactInformationArgs']]:
+        """
+        Contact information for the API.
+        """
+        return pulumi.get(self, "contact")
+
+    @contact.setter
+    def contact(self, value: Optional[pulumi.Input['ApiContactInformationArgs']]):
+        pulumi.set(self, "contact", value)
 
     @property
     @pulumi.getter
@@ -309,14 +335,26 @@ class ApiArgs:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]]:
+    def license(self) -> Optional[pulumi.Input['ApiLicenseInformationArgs']]:
+        """
+        License information for the API.
+        """
+        return pulumi.get(self, "license")
+
+    @license.setter
+    def license(self, value: Optional[pulumi.Input['ApiLicenseInformationArgs']]):
+        pulumi.set(self, "license", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]]:
         """
         Describes on which protocols the operations in this API can be invoked.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]]):
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]]):
         pulumi.set(self, "protocols", value)
 
     @property
@@ -335,9 +373,11 @@ class ApiArgs:
     @pulumi.getter(name="soapApiType")
     def soap_api_type(self) -> Optional[pulumi.Input[Union[str, 'SoapApiType']]]:
         """
-        Type of Api to create. 
-         * `http` creates a SOAP to REST API 
-         * `soap` creates a SOAP pass-through API .
+        Type of API to create. 
+         * `http` creates a REST API 
+         * `soap` creates a SOAP pass-through API  
+         * `websocket` creates websocket API 
+         * `graphql` creates GraphQL API.
         """
         return pulumi.get(self, "soap_api_type")
 
@@ -382,6 +422,18 @@ class ApiArgs:
         pulumi.set(self, "subscription_required", value)
 
     @property
+    @pulumi.getter(name="termsOfServiceUrl")
+    def terms_of_service_url(self) -> Optional[pulumi.Input[str]]:
+        """
+         A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        """
+        return pulumi.get(self, "terms_of_service_url")
+
+    @terms_of_service_url.setter
+    def terms_of_service_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terms_of_service_url", value)
+
+    @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
@@ -420,12 +472,14 @@ class Api(pulumi.CustomResource):
                  api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
                  authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
+                 contact: Optional[pulumi.Input[pulumi.InputType['ApiContactInformationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
+                 license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseInformationArgs']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -433,39 +487,45 @@ class Api(pulumi.CustomResource):
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
+                 terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
                  __props__=None):
         """
-        Api details.
-        API Version: 2020-12-01.
+        API details.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
-        :param pulumi.Input[str] api_revision_description: Description of the Api Revision.
+        :param pulumi.Input[str] api_revision: Describes the revision of the API. If no value is provided, default revision 1 is created
+        :param pulumi.Input[str] api_revision_description: Description of the API Revision.
         :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
-        :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
-        :param pulumi.Input[str] api_version_description: Description of the Api Version.
+        :param pulumi.Input[str] api_version: Indicates the version identifier of the API if the API is versioned
+        :param pulumi.Input[str] api_version_description: Description of the API Version.
         :param pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']] api_version_set: Version set details
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
         :param pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']] authentication_settings: Collection of authentication settings included into this API.
+        :param pulumi.Input[pulumi.InputType['ApiContactInformationArgs']] contact: Contact information for the API.
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: API name. Must be 1 to 300 characters long.
         :param pulumi.Input[Union[str, 'ContentFormat']] format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[bool] is_current: Indicates if API revision is current api revision.
+        :param pulumi.Input[pulumi.InputType['ApiLicenseInformationArgs']] license: License information for the API.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-        :param pulumi.Input[Sequence[pulumi.Input['Protocol']]] protocols: Describes on which protocols the operations in this API can be invoked.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of Api to create. 
-                * `http` creates a SOAP to REST API 
-                * `soap` creates a SOAP pass-through API .
+        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of API to create. 
+                * `http` creates a REST API 
+                * `soap` creates a SOAP pass-through API  
+                * `websocket` creates websocket API 
+                * `graphql` creates GraphQL API.
         :param pulumi.Input[str] source_api_id: API identifier of the source API.
         :param pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
+        :param pulumi.Input[str] terms_of_service_url:  A URL to the Terms of Service for the API. MUST be in the format of a URL.
         :param pulumi.Input[str] value: Content value when Importing an API.
         :param pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
@@ -476,8 +536,8 @@ class Api(pulumi.CustomResource):
                  args: ApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api details.
-        API Version: 2020-12-01.
+        API details.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.
@@ -503,12 +563,14 @@ class Api(pulumi.CustomResource):
                  api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
                  authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
+                 contact: Optional[pulumi.Input[pulumi.InputType['ApiContactInformationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
+                 license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseInformationArgs']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -516,6 +578,7 @@ class Api(pulumi.CustomResource):
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
+                 terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
                  __props__=None):
@@ -539,10 +602,12 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["api_version_set"] = api_version_set
             __props__.__dict__["api_version_set_id"] = api_version_set_id
             __props__.__dict__["authentication_settings"] = authentication_settings
+            __props__.__dict__["contact"] = contact
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["format"] = format
             __props__.__dict__["is_current"] = is_current
+            __props__.__dict__["license"] = license
             if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
             __props__.__dict__["path"] = path
@@ -558,6 +623,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["source_api_id"] = source_api_id
             __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
             __props__.__dict__["subscription_required"] = subscription_required
+            __props__.__dict__["terms_of_service_url"] = terms_of_service_url
             __props__.__dict__["value"] = value
             __props__.__dict__["wsdl_selector"] = wsdl_selector
             __props__.__dict__["is_online"] = None
@@ -595,10 +661,12 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["api_version_set"] = None
         __props__.__dict__["api_version_set_id"] = None
         __props__.__dict__["authentication_settings"] = None
+        __props__.__dict__["contact"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["is_current"] = None
         __props__.__dict__["is_online"] = None
+        __props__.__dict__["license"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["path"] = None
         __props__.__dict__["protocols"] = None
@@ -606,6 +674,7 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["source_api_id"] = None
         __props__.__dict__["subscription_key_parameter_names"] = None
         __props__.__dict__["subscription_required"] = None
+        __props__.__dict__["terms_of_service_url"] = None
         __props__.__dict__["type"] = None
         return Api(resource_name, opts=opts, __props__=__props__)
 
@@ -613,7 +682,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> pulumi.Output[Optional[str]]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -621,7 +690,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -637,7 +706,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -645,7 +714,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -672,6 +741,14 @@ class Api(pulumi.CustomResource):
         Collection of authentication settings included into this API.
         """
         return pulumi.get(self, "authentication_settings")
+
+    @property
+    @pulumi.getter
+    def contact(self) -> pulumi.Output[Optional['outputs.ApiContactInformationResponse']]:
+        """
+        Contact information for the API.
+        """
+        return pulumi.get(self, "contact")
 
     @property
     @pulumi.getter
@@ -707,9 +784,17 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def license(self) -> pulumi.Output[Optional['outputs.ApiLicenseInformationResponse']]:
+        """
+        License information for the API.
+        """
+        return pulumi.get(self, "license")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -762,10 +847,18 @@ class Api(pulumi.CustomResource):
         return pulumi.get(self, "subscription_required")
 
     @property
+    @pulumi.getter(name="termsOfServiceUrl")
+    def terms_of_service_url(self) -> pulumi.Output[Optional[str]]:
+        """
+         A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        """
+        return pulumi.get(self, "terms_of_service_url")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

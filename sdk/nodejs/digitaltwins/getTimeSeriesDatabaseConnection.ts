@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a time series database connection resource.
- * API Version: 2021-06-30-preview.
+ * API Version: 2022-05-31.
  */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
     if (!opts) {

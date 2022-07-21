@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
- * API Version: 2020-01-01-preview.
+ * API Version: 2022-01-01.
  */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetNodeTypeArgs {
  */
 export interface GetNodeTypeResult {
     /**
+     * Additional managed data disks.
+     */
+    readonly additionalDataDisks?: outputs.servicefabric.VmssDataDiskResponse[];
+    /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
     readonly applicationPorts?: outputs.servicefabric.EndpointRangeDescriptionResponse;
@@ -50,33 +54,77 @@ export interface GetNodeTypeResult {
      */
     readonly capacities?: {[key: string]: string};
     /**
-     * Disk size for each vm in the node type in GBs.
+     * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
-    readonly dataDiskSizeGB: number;
+    readonly dataDiskLetter?: string;
+    /**
+     * Disk size for the managed disk attached to the vms on the node type in GBs.
+     */
+    readonly dataDiskSizeGB?: number;
+    /**
+     * Managed data disk type. Specifies the storage account type for the managed disk
+     */
+    readonly dataDiskType?: string;
+    /**
+     * Specifies whether the network interface is accelerated networking-enabled.
+     */
+    readonly enableAcceleratedNetworking?: boolean;
+    /**
+     * Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+     */
+    readonly enableEncryptionAtHost?: boolean;
+    /**
+     * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+     */
+    readonly enableOverProvisioning?: boolean;
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
     readonly ephemeralPorts?: outputs.servicefabric.EndpointRangeDescriptionResponse;
     /**
+     * Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+     */
+    readonly frontendConfigurations?: outputs.servicefabric.FrontendConfigurationResponse[];
+    /**
      * Azure resource identifier.
      */
     readonly id: string;
     /**
-     * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+     * Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
      */
     readonly isPrimary: boolean;
+    /**
+     * Indicates if the node type can only host Stateless workloads.
+     */
+    readonly isStateless?: boolean;
+    /**
+     * Indicates if scale set associated with the node type can be composed of multiple placement groups.
+     */
+    readonly multiplePlacementGroups?: boolean;
     /**
      * Azure resource name.
      */
     readonly name: string;
     /**
+     * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+     */
+    readonly networkSecurityRules?: outputs.servicefabric.NetworkSecurityRuleResponse[];
+    /**
      * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      */
     readonly placementProperties?: {[key: string]: string};
     /**
-     * The provisioning state of the managed cluster resource.
+     * The provisioning state of the node type resource.
      */
     readonly provisioningState: string;
+    /**
+     * The node type sku.
+     */
+    readonly sku?: outputs.servicefabric.NodeTypeSkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */
@@ -85,6 +133,14 @@ export interface GetNodeTypeResult {
      * Azure resource type.
      */
     readonly type: string;
+    /**
+     * Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+     */
+    readonly useDefaultPublicLoadBalancer?: boolean;
+    /**
+     * Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+     */
+    readonly useTempDataDisk?: boolean;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
@@ -106,9 +162,13 @@ export interface GetNodeTypeResult {
      */
     readonly vmImageVersion?: string;
     /**
-     * The number of nodes in the node type.
+     * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
      */
     readonly vmInstanceCount: number;
+    /**
+     * Identities to assign to the virtual machine scale set under the node type.
+     */
+    readonly vmManagedIdentity?: outputs.servicefabric.VmManagedIdentityResponse;
     /**
      * The secrets to install in the virtual machines.
      */

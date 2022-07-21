@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-12-01.
  */
 export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -104,11 +104,11 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
  */
 export interface DiskAccessAPrivateEndpointConnectionArgs {
     /**
-     * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskAccessName: pulumi.Input<string>;
     /**
-     * The name of the private endpoint connection
+     * The name of the private endpoint connection.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**

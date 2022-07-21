@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Network slice resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Slice")]
     public partial class Slice : Pulumi.CustomResource
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("snssai")]
         public Output<Outputs.SnssaiResponse> Snssai { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

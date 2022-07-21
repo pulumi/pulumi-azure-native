@@ -21,15 +21,15 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The list of user identities associated with the Batch pool.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.BatchPoolIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private BatchPoolIdentityResponse(
             string type,
 
-            ImmutableDictionary<string, Outputs.BatchPoolIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponse>? userAssignedIdentities)
         {
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;

@@ -17,8 +17,6 @@ __all__ = [
     'CollectorAgentPropertiesResponse',
     'CollectorBodyAgentSpnPropertiesResponse',
     'CollectorPropertiesResponse',
-    'DatabaseProjectSummaryResponse',
-    'DatabasesSolutionSummaryResponse',
     'DiskEncryptionSetResourceSettingsResponse',
     'GroupPropertiesResponse',
     'IdentityResponse',
@@ -32,7 +30,6 @@ __all__ = [
     'LoadBalancerResourceSettingsResponse',
     'ManualResolutionPropertiesResponse',
     'MigrateProjectPropertiesResponse',
-    'MigrateProjectResponseTags',
     'MoveCollectionPropertiesResponse',
     'MoveCollectionPropertiesResponseErrors',
     'MoveResourceDependencyOverrideResponse',
@@ -51,19 +48,17 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProjectPropertiesResponse',
+    'ProjectSummaryResponse',
     'PublicIPAddressResourceSettingsResponse',
     'PublicIpReferenceResponse',
     'ResourceGroupResourceSettingsResponse',
     'ResourceIdResponse',
-    'ServersProjectSummaryResponse',
-    'ServersSolutionSummaryResponse',
-    'SolutionDetailsResponse',
-    'SolutionPropertiesResponse',
     'SqlDatabaseResourceSettingsResponse',
     'SqlElasticPoolResourceSettingsResponse',
     'SqlServerResourceSettingsResponse',
     'SubnetReferenceResponse',
     'SubnetResourceSettingsResponse',
+    'SystemDataResponse',
     'VirtualMachineResourceSettingsResponse',
     'VirtualNetworkResourceSettingsResponse',
     'VmUptimeResponse',
@@ -551,6 +546,7 @@ class AvailabilitySetResourceSettingsResponse(dict):
                  resource_type: str,
                  target_resource_name: str,
                  fault_domain: Optional[int] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  update_domain: Optional[int] = None):
         """
         Gets or sets the availability set resource settings.
@@ -558,12 +554,15 @@ class AvailabilitySetResourceSettingsResponse(dict):
                Expected value is 'Microsoft.Compute/availabilitySets'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param int fault_domain: Gets or sets the target fault domain.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param int update_domain: Gets or sets the target update domain.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if fault_domain is not None:
             pulumi.set(__self__, "fault_domain", fault_domain)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if update_domain is not None:
             pulumi.set(__self__, "update_domain", update_domain)
 
@@ -591,6 +590,14 @@ class AvailabilitySetResourceSettingsResponse(dict):
         Gets or sets the target fault domain.
         """
         return pulumi.get(self, "fault_domain")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateDomain")
@@ -812,172 +819,6 @@ class CollectorPropertiesResponse(dict):
         The ARM id of the discovery service site.
         """
         return pulumi.get(self, "discovery_site_id")
-
-
-@pulumi.output_type
-class DatabaseProjectSummaryResponse(dict):
-    """
-    The database project summary class.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceType":
-            suggest = "instance_type"
-        elif key == "extendedSummary":
-            suggest = "extended_summary"
-        elif key == "lastSummaryRefreshedTime":
-            suggest = "last_summary_refreshed_time"
-        elif key == "refreshSummaryState":
-            suggest = "refresh_summary_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabaseProjectSummaryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatabaseProjectSummaryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatabaseProjectSummaryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_type: str,
-                 extended_summary: Optional[Mapping[str, str]] = None,
-                 last_summary_refreshed_time: Optional[str] = None,
-                 refresh_summary_state: Optional[str] = None):
-        """
-        The database project summary class.
-        :param str instance_type: Gets the Instance type.
-               Expected value is 'Databases'.
-        :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
-        :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
-        :param str refresh_summary_state: Gets or sets the state of refresh summary.
-        """
-        pulumi.set(__self__, "instance_type", 'Databases')
-        if extended_summary is not None:
-            pulumi.set(__self__, "extended_summary", extended_summary)
-        if last_summary_refreshed_time is not None:
-            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
-        if refresh_summary_state is not None:
-            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the Instance type.
-        Expected value is 'Databases'.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="extendedSummary")
-    def extended_summary(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the extended summary.
-        """
-        return pulumi.get(self, "extended_summary")
-
-    @property
-    @pulumi.getter(name="lastSummaryRefreshedTime")
-    def last_summary_refreshed_time(self) -> Optional[str]:
-        """
-        Gets or sets the time when summary was last refreshed.
-        """
-        return pulumi.get(self, "last_summary_refreshed_time")
-
-    @property
-    @pulumi.getter(name="refreshSummaryState")
-    def refresh_summary_state(self) -> Optional[str]:
-        """
-        Gets or sets the state of refresh summary.
-        """
-        return pulumi.get(self, "refresh_summary_state")
-
-
-@pulumi.output_type
-class DatabasesSolutionSummaryResponse(dict):
-    """
-    Class representing the databases solution summary.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceType":
-            suggest = "instance_type"
-        elif key == "databaseInstancesAssessedCount":
-            suggest = "database_instances_assessed_count"
-        elif key == "databasesAssessedCount":
-            suggest = "databases_assessed_count"
-        elif key == "migrationReadyCount":
-            suggest = "migration_ready_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabasesSolutionSummaryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatabasesSolutionSummaryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatabasesSolutionSummaryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_type: str,
-                 database_instances_assessed_count: Optional[int] = None,
-                 databases_assessed_count: Optional[int] = None,
-                 migration_ready_count: Optional[int] = None):
-        """
-        Class representing the databases solution summary.
-        :param str instance_type: Gets the Instance type.
-               Expected value is 'Databases'.
-        :param int database_instances_assessed_count: Gets or sets the count of database instances assessed.
-        :param int databases_assessed_count: Gets or sets the count of databases assessed.
-        :param int migration_ready_count: Gets or sets the count of databases ready for migration.
-        """
-        pulumi.set(__self__, "instance_type", 'Databases')
-        if database_instances_assessed_count is not None:
-            pulumi.set(__self__, "database_instances_assessed_count", database_instances_assessed_count)
-        if databases_assessed_count is not None:
-            pulumi.set(__self__, "databases_assessed_count", databases_assessed_count)
-        if migration_ready_count is not None:
-            pulumi.set(__self__, "migration_ready_count", migration_ready_count)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the Instance type.
-        Expected value is 'Databases'.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="databaseInstancesAssessedCount")
-    def database_instances_assessed_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of database instances assessed.
-        """
-        return pulumi.get(self, "database_instances_assessed_count")
-
-    @property
-    @pulumi.getter(name="databasesAssessedCount")
-    def databases_assessed_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of databases assessed.
-        """
-        return pulumi.get(self, "databases_assessed_count")
-
-    @property
-    @pulumi.getter(name="migrationReadyCount")
-    def migration_ready_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of databases ready for migration.
-        """
-        return pulumi.get(self, "migration_ready_count")
 
 
 @pulumi.output_type
@@ -1621,6 +1462,7 @@ class LoadBalancerResourceSettingsResponse(dict):
                  backend_address_pools: Optional[Sequence['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
                  frontend_ip_configurations: Optional[Sequence['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
                  sku: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  zones: Optional[str] = None):
         """
         Defines the load balancer resource settings.
@@ -1630,6 +1472,7 @@ class LoadBalancerResourceSettingsResponse(dict):
         :param Sequence['LBBackendAddressPoolResourceSettingsResponse'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
         :param Sequence['LBFrontendIPConfigurationResourceSettingsResponse'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param str sku: Gets or sets load balancer sku (Basic/Standard).
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
         """
@@ -1641,6 +1484,8 @@ class LoadBalancerResourceSettingsResponse(dict):
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -1684,6 +1529,14 @@ class LoadBalancerResourceSettingsResponse(dict):
         Gets or sets load balancer sku (Basic/Standard).
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -1738,19 +1591,25 @@ class ManualResolutionPropertiesResponse(dict):
 @pulumi.output_type
 class MigrateProjectPropertiesResponse(dict):
     """
-    Class for migrate project properties.
+    Properties of a migrate project.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "lastSummaryRefreshedTime":
             suggest = "last_summary_refreshed_time"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
         elif key == "refreshSummaryState":
             suggest = "refresh_summary_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
         elif key == "registeredTools":
             suggest = "registered_tools"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "serviceEndpoint":
+            suggest = "service_endpoint"
+        elif key == "utilityStorageAccountId":
+            suggest = "utility_storage_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateProjectPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1765,101 +1624,99 @@ class MigrateProjectPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  last_summary_refreshed_time: str,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  refresh_summary_state: str,
-                 summary: Mapping[str, Any],
-                 provisioning_state: Optional[str] = None,
-                 registered_tools: Optional[Sequence[str]] = None):
+                 registered_tools: Sequence[str],
+                 summary: Mapping[str, 'outputs.ProjectSummaryResponse'],
+                 public_network_access: Optional[str] = None,
+                 service_endpoint: Optional[str] = None,
+                 utility_storage_account_id: Optional[str] = None):
         """
-        Class for migrate project properties.
-        :param str last_summary_refreshed_time: Gets the last time the project summary was refreshed.
-        :param str refresh_summary_state: Gets the refresh summary state.
-        :param Mapping[str, Union['DatabaseProjectSummaryResponse', 'ServersProjectSummaryResponse']] summary: Gets the summary of the migrate project.
-        :param str provisioning_state: Provisioning state of the migrate project.
-        :param Sequence[str] registered_tools: Gets or sets the list of tools registered with the migrate project.
+        Properties of a migrate project.
+        :param str last_summary_refreshed_time: Last summary refresh time.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Gets the private endpoint connections.
+        :param str refresh_summary_state: Refresh summary state.
+        :param Sequence[str] registered_tools: Register tools inside project.
+        :param Mapping[str, 'ProjectSummaryResponse'] summary: Project summary.
+        :param str public_network_access: Gets or sets the state of public network access.
+        :param str service_endpoint: Service endpoint.
+        :param str utility_storage_account_id: Utility storage account id.
         """
         pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+        pulumi.set(__self__, "registered_tools", registered_tools)
         pulumi.set(__self__, "summary", summary)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if registered_tools is not None:
-            pulumi.set(__self__, "registered_tools", registered_tools)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if service_endpoint is not None:
+            pulumi.set(__self__, "service_endpoint", service_endpoint)
+        if utility_storage_account_id is not None:
+            pulumi.set(__self__, "utility_storage_account_id", utility_storage_account_id)
 
     @property
     @pulumi.getter(name="lastSummaryRefreshedTime")
     def last_summary_refreshed_time(self) -> str:
         """
-        Gets the last time the project summary was refreshed.
+        Last summary refresh time.
         """
         return pulumi.get(self, "last_summary_refreshed_time")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        Gets the private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="refreshSummaryState")
     def refresh_summary_state(self) -> str:
         """
-        Gets the refresh summary state.
+        Refresh summary state.
         """
         return pulumi.get(self, "refresh_summary_state")
 
     @property
-    @pulumi.getter
-    def summary(self) -> Mapping[str, Any]:
+    @pulumi.getter(name="registeredTools")
+    def registered_tools(self) -> Sequence[str]:
         """
-        Gets the summary of the migrate project.
+        Register tools inside project.
+        """
+        return pulumi.get(self, "registered_tools")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Mapping[str, 'outputs.ProjectSummaryResponse']:
+        """
+        Project summary.
         """
         return pulumi.get(self, "summary")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
         """
-        Provisioning state of the migrate project.
+        Gets or sets the state of public network access.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "public_network_access")
 
     @property
-    @pulumi.getter(name="registeredTools")
-    def registered_tools(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> Optional[str]:
         """
-        Gets or sets the list of tools registered with the migrate project.
+        Service endpoint.
         """
-        return pulumi.get(self, "registered_tools")
-
-
-@pulumi.output_type
-class MigrateProjectResponseTags(dict):
-    """
-    Gets or sets the tags.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "additionalProperties":
-            suggest = "additional_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MigrateProjectResponseTags. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MigrateProjectResponseTags.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MigrateProjectResponseTags.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 additional_properties: Optional[str] = None):
-        """
-        Gets or sets the tags.
-        """
-        if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+        return pulumi.get(self, "service_endpoint")
 
     @property
-    @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[str]:
-        return pulumi.get(self, "additional_properties")
+    @pulumi.getter(name="utilityStorageAccountId")
+    def utility_storage_account_id(self) -> Optional[str]:
+        """
+        Utility storage account id.
+        """
+        return pulumi.get(self, "utility_storage_account_id")
 
 
 @pulumi.output_type
@@ -2505,7 +2362,8 @@ class NetworkInterfaceResourceSettingsResponse(dict):
                  resource_type: str,
                  target_resource_name: str,
                  enable_accelerated_networking: Optional[bool] = None,
-                 ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None):
+                 ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         Defines the network interface resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -2513,6 +2371,7 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         :param str target_resource_name: Gets or sets the target Resource name.
         :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
         :param Sequence['NicIpConfigurationResourceSettingsResponse'] ip_configurations: Gets or sets the IP configurations of the NIC.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -2520,6 +2379,8 @@ class NetworkInterfaceResourceSettingsResponse(dict):
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2554,6 +2415,14 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "ip_configurations")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
 
 @pulumi.output_type
 class NetworkSecurityGroupResourceSettingsResponse(dict):
@@ -2584,18 +2453,22 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None):
+                 security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         Defines the NSG resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param Sequence['NsgSecurityRuleResponse'] security_rules: Gets or sets Security rules of network security group.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if security_rules is not None:
             pulumi.set(__self__, "security_rules", security_rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2621,6 +2494,14 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         Gets or sets Security rules of network security group.
         """
         return pulumi.get(self, "security_rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -3046,6 +2927,8 @@ class PrivateEndpointConnectionResponse(dict):
         suggest = None
         if key == "eTag":
             suggest = "e_tag"
+        elif key == "systemData":
+            suggest = "system_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3063,7 +2946,8 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
                  type: str,
-                 e_tag: Optional[str] = None):
+                 e_tag: Optional[str] = None,
+                 system_data: Optional['outputs.SystemDataResponse'] = None):
         """
         A private endpoint connection for a project.
         :param str id: Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
@@ -3071,6 +2955,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Properties of the private endpoint endpoint connection.
         :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         :param str e_tag: For optimistic concurrency control.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3078,6 +2963,8 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "type", type)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if system_data is not None:
+            pulumi.set(__self__, "system_data", system_data)
 
     @property
     @pulumi.getter
@@ -3118,6 +3005,14 @@ class PrivateEndpointConnectionResponse(dict):
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
 
 @pulumi.output_type
@@ -3412,6 +3307,87 @@ class ProjectPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ProjectSummaryResponse(dict):
+    """
+    Project summary.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "extendedSummary":
+            suggest = "extended_summary"
+        elif key == "lastSummaryRefreshedTime":
+            suggest = "last_summary_refreshed_time"
+        elif key == "refreshSummaryState":
+            suggest = "refresh_summary_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSummaryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSummaryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSummaryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: str,
+                 extended_summary: Optional[Mapping[str, str]] = None,
+                 last_summary_refreshed_time: Optional[str] = None,
+                 refresh_summary_state: Optional[str] = None):
+        """
+        Project summary.
+        :param str instance_type: Instance type.
+        :param Mapping[str, str] extended_summary: Extended summary.
+        :param str last_summary_refreshed_time: Last summary refresh time.
+        :param str refresh_summary_state: Refresh summary state.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if extended_summary is not None:
+            pulumi.set(__self__, "extended_summary", extended_summary)
+        if last_summary_refreshed_time is not None:
+            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+        if refresh_summary_state is not None:
+            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="extendedSummary")
+    def extended_summary(self) -> Optional[Mapping[str, str]]:
+        """
+        Extended summary.
+        """
+        return pulumi.get(self, "extended_summary")
+
+    @property
+    @pulumi.getter(name="lastSummaryRefreshedTime")
+    def last_summary_refreshed_time(self) -> Optional[str]:
+        """
+        Last summary refresh time.
+        """
+        return pulumi.get(self, "last_summary_refreshed_time")
+
+    @property
+    @pulumi.getter(name="refreshSummaryState")
+    def refresh_summary_state(self) -> Optional[str]:
+        """
+        Refresh summary state.
+        """
+        return pulumi.get(self, "refresh_summary_state")
+
+
+@pulumi.output_type
 class PublicIPAddressResourceSettingsResponse(dict):
     """
     Defines the public IP address resource settings.
@@ -3446,6 +3422,7 @@ class PublicIPAddressResourceSettingsResponse(dict):
                  fqdn: Optional[str] = None,
                  public_ip_allocation_method: Optional[str] = None,
                  sku: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  zones: Optional[str] = None):
         """
         Defines the public IP address resource settings.
@@ -3456,6 +3433,7 @@ class PublicIPAddressResourceSettingsResponse(dict):
         :param str fqdn: Gets or sets the fully qualified domain name.
         :param str public_ip_allocation_method: Gets or sets public IP allocation method.
         :param str sku: Gets or sets public IP sku.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zones: Gets or sets public IP zones.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/publicIPAddresses')
@@ -3468,6 +3446,8 @@ class PublicIPAddressResourceSettingsResponse(dict):
             pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -3519,6 +3499,14 @@ class PublicIPAddressResourceSettingsResponse(dict):
         Gets or sets public IP sku.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -3641,450 +3629,6 @@ class ResourceIdResponse(dict):
 
 
 @pulumi.output_type
-class ServersProjectSummaryResponse(dict):
-    """
-    Class representing the servers project summary.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceType":
-            suggest = "instance_type"
-        elif key == "assessedCount":
-            suggest = "assessed_count"
-        elif key == "discoveredCount":
-            suggest = "discovered_count"
-        elif key == "extendedSummary":
-            suggest = "extended_summary"
-        elif key == "lastSummaryRefreshedTime":
-            suggest = "last_summary_refreshed_time"
-        elif key == "migratedCount":
-            suggest = "migrated_count"
-        elif key == "refreshSummaryState":
-            suggest = "refresh_summary_state"
-        elif key == "replicatingCount":
-            suggest = "replicating_count"
-        elif key == "testMigratedCount":
-            suggest = "test_migrated_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServersProjectSummaryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServersProjectSummaryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServersProjectSummaryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_type: str,
-                 assessed_count: Optional[int] = None,
-                 discovered_count: Optional[int] = None,
-                 extended_summary: Optional[Mapping[str, str]] = None,
-                 last_summary_refreshed_time: Optional[str] = None,
-                 migrated_count: Optional[int] = None,
-                 refresh_summary_state: Optional[str] = None,
-                 replicating_count: Optional[int] = None,
-                 test_migrated_count: Optional[int] = None):
-        """
-        Class representing the servers project summary.
-        :param str instance_type: Gets the Instance type.
-               Expected value is 'Servers'.
-        :param int assessed_count: Gets or sets the count of entities assessed.
-        :param int discovered_count: Gets or sets the count of entities discovered.
-        :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
-        :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
-        :param int migrated_count: Gets or sets the count of entities migrated.
-        :param str refresh_summary_state: Gets or sets the state of refresh summary.
-        :param int replicating_count: Gets or sets the count of entities being replicated.
-        :param int test_migrated_count: Gets or sets the count of entities test migrated.
-        """
-        pulumi.set(__self__, "instance_type", 'Servers')
-        if assessed_count is not None:
-            pulumi.set(__self__, "assessed_count", assessed_count)
-        if discovered_count is not None:
-            pulumi.set(__self__, "discovered_count", discovered_count)
-        if extended_summary is not None:
-            pulumi.set(__self__, "extended_summary", extended_summary)
-        if last_summary_refreshed_time is not None:
-            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
-        if migrated_count is not None:
-            pulumi.set(__self__, "migrated_count", migrated_count)
-        if refresh_summary_state is not None:
-            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
-        if replicating_count is not None:
-            pulumi.set(__self__, "replicating_count", replicating_count)
-        if test_migrated_count is not None:
-            pulumi.set(__self__, "test_migrated_count", test_migrated_count)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the Instance type.
-        Expected value is 'Servers'.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="assessedCount")
-    def assessed_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of entities assessed.
-        """
-        return pulumi.get(self, "assessed_count")
-
-    @property
-    @pulumi.getter(name="discoveredCount")
-    def discovered_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of entities discovered.
-        """
-        return pulumi.get(self, "discovered_count")
-
-    @property
-    @pulumi.getter(name="extendedSummary")
-    def extended_summary(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the extended summary.
-        """
-        return pulumi.get(self, "extended_summary")
-
-    @property
-    @pulumi.getter(name="lastSummaryRefreshedTime")
-    def last_summary_refreshed_time(self) -> Optional[str]:
-        """
-        Gets or sets the time when summary was last refreshed.
-        """
-        return pulumi.get(self, "last_summary_refreshed_time")
-
-    @property
-    @pulumi.getter(name="migratedCount")
-    def migrated_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of entities migrated.
-        """
-        return pulumi.get(self, "migrated_count")
-
-    @property
-    @pulumi.getter(name="refreshSummaryState")
-    def refresh_summary_state(self) -> Optional[str]:
-        """
-        Gets or sets the state of refresh summary.
-        """
-        return pulumi.get(self, "refresh_summary_state")
-
-    @property
-    @pulumi.getter(name="replicatingCount")
-    def replicating_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of entities being replicated.
-        """
-        return pulumi.get(self, "replicating_count")
-
-    @property
-    @pulumi.getter(name="testMigratedCount")
-    def test_migrated_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of entities test migrated.
-        """
-        return pulumi.get(self, "test_migrated_count")
-
-
-@pulumi.output_type
-class ServersSolutionSummaryResponse(dict):
-    """
-    Class representing the servers solution summary.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceType":
-            suggest = "instance_type"
-        elif key == "assessedCount":
-            suggest = "assessed_count"
-        elif key == "discoveredCount":
-            suggest = "discovered_count"
-        elif key == "migratedCount":
-            suggest = "migrated_count"
-        elif key == "replicatingCount":
-            suggest = "replicating_count"
-        elif key == "testMigratedCount":
-            suggest = "test_migrated_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServersSolutionSummaryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServersSolutionSummaryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServersSolutionSummaryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_type: str,
-                 assessed_count: Optional[int] = None,
-                 discovered_count: Optional[int] = None,
-                 migrated_count: Optional[int] = None,
-                 replicating_count: Optional[int] = None,
-                 test_migrated_count: Optional[int] = None):
-        """
-        Class representing the servers solution summary.
-        :param str instance_type: Gets the Instance type.
-               Expected value is 'Servers'.
-        :param int assessed_count: Gets or sets the count of servers assessed.
-        :param int discovered_count: Gets or sets the count of servers discovered.
-        :param int migrated_count: Gets or sets the count of servers migrated.
-        :param int replicating_count: Gets or sets the count of servers being replicated.
-        :param int test_migrated_count: Gets or sets the count of servers test migrated.
-        """
-        pulumi.set(__self__, "instance_type", 'Servers')
-        if assessed_count is not None:
-            pulumi.set(__self__, "assessed_count", assessed_count)
-        if discovered_count is not None:
-            pulumi.set(__self__, "discovered_count", discovered_count)
-        if migrated_count is not None:
-            pulumi.set(__self__, "migrated_count", migrated_count)
-        if replicating_count is not None:
-            pulumi.set(__self__, "replicating_count", replicating_count)
-        if test_migrated_count is not None:
-            pulumi.set(__self__, "test_migrated_count", test_migrated_count)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the Instance type.
-        Expected value is 'Servers'.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="assessedCount")
-    def assessed_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of servers assessed.
-        """
-        return pulumi.get(self, "assessed_count")
-
-    @property
-    @pulumi.getter(name="discoveredCount")
-    def discovered_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of servers discovered.
-        """
-        return pulumi.get(self, "discovered_count")
-
-    @property
-    @pulumi.getter(name="migratedCount")
-    def migrated_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of servers migrated.
-        """
-        return pulumi.get(self, "migrated_count")
-
-    @property
-    @pulumi.getter(name="replicatingCount")
-    def replicating_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of servers being replicated.
-        """
-        return pulumi.get(self, "replicating_count")
-
-    @property
-    @pulumi.getter(name="testMigratedCount")
-    def test_migrated_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of servers test migrated.
-        """
-        return pulumi.get(self, "test_migrated_count")
-
-
-@pulumi.output_type
-class SolutionDetailsResponse(dict):
-    """
-    Class representing the details of the solution.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "assessmentCount":
-            suggest = "assessment_count"
-        elif key == "extendedDetails":
-            suggest = "extended_details"
-        elif key == "groupCount":
-            suggest = "group_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SolutionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SolutionDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SolutionDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 assessment_count: Optional[int] = None,
-                 extended_details: Optional[Mapping[str, str]] = None,
-                 group_count: Optional[int] = None):
-        """
-        Class representing the details of the solution.
-        :param int assessment_count: Gets or sets the count of assessments reported by the solution.
-        :param Mapping[str, str] extended_details: Gets or sets the extended details reported by the solution.
-        :param int group_count: Gets or sets the count of groups reported by the solution.
-        """
-        if assessment_count is not None:
-            pulumi.set(__self__, "assessment_count", assessment_count)
-        if extended_details is not None:
-            pulumi.set(__self__, "extended_details", extended_details)
-        if group_count is not None:
-            pulumi.set(__self__, "group_count", group_count)
-
-    @property
-    @pulumi.getter(name="assessmentCount")
-    def assessment_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of assessments reported by the solution.
-        """
-        return pulumi.get(self, "assessment_count")
-
-    @property
-    @pulumi.getter(name="extendedDetails")
-    def extended_details(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the extended details reported by the solution.
-        """
-        return pulumi.get(self, "extended_details")
-
-    @property
-    @pulumi.getter(name="groupCount")
-    def group_count(self) -> Optional[int]:
-        """
-        Gets or sets the count of groups reported by the solution.
-        """
-        return pulumi.get(self, "group_count")
-
-
-@pulumi.output_type
-class SolutionPropertiesResponse(dict):
-    """
-    Class for solution properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cleanupState":
-            suggest = "cleanup_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SolutionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SolutionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SolutionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cleanup_state: Optional[str] = None,
-                 details: Optional['outputs.SolutionDetailsResponse'] = None,
-                 goal: Optional[str] = None,
-                 purpose: Optional[str] = None,
-                 status: Optional[str] = None,
-                 summary: Optional[Any] = None,
-                 tool: Optional[str] = None):
-        """
-        Class for solution properties.
-        :param str cleanup_state: Gets or sets the cleanup state of the solution.
-        :param 'SolutionDetailsResponse' details: Gets or sets the details of the solution.
-        :param str goal: Gets or sets the goal of the solution.
-        :param str purpose: Gets or sets the purpose of the solution.
-        :param str status: Gets or sets the current status of the solution.
-        :param Union['DatabasesSolutionSummaryResponse', 'ServersSolutionSummaryResponse'] summary: Gets or sets the summary of the solution.
-        :param str tool: Gets or sets the tool being used in the solution.
-        """
-        if cleanup_state is not None:
-            pulumi.set(__self__, "cleanup_state", cleanup_state)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if goal is not None:
-            pulumi.set(__self__, "goal", goal)
-        if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if summary is not None:
-            pulumi.set(__self__, "summary", summary)
-        if tool is not None:
-            pulumi.set(__self__, "tool", tool)
-
-    @property
-    @pulumi.getter(name="cleanupState")
-    def cleanup_state(self) -> Optional[str]:
-        """
-        Gets or sets the cleanup state of the solution.
-        """
-        return pulumi.get(self, "cleanup_state")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional['outputs.SolutionDetailsResponse']:
-        """
-        Gets or sets the details of the solution.
-        """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter
-    def goal(self) -> Optional[str]:
-        """
-        Gets or sets the goal of the solution.
-        """
-        return pulumi.get(self, "goal")
-
-    @property
-    @pulumi.getter
-    def purpose(self) -> Optional[str]:
-        """
-        Gets or sets the purpose of the solution.
-        """
-        return pulumi.get(self, "purpose")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        Gets or sets the current status of the solution.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def summary(self) -> Optional[Any]:
-        """
-        Gets or sets the summary of the solution.
-        """
-        return pulumi.get(self, "summary")
-
-    @property
-    @pulumi.getter
-    def tool(self) -> Optional[str]:
-        """
-        Gets or sets the tool being used in the solution.
-        """
-        return pulumi.get(self, "tool")
-
-
-@pulumi.output_type
 class SqlDatabaseResourceSettingsResponse(dict):
     """
     Defines the Sql Database resource settings.
@@ -4113,16 +3657,20 @@ class SqlDatabaseResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
+                 tags: Optional[Mapping[str, str]] = None,
                  zone_redundant: Optional[str] = None):
         """
         Defines the Sql Database resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/databases'.
         :param str target_resource_name: Gets or sets the target Resource name.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -4142,6 +3690,14 @@ class SqlDatabaseResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -4181,16 +3737,20 @@ class SqlElasticPoolResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
+                 tags: Optional[Mapping[str, str]] = None,
                  zone_redundant: Optional[str] = None):
         """
         Defines the Sql ElasticPool resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/elasticPools'.
         :param str target_resource_name: Gets or sets the target Resource name.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -4210,6 +3770,14 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -4392,6 +3960,116 @@ class SubnetResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class VirtualMachineResourceSettingsResponse(dict):
     """
     Gets or sets the virtual machine resource settings.
@@ -4409,6 +4087,8 @@ class VirtualMachineResourceSettingsResponse(dict):
             suggest = "target_availability_zone"
         elif key == "targetVmSize":
             suggest = "target_vm_size"
+        elif key == "userManagedIdentities":
+            suggest = "user_managed_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4424,26 +4104,34 @@ class VirtualMachineResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
+                 tags: Optional[Mapping[str, str]] = None,
                  target_availability_set_id: Optional[str] = None,
                  target_availability_zone: Optional[str] = None,
-                 target_vm_size: Optional[str] = None):
+                 target_vm_size: Optional[str] = None,
+                 user_managed_identities: Optional[Sequence[str]] = None):
         """
         Gets or sets the virtual machine resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str target_resource_name: Gets or sets the target Resource name.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
         :param str target_availability_zone: Gets or sets the target availability zone.
         :param str target_vm_size: Gets or sets the target virtual machine size.
+        :param Sequence[str] user_managed_identities: Gets or sets user-managed identities
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if target_availability_set_id is not None:
             pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
+        if user_managed_identities is not None:
+            pulumi.set(__self__, "user_managed_identities", user_managed_identities)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -4461,6 +4149,14 @@ class VirtualMachineResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetAvailabilitySetId")
@@ -4485,6 +4181,14 @@ class VirtualMachineResourceSettingsResponse(dict):
         Gets or sets the target virtual machine size.
         """
         return pulumi.get(self, "target_vm_size")
+
+    @property
+    @pulumi.getter(name="userManagedIdentities")
+    def user_managed_identities(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets user-managed identities
+        """
+        return pulumi.get(self, "user_managed_identities")
 
 
 @pulumi.output_type
@@ -4523,7 +4227,8 @@ class VirtualNetworkResourceSettingsResponse(dict):
                  address_space: Optional[Sequence[str]] = None,
                  dns_servers: Optional[Sequence[str]] = None,
                  enable_ddos_protection: Optional[bool] = None,
-                 subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None):
+                 subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         Defines the virtual network resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -4535,6 +4240,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
         :param bool enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
         :param Sequence['SubnetResourceSettingsResponse'] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -4546,6 +4252,8 @@ class VirtualNetworkResourceSettingsResponse(dict):
             pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -4597,6 +4305,14 @@ class VirtualNetworkResourceSettingsResponse(dict):
         Gets or sets List of subnets in a VirtualNetwork.
         """
         return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

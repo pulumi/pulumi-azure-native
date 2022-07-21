@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Domain.
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -37,15 +37,47 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
-     * Endpoint for the domain.
+     * This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+     * In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+     * When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+     * created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+     * by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+     * flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+     * domain topic on demand if needed.
+     */
+    public readonly autoCreateTopicWithFirstSubscription!: pulumi.Output<boolean | undefined>;
+    /**
+     * This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+     * In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+     * When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+     * of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+     * (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+     * control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+     * resources by the user.
+     */
+    public readonly autoDeleteTopicWithLastSubscription!: pulumi.Output<boolean | undefined>;
+    /**
+     * Data Residency Boundary of the resource.
+     */
+    public readonly dataResidencyBoundary!: pulumi.Output<string | undefined>;
+    /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Endpoint for the Event Grid Domain Resource which is used for publishing the events.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * Identity information for the Event Grid Domain resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
     /**
-     * This determines the format that Event Grid should expect for incoming events published to the domain.
+     * This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
      */
     public readonly inputSchema!: pulumi.Output<string | undefined>;
     /**
@@ -57,7 +89,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Metric resource id for the domain.
+     * Metric resource id for the Event Grid Domain Resource.
      */
     public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
     /**
@@ -69,16 +101,16 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
     /**
-     * Provisioning state of the domain.
+     * Provisioning state of the Event Grid Domain Resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled. 
+     * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to Domain resource.
+     * The system metadata relating to the Event Grid Domain resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -104,7 +136,12 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["autoCreateTopicWithFirstSubscription"] = (args ? args.autoCreateTopicWithFirstSubscription : undefined) ?? true;
+            resourceInputs["autoDeleteTopicWithLastSubscription"] = (args ? args.autoDeleteTopicWithLastSubscription : undefined) ?? true;
+            resourceInputs["dataResidencyBoundary"] = args ? args.dataResidencyBoundary : undefined;
+            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
@@ -120,7 +157,12 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["autoCreateTopicWithFirstSubscription"] = undefined /*out*/;
+            resourceInputs["autoDeleteTopicWithLastSubscription"] = undefined /*out*/;
+            resourceInputs["dataResidencyBoundary"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inboundIpRules"] = undefined /*out*/;
             resourceInputs["inputSchema"] = undefined /*out*/;
             resourceInputs["inputSchemaMapping"] = undefined /*out*/;
@@ -146,15 +188,47 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
+     * This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+     * In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+     * When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+     * created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+     * by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+     * flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+     * domain topic on demand if needed.
+     */
+    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean>;
+    /**
+     * This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+     * In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+     * When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+     * of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+     * (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+     * control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+     * resources by the user.
+     */
+    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean>;
+    /**
+     * Data Residency Boundary of the resource.
+     */
+    dataResidencyBoundary?: pulumi.Input<string | enums.eventgrid.DataResidencyBoundary>;
+    /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
+    /**
      * Name of the domain.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * Identity information for the Event Grid Domain resource.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
-     * This determines the format that Event Grid should expect for incoming events published to the domain.
+     * This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
      */
     inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema>;
     /**
@@ -166,7 +240,7 @@ export interface DomainArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled. 
+     * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
     publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2019-11-01-preview.
+ * API Version: 2021-04-01.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
     if (!opts) {
@@ -81,6 +81,10 @@ export interface GetDataCollectionRuleResult {
      * The resource provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.insights.DataCollectionRuleResourceResponseSystemData;
     /**
      * Resource tags.
      */

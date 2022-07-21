@@ -11,7 +11,7 @@ import (
 )
 
 // A single API Management service resource in List or Get response.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementServiceArgs, opts ...pulumi.InvokeOption) (*LookupApiManagementServiceResult, error) {
 	var rv LookupApiManagementServiceResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiManagementService", args, &rv, opts...)
@@ -66,14 +66,22 @@ type LookupApiManagementServiceResult struct {
 	Name string `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
+	// Compute Platform Version running the service in this location.
+	PlatformVersion string `pulumi:"platformVersion"`
 	// Publisher portal endpoint Url of the API Management service.
 	PortalUrl string `pulumi:"portalUrl"`
+	// List of Private Endpoint Connections of this service.
+	PrivateEndpointConnections []RemotePrivateEndpointConnectionWrapperResponse `pulumi:"privateEndpointConnections"`
 	// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
 	PrivateIPAddresses []string `pulumi:"privateIPAddresses"`
 	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
 	PublicIPAddresses []string `pulumi:"publicIPAddresses"`
+	// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Publisher email.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// Publisher name.
@@ -84,6 +92,8 @@ type LookupApiManagementServiceResult struct {
 	ScmUrl string `pulumi:"scmUrl"`
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
@@ -254,9 +264,21 @@ func (o LookupApiManagementServiceResultOutput) NotificationSenderEmail() pulumi
 	return o.ApplyT(func(v LookupApiManagementServiceResult) *string { return v.NotificationSenderEmail }).(pulumi.StringPtrOutput)
 }
 
+// Compute Platform Version running the service in this location.
+func (o LookupApiManagementServiceResultOutput) PlatformVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
+}
+
 // Publisher portal endpoint Url of the API Management service.
 func (o LookupApiManagementServiceResultOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// List of Private Endpoint Connections of this service.
+func (o LookupApiManagementServiceResultOutput) PrivateEndpointConnections() RemotePrivateEndpointConnectionWrapperResponseArrayOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) []RemotePrivateEndpointConnectionWrapperResponse {
+		return v.PrivateEndpointConnections
+	}).(RemotePrivateEndpointConnectionWrapperResponseArrayOutput)
 }
 
 // Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
@@ -272,6 +294,16 @@ func (o LookupApiManagementServiceResultOutput) ProvisioningState() pulumi.Strin
 // Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
 func (o LookupApiManagementServiceResultOutput) PublicIPAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupApiManagementServiceResult) []string { return v.PublicIPAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+func (o LookupApiManagementServiceResultOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+func (o LookupApiManagementServiceResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Publisher email.
@@ -297,6 +329,11 @@ func (o LookupApiManagementServiceResultOutput) ScmUrl() pulumi.StringOutput {
 // SKU properties of the API Management service.
 func (o LookupApiManagementServiceResultOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupApiManagementServiceResult) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApiManagementServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

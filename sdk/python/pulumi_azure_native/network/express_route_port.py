@@ -198,7 +198,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoutePort resource definition.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoutePort resource definition.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ExpressRoutePortArgs args: The arguments to use to populate this resource's properties.

@@ -157,7 +157,7 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDnsZoneResult:
     """
     NSX DNS Zone
-    API Version: 2020-07-17-preview.
+    API Version: 2021-12-01.
 
 
     :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
@@ -194,7 +194,7 @@ def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkDnsZoneResult]:
     """
     NSX DNS Zone
-    API Version: 2020-07-17-preview.
+    API Version: 2021-12-01.
 
 
     :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name

@@ -1084,6 +1084,12 @@ func (o DataNetworkResourceIdResponseOutput) Id() pulumi.StringOutput {
 
 // Interface properties
 type InterfaceProperties struct {
+	// The IPv4 address.
+	Ipv4Address *string `pulumi:"ipv4Address"`
+	// The default IPv4 gateway (router).
+	Ipv4Gateway *string `pulumi:"ipv4Gateway"`
+	// The IPv4 subnet.
+	Ipv4Subnet *string `pulumi:"ipv4Subnet"`
 	// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
 	Name string `pulumi:"name"`
 }
@@ -1101,6 +1107,12 @@ type InterfacePropertiesInput interface {
 
 // Interface properties
 type InterfacePropertiesArgs struct {
+	// The IPv4 address.
+	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
+	// The default IPv4 gateway (router).
+	Ipv4Gateway pulumi.StringPtrInput `pulumi:"ipv4Gateway"`
+	// The IPv4 subnet.
+	Ipv4Subnet pulumi.StringPtrInput `pulumi:"ipv4Subnet"`
 	// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -1132,6 +1144,21 @@ func (o InterfacePropertiesOutput) ToInterfacePropertiesOutputWithContext(ctx co
 	return o
 }
 
+// The IPv4 address.
+func (o InterfacePropertiesOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+// The default IPv4 gateway (router).
+func (o InterfacePropertiesOutput) Ipv4Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Ipv4Gateway }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 subnet.
+func (o InterfacePropertiesOutput) Ipv4Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Ipv4Subnet }).(pulumi.StringPtrOutput)
+}
+
 // The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
 func (o InterfacePropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v InterfaceProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -1139,6 +1166,12 @@ func (o InterfacePropertiesOutput) Name() pulumi.StringOutput {
 
 // Interface properties
 type InterfacePropertiesResponse struct {
+	// The IPv4 address.
+	Ipv4Address *string `pulumi:"ipv4Address"`
+	// The default IPv4 gateway (router).
+	Ipv4Gateway *string `pulumi:"ipv4Gateway"`
+	// The IPv4 subnet.
+	Ipv4Subnet *string `pulumi:"ipv4Subnet"`
 	// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
 	Name string `pulumi:"name"`
 }
@@ -1156,6 +1189,21 @@ func (o InterfacePropertiesResponseOutput) ToInterfacePropertiesResponseOutput()
 
 func (o InterfacePropertiesResponseOutput) ToInterfacePropertiesResponseOutputWithContext(ctx context.Context) InterfacePropertiesResponseOutput {
 	return o
+}
+
+// The IPv4 address.
+func (o InterfacePropertiesResponseOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+// The default IPv4 gateway (router).
+func (o InterfacePropertiesResponseOutput) Ipv4Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Ipv4Gateway }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 subnet.
+func (o InterfacePropertiesResponseOutput) Ipv4Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Ipv4Subnet }).(pulumi.StringPtrOutput)
 }
 
 // The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
@@ -5442,6 +5490,67 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 	}).(SubResourceResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AmbrOutput{})
 	pulumi.RegisterOutputType(AmbrPtrOutput{})
@@ -5531,4 +5640,5 @@ func init() {
 	pulumi.RegisterOutputType(SubResourceArrayOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

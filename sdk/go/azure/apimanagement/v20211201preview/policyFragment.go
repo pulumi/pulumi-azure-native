@@ -46,12 +46,6 @@ func NewPolicyFragment(ctx *pulumi.Context,
 	if isZero(args.Format) {
 		args.Format = pulumi.StringPtr("xml")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:apimanagement:PolicyFragment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PolicyFragment
 	err := ctx.RegisterResource("azure-native:apimanagement/v20211201preview:PolicyFragment", name, args, &resource, opts...)
 	if err != nil {

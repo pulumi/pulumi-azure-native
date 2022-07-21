@@ -12,7 +12,7 @@ import (
 )
 
 // LoadTest details
-// API Version: 2021-12-01-preview.
+// API Version: 2022-04-15-preview.
 type LoadTest struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,10 @@ type LoadTest struct {
 	DataPlaneURI pulumi.StringOutput `pulumi:"dataPlaneURI"`
 	// Description of the resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// CMK Encryption property.
+	Encryption EncryptionPropertiesResponsePtrOutput `pulumi:"encryption"`
 	// The type of identity used for the resource.
-	Identity SystemAssignedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -89,8 +91,10 @@ func (LoadTestState) ElementType() reflect.Type {
 type loadTestArgs struct {
 	// Description of the resource.
 	Description *string `pulumi:"description"`
+	// CMK Encryption property.
+	Encryption *EncryptionProperties `pulumi:"encryption"`
 	// The type of identity used for the resource.
-	Identity *SystemAssignedServiceIdentity `pulumi:"identity"`
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Load Test resource name.
 	LoadTestName *string `pulumi:"loadTestName"`
 	// The geo-location where the resource lives
@@ -105,8 +109,10 @@ type loadTestArgs struct {
 type LoadTestArgs struct {
 	// Description of the resource.
 	Description pulumi.StringPtrInput
+	// CMK Encryption property.
+	Encryption EncryptionPropertiesPtrInput
 	// The type of identity used for the resource.
-	Identity SystemAssignedServiceIdentityPtrInput
+	Identity ManagedServiceIdentityPtrInput
 	// Load Test resource name.
 	LoadTestName pulumi.StringPtrInput
 	// The geo-location where the resource lives
@@ -164,9 +170,14 @@ func (o LoadTestOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// CMK Encryption property.
+func (o LoadTestOutput) Encryption() EncryptionPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *LoadTest) EncryptionPropertiesResponsePtrOutput { return v.Encryption }).(EncryptionPropertiesResponsePtrOutput)
+}
+
 // The type of identity used for the resource.
-func (o LoadTestOutput) Identity() SystemAssignedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *LoadTest) SystemAssignedServiceIdentityResponsePtrOutput { return v.Identity }).(SystemAssignedServiceIdentityResponsePtrOutput)
+func (o LoadTestOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *LoadTest) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives

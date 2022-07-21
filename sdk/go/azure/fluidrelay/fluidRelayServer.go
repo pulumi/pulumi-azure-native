@@ -12,20 +12,26 @@ import (
 )
 
 // A FluidRelay Server.
-// API Version: 2021-03-12-preview.
+// API Version: 2022-06-01.
 type FluidRelayServer struct {
 	pulumi.CustomResourceState
 
+	// All encryption configuration for a resource.
+	Encryption EncryptionPropertiesResponsePtrOutput `pulumi:"encryption"`
 	// The Fluid Relay Service endpoints for this server.
 	FluidRelayEndpoints FluidRelayEndpointsResponseOutput `pulumi:"fluidRelayEndpoints"`
 	// The Fluid tenantId for this server
 	FrsTenantId pulumi.StringOutput `pulumi:"frsTenantId"`
+	// The type of identity used for the resource.
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provision states for FluidRelay RP
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Sku of the storage associated with the resource
+	Storagesku pulumi.StringPtrOutput `pulumi:"storagesku"`
 	// System meta data for this resource, including creation and modification information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -106,28 +112,40 @@ func (FluidRelayServerState) ElementType() reflect.Type {
 }
 
 type fluidRelayServerArgs struct {
+	// All encryption configuration for a resource.
+	Encryption *EncryptionProperties `pulumi:"encryption"`
+	// The Fluid Relay server resource name.
+	FluidRelayServerName *string `pulumi:"fluidRelayServerName"`
+	// The type of identity used for the resource.
+	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
 	// Provision states for FluidRelay RP
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group containing the resource.
 	ResourceGroup string `pulumi:"resourceGroup"`
+	// Sku of the storage associated with the resource
+	Storagesku *string `pulumi:"storagesku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FluidRelayServer resource.
 type FluidRelayServerArgs struct {
+	// All encryption configuration for a resource.
+	Encryption EncryptionPropertiesPtrInput
+	// The Fluid Relay server resource name.
+	FluidRelayServerName pulumi.StringPtrInput
+	// The type of identity used for the resource.
+	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
 	// Provision states for FluidRelay RP
 	ProvisioningState pulumi.StringPtrInput
 	// The resource group containing the resource.
 	ResourceGroup pulumi.StringInput
+	// Sku of the storage associated with the resource
+	Storagesku pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }
@@ -169,6 +187,11 @@ func (o FluidRelayServerOutput) ToFluidRelayServerOutputWithContext(ctx context.
 	return o
 }
 
+// All encryption configuration for a resource.
+func (o FluidRelayServerOutput) Encryption() EncryptionPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *FluidRelayServer) EncryptionPropertiesResponsePtrOutput { return v.Encryption }).(EncryptionPropertiesResponsePtrOutput)
+}
+
 // The Fluid Relay Service endpoints for this server.
 func (o FluidRelayServerOutput) FluidRelayEndpoints() FluidRelayEndpointsResponseOutput {
 	return o.ApplyT(func(v *FluidRelayServer) FluidRelayEndpointsResponseOutput { return v.FluidRelayEndpoints }).(FluidRelayEndpointsResponseOutput)
@@ -177,6 +200,11 @@ func (o FluidRelayServerOutput) FluidRelayEndpoints() FluidRelayEndpointsRespons
 // The Fluid tenantId for this server
 func (o FluidRelayServerOutput) FrsTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringOutput { return v.FrsTenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the resource.
+func (o FluidRelayServerOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *FluidRelayServer) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives
@@ -192,6 +220,11 @@ func (o FluidRelayServerOutput) Name() pulumi.StringOutput {
 // Provision states for FluidRelay RP
 func (o FluidRelayServerOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Sku of the storage associated with the resource
+func (o FluidRelayServerOutput) Storagesku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringPtrOutput { return v.Storagesku }).(pulumi.StringPtrOutput)
 }
 
 // System meta data for this resource, including creation and modification information.

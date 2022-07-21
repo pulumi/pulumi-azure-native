@@ -11,7 +11,7 @@ import (
 )
 
 // A task resource
-// API Version: 2018-04-19.
+// API Version: 2021-06-30.
 func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.InvokeOption) (*LookupTaskResult, error) {
 	var rv LookupTaskResult
 	err := ctx.Invoke("azure-native:datamigration:getTask", args, &rv, opts...)
@@ -44,6 +44,8 @@ type LookupTaskResult struct {
 	Name string `pulumi:"name"`
 	// Custom task properties
 	Properties interface{} `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -111,6 +113,11 @@ func (o LookupTaskResultOutput) Name() pulumi.StringOutput {
 // Custom task properties
 func (o LookupTaskResultOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTaskResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupTaskResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTaskResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.

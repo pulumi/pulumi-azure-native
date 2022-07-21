@@ -11,7 +11,7 @@ import (
 )
 
 // Description of the shared access key.
-// API Version: 2020-03-01.
+// API Version: 2022-02-05.
 func ListIotDpsResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotDpsResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotDpsResourceKeysForKeyNameResult, error) {
 	var rv ListIotDpsResourceKeysForKeyNameResult
 	err := ctx.Invoke("azure-native:devices:listIotDpsResourceKeysForKeyName", args, &rv, opts...)

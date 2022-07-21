@@ -101,7 +101,7 @@ export class KustoPoolDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:KustoPoolDatabase" }, { type: "azure-native:synapse/v20210401preview:KustoPoolDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:KustoPoolDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPoolDatabase.__pulumiType, name, resourceInputs, opts);
     }

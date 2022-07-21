@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export class DomainEventSubscription extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class DomainEventSubscription extends pulumi.CustomResource {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.PartnerEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -177,7 +177,7 @@ export interface DomainEventSubscriptionArgs {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.PartnerEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
     /**
      * Name of the domain topic.
      */

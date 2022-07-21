@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Elastic.Outputs
         /// Provisioning state of the monitor resource.
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// Version of elastic of the monitor resource
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private MonitorPropertiesResponse(
@@ -44,13 +48,16 @@ namespace Pulumi.AzureNative.Elastic.Outputs
 
             string? monitoringStatus,
 
-            string? provisioningState)
+            string? provisioningState,
+
+            string? version)
         {
             ElasticProperties = elasticProperties;
             LiftrResourceCategory = liftrResourceCategory;
             LiftrResourcePreference = liftrResourcePreference;
             MonitoringStatus = monitoringStatus;
             ProvisioningState = provisioningState;
+            Version = version;
         }
     }
 }

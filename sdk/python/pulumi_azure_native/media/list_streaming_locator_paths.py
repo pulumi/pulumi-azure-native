@@ -62,7 +62,7 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorPathsResult:
     """
     Class of response for listPaths action
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -91,7 +91,7 @@ def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStreamingLocatorPathsResult]:
     """
     Class of response for listPaths action
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

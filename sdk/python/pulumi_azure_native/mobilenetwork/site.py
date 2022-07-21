@@ -231,7 +231,7 @@ class Site(pulumi.CustomResource):
                  __props__=None):
         """
         Site resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,7 +256,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Site resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.
@@ -315,6 +315,7 @@ class Site(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:Site"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Site")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -350,6 +351,7 @@ class Site(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_functions"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Site(resource_name, opts=opts, __props__=__props__)
@@ -433,6 +435,14 @@ class Site(pulumi.CustomResource):
         The provisioning state of the site resource. **TODO**: Confirm if this is needed
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -258,7 +258,7 @@ class ScheduledActionByScope(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:ScheduledActionByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20220601preview:ScheduledActionByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20220601preview:ScheduledActionByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledActionByScope, __self__).__init__(
             'azure-native:costmanagement/v20220401preview:ScheduledActionByScope',

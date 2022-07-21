@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VirtualHub Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// VirtualHub Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
         /// <summary>
+        /// The hubRoutingPreference of this VirtualHub.
+        /// </summary>
+        public readonly string? HubRoutingPreference;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -101,6 +105,10 @@ namespace Pulumi.AzureNative.Network
         /// List of references to IpConfigurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpConfigurations;
+        /// <summary>
+        /// Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+        /// </summary>
+        public readonly string Kind;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -113,6 +121,10 @@ namespace Pulumi.AzureNative.Network
         /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
         public readonly Outputs.SubResourceResponse? P2SVpnGateway;
+        /// <summary>
+        /// The preferred gateway to route on-prem traffic
+        /// </summary>
+        public readonly string? PreferredRoutingGateway;
         /// <summary>
         /// The provisioning state of the virtual hub resource.
         /// </summary>
@@ -180,15 +192,21 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? expressRouteGateway,
 
+            string? hubRoutingPreference,
+
             string? id,
 
             ImmutableArray<Outputs.SubResourceResponse> ipConfigurations,
+
+            string kind,
 
             string location,
 
             string name,
 
             Outputs.SubResourceResponse? p2SVpnGateway,
+
+            string? preferredRoutingGateway,
 
             string provisioningState,
 
@@ -222,11 +240,14 @@ namespace Pulumi.AzureNative.Network
             BgpConnections = bgpConnections;
             Etag = etag;
             ExpressRouteGateway = expressRouteGateway;
+            HubRoutingPreference = hubRoutingPreference;
             Id = id;
             IpConfigurations = ipConfigurations;
+            Kind = kind;
             Location = location;
             Name = name;
             P2SVpnGateway = p2SVpnGateway;
+            PreferredRoutingGateway = preferredRoutingGateway;
             ProvisioningState = provisioningState;
             RouteTable = routeTable;
             RoutingState = routingState;

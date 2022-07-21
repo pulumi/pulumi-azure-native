@@ -11,7 +11,7 @@ import (
 )
 
 // An IPSec parameters for a virtual network gateway P2S connection.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func GetVirtualNetworkGatewayVpnclientIpsecParameters(ctx *pulumi.Context, args *GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayVpnclientIpsecParametersResult, error) {
 	var rv GetVirtualNetworkGatewayVpnclientIpsecParametersResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayVpnclientIpsecParameters", args, &rv, opts...)

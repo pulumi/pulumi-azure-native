@@ -11,7 +11,7 @@ import (
 )
 
 // A type of synchronization setting based on schedule
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupScheduledSynchronizationSetting(ctx *pulumi.Context, args *LookupScheduledSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupScheduledSynchronizationSettingResult, error) {
 	var rv LookupScheduledSynchronizationSettingResult
 	err := ctx.Invoke("azure-native:datashare:getScheduledSynchronizationSetting", args, &rv, opts...)

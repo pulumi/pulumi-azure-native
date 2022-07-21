@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -40,6 +41,10 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of stored access policies specified on the table.
+     */
+    public readonly signedIdentifiers!: pulumi.Output<outputs.storage.TableSignedIdentifierResponse[] | undefined>;
+    /**
      * Table name under the specified account
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -67,11 +72,13 @@ export class Table extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["signedIdentifiers"] = args ? args.signedIdentifiers : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["signedIdentifiers"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -94,6 +101,10 @@ export interface TableArgs {
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * List of stored access policies specified on the table.
+     */
+    signedIdentifiers?: pulumi.Input<pulumi.Input<inputs.storage.TableSignedIdentifierArgs>[]>;
     /**
      * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
      */

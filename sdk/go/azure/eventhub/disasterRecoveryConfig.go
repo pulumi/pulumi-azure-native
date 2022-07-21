@@ -12,12 +12,14 @@ import (
 )
 
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type DisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
 	// Alternate name specified when alias and namespace names are same.
 	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
@@ -28,7 +30,9 @@ type DisasterRecoveryConfig struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
 	Role pulumi.StringOutput `pulumi:"role"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -166,6 +170,11 @@ func (o DisasterRecoveryConfigOutput) AlternateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringPtrOutput { return v.AlternateName }).(pulumi.StringPtrOutput)
 }
 
+// The geo-location where the resource lives
+func (o DisasterRecoveryConfigOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
 // The name of the resource
 func (o DisasterRecoveryConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -191,7 +200,12 @@ func (o DisasterRecoveryConfigOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+// The system meta data relating to this resource.
+func (o DisasterRecoveryConfigOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o DisasterRecoveryConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

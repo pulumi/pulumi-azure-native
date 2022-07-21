@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure SQL DB Server Outbound Firewall Rule.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-11-01-preview.
 type OutboundFirewallRule struct {
 	pulumi.CustomResourceState
 

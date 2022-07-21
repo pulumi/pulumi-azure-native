@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * SSL certificate purchase order.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      * State of the Key Vault secret.
      */
     public readonly certificates!: pulumi.Output<{[key: string]: outputs.certificateregistration.AppServiceCertificateResponse} | undefined>;
+    /**
+     * Contact info
+     */
+    public /*out*/ readonly contact!: pulumi.Output<outputs.certificateregistration.CertificateOrderContactResponse>;
     /**
      * Last CSR that was created for this order.
      */
@@ -121,10 +125,6 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.certificateregistration.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -133,7 +133,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Duration in years (must be between 1 and 3).
+     * Duration in years (must be 1).
      */
     public readonly validityInYears!: pulumi.Output<number | undefined>;
 
@@ -167,6 +167,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validityInYears"] = (args ? args.validityInYears : undefined) ?? 1;
             resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
             resourceInputs["domainVerificationToken"] = undefined /*out*/;
             resourceInputs["expirationTime"] = undefined /*out*/;
             resourceInputs["intermediate"] = undefined /*out*/;
@@ -179,12 +180,12 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["signedCertificate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
             resourceInputs["autoRenew"] = undefined /*out*/;
             resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
             resourceInputs["csr"] = undefined /*out*/;
             resourceInputs["distinguishedName"] = undefined /*out*/;
             resourceInputs["domainVerificationToken"] = undefined /*out*/;
@@ -203,7 +204,6 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["signedCertificate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validityInYears"] = undefined /*out*/;
@@ -264,7 +264,7 @@ export interface AppServiceCertificateOrderArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Duration in years (must be between 1 and 3).
+     * Duration in years (must be 1).
      */
     validityInYears?: pulumi.Input<number>;
 }

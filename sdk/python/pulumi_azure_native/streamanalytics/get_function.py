@@ -53,7 +53,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ScalarFunctionPropertiesResponse':
+    def properties(self) -> Any:
         """
         The properties that are associated with a function.
         """
@@ -86,12 +86,12 @@ def get_function(function_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
     A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-    API Version: 2016-03-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str function_name: The name of the function.
     :param str job_name: The name of the streaming job.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -117,11 +117,11 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-    API Version: 2016-03-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str function_name: The name of the function.
     :param str job_name: The name of the streaming job.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -10,8 +10,551 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessPolicy struct {
+	// Expiry time of the access policy
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// List of abbreviated permissions.
+	Permission *string `pulumi:"permission"`
+	// Start time of the access policy
+	StartTime *string `pulumi:"startTime"`
+}
+
+// AccessPolicyInput is an input type that accepts AccessPolicyArgs and AccessPolicyOutput values.
+// You can construct a concrete instance of `AccessPolicyInput` via:
+//
+//          AccessPolicyArgs{...}
+type AccessPolicyInput interface {
+	pulumi.Input
+
+	ToAccessPolicyOutput() AccessPolicyOutput
+	ToAccessPolicyOutputWithContext(context.Context) AccessPolicyOutput
+}
+
+type AccessPolicyArgs struct {
+	// Expiry time of the access policy
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
+	// List of abbreviated permissions.
+	Permission pulumi.StringPtrInput `pulumi:"permission"`
+	// Start time of the access policy
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (AccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicy)(nil)).Elem()
+}
+
+func (i AccessPolicyArgs) ToAccessPolicyOutput() AccessPolicyOutput {
+	return i.ToAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyArgs) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
+}
+
+func (i AccessPolicyArgs) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
+	return i.ToAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyArgs) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput).ToAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// AccessPolicyPtrInput is an input type that accepts AccessPolicyArgs, AccessPolicyPtr and AccessPolicyPtrOutput values.
+// You can construct a concrete instance of `AccessPolicyPtrInput` via:
+//
+//          AccessPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyPtrOutput() AccessPolicyPtrOutput
+	ToAccessPolicyPtrOutputWithContext(context.Context) AccessPolicyPtrOutput
+}
+
+type accessPolicyPtrType AccessPolicyArgs
+
+func AccessPolicyPtr(v *AccessPolicyArgs) AccessPolicyPtrInput {
+	return (*accessPolicyPtrType)(v)
+}
+
+func (*accessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicy)(nil)).Elem()
+}
+
+func (i *accessPolicyPtrType) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
+	return i.ToAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPolicyPtrType) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyPtrOutput)
+}
+
+type AccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicy)(nil)).Elem()
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyOutput() AccessPolicyOutput {
+	return o
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
+	return o
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
+	return o.ToAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicy) *AccessPolicy {
+		return &v
+	}).(AccessPolicyPtrOutput)
+}
+
+// Expiry time of the access policy
+func (o AccessPolicyOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicy) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// List of abbreviated permissions.
+func (o AccessPolicyOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicy) *string { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+// Start time of the access policy
+func (o AccessPolicyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicy) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicy)(nil)).Elem()
+}
+
+func (o AccessPolicyPtrOutput) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
+	return o
+}
+
+func (o AccessPolicyPtrOutput) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
+	return o
+}
+
+func (o AccessPolicyPtrOutput) Elem() AccessPolicyOutput {
+	return o.ApplyT(func(v *AccessPolicy) AccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicy
+		return ret
+	}).(AccessPolicyOutput)
+}
+
+// Expiry time of the access policy
+func (o AccessPolicyPtrOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiryTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of abbreviated permissions.
+func (o AccessPolicyPtrOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Permission
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time of the access policy
+func (o AccessPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyResponse struct {
+	// Expiry time of the access policy
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// List of abbreviated permissions.
+	Permission *string `pulumi:"permission"`
+	// Start time of the access policy
+	StartTime *string `pulumi:"startTime"`
+}
+
+type AccessPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyResponse)(nil)).Elem()
+}
+
+func (o AccessPolicyResponseOutput) ToAccessPolicyResponseOutput() AccessPolicyResponseOutput {
+	return o
+}
+
+func (o AccessPolicyResponseOutput) ToAccessPolicyResponseOutputWithContext(ctx context.Context) AccessPolicyResponseOutput {
+	return o
+}
+
+// Expiry time of the access policy
+func (o AccessPolicyResponseOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// List of abbreviated permissions.
+func (o AccessPolicyResponseOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+// Start time of the access policy
+func (o AccessPolicyResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyResponse)(nil)).Elem()
+}
+
+func (o AccessPolicyResponsePtrOutput) ToAccessPolicyResponsePtrOutput() AccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o AccessPolicyResponsePtrOutput) ToAccessPolicyResponsePtrOutputWithContext(ctx context.Context) AccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o AccessPolicyResponsePtrOutput) Elem() AccessPolicyResponseOutput {
+	return o.ApplyT(func(v *AccessPolicyResponse) AccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyResponse
+		return ret
+	}).(AccessPolicyResponseOutput)
+}
+
+// Expiry time of the access policy
+func (o AccessPolicyResponsePtrOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiryTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of abbreviated permissions.
+func (o AccessPolicyResponsePtrOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Permission
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time of the access policy
+func (o AccessPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// This defines account-level immutability policy properties.
+type AccountImmutabilityPolicyProperties struct {
+	// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	State *string `pulumi:"state"`
+}
+
+// AccountImmutabilityPolicyPropertiesInput is an input type that accepts AccountImmutabilityPolicyPropertiesArgs and AccountImmutabilityPolicyPropertiesOutput values.
+// You can construct a concrete instance of `AccountImmutabilityPolicyPropertiesInput` via:
+//
+//          AccountImmutabilityPolicyPropertiesArgs{...}
+type AccountImmutabilityPolicyPropertiesInput interface {
+	pulumi.Input
+
+	ToAccountImmutabilityPolicyPropertiesOutput() AccountImmutabilityPolicyPropertiesOutput
+	ToAccountImmutabilityPolicyPropertiesOutputWithContext(context.Context) AccountImmutabilityPolicyPropertiesOutput
+}
+
+// This defines account-level immutability policy properties.
+type AccountImmutabilityPolicyPropertiesArgs struct {
+	// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+	AllowProtectedAppendWrites pulumi.BoolPtrInput `pulumi:"allowProtectedAppendWrites"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (AccountImmutabilityPolicyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountImmutabilityPolicyProperties)(nil)).Elem()
+}
+
+func (i AccountImmutabilityPolicyPropertiesArgs) ToAccountImmutabilityPolicyPropertiesOutput() AccountImmutabilityPolicyPropertiesOutput {
+	return i.ToAccountImmutabilityPolicyPropertiesOutputWithContext(context.Background())
+}
+
+func (i AccountImmutabilityPolicyPropertiesArgs) ToAccountImmutabilityPolicyPropertiesOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyPropertiesOutput)
+}
+
+func (i AccountImmutabilityPolicyPropertiesArgs) ToAccountImmutabilityPolicyPropertiesPtrOutput() AccountImmutabilityPolicyPropertiesPtrOutput {
+	return i.ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AccountImmutabilityPolicyPropertiesArgs) ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyPropertiesOutput).ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(ctx)
+}
+
+// AccountImmutabilityPolicyPropertiesPtrInput is an input type that accepts AccountImmutabilityPolicyPropertiesArgs, AccountImmutabilityPolicyPropertiesPtr and AccountImmutabilityPolicyPropertiesPtrOutput values.
+// You can construct a concrete instance of `AccountImmutabilityPolicyPropertiesPtrInput` via:
+//
+//          AccountImmutabilityPolicyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountImmutabilityPolicyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAccountImmutabilityPolicyPropertiesPtrOutput() AccountImmutabilityPolicyPropertiesPtrOutput
+	ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(context.Context) AccountImmutabilityPolicyPropertiesPtrOutput
+}
+
+type accountImmutabilityPolicyPropertiesPtrType AccountImmutabilityPolicyPropertiesArgs
+
+func AccountImmutabilityPolicyPropertiesPtr(v *AccountImmutabilityPolicyPropertiesArgs) AccountImmutabilityPolicyPropertiesPtrInput {
+	return (*accountImmutabilityPolicyPropertiesPtrType)(v)
+}
+
+func (*accountImmutabilityPolicyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountImmutabilityPolicyProperties)(nil)).Elem()
+}
+
+func (i *accountImmutabilityPolicyPropertiesPtrType) ToAccountImmutabilityPolicyPropertiesPtrOutput() AccountImmutabilityPolicyPropertiesPtrOutput {
+	return i.ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *accountImmutabilityPolicyPropertiesPtrType) ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyPropertiesPtrOutput)
+}
+
+// This defines account-level immutability policy properties.
+type AccountImmutabilityPolicyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AccountImmutabilityPolicyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountImmutabilityPolicyProperties)(nil)).Elem()
+}
+
+func (o AccountImmutabilityPolicyPropertiesOutput) ToAccountImmutabilityPolicyPropertiesOutput() AccountImmutabilityPolicyPropertiesOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesOutput) ToAccountImmutabilityPolicyPropertiesOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesOutput) ToAccountImmutabilityPolicyPropertiesPtrOutput() AccountImmutabilityPolicyPropertiesPtrOutput {
+	return o.ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AccountImmutabilityPolicyPropertiesOutput) ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountImmutabilityPolicyProperties) *AccountImmutabilityPolicyProperties {
+		return &v
+	}).(AccountImmutabilityPolicyPropertiesPtrOutput)
+}
+
+// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o AccountImmutabilityPolicyPropertiesOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicyProperties) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o AccountImmutabilityPolicyPropertiesOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicyProperties) *int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntPtrOutput)
+}
+
+// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+func (o AccountImmutabilityPolicyPropertiesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicyProperties) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type AccountImmutabilityPolicyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountImmutabilityPolicyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountImmutabilityPolicyProperties)(nil)).Elem()
+}
+
+func (o AccountImmutabilityPolicyPropertiesPtrOutput) ToAccountImmutabilityPolicyPropertiesPtrOutput() AccountImmutabilityPolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesPtrOutput) ToAccountImmutabilityPolicyPropertiesPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesPtrOutput) Elem() AccountImmutabilityPolicyPropertiesOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyProperties) AccountImmutabilityPolicyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AccountImmutabilityPolicyProperties
+		return ret
+	}).(AccountImmutabilityPolicyPropertiesOutput)
+}
+
+// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o AccountImmutabilityPolicyPropertiesPtrOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowProtectedAppendWrites
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o AccountImmutabilityPolicyPropertiesPtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutabilityPeriodSinceCreationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+func (o AccountImmutabilityPolicyPropertiesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// This defines account-level immutability policy properties.
+type AccountImmutabilityPolicyPropertiesResponse struct {
+	// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	State *string `pulumi:"state"`
+}
+
+// This defines account-level immutability policy properties.
+type AccountImmutabilityPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AccountImmutabilityPolicyPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountImmutabilityPolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (o AccountImmutabilityPolicyPropertiesResponseOutput) ToAccountImmutabilityPolicyPropertiesResponseOutput() AccountImmutabilityPolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesResponseOutput) ToAccountImmutabilityPolicyPropertiesResponseOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesResponseOutput {
+	return o
+}
+
+// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o AccountImmutabilityPolicyPropertiesResponseOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicyPropertiesResponse) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o AccountImmutabilityPolicyPropertiesResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicyPropertiesResponse) *int {
+		return v.ImmutabilityPeriodSinceCreationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+func (o AccountImmutabilityPolicyPropertiesResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicyPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type AccountImmutabilityPolicyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountImmutabilityPolicyPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountImmutabilityPolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (o AccountImmutabilityPolicyPropertiesResponsePtrOutput) ToAccountImmutabilityPolicyPropertiesResponsePtrOutput() AccountImmutabilityPolicyPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesResponsePtrOutput) ToAccountImmutabilityPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPropertiesResponsePtrOutput) Elem() AccountImmutabilityPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyPropertiesResponse) AccountImmutabilityPolicyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountImmutabilityPolicyPropertiesResponse
+		return ret
+	}).(AccountImmutabilityPolicyPropertiesResponseOutput)
+}
+
+// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o AccountImmutabilityPolicyPropertiesResponsePtrOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowProtectedAppendWrites
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o AccountImmutabilityPolicyPropertiesResponsePtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutabilityPeriodSinceCreationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+func (o AccountImmutabilityPolicyPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicyPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 // Settings properties for Active Directory (AD).
 type ActiveDirectoryProperties struct {
+	// Specifies the Active Directory account type for Azure Storage.
+	AccountType *string `pulumi:"accountType"`
 	// Specifies the security identifier (SID) for Azure Storage.
 	AzureStorageSid string `pulumi:"azureStorageSid"`
 	// Specifies the domain GUID.
@@ -24,6 +567,8 @@ type ActiveDirectoryProperties struct {
 	ForestName string `pulumi:"forestName"`
 	// Specifies the NetBIOS domain name.
 	NetBiosDomainName string `pulumi:"netBiosDomainName"`
+	// Specifies the Active Directory SAMAccountName for Azure Storage.
+	SamAccountName *string `pulumi:"samAccountName"`
 }
 
 // ActiveDirectoryPropertiesInput is an input type that accepts ActiveDirectoryPropertiesArgs and ActiveDirectoryPropertiesOutput values.
@@ -39,6 +584,8 @@ type ActiveDirectoryPropertiesInput interface {
 
 // Settings properties for Active Directory (AD).
 type ActiveDirectoryPropertiesArgs struct {
+	// Specifies the Active Directory account type for Azure Storage.
+	AccountType pulumi.StringPtrInput `pulumi:"accountType"`
 	// Specifies the security identifier (SID) for Azure Storage.
 	AzureStorageSid pulumi.StringInput `pulumi:"azureStorageSid"`
 	// Specifies the domain GUID.
@@ -51,6 +598,8 @@ type ActiveDirectoryPropertiesArgs struct {
 	ForestName pulumi.StringInput `pulumi:"forestName"`
 	// Specifies the NetBIOS domain name.
 	NetBiosDomainName pulumi.StringInput `pulumi:"netBiosDomainName"`
+	// Specifies the Active Directory SAMAccountName for Azure Storage.
+	SamAccountName pulumi.StringPtrInput `pulumi:"samAccountName"`
 }
 
 func (ActiveDirectoryPropertiesArgs) ElementType() reflect.Type {
@@ -131,6 +680,11 @@ func (o ActiveDirectoryPropertiesOutput) ToActiveDirectoryPropertiesPtrOutputWit
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
+// Specifies the Active Directory account type for Azure Storage.
+func (o ActiveDirectoryPropertiesOutput) AccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryProperties) *string { return v.AccountType }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the security identifier (SID) for Azure Storage.
 func (o ActiveDirectoryPropertiesOutput) AzureStorageSid() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.AzureStorageSid }).(pulumi.StringOutput)
@@ -161,6 +715,11 @@ func (o ActiveDirectoryPropertiesOutput) NetBiosDomainName() pulumi.StringOutput
 	return o.ApplyT(func(v ActiveDirectoryProperties) string { return v.NetBiosDomainName }).(pulumi.StringOutput)
 }
 
+// Specifies the Active Directory SAMAccountName for Azure Storage.
+func (o ActiveDirectoryPropertiesOutput) SamAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryProperties) *string { return v.SamAccountName }).(pulumi.StringPtrOutput)
+}
+
 type ActiveDirectoryPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryPropertiesPtrOutput) ElementType() reflect.Type {
@@ -183,6 +742,16 @@ func (o ActiveDirectoryPropertiesPtrOutput) Elem() ActiveDirectoryPropertiesOutp
 		var ret ActiveDirectoryProperties
 		return ret
 	}).(ActiveDirectoryPropertiesOutput)
+}
+
+// Specifies the Active Directory account type for Azure Storage.
+func (o ActiveDirectoryPropertiesPtrOutput) AccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the security identifier (SID) for Azure Storage.
@@ -245,8 +814,20 @@ func (o ActiveDirectoryPropertiesPtrOutput) NetBiosDomainName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Active Directory SAMAccountName for Azure Storage.
+func (o ActiveDirectoryPropertiesPtrOutput) SamAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SamAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Settings properties for Active Directory (AD).
 type ActiveDirectoryPropertiesResponse struct {
+	// Specifies the Active Directory account type for Azure Storage.
+	AccountType *string `pulumi:"accountType"`
 	// Specifies the security identifier (SID) for Azure Storage.
 	AzureStorageSid string `pulumi:"azureStorageSid"`
 	// Specifies the domain GUID.
@@ -259,6 +840,8 @@ type ActiveDirectoryPropertiesResponse struct {
 	ForestName string `pulumi:"forestName"`
 	// Specifies the NetBIOS domain name.
 	NetBiosDomainName string `pulumi:"netBiosDomainName"`
+	// Specifies the Active Directory SAMAccountName for Azure Storage.
+	SamAccountName *string `pulumi:"samAccountName"`
 }
 
 // Settings properties for Active Directory (AD).
@@ -274,6 +857,11 @@ func (o ActiveDirectoryPropertiesResponseOutput) ToActiveDirectoryPropertiesResp
 
 func (o ActiveDirectoryPropertiesResponseOutput) ToActiveDirectoryPropertiesResponseOutputWithContext(ctx context.Context) ActiveDirectoryPropertiesResponseOutput {
 	return o
+}
+
+// Specifies the Active Directory account type for Azure Storage.
+func (o ActiveDirectoryPropertiesResponseOutput) AccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) *string { return v.AccountType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the security identifier (SID) for Azure Storage.
@@ -306,6 +894,11 @@ func (o ActiveDirectoryPropertiesResponseOutput) NetBiosDomainName() pulumi.Stri
 	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) string { return v.NetBiosDomainName }).(pulumi.StringOutput)
 }
 
+// Specifies the Active Directory SAMAccountName for Azure Storage.
+func (o ActiveDirectoryPropertiesResponseOutput) SamAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryPropertiesResponse) *string { return v.SamAccountName }).(pulumi.StringPtrOutput)
+}
+
 type ActiveDirectoryPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -328,6 +921,16 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) Elem() ActiveDirectoryProper
 		var ret ActiveDirectoryPropertiesResponse
 		return ret
 	}).(ActiveDirectoryPropertiesResponseOutput)
+}
+
+// Specifies the Active Directory account type for Azure Storage.
+func (o ActiveDirectoryPropertiesResponsePtrOutput) AccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the security identifier (SID) for Azure Storage.
@@ -390,10 +993,22 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) NetBiosDomainName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Active Directory SAMAccountName for Azure Storage.
+func (o ActiveDirectoryPropertiesResponsePtrOutput) SamAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SamAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Settings for Azure Files identity based authentication.
 type AzureFilesIdentityBasedAuthentication struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties *ActiveDirectoryProperties `pulumi:"activeDirectoryProperties"`
+	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+	DefaultSharePermission *string `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions string `pulumi:"directoryServiceOptions"`
 }
@@ -413,6 +1028,8 @@ type AzureFilesIdentityBasedAuthenticationInput interface {
 type AzureFilesIdentityBasedAuthenticationArgs struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties ActiveDirectoryPropertiesPtrInput `pulumi:"activeDirectoryProperties"`
+	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+	DefaultSharePermission pulumi.StringPtrInput `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions pulumi.StringInput `pulumi:"directoryServiceOptions"`
 }
@@ -502,6 +1119,11 @@ func (o AzureFilesIdentityBasedAuthenticationOutput) ActiveDirectoryProperties()
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
+// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+func (o AzureFilesIdentityBasedAuthenticationOutput) DefaultSharePermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFilesIdentityBasedAuthentication) *string { return v.DefaultSharePermission }).(pulumi.StringPtrOutput)
+}
+
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationOutput) DirectoryServiceOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthentication) string { return v.DirectoryServiceOptions }).(pulumi.StringOutput)
@@ -541,6 +1163,16 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) ActiveDirectoryPropertie
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
+// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DefaultSharePermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSharePermission
+	}).(pulumi.StringPtrOutput)
+}
+
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DirectoryServiceOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthentication) *string {
@@ -555,6 +1187,8 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DirectoryServiceOptions(
 type AzureFilesIdentityBasedAuthenticationResponse struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties *ActiveDirectoryPropertiesResponse `pulumi:"activeDirectoryProperties"`
+	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+	DefaultSharePermission *string `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions string `pulumi:"directoryServiceOptions"`
 }
@@ -579,6 +1213,11 @@ func (o AzureFilesIdentityBasedAuthenticationResponseOutput) ActiveDirectoryProp
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthenticationResponse) *ActiveDirectoryPropertiesResponse {
 		return v.ActiveDirectoryProperties
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
+}
+
+// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+func (o AzureFilesIdentityBasedAuthenticationResponseOutput) DefaultSharePermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFilesIdentityBasedAuthenticationResponse) *string { return v.DefaultSharePermission }).(pulumi.StringPtrOutput)
 }
 
 // Indicates the directory service used.
@@ -620,6 +1259,16 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) ActiveDirectoryP
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
 }
 
+// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DefaultSharePermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSharePermission
+	}).(pulumi.StringPtrOutput)
+}
+
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryServiceOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthenticationResponse) *string {
@@ -630,10 +1279,18 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryService
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+// An object that defines the blob inventory rule.
 type BlobInventoryPolicyDefinition struct {
 	// An object that defines the filter set.
-	Filters BlobInventoryPolicyFilter `pulumi:"filters"`
+	Filters *BlobInventoryPolicyFilter `pulumi:"filters"`
+	// This is a required field, it specifies the format for the inventory files.
+	Format string `pulumi:"format"`
+	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+	ObjectType string `pulumi:"objectType"`
+	// This is a required field. This field is used to schedule an inventory formation.
+	Schedule string `pulumi:"schedule"`
+	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+	SchemaFields []string `pulumi:"schemaFields"`
 }
 
 // BlobInventoryPolicyDefinitionInput is an input type that accepts BlobInventoryPolicyDefinitionArgs and BlobInventoryPolicyDefinitionOutput values.
@@ -647,10 +1304,18 @@ type BlobInventoryPolicyDefinitionInput interface {
 	ToBlobInventoryPolicyDefinitionOutputWithContext(context.Context) BlobInventoryPolicyDefinitionOutput
 }
 
-// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+// An object that defines the blob inventory rule.
 type BlobInventoryPolicyDefinitionArgs struct {
 	// An object that defines the filter set.
-	Filters BlobInventoryPolicyFilterInput `pulumi:"filters"`
+	Filters BlobInventoryPolicyFilterPtrInput `pulumi:"filters"`
+	// This is a required field, it specifies the format for the inventory files.
+	Format pulumi.StringInput `pulumi:"format"`
+	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+	// This is a required field. This field is used to schedule an inventory formation.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
+	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+	SchemaFields pulumi.StringArrayInput `pulumi:"schemaFields"`
 }
 
 func (BlobInventoryPolicyDefinitionArgs) ElementType() reflect.Type {
@@ -665,7 +1330,7 @@ func (i BlobInventoryPolicyDefinitionArgs) ToBlobInventoryPolicyDefinitionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyDefinitionOutput)
 }
 
-// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+// An object that defines the blob inventory rule.
 type BlobInventoryPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyDefinitionOutput) ElementType() reflect.Type {
@@ -681,17 +1346,45 @@ func (o BlobInventoryPolicyDefinitionOutput) ToBlobInventoryPolicyDefinitionOutp
 }
 
 // An object that defines the filter set.
-func (o BlobInventoryPolicyDefinitionOutput) Filters() BlobInventoryPolicyFilterOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinition) BlobInventoryPolicyFilter { return v.Filters }).(BlobInventoryPolicyFilterOutput)
+func (o BlobInventoryPolicyDefinitionOutput) Filters() BlobInventoryPolicyFilterPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) *BlobInventoryPolicyFilter { return v.Filters }).(BlobInventoryPolicyFilterPtrOutput)
 }
 
-// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+// This is a required field, it specifies the format for the inventory files.
+func (o BlobInventoryPolicyDefinitionOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+func (o BlobInventoryPolicyDefinitionOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// This is a required field. This field is used to schedule an inventory formation.
+func (o BlobInventoryPolicyDefinitionOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+func (o BlobInventoryPolicyDefinitionOutput) SchemaFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) []string { return v.SchemaFields }).(pulumi.StringArrayOutput)
+}
+
+// An object that defines the blob inventory rule.
 type BlobInventoryPolicyDefinitionResponse struct {
 	// An object that defines the filter set.
-	Filters BlobInventoryPolicyFilterResponse `pulumi:"filters"`
+	Filters *BlobInventoryPolicyFilterResponse `pulumi:"filters"`
+	// This is a required field, it specifies the format for the inventory files.
+	Format string `pulumi:"format"`
+	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+	ObjectType string `pulumi:"objectType"`
+	// This is a required field. This field is used to schedule an inventory formation.
+	Schedule string `pulumi:"schedule"`
+	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+	SchemaFields []string `pulumi:"schemaFields"`
 }
 
-// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+// An object that defines the blob inventory rule.
 type BlobInventoryPolicyDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyDefinitionResponseOutput) ElementType() reflect.Type {
@@ -707,19 +1400,43 @@ func (o BlobInventoryPolicyDefinitionResponseOutput) ToBlobInventoryPolicyDefini
 }
 
 // An object that defines the filter set.
-func (o BlobInventoryPolicyDefinitionResponseOutput) Filters() BlobInventoryPolicyFilterResponseOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) BlobInventoryPolicyFilterResponse { return v.Filters }).(BlobInventoryPolicyFilterResponseOutput)
+func (o BlobInventoryPolicyDefinitionResponseOutput) Filters() BlobInventoryPolicyFilterResponsePtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) *BlobInventoryPolicyFilterResponse { return v.Filters }).(BlobInventoryPolicyFilterResponsePtrOutput)
 }
 
-// An object that defines the blob inventory rule filter conditions.
+// This is a required field, it specifies the format for the inventory files.
+func (o BlobInventoryPolicyDefinitionResponseOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+func (o BlobInventoryPolicyDefinitionResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// This is a required field. This field is used to schedule an inventory formation.
+func (o BlobInventoryPolicyDefinitionResponseOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+func (o BlobInventoryPolicyDefinitionResponseOutput) SchemaFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) []string { return v.SchemaFields }).(pulumi.StringArrayOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
 type BlobInventoryPolicyFilter struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
 	BlobTypes []string `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
+	// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+	ExcludePrefix []string `pulumi:"excludePrefix"`
+	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
+	// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+	IncludeDeleted *bool `pulumi:"includeDeleted"`
+	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
+	// An array of strings with maximum 10 blob prefixes to be included in the inventory.
 	PrefixMatch []string `pulumi:"prefixMatch"`
 }
 
@@ -734,15 +1451,19 @@ type BlobInventoryPolicyFilterInput interface {
 	ToBlobInventoryPolicyFilterOutputWithContext(context.Context) BlobInventoryPolicyFilterOutput
 }
 
-// An object that defines the blob inventory rule filter conditions.
+// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
 type BlobInventoryPolicyFilterArgs struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
+	// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+	ExcludePrefix pulumi.StringArrayInput `pulumi:"excludePrefix"`
+	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
+	// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+	IncludeDeleted pulumi.BoolPtrInput `pulumi:"includeDeleted"`
+	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
+	// An array of strings with maximum 10 blob prefixes to be included in the inventory.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
 }
 
@@ -758,7 +1479,48 @@ func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterOutput)
 }
 
-// An object that defines the blob inventory rule filter conditions.
+func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
+	return i.ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterOutput).ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx)
+}
+
+// BlobInventoryPolicyFilterPtrInput is an input type that accepts BlobInventoryPolicyFilterArgs, BlobInventoryPolicyFilterPtr and BlobInventoryPolicyFilterPtrOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyFilterPtrInput` via:
+//
+//          BlobInventoryPolicyFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobInventoryPolicyFilterPtrInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput
+	ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Context) BlobInventoryPolicyFilterPtrOutput
+}
+
+type blobInventoryPolicyFilterPtrType BlobInventoryPolicyFilterArgs
+
+func BlobInventoryPolicyFilterPtr(v *BlobInventoryPolicyFilterArgs) BlobInventoryPolicyFilterPtrInput {
+	return (*blobInventoryPolicyFilterPtrType)(v)
+}
+
+func (*blobInventoryPolicyFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicyFilter)(nil)).Elem()
+}
+
+func (i *blobInventoryPolicyFilterPtrType) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
+	return i.ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *blobInventoryPolicyFilterPtrType) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterPtrOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
 type BlobInventoryPolicyFilterOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyFilterOutput) ElementType() reflect.Type {
@@ -773,39 +1535,147 @@ func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterOutputWithCo
 	return o
 }
 
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
+	return o.ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobInventoryPolicyFilter) *BlobInventoryPolicyFilter {
+		return &v
+	}).(BlobInventoryPolicyFilterPtrOutput)
+}
+
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
 func (o BlobInventoryPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// Includes blob versions in blob inventory when value set to true.
+// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+func (o BlobInventoryPolicyFilterOutput) ExcludePrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.ExcludePrefix }).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
 func (o BlobInventoryPolicyFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
-// Includes blob snapshots in blob inventory when value set to true.
+// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+func (o BlobInventoryPolicyFilterOutput) IncludeDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeDeleted }).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
 func (o BlobInventoryPolicyFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// An array of strings for blob prefixes to be matched.
+// An array of strings with maximum 10 blob prefixes to be included in the inventory.
 func (o BlobInventoryPolicyFilterOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
 
-// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicyFilter)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyFilterPtrOutput) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyFilterPtrOutput) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyFilterPtrOutput) Elem() BlobInventoryPolicyFilterOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) BlobInventoryPolicyFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BlobInventoryPolicyFilter
+		return ret
+	}).(BlobInventoryPolicyFilterOutput)
+}
+
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+func (o BlobInventoryPolicyFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+func (o BlobInventoryPolicyFilterPtrOutput) ExcludePrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePrefix
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+func (o BlobInventoryPolicyFilterPtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeBlobVersions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+func (o BlobInventoryPolicyFilterPtrOutput) IncludeDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDeleted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+func (o BlobInventoryPolicyFilterPtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An array of strings with maximum 10 blob prefixes to be included in the inventory.
+func (o BlobInventoryPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixMatch
+	}).(pulumi.StringArrayOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
 type BlobInventoryPolicyFilterResponse struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
 	BlobTypes []string `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value set to true.
+	// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+	ExcludePrefix []string `pulumi:"excludePrefix"`
+	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value set to true.
+	// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+	IncludeDeleted *bool `pulumi:"includeDeleted"`
+	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
-	// An array of strings for blob prefixes to be matched.
+	// An array of strings with maximum 10 blob prefixes to be included in the inventory.
 	PrefixMatch []string `pulumi:"prefixMatch"`
 }
 
-// An object that defines the blob inventory rule filter conditions.
+// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
 type BlobInventoryPolicyFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyFilterResponseOutput) ElementType() reflect.Type {
@@ -820,30 +1690,126 @@ func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResp
 	return o
 }
 
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
 func (o BlobInventoryPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// Includes blob versions in blob inventory when value set to true.
+// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+func (o BlobInventoryPolicyFilterResponseOutput) ExcludePrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.ExcludePrefix }).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
 func (o BlobInventoryPolicyFilterResponseOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
-// Includes blob snapshots in blob inventory when value set to true.
+// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+func (o BlobInventoryPolicyFilterResponseOutput) IncludeDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeDeleted }).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
 func (o BlobInventoryPolicyFilterResponseOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// An array of strings for blob prefixes to be matched.
+// An array of strings with maximum 10 blob prefixes to be included in the inventory.
 func (o BlobInventoryPolicyFilterResponseOutput) PrefixMatch() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
+}
+
+type BlobInventoryPolicyFilterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyFilterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicyFilterResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyFilterResponsePtrOutput) ToBlobInventoryPolicyFilterResponsePtrOutput() BlobInventoryPolicyFilterResponsePtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyFilterResponsePtrOutput) ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponsePtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyFilterResponsePtrOutput) Elem() BlobInventoryPolicyFilterResponseOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) BlobInventoryPolicyFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlobInventoryPolicyFilterResponse
+		return ret
+	}).(BlobInventoryPolicyFilterResponseOutput)
+}
+
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+func (o BlobInventoryPolicyFilterResponsePtrOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+func (o BlobInventoryPolicyFilterResponsePtrOutput) ExcludePrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePrefix
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+func (o BlobInventoryPolicyFilterResponsePtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeBlobVersions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+func (o BlobInventoryPolicyFilterResponsePtrOutput) IncludeDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDeleted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+func (o BlobInventoryPolicyFilterResponsePtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An array of strings with maximum 10 blob prefixes to be included in the inventory.
+func (o BlobInventoryPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixMatch
+	}).(pulumi.StringArrayOutput)
 }
 
 // An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
 type BlobInventoryPolicyRule struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinition `pulumi:"definition"`
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination string `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled bool `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -865,6 +1831,8 @@ type BlobInventoryPolicyRuleInput interface {
 type BlobInventoryPolicyRuleArgs struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionInput `pulumi:"definition"`
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination pulumi.StringInput `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -928,6 +1896,11 @@ func (o BlobInventoryPolicyRuleOutput) Definition() BlobInventoryPolicyDefinitio
 	return o.ApplyT(func(v BlobInventoryPolicyRule) BlobInventoryPolicyDefinition { return v.Definition }).(BlobInventoryPolicyDefinitionOutput)
 }
 
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicyRuleOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Destination }).(pulumi.StringOutput)
+}
+
 // Rule is enabled when set to true.
 func (o BlobInventoryPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -962,6 +1935,8 @@ func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInvento
 type BlobInventoryPolicyRuleResponse struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionResponse `pulumi:"definition"`
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination string `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled bool `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -986,6 +1961,11 @@ func (o BlobInventoryPolicyRuleResponseOutput) ToBlobInventoryPolicyRuleResponse
 // An object that defines the blob inventory policy rule.
 func (o BlobInventoryPolicyRuleResponseOutput) Definition() BlobInventoryPolicyDefinitionResponseOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) BlobInventoryPolicyDefinitionResponse { return v.Definition }).(BlobInventoryPolicyDefinitionResponseOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicyRuleResponseOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) string { return v.Destination }).(pulumi.StringOutput)
 }
 
 // Rule is enabled when set to true.
@@ -1020,8 +2000,6 @@ func (o BlobInventoryPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) Blo
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchema struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination string `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled bool `pulumi:"enabled"`
 	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -1043,8 +2021,6 @@ type BlobInventoryPolicySchemaInput interface {
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchemaArgs struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination pulumi.StringInput `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -1080,11 +2056,6 @@ func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaOutputWithCo
 	return o
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
-func (o BlobInventoryPolicySchemaOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicySchema) string { return v.Destination }).(pulumi.StringOutput)
-}
-
 // Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchema) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -1102,7 +2073,7 @@ func (o BlobInventoryPolicySchemaOutput) Type() pulumi.StringOutput {
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchemaResponse struct {
-	// Container name where blob inventory files are stored. Must be pre-created.
+	// Deprecated Property from API version 2021-04-01 onwards, the required destination container name must be specified at the rule level 'policy.rule.destination'
 	Destination string `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled bool `pulumi:"enabled"`
@@ -1127,7 +2098,7 @@ func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResp
 	return o
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
+// Deprecated Property from API version 2021-04-01 onwards, the required destination container name must be specified at the rule level 'policy.rule.destination'
 func (o BlobInventoryPolicySchemaResponseOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -2118,10 +3089,12 @@ func (o CustomDomainResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
 }
 
-// Object to define the number of days after creation.
+// Object to define snapshot and version action conditions.
 type DateAfterCreation struct {
 	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan float64 `pulumi:"daysAfterCreationGreaterThan"`
+	// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+	DaysAfterLastTierChangeGreaterThan *float64 `pulumi:"daysAfterLastTierChangeGreaterThan"`
 }
 
 // DateAfterCreationInput is an input type that accepts DateAfterCreationArgs and DateAfterCreationOutput values.
@@ -2135,10 +3108,12 @@ type DateAfterCreationInput interface {
 	ToDateAfterCreationOutputWithContext(context.Context) DateAfterCreationOutput
 }
 
-// Object to define the number of days after creation.
+// Object to define snapshot and version action conditions.
 type DateAfterCreationArgs struct {
 	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan pulumi.Float64Input `pulumi:"daysAfterCreationGreaterThan"`
+	// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+	DaysAfterLastTierChangeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastTierChangeGreaterThan"`
 }
 
 func (DateAfterCreationArgs) ElementType() reflect.Type {
@@ -2194,7 +3169,7 @@ func (i *dateAfterCreationPtrType) ToDateAfterCreationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DateAfterCreationPtrOutput)
 }
 
-// Object to define the number of days after creation.
+// Object to define snapshot and version action conditions.
 type DateAfterCreationOutput struct{ *pulumi.OutputState }
 
 func (DateAfterCreationOutput) ElementType() reflect.Type {
@@ -2222,6 +3197,11 @@ func (o DateAfterCreationOutput) ToDateAfterCreationPtrOutputWithContext(ctx con
 // Value indicating the age in days after creation
 func (o DateAfterCreationOutput) DaysAfterCreationGreaterThan() pulumi.Float64Output {
 	return o.ApplyT(func(v DateAfterCreation) float64 { return v.DaysAfterCreationGreaterThan }).(pulumi.Float64Output)
+}
+
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterCreationOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterCreation) *float64 { return v.DaysAfterLastTierChangeGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 type DateAfterCreationPtrOutput struct{ *pulumi.OutputState }
@@ -2258,13 +3238,25 @@ func (o DateAfterCreationPtrOutput) DaysAfterCreationGreaterThan() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after creation.
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterCreationPtrOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterCreation) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastTierChangeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Object to define snapshot and version action conditions.
 type DateAfterCreationResponse struct {
 	// Value indicating the age in days after creation
 	DaysAfterCreationGreaterThan float64 `pulumi:"daysAfterCreationGreaterThan"`
+	// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+	DaysAfterLastTierChangeGreaterThan *float64 `pulumi:"daysAfterLastTierChangeGreaterThan"`
 }
 
-// Object to define the number of days after creation.
+// Object to define snapshot and version action conditions.
 type DateAfterCreationResponseOutput struct{ *pulumi.OutputState }
 
 func (DateAfterCreationResponseOutput) ElementType() reflect.Type {
@@ -2282,6 +3274,11 @@ func (o DateAfterCreationResponseOutput) ToDateAfterCreationResponseOutputWithCo
 // Value indicating the age in days after creation
 func (o DateAfterCreationResponseOutput) DaysAfterCreationGreaterThan() pulumi.Float64Output {
 	return o.ApplyT(func(v DateAfterCreationResponse) float64 { return v.DaysAfterCreationGreaterThan }).(pulumi.Float64Output)
+}
+
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterCreationResponseOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterCreationResponse) *float64 { return v.DaysAfterLastTierChangeGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 type DateAfterCreationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2318,10 +3315,24 @@ func (o DateAfterCreationResponsePtrOutput) DaysAfterCreationGreaterThan() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterCreationResponsePtrOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterCreationResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastTierChangeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
 type DateAfterModification struct {
+	// Value indicating the age in days after blob creation.
+	DaysAfterCreationGreaterThan *float64 `pulumi:"daysAfterCreationGreaterThan"`
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
+	// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+	DaysAfterLastTierChangeGreaterThan *float64 `pulumi:"daysAfterLastTierChangeGreaterThan"`
 	// Value indicating the age in days after last modification
 	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
@@ -2337,10 +3348,14 @@ type DateAfterModificationInput interface {
 	ToDateAfterModificationOutputWithContext(context.Context) DateAfterModificationOutput
 }
 
-// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
 type DateAfterModificationArgs struct {
+	// Value indicating the age in days after blob creation.
+	DaysAfterCreationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterCreationGreaterThan"`
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
+	// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+	DaysAfterLastTierChangeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastTierChangeGreaterThan"`
 	// Value indicating the age in days after last modification
 	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
@@ -2398,7 +3413,7 @@ func (i *dateAfterModificationPtrType) ToDateAfterModificationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DateAfterModificationPtrOutput)
 }
 
-// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
 type DateAfterModificationOutput struct{ *pulumi.OutputState }
 
 func (DateAfterModificationOutput) ElementType() reflect.Type {
@@ -2423,9 +3438,19 @@ func (o DateAfterModificationOutput) ToDateAfterModificationPtrOutputWithContext
 	}).(DateAfterModificationPtrOutput)
 }
 
+// Value indicating the age in days after blob creation.
+func (o DateAfterModificationOutput) DaysAfterCreationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterCreationGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterModificationOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterLastTierChangeGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 // Value indicating the age in days after last modification
@@ -2457,6 +3482,16 @@ func (o DateAfterModificationPtrOutput) Elem() DateAfterModificationOutput {
 	}).(DateAfterModificationOutput)
 }
 
+// Value indicating the age in days after blob creation.
+func (o DateAfterModificationPtrOutput) DaysAfterCreationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModification) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterCreationGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationPtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModification) *float64 {
@@ -2464,6 +3499,16 @@ func (o DateAfterModificationPtrOutput) DaysAfterLastAccessTimeGreaterThan() pul
 			return nil
 		}
 		return v.DaysAfterLastAccessTimeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterModificationPtrOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModification) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastTierChangeGreaterThan
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -2477,15 +3522,19 @@ func (o DateAfterModificationPtrOutput) DaysAfterModificationGreaterThan() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
 type DateAfterModificationResponse struct {
+	// Value indicating the age in days after blob creation.
+	DaysAfterCreationGreaterThan *float64 `pulumi:"daysAfterCreationGreaterThan"`
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
+	// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+	DaysAfterLastTierChangeGreaterThan *float64 `pulumi:"daysAfterLastTierChangeGreaterThan"`
 	// Value indicating the age in days after last modification
 	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
-// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
 type DateAfterModificationResponseOutput struct{ *pulumi.OutputState }
 
 func (DateAfterModificationResponseOutput) ElementType() reflect.Type {
@@ -2500,9 +3549,19 @@ func (o DateAfterModificationResponseOutput) ToDateAfterModificationResponseOutp
 	return o
 }
 
+// Value indicating the age in days after blob creation.
+func (o DateAfterModificationResponseOutput) DaysAfterCreationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterCreationGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationResponseOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterModificationResponseOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterLastTierChangeGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 // Value indicating the age in days after last modification
@@ -2534,6 +3593,16 @@ func (o DateAfterModificationResponsePtrOutput) Elem() DateAfterModificationResp
 	}).(DateAfterModificationResponseOutput)
 }
 
+// Value indicating the age in days after blob creation.
+func (o DateAfterModificationResponsePtrOutput) DaysAfterCreationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterCreationGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 func (o DateAfterModificationResponsePtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
@@ -2541,6 +3610,16 @@ func (o DateAfterModificationResponsePtrOutput) DaysAfterLastAccessTimeGreaterTh
 			return nil
 		}
 		return v.DaysAfterLastAccessTimeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+func (o DateAfterModificationResponsePtrOutput) DaysAfterLastTierChangeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastTierChangeGreaterThan
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -2556,6 +3635,8 @@ func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan
 
 // The service properties for soft delete.
 type DeleteRetentionPolicy struct {
+	// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+	AllowPermanentDelete *bool `pulumi:"allowPermanentDelete"`
 	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 	Days *int `pulumi:"days"`
 	// Indicates whether DeleteRetentionPolicy is enabled.
@@ -2575,6 +3656,8 @@ type DeleteRetentionPolicyInput interface {
 
 // The service properties for soft delete.
 type DeleteRetentionPolicyArgs struct {
+	// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+	AllowPermanentDelete pulumi.BoolPtrInput `pulumi:"allowPermanentDelete"`
 	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Indicates whether DeleteRetentionPolicy is enabled.
@@ -2659,6 +3742,11 @@ func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutputWithContext
 	}).(DeleteRetentionPolicyPtrOutput)
 }
 
+// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+func (o DeleteRetentionPolicyOutput) AllowPermanentDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *bool { return v.AllowPermanentDelete }).(pulumi.BoolPtrOutput)
+}
+
 // Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 func (o DeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -2693,6 +3781,16 @@ func (o DeleteRetentionPolicyPtrOutput) Elem() DeleteRetentionPolicyOutput {
 	}).(DeleteRetentionPolicyOutput)
 }
 
+// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+func (o DeleteRetentionPolicyPtrOutput) AllowPermanentDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPermanentDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 func (o DeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeleteRetentionPolicy) *int {
@@ -2715,6 +3813,8 @@ func (o DeleteRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 
 // The service properties for soft delete.
 type DeleteRetentionPolicyResponse struct {
+	// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+	AllowPermanentDelete *bool `pulumi:"allowPermanentDelete"`
 	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
 	Days *int `pulumi:"days"`
 	// Indicates whether DeleteRetentionPolicy is enabled.
@@ -2734,6 +3834,11 @@ func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponseOutp
 
 func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponseOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponseOutput {
 	return o
+}
+
+// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+func (o DeleteRetentionPolicyResponseOutput) AllowPermanentDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *bool { return v.AllowPermanentDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
@@ -2768,6 +3873,16 @@ func (o DeleteRetentionPolicyResponsePtrOutput) Elem() DeleteRetentionPolicyResp
 		var ret DeleteRetentionPolicyResponse
 		return ret
 	}).(DeleteRetentionPolicyResponseOutput)
+}
+
+// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+func (o DeleteRetentionPolicyResponsePtrOutput) AllowPermanentDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPermanentDelete
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
@@ -3031,6 +4146,8 @@ func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 
 // Encryption identity for the storage account.
 type EncryptionIdentity struct {
+	// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	EncryptionFederatedIdentityClientId *string `pulumi:"encryptionFederatedIdentityClientId"`
 	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity *string `pulumi:"encryptionUserAssignedIdentity"`
 }
@@ -3048,6 +4165,8 @@ type EncryptionIdentityInput interface {
 
 // Encryption identity for the storage account.
 type EncryptionIdentityArgs struct {
+	// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	EncryptionFederatedIdentityClientId pulumi.StringPtrInput `pulumi:"encryptionFederatedIdentityClientId"`
 	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity pulumi.StringPtrInput `pulumi:"encryptionUserAssignedIdentity"`
 }
@@ -3130,6 +4249,11 @@ func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutputWithContext(ctx c
 	}).(EncryptionIdentityPtrOutput)
 }
 
+// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+func (o EncryptionIdentityOutput) EncryptionFederatedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionIdentity) *string { return v.EncryptionFederatedIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
 // Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 func (o EncryptionIdentityOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionIdentity) *string { return v.EncryptionUserAssignedIdentity }).(pulumi.StringPtrOutput)
@@ -3159,6 +4283,16 @@ func (o EncryptionIdentityPtrOutput) Elem() EncryptionIdentityOutput {
 	}).(EncryptionIdentityOutput)
 }
 
+// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+func (o EncryptionIdentityPtrOutput) EncryptionFederatedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionFederatedIdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 func (o EncryptionIdentityPtrOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionIdentity) *string {
@@ -3171,6 +4305,8 @@ func (o EncryptionIdentityPtrOutput) EncryptionUserAssignedIdentity() pulumi.Str
 
 // Encryption identity for the storage account.
 type EncryptionIdentityResponse struct {
+	// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	EncryptionFederatedIdentityClientId *string `pulumi:"encryptionFederatedIdentityClientId"`
 	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
 	EncryptionUserAssignedIdentity *string `pulumi:"encryptionUserAssignedIdentity"`
 }
@@ -3188,6 +4324,11 @@ func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponseOutput() E
 
 func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponseOutputWithContext(ctx context.Context) EncryptionIdentityResponseOutput {
 	return o
+}
+
+// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+func (o EncryptionIdentityResponseOutput) EncryptionFederatedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionIdentityResponse) *string { return v.EncryptionFederatedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
 // Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
@@ -3217,6 +4358,16 @@ func (o EncryptionIdentityResponsePtrOutput) Elem() EncryptionIdentityResponseOu
 		var ret EncryptionIdentityResponse
 		return ret
 	}).(EncryptionIdentityResponseOutput)
+}
+
+// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+func (o EncryptionIdentityResponsePtrOutput) EncryptionFederatedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionFederatedIdentityClientId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
@@ -3531,7 +4682,7 @@ func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimes
 
 // A service that allows server-side encryption to be used.
 type EncryptionService struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
+	// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 	KeyType *string `pulumi:"keyType"`
@@ -3550,7 +4701,7 @@ type EncryptionServiceInput interface {
 
 // A service that allows server-side encryption to be used.
 type EncryptionServiceArgs struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
+	// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
@@ -3634,7 +4785,7 @@ func (o EncryptionServiceOutput) ToEncryptionServicePtrOutputWithContext(ctx con
 	}).(EncryptionServicePtrOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
+// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 func (o EncryptionServiceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionService) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3668,7 +4819,7 @@ func (o EncryptionServicePtrOutput) Elem() EncryptionServiceOutput {
 	}).(EncryptionServiceOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
+// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionService) *bool {
 		if v == nil {
@@ -3690,11 +4841,11 @@ func (o EncryptionServicePtrOutput) KeyType() pulumi.StringPtrOutput {
 
 // A service that allows server-side encryption to be used.
 type EncryptionServiceResponse struct {
-	// A boolean indicating whether or not the service encrypts the data as it is stored.
+	// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
 	KeyType *string `pulumi:"keyType"`
-	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Data is encrypted at rest by default today and cannot be disabled.
 	LastEnabledTime string `pulumi:"lastEnabledTime"`
 }
 
@@ -3713,7 +4864,7 @@ func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponseOutputWithCo
 	return o
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
+// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 func (o EncryptionServiceResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3723,7 +4874,7 @@ func (o EncryptionServiceResponseOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) *string { return v.KeyType }).(pulumi.StringPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Data is encrypted at rest by default today and cannot be disabled.
 func (o EncryptionServiceResponseOutput) LastEnabledTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionServiceResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
 }
@@ -3752,7 +4903,7 @@ func (o EncryptionServiceResponsePtrOutput) Elem() EncryptionServiceResponseOutp
 	}).(EncryptionServiceResponseOutput)
 }
 
-// A boolean indicating whether or not the service encrypts the data as it is stored.
+// A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
 func (o EncryptionServiceResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *bool {
 		if v == nil {
@@ -3772,7 +4923,7 @@ func (o EncryptionServiceResponsePtrOutput) KeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Data is encrypted at rest by default today and cannot be disabled.
 func (o EncryptionServiceResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionServiceResponse) *string {
 		if v == nil {
@@ -4645,7 +5796,7 @@ type Identity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -4664,7 +5815,7 @@ type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -4751,8 +5902,8 @@ func (o IdentityOutput) Type() pulumi.StringOutput {
 }
 
 // Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4790,13 +5941,13 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *Identity) map[string]interface{} {
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity for the resource.
@@ -4912,8 +6063,10 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentity
 
 // The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesResponse struct {
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+	AllowProtectedAppendWritesAll *bool `pulumi:"allowProtectedAppendWritesAll"`
 	// ImmutabilityPolicy Etag.
 	Etag string `pulumi:"etag"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
@@ -4939,9 +6092,14 @@ func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyProperti
 	return o
 }
 
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
 func (o ImmutabilityPolicyPropertiesResponseOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+func (o ImmutabilityPolicyPropertiesResponseOutput) AllowProtectedAppendWritesAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *bool { return v.AllowProtectedAppendWritesAll }).(pulumi.BoolPtrOutput)
 }
 
 // ImmutabilityPolicy Etag.
@@ -4962,6 +6120,478 @@ func (o ImmutabilityPolicyPropertiesResponseOutput) State() pulumi.StringOutput 
 // The ImmutabilityPolicy update history of the blob container.
 func (o ImmutabilityPolicyPropertiesResponseOutput) UpdateHistory() UpdateHistoryPropertyResponseArrayOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) []UpdateHistoryPropertyResponse { return v.UpdateHistory }).(UpdateHistoryPropertyResponseArrayOutput)
+}
+
+// This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+type ImmutableStorageAccount struct {
+	// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+	ImmutabilityPolicy *AccountImmutabilityPolicyProperties `pulumi:"immutabilityPolicy"`
+}
+
+// ImmutableStorageAccountInput is an input type that accepts ImmutableStorageAccountArgs and ImmutableStorageAccountOutput values.
+// You can construct a concrete instance of `ImmutableStorageAccountInput` via:
+//
+//          ImmutableStorageAccountArgs{...}
+type ImmutableStorageAccountInput interface {
+	pulumi.Input
+
+	ToImmutableStorageAccountOutput() ImmutableStorageAccountOutput
+	ToImmutableStorageAccountOutputWithContext(context.Context) ImmutableStorageAccountOutput
+}
+
+// This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+type ImmutableStorageAccountArgs struct {
+	// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+	ImmutabilityPolicy AccountImmutabilityPolicyPropertiesPtrInput `pulumi:"immutabilityPolicy"`
+}
+
+func (ImmutableStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutableStorageAccount)(nil)).Elem()
+}
+
+func (i ImmutableStorageAccountArgs) ToImmutableStorageAccountOutput() ImmutableStorageAccountOutput {
+	return i.ToImmutableStorageAccountOutputWithContext(context.Background())
+}
+
+func (i ImmutableStorageAccountArgs) ToImmutableStorageAccountOutputWithContext(ctx context.Context) ImmutableStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageAccountOutput)
+}
+
+func (i ImmutableStorageAccountArgs) ToImmutableStorageAccountPtrOutput() ImmutableStorageAccountPtrOutput {
+	return i.ToImmutableStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i ImmutableStorageAccountArgs) ToImmutableStorageAccountPtrOutputWithContext(ctx context.Context) ImmutableStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageAccountOutput).ToImmutableStorageAccountPtrOutputWithContext(ctx)
+}
+
+// ImmutableStorageAccountPtrInput is an input type that accepts ImmutableStorageAccountArgs, ImmutableStorageAccountPtr and ImmutableStorageAccountPtrOutput values.
+// You can construct a concrete instance of `ImmutableStorageAccountPtrInput` via:
+//
+//          ImmutableStorageAccountArgs{...}
+//
+//  or:
+//
+//          nil
+type ImmutableStorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToImmutableStorageAccountPtrOutput() ImmutableStorageAccountPtrOutput
+	ToImmutableStorageAccountPtrOutputWithContext(context.Context) ImmutableStorageAccountPtrOutput
+}
+
+type immutableStorageAccountPtrType ImmutableStorageAccountArgs
+
+func ImmutableStorageAccountPtr(v *ImmutableStorageAccountArgs) ImmutableStorageAccountPtrInput {
+	return (*immutableStorageAccountPtrType)(v)
+}
+
+func (*immutableStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutableStorageAccount)(nil)).Elem()
+}
+
+func (i *immutableStorageAccountPtrType) ToImmutableStorageAccountPtrOutput() ImmutableStorageAccountPtrOutput {
+	return i.ToImmutableStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *immutableStorageAccountPtrType) ToImmutableStorageAccountPtrOutputWithContext(ctx context.Context) ImmutableStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageAccountPtrOutput)
+}
+
+// This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+type ImmutableStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutableStorageAccount)(nil)).Elem()
+}
+
+func (o ImmutableStorageAccountOutput) ToImmutableStorageAccountOutput() ImmutableStorageAccountOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountOutput) ToImmutableStorageAccountOutputWithContext(ctx context.Context) ImmutableStorageAccountOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountOutput) ToImmutableStorageAccountPtrOutput() ImmutableStorageAccountPtrOutput {
+	return o.ToImmutableStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ImmutableStorageAccountOutput) ToImmutableStorageAccountPtrOutputWithContext(ctx context.Context) ImmutableStorageAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImmutableStorageAccount) *ImmutableStorageAccount {
+		return &v
+	}).(ImmutableStorageAccountPtrOutput)
+}
+
+// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+func (o ImmutableStorageAccountOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImmutableStorageAccount) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+func (o ImmutableStorageAccountOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPropertiesPtrOutput {
+	return o.ApplyT(func(v ImmutableStorageAccount) *AccountImmutabilityPolicyProperties { return v.ImmutabilityPolicy }).(AccountImmutabilityPolicyPropertiesPtrOutput)
+}
+
+type ImmutableStorageAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutableStorageAccount)(nil)).Elem()
+}
+
+func (o ImmutableStorageAccountPtrOutput) ToImmutableStorageAccountPtrOutput() ImmutableStorageAccountPtrOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountPtrOutput) ToImmutableStorageAccountPtrOutputWithContext(ctx context.Context) ImmutableStorageAccountPtrOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountPtrOutput) Elem() ImmutableStorageAccountOutput {
+	return o.ApplyT(func(v *ImmutableStorageAccount) ImmutableStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutableStorageAccount
+		return ret
+	}).(ImmutableStorageAccountOutput)
+}
+
+// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+func (o ImmutableStorageAccountPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageAccount) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+func (o ImmutableStorageAccountPtrOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPropertiesPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageAccount) *AccountImmutabilityPolicyProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutabilityPolicy
+	}).(AccountImmutabilityPolicyPropertiesPtrOutput)
+}
+
+// This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+type ImmutableStorageAccountResponse struct {
+	// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+	ImmutabilityPolicy *AccountImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
+}
+
+// This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+type ImmutableStorageAccountResponseOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageAccountResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutableStorageAccountResponse)(nil)).Elem()
+}
+
+func (o ImmutableStorageAccountResponseOutput) ToImmutableStorageAccountResponseOutput() ImmutableStorageAccountResponseOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountResponseOutput) ToImmutableStorageAccountResponseOutputWithContext(ctx context.Context) ImmutableStorageAccountResponseOutput {
+	return o
+}
+
+// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+func (o ImmutableStorageAccountResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImmutableStorageAccountResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+func (o ImmutableStorageAccountResponseOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ImmutableStorageAccountResponse) *AccountImmutabilityPolicyPropertiesResponse {
+		return v.ImmutabilityPolicy
+	}).(AccountImmutabilityPolicyPropertiesResponsePtrOutput)
+}
+
+type ImmutableStorageAccountResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageAccountResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutableStorageAccountResponse)(nil)).Elem()
+}
+
+func (o ImmutableStorageAccountResponsePtrOutput) ToImmutableStorageAccountResponsePtrOutput() ImmutableStorageAccountResponsePtrOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountResponsePtrOutput) ToImmutableStorageAccountResponsePtrOutputWithContext(ctx context.Context) ImmutableStorageAccountResponsePtrOutput {
+	return o
+}
+
+func (o ImmutableStorageAccountResponsePtrOutput) Elem() ImmutableStorageAccountResponseOutput {
+	return o.ApplyT(func(v *ImmutableStorageAccountResponse) ImmutableStorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutableStorageAccountResponse
+		return ret
+	}).(ImmutableStorageAccountResponseOutput)
+}
+
+// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+func (o ImmutableStorageAccountResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageAccountResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+func (o ImmutableStorageAccountResponsePtrOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageAccountResponse) *AccountImmutabilityPolicyPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutabilityPolicy
+	}).(AccountImmutabilityPolicyPropertiesResponsePtrOutput)
+}
+
+// Object level immutability properties of the container.
+type ImmutableStorageWithVersioning struct {
+	// This is an immutable property, when set to true it enables object level immutability at the container level.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ImmutableStorageWithVersioningInput is an input type that accepts ImmutableStorageWithVersioningArgs and ImmutableStorageWithVersioningOutput values.
+// You can construct a concrete instance of `ImmutableStorageWithVersioningInput` via:
+//
+//          ImmutableStorageWithVersioningArgs{...}
+type ImmutableStorageWithVersioningInput interface {
+	pulumi.Input
+
+	ToImmutableStorageWithVersioningOutput() ImmutableStorageWithVersioningOutput
+	ToImmutableStorageWithVersioningOutputWithContext(context.Context) ImmutableStorageWithVersioningOutput
+}
+
+// Object level immutability properties of the container.
+type ImmutableStorageWithVersioningArgs struct {
+	// This is an immutable property, when set to true it enables object level immutability at the container level.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ImmutableStorageWithVersioningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutableStorageWithVersioning)(nil)).Elem()
+}
+
+func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningOutput() ImmutableStorageWithVersioningOutput {
+	return i.ToImmutableStorageWithVersioningOutputWithContext(context.Background())
+}
+
+func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningOutput)
+}
+
+func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
+	return i.ToImmutableStorageWithVersioningPtrOutputWithContext(context.Background())
+}
+
+func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningOutput).ToImmutableStorageWithVersioningPtrOutputWithContext(ctx)
+}
+
+// ImmutableStorageWithVersioningPtrInput is an input type that accepts ImmutableStorageWithVersioningArgs, ImmutableStorageWithVersioningPtr and ImmutableStorageWithVersioningPtrOutput values.
+// You can construct a concrete instance of `ImmutableStorageWithVersioningPtrInput` via:
+//
+//          ImmutableStorageWithVersioningArgs{...}
+//
+//  or:
+//
+//          nil
+type ImmutableStorageWithVersioningPtrInput interface {
+	pulumi.Input
+
+	ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput
+	ToImmutableStorageWithVersioningPtrOutputWithContext(context.Context) ImmutableStorageWithVersioningPtrOutput
+}
+
+type immutableStorageWithVersioningPtrType ImmutableStorageWithVersioningArgs
+
+func ImmutableStorageWithVersioningPtr(v *ImmutableStorageWithVersioningArgs) ImmutableStorageWithVersioningPtrInput {
+	return (*immutableStorageWithVersioningPtrType)(v)
+}
+
+func (*immutableStorageWithVersioningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutableStorageWithVersioning)(nil)).Elem()
+}
+
+func (i *immutableStorageWithVersioningPtrType) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
+	return i.ToImmutableStorageWithVersioningPtrOutputWithContext(context.Background())
+}
+
+func (i *immutableStorageWithVersioningPtrType) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningPtrOutput)
+}
+
+// Object level immutability properties of the container.
+type ImmutableStorageWithVersioningOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageWithVersioningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutableStorageWithVersioning)(nil)).Elem()
+}
+
+func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningOutput() ImmutableStorageWithVersioningOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
+	return o.ToImmutableStorageWithVersioningPtrOutputWithContext(context.Background())
+}
+
+func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImmutableStorageWithVersioning) *ImmutableStorageWithVersioning {
+		return &v
+	}).(ImmutableStorageWithVersioningPtrOutput)
+}
+
+// This is an immutable property, when set to true it enables object level immutability at the container level.
+func (o ImmutableStorageWithVersioningOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImmutableStorageWithVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ImmutableStorageWithVersioningPtrOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageWithVersioningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutableStorageWithVersioning)(nil)).Elem()
+}
+
+func (o ImmutableStorageWithVersioningPtrOutput) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningPtrOutput) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningPtrOutput) Elem() ImmutableStorageWithVersioningOutput {
+	return o.ApplyT(func(v *ImmutableStorageWithVersioning) ImmutableStorageWithVersioning {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutableStorageWithVersioning
+		return ret
+	}).(ImmutableStorageWithVersioningOutput)
+}
+
+// This is an immutable property, when set to true it enables object level immutability at the container level.
+func (o ImmutableStorageWithVersioningPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageWithVersioning) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Object level immutability properties of the container.
+type ImmutableStorageWithVersioningResponse struct {
+	// This is an immutable property, when set to true it enables object level immutability at the container level.
+	Enabled *bool `pulumi:"enabled"`
+	// This property denotes the container level immutability to object level immutability migration state.
+	MigrationState string `pulumi:"migrationState"`
+	// Returns the date and time the object level immutability was enabled.
+	TimeStamp string `pulumi:"timeStamp"`
+}
+
+// Object level immutability properties of the container.
+type ImmutableStorageWithVersioningResponseOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageWithVersioningResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutableStorageWithVersioningResponse)(nil)).Elem()
+}
+
+func (o ImmutableStorageWithVersioningResponseOutput) ToImmutableStorageWithVersioningResponseOutput() ImmutableStorageWithVersioningResponseOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningResponseOutput) ToImmutableStorageWithVersioningResponseOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponseOutput {
+	return o
+}
+
+// This is an immutable property, when set to true it enables object level immutability at the container level.
+func (o ImmutableStorageWithVersioningResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// This property denotes the container level immutability to object level immutability migration state.
+func (o ImmutableStorageWithVersioningResponseOutput) MigrationState() pulumi.StringOutput {
+	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) string { return v.MigrationState }).(pulumi.StringOutput)
+}
+
+// Returns the date and time the object level immutability was enabled.
+func (o ImmutableStorageWithVersioningResponseOutput) TimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) string { return v.TimeStamp }).(pulumi.StringOutput)
+}
+
+type ImmutableStorageWithVersioningResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImmutableStorageWithVersioningResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutableStorageWithVersioningResponse)(nil)).Elem()
+}
+
+func (o ImmutableStorageWithVersioningResponsePtrOutput) ToImmutableStorageWithVersioningResponsePtrOutput() ImmutableStorageWithVersioningResponsePtrOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningResponsePtrOutput) ToImmutableStorageWithVersioningResponsePtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponsePtrOutput {
+	return o
+}
+
+func (o ImmutableStorageWithVersioningResponsePtrOutput) Elem() ImmutableStorageWithVersioningResponseOutput {
+	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) ImmutableStorageWithVersioningResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutableStorageWithVersioningResponse
+		return ret
+	}).(ImmutableStorageWithVersioningResponseOutput)
+}
+
+// This is an immutable property, when set to true it enables object level immutability at the container level.
+func (o ImmutableStorageWithVersioningResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// This property denotes the container level immutability to object level immutability migration state.
+func (o ImmutableStorageWithVersioningResponsePtrOutput) MigrationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MigrationState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns the date and time the object level immutability was enabled.
+func (o ImmutableStorageWithVersioningResponsePtrOutput) TimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeStamp
+	}).(pulumi.StringPtrOutput)
 }
 
 // Storage account keys creation time.
@@ -5339,6 +6969,8 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 
 // Properties of key vault.
 type KeyVaultPropertiesResponse struct {
+	// This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+	CurrentVersionedKeyExpirationTimestamp string `pulumi:"currentVersionedKeyExpirationTimestamp"`
 	// The object identifier of the current versioned Key Vault Key in use.
 	CurrentVersionedKeyIdentifier string `pulumi:"currentVersionedKeyIdentifier"`
 	// The name of KeyVault key.
@@ -5364,6 +6996,11 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() K
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
 	return o
+}
+
+// This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+func (o KeyVaultPropertiesResponseOutput) CurrentVersionedKeyExpirationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.CurrentVersionedKeyExpirationTimestamp }).(pulumi.StringOutput)
 }
 
 // The object identifier of the current versioned Key Vault Key in use.
@@ -5413,6 +7050,16 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 		var ret KeyVaultPropertiesResponse
 		return ret
 	}).(KeyVaultPropertiesResponseOutput)
+}
+
+// This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+func (o KeyVaultPropertiesResponsePtrOutput) CurrentVersionedKeyExpirationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CurrentVersionedKeyExpirationTimestamp
+	}).(pulumi.StringPtrOutput)
 }
 
 // The object identifier of the current versioned Key Vault Key in use.
@@ -5777,6 +7424,8 @@ func (o LastAccessTimeTrackingPolicyResponsePtrOutput) TrackingGranularityInDays
 type LegalHoldPropertiesResponse struct {
 	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 	HasLegalHold bool `pulumi:"hasLegalHold"`
+	// Protected append blob writes history.
+	ProtectedAppendWritesHistory *ProtectedAppendWritesHistoryResponse `pulumi:"protectedAppendWritesHistory"`
 	// The list of LegalHold tags of a blob container.
 	Tags []TagPropertyResponse `pulumi:"tags"`
 }
@@ -5799,6 +7448,13 @@ func (o LegalHoldPropertiesResponseOutput) ToLegalHoldPropertiesResponseOutputWi
 // The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 func (o LegalHoldPropertiesResponseOutput) HasLegalHold() pulumi.BoolOutput {
 	return o.ApplyT(func(v LegalHoldPropertiesResponse) bool { return v.HasLegalHold }).(pulumi.BoolOutput)
+}
+
+// Protected append blob writes history.
+func (o LegalHoldPropertiesResponseOutput) ProtectedAppendWritesHistory() ProtectedAppendWritesHistoryResponsePtrOutput {
+	return o.ApplyT(func(v LegalHoldPropertiesResponse) *ProtectedAppendWritesHistoryResponse {
+		return v.ProtectedAppendWritesHistory
+	}).(ProtectedAppendWritesHistoryResponsePtrOutput)
 }
 
 // The list of LegalHold tags of a blob container.
@@ -8790,6 +10446,83 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringP
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// Protected append writes history setting for the blob container with Legal holds.
+type ProtectedAppendWritesHistoryResponse struct {
+	// When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+	AllowProtectedAppendWritesAll *bool `pulumi:"allowProtectedAppendWritesAll"`
+	// Returns the date and time the tag was added.
+	Timestamp string `pulumi:"timestamp"`
+}
+
+// Protected append writes history setting for the blob container with Legal holds.
+type ProtectedAppendWritesHistoryResponseOutput struct{ *pulumi.OutputState }
+
+func (ProtectedAppendWritesHistoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedAppendWritesHistoryResponse)(nil)).Elem()
+}
+
+func (o ProtectedAppendWritesHistoryResponseOutput) ToProtectedAppendWritesHistoryResponseOutput() ProtectedAppendWritesHistoryResponseOutput {
+	return o
+}
+
+func (o ProtectedAppendWritesHistoryResponseOutput) ToProtectedAppendWritesHistoryResponseOutputWithContext(ctx context.Context) ProtectedAppendWritesHistoryResponseOutput {
+	return o
+}
+
+// When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o ProtectedAppendWritesHistoryResponseOutput) AllowProtectedAppendWritesAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProtectedAppendWritesHistoryResponse) *bool { return v.AllowProtectedAppendWritesAll }).(pulumi.BoolPtrOutput)
+}
+
+// Returns the date and time the tag was added.
+func (o ProtectedAppendWritesHistoryResponseOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ProtectedAppendWritesHistoryResponse) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+type ProtectedAppendWritesHistoryResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtectedAppendWritesHistoryResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedAppendWritesHistoryResponse)(nil)).Elem()
+}
+
+func (o ProtectedAppendWritesHistoryResponsePtrOutput) ToProtectedAppendWritesHistoryResponsePtrOutput() ProtectedAppendWritesHistoryResponsePtrOutput {
+	return o
+}
+
+func (o ProtectedAppendWritesHistoryResponsePtrOutput) ToProtectedAppendWritesHistoryResponsePtrOutputWithContext(ctx context.Context) ProtectedAppendWritesHistoryResponsePtrOutput {
+	return o
+}
+
+func (o ProtectedAppendWritesHistoryResponsePtrOutput) Elem() ProtectedAppendWritesHistoryResponseOutput {
+	return o.ApplyT(func(v *ProtectedAppendWritesHistoryResponse) ProtectedAppendWritesHistoryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectedAppendWritesHistoryResponse
+		return ret
+	}).(ProtectedAppendWritesHistoryResponseOutput)
+}
+
+// When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o ProtectedAppendWritesHistoryResponsePtrOutput) AllowProtectedAppendWritesAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProtectedAppendWritesHistoryResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowProtectedAppendWritesAll
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns the date and time the tag was added.
+func (o ProtectedAppendWritesHistoryResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedAppendWritesHistoryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
 // Protocol settings for file service
 type ProtocolSettings struct {
 	// Setting for SMB protocol
@@ -9921,6 +11654,163 @@ func (o SasPolicyResponseOutput) SasExpirationPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v SasPolicyResponse) string { return v.SasExpirationPeriod }).(pulumi.StringOutput)
 }
 
+type SignedIdentifier struct {
+	// Access policy
+	AccessPolicy *AccessPolicy `pulumi:"accessPolicy"`
+	// An unique identifier of the stored access policy.
+	Id *string `pulumi:"id"`
+}
+
+// SignedIdentifierInput is an input type that accepts SignedIdentifierArgs and SignedIdentifierOutput values.
+// You can construct a concrete instance of `SignedIdentifierInput` via:
+//
+//          SignedIdentifierArgs{...}
+type SignedIdentifierInput interface {
+	pulumi.Input
+
+	ToSignedIdentifierOutput() SignedIdentifierOutput
+	ToSignedIdentifierOutputWithContext(context.Context) SignedIdentifierOutput
+}
+
+type SignedIdentifierArgs struct {
+	// Access policy
+	AccessPolicy AccessPolicyPtrInput `pulumi:"accessPolicy"`
+	// An unique identifier of the stored access policy.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SignedIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignedIdentifier)(nil)).Elem()
+}
+
+func (i SignedIdentifierArgs) ToSignedIdentifierOutput() SignedIdentifierOutput {
+	return i.ToSignedIdentifierOutputWithContext(context.Background())
+}
+
+func (i SignedIdentifierArgs) ToSignedIdentifierOutputWithContext(ctx context.Context) SignedIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignedIdentifierOutput)
+}
+
+// SignedIdentifierArrayInput is an input type that accepts SignedIdentifierArray and SignedIdentifierArrayOutput values.
+// You can construct a concrete instance of `SignedIdentifierArrayInput` via:
+//
+//          SignedIdentifierArray{ SignedIdentifierArgs{...} }
+type SignedIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToSignedIdentifierArrayOutput() SignedIdentifierArrayOutput
+	ToSignedIdentifierArrayOutputWithContext(context.Context) SignedIdentifierArrayOutput
+}
+
+type SignedIdentifierArray []SignedIdentifierInput
+
+func (SignedIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignedIdentifier)(nil)).Elem()
+}
+
+func (i SignedIdentifierArray) ToSignedIdentifierArrayOutput() SignedIdentifierArrayOutput {
+	return i.ToSignedIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i SignedIdentifierArray) ToSignedIdentifierArrayOutputWithContext(ctx context.Context) SignedIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignedIdentifierArrayOutput)
+}
+
+type SignedIdentifierOutput struct{ *pulumi.OutputState }
+
+func (SignedIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignedIdentifier)(nil)).Elem()
+}
+
+func (o SignedIdentifierOutput) ToSignedIdentifierOutput() SignedIdentifierOutput {
+	return o
+}
+
+func (o SignedIdentifierOutput) ToSignedIdentifierOutputWithContext(ctx context.Context) SignedIdentifierOutput {
+	return o
+}
+
+// Access policy
+func (o SignedIdentifierOutput) AccessPolicy() AccessPolicyPtrOutput {
+	return o.ApplyT(func(v SignedIdentifier) *AccessPolicy { return v.AccessPolicy }).(AccessPolicyPtrOutput)
+}
+
+// An unique identifier of the stored access policy.
+func (o SignedIdentifierOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignedIdentifier) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SignedIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (SignedIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignedIdentifier)(nil)).Elem()
+}
+
+func (o SignedIdentifierArrayOutput) ToSignedIdentifierArrayOutput() SignedIdentifierArrayOutput {
+	return o
+}
+
+func (o SignedIdentifierArrayOutput) ToSignedIdentifierArrayOutputWithContext(ctx context.Context) SignedIdentifierArrayOutput {
+	return o
+}
+
+func (o SignedIdentifierArrayOutput) Index(i pulumi.IntInput) SignedIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignedIdentifier {
+		return vs[0].([]SignedIdentifier)[vs[1].(int)]
+	}).(SignedIdentifierOutput)
+}
+
+type SignedIdentifierResponse struct {
+	// Access policy
+	AccessPolicy *AccessPolicyResponse `pulumi:"accessPolicy"`
+	// An unique identifier of the stored access policy.
+	Id *string `pulumi:"id"`
+}
+
+type SignedIdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (SignedIdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignedIdentifierResponse)(nil)).Elem()
+}
+
+func (o SignedIdentifierResponseOutput) ToSignedIdentifierResponseOutput() SignedIdentifierResponseOutput {
+	return o
+}
+
+func (o SignedIdentifierResponseOutput) ToSignedIdentifierResponseOutputWithContext(ctx context.Context) SignedIdentifierResponseOutput {
+	return o
+}
+
+// Access policy
+func (o SignedIdentifierResponseOutput) AccessPolicy() AccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v SignedIdentifierResponse) *AccessPolicyResponse { return v.AccessPolicy }).(AccessPolicyResponsePtrOutput)
+}
+
+// An unique identifier of the stored access policy.
+func (o SignedIdentifierResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignedIdentifierResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SignedIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SignedIdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignedIdentifierResponse)(nil)).Elem()
+}
+
+func (o SignedIdentifierResponseArrayOutput) ToSignedIdentifierResponseArrayOutput() SignedIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o SignedIdentifierResponseArrayOutput) ToSignedIdentifierResponseArrayOutputWithContext(ctx context.Context) SignedIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o SignedIdentifierResponseArrayOutput) Index(i pulumi.IntInput) SignedIdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignedIdentifierResponse {
+		return vs[0].([]SignedIdentifierResponse)[vs[1].(int)]
+	}).(SignedIdentifierResponseOutput)
+}
+
 // The SKU of the storage account.
 type Sku struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
@@ -10833,6 +12723,117 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Web() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// This defines the sku conversion status object for asynchronous sku conversions.
+type StorageAccountSkuConversionStatusResponse struct {
+	// This property represents the sku conversion end time.
+	EndTime string `pulumi:"endTime"`
+	// This property indicates the current sku conversion status.
+	SkuConversionStatus string `pulumi:"skuConversionStatus"`
+	// This property represents the sku conversion start time.
+	StartTime string `pulumi:"startTime"`
+	// This property represents the target sku name to which the account sku is being converted asynchronously.
+	TargetSkuName *string `pulumi:"targetSkuName"`
+}
+
+// This defines the sku conversion status object for asynchronous sku conversions.
+type StorageAccountSkuConversionStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountSkuConversionStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountSkuConversionStatusResponse)(nil)).Elem()
+}
+
+func (o StorageAccountSkuConversionStatusResponseOutput) ToStorageAccountSkuConversionStatusResponseOutput() StorageAccountSkuConversionStatusResponseOutput {
+	return o
+}
+
+func (o StorageAccountSkuConversionStatusResponseOutput) ToStorageAccountSkuConversionStatusResponseOutputWithContext(ctx context.Context) StorageAccountSkuConversionStatusResponseOutput {
+	return o
+}
+
+// This property represents the sku conversion end time.
+func (o StorageAccountSkuConversionStatusResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountSkuConversionStatusResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// This property indicates the current sku conversion status.
+func (o StorageAccountSkuConversionStatusResponseOutput) SkuConversionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountSkuConversionStatusResponse) string { return v.SkuConversionStatus }).(pulumi.StringOutput)
+}
+
+// This property represents the sku conversion start time.
+func (o StorageAccountSkuConversionStatusResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountSkuConversionStatusResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// This property represents the target sku name to which the account sku is being converted asynchronously.
+func (o StorageAccountSkuConversionStatusResponseOutput) TargetSkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountSkuConversionStatusResponse) *string { return v.TargetSkuName }).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountSkuConversionStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountSkuConversionStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountSkuConversionStatusResponse)(nil)).Elem()
+}
+
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) ToStorageAccountSkuConversionStatusResponsePtrOutput() StorageAccountSkuConversionStatusResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) ToStorageAccountSkuConversionStatusResponsePtrOutputWithContext(ctx context.Context) StorageAccountSkuConversionStatusResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) Elem() StorageAccountSkuConversionStatusResponseOutput {
+	return o.ApplyT(func(v *StorageAccountSkuConversionStatusResponse) StorageAccountSkuConversionStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountSkuConversionStatusResponse
+		return ret
+	}).(StorageAccountSkuConversionStatusResponseOutput)
+}
+
+// This property represents the sku conversion end time.
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountSkuConversionStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property indicates the current sku conversion status.
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) SkuConversionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountSkuConversionStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SkuConversionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property represents the sku conversion start time.
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountSkuConversionStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property represents the target sku name to which the account sku is being converted asynchronously.
+func (o StorageAccountSkuConversionStatusResponsePtrOutput) TargetSkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountSkuConversionStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetSkuName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -10892,6 +12893,440 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 // The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Table Access Policy Properties Object.
+type TableAccessPolicy struct {
+	// Expiry time of the access policy
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+	Permission string `pulumi:"permission"`
+	// Start time of the access policy
+	StartTime *string `pulumi:"startTime"`
+}
+
+// TableAccessPolicyInput is an input type that accepts TableAccessPolicyArgs and TableAccessPolicyOutput values.
+// You can construct a concrete instance of `TableAccessPolicyInput` via:
+//
+//          TableAccessPolicyArgs{...}
+type TableAccessPolicyInput interface {
+	pulumi.Input
+
+	ToTableAccessPolicyOutput() TableAccessPolicyOutput
+	ToTableAccessPolicyOutputWithContext(context.Context) TableAccessPolicyOutput
+}
+
+// Table Access Policy Properties Object.
+type TableAccessPolicyArgs struct {
+	// Expiry time of the access policy
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
+	// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+	Permission pulumi.StringInput `pulumi:"permission"`
+	// Start time of the access policy
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (TableAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAccessPolicy)(nil)).Elem()
+}
+
+func (i TableAccessPolicyArgs) ToTableAccessPolicyOutput() TableAccessPolicyOutput {
+	return i.ToTableAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i TableAccessPolicyArgs) ToTableAccessPolicyOutputWithContext(ctx context.Context) TableAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAccessPolicyOutput)
+}
+
+func (i TableAccessPolicyArgs) ToTableAccessPolicyPtrOutput() TableAccessPolicyPtrOutput {
+	return i.ToTableAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i TableAccessPolicyArgs) ToTableAccessPolicyPtrOutputWithContext(ctx context.Context) TableAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAccessPolicyOutput).ToTableAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// TableAccessPolicyPtrInput is an input type that accepts TableAccessPolicyArgs, TableAccessPolicyPtr and TableAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `TableAccessPolicyPtrInput` via:
+//
+//          TableAccessPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type TableAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToTableAccessPolicyPtrOutput() TableAccessPolicyPtrOutput
+	ToTableAccessPolicyPtrOutputWithContext(context.Context) TableAccessPolicyPtrOutput
+}
+
+type tableAccessPolicyPtrType TableAccessPolicyArgs
+
+func TableAccessPolicyPtr(v *TableAccessPolicyArgs) TableAccessPolicyPtrInput {
+	return (*tableAccessPolicyPtrType)(v)
+}
+
+func (*tableAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAccessPolicy)(nil)).Elem()
+}
+
+func (i *tableAccessPolicyPtrType) ToTableAccessPolicyPtrOutput() TableAccessPolicyPtrOutput {
+	return i.ToTableAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *tableAccessPolicyPtrType) ToTableAccessPolicyPtrOutputWithContext(ctx context.Context) TableAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAccessPolicyPtrOutput)
+}
+
+// Table Access Policy Properties Object.
+type TableAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (TableAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAccessPolicy)(nil)).Elem()
+}
+
+func (o TableAccessPolicyOutput) ToTableAccessPolicyOutput() TableAccessPolicyOutput {
+	return o
+}
+
+func (o TableAccessPolicyOutput) ToTableAccessPolicyOutputWithContext(ctx context.Context) TableAccessPolicyOutput {
+	return o
+}
+
+func (o TableAccessPolicyOutput) ToTableAccessPolicyPtrOutput() TableAccessPolicyPtrOutput {
+	return o.ToTableAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o TableAccessPolicyOutput) ToTableAccessPolicyPtrOutputWithContext(ctx context.Context) TableAccessPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableAccessPolicy) *TableAccessPolicy {
+		return &v
+	}).(TableAccessPolicyPtrOutput)
+}
+
+// Expiry time of the access policy
+func (o TableAccessPolicyOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableAccessPolicy) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+func (o TableAccessPolicyOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v TableAccessPolicy) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+// Start time of the access policy
+func (o TableAccessPolicyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableAccessPolicy) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type TableAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (TableAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAccessPolicy)(nil)).Elem()
+}
+
+func (o TableAccessPolicyPtrOutput) ToTableAccessPolicyPtrOutput() TableAccessPolicyPtrOutput {
+	return o
+}
+
+func (o TableAccessPolicyPtrOutput) ToTableAccessPolicyPtrOutputWithContext(ctx context.Context) TableAccessPolicyPtrOutput {
+	return o
+}
+
+func (o TableAccessPolicyPtrOutput) Elem() TableAccessPolicyOutput {
+	return o.ApplyT(func(v *TableAccessPolicy) TableAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TableAccessPolicy
+		return ret
+	}).(TableAccessPolicyOutput)
+}
+
+// Expiry time of the access policy
+func (o TableAccessPolicyPtrOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiryTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+func (o TableAccessPolicyPtrOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Permission
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time of the access policy
+func (o TableAccessPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Table Access Policy Properties Object.
+type TableAccessPolicyResponse struct {
+	// Expiry time of the access policy
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+	Permission string `pulumi:"permission"`
+	// Start time of the access policy
+	StartTime *string `pulumi:"startTime"`
+}
+
+// Table Access Policy Properties Object.
+type TableAccessPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (TableAccessPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o TableAccessPolicyResponseOutput) ToTableAccessPolicyResponseOutput() TableAccessPolicyResponseOutput {
+	return o
+}
+
+func (o TableAccessPolicyResponseOutput) ToTableAccessPolicyResponseOutputWithContext(ctx context.Context) TableAccessPolicyResponseOutput {
+	return o
+}
+
+// Expiry time of the access policy
+func (o TableAccessPolicyResponseOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableAccessPolicyResponse) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+func (o TableAccessPolicyResponseOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v TableAccessPolicyResponse) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+// Start time of the access policy
+func (o TableAccessPolicyResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableAccessPolicyResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type TableAccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TableAccessPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o TableAccessPolicyResponsePtrOutput) ToTableAccessPolicyResponsePtrOutput() TableAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o TableAccessPolicyResponsePtrOutput) ToTableAccessPolicyResponsePtrOutputWithContext(ctx context.Context) TableAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o TableAccessPolicyResponsePtrOutput) Elem() TableAccessPolicyResponseOutput {
+	return o.ApplyT(func(v *TableAccessPolicyResponse) TableAccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TableAccessPolicyResponse
+		return ret
+	}).(TableAccessPolicyResponseOutput)
+}
+
+// Expiry time of the access policy
+func (o TableAccessPolicyResponsePtrOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiryTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+func (o TableAccessPolicyResponsePtrOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Permission
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time of the access policy
+func (o TableAccessPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Object to set Table Access Policy.
+type TableSignedIdentifier struct {
+	// Access policy
+	AccessPolicy *TableAccessPolicy `pulumi:"accessPolicy"`
+	// unique-64-character-value of the stored access policy.
+	Id string `pulumi:"id"`
+}
+
+// TableSignedIdentifierInput is an input type that accepts TableSignedIdentifierArgs and TableSignedIdentifierOutput values.
+// You can construct a concrete instance of `TableSignedIdentifierInput` via:
+//
+//          TableSignedIdentifierArgs{...}
+type TableSignedIdentifierInput interface {
+	pulumi.Input
+
+	ToTableSignedIdentifierOutput() TableSignedIdentifierOutput
+	ToTableSignedIdentifierOutputWithContext(context.Context) TableSignedIdentifierOutput
+}
+
+// Object to set Table Access Policy.
+type TableSignedIdentifierArgs struct {
+	// Access policy
+	AccessPolicy TableAccessPolicyPtrInput `pulumi:"accessPolicy"`
+	// unique-64-character-value of the stored access policy.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TableSignedIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSignedIdentifier)(nil)).Elem()
+}
+
+func (i TableSignedIdentifierArgs) ToTableSignedIdentifierOutput() TableSignedIdentifierOutput {
+	return i.ToTableSignedIdentifierOutputWithContext(context.Background())
+}
+
+func (i TableSignedIdentifierArgs) ToTableSignedIdentifierOutputWithContext(ctx context.Context) TableSignedIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSignedIdentifierOutput)
+}
+
+// TableSignedIdentifierArrayInput is an input type that accepts TableSignedIdentifierArray and TableSignedIdentifierArrayOutput values.
+// You can construct a concrete instance of `TableSignedIdentifierArrayInput` via:
+//
+//          TableSignedIdentifierArray{ TableSignedIdentifierArgs{...} }
+type TableSignedIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToTableSignedIdentifierArrayOutput() TableSignedIdentifierArrayOutput
+	ToTableSignedIdentifierArrayOutputWithContext(context.Context) TableSignedIdentifierArrayOutput
+}
+
+type TableSignedIdentifierArray []TableSignedIdentifierInput
+
+func (TableSignedIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSignedIdentifier)(nil)).Elem()
+}
+
+func (i TableSignedIdentifierArray) ToTableSignedIdentifierArrayOutput() TableSignedIdentifierArrayOutput {
+	return i.ToTableSignedIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i TableSignedIdentifierArray) ToTableSignedIdentifierArrayOutputWithContext(ctx context.Context) TableSignedIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSignedIdentifierArrayOutput)
+}
+
+// Object to set Table Access Policy.
+type TableSignedIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TableSignedIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSignedIdentifier)(nil)).Elem()
+}
+
+func (o TableSignedIdentifierOutput) ToTableSignedIdentifierOutput() TableSignedIdentifierOutput {
+	return o
+}
+
+func (o TableSignedIdentifierOutput) ToTableSignedIdentifierOutputWithContext(ctx context.Context) TableSignedIdentifierOutput {
+	return o
+}
+
+// Access policy
+func (o TableSignedIdentifierOutput) AccessPolicy() TableAccessPolicyPtrOutput {
+	return o.ApplyT(func(v TableSignedIdentifier) *TableAccessPolicy { return v.AccessPolicy }).(TableAccessPolicyPtrOutput)
+}
+
+// unique-64-character-value of the stored access policy.
+func (o TableSignedIdentifierOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSignedIdentifier) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TableSignedIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (TableSignedIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSignedIdentifier)(nil)).Elem()
+}
+
+func (o TableSignedIdentifierArrayOutput) ToTableSignedIdentifierArrayOutput() TableSignedIdentifierArrayOutput {
+	return o
+}
+
+func (o TableSignedIdentifierArrayOutput) ToTableSignedIdentifierArrayOutputWithContext(ctx context.Context) TableSignedIdentifierArrayOutput {
+	return o
+}
+
+func (o TableSignedIdentifierArrayOutput) Index(i pulumi.IntInput) TableSignedIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableSignedIdentifier {
+		return vs[0].([]TableSignedIdentifier)[vs[1].(int)]
+	}).(TableSignedIdentifierOutput)
+}
+
+// Object to set Table Access Policy.
+type TableSignedIdentifierResponse struct {
+	// Access policy
+	AccessPolicy *TableAccessPolicyResponse `pulumi:"accessPolicy"`
+	// unique-64-character-value of the stored access policy.
+	Id string `pulumi:"id"`
+}
+
+// Object to set Table Access Policy.
+type TableSignedIdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (TableSignedIdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSignedIdentifierResponse)(nil)).Elem()
+}
+
+func (o TableSignedIdentifierResponseOutput) ToTableSignedIdentifierResponseOutput() TableSignedIdentifierResponseOutput {
+	return o
+}
+
+func (o TableSignedIdentifierResponseOutput) ToTableSignedIdentifierResponseOutputWithContext(ctx context.Context) TableSignedIdentifierResponseOutput {
+	return o
+}
+
+// Access policy
+func (o TableSignedIdentifierResponseOutput) AccessPolicy() TableAccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v TableSignedIdentifierResponse) *TableAccessPolicyResponse { return v.AccessPolicy }).(TableAccessPolicyResponsePtrOutput)
+}
+
+// unique-64-character-value of the stored access policy.
+func (o TableSignedIdentifierResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSignedIdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TableSignedIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TableSignedIdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSignedIdentifierResponse)(nil)).Elem()
+}
+
+func (o TableSignedIdentifierResponseArrayOutput) ToTableSignedIdentifierResponseArrayOutput() TableSignedIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o TableSignedIdentifierResponseArrayOutput) ToTableSignedIdentifierResponseArrayOutputWithContext(ctx context.Context) TableSignedIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o TableSignedIdentifierResponseArrayOutput) Index(i pulumi.IntInput) TableSignedIdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableSignedIdentifierResponse {
+		return vs[0].([]TableSignedIdentifierResponse)[vs[1].(int)]
+	}).(TableSignedIdentifierResponseOutput)
 }
 
 // Blob index tag based filtering for blob objects
@@ -11148,6 +13583,10 @@ func (o TagPropertyResponseArrayOutput) Index(i pulumi.IntInput) TagPropertyResp
 
 // An update history of the ImmutabilityPolicy of a blob container.
 type UpdateHistoryPropertyResponse struct {
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+	AllowProtectedAppendWritesAll *bool `pulumi:"allowProtectedAppendWritesAll"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// Returns the Object ID of the user who updated the ImmutabilityPolicy.
@@ -11175,6 +13614,16 @@ func (o UpdateHistoryPropertyResponseOutput) ToUpdateHistoryPropertyResponseOutp
 
 func (o UpdateHistoryPropertyResponseOutput) ToUpdateHistoryPropertyResponseOutputWithContext(ctx context.Context) UpdateHistoryPropertyResponseOutput {
 	return o
+}
+
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+func (o UpdateHistoryPropertyResponseOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UpdateHistoryPropertyResponse) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+func (o UpdateHistoryPropertyResponseOutput) AllowProtectedAppendWritesAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UpdateHistoryPropertyResponse) *bool { return v.AllowProtectedAppendWritesAll }).(pulumi.BoolPtrOutput)
 }
 
 // The immutability period for the blobs in the container since the policy creation, in days.
@@ -11496,6 +13945,14 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessPolicyOutput{})
+	pulumi.RegisterOutputType(AccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyResponseOutput{})
+	pulumi.RegisterOutputType(AccessPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(AccountImmutabilityPolicyPropertiesOutput{})
+	pulumi.RegisterOutputType(AccountImmutabilityPolicyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AccountImmutabilityPolicyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AccountImmutabilityPolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryPropertiesOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryPropertiesResponseOutput{})
@@ -11507,7 +13964,9 @@ func init() {
 	pulumi.RegisterOutputType(BlobInventoryPolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyFilterOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyFilterPtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyFilterResponseOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleResponseOutput{})
@@ -11579,6 +14038,14 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageAccountOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageAccountResponseOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageWithVersioningOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageWithVersioningPtrOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageWithVersioningResponseOutput{})
+	pulumi.RegisterOutputType(ImmutableStorageWithVersioningResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyCreationTimeResponseOutput{})
 	pulumi.RegisterOutputType(KeyPolicyOutput{})
 	pulumi.RegisterOutputType(KeyPolicyPtrOutput{})
@@ -11643,6 +14110,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(ProtectedAppendWritesHistoryResponseOutput{})
+	pulumi.RegisterOutputType(ProtectedAppendWritesHistoryResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProtocolSettingsOutput{})
 	pulumi.RegisterOutputType(ProtocolSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ProtocolSettingsResponseOutput{})
@@ -11662,6 +14131,10 @@ func init() {
 	pulumi.RegisterOutputType(SasPolicyOutput{})
 	pulumi.RegisterOutputType(SasPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SasPolicyResponseOutput{})
+	pulumi.RegisterOutputType(SignedIdentifierOutput{})
+	pulumi.RegisterOutputType(SignedIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(SignedIdentifierResponseOutput{})
+	pulumi.RegisterOutputType(SignedIdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SmbSettingOutput{})
@@ -11678,7 +14151,17 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountSkuConversionStatusResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountSkuConversionStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(TableAccessPolicyOutput{})
+	pulumi.RegisterOutputType(TableAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(TableAccessPolicyResponseOutput{})
+	pulumi.RegisterOutputType(TableAccessPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(TableSignedIdentifierOutput{})
+	pulumi.RegisterOutputType(TableSignedIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(TableSignedIdentifierResponseOutput{})
+	pulumi.RegisterOutputType(TableSignedIdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(TagFilterOutput{})
 	pulumi.RegisterOutputType(TagFilterArrayOutput{})
 	pulumi.RegisterOutputType(TagFilterResponseOutput{})

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**
@@ -54,6 +54,14 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Resource reference to the Azure resource where custom domain ownership was prevalidated
+     */
+    public readonly preValidatedCustomDomainResourceId!: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
+    /**
+     * The name of the profile which holds the domain.
+     */
+    public readonly profileName!: pulumi.Output<string>;
+    /**
      * Provisioning status
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -97,6 +105,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
             resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["preValidatedCustomDomainResourceId"] = args ? args.preValidatedCustomDomainResourceId : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tlsSettings"] = args ? args.tlsSettings : undefined;
@@ -113,6 +122,8 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["domainValidationState"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["preValidatedCustomDomainResourceId"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tlsSettings"] = undefined /*out*/;
@@ -143,7 +154,11 @@ export interface AFDCustomDomainArgs {
      */
     hostName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Resource reference to the Azure resource where custom domain ownership was prevalidated
+     */
+    preValidatedCustomDomainResourceId?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
+    /**
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

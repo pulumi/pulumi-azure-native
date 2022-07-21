@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource
-// API Version: 2021-04-01-preview.
+// API Version: 2021-10-01.
 type WebPubSubSharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type WebPubSubSharedPrivateLinkResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource id of the resource the shared private link resource is for
 	PrivateLinkResourceId pulumi.StringOutput `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
+	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource
 	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
@@ -182,7 +182,7 @@ func (o WebPubSubSharedPrivateLinkResourceOutput) PrivateLinkResourceId() pulumi
 	return o.ApplyT(func(v *WebPubSubSharedPrivateLinkResource) pulumi.StringOutput { return v.PrivateLinkResourceId }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the shared private link resource
+// Provisioning state of the resource.
 func (o WebPubSubSharedPrivateLinkResourceOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebPubSubSharedPrivateLinkResource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }

@@ -10,32 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices
 {
     /// <summary>
-    /// Registration definition.
-    /// API Version: 2019-09-01.
+    /// The registration definition.
+    /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedservices:RegistrationDefinition")]
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a registration definition.
+        /// The properties of a registration definition.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.RegistrationDefinitionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource.
+        /// The metadata for the registration assignment resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -95,25 +101,25 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class RegistrationDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Properties of a registration definition.
+        /// The properties of a registration definition.
         /// </summary>
         [Input("properties")]
         public Input<Inputs.RegistrationDefinitionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Guid of the registration definition.
+        /// The GUID of the registration definition.
         /// </summary>
         [Input("registrationDefinitionId")]
         public Input<string>? RegistrationDefinitionId { get; set; }
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The storage account.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetStorageAccountResult
     {
         /// <summary>
-        /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        /// Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
         /// </summary>
         public readonly string AccessTier;
         /// <summary>
@@ -90,9 +90,17 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly bool? AllowBlobPublicAccess;
         /// <summary>
+        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        /// </summary>
+        public readonly bool? AllowCrossTenantReplication;
+        /// <summary>
         /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
         /// </summary>
         public readonly bool? AllowSharedKeyAccess;
+        /// <summary>
+        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+        /// </summary>
+        public readonly string? AllowedCopyScope;
         /// <summary>
         /// Provides the identity based authentication settings for Azure Files.
         /// </summary>
@@ -110,6 +118,14 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly Outputs.CustomDomainResponse CustomDomain;
         /// <summary>
+        /// A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
+        /// </summary>
+        public readonly bool? DefaultToOAuthAuthentication;
+        /// <summary>
+        /// Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+        /// </summary>
+        public readonly string? DnsEndpointType;
+        /// <summary>
         /// Allows https traffic only to storage service if sets to true.
         /// </summary>
         public readonly bool? EnableHttpsTrafficOnly;
@@ -118,7 +134,7 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly bool? EnableNfsV3;
         /// <summary>
-        /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+        /// Encryption settings to be used for server-side encryption for the storage account.
         /// </summary>
         public readonly Outputs.EncryptionResponse Encryption;
         /// <summary>
@@ -142,9 +158,21 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
+        /// The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the containers in the account by default.
+        /// </summary>
+        public readonly Outputs.ImmutableStorageAccountResponse? ImmutableStorageWithVersioning;
+        /// <summary>
         /// Account HierarchicalNamespace enabled if sets to true.
         /// </summary>
         public readonly bool? IsHnsEnabled;
+        /// <summary>
+        /// Enables local users feature, if set to true
+        /// </summary>
+        public readonly bool? IsLocalUserEnabled;
+        /// <summary>
+        /// Enables Secure File Transfer Protocol, if set to true
+        /// </summary>
+        public readonly bool? IsSftpEnabled;
         /// <summary>
         /// Storage account keys creation time.
         /// </summary>
@@ -198,6 +226,10 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Maintains information about the network routing choice opted by the user for data transfer
         /// </summary>
         public readonly Outputs.RoutingPreferenceResponse? RoutingPreference;
@@ -226,6 +258,10 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string StatusOfSecondary;
         /// <summary>
+        /// This property is readOnly and is set by server during asynchronous storage account sku conversion operations.
+        /// </summary>
+        public readonly Outputs.StorageAccountSkuConversionStatusResponse? StorageAccountSkuConversionStatus;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -240,7 +276,11 @@ namespace Pulumi.AzureNative.Storage
 
             bool? allowBlobPublicAccess,
 
+            bool? allowCrossTenantReplication,
+
             bool? allowSharedKeyAccess,
+
+            string? allowedCopyScope,
 
             Outputs.AzureFilesIdentityBasedAuthenticationResponse? azureFilesIdentityBasedAuthentication,
 
@@ -249,6 +289,10 @@ namespace Pulumi.AzureNative.Storage
             string creationTime,
 
             Outputs.CustomDomainResponse customDomain,
+
+            bool? defaultToOAuthAuthentication,
+
+            string? dnsEndpointType,
 
             bool? enableHttpsTrafficOnly,
 
@@ -266,7 +310,13 @@ namespace Pulumi.AzureNative.Storage
 
             Outputs.IdentityResponse? identity,
 
+            Outputs.ImmutableStorageAccountResponse? immutableStorageWithVersioning,
+
             bool? isHnsEnabled,
+
+            bool? isLocalUserEnabled,
+
+            bool? isSftpEnabled,
 
             Outputs.KeyCreationTimeResponse keyCreationTime,
 
@@ -294,6 +344,8 @@ namespace Pulumi.AzureNative.Storage
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.RoutingPreferenceResponse? routingPreference,
 
             Outputs.SasPolicyResponse sasPolicy,
@@ -308,17 +360,23 @@ namespace Pulumi.AzureNative.Storage
 
             string statusOfSecondary,
 
+            Outputs.StorageAccountSkuConversionStatusResponse? storageAccountSkuConversionStatus,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             AccessTier = accessTier;
             AllowBlobPublicAccess = allowBlobPublicAccess;
+            AllowCrossTenantReplication = allowCrossTenantReplication;
             AllowSharedKeyAccess = allowSharedKeyAccess;
+            AllowedCopyScope = allowedCopyScope;
             AzureFilesIdentityBasedAuthentication = azureFilesIdentityBasedAuthentication;
             BlobRestoreStatus = blobRestoreStatus;
             CreationTime = creationTime;
             CustomDomain = customDomain;
+            DefaultToOAuthAuthentication = defaultToOAuthAuthentication;
+            DnsEndpointType = dnsEndpointType;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             EnableNfsV3 = enableNfsV3;
             Encryption = encryption;
@@ -327,7 +385,10 @@ namespace Pulumi.AzureNative.Storage
             GeoReplicationStats = geoReplicationStats;
             Id = id;
             Identity = identity;
+            ImmutableStorageWithVersioning = immutableStorageWithVersioning;
             IsHnsEnabled = isHnsEnabled;
+            IsLocalUserEnabled = isLocalUserEnabled;
+            IsSftpEnabled = isSftpEnabled;
             KeyCreationTime = keyCreationTime;
             KeyPolicy = keyPolicy;
             Kind = kind;
@@ -341,6 +402,7 @@ namespace Pulumi.AzureNative.Storage
             PrimaryLocation = primaryLocation;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             RoutingPreference = routingPreference;
             SasPolicy = sasPolicy;
             SecondaryEndpoints = secondaryEndpoints;
@@ -348,6 +410,7 @@ namespace Pulumi.AzureNative.Storage
             Sku = sku;
             StatusOfPrimary = statusOfPrimary;
             StatusOfSecondary = statusOfSecondary;
+            StorageAccountSkuConversionStatus = storageAccountSkuConversionStatus;
             Tags = tags;
             Type = type;
         }

@@ -895,7 +895,7 @@ type ContainerGroupIdentity struct {
 	// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ContainerGroupIdentityInput is an input type that accepts ContainerGroupIdentityArgs and ContainerGroupIdentityOutput values.
@@ -914,7 +914,7 @@ type ContainerGroupIdentityArgs struct {
 	// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ContainerGroupIdentityArgs) ElementType() reflect.Type {
@@ -1001,8 +1001,8 @@ func (o ContainerGroupIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ContainerGroupIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ContainerGroupIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ContainerGroupIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerGroupIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ContainerGroupIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1040,13 +1040,13 @@ func (o ContainerGroupIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ContainerGroupIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ContainerGroupIdentity) map[string]interface{} {
+func (o ContainerGroupIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity for the container group.
@@ -1213,206 +1213,6 @@ func (o ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 	}).(ContainerGroupIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// Container group network profile information.
-type ContainerGroupNetworkProfile struct {
-	// The identifier for a network profile.
-	Id string `pulumi:"id"`
-}
-
-// ContainerGroupNetworkProfileInput is an input type that accepts ContainerGroupNetworkProfileArgs and ContainerGroupNetworkProfileOutput values.
-// You can construct a concrete instance of `ContainerGroupNetworkProfileInput` via:
-//
-//          ContainerGroupNetworkProfileArgs{...}
-type ContainerGroupNetworkProfileInput interface {
-	pulumi.Input
-
-	ToContainerGroupNetworkProfileOutput() ContainerGroupNetworkProfileOutput
-	ToContainerGroupNetworkProfileOutputWithContext(context.Context) ContainerGroupNetworkProfileOutput
-}
-
-// Container group network profile information.
-type ContainerGroupNetworkProfileArgs struct {
-	// The identifier for a network profile.
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (ContainerGroupNetworkProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupNetworkProfile)(nil)).Elem()
-}
-
-func (i ContainerGroupNetworkProfileArgs) ToContainerGroupNetworkProfileOutput() ContainerGroupNetworkProfileOutput {
-	return i.ToContainerGroupNetworkProfileOutputWithContext(context.Background())
-}
-
-func (i ContainerGroupNetworkProfileArgs) ToContainerGroupNetworkProfileOutputWithContext(ctx context.Context) ContainerGroupNetworkProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupNetworkProfileOutput)
-}
-
-func (i ContainerGroupNetworkProfileArgs) ToContainerGroupNetworkProfilePtrOutput() ContainerGroupNetworkProfilePtrOutput {
-	return i.ToContainerGroupNetworkProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerGroupNetworkProfileArgs) ToContainerGroupNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupNetworkProfileOutput).ToContainerGroupNetworkProfilePtrOutputWithContext(ctx)
-}
-
-// ContainerGroupNetworkProfilePtrInput is an input type that accepts ContainerGroupNetworkProfileArgs, ContainerGroupNetworkProfilePtr and ContainerGroupNetworkProfilePtrOutput values.
-// You can construct a concrete instance of `ContainerGroupNetworkProfilePtrInput` via:
-//
-//          ContainerGroupNetworkProfileArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerGroupNetworkProfilePtrInput interface {
-	pulumi.Input
-
-	ToContainerGroupNetworkProfilePtrOutput() ContainerGroupNetworkProfilePtrOutput
-	ToContainerGroupNetworkProfilePtrOutputWithContext(context.Context) ContainerGroupNetworkProfilePtrOutput
-}
-
-type containerGroupNetworkProfilePtrType ContainerGroupNetworkProfileArgs
-
-func ContainerGroupNetworkProfilePtr(v *ContainerGroupNetworkProfileArgs) ContainerGroupNetworkProfilePtrInput {
-	return (*containerGroupNetworkProfilePtrType)(v)
-}
-
-func (*containerGroupNetworkProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupNetworkProfile)(nil)).Elem()
-}
-
-func (i *containerGroupNetworkProfilePtrType) ToContainerGroupNetworkProfilePtrOutput() ContainerGroupNetworkProfilePtrOutput {
-	return i.ToContainerGroupNetworkProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *containerGroupNetworkProfilePtrType) ToContainerGroupNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupNetworkProfilePtrOutput)
-}
-
-// Container group network profile information.
-type ContainerGroupNetworkProfileOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupNetworkProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupNetworkProfile)(nil)).Elem()
-}
-
-func (o ContainerGroupNetworkProfileOutput) ToContainerGroupNetworkProfileOutput() ContainerGroupNetworkProfileOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfileOutput) ToContainerGroupNetworkProfileOutputWithContext(ctx context.Context) ContainerGroupNetworkProfileOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfileOutput) ToContainerGroupNetworkProfilePtrOutput() ContainerGroupNetworkProfilePtrOutput {
-	return o.ToContainerGroupNetworkProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerGroupNetworkProfileOutput) ToContainerGroupNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupNetworkProfile) *ContainerGroupNetworkProfile {
-		return &v
-	}).(ContainerGroupNetworkProfilePtrOutput)
-}
-
-// The identifier for a network profile.
-func (o ContainerGroupNetworkProfileOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupNetworkProfile) string { return v.Id }).(pulumi.StringOutput)
-}
-
-type ContainerGroupNetworkProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupNetworkProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupNetworkProfile)(nil)).Elem()
-}
-
-func (o ContainerGroupNetworkProfilePtrOutput) ToContainerGroupNetworkProfilePtrOutput() ContainerGroupNetworkProfilePtrOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfilePtrOutput) ToContainerGroupNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfilePtrOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfilePtrOutput) Elem() ContainerGroupNetworkProfileOutput {
-	return o.ApplyT(func(v *ContainerGroupNetworkProfile) ContainerGroupNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupNetworkProfile
-		return ret
-	}).(ContainerGroupNetworkProfileOutput)
-}
-
-// The identifier for a network profile.
-func (o ContainerGroupNetworkProfilePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupNetworkProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Container group network profile information.
-type ContainerGroupNetworkProfileResponse struct {
-	// The identifier for a network profile.
-	Id string `pulumi:"id"`
-}
-
-// Container group network profile information.
-type ContainerGroupNetworkProfileResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupNetworkProfileResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupNetworkProfileResponse)(nil)).Elem()
-}
-
-func (o ContainerGroupNetworkProfileResponseOutput) ToContainerGroupNetworkProfileResponseOutput() ContainerGroupNetworkProfileResponseOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfileResponseOutput) ToContainerGroupNetworkProfileResponseOutputWithContext(ctx context.Context) ContainerGroupNetworkProfileResponseOutput {
-	return o
-}
-
-// The identifier for a network profile.
-func (o ContainerGroupNetworkProfileResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupNetworkProfileResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-type ContainerGroupNetworkProfileResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupNetworkProfileResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupNetworkProfileResponse)(nil)).Elem()
-}
-
-func (o ContainerGroupNetworkProfileResponsePtrOutput) ToContainerGroupNetworkProfileResponsePtrOutput() ContainerGroupNetworkProfileResponsePtrOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfileResponsePtrOutput) ToContainerGroupNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfileResponsePtrOutput {
-	return o
-}
-
-func (o ContainerGroupNetworkProfileResponsePtrOutput) Elem() ContainerGroupNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerGroupNetworkProfileResponse) ContainerGroupNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupNetworkProfileResponse
-		return ret
-	}).(ContainerGroupNetworkProfileResponseOutput)
-}
-
-// The identifier for a network profile.
-func (o ContainerGroupNetworkProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupNetworkProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 // The instance view of the container group. Only valid in response.
 type ContainerGroupResponseInstanceView struct {
 	// The events of this container group.
@@ -1444,6 +1244,168 @@ func (o ContainerGroupResponseInstanceViewOutput) Events() EventResponseArrayOut
 // The state of the container group. Only valid in response.
 func (o ContainerGroupResponseInstanceViewOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerGroupResponseInstanceView) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Container group subnet information.
+type ContainerGroupSubnetId struct {
+	// Resource ID of virtual network and subnet.
+	Id string `pulumi:"id"`
+	// Friendly name for the subnet.
+	Name *string `pulumi:"name"`
+}
+
+// ContainerGroupSubnetIdInput is an input type that accepts ContainerGroupSubnetIdArgs and ContainerGroupSubnetIdOutput values.
+// You can construct a concrete instance of `ContainerGroupSubnetIdInput` via:
+//
+//          ContainerGroupSubnetIdArgs{...}
+type ContainerGroupSubnetIdInput interface {
+	pulumi.Input
+
+	ToContainerGroupSubnetIdOutput() ContainerGroupSubnetIdOutput
+	ToContainerGroupSubnetIdOutputWithContext(context.Context) ContainerGroupSubnetIdOutput
+}
+
+// Container group subnet information.
+type ContainerGroupSubnetIdArgs struct {
+	// Resource ID of virtual network and subnet.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Friendly name for the subnet.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ContainerGroupSubnetIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupSubnetId)(nil)).Elem()
+}
+
+func (i ContainerGroupSubnetIdArgs) ToContainerGroupSubnetIdOutput() ContainerGroupSubnetIdOutput {
+	return i.ToContainerGroupSubnetIdOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupSubnetIdArgs) ToContainerGroupSubnetIdOutputWithContext(ctx context.Context) ContainerGroupSubnetIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupSubnetIdOutput)
+}
+
+// ContainerGroupSubnetIdArrayInput is an input type that accepts ContainerGroupSubnetIdArray and ContainerGroupSubnetIdArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupSubnetIdArrayInput` via:
+//
+//          ContainerGroupSubnetIdArray{ ContainerGroupSubnetIdArgs{...} }
+type ContainerGroupSubnetIdArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupSubnetIdArrayOutput() ContainerGroupSubnetIdArrayOutput
+	ToContainerGroupSubnetIdArrayOutputWithContext(context.Context) ContainerGroupSubnetIdArrayOutput
+}
+
+type ContainerGroupSubnetIdArray []ContainerGroupSubnetIdInput
+
+func (ContainerGroupSubnetIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupSubnetId)(nil)).Elem()
+}
+
+func (i ContainerGroupSubnetIdArray) ToContainerGroupSubnetIdArrayOutput() ContainerGroupSubnetIdArrayOutput {
+	return i.ToContainerGroupSubnetIdArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupSubnetIdArray) ToContainerGroupSubnetIdArrayOutputWithContext(ctx context.Context) ContainerGroupSubnetIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupSubnetIdArrayOutput)
+}
+
+// Container group subnet information.
+type ContainerGroupSubnetIdOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupSubnetIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupSubnetId)(nil)).Elem()
+}
+
+func (o ContainerGroupSubnetIdOutput) ToContainerGroupSubnetIdOutput() ContainerGroupSubnetIdOutput {
+	return o
+}
+
+func (o ContainerGroupSubnetIdOutput) ToContainerGroupSubnetIdOutputWithContext(ctx context.Context) ContainerGroupSubnetIdOutput {
+	return o
+}
+
+// Resource ID of virtual network and subnet.
+func (o ContainerGroupSubnetIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupSubnetId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Friendly name for the subnet.
+func (o ContainerGroupSubnetIdOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerGroupSubnetId) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupSubnetIdArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupSubnetIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupSubnetId)(nil)).Elem()
+}
+
+func (o ContainerGroupSubnetIdArrayOutput) ToContainerGroupSubnetIdArrayOutput() ContainerGroupSubnetIdArrayOutput {
+	return o
+}
+
+func (o ContainerGroupSubnetIdArrayOutput) ToContainerGroupSubnetIdArrayOutputWithContext(ctx context.Context) ContainerGroupSubnetIdArrayOutput {
+	return o
+}
+
+func (o ContainerGroupSubnetIdArrayOutput) Index(i pulumi.IntInput) ContainerGroupSubnetIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupSubnetId {
+		return vs[0].([]ContainerGroupSubnetId)[vs[1].(int)]
+	}).(ContainerGroupSubnetIdOutput)
+}
+
+// Container group subnet information.
+type ContainerGroupSubnetIdResponse struct {
+	// Resource ID of virtual network and subnet.
+	Id string `pulumi:"id"`
+	// Friendly name for the subnet.
+	Name *string `pulumi:"name"`
+}
+
+// Container group subnet information.
+type ContainerGroupSubnetIdResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupSubnetIdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupSubnetIdResponse)(nil)).Elem()
+}
+
+func (o ContainerGroupSubnetIdResponseOutput) ToContainerGroupSubnetIdResponseOutput() ContainerGroupSubnetIdResponseOutput {
+	return o
+}
+
+func (o ContainerGroupSubnetIdResponseOutput) ToContainerGroupSubnetIdResponseOutputWithContext(ctx context.Context) ContainerGroupSubnetIdResponseOutput {
+	return o
+}
+
+// Resource ID of virtual network and subnet.
+func (o ContainerGroupSubnetIdResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupSubnetIdResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Friendly name for the subnet.
+func (o ContainerGroupSubnetIdResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerGroupSubnetIdResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupSubnetIdResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupSubnetIdResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupSubnetIdResponse)(nil)).Elem()
+}
+
+func (o ContainerGroupSubnetIdResponseArrayOutput) ToContainerGroupSubnetIdResponseArrayOutput() ContainerGroupSubnetIdResponseArrayOutput {
+	return o
+}
+
+func (o ContainerGroupSubnetIdResponseArrayOutput) ToContainerGroupSubnetIdResponseArrayOutputWithContext(ctx context.Context) ContainerGroupSubnetIdResponseArrayOutput {
+	return o
+}
+
+func (o ContainerGroupSubnetIdResponseArrayOutput) Index(i pulumi.IntInput) ContainerGroupSubnetIdResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupSubnetIdResponse {
+		return vs[0].([]ContainerGroupSubnetIdResponse)[vs[1].(int)]
+	}).(ContainerGroupSubnetIdResponseOutput)
 }
 
 // The container Http Get settings, for liveness or readiness probe
@@ -3853,7 +3815,7 @@ func (o GpuResourceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP header
+// The HTTP header.
 type HttpHeader struct {
 	// The header name.
 	Name *string `pulumi:"name"`
@@ -3872,7 +3834,7 @@ type HttpHeaderInput interface {
 	ToHttpHeaderOutputWithContext(context.Context) HttpHeaderOutput
 }
 
-// The HTTP header
+// The HTTP header.
 type HttpHeaderArgs struct {
 	// The header name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -3917,7 +3879,7 @@ func (i HttpHeaderArray) ToHttpHeaderArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HttpHeaderArrayOutput)
 }
 
-// The HTTP header
+// The HTTP header.
 type HttpHeaderOutput struct{ *pulumi.OutputState }
 
 func (HttpHeaderOutput) ElementType() reflect.Type {
@@ -3962,7 +3924,7 @@ func (o HttpHeaderArrayOutput) Index(i pulumi.IntInput) HttpHeaderOutput {
 	}).(HttpHeaderOutput)
 }
 
-// The HTTP header
+// The HTTP header.
 type HttpHeaderResponse struct {
 	// The header name.
 	Name *string `pulumi:"name"`
@@ -3970,7 +3932,7 @@ type HttpHeaderResponse struct {
 	Value *string `pulumi:"value"`
 }
 
-// The HTTP header
+// The HTTP header.
 type HttpHeaderResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpHeaderResponseOutput) ElementType() reflect.Type {
@@ -4017,12 +3979,16 @@ func (o HttpHeaderResponseArrayOutput) Index(i pulumi.IntInput) HttpHeaderRespon
 
 // Image registry credential.
 type ImageRegistryCredential struct {
+	// The identity for the private registry.
+	Identity *string `pulumi:"identity"`
+	// The identity URL for the private registry.
+	IdentityUrl *string `pulumi:"identityUrl"`
 	// The password for the private registry.
 	Password *string `pulumi:"password"`
 	// The Docker image registry server without a protocol such as "http" and "https".
 	Server string `pulumi:"server"`
 	// The username for the private registry.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // ImageRegistryCredentialInput is an input type that accepts ImageRegistryCredentialArgs and ImageRegistryCredentialOutput values.
@@ -4038,12 +4004,16 @@ type ImageRegistryCredentialInput interface {
 
 // Image registry credential.
 type ImageRegistryCredentialArgs struct {
+	// The identity for the private registry.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The identity URL for the private registry.
+	IdentityUrl pulumi.StringPtrInput `pulumi:"identityUrl"`
 	// The password for the private registry.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The Docker image registry server without a protocol such as "http" and "https".
 	Server pulumi.StringInput `pulumi:"server"`
 	// The username for the private registry.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ImageRegistryCredentialArgs) ElementType() reflect.Type {
@@ -4098,6 +4068,16 @@ func (o ImageRegistryCredentialOutput) ToImageRegistryCredentialOutputWithContex
 	return o
 }
 
+// The identity for the private registry.
+func (o ImageRegistryCredentialOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The identity URL for the private registry.
+func (o ImageRegistryCredentialOutput) IdentityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.IdentityUrl }).(pulumi.StringPtrOutput)
+}
+
 // The password for the private registry.
 func (o ImageRegistryCredentialOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -4109,8 +4089,8 @@ func (o ImageRegistryCredentialOutput) Server() pulumi.StringOutput {
 }
 
 // The username for the private registry.
-func (o ImageRegistryCredentialOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
+func (o ImageRegistryCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ImageRegistryCredentialArrayOutput struct{ *pulumi.OutputState }
@@ -4135,12 +4115,16 @@ func (o ImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) ImageRegist
 
 // Image registry credential.
 type ImageRegistryCredentialResponse struct {
+	// The identity for the private registry.
+	Identity *string `pulumi:"identity"`
+	// The identity URL for the private registry.
+	IdentityUrl *string `pulumi:"identityUrl"`
 	// The password for the private registry.
 	Password *string `pulumi:"password"`
 	// The Docker image registry server without a protocol such as "http" and "https".
 	Server string `pulumi:"server"`
 	// The username for the private registry.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // Image registry credential.
@@ -4158,6 +4142,16 @@ func (o ImageRegistryCredentialResponseOutput) ToImageRegistryCredentialResponse
 	return o
 }
 
+// The identity for the private registry.
+func (o ImageRegistryCredentialResponseOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The identity URL for the private registry.
+func (o ImageRegistryCredentialResponseOutput) IdentityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.IdentityUrl }).(pulumi.StringPtrOutput)
+}
+
 // The password for the private registry.
 func (o ImageRegistryCredentialResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -4169,8 +4163,8 @@ func (o ImageRegistryCredentialResponseOutput) Server() pulumi.StringOutput {
 }
 
 // The username for the private registry.
-func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRegistryCredentialResponse) string { return v.Username }).(pulumi.StringOutput)
+func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ImageRegistryCredentialResponseArrayOutput struct{ *pulumi.OutputState }
@@ -4467,6 +4461,8 @@ func (o InitContainerPropertiesDefinitionResponseInstanceViewOutput) RestartCoun
 type IpAddress struct {
 	// The Dns name label for the IP.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
+	// The value representing the security enum.
+	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// The IP exposed to the public internet.
 	Ip *string `pulumi:"ip"`
 	// The list of ports exposed on the container group.
@@ -4490,6 +4486,8 @@ type IpAddressInput interface {
 type IpAddressArgs struct {
 	// The Dns name label for the IP.
 	DnsNameLabel pulumi.StringPtrInput `pulumi:"dnsNameLabel"`
+	// The value representing the security enum.
+	DnsNameLabelReusePolicy pulumi.StringPtrInput `pulumi:"dnsNameLabelReusePolicy"`
 	// The IP exposed to the public internet.
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
 	// The list of ports exposed on the container group.
@@ -4581,6 +4579,11 @@ func (o IpAddressOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAddress) *string { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
+// The value representing the security enum.
+func (o IpAddressOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAddress) *string { return v.DnsNameLabelReusePolicy }).(pulumi.StringPtrOutput)
+}
+
 // The IP exposed to the public internet.
 func (o IpAddressOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAddress) *string { return v.Ip }).(pulumi.StringPtrOutput)
@@ -4630,6 +4633,16 @@ func (o IpAddressPtrOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value representing the security enum.
+func (o IpAddressPtrOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsNameLabelReusePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 // The IP exposed to the public internet.
 func (o IpAddressPtrOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAddress) *string {
@@ -4664,6 +4677,8 @@ func (o IpAddressPtrOutput) Type() pulumi.StringPtrOutput {
 type IpAddressResponse struct {
 	// The Dns name label for the IP.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
+	// The value representing the security enum.
+	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// The FQDN for the IP.
 	Fqdn string `pulumi:"fqdn"`
 	// The IP exposed to the public internet.
@@ -4692,6 +4707,11 @@ func (o IpAddressResponseOutput) ToIpAddressResponseOutputWithContext(ctx contex
 // The Dns name label for the IP.
 func (o IpAddressResponseOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAddressResponse) *string { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
+}
+
+// The value representing the security enum.
+func (o IpAddressResponseOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAddressResponse) *string { return v.DnsNameLabelReusePolicy }).(pulumi.StringPtrOutput)
 }
 
 // The FQDN for the IP.
@@ -4748,6 +4768,16 @@ func (o IpAddressResponsePtrOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value representing the security enum.
+func (o IpAddressResponsePtrOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpAddressResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsNameLabelReusePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 // The FQDN for the IP.
 func (o IpAddressResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAddressResponse) *string {
@@ -4799,7 +4829,7 @@ type LogAnalytics struct {
 	// The workspace key for log analytics
 	WorkspaceKey string `pulumi:"workspaceKey"`
 	// The workspace resource id for log analytics
-	WorkspaceResourceId map[string]string `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // LogAnalyticsInput is an input type that accepts LogAnalyticsArgs and LogAnalyticsOutput values.
@@ -4824,7 +4854,7 @@ type LogAnalyticsArgs struct {
 	// The workspace key for log analytics
 	WorkspaceKey pulumi.StringInput `pulumi:"workspaceKey"`
 	// The workspace resource id for log analytics
-	WorkspaceResourceId pulumi.StringMapInput `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
 func (LogAnalyticsArgs) ElementType() reflect.Type {
@@ -4926,8 +4956,8 @@ func (o LogAnalyticsOutput) WorkspaceKey() pulumi.StringOutput {
 }
 
 // The workspace resource id for log analytics
-func (o LogAnalyticsOutput) WorkspaceResourceId() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LogAnalytics) map[string]string { return v.WorkspaceResourceId }).(pulumi.StringMapOutput)
+func (o LogAnalyticsOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalytics) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 type LogAnalyticsPtrOutput struct{ *pulumi.OutputState }
@@ -4995,13 +5025,13 @@ func (o LogAnalyticsPtrOutput) WorkspaceKey() pulumi.StringPtrOutput {
 }
 
 // The workspace resource id for log analytics
-func (o LogAnalyticsPtrOutput) WorkspaceResourceId() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *LogAnalytics) map[string]string {
+func (o LogAnalyticsPtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalytics) *string {
 		if v == nil {
 			return nil
 		}
 		return v.WorkspaceResourceId
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Container group log analytics information.
@@ -5015,7 +5045,7 @@ type LogAnalyticsResponse struct {
 	// The workspace key for log analytics
 	WorkspaceKey string `pulumi:"workspaceKey"`
 	// The workspace resource id for log analytics
-	WorkspaceResourceId map[string]string `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // Container group log analytics information.
@@ -5054,8 +5084,8 @@ func (o LogAnalyticsResponseOutput) WorkspaceKey() pulumi.StringOutput {
 }
 
 // The workspace resource id for log analytics
-func (o LogAnalyticsResponseOutput) WorkspaceResourceId() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LogAnalyticsResponse) map[string]string { return v.WorkspaceResourceId }).(pulumi.StringMapOutput)
+func (o LogAnalyticsResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 type LogAnalyticsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5123,13 +5153,13 @@ func (o LogAnalyticsResponsePtrOutput) WorkspaceKey() pulumi.StringPtrOutput {
 }
 
 // The workspace resource id for log analytics
-func (o LogAnalyticsResponsePtrOutput) WorkspaceResourceId() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *LogAnalyticsResponse) map[string]string {
+func (o LogAnalyticsResponsePtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalyticsResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.WorkspaceResourceId
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The port exposed on the container group.
@@ -6185,11 +6215,11 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput{})
-	pulumi.RegisterOutputType(ContainerGroupNetworkProfileOutput{})
-	pulumi.RegisterOutputType(ContainerGroupNetworkProfilePtrOutput{})
-	pulumi.RegisterOutputType(ContainerGroupNetworkProfileResponseOutput{})
-	pulumi.RegisterOutputType(ContainerGroupNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponseInstanceViewOutput{})
+	pulumi.RegisterOutputType(ContainerGroupSubnetIdOutput{})
+	pulumi.RegisterOutputType(ContainerGroupSubnetIdArrayOutput{})
+	pulumi.RegisterOutputType(ContainerGroupSubnetIdResponseOutput{})
+	pulumi.RegisterOutputType(ContainerGroupSubnetIdResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetPtrOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetResponseOutput{})

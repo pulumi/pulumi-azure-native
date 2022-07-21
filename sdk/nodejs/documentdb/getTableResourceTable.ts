@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Table.
- * API Version: 2021-03-15.
+ * API Version: 2021-10-15.
  */
 export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableResult> {
     if (!opts) {

@@ -206,7 +206,7 @@ def get_streaming_locator(account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingLocatorResult:
     """
     A Streaming Locator resource
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -247,7 +247,7 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingLocatorResult]:
     """
     A Streaming Locator resource
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

@@ -39,37 +39,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Direction that specifies whether the access rules is inbound/outbound.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessRuleDirection : IEquatable<AccessRuleDirection>
-    {
-        private readonly string _value;
-
-        private AccessRuleDirection(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessRuleDirection Inbound { get; } = new AccessRuleDirection("Inbound");
-        public static AccessRuleDirection Outbound { get; } = new AccessRuleDirection("Outbound");
-
-        public static bool operator ==(AccessRuleDirection left, AccessRuleDirection right) => left.Equals(right);
-        public static bool operator !=(AccessRuleDirection left, AccessRuleDirection right) => !left.Equals(right);
-
-        public static explicit operator string(AccessRuleDirection value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessRuleDirection other && Equals(other);
-        public bool Equals(AccessRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Describes the override action to be applied when rule matches.
     /// </summary>
     [EnumType]
@@ -95,68 +64,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ActionType other && Equals(other);
         public bool Equals(ActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Address prefix type.
-    /// </summary>
-    [EnumType]
-    public readonly struct AddressPrefixType : IEquatable<AddressPrefixType>
-    {
-        private readonly string _value;
-
-        private AddressPrefixType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AddressPrefixType IPPrefix { get; } = new AddressPrefixType("IPPrefix");
-        public static AddressPrefixType ServiceTag { get; } = new AddressPrefixType("ServiceTag");
-
-        public static bool operator ==(AddressPrefixType left, AddressPrefixType right) => left.Equals(right);
-        public static bool operator !=(AddressPrefixType left, AddressPrefixType right) => !left.Equals(right);
-
-        public static explicit operator string(AddressPrefixType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AddressPrefixType other && Equals(other);
-        public bool Equals(AddressPrefixType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Whether the rule is custom or default.
-    /// </summary>
-    [EnumType]
-    public readonly struct AdminRuleKind : IEquatable<AdminRuleKind>
-    {
-        private readonly string _value;
-
-        private AdminRuleKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AdminRuleKind Custom { get; } = new AdminRuleKind("Custom");
-        public static AdminRuleKind Default { get; } = new AdminRuleKind("Default");
-
-        public static bool operator ==(AdminRuleKind left, AdminRuleKind right) => left.Equals(right);
-        public static bool operator !=(AdminRuleKind left, AdminRuleKind right) => !left.Equals(right);
-
-        public static explicit operator string(AdminRuleKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AdminRuleKind other && Equals(other);
-        public bool Equals(AdminRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -291,6 +198,38 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Load Distribution Targets resource of an application gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayLoadDistributionAlgorithm : IEquatable<ApplicationGatewayLoadDistributionAlgorithm>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayLoadDistributionAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayLoadDistributionAlgorithm RoundRobin { get; } = new ApplicationGatewayLoadDistributionAlgorithm("RoundRobin");
+        public static ApplicationGatewayLoadDistributionAlgorithm LeastConnections { get; } = new ApplicationGatewayLoadDistributionAlgorithm("LeastConnections");
+        public static ApplicationGatewayLoadDistributionAlgorithm IpHash { get; } = new ApplicationGatewayLoadDistributionAlgorithm("IpHash");
+
+        public static bool operator ==(ApplicationGatewayLoadDistributionAlgorithm left, ApplicationGatewayLoadDistributionAlgorithm right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayLoadDistributionAlgorithm left, ApplicationGatewayLoadDistributionAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayLoadDistributionAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayLoadDistributionAlgorithm other && Equals(other);
+        public bool Equals(ApplicationGatewayLoadDistributionAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The protocol used for the probe.
     /// </summary>
     [EnumType]
@@ -305,6 +244,8 @@ namespace Pulumi.AzureNative.Network
 
         public static ApplicationGatewayProtocol Http { get; } = new ApplicationGatewayProtocol("Http");
         public static ApplicationGatewayProtocol Https { get; } = new ApplicationGatewayProtocol("Https");
+        public static ApplicationGatewayProtocol Tcp { get; } = new ApplicationGatewayProtocol("Tcp");
+        public static ApplicationGatewayProtocol Tls { get; } = new ApplicationGatewayProtocol("Tls");
 
         public static bool operator ==(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => left.Equals(right);
         public static bool operator !=(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => !left.Equals(right);
@@ -607,38 +548,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Access mode on the association.
-    /// </summary>
-    [EnumType]
-    public readonly struct AssociationAccessMode : IEquatable<AssociationAccessMode>
-    {
-        private readonly string _value;
-
-        private AssociationAccessMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AssociationAccessMode Learning { get; } = new AssociationAccessMode("Learning");
-        public static AssociationAccessMode Enforced { get; } = new AssociationAccessMode("Enforced");
-        public static AssociationAccessMode Audit { get; } = new AssociationAccessMode("Audit");
-
-        public static bool operator ==(AssociationAccessMode left, AssociationAccessMode right) => left.Equals(right);
-        public static bool operator !=(AssociationAccessMode left, AssociationAccessMode right) => !left.Equals(right);
-
-        public static explicit operator string(AssociationAccessMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssociationAccessMode other && Equals(other);
-        public bool Equals(AssociationAccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The authorization use status.
     /// </summary>
     [EnumType]
@@ -842,6 +751,7 @@ namespace Pulumi.AzureNative.Network
 
         public static AzureFirewallSkuTier Standard { get; } = new AzureFirewallSkuTier("Standard");
         public static AzureFirewallSkuTier Premium { get; } = new AzureFirewallSkuTier("Premium");
+        public static AzureFirewallSkuTier Basic { get; } = new AzureFirewallSkuTier("Basic");
 
         public static bool operator ==(AzureFirewallSkuTier left, AzureFirewallSkuTier right) => left.Equals(right);
         public static bool operator !=(AzureFirewallSkuTier left, AzureFirewallSkuTier right) => !left.Equals(right);
@@ -922,6 +832,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// The name of this Bastion Host.
+    /// </summary>
+    [EnumType]
+    public readonly struct BastionHostSkuName : IEquatable<BastionHostSkuName>
+    {
+        private readonly string _value;
+
+        private BastionHostSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BastionHostSkuName Basic { get; } = new BastionHostSkuName("Basic");
+        public static BastionHostSkuName Standard { get; } = new BastionHostSkuName("Standard");
+
+        public static bool operator ==(BastionHostSkuName left, BastionHostSkuName right) => left.Equals(right);
+        public static bool operator !=(BastionHostSkuName left, BastionHostSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(BastionHostSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BastionHostSkuName other && Equals(other);
+        public bool Equals(BastionHostSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The commissioned state of the Custom IP Prefix.
     /// </summary>
     [EnumType]
@@ -949,38 +890,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CommissionedState other && Equals(other);
         public bool Equals(CommissionedState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Configuration Deployment Type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
-    {
-        private readonly string _value;
-
-        private ConfigurationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationType SecurityAdmin { get; } = new ConfigurationType("SecurityAdmin");
-        public static ConfigurationType SecurityUser { get; } = new ConfigurationType("SecurityUser");
-        public static ConfigurationType Connectivity { get; } = new ConfigurationType("Connectivity");
-
-        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
-        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
-        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1073,37 +982,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectionMonitorTestConfigurationProtocol other && Equals(other);
         public bool Equals(ConnectionMonitorTestConfigurationProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Connectivity topology type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConnectivityTopology : IEquatable<ConnectivityTopology>
-    {
-        private readonly string _value;
-
-        private ConnectivityTopology(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConnectivityTopology HubAndSpoke { get; } = new ConnectivityTopology("HubAndSpoke");
-        public static ConnectivityTopology Mesh { get; } = new ConnectivityTopology("Mesh");
-
-        public static bool operator ==(ConnectivityTopology left, ConnectivityTopology right) => left.Equals(right);
-        public static bool operator !=(ConnectivityTopology left, ConnectivityTopology right) => !left.Equals(right);
-
-        public static explicit operator string(ConnectivityTopology value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectivityTopology other && Equals(other);
-        public bool Equals(ConnectivityTopology other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1274,60 +1152,29 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Flag if need to delete existing network security groups.
+    /// Specify what happens to the public IP address when the VM using it is deleted
     /// </summary>
     [EnumType]
-    public readonly struct DeleteExistingNSGs : IEquatable<DeleteExistingNSGs>
+    public readonly struct DeleteOptions : IEquatable<DeleteOptions>
     {
         private readonly string _value;
 
-        private DeleteExistingNSGs(string value)
+        private DeleteOptions(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DeleteExistingNSGs False { get; } = new DeleteExistingNSGs("False");
-        public static DeleteExistingNSGs True { get; } = new DeleteExistingNSGs("True");
+        public static DeleteOptions Delete { get; } = new DeleteOptions("Delete");
+        public static DeleteOptions Detach { get; } = new DeleteOptions("Detach");
 
-        public static bool operator ==(DeleteExistingNSGs left, DeleteExistingNSGs right) => left.Equals(right);
-        public static bool operator !=(DeleteExistingNSGs left, DeleteExistingNSGs right) => !left.Equals(right);
+        public static bool operator ==(DeleteOptions left, DeleteOptions right) => left.Equals(right);
+        public static bool operator !=(DeleteOptions left, DeleteOptions right) => !left.Equals(right);
 
-        public static explicit operator string(DeleteExistingNSGs value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeleteExistingNSGs other && Equals(other);
-        public bool Equals(DeleteExistingNSGs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(DeleteOptions value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Flag if need to remove current existing peerings.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeleteExistingPeering : IEquatable<DeleteExistingPeering>
-    {
-        private readonly string _value;
-
-        private DeleteExistingPeering(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeleteExistingPeering False { get; } = new DeleteExistingPeering("False");
-        public static DeleteExistingPeering True { get; } = new DeleteExistingPeering("True");
-
-        public static bool operator ==(DeleteExistingPeering left, DeleteExistingPeering right) => left.Equals(right);
-        public static bool operator !=(DeleteExistingPeering left, DeleteExistingPeering right) => !left.Equals(right);
-
-        public static explicit operator string(DeleteExistingPeering value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeleteExistingPeering other && Equals(other);
-        public bool Equals(DeleteExistingPeering other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DeleteOptions other && Equals(other);
+        public bool Equals(DeleteOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2335,6 +2182,7 @@ namespace Pulumi.AzureNative.Network
 
         public static FirewallPolicySkuTier Standard { get; } = new FirewallPolicySkuTier("Standard");
         public static FirewallPolicySkuTier Premium { get; } = new FirewallPolicySkuTier("Premium");
+        public static FirewallPolicySkuTier Basic { get; } = new FirewallPolicySkuTier("Basic");
 
         public static bool operator ==(FirewallPolicySkuTier left, FirewallPolicySkuTier right) => left.Equals(right);
         public static bool operator !=(FirewallPolicySkuTier left, FirewallPolicySkuTier right) => !left.Equals(right);
@@ -2374,37 +2222,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowLogFormatType other && Equals(other);
         public bool Equals(FlowLogFormatType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The state of forwarding rule.
-    /// </summary>
-    [EnumType]
-    public readonly struct ForwardingRuleState : IEquatable<ForwardingRuleState>
-    {
-        private readonly string _value;
-
-        private ForwardingRuleState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ForwardingRuleState Enabled { get; } = new ForwardingRuleState("Enabled");
-        public static ForwardingRuleState Disabled { get; } = new ForwardingRuleState("Disabled");
-
-        public static bool operator ==(ForwardingRuleState left, ForwardingRuleState right) => left.Equals(right);
-        public static bool operator !=(ForwardingRuleState left, ForwardingRuleState right) => !left.Equals(right);
-
-        public static explicit operator string(ForwardingRuleState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ForwardingRuleState other && Equals(other);
-        public bool Equals(ForwardingRuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2674,29 +2491,62 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Group connectivity type.
+    /// Traffic type of gateway load balancer tunnel interface.
     /// </summary>
     [EnumType]
-    public readonly struct GroupConnectivity : IEquatable<GroupConnectivity>
+    public readonly struct GatewayLoadBalancerTunnelInterfaceType : IEquatable<GatewayLoadBalancerTunnelInterfaceType>
     {
         private readonly string _value;
 
-        private GroupConnectivity(string value)
+        private GatewayLoadBalancerTunnelInterfaceType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static GroupConnectivity None { get; } = new GroupConnectivity("None");
-        public static GroupConnectivity DirectlyConnected { get; } = new GroupConnectivity("DirectlyConnected");
+        public static GatewayLoadBalancerTunnelInterfaceType None { get; } = new GatewayLoadBalancerTunnelInterfaceType("None");
+        public static GatewayLoadBalancerTunnelInterfaceType Internal { get; } = new GatewayLoadBalancerTunnelInterfaceType("Internal");
+        public static GatewayLoadBalancerTunnelInterfaceType External { get; } = new GatewayLoadBalancerTunnelInterfaceType("External");
 
-        public static bool operator ==(GroupConnectivity left, GroupConnectivity right) => left.Equals(right);
-        public static bool operator !=(GroupConnectivity left, GroupConnectivity right) => !left.Equals(right);
+        public static bool operator ==(GatewayLoadBalancerTunnelInterfaceType left, GatewayLoadBalancerTunnelInterfaceType right) => left.Equals(right);
+        public static bool operator !=(GatewayLoadBalancerTunnelInterfaceType left, GatewayLoadBalancerTunnelInterfaceType right) => !left.Equals(right);
 
-        public static explicit operator string(GroupConnectivity value) => value._value;
+        public static explicit operator string(GatewayLoadBalancerTunnelInterfaceType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GroupConnectivity other && Equals(other);
-        public bool Equals(GroupConnectivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is GatewayLoadBalancerTunnelInterfaceType other && Equals(other);
+        public bool Equals(GatewayLoadBalancerTunnelInterfaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protocol of gateway load balancer tunnel interface.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayLoadBalancerTunnelProtocol : IEquatable<GatewayLoadBalancerTunnelProtocol>
+    {
+        private readonly string _value;
+
+        private GatewayLoadBalancerTunnelProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayLoadBalancerTunnelProtocol None { get; } = new GatewayLoadBalancerTunnelProtocol("None");
+        public static GatewayLoadBalancerTunnelProtocol Native { get; } = new GatewayLoadBalancerTunnelProtocol("Native");
+        public static GatewayLoadBalancerTunnelProtocol VXLAN { get; } = new GatewayLoadBalancerTunnelProtocol("VXLAN");
+
+        public static bool operator ==(GatewayLoadBalancerTunnelProtocol left, GatewayLoadBalancerTunnelProtocol right) => left.Equals(right);
+        public static bool operator !=(GatewayLoadBalancerTunnelProtocol left, GatewayLoadBalancerTunnelProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayLoadBalancerTunnelProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayLoadBalancerTunnelProtocol other && Equals(other);
+        public bool Equals(GatewayLoadBalancerTunnelProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2791,6 +2641,38 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HealthProbeEnabled other && Equals(other);
         public bool Equals(HealthProbeEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The hubRoutingPreference of this VirtualHub.
+    /// </summary>
+    [EnumType]
+    public readonly struct HubRoutingPreference : IEquatable<HubRoutingPreference>
+    {
+        private readonly string _value;
+
+        private HubRoutingPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HubRoutingPreference ExpressRoute { get; } = new HubRoutingPreference("ExpressRoute");
+        public static HubRoutingPreference VpnGateway { get; } = new HubRoutingPreference("VpnGateway");
+        public static HubRoutingPreference ASPath { get; } = new HubRoutingPreference("ASPath");
+
+        public static bool operator ==(HubRoutingPreference left, HubRoutingPreference right) => left.Equals(right);
+        public static bool operator !=(HubRoutingPreference left, HubRoutingPreference right) => !left.Equals(right);
+
+        public static explicit operator string(HubRoutingPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HubRoutingPreference other && Equals(other);
+        public bool Equals(HubRoutingPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2932,37 +2814,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Private IP address allocation method.
-    /// </summary>
-    [EnumType]
-    public readonly struct IpAllocationMethod : IEquatable<IpAllocationMethod>
-    {
-        private readonly string _value;
-
-        private IpAllocationMethod(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IpAllocationMethod Static { get; } = new IpAllocationMethod("Static");
-        public static IpAllocationMethod Dynamic { get; } = new IpAllocationMethod("Dynamic");
-
-        public static bool operator ==(IpAllocationMethod left, IpAllocationMethod right) => left.Equals(right);
-        public static bool operator !=(IpAllocationMethod left, IpAllocationMethod right) => !left.Equals(right);
-
-        public static explicit operator string(IpAllocationMethod value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IpAllocationMethod other && Equals(other);
-        public bool Equals(IpAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type for the IpAllocation.
     /// </summary>
     [EnumType]
@@ -3067,29 +2918,31 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Flag if global mesh is supported.
+    /// A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
     /// </summary>
     [EnumType]
-    public readonly struct IsGlobal : IEquatable<IsGlobal>
+    public readonly struct LoadBalancerBackendAddressAdminState : IEquatable<LoadBalancerBackendAddressAdminState>
     {
         private readonly string _value;
 
-        private IsGlobal(string value)
+        private LoadBalancerBackendAddressAdminState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IsGlobal False { get; } = new IsGlobal("False");
-        public static IsGlobal True { get; } = new IsGlobal("True");
+        public static LoadBalancerBackendAddressAdminState None { get; } = new LoadBalancerBackendAddressAdminState("None");
+        public static LoadBalancerBackendAddressAdminState Up { get; } = new LoadBalancerBackendAddressAdminState("Up");
+        public static LoadBalancerBackendAddressAdminState Down { get; } = new LoadBalancerBackendAddressAdminState("Down");
+        public static LoadBalancerBackendAddressAdminState Drain { get; } = new LoadBalancerBackendAddressAdminState("Drain");
 
-        public static bool operator ==(IsGlobal left, IsGlobal right) => left.Equals(right);
-        public static bool operator !=(IsGlobal left, IsGlobal right) => !left.Equals(right);
+        public static bool operator ==(LoadBalancerBackendAddressAdminState left, LoadBalancerBackendAddressAdminState right) => left.Equals(right);
+        public static bool operator !=(LoadBalancerBackendAddressAdminState left, LoadBalancerBackendAddressAdminState right) => !left.Equals(right);
 
-        public static explicit operator string(IsGlobal value) => value._value;
+        public static explicit operator string(LoadBalancerBackendAddressAdminState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IsGlobal other && Equals(other);
-        public bool Equals(IsGlobal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LoadBalancerBackendAddressAdminState other && Equals(other);
+        public bool Equals(LoadBalancerBackendAddressAdminState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3144,6 +2997,7 @@ namespace Pulumi.AzureNative.Network
 
         public static LoadBalancerSkuName Basic { get; } = new LoadBalancerSkuName("Basic");
         public static LoadBalancerSkuName Standard { get; } = new LoadBalancerSkuName("Standard");
+        public static LoadBalancerSkuName Gateway { get; } = new LoadBalancerSkuName("Gateway");
 
         public static bool operator ==(LoadBalancerSkuName left, LoadBalancerSkuName right) => left.Equals(right);
         public static bool operator !=(LoadBalancerSkuName left, LoadBalancerSkuName right) => !left.Equals(right);
@@ -3322,7 +3176,7 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Defines the action to take when a managed rule set score threshold is met.
+    /// Defines the rule set action.
     /// </summary>
     [EnumType]
     public readonly struct ManagedRuleSetActionType : IEquatable<ManagedRuleSetActionType>
@@ -3439,6 +3293,38 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NatGatewaySkuName other && Equals(other);
         public bool Equals(NatGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Auxiliary mode of Network Interface resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkInterfaceAuxiliaryMode : IEquatable<NetworkInterfaceAuxiliaryMode>
+    {
+        private readonly string _value;
+
+        private NetworkInterfaceAuxiliaryMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInterfaceAuxiliaryMode None { get; } = new NetworkInterfaceAuxiliaryMode("None");
+        public static NetworkInterfaceAuxiliaryMode MaxConnections { get; } = new NetworkInterfaceAuxiliaryMode("MaxConnections");
+        public static NetworkInterfaceAuxiliaryMode Floating { get; } = new NetworkInterfaceAuxiliaryMode("Floating");
+
+        public static bool operator ==(NetworkInterfaceAuxiliaryMode left, NetworkInterfaceAuxiliaryMode right) => left.Equals(right);
+        public static bool operator !=(NetworkInterfaceAuxiliaryMode left, NetworkInterfaceAuxiliaryMode right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInterfaceAuxiliaryMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInterfaceAuxiliaryMode other && Equals(other);
+        public bool Equals(NetworkInterfaceAuxiliaryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3598,6 +3484,12 @@ namespace Pulumi.AzureNative.Network
         public static OwaspCrsExclusionEntryMatchVariable RequestHeaderNames { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestHeaderNames");
         public static OwaspCrsExclusionEntryMatchVariable RequestCookieNames { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestCookieNames");
         public static OwaspCrsExclusionEntryMatchVariable RequestArgNames { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestArgNames");
+        public static OwaspCrsExclusionEntryMatchVariable RequestHeaderKeys { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestHeaderKeys");
+        public static OwaspCrsExclusionEntryMatchVariable RequestHeaderValues { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestHeaderValues");
+        public static OwaspCrsExclusionEntryMatchVariable RequestCookieKeys { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestCookieKeys");
+        public static OwaspCrsExclusionEntryMatchVariable RequestCookieValues { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestCookieValues");
+        public static OwaspCrsExclusionEntryMatchVariable RequestArgKeys { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestArgKeys");
+        public static OwaspCrsExclusionEntryMatchVariable RequestArgValues { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestArgValues");
 
         public static bool operator ==(OwaspCrsExclusionEntryMatchVariable left, OwaspCrsExclusionEntryMatchVariable right) => left.Equals(right);
         public static bool operator !=(OwaspCrsExclusionEntryMatchVariable left, OwaspCrsExclusionEntryMatchVariable right) => !left.Equals(right);
@@ -3835,6 +3727,38 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PreferredIPVersion other && Equals(other);
         public bool Equals(PreferredIPVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The preferred gateway to route on-prem traffic
+    /// </summary>
+    [EnumType]
+    public readonly struct PreferredRoutingGateway : IEquatable<PreferredRoutingGateway>
+    {
+        private readonly string _value;
+
+        private PreferredRoutingGateway(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PreferredRoutingGateway ExpressRoute { get; } = new PreferredRoutingGateway("ExpressRoute");
+        public static PreferredRoutingGateway VpnGateway { get; } = new PreferredRoutingGateway("VpnGateway");
+        public static PreferredRoutingGateway None { get; } = new PreferredRoutingGateway("None");
+
+        public static bool operator ==(PreferredRoutingGateway left, PreferredRoutingGateway right) => left.Equals(right);
+        public static bool operator !=(PreferredRoutingGateway left, PreferredRoutingGateway right) => !left.Equals(right);
+
+        public static explicit operator string(PreferredRoutingGateway value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PreferredRoutingGateway other && Equals(other);
+        public bool Equals(PreferredRoutingGateway other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4375,104 +4299,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Indicates the access allowed for this particular rule
-    /// </summary>
-    [EnumType]
-    public readonly struct SecurityConfigurationRuleAccess : IEquatable<SecurityConfigurationRuleAccess>
-    {
-        private readonly string _value;
-
-        private SecurityConfigurationRuleAccess(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SecurityConfigurationRuleAccess Allow { get; } = new SecurityConfigurationRuleAccess("Allow");
-        public static SecurityConfigurationRuleAccess Deny { get; } = new SecurityConfigurationRuleAccess("Deny");
-        public static SecurityConfigurationRuleAccess AlwaysAllow { get; } = new SecurityConfigurationRuleAccess("AlwaysAllow");
-
-        public static bool operator ==(SecurityConfigurationRuleAccess left, SecurityConfigurationRuleAccess right) => left.Equals(right);
-        public static bool operator !=(SecurityConfigurationRuleAccess left, SecurityConfigurationRuleAccess right) => !left.Equals(right);
-
-        public static explicit operator string(SecurityConfigurationRuleAccess value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityConfigurationRuleAccess other && Equals(other);
-        public bool Equals(SecurityConfigurationRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates if the traffic matched against the rule in inbound or outbound.
-    /// </summary>
-    [EnumType]
-    public readonly struct SecurityConfigurationRuleDirection : IEquatable<SecurityConfigurationRuleDirection>
-    {
-        private readonly string _value;
-
-        private SecurityConfigurationRuleDirection(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SecurityConfigurationRuleDirection Inbound { get; } = new SecurityConfigurationRuleDirection("Inbound");
-        public static SecurityConfigurationRuleDirection Outbound { get; } = new SecurityConfigurationRuleDirection("Outbound");
-
-        public static bool operator ==(SecurityConfigurationRuleDirection left, SecurityConfigurationRuleDirection right) => left.Equals(right);
-        public static bool operator !=(SecurityConfigurationRuleDirection left, SecurityConfigurationRuleDirection right) => !left.Equals(right);
-
-        public static explicit operator string(SecurityConfigurationRuleDirection value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityConfigurationRuleDirection other && Equals(other);
-        public bool Equals(SecurityConfigurationRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Network protocol this rule applies to.
-    /// </summary>
-    [EnumType]
-    public readonly struct SecurityConfigurationRuleProtocol : IEquatable<SecurityConfigurationRuleProtocol>
-    {
-        private readonly string _value;
-
-        private SecurityConfigurationRuleProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SecurityConfigurationRuleProtocol Tcp { get; } = new SecurityConfigurationRuleProtocol("Tcp");
-        public static SecurityConfigurationRuleProtocol Udp { get; } = new SecurityConfigurationRuleProtocol("Udp");
-        public static SecurityConfigurationRuleProtocol Icmp { get; } = new SecurityConfigurationRuleProtocol("Icmp");
-        public static SecurityConfigurationRuleProtocol Esp { get; } = new SecurityConfigurationRuleProtocol("Esp");
-        public static SecurityConfigurationRuleProtocol Any { get; } = new SecurityConfigurationRuleProtocol("Any");
-        public static SecurityConfigurationRuleProtocol Ah { get; } = new SecurityConfigurationRuleProtocol("Ah");
-
-        public static bool operator ==(SecurityConfigurationRuleProtocol left, SecurityConfigurationRuleProtocol right) => left.Equals(right);
-        public static bool operator !=(SecurityConfigurationRuleProtocol left, SecurityConfigurationRuleProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(SecurityConfigurationRuleProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityConfigurationRuleProtocol other && Equals(other);
-        public bool Equals(SecurityConfigurationRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The security provider name.
     /// </summary>
     [EnumType]
@@ -4594,37 +4420,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecurityRuleProtocol other && Equals(other);
         public bool Equals(SecurityRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Security Type.
-    /// </summary>
-    [EnumType]
-    public readonly struct SecurityType : IEquatable<SecurityType>
-    {
-        private readonly string _value;
-
-        private SecurityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SecurityType AdminPolicy { get; } = new SecurityType("AdminPolicy");
-        public static SecurityType UserPolicy { get; } = new SecurityType("UserPolicy");
-
-        public static bool operator ==(SecurityType left, SecurityType right) => left.Equals(right);
-        public static bool operator !=(SecurityType left, SecurityType right) => !left.Equals(right);
-
-        public static explicit operator string(SecurityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityType other && Equals(other);
-        public bool Equals(SecurityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4928,60 +4723,29 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Flag if need to use hub gateway.
+    /// If the encrypted VNet allows VM that does not support encryption
     /// </summary>
     [EnumType]
-    public readonly struct UseHubGateway : IEquatable<UseHubGateway>
+    public readonly struct VirtualNetworkEncryptionEnforcement : IEquatable<VirtualNetworkEncryptionEnforcement>
     {
         private readonly string _value;
 
-        private UseHubGateway(string value)
+        private VirtualNetworkEncryptionEnforcement(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static UseHubGateway False { get; } = new UseHubGateway("False");
-        public static UseHubGateway True { get; } = new UseHubGateway("True");
+        public static VirtualNetworkEncryptionEnforcement DropUnencrypted { get; } = new VirtualNetworkEncryptionEnforcement("DropUnencrypted");
+        public static VirtualNetworkEncryptionEnforcement AllowUnencrypted { get; } = new VirtualNetworkEncryptionEnforcement("AllowUnencrypted");
 
-        public static bool operator ==(UseHubGateway left, UseHubGateway right) => left.Equals(right);
-        public static bool operator !=(UseHubGateway left, UseHubGateway right) => !left.Equals(right);
+        public static bool operator ==(VirtualNetworkEncryptionEnforcement left, VirtualNetworkEncryptionEnforcement right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkEncryptionEnforcement left, VirtualNetworkEncryptionEnforcement right) => !left.Equals(right);
 
-        public static explicit operator string(UseHubGateway value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UseHubGateway other && Equals(other);
-        public bool Equals(UseHubGateway other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(VirtualNetworkEncryptionEnforcement value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Whether the rule is custom or default.
-    /// </summary>
-    [EnumType]
-    public readonly struct UserRuleKind : IEquatable<UserRuleKind>
-    {
-        private readonly string _value;
-
-        private UserRuleKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static UserRuleKind Custom { get; } = new UserRuleKind("Custom");
-        public static UserRuleKind Default { get; } = new UserRuleKind("Default");
-
-        public static bool operator ==(UserRuleKind left, UserRuleKind right) => left.Equals(right);
-        public static bool operator !=(UserRuleKind left, UserRuleKind right) => !left.Equals(right);
-
-        public static explicit operator string(UserRuleKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UserRuleKind other && Equals(other);
-        public bool Equals(UserRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is VirtualNetworkEncryptionEnforcement other && Equals(other);
+        public bool Equals(VirtualNetworkEncryptionEnforcement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5202,6 +4966,39 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VirtualNetworkGatewayType other && Equals(other);
         public bool Equals(VirtualNetworkGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The peering sync status of the virtual network peering.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPeeringLevel : IEquatable<VirtualNetworkPeeringLevel>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPeeringLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPeeringLevel FullyInSync { get; } = new VirtualNetworkPeeringLevel("FullyInSync");
+        public static VirtualNetworkPeeringLevel RemoteNotInSync { get; } = new VirtualNetworkPeeringLevel("RemoteNotInSync");
+        public static VirtualNetworkPeeringLevel LocalNotInSync { get; } = new VirtualNetworkPeeringLevel("LocalNotInSync");
+        public static VirtualNetworkPeeringLevel LocalAndRemoteNotInSync { get; } = new VirtualNetworkPeeringLevel("LocalAndRemoteNotInSync");
+
+        public static bool operator ==(VirtualNetworkPeeringLevel left, VirtualNetworkPeeringLevel right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPeeringLevel left, VirtualNetworkPeeringLevel right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPeeringLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPeeringLevel other && Equals(other);
+        public bool Equals(VirtualNetworkPeeringLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

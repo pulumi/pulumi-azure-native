@@ -12,7 +12,7 @@ import (
 )
 
 // A notebook workspace resource
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
 

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220101:SubscriptionNetworkManagerConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"},

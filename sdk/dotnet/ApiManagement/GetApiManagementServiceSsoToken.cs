@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// The response of the GetSsoToken operation.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetApiManagementServiceSsoTokenResult> InvokeAsync(GetApiManagementServiceSsoTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of the GetSsoToken operation.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetApiManagementServiceSsoTokenResult> Invoke(GetApiManagementServiceSsoTokenInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenInvokeArgs(), options.WithDefaults());

@@ -11,28 +11,22 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
     /// <summary>
-    /// Describes an automation rule action to modify an object's properties
+    /// Describes an automation rule action to modify an object's properties.
     /// </summary>
     [OutputType]
     public sealed class AutomationRuleModifyPropertiesActionResponse
     {
-        /// <summary>
-        /// The configuration of the modify properties automation rule action
-        /// </summary>
-        public readonly Outputs.AutomationRuleModifyPropertiesActionResponseActionConfiguration ActionConfiguration;
+        public readonly Outputs.IncidentPropertiesActionResponse? ActionConfiguration;
         /// <summary>
         /// The type of the automation rule action
         /// Expected value is 'ModifyProperties'.
         /// </summary>
         public readonly string ActionType;
-        /// <summary>
-        /// The order of execution of the automation rule action
-        /// </summary>
         public readonly int Order;
 
         [OutputConstructor]
         private AutomationRuleModifyPropertiesActionResponse(
-            Outputs.AutomationRuleModifyPropertiesActionResponseActionConfiguration actionConfiguration,
+            Outputs.IncidentPropertiesActionResponse? actionConfiguration,
 
             string actionType,
 

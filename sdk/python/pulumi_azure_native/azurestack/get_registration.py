@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetRegistrationResult',
@@ -20,7 +21,7 @@ class GetRegistrationResult:
     """
     Registration information.
     """
-    def __init__(__self__, billing_model=None, cloud_id=None, etag=None, id=None, location=None, name=None, object_id=None, tags=None, type=None):
+    def __init__(__self__, billing_model=None, cloud_id=None, etag=None, id=None, kind=None, location=None, name=None, object_id=None, system_data=None, tags=None, type=None):
         if billing_model and not isinstance(billing_model, str):
             raise TypeError("Expected argument 'billing_model' to be a str")
         pulumi.set(__self__, "billing_model", billing_model)
@@ -33,6 +34,9 @@ class GetRegistrationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -42,6 +46,9 @@ class GetRegistrationResult:
         if object_id and not isinstance(object_id, str):
             raise TypeError("Expected argument 'object_id' to be a str")
         pulumi.set(__self__, "object_id", object_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -83,6 +90,14 @@ class GetRegistrationResult:
 
     @property
     @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         Location of the resource.
@@ -104,6 +119,14 @@ class GetRegistrationResult:
         The object identifier associated with the Azure Stack connecting to Azure.
         """
         return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -132,9 +155,11 @@ class AwaitableGetRegistrationResult(GetRegistrationResult):
             cloud_id=self.cloud_id,
             etag=self.etag,
             id=self.id,
+            kind=self.kind,
             location=self.location,
             name=self.name,
             object_id=self.object_id,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -144,7 +169,7 @@ def get_registration(registration_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationResult:
     """
     Registration information.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -164,9 +189,11 @@ def get_registration(registration_name: Optional[str] = None,
         cloud_id=__ret__.cloud_id,
         etag=__ret__.etag,
         id=__ret__.id,
+        kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         object_id=__ret__.object_id,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -177,7 +204,7 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationResult]:
     """
     Registration information.
-    API Version: 2017-06-01.
+    API Version: 2020-06-01-preview.
 
 
     :param str registration_name: Name of the Azure Stack registration.

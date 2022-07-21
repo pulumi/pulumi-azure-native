@@ -19,9 +19,9 @@ __all__ = [
 @pulumi.output_type
 class GetRegistrationDefinitionResult:
     """
-    Registration definition.
+    The registration definition.
     """
-    def __init__(__self__, id=None, name=None, plan=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, plan=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,6 +34,9 @@ class GetRegistrationDefinitionResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -42,7 +45,7 @@ class GetRegistrationDefinitionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified path of the registration definition.
+        The fully qualified path of the registration definition.
         """
         return pulumi.get(self, "id")
 
@@ -50,7 +53,7 @@ class GetRegistrationDefinitionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the registration definition.
+        The name of the registration definition.
         """
         return pulumi.get(self, "name")
 
@@ -58,7 +61,7 @@ class GetRegistrationDefinitionResult:
     @pulumi.getter
     def plan(self) -> Optional['outputs.PlanResponse']:
         """
-        Plan details for the managed services.
+        The details for the Managed Services offer’s plan in Azure Marketplace.
         """
         return pulumi.get(self, "plan")
 
@@ -66,15 +69,23 @@ class GetRegistrationDefinitionResult:
     @pulumi.getter
     def properties(self) -> 'outputs.RegistrationDefinitionPropertiesResponse':
         """
-        Properties of a registration definition.
+        The properties of a registration definition.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The metadata for the registration assignment resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource.
+        The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         """
         return pulumi.get(self, "type")
 
@@ -89,6 +100,7 @@ class AwaitableGetRegistrationDefinitionResult(GetRegistrationDefinitionResult):
             name=self.name,
             plan=self.plan,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -96,12 +108,12 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
-    Registration definition.
-    API Version: 2019-09-01.
+    The registration definition.
+    API Version: 2022-01-01-preview.
 
 
-    :param str registration_definition_id: Guid of the registration definition.
-    :param str scope: Scope of the resource.
+    :param str registration_definition_id: The GUID of the registration definition.
+    :param str scope: The scope of the resource.
     """
     __args__ = dict()
     __args__['registrationDefinitionId'] = registration_definition_id
@@ -117,6 +129,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
         name=__ret__.name,
         plan=__ret__.plan,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -125,11 +138,11 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
                                        scope: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
     """
-    Registration definition.
-    API Version: 2019-09-01.
+    The registration definition.
+    API Version: 2022-01-01-preview.
 
 
-    :param str registration_definition_id: Guid of the registration definition.
-    :param str scope: Scope of the resource.
+    :param str registration_definition_id: The GUID of the registration definition.
+    :param str scope: The scope of the resource.
     """
     ...

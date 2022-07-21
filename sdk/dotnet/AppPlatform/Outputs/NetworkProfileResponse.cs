@@ -17,31 +17,31 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class NetworkProfileResponse
     {
         /// <summary>
-        /// Name of the resource group containing network resources of Azure Spring Cloud Apps
+        /// Name of the resource group containing network resources for customer apps in Azure Spring Apps
         /// </summary>
         public readonly string? AppNetworkResourceGroup;
         /// <summary>
-        /// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+        /// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
         /// </summary>
         public readonly string? AppSubnetId;
         /// <summary>
-        /// Desired outbound IP resources for Azure Spring Cloud instance.
+        /// Desired outbound IP resources for Azure Spring Apps resource.
         /// </summary>
         public readonly Outputs.NetworkProfileResponseOutboundIPs OutboundIPs;
         /// <summary>
-        /// Required inbound or outbound traffics for Azure Spring Cloud instance.
+        /// Required inbound or outbound traffics for Azure Spring Apps resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.RequiredTrafficResponse> RequiredTraffics;
         /// <summary>
-        /// Azure Spring Cloud service reserved CIDR
+        /// Azure Spring Apps service reserved CIDR
         /// </summary>
         public readonly string? ServiceCidr;
         /// <summary>
-        /// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+        /// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
         /// </summary>
         public readonly string? ServiceRuntimeNetworkResourceGroup;
         /// <summary>
-        /// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+        /// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
         /// </summary>
         public readonly string? ServiceRuntimeSubnetId;
 

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export class BatchEndpoint extends pulumi.CustomResource {
     /**
@@ -36,9 +36,13 @@ export class BatchEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * Service identity associated with a resource.
+     * [Required] Additional attributes of the entity.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearningservices.ResourceIdentityResponse | undefined>;
+    public readonly batchEndpointProperties!: pulumi.Output<outputs.machinelearningservices.BatchEndpointResponse>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    public readonly identity!: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -52,11 +56,11 @@ export class BatchEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
+     * Sku details required for ARM contract for Autoscaling.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.BatchEndpointResponse>;
+    public readonly sku!: pulumi.Output<outputs.machinelearningservices.SkuResponse | undefined>;
     /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -79,8 +83,8 @@ export class BatchEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.batchEndpointProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'batchEndpointProperties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,23 +92,25 @@ export class BatchEndpoint extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["batchEndpointProperties"] = args ? args.batchEndpointProperties : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["batchEndpointProperties"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -121,13 +127,17 @@ export class BatchEndpoint extends pulumi.CustomResource {
  */
 export interface BatchEndpointArgs {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    batchEndpointProperties: pulumi.Input<inputs.machinelearningservices.BatchEndpointArgs>;
+    /**
      * Name for the Batch inference endpoint.
      */
     endpointName?: pulumi.Input<string>;
     /**
-     * Service identity associated with a resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -137,13 +147,13 @@ export interface BatchEndpointArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    properties: pulumi.Input<inputs.machinelearningservices.BatchEndpointArgs>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sku details required for ARM contract for Autoscaling.
+     */
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * Resource tags.
      */

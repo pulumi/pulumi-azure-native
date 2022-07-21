@@ -11,7 +11,7 @@ import (
 )
 
 // Issue Comment Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupApiIssueComment(ctx *pulumi.Context, args *LookupApiIssueCommentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueCommentResult, error) {
 	var rv LookupApiIssueCommentResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiIssueComment", args, &rv, opts...)
@@ -38,13 +38,13 @@ type LookupApiIssueCommentArgs struct {
 type LookupApiIssueCommentResult struct {
 	// Date and time when the comment was created.
 	CreatedDate *string `pulumi:"createdDate"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Comment text.
 	Text string `pulumi:"text"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// A resource identifier for the user who left the comment.
 	UserId string `pulumi:"userId"`
@@ -100,12 +100,12 @@ func (o LookupApiIssueCommentResultOutput) CreatedDate() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupApiIssueCommentResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiIssueCommentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiIssueCommentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -115,7 +115,7 @@ func (o LookupApiIssueCommentResultOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Text }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiIssueCommentResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Type }).(pulumi.StringOutput)
 }

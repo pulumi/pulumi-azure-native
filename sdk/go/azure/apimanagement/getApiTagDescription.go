@@ -11,7 +11,7 @@ import (
 )
 
 // Contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupApiTagDescription(ctx *pulumi.Context, args *LookupApiTagDescriptionArgs, opts ...pulumi.InvokeOption) (*LookupApiTagDescriptionResult, error) {
 	var rv LookupApiTagDescriptionResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiTagDescription", args, &rv, opts...)
@@ -42,13 +42,13 @@ type LookupApiTagDescriptionResult struct {
 	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
 	// Absolute URL of external resources describing the tag.
 	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Identifier of the tag in the form of /tags/{tagId}
 	TagId *string `pulumi:"tagId"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -115,12 +115,12 @@ func (o LookupApiTagDescriptionResultOutput) ExternalDocsUrl() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupApiTagDescriptionResult) *string { return v.ExternalDocsUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiTagDescriptionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiTagDescriptionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiTagDescriptionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiTagDescriptionResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -130,7 +130,7 @@ func (o LookupApiTagDescriptionResultOutput) TagId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiTagDescriptionResult) *string { return v.TagId }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiTagDescriptionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiTagDescriptionResult) string { return v.Type }).(pulumi.StringOutput)
 }

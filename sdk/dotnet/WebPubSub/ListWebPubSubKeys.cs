@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// A class represents the access keys of the resource.
-        /// API Version: 2021-04-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<ListWebPubSubKeysResult> InvokeAsync(ListWebPubSubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebPubSubKeysResult>("azure-native:webpubsub:listWebPubSubKeys", args ?? new ListWebPubSubKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represents the access keys of the resource.
-        /// API Version: 2021-04-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<ListWebPubSubKeysResult> Invoke(ListWebPubSubKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListWebPubSubKeysResult>("azure-native:webpubsub:listWebPubSubKeys", args ?? new ListWebPubSubKeysInvokeArgs(), options.WithDefaults());

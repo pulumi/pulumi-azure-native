@@ -146,7 +146,7 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationGroupResult:
     """
     Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-    API Version: 2021-04-01.
+    API Version: 2021-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -182,7 +182,7 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
     Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-    API Version: 2021-04-01.
+    API Version: 2021-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

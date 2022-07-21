@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Job Resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-02-01.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    public readonly details!: pulumi.Output<outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse | undefined>;
+    public readonly details!: pulumi.Output<outputs.databox.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse | undefined>;
     /**
      * Top level error for the job.
      */
@@ -203,7 +203,7 @@ export interface JobArgs {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    details?: pulumi.Input<inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs>;
+    details?: pulumi.Input<inputs.databox.DataBoxCustomerDiskJobDetailsArgs | inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs>;
     /**
      * Msi identity of the resource
      */

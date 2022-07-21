@@ -11,7 +11,7 @@ import (
 )
 
 // Event Subscription
-// API Version: 2020-04-01-preview.
+// API Version: 2022-06-15.
 func LookupPartnerTopicEventSubscription(ctx *pulumi.Context, args *LookupPartnerTopicEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupPartnerTopicEventSubscriptionResult, error) {
 	var rv LookupPartnerTopicEventSubscriptionResult
 	err := ctx.Invoke("azure-native:eventgrid:getPartnerTopicEventSubscription", args, &rv, opts...)

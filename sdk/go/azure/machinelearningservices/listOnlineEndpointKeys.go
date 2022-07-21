@@ -11,7 +11,7 @@ import (
 )
 
 // Keys for endpoint authentication.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func ListOnlineEndpointKeys(ctx *pulumi.Context, args *ListOnlineEndpointKeysArgs, opts ...pulumi.InvokeOption) (*ListOnlineEndpointKeysResult, error) {
 	var rv ListOnlineEndpointKeysResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listOnlineEndpointKeys", args, &rv, opts...)

@@ -80,7 +80,7 @@ class GetUserResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        User in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of User
         """
         return pulumi.get(self, "system_data")
 
@@ -122,7 +122,7 @@ def get_user(device_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -156,7 +156,7 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

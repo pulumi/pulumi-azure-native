@@ -21,7 +21,7 @@ class GetLiveOutputResult:
     """
     The Live Output.
     """
-    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, system_data=None, type=None):
         if archive_window_length and not isinstance(archive_window_length, str):
             raise TypeError("Expected argument 'archive_window_length' to be a str")
         pulumi.set(__self__, "archive_window_length", archive_window_length)
@@ -58,6 +58,9 @@ class GetLiveOutputResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -159,6 +162,14 @@ class GetLiveOutputResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -185,6 +196,7 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
             output_snap_time=self.output_snap_time,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -195,7 +207,7 @@ def get_live_output(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
     The Live Output.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -227,6 +239,7 @@ def get_live_output(account_name: Optional[str] = None,
         output_snap_time=__ret__.output_snap_time,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -238,7 +251,7 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveOutputResult]:
     """
     The Live Output.
-    API Version: 2020-05-01.
+    API Version: 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

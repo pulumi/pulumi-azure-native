@@ -18,21 +18,18 @@ __all__ = [
 @pulumi.output_type
 class GetTransparentDataEncryptionResult:
     """
-    Represents a database transparent data encryption configuration.
+    A logical database transparent data encryption state.
     """
-    def __init__(__self__, id=None, location=None, name=None, status=None, type=None):
+    def __init__(__self__, id=None, name=None, state=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -47,14 +44,6 @@ class GetTransparentDataEncryptionResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -63,11 +52,11 @@ class GetTransparentDataEncryptionResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def state(self) -> str:
         """
-        The status of the database transparent data encryption.
+        Specifies the state of the transparent data encryption.
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
@@ -85,32 +74,31 @@ class AwaitableGetTransparentDataEncryptionResult(GetTransparentDataEncryptionRe
             yield self
         return GetTransparentDataEncryptionResult(
             id=self.id,
-            location=self.location,
             name=self.name,
-            status=self.status,
+            state=self.state,
             type=self.type)
 
 
 def get_transparent_data_encryption(database_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     server_name: Optional[str] = None,
-                                    transparent_data_encryption_name: Optional[str] = None,
+                                    tde_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransparentDataEncryptionResult:
     """
-    Represents a database transparent data encryption configuration.
-    API Version: 2014-04-01.
+    A logical database transparent data encryption state.
+    API Version: 2021-11-01-preview.
 
 
-    :param str database_name: The name of the database for which the transparent data encryption applies.
+    :param str database_name: The name of the logical database for which the transparent data encryption is defined.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
-    :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
+    :param str tde_name: The name of the transparent data encryption configuration.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    __args__['transparentDataEncryptionName'] = transparent_data_encryption_name
+    __args__['tdeName'] = tde_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -119,9 +107,8 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
 
     return AwaitableGetTransparentDataEncryptionResult(
         id=__ret__.id,
-        location=__ret__.location,
         name=__ret__.name,
-        status=__ret__.status,
+        state=__ret__.state,
         type=__ret__.type)
 
 
@@ -129,16 +116,16 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
 def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            server_name: Optional[pulumi.Input[str]] = None,
-                                           transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+                                           tde_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
     """
-    Represents a database transparent data encryption configuration.
-    API Version: 2014-04-01.
+    A logical database transparent data encryption state.
+    API Version: 2021-11-01-preview.
 
 
-    :param str database_name: The name of the database for which the transparent data encryption applies.
+    :param str database_name: The name of the logical database for which the transparent data encryption is defined.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
-    :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
+    :param str tde_name: The name of the transparent data encryption configuration.
     """
     ...

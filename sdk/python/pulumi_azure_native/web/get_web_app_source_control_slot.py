@@ -170,7 +170,7 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlSlotResult:
     """
     Source control configuration for an app.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -208,7 +208,7 @@ def get_web_app_source_control_slot_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSourceControlSlotResult]:
     """
     Source control configuration for an app.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Watchlist")]
     public partial class Watchlist : Pulumi.CustomResource
     {
         /// <summary>
-        /// The content type of the raw content. Example : text/csv or text/tsv 
+        /// The content type of the raw content. For now, only text/csv is valid
         /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of lines in a csv/tsv content to skip before the header
+        /// The number of lines in a csv content to skip before the header
         /// </summary>
         [Output("numberOfLinesToSkip")]
         public Output<int?> NumberOfLinesToSkip { get; private set; } = null!;
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Provider { get; private set; } = null!;
 
         /// <summary>
-        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        /// The raw content that represents to watchlist items to create. Example : This line will be skipped
+        /// header1,header2
+        /// value1,value2
         /// </summary>
         [Output("rawContent")]
         public Output<string?> RawContent { get; private set; } = null!;
@@ -119,7 +121,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -137,7 +139,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.WatchlistUserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        /// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         /// </summary>
         [Output("uploadStatus")]
         public Output<string?> UploadStatus { get; private set; } = null!;
@@ -153,12 +155,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("watchlistId")]
         public Output<string?> WatchlistId { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of Watchlist Items in the Watchlist
-        /// </summary>
-        [Output("watchlistItemsCount")]
-        public Output<int?> WatchlistItemsCount { get; private set; } = null!;
 
         /// <summary>
         /// The type of the watchlist
@@ -226,7 +222,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class WatchlistArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type of the raw content. Example : text/csv or text/tsv 
+        /// The content type of the raw content. For now, only text/csv is valid
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -286,16 +282,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
 
         /// <summary>
-        /// The number of lines in a csv/tsv content to skip before the header
+        /// The number of lines in a csv content to skip before the header
         /// </summary>
         [Input("numberOfLinesToSkip")]
         public Input<int>? NumberOfLinesToSkip { get; set; }
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The provider of the watchlist
@@ -304,7 +294,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> Provider { get; set; } = null!;
 
         /// <summary>
-        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        /// The raw content that represents to watchlist items to create. Example : This line will be skipped
+        /// header1,header2
+        /// value1,value2
         /// </summary>
         [Input("rawContent")]
         public Input<string>? RawContent { get; set; }
@@ -340,7 +332,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.WatchlistUserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
-        /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        /// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         /// </summary>
         [Input("uploadStatus")]
         public Input<string>? UploadStatus { get; set; }
@@ -356,12 +348,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("watchlistId")]
         public Input<string>? WatchlistId { get; set; }
-
-        /// <summary>
-        /// The number of Watchlist Items in the Watchlist
-        /// </summary>
-        [Input("watchlistItemsCount")]
-        public Input<int>? WatchlistItemsCount { get; set; }
 
         /// <summary>
         /// The type of the watchlist

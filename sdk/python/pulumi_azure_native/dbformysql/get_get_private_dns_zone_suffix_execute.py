@@ -45,7 +45,7 @@ class AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(GetGetPrivateDnsZoneSuffi
 def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGetPrivateDnsZoneSuffixExecuteResult:
     """
     The response of get private dns zone suffix.
-    API Version: 2021-05-01-preview.
+    API Version: 2021-05-01.
     """
     __args__ = dict()
     if opts is None:

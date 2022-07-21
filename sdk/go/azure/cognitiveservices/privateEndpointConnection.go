@@ -12,11 +12,11 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2017-04-18.
+// API Version: 2022-03-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Entity Tag
+	// Resource Etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The location of the private endpoint connection
 	Location pulumi.StringPtrOutput `pulumi:"location"`
@@ -24,6 +24,8 @@ type PrivateEndpointConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource properties.
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -151,7 +153,7 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
-// Entity Tag
+// Resource Etag.
 func (o PrivateEndpointConnectionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
@@ -171,6 +173,11 @@ func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionP
 	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointConnectionPropertiesResponseOutput {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

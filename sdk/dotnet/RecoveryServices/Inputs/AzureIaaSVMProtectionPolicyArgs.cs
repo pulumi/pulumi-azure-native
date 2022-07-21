@@ -31,11 +31,26 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("instantRpRetentionRangeInDays")]
         public Input<int>? InstantRpRetentionRangeInDays { get; set; }
 
+        [Input("policyType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.IAASVMPolicyType>? PolicyType { get; set; }
+
         /// <summary>
         /// Number of items associated with this policy.
         /// </summary>
         [Input("protectedItemsCount")]
         public Input<int>? ProtectedItemsCount { get; set; }
+
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
 
         /// <summary>
         /// Retention policy with the details on backup copy retention ranges.

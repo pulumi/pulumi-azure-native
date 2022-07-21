@@ -15,6 +15,24 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
     {
+        [Input("defaultSecurityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _defaultSecurityRules;
+
+        /// <summary>
+        /// The default security rules of network security group.
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> DefaultSecurityRules
+        {
+            get => _defaultSecurityRules ?? (_defaultSecurityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _defaultSecurityRules = value;
+        }
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,6 +44,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The resource GUID property of the network security group resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("securityRules")]
         private InputList<Inputs.SecurityRuleArgs>? _securityRules;

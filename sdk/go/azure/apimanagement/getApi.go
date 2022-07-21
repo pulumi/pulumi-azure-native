@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api details.
-// API Version: 2020-12-01.
+// API details.
+// API Version: 2021-08-01.
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	var rv LookupApiResult
 	err := ctx.Invoke("azure-native:apimanagement:getApi", args, &rv, opts...)
@@ -30,17 +30,17 @@ type LookupApiArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// Api details.
+// API details.
 type LookupApiResult struct {
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType *string `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet *ApiVersionSetContractDetailsResponse `pulumi:"apiVersionSet"`
@@ -48,17 +48,21 @@ type LookupApiResult struct {
 	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
 	// Collection of authentication settings included into this API.
 	AuthenticationSettings *AuthenticationSettingsContractResponse `pulumi:"authenticationSettings"`
+	// Contact information for the API.
+	Contact *ApiContactInformationResponse `pulumi:"contact"`
 	// Description of the API. May include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// API name. Must be 1 to 300 characters long.
 	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Indicates if API revision is current api revision.
 	IsCurrent *bool `pulumi:"isCurrent"`
 	// Indicates if API revision is accessible via the gateway.
 	IsOnline bool `pulumi:"isOnline"`
-	// Resource name.
+	// License information for the API.
+	License *ApiLicenseInformationResponse `pulumi:"license"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path string `pulumi:"path"`
@@ -72,7 +76,9 @@ type LookupApiResult struct {
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractResponse `pulumi:"subscriptionKeyParameterNames"`
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
-	// Resource type for API Management resource.
+	//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+	TermsOfServiceUrl *string `pulumi:"termsOfServiceUrl"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -102,7 +108,7 @@ func (LookupApiOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupApiArgs)(nil)).Elem()
 }
 
-// Api details.
+// API details.
 type LookupApiResultOutput struct{ *pulumi.OutputState }
 
 func (LookupApiResultOutput) ElementType() reflect.Type {
@@ -117,12 +123,12 @@ func (o LookupApiResultOutput) ToLookupApiResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+// Describes the revision of the API. If no value is provided, default revision 1 is created
 func (o LookupApiResultOutput) ApiRevision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiRevision }).(pulumi.StringPtrOutput)
 }
 
-// Description of the Api Revision.
+// Description of the API Revision.
 func (o LookupApiResultOutput) ApiRevisionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiRevisionDescription }).(pulumi.StringPtrOutput)
 }
@@ -132,12 +138,12 @@ func (o LookupApiResultOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the Version identifier of the API if the API is versioned
+// Indicates the version identifier of the API if the API is versioned
 func (o LookupApiResultOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
-// Description of the Api Version.
+// Description of the API Version.
 func (o LookupApiResultOutput) ApiVersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiVersionDescription }).(pulumi.StringPtrOutput)
 }
@@ -157,6 +163,11 @@ func (o LookupApiResultOutput) AuthenticationSettings() AuthenticationSettingsCo
 	return o.ApplyT(func(v LookupApiResult) *AuthenticationSettingsContractResponse { return v.AuthenticationSettings }).(AuthenticationSettingsContractResponsePtrOutput)
 }
 
+// Contact information for the API.
+func (o LookupApiResultOutput) Contact() ApiContactInformationResponsePtrOutput {
+	return o.ApplyT(func(v LookupApiResult) *ApiContactInformationResponse { return v.Contact }).(ApiContactInformationResponsePtrOutput)
+}
+
 // Description of the API. May include HTML formatting tags.
 func (o LookupApiResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -167,7 +178,7 @@ func (o LookupApiResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -182,7 +193,12 @@ func (o LookupApiResultOutput) IsOnline() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupApiResult) bool { return v.IsOnline }).(pulumi.BoolOutput)
 }
 
-// Resource name.
+// License information for the API.
+func (o LookupApiResultOutput) License() ApiLicenseInformationResponsePtrOutput {
+	return o.ApplyT(func(v LookupApiResult) *ApiLicenseInformationResponse { return v.License }).(ApiLicenseInformationResponsePtrOutput)
+}
+
+// The name of the resource
 func (o LookupApiResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -219,7 +235,12 @@ func (o LookupApiResultOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *bool { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type for API Management resource.
+//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+func (o LookupApiResultOutput) TermsOfServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiResult) *string { return v.TermsOfServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Type }).(pulumi.StringOutput)
 }

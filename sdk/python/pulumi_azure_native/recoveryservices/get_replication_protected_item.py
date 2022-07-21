@@ -100,7 +100,7 @@ def get_replication_protected_item(fabric_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectedItemResult:
     """
     Replication protected item.
-    API Version: 2018-07-10.
+    API Version: 2022-03-01.
 
 
     :param str fabric_name: Fabric unique name.
@@ -138,7 +138,7 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectedItemResult]:
     """
     Replication protected item.
-    API Version: 2018-07-10.
+    API Version: 2022-03-01.
 
 
     :param str fabric_name: Fabric unique name.

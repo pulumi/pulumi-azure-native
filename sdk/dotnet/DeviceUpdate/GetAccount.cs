@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     {
         /// <summary>
         /// Device Update account details.
-        /// API Version: 2020-03-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Device Update account details.
-        /// API Version: 2020-03-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Device Update account primary and failover location details
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LocationResponse> Locations;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -101,6 +105,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// Whether or not public network access is allowed for the account.
         /// </summary>
         public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        public readonly string? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -124,6 +132,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string location,
 
+            ImmutableArray<Outputs.LocationResponse> locations,
+
             string name,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
@@ -131,6 +141,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
             string provisioningState,
 
             string? publicNetworkAccess,
+
+            string? sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -142,10 +154,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
             Id = id;
             Identity = identity;
             Location = location;
+            Locations = locations;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen 2 file system data set.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getADLSGen2FileSystemDataSet(args: GetADLSGen2FileSystemDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FileSystemDataSetResult> {
     if (!opts) {

@@ -11,7 +11,7 @@ import (
 )
 
 // List of virtual network gateway routes.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func GetVirtualNetworkGatewayAdvertisedRoutes(ctx *pulumi.Context, args *GetVirtualNetworkGatewayAdvertisedRoutesArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayAdvertisedRoutesResult, error) {
 	var rv GetVirtualNetworkGatewayAdvertisedRoutesResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes", args, &rv, opts...)

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The device registration key.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceRegistrationKeyResult> {
     if (!opts) {

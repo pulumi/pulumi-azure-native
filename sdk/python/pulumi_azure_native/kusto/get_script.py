@@ -89,9 +89,9 @@ class GetScriptResult:
 
     @property
     @pulumi.getter(name="scriptUrl")
-    def script_url(self) -> str:
+    def script_url(self) -> Optional[str]:
         """
-        The url to the KQL script blob file.
+        The url to the KQL script blob file. Must not be used together with scriptContent property
         """
         return pulumi.get(self, "script_url")
 
@@ -135,7 +135,7 @@ def get_script(cluster_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
     """
     Class representing a database script.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -173,7 +173,7 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptResult]:
     """
     Class representing a database script.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

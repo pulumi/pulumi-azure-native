@@ -11,7 +11,7 @@ import (
 )
 
 // The result of a request to list events for a webhook.
-// API Version: 2019-05-01.
+// API Version: 2021-09-01.
 func ListWebhookEvents(ctx *pulumi.Context, args *ListWebhookEventsArgs, opts ...pulumi.InvokeOption) (*ListWebhookEventsResult, error) {
 	var rv ListWebhookEventsResult
 	err := ctx.Invoke("azure-native:containerregistry:listWebhookEvents", args, &rv, opts...)

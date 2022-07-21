@@ -109,7 +109,7 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlTriggerResult:
     """
     An Azure Cosmos DB trigger.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -148,7 +148,7 @@ def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlTriggerResult]:
     """
     An Azure Cosmos DB trigger.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

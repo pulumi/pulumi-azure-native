@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The order details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithDefaults());
 
         /// <summary>
         /// The order details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// It specify the order api version.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -93,6 +97,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// List of status changes in the order.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrderStatusResponse> OrderHistory;
+        /// <summary>
+        /// It specify the order resource id.
+        /// </summary>
+        public readonly string OrderId;
         /// <summary>
         /// Tracking information for the package returned from the customer whether it has an original or a replacement device.
         /// </summary>
@@ -110,6 +118,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly Outputs.AddressResponse? ShippingAddress;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of Order
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -124,9 +136,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string id,
 
+            string kind,
+
             string name,
 
             ImmutableArray<Outputs.OrderStatusResponse> orderHistory,
+
+            string orderId,
 
             ImmutableArray<Outputs.TrackingInfoResponse> returnTrackingInfo,
 
@@ -136,18 +152,23 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             Outputs.AddressResponse? shippingAddress,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ContactInformation = contactInformation;
             CurrentStatus = currentStatus;
             DeliveryTrackingInfo = deliveryTrackingInfo;
             Id = id;
+            Kind = kind;
             Name = name;
             OrderHistory = orderHistory;
+            OrderId = orderId;
             ReturnTrackingInfo = returnTrackingInfo;
             SerialNumber = serialNumber;
             ShipmentType = shipmentType;
             ShippingAddress = shippingAddress;
+            SystemData = systemData;
             Type = type;
         }
     }

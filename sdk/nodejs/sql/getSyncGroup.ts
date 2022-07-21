@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database sync group.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
     if (!opts) {

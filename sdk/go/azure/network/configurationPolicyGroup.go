@@ -12,7 +12,7 @@ import (
 )
 
 // VpnServerConfigurationPolicyGroup Resource.
-// API Version: 2022-01-01.
+// API Version: 2021-08-01.
 type ConfigurationPolicyGroup struct {
 	pulumi.CustomResourceState
 

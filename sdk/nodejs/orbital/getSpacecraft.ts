@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a spacecraft resource to schedule a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export function getSpacecraft(args: GetSpacecraftArgs, opts?: pulumi.InvokeOptions): Promise<GetSpacecraftResult> {
     if (!opts) {
@@ -27,7 +27,7 @@ export interface GetSpacecraftArgs {
      */
     resourceGroupName: string;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: string;
 }
@@ -37,14 +37,6 @@ export interface GetSpacecraftArgs {
  */
 export interface GetSpacecraftResult {
     /**
-     * Authorization status of spacecraft.
-     */
-    readonly authorizationStatus: string;
-    /**
-     * Details of the authorization status.
-     */
-    readonly authorizationStatusExtended: string;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -53,7 +45,7 @@ export interface GetSpacecraftResult {
      */
     readonly id: string;
     /**
-     * Links of the Spacecraft
+     * Immutable list of Spacecraft links.
      */
     readonly links?: outputs.orbital.SpacecraftLinkResponse[];
     /**
@@ -77,15 +69,15 @@ export interface GetSpacecraftResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Title line of Two Line Element (TLE).
+     * Title line of the two-line element set (TLE).
      */
     readonly titleLine?: string;
     /**
-     * Line 1 of Two Line Element (TLE).
+     * Line 1 of the two-line element set (TLE).
      */
     readonly tleLine1?: string;
     /**
-     * Line 2 of Two Line Element (TLE).
+     * Line 2 of the two-line element set (TLE).
      */
     readonly tleLine2?: string;
     /**
@@ -104,7 +96,7 @@ export interface GetSpacecraftOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: pulumi.Input<string>;
 }

@@ -22,28 +22,53 @@ const (
 	BackupModeExistingBackup = BackupMode("ExistingBackup")
 )
 
+// Describes how changes will be replicated from the source to the target. The default is OneTime.
+type MongoDbReplication string
+
+const (
+	MongoDbReplicationDisabled   = MongoDbReplication("Disabled")
+	MongoDbReplicationOneTime    = MongoDbReplication("OneTime")
+	MongoDbReplicationContinuous = MongoDbReplication("Continuous")
+)
+
+// The field ordering
+type MongoDbShardKeyOrder string
+
+const (
+	MongoDbShardKeyOrderForward = MongoDbShardKeyOrder("Forward")
+	MongoDbShardKeyOrderReverse = MongoDbShardKeyOrder("Reverse")
+	MongoDbShardKeyOrderHashed  = MongoDbShardKeyOrder("Hashed")
+)
+
+// Target Platform for the migration
+type MySqlTargetPlatformType string
+
+const (
+	MySqlTargetPlatformTypeSqlServer       = MySqlTargetPlatformType("SqlServer")
+	MySqlTargetPlatformTypeAzureDbForMySQL = MySqlTargetPlatformType("AzureDbForMySQL")
+)
+
 // Source platform for the project
 type ProjectSourcePlatform string
 
 const (
-	ProjectSourcePlatformSQL     = ProjectSourcePlatform("SQL")
-	ProjectSourcePlatformUnknown = ProjectSourcePlatform("Unknown")
+	ProjectSourcePlatformSQL        = ProjectSourcePlatform("SQL")
+	ProjectSourcePlatformMySQL      = ProjectSourcePlatform("MySQL")
+	ProjectSourcePlatformPostgreSql = ProjectSourcePlatform("PostgreSql")
+	ProjectSourcePlatformMongoDb    = ProjectSourcePlatform("MongoDb")
+	ProjectSourcePlatformUnknown    = ProjectSourcePlatform("Unknown")
 )
 
 // Target platform for the project
 type ProjectTargetPlatform string
 
 const (
-	ProjectTargetPlatformSQLDB   = ProjectTargetPlatform("SQLDB")
-	ProjectTargetPlatformUnknown = ProjectTargetPlatform("Unknown")
-)
-
-type ResourceType string
-
-const (
-	ResourceTypeSqlMi = ResourceType("SqlMi")
-	ResourceTypeSqlVm = ResourceType("SqlVm")
-	ResourceTypeSqlDb = ResourceType("SqlDb")
+	ProjectTargetPlatformSQLDB                = ProjectTargetPlatform("SQLDB")
+	ProjectTargetPlatformSQLMI                = ProjectTargetPlatform("SQLMI")
+	ProjectTargetPlatformAzureDbForMySql      = ProjectTargetPlatform("AzureDbForMySql")
+	ProjectTargetPlatformAzureDbForPostgreSql = ProjectTargetPlatform("AzureDbForPostgreSql")
+	ProjectTargetPlatformMongoDb              = ProjectTargetPlatform("MongoDb")
+	ProjectTargetPlatformUnknown              = ProjectTargetPlatform("Unknown")
 )
 
 // Permission group for validations
@@ -61,6 +86,21 @@ type SqlSourcePlatform string
 
 const (
 	SqlSourcePlatformSqlOnPrem = SqlSourcePlatform("SqlOnPrem")
+)
+
+// The overwrite option for the SSIS project migration
+type SsisMigrationOverwriteOption string
+
+const (
+	SsisMigrationOverwriteOptionIgnore    = SsisMigrationOverwriteOption("Ignore")
+	SsisMigrationOverwriteOptionOverwrite = SsisMigrationOverwriteOption("Overwrite")
+)
+
+// The SSIS store type of source, only SSIS catalog is supported now in DMS
+type SsisStoreType string
+
+const (
+	SsisStoreTypeSsisCatalog = SsisStoreType("SsisCatalog")
 )
 
 func init() {

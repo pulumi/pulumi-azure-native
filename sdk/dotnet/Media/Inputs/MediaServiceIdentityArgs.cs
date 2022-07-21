@@ -16,7 +16,19 @@ namespace Pulumi.AzureNative.Media.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Media.ManagedIdentityType> Type { get; set; } = null!;
+        public Input<string> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The user assigned managed identities.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
+        }
 
         public MediaServiceIdentityArgs()
         {

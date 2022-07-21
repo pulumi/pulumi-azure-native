@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for MSIX Package properties.
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-07-12.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
     if (!opts) {

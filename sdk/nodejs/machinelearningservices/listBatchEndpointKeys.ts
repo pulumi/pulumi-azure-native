@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Keys for endpoint authentication.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function listBatchEndpointKeys(args: ListBatchEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchEndpointKeysResult> {
     if (!opts) {

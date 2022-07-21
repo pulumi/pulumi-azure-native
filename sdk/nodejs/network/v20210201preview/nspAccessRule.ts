@@ -124,8 +124,6 @@ export class NspAccessRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NspAccessRule" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NspAccessRule.__pulumiType, name, resourceInputs, opts);
     }
 }

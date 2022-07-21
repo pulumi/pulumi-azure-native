@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for backup items.
- * API Version: 2021-02-01.
+ * API Version: 2022-03-01.
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**

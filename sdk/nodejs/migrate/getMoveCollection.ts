@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the move collection.
- * API Version: 2021-01-01.
+ * API Version: 2021-08-01.
  */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
     if (!opts) {
@@ -60,6 +60,10 @@ export interface GetMoveCollectionResult {
      * Defines the move collection properties.
      */
     readonly properties: outputs.migrate.MoveCollectionPropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.migrate.SystemDataResponse;
     /**
      * Resource tags.
      */

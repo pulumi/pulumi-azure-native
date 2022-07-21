@@ -11,7 +11,7 @@ import (
 )
 
 // The representation of an edge module.
-// API Version: 2021-05-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupEdgeModule(ctx *pulumi.Context, args *LookupEdgeModuleArgs, opts ...pulumi.InvokeOption) (*LookupEdgeModuleResult, error) {
 	var rv LookupEdgeModuleResult
 	err := ctx.Invoke("azure-native:videoanalyzer:getEdgeModule", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupEdgeModule(ctx *pulumi.Context, args *LookupEdgeModuleArgs, opts ...p
 type LookupEdgeModuleArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName string `pulumi:"accountName"`
-	// The name of the edge module to retrieve.
+	// The Edge Module name.
 	EdgeModuleName string `pulumi:"edgeModuleName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -38,7 +38,7 @@ type LookupEdgeModuleResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -60,7 +60,7 @@ func LookupEdgeModuleOutput(ctx *pulumi.Context, args LookupEdgeModuleOutputArgs
 type LookupEdgeModuleOutputArgs struct {
 	// The Azure Video Analyzer account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The name of the edge module to retrieve.
+	// The Edge Module name.
 	EdgeModuleName pulumi.StringInput `pulumi:"edgeModuleName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -100,7 +100,7 @@ func (o LookupEdgeModuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEdgeModuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupEdgeModuleResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupEdgeModuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

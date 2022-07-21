@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service plan.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     if (!opts) {
@@ -36,6 +36,14 @@ export interface GetAppServicePlanArgs {
  * App Service plan.
  */
 export interface GetAppServicePlanResult {
+    /**
+     * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+     */
+    readonly elasticScaleEnabled?: boolean;
+    /**
+     * Extended Location.
+     */
+    readonly extendedLocation?: outputs.web.ExtendedLocationResponse;
     /**
      * The time when the server farm free offer expires.
      */
@@ -145,6 +153,11 @@ export interface GetAppServicePlanResult {
      * Target worker tier assigned to the App Service plan.
      */
     readonly workerTierName?: string;
+    /**
+     * If <code>true</code>, this App Service Plan will perform availability zone balancing.
+     * If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+     */
+    readonly zoneRedundant?: boolean;
 }
 
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {

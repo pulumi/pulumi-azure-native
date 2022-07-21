@@ -13,54 +13,86 @@ import (
 
 // The manged cluster resource
 //
-// API Version: 2020-01-01-preview.
+// API Version: 2022-01-01.
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
-	// client certificates for the cluster.
+	// List of add-on features to enable on the cluster.
 	AddonFeatures pulumi.StringArrayOutput `pulumi:"addonFeatures"`
-	// vm admin user password.
+	// VM admin user password.
 	AdminPassword pulumi.StringPtrOutput `pulumi:"adminPassword"`
-	// vm admin user name.
+	// VM admin user name.
 	AdminUserName pulumi.StringOutput `pulumi:"adminUserName"`
-	// Azure active directory.
+	// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+	AllowRdpAccess pulumi.BoolPtrOutput `pulumi:"allowRdpAccess"`
+	// The policy used to clean up unused versions.
+	ApplicationTypeVersionsCleanupPolicy ApplicationTypeVersionsCleanupPolicyResponsePtrOutput `pulumi:"applicationTypeVersionsCleanupPolicy"`
+	// Auxiliary subnets for the cluster.
+	AuxiliarySubnets SubnetResponseArrayOutput `pulumi:"auxiliarySubnets"`
+	// The AAD authentication settings of the cluster.
 	AzureActiveDirectory AzureActiveDirectoryResponsePtrOutput `pulumi:"azureActiveDirectory"`
 	// The port used for client connections to the cluster.
 	ClientConnectionPort pulumi.IntPtrOutput `pulumi:"clientConnectionPort"`
-	// client certificates for the cluster.
+	// Client certificates that are allowed to manage the cluster.
 	Clients ClientCertificateResponseArrayOutput `pulumi:"clients"`
-	// The cluster certificate thumbprint used node to node communication.
-	ClusterCertificateThumbprint pulumi.StringOutput `pulumi:"clusterCertificateThumbprint"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	// List of thumbprints of the cluster certificates.
+	ClusterCertificateThumbprints pulumi.StringArrayOutput `pulumi:"clusterCertificateThumbprints"`
+	// The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion pulumi.StringPtrOutput `pulumi:"clusterCodeVersion"`
 	// A service generated unique identifier for the cluster resource.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The current state of the cluster.
 	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
+	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+	ClusterUpgradeCadence pulumi.StringPtrOutput `pulumi:"clusterUpgradeCadence"`
+	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	ClusterUpgradeMode pulumi.StringPtrOutput `pulumi:"clusterUpgradeMode"`
 	// The cluster dns name.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+	EnableAutoOSUpgrade pulumi.BoolPtrOutput `pulumi:"enableAutoOSUpgrade"`
+	// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+	EnableIpv6 pulumi.BoolPtrOutput `pulumi:"enableIpv6"`
+	// Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+	EnableServicePublicIP pulumi.BoolPtrOutput `pulumi:"enableServicePublicIP"`
 	// Azure resource etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings SettingsSectionDescriptionResponseArrayOutput `pulumi:"fabricSettings"`
-	// the cluster Fully qualified domain name.
+	// The fully qualified domain name associated with the public load balancer of the cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The port used for http connections to the cluster.
+	// The port used for HTTP connections to the cluster.
 	HttpGatewayConnectionPort pulumi.IntPtrOutput `pulumi:"httpGatewayConnectionPort"`
-	// Describes load balancing rules.
+	// The list of IP tags associated with the default public IP address of the cluster.
+	IpTags IPTagResponseArrayOutput `pulumi:"ipTags"`
+	// The IPv4 address associated with the public load balancer of the cluster.
+	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
+	// IPv6 address for the cluster if IPv6 is enabled.
+	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
+	// Load balancing rules that are applied to the public load balancer of the cluster.
 	LoadBalancingRules LoadBalancingRuleResponseArrayOutput `pulumi:"loadBalancingRules"`
 	// Azure resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+	NetworkSecurityRules NetworkSecurityRuleResponseArrayOutput `pulumi:"networkSecurityRules"`
 	// The provisioning state of the managed cluster resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Service endpoints for subnets in the cluster.
+	ServiceEndpoints ServiceEndpointResponseArrayOutput `pulumi:"serviceEndpoints"`
 	// The sku of the managed cluster
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Indicates if the cluster has zone resiliency.
+	ZonalResiliency pulumi.BoolPtrOutput `pulumi:"zonalResiliency"`
 }
 
 // NewManagedCluster registers a new resource with the given unique name, arguments, and options.
@@ -84,6 +116,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 	}
 	if isZero(args.HttpGatewayConnectionPort) {
 		args.HttpGatewayConnectionPort = pulumi.IntPtr(19080)
+	}
+	if isZero(args.ZonalResiliency) {
+		args.ZonalResiliency = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -144,74 +179,126 @@ func (ManagedClusterState) ElementType() reflect.Type {
 }
 
 type managedClusterArgs struct {
-	// client certificates for the cluster.
+	// List of add-on features to enable on the cluster.
 	AddonFeatures []string `pulumi:"addonFeatures"`
-	// vm admin user password.
+	// VM admin user password.
 	AdminPassword *string `pulumi:"adminPassword"`
-	// vm admin user name.
+	// VM admin user name.
 	AdminUserName string `pulumi:"adminUserName"`
-	// Azure active directory.
+	// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+	AllowRdpAccess *bool `pulumi:"allowRdpAccess"`
+	// The policy used to clean up unused versions.
+	ApplicationTypeVersionsCleanupPolicy *ApplicationTypeVersionsCleanupPolicy `pulumi:"applicationTypeVersionsCleanupPolicy"`
+	// Auxiliary subnets for the cluster.
+	AuxiliarySubnets []Subnet `pulumi:"auxiliarySubnets"`
+	// The AAD authentication settings of the cluster.
 	AzureActiveDirectory *AzureActiveDirectory `pulumi:"azureActiveDirectory"`
 	// The port used for client connections to the cluster.
 	ClientConnectionPort *int `pulumi:"clientConnectionPort"`
-	// client certificates for the cluster.
+	// Client certificates that are allowed to manage the cluster.
 	Clients []ClientCertificate `pulumi:"clients"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	// The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
 	// The name of the cluster resource.
 	ClusterName *string `pulumi:"clusterName"`
+	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+	ClusterUpgradeCadence *string `pulumi:"clusterUpgradeCadence"`
+	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	ClusterUpgradeMode *string `pulumi:"clusterUpgradeMode"`
 	// The cluster dns name.
 	DnsName string `pulumi:"dnsName"`
+	// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+	EnableAutoOSUpgrade *bool `pulumi:"enableAutoOSUpgrade"`
+	// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+	EnableIpv6 *bool `pulumi:"enableIpv6"`
+	// Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+	EnableServicePublicIP *bool `pulumi:"enableServicePublicIP"`
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings []SettingsSectionDescription `pulumi:"fabricSettings"`
-	// The port used for http connections to the cluster.
+	// The port used for HTTP connections to the cluster.
 	HttpGatewayConnectionPort *int `pulumi:"httpGatewayConnectionPort"`
-	// Describes load balancing rules.
+	// The list of IP tags associated with the default public IP address of the cluster.
+	IpTags []IPTag `pulumi:"ipTags"`
+	// Load balancing rules that are applied to the public load balancer of the cluster.
 	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
+	// Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+	NetworkSecurityRules []NetworkSecurityRule `pulumi:"networkSecurityRules"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Service endpoints for subnets in the cluster.
+	ServiceEndpoints []ServiceEndpoint `pulumi:"serviceEndpoints"`
 	// The sku of the managed cluster
 	Sku *Sku `pulumi:"sku"`
+	// If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+	SubnetId *string `pulumi:"subnetId"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Indicates if the cluster has zone resiliency.
+	ZonalResiliency *bool `pulumi:"zonalResiliency"`
 }
 
 // The set of arguments for constructing a ManagedCluster resource.
 type ManagedClusterArgs struct {
-	// client certificates for the cluster.
+	// List of add-on features to enable on the cluster.
 	AddonFeatures pulumi.StringArrayInput
-	// vm admin user password.
+	// VM admin user password.
 	AdminPassword pulumi.StringPtrInput
-	// vm admin user name.
+	// VM admin user name.
 	AdminUserName pulumi.StringInput
-	// Azure active directory.
+	// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+	AllowRdpAccess pulumi.BoolPtrInput
+	// The policy used to clean up unused versions.
+	ApplicationTypeVersionsCleanupPolicy ApplicationTypeVersionsCleanupPolicyPtrInput
+	// Auxiliary subnets for the cluster.
+	AuxiliarySubnets SubnetArrayInput
+	// The AAD authentication settings of the cluster.
 	AzureActiveDirectory AzureActiveDirectoryPtrInput
 	// The port used for client connections to the cluster.
 	ClientConnectionPort pulumi.IntPtrInput
-	// client certificates for the cluster.
+	// Client certificates that are allowed to manage the cluster.
 	Clients ClientCertificateArrayInput
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	// The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion pulumi.StringPtrInput
 	// The name of the cluster resource.
 	ClusterName pulumi.StringPtrInput
+	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+	ClusterUpgradeCadence pulumi.StringPtrInput
+	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	ClusterUpgradeMode pulumi.StringPtrInput
 	// The cluster dns name.
 	DnsName pulumi.StringInput
+	// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+	EnableAutoOSUpgrade pulumi.BoolPtrInput
+	// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+	EnableIpv6 pulumi.BoolPtrInput
+	// Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+	EnableServicePublicIP pulumi.BoolPtrInput
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings SettingsSectionDescriptionArrayInput
-	// The port used for http connections to the cluster.
+	// The port used for HTTP connections to the cluster.
 	HttpGatewayConnectionPort pulumi.IntPtrInput
-	// Describes load balancing rules.
+	// The list of IP tags associated with the default public IP address of the cluster.
+	IpTags IPTagArrayInput
+	// Load balancing rules that are applied to the public load balancer of the cluster.
 	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Azure resource location.
 	Location pulumi.StringPtrInput
+	// Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+	NetworkSecurityRules NetworkSecurityRuleArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Service endpoints for subnets in the cluster.
+	ServiceEndpoints ServiceEndpointArrayInput
 	// The sku of the managed cluster
 	Sku SkuPtrInput
+	// If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+	SubnetId pulumi.StringPtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
+	// Indicates if the cluster has zone resiliency.
+	ZonalResiliency pulumi.BoolPtrInput
 }
 
 func (ManagedClusterArgs) ElementType() reflect.Type {
@@ -251,22 +338,39 @@ func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// client certificates for the cluster.
+// List of add-on features to enable on the cluster.
 func (o ManagedClusterOutput) AddonFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringArrayOutput { return v.AddonFeatures }).(pulumi.StringArrayOutput)
 }
 
-// vm admin user password.
+// VM admin user password.
 func (o ManagedClusterOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// vm admin user name.
+// VM admin user name.
 func (o ManagedClusterOutput) AdminUserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.AdminUserName }).(pulumi.StringOutput)
 }
 
-// Azure active directory.
+// Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+func (o ManagedClusterOutput) AllowRdpAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.AllowRdpAccess }).(pulumi.BoolPtrOutput)
+}
+
+// The policy used to clean up unused versions.
+func (o ManagedClusterOutput) ApplicationTypeVersionsCleanupPolicy() ApplicationTypeVersionsCleanupPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ApplicationTypeVersionsCleanupPolicyResponsePtrOutput {
+		return v.ApplicationTypeVersionsCleanupPolicy
+	}).(ApplicationTypeVersionsCleanupPolicyResponsePtrOutput)
+}
+
+// Auxiliary subnets for the cluster.
+func (o ManagedClusterOutput) AuxiliarySubnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) SubnetResponseArrayOutput { return v.AuxiliarySubnets }).(SubnetResponseArrayOutput)
+}
+
+// The AAD authentication settings of the cluster.
 func (o ManagedClusterOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) AzureActiveDirectoryResponsePtrOutput { return v.AzureActiveDirectory }).(AzureActiveDirectoryResponsePtrOutput)
 }
@@ -276,17 +380,17 @@ func (o ManagedClusterOutput) ClientConnectionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.IntPtrOutput { return v.ClientConnectionPort }).(pulumi.IntPtrOutput)
 }
 
-// client certificates for the cluster.
+// Client certificates that are allowed to manage the cluster.
 func (o ManagedClusterOutput) Clients() ClientCertificateResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedCluster) ClientCertificateResponseArrayOutput { return v.Clients }).(ClientCertificateResponseArrayOutput)
 }
 
-// The cluster certificate thumbprint used node to node communication.
-func (o ManagedClusterOutput) ClusterCertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.ClusterCertificateThumbprint }).(pulumi.StringOutput)
+// List of thumbprints of the cluster certificates.
+func (o ManagedClusterOutput) ClusterCertificateThumbprints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringArrayOutput { return v.ClusterCertificateThumbprints }).(pulumi.StringArrayOutput)
 }
 
-// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+// The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 func (o ManagedClusterOutput) ClusterCodeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.ClusterCodeVersion }).(pulumi.StringPtrOutput)
 }
@@ -301,9 +405,34 @@ func (o ManagedClusterOutput) ClusterState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
 }
 
+// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+func (o ManagedClusterOutput) ClusterUpgradeCadence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.ClusterUpgradeCadence }).(pulumi.StringPtrOutput)
+}
+
+// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+func (o ManagedClusterOutput) ClusterUpgradeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.ClusterUpgradeMode }).(pulumi.StringPtrOutput)
+}
+
 // The cluster dns name.
 func (o ManagedClusterOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+func (o ManagedClusterOutput) EnableAutoOSUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.EnableAutoOSUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+func (o ManagedClusterOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.EnableIpv6 }).(pulumi.BoolPtrOutput)
+}
+
+// Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+func (o ManagedClusterOutput) EnableServicePublicIP() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.EnableServicePublicIP }).(pulumi.BoolPtrOutput)
 }
 
 // Azure resource etag.
@@ -316,17 +445,32 @@ func (o ManagedClusterOutput) FabricSettings() SettingsSectionDescriptionRespons
 	return o.ApplyT(func(v *ManagedCluster) SettingsSectionDescriptionResponseArrayOutput { return v.FabricSettings }).(SettingsSectionDescriptionResponseArrayOutput)
 }
 
-// the cluster Fully qualified domain name.
+// The fully qualified domain name associated with the public load balancer of the cluster.
 func (o ManagedClusterOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The port used for http connections to the cluster.
+// The port used for HTTP connections to the cluster.
 func (o ManagedClusterOutput) HttpGatewayConnectionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.IntPtrOutput { return v.HttpGatewayConnectionPort }).(pulumi.IntPtrOutput)
 }
 
-// Describes load balancing rules.
+// The list of IP tags associated with the default public IP address of the cluster.
+func (o ManagedClusterOutput) IpTags() IPTagResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) IPTagResponseArrayOutput { return v.IpTags }).(IPTagResponseArrayOutput)
+}
+
+// The IPv4 address associated with the public load balancer of the cluster.
+func (o ManagedClusterOutput) Ipv4Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Ipv4Address }).(pulumi.StringOutput)
+}
+
+// IPv6 address for the cluster if IPv6 is enabled.
+func (o ManagedClusterOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Ipv6Address }).(pulumi.StringOutput)
+}
+
+// Load balancing rules that are applied to the public load balancer of the cluster.
 func (o ManagedClusterOutput) LoadBalancingRules() LoadBalancingRuleResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedCluster) LoadBalancingRuleResponseArrayOutput { return v.LoadBalancingRules }).(LoadBalancingRuleResponseArrayOutput)
 }
@@ -341,14 +485,34 @@ func (o ManagedClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+func (o ManagedClusterOutput) NetworkSecurityRules() NetworkSecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) NetworkSecurityRuleResponseArrayOutput { return v.NetworkSecurityRules }).(NetworkSecurityRuleResponseArrayOutput)
+}
+
 // The provisioning state of the managed cluster resource.
 func (o ManagedClusterOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Service endpoints for subnets in the cluster.
+func (o ManagedClusterOutput) ServiceEndpoints() ServiceEndpointResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) ServiceEndpointResponseArrayOutput { return v.ServiceEndpoints }).(ServiceEndpointResponseArrayOutput)
+}
+
 // The sku of the managed cluster
 func (o ManagedClusterOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+func (o ManagedClusterOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ManagedClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagedCluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Azure resource tags.
@@ -359,6 +523,11 @@ func (o ManagedClusterOutput) Tags() pulumi.StringMapOutput {
 // Azure resource type.
 func (o ManagedClusterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Indicates if the cluster has zone resiliency.
+func (o ManagedClusterOutput) ZonalResiliency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.ZonalResiliency }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

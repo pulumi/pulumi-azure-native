@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for GetActiveSessions.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveSessionsResult> {
     if (!opts) {

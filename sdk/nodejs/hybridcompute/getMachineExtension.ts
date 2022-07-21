@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Machine Extension.
- * API Version: 2020-08-02.
+ * API Version: 2022-03-10.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
     if (!opts) {
@@ -17,7 +17,7 @@ export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridcompute:getMachineExtension", {
         "extensionName": args.extensionName,
-        "name": args.name,
+        "machineName": args.machineName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -30,9 +30,9 @@ export interface GetMachineExtensionArgs {
     /**
      * The name of the machine containing the extension.
      */
-    name: string;
+    machineName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -42,21 +42,9 @@ export interface GetMachineExtensionArgs {
  */
 export interface GetMachineExtensionResult {
     /**
-     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-     */
-    readonly autoUpgradeMinorVersion?: boolean;
-    /**
-     * How the extension handler should be forced to update even if the extension configuration has not changed.
-     */
-    readonly forceUpdateTag?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The machine extension instance view.
-     */
-    readonly instanceView?: outputs.hybridcompute.MachineExtensionPropertiesResponseInstanceView;
     /**
      * The geo-location where the resource lives
      */
@@ -66,21 +54,13 @@ export interface GetMachineExtensionResult {
      */
     readonly name: string;
     /**
-     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+     * Describes Machine Extension Properties.
      */
-    readonly protectedSettings?: any;
+    readonly properties: outputs.hybridcompute.MachineExtensionPropertiesResponse;
     /**
-     * The provisioning state, which only appears in the response.
+     * The system meta data relating to this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The name of the extension handler publisher.
-     */
-    readonly publisher?: string;
-    /**
-     * Json formatted public settings for the extension.
-     */
-    readonly settings?: any;
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -89,10 +69,6 @@ export interface GetMachineExtensionResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Specifies the version of the script handler.
-     */
-    readonly typeHandlerVersion?: string;
 }
 
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
@@ -107,9 +83,9 @@ export interface GetMachineExtensionOutputArgs {
     /**
      * The name of the machine containing the extension.
      */
-    name: pulumi.Input<string>;
+    machineName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

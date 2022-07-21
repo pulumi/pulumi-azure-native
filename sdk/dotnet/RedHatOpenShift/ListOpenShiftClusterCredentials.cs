@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     public static class ListOpenShiftClusterCredentials
     {
         /// <summary>
-        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
-        /// API Version: 2020-04-30.
+        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
-        /// API Version: 2020-04-30.
+        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<ListOpenShiftClusterCredentialsResult> Invoke(ListOpenShiftClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithDefaults());
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     public sealed class ListOpenShiftClusterCredentialsResult
     {
         /// <summary>
-        /// The password for the kubeadmin user
+        /// The password for the kubeadmin user.
         /// </summary>
         public readonly string? KubeadminPassword;
         /// <summary>
-        /// The username for the kubeadmin user
+        /// The username for the kubeadmin user.
         /// </summary>
         public readonly string? KubeadminUsername;
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
     if (!opts) {
@@ -42,9 +42,17 @@ export interface GetPrivateEndpointArgs {
  */
 export interface GetPrivateEndpointResult {
     /**
+     * Application security groups in which the private endpoint IP configuration is included.
+     */
+    readonly applicationSecurityGroups?: outputs.network.ApplicationSecurityGroupResponse[];
+    /**
      * An array of custom dns configurations.
      */
     readonly customDnsConfigs?: outputs.network.CustomDnsConfigPropertiesFormatResponse[];
+    /**
+     * The custom name of the network interface attached to the private endpoint.
+     */
+    readonly customNetworkInterfaceName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -57,6 +65,10 @@ export interface GetPrivateEndpointResult {
      * Resource ID.
      */
     readonly id?: string;
+    /**
+     * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+     */
+    readonly ipConfigurations?: outputs.network.PrivateEndpointIPConfigurationResponse[];
     /**
      * Resource location.
      */

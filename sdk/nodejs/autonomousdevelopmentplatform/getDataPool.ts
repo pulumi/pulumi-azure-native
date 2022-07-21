@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ADP Data Pool
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
     if (!opts) {
@@ -65,6 +65,10 @@ export interface GetDataPoolResult {
      * The system meta data relating to this resource
      */
     readonly systemData: outputs.autonomousdevelopmentplatform.SystemDataResponse;
+    /**
+     * Resource tags
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

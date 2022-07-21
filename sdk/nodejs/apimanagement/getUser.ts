@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * User details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
@@ -54,7 +54,7 @@ export interface GetUserResult {
      */
     readonly groups: outputs.apimanagement.GroupContractPropertiesResponse[];
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -66,7 +66,7 @@ export interface GetUserResult {
      */
     readonly lastName?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -82,7 +82,7 @@ export interface GetUserResult {
      */
     readonly state?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

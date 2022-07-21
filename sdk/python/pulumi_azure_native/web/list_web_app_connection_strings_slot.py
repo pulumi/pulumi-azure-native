@@ -98,7 +98,7 @@ def list_web_app_connection_strings_slot(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsSlotResult:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -130,7 +130,7 @@ def list_web_app_connection_strings_slot_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppConnectionStringsSlotResult]:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

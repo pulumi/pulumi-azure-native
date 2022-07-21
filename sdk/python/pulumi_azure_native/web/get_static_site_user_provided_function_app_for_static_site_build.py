@@ -122,7 +122,7 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult:
     """
     Static Site User Provided Function App ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str environment_name: The stage site identifier.
@@ -159,7 +159,7 @@ def get_static_site_user_provided_function_app_for_static_site_build_output(envi
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult]:
     """
     Static Site User Provided Function App ARM resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str environment_name: The stage site identifier.

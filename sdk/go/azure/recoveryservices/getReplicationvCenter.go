@@ -11,7 +11,7 @@ import (
 )
 
 // vCenter definition.
-// API Version: 2018-07-10.
+// API Version: 2022-03-01.
 func LookupReplicationvCenter(ctx *pulumi.Context, args *LookupReplicationvCenterArgs, opts ...pulumi.InvokeOption) (*LookupReplicationvCenterResult, error) {
 	var rv LookupReplicationvCenterResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationvCenter", args, &rv, opts...)
@@ -28,8 +28,8 @@ type LookupReplicationvCenterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
-	// vCenter name.
-	VCenterName string `pulumi:"vCenterName"`
+	// vcenter name.
+	VcenterName string `pulumi:"vcenterName"`
 }
 
 // vCenter definition.
@@ -66,8 +66,8 @@ type LookupReplicationvCenterOutputArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName pulumi.StringInput `pulumi:"resourceName"`
-	// vCenter name.
-	VCenterName pulumi.StringInput `pulumi:"vCenterName"`
+	// vcenter name.
+	VcenterName pulumi.StringInput `pulumi:"vcenterName"`
 }
 
 func (LookupReplicationvCenterOutputArgs) ElementType() reflect.Type {

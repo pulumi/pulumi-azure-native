@@ -11,14 +11,14 @@ import (
 )
 
 // Channel info.
-// API Version: 2021-10-15-preview.
+// API Version: 2022-06-15.
 func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.InvokeOption) (*LookupChannelResult, error) {
 	var rv LookupChannelResult
 	err := ctx.Invoke("azure-native:eventgrid:getChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return rv.Defaults(), nil
+	return &rv, nil
 }
 
 type LookupChannelArgs struct {
@@ -32,7 +32,7 @@ type LookupChannelArgs struct {
 
 // Channel info.
 type LookupChannelResult struct {
-	// The type of the event channel which represents the  direction flow of events.
+	// The type of the event channel which represents the direction flow of events.
 	ChannelType *string `pulumi:"channelType"`
 	// Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
 	// the channel and corresponding partner topic are deleted.
@@ -43,8 +43,6 @@ type LookupChannelResult struct {
 	MessageForActivation *string `pulumi:"messageForActivation"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
-	// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-	PartnerDestinationInfo *WebhookPartnerDestinationInfoResponse `pulumi:"partnerDestinationInfo"`
 	// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
 	PartnerTopicInfo *PartnerTopicInfoResponse `pulumi:"partnerTopicInfo"`
 	// Provisioning state of the channel.
@@ -55,17 +53,6 @@ type LookupChannelResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
-}
-
-// Defaults sets the appropriate defaults for LookupChannelResult
-func (val *LookupChannelResult) Defaults() *LookupChannelResult {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.PartnerDestinationInfo = tmp.PartnerDestinationInfo.Defaults()
-
-	return &tmp
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -109,7 +96,7 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx co
 	return o
 }
 
-// The type of the event channel which represents the  direction flow of events.
+// The type of the event channel which represents the direction flow of events.
 func (o LookupChannelResultOutput) ChannelType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ChannelType }).(pulumi.StringPtrOutput)
 }
@@ -133,11 +120,6 @@ func (o LookupChannelResultOutput) MessageForActivation() pulumi.StringPtrOutput
 // Name of the resource.
 func (o LookupChannelResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupChannelResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-func (o LookupChannelResultOutput) PartnerDestinationInfo() WebhookPartnerDestinationInfoResponsePtrOutput {
-	return o.ApplyT(func(v LookupChannelResult) *WebhookPartnerDestinationInfoResponse { return v.PartnerDestinationInfo }).(WebhookPartnerDestinationInfoResponsePtrOutput)
 }
 
 // This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.

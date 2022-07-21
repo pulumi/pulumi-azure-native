@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? SslCertExpiryRemainingDays;
         /// <summary>
+        /// The switch provider blocking error information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InMageFabricSwitchProviderBlockingErrorDetailsResponse> SwitchProviderBlockingErrorDetails;
+        /// <summary>
         /// The percentage of the system load.
         /// </summary>
         public readonly string? SystemLoad;
@@ -138,7 +142,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double? TotalSpaceInBytes;
         /// <summary>
-        /// Version status
+        /// Version status.
         /// </summary>
         public readonly string? VersionStatus;
         /// <summary>
@@ -204,6 +208,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? sslCertExpiryRemainingDays,
 
+            ImmutableArray<Outputs.InMageFabricSwitchProviderBlockingErrorDetailsResponse> switchProviderBlockingErrorDetails,
+
             string? systemLoad,
 
             string? systemLoadStatus,
@@ -244,6 +250,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             SpaceUsageStatus = spaceUsageStatus;
             SslCertExpiryDate = sslCertExpiryDate;
             SslCertExpiryRemainingDays = sslCertExpiryRemainingDays;
+            SwitchProviderBlockingErrorDetails = switchProviderBlockingErrorDetails;
             SystemLoad = systemLoad;
             SystemLoadStatus = systemLoadStatus;
             TotalMemoryInBytes = totalMemoryInBytes;

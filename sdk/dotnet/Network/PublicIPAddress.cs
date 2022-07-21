@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Public IP address resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PublicIPAddress")]
     public partial class PublicIPAddress : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("ddosSettings")]
         public Output<Outputs.DdosSettingsResponse?> DdosSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify what happens to the public IP address when the VM using it is deleted
+        /// </summary>
+        [Output("deleteOption")]
+        public Output<string?> DeleteOption { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
@@ -248,6 +254,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("ddosSettings")]
         public Input<Inputs.DdosSettingsArgs>? DdosSettings { get; set; }
+
+        /// <summary>
+        /// Specify what happens to the public IP address when the VM using it is deleted
+        /// </summary>
+        [Input("deleteOption")]
+        public InputUnion<string, Pulumi.AzureNative.Network.DeleteOptions>? DeleteOption { get; set; }
 
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.

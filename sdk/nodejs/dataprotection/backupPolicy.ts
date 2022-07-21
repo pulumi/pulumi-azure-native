@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * BaseBackupPolicy resource
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**

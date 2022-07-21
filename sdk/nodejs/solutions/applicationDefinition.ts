@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application definition.
- * API Version: 2019-07-01.
+ * API Version: 2021-07-01.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -105,9 +105,21 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      */
     public readonly policies!: pulumi.Output<outputs.solutions.ApplicationPolicyResponse[] | undefined>;
     /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.solutions.SkuResponse | undefined>;
+    /**
+     * The storage account id for bring your own storage scenario.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -153,8 +165,11 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["artifacts"] = undefined /*out*/;
@@ -174,7 +189,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["notificationPolicy"] = undefined /*out*/;
             resourceInputs["packageFileUri"] = undefined /*out*/;
             resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -265,6 +283,10 @@ export interface ApplicationDefinitionArgs {
      * The SKU of the resource.
      */
     sku?: pulumi.Input<inputs.solutions.SkuArgs>;
+    /**
+     * The storage account id for bring your own storage scenario.
+     */
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

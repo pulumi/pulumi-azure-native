@@ -216,6 +216,8 @@ type ActiveDirectory struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName *string `pulumi:"adName"`
+	// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+	Administrators []string `pulumi:"administrators"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption *bool `pulumi:"aesEncryption"`
 	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
@@ -226,10 +228,14 @@ type ActiveDirectory struct {
 	Dns *string `pulumi:"dns"`
 	// Name of the Active Directory domain
 	Domain *string `pulumi:"domain"`
+	// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+	EncryptDCConnections *bool `pulumi:"encryptDCConnections"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP *string `pulumi:"kdcIP"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
 	LdapOverTLS *bool `pulumi:"ldapOverTLS"`
+	// LDAP Search scope options
+	LdapSearchScope *LdapSearchScopeOpt `pulumi:"ldapSearchScope"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning *bool `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -278,6 +284,8 @@ type ActiveDirectoryArgs struct {
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName pulumi.StringPtrInput `pulumi:"adName"`
+	// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+	Administrators pulumi.StringArrayInput `pulumi:"administrators"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
 	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
@@ -288,10 +296,14 @@ type ActiveDirectoryArgs struct {
 	Dns pulumi.StringPtrInput `pulumi:"dns"`
 	// Name of the Active Directory domain
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+	EncryptDCConnections pulumi.BoolPtrInput `pulumi:"encryptDCConnections"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
 	LdapOverTLS pulumi.BoolPtrInput `pulumi:"ldapOverTLS"`
+	// LDAP Search scope options
+	LdapSearchScope LdapSearchScopeOptPtrInput `pulumi:"ldapSearchScope"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -383,6 +395,11 @@ func (o ActiveDirectoryOutput) AdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.AdName }).(pulumi.StringPtrOutput)
 }
 
+// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+func (o ActiveDirectoryOutput) Administrators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectory) []string { return v.Administrators }).(pulumi.StringArrayOutput)
+}
+
 // If enabled, AES encryption will be enabled for SMB communication.
 func (o ActiveDirectoryOutput) AesEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
@@ -408,6 +425,11 @@ func (o ActiveDirectoryOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+func (o ActiveDirectoryOutput) EncryptDCConnections() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectory) *bool { return v.EncryptDCConnections }).(pulumi.BoolPtrOutput)
+}
+
 // kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
@@ -416,6 +438,11 @@ func (o ActiveDirectoryOutput) KdcIP() pulumi.StringPtrOutput {
 // Specifies whether or not the LDAP traffic needs to be secured via TLS.
 func (o ActiveDirectoryOutput) LdapOverTLS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *bool { return v.LdapOverTLS }).(pulumi.BoolPtrOutput)
+}
+
+// LDAP Search scope options
+func (o ActiveDirectoryOutput) LdapSearchScope() LdapSearchScopeOptPtrOutput {
+	return o.ApplyT(func(v ActiveDirectory) *LdapSearchScopeOpt { return v.LdapSearchScope }).(LdapSearchScopeOptPtrOutput)
 }
 
 // Specifies whether or not the LDAP traffic needs to be signed.
@@ -484,6 +511,8 @@ type ActiveDirectoryResponse struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName *string `pulumi:"adName"`
+	// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+	Administrators []string `pulumi:"administrators"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption *bool `pulumi:"aesEncryption"`
 	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
@@ -494,10 +523,14 @@ type ActiveDirectoryResponse struct {
 	Dns *string `pulumi:"dns"`
 	// Name of the Active Directory domain
 	Domain *string `pulumi:"domain"`
+	// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+	EncryptDCConnections *bool `pulumi:"encryptDCConnections"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP *string `pulumi:"kdcIP"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
 	LdapOverTLS *bool `pulumi:"ldapOverTLS"`
+	// LDAP Search scope options
+	LdapSearchScope *LdapSearchScopeOptResponse `pulumi:"ldapSearchScope"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning *bool `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -558,6 +591,11 @@ func (o ActiveDirectoryResponseOutput) AdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.AdName }).(pulumi.StringPtrOutput)
 }
 
+// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+func (o ActiveDirectoryResponseOutput) Administrators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.Administrators }).(pulumi.StringArrayOutput)
+}
+
 // If enabled, AES encryption will be enabled for SMB communication.
 func (o ActiveDirectoryResponseOutput) AesEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
@@ -583,6 +621,11 @@ func (o ActiveDirectoryResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+func (o ActiveDirectoryResponseOutput) EncryptDCConnections() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.EncryptDCConnections }).(pulumi.BoolPtrOutput)
+}
+
 // kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryResponseOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
@@ -591,6 +634,11 @@ func (o ActiveDirectoryResponseOutput) KdcIP() pulumi.StringPtrOutput {
 // Specifies whether or not the LDAP traffic needs to be secured via TLS.
 func (o ActiveDirectoryResponseOutput) LdapOverTLS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.LdapOverTLS }).(pulumi.BoolPtrOutput)
+}
+
+// LDAP Search scope options
+func (o ActiveDirectoryResponseOutput) LdapSearchScope() LdapSearchScopeOptResponsePtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) *LdapSearchScopeOptResponse { return v.LdapSearchScope }).(LdapSearchScopeOptResponsePtrOutput)
 }
 
 // Specifies whether or not the LDAP traffic needs to be signed.
@@ -1725,6 +1773,278 @@ func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 		}
 		return v.UsedBytes
 	}).(pulumi.Float64PtrOutput)
+}
+
+// LDAP search scope
+type LdapSearchScopeOpt struct {
+	// This specifies the group DN, which overrides the base DN for group lookups.
+	GroupDN *string `pulumi:"groupDN"`
+	// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+	GroupMembershipFilter *string `pulumi:"groupMembershipFilter"`
+	// This specifies the user DN, which overrides the base DN for user lookups.
+	UserDN *string `pulumi:"userDN"`
+}
+
+// LdapSearchScopeOptInput is an input type that accepts LdapSearchScopeOptArgs and LdapSearchScopeOptOutput values.
+// You can construct a concrete instance of `LdapSearchScopeOptInput` via:
+//
+//          LdapSearchScopeOptArgs{...}
+type LdapSearchScopeOptInput interface {
+	pulumi.Input
+
+	ToLdapSearchScopeOptOutput() LdapSearchScopeOptOutput
+	ToLdapSearchScopeOptOutputWithContext(context.Context) LdapSearchScopeOptOutput
+}
+
+// LDAP search scope
+type LdapSearchScopeOptArgs struct {
+	// This specifies the group DN, which overrides the base DN for group lookups.
+	GroupDN pulumi.StringPtrInput `pulumi:"groupDN"`
+	// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+	GroupMembershipFilter pulumi.StringPtrInput `pulumi:"groupMembershipFilter"`
+	// This specifies the user DN, which overrides the base DN for user lookups.
+	UserDN pulumi.StringPtrInput `pulumi:"userDN"`
+}
+
+func (LdapSearchScopeOptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LdapSearchScopeOpt)(nil)).Elem()
+}
+
+func (i LdapSearchScopeOptArgs) ToLdapSearchScopeOptOutput() LdapSearchScopeOptOutput {
+	return i.ToLdapSearchScopeOptOutputWithContext(context.Background())
+}
+
+func (i LdapSearchScopeOptArgs) ToLdapSearchScopeOptOutputWithContext(ctx context.Context) LdapSearchScopeOptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LdapSearchScopeOptOutput)
+}
+
+func (i LdapSearchScopeOptArgs) ToLdapSearchScopeOptPtrOutput() LdapSearchScopeOptPtrOutput {
+	return i.ToLdapSearchScopeOptPtrOutputWithContext(context.Background())
+}
+
+func (i LdapSearchScopeOptArgs) ToLdapSearchScopeOptPtrOutputWithContext(ctx context.Context) LdapSearchScopeOptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LdapSearchScopeOptOutput).ToLdapSearchScopeOptPtrOutputWithContext(ctx)
+}
+
+// LdapSearchScopeOptPtrInput is an input type that accepts LdapSearchScopeOptArgs, LdapSearchScopeOptPtr and LdapSearchScopeOptPtrOutput values.
+// You can construct a concrete instance of `LdapSearchScopeOptPtrInput` via:
+//
+//          LdapSearchScopeOptArgs{...}
+//
+//  or:
+//
+//          nil
+type LdapSearchScopeOptPtrInput interface {
+	pulumi.Input
+
+	ToLdapSearchScopeOptPtrOutput() LdapSearchScopeOptPtrOutput
+	ToLdapSearchScopeOptPtrOutputWithContext(context.Context) LdapSearchScopeOptPtrOutput
+}
+
+type ldapSearchScopeOptPtrType LdapSearchScopeOptArgs
+
+func LdapSearchScopeOptPtr(v *LdapSearchScopeOptArgs) LdapSearchScopeOptPtrInput {
+	return (*ldapSearchScopeOptPtrType)(v)
+}
+
+func (*ldapSearchScopeOptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LdapSearchScopeOpt)(nil)).Elem()
+}
+
+func (i *ldapSearchScopeOptPtrType) ToLdapSearchScopeOptPtrOutput() LdapSearchScopeOptPtrOutput {
+	return i.ToLdapSearchScopeOptPtrOutputWithContext(context.Background())
+}
+
+func (i *ldapSearchScopeOptPtrType) ToLdapSearchScopeOptPtrOutputWithContext(ctx context.Context) LdapSearchScopeOptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LdapSearchScopeOptPtrOutput)
+}
+
+// LDAP search scope
+type LdapSearchScopeOptOutput struct{ *pulumi.OutputState }
+
+func (LdapSearchScopeOptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LdapSearchScopeOpt)(nil)).Elem()
+}
+
+func (o LdapSearchScopeOptOutput) ToLdapSearchScopeOptOutput() LdapSearchScopeOptOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptOutput) ToLdapSearchScopeOptOutputWithContext(ctx context.Context) LdapSearchScopeOptOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptOutput) ToLdapSearchScopeOptPtrOutput() LdapSearchScopeOptPtrOutput {
+	return o.ToLdapSearchScopeOptPtrOutputWithContext(context.Background())
+}
+
+func (o LdapSearchScopeOptOutput) ToLdapSearchScopeOptPtrOutputWithContext(ctx context.Context) LdapSearchScopeOptPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapSearchScopeOpt) *LdapSearchScopeOpt {
+		return &v
+	}).(LdapSearchScopeOptPtrOutput)
+}
+
+// This specifies the group DN, which overrides the base DN for group lookups.
+func (o LdapSearchScopeOptOutput) GroupDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapSearchScopeOpt) *string { return v.GroupDN }).(pulumi.StringPtrOutput)
+}
+
+// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+func (o LdapSearchScopeOptOutput) GroupMembershipFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapSearchScopeOpt) *string { return v.GroupMembershipFilter }).(pulumi.StringPtrOutput)
+}
+
+// This specifies the user DN, which overrides the base DN for user lookups.
+func (o LdapSearchScopeOptOutput) UserDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapSearchScopeOpt) *string { return v.UserDN }).(pulumi.StringPtrOutput)
+}
+
+type LdapSearchScopeOptPtrOutput struct{ *pulumi.OutputState }
+
+func (LdapSearchScopeOptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LdapSearchScopeOpt)(nil)).Elem()
+}
+
+func (o LdapSearchScopeOptPtrOutput) ToLdapSearchScopeOptPtrOutput() LdapSearchScopeOptPtrOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptPtrOutput) ToLdapSearchScopeOptPtrOutputWithContext(ctx context.Context) LdapSearchScopeOptPtrOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptPtrOutput) Elem() LdapSearchScopeOptOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOpt) LdapSearchScopeOpt {
+		if v != nil {
+			return *v
+		}
+		var ret LdapSearchScopeOpt
+		return ret
+	}).(LdapSearchScopeOptOutput)
+}
+
+// This specifies the group DN, which overrides the base DN for group lookups.
+func (o LdapSearchScopeOptPtrOutput) GroupDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOpt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupDN
+	}).(pulumi.StringPtrOutput)
+}
+
+// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+func (o LdapSearchScopeOptPtrOutput) GroupMembershipFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOpt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMembershipFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// This specifies the user DN, which overrides the base DN for user lookups.
+func (o LdapSearchScopeOptPtrOutput) UserDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOpt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserDN
+	}).(pulumi.StringPtrOutput)
+}
+
+// LDAP search scope
+type LdapSearchScopeOptResponse struct {
+	// This specifies the group DN, which overrides the base DN for group lookups.
+	GroupDN *string `pulumi:"groupDN"`
+	// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+	GroupMembershipFilter *string `pulumi:"groupMembershipFilter"`
+	// This specifies the user DN, which overrides the base DN for user lookups.
+	UserDN *string `pulumi:"userDN"`
+}
+
+// LDAP search scope
+type LdapSearchScopeOptResponseOutput struct{ *pulumi.OutputState }
+
+func (LdapSearchScopeOptResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LdapSearchScopeOptResponse)(nil)).Elem()
+}
+
+func (o LdapSearchScopeOptResponseOutput) ToLdapSearchScopeOptResponseOutput() LdapSearchScopeOptResponseOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptResponseOutput) ToLdapSearchScopeOptResponseOutputWithContext(ctx context.Context) LdapSearchScopeOptResponseOutput {
+	return o
+}
+
+// This specifies the group DN, which overrides the base DN for group lookups.
+func (o LdapSearchScopeOptResponseOutput) GroupDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapSearchScopeOptResponse) *string { return v.GroupDN }).(pulumi.StringPtrOutput)
+}
+
+// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+func (o LdapSearchScopeOptResponseOutput) GroupMembershipFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapSearchScopeOptResponse) *string { return v.GroupMembershipFilter }).(pulumi.StringPtrOutput)
+}
+
+// This specifies the user DN, which overrides the base DN for user lookups.
+func (o LdapSearchScopeOptResponseOutput) UserDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapSearchScopeOptResponse) *string { return v.UserDN }).(pulumi.StringPtrOutput)
+}
+
+type LdapSearchScopeOptResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LdapSearchScopeOptResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LdapSearchScopeOptResponse)(nil)).Elem()
+}
+
+func (o LdapSearchScopeOptResponsePtrOutput) ToLdapSearchScopeOptResponsePtrOutput() LdapSearchScopeOptResponsePtrOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptResponsePtrOutput) ToLdapSearchScopeOptResponsePtrOutputWithContext(ctx context.Context) LdapSearchScopeOptResponsePtrOutput {
+	return o
+}
+
+func (o LdapSearchScopeOptResponsePtrOutput) Elem() LdapSearchScopeOptResponseOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOptResponse) LdapSearchScopeOptResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LdapSearchScopeOptResponse
+		return ret
+	}).(LdapSearchScopeOptResponseOutput)
+}
+
+// This specifies the group DN, which overrides the base DN for group lookups.
+func (o LdapSearchScopeOptResponsePtrOutput) GroupDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOptResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupDN
+	}).(pulumi.StringPtrOutput)
+}
+
+// This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+func (o LdapSearchScopeOptResponsePtrOutput) GroupMembershipFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOptResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMembershipFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// This specifies the user DN, which overrides the base DN for user lookups.
+func (o LdapSearchScopeOptResponsePtrOutput) UserDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LdapSearchScopeOptResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserDN
+	}).(pulumi.StringPtrOutput)
 }
 
 // Monthly Schedule properties
@@ -3081,124 +3401,6 @@ func (o VolumeBackupPropertiesResponsePtrOutput) VaultId() pulumi.StringPtrOutpu
 }
 
 // Volume details using the backup policy
-type VolumeBackups struct {
-	// Total count of backups for volume
-	BackupsCount *int `pulumi:"backupsCount"`
-	// Policy enabled
-	PolicyEnabled *bool `pulumi:"policyEnabled"`
-	// Volume name
-	VolumeName *string `pulumi:"volumeName"`
-}
-
-// VolumeBackupsInput is an input type that accepts VolumeBackupsArgs and VolumeBackupsOutput values.
-// You can construct a concrete instance of `VolumeBackupsInput` via:
-//
-//          VolumeBackupsArgs{...}
-type VolumeBackupsInput interface {
-	pulumi.Input
-
-	ToVolumeBackupsOutput() VolumeBackupsOutput
-	ToVolumeBackupsOutputWithContext(context.Context) VolumeBackupsOutput
-}
-
-// Volume details using the backup policy
-type VolumeBackupsArgs struct {
-	// Total count of backups for volume
-	BackupsCount pulumi.IntPtrInput `pulumi:"backupsCount"`
-	// Policy enabled
-	PolicyEnabled pulumi.BoolPtrInput `pulumi:"policyEnabled"`
-	// Volume name
-	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
-}
-
-func (VolumeBackupsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeBackups)(nil)).Elem()
-}
-
-func (i VolumeBackupsArgs) ToVolumeBackupsOutput() VolumeBackupsOutput {
-	return i.ToVolumeBackupsOutputWithContext(context.Background())
-}
-
-func (i VolumeBackupsArgs) ToVolumeBackupsOutputWithContext(ctx context.Context) VolumeBackupsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupsOutput)
-}
-
-// VolumeBackupsArrayInput is an input type that accepts VolumeBackupsArray and VolumeBackupsArrayOutput values.
-// You can construct a concrete instance of `VolumeBackupsArrayInput` via:
-//
-//          VolumeBackupsArray{ VolumeBackupsArgs{...} }
-type VolumeBackupsArrayInput interface {
-	pulumi.Input
-
-	ToVolumeBackupsArrayOutput() VolumeBackupsArrayOutput
-	ToVolumeBackupsArrayOutputWithContext(context.Context) VolumeBackupsArrayOutput
-}
-
-type VolumeBackupsArray []VolumeBackupsInput
-
-func (VolumeBackupsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeBackups)(nil)).Elem()
-}
-
-func (i VolumeBackupsArray) ToVolumeBackupsArrayOutput() VolumeBackupsArrayOutput {
-	return i.ToVolumeBackupsArrayOutputWithContext(context.Background())
-}
-
-func (i VolumeBackupsArray) ToVolumeBackupsArrayOutputWithContext(ctx context.Context) VolumeBackupsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeBackupsArrayOutput)
-}
-
-// Volume details using the backup policy
-type VolumeBackupsOutput struct{ *pulumi.OutputState }
-
-func (VolumeBackupsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeBackups)(nil)).Elem()
-}
-
-func (o VolumeBackupsOutput) ToVolumeBackupsOutput() VolumeBackupsOutput {
-	return o
-}
-
-func (o VolumeBackupsOutput) ToVolumeBackupsOutputWithContext(ctx context.Context) VolumeBackupsOutput {
-	return o
-}
-
-// Total count of backups for volume
-func (o VolumeBackupsOutput) BackupsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VolumeBackups) *int { return v.BackupsCount }).(pulumi.IntPtrOutput)
-}
-
-// Policy enabled
-func (o VolumeBackupsOutput) PolicyEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VolumeBackups) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Volume name
-func (o VolumeBackupsOutput) VolumeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeBackups) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
-}
-
-type VolumeBackupsArrayOutput struct{ *pulumi.OutputState }
-
-func (VolumeBackupsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeBackups)(nil)).Elem()
-}
-
-func (o VolumeBackupsArrayOutput) ToVolumeBackupsArrayOutput() VolumeBackupsArrayOutput {
-	return o
-}
-
-func (o VolumeBackupsArrayOutput) ToVolumeBackupsArrayOutputWithContext(ctx context.Context) VolumeBackupsArrayOutput {
-	return o
-}
-
-func (o VolumeBackupsArrayOutput) Index(i pulumi.IntInput) VolumeBackupsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeBackups {
-		return vs[0].([]VolumeBackups)[vs[1].(int)]
-	}).(VolumeBackupsOutput)
-}
-
-// Volume details using the backup policy
 type VolumeBackupsResponse struct {
 	// Total count of backups for volume
 	BackupsCount *int `pulumi:"backupsCount"`
@@ -3641,7 +3843,7 @@ type VolumeGroupVolumeProperties struct {
 	DefaultUserQuotaInKiBs *float64 `pulumi:"defaultUserQuotaInKiBs"`
 	// Flag indicating whether subvolume operations are enabled on the volume
 	EnableSubvolumes *string `pulumi:"enableSubvolumes"`
-	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
@@ -3715,6 +3917,10 @@ func (val *VolumeGroupVolumeProperties) Defaults() *VolumeGroupVolumeProperties 
 	if isZero(tmp.EnableSubvolumes) {
 		enableSubvolumes_ := "Disabled"
 		tmp.EnableSubvolumes = &enableSubvolumes_
+	}
+	if isZero(tmp.EncryptionKeySource) {
+		encryptionKeySource_ := "Microsoft.NetApp"
+		tmp.EncryptionKeySource = &encryptionKeySource_
 	}
 	if isZero(tmp.IsDefaultQuotaEnabled) {
 		isDefaultQuotaEnabled_ := false
@@ -3791,7 +3997,7 @@ type VolumeGroupVolumePropertiesArgs struct {
 	DefaultUserQuotaInKiBs pulumi.Float64PtrInput `pulumi:"defaultUserQuotaInKiBs"`
 	// Flag indicating whether subvolume operations are enabled on the volume
 	EnableSubvolumes pulumi.StringPtrInput `pulumi:"enableSubvolumes"`
-	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
 	EncryptionKeySource pulumi.StringPtrInput `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy VolumePropertiesExportPolicyPtrInput `pulumi:"exportPolicy"`
@@ -3860,6 +4066,9 @@ func (val *VolumeGroupVolumePropertiesArgs) Defaults() *VolumeGroupVolumePropert
 	}
 	if isZero(tmp.EnableSubvolumes) {
 		tmp.EnableSubvolumes = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.EncryptionKeySource) {
+		tmp.EncryptionKeySource = pulumi.StringPtr("Microsoft.NetApp")
 	}
 	if isZero(tmp.IsDefaultQuotaEnabled) {
 		tmp.IsDefaultQuotaEnabled = pulumi.BoolPtr(false)
@@ -3995,7 +4204,7 @@ func (o VolumeGroupVolumePropertiesOutput) EnableSubvolumes() pulumi.StringPtrOu
 	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.EnableSubvolumes }).(pulumi.StringPtrOutput)
 }
 
-// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
 func (o VolumeGroupVolumePropertiesOutput) EncryptionKeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.EncryptionKeySource }).(pulumi.StringPtrOutput)
 }
@@ -4160,7 +4369,9 @@ type VolumeGroupVolumePropertiesResponse struct {
 	DefaultUserQuotaInKiBs *float64 `pulumi:"defaultUserQuotaInKiBs"`
 	// Flag indicating whether subvolume operations are enabled on the volume
 	EnableSubvolumes *string `pulumi:"enableSubvolumes"`
-	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	// Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+	Encrypted bool `pulumi:"encrypted"`
+	// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
@@ -4254,6 +4465,10 @@ func (val *VolumeGroupVolumePropertiesResponse) Defaults() *VolumeGroupVolumePro
 	if isZero(tmp.EnableSubvolumes) {
 		enableSubvolumes_ := "Disabled"
 		tmp.EnableSubvolumes = &enableSubvolumes_
+	}
+	if isZero(tmp.EncryptionKeySource) {
+		encryptionKeySource_ := "Microsoft.NetApp"
+		tmp.EncryptionKeySource = &encryptionKeySource_
 	}
 	if isZero(tmp.IsDefaultQuotaEnabled) {
 		isDefaultQuotaEnabled_ := false
@@ -4374,7 +4589,12 @@ func (o VolumeGroupVolumePropertiesResponseOutput) EnableSubvolumes() pulumi.Str
 	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.EnableSubvolumes }).(pulumi.StringPtrOutput)
 }
 
-// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+// Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+func (o VolumeGroupVolumePropertiesResponseOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
 func (o VolumeGroupVolumePropertiesResponseOutput) EncryptionKeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.EncryptionKeySource }).(pulumi.StringPtrOutput)
 }
@@ -5602,6 +5822,10 @@ func init() {
 	pulumi.RegisterOutputType(HourlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(HourlyScheduleResponseOutput{})
 	pulumi.RegisterOutputType(HourlyScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(LdapSearchScopeOptOutput{})
+	pulumi.RegisterOutputType(LdapSearchScopeOptPtrOutput{})
+	pulumi.RegisterOutputType(LdapSearchScopeOptResponseOutput{})
+	pulumi.RegisterOutputType(LdapSearchScopeOptResponsePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleOutput{})
 	pulumi.RegisterOutputType(MonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleResponseOutput{})
@@ -5623,8 +5847,6 @@ func init() {
 	pulumi.RegisterOutputType(VolumeBackupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VolumeBackupsOutput{})
-	pulumi.RegisterOutputType(VolumeBackupsArrayOutput{})
 	pulumi.RegisterOutputType(VolumeBackupsResponseOutput{})
 	pulumi.RegisterOutputType(VolumeBackupsResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumeGroupMetaDataOutput{})

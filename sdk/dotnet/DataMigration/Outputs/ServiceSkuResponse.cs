@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string? Size;
         /// <summary>
-        /// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+        /// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
         /// </summary>
         public readonly string? Tier;
 

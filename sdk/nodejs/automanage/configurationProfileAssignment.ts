@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
- * API Version: 2020-06-30-preview.
+ * API Version: 2022-05-04.
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * Azure resource id. Indicates if this resource is managed by another Azure resource.
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -44,6 +48,10 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
      * Properties of the configuration profile assignment.
      */
     public readonly properties!: pulumi.Output<outputs.automanage.ConfigurationProfileAssignmentPropertiesResponse>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.automanage.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -70,11 +78,15 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

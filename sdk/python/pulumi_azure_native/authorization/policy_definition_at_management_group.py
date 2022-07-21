@@ -183,7 +183,7 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The policy definition.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,7 +205,7 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy definition.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
@@ -257,6 +257,7 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
             __props__.__dict__["policy_rule"] = policy_rule
             __props__.__dict__["policy_type"] = policy_type
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20180301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20190101:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20190601:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20200901:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -290,6 +291,7 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         __props__.__dict__["parameters"] = None
         __props__.__dict__["policy_rule"] = None
         __props__.__dict__["policy_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PolicyDefinitionAtManagementGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -356,6 +358,14 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

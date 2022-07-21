@@ -107,7 +107,7 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHierarchySettingResult:
     """
     Settings defined at the Management Group scope.
-    API Version: 2020-05-01.
+    API Version: 2021-04-01.
 
 
     :param str group_id: Management Group ID.
@@ -134,7 +134,7 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHierarchySettingResult]:
     """
     Settings defined at the Management Group scope.
-    API Version: 2020-05-01.
+    API Version: 2021-04-01.
 
 
     :param str group_id: Management Group ID.

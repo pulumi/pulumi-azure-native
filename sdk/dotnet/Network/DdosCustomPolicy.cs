@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A DDoS custom policy in a resource group.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DdosCustomPolicy")]
     public partial class DdosCustomPolicy : Pulumi.CustomResource

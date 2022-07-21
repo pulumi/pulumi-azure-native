@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.CodeConfigurationArgs>? CodeConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for compute binding.
+        /// Compute target for batch inference operation.
         /// </summary>
         [Input("compute")]
-        public Input<Inputs.ComputeConfigurationArgs>? Compute { get; set; }
+        public Input<string>? Compute { get; set; }
 
         /// <summary>
         /// Description of the endpoint deployment.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARM resource ID of the environment specification for the endpoint deployment.
+        /// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
@@ -68,6 +68,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.BatchLoggingLevel>? LoggingLevel { get; set; }
 
         /// <summary>
+        /// Indicates maximum number of parallelism per instance.
+        /// </summary>
+        [Input("maxConcurrencyPerInstance")]
+        public Input<int>? MaxConcurrencyPerInstance { get; set; }
+
+        /// <summary>
         /// Size of the mini-batch passed to each batch invocation.
         /// For FileDataset, this is the number of files per mini-batch.
         /// For TabularDataset, this is the size of the records in bytes, per mini-batch.
@@ -82,22 +88,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public object? Model { get; set; }
 
         /// <summary>
-        /// Output configuration for the batch inference operation.
+        /// Indicates how the output will be organized.
         /// </summary>
-        [Input("outputConfiguration")]
-        public Input<Inputs.BatchOutputConfigurationArgs>? OutputConfiguration { get; set; }
-
-        [Input("partitionKeys")]
-        private InputList<string>? _partitionKeys;
+        [Input("outputAction")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.BatchOutputAction>? OutputAction { get; set; }
 
         /// <summary>
-        /// Partition keys list used for Named partitioning.
+        /// Customized output file name for append_row output action.
         /// </summary>
-        public InputList<string> PartitionKeys
-        {
-            get => _partitionKeys ?? (_partitionKeys = new InputList<string>());
-            set => _partitionKeys = value;
-        }
+        [Input("outputFileName")]
+        public Input<string>? OutputFileName { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -112,13 +112,27 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
+        /// Indicates compute configuration for the job.
+        /// If not provided, will default to the defaults defined in ResourceConfiguration.
+        /// </summary>
+        [Input("resources")]
+        public Input<Inputs.ResourceConfigurationArgs>? Resources { get; set; }
+
+        /// <summary>
         /// Retry Settings for the batch inference operation.
+        /// If not provided, will default to the defaults defined in BatchRetrySettings.
         /// </summary>
         [Input("retrySettings")]
         public Input<Inputs.BatchRetrySettingsArgs>? RetrySettings { get; set; }
 
         public BatchDeploymentArgs()
         {
+            ErrorThreshold = -1;
+            LoggingLevel = "Info";
+            MaxConcurrencyPerInstance = 1;
+            MiniBatchSize = 10;
+            OutputAction = "AppendRow";
+            OutputFileName = "predictions.csv";
         }
     }
 }

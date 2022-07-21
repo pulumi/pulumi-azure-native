@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response of a list VM Host Update Operation.
-        /// API Version: 2020-10-01.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<ListSubAccountVMHostsResult> InvokeAsync(ListSubAccountVMHostsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list VM Host Update Operation.
-        /// API Version: 2020-10-01.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithDefaults());

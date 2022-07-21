@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     public sealed class PowerBIOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("dataset")]

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery image version that you want to create or update.
- * API Version: 2020-09-30.
+ * API Version: 2021-10-01.
  */
 export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageVersionResult> {
     if (!opts) {

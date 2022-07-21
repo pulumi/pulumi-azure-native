@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// A class represent a resource.
-        /// API Version: 2021-04-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetWebPubSubResult> InvokeAsync(GetWebPubSubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represent a resource.
-        /// API Version: 2021-04-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetWebPubSubResult> Invoke(GetWebPubSubInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubInvokeArgs(), options.WithDefaults());
@@ -70,34 +70,41 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubResult
     {
         /// <summary>
-        /// The settings for event handler in webpubsub service.
+        /// DisableLocalAuth
+        /// Enable or disable aad auth
+        /// When set as true, connection with AuthType=aad won't work.
         /// </summary>
-        public readonly Outputs.EventHandlerSettingsResponse? EventHandler;
+        public readonly bool? DisableAadAuth;
+        /// <summary>
+        /// DisableLocalAuth
+        /// Enable or disable local auth with AccessKey
+        /// When set as true, connection with AccessKey=xxx won't work.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
         /// <summary>
         /// The publicly accessible IP of the resource.
         /// </summary>
         public readonly string ExternalIP;
         /// <summary>
-        /// List of the featureFlags.
-        /// 
-        /// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        /// And the response will only include featureFlags that are explicitly set. 
-        /// When a featureFlag is not explicitly set, its globally default value will be used
-        /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.WebPubSubFeatureResponse> Features;
-        /// <summary>
         /// FQDN of the service instance.
         /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// Deprecated.
+        /// </summary>
+        public readonly string HostNamePrefix;
         /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The managed identity response
+        /// A class represent managed identities used for request and response
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
+        /// <summary>
+        /// Live trace configuration of a Microsoft.SignalRService resource.
+        /// </summary>
+        public readonly Outputs.LiveTraceConfigurationResponse? LiveTraceConfiguration;
         /// <summary>
         /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
@@ -107,7 +114,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network ACLs
+        /// Network ACLs for the resource
         /// </summary>
         public readonly Outputs.WebPubSubNetworkACLsResponse? NetworkACLs;
         /// <summary>
@@ -129,6 +136,10 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly int PublicPort;
         /// <summary>
+        /// Resource log configuration of a Microsoft.SignalRService resource.
+        /// </summary>
+        public readonly Outputs.ResourceLogConfigurationResponse? ResourceLogConfiguration;
+        /// <summary>
         /// The publicly accessible port of the resource which is designed for customer server side usage.
         /// </summary>
         public readonly int ServerPort;
@@ -137,7 +148,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
         /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
+        /// The billing information of the resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
@@ -149,7 +160,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// TLS settings.
+        /// TLS settings for the resource
         /// </summary>
         public readonly Outputs.WebPubSubTlsSettingsResponse? Tls;
         /// <summary>
@@ -163,17 +174,21 @@ namespace Pulumi.AzureNative.WebPubSub
 
         [OutputConstructor]
         private GetWebPubSubResult(
-            Outputs.EventHandlerSettingsResponse? eventHandler,
+            bool? disableAadAuth,
+
+            bool? disableLocalAuth,
 
             string externalIP,
 
-            ImmutableArray<Outputs.WebPubSubFeatureResponse> features,
-
             string hostName,
+
+            string hostNamePrefix,
 
             string id,
 
             Outputs.ManagedIdentityResponse? identity,
+
+            Outputs.LiveTraceConfigurationResponse? liveTraceConfiguration,
 
             string? location,
 
@@ -188,6 +203,8 @@ namespace Pulumi.AzureNative.WebPubSub
             string? publicNetworkAccess,
 
             int publicPort,
+
+            Outputs.ResourceLogConfigurationResponse? resourceLogConfiguration,
 
             int serverPort,
 
@@ -205,12 +222,14 @@ namespace Pulumi.AzureNative.WebPubSub
 
             string version)
         {
-            EventHandler = eventHandler;
+            DisableAadAuth = disableAadAuth;
+            DisableLocalAuth = disableLocalAuth;
             ExternalIP = externalIP;
-            Features = features;
             HostName = hostName;
+            HostNamePrefix = hostNamePrefix;
             Id = id;
             Identity = identity;
+            LiveTraceConfiguration = liveTraceConfiguration;
             Location = location;
             Name = name;
             NetworkACLs = networkACLs;
@@ -218,6 +237,7 @@ namespace Pulumi.AzureNative.WebPubSub
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             PublicPort = publicPort;
+            ResourceLogConfiguration = resourceLogConfiguration;
             ServerPort = serverPort;
             SharedPrivateLinkResources = sharedPrivateLinkResources;
             Sku = sku;

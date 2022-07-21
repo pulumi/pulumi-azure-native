@@ -12,7 +12,7 @@ import (
 )
 
 // Device Update account details.
-// API Version: 2020-03-01-preview.
+// API Version: 2022-04-01-preview.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type Account struct {
 	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Device Update account primary and failover location details
+	Locations LocationResponseArrayOutput `pulumi:"locations"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of private endpoint connections associated with the account.
@@ -30,6 +32,8 @@ type Account struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Whether or not public network access is allowed for the account.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	// Device Update Sku
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -50,6 +54,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	if isZero(args.Sku) {
+		args.Sku = pulumi.StringPtr("Standard")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -104,6 +111,8 @@ type accountArgs struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Device Update Sku
+	Sku *string `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,6 +131,8 @@ type AccountArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// Device Update Sku
+	Sku pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }
@@ -178,6 +189,11 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// Device Update account primary and failover location details
+func (o AccountOutput) Locations() LocationResponseArrayOutput {
+	return o.ApplyT(func(v *Account) LocationResponseArrayOutput { return v.Locations }).(LocationResponseArrayOutput)
+}
+
 // The name of the resource
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -196,6 +212,11 @@ func (o AccountOutput) ProvisioningState() pulumi.StringOutput {
 // Whether or not public network access is allowed for the account.
 func (o AccountOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Device Update Sku
+func (o AccountOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.

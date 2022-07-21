@@ -125,7 +125,7 @@ def get_protected_item(container_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectedItemResult:
     """
     Base class for backup items.
-    API Version: 2021-02-01.
+    API Version: 2022-03-01.
 
 
     :param str container_name: Container name associated with the backed up item.
@@ -168,7 +168,7 @@ def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectedItemResult]:
     """
     Base class for backup items.
-    API Version: 2021-02-01.
+    API Version: 2022-03-01.
 
 
     :param str container_name: Container name associated with the backed up item.

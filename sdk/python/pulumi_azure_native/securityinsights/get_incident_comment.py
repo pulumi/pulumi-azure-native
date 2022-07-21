@@ -78,7 +78,7 @@ class GetIncidentCommentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -102,7 +102,7 @@ class GetIncidentCommentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -118,7 +118,7 @@ class GetIncidentCommentResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -142,25 +142,22 @@ class AwaitableGetIncidentCommentResult(GetIncidentCommentResult):
 
 def get_incident_comment(incident_comment_id: Optional[str] = None,
                          incident_id: Optional[str] = None,
-                         operational_insights_resource_provider: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentCommentResult:
     """
     Represents an incident comment
-    API Version: 2021-03-01-preview.
+    API Version: 2021-10-01.
 
 
     :param str incident_comment_id: Incident comment ID
     :param str incident_id: Incident ID
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['incidentCommentId'] = incident_comment_id
     __args__['incidentId'] = incident_id
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:
@@ -184,18 +181,16 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
 @_utilities.lift_output_func(get_incident_comment)
 def get_incident_comment_output(incident_comment_id: Optional[pulumi.Input[str]] = None,
                                 incident_id: Optional[pulumi.Input[str]] = None,
-                                operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCommentResult]:
     """
     Represents an incident comment
-    API Version: 2021-03-01-preview.
+    API Version: 2021-10-01.
 
 
     :param str incident_comment_id: Incident comment ID
     :param str incident_id: Incident ID
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """

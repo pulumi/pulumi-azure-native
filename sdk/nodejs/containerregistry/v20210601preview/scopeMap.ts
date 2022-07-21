@@ -106,7 +106,7 @@ export class ScopeMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ScopeMap" }, { type: "azure-native:containerregistry/v20190501preview:ScopeMap" }, { type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210801preview:ScopeMap" }, { type: "azure-native:containerregistry/v20211201preview:ScopeMap" }, { type: "azure-native:containerregistry/v20220201preview:ScopeMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190501preview:ScopeMap" }, { type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210801preview:ScopeMap" }, { type: "azure-native:containerregistry/v20211201preview:ScopeMap" }, { type: "azure-native:containerregistry/v20220201preview:ScopeMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeMap.__pulumiType, name, resourceInputs, opts);
     }

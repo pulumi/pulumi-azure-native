@@ -16,6 +16,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class NetworkConfigurationResponse
     {
+        public readonly string? DynamicVNetAssignmentScope;
         /// <summary>
         /// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
         [OutputConstructor]
         private NetworkConfigurationResponse(
+            string? dynamicVNetAssignmentScope,
+
             Outputs.PoolEndpointConfigurationResponse? endpointConfiguration,
 
             Outputs.PublicIPAddressConfigurationResponse? publicIPAddressConfiguration,
 
             string? subnetId)
         {
+            DynamicVNetAssignmentScope = dynamicVNetAssignmentScope;
             EndpointConfiguration = endpointConfiguration;
             PublicIPAddressConfiguration = publicIPAddressConfiguration;
             SubnetId = subnetId;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// The service resource.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The service resource.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -94,23 +94,11 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// A list that describes the correlation of the service with other services.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse> CorrelationScheme;
-        /// <summary>
-        /// Specifies the move cost for the service.
-        /// </summary>
-        public readonly string? DefaultMoveCost;
-        /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        public readonly string Etag;
-        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -118,41 +106,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes how the service is partitioned.
+        /// The service resource properties.
         /// </summary>
-        public readonly object? PartitionDescription;
+        public readonly Union<Outputs.StatefulServicePropertiesResponse, Outputs.StatelessServicePropertiesResponse> Properties;
         /// <summary>
-        /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly string? PlacementConstraints;
-        /// <summary>
-        /// The current deployment or provisioning state, which only appears in the response
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-        /// </summary>
-        public readonly string? ServiceDnsName;
-        /// <summary>
-        /// The kind of service (Stateless or Stateful).
-        /// </summary>
-        public readonly string ServiceKind;
-        /// <summary>
-        /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse> ServiceLoadMetrics;
-        /// <summary>
-        /// The activation Mode of the service package
-        /// </summary>
-        public readonly string? ServicePackageActivationMode;
-        /// <summary>
-        /// A list that describes the correlation of the service with other services.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse> ServicePlacementPolicies;
-        /// <summary>
-        /// The name of the service type
-        /// </summary>
-        public readonly string? ServiceTypeName;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -164,55 +124,25 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetServiceResult(
-            ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse> correlationScheme,
-
-            string? defaultMoveCost,
-
-            string etag,
-
             string id,
 
             string? location,
 
             string name,
 
-            object? partitionDescription,
+            Union<Outputs.StatefulServicePropertiesResponse, Outputs.StatelessServicePropertiesResponse> properties,
 
-            string? placementConstraints,
-
-            string provisioningState,
-
-            string? serviceDnsName,
-
-            string serviceKind,
-
-            ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse> serviceLoadMetrics,
-
-            string? servicePackageActivationMode,
-
-            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse> servicePlacementPolicies,
-
-            string? serviceTypeName,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            CorrelationScheme = correlationScheme;
-            DefaultMoveCost = defaultMoveCost;
-            Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            PartitionDescription = partitionDescription;
-            PlacementConstraints = placementConstraints;
-            ProvisioningState = provisioningState;
-            ServiceDnsName = serviceDnsName;
-            ServiceKind = serviceKind;
-            ServiceLoadMetrics = serviceLoadMetrics;
-            ServicePackageActivationMode = servicePackageActivationMode;
-            ServicePlacementPolicies = servicePlacementPolicies;
-            ServiceTypeName = serviceTypeName;
+            Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

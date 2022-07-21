@@ -11,7 +11,7 @@ import (
 )
 
 // The essential information related to the peer's ASN.
-// API Version: 2021-01-01.
+// API Version: 2022-01-01.
 type PeerAsn struct {
 	pulumi.CustomResourceState
 
@@ -28,7 +28,7 @@ type PeerAsn struct {
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The validation state of the ASN associated with the peer.
-	ValidationState pulumi.StringPtrOutput `pulumi:"validationState"`
+	ValidationState pulumi.StringOutput `pulumi:"validationState"`
 }
 
 // NewPeerAsn registers a new resource with the given unique name, arguments, and options.
@@ -105,8 +105,6 @@ type peerAsnArgs struct {
 	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
 	// The name of the peer.
 	PeerName *string `pulumi:"peerName"`
-	// The validation state of the ASN associated with the peer.
-	ValidationState *string `pulumi:"validationState"`
 }
 
 // The set of arguments for constructing a PeerAsn resource.
@@ -119,8 +117,6 @@ type PeerAsnArgs struct {
 	PeerContactDetail ContactDetailArrayInput
 	// The name of the peer.
 	PeerName pulumi.StringPtrInput
-	// The validation state of the ASN associated with the peer.
-	ValidationState pulumi.StringPtrInput
 }
 
 func (PeerAsnArgs) ElementType() reflect.Type {
@@ -191,8 +187,8 @@ func (o PeerAsnOutput) Type() pulumi.StringOutput {
 }
 
 // The validation state of the ASN associated with the peer.
-func (o PeerAsnOutput) ValidationState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeerAsn) pulumi.StringPtrOutput { return v.ValidationState }).(pulumi.StringPtrOutput)
+func (o PeerAsnOutput) ValidationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeerAsn) pulumi.StringOutput { return v.ValidationState }).(pulumi.StringOutput)
 }
 
 func init() {

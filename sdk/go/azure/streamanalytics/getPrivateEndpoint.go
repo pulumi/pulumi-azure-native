@@ -11,7 +11,7 @@ import (
 )
 
 // Complete information about the private endpoint.
-// API Version: 2020-03-01-preview.
+// API Version: 2020-03-01.
 func LookupPrivateEndpoint(ctx *pulumi.Context, args *LookupPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointResult, error) {
 	var rv LookupPrivateEndpointResult
 	err := ctx.Invoke("azure-native:streamanalytics:getPrivateEndpoint", args, &rv, opts...)
@@ -32,14 +32,16 @@ type LookupPrivateEndpointArgs struct {
 
 // Complete information about the private endpoint.
 type LookupPrivateEndpointResult struct {
+	// The date when this private endpoint was created.
+	CreatedDate string `pulumi:"createdDate"`
 	// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// A list of connections to the remote resource. Immutable after it is set.
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"manualPrivateLinkServiceConnections"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties associated with a private endpoint.
-	Properties PrivateEndpointPropertiesResponse `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }
@@ -85,6 +87,11 @@ func (o LookupPrivateEndpointResultOutput) ToLookupPrivateEndpointResultOutputWi
 	return o
 }
 
+// The date when this private endpoint was created.
+func (o LookupPrivateEndpointResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
 // Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
 func (o LookupPrivateEndpointResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointResult) string { return v.Etag }).(pulumi.StringOutput)
@@ -95,14 +102,16 @@ func (o LookupPrivateEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of connections to the remote resource. Immutable after it is set.
+func (o LookupPrivateEndpointResultOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointResult) []PrivateLinkServiceConnectionResponse {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
 // The name of the resource
 func (o LookupPrivateEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with a private endpoint.
-func (o LookupPrivateEndpointResultOutput) Properties() PrivateEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v LookupPrivateEndpointResult) PrivateEndpointPropertiesResponse { return v.Properties }).(PrivateEndpointPropertiesResponseOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

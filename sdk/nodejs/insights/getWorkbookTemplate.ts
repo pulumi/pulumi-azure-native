@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights workbook template definition.
- * API Version: 2019-10-17-preview.
+ * API Version: 2020-11-20.
  */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
     if (!opts) {

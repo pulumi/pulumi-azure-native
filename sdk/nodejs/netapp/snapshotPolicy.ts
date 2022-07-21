@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot policy information
- * API Version: 2020-12-01.
+ * API Version: 2022-01-01.
  */
 export class SnapshotPolicy extends pulumi.CustomResource {
     /**
@@ -45,11 +45,15 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Schedule for hourly snapshots
      */
     public readonly hourlySchedule!: pulumi.Output<outputs.netapp.HourlyScheduleResponse | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -57,7 +61,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly monthlySchedule!: pulumi.Output<outputs.netapp.MonthlyScheduleResponse | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -65,11 +69,15 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -104,17 +112,21 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             resourceInputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dailySchedule"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hourlySchedule"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["monthlySchedule"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["weeklySchedule"] = undefined /*out*/;
@@ -147,7 +159,7 @@ export interface SnapshotPolicyArgs {
      */
     hourlySchedule?: pulumi.Input<inputs.netapp.HourlyScheduleArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -163,7 +175,7 @@ export interface SnapshotPolicyArgs {
      */
     snapshotPolicyName?: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

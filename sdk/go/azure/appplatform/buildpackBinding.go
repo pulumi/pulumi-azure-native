@@ -12,7 +12,7 @@ import (
 )
 
 // Buildpack Binding Resource object
-// API Version: 2022-01-01-preview.
+// API Version: 2022-04-01.
 type BuildpackBinding struct {
 	pulumi.CustomResourceState
 

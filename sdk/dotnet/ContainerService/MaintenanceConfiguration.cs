@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
-    /// maintenance configuration.
-    /// API Version: 2021-03-01.
+    /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
@@ -29,13 +29,13 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<ImmutableArray<Outputs.TimeSpanResponse>> NotAllowedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system metadata relating to this resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Weekday time slots allowed to upgrade.
+        /// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
         [Output("timeInWeek")]
         public Output<ImmutableArray<Outputs.TimeInWeekResponse>> TimeInWeek { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.ContainerService
         private InputList<Inputs.TimeInWeekArgs>? _timeInWeek;
 
         /// <summary>
-        /// Weekday time slots allowed to upgrade.
+        /// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
         public InputList<Inputs.TimeInWeekArgs> TimeInWeek
         {

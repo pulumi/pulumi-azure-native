@@ -11,7 +11,7 @@ import (
 )
 
 // Data network resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupDataNetwork(ctx *pulumi.Context, args *LookupDataNetworkArgs, opts ...pulumi.InvokeOption) (*LookupDataNetworkResult, error) {
 	var rv LookupDataNetworkResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getDataNetwork", args, &rv, opts...)
@@ -54,6 +54,8 @@ type LookupDataNetworkResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state of the data network resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -154,6 +156,11 @@ func (o LookupDataNetworkResultOutput) Name() pulumi.StringOutput {
 // The provisioning state of the data network resource.
 func (o LookupDataNetworkResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataNetworkResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupDataNetworkResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDataNetworkResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

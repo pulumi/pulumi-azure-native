@@ -11,7 +11,7 @@ import (
 )
 
 // A flow log resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.InvokeOption) (*LookupFlowLogResult, error) {
 	var rv LookupFlowLogResult
 	err := ctx.Invoke("azure-native:network:getFlowLog", args, &rv, opts...)

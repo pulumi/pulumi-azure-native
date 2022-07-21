@@ -10,11 +10,7 @@ from .extension import *
 from .flux_configuration import *
 from .get_extension import *
 from .get_flux_configuration import *
-from .get_private_endpoint_connection import *
-from .get_private_link_scope import *
 from .get_source_control_configuration import *
-from .private_endpoint_connection import *
-from .private_link_scope import *
 from .source_control_configuration import *
 from ._inputs import *
 from . import outputs

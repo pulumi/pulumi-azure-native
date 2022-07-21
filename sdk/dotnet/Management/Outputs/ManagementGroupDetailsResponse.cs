@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Management.Outputs
     public sealed class ManagementGroupDetailsResponse
     {
         /// <summary>
+        /// The ancestors of the management group.
+        /// </summary>
+        public readonly ImmutableArray<string> ManagementGroupAncestors;
+        /// <summary>
+        /// The ancestors of the management group displayed in reversed order, from immediate parent to the root.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagementGroupPathElementResponse> ManagementGroupAncestorsChain;
+        /// <summary>
         /// (Optional) The ID of the parent management group.
         /// </summary>
         public readonly Outputs.ParentGroupInfoResponse? Parent;
@@ -39,6 +47,10 @@ namespace Pulumi.AzureNative.Management.Outputs
 
         [OutputConstructor]
         private ManagementGroupDetailsResponse(
+            ImmutableArray<string> managementGroupAncestors,
+
+            ImmutableArray<Outputs.ManagementGroupPathElementResponse> managementGroupAncestorsChain,
+
             Outputs.ParentGroupInfoResponse? parent,
 
             ImmutableArray<Outputs.ManagementGroupPathElementResponse> path,
@@ -49,6 +61,8 @@ namespace Pulumi.AzureNative.Management.Outputs
 
             double? version)
         {
+            ManagementGroupAncestors = managementGroupAncestors;
+            ManagementGroupAncestorsChain = managementGroupAncestorsChain;
             Parent = parent;
             Path = path;
             UpdatedBy = updatedBy;

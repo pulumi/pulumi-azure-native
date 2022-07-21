@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a database script.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 type Script struct {
 	pulumi.CustomResourceState
 
@@ -24,8 +24,8 @@ type Script struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The url to the KQL script blob file.
-	ScriptUrl pulumi.StringOutput `pulumi:"scriptUrl"`
+	// The url to the KQL script blob file. Must not be used together with scriptContent property
+	ScriptUrl pulumi.StringPtrOutput `pulumi:"scriptUrl"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -47,12 +47,6 @@ func NewScript(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.ScriptUrl == nil {
-		return nil, errors.New("invalid value for required argument 'ScriptUrl'")
-	}
-	if args.ScriptUrlSasToken == nil {
-		return nil, errors.New("invalid value for required argument 'ScriptUrlSasToken'")
 	}
 	if isZero(args.ContinueOnErrors) {
 		args.ContinueOnErrors = pulumi.BoolPtr(false)
@@ -111,12 +105,14 @@ type scriptArgs struct {
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+	ScriptContent *string `pulumi:"scriptContent"`
 	// The name of the Kusto database script.
 	ScriptName *string `pulumi:"scriptName"`
-	// The url to the KQL script blob file.
-	ScriptUrl string `pulumi:"scriptUrl"`
-	// The SaS token.
-	ScriptUrlSasToken string `pulumi:"scriptUrlSasToken"`
+	// The url to the KQL script blob file. Must not be used together with scriptContent property
+	ScriptUrl *string `pulumi:"scriptUrl"`
+	// The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
+	ScriptUrlSasToken *string `pulumi:"scriptUrlSasToken"`
 }
 
 // The set of arguments for constructing a Script resource.
@@ -131,12 +127,14 @@ type ScriptArgs struct {
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+	ScriptContent pulumi.StringPtrInput
 	// The name of the Kusto database script.
 	ScriptName pulumi.StringPtrInput
-	// The url to the KQL script blob file.
-	ScriptUrl pulumi.StringInput
-	// The SaS token.
-	ScriptUrlSasToken pulumi.StringInput
+	// The url to the KQL script blob file. Must not be used together with scriptContent property
+	ScriptUrl pulumi.StringPtrInput
+	// The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
+	ScriptUrlSasToken pulumi.StringPtrInput
 }
 
 func (ScriptArgs) ElementType() reflect.Type {
@@ -196,9 +194,9 @@ func (o ScriptOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The url to the KQL script blob file.
-func (o ScriptOutput) ScriptUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.ScriptUrl }).(pulumi.StringOutput)
+// The url to the KQL script blob file. Must not be used together with scriptContent property
+func (o ScriptOutput) ScriptUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ScriptUrl }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.

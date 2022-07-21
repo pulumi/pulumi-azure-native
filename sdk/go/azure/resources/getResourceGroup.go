@@ -11,7 +11,7 @@ import (
 )
 
 // Resource group information.
-// API Version: 2019-05-01.
+// API Version: 2021-04-01.
 func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupResult, error) {
 	var rv LookupResourceGroupResult
 	err := ctx.Invoke("azure-native:resources:getResourceGroup", args, &rv, opts...)

@@ -60,7 +60,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         The details of subscription under management group.
-        API Version: 2020-05-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,7 +75,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details of subscription under management group.
-        API Version: 2020-05-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -166,9 +166,9 @@ class ManagementGroupSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parent(self) -> pulumi.Output[Optional['outputs.DescendantParentGroupInfoResponse']]:
+    def parent(self) -> pulumi.Output[Optional['outputs.ParentGroupBagInfoResponse']]:
         """
-        The ID of the parent management group.
+        The ID, name and displayName of the parent management group.
         """
         return pulumi.get(self, "parent")
 

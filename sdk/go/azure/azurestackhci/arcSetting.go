@@ -12,14 +12,24 @@ import (
 )
 
 // ArcSetting details.
-// API Version: 2021-01-01-preview.
+// API Version: 2022-05-01.
 type ArcSetting struct {
 	pulumi.CustomResourceState
 
 	// Aggregate state of Arc agent across the nodes in this HCI cluster.
 	AggregateState pulumi.StringOutput `pulumi:"aggregateState"`
+	// App id of arc AAD identity.
+	ArcApplicationClientId pulumi.StringPtrOutput `pulumi:"arcApplicationClientId"`
+	// Object id of arc AAD identity.
+	ArcApplicationObjectId pulumi.StringPtrOutput `pulumi:"arcApplicationObjectId"`
+	// Tenant id of arc AAD identity.
+	ArcApplicationTenantId pulumi.StringPtrOutput `pulumi:"arcApplicationTenantId"`
 	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
-	ArcInstanceResourceGroup pulumi.StringOutput `pulumi:"arcInstanceResourceGroup"`
+	ArcInstanceResourceGroup pulumi.StringPtrOutput `pulumi:"arcInstanceResourceGroup"`
+	// Object id of arc AAD service principal.
+	ArcServicePrincipalObjectId pulumi.StringPtrOutput `pulumi:"arcServicePrincipalObjectId"`
+	// contains connectivity related configuration for ARC resources
+	ConnectivityProperties ArcConnectivityPropertiesResponseArrayOutput `pulumi:"connectivityProperties"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The identity that created the resource.
@@ -105,10 +115,22 @@ func (ArcSettingState) ElementType() reflect.Type {
 }
 
 type arcSettingArgs struct {
+	// App id of arc AAD identity.
+	ArcApplicationClientId *string `pulumi:"arcApplicationClientId"`
+	// Object id of arc AAD identity.
+	ArcApplicationObjectId *string `pulumi:"arcApplicationObjectId"`
+	// Tenant id of arc AAD identity.
+	ArcApplicationTenantId *string `pulumi:"arcApplicationTenantId"`
+	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+	ArcInstanceResourceGroup *string `pulumi:"arcInstanceResourceGroup"`
+	// Object id of arc AAD service principal.
+	ArcServicePrincipalObjectId *string `pulumi:"arcServicePrincipalObjectId"`
 	// The name of the proxy resource holding details of HCI ArcSetting information.
 	ArcSettingName *string `pulumi:"arcSettingName"`
 	// The name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// contains connectivity related configuration for ARC resources
+	ConnectivityProperties []ArcConnectivityProperties `pulumi:"connectivityProperties"`
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
@@ -127,10 +149,22 @@ type arcSettingArgs struct {
 
 // The set of arguments for constructing a ArcSetting resource.
 type ArcSettingArgs struct {
+	// App id of arc AAD identity.
+	ArcApplicationClientId pulumi.StringPtrInput
+	// Object id of arc AAD identity.
+	ArcApplicationObjectId pulumi.StringPtrInput
+	// Tenant id of arc AAD identity.
+	ArcApplicationTenantId pulumi.StringPtrInput
+	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+	ArcInstanceResourceGroup pulumi.StringPtrInput
+	// Object id of arc AAD service principal.
+	ArcServicePrincipalObjectId pulumi.StringPtrInput
 	// The name of the proxy resource holding details of HCI ArcSetting information.
 	ArcSettingName pulumi.StringPtrInput
 	// The name of the cluster.
 	ClusterName pulumi.StringInput
+	// contains connectivity related configuration for ARC resources
+	ConnectivityProperties ArcConnectivityPropertiesArrayInput
 	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput
 	// The identity that created the resource.
@@ -189,9 +223,34 @@ func (o ArcSettingOutput) AggregateState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArcSetting) pulumi.StringOutput { return v.AggregateState }).(pulumi.StringOutput)
 }
 
+// App id of arc AAD identity.
+func (o ArcSettingOutput) ArcApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcSetting) pulumi.StringPtrOutput { return v.ArcApplicationClientId }).(pulumi.StringPtrOutput)
+}
+
+// Object id of arc AAD identity.
+func (o ArcSettingOutput) ArcApplicationObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcSetting) pulumi.StringPtrOutput { return v.ArcApplicationObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant id of arc AAD identity.
+func (o ArcSettingOutput) ArcApplicationTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcSetting) pulumi.StringPtrOutput { return v.ArcApplicationTenantId }).(pulumi.StringPtrOutput)
+}
+
 // The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
-func (o ArcSettingOutput) ArcInstanceResourceGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v *ArcSetting) pulumi.StringOutput { return v.ArcInstanceResourceGroup }).(pulumi.StringOutput)
+func (o ArcSettingOutput) ArcInstanceResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcSetting) pulumi.StringPtrOutput { return v.ArcInstanceResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Object id of arc AAD service principal.
+func (o ArcSettingOutput) ArcServicePrincipalObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcSetting) pulumi.StringPtrOutput { return v.ArcServicePrincipalObjectId }).(pulumi.StringPtrOutput)
+}
+
+// contains connectivity related configuration for ARC resources
+func (o ArcSettingOutput) ConnectivityProperties() ArcConnectivityPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *ArcSetting) ArcConnectivityPropertiesResponseArrayOutput { return v.ConnectivityProperties }).(ArcConnectivityPropertiesResponseArrayOutput)
 }
 
 // The timestamp of resource creation (UTC).

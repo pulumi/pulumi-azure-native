@@ -63,7 +63,7 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtManagementGroupResult:
     """
     List of deployments for a remediation.
-    API Version: 2019-07-01.
+    API Version: 2021-10-01.
 
 
     :param str management_group_id: Management group ID.
@@ -95,7 +95,7 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtManagementGroupResult]:
     """
     List of deployments for a remediation.
-    API Version: 2019-07-01.
+    API Version: 2021-10-01.
 
 
     :param str management_group_id: Management group ID.

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ManagedServices
     public static class GetRegistrationDefinition
     {
         /// <summary>
-        /// Registration definition.
-        /// API Version: 2019-09-01.
+        /// The registration definition.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Registration definition.
-        /// API Version: 2019-09-01.
+        /// The registration definition.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class GetRegistrationDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Guid of the registration definition.
+        /// The GUID of the registration definition.
         /// </summary>
         [Input("registrationDefinitionId", required: true)]
         public string RegistrationDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class GetRegistrationDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Guid of the registration definition.
+        /// The GUID of the registration definition.
         /// </summary>
         [Input("registrationDefinitionId", required: true)]
         public Input<string> RegistrationDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -70,23 +70,27 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class GetRegistrationDefinitionResult
     {
         /// <summary>
-        /// Fully qualified path of the registration definition.
+        /// The fully qualified path of the registration definition.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// Properties of a registration definition.
+        /// The properties of a registration definition.
         /// </summary>
         public readonly Outputs.RegistrationDefinitionPropertiesResponse Properties;
         /// <summary>
-        /// Type of the resource.
+        /// The metadata for the registration assignment resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         /// </summary>
         public readonly string Type;
 
@@ -100,12 +104,15 @@ namespace Pulumi.AzureNative.ManagedServices
 
             Outputs.RegistrationDefinitionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Plan = plan;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

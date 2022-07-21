@@ -48,7 +48,7 @@ def list_device_registration_key(device_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceRegistrationKeyResult:
     """
     The device registration key.
-    API Version: 2020-01-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str device_name: The name of the device resource.
@@ -73,7 +73,7 @@ def list_device_registration_key_output(device_name: Optional[pulumi.Input[str]]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceRegistrationKeyResult]:
     """
     The device registration key.
-    API Version: 2020-01-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str device_name: The name of the device resource.

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ContainerService
     public static class GetMaintenanceConfiguration
     {
         /// <summary>
-        /// maintenance configuration.
-        /// API Version: 2021-03-01.
+        /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:containerservice:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// maintenance configuration.
-        /// API Version: 2021-03-01.
+        /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:containerservice:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ContainerService
         public string ConfigName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<string> ConfigName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly ImmutableArray<Outputs.TimeSpanResponse> NotAllowedTime;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system metadata relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Weekday time slots allowed to upgrade.
+        /// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
         public readonly ImmutableArray<Outputs.TimeInWeekResponse> TimeInWeek;
         /// <summary>

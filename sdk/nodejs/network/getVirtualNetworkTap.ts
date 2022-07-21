@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network Tap resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
     if (!opts) {

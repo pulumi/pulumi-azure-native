@@ -12,7 +12,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 //
 // Deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
 type Role struct {
@@ -22,7 +22,7 @@ type Role struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Role configured on ASE resource
+	// Metadata pertaining to creation and last modification of Role
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -187,7 +187,7 @@ func (o RoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Role configured on ASE resource
+// Metadata pertaining to creation and last modification of Role
 func (o RoleOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Role) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

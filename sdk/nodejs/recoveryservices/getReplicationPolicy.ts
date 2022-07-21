@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Protection profile details.
- * API Version: 2018-07-10.
+ * API Version: 2022-03-01.
  */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
     if (!opts) {

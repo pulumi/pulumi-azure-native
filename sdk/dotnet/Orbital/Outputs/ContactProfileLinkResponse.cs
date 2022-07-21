@@ -11,29 +11,33 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 {
 
     /// <summary>
-    /// Contact Profile link
+    /// Contact Profile Link.
     /// </summary>
     [OutputType]
     public sealed class ContactProfileLinkResponse
     {
         /// <summary>
-        /// Contact Profile Link Channel
+        /// Contact Profile Link Channel.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactProfileLinkChannelResponse> Channels;
         /// <summary>
-        /// Direction (uplink or downlink)
+        /// Direction (uplink or downlink).
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// Effective Isotropic Radiated Power (EIRP) in dBW.
+        /// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
         /// </summary>
         public readonly double? EirpdBW;
         /// <summary>
-        /// Gain To Noise Temperature in db/K.
+        /// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         /// </summary>
         public readonly double? GainOverTemperature;
         /// <summary>
-        /// polarization. eg (RHCP, LHCP)
+        /// Link name.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Polarization. e.g. (RHCP, LHCP).
         /// </summary>
         public readonly string Polarization;
 
@@ -47,12 +51,15 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 
             double? gainOverTemperature,
 
+            string name,
+
             string polarization)
         {
             Channels = channels;
             Direction = direction;
             EirpdBW = eirpdBW;
             GainOverTemperature = gainOverTemperature;
+            Name = name;
             Polarization = polarization;
         }
     }

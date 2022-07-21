@@ -11,7 +11,7 @@ import (
 )
 
 // Public certificate object
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupWebAppPublicCertificateSlot(ctx *pulumi.Context, args *LookupWebAppPublicCertificateSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateSlotResult, error) {
 	var rv LookupWebAppPublicCertificateSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppPublicCertificateSlot", args, &rv, opts...)

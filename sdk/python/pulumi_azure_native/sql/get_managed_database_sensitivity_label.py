@@ -194,7 +194,7 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDatabaseSensitivityLabelResult:
     """
     A sensitivity label.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str column_name: The name of the column.
@@ -246,7 +246,7 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseSensitivityLabelResult]:
     """
     A sensitivity label.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str column_name: The name of the column.

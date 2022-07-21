@@ -93,7 +93,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  __props__=None):
         """
         Describes an identity resource.
-        API Version: 2018-11-30.
+        API Version: 2022-01-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an identity resource.
-        API Version: 2018-11-30.
+        API Version: 2022-01-31-preview.
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.

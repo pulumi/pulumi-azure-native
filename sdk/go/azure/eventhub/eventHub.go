@@ -12,7 +12,7 @@ import (
 )
 
 // Single item in List or Get Event Hub operation
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type EventHub struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type EventHub struct {
 	CaptureDescription CaptureDescriptionResponsePtrOutput `pulumi:"captureDescription"`
 	// Exact time the Event Hub was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 	MessageRetentionInDays pulumi.Float64PtrOutput `pulumi:"messageRetentionInDays"`
 	// The name of the resource
@@ -30,7 +32,9 @@ type EventHub struct {
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
 	// Enumerates the possible values for the status of the Event Hub.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -189,6 +193,11 @@ func (o EventHubOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The geo-location where the resource lives
+func (o EventHubOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
 // Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 func (o EventHubOutput) MessageRetentionInDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.Float64PtrOutput { return v.MessageRetentionInDays }).(pulumi.Float64PtrOutput)
@@ -214,7 +223,12 @@ func (o EventHubOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+// The system meta data relating to this resource.
+func (o EventHubOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EventHub) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o EventHubOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -25,6 +25,7 @@ class NetworkVirtualApplianceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input['VirtualApplianceSkuPropertiesArgs']] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None):
@@ -39,6 +40,7 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input['VirtualApplianceSkuPropertiesArgs'] nva_sku: Network Virtual Appliance SKU.
+        :param pulumi.Input[str] ssh_public_key: Public key for SSH login.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
@@ -60,6 +62,8 @@ class NetworkVirtualApplianceArgs:
             pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         if nva_sku is not None:
             pulumi.set(__self__, "nva_sku", nva_sku)
+        if ssh_public_key is not None:
+            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_appliance_asn is not None:
@@ -176,6 +180,18 @@ class NetworkVirtualApplianceArgs:
         pulumi.set(self, "nva_sku", value)
 
     @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public key for SSH login.
+        """
+        return pulumi.get(self, "ssh_public_key")
+
+    @ssh_public_key.setter
+    def ssh_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_public_key", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -226,13 +242,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
         """
         NetworkVirtualAppliance Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +262,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] ssh_public_key: Public key for SSH login.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
@@ -257,7 +275,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkVirtualAppliance Resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -283,6 +301,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -309,6 +328,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["ssh_public_key"] = ssh_public_key
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_appliance_asn"] = virtual_appliance_asn
             __props__.__dict__["virtual_hub"] = virtual_hub
@@ -355,6 +375,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["nva_sku"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["ssh_public_key"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_appliance_asn"] = None
@@ -450,6 +471,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public key for SSH login.
+        """
+        return pulumi.get(self, "ssh_public_key")
 
     @property
     @pulumi.getter

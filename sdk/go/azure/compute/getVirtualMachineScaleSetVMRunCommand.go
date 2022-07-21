@@ -11,7 +11,7 @@ import (
 )
 
 // Describes a Virtual Machine run command.
-// API Version: 2021-03-01.
+// API Version: 2021-11-01.
 func LookupVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMRunCommandArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMRunCommandResult, error) {
 	var rv LookupVirtualMachineScaleSetVMRunCommandResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSetVMRunCommand", args, &rv, opts...)

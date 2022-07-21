@@ -51,9 +51,6 @@ func NewExportPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:containerregistry:ExportPipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20201101preview:ExportPipeline"),
 		},
 		{

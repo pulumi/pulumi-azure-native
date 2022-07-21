@@ -11,7 +11,7 @@ import (
 )
 
 // Registered Server resource.
-// API Version: 2020-03-01.
+// API Version: 2020-09-01.
 func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredServerResult, error) {
 	var rv LookupRegisteredServerResult
 	err := ctx.Invoke("azure-native:storagesync:getRegisteredServer", args, &rv, opts...)
@@ -72,6 +72,8 @@ type LookupRegisteredServerResult struct {
 	ServerId *string `pulumi:"serverId"`
 	// Registered Server Management Error Code
 	ServerManagementErrorCode *int `pulumi:"serverManagementErrorCode"`
+	// Server name
+	ServerName string `pulumi:"serverName"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
@@ -80,6 +82,8 @@ type LookupRegisteredServerResult struct {
 	ServiceLocation *string `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -225,6 +229,11 @@ func (o LookupRegisteredServerResultOutput) ServerManagementErrorCode() pulumi.I
 	return o.ApplyT(func(v LookupRegisteredServerResult) *int { return v.ServerManagementErrorCode }).(pulumi.IntPtrOutput)
 }
 
+// Server name
+func (o LookupRegisteredServerResultOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
 // Registered Server OS Version
 func (o LookupRegisteredServerResultOutput) ServerOSVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ServerOSVersion }).(pulumi.StringPtrOutput)
@@ -243,6 +252,11 @@ func (o LookupRegisteredServerResultOutput) ServiceLocation() pulumi.StringPtrOu
 // Registered Server storageSyncServiceUid
 func (o LookupRegisteredServerResultOutput) StorageSyncServiceUid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.StorageSyncServiceUid }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupRegisteredServerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

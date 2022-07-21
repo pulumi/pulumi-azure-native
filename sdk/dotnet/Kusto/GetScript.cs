@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing a database script.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("azure-native:kusto:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a database script.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
@@ -114,9 +114,9 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The url to the KQL script blob file.
+        /// The url to the KQL script blob file. Must not be used together with scriptContent property
         /// </summary>
-        public readonly string ScriptUrl;
+        public readonly string? ScriptUrl;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string provisioningState,
 
-            string scriptUrl,
+            string? scriptUrl,
 
             Outputs.SystemDataResponse systemData,
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function listSubAccountMonitoredResources(args: ListSubAccountMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountMonitoredResourcesResult> {
     if (!opts) {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about workspace.
- * API Version: 2018-04-01.
+ * API Version: 2021-04-01-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -49,6 +49,10 @@ export interface GetWorkspaceResult {
      */
     readonly createdDateTime: string;
     /**
+     * Encryption properties for databricks workspace
+     */
+    readonly encryption?: outputs.databricks.WorkspacePropertiesResponseEncryption;
+    /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -69,9 +73,21 @@ export interface GetWorkspaceResult {
      */
     readonly parameters?: outputs.databricks.WorkspaceCustomParametersResponse;
     /**
+     * Private endpoint connections created on the workspace
+     */
+    readonly privateEndpointConnections: outputs.databricks.PrivateEndpointConnectionResponse[];
+    /**
      * The workspace provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     */
+    readonly requiredNsgRules?: string;
     /**
      * The SKU of the resource.
      */
@@ -80,6 +96,10 @@ export interface GetWorkspaceResult {
      * The details of Managed Identity of Storage Account
      */
     readonly storageAccountIdentity?: outputs.databricks.ManagedIdentityConfigurationResponse;
+    /**
+     * The system metadata relating to this resource
+     */
+    readonly systemData: outputs.databricks.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -21,7 +21,7 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -37,15 +37,27 @@ class GetNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
             raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
         pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,9 +109,28 @@ class GetNamespaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Namespace.
+        """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="serviceBusEndpoint")
@@ -116,6 +147,22 @@ class GetNamespaceResult:
         SKU of the namespace.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Namespace.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -153,9 +200,13 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             location=self.location,
             metric_id=self.metric_id,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
+            status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             updated_at=self.updated_at)
@@ -166,7 +217,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Description of a namespace resource.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name
@@ -187,9 +238,13 @@ def get_namespace(namespace_name: Optional[str] = None,
         location=__ret__.location,
         metric_id=__ret__.metric_id,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         service_bus_endpoint=__ret__.service_bus_endpoint,
         sku=__ret__.sku,
+        status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
@@ -201,7 +256,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Description of a namespace resource.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name

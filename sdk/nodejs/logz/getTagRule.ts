@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
     if (!opts) {

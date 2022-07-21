@@ -81,15 +81,26 @@ export const FilterType = {
  */
 export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
-export const IPAction = {
-    Accept: "Accept",
-    Reject: "Reject",
+export const KeySource = {
+    Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
 /**
- * The IP Filter Action
+ * Enumerates the possible value of keySource for Encryption
  */
-export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",
@@ -111,6 +122,16 @@ export const PrivateLinkConnectionStatus = {
  * Status of the connection.
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
+
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
 
 export const SkuName = {
     Basic: "Basic",

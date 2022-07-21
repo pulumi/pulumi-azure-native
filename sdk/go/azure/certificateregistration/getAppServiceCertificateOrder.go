@@ -11,7 +11,7 @@ import (
 )
 
 // SSL certificate purchase order.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupAppServiceCertificateOrder(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderResult, error) {
 	var rv LookupAppServiceCertificateOrderResult
 	err := ctx.Invoke("azure-native:certificateregistration:getAppServiceCertificateOrder", args, &rv, opts...)
@@ -36,6 +36,8 @@ type LookupAppServiceCertificateOrderResult struct {
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
 	Certificates map[string]AppServiceCertificateResponse `pulumi:"certificates"`
+	// Contact info
+	Contact CertificateOrderContactResponse `pulumi:"contact"`
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -74,13 +76,11 @@ type LookupAppServiceCertificateOrderResult struct {
 	SignedCertificate CertificateDetailsResponse `pulumi:"signedCertificate"`
 	// Current order status.
 	Status string `pulumi:"status"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
-	// Duration in years (must be between 1 and 3).
+	// Duration in years (must be 1).
 	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
@@ -161,6 +161,11 @@ func (o LookupAppServiceCertificateOrderResultOutput) Certificates() AppServiceC
 	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) map[string]AppServiceCertificateResponse {
 		return v.Certificates
 	}).(AppServiceCertificateResponseMapOutput)
+}
+
+// Contact info
+func (o LookupAppServiceCertificateOrderResultOutput) Contact() CertificateOrderContactResponseOutput {
+	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) CertificateOrderContactResponse { return v.Contact }).(CertificateOrderContactResponseOutput)
 }
 
 // Last CSR that was created for this order.
@@ -258,11 +263,6 @@ func (o LookupAppServiceCertificateOrderResultOutput) Status() pulumi.StringOutp
 	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o LookupAppServiceCertificateOrderResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource tags.
 func (o LookupAppServiceCertificateOrderResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -273,7 +273,7 @@ func (o LookupAppServiceCertificateOrderResultOutput) Type() pulumi.StringOutput
 	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Duration in years (must be between 1 and 3).
+// Duration in years (must be 1).
 func (o LookupAppServiceCertificateOrderResultOutput) ValidityInYears() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAppServiceCertificateOrderResult) *int { return v.ValidityInYears }).(pulumi.IntPtrOutput)
 }

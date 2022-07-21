@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class DataLakeAnalyticsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Location for the underlying compute
-        /// </summary>
-        [Input("computeLocation")]
-        public Input<string>? ComputeLocation { get; set; }
-
-        /// <summary>
         /// The type of compute
         /// Expected value is 'DataLakeAnalytics'.
         /// </summary>
@@ -34,8 +28,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
         [Input("properties")]
-        public Input<Inputs.DataLakeAnalyticsPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.DataLakeAnalyticsSchemaPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// ARM resource id of the underlying compute

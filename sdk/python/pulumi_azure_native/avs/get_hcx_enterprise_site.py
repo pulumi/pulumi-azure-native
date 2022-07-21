@@ -97,7 +97,7 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHcxEnterpriseSiteResult:
     """
     An HCX Enterprise Site resource
-    API Version: 2020-03-20.
+    API Version: 2021-12-01.
 
 
     :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
@@ -129,7 +129,7 @@ def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHcxEnterpriseSiteResult]:
     """
     An HCX Enterprise Site resource
-    API Version: 2020-03-20.
+    API Version: 2021-12-01.
 
 
     :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud

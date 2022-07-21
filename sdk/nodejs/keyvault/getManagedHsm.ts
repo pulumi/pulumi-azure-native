@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
     if (!opts) {

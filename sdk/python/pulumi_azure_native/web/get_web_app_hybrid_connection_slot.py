@@ -184,7 +184,7 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionSlotResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: The name of the web app.
@@ -229,7 +229,7 @@ def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] 
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHybridConnectionSlotResult]:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: The name of the web app.

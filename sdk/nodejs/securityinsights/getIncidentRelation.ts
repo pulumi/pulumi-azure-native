@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a relation between two resources
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
     if (!opts) {
@@ -17,7 +17,6 @@ export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getIncidentRelation", {
         "incidentId": args.incidentId,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "relationName": args.relationName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -29,10 +28,6 @@ export interface GetIncidentRelationArgs {
      * Incident ID
      */
     incidentId: string;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * Relation Name
      */
@@ -56,11 +51,11 @@ export interface GetIncidentRelationResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -84,7 +79,7 @@ export interface GetIncidentRelationResult {
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -98,10 +93,6 @@ export interface GetIncidentRelationOutputArgs {
      * Incident ID
      */
     incidentId: pulumi.Input<string>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * Relation Name
      */

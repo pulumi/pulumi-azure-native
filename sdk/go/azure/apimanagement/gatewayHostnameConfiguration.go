@@ -12,7 +12,7 @@ import (
 )
 
 // Gateway hostname configuration details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type GatewayHostnameConfiguration struct {
 	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
 	// Specifies if HTTP/2.0 is supported
 	Http2Enabled pulumi.BoolPtrOutput `pulumi:"http2Enabled"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate pulumi.BoolPtrOutput `pulumi:"negotiateClientCertificate"`
@@ -30,7 +30,7 @@ type GatewayHostnameConfiguration struct {
 	Tls10Enabled pulumi.BoolPtrOutput `pulumi:"tls10Enabled"`
 	// Specifies if TLS 1.1 is supported
 	Tls11Enabled pulumi.BoolPtrOutput `pulumi:"tls11Enabled"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -207,7 +207,7 @@ func (o GatewayHostnameConfigurationOutput) Http2Enabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *GatewayHostnameConfiguration) pulumi.BoolPtrOutput { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o GatewayHostnameConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayHostnameConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -227,7 +227,7 @@ func (o GatewayHostnameConfigurationOutput) Tls11Enabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *GatewayHostnameConfiguration) pulumi.BoolPtrOutput { return v.Tls11Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o GatewayHostnameConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayHostnameConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

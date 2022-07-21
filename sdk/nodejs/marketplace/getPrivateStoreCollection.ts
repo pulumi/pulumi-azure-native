@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Collection data structure.
- * API Version: 2021-12-01.
+ * API Version: 2022-03-01.
  */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
     if (!opts) {
@@ -36,6 +36,14 @@ export interface GetPrivateStoreCollectionArgs {
  * The Collection data structure.
  */
 export interface GetPrivateStoreCollectionResult {
+    /**
+     * Indicating whether all items are approved for this collection (=true) or not (=false).
+     */
+    readonly allItemsApproved: boolean;
+    /**
+     * Gets the modified date of all items approved.
+     */
+    readonly allItemsApprovedModifiedAt: string;
     /**
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */

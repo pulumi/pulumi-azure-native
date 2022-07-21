@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sim resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export class Sim extends pulumi.CustomResource {
     /**
@@ -36,10 +36,6 @@ export class Sim extends pulumi.CustomResource {
         return obj['__pulumiType'] === Sim.__pulumiType;
     }
 
-    /**
-     * The configuration state of the sim resource - complete or incomplete.
-     */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
     /**
      * The timestamp of resource creation (UTC).
      */
@@ -97,9 +93,17 @@ export class Sim extends pulumi.CustomResource {
      */
     public readonly simPolicy!: pulumi.Output<outputs.mobilenetwork.SimPolicyResourceIdResponse | undefined>;
     /**
+     * The state of the sim resource.
+     */
+    public /*out*/ readonly simState!: pulumi.Output<string>;
+    /**
      * A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
      */
     public readonly staticIpConfiguration!: pulumi.Output<outputs.mobilenetwork.SimStaticIpPropertiesResponse[] | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -144,12 +148,12 @@ export class Sim extends pulumi.CustomResource {
             resourceInputs["simPolicy"] = args ? args.simPolicy : undefined;
             resourceInputs["staticIpConfiguration"] = args ? args.staticIpConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["simState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;
@@ -164,7 +168,9 @@ export class Sim extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["simPolicy"] = undefined /*out*/;
+            resourceInputs["simState"] = undefined /*out*/;
             resourceInputs["staticIpConfiguration"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

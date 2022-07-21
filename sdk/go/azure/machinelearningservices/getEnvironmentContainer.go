@@ -11,18 +11,18 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupEnvironmentContainer(ctx *pulumi.Context, args *LookupEnvironmentContainerArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentContainerResult, error) {
 	var rv LookupEnvironmentContainerResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getEnvironmentContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupEnvironmentContainerArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -32,16 +32,27 @@ type LookupEnvironmentContainerArgs struct {
 
 // Azure Resource Manager resource envelope.
 type LookupEnvironmentContainerResult struct {
+	// [Required] Additional attributes of the entity.
+	EnvironmentContainerProperties EnvironmentContainerResponse `pulumi:"environmentContainerProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties EnvironmentContainerResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupEnvironmentContainerResult
+func (val *LookupEnvironmentContainerResult) Defaults() *LookupEnvironmentContainerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.EnvironmentContainerProperties = *tmp.EnvironmentContainerProperties.Defaults()
+
+	return &tmp
 }
 
 func LookupEnvironmentContainerOutput(ctx *pulumi.Context, args LookupEnvironmentContainerOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentContainerResultOutput {
@@ -58,7 +69,7 @@ func LookupEnvironmentContainerOutput(ctx *pulumi.Context, args LookupEnvironmen
 }
 
 type LookupEnvironmentContainerOutputArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -85,6 +96,13 @@ func (o LookupEnvironmentContainerResultOutput) ToLookupEnvironmentContainerResu
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupEnvironmentContainerResultOutput) EnvironmentContainerProperties() EnvironmentContainerResponseOutput {
+	return o.ApplyT(func(v LookupEnvironmentContainerResult) EnvironmentContainerResponse {
+		return v.EnvironmentContainerProperties
+	}).(EnvironmentContainerResponseOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupEnvironmentContainerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentContainerResult) string { return v.Id }).(pulumi.StringOutput)
@@ -95,12 +113,7 @@ func (o LookupEnvironmentContainerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentContainerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupEnvironmentContainerResultOutput) Properties() EnvironmentContainerResponseOutput {
-	return o.ApplyT(func(v LookupEnvironmentContainerResult) EnvironmentContainerResponse { return v.Properties }).(EnvironmentContainerResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupEnvironmentContainerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupEnvironmentContainerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

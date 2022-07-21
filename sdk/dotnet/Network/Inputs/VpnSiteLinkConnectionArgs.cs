@@ -111,6 +111,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("vpnConnectionProtocolType")]
         public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkGatewayConnectionProtocol>? VpnConnectionProtocolType { get; set; }
 
+        [Input("vpnGatewayCustomBgpAddresses")]
+        private InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs>? _vpnGatewayCustomBgpAddresses;
+
+        /// <summary>
+        /// vpnGatewayCustomBgpAddresses used by this connection.
+        /// </summary>
+        public InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs> VpnGatewayCustomBgpAddresses
+        {
+            get => _vpnGatewayCustomBgpAddresses ?? (_vpnGatewayCustomBgpAddresses = new InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs>());
+            set => _vpnGatewayCustomBgpAddresses = value;
+        }
+
         /// <summary>
         /// Vpn link connection mode.
         /// </summary>

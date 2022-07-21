@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApi
     {
         /// <summary>
-        /// Api details.
-        /// API Version: 2020-12-01.
+        /// API details.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apimanagement:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Api details.
-        /// API Version: 2020-12-01.
+        /// API details.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetApiResult
     {
         /// <summary>
-        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        /// Describes the revision of the API. If no value is provided, default revision 1 is created
         /// </summary>
         public readonly string? ApiRevision;
         /// <summary>
-        /// Description of the Api Revision.
+        /// Description of the API Revision.
         /// </summary>
         public readonly string? ApiRevisionDescription;
         /// <summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? ApiType;
         /// <summary>
-        /// Indicates the Version identifier of the API if the API is versioned
+        /// Indicates the version identifier of the API if the API is versioned
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
-        /// Description of the Api Version.
+        /// Description of the API Version.
         /// </summary>
         public readonly string? ApiVersionDescription;
         /// <summary>
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly Outputs.AuthenticationSettingsContractResponse? AuthenticationSettings;
         /// <summary>
+        /// Contact information for the API.
+        /// </summary>
+        public readonly Outputs.ApiContactInformationResponse? Contact;
+        /// <summary>
         /// Description of the API. May include HTML formatting tags.
         /// </summary>
         public readonly string? Description;
@@ -122,7 +126,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -134,7 +138,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly bool IsOnline;
         /// <summary>
-        /// Resource name.
+        /// License information for the API.
+        /// </summary>
+        public readonly Outputs.ApiLicenseInformationResponse? License;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -162,7 +170,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly bool? SubscriptionRequired;
         /// <summary>
-        /// Resource type for API Management resource.
+        ///  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        /// </summary>
+        public readonly string? TermsOfServiceUrl;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -184,6 +196,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             Outputs.AuthenticationSettingsContractResponse? authenticationSettings,
 
+            Outputs.ApiContactInformationResponse? contact,
+
             string? description,
 
             string? displayName,
@@ -193,6 +207,8 @@ namespace Pulumi.AzureNative.ApiManagement
             bool? isCurrent,
 
             bool isOnline,
+
+            Outputs.ApiLicenseInformationResponse? license,
 
             string name,
 
@@ -208,6 +224,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             bool? subscriptionRequired,
 
+            string? termsOfServiceUrl,
+
             string type)
         {
             ApiRevision = apiRevision;
@@ -218,11 +236,13 @@ namespace Pulumi.AzureNative.ApiManagement
             ApiVersionSet = apiVersionSet;
             ApiVersionSetId = apiVersionSetId;
             AuthenticationSettings = authenticationSettings;
+            Contact = contact;
             Description = description;
             DisplayName = displayName;
             Id = id;
             IsCurrent = isCurrent;
             IsOnline = isOnline;
+            License = license;
             Name = name;
             Path = path;
             Protocols = protocols;
@@ -230,6 +250,7 @@ namespace Pulumi.AzureNative.ApiManagement
             SourceApiId = sourceApiId;
             SubscriptionKeyParameterNames = subscriptionKeyParameterNames;
             SubscriptionRequired = subscriptionRequired;
+            TermsOfServiceUrl = termsOfServiceUrl;
             Type = type;
         }
     }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information.
- * API Version: 2019-05-01.
+ * API Version: 2021-04-01.
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    /**
+     * Resource extended location.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.resources.ExtendedLocationResponse | undefined>;
     /**
      * The identity of the resource.
      */
@@ -100,6 +104,7 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -116,6 +121,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export class Resource extends pulumi.CustomResource {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    /**
+     * Resource extended location.
+     */
+    extendedLocation?: pulumi.Input<inputs.resources.ExtendedLocationArgs>;
     /**
      * The identity of the resource.
      */

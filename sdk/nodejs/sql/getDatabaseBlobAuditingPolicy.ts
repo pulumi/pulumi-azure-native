@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database blob auditing policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getDatabaseBlobAuditingPolicy(args: GetDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseBlobAuditingPolicyResult> {
     if (!opts) {
@@ -78,6 +78,10 @@ export interface GetDatabaseBlobAuditingPolicyResult {
      * USER_CHANGE_PASSWORD_GROUP
      * BATCH_STARTED_GROUP
      * BATCH_COMPLETED_GROUP
+     * DBCC_GROUP
+     * DATABASE_OWNERSHIP_CHANGE_GROUP
+     * DATABASE_CHANGE_GROUP
+     * LEDGER_OPERATION_GROUP
      * 
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
      * 
@@ -123,6 +127,10 @@ export interface GetDatabaseBlobAuditingPolicyResult {
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
     readonly isAzureMonitorTargetEnabled?: boolean;
+    /**
+     * Specifies whether Managed Identity is used to access blob storage
+     */
+    readonly isManagedIdentityInUse?: boolean;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */

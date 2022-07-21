@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         public Input<Inputs.DatasourceSetArgs>? DataSourceSetInfo { get; set; }
 
         /// <summary>
+        /// Credentials to use to authenticate with data source provider.
+        /// </summary>
+        [Input("datasourceAuthCredentials")]
+        public Input<Inputs.SecretStoreBasedAuthCredentialsArgs>? DatasourceAuthCredentials { get; set; }
+
+        /// <summary>
         /// Gets or sets the Backup Instance friendly name.
         /// </summary>
         [Input("friendlyName")]
@@ -41,6 +47,12 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         /// </summary>
         [Input("policyInfo", required: true)]
         public Input<Inputs.PolicyInfoArgs> PolicyInfo { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+        /// </summary>
+        [Input("validationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataProtection.ValidationType>? ValidationType { get; set; }
 
         public BackupInstanceArgs()
         {

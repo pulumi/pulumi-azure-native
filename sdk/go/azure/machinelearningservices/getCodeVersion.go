@@ -11,22 +11,22 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 func LookupCodeVersion(ctx *pulumi.Context, args *LookupCodeVersionArgs, opts ...pulumi.InvokeOption) (*LookupCodeVersionResult, error) {
 	var rv LookupCodeVersionResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getCodeVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupCodeVersionArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Version identifier.
+	// Version identifier. This is case-sensitive.
 	Version string `pulumi:"version"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -34,16 +34,27 @@ type LookupCodeVersionArgs struct {
 
 // Azure Resource Manager resource envelope.
 type LookupCodeVersionResult struct {
+	// [Required] Additional attributes of the entity.
+	CodeVersionProperties CodeVersionResponse `pulumi:"codeVersionProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties CodeVersionResponse `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupCodeVersionResult
+func (val *LookupCodeVersionResult) Defaults() *LookupCodeVersionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.CodeVersionProperties = *tmp.CodeVersionProperties.Defaults()
+
+	return &tmp
 }
 
 func LookupCodeVersionOutput(ctx *pulumi.Context, args LookupCodeVersionOutputArgs, opts ...pulumi.InvokeOption) LookupCodeVersionResultOutput {
@@ -60,11 +71,11 @@ func LookupCodeVersionOutput(ctx *pulumi.Context, args LookupCodeVersionOutputAr
 }
 
 type LookupCodeVersionOutputArgs struct {
-	// Container name.
+	// Container name. This is case-sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Version identifier.
+	// Version identifier. This is case-sensitive.
 	Version pulumi.StringInput `pulumi:"version"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -89,6 +100,11 @@ func (o LookupCodeVersionResultOutput) ToLookupCodeVersionResultOutputWithContex
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o LookupCodeVersionResultOutput) CodeVersionProperties() CodeVersionResponseOutput {
+	return o.ApplyT(func(v LookupCodeVersionResult) CodeVersionResponse { return v.CodeVersionProperties }).(CodeVersionResponseOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupCodeVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeVersionResult) string { return v.Id }).(pulumi.StringOutput)
@@ -99,12 +115,7 @@ func (o LookupCodeVersionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeVersionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o LookupCodeVersionResultOutput) Properties() CodeVersionResponseOutput {
-	return o.ApplyT(func(v LookupCodeVersionResult) CodeVersionResponse { return v.Properties }).(CodeVersionResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupCodeVersionResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupCodeVersionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

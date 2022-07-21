@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing an data connection.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 //
 // Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {

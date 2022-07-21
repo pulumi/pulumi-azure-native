@@ -11,7 +11,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2019-09-01.
+// API Version: 2021-10-01.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
 	err := ctx.Invoke("azure-native:keyvault:getVault", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupVaultResult struct {
 	Name string `pulumi:"name"`
 	// Properties of the vault
 	Properties VaultPropertiesResponse `pulumi:"properties"`
+	// System metadata for the key vault.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags assigned to the key vault resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type of the key vault resource.
@@ -112,6 +114,11 @@ func (o LookupVaultResultOutput) Name() pulumi.StringOutput {
 // Properties of the vault
 func (o LookupVaultResultOutput) Properties() VaultPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupVaultResult) VaultPropertiesResponse { return v.Properties }).(VaultPropertiesResponseOutput)
+}
+
+// System metadata for the key vault.
+func (o LookupVaultResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupVaultResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tags assigned to the key vault resource.

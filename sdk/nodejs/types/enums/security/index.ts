@@ -32,17 +32,6 @@ export {
     v20220701preview,
 };
 
-export const ActionType = {
-    LogicApp: "LogicApp",
-    EventHub: "EventHub",
-    Workspace: "Workspace",
-} as const;
-
-/**
- * The type of the action that will be triggered by the Automation
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
-
 export const AdditionalWorkspaceDataType = {
     Alerts: "Alerts",
     RawEvents: "RawEvents",
@@ -61,18 +50,6 @@ export const AdditionalWorkspaceType = {
  * Workspace type.
  */
 export type AdditionalWorkspaceType = (typeof AdditionalWorkspaceType)[keyof typeof AdditionalWorkspaceType];
-
-export const ApplicationSourceResourceType = {
-    /**
-     * The source of the application is assessments
-     */
-    Assessments: "Assessments",
-} as const;
-
-/**
- * The application source, what it affects, e.g. Assessments
- */
-export type ApplicationSourceResourceType = (typeof ApplicationSourceResourceType)[keyof typeof ApplicationSourceResourceType];
 
 export const AssessmentStatusCode = {
     /**
@@ -118,42 +95,6 @@ export const AssessmentType = {
  */
 export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType];
 
-export const AuthenticationType = {
-    /**
-     * AWS cloud account connector user credentials authentication
-     */
-    AwsCreds: "awsCreds",
-    /**
-     * AWS account connector assume role authentication
-     */
-    AwsAssumeRole: "awsAssumeRole",
-    /**
-     * GCP account connector service to service authentication
-     */
-    GcpCredentials: "gcpCredentials",
-} as const;
-
-/**
- * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
- */
-export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
-
-export const AutoProvision = {
-    /**
-     * Install missing Azure Arc agents on machines automatically
-     */
-    On: "On",
-    /**
-     * Do not install Azure Arc agent on the machines automatically
-     */
-    Off: "Off",
-} as const;
-
-/**
- * Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
- */
-export type AutoProvision = (typeof AutoProvision)[keyof typeof AutoProvision];
-
 export const Categories = {
     Compute: "Compute",
     Networking: "Networking",
@@ -167,17 +108,6 @@ export const Categories = {
  */
 export type Categories = (typeof Categories)[keyof typeof Categories];
 
-export const CloudName = {
-    Azure: "Azure",
-    AWS: "AWS",
-    GCP: "GCP",
-} as const;
-
-/**
- * The multi cloud resource's cloud name.
- */
-export type CloudName = (typeof CloudName)[keyof typeof CloudName];
-
 export const DataSource = {
     /**
      * Devices twin data
@@ -186,25 +116,6 @@ export const DataSource = {
 } as const;
 
 export type DataSource = (typeof DataSource)[keyof typeof DataSource];
-
-export const EventSource = {
-    Assessments: "Assessments",
-    AssessmentsSnapshot: "AssessmentsSnapshot",
-    SubAssessments: "SubAssessments",
-    SubAssessmentsSnapshot: "SubAssessmentsSnapshot",
-    Alerts: "Alerts",
-    SecureScores: "SecureScores",
-    SecureScoresSnapshot: "SecureScoresSnapshot",
-    SecureScoreControls: "SecureScoreControls",
-    SecureScoreControlsSnapshot: "SecureScoreControlsSnapshot",
-    RegulatoryComplianceAssessment: "RegulatoryComplianceAssessment",
-    RegulatoryComplianceAssessmentSnapshot: "RegulatoryComplianceAssessmentSnapshot",
-} as const;
-
-/**
- * A valid event source type.
- */
-export type EventSource = (typeof EventSource)[keyof typeof EventSource];
 
 export const ExportData = {
     /**
@@ -225,104 +136,6 @@ export const ImplementationEffort = {
  * The implementation effort required to remediate this assessment
  */
 export type ImplementationEffort = (typeof ImplementationEffort)[keyof typeof ImplementationEffort];
-
-export const MinimalSeverity = {
-    /**
-     * Get notifications on new alerts with High severity
-     */
-    High: "High",
-    /**
-     * Get notifications on new alerts with medium or high severity
-     */
-    Medium: "Medium",
-    /**
-     * Don't get notifications on new alerts with low, medium or high severity
-     */
-    Low: "Low",
-} as const;
-
-/**
- * Defines the minimal alert severity which will be sent as email notifications
- */
-export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
-
-export const OfferingType = {
-    CspmMonitorAws: "CspmMonitorAws",
-    DefenderForContainersAws: "DefenderForContainersAws",
-    DefenderForServersAws: "DefenderForServersAws",
-    InformationProtectionAws: "InformationProtectionAws",
-} as const;
-
-/**
- * The type of the security offering.
- */
-export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
-
-export const Operator = {
-    /**
-     * Applies for decimal and non-decimal operands
-     */
-    Equals: "Equals",
-    /**
-     * Applies only for decimal operands
-     */
-    GreaterThan: "GreaterThan",
-    /**
-     * Applies only for decimal operands
-     */
-    GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
-    /**
-     * Applies only for decimal operands
-     */
-    LesserThan: "LesserThan",
-    /**
-     * Applies only for decimal operands
-     */
-    LesserThanOrEqualTo: "LesserThanOrEqualTo",
-    /**
-     * Applies  for decimal and non-decimal operands
-     */
-    NotEquals: "NotEquals",
-    /**
-     * Applies only for non-decimal operands
-     */
-    Contains: "Contains",
-    /**
-     * Applies only for non-decimal operands
-     */
-    StartsWith: "StartsWith",
-    /**
-     * Applies only for non-decimal operands
-     */
-    EndsWith: "EndsWith",
-} as const;
-
-/**
- * A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
-
-export const OrganizationMembershipType = {
-    Member: "Member",
-    Organization: "Organization",
-} as const;
-
-/**
- * The multi cloud account's membership type in the organization
- */
-export type OrganizationMembershipType = (typeof OrganizationMembershipType)[keyof typeof OrganizationMembershipType];
-
-export const PropertyType = {
-    String: "String",
-    Integer: "Integer",
-    Number: "Number",
-    Boolean: "Boolean",
-} as const;
-
-/**
- * The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
- */
-export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
 
 export const Protocol = {
     TCP: "TCP",
@@ -414,41 +227,6 @@ export const RecommendationType = {
  */
 export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
-export const Roles = {
-    /**
-     * If enabled, send notification on new alerts to the account admins
-     */
-    AccountAdmin: "AccountAdmin",
-    /**
-     * If enabled, send notification on new alerts to the service admins
-     */
-    ServiceAdmin: "ServiceAdmin",
-    /**
-     * If enabled, send notification on new alerts to the subscription owners
-     */
-    Owner: "Owner",
-    /**
-     * If enabled, send notification on new alerts to the subscription contributors
-     */
-    Contributor: "Contributor",
-} as const;
-
-/**
- * A possible role to configure sending security notification alerts to
- */
-export type Roles = (typeof Roles)[keyof typeof Roles];
-
-export const RuleState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-    Expired: "Expired",
-} as const;
-
-/**
- * Possible states of the rule
- */
-export type RuleState = (typeof RuleState)[keyof typeof RuleState];
-
 export const SecuritySolutionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -470,17 +248,6 @@ export const Severity = {
  */
 export type Severity = (typeof Severity)[keyof typeof Severity];
 
-export const SeverityEnum = {
-    High: "High",
-    Medium: "Medium",
-    Low: "Low",
-} as const;
-
-/**
- * The severity to relate to the assessments generated by this assessment automation.
- */
-export type SeverityEnum = (typeof SeverityEnum)[keyof typeof SeverityEnum];
-
 export const Source = {
     /**
      * Resource is in Azure
@@ -500,32 +267,6 @@ export const Source = {
  * The platform where the assessed resource resides
  */
 export type Source = (typeof Source)[keyof typeof Source];
-
-export const StandardSupportedClouds = {
-    AWS: "AWS",
-    GCP: "GCP",
-} as const;
-
-/**
- * The cloud that the standard is supported on.
- */
-export type StandardSupportedClouds = (typeof StandardSupportedClouds)[keyof typeof StandardSupportedClouds];
-
-export const State = {
-    /**
-     * Send notification on new alerts to the subscription's admins
-     */
-    On: "On",
-    /**
-     * Don't send notification on new alerts to the subscription's admins
-     */
-    Off: "Off",
-} as const;
-
-/**
- * Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
- */
-export type State = (typeof State)[keyof typeof State];
 
 export const Status = {
     Revoked: "Revoked",
@@ -548,15 +289,139 @@ export const StatusReason = {
  */
 export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
 
-export const SupportedCloudEnum = {
-    AWS: "AWS",
-    GCP: "GCP",
+export const Tactics = {
+    Reconnaissance: "Reconnaissance",
+    Resource_Development: "Resource Development",
+    Initial_Access: "Initial Access",
+    Execution: "Execution",
+    Persistence: "Persistence",
+    Privilege_Escalation: "Privilege Escalation",
+    Defense_Evasion: "Defense Evasion",
+    Credential_Access: "Credential Access",
+    Discovery: "Discovery",
+    Lateral_Movement: "Lateral Movement",
+    Collection: "Collection",
+    Command_and_Control: "Command and Control",
+    Exfiltration: "Exfiltration",
+    Impact: "Impact",
 } as const;
 
 /**
- * Relevant cloud for the custom assessment automation.
+ * Tactic of the assessment
  */
-export type SupportedCloudEnum = (typeof SupportedCloudEnum)[keyof typeof SupportedCloudEnum];
+export type Tactics = (typeof Tactics)[keyof typeof Tactics];
+
+export const Techniques = {
+    Abuse_Elevation_Control_Mechanism: "Abuse Elevation Control Mechanism",
+    Access_Token_Manipulation: "Access Token Manipulation",
+    Account_Discovery: "Account Discovery",
+    Account_Manipulation: "Account Manipulation",
+    Active_Scanning: "Active Scanning",
+    Application_Layer_Protocol: "Application Layer Protocol",
+    Audio_Capture: "Audio Capture",
+    Boot_or_Logon_Autostart_Execution: "Boot or Logon Autostart Execution",
+    Boot_or_Logon_Initialization_Scripts: "Boot or Logon Initialization Scripts",
+    Brute_Force: "Brute Force",
+    Cloud_Infrastructure_Discovery: "Cloud Infrastructure Discovery",
+    Cloud_Service_Dashboard: "Cloud Service Dashboard",
+    Cloud_Service_Discovery: "Cloud Service Discovery",
+    Command_and_Scripting_Interpreter: "Command and Scripting Interpreter",
+    Compromise_Client_Software_Binary: "Compromise Client Software Binary",
+    Compromise_Infrastructure: "Compromise Infrastructure",
+    Container_and_Resource_Discovery: "Container and Resource Discovery",
+    Create_Account: "Create Account",
+    Create_or_Modify_System_Process: "Create or Modify System Process",
+    Credentials_from_Password_Stores: "Credentials from Password Stores",
+    Data_Destruction: "Data Destruction",
+    Data_Encrypted_for_Impact: "Data Encrypted for Impact",
+    Data_from_Cloud_Storage_Object: "Data from Cloud Storage Object",
+    Data_from_Configuration_Repository: "Data from Configuration Repository",
+    Data_from_Information_Repositories: "Data from Information Repositories",
+    Data_from_Local_System: "Data from Local System",
+    Data_Manipulation: "Data Manipulation",
+    Data_Staged: "Data Staged",
+    Defacement: "Defacement",
+    Deobfuscate_Decode_Files_or_Information: "Deobfuscate/Decode Files or Information",
+    Disk_Wipe: "Disk Wipe",
+    Domain_Trust_Discovery: "Domain Trust Discovery",
+    Drive_by_Compromise: "Drive-by Compromise",
+    Dynamic_Resolution: "Dynamic Resolution",
+    Endpoint_Denial_of_Service: "Endpoint Denial of Service",
+    Event_Triggered_Execution: "Event Triggered Execution",
+    Exfiltration_Over_Alternative_Protocol: "Exfiltration Over Alternative Protocol",
+    Exploit_Public_Facing_Application: "Exploit Public-Facing Application",
+    Exploitation_for_Client_Execution: "Exploitation for Client Execution",
+    Exploitation_for_Credential_Access: "Exploitation for Credential Access",
+    Exploitation_for_Defense_Evasion: "Exploitation for Defense Evasion",
+    Exploitation_for_Privilege_Escalation: "Exploitation for Privilege Escalation",
+    Exploitation_of_Remote_Services: "Exploitation of Remote Services",
+    External_Remote_Services: "External Remote Services",
+    Fallback_Channels: "Fallback Channels",
+    File_and_Directory_Discovery: "File and Directory Discovery",
+    Gather_Victim_Network_Information: "Gather Victim Network Information",
+    Hide_Artifacts: "Hide Artifacts",
+    Hijack_Execution_Flow: "Hijack Execution Flow",
+    Impair_Defenses: "Impair Defenses",
+    Implant_Container_Image: "Implant Container Image",
+    Indicator_Removal_on_Host: "Indicator Removal on Host",
+    Indirect_Command_Execution: "Indirect Command Execution",
+    Ingress_Tool_Transfer: "Ingress Tool Transfer",
+    Input_Capture: "Input Capture",
+    Inter_Process_Communication: "Inter-Process Communication",
+    Lateral_Tool_Transfer: "Lateral Tool Transfer",
+    Man_in_the_Middle: "Man-in-the-Middle",
+    Masquerading: "Masquerading",
+    Modify_Authentication_Process: "Modify Authentication Process",
+    Modify_Registry: "Modify Registry",
+    Network_Denial_of_Service: "Network Denial of Service",
+    Network_Service_Scanning: "Network Service Scanning",
+    Network_Sniffing: "Network Sniffing",
+    Non_Application_Layer_Protocol: "Non-Application Layer Protocol",
+    Non_Standard_Port: "Non-Standard Port",
+    Obtain_Capabilities: "Obtain Capabilities",
+    Obfuscated_Files_or_Information: "Obfuscated Files or Information",
+    Office_Application_Startup: "Office Application Startup",
+    OS_Credential_Dumping: "OS Credential Dumping",
+    Permission_Groups_Discovery: "Permission Groups Discovery",
+    Phishing: "Phishing",
+    Pre_OS_Boot: "Pre-OS Boot",
+    Process_Discovery: "Process Discovery",
+    Process_Injection: "Process Injection",
+    Protocol_Tunneling: "Protocol Tunneling",
+    Proxy: "Proxy",
+    Query_Registry: "Query Registry",
+    Remote_Access_Software: "Remote Access Software",
+    Remote_Service_Session_Hijacking: "Remote Service Session Hijacking",
+    Remote_Services: "Remote Services",
+    Remote_System_Discovery: "Remote System Discovery",
+    Resource_Hijacking: "Resource Hijacking",
+    Scheduled_Task_Job: "Scheduled Task/Job",
+    Screen_Capture: "Screen Capture",
+    Search_Victim_Owned_Websites: "Search Victim-Owned Websites",
+    Server_Software_Component: "Server Software Component",
+    Service_Stop: "Service Stop",
+    Signed_Binary_Proxy_Execution: "Signed Binary Proxy Execution",
+    Software_Deployment_Tools: "Software Deployment Tools",
+    SQL_Stored_Procedures: "SQL Stored Procedures",
+    Steal_or_Forge_Kerberos_Tickets: "Steal or Forge Kerberos Tickets",
+    Subvert_Trust_Controls: "Subvert Trust Controls",
+    Supply_Chain_Compromise: "Supply Chain Compromise",
+    System_Information_Discovery: "System Information Discovery",
+    Taint_Shared_Content: "Taint Shared Content",
+    Traffic_Signaling: "Traffic Signaling",
+    Transfer_Data_to_Cloud_Account: "Transfer Data to Cloud Account",
+    Trusted_Relationship: "Trusted Relationship",
+    Unsecured_Credentials: "Unsecured Credentials",
+    User_Execution: "User Execution",
+    Valid_Accounts: "Valid Accounts",
+    Windows_Management_Instrumentation: "Windows Management Instrumentation",
+    File_and_Directory_Permissions_Modification: "File and Directory Permissions Modification",
+} as const;
+
+/**
+ * Techniques of the assessment
+ */
+export type Techniques = (typeof Techniques)[keyof typeof Techniques];
 
 export const Threats = {
     AccountBreach: "accountBreach",

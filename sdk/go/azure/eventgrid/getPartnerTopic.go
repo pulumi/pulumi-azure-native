@@ -11,7 +11,7 @@ import (
 )
 
 // Event Grid Partner Topic.
-// API Version: 2021-10-15-preview.
+// API Version: 2022-06-15.
 func LookupPartnerTopic(ctx *pulumi.Context, args *LookupPartnerTopicArgs, opts ...pulumi.InvokeOption) (*LookupPartnerTopicResult, error) {
 	var rv LookupPartnerTopicResult
 	err := ctx.Invoke("azure-native:eventgrid:getPartnerTopic", args, &rv, opts...)

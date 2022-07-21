@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Api Operation details.
- * API Version: 2020-12-01.
+ * API Operation details.
+ * API Version: 2021-08-01.
  */
 export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationResult> {
     if (!opts) {
@@ -43,7 +43,7 @@ export interface GetApiOperationArgs {
 }
 
 /**
- * Api Operation details.
+ * API Operation details.
  */
 export interface GetApiOperationResult {
     /**
@@ -55,7 +55,7 @@ export interface GetApiOperationResult {
      */
     readonly displayName: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -63,7 +63,7 @@ export interface GetApiOperationResult {
      */
     readonly method: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -83,7 +83,7 @@ export interface GetApiOperationResult {
      */
     readonly templateParameters?: outputs.apimanagement.ParameterContractResponse[];
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:maintenance:ConfigurationAssignment":
-		r = &ConfigurationAssignment{}
-	case "azure-native:maintenance:ConfigurationAssignmentParent":
-		r = &ConfigurationAssignmentParent{}
 	case "azure-native:maintenance:MaintenanceConfiguration":
 		r = &MaintenanceConfiguration{}
 	default:

@@ -305,12 +305,24 @@ class DataNetworkResourceIdArgs:
 @pulumi.input_type
 class InterfacePropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 ipv4_address: Optional[pulumi.Input[str]] = None,
+                 ipv4_gateway: Optional[pulumi.Input[str]] = None,
+                 ipv4_subnet: Optional[pulumi.Input[str]] = None):
         """
         Interface properties
         :param pulumi.Input[str] name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
+        :param pulumi.Input[str] ipv4_address: The IPv4 address.
+        :param pulumi.Input[str] ipv4_gateway: The default IPv4 gateway (router).
+        :param pulumi.Input[str] ipv4_subnet: The IPv4 subnet.
         """
         pulumi.set(__self__, "name", name)
+        if ipv4_address is not None:
+            pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if ipv4_gateway is not None:
+            pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
+        if ipv4_subnet is not None:
+            pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
 
     @property
     @pulumi.getter
@@ -323,6 +335,42 @@ class InterfacePropertiesArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @ipv4_address.setter
+    def ipv4_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_address", value)
+
+    @property
+    @pulumi.getter(name="ipv4Gateway")
+    def ipv4_gateway(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default IPv4 gateway (router).
+        """
+        return pulumi.get(self, "ipv4_gateway")
+
+    @ipv4_gateway.setter
+    def ipv4_gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_gateway", value)
+
+    @property
+    @pulumi.getter(name="ipv4Subnet")
+    def ipv4_subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 subnet.
+        """
+        return pulumi.get(self, "ipv4_subnet")
+
+    @ipv4_subnet.setter
+    def ipv4_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_subnet", value)
 
 
 @pulumi.input_type

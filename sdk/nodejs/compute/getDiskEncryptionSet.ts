@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * disk encryption set resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-12-01.
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulu
 
 export interface GetDiskEncryptionSetArgs {
     /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskEncryptionSetName: string;
     /**
@@ -40,6 +40,10 @@ export interface GetDiskEncryptionSetResult {
      * The key vault key which is currently used by this disk encryption set.
      */
     readonly activeKey?: outputs.compute.KeyForDiskEncryptionSetResponse;
+    /**
+     * The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+     */
+    readonly autoKeyRotationError: outputs.compute.ApiErrorResponse;
     /**
      * The type of key used to encrypt the data of the disk.
      */
@@ -92,7 +96,7 @@ export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs,
 
 export interface GetDiskEncryptionSetOutputArgs {
     /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskEncryptionSetName: pulumi.Input<string>;
     /**

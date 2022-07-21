@@ -36,12 +36,6 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:machinelearningservices:LinkedWorkspace"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource LinkedWorkspace
 	err := ctx.RegisterResource("azure-native:machinelearningservices/v20200301:LinkedWorkspace", name, args, &resource, opts...)
 	if err != nil {

@@ -183,7 +183,7 @@ class DataCollectionRule(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of ARM tracked top level resource.
-        API Version: 2019-11-01-preview.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +206,7 @@ class DataCollectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of ARM tracked top level resource.
-        API Version: 2019-11-01-preview.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleArgs args: The arguments to use to populate this resource's properties.
@@ -259,6 +259,7 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__.__dict__["immutable_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191101preview:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20210401:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20210901preview:DataCollectionRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -294,6 +295,7 @@ class DataCollectionRule(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DataCollectionRule(resource_name, opts=opts, __props__=__props__)
@@ -378,6 +380,14 @@ class DataCollectionRule(pulumi.CustomResource):
         The resource provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.DataCollectionRuleResourceResponseSystemData']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -9,19 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare
 {
-    [Obsolete(@"Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.")]
+    [Obsolete(@"Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, KustoTableDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.")]
     public static class GetDataSet
     {
         /// <summary>
         /// A DataSet data transfer object.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("azure-native:datashare:getDataSet", args ?? new GetDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A DataSet data transfer object.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("azure-native:datashare:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());

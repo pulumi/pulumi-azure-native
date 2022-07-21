@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL DB Table data set mapping.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSqlDBTableDataSetMapping(args: GetSqlDBTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetMappingResult> {
     if (!opts) {

@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot of a Volume
-// API Version: 2020-12-01.
+// API Version: 2022-01-01.
 type Snapshot struct {
 	pulumi.CustomResourceState
 

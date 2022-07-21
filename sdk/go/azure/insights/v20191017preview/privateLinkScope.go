@@ -41,9 +41,6 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:insights:PrivateLinkScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20210701preview:PrivateLinkScope"),
 		},
 	})

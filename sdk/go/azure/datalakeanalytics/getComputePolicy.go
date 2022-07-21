@@ -11,7 +11,7 @@ import (
 )
 
 // Data Lake Analytics compute policy information.
-// API Version: 2016-11-01.
+// API Version: 2019-11-01-preview.
 func LookupComputePolicy(ctx *pulumi.Context, args *LookupComputePolicyArgs, opts ...pulumi.InvokeOption) (*LookupComputePolicyResult, error) {
 	var rv LookupComputePolicyResult
 	err := ctx.Invoke("azure-native:datalakeanalytics:getComputePolicy", args, &rv, opts...)

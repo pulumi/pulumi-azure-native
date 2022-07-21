@@ -117,7 +117,7 @@ def get_cassandra_resource_cassandra_table(account_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraTableResult:
     """
     An Azure Cosmos DB Cassandra table.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -154,7 +154,7 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraTableResult]:
     """
     An Azure Cosmos DB Cassandra table.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

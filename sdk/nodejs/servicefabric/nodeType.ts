@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
- * API Version: 2020-01-01-preview.
+ * API Version: 2022-01-01.
  */
 export class NodeType extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class NodeType extends pulumi.CustomResource {
     }
 
     /**
+     * Additional managed data disks.
+     */
+    public readonly additionalDataDisks!: pulumi.Output<outputs.servicefabric.VmssDataDiskResponse[] | undefined>;
+    /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
     public readonly applicationPorts!: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
@@ -45,29 +49,73 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly capacities!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Disk size for each vm in the node type in GBs.
+     * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
-    public readonly dataDiskSizeGB!: pulumi.Output<number>;
+    public readonly dataDiskLetter!: pulumi.Output<string | undefined>;
+    /**
+     * Disk size for the managed disk attached to the vms on the node type in GBs.
+     */
+    public readonly dataDiskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * Managed data disk type. Specifies the storage account type for the managed disk
+     */
+    public readonly dataDiskType!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the network interface is accelerated networking-enabled.
+     */
+    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+     */
+    public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+     */
+    public readonly enableOverProvisioning!: pulumi.Output<boolean | undefined>;
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
     public readonly ephemeralPorts!: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
     /**
-     * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+     * Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+     */
+    public readonly frontendConfigurations!: pulumi.Output<outputs.servicefabric.FrontendConfigurationResponse[] | undefined>;
+    /**
+     * Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
      */
     public readonly isPrimary!: pulumi.Output<boolean>;
+    /**
+     * Indicates if the node type can only host Stateless workloads.
+     */
+    public readonly isStateless!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates if scale set associated with the node type can be composed of multiple placement groups.
+     */
+    public readonly multiplePlacementGroups!: pulumi.Output<boolean | undefined>;
     /**
      * Azure resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+     */
+    public readonly networkSecurityRules!: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
+    /**
      * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      */
     public readonly placementProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The provisioning state of the managed cluster resource.
+     * The provisioning state of the node type resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The node type sku.
+     */
+    public readonly sku!: pulumi.Output<outputs.servicefabric.NodeTypeSkuResponse | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
@@ -76,6 +124,14 @@ export class NodeType extends pulumi.CustomResource {
      * Azure resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+     */
+    public readonly useDefaultPublicLoadBalancer!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+     */
+    public readonly useTempDataDisk!: pulumi.Output<boolean | undefined>;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
@@ -97,9 +153,13 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly vmImageVersion!: pulumi.Output<string | undefined>;
     /**
-     * The number of nodes in the node type.
+     * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
      */
     public readonly vmInstanceCount!: pulumi.Output<number>;
+    /**
+     * Identities to assign to the virtual machine scale set under the node type.
+     */
+    public readonly vmManagedIdentity!: pulumi.Output<outputs.servicefabric.VmManagedIdentityResponse | undefined>;
     /**
      * The secrets to install in the virtual machines.
      */
@@ -123,9 +183,6 @@ export class NodeType extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.dataDiskSizeGB === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataDiskSizeGB'");
-            }
             if ((!args || args.isPrimary === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'isPrimary'");
             }
@@ -135,44 +192,74 @@ export class NodeType extends pulumi.CustomResource {
             if ((!args || args.vmInstanceCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
+            resourceInputs["additionalDataDisks"] = args ? args.additionalDataDisks : undefined;
             resourceInputs["applicationPorts"] = args ? args.applicationPorts : undefined;
             resourceInputs["capacities"] = args ? args.capacities : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
             resourceInputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
+            resourceInputs["dataDiskType"] = args ? args.dataDiskType : undefined;
+            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
+            resourceInputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
+            resourceInputs["enableOverProvisioning"] = args ? args.enableOverProvisioning : undefined;
             resourceInputs["ephemeralPorts"] = args ? args.ephemeralPorts : undefined;
+            resourceInputs["frontendConfigurations"] = args ? args.frontendConfigurations : undefined;
             resourceInputs["isPrimary"] = args ? args.isPrimary : undefined;
+            resourceInputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
+            resourceInputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
+            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
             resourceInputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
             resourceInputs["placementProperties"] = args ? args.placementProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useDefaultPublicLoadBalancer"] = args ? args.useDefaultPublicLoadBalancer : undefined;
+            resourceInputs["useTempDataDisk"] = args ? args.useTempDataDisk : undefined;
             resourceInputs["vmExtensions"] = args ? args.vmExtensions : undefined;
             resourceInputs["vmImageOffer"] = args ? args.vmImageOffer : undefined;
             resourceInputs["vmImagePublisher"] = args ? args.vmImagePublisher : undefined;
             resourceInputs["vmImageSku"] = args ? args.vmImageSku : undefined;
             resourceInputs["vmImageVersion"] = args ? args.vmImageVersion : undefined;
             resourceInputs["vmInstanceCount"] = args ? args.vmInstanceCount : undefined;
+            resourceInputs["vmManagedIdentity"] = args ? args.vmManagedIdentity : undefined;
             resourceInputs["vmSecrets"] = args ? args.vmSecrets : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalDataDisks"] = undefined /*out*/;
             resourceInputs["applicationPorts"] = undefined /*out*/;
             resourceInputs["capacities"] = undefined /*out*/;
+            resourceInputs["dataDiskLetter"] = undefined /*out*/;
             resourceInputs["dataDiskSizeGB"] = undefined /*out*/;
+            resourceInputs["dataDiskType"] = undefined /*out*/;
+            resourceInputs["enableAcceleratedNetworking"] = undefined /*out*/;
+            resourceInputs["enableEncryptionAtHost"] = undefined /*out*/;
+            resourceInputs["enableOverProvisioning"] = undefined /*out*/;
             resourceInputs["ephemeralPorts"] = undefined /*out*/;
+            resourceInputs["frontendConfigurations"] = undefined /*out*/;
             resourceInputs["isPrimary"] = undefined /*out*/;
+            resourceInputs["isStateless"] = undefined /*out*/;
+            resourceInputs["multiplePlacementGroups"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSecurityRules"] = undefined /*out*/;
             resourceInputs["placementProperties"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useDefaultPublicLoadBalancer"] = undefined /*out*/;
+            resourceInputs["useTempDataDisk"] = undefined /*out*/;
             resourceInputs["vmExtensions"] = undefined /*out*/;
             resourceInputs["vmImageOffer"] = undefined /*out*/;
             resourceInputs["vmImagePublisher"] = undefined /*out*/;
             resourceInputs["vmImageSku"] = undefined /*out*/;
             resourceInputs["vmImageVersion"] = undefined /*out*/;
             resourceInputs["vmInstanceCount"] = undefined /*out*/;
+            resourceInputs["vmManagedIdentity"] = undefined /*out*/;
             resourceInputs["vmSecrets"] = undefined /*out*/;
             resourceInputs["vmSize"] = undefined /*out*/;
         }
@@ -188,6 +275,10 @@ export class NodeType extends pulumi.CustomResource {
  */
 export interface NodeTypeArgs {
     /**
+     * Additional managed data disks.
+     */
+    additionalDataDisks?: pulumi.Input<pulumi.Input<inputs.servicefabric.VmssDataDiskArgs>[]>;
+    /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
     applicationPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs>;
@@ -200,17 +291,53 @@ export interface NodeTypeArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Disk size for each vm in the node type in GBs.
+     * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
-    dataDiskSizeGB: pulumi.Input<number>;
+    dataDiskLetter?: pulumi.Input<string>;
+    /**
+     * Disk size for the managed disk attached to the vms on the node type in GBs.
+     */
+    dataDiskSizeGB?: pulumi.Input<number>;
+    /**
+     * Managed data disk type. Specifies the storage account type for the managed disk
+     */
+    dataDiskType?: pulumi.Input<string | enums.servicefabric.DiskType>;
+    /**
+     * Specifies whether the network interface is accelerated networking-enabled.
+     */
+    enableAcceleratedNetworking?: pulumi.Input<boolean>;
+    /**
+     * Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+     */
+    enableEncryptionAtHost?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+     */
+    enableOverProvisioning?: pulumi.Input<boolean>;
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
     ephemeralPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs>;
     /**
-     * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+     * Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+     */
+    frontendConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.FrontendConfigurationArgs>[]>;
+    /**
+     * Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
      */
     isPrimary: pulumi.Input<boolean>;
+    /**
+     * Indicates if the node type can only host Stateless workloads.
+     */
+    isStateless?: pulumi.Input<boolean>;
+    /**
+     * Indicates if scale set associated with the node type can be composed of multiple placement groups.
+     */
+    multiplePlacementGroups?: pulumi.Input<boolean>;
+    /**
+     * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+     */
+    networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
     /**
      * The name of the node type.
      */
@@ -224,9 +351,21 @@ export interface NodeTypeArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * The node type sku.
+     */
+    sku?: pulumi.Input<inputs.servicefabric.NodeTypeSkuArgs>;
+    /**
      * Azure resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+     */
+    useDefaultPublicLoadBalancer?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+     */
+    useTempDataDisk?: pulumi.Input<boolean>;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
@@ -248,9 +387,13 @@ export interface NodeTypeArgs {
      */
     vmImageVersion?: pulumi.Input<string>;
     /**
-     * The number of nodes in the node type.
+     * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
      */
     vmInstanceCount: pulumi.Input<number>;
+    /**
+     * Identities to assign to the virtual machine scale set under the node type.
+     */
+    vmManagedIdentity?: pulumi.Input<inputs.servicefabric.VmManagedIdentityArgs>;
     /**
      * The secrets to install in the virtual machines.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Static Site User Provided Function App ARM resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite")]
     public partial class StaticSiteUserProvidedFunctionAppForStaticSite : Pulumi.CustomResource

@@ -40,12 +40,6 @@ func NewGuestDiagnosticsSetting(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:insights:guestDiagnosticsSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource GuestDiagnosticsSetting
 	err := ctx.RegisterResource("azure-native:insights/v20180601preview:guestDiagnosticsSetting", name, args, &resource, opts...)
 	if err != nil {

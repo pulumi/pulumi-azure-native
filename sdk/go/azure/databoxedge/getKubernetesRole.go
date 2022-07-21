@@ -10,8 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Kubernetes role.
-// API Version: 2020-12-01.
+// The limited preview of Kubernetes Cluster Management from the Azure supports:
+// 1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+// 2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+//     Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+// 3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+//     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+//     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+//     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+//    API Version: 2022-03-01.
 func LookupKubernetesRole(ctx *pulumi.Context, args *LookupKubernetesRoleArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesRoleResult, error) {
 	var rv LookupKubernetesRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getKubernetesRole", args, &rv, opts...)
@@ -30,7 +37,14 @@ type LookupKubernetesRoleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Kubernetes role.
+// The limited preview of Kubernetes Cluster Management from the Azure supports:
+// 1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+// 2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+//     Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+// 3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+//     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+//     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+//     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
 type LookupKubernetesRoleResult struct {
 	// Host OS supported by the Kubernetes role.
 	HostPlatform string `pulumi:"hostPlatform"`
@@ -51,7 +65,7 @@ type LookupKubernetesRoleResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Role status.
 	RoleStatus string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
+	// Metadata pertaining to creation and last modification of Role
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -83,7 +97,14 @@ func (LookupKubernetesRoleOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupKubernetesRoleArgs)(nil)).Elem()
 }
 
-// Kubernetes role.
+// The limited preview of Kubernetes Cluster Management from the Azure supports:
+// 1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+// 2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+//     Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+// 3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+//     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+//     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+//     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
 type LookupKubernetesRoleResultOutput struct{ *pulumi.OutputState }
 
 func (LookupKubernetesRoleResultOutput) ElementType() reflect.Type {
@@ -144,7 +165,7 @@ func (o LookupKubernetesRoleResultOutput) RoleStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.RoleStatus }).(pulumi.StringOutput)
 }
 
-// Role configured on ASE resource
+// Metadata pertaining to creation and last modification of Role
 func (o LookupKubernetesRoleResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupKubernetesRoleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

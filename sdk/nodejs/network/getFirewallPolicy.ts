@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * FirewallPolicy Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
     if (!opts) {
@@ -58,6 +58,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly etag: string;
     /**
+     * Explicit Proxy Settings definition.
+     */
+    readonly explicitProxySettings?: outputs.network.ExplicitProxySettingsResponse;
+    /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
     readonly firewalls: outputs.network.SubResourceResponse[];
@@ -101,6 +105,10 @@ export interface GetFirewallPolicyResult {
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
     readonly snat?: outputs.network.FirewallPolicySNATResponse;
+    /**
+     * SQL Settings definition.
+     */
+    readonly sql?: outputs.network.FirewallPolicySQLResponse;
     /**
      * Resource tags.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
-    /// API Version: 2019-11-01.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:View")]
     public partial class View : Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Selected currency.
+        /// Currency of the current view.
         /// </summary>
         [Output("currency")]
         public Output<string> Currency { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.ReportConfigDatasetResponse?> DataSet { get; private set; } = null!;
 
         /// <summary>
-        /// Selected date range for viewing cost in.
+        /// Date range of the current view.
         /// </summary>
         [Output("dateRange")]
         public Output<string> DateRange { get; private set; } = null!;
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// Include monetary commitment
+        /// If true, report includes monetary commitment.
         /// </summary>
         [Output("includeMonetaryCommitment")]
-        public Output<bool> IncludeMonetaryCommitment { get; private set; } = null!;
+        public Output<bool?> IncludeMonetaryCommitment { get; private set; } = null!;
 
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
@@ -205,6 +205,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// If true, report includes monetary commitment.
+        /// </summary>
+        [Input("includeMonetaryCommitment")]
+        public Input<bool>? IncludeMonetaryCommitment { get; set; }
 
         [Input("kpis")]
         private InputList<Inputs.KpiPropertiesArgs>? _kpis;

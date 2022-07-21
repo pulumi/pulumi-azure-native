@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./apiPortal";
-export * from "./apiPortalCustomDomain";
 export * from "./app";
 export * from "./binding";
 export * from "./buildServiceBuilder";
@@ -15,11 +13,6 @@ export * from "./certificate";
 export * from "./configurationService";
 export * from "./customDomain";
 export * from "./deployment";
-export * from "./gateway";
-export * from "./gatewayCustomDomain";
-export * from "./gatewayRouteConfig";
-export * from "./getApiPortal";
-export * from "./getApiPortalCustomDomain";
 export * from "./getApp";
 export * from "./getAppResourceUploadUrl";
 export * from "./getBinding";
@@ -32,16 +25,11 @@ export * from "./getConfigurationService";
 export * from "./getCustomDomain";
 export * from "./getDeployment";
 export * from "./getDeploymentLogFileUrl";
-export * from "./getGateway";
-export * from "./getGatewayCustomDomain";
-export * from "./getGatewayRouteConfig";
 export * from "./getService";
 export * from "./getServiceRegistry";
-export * from "./getStorage";
 export * from "./listServiceTestKeys";
 export * from "./service";
 export * from "./serviceRegistry";
-export * from "./storage";
 
 // Export enums:
 export * from "../types/enums/appplatform";
@@ -68,8 +56,6 @@ export {
 };
 
 // Import resources to register:
-import { ApiPortal } from "./apiPortal";
-import { ApiPortalCustomDomain } from "./apiPortalCustomDomain";
 import { App } from "./app";
 import { Binding } from "./binding";
 import { BuildServiceBuilder } from "./buildServiceBuilder";
@@ -78,21 +64,13 @@ import { Certificate } from "./certificate";
 import { ConfigurationService } from "./configurationService";
 import { CustomDomain } from "./customDomain";
 import { Deployment } from "./deployment";
-import { Gateway } from "./gateway";
-import { GatewayCustomDomain } from "./gatewayCustomDomain";
-import { GatewayRouteConfig } from "./gatewayRouteConfig";
 import { Service } from "./service";
 import { ServiceRegistry } from "./serviceRegistry";
-import { Storage } from "./storage";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:appplatform:ApiPortal":
-                return new ApiPortal(name, <any>undefined, { urn })
-            case "azure-native:appplatform:ApiPortalCustomDomain":
-                return new ApiPortalCustomDomain(name, <any>undefined, { urn })
             case "azure-native:appplatform:App":
                 return new App(name, <any>undefined, { urn })
             case "azure-native:appplatform:Binding":
@@ -109,18 +87,10 @@ const _module = {
                 return new CustomDomain(name, <any>undefined, { urn })
             case "azure-native:appplatform:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "azure-native:appplatform:Gateway":
-                return new Gateway(name, <any>undefined, { urn })
-            case "azure-native:appplatform:GatewayCustomDomain":
-                return new GatewayCustomDomain(name, <any>undefined, { urn })
-            case "azure-native:appplatform:GatewayRouteConfig":
-                return new GatewayRouteConfig(name, <any>undefined, { urn })
             case "azure-native:appplatform:Service":
                 return new Service(name, <any>undefined, { urn })
             case "azure-native:appplatform:ServiceRegistry":
                 return new ServiceRegistry(name, <any>undefined, { urn })
-            case "azure-native:appplatform:Storage":
-                return new Storage(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

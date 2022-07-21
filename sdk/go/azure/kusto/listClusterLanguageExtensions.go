@@ -11,7 +11,7 @@ import (
 )
 
 // The list of language extension objects.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func ListClusterLanguageExtensions(ctx *pulumi.Context, args *ListClusterLanguageExtensionsArgs, opts ...pulumi.InvokeOption) (*ListClusterLanguageExtensionsResult, error) {
 	var rv ListClusterLanguageExtensionsResult
 	err := ctx.Invoke("azure-native:kusto:listClusterLanguageExtensions", args, &rv, opts...)

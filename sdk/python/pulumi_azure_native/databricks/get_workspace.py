@@ -21,7 +21,7 @@ class GetWorkspaceResult:
     """
     Information about workspace.
     """
-    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, id=None, location=None, managed_resource_group_id=None, name=None, parameters=None, provisioning_state=None, sku=None, storage_account_identity=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, encryption=None, id=None, location=None, managed_resource_group_id=None, name=None, parameters=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, required_nsg_rules=None, sku=None, storage_account_identity=None, system_data=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
@@ -31,6 +31,9 @@ class GetWorkspaceResult:
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,15 +49,27 @@ class GetWorkspaceResult:
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
+        if required_nsg_rules and not isinstance(required_nsg_rules, str):
+            raise TypeError("Expected argument 'required_nsg_rules' to be a str")
+        pulumi.set(__self__, "required_nsg_rules", required_nsg_rules)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
         if storage_account_identity and not isinstance(storage_account_identity, dict):
             raise TypeError("Expected argument 'storage_account_identity' to be a dict")
         pulumi.set(__self__, "storage_account_identity", storage_account_identity)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +115,14 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
+    def encryption(self) -> Optional['outputs.WorkspacePropertiesResponseEncryption']:
+        """
+        Encryption properties for databricks workspace
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -139,12 +162,36 @@ class GetWorkspaceResult:
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        Private endpoint connections created on the workspace
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The workspace provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="requiredNsgRules")
+    def required_nsg_rules(self) -> Optional[str]:
+        """
+        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        """
+        return pulumi.get(self, "required_nsg_rules")
 
     @property
     @pulumi.getter
@@ -161,6 +208,14 @@ class GetWorkspaceResult:
         The details of Managed Identity of Storage Account
         """
         return pulumi.get(self, "storage_account_identity")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -220,14 +275,19 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             authorizations=self.authorizations,
             created_by=self.created_by,
             created_date_time=self.created_date_time,
+            encryption=self.encryption,
             id=self.id,
             location=self.location,
             managed_resource_group_id=self.managed_resource_group_id,
             name=self.name,
             parameters=self.parameters,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
+            required_nsg_rules=self.required_nsg_rules,
             sku=self.sku,
             storage_account_identity=self.storage_account_identity,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             ui_definition_uri=self.ui_definition_uri,
@@ -241,7 +301,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Information about workspace.
-    API Version: 2018-04-01.
+    API Version: 2021-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,14 +320,19 @@ def get_workspace(resource_group_name: Optional[str] = None,
         authorizations=__ret__.authorizations,
         created_by=__ret__.created_by,
         created_date_time=__ret__.created_date_time,
+        encryption=__ret__.encryption,
         id=__ret__.id,
         location=__ret__.location,
         managed_resource_group_id=__ret__.managed_resource_group_id,
         name=__ret__.name,
         parameters=__ret__.parameters,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
+        required_nsg_rules=__ret__.required_nsg_rules,
         sku=__ret__.sku,
         storage_account_identity=__ret__.storage_account_identity,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         ui_definition_uri=__ret__.ui_definition_uri,
@@ -282,7 +347,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Information about workspace.
-    API Version: 2018-04-01.
+    API Version: 2021-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

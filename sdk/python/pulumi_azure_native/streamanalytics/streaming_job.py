@@ -17,14 +17,20 @@ __all__ = ['StreamingJobArgs', 'StreamingJob']
 class StreamingJobArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 cluster: Optional[pulumi.Input['ClusterInfoArgs']] = None,
                  compatibility_level: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]] = None,
+                 content_storage_policy: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']]] = None,
+                 externals: Optional[pulumi.Input['ExternalArgs']] = None,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input['InputArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
+                 job_storage_account: Optional[pulumi.Input['JobStorageAccountArgs']] = None,
+                 job_type: Optional[pulumi.Input[Union[str, 'JobType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[Union[str, 'OutputErrorPolicy']]] = None,
                  output_start_mode: Optional[pulumi.Input[Union[str, 'OutputStartMode']]] = None,
@@ -35,15 +41,21 @@ class StreamingJobArgs:
                  transformation: Optional[pulumi.Input['TransformationArgs']] = None):
         """
         The set of arguments for constructing a StreamingJob resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['ClusterInfoArgs'] cluster: The cluster which streaming jobs will run on.
         :param pulumi.Input[Union[str, 'CompatibilityLevel']] compatibility_level: Controls certain runtime behaviors of the streaming job.
+        :param pulumi.Input[Union[str, 'ContentStoragePolicy']] content_storage_policy: Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         :param pulumi.Input[str] data_locale: The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         :param pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']] events_out_of_order_policy: Indicates the policy to apply to events that arrive out of order in the input event stream.
+        :param pulumi.Input['ExternalArgs'] externals: The storage account where the custom code artifacts are located.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+        :param pulumi.Input['IdentityArgs'] identity: Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         :param pulumi.Input[Sequence[pulumi.Input['InputArgs']]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         :param pulumi.Input[str] job_name: The name of the streaming job.
+        :param pulumi.Input['JobStorageAccountArgs'] job_storage_account: The properties that are associated with an Azure Storage account with MSI
+        :param pulumi.Input[Union[str, 'JobType']] job_type: Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'OutputErrorPolicy']] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[Union[str, 'OutputStartMode']] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
@@ -54,8 +66,12 @@ class StreamingJobArgs:
         :param pulumi.Input['TransformationArgs'] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if content_storage_policy is not None:
+            pulumi.set(__self__, "content_storage_policy", content_storage_policy)
         if data_locale is not None:
             pulumi.set(__self__, "data_locale", data_locale)
         if events_late_arrival_max_delay_in_seconds is not None:
@@ -64,12 +80,20 @@ class StreamingJobArgs:
             pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
         if events_out_of_order_policy is not None:
             pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
+        if externals is not None:
+            pulumi.set(__self__, "externals", externals)
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inputs is not None:
             pulumi.set(__self__, "inputs", inputs)
         if job_name is not None:
             pulumi.set(__self__, "job_name", job_name)
+        if job_storage_account is not None:
+            pulumi.set(__self__, "job_storage_account", job_storage_account)
+        if job_type is not None:
+            pulumi.set(__self__, "job_type", job_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if output_error_policy is not None:
@@ -91,13 +115,25 @@ class StreamingJobArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input['ClusterInfoArgs']]:
+        """
+        The cluster which streaming jobs will run on.
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input['ClusterInfoArgs']]):
+        pulumi.set(self, "cluster", value)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -110,6 +146,18 @@ class StreamingJobArgs:
     @compatibility_level.setter
     def compatibility_level(self, value: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]]):
         pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="contentStoragePolicy")
+    def content_storage_policy(self) -> Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]]:
+        """
+        Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        """
+        return pulumi.get(self, "content_storage_policy")
+
+    @content_storage_policy.setter
+    def content_storage_policy(self, value: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]]):
+        pulumi.set(self, "content_storage_policy", value)
 
     @property
     @pulumi.getter(name="dataLocale")
@@ -161,6 +209,18 @@ class StreamingJobArgs:
 
     @property
     @pulumi.getter
+    def externals(self) -> Optional[pulumi.Input['ExternalArgs']]:
+        """
+        The storage account where the custom code artifacts are located.
+        """
+        return pulumi.get(self, "externals")
+
+    @externals.setter
+    def externals(self, value: Optional[pulumi.Input['ExternalArgs']]):
+        pulumi.set(self, "externals", value)
+
+    @property
+    @pulumi.getter
     def functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]]]:
         """
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
@@ -170,6 +230,18 @@ class StreamingJobArgs:
     @functions.setter
     def functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]]]):
         pulumi.set(self, "functions", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -194,6 +266,30 @@ class StreamingJobArgs:
     @job_name.setter
     def job_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_name", value)
+
+    @property
+    @pulumi.getter(name="jobStorageAccount")
+    def job_storage_account(self) -> Optional[pulumi.Input['JobStorageAccountArgs']]:
+        """
+        The properties that are associated with an Azure Storage account with MSI
+        """
+        return pulumi.get(self, "job_storage_account")
+
+    @job_storage_account.setter
+    def job_storage_account(self, value: Optional[pulumi.Input['JobStorageAccountArgs']]):
+        pulumi.set(self, "job_storage_account", value)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> Optional[pulumi.Input[Union[str, 'JobType']]]:
+        """
+        Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: Optional[pulumi.Input[Union[str, 'JobType']]]):
+        pulumi.set(self, "job_type", value)
 
     @property
     @pulumi.getter
@@ -297,14 +393,20 @@ class StreamingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster: Optional[pulumi.Input[pulumi.InputType['ClusterInfoArgs']]] = None,
                  compatibility_level: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]] = None,
+                 content_storage_policy: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']]] = None,
+                 externals: Optional[pulumi.Input[pulumi.InputType['ExternalArgs']]] = None,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
+                 job_storage_account: Optional[pulumi.Input[pulumi.InputType['JobStorageAccountArgs']]] = None,
+                 job_type: Optional[pulumi.Input[Union[str, 'JobType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[Union[str, 'OutputErrorPolicy']]] = None,
                  output_start_mode: Optional[pulumi.Input[Union[str, 'OutputStartMode']]] = None,
@@ -317,24 +419,30 @@ class StreamingJob(pulumi.CustomResource):
                  __props__=None):
         """
         A streaming job object, containing all information associated with the named streaming job.
-        API Version: 2016-03-01.
+        API Version: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ClusterInfoArgs']] cluster: The cluster which streaming jobs will run on.
         :param pulumi.Input[Union[str, 'CompatibilityLevel']] compatibility_level: Controls certain runtime behaviors of the streaming job.
+        :param pulumi.Input[Union[str, 'ContentStoragePolicy']] content_storage_policy: Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         :param pulumi.Input[str] data_locale: The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         :param pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']] events_out_of_order_policy: Indicates the policy to apply to events that arrive out of order in the input event stream.
+        :param pulumi.Input[pulumi.InputType['ExternalArgs']] externals: The storage account where the custom code artifacts are located.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         :param pulumi.Input[str] job_name: The name of the streaming job.
+        :param pulumi.Input[pulumi.InputType['JobStorageAccountArgs']] job_storage_account: The properties that are associated with an Azure Storage account with MSI
+        :param pulumi.Input[Union[str, 'JobType']] job_type: Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'OutputErrorPolicy']] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[Union[str, 'OutputStartMode']] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         :param pulumi.Input[str] output_start_time: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['TransformationArgs']] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
@@ -347,7 +455,7 @@ class StreamingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A streaming job object, containing all information associated with the named streaming job.
-        API Version: 2016-03-01.
+        API Version: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StreamingJobArgs args: The arguments to use to populate this resource's properties.
@@ -364,14 +472,20 @@ class StreamingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster: Optional[pulumi.Input[pulumi.InputType['ClusterInfoArgs']]] = None,
                  compatibility_level: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]] = None,
+                 content_storage_policy: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']]] = None,
+                 externals: Optional[pulumi.Input[pulumi.InputType['ExternalArgs']]] = None,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
+                 job_storage_account: Optional[pulumi.Input[pulumi.InputType['JobStorageAccountArgs']]] = None,
+                 job_type: Optional[pulumi.Input[Union[str, 'JobType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[Union[str, 'OutputErrorPolicy']]] = None,
                  output_start_mode: Optional[pulumi.Input[Union[str, 'OutputStartMode']]] = None,
@@ -393,14 +507,20 @@ class StreamingJob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingJobArgs.__new__(StreamingJobArgs)
 
+            __props__.__dict__["cluster"] = cluster
             __props__.__dict__["compatibility_level"] = compatibility_level
+            __props__.__dict__["content_storage_policy"] = content_storage_policy
             __props__.__dict__["data_locale"] = data_locale
             __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = events_late_arrival_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
+            __props__.__dict__["externals"] = externals
             __props__.__dict__["functions"] = functions
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["inputs"] = inputs
             __props__.__dict__["job_name"] = job_name
+            __props__.__dict__["job_storage_account"] = job_storage_account
+            __props__.__dict__["job_type"] = job_type
             __props__.__dict__["location"] = location
             __props__.__dict__["output_error_policy"] = output_error_policy
             __props__.__dict__["output_start_mode"] = output_start_mode
@@ -444,17 +564,23 @@ class StreamingJob(pulumi.CustomResource):
 
         __props__ = StreamingJobArgs.__new__(StreamingJobArgs)
 
+        __props__.__dict__["cluster"] = None
         __props__.__dict__["compatibility_level"] = None
+        __props__.__dict__["content_storage_policy"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["data_locale"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = None
         __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = None
         __props__.__dict__["events_out_of_order_policy"] = None
+        __props__.__dict__["externals"] = None
         __props__.__dict__["functions"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["inputs"] = None
         __props__.__dict__["job_id"] = None
         __props__.__dict__["job_state"] = None
+        __props__.__dict__["job_storage_account"] = None
+        __props__.__dict__["job_type"] = None
         __props__.__dict__["last_output_event_time"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -470,12 +596,28 @@ class StreamingJob(pulumi.CustomResource):
         return StreamingJob(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter
+    def cluster(self) -> pulumi.Output[Optional['outputs.ClusterInfoResponse']]:
+        """
+        The cluster which streaming jobs will run on.
+        """
+        return pulumi.get(self, "cluster")
+
+    @property
     @pulumi.getter(name="compatibilityLevel")
     def compatibility_level(self) -> pulumi.Output[Optional[str]]:
         """
         Controls certain runtime behaviors of the streaming job.
         """
         return pulumi.get(self, "compatibility_level")
+
+    @property
+    @pulumi.getter(name="contentStoragePolicy")
+    def content_storage_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        """
+        return pulumi.get(self, "content_storage_policy")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -527,11 +669,27 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def externals(self) -> pulumi.Output[Optional['outputs.ExternalResponse']]:
+        """
+        The storage account where the custom code artifacts are located.
+        """
+        return pulumi.get(self, "externals")
+
+    @property
+    @pulumi.getter
     def functions(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionResponse']]]:
         """
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         return pulumi.get(self, "functions")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -556,6 +714,22 @@ class StreamingJob(pulumi.CustomResource):
         Describes the state of the streaming job.
         """
         return pulumi.get(self, "job_state")
+
+    @property
+    @pulumi.getter(name="jobStorageAccount")
+    def job_storage_account(self) -> pulumi.Output[Optional['outputs.JobStorageAccountResponse']]:
+        """
+        The properties that are associated with an Azure Storage account with MSI
+        """
+        return pulumi.get(self, "job_storage_account")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+        """
+        return pulumi.get(self, "job_type")
 
     @property
     @pulumi.getter(name="lastOutputEventTime")

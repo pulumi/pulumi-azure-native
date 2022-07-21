@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class ModelVersionResponse
     {
         /// <summary>
-        /// ARM resource ID of the datastore where the asset is located.
-        /// </summary>
-        public readonly string? DatastoreId;
-        /// <summary>
         /// The asset description text.
         /// </summary>
         public readonly string? Description;
@@ -33,9 +29,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly bool? IsAnonymous;
         /// <summary>
-        /// [Required] The path of the file/directory in the datastore.
+        /// Is the asset archived?
         /// </summary>
-        public readonly string Path;
+        public readonly bool? IsArchived;
+        /// <summary>
+        /// Name of the training job which produced this model
+        /// </summary>
+        public readonly string? JobName;
+        /// <summary>
+        /// The storage format for this entity. Used for NCD.
+        /// </summary>
+        public readonly string? ModelType;
+        /// <summary>
+        /// The URI path to the model contents.
+        /// </summary>
+        public readonly string? ModelUri;
         /// <summary>
         /// The asset property dictionary.
         /// </summary>
@@ -47,25 +55,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private ModelVersionResponse(
-            string? datastoreId,
-
             string? description,
 
             ImmutableDictionary<string, Outputs.FlavorDataResponse>? flavors,
 
             bool? isAnonymous,
 
-            string path,
+            bool? isArchived,
+
+            string? jobName,
+
+            string? modelType,
+
+            string? modelUri,
 
             ImmutableDictionary<string, string>? properties,
 
             ImmutableDictionary<string, string>? tags)
         {
-            DatastoreId = datastoreId;
             Description = description;
             Flavors = flavors;
             IsAnonymous = isAnonymous;
-            Path = path;
+            IsArchived = isArchived;
+            JobName = jobName;
+            ModelType = modelType;
+            ModelUri = modelUri;
             Properties = properties;
             Tags = tags;
         }

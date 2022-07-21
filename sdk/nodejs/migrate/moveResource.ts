@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the move resource.
- * API Version: 2021-01-01.
+ * API Version: 2021-08-01.
  */
 export class MoveResource extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class MoveResource extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.migrate.MoveResourcePropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -71,10 +75,12 @@ export class MoveResource extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

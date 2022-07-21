@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// A single API Management service resource in List or Get response.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A single API Management service resource in List or Get response.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());
@@ -142,9 +142,17 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? NotificationSenderEmail;
         /// <summary>
+        /// Compute Platform Version running the service in this location.
+        /// </summary>
+        public readonly string PlatformVersion;
+        /// <summary>
         /// Publisher portal endpoint Url of the API Management service.
         /// </summary>
         public readonly string PortalUrl;
+        /// <summary>
+        /// List of Private Endpoint Connections of this service.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RemotePrivateEndpointConnectionWrapperResponse> PrivateEndpointConnections;
         /// <summary>
         /// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
         /// </summary>
@@ -157,6 +165,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIPAddresses;
+        /// <summary>
+        /// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+        /// </summary>
+        public readonly string? PublicIpAddressId;
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Publisher email.
         /// </summary>
@@ -177,6 +193,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// SKU properties of the API Management service.
         /// </summary>
         public readonly Outputs.ApiManagementServiceSkuPropertiesResponse Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -240,13 +260,21 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? notificationSenderEmail,
 
+            string platformVersion,
+
             string portalUrl,
+
+            ImmutableArray<Outputs.RemotePrivateEndpointConnectionWrapperResponse> privateEndpointConnections,
 
             ImmutableArray<string> privateIPAddresses,
 
             string provisioningState,
 
             ImmutableArray<string> publicIPAddresses,
+
+            string? publicIpAddressId,
+
+            string? publicNetworkAccess,
 
             string publisherEmail,
 
@@ -257,6 +285,8 @@ namespace Pulumi.AzureNative.ApiManagement
             string scmUrl,
 
             Outputs.ApiManagementServiceSkuPropertiesResponse sku,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -288,15 +318,20 @@ namespace Pulumi.AzureNative.ApiManagement
             ManagementApiUrl = managementApiUrl;
             Name = name;
             NotificationSenderEmail = notificationSenderEmail;
+            PlatformVersion = platformVersion;
             PortalUrl = portalUrl;
+            PrivateEndpointConnections = privateEndpointConnections;
             PrivateIPAddresses = privateIPAddresses;
             ProvisioningState = provisioningState;
             PublicIPAddresses = publicIPAddresses;
+            PublicIpAddressId = publicIpAddressId;
+            PublicNetworkAccess = publicNetworkAccess;
             PublisherEmail = publisherEmail;
             PublisherName = publisherName;
             Restore = restore;
             ScmUrl = scmUrl;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             TargetProvisioningState = targetProvisioningState;
             Type = type;

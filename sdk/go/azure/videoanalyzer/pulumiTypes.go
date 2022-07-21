@@ -53,6 +53,47 @@ func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
 }
 
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput).ToAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionPtrInput` via:
+//
+//          AccountEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput
+	ToAccountEncryptionPtrOutputWithContext(context.Context) AccountEncryptionPtrOutput
+}
+
+type accountEncryptionPtrType AccountEncryptionArgs
+
+func AccountEncryptionPtr(v *AccountEncryptionArgs) AccountEncryptionPtrInput {
+	return (*accountEncryptionPtrType)(v)
+}
+
+func (*accountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
+}
+
 // Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -68,6 +109,16 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx contex
 	return o
 }
 
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
+		return &v
+	}).(AccountEncryptionPtrOutput)
+}
+
 // The Key Vault identity.
 func (o AccountEncryptionOutput) Identity() ResourceIdentityPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
@@ -81,6 +132,60 @@ func (o AccountEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutpu
 // The type of key used to encrypt the Account Key.
 func (o AccountEncryptionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryption) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
+}
+
+// The Key Vault identity.
+func (o AccountEncryptionPtrOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *ResourceIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(ResourceIdentityPtrOutput)
+}
+
+// The properties of the key used to encrypt the account.
+func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The type of key used to encrypt the Account Key.
+func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines how the Video Analyzer account is (optionally) encrypted.
@@ -128,6 +233,70 @@ func (o AccountEncryptionResponseOutput) Status() pulumi.StringOutput {
 // The type of key used to encrypt the Account Key.
 func (o AccountEncryptionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountEncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionResponse
+		return ret
+	}).(AccountEncryptionResponseOutput)
+}
+
+// The Key Vault identity.
+func (o AccountEncryptionResponsePtrOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *ResourceIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(ResourceIdentityResponsePtrOutput)
+}
+
+// The properties of the key used to encrypt the account.
+func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *KeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The current status of the Key Vault mapping.
+func (o AccountEncryptionResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of key used to encrypt the Account Key.
+func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // A custom preset for encoding audio with the AAC codec.
@@ -468,6 +637,375 @@ func (o EndpointResponseArrayOutput) Index(i pulumi.IntInput) EndpointResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointResponse {
 		return vs[0].([]EndpointResponse)[vs[1].(int)]
 	}).(EndpointResponseOutput)
+}
+
+// Group level network access control.
+type GroupLevelAccessControl struct {
+	// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// GroupLevelAccessControlInput is an input type that accepts GroupLevelAccessControlArgs and GroupLevelAccessControlOutput values.
+// You can construct a concrete instance of `GroupLevelAccessControlInput` via:
+//
+//          GroupLevelAccessControlArgs{...}
+type GroupLevelAccessControlInput interface {
+	pulumi.Input
+
+	ToGroupLevelAccessControlOutput() GroupLevelAccessControlOutput
+	ToGroupLevelAccessControlOutputWithContext(context.Context) GroupLevelAccessControlOutput
+}
+
+// Group level network access control.
+type GroupLevelAccessControlArgs struct {
+	// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (GroupLevelAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupLevelAccessControl)(nil)).Elem()
+}
+
+func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlOutput() GroupLevelAccessControlOutput {
+	return i.ToGroupLevelAccessControlOutputWithContext(context.Background())
+}
+
+func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlOutputWithContext(ctx context.Context) GroupLevelAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlOutput)
+}
+
+func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
+	return i.ToGroupLevelAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlOutput).ToGroupLevelAccessControlPtrOutputWithContext(ctx)
+}
+
+// GroupLevelAccessControlPtrInput is an input type that accepts GroupLevelAccessControlArgs, GroupLevelAccessControlPtr and GroupLevelAccessControlPtrOutput values.
+// You can construct a concrete instance of `GroupLevelAccessControlPtrInput` via:
+//
+//          GroupLevelAccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupLevelAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput
+	ToGroupLevelAccessControlPtrOutputWithContext(context.Context) GroupLevelAccessControlPtrOutput
+}
+
+type groupLevelAccessControlPtrType GroupLevelAccessControlArgs
+
+func GroupLevelAccessControlPtr(v *GroupLevelAccessControlArgs) GroupLevelAccessControlPtrInput {
+	return (*groupLevelAccessControlPtrType)(v)
+}
+
+func (*groupLevelAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupLevelAccessControl)(nil)).Elem()
+}
+
+func (i *groupLevelAccessControlPtrType) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
+	return i.ToGroupLevelAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *groupLevelAccessControlPtrType) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlPtrOutput)
+}
+
+// Group level network access control.
+type GroupLevelAccessControlOutput struct{ *pulumi.OutputState }
+
+func (GroupLevelAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupLevelAccessControl)(nil)).Elem()
+}
+
+func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlOutput() GroupLevelAccessControlOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlOutputWithContext(ctx context.Context) GroupLevelAccessControlOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
+	return o.ToGroupLevelAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupLevelAccessControl) *GroupLevelAccessControl {
+		return &v
+	}).(GroupLevelAccessControlPtrOutput)
+}
+
+// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+func (o GroupLevelAccessControlOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupLevelAccessControl) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type GroupLevelAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupLevelAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupLevelAccessControl)(nil)).Elem()
+}
+
+func (o GroupLevelAccessControlPtrOutput) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlPtrOutput) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlPtrOutput) Elem() GroupLevelAccessControlOutput {
+	return o.ApplyT(func(v *GroupLevelAccessControl) GroupLevelAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret GroupLevelAccessControl
+		return ret
+	}).(GroupLevelAccessControlOutput)
+}
+
+// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+func (o GroupLevelAccessControlPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupLevelAccessControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group level network access control.
+type GroupLevelAccessControlResponse struct {
+	// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// Group level network access control.
+type GroupLevelAccessControlResponseOutput struct{ *pulumi.OutputState }
+
+func (GroupLevelAccessControlResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupLevelAccessControlResponse)(nil)).Elem()
+}
+
+func (o GroupLevelAccessControlResponseOutput) ToGroupLevelAccessControlResponseOutput() GroupLevelAccessControlResponseOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlResponseOutput) ToGroupLevelAccessControlResponseOutputWithContext(ctx context.Context) GroupLevelAccessControlResponseOutput {
+	return o
+}
+
+// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+func (o GroupLevelAccessControlResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupLevelAccessControlResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type GroupLevelAccessControlResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GroupLevelAccessControlResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupLevelAccessControlResponse)(nil)).Elem()
+}
+
+func (o GroupLevelAccessControlResponsePtrOutput) ToGroupLevelAccessControlResponsePtrOutput() GroupLevelAccessControlResponsePtrOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlResponsePtrOutput) ToGroupLevelAccessControlResponsePtrOutputWithContext(ctx context.Context) GroupLevelAccessControlResponsePtrOutput {
+	return o
+}
+
+func (o GroupLevelAccessControlResponsePtrOutput) Elem() GroupLevelAccessControlResponseOutput {
+	return o.ApplyT(func(v *GroupLevelAccessControlResponse) GroupLevelAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GroupLevelAccessControlResponse
+		return ret
+	}).(GroupLevelAccessControlResponseOutput)
+}
+
+// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+func (o GroupLevelAccessControlResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupLevelAccessControlResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IoT Hub details.
+type IotHub struct {
+	// The IoT Hub resource identifier.
+	Id string `pulumi:"id"`
+	// The IoT Hub identity.
+	Identity ResourceIdentity `pulumi:"identity"`
+}
+
+// IotHubInput is an input type that accepts IotHubArgs and IotHubOutput values.
+// You can construct a concrete instance of `IotHubInput` via:
+//
+//          IotHubArgs{...}
+type IotHubInput interface {
+	pulumi.Input
+
+	ToIotHubOutput() IotHubOutput
+	ToIotHubOutputWithContext(context.Context) IotHubOutput
+}
+
+// The IoT Hub details.
+type IotHubArgs struct {
+	// The IoT Hub resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The IoT Hub identity.
+	Identity ResourceIdentityInput `pulumi:"identity"`
+}
+
+func (IotHubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHub)(nil)).Elem()
+}
+
+func (i IotHubArgs) ToIotHubOutput() IotHubOutput {
+	return i.ToIotHubOutputWithContext(context.Background())
+}
+
+func (i IotHubArgs) ToIotHubOutputWithContext(ctx context.Context) IotHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubOutput)
+}
+
+// IotHubArrayInput is an input type that accepts IotHubArray and IotHubArrayOutput values.
+// You can construct a concrete instance of `IotHubArrayInput` via:
+//
+//          IotHubArray{ IotHubArgs{...} }
+type IotHubArrayInput interface {
+	pulumi.Input
+
+	ToIotHubArrayOutput() IotHubArrayOutput
+	ToIotHubArrayOutputWithContext(context.Context) IotHubArrayOutput
+}
+
+type IotHubArray []IotHubInput
+
+func (IotHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHub)(nil)).Elem()
+}
+
+func (i IotHubArray) ToIotHubArrayOutput() IotHubArrayOutput {
+	return i.ToIotHubArrayOutputWithContext(context.Background())
+}
+
+func (i IotHubArray) ToIotHubArrayOutputWithContext(ctx context.Context) IotHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubArrayOutput)
+}
+
+// The IoT Hub details.
+type IotHubOutput struct{ *pulumi.OutputState }
+
+func (IotHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHub)(nil)).Elem()
+}
+
+func (o IotHubOutput) ToIotHubOutput() IotHubOutput {
+	return o
+}
+
+func (o IotHubOutput) ToIotHubOutputWithContext(ctx context.Context) IotHubOutput {
+	return o
+}
+
+// The IoT Hub resource identifier.
+func (o IotHubOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHub) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The IoT Hub identity.
+func (o IotHubOutput) Identity() ResourceIdentityOutput {
+	return o.ApplyT(func(v IotHub) ResourceIdentity { return v.Identity }).(ResourceIdentityOutput)
+}
+
+type IotHubArrayOutput struct{ *pulumi.OutputState }
+
+func (IotHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHub)(nil)).Elem()
+}
+
+func (o IotHubArrayOutput) ToIotHubArrayOutput() IotHubArrayOutput {
+	return o
+}
+
+func (o IotHubArrayOutput) ToIotHubArrayOutputWithContext(ctx context.Context) IotHubArrayOutput {
+	return o
+}
+
+func (o IotHubArrayOutput) Index(i pulumi.IntInput) IotHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHub {
+		return vs[0].([]IotHub)[vs[1].(int)]
+	}).(IotHubOutput)
+}
+
+// The IoT Hub details.
+type IotHubResponse struct {
+	// The IoT Hub resource identifier.
+	Id string `pulumi:"id"`
+	// The IoT Hub identity.
+	Identity ResourceIdentityResponse `pulumi:"identity"`
+	// The current status of the Iot Hub mapping.
+	Status string `pulumi:"status"`
+}
+
+// The IoT Hub details.
+type IotHubResponseOutput struct{ *pulumi.OutputState }
+
+func (IotHubResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResponse)(nil)).Elem()
+}
+
+func (o IotHubResponseOutput) ToIotHubResponseOutput() IotHubResponseOutput {
+	return o
+}
+
+func (o IotHubResponseOutput) ToIotHubResponseOutputWithContext(ctx context.Context) IotHubResponseOutput {
+	return o
+}
+
+// The IoT Hub resource identifier.
+func (o IotHubResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The IoT Hub identity.
+func (o IotHubResponseOutput) Identity() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v IotHubResponse) ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponseOutput)
+}
+
+// The current status of the Iot Hub mapping.
+func (o IotHubResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type IotHubResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IotHubResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubResponse)(nil)).Elem()
+}
+
+func (o IotHubResponseArrayOutput) ToIotHubResponseArrayOutput() IotHubResponseArrayOutput {
+	return o
+}
+
+func (o IotHubResponseArrayOutput) ToIotHubResponseArrayOutputWithContext(ctx context.Context) IotHubResponseArrayOutput {
+	return o
+}
+
+func (o IotHubResponseArrayOutput) Index(i pulumi.IntInput) IotHubResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubResponse {
+		return vs[0].([]IotHubResponse)[vs[1].(int)]
+	}).(IotHubResponseOutput)
 }
 
 // Properties for access validation based on JSON Web Tokens (JWT).
@@ -1038,6 +1576,278 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Network access control for video analyzer account.
+type NetworkAccessControl struct {
+	// Public network access for consumption group.
+	Consumption *GroupLevelAccessControl `pulumi:"consumption"`
+	// Public network access for ingestion group.
+	Ingestion *GroupLevelAccessControl `pulumi:"ingestion"`
+	// Public network access for integration group.
+	Integration *GroupLevelAccessControl `pulumi:"integration"`
+}
+
+// NetworkAccessControlInput is an input type that accepts NetworkAccessControlArgs and NetworkAccessControlOutput values.
+// You can construct a concrete instance of `NetworkAccessControlInput` via:
+//
+//          NetworkAccessControlArgs{...}
+type NetworkAccessControlInput interface {
+	pulumi.Input
+
+	ToNetworkAccessControlOutput() NetworkAccessControlOutput
+	ToNetworkAccessControlOutputWithContext(context.Context) NetworkAccessControlOutput
+}
+
+// Network access control for video analyzer account.
+type NetworkAccessControlArgs struct {
+	// Public network access for consumption group.
+	Consumption GroupLevelAccessControlPtrInput `pulumi:"consumption"`
+	// Public network access for ingestion group.
+	Ingestion GroupLevelAccessControlPtrInput `pulumi:"ingestion"`
+	// Public network access for integration group.
+	Integration GroupLevelAccessControlPtrInput `pulumi:"integration"`
+}
+
+func (NetworkAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAccessControl)(nil)).Elem()
+}
+
+func (i NetworkAccessControlArgs) ToNetworkAccessControlOutput() NetworkAccessControlOutput {
+	return i.ToNetworkAccessControlOutputWithContext(context.Background())
+}
+
+func (i NetworkAccessControlArgs) ToNetworkAccessControlOutputWithContext(ctx context.Context) NetworkAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlOutput)
+}
+
+func (i NetworkAccessControlArgs) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
+	return i.ToNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAccessControlArgs) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlOutput).ToNetworkAccessControlPtrOutputWithContext(ctx)
+}
+
+// NetworkAccessControlPtrInput is an input type that accepts NetworkAccessControlArgs, NetworkAccessControlPtr and NetworkAccessControlPtrOutput values.
+// You can construct a concrete instance of `NetworkAccessControlPtrInput` via:
+//
+//          NetworkAccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput
+	ToNetworkAccessControlPtrOutputWithContext(context.Context) NetworkAccessControlPtrOutput
+}
+
+type networkAccessControlPtrType NetworkAccessControlArgs
+
+func NetworkAccessControlPtr(v *NetworkAccessControlArgs) NetworkAccessControlPtrInput {
+	return (*networkAccessControlPtrType)(v)
+}
+
+func (*networkAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAccessControl)(nil)).Elem()
+}
+
+func (i *networkAccessControlPtrType) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
+	return i.ToNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *networkAccessControlPtrType) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlPtrOutput)
+}
+
+// Network access control for video analyzer account.
+type NetworkAccessControlOutput struct{ *pulumi.OutputState }
+
+func (NetworkAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAccessControl)(nil)).Elem()
+}
+
+func (o NetworkAccessControlOutput) ToNetworkAccessControlOutput() NetworkAccessControlOutput {
+	return o
+}
+
+func (o NetworkAccessControlOutput) ToNetworkAccessControlOutputWithContext(ctx context.Context) NetworkAccessControlOutput {
+	return o
+}
+
+func (o NetworkAccessControlOutput) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
+	return o.ToNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAccessControlOutput) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAccessControl) *NetworkAccessControl {
+		return &v
+	}).(NetworkAccessControlPtrOutput)
+}
+
+// Public network access for consumption group.
+func (o NetworkAccessControlOutput) Consumption() GroupLevelAccessControlPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControl) *GroupLevelAccessControl { return v.Consumption }).(GroupLevelAccessControlPtrOutput)
+}
+
+// Public network access for ingestion group.
+func (o NetworkAccessControlOutput) Ingestion() GroupLevelAccessControlPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControl) *GroupLevelAccessControl { return v.Ingestion }).(GroupLevelAccessControlPtrOutput)
+}
+
+// Public network access for integration group.
+func (o NetworkAccessControlOutput) Integration() GroupLevelAccessControlPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControl) *GroupLevelAccessControl { return v.Integration }).(GroupLevelAccessControlPtrOutput)
+}
+
+type NetworkAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAccessControl)(nil)).Elem()
+}
+
+func (o NetworkAccessControlPtrOutput) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
+	return o
+}
+
+func (o NetworkAccessControlPtrOutput) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
+	return o
+}
+
+func (o NetworkAccessControlPtrOutput) Elem() NetworkAccessControlOutput {
+	return o.ApplyT(func(v *NetworkAccessControl) NetworkAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAccessControl
+		return ret
+	}).(NetworkAccessControlOutput)
+}
+
+// Public network access for consumption group.
+func (o NetworkAccessControlPtrOutput) Consumption() GroupLevelAccessControlPtrOutput {
+	return o.ApplyT(func(v *NetworkAccessControl) *GroupLevelAccessControl {
+		if v == nil {
+			return nil
+		}
+		return v.Consumption
+	}).(GroupLevelAccessControlPtrOutput)
+}
+
+// Public network access for ingestion group.
+func (o NetworkAccessControlPtrOutput) Ingestion() GroupLevelAccessControlPtrOutput {
+	return o.ApplyT(func(v *NetworkAccessControl) *GroupLevelAccessControl {
+		if v == nil {
+			return nil
+		}
+		return v.Ingestion
+	}).(GroupLevelAccessControlPtrOutput)
+}
+
+// Public network access for integration group.
+func (o NetworkAccessControlPtrOutput) Integration() GroupLevelAccessControlPtrOutput {
+	return o.ApplyT(func(v *NetworkAccessControl) *GroupLevelAccessControl {
+		if v == nil {
+			return nil
+		}
+		return v.Integration
+	}).(GroupLevelAccessControlPtrOutput)
+}
+
+// Network access control for video analyzer account.
+type NetworkAccessControlResponse struct {
+	// Public network access for consumption group.
+	Consumption *GroupLevelAccessControlResponse `pulumi:"consumption"`
+	// Public network access for ingestion group.
+	Ingestion *GroupLevelAccessControlResponse `pulumi:"ingestion"`
+	// Public network access for integration group.
+	Integration *GroupLevelAccessControlResponse `pulumi:"integration"`
+}
+
+// Network access control for video analyzer account.
+type NetworkAccessControlResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkAccessControlResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAccessControlResponse)(nil)).Elem()
+}
+
+func (o NetworkAccessControlResponseOutput) ToNetworkAccessControlResponseOutput() NetworkAccessControlResponseOutput {
+	return o
+}
+
+func (o NetworkAccessControlResponseOutput) ToNetworkAccessControlResponseOutputWithContext(ctx context.Context) NetworkAccessControlResponseOutput {
+	return o
+}
+
+// Public network access for consumption group.
+func (o NetworkAccessControlResponseOutput) Consumption() GroupLevelAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlResponse) *GroupLevelAccessControlResponse { return v.Consumption }).(GroupLevelAccessControlResponsePtrOutput)
+}
+
+// Public network access for ingestion group.
+func (o NetworkAccessControlResponseOutput) Ingestion() GroupLevelAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlResponse) *GroupLevelAccessControlResponse { return v.Ingestion }).(GroupLevelAccessControlResponsePtrOutput)
+}
+
+// Public network access for integration group.
+func (o NetworkAccessControlResponseOutput) Integration() GroupLevelAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlResponse) *GroupLevelAccessControlResponse { return v.Integration }).(GroupLevelAccessControlResponsePtrOutput)
+}
+
+type NetworkAccessControlResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAccessControlResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAccessControlResponse)(nil)).Elem()
+}
+
+func (o NetworkAccessControlResponsePtrOutput) ToNetworkAccessControlResponsePtrOutput() NetworkAccessControlResponsePtrOutput {
+	return o
+}
+
+func (o NetworkAccessControlResponsePtrOutput) ToNetworkAccessControlResponsePtrOutputWithContext(ctx context.Context) NetworkAccessControlResponsePtrOutput {
+	return o
+}
+
+func (o NetworkAccessControlResponsePtrOutput) Elem() NetworkAccessControlResponseOutput {
+	return o.ApplyT(func(v *NetworkAccessControlResponse) NetworkAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAccessControlResponse
+		return ret
+	}).(NetworkAccessControlResponseOutput)
+}
+
+// Public network access for consumption group.
+func (o NetworkAccessControlResponsePtrOutput) Consumption() GroupLevelAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkAccessControlResponse) *GroupLevelAccessControlResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Consumption
+	}).(GroupLevelAccessControlResponsePtrOutput)
+}
+
+// Public network access for ingestion group.
+func (o NetworkAccessControlResponsePtrOutput) Ingestion() GroupLevelAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkAccessControlResponse) *GroupLevelAccessControlResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Ingestion
+	}).(GroupLevelAccessControlResponsePtrOutput)
+}
+
+// Public network access for integration group.
+func (o NetworkAccessControlResponsePtrOutput) Integration() GroupLevelAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkAccessControlResponse) *GroupLevelAccessControlResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Integration
+	}).(GroupLevelAccessControlResponsePtrOutput)
+}
+
 // Describes an input signal to be used on a pipeline node.
 type NodeInput struct {
 	// The name of the upstream node in the pipeline which output is used as input of the current node.
@@ -1591,6 +2401,96 @@ func (o PipelineJobErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineJobErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
 // The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
@@ -2133,7 +3033,7 @@ func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 // The details about the associated storage account.
 type StorageAccount struct {
 	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// A managed identity that Video Analyzer will use to access the storage account.
 	Identity *ResourceIdentity `pulumi:"identity"`
 }
@@ -2152,7 +3052,7 @@ type StorageAccountInput interface {
 // The details about the associated storage account.
 type StorageAccountArgs struct {
 	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// A managed identity that Video Analyzer will use to access the storage account.
 	Identity ResourceIdentityPtrInput `pulumi:"identity"`
 }
@@ -2210,8 +3110,8 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 }
 
 // The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o StorageAccountOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // A managed identity that Video Analyzer will use to access the storage account.
@@ -2242,7 +3142,7 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 // The details about the associated storage account.
 type StorageAccountResponse struct {
 	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// A managed identity that Video Analyzer will use to access the storage account.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The current status of the storage account mapping.
@@ -2265,8 +3165,8 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 }
 
 // The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o StorageAccountResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // A managed identity that Video Analyzer will use to access the storage account.
@@ -2678,7 +3578,7 @@ type VideoAnalyzerIdentity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The User Assigned Managed Identities.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // VideoAnalyzerIdentityInput is an input type that accepts VideoAnalyzerIdentityArgs and VideoAnalyzerIdentityOutput values.
@@ -2697,7 +3597,7 @@ type VideoAnalyzerIdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The User Assigned Managed Identities.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (VideoAnalyzerIdentityArgs) ElementType() reflect.Type {
@@ -2784,8 +3684,8 @@ func (o VideoAnalyzerIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The User Assigned Managed Identities.
-func (o VideoAnalyzerIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v VideoAnalyzerIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o VideoAnalyzerIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VideoAnalyzerIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type VideoAnalyzerIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2823,13 +3723,13 @@ func (o VideoAnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The User Assigned Managed Identities.
-func (o VideoAnalyzerIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *VideoAnalyzerIdentity) map[string]interface{} {
+func (o VideoAnalyzerIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzerIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The managed identity for the Video Analyzer resource.
@@ -2909,6 +3809,265 @@ func (o VideoAnalyzerIdentityResponsePtrOutput) UserAssignedIdentities() UserAss
 		}
 		return v.UserAssignedIdentities
 	}).(UserAssignedManagedIdentityResponseMapOutput)
+}
+
+// Video archival properties.
+type VideoArchival struct {
+	// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+	RetentionPeriod *string `pulumi:"retentionPeriod"`
+}
+
+// VideoArchivalInput is an input type that accepts VideoArchivalArgs and VideoArchivalOutput values.
+// You can construct a concrete instance of `VideoArchivalInput` via:
+//
+//          VideoArchivalArgs{...}
+type VideoArchivalInput interface {
+	pulumi.Input
+
+	ToVideoArchivalOutput() VideoArchivalOutput
+	ToVideoArchivalOutputWithContext(context.Context) VideoArchivalOutput
+}
+
+// Video archival properties.
+type VideoArchivalArgs struct {
+	// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+	RetentionPeriod pulumi.StringPtrInput `pulumi:"retentionPeriod"`
+}
+
+func (VideoArchivalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoArchival)(nil)).Elem()
+}
+
+func (i VideoArchivalArgs) ToVideoArchivalOutput() VideoArchivalOutput {
+	return i.ToVideoArchivalOutputWithContext(context.Background())
+}
+
+func (i VideoArchivalArgs) ToVideoArchivalOutputWithContext(ctx context.Context) VideoArchivalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalOutput)
+}
+
+func (i VideoArchivalArgs) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
+	return i.ToVideoArchivalPtrOutputWithContext(context.Background())
+}
+
+func (i VideoArchivalArgs) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalOutput).ToVideoArchivalPtrOutputWithContext(ctx)
+}
+
+// VideoArchivalPtrInput is an input type that accepts VideoArchivalArgs, VideoArchivalPtr and VideoArchivalPtrOutput values.
+// You can construct a concrete instance of `VideoArchivalPtrInput` via:
+//
+//          VideoArchivalArgs{...}
+//
+//  or:
+//
+//          nil
+type VideoArchivalPtrInput interface {
+	pulumi.Input
+
+	ToVideoArchivalPtrOutput() VideoArchivalPtrOutput
+	ToVideoArchivalPtrOutputWithContext(context.Context) VideoArchivalPtrOutput
+}
+
+type videoArchivalPtrType VideoArchivalArgs
+
+func VideoArchivalPtr(v *VideoArchivalArgs) VideoArchivalPtrInput {
+	return (*videoArchivalPtrType)(v)
+}
+
+func (*videoArchivalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoArchival)(nil)).Elem()
+}
+
+func (i *videoArchivalPtrType) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
+	return i.ToVideoArchivalPtrOutputWithContext(context.Background())
+}
+
+func (i *videoArchivalPtrType) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalPtrOutput)
+}
+
+// Video archival properties.
+type VideoArchivalOutput struct{ *pulumi.OutputState }
+
+func (VideoArchivalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoArchival)(nil)).Elem()
+}
+
+func (o VideoArchivalOutput) ToVideoArchivalOutput() VideoArchivalOutput {
+	return o
+}
+
+func (o VideoArchivalOutput) ToVideoArchivalOutputWithContext(ctx context.Context) VideoArchivalOutput {
+	return o
+}
+
+func (o VideoArchivalOutput) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
+	return o.ToVideoArchivalPtrOutputWithContext(context.Background())
+}
+
+func (o VideoArchivalOutput) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoArchival) *VideoArchival {
+		return &v
+	}).(VideoArchivalPtrOutput)
+}
+
+// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+func (o VideoArchivalOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoArchival) *string { return v.RetentionPeriod }).(pulumi.StringPtrOutput)
+}
+
+type VideoArchivalPtrOutput struct{ *pulumi.OutputState }
+
+func (VideoArchivalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoArchival)(nil)).Elem()
+}
+
+func (o VideoArchivalPtrOutput) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
+	return o
+}
+
+func (o VideoArchivalPtrOutput) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
+	return o
+}
+
+func (o VideoArchivalPtrOutput) Elem() VideoArchivalOutput {
+	return o.ApplyT(func(v *VideoArchival) VideoArchival {
+		if v != nil {
+			return *v
+		}
+		var ret VideoArchival
+		return ret
+	}).(VideoArchivalOutput)
+}
+
+// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+func (o VideoArchivalPtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoArchival) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Video archival properties.
+type VideoArchivalResponse struct {
+	// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+	RetentionPeriod *string `pulumi:"retentionPeriod"`
+}
+
+// Video archival properties.
+type VideoArchivalResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoArchivalResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoArchivalResponse)(nil)).Elem()
+}
+
+func (o VideoArchivalResponseOutput) ToVideoArchivalResponseOutput() VideoArchivalResponseOutput {
+	return o
+}
+
+func (o VideoArchivalResponseOutput) ToVideoArchivalResponseOutputWithContext(ctx context.Context) VideoArchivalResponseOutput {
+	return o
+}
+
+// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+func (o VideoArchivalResponseOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoArchivalResponse) *string { return v.RetentionPeriod }).(pulumi.StringPtrOutput)
+}
+
+type VideoArchivalResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VideoArchivalResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoArchivalResponse)(nil)).Elem()
+}
+
+func (o VideoArchivalResponsePtrOutput) ToVideoArchivalResponsePtrOutput() VideoArchivalResponsePtrOutput {
+	return o
+}
+
+func (o VideoArchivalResponsePtrOutput) ToVideoArchivalResponsePtrOutputWithContext(ctx context.Context) VideoArchivalResponsePtrOutput {
+	return o
+}
+
+func (o VideoArchivalResponsePtrOutput) Elem() VideoArchivalResponseOutput {
+	return o.ApplyT(func(v *VideoArchivalResponse) VideoArchivalResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoArchivalResponse
+		return ret
+	}).(VideoArchivalResponseOutput)
+}
+
+// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+func (o VideoArchivalResponsePtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoArchivalResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of URLs to the video content.
+type VideoContentUrlsResponse struct {
+	// Video archive streaming base URL. The archived content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token on any compatible DASH or HLS players by appending the following to the base URL:
+	//
+	//     - HLSv4:     /manifest(format=m3u8-aapl).m3u8
+	//     - HLS CMAF:  /manifest(format=m3u8-cmaf)
+	//     - DASH CMAF: /manifest(format=mpd-time-cmaf)
+	//
+	//     Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length. It is available when the video type is 'archive' and video archiving is enabled.
+	ArchiveBaseUrl *string `pulumi:"archiveBaseUrl"`
+	// Video file download URL. This URL can be used in conjunction with the video content authorization token to download the video MP4 file. The resulting MP4 file can be played on any standard media player. It is available when the video type is 'file' and video file is available for consumption.
+	DownloadUrl *string `pulumi:"downloadUrl"`
+	// Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+	PreviewImageUrls *VideoPreviewImageUrlsResponse `pulumi:"previewImageUrls"`
+	// Video low-latency streaming URL. The live content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token to expose a WebSocket tunneled RTSP stream. It is available when the video type is 'archive' and a live, low-latency feed is available from the source.
+	RtspTunnelUrl *string `pulumi:"rtspTunnelUrl"`
+}
+
+// Set of URLs to the video content.
+type VideoContentUrlsResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoContentUrlsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoContentUrlsResponse)(nil)).Elem()
+}
+
+func (o VideoContentUrlsResponseOutput) ToVideoContentUrlsResponseOutput() VideoContentUrlsResponseOutput {
+	return o
+}
+
+func (o VideoContentUrlsResponseOutput) ToVideoContentUrlsResponseOutputWithContext(ctx context.Context) VideoContentUrlsResponseOutput {
+	return o
+}
+
+// Video archive streaming base URL. The archived content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token on any compatible DASH or HLS players by appending the following to the base URL:
+//
+//     - HLSv4:     /manifest(format=m3u8-aapl).m3u8
+//     - HLS CMAF:  /manifest(format=m3u8-cmaf)
+//     - DASH CMAF: /manifest(format=mpd-time-cmaf)
+//
+//     Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length. It is available when the video type is 'archive' and video archiving is enabled.
+func (o VideoContentUrlsResponseOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoContentUrlsResponse) *string { return v.ArchiveBaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// Video file download URL. This URL can be used in conjunction with the video content authorization token to download the video MP4 file. The resulting MP4 file can be played on any standard media player. It is available when the video type is 'file' and video file is available for consumption.
+func (o VideoContentUrlsResponseOutput) DownloadUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoContentUrlsResponse) *string { return v.DownloadUrl }).(pulumi.StringPtrOutput)
+}
+
+// Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+func (o VideoContentUrlsResponseOutput) PreviewImageUrls() VideoPreviewImageUrlsResponsePtrOutput {
+	return o.ApplyT(func(v VideoContentUrlsResponse) *VideoPreviewImageUrlsResponse { return v.PreviewImageUrls }).(VideoPreviewImageUrlsResponsePtrOutput)
+}
+
+// Video low-latency streaming URL. The live content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token to expose a WebSocket tunneled RTSP stream. It is available when the video type is 'archive' and a live, low-latency feed is available from the source.
+func (o VideoContentUrlsResponseOutput) RtspTunnelUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoContentUrlsResponse) *string { return v.RtspTunnelUrl }).(pulumi.StringPtrOutput)
 }
 
 // Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
@@ -3251,8 +4410,8 @@ type VideoFlagsResponse struct {
 	CanStream bool `pulumi:"canStream"`
 	// Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
 	HasData bool `pulumi:"hasData"`
-	// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
-	IsRecording bool `pulumi:"isRecording"`
+	// Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+	IsInUse bool `pulumi:"isInUse"`
 }
 
 // Video flags contain information about the available video actions and its dynamic properties based on the current video state.
@@ -3280,15 +4439,155 @@ func (o VideoFlagsResponseOutput) HasData() pulumi.BoolOutput {
 	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.HasData }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
-func (o VideoFlagsResponseOutput) IsRecording() pulumi.BoolOutput {
-	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.IsRecording }).(pulumi.BoolOutput)
+// Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+func (o VideoFlagsResponseOutput) IsInUse() pulumi.BoolOutput {
+	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.IsInUse }).(pulumi.BoolOutput)
+}
+
+// Contains information about the video and audio content.
+type VideoMediaInfo struct {
+	// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+	SegmentLength *string `pulumi:"segmentLength"`
+}
+
+// VideoMediaInfoInput is an input type that accepts VideoMediaInfoArgs and VideoMediaInfoOutput values.
+// You can construct a concrete instance of `VideoMediaInfoInput` via:
+//
+//          VideoMediaInfoArgs{...}
+type VideoMediaInfoInput interface {
+	pulumi.Input
+
+	ToVideoMediaInfoOutput() VideoMediaInfoOutput
+	ToVideoMediaInfoOutputWithContext(context.Context) VideoMediaInfoOutput
+}
+
+// Contains information about the video and audio content.
+type VideoMediaInfoArgs struct {
+	// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+	SegmentLength pulumi.StringPtrInput `pulumi:"segmentLength"`
+}
+
+func (VideoMediaInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoMediaInfo)(nil)).Elem()
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoOutput() VideoMediaInfoOutput {
+	return i.ToVideoMediaInfoOutputWithContext(context.Background())
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoOutputWithContext(ctx context.Context) VideoMediaInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoOutput)
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return i.ToVideoMediaInfoPtrOutputWithContext(context.Background())
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoOutput).ToVideoMediaInfoPtrOutputWithContext(ctx)
+}
+
+// VideoMediaInfoPtrInput is an input type that accepts VideoMediaInfoArgs, VideoMediaInfoPtr and VideoMediaInfoPtrOutput values.
+// You can construct a concrete instance of `VideoMediaInfoPtrInput` via:
+//
+//          VideoMediaInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type VideoMediaInfoPtrInput interface {
+	pulumi.Input
+
+	ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput
+	ToVideoMediaInfoPtrOutputWithContext(context.Context) VideoMediaInfoPtrOutput
+}
+
+type videoMediaInfoPtrType VideoMediaInfoArgs
+
+func VideoMediaInfoPtr(v *VideoMediaInfoArgs) VideoMediaInfoPtrInput {
+	return (*videoMediaInfoPtrType)(v)
+}
+
+func (*videoMediaInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoMediaInfo)(nil)).Elem()
+}
+
+func (i *videoMediaInfoPtrType) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return i.ToVideoMediaInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *videoMediaInfoPtrType) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoPtrOutput)
+}
+
+// Contains information about the video and audio content.
+type VideoMediaInfoOutput struct{ *pulumi.OutputState }
+
+func (VideoMediaInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoMediaInfo)(nil)).Elem()
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoOutput() VideoMediaInfoOutput {
+	return o
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoOutputWithContext(ctx context.Context) VideoMediaInfoOutput {
+	return o
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return o.ToVideoMediaInfoPtrOutputWithContext(context.Background())
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoMediaInfo) *VideoMediaInfo {
+		return &v
+	}).(VideoMediaInfoPtrOutput)
+}
+
+// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+func (o VideoMediaInfoOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoMediaInfo) *string { return v.SegmentLength }).(pulumi.StringPtrOutput)
+}
+
+type VideoMediaInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (VideoMediaInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoMediaInfo)(nil)).Elem()
+}
+
+func (o VideoMediaInfoPtrOutput) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return o
+}
+
+func (o VideoMediaInfoPtrOutput) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return o
+}
+
+func (o VideoMediaInfoPtrOutput) Elem() VideoMediaInfoOutput {
+	return o.ApplyT(func(v *VideoMediaInfo) VideoMediaInfo {
+		if v != nil {
+			return *v
+		}
+		var ret VideoMediaInfo
+		return ret
+	}).(VideoMediaInfoOutput)
+}
+
+// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+func (o VideoMediaInfoPtrOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoMediaInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentLength
+	}).(pulumi.StringPtrOutput)
 }
 
 // Contains information about the video and audio content.
 type VideoMediaInfoResponse struct {
 	// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
-	SegmentLength string `pulumi:"segmentLength"`
+	SegmentLength *string `pulumi:"segmentLength"`
 }
 
 // Contains information about the video and audio content.
@@ -3307,8 +4606,136 @@ func (o VideoMediaInfoResponseOutput) ToVideoMediaInfoResponseOutputWithContext(
 }
 
 // Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
-func (o VideoMediaInfoResponseOutput) SegmentLength() pulumi.StringOutput {
-	return o.ApplyT(func(v VideoMediaInfoResponse) string { return v.SegmentLength }).(pulumi.StringOutput)
+func (o VideoMediaInfoResponseOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoMediaInfoResponse) *string { return v.SegmentLength }).(pulumi.StringPtrOutput)
+}
+
+type VideoMediaInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VideoMediaInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoMediaInfoResponse)(nil)).Elem()
+}
+
+func (o VideoMediaInfoResponsePtrOutput) ToVideoMediaInfoResponsePtrOutput() VideoMediaInfoResponsePtrOutput {
+	return o
+}
+
+func (o VideoMediaInfoResponsePtrOutput) ToVideoMediaInfoResponsePtrOutputWithContext(ctx context.Context) VideoMediaInfoResponsePtrOutput {
+	return o
+}
+
+func (o VideoMediaInfoResponsePtrOutput) Elem() VideoMediaInfoResponseOutput {
+	return o.ApplyT(func(v *VideoMediaInfoResponse) VideoMediaInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoMediaInfoResponse
+		return ret
+	}).(VideoMediaInfoResponseOutput)
+}
+
+// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+func (o VideoMediaInfoResponsePtrOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoMediaInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+type VideoPreviewImageUrlsResponse struct {
+	// High resolution preview image URL.
+	Large *string `pulumi:"large"`
+	// Medium resolution preview image URL.
+	Medium *string `pulumi:"medium"`
+	// Low resolution preview image URL.
+	Small *string `pulumi:"small"`
+}
+
+// Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+type VideoPreviewImageUrlsResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoPreviewImageUrlsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoPreviewImageUrlsResponse)(nil)).Elem()
+}
+
+func (o VideoPreviewImageUrlsResponseOutput) ToVideoPreviewImageUrlsResponseOutput() VideoPreviewImageUrlsResponseOutput {
+	return o
+}
+
+func (o VideoPreviewImageUrlsResponseOutput) ToVideoPreviewImageUrlsResponseOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponseOutput {
+	return o
+}
+
+// High resolution preview image URL.
+func (o VideoPreviewImageUrlsResponseOutput) Large() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoPreviewImageUrlsResponse) *string { return v.Large }).(pulumi.StringPtrOutput)
+}
+
+// Medium resolution preview image URL.
+func (o VideoPreviewImageUrlsResponseOutput) Medium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoPreviewImageUrlsResponse) *string { return v.Medium }).(pulumi.StringPtrOutput)
+}
+
+// Low resolution preview image URL.
+func (o VideoPreviewImageUrlsResponseOutput) Small() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoPreviewImageUrlsResponse) *string { return v.Small }).(pulumi.StringPtrOutput)
+}
+
+type VideoPreviewImageUrlsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VideoPreviewImageUrlsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoPreviewImageUrlsResponse)(nil)).Elem()
+}
+
+func (o VideoPreviewImageUrlsResponsePtrOutput) ToVideoPreviewImageUrlsResponsePtrOutput() VideoPreviewImageUrlsResponsePtrOutput {
+	return o
+}
+
+func (o VideoPreviewImageUrlsResponsePtrOutput) ToVideoPreviewImageUrlsResponsePtrOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponsePtrOutput {
+	return o
+}
+
+func (o VideoPreviewImageUrlsResponsePtrOutput) Elem() VideoPreviewImageUrlsResponseOutput {
+	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) VideoPreviewImageUrlsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoPreviewImageUrlsResponse
+		return ret
+	}).(VideoPreviewImageUrlsResponseOutput)
+}
+
+// High resolution preview image URL.
+func (o VideoPreviewImageUrlsResponsePtrOutput) Large() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Large
+	}).(pulumi.StringPtrOutput)
+}
+
+// Medium resolution preview image URL.
+func (o VideoPreviewImageUrlsResponsePtrOutput) Medium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Medium
+	}).(pulumi.StringPtrOutput)
+}
+
+// Low resolution preview image URL.
+func (o VideoPreviewImageUrlsResponsePtrOutput) Small() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Small
+	}).(pulumi.StringPtrOutput)
 }
 
 // Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
@@ -3842,53 +5269,25 @@ type VideoSourceResponse struct {
 	VideoName string `pulumi:"videoName"`
 }
 
-// Video streaming holds information about video streaming URLs.
-type VideoStreamingResponse struct {
-	// Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-	//
-	//   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-	//   - HLS CMAF:  /manifest(format=m3u8-cmaf)
-	//   - DASH CMAF: /manifest(format=mpd-time-cmaf)
-	//
-	// Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
-	ArchiveBaseUrl *string `pulumi:"archiveBaseUrl"`
-}
-
-// Video streaming holds information about video streaming URLs.
-type VideoStreamingResponseOutput struct{ *pulumi.OutputState }
-
-func (VideoStreamingResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoStreamingResponse)(nil)).Elem()
-}
-
-func (o VideoStreamingResponseOutput) ToVideoStreamingResponseOutput() VideoStreamingResponseOutput {
-	return o
-}
-
-func (o VideoStreamingResponseOutput) ToVideoStreamingResponseOutputWithContext(ctx context.Context) VideoStreamingResponseOutput {
-	return o
-}
-
-// Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-//
-//   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-//   - HLS CMAF:  /manifest(format=m3u8-cmaf)
-//   - DASH CMAF: /manifest(format=mpd-time-cmaf)
-//
-// Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
-func (o VideoStreamingResponseOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoStreamingResponse) *string { return v.ArchiveBaseUrl }).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncoderProcessorOutput{})
 	pulumi.RegisterOutputType(EncoderProcessorArrayOutput{})
 	pulumi.RegisterOutputType(EncoderProcessorResponseOutput{})
 	pulumi.RegisterOutputType(EncoderProcessorResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointResponseOutput{})
 	pulumi.RegisterOutputType(EndpointResponseArrayOutput{})
+	pulumi.RegisterOutputType(GroupLevelAccessControlOutput{})
+	pulumi.RegisterOutputType(GroupLevelAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(GroupLevelAccessControlResponseOutput{})
+	pulumi.RegisterOutputType(GroupLevelAccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(IotHubOutput{})
+	pulumi.RegisterOutputType(IotHubArrayOutput{})
+	pulumi.RegisterOutputType(IotHubResponseOutput{})
+	pulumi.RegisterOutputType(IotHubResponseArrayOutput{})
 	pulumi.RegisterOutputType(JwtAuthenticationOutput{})
 	pulumi.RegisterOutputType(JwtAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(JwtAuthenticationResponseOutput{})
@@ -3897,6 +5296,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkAccessControlOutput{})
+	pulumi.RegisterOutputType(NetworkAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(NetworkAccessControlResponseOutput{})
+	pulumi.RegisterOutputType(NetworkAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(NodeInputOutput{})
 	pulumi.RegisterOutputType(NodeInputArrayOutput{})
 	pulumi.RegisterOutputType(NodeInputResponseOutput{})
@@ -3910,6 +5313,8 @@ func init() {
 	pulumi.RegisterOutputType(ParameterDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PipelineJobErrorResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
@@ -3935,12 +5340,22 @@ func init() {
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityResponseOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(VideoArchivalOutput{})
+	pulumi.RegisterOutputType(VideoArchivalPtrOutput{})
+	pulumi.RegisterOutputType(VideoArchivalResponseOutput{})
+	pulumi.RegisterOutputType(VideoArchivalResponsePtrOutput{})
+	pulumi.RegisterOutputType(VideoContentUrlsResponseOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoFlagsResponseOutput{})
+	pulumi.RegisterOutputType(VideoMediaInfoOutput{})
+	pulumi.RegisterOutputType(VideoMediaInfoPtrOutput{})
 	pulumi.RegisterOutputType(VideoMediaInfoResponseOutput{})
+	pulumi.RegisterOutputType(VideoMediaInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(VideoPreviewImageUrlsResponseOutput{})
+	pulumi.RegisterOutputType(VideoPreviewImageUrlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoPublishingOptionsOutput{})
 	pulumi.RegisterOutputType(VideoPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VideoPublishingOptionsResponseOutput{})
@@ -3949,5 +5364,4 @@ func init() {
 	pulumi.RegisterOutputType(VideoSinkArrayOutput{})
 	pulumi.RegisterOutputType(VideoSinkResponseOutput{})
 	pulumi.RegisterOutputType(VideoSinkResponseArrayOutput{})
-	pulumi.RegisterOutputType(VideoStreamingResponseOutput{})
 }

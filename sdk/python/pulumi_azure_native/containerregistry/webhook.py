@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['WebhookArgs', 'Webhook']
@@ -193,7 +194,7 @@ class Webhook(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a webhook for a container registry.
-        API Version: 2019-05-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,7 +217,7 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a webhook for a container registry.
-        API Version: 2019-05-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
@@ -275,6 +276,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["webhook_name"] = webhook_name
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20170601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -306,6 +308,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Webhook(resource_name, opts=opts, __props__=__props__)
@@ -357,6 +360,14 @@ class Webhook(pulumi.CustomResource):
         The status of the webhook at the time the operation was called.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workload classifier operations for a data warehouse
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
     if (!opts) {
@@ -41,7 +41,7 @@ export interface GetSqlPoolWorkloadClassifierArgs {
      */
     workloadGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -110,7 +110,7 @@ export interface GetSqlPoolWorkloadClassifierOutputArgs {
      */
     workloadGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

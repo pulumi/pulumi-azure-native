@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobCredential")]
     public partial class JobCredential : Pulumi.CustomResource

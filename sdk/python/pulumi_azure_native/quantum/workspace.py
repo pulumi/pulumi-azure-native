@@ -147,7 +147,7 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         The resource proxy definition object for quantum workspace.
-        API Version: 2019-11-04-preview.
+        API Version: 2022-01-10-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource proxy definition object for quantum workspace.
-        API Version: 2019-11-04-preview.
+        API Version: 2022-01-10-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,7 @@ import (
 )
 
 // Resource information.
-// API Version: 2019-05-01.
+// API Version: 2021-04-01.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("azure-native:resources:getResource", args, &rv, opts...)
@@ -36,6 +36,8 @@ type LookupResourceArgs struct {
 
 // Resource information.
 type LookupResourceResult struct {
+	// Resource extended location.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
@@ -103,6 +105,11 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutput() LookupResourc
 
 func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx context.Context) LookupResourceResultOutput {
 	return o
+}
+
+// Resource extended location.
+func (o LookupResourceResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
 }
 
 // Resource ID

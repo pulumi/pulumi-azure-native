@@ -97,7 +97,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleDefinition" }, { type: "azure-native:authorization/v20150701:RoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20150701:RoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleDefinition.__pulumiType, name, resourceInputs, opts);
     }

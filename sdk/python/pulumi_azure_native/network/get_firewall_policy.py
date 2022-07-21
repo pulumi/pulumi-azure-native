@@ -21,7 +21,7 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, id=None, identity=None, insights=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, snat=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
+    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, explicit_proxy_settings=None, firewalls=None, id=None, identity=None, insights=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, snat=None, sql=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -34,6 +34,9 @@ class GetFirewallPolicyResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if explicit_proxy_settings and not isinstance(explicit_proxy_settings, dict):
+            raise TypeError("Expected argument 'explicit_proxy_settings' to be a dict")
+        pulumi.set(__self__, "explicit_proxy_settings", explicit_proxy_settings)
         if firewalls and not isinstance(firewalls, list):
             raise TypeError("Expected argument 'firewalls' to be a list")
         pulumi.set(__self__, "firewalls", firewalls)
@@ -67,6 +70,9 @@ class GetFirewallPolicyResult:
         if snat and not isinstance(snat, dict):
             raise TypeError("Expected argument 'snat' to be a dict")
         pulumi.set(__self__, "snat", snat)
+        if sql and not isinstance(sql, dict):
+            raise TypeError("Expected argument 'sql' to be a dict")
+        pulumi.set(__self__, "sql", sql)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -114,6 +120,14 @@ class GetFirewallPolicyResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="explicitProxySettings")
+    def explicit_proxy_settings(self) -> Optional['outputs.ExplicitProxySettingsResponse']:
+        """
+        Explicit Proxy Settings definition.
+        """
+        return pulumi.get(self, "explicit_proxy_settings")
 
     @property
     @pulumi.getter
@@ -205,6 +219,14 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
+    def sql(self) -> Optional['outputs.FirewallPolicySQLResponse']:
+        """
+        SQL Settings definition.
+        """
+        return pulumi.get(self, "sql")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
@@ -254,6 +276,7 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             child_policies=self.child_policies,
             dns_settings=self.dns_settings,
             etag=self.etag,
+            explicit_proxy_settings=self.explicit_proxy_settings,
             firewalls=self.firewalls,
             id=self.id,
             identity=self.identity,
@@ -265,6 +288,7 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             rule_collection_groups=self.rule_collection_groups,
             sku=self.sku,
             snat=self.snat,
+            sql=self.sql,
             tags=self.tags,
             threat_intel_mode=self.threat_intel_mode,
             threat_intel_whitelist=self.threat_intel_whitelist,
@@ -278,7 +302,7 @@ def get_firewall_policy(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -300,6 +324,7 @@ def get_firewall_policy(expand: Optional[str] = None,
         child_policies=__ret__.child_policies,
         dns_settings=__ret__.dns_settings,
         etag=__ret__.etag,
+        explicit_proxy_settings=__ret__.explicit_proxy_settings,
         firewalls=__ret__.firewalls,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -311,6 +336,7 @@ def get_firewall_policy(expand: Optional[str] = None,
         rule_collection_groups=__ret__.rule_collection_groups,
         sku=__ret__.sku,
         snat=__ret__.snat,
+        sql=__ret__.sql,
         tags=__ret__.tags,
         threat_intel_mode=__ret__.threat_intel_mode,
         threat_intel_whitelist=__ret__.threat_intel_whitelist,
@@ -325,7 +351,7 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     FirewallPolicy Resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
@@ -46,9 +46,13 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The Azure Active Directory identity of the server.
+     * The Azure Active Directory administrator of the server.
      */
     readonly administrators?: outputs.sql.ServerExternalAdministratorResponse;
+    /**
+     * The Client id used for cross tenant CMK scenario
+     */
+    readonly federatedClientId?: string;
     /**
      * The fully qualified domain name of the server.
      */
@@ -93,6 +97,10 @@ export interface GetServerResult {
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
     readonly publicNetworkAccess?: string;
+    /**
+     * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly restrictOutboundNetworkAccess?: string;
     /**
      * The state of the server.
      */

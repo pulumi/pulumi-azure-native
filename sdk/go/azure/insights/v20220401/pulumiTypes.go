@@ -2611,7 +2611,7 @@ type WorkbookResourceIdentity struct {
 	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
 	Type string `pulumi:"type"`
 	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // WorkbookResourceIdentityInput is an input type that accepts WorkbookResourceIdentityArgs and WorkbookResourceIdentityOutput values.
@@ -2630,7 +2630,7 @@ type WorkbookResourceIdentityArgs struct {
 	// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
 	Type pulumi.StringInput `pulumi:"type"`
 	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (WorkbookResourceIdentityArgs) ElementType() reflect.Type {
@@ -2717,8 +2717,8 @@ func (o WorkbookResourceIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-func (o WorkbookResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkbookResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o WorkbookResourceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkbookResourceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type WorkbookResourceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2756,13 +2756,13 @@ func (o WorkbookResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-func (o WorkbookResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *WorkbookResourceIdentity) map[string]interface{} {
+func (o WorkbookResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkbookResourceIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity used for BYOS

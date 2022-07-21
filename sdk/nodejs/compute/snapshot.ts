@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-12-01.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -37,9 +37,17 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
+     * Percentage complete for the background copy when a resource is created via the CopyStart operation.
+     */
+    public readonly completionPercent!: pulumi.Output<number | undefined>;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     public readonly creationData!: pulumi.Output<outputs.compute.CreationDataResponse>;
+    /**
+     * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+     */
+    public readonly dataAccessAuthMode!: pulumi.Output<string | undefined>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -101,13 +109,25 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Policy for controlling export on the disk.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
     public readonly purchasePlan!: pulumi.Output<outputs.compute.PurchasePlanResponse | undefined>;
     /**
+     * Contains the security related information for the resource.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.compute.DiskSecurityProfileResponse | undefined>;
+    /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     public readonly sku!: pulumi.Output<outputs.compute.SnapshotSkuResponse | undefined>;
+    /**
+     * List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+     */
+    public readonly supportedCapabilities!: pulumi.Output<outputs.compute.SupportedCapabilitiesResponse | undefined>;
     /**
      * Indicates the OS on a snapshot supports hibernation.
      */
@@ -146,7 +166,9 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["completionPercent"] = args ? args.completionPercent : undefined;
             resourceInputs["creationData"] = args ? args.creationData : undefined;
+            resourceInputs["dataAccessAuthMode"] = args ? args.dataAccessAuthMode : undefined;
             resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
@@ -157,10 +179,13 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
             resourceInputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["diskSizeBytes"] = undefined /*out*/;
@@ -172,7 +197,9 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
+            resourceInputs["completionPercent"] = undefined /*out*/;
             resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["dataAccessAuthMode"] = undefined /*out*/;
             resourceInputs["diskAccessId"] = undefined /*out*/;
             resourceInputs["diskSizeBytes"] = undefined /*out*/;
             resourceInputs["diskSizeGB"] = undefined /*out*/;
@@ -188,8 +215,11 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["networkAccessPolicy"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["purchasePlan"] = undefined /*out*/;
+            resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["supportedCapabilities"] = undefined /*out*/;
             resourceInputs["supportsHibernation"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
@@ -208,9 +238,17 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotArgs {
     /**
+     * Percentage complete for the background copy when a resource is created via the CopyStart operation.
+     */
+    completionPercent?: pulumi.Input<number>;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     creationData: pulumi.Input<inputs.compute.CreationDataArgs>;
+    /**
+     * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+     */
+    dataAccessAuthMode?: pulumi.Input<string | enums.compute.DataAccessAuthMode>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -252,6 +290,10 @@ export interface SnapshotArgs {
      */
     osType?: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**
+     * Policy for controlling export on the disk.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.compute.PublicNetworkAccess>;
+    /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
     purchasePlan?: pulumi.Input<inputs.compute.PurchasePlanArgs>;
@@ -260,13 +302,21 @@ export interface SnapshotArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Contains the security related information for the resource.
+     */
+    securityProfile?: pulumi.Input<inputs.compute.DiskSecurityProfileArgs>;
+    /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     sku?: pulumi.Input<inputs.compute.SnapshotSkuArgs>;
     /**
-     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
      */
     snapshotName?: pulumi.Input<string>;
+    /**
+     * List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+     */
+    supportedCapabilities?: pulumi.Input<inputs.compute.SupportedCapabilitiesArgs>;
     /**
      * Indicates the OS on a snapshot supports hibernation.
      */

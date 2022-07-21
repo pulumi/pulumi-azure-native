@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiSchema
     {
         /// <summary>
-        /// Schema Contract details.
-        /// API Version: 2020-12-01.
+        /// API Schema Contract details.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema Contract details.
-        /// API Version: 2020-12-01.
+        /// API Schema Contract details.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("schemaId", required: true)]
         public string SchemaId { get; set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("schemaId", required: true)]
         public Input<string> SchemaId { get; set; } = null!;
@@ -94,23 +94,27 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetApiSchemaResult
     {
         /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+        /// </summary>
+        public readonly object? Components;
+        /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         /// </summary>
         public readonly object? Definitions;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetApiSchemaResult(
+            object? components,
+
             string contentType,
 
             object? definitions,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? value)
         {
+            Components = components;
             ContentType = contentType;
             Definitions = definitions;
             Id = id;

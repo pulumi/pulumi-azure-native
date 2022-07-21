@@ -6,8 +6,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .api_portal import *
-from .api_portal_custom_domain import *
 from .app import *
 from .binding import *
 from .build_service_builder import *
@@ -16,11 +14,6 @@ from .certificate import *
 from .configuration_service import *
 from .custom_domain import *
 from .deployment import *
-from .gateway import *
-from .gateway_custom_domain import *
-from .gateway_route_config import *
-from .get_api_portal import *
-from .get_api_portal_custom_domain import *
 from .get_app import *
 from .get_app_resource_upload_url import *
 from .get_binding import *
@@ -33,16 +26,11 @@ from .get_configuration_service import *
 from .get_custom_domain import *
 from .get_deployment import *
 from .get_deployment_log_file_url import *
-from .get_gateway import *
-from .get_gateway_custom_domain import *
-from .get_gateway_route_config import *
 from .get_service import *
 from .get_service_registry import *
-from .get_storage import *
 from .list_service_test_keys import *
 from .service import *
 from .service_registry import *
-from .storage import *
 from ._inputs import *
 from . import outputs
 

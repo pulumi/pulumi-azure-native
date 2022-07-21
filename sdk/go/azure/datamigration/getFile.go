@@ -11,7 +11,7 @@ import (
 )
 
 // A file resource
-// API Version: 2018-07-15-preview.
+// API Version: 2021-06-30.
 func LookupFile(ctx *pulumi.Context, args *LookupFileArgs, opts ...pulumi.InvokeOption) (*LookupFileResult, error) {
 	var rv LookupFileResult
 	err := ctx.Invoke("azure-native:datamigration:getFile", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupFileResult struct {
 	Name string `pulumi:"name"`
 	// Custom file properties
 	Properties ProjectFilePropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -107,6 +109,11 @@ func (o LookupFileResultOutput) Name() pulumi.StringOutput {
 // Custom file properties
 func (o LookupFileResultOutput) Properties() ProjectFilePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupFileResult) ProjectFilePropertiesResponse { return v.Properties }).(ProjectFilePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupFileResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupFileResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.

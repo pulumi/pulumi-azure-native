@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessConnector";
-export * from "./getAccessConnector";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
 export * from "./getvNetPeering";
@@ -29,7 +27,6 @@ export {
 };
 
 // Import resources to register:
-import { AccessConnector } from "./accessConnector";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Workspace } from "./workspace";
 import { VNetPeering } from "./vnetPeering";
@@ -38,8 +35,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databricks:AccessConnector":
-                return new AccessConnector(name, <any>undefined, { urn })
             case "azure-native:databricks:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:databricks:Workspace":

@@ -499,6 +499,8 @@ type AvailabilitySetResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/availabilitySets'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets the target update domain.
@@ -512,6 +514,8 @@ type AvailabilitySetResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/availabilitySets'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets the target update domain.
@@ -1282,30 +1286,146 @@ func (o CollectorPropertiesResponseOutput) UpdatedTimestamp() pulumi.StringOutpu
 	return o.ApplyT(func(v CollectorPropertiesResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
-// The database project summary class.
-type DatabaseProjectSummaryResponse struct {
-	// Gets or sets the extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
+// Properties of Connection state request.
+type ConnectionStateRequestBodyProperties struct {
+	// Private endpoint connection state.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
-// Class representing the databases solution summary.
-type DatabasesSolutionSummaryResponse struct {
-	// Gets or sets the count of database instances assessed.
-	DatabaseInstancesAssessedCount *int `pulumi:"databaseInstancesAssessedCount"`
-	// Gets or sets the count of databases assessed.
-	DatabasesAssessedCount *int `pulumi:"databasesAssessedCount"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the count of databases ready for migration.
-	MigrationReadyCount *int `pulumi:"migrationReadyCount"`
+// ConnectionStateRequestBodyPropertiesInput is an input type that accepts ConnectionStateRequestBodyPropertiesArgs and ConnectionStateRequestBodyPropertiesOutput values.
+// You can construct a concrete instance of `ConnectionStateRequestBodyPropertiesInput` via:
+//
+//          ConnectionStateRequestBodyPropertiesArgs{...}
+type ConnectionStateRequestBodyPropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionStateRequestBodyPropertiesOutput() ConnectionStateRequestBodyPropertiesOutput
+	ToConnectionStateRequestBodyPropertiesOutputWithContext(context.Context) ConnectionStateRequestBodyPropertiesOutput
+}
+
+// Properties of Connection state request.
+type ConnectionStateRequestBodyPropertiesArgs struct {
+	// Private endpoint connection state.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
+}
+
+func (ConnectionStateRequestBodyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionStateRequestBodyProperties)(nil)).Elem()
+}
+
+func (i ConnectionStateRequestBodyPropertiesArgs) ToConnectionStateRequestBodyPropertiesOutput() ConnectionStateRequestBodyPropertiesOutput {
+	return i.ToConnectionStateRequestBodyPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionStateRequestBodyPropertiesArgs) ToConnectionStateRequestBodyPropertiesOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateRequestBodyPropertiesOutput)
+}
+
+func (i ConnectionStateRequestBodyPropertiesArgs) ToConnectionStateRequestBodyPropertiesPtrOutput() ConnectionStateRequestBodyPropertiesPtrOutput {
+	return i.ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionStateRequestBodyPropertiesArgs) ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateRequestBodyPropertiesOutput).ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionStateRequestBodyPropertiesPtrInput is an input type that accepts ConnectionStateRequestBodyPropertiesArgs, ConnectionStateRequestBodyPropertiesPtr and ConnectionStateRequestBodyPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionStateRequestBodyPropertiesPtrInput` via:
+//
+//          ConnectionStateRequestBodyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionStateRequestBodyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionStateRequestBodyPropertiesPtrOutput() ConnectionStateRequestBodyPropertiesPtrOutput
+	ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(context.Context) ConnectionStateRequestBodyPropertiesPtrOutput
+}
+
+type connectionStateRequestBodyPropertiesPtrType ConnectionStateRequestBodyPropertiesArgs
+
+func ConnectionStateRequestBodyPropertiesPtr(v *ConnectionStateRequestBodyPropertiesArgs) ConnectionStateRequestBodyPropertiesPtrInput {
+	return (*connectionStateRequestBodyPropertiesPtrType)(v)
+}
+
+func (*connectionStateRequestBodyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionStateRequestBodyProperties)(nil)).Elem()
+}
+
+func (i *connectionStateRequestBodyPropertiesPtrType) ToConnectionStateRequestBodyPropertiesPtrOutput() ConnectionStateRequestBodyPropertiesPtrOutput {
+	return i.ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionStateRequestBodyPropertiesPtrType) ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStateRequestBodyPropertiesPtrOutput)
+}
+
+// Properties of Connection state request.
+type ConnectionStateRequestBodyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionStateRequestBodyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionStateRequestBodyProperties)(nil)).Elem()
+}
+
+func (o ConnectionStateRequestBodyPropertiesOutput) ToConnectionStateRequestBodyPropertiesOutput() ConnectionStateRequestBodyPropertiesOutput {
+	return o
+}
+
+func (o ConnectionStateRequestBodyPropertiesOutput) ToConnectionStateRequestBodyPropertiesOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesOutput {
+	return o
+}
+
+func (o ConnectionStateRequestBodyPropertiesOutput) ToConnectionStateRequestBodyPropertiesPtrOutput() ConnectionStateRequestBodyPropertiesPtrOutput {
+	return o.ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionStateRequestBodyPropertiesOutput) ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStateRequestBodyProperties) *ConnectionStateRequestBodyProperties {
+		return &v
+	}).(ConnectionStateRequestBodyPropertiesPtrOutput)
+}
+
+// Private endpoint connection state.
+func (o ConnectionStateRequestBodyPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v ConnectionStateRequestBodyProperties) *PrivateLinkServiceConnectionState {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+type ConnectionStateRequestBodyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionStateRequestBodyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionStateRequestBodyProperties)(nil)).Elem()
+}
+
+func (o ConnectionStateRequestBodyPropertiesPtrOutput) ToConnectionStateRequestBodyPropertiesPtrOutput() ConnectionStateRequestBodyPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionStateRequestBodyPropertiesPtrOutput) ToConnectionStateRequestBodyPropertiesPtrOutputWithContext(ctx context.Context) ConnectionStateRequestBodyPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionStateRequestBodyPropertiesPtrOutput) Elem() ConnectionStateRequestBodyPropertiesOutput {
+	return o.ApplyT(func(v *ConnectionStateRequestBodyProperties) ConnectionStateRequestBodyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionStateRequestBodyProperties
+		return ret
+	}).(ConnectionStateRequestBodyPropertiesOutput)
+}
+
+// Private endpoint connection state.
+func (o ConnectionStateRequestBodyPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v *ConnectionStateRequestBodyProperties) *PrivateLinkServiceConnectionState {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
 // Defines the disk encryption set resource settings.
@@ -2066,6 +2186,8 @@ type LoadBalancerResourceSettings struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets load balancer sku (Basic/Standard).
 	Sku *string `pulumi:"sku"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
@@ -2084,6 +2206,8 @@ type LoadBalancerResourceSettingsResponse struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets load balancer sku (Basic/Standard).
 	Sku *string `pulumi:"sku"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
@@ -2151,12 +2275,14 @@ func (o ManualResolutionPropertiesResponsePtrOutput) TargetId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for migrate project properties.
+// Properties of a migrate project.
 type MigrateProjectProperties struct {
-	// Provisioning state of the migrate project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools []string `pulumi:"registeredTools"`
+	// Gets or sets the state of public network access.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Service endpoint.
+	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
+	// Utility storage account id.
+	UtilityStorageAccountId *string `pulumi:"utilityStorageAccountId"`
 }
 
 // MigrateProjectPropertiesInput is an input type that accepts MigrateProjectPropertiesArgs and MigrateProjectPropertiesOutput values.
@@ -2170,12 +2296,14 @@ type MigrateProjectPropertiesInput interface {
 	ToMigrateProjectPropertiesOutputWithContext(context.Context) MigrateProjectPropertiesOutput
 }
 
-// Class for migrate project properties.
+// Properties of a migrate project.
 type MigrateProjectPropertiesArgs struct {
-	// Provisioning state of the migrate project.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools pulumi.StringArrayInput `pulumi:"registeredTools"`
+	// Gets or sets the state of public network access.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// Service endpoint.
+	ServiceEndpoint pulumi.StringPtrInput `pulumi:"serviceEndpoint"`
+	// Utility storage account id.
+	UtilityStorageAccountId pulumi.StringPtrInput `pulumi:"utilityStorageAccountId"`
 }
 
 func (MigrateProjectPropertiesArgs) ElementType() reflect.Type {
@@ -2231,7 +2359,7 @@ func (i *migrateProjectPropertiesPtrType) ToMigrateProjectPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Class for migrate project properties.
+// Properties of a migrate project.
 type MigrateProjectPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesOutput) ElementType() reflect.Type {
@@ -2256,14 +2384,19 @@ func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutputWithC
 	}).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Provisioning state of the migrate project.
-func (o MigrateProjectPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+// Gets or sets the state of public network access.
+func (o MigrateProjectPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
-func (o MigrateProjectPropertiesOutput) RegisteredTools() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MigrateProjectProperties) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
+// Service endpoint.
+func (o MigrateProjectPropertiesOutput) ServiceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.ServiceEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Utility storage account id.
+func (o MigrateProjectPropertiesOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.UtilityStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
 type MigrateProjectPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2290,41 +2423,57 @@ func (o MigrateProjectPropertiesPtrOutput) Elem() MigrateProjectPropertiesOutput
 	}).(MigrateProjectPropertiesOutput)
 }
 
-// Provisioning state of the migrate project.
-func (o MigrateProjectPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+// Gets or sets the state of public network access.
+func (o MigrateProjectPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return v.PublicNetworkAccess
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
-func (o MigrateProjectPropertiesPtrOutput) RegisteredTools() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MigrateProjectProperties) []string {
+// Service endpoint.
+func (o MigrateProjectPropertiesPtrOutput) ServiceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.RegisteredTools
-	}).(pulumi.StringArrayOutput)
+		return v.ServiceEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
-// Class for migrate project properties.
+// Utility storage account id.
+func (o MigrateProjectPropertiesPtrOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrateProjectProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UtilityStorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a migrate project.
 type MigrateProjectPropertiesResponse struct {
-	// Gets the last time the project summary was refreshed.
+	// Last summary refresh time.
 	LastSummaryRefreshedTime string `pulumi:"lastSummaryRefreshedTime"`
-	// Provisioning state of the migrate project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets the refresh summary state.
+	// Gets the private endpoint connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Gets or sets the state of public network access.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Refresh summary state.
 	RefreshSummaryState string `pulumi:"refreshSummaryState"`
-	// Gets or sets the list of tools registered with the migrate project.
+	// Register tools inside project.
 	RegisteredTools []string `pulumi:"registeredTools"`
-	// Gets the summary of the migrate project.
-	Summary map[string]interface{} `pulumi:"summary"`
+	// Service endpoint.
+	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
+	// Project summary.
+	Summary map[string]ProjectSummaryResponse `pulumi:"summary"`
+	// Utility storage account id.
+	UtilityStorageAccountId *string `pulumi:"utilityStorageAccountId"`
 }
 
-// Class for migrate project properties.
+// Properties of a migrate project.
 type MigrateProjectPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2339,222 +2488,46 @@ func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesRespon
 	return o
 }
 
-// Gets the last time the project summary was refreshed.
+// Last summary refresh time.
 func (o MigrateProjectPropertiesResponseOutput) LastSummaryRefreshedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.LastSummaryRefreshedTime }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the migrate project.
-func (o MigrateProjectPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+// Gets the private endpoint connections.
+func (o MigrateProjectPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v MigrateProjectPropertiesResponse) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Gets the refresh summary state.
+// Gets or sets the state of public network access.
+func (o MigrateProjectPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Refresh summary state.
 func (o MigrateProjectPropertiesResponseOutput) RefreshSummaryState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.RefreshSummaryState }).(pulumi.StringOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
+// Register tools inside project.
 func (o MigrateProjectPropertiesResponseOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
 }
 
-// Gets the summary of the migrate project.
-func (o MigrateProjectPropertiesResponseOutput) Summary() pulumi.MapOutput {
-	return o.ApplyT(func(v MigrateProjectPropertiesResponse) map[string]interface{} { return v.Summary }).(pulumi.MapOutput)
+// Service endpoint.
+func (o MigrateProjectPropertiesResponseOutput) ServiceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.ServiceEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tags.
-type MigrateProjectResponseTags struct {
-	AdditionalProperties *string `pulumi:"additionalProperties"`
+// Project summary.
+func (o MigrateProjectPropertiesResponseOutput) Summary() ProjectSummaryResponseMapOutput {
+	return o.ApplyT(func(v MigrateProjectPropertiesResponse) map[string]ProjectSummaryResponse { return v.Summary }).(ProjectSummaryResponseMapOutput)
 }
 
-// Gets or sets the tags.
-type MigrateProjectResponseTagsOutput struct{ *pulumi.OutputState }
-
-func (MigrateProjectResponseTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectResponseTags)(nil)).Elem()
-}
-
-func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsOutput() MigrateProjectResponseTagsOutput {
-	return o
-}
-
-func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsOutputWithContext(ctx context.Context) MigrateProjectResponseTagsOutput {
-	return o
-}
-
-func (o MigrateProjectResponseTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateProjectResponseTags) *string { return v.AdditionalProperties }).(pulumi.StringPtrOutput)
-}
-
-type MigrateProjectResponseTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateProjectResponseTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateProjectResponseTags)(nil)).Elem()
-}
-
-func (o MigrateProjectResponseTagsPtrOutput) ToMigrateProjectResponseTagsPtrOutput() MigrateProjectResponseTagsPtrOutput {
-	return o
-}
-
-func (o MigrateProjectResponseTagsPtrOutput) ToMigrateProjectResponseTagsPtrOutputWithContext(ctx context.Context) MigrateProjectResponseTagsPtrOutput {
-	return o
-}
-
-func (o MigrateProjectResponseTagsPtrOutput) Elem() MigrateProjectResponseTagsOutput {
-	return o.ApplyT(func(v *MigrateProjectResponseTags) MigrateProjectResponseTags {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectResponseTags
-		return ret
-	}).(MigrateProjectResponseTagsOutput)
-}
-
-func (o MigrateProjectResponseTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateProjectResponseTags) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalProperties
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the tags.
-type MigrateProjectTags struct {
-	AdditionalProperties *string `pulumi:"additionalProperties"`
-}
-
-// MigrateProjectTagsInput is an input type that accepts MigrateProjectTagsArgs and MigrateProjectTagsOutput values.
-// You can construct a concrete instance of `MigrateProjectTagsInput` via:
-//
-//          MigrateProjectTagsArgs{...}
-type MigrateProjectTagsInput interface {
-	pulumi.Input
-
-	ToMigrateProjectTagsOutput() MigrateProjectTagsOutput
-	ToMigrateProjectTagsOutputWithContext(context.Context) MigrateProjectTagsOutput
-}
-
-// Gets or sets the tags.
-type MigrateProjectTagsArgs struct {
-	AdditionalProperties pulumi.StringPtrInput `pulumi:"additionalProperties"`
-}
-
-func (MigrateProjectTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectTags)(nil)).Elem()
-}
-
-func (i MigrateProjectTagsArgs) ToMigrateProjectTagsOutput() MigrateProjectTagsOutput {
-	return i.ToMigrateProjectTagsOutputWithContext(context.Background())
-}
-
-func (i MigrateProjectTagsArgs) ToMigrateProjectTagsOutputWithContext(ctx context.Context) MigrateProjectTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectTagsOutput)
-}
-
-func (i MigrateProjectTagsArgs) ToMigrateProjectTagsPtrOutput() MigrateProjectTagsPtrOutput {
-	return i.ToMigrateProjectTagsPtrOutputWithContext(context.Background())
-}
-
-func (i MigrateProjectTagsArgs) ToMigrateProjectTagsPtrOutputWithContext(ctx context.Context) MigrateProjectTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectTagsOutput).ToMigrateProjectTagsPtrOutputWithContext(ctx)
-}
-
-// MigrateProjectTagsPtrInput is an input type that accepts MigrateProjectTagsArgs, MigrateProjectTagsPtr and MigrateProjectTagsPtrOutput values.
-// You can construct a concrete instance of `MigrateProjectTagsPtrInput` via:
-//
-//          MigrateProjectTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateProjectTagsPtrInput interface {
-	pulumi.Input
-
-	ToMigrateProjectTagsPtrOutput() MigrateProjectTagsPtrOutput
-	ToMigrateProjectTagsPtrOutputWithContext(context.Context) MigrateProjectTagsPtrOutput
-}
-
-type migrateProjectTagsPtrType MigrateProjectTagsArgs
-
-func MigrateProjectTagsPtr(v *MigrateProjectTagsArgs) MigrateProjectTagsPtrInput {
-	return (*migrateProjectTagsPtrType)(v)
-}
-
-func (*migrateProjectTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateProjectTags)(nil)).Elem()
-}
-
-func (i *migrateProjectTagsPtrType) ToMigrateProjectTagsPtrOutput() MigrateProjectTagsPtrOutput {
-	return i.ToMigrateProjectTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *migrateProjectTagsPtrType) ToMigrateProjectTagsPtrOutputWithContext(ctx context.Context) MigrateProjectTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectTagsPtrOutput)
-}
-
-// Gets or sets the tags.
-type MigrateProjectTagsOutput struct{ *pulumi.OutputState }
-
-func (MigrateProjectTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectTags)(nil)).Elem()
-}
-
-func (o MigrateProjectTagsOutput) ToMigrateProjectTagsOutput() MigrateProjectTagsOutput {
-	return o
-}
-
-func (o MigrateProjectTagsOutput) ToMigrateProjectTagsOutputWithContext(ctx context.Context) MigrateProjectTagsOutput {
-	return o
-}
-
-func (o MigrateProjectTagsOutput) ToMigrateProjectTagsPtrOutput() MigrateProjectTagsPtrOutput {
-	return o.ToMigrateProjectTagsPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateProjectTagsOutput) ToMigrateProjectTagsPtrOutputWithContext(ctx context.Context) MigrateProjectTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectTags) *MigrateProjectTags {
-		return &v
-	}).(MigrateProjectTagsPtrOutput)
-}
-
-func (o MigrateProjectTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateProjectTags) *string { return v.AdditionalProperties }).(pulumi.StringPtrOutput)
-}
-
-type MigrateProjectTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateProjectTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateProjectTags)(nil)).Elem()
-}
-
-func (o MigrateProjectTagsPtrOutput) ToMigrateProjectTagsPtrOutput() MigrateProjectTagsPtrOutput {
-	return o
-}
-
-func (o MigrateProjectTagsPtrOutput) ToMigrateProjectTagsPtrOutputWithContext(ctx context.Context) MigrateProjectTagsPtrOutput {
-	return o
-}
-
-func (o MigrateProjectTagsPtrOutput) Elem() MigrateProjectTagsOutput {
-	return o.ApplyT(func(v *MigrateProjectTags) MigrateProjectTags {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectTags
-		return ret
-	}).(MigrateProjectTagsOutput)
-}
-
-func (o MigrateProjectTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateProjectTags) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalProperties
-	}).(pulumi.StringPtrOutput)
+// Utility storage account id.
+func (o MigrateProjectPropertiesResponseOutput) UtilityStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.UtilityStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Defines the move collection properties.
@@ -3607,6 +3580,8 @@ type NetworkInterfaceResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Network/networkInterfaces'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
@@ -3620,6 +3595,8 @@ type NetworkInterfaceResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Network/networkInterfaces'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
@@ -3631,6 +3608,8 @@ type NetworkSecurityGroupResourceSettings struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets Security rules of network security group.
 	SecurityRules []NsgSecurityRule `pulumi:"securityRules"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
@@ -3642,6 +3621,8 @@ type NetworkSecurityGroupResourceSettingsResponse struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets Security rules of network security group.
 	SecurityRules []NsgSecurityRuleResponse `pulumi:"securityRules"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
@@ -3769,63 +3750,6 @@ type NsgSecurityRuleResponse struct {
 }
 
 // Private endpoint connection properties.
-type PrivateEndpointConnectionProperties struct {
-	// State of the private endpoint connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-}
-
-// PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-type PrivateEndpointConnectionPropertiesInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput
-	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
-}
-
-// Private endpoint connection properties.
-type PrivateEndpointConnectionPropertiesArgs struct {
-	// State of the private endpoint connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
-}
-
-func (PrivateEndpointConnectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return i.ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-// Private endpoint connection properties.
-type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-// State of the private endpoint connection.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
-// Private endpoint connection properties.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// ARM id for the private endpoint resource corresponding to the connection.
 	PrivateEndpoint ResourceIdResponse `pulumi:"privateEndpoint"`
@@ -3877,6 +3801,8 @@ type PrivateEndpointConnectionResponse struct {
 	Name string `pulumi:"name"`
 	// Properties of the private endpoint endpoint connection.
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
 	Type string `pulumi:"type"`
 }
@@ -3918,6 +3844,11 @@ func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointCon
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *SystemDataResponse { return v.SystemData }).(SystemDataResponsePtrOutput)
+}
+
 // Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -3943,13 +3874,13 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// State of a private endpoint connection.
+// Private endpoint connection state.
 type PrivateLinkServiceConnectionState struct {
-	// Actions required on the private endpoint connection.
+	// Action required.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of the private endpoint connection.
+	// Description of the object.
 	Description *string `pulumi:"description"`
-	// Connection status of the private endpoint connection.
+	// Private link connection state.
 	Status *string `pulumi:"status"`
 }
 
@@ -3964,13 +3895,13 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// State of a private endpoint connection.
+// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// Actions required on the private endpoint connection.
+	// Action required.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of the private endpoint connection.
+	// Description of the object.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Connection status of the private endpoint connection.
+	// Private link connection state.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -4027,7 +3958,7 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// State of a private endpoint connection.
+// Private endpoint connection state.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -4052,17 +3983,17 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Actions required on the private endpoint connection.
+// Action required.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of the private endpoint connection.
+// Description of the object.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Connection status of the private endpoint connection.
+// Private link connection state.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -4091,7 +4022,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// Actions required on the private endpoint connection.
+// Action required.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -4101,7 +4032,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the private endpoint connection.
+// Description of the object.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -4111,7 +4042,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection status of the private endpoint connection.
+// Private link connection state.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -4576,6 +4507,73 @@ func (o ProjectPropertiesResponseOutput) UpdatedTimestamp() pulumi.StringOutput 
 	return o.ApplyT(func(v ProjectPropertiesResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
+// Project summary.
+type ProjectSummaryResponse struct {
+	// Extended summary.
+	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
+	// Instance type.
+	InstanceType string `pulumi:"instanceType"`
+	// Last summary refresh time.
+	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
+	// Refresh summary state.
+	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
+}
+
+// Project summary.
+type ProjectSummaryResponseOutput struct{ *pulumi.OutputState }
+
+func (ProjectSummaryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSummaryResponse)(nil)).Elem()
+}
+
+func (o ProjectSummaryResponseOutput) ToProjectSummaryResponseOutput() ProjectSummaryResponseOutput {
+	return o
+}
+
+func (o ProjectSummaryResponseOutput) ToProjectSummaryResponseOutputWithContext(ctx context.Context) ProjectSummaryResponseOutput {
+	return o
+}
+
+// Extended summary.
+func (o ProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
+}
+
+// Instance type.
+func (o ProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// Last summary refresh time.
+func (o ProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
+}
+
+// Refresh summary state.
+func (o ProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSummaryResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ProjectSummaryResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProjectSummaryResponse)(nil)).Elem()
+}
+
+func (o ProjectSummaryResponseMapOutput) ToProjectSummaryResponseMapOutput() ProjectSummaryResponseMapOutput {
+	return o
+}
+
+func (o ProjectSummaryResponseMapOutput) ToProjectSummaryResponseMapOutputWithContext(ctx context.Context) ProjectSummaryResponseMapOutput {
+	return o
+}
+
+func (o ProjectSummaryResponseMapOutput) MapIndex(k pulumi.StringInput) ProjectSummaryResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectSummaryResponse {
+		return vs[0].(map[string]ProjectSummaryResponse)[vs[1].(string)]
+	}).(ProjectSummaryResponseOutput)
+}
+
 // Defines the public IP address resource settings.
 type PublicIPAddressResourceSettings struct {
 	// Gets or sets the domain name label.
@@ -4589,6 +4587,8 @@ type PublicIPAddressResourceSettings struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets public IP sku.
 	Sku *string `pulumi:"sku"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets public IP zones.
@@ -4608,6 +4608,8 @@ type PublicIPAddressResourceSettingsResponse struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets public IP sku.
 	Sku *string `pulumi:"sku"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets public IP zones.
@@ -4668,626 +4670,13 @@ func (o ResourceIdResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Class representing the servers project summary.
-type ServersProjectSummaryResponse struct {
-	// Gets or sets the count of entities assessed.
-	AssessedCount *int `pulumi:"assessedCount"`
-	// Gets or sets the count of entities discovered.
-	DiscoveredCount *int `pulumi:"discoveredCount"`
-	// Gets or sets the extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the count of entities migrated.
-	MigratedCount *int `pulumi:"migratedCount"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
-	// Gets or sets the count of entities being replicated.
-	ReplicatingCount *int `pulumi:"replicatingCount"`
-	// Gets or sets the count of entities test migrated.
-	TestMigratedCount *int `pulumi:"testMigratedCount"`
-}
-
-// Class representing the servers solution summary.
-type ServersSolutionSummaryResponse struct {
-	// Gets or sets the count of servers assessed.
-	AssessedCount *int `pulumi:"assessedCount"`
-	// Gets or sets the count of servers discovered.
-	DiscoveredCount *int `pulumi:"discoveredCount"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the count of servers migrated.
-	MigratedCount *int `pulumi:"migratedCount"`
-	// Gets or sets the count of servers being replicated.
-	ReplicatingCount *int `pulumi:"replicatingCount"`
-	// Gets or sets the count of servers test migrated.
-	TestMigratedCount *int `pulumi:"testMigratedCount"`
-}
-
-// Class representing the details of the solution.
-type SolutionDetails struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount *int `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
-	ExtendedDetails map[string]string `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount *int `pulumi:"groupCount"`
-}
-
-// SolutionDetailsInput is an input type that accepts SolutionDetailsArgs and SolutionDetailsOutput values.
-// You can construct a concrete instance of `SolutionDetailsInput` via:
-//
-//          SolutionDetailsArgs{...}
-type SolutionDetailsInput interface {
-	pulumi.Input
-
-	ToSolutionDetailsOutput() SolutionDetailsOutput
-	ToSolutionDetailsOutputWithContext(context.Context) SolutionDetailsOutput
-}
-
-// Class representing the details of the solution.
-type SolutionDetailsArgs struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
-	ExtendedDetails pulumi.StringMapInput `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount pulumi.IntPtrInput `pulumi:"groupCount"`
-}
-
-func (SolutionDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionDetails)(nil)).Elem()
-}
-
-func (i SolutionDetailsArgs) ToSolutionDetailsOutput() SolutionDetailsOutput {
-	return i.ToSolutionDetailsOutputWithContext(context.Background())
-}
-
-func (i SolutionDetailsArgs) ToSolutionDetailsOutputWithContext(ctx context.Context) SolutionDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsOutput)
-}
-
-func (i SolutionDetailsArgs) ToSolutionDetailsPtrOutput() SolutionDetailsPtrOutput {
-	return i.ToSolutionDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i SolutionDetailsArgs) ToSolutionDetailsPtrOutputWithContext(ctx context.Context) SolutionDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsOutput).ToSolutionDetailsPtrOutputWithContext(ctx)
-}
-
-// SolutionDetailsPtrInput is an input type that accepts SolutionDetailsArgs, SolutionDetailsPtr and SolutionDetailsPtrOutput values.
-// You can construct a concrete instance of `SolutionDetailsPtrInput` via:
-//
-//          SolutionDetailsArgs{...}
-//
-//  or:
-//
-//          nil
-type SolutionDetailsPtrInput interface {
-	pulumi.Input
-
-	ToSolutionDetailsPtrOutput() SolutionDetailsPtrOutput
-	ToSolutionDetailsPtrOutputWithContext(context.Context) SolutionDetailsPtrOutput
-}
-
-type solutionDetailsPtrType SolutionDetailsArgs
-
-func SolutionDetailsPtr(v *SolutionDetailsArgs) SolutionDetailsPtrInput {
-	return (*solutionDetailsPtrType)(v)
-}
-
-func (*solutionDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionDetails)(nil)).Elem()
-}
-
-func (i *solutionDetailsPtrType) ToSolutionDetailsPtrOutput() SolutionDetailsPtrOutput {
-	return i.ToSolutionDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i *solutionDetailsPtrType) ToSolutionDetailsPtrOutputWithContext(ctx context.Context) SolutionDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsPtrOutput)
-}
-
-// Class representing the details of the solution.
-type SolutionDetailsOutput struct{ *pulumi.OutputState }
-
-func (SolutionDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionDetails)(nil)).Elem()
-}
-
-func (o SolutionDetailsOutput) ToSolutionDetailsOutput() SolutionDetailsOutput {
-	return o
-}
-
-func (o SolutionDetailsOutput) ToSolutionDetailsOutputWithContext(ctx context.Context) SolutionDetailsOutput {
-	return o
-}
-
-func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutput() SolutionDetailsPtrOutput {
-	return o.ToSolutionDetailsPtrOutputWithContext(context.Background())
-}
-
-func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutputWithContext(ctx context.Context) SolutionDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionDetails) *SolutionDetails {
-		return &v
-	}).(SolutionDetailsPtrOutput)
-}
-
-// Gets or sets the count of assessments reported by the solution.
-func (o SolutionDetailsOutput) AssessmentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SolutionDetails) *int { return v.AssessmentCount }).(pulumi.IntPtrOutput)
-}
-
-// Gets or sets the extended details reported by the solution.
-func (o SolutionDetailsOutput) ExtendedDetails() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SolutionDetails) map[string]string { return v.ExtendedDetails }).(pulumi.StringMapOutput)
-}
-
-// Gets or sets the count of groups reported by the solution.
-func (o SolutionDetailsOutput) GroupCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SolutionDetails) *int { return v.GroupCount }).(pulumi.IntPtrOutput)
-}
-
-type SolutionDetailsPtrOutput struct{ *pulumi.OutputState }
-
-func (SolutionDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionDetails)(nil)).Elem()
-}
-
-func (o SolutionDetailsPtrOutput) ToSolutionDetailsPtrOutput() SolutionDetailsPtrOutput {
-	return o
-}
-
-func (o SolutionDetailsPtrOutput) ToSolutionDetailsPtrOutputWithContext(ctx context.Context) SolutionDetailsPtrOutput {
-	return o
-}
-
-func (o SolutionDetailsPtrOutput) Elem() SolutionDetailsOutput {
-	return o.ApplyT(func(v *SolutionDetails) SolutionDetails {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionDetails
-		return ret
-	}).(SolutionDetailsOutput)
-}
-
-// Gets or sets the count of assessments reported by the solution.
-func (o SolutionDetailsPtrOutput) AssessmentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SolutionDetails) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AssessmentCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Gets or sets the extended details reported by the solution.
-func (o SolutionDetailsPtrOutput) ExtendedDetails() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SolutionDetails) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.ExtendedDetails
-	}).(pulumi.StringMapOutput)
-}
-
-// Gets or sets the count of groups reported by the solution.
-func (o SolutionDetailsPtrOutput) GroupCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SolutionDetails) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GroupCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Class representing the details of the solution.
-type SolutionDetailsResponse struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount *int `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
-	ExtendedDetails map[string]string `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount *int `pulumi:"groupCount"`
-}
-
-// Class representing the details of the solution.
-type SolutionDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (SolutionDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionDetailsResponse)(nil)).Elem()
-}
-
-func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponseOutput() SolutionDetailsResponseOutput {
-	return o
-}
-
-func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponseOutputWithContext(ctx context.Context) SolutionDetailsResponseOutput {
-	return o
-}
-
-// Gets or sets the count of assessments reported by the solution.
-func (o SolutionDetailsResponseOutput) AssessmentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SolutionDetailsResponse) *int { return v.AssessmentCount }).(pulumi.IntPtrOutput)
-}
-
-// Gets or sets the extended details reported by the solution.
-func (o SolutionDetailsResponseOutput) ExtendedDetails() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SolutionDetailsResponse) map[string]string { return v.ExtendedDetails }).(pulumi.StringMapOutput)
-}
-
-// Gets or sets the count of groups reported by the solution.
-func (o SolutionDetailsResponseOutput) GroupCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SolutionDetailsResponse) *int { return v.GroupCount }).(pulumi.IntPtrOutput)
-}
-
-type SolutionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SolutionDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionDetailsResponse)(nil)).Elem()
-}
-
-func (o SolutionDetailsResponsePtrOutput) ToSolutionDetailsResponsePtrOutput() SolutionDetailsResponsePtrOutput {
-	return o
-}
-
-func (o SolutionDetailsResponsePtrOutput) ToSolutionDetailsResponsePtrOutputWithContext(ctx context.Context) SolutionDetailsResponsePtrOutput {
-	return o
-}
-
-func (o SolutionDetailsResponsePtrOutput) Elem() SolutionDetailsResponseOutput {
-	return o.ApplyT(func(v *SolutionDetailsResponse) SolutionDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionDetailsResponse
-		return ret
-	}).(SolutionDetailsResponseOutput)
-}
-
-// Gets or sets the count of assessments reported by the solution.
-func (o SolutionDetailsResponsePtrOutput) AssessmentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SolutionDetailsResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AssessmentCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Gets or sets the extended details reported by the solution.
-func (o SolutionDetailsResponsePtrOutput) ExtendedDetails() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SolutionDetailsResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.ExtendedDetails
-	}).(pulumi.StringMapOutput)
-}
-
-// Gets or sets the count of groups reported by the solution.
-func (o SolutionDetailsResponsePtrOutput) GroupCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SolutionDetailsResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GroupCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Class for solution properties.
-type SolutionProperties struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState *string `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details *SolutionDetails `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal *string `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose *string `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status *string `pulumi:"status"`
-	// Gets or sets the tool being used in the solution.
-	Tool *string `pulumi:"tool"`
-}
-
-// SolutionPropertiesInput is an input type that accepts SolutionPropertiesArgs and SolutionPropertiesOutput values.
-// You can construct a concrete instance of `SolutionPropertiesInput` via:
-//
-//          SolutionPropertiesArgs{...}
-type SolutionPropertiesInput interface {
-	pulumi.Input
-
-	ToSolutionPropertiesOutput() SolutionPropertiesOutput
-	ToSolutionPropertiesOutputWithContext(context.Context) SolutionPropertiesOutput
-}
-
-// Class for solution properties.
-type SolutionPropertiesArgs struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details SolutionDetailsPtrInput `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal pulumi.StringPtrInput `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose pulumi.StringPtrInput `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Gets or sets the tool being used in the solution.
-	Tool pulumi.StringPtrInput `pulumi:"tool"`
-}
-
-func (SolutionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionProperties)(nil)).Elem()
-}
-
-func (i SolutionPropertiesArgs) ToSolutionPropertiesOutput() SolutionPropertiesOutput {
-	return i.ToSolutionPropertiesOutputWithContext(context.Background())
-}
-
-func (i SolutionPropertiesArgs) ToSolutionPropertiesOutputWithContext(ctx context.Context) SolutionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesOutput)
-}
-
-func (i SolutionPropertiesArgs) ToSolutionPropertiesPtrOutput() SolutionPropertiesPtrOutput {
-	return i.ToSolutionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SolutionPropertiesArgs) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesOutput).ToSolutionPropertiesPtrOutputWithContext(ctx)
-}
-
-// SolutionPropertiesPtrInput is an input type that accepts SolutionPropertiesArgs, SolutionPropertiesPtr and SolutionPropertiesPtrOutput values.
-// You can construct a concrete instance of `SolutionPropertiesPtrInput` via:
-//
-//          SolutionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SolutionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSolutionPropertiesPtrOutput() SolutionPropertiesPtrOutput
-	ToSolutionPropertiesPtrOutputWithContext(context.Context) SolutionPropertiesPtrOutput
-}
-
-type solutionPropertiesPtrType SolutionPropertiesArgs
-
-func SolutionPropertiesPtr(v *SolutionPropertiesArgs) SolutionPropertiesPtrInput {
-	return (*solutionPropertiesPtrType)(v)
-}
-
-func (*solutionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionProperties)(nil)).Elem()
-}
-
-func (i *solutionPropertiesPtrType) ToSolutionPropertiesPtrOutput() SolutionPropertiesPtrOutput {
-	return i.ToSolutionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *solutionPropertiesPtrType) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesPtrOutput)
-}
-
-// Class for solution properties.
-type SolutionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SolutionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionProperties)(nil)).Elem()
-}
-
-func (o SolutionPropertiesOutput) ToSolutionPropertiesOutput() SolutionPropertiesOutput {
-	return o
-}
-
-func (o SolutionPropertiesOutput) ToSolutionPropertiesOutputWithContext(ctx context.Context) SolutionPropertiesOutput {
-	return o
-}
-
-func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutput() SolutionPropertiesPtrOutput {
-	return o.ToSolutionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionProperties) *SolutionProperties {
-		return &v
-	}).(SolutionPropertiesPtrOutput)
-}
-
-// Gets or sets the cleanup state of the solution.
-func (o SolutionPropertiesOutput) CleanupState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *string { return v.CleanupState }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the details of the solution.
-func (o SolutionPropertiesOutput) Details() SolutionDetailsPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *SolutionDetails { return v.Details }).(SolutionDetailsPtrOutput)
-}
-
-// Gets or sets the goal of the solution.
-func (o SolutionPropertiesOutput) Goal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *string { return v.Goal }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the purpose of the solution.
-func (o SolutionPropertiesOutput) Purpose() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *string { return v.Purpose }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the current status of the solution.
-func (o SolutionPropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the tool being used in the solution.
-func (o SolutionPropertiesOutput) Tool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *string { return v.Tool }).(pulumi.StringPtrOutput)
-}
-
-type SolutionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SolutionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionProperties)(nil)).Elem()
-}
-
-func (o SolutionPropertiesPtrOutput) ToSolutionPropertiesPtrOutput() SolutionPropertiesPtrOutput {
-	return o
-}
-
-func (o SolutionPropertiesPtrOutput) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return o
-}
-
-func (o SolutionPropertiesPtrOutput) Elem() SolutionPropertiesOutput {
-	return o.ApplyT(func(v *SolutionProperties) SolutionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionProperties
-		return ret
-	}).(SolutionPropertiesOutput)
-}
-
-// Gets or sets the cleanup state of the solution.
-func (o SolutionPropertiesPtrOutput) CleanupState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CleanupState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the details of the solution.
-func (o SolutionPropertiesPtrOutput) Details() SolutionDetailsPtrOutput {
-	return o.ApplyT(func(v *SolutionProperties) *SolutionDetails {
-		if v == nil {
-			return nil
-		}
-		return v.Details
-	}).(SolutionDetailsPtrOutput)
-}
-
-// Gets or sets the goal of the solution.
-func (o SolutionPropertiesPtrOutput) Goal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Goal
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the purpose of the solution.
-func (o SolutionPropertiesPtrOutput) Purpose() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Purpose
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the current status of the solution.
-func (o SolutionPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the tool being used in the solution.
-func (o SolutionPropertiesPtrOutput) Tool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tool
-	}).(pulumi.StringPtrOutput)
-}
-
-// Class for solution properties.
-type SolutionPropertiesResponse struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState *string `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details *SolutionDetailsResponse `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal *string `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose *string `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status *string `pulumi:"status"`
-	// Gets or sets the summary of the solution.
-	Summary interface{} `pulumi:"summary"`
-	// Gets or sets the tool being used in the solution.
-	Tool *string `pulumi:"tool"`
-}
-
-// Class for solution properties.
-type SolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (SolutionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionPropertiesResponse)(nil)).Elem()
-}
-
-func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponseOutput() SolutionPropertiesResponseOutput {
-	return o
-}
-
-func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponseOutputWithContext(ctx context.Context) SolutionPropertiesResponseOutput {
-	return o
-}
-
-// Gets or sets the cleanup state of the solution.
-func (o SolutionPropertiesResponseOutput) CleanupState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.CleanupState }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the details of the solution.
-func (o SolutionPropertiesResponseOutput) Details() SolutionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionDetailsResponse { return v.Details }).(SolutionDetailsResponsePtrOutput)
-}
-
-// Gets or sets the goal of the solution.
-func (o SolutionPropertiesResponseOutput) Goal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Goal }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the purpose of the solution.
-func (o SolutionPropertiesResponseOutput) Purpose() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Purpose }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the current status of the solution.
-func (o SolutionPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the summary of the solution.
-func (o SolutionPropertiesResponseOutput) Summary() pulumi.AnyOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) interface{} { return v.Summary }).(pulumi.AnyOutput)
-}
-
-// Gets or sets the tool being used in the solution.
-func (o SolutionPropertiesResponseOutput) Tool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
-}
-
 // Defines the Sql Database resource settings.
 type SqlDatabaseResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Defines the zone redundant resource setting.
@@ -5299,6 +4688,8 @@ type SqlDatabaseResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Defines the zone redundant resource setting.
@@ -5310,6 +4701,8 @@ type SqlElasticPoolResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Defines the zone redundant resource setting.
@@ -5321,6 +4714,8 @@ type SqlElasticPoolResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Sql/servers/elasticPools'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Defines the zone redundant resource setting.
@@ -5381,11 +4776,158 @@ type SubnetResourceSettingsResponse struct {
 	NetworkSecurityGroup *NsgReferenceResponse `pulumi:"networkSecurityGroup"`
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Gets or sets the virtual machine resource settings.
 type VirtualMachineResourceSettings struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// Gets or sets the target availability zone.
@@ -5394,6 +4936,8 @@ type VirtualMachineResourceSettings struct {
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets the target virtual machine size.
 	TargetVmSize *string `pulumi:"targetVmSize"`
+	// Gets or sets user-managed identities
+	UserManagedIdentities []string `pulumi:"userManagedIdentities"`
 }
 
 // Gets or sets the virtual machine resource settings.
@@ -5401,6 +4945,8 @@ type VirtualMachineResourceSettingsResponse struct {
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target availability set id for virtual machines not in an availability set at source.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// Gets or sets the target availability zone.
@@ -5409,6 +4955,8 @@ type VirtualMachineResourceSettingsResponse struct {
 	TargetResourceName string `pulumi:"targetResourceName"`
 	// Gets or sets the target virtual machine size.
 	TargetVmSize *string `pulumi:"targetVmSize"`
+	// Gets or sets user-managed identities
+	UserManagedIdentities []string `pulumi:"userManagedIdentities"`
 }
 
 // Defines the virtual network resource settings.
@@ -5426,6 +4974,8 @@ type VirtualNetworkResourceSettings struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets List of subnets in a VirtualNetwork.
 	Subnets []SubnetResourceSettings `pulumi:"subnets"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
@@ -5445,6 +4995,8 @@ type VirtualNetworkResourceSettingsResponse struct {
 	ResourceType string `pulumi:"resourceType"`
 	// Gets or sets List of subnets in a VirtualNetwork.
 	Subnets []SubnetResourceSettingsResponse `pulumi:"subnets"`
+	// Gets or sets the Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the target Resource name.
 	TargetResourceName string `pulumi:"targetResourceName"`
 }
@@ -5557,6 +5109,8 @@ func init() {
 	pulumi.RegisterOutputType(CollectorPropertiesOutput{})
 	pulumi.RegisterOutputType(CollectorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CollectorPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionStateRequestBodyPropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionStateRequestBodyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GroupPropertiesOutput{})
 	pulumi.RegisterOutputType(GroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
@@ -5573,10 +5127,6 @@ func init() {
 	pulumi.RegisterOutputType(MigrateProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(MigrateProjectPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MigrateProjectPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(MigrateProjectResponseTagsOutput{})
-	pulumi.RegisterOutputType(MigrateProjectResponseTagsPtrOutput{})
-	pulumi.RegisterOutputType(MigrateProjectTagsOutput{})
-	pulumi.RegisterOutputType(MigrateProjectTagsPtrOutput{})
 	pulumi.RegisterOutputType(MoveCollectionPropertiesOutput{})
 	pulumi.RegisterOutputType(MoveCollectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MoveCollectionPropertiesResponseOutput{})
@@ -5597,7 +5147,6 @@ func init() {
 	pulumi.RegisterOutputType(MoveResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MoveResourcePropertiesResponseErrorsOutput{})
 	pulumi.RegisterOutputType(MoveResourcePropertiesResponseMoveStatusOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
@@ -5608,14 +5157,11 @@ func init() {
 	pulumi.RegisterOutputType(ProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ProjectSummaryResponseOutput{})
+	pulumi.RegisterOutputType(ProjectSummaryResponseMapOutput{})
 	pulumi.RegisterOutputType(ResourceIdResponseOutput{})
-	pulumi.RegisterOutputType(SolutionDetailsOutput{})
-	pulumi.RegisterOutputType(SolutionDetailsPtrOutput{})
-	pulumi.RegisterOutputType(SolutionDetailsResponseOutput{})
-	pulumi.RegisterOutputType(SolutionDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(SolutionPropertiesOutput{})
-	pulumi.RegisterOutputType(SolutionPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SolutionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VmUptimeOutput{})
 	pulumi.RegisterOutputType(VmUptimeResponseOutput{})
 }

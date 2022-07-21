@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetCapacityReservationGroupResult> InvokeAsync(GetCapacityReservationGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());

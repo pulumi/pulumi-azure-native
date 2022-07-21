@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing an data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:kusto:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetDataConnectionResult> Invoke(GetDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataConnectionResult>("azure-native:kusto:getDataConnection", args ?? new GetDataConnectionInvokeArgs(), options.WithDefaults());

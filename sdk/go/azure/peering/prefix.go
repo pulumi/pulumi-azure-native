@@ -12,7 +12,7 @@ import (
 )
 
 // The peering service prefix class.
-// API Version: 2021-01-01.
+// API Version: 2022-01-01.
 type Prefix struct {
 	pulumi.CustomResourceState
 

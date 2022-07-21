@@ -11,7 +11,7 @@ import (
 )
 
 // A Kubernetes cluster specialized for web workloads by Azure App Service
-// API Version: 2021-01-01.
+// API Version: 2021-03-01.
 func LookupKubeEnvironment(ctx *pulumi.Context, args *LookupKubeEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupKubeEnvironmentResult, error) {
 	var rv LookupKubeEnvironmentResult
 	err := ctx.Invoke("azure-native:web:getKubeEnvironment", args, &rv, opts...)
@@ -39,10 +39,14 @@ type LookupKubeEnvironmentResult struct {
 	// components types. Eg: Choosing between BuildService kind,
 	// FrontEnd Service ArtifactsStorageType etc.
 	ArcConfiguration *ArcConfigurationResponse `pulumi:"arcConfiguration"`
+	// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+	ContainerAppsConfiguration *ContainerAppsConfigurationResponse `pulumi:"containerAppsConfiguration"`
 	// Default Domain Name for the cluster
 	DefaultDomain string `pulumi:"defaultDomain"`
 	// Any errors that occurred during deployment or deployment validation
 	DeploymentErrors string `pulumi:"deploymentErrors"`
+	// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+	EnvironmentType *string `pulumi:"environmentType"`
 	// Extended Location.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource Id.
@@ -122,6 +126,13 @@ func (o LookupKubeEnvironmentResultOutput) ArcConfiguration() ArcConfigurationRe
 	return o.ApplyT(func(v LookupKubeEnvironmentResult) *ArcConfigurationResponse { return v.ArcConfiguration }).(ArcConfigurationResponsePtrOutput)
 }
 
+// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+func (o LookupKubeEnvironmentResultOutput) ContainerAppsConfiguration() ContainerAppsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupKubeEnvironmentResult) *ContainerAppsConfigurationResponse {
+		return v.ContainerAppsConfiguration
+	}).(ContainerAppsConfigurationResponsePtrOutput)
+}
+
 // Default Domain Name for the cluster
 func (o LookupKubeEnvironmentResultOutput) DefaultDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubeEnvironmentResult) string { return v.DefaultDomain }).(pulumi.StringOutput)
@@ -130,6 +141,11 @@ func (o LookupKubeEnvironmentResultOutput) DefaultDomain() pulumi.StringOutput {
 // Any errors that occurred during deployment or deployment validation
 func (o LookupKubeEnvironmentResultOutput) DeploymentErrors() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubeEnvironmentResult) string { return v.DeploymentErrors }).(pulumi.StringOutput)
+}
+
+// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+func (o LookupKubeEnvironmentResultOutput) EnvironmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKubeEnvironmentResult) *string { return v.EnvironmentType }).(pulumi.StringPtrOutput)
 }
 
 // Extended Location.

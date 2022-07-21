@@ -12,7 +12,7 @@ import (
 )
 
 // A Database Migration Service resource
-// API Version: 2018-04-19.
+// API Version: 2021-06-30.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -30,10 +30,14 @@ type Service struct {
 	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// Service SKU
 	Sku ServiceSkuResponsePtrOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId pulumi.StringPtrOutput `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringOutput `pulumi:"virtualSubnetId"`
 }
@@ -127,6 +131,8 @@ type serviceArgs struct {
 	Sku *ServiceSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId string `pulumi:"virtualSubnetId"`
 }
@@ -147,6 +153,8 @@ type ServiceArgs struct {
 	Sku ServiceSkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId pulumi.StringPtrInput
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringInput
 }
@@ -223,6 +231,11 @@ func (o ServiceOutput) Sku() ServiceSkuResponsePtrOutput {
 	return o.ApplyT(func(v *Service) ServiceSkuResponsePtrOutput { return v.Sku }).(ServiceSkuResponsePtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o ServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Service) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -231,6 +244,11 @@ func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 // Resource type.
 func (o ServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+func (o ServiceOutput) VirtualNicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.VirtualNicId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined

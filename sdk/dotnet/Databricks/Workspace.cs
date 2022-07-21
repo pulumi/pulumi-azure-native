@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Information about workspace.
-    /// API Version: 2018-04-01.
+    /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         [Output("createdDateTime")]
         public Output<string> CreatedDateTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption properties for databricks workspace
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.WorkspacePropertiesResponseEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -59,10 +65,28 @@ namespace Pulumi.AzureNative.Databricks
         public Output<Outputs.WorkspaceCustomParametersResponse?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// Private endpoint connections created on the workspace
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The workspace provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        /// </summary>
+        [Output("requiredNsgRules")]
+        public Output<string?> RequiredNsgRules { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
@@ -75,6 +99,12 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         [Output("storageAccountIdentity")]
         public Output<Outputs.ManagedIdentityConfigurationResponse?> StorageAccountIdentity { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -176,6 +206,12 @@ namespace Pulumi.AzureNative.Databricks
         }
 
         /// <summary>
+        /// Encryption properties for databricks workspace
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.WorkspacePropertiesEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -192,6 +228,18 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.WorkspaceCustomParametersArgs>? Parameters { get; set; }
+
+        /// <summary>
+        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Databricks.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        /// </summary>
+        [Input("requiredNsgRules")]
+        public InputUnion<string, Pulumi.AzureNative.Databricks.RequiredNsgRules>? RequiredNsgRules { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Response for iSCSI target requests.
- * API Version: 2020-03-15-preview.
+ * Response for iSCSI Target requests.
+ * API Version: 2021-08-01.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
     if (!opts) {
@@ -24,11 +24,11 @@ export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOpt
 
 export interface GetIscsiTargetArgs {
     /**
-     * The name of the Disk pool.
+     * The name of the Disk Pool.
      */
     diskPoolName: string;
     /**
-     * The name of the iSCSI target.
+     * The name of the iSCSI Target.
      */
     iscsiTargetName: string;
     /**
@@ -38,33 +38,65 @@ export interface GetIscsiTargetArgs {
 }
 
 /**
- * Response for iSCSI target requests.
+ * Response for iSCSI Target requests.
  */
 export interface GetIscsiTargetResult {
+    /**
+     * Mode for Target connectivity.
+     */
+    readonly aclMode: string;
+    /**
+     * List of private IPv4 addresses to connect to the iSCSI Target.
+     */
+    readonly endpoints?: string[];
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
+     * List of LUNs to be exposed through iSCSI Target.
+     */
+    readonly luns?: outputs.storagepool.IscsiLunResponse[];
+    /**
+     * Azure resource id. Indicates if this resource is managed by another Azure resource.
+     */
+    readonly managedBy: string;
+    /**
+     * List of Azure resource ids that manage this resource.
+     */
+    readonly managedByExtended: string[];
+    /**
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The port used by iSCSI Target portal group.
+     */
+    readonly port?: number;
     /**
      * State of the operation on the resource.
      */
     readonly provisioningState: string;
     /**
-     * Operational status of the iSCSI target.
+     * List of identifiers for active sessions on the iSCSI target
+     */
+    readonly sessions: string[];
+    /**
+     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+     */
+    readonly staticAcls?: outputs.storagepool.AclResponse[];
+    /**
+     * Operational status of the iSCSI Target.
      */
     readonly status: string;
     /**
-     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+     * Resource metadata required by ARM RPC
+     */
+    readonly systemData: outputs.storagepool.SystemMetadataResponse;
+    /**
+     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
     readonly targetIqn: string;
-    /**
-     * List of iSCSI target portal groups. Can have 1 portal group at most.
-     */
-    readonly tpgs: outputs.storagepool.TargetPortalGroupResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -77,11 +109,11 @@ export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulu
 
 export interface GetIscsiTargetOutputArgs {
     /**
-     * The name of the Disk pool.
+     * The name of the Disk Pool.
      */
     diskPoolName: pulumi.Input<string>;
     /**
-     * The name of the iSCSI target.
+     * The name of the iSCSI Target.
      */
     iscsiTargetName: pulumi.Input<string>;
     /**

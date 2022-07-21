@@ -12,7 +12,7 @@ import (
 )
 
 // Customer subscription.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 type CustomerSubscription struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type CustomerSubscription struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tenant Id.
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Type of Resource.
@@ -147,6 +149,11 @@ func (o CustomerSubscriptionOutput) Etag() pulumi.StringPtrOutput {
 // Name of the resource.
 func (o CustomerSubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o CustomerSubscriptionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CustomerSubscription) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tenant Id.

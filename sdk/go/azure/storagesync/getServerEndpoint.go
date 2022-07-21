@@ -11,7 +11,7 @@ import (
 )
 
 // Server Endpoint object.
-// API Version: 2020-03-01.
+// API Version: 2020-09-01.
 func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerEndpointResult, error) {
 	var rv LookupServerEndpointResult
 	err := ctx.Invoke("azure-native:storagesync:getServerEndpoint", args, &rv, opts...)
@@ -44,6 +44,8 @@ type LookupServerEndpointResult struct {
 	Id string `pulumi:"id"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
+	// Policy for how the initial upload sync session is performed.
+	InitialUploadPolicy *string `pulumi:"initialUploadPolicy"`
 	// Resource Last Operation Name
 	LastOperationName string `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId
@@ -66,10 +68,14 @@ type LookupServerEndpointResult struct {
 	RecallStatus ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server name
+	ServerName string `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
 	SyncStatus ServerEndpointSyncStatusResponse `pulumi:"syncStatus"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -148,6 +154,11 @@ func (o LookupServerEndpointResultOutput) InitialDownloadPolicy() pulumi.StringP
 	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.InitialDownloadPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Policy for how the initial upload sync session is performed.
+func (o LookupServerEndpointResultOutput) InitialUploadPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.InitialUploadPolicy }).(pulumi.StringPtrOutput)
+}
+
 // Resource Last Operation Name
 func (o LookupServerEndpointResultOutput) LastOperationName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerEndpointResult) string { return v.LastOperationName }).(pulumi.StringOutput)
@@ -203,6 +214,11 @@ func (o LookupServerEndpointResultOutput) ServerLocalPath() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.ServerLocalPath }).(pulumi.StringPtrOutput)
 }
 
+// Server name
+func (o LookupServerEndpointResultOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
 // Server Resource Id.
 func (o LookupServerEndpointResultOutput) ServerResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.ServerResourceId }).(pulumi.StringPtrOutput)
@@ -211,6 +227,11 @@ func (o LookupServerEndpointResultOutput) ServerResourceId() pulumi.StringPtrOut
 // Server Endpoint sync status
 func (o LookupServerEndpointResultOutput) SyncStatus() ServerEndpointSyncStatusResponseOutput {
 	return o.ApplyT(func(v LookupServerEndpointResult) ServerEndpointSyncStatusResponse { return v.SyncStatus }).(ServerEndpointSyncStatusResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupServerEndpointResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tier files older than days.

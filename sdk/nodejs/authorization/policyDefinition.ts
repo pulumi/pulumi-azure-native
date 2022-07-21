@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy definition.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class PolicyDefinition extends pulumi.CustomResource {
     /**
@@ -69,6 +69,10 @@ export class PolicyDefinition extends pulumi.CustomResource {
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
             resourceInputs["policyRule"] = args ? args.policyRule : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["policyRule"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

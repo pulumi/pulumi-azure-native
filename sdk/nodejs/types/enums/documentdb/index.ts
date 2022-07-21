@@ -56,6 +56,16 @@ export {
     v20220515preview,
 };
 
+export const AnalyticalStorageSchemaType = {
+    WellDefined: "WellDefined",
+    FullFidelity: "FullFidelity",
+} as const;
+
+/**
+ * Describes the types of schema for analytical storage.
+ */
+export type AnalyticalStorageSchemaType = (typeof AnalyticalStorageSchemaType)[keyof typeof AnalyticalStorageSchemaType];
+
 export const AuthenticationMethod = {
     None: "None",
     Cassandra: "Cassandra",
@@ -66,6 +76,18 @@ export const AuthenticationMethod = {
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
+export const BackupPolicyMigrationStatus = {
+    Invalid: "Invalid",
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Describes the status of migration between backup policy types.
+ */
+export type BackupPolicyMigrationStatus = (typeof BackupPolicyMigrationStatus)[keyof typeof BackupPolicyMigrationStatus];
+
 export const BackupPolicyType = {
     Periodic: "Periodic",
     Continuous: "Continuous",
@@ -75,6 +97,17 @@ export const BackupPolicyType = {
  * Describes the mode of backups.
  */
 export type BackupPolicyType = (typeof BackupPolicyType)[keyof typeof BackupPolicyType];
+
+export const BackupStorageRedundancy = {
+    Geo: "Geo",
+    Local: "Local",
+    Zone: "Zone",
+} as const;
+
+/**
+ * Enum to indicate type of backup residency
+ */
+export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
 
 export const CompositePathSortOrder = {
     Ascending: "ascending",
@@ -104,6 +137,16 @@ export const ConnectorOffer = {
  * The cassandra connector offer type for the Cosmos DB database C* account.
  */
 export type ConnectorOffer = (typeof ConnectorOffer)[keyof typeof ConnectorOffer];
+
+export const CreateMode = {
+    Default: "Default",
+    Restore: "Restore",
+} as const;
+
+/**
+ * Enum to indicate the mode of account creation.
+ */
+export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const DataType = {
     String: "String",
@@ -188,15 +231,15 @@ export const ManagedCassandraProvisioningState = {
  */
 export type ManagedCassandraProvisioningState = (typeof ManagedCassandraProvisioningState)[keyof typeof ManagedCassandraProvisioningState];
 
-export const MongoRoleDefinitionType = {
-    BuiltInRole: "BuiltInRole",
-    CustomRole: "CustomRole",
+export const ManagedCassandraResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
 } as const;
 
 /**
- * Indicates whether the Role Definition was built-in or user created.
+ * The type of the resource.
  */
-export type MongoRoleDefinitionType = (typeof MongoRoleDefinitionType)[keyof typeof MongoRoleDefinitionType];
+export type ManagedCassandraResourceIdentityType = (typeof ManagedCassandraResourceIdentityType)[keyof typeof ManagedCassandraResourceIdentityType];
 
 export const NetworkAclBypass = {
     None: "None",
@@ -241,6 +284,15 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const RestoreMode = {
+    PointInTime: "PointInTime",
+} as const;
+
+/**
+ * Describes the mode of the restore.
+ */
+export type RestoreMode = (typeof RestoreMode)[keyof typeof RestoreMode];
+
 export const RoleDefinitionType = {
     BuiltInRole: "BuiltInRole",
     CustomRole: "CustomRole",
@@ -255,33 +307,13 @@ export const ServerVersion = {
     ServerVersion_3_2: "3.2",
     ServerVersion_3_6: "3.6",
     ServerVersion_4_0: "4.0",
+    ServerVersion_4_2: "4.2",
 } as const;
 
 /**
  * Describes the ServerVersion of an a MongoDB account.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
-
-export const ServiceSize = {
-    Cosmos_D4s: "Cosmos.D4s",
-    Cosmos_D8s: "Cosmos.D8s",
-    Cosmos_D16s: "Cosmos.D16s",
-} as const;
-
-/**
- * Instance type for the service.
- */
-export type ServiceSize = (typeof ServiceSize)[keyof typeof ServiceSize];
-
-export const ServiceType = {
-    SqlDedicatedGateway: "SqlDedicatedGateway",
-    DataTransfer: "DataTransfer",
-} as const;
-
-/**
- * ServiceType for the service.
- */
-export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 export const SpatialType = {
     Point: "Point",

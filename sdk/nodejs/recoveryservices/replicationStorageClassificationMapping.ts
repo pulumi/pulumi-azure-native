@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Storage mapping object.
- * API Version: 2018-07-10.
+ * API Version: 2022-03-01.
  */
 export class ReplicationStorageClassificationMapping extends pulumi.CustomResource {
     /**

@@ -108,7 +108,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection
-        API Version: 2020-11-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +125,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
-        API Version: 2020-11-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -168,6 +168,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -195,12 +196,21 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
+        __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Group IDs.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter

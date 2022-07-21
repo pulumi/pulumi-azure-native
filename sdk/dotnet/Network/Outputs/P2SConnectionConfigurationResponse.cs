@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class P2SConnectionConfigurationResponse
     {
         /// <summary>
+        /// List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> ConfigurationPolicyGroupAssociations;
+        /// <summary>
         /// Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
         /// </summary>
         public readonly bool? EnableInternetSecurity;
@@ -33,6 +37,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse> PreviousConfigurationPolicyGroupAssociations;
+        /// <summary>
         /// The provisioning state of the P2SConnectionConfiguration resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -47,6 +55,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private P2SConnectionConfigurationResponse(
+            ImmutableArray<Outputs.SubResourceResponse> configurationPolicyGroupAssociations,
+
             bool? enableInternetSecurity,
 
             string etag,
@@ -55,16 +65,20 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? name,
 
+            ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse> previousConfigurationPolicyGroupAssociations,
+
             string provisioningState,
 
             Outputs.RoutingConfigurationResponse? routingConfiguration,
 
             Outputs.AddressSpaceResponse? vpnClientAddressPool)
         {
+            ConfigurationPolicyGroupAssociations = configurationPolicyGroupAssociations;
             EnableInternetSecurity = enableInternetSecurity;
             Etag = etag;
             Id = id;
             Name = name;
+            PreviousConfigurationPolicyGroupAssociations = previousConfigurationPolicyGroupAssociations;
             ProvisioningState = provisioningState;
             RoutingConfiguration = routingConfiguration;
             VpnClientAddressPool = vpnClientAddressPool;

@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// 5G core
+        /// </summary>
         public static CoreNetworkType CoreNetworkType_5GC { get; } = new CoreNetworkType("5GC");
+        /// <summary>
+        /// EPC / 4G core
+        /// </summary>
         public static CoreNetworkType EPC { get; } = new CoreNetworkType("EPC");
 
         public static bool operator ==(CoreNetworkType left, CoreNetworkType right) => left.Equals(right);
@@ -84,7 +90,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NAPT is enabled
+        /// </summary>
         public static NaptEnabled Enabled { get; } = new NaptEnabled("Enabled");
+        /// <summary>
+        /// NAPT is disabled
+        /// </summary>
         public static NaptEnabled Disabled { get; } = new NaptEnabled("Disabled");
 
         public static bool operator ==(NaptEnabled left, NaptEnabled right) => left.Equals(right);
@@ -146,7 +158,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cannot preempt
+        /// </summary>
         public static PreemptionCapability NotPreempt { get; } = new PreemptionCapability("NotPreempt");
+        /// <summary>
+        /// May preempt
+        /// </summary>
         public static PreemptionCapability MayPreempt { get; } = new PreemptionCapability("MayPreempt");
 
         public static bool operator ==(PreemptionCapability left, PreemptionCapability right) => left.Equals(right);
@@ -177,7 +195,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cannot be preempted
+        /// </summary>
         public static PreemptionVulnerability NotPreemptable { get; } = new PreemptionVulnerability("NotPreemptable");
+        /// <summary>
+        /// May be preempted
+        /// </summary>
         public static PreemptionVulnerability Preemptable { get; } = new PreemptionVulnerability("Preemptable");
 
         public static bool operator ==(PreemptionVulnerability left, PreemptionVulnerability right) => left.Equals(right);
@@ -208,8 +232,17 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Traffic flowing from the UE to the data network.
+        /// </summary>
         public static SdfDirection Uplink { get; } = new SdfDirection("Uplink");
+        /// <summary>
+        /// Traffic flowing from the data network to the UE.
+        /// </summary>
         public static SdfDirection Downlink { get; } = new SdfDirection("Downlink");
+        /// <summary>
+        /// Traffic flowing both to and from the UE.
+        /// </summary>
         public static SdfDirection Bidirectional { get; } = new SdfDirection("Bidirectional");
 
         public static bool operator ==(SdfDirection left, SdfDirection right) => left.Equals(right);
@@ -240,7 +273,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Traffic matching this rule is allowed to flow.
+        /// </summary>
         public static TrafficControlPermission Enabled { get; } = new TrafficControlPermission("Enabled");
+        /// <summary>
+        /// Traffic matching this rule is not allowed to flow.
+        /// </summary>
         public static TrafficControlPermission Blocked { get; } = new TrafficControlPermission("Blocked");
 
         public static bool operator ==(TrafficControlPermission left, TrafficControlPermission right) => left.Equals(right);

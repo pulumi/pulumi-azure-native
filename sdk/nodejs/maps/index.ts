@@ -9,10 +9,7 @@ export * from "./account";
 export * from "./creator";
 export * from "./getAccount";
 export * from "./getCreator";
-export * from "./getPrivateAtlase";
 export * from "./listAccountKeys";
-export * from "./listAccountSas";
-export * from "./privateAtlase";
 
 // Export enums:
 export * from "../types/enums/maps";
@@ -37,7 +34,6 @@ export {
 // Import resources to register:
 import { Account } from "./account";
 import { Creator } from "./creator";
-import { PrivateAtlase } from "./privateAtlase";
 
 const _module = {
     version: utilities.getVersion(),
@@ -47,8 +43,6 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure-native:maps:Creator":
                 return new Creator(name, <any>undefined, { urn })
-            case "azure-native:maps:PrivateAtlase":
-                return new PrivateAtlase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

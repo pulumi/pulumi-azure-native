@@ -78,9 +78,6 @@ func NewIotHubDataConnection(ctx *pulumi.Context,
 	args.Kind = pulumi.String("IotHub")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse:IotHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:IotHubDataConnection"),
 		},
 	})

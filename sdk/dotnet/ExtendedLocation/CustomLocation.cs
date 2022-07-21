@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
 {
     /// <summary>
     /// Custom Locations definition.
-    /// API Version: 2021-03-15-preview.
+    /// API Version: 2021-08-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation:CustomLocation")]
     public partial class CustomLocation : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// </summary>
         [Output("hostType")]
         public Output<string?> HostType { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -174,6 +180,12 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// </summary>
         [Input("hostType")]
         public InputUnion<string, Pulumi.AzureNative.ExtendedLocation.HostType>? HostType { get; set; }
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

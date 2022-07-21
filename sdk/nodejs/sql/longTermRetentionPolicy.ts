@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A long term retention policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class LongTermRetentionPolicy extends pulumi.CustomResource {
     /**

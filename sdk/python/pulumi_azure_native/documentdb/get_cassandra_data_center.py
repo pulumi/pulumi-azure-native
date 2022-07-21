@@ -86,7 +86,7 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraDataCenterResult:
     """
     A managed Cassandra data center.
-    API Version: 2021-03-01-preview.
+    API Version: 2021-10-15.
 
 
     :param str cluster_name: Managed Cassandra cluster name.
@@ -117,7 +117,7 @@ def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
     """
     A managed Cassandra data center.
-    API Version: 2021-03-01-preview.
+    API Version: 2021-10-15.
 
 
     :param str cluster_name: Managed Cassandra cluster name.

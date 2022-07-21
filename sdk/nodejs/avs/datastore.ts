@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A datastore resource
- * API Version: 2021-01-01-preview.
+ * API Version: 2021-12-01.
  */
 export class Datastore extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class Datastore extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The operational status of the datastore
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -79,18 +83,20 @@ export class Datastore extends pulumi.CustomResource {
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["diskPoolVolume"] = args ? args.diskPoolVolume : undefined;
+            resourceInputs["diskPoolVolume"] = args ? (args.diskPoolVolume ? pulumi.output(args.diskPoolVolume).apply(inputs.avs.diskPoolVolumeArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["netAppVolume"] = args ? args.netAppVolume : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["diskPoolVolume"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["netAppVolume"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -48,9 +48,6 @@ func NewMongoDBResourceMongoUserDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:documentdb:MongoDBResourceMongoUserDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"),
 		},
 		{

@@ -11,7 +11,7 @@ import (
 )
 
 // An export resource.
-// API Version: 2020-06-01.
+// API Version: 2021-10-01.
 func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.InvokeOption) (*LookupExportResult, error) {
 	var rv LookupExportResult
 	err := ctx.Invoke("azure-native:costmanagement:getExport", args, &rv, opts...)
@@ -46,6 +46,8 @@ type LookupExportResult struct {
 	Name string `pulumi:"name"`
 	// If the export has an active schedule, provides an estimate of the next execution time.
 	NextRunTimeEstimate string `pulumi:"nextRunTimeEstimate"`
+	// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+	PartitionData *bool `pulumi:"partitionData"`
 	// If requested, has the most recent execution history for the export.
 	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
 	// Has schedule information for the export.
@@ -128,6 +130,11 @@ func (o LookupExportResultOutput) Name() pulumi.StringOutput {
 // If the export has an active schedule, provides an estimate of the next execution time.
 func (o LookupExportResultOutput) NextRunTimeEstimate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupExportResult) string { return v.NextRunTimeEstimate }).(pulumi.StringOutput)
+}
+
+// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+func (o LookupExportResultOutput) PartitionData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupExportResult) *bool { return v.PartitionData }).(pulumi.BoolPtrOutput)
 }
 
 // If requested, has the most recent execution history for the export.

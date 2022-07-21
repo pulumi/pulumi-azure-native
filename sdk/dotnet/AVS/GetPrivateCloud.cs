@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A private cloud resource
-        /// API Version: 2020-03-20.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithDefaults());
 
         /// <summary>
         /// A private cloud resource
-        /// API Version: 2020-03-20.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
@@ -70,17 +70,33 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetPrivateCloudResult
     {
         /// <summary>
+        /// Properties describing how the cloud is distributed across availability zones
+        /// </summary>
+        public readonly Outputs.AvailabilityPropertiesResponse? Availability;
+        /// <summary>
         /// An ExpressRoute Circuit
         /// </summary>
         public readonly Outputs.CircuitResponse? Circuit;
+        /// <summary>
+        /// Customer managed key encryption, can be enabled or disabled
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// The endpoints
         /// </summary>
         public readonly Outputs.EndpointsResponse Endpoints;
         /// <summary>
+        /// Array of cloud link IDs from other clouds that connect to this one
+        /// </summary>
+        public readonly ImmutableArray<string> ExternalCloudLinks;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the private cloud, if configured.
+        /// </summary>
+        public readonly Outputs.PrivateCloudIdentityResponse? Identity;
         /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
@@ -126,6 +142,10 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        /// </summary>
+        public readonly Outputs.CircuitResponse? SecondaryCircuit;
+        /// <summary>
         /// The private cloud SKU
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
@@ -152,11 +172,19 @@ namespace Pulumi.AzureNative.AVS
 
         [OutputConstructor]
         private GetPrivateCloudResult(
+            Outputs.AvailabilityPropertiesResponse? availability,
+
             Outputs.CircuitResponse? circuit,
+
+            Outputs.EncryptionResponse? encryption,
 
             Outputs.EndpointsResponse endpoints,
 
+            ImmutableArray<string> externalCloudLinks,
+
             string id,
+
+            Outputs.PrivateCloudIdentityResponse? identity,
 
             ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
 
@@ -180,6 +208,8 @@ namespace Pulumi.AzureNative.AVS
 
             string provisioningState,
 
+            Outputs.CircuitResponse? secondaryCircuit,
+
             Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
@@ -192,9 +222,13 @@ namespace Pulumi.AzureNative.AVS
 
             string vmotionNetwork)
         {
+            Availability = availability;
             Circuit = circuit;
+            Encryption = encryption;
             Endpoints = endpoints;
+            ExternalCloudLinks = externalCloudLinks;
             Id = id;
+            Identity = identity;
             IdentitySources = identitySources;
             Internet = internet;
             Location = location;
@@ -206,6 +240,7 @@ namespace Pulumi.AzureNative.AVS
             NsxtPassword = nsxtPassword;
             ProvisioningNetwork = provisioningNetwork;
             ProvisioningState = provisioningState;
+            SecondaryCircuit = secondaryCircuit;
             Sku = sku;
             Tags = tags;
             Type = type;

@@ -14,7 +14,6 @@ __all__ = [
     'AssetItemResponse',
     'BlobLocationResponse',
     'ColumnSpecificationResponse',
-    'CommitmentPlanPropertiesResponse',
     'CommitmentPlanResponse',
     'DiagnosticsConfigurationResponse',
     'ExampleRequestResponse',
@@ -28,10 +27,9 @@ __all__ = [
     'ModeValueInfoResponse',
     'ModuleAssetParameterResponse',
     'OutputPortResponse',
-    'PlanQuantityResponse',
     'RealtimeConfigurationResponse',
-    'ResourceSkuResponse',
     'ServiceInputOutputSpecificationResponse',
+    'SkuResponse',
     'StorageAccountResponse',
     'TableSpecificationResponse',
     'WebServiceKeysResponse',
@@ -285,162 +283,6 @@ class ColumnSpecificationResponse(dict):
         Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
         """
         return pulumi.get(self, "x_ms_isordered")
-
-
-@pulumi.output_type
-class CommitmentPlanPropertiesResponse(dict):
-    """
-    Properties of an Azure ML commitment plan.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "chargeForOverage":
-            suggest = "charge_for_overage"
-        elif key == "chargeForPlan":
-            suggest = "charge_for_plan"
-        elif key == "creationDate":
-            suggest = "creation_date"
-        elif key == "includedQuantities":
-            suggest = "included_quantities"
-        elif key == "maxAssociationLimit":
-            suggest = "max_association_limit"
-        elif key == "maxCapacityLimit":
-            suggest = "max_capacity_limit"
-        elif key == "minCapacityLimit":
-            suggest = "min_capacity_limit"
-        elif key == "planMeter":
-            suggest = "plan_meter"
-        elif key == "refillFrequencyInDays":
-            suggest = "refill_frequency_in_days"
-        elif key == "suspendPlanOnOverage":
-            suggest = "suspend_plan_on_overage"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CommitmentPlanPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CommitmentPlanPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CommitmentPlanPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 charge_for_overage: bool,
-                 charge_for_plan: bool,
-                 creation_date: str,
-                 included_quantities: Mapping[str, 'outputs.PlanQuantityResponse'],
-                 max_association_limit: int,
-                 max_capacity_limit: int,
-                 min_capacity_limit: int,
-                 plan_meter: str,
-                 refill_frequency_in_days: int,
-                 suspend_plan_on_overage: bool):
-        """
-        Properties of an Azure ML commitment plan.
-        :param bool charge_for_overage: Indicates whether usage beyond the commitment plan's included quantities will be charged.
-        :param bool charge_for_plan: Indicates whether the commitment plan will incur a charge.
-        :param str creation_date: The date at which this commitment plan was created, in ISO 8601 format.
-        :param Mapping[str, 'PlanQuantityResponse'] included_quantities: The included resource quantities this plan gives you.
-        :param int max_association_limit: The maximum number of commitment associations that can be children of this commitment plan.
-        :param int max_capacity_limit: The maximum scale-out capacity for this commitment plan.
-        :param int min_capacity_limit: The minimum scale-out capacity for this commitment plan.
-        :param str plan_meter: The Azure meter which will be used to charge for this commitment plan.
-        :param int refill_frequency_in_days: The frequency at which this commitment plan's included quantities are refilled.
-        :param bool suspend_plan_on_overage: Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
-        """
-        pulumi.set(__self__, "charge_for_overage", charge_for_overage)
-        pulumi.set(__self__, "charge_for_plan", charge_for_plan)
-        pulumi.set(__self__, "creation_date", creation_date)
-        pulumi.set(__self__, "included_quantities", included_quantities)
-        pulumi.set(__self__, "max_association_limit", max_association_limit)
-        pulumi.set(__self__, "max_capacity_limit", max_capacity_limit)
-        pulumi.set(__self__, "min_capacity_limit", min_capacity_limit)
-        pulumi.set(__self__, "plan_meter", plan_meter)
-        pulumi.set(__self__, "refill_frequency_in_days", refill_frequency_in_days)
-        pulumi.set(__self__, "suspend_plan_on_overage", suspend_plan_on_overage)
-
-    @property
-    @pulumi.getter(name="chargeForOverage")
-    def charge_for_overage(self) -> bool:
-        """
-        Indicates whether usage beyond the commitment plan's included quantities will be charged.
-        """
-        return pulumi.get(self, "charge_for_overage")
-
-    @property
-    @pulumi.getter(name="chargeForPlan")
-    def charge_for_plan(self) -> bool:
-        """
-        Indicates whether the commitment plan will incur a charge.
-        """
-        return pulumi.get(self, "charge_for_plan")
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
-        """
-        The date at which this commitment plan was created, in ISO 8601 format.
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter(name="includedQuantities")
-    def included_quantities(self) -> Mapping[str, 'outputs.PlanQuantityResponse']:
-        """
-        The included resource quantities this plan gives you.
-        """
-        return pulumi.get(self, "included_quantities")
-
-    @property
-    @pulumi.getter(name="maxAssociationLimit")
-    def max_association_limit(self) -> int:
-        """
-        The maximum number of commitment associations that can be children of this commitment plan.
-        """
-        return pulumi.get(self, "max_association_limit")
-
-    @property
-    @pulumi.getter(name="maxCapacityLimit")
-    def max_capacity_limit(self) -> int:
-        """
-        The maximum scale-out capacity for this commitment plan.
-        """
-        return pulumi.get(self, "max_capacity_limit")
-
-    @property
-    @pulumi.getter(name="minCapacityLimit")
-    def min_capacity_limit(self) -> int:
-        """
-        The minimum scale-out capacity for this commitment plan.
-        """
-        return pulumi.get(self, "min_capacity_limit")
-
-    @property
-    @pulumi.getter(name="planMeter")
-    def plan_meter(self) -> str:
-        """
-        The Azure meter which will be used to charge for this commitment plan.
-        """
-        return pulumi.get(self, "plan_meter")
-
-    @property
-    @pulumi.getter(name="refillFrequencyInDays")
-    def refill_frequency_in_days(self) -> int:
-        """
-        The frequency at which this commitment plan's included quantities are refilled.
-        """
-        return pulumi.get(self, "refill_frequency_in_days")
-
-    @property
-    @pulumi.getter(name="suspendPlanOnOverage")
-    def suspend_plan_on_overage(self) -> bool:
-        """
-        Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
-        """
-        return pulumi.get(self, "suspend_plan_on_overage")
 
 
 @pulumi.output_type
@@ -1065,80 +907,6 @@ class OutputPortResponse(dict):
 
 
 @pulumi.output_type
-class PlanQuantityResponse(dict):
-    """
-    Represents the quantity a commitment plan provides of a metered resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "includedQuantityMeter":
-            suggest = "included_quantity_meter"
-        elif key == "overageMeter":
-            suggest = "overage_meter"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlanQuantityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlanQuantityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlanQuantityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 allowance: float,
-                 amount: float,
-                 included_quantity_meter: str,
-                 overage_meter: str):
-        """
-        Represents the quantity a commitment plan provides of a metered resource.
-        :param float allowance: The quantity added to the commitment plan at an interval specified by its allowance frequency.
-        :param float amount: The quantity available to the plan the last time usage was calculated.
-        :param str included_quantity_meter: The Azure meter for usage against included quantities.
-        :param str overage_meter: The Azure meter for usage which exceeds included quantities.
-        """
-        pulumi.set(__self__, "allowance", allowance)
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "included_quantity_meter", included_quantity_meter)
-        pulumi.set(__self__, "overage_meter", overage_meter)
-
-    @property
-    @pulumi.getter
-    def allowance(self) -> float:
-        """
-        The quantity added to the commitment plan at an interval specified by its allowance frequency.
-        """
-        return pulumi.get(self, "allowance")
-
-    @property
-    @pulumi.getter
-    def amount(self) -> float:
-        """
-        The quantity available to the plan the last time usage was calculated.
-        """
-        return pulumi.get(self, "amount")
-
-    @property
-    @pulumi.getter(name="includedQuantityMeter")
-    def included_quantity_meter(self) -> str:
-        """
-        The Azure meter for usage against included quantities.
-        """
-        return pulumi.get(self, "included_quantity_meter")
-
-    @property
-    @pulumi.getter(name="overageMeter")
-    def overage_meter(self) -> str:
-        """
-        The Azure meter for usage which exceeds included quantities.
-        """
-        return pulumi.get(self, "overage_meter")
-
-
-@pulumi.output_type
 class RealtimeConfigurationResponse(dict):
     """
     Holds the available configuration options for an Azure ML web service endpoint.
@@ -1176,53 +944,6 @@ class RealtimeConfigurationResponse(dict):
         Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
         """
         return pulumi.get(self, "max_concurrent_calls")
-
-
-@pulumi.output_type
-class ResourceSkuResponse(dict):
-    """
-    The SKU of a resource.
-    """
-    def __init__(__self__, *,
-                 capacity: Optional[int] = None,
-                 name: Optional[str] = None,
-                 tier: Optional[str] = None):
-        """
-        The SKU of a resource.
-        :param int capacity: The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-        :param str name: The SKU name. Along with tier, uniquely identifies the SKU.
-        :param str tier: The SKU tier. Along with name, uniquely identifies the SKU.
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The SKU name. Along with tier, uniquely identifies the SKU.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        The SKU tier. Along with name, uniquely identifies the SKU.
-        """
-        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -1282,6 +1003,41 @@ class ServiceInputOutputSpecificationResponse(dict):
         The title of your Swagger schema.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    Sku of the resource
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        Sku of the resource
+        :param str name: Name of the sku
+        :param str tier: Tier of the sku like Basic or Enterprise
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the sku
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

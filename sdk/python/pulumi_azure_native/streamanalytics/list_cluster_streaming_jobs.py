@@ -61,7 +61,7 @@ def list_cluster_streaming_jobs(cluster_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterStreamingJobsResult:
     """
     A list of streaming jobs. Populated by a List operation.
-    API Version: 2020-03-01-preview.
+    API Version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -87,7 +87,7 @@ def list_cluster_streaming_jobs_output(cluster_name: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterStreamingJobsResult]:
     """
     A list of streaming jobs. Populated by a List operation.
-    API Version: 2020-03-01-preview.
+    API Version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster.

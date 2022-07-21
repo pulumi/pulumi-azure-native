@@ -57,9 +57,6 @@ func NewEventHubConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:kusto:EventHubConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:EventHubConnection"),
 		},
 	})

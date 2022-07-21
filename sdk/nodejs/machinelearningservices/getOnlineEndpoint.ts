@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getOnlineEndpoint(args: GetOnlineEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointResult> {
     if (!opts) {
@@ -42,9 +42,9 @@ export interface GetOnlineEndpointResult {
      */
     readonly id: string;
     /**
-     * Service identity associated with a resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.machinelearningservices.ResourceIdentityResponse;
+    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -60,9 +60,13 @@ export interface GetOnlineEndpointResult {
     /**
      * [Required] Additional attributes of the entity.
      */
-    readonly properties: outputs.machinelearningservices.OnlineEndpointResponse;
+    readonly onlineEndpointProperties: outputs.machinelearningservices.OnlineEndpointResponse;
     /**
-     * System data associated with resource provider
+     * Sku details required for ARM contract for Autoscaling.
+     */
+    readonly sku?: outputs.machinelearningservices.SkuResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**

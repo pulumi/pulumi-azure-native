@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     if (!opts) {
@@ -48,6 +49,10 @@ export interface GetTableResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * List of stored access policies specified on the table.
+     */
+    readonly signedIdentifiers?: outputs.storage.TableSignedIdentifierResponse[];
     /**
      * Table name under the specified account
      */

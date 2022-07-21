@@ -18,11 +18,11 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         /// <summary>
         /// Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
         /// </summary>
-        [Input("httpsCAFile")]
-        public Input<string>? HttpsCAFile { get; set; }
+        [Input("httpsCACert")]
+        public Input<string>? HttpsCACert { get; set; }
 
         /// <summary>
-        /// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        /// Plaintext HTTPS username used to access private git repositories over HTTPS
         /// </summary>
         [Input("httpsUser")]
         public Input<string>? HttpsUser { get; set; }

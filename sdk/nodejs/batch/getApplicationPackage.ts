@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An application package which represents a particular version of an application.
- * API Version: 2021-01-01.
+ * API Version: 2022-06-01.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
     if (!opts) {

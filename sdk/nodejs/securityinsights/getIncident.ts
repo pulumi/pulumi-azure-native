@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident in Azure Security Insights.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetIncidentArgs {
      */
     incidentId: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -74,7 +74,7 @@ export interface GetIncidentResult {
      */
     readonly firstActivityTimeUtc?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -98,7 +98,7 @@ export interface GetIncidentResult {
      */
     readonly lastModifiedTimeUtc: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -118,11 +118,15 @@ export interface GetIncidentResult {
      */
     readonly status: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
      * The title of the incident
      */
     readonly title: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -137,7 +141,7 @@ export interface GetIncidentOutputArgs {
      */
     incidentId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

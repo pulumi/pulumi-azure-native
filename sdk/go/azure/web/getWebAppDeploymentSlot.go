@@ -11,7 +11,7 @@ import (
 )
 
 // User credentials used for publishing activity.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupWebAppDeploymentSlot(ctx *pulumi.Context, args *LookupWebAppDeploymentSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDeploymentSlotResult, error) {
 	var rv LookupWebAppDeploymentSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppDeploymentSlot", args, &rv, opts...)

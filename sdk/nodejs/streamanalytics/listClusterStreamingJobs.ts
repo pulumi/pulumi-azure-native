@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A list of streaming jobs. Populated by a List operation.
- * API Version: 2020-03-01-preview.
+ * API Version: 2020-03-01.
  */
 export function listClusterStreamingJobs(args: ListClusterStreamingJobsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterStreamingJobsResult> {
     if (!opts) {

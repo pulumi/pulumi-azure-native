@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// </summary>
     public sealed class GetUserTablesSqlSyncTaskPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("clientData")]
+        private InputMap<string>? _clientData;
+
+        /// <summary>
+        /// Key value pairs of client data to attach meta data information to task
+        /// </summary>
+        public InputMap<string> ClientData
+        {
+            get => _clientData ?? (_clientData = new InputMap<string>());
+            set => _clientData = value;
+        }
+
         /// <summary>
         /// Task input
         /// </summary>

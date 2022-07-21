@@ -11,7 +11,7 @@ import (
 )
 
 // Virtual Appliance Site resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBgpConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubBgpConnectionResult, error) {
 	var rv LookupVirtualHubBgpConnectionResult
 	err := ctx.Invoke("azure-native:network:getVirtualHubBgpConnection", args, &rv, opts...)
@@ -36,6 +36,8 @@ type LookupVirtualHubBgpConnectionResult struct {
 	ConnectionState string `pulumi:"connectionState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The reference to the HubVirtualNetworkConnection resource.
+	HubVirtualNetworkConnection *SubResourceResponse `pulumi:"hubVirtualNetworkConnection"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Name of the connection.
@@ -99,6 +101,11 @@ func (o LookupVirtualHubBgpConnectionResultOutput) ConnectionState() pulumi.Stri
 // A unique read-only string that changes whenever the resource is updated.
 func (o LookupVirtualHubBgpConnectionResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualHubBgpConnectionResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The reference to the HubVirtualNetworkConnection resource.
+func (o LookupVirtualHubBgpConnectionResultOutput) HubVirtualNetworkConnection() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubBgpConnectionResult) *SubResourceResponse { return v.HubVirtualNetworkConnection }).(SubResourceResponsePtrOutput)
 }
 
 // Resource ID.

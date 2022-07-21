@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an Azure Batch account.
- * API Version: 2021-01-01.
+ * API Version: 2022-06-01.
  */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetBatchAccountResult {
     readonly accountEndpoint: string;
     readonly activeJobAndJobScheduleQuota: number;
     /**
+     * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+     */
+    readonly allowedAuthenticationModes: string[];
+    /**
      * Contains information about the auto-storage account associated with a Batch account.
      */
     readonly autoStorage: outputs.batch.AutoStoragePropertiesResponse;
@@ -54,7 +58,7 @@ export interface GetBatchAccountResult {
      */
     readonly dedicatedCoreQuotaPerVMFamily: outputs.batch.VirtualMachineFamilyCoreQuotaResponse[];
     /**
-     * Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+     * If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
      */
     readonly dedicatedCoreQuotaPerVMFamilyEnforced: boolean;
     /**
@@ -86,6 +90,14 @@ export interface GetBatchAccountResult {
      */
     readonly name: string;
     /**
+     * The network profile only takes effect when publicNetworkAccess is enabled.
+     */
+    readonly networkProfile?: outputs.batch.NetworkProfileResponse;
+    /**
+     * The endpoint used by compute node to connect to the Batch node management service.
+     */
+    readonly nodeManagementEndpoint: string;
+    /**
      * The allocation mode for creating pools in the Batch account.
      */
     readonly poolAllocationMode: string;
@@ -101,7 +113,7 @@ export interface GetBatchAccountResult {
     /**
      * If not specified, the default value is 'enabled'.
      */
-    readonly publicNetworkAccess: string;
+    readonly publicNetworkAccess?: string;
     /**
      * The tags of the resource.
      */

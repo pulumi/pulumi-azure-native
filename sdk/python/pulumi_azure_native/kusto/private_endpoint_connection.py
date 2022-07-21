@@ -93,7 +93,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection
-        API Version: 2021-08-27.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
-        API Version: 2021-08-27.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

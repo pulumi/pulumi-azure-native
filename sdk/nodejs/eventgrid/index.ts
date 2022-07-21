@@ -10,7 +10,6 @@ export * from "./domain";
 export * from "./domainEventSubscription";
 export * from "./domainTopic";
 export * from "./domainTopicEventSubscription";
-export * from "./eventChannel";
 export * from "./eventSubscription";
 export * from "./getChannel";
 export * from "./getChannelFullUrl";
@@ -22,12 +21,10 @@ export * from "./getDomainTopic";
 export * from "./getDomainTopicEventSubscription";
 export * from "./getDomainTopicEventSubscriptionDeliveryAttributes";
 export * from "./getDomainTopicEventSubscriptionFullUrl";
-export * from "./getEventChannel";
 export * from "./getEventSubscription";
 export * from "./getEventSubscriptionDeliveryAttributes";
 export * from "./getEventSubscriptionFullUrl";
 export * from "./getPartnerConfiguration";
-export * from "./getPartnerDestination";
 export * from "./getPartnerNamespace";
 export * from "./getPartnerRegistration";
 export * from "./getPartnerTopic";
@@ -47,7 +44,6 @@ export * from "./listDomainSharedAccessKeys";
 export * from "./listPartnerNamespaceSharedAccessKeys";
 export * from "./listTopicSharedAccessKeys";
 export * from "./partnerConfiguration";
-export * from "./partnerDestination";
 export * from "./partnerNamespace";
 export * from "./partnerRegistration";
 export * from "./partnerTopic";
@@ -104,10 +100,8 @@ import { Domain } from "./domain";
 import { DomainEventSubscription } from "./domainEventSubscription";
 import { DomainTopic } from "./domainTopic";
 import { DomainTopicEventSubscription } from "./domainTopicEventSubscription";
-import { EventChannel } from "./eventChannel";
 import { EventSubscription } from "./eventSubscription";
 import { PartnerConfiguration } from "./partnerConfiguration";
-import { PartnerDestination } from "./partnerDestination";
 import { PartnerNamespace } from "./partnerNamespace";
 import { PartnerRegistration } from "./partnerRegistration";
 import { PartnerTopic } from "./partnerTopic";
@@ -132,14 +126,10 @@ const _module = {
                 return new DomainTopic(name, <any>undefined, { urn })
             case "azure-native:eventgrid:DomainTopicEventSubscription":
                 return new DomainTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid:EventChannel":
-                return new EventChannel(name, <any>undefined, { urn })
             case "azure-native:eventgrid:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerConfiguration":
                 return new PartnerConfiguration(name, <any>undefined, { urn })
-            case "azure-native:eventgrid:PartnerDestination":
-                return new PartnerDestination(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerNamespace":
                 return new PartnerNamespace(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerRegistration":

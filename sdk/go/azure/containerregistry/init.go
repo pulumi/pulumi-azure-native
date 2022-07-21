@@ -21,30 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:containerregistry:AgentPool":
-		r = &AgentPool{}
-	case "azure-native:containerregistry:ConnectedRegistry":
-		r = &ConnectedRegistry{}
-	case "azure-native:containerregistry:ExportPipeline":
-		r = &ExportPipeline{}
-	case "azure-native:containerregistry:ImportPipeline":
-		r = &ImportPipeline{}
-	case "azure-native:containerregistry:PipelineRun":
-		r = &PipelineRun{}
 	case "azure-native:containerregistry:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:containerregistry:Registry":
 		r = &Registry{}
 	case "azure-native:containerregistry:Replication":
 		r = &Replication{}
-	case "azure-native:containerregistry:ScopeMap":
-		r = &ScopeMap{}
 	case "azure-native:containerregistry:Task":
 		r = &Task{}
-	case "azure-native:containerregistry:TaskRun":
-		r = &TaskRun{}
-	case "azure-native:containerregistry:Token":
-		r = &Token{}
 	case "azure-native:containerregistry:Webhook":
 		r = &Webhook{}
 	default:

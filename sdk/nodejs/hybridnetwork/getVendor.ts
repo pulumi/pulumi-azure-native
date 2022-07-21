@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Vendor resource.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
     if (!opts) {
@@ -47,6 +47,10 @@ export interface GetVendorResult {
      * A list of IDs of the vendor skus offered by the vendor.
      */
     readonly skus: outputs.hybridnetwork.SubResourceResponse[];
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

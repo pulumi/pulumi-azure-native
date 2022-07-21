@@ -132,7 +132,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserAssignedIdentityResult:
     """
     Describes an identity resource.
-    API Version: 2018-11-30.
+    API Version: 2022-01-31-preview.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
@@ -164,7 +164,7 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
     """
     Describes an identity resource.
-    API Version: 2018-11-30.
+    API Version: 2022-01-31-preview.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.

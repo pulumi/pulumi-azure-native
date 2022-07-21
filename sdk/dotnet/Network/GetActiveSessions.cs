@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Response for GetActiveSessions.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-native:network:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for GetActiveSessions.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetActiveSessionsResult> Invoke(GetActiveSessionsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetActiveSessionsResult>("azure-native:network:getActiveSessions", args ?? new GetActiveSessionsInvokeArgs(), options.WithDefaults());

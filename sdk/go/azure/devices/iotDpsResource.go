@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the provisioning service.
-// API Version: 2020-03-01.
+// API Version: 2022-02-05.
 type IotDpsResource struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type IotDpsResource struct {
 	Properties IotDpsPropertiesDescriptionResponseOutput `pulumi:"properties"`
 	// Sku info for a provisioning Service.
 	Sku IotDpsSkuInfoResponseOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
@@ -197,6 +199,11 @@ func (o IotDpsResourceOutput) Properties() IotDpsPropertiesDescriptionResponseOu
 // Sku info for a provisioning Service.
 func (o IotDpsResourceOutput) Sku() IotDpsSkuInfoResponseOutput {
 	return o.ApplyT(func(v *IotDpsResource) IotDpsSkuInfoResponseOutput { return v.Sku }).(IotDpsSkuInfoResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o IotDpsResourceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IotDpsResource) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource tags.

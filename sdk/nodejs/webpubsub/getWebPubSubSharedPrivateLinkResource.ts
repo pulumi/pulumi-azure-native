@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Shared Private Link Resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
     if (!opts) {
@@ -58,7 +58,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
      */
     readonly privateLinkResourceId: string;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**

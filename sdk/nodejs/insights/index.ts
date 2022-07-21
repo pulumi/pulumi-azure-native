@@ -12,11 +12,9 @@ export * from "./analyticsItem";
 export * from "./autoscaleSetting";
 export * from "./component";
 export * from "./componentCurrentBillingFeature";
-export * from "./componentLinkedStorageAccount";
 export * from "./dataCollectionEndpoint";
 export * from "./dataCollectionRule";
 export * from "./dataCollectionRuleAssociation";
-export * from "./diagnosticSetting";
 export * from "./exportConfiguration";
 export * from "./favorite";
 export * from "./getActionGroup";
@@ -26,45 +24,26 @@ export * from "./getAnalyticsItem";
 export * from "./getAutoscaleSetting";
 export * from "./getComponent";
 export * from "./getComponentCurrentBillingFeature";
-export * from "./getComponentLinkedStorageAccount";
 export * from "./getDataCollectionEndpoint";
 export * from "./getDataCollectionRule";
 export * from "./getDataCollectionRuleAssociation";
-export * from "./getDiagnosticServiceTokenReadOnly";
-export * from "./getDiagnosticServiceTokenReadWrite";
-export * from "./getDiagnosticSetting";
 export * from "./getExportConfiguration";
 export * from "./getFavorite";
-export * from "./getGuestDiagnosticsSettingsAssociation";
 export * from "./getLiveToken";
 export * from "./getLogProfile";
-export * from "./getManagementGroupDiagnosticSetting";
 export * from "./getMetricAlert";
 export * from "./getMyWorkbook";
-export * from "./getPrivateEndpointConnection";
-export * from "./getPrivateLinkScope";
-export * from "./getPrivateLinkScopedResource";
 export * from "./getProactiveDetectionConfiguration";
 export * from "./getScheduledQueryRule";
-export * from "./getSubscriptionDiagnosticSetting";
-export * from "./getTestResultFile";
 export * from "./getWebTest";
 export * from "./getWorkbook";
 export * from "./getWorkbookTemplate";
-export * from "./getguestDiagnosticsSetting";
-export * from "./guestDiagnosticsSetting";
-export * from "./guestDiagnosticsSettingsAssociation";
 export * from "./listEASubscriptionListMigrationDatePost";
 export * from "./logProfile";
-export * from "./managementGroupDiagnosticSetting";
 export * from "./metricAlert";
 export * from "./myWorkbook";
-export * from "./privateEndpointConnection";
-export * from "./privateLinkScope";
-export * from "./privateLinkScopedResource";
 export * from "./proactiveDetectionConfiguration";
 export * from "./scheduledQueryRule";
-export * from "./subscriptionDiagnosticSetting";
 export * from "./webTest";
 export * from "./workbook";
 export * from "./workbookTemplate";
@@ -167,28 +146,19 @@ import { AnalyticsItem } from "./analyticsItem";
 import { AutoscaleSetting } from "./autoscaleSetting";
 import { Component } from "./component";
 import { ComponentCurrentBillingFeature } from "./componentCurrentBillingFeature";
-import { ComponentLinkedStorageAccount } from "./componentLinkedStorageAccount";
 import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
 import { DataCollectionRule } from "./dataCollectionRule";
 import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
-import { DiagnosticSetting } from "./diagnosticSetting";
 import { ExportConfiguration } from "./exportConfiguration";
 import { Favorite } from "./favorite";
-import { GuestDiagnosticsSettingsAssociation } from "./guestDiagnosticsSettingsAssociation";
 import { LogProfile } from "./logProfile";
-import { ManagementGroupDiagnosticSetting } from "./managementGroupDiagnosticSetting";
 import { MetricAlert } from "./metricAlert";
 import { MyWorkbook } from "./myWorkbook";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { PrivateLinkScope } from "./privateLinkScope";
-import { PrivateLinkScopedResource } from "./privateLinkScopedResource";
 import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
 import { ScheduledQueryRule } from "./scheduledQueryRule";
-import { SubscriptionDiagnosticSetting } from "./subscriptionDiagnosticSetting";
 import { WebTest } from "./webTest";
 import { Workbook } from "./workbook";
 import { WorkbookTemplate } from "./workbookTemplate";
-import { GuestDiagnosticsSetting } from "./guestDiagnosticsSetting";
 
 const _module = {
     version: utilities.getVersion(),
@@ -208,50 +178,32 @@ const _module = {
                 return new Component(name, <any>undefined, { urn })
             case "azure-native:insights:ComponentCurrentBillingFeature":
                 return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
-            case "azure-native:insights:ComponentLinkedStorageAccount":
-                return new ComponentLinkedStorageAccount(name, <any>undefined, { urn })
             case "azure-native:insights:DataCollectionEndpoint":
                 return new DataCollectionEndpoint(name, <any>undefined, { urn })
             case "azure-native:insights:DataCollectionRule":
                 return new DataCollectionRule(name, <any>undefined, { urn })
             case "azure-native:insights:DataCollectionRuleAssociation":
                 return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
-            case "azure-native:insights:DiagnosticSetting":
-                return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:insights:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
-            case "azure-native:insights:GuestDiagnosticsSettingsAssociation":
-                return new GuestDiagnosticsSettingsAssociation(name, <any>undefined, { urn })
             case "azure-native:insights:LogProfile":
                 return new LogProfile(name, <any>undefined, { urn })
-            case "azure-native:insights:ManagementGroupDiagnosticSetting":
-                return new ManagementGroupDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:insights:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
             case "azure-native:insights:MyWorkbook":
                 return new MyWorkbook(name, <any>undefined, { urn })
-            case "azure-native:insights:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:insights:PrivateLinkScope":
-                return new PrivateLinkScope(name, <any>undefined, { urn })
-            case "azure-native:insights:PrivateLinkScopedResource":
-                return new PrivateLinkScopedResource(name, <any>undefined, { urn })
             case "azure-native:insights:ProactiveDetectionConfiguration":
                 return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
-            case "azure-native:insights:SubscriptionDiagnosticSetting":
-                return new SubscriptionDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:insights:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             case "azure-native:insights:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             case "azure-native:insights:WorkbookTemplate":
                 return new WorkbookTemplate(name, <any>undefined, { urn })
-            case "azure-native:insights:guestDiagnosticsSetting":
-                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

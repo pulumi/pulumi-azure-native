@@ -11,7 +11,7 @@ import (
 )
 
 // Graph Query entity definition.
-// API Version: 2018-09-01-preview.
+// API Version: 2020-04-01-preview.
 func LookupGraphQuery(ctx *pulumi.Context, args *LookupGraphQueryArgs, opts ...pulumi.InvokeOption) (*LookupGraphQueryResult, error) {
 	var rv LookupGraphQueryResult
 	err := ctx.Invoke("azure-native:resourcegraph:getGraphQuery", args, &rv, opts...)
@@ -32,18 +32,20 @@ type LookupGraphQueryArgs struct {
 type LookupGraphQueryResult struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+	// This will be used to handle Optimistic Concurrency.
 	Etag *string `pulumi:"etag"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// The location of the resource
-	Location *string `pulumi:"location"`
+	Location string `pulumi:"location"`
 	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
 	Name string `pulumi:"name"`
 	// KQL query that will be graph.
 	Query string `pulumi:"query"`
 	// Enum indicating a type of graph query.
 	ResultKind string `pulumi:"resultKind"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this graph query definition.
@@ -96,7 +98,7 @@ func (o LookupGraphQueryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQueryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+// This will be used to handle Optimistic Concurrency.
 func (o LookupGraphQueryResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQueryResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
@@ -107,8 +109,8 @@ func (o LookupGraphQueryResultOutput) Id() pulumi.StringOutput {
 }
 
 // The location of the resource
-func (o LookupGraphQueryResultOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGraphQueryResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o LookupGraphQueryResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGraphQueryResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Azure resource name. This is GUID value. The display name should be assigned within properties field.
@@ -124,6 +126,11 @@ func (o LookupGraphQueryResultOutput) Query() pulumi.StringOutput {
 // Enum indicating a type of graph query.
 func (o LookupGraphQueryResultOutput) ResultKind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGraphQueryResult) string { return v.ResultKind }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupGraphQueryResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupGraphQueryResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

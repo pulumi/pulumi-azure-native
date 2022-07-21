@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualNetworkGatewayNatRule Resource.
- * API Version: 2021-03-01.
+ * API Version: 2021-08-01.
  */
 export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
     /**

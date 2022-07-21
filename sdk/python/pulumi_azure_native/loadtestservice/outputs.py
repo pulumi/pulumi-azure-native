@@ -7,17 +7,125 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
-    'SystemAssignedServiceIdentityResponse',
+    'EncryptionPropertiesResponse',
+    'EncryptionPropertiesResponseIdentity',
+    'ManagedServiceIdentityResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
-class SystemAssignedServiceIdentityResponse(dict):
+class EncryptionPropertiesResponse(dict):
     """
-    Managed service identity (either system assigned, or none)
+    Key and identity details for Customer Managed Key encryption of load test resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: Optional['outputs.EncryptionPropertiesResponseIdentity'] = None,
+                 key_url: Optional[str] = None):
+        """
+        Key and identity details for Customer Managed Key encryption of load test resource
+        :param 'EncryptionPropertiesResponseIdentity' identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str key_url: key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_url is not None:
+            pulumi.set(__self__, "key_url", key_url)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EncryptionPropertiesResponseIdentity']:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> Optional[str]:
+        """
+        key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        return pulumi.get(self, "key_url")
+
+
+@pulumi.output_type
+class EncryptionPropertiesResponseIdentity(dict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertiesResponseIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertiesResponseIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+        :param str type: Managed identity type to use for accessing encryption key Url
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Managed identity type to use for accessing encryption key Url
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -26,31 +134,37 @@ class SystemAssignedServiceIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemAssignedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        ManagedServiceIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        ManagedServiceIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Managed service identity (either system assigned, or none)
+        Managed service identity (system assigned and/or user assigned identities)
         :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param str type: Type of managed service identity (either system assigned, or none).
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -72,9 +186,17 @@ class SystemAssignedServiceIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of managed service identity (either system assigned, or none).
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -185,5 +307,57 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

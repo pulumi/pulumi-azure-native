@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
     if (!opts) {

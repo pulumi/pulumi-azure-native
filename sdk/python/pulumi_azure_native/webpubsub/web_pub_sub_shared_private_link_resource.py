@@ -125,7 +125,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Shared Private Link Resource
-        API Version: 2021-04-01-preview.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Shared Private Link Resource
-        API Version: 2021-04-01-preview.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -260,7 +260,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the shared private link resource
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

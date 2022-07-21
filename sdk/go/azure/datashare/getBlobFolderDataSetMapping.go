@@ -11,7 +11,7 @@ import (
 )
 
 // A Blob folder data set mapping.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupBlobFolderDataSetMapping(ctx *pulumi.Context, args *LookupBlobFolderDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupBlobFolderDataSetMappingResult, error) {
 	var rv LookupBlobFolderDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare:getBlobFolderDataSetMapping", args, &rv, opts...)

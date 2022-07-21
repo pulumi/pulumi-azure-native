@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workload group operations for a sql pool
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
     if (!opts) {
@@ -36,7 +36,7 @@ export interface GetSqlPoolWorkloadGroupArgs {
      */
     workloadGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -101,7 +101,7 @@ export interface GetSqlPoolWorkloadGroupOutputArgs {
      */
     workloadGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

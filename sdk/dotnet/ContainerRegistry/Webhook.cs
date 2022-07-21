@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a webhook for a container registry.
-    /// API Version: 2019-05-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

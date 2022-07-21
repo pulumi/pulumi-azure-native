@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get patch schedules for Redis cache.
- * API Version: 2020-06-01.
+ * API Version: 2021-06-01.
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**
@@ -37,7 +37,11 @@ export class PatchSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -45,7 +49,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      */
     public readonly scheduleEntries!: pulumi.Output<outputs.cache.ScheduleEntryResponse[]>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -73,8 +77,10 @@ export class PatchSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scheduleEntries"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

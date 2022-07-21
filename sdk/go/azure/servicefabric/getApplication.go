@@ -11,14 +11,14 @@ import (
 )
 
 // The application resource.
-// API Version: 2020-03-01.
+// API Version: 2022-01-01.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:servicefabric:getApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return rv.Defaults(), nil
+	return &rv, nil
 }
 
 type LookupApplicationArgs struct {
@@ -32,55 +32,31 @@ type LookupApplicationArgs struct {
 
 // The application resource.
 type LookupApplicationResult struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
 	// Describes the managed identities for an Azure resource.
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
+	// Resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
 	// List of user assigned identities for the application, each mapped to a friendly name.
 	ManagedIdentities []ApplicationUserAssignedIdentityResponse `pulumi:"managedIdentities"`
-	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes *float64 `pulumi:"maximumNodes"`
-	// List of application capacity metric description.
-	Metrics []ApplicationMetricDescriptionResponse `pulumi:"metrics"`
-	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes *float64 `pulumi:"minimumNodes"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Remove the current application capacity settings.
-	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
 	Type string `pulumi:"type"`
-	// The application type name as defined in the application manifest.
-	TypeName *string `pulumi:"typeName"`
-	// The version of the application type as defined in the application manifest.
-	TypeVersion *string `pulumi:"typeVersion"`
 	// Describes the policy for a monitored application upgrade.
 	UpgradePolicy *ApplicationUpgradePolicyResponse `pulumi:"upgradePolicy"`
-}
-
-// Defaults sets the appropriate defaults for LookupApplicationResult
-func (val *LookupApplicationResult) Defaults() *LookupApplicationResult {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaximumNodes) {
-		maximumNodes_ := 0.0
-		tmp.MaximumNodes = &maximumNodes_
-	}
-	tmp.UpgradePolicy = tmp.UpgradePolicy.Defaults()
-
-	return &tmp
+	// The version of the application type as defined in the application manifest.
+	// This name must be the full Arm Resource ID for the referenced application type version.
+	Version *string `pulumi:"version"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -124,11 +100,6 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-// Azure resource etag.
-func (o LookupApplicationResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationResult) string { return v.Etag }).(pulumi.StringOutput)
-}
-
 // Azure resource identifier.
 func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
@@ -139,7 +110,7 @@ func (o LookupApplicationResultOutput) Identity() ManagedIdentityResponsePtrOutp
 	return o.ApplyT(func(v LookupApplicationResult) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
-// It will be deprecated in New API, resource location depends on the parent resource.
+// Resource location depends on the parent resource.
 func (o LookupApplicationResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -147,21 +118,6 @@ func (o LookupApplicationResultOutput) Location() pulumi.StringPtrOutput {
 // List of user assigned identities for the application, each mapped to a friendly name.
 func (o LookupApplicationResultOutput) ManagedIdentities() ApplicationUserAssignedIdentityResponseArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationUserAssignedIdentityResponse { return v.ManagedIdentities }).(ApplicationUserAssignedIdentityResponseArrayOutput)
-}
-
-// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-func (o LookupApplicationResultOutput) MaximumNodes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *float64 { return v.MaximumNodes }).(pulumi.Float64PtrOutput)
-}
-
-// List of application capacity metric description.
-func (o LookupApplicationResultOutput) Metrics() ApplicationMetricDescriptionResponseArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationMetricDescriptionResponse { return v.Metrics }).(ApplicationMetricDescriptionResponseArrayOutput)
-}
-
-// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-func (o LookupApplicationResultOutput) MinimumNodes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *float64 { return v.MinimumNodes }).(pulumi.Float64PtrOutput)
 }
 
 // Azure resource name.
@@ -179,9 +135,9 @@ func (o LookupApplicationResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Remove the current application capacity settings.
-func (o LookupApplicationResultOutput) RemoveApplicationCapacity() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.RemoveApplicationCapacity }).(pulumi.BoolPtrOutput)
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApplicationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Azure resource tags.
@@ -194,19 +150,15 @@ func (o LookupApplicationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The application type name as defined in the application manifest.
-func (o LookupApplicationResultOutput) TypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.TypeName }).(pulumi.StringPtrOutput)
-}
-
-// The version of the application type as defined in the application manifest.
-func (o LookupApplicationResultOutput) TypeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.TypeVersion }).(pulumi.StringPtrOutput)
-}
-
 // Describes the policy for a monitored application upgrade.
 func (o LookupApplicationResultOutput) UpgradePolicy() ApplicationUpgradePolicyResponsePtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationUpgradePolicyResponse { return v.UpgradePolicy }).(ApplicationUpgradePolicyResponsePtrOutput)
+}
+
+// The version of the application type as defined in the application manifest.
+// This name must be the full Arm Resource ID for the referenced application type version.
+func (o LookupApplicationResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

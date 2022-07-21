@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB SQL Role Definition.
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-15.
  */
 export function getSqlResourceSqlRoleDefinition(args: GetSqlResourceSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleDefinitionResult> {
     if (!opts) {

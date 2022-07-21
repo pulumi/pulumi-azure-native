@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// A relative URI containing the resource ID of the disk encryption set.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
+        /// <summary>
+        /// This property specifies the security profile of an OS disk image.
+        /// </summary>
+        public readonly Outputs.OSDiskImageSecurityProfileResponse? SecurityProfile;
 
         [OutputConstructor]
-        private OSDiskImageEncryptionResponse(string? diskEncryptionSetId)
+        private OSDiskImageEncryptionResponse(
+            string? diskEncryptionSetId,
+
+            Outputs.OSDiskImageSecurityProfileResponse? securityProfile)
         {
             DiskEncryptionSetId = diskEncryptionSetId;
+            SecurityProfile = securityProfile;
         }
     }
 }

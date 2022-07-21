@@ -73,7 +73,7 @@ def list_web_app_host_keys_slot(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHostKeysSlotResult:
     """
     Functions host level keys.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Site name.
@@ -103,7 +103,7 @@ def list_web_app_host_keys_slot_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHostKeysSlotResult]:
     """
     Functions host level keys.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Site name.

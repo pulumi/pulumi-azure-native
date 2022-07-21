@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
-    /// API Version: 2020-06-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Redis")]
     public partial class Redis : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// List of the Redis instances associated with the cache
@@ -59,7 +65,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -95,16 +101,22 @@ namespace Pulumi.AzureNative.Cache
         public Output<Outputs.RedisCommonPropertiesResponseRedisConfiguration?> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Redis version.
+        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
         /// </summary>
         [Output("redisVersion")]
-        public Output<string> RedisVersion { get; private set; } = null!;
+        public Output<string?> RedisVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The number of replicas to be created per master.
+        /// The number of replicas to be created per primary.
         /// </summary>
         [Output("replicasPerMaster")]
         public Output<int?> ReplicasPerMaster { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of replicas to be created per primary.
+        /// </summary>
+        [Output("replicasPerPrimary")]
+        public Output<int?> ReplicasPerPrimary { get; private set; } = null!;
 
         /// <summary>
         /// The number of shards to be created on a Premium Cluster Cache.
@@ -149,7 +161,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -224,6 +236,12 @@ namespace Pulumi.AzureNative.Cache
         public Input<bool>? EnableNonSslPort { get; set; }
 
         /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -254,10 +272,22 @@ namespace Pulumi.AzureNative.Cache
         public Input<Inputs.RedisCommonPropertiesRedisConfigurationArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
-        /// The number of replicas to be created per master.
+        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        /// </summary>
+        [Input("redisVersion")]
+        public Input<string>? RedisVersion { get; set; }
+
+        /// <summary>
+        /// The number of replicas to be created per primary.
         /// </summary>
         [Input("replicasPerMaster")]
         public Input<int>? ReplicasPerMaster { get; set; }
+
+        /// <summary>
+        /// The number of replicas to be created per primary.
+        /// </summary>
+        [Input("replicasPerPrimary")]
+        public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
         /// The name of the resource group.

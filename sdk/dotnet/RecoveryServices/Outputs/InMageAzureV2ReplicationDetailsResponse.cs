@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
     /// <summary>
-    /// InMageAzureV2 provider specific settings
+    /// InMageAzureV2 provider specific settings.
     /// </summary>
     [OutputType]
     public sealed class InMageAzureV2ReplicationDetailsResponse
@@ -29,11 +29,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureVmDiskDetailsResponse> AzureVMDiskDetails;
         /// <summary>
+        /// The target generation for this protected item.
+        /// </summary>
+        public readonly string? AzureVmGeneration;
+        /// <summary>
         /// The compressed data change rate in MB.
         /// </summary>
         public readonly double? CompressedDataRateInMB;
         /// <summary>
-        /// The data stores of the on-premise machine. Value can be list of strings that contain data store names.
+        /// The datastores of the on-premise machine. Value can be list of strings that contain datastore names.
         /// </summary>
         public readonly ImmutableArray<string> Datastores;
         /// <summary>
@@ -45,9 +49,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? DiskResized;
         /// <summary>
-        /// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+        /// The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         /// </summary>
         public readonly string? EnableRdpOnTargetOption;
+        /// <summary>
+        /// The firmware type of this protected item.
+        /// </summary>
+        public readonly string? FirmwareType;
         /// <summary>
         /// The infrastructure VM Id.
         /// </summary>
@@ -62,6 +70,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
+        /// A value indicating whether additional IR stats are available or not.
+        /// </summary>
+        public readonly bool? IsAdditionalStatsAvailable;
+        /// <summary>
         /// A value indicating whether installed agent needs to be updated.
         /// </summary>
         public readonly string? IsAgentUpdateRequired;
@@ -73,6 +85,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The last heartbeat received from the source server.
         /// </summary>
         public readonly string? LastHeartbeat;
+        /// <summary>
+        /// The last recovery point received time.
+        /// </summary>
+        public readonly string LastRecoveryPointReceived;
         /// <summary>
         /// The last RPO calculated time.
         /// </summary>
@@ -120,7 +136,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The process server name.
         /// </summary>
-        public readonly string ProcessServerName;
+        public readonly string? ProcessServerName;
         /// <summary>
         /// The list of protected disks.
         /// </summary>
@@ -170,6 +186,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double? RpoInSeconds;
         /// <summary>
+        /// The tags for the seed managed disks.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? SeedManagedDiskTags;
+        /// <summary>
         /// The selected recovery azure network Id.
         /// </summary>
         public readonly string? SelectedRecoveryAzureNetworkId;
@@ -190,9 +210,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? SourceVmRamSizeInMB;
         /// <summary>
+        /// The SQL Server license type.
+        /// </summary>
+        public readonly string? SqlServerLicenseType;
+        /// <summary>
+        /// The switch provider blocking error information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse> SwitchProviderBlockingErrorDetails;
+        /// <summary>
+        /// The switch provider blocking error information.
+        /// </summary>
+        public readonly Outputs.InMageAzureV2SwitchProviderDetailsResponse? SwitchProviderDetails;
+        /// <summary>
         /// The target availability zone.
         /// </summary>
         public readonly string? TargetAvailabilityZone;
+        /// <summary>
+        /// The tags for the target managed disks.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TargetManagedDiskTags;
+        /// <summary>
+        /// The tags for the target NICs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TargetNicTags;
         /// <summary>
         /// The target proximity placement group Id.
         /// </summary>
@@ -201,6 +241,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
         /// </summary>
         public readonly string? TargetVmId;
+        /// <summary>
+        /// The target VM tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TargetVmTags;
+        /// <summary>
+        /// The total transferred data in bytes.
+        /// </summary>
+        public readonly double? TotalDataTransferred;
+        /// <summary>
+        /// The progress health.
+        /// </summary>
+        public readonly string? TotalProgressHealth;
         /// <summary>
         /// The uncompressed data change rate in MB.
         /// </summary>
@@ -246,6 +298,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             ImmutableArray<Outputs.AzureVmDiskDetailsResponse> azureVMDiskDetails,
 
+            string? azureVmGeneration,
+
             double? compressedDataRateInMB,
 
             ImmutableArray<string> datastores,
@@ -256,17 +310,23 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? enableRdpOnTargetOption,
 
+            string? firmwareType,
+
             string? infrastructureVmId,
 
             string instanceType,
 
             string? ipAddress,
 
+            bool? isAdditionalStatsAvailable,
+
             string? isAgentUpdateRequired,
 
             string? isRebootAfterUpdateRequired,
 
             string? lastHeartbeat,
+
+            string lastRecoveryPointReceived,
 
             string? lastRpoCalculatedTime,
 
@@ -290,7 +350,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? processServerId,
 
-            string processServerName,
+            string? processServerName,
 
             ImmutableArray<Outputs.InMageAzureV2ProtectedDiskDetailsResponse> protectedDisks,
 
@@ -316,6 +376,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             double? rpoInSeconds,
 
+            ImmutableDictionary<string, string>? seedManagedDiskTags,
+
             string? selectedRecoveryAzureNetworkId,
 
             string? selectedSourceNicId,
@@ -326,11 +388,27 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? sourceVmRamSizeInMB,
 
+            string? sqlServerLicenseType,
+
+            ImmutableArray<Outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse> switchProviderBlockingErrorDetails,
+
+            Outputs.InMageAzureV2SwitchProviderDetailsResponse? switchProviderDetails,
+
             string? targetAvailabilityZone,
+
+            ImmutableDictionary<string, string>? targetManagedDiskTags,
+
+            ImmutableDictionary<string, string>? targetNicTags,
 
             string? targetProximityPlacementGroupId,
 
             string? targetVmId,
+
+            ImmutableDictionary<string, string>? targetVmTags,
+
+            double? totalDataTransferred,
+
+            string? totalProgressHealth,
 
             double? uncompressedDataRateInMB,
 
@@ -353,17 +431,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             AgentExpiryDate = agentExpiryDate;
             AgentVersion = agentVersion;
             AzureVMDiskDetails = azureVMDiskDetails;
+            AzureVmGeneration = azureVmGeneration;
             CompressedDataRateInMB = compressedDataRateInMB;
             Datastores = datastores;
             DiscoveryType = discoveryType;
             DiskResized = diskResized;
             EnableRdpOnTargetOption = enableRdpOnTargetOption;
+            FirmwareType = firmwareType;
             InfrastructureVmId = infrastructureVmId;
             InstanceType = instanceType;
             IpAddress = ipAddress;
+            IsAdditionalStatsAvailable = isAdditionalStatsAvailable;
             IsAgentUpdateRequired = isAgentUpdateRequired;
             IsRebootAfterUpdateRequired = isRebootAfterUpdateRequired;
             LastHeartbeat = lastHeartbeat;
+            LastRecoveryPointReceived = lastRecoveryPointReceived;
             LastRpoCalculatedTime = lastRpoCalculatedTime;
             LastUpdateReceivedTime = lastUpdateReceivedTime;
             LicenseType = licenseType;
@@ -388,14 +470,23 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ReplicaId = replicaId;
             ResyncProgressPercentage = resyncProgressPercentage;
             RpoInSeconds = rpoInSeconds;
+            SeedManagedDiskTags = seedManagedDiskTags;
             SelectedRecoveryAzureNetworkId = selectedRecoveryAzureNetworkId;
             SelectedSourceNicId = selectedSourceNicId;
             SelectedTfoAzureNetworkId = selectedTfoAzureNetworkId;
             SourceVmCpuCount = sourceVmCpuCount;
             SourceVmRamSizeInMB = sourceVmRamSizeInMB;
+            SqlServerLicenseType = sqlServerLicenseType;
+            SwitchProviderBlockingErrorDetails = switchProviderBlockingErrorDetails;
+            SwitchProviderDetails = switchProviderDetails;
             TargetAvailabilityZone = targetAvailabilityZone;
+            TargetManagedDiskTags = targetManagedDiskTags;
+            TargetNicTags = targetNicTags;
             TargetProximityPlacementGroupId = targetProximityPlacementGroupId;
             TargetVmId = targetVmId;
+            TargetVmTags = targetVmTags;
+            TotalDataTransferred = totalDataTransferred;
+            TotalProgressHealth = totalProgressHealth;
             UncompressedDataRateInMB = uncompressedDataRateInMB;
             UseManagedDisks = useManagedDisks;
             VCenterInfrastructureId = vCenterInfrastructureId;

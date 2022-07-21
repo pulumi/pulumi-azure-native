@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto cluster.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -37,9 +37,25 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The cluster's accepted audiences.
+     */
+    readonly acceptedAudiences?: outputs.kusto.AcceptedAudiencesResponse[];
+    /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    readonly allowedFqdnList?: string[];
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    readonly allowedIpRangeList?: string[];
+    /**
      * The cluster data ingestion URI.
      */
     readonly dataIngestionUri: string;
+    /**
+     * A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    readonly enableAutoStop?: boolean;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
@@ -93,9 +109,25 @@ export interface GetClusterResult {
      */
     readonly optimizedAutoscale?: outputs.kusto.OptimizedAutoscaleResponse;
     /**
+     * A list of private endpoint connections.
+     */
+    readonly privateEndpointConnections: outputs.kusto.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioned state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+     */
+    readonly publicIPType?: string;
+    /**
+     * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly restrictOutboundNetworkAccess?: string;
     /**
      * The SKU of the cluster.
      */
@@ -108,6 +140,10 @@ export interface GetClusterResult {
      * The reason for the cluster's current state.
      */
     readonly stateReason: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.kusto.SystemDataResponse;
     /**
      * Resource tags.
      */

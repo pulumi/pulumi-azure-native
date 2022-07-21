@@ -158,7 +158,7 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkSegmentResult:
     """
     NSX Segment
-    API Version: 2020-07-17-preview.
+    API Version: 2021-12-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -195,7 +195,7 @@ def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Inpu
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkSegmentResult]:
     """
     NSX Segment
-    API Version: 2020-07-17-preview.
+    API Version: 2021-12-01.
 
 
     :param str private_cloud_name: Name of the private cloud

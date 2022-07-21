@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Disk resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-12-01.
  */
 export class Disk extends pulumi.CustomResource {
     /**
@@ -41,9 +41,17 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly burstingEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Percentage complete for the background copy when a resource is created via the CopyStart operation.
+     */
+    public readonly completionPercent!: pulumi.Output<number | undefined>;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     public readonly creationData!: pulumi.Output<outputs.compute.CreationDataResponse>;
+    /**
+     * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+     */
+    public readonly dataAccessAuthMode!: pulumi.Output<string | undefined>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -129,6 +137,10 @@ export class Disk extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Policy for controlling export on the disk.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
     public readonly purchasePlan!: pulumi.Output<outputs.compute.PurchasePlanResponse | undefined>;
@@ -144,6 +156,10 @@ export class Disk extends pulumi.CustomResource {
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
     public readonly sku!: pulumi.Output<outputs.compute.DiskSkuResponse | undefined>;
+    /**
+     * List of supported capabilities for the image from which the OS disk was created.
+     */
+    public readonly supportedCapabilities!: pulumi.Output<outputs.compute.SupportedCapabilitiesResponse | undefined>;
     /**
      * Indicates the OS on a disk supports hibernation.
      */
@@ -191,7 +207,9 @@ export class Disk extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["burstingEnabled"] = args ? args.burstingEnabled : undefined;
+            resourceInputs["completionPercent"] = args ? args.completionPercent : undefined;
             resourceInputs["creationData"] = args ? args.creationData : undefined;
+            resourceInputs["dataAccessAuthMode"] = args ? args.dataAccessAuthMode : undefined;
             resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             resourceInputs["diskIOPSReadOnly"] = args ? args.diskIOPSReadOnly : undefined;
             resourceInputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
@@ -207,10 +225,12 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["maxShares"] = args ? args.maxShares : undefined;
             resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
             resourceInputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
@@ -228,7 +248,9 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
             resourceInputs["burstingEnabled"] = undefined /*out*/;
+            resourceInputs["completionPercent"] = undefined /*out*/;
             resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["dataAccessAuthMode"] = undefined /*out*/;
             resourceInputs["diskAccessId"] = undefined /*out*/;
             resourceInputs["diskIOPSReadOnly"] = undefined /*out*/;
             resourceInputs["diskIOPSReadWrite"] = undefined /*out*/;
@@ -250,10 +272,12 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["propertyUpdatesInProgress"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["purchasePlan"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["shareInfo"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["supportedCapabilities"] = undefined /*out*/;
             resourceInputs["supportsHibernation"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tier"] = undefined /*out*/;
@@ -278,9 +302,17 @@ export interface DiskArgs {
      */
     burstingEnabled?: pulumi.Input<boolean>;
     /**
+     * Percentage complete for the background copy when a resource is created via the CopyStart operation.
+     */
+    completionPercent?: pulumi.Input<number>;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     creationData: pulumi.Input<inputs.compute.CreationDataArgs>;
+    /**
+     * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+     */
+    dataAccessAuthMode?: pulumi.Input<string | enums.compute.DataAccessAuthMode>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -302,7 +334,7 @@ export interface DiskArgs {
      */
     diskMBpsReadWrite?: pulumi.Input<number>;
     /**
-     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskName?: pulumi.Input<string>;
     /**
@@ -342,6 +374,10 @@ export interface DiskArgs {
      */
     osType?: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**
+     * Policy for controlling export on the disk.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.compute.PublicNetworkAccess>;
+    /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
     purchasePlan?: pulumi.Input<inputs.compute.PurchasePlanArgs>;
@@ -357,6 +393,10 @@ export interface DiskArgs {
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
     sku?: pulumi.Input<inputs.compute.DiskSkuArgs>;
+    /**
+     * List of supported capabilities for the image from which the OS disk was created.
+     */
+    supportedCapabilities?: pulumi.Input<inputs.compute.SupportedCapabilitiesArgs>;
     /**
      * Indicates the OS on a disk supports hibernation.
      */

@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents a server firewall rule.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     if (!opts) {
@@ -56,6 +57,10 @@ export interface GetFirewallRuleResult {
      * The start IP address of the server firewall rule. Must be IPv4 format.
      */
     readonly startIpAddress: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

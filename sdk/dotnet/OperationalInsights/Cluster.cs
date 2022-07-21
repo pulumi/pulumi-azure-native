@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Cluster")]
     public partial class Cluster : Pulumi.CustomResource

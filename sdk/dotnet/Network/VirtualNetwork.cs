@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Network resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Network
         public Output<bool?> EnableVmProtection { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.VirtualNetworkEncryptionResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -63,6 +69,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The FlowTimeout value (in minutes) for the Virtual Network
+        /// </summary>
+        [Output("flowTimeoutInMinutes")]
+        public Output<int?> FlowTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// Array of IpAllocation which reference this VNET.
@@ -244,10 +256,22 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? EnableVmProtection { get; set; }
 
         /// <summary>
+        /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.VirtualNetworkEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The extended location of the virtual network.
         /// </summary>
         [Input("extendedLocation")]
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
+        /// The FlowTimeout value (in minutes) for the Virtual Network
+        /// </summary>
+        [Input("flowTimeoutInMinutes")]
+        public Input<int>? FlowTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// Resource ID.

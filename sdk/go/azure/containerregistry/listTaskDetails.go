@@ -12,7 +12,7 @@ import (
 
 // The task that has the ARM resource and task properties.
 // The task will have all information to schedule a run against it.
-// API Version: 2019-06-01-preview.
+// API Version: 2019-04-01.
 func ListTaskDetails(ctx *pulumi.Context, args *ListTaskDetailsArgs, opts ...pulumi.InvokeOption) (*ListTaskDetailsResult, error) {
 	var rv ListTaskDetailsResult
 	err := ctx.Invoke("azure-native:containerregistry:listTaskDetails", args, &rv, opts...)
@@ -36,8 +36,6 @@ type ListTaskDetailsArgs struct {
 type ListTaskDetailsResult struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the task.
-	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The creation date of task.
 	CreationDate string `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
@@ -46,24 +44,18 @@ type ListTaskDetailsResult struct {
 	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The value of this property indicates whether the task resource is system task or not.
-	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The platform properties against which the run has to happen.
-	Platform *PlatformPropertiesResponse `pulumi:"platform"`
+	Platform PlatformPropertiesResponse `pulumi:"platform"`
 	// The provisioning state of the task.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
 	Step interface{} `pulumi:"step"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -80,10 +72,6 @@ func (val *ListTaskDetailsResult) Defaults() *ListTaskDetailsResult {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.IsSystemTask) {
-		isSystemTask_ := false
-		tmp.IsSystemTask = &isSystemTask_
-	}
 	if isZero(tmp.Timeout) {
 		timeout_ := 3600
 		tmp.Timeout = &timeout_
@@ -140,11 +128,6 @@ func (o ListTaskDetailsResultOutput) AgentConfiguration() AgentPropertiesRespons
 	return o.ApplyT(func(v ListTaskDetailsResult) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
 }
 
-// The dedicated agent pool for the task.
-func (o ListTaskDetailsResultOutput) AgentPoolName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ListTaskDetailsResult) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
-}
-
 // The creation date of task.
 func (o ListTaskDetailsResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.CreationDate }).(pulumi.StringOutput)
@@ -165,19 +148,9 @@ func (o ListTaskDetailsResultOutput) Identity() IdentityPropertiesResponsePtrOut
 	return o.ApplyT(func(v ListTaskDetailsResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
 }
 
-// The value of this property indicates whether the task resource is system task or not.
-func (o ListTaskDetailsResultOutput) IsSystemTask() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ListTaskDetailsResult) *bool { return v.IsSystemTask }).(pulumi.BoolPtrOutput)
-}
-
 // The location of the resource. This cannot be changed after the resource is created.
 func (o ListTaskDetailsResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The template that describes the repository and tag information for run log artifact.
-func (o ListTaskDetailsResultOutput) LogTemplate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ListTaskDetailsResult) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource.
@@ -186,8 +159,8 @@ func (o ListTaskDetailsResultOutput) Name() pulumi.StringOutput {
 }
 
 // The platform properties against which the run has to happen.
-func (o ListTaskDetailsResultOutput) Platform() PlatformPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ListTaskDetailsResult) *PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponsePtrOutput)
+func (o ListTaskDetailsResultOutput) Platform() PlatformPropertiesResponseOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
 }
 
 // The provisioning state of the task.
@@ -203,11 +176,6 @@ func (o ListTaskDetailsResultOutput) Status() pulumi.StringPtrOutput {
 // The properties of a task step.
 func (o ListTaskDetailsResultOutput) Step() pulumi.AnyOutput {
 	return o.ApplyT(func(v ListTaskDetailsResult) interface{} { return v.Step }).(pulumi.AnyOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-func (o ListTaskDetailsResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v ListTaskDetailsResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The tags of the resource.

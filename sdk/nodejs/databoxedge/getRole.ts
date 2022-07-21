@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Compute role.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 /** @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole. */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
@@ -56,7 +56,7 @@ export interface GetRoleResult {
      */
     readonly name: string;
     /**
-     * Role configured on ASE resource
+     * Metadata pertaining to creation and last modification of Role
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

@@ -11,7 +11,7 @@ import (
 )
 
 // A DDoS custom policy in a resource group.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupDdosCustomPolicy(ctx *pulumi.Context, args *LookupDdosCustomPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDdosCustomPolicyResult, error) {
 	var rv LookupDdosCustomPolicyResult
 	err := ctx.Invoke("azure-native:network:getDdosCustomPolicy", args, &rv, opts...)

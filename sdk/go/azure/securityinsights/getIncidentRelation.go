@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a relation between two resources
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArgs, opts ...pulumi.InvokeOption) (*LookupIncidentRelationResult, error) {
 	var rv LookupIncidentRelationResult
 	err := ctx.Invoke("azure-native:securityinsights:getIncidentRelation", args, &rv, opts...)
@@ -24,8 +24,6 @@ func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArg
 type LookupIncidentRelationArgs struct {
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// Relation Name
 	RelationName string `pulumi:"relationName"`
 	// The name of the resource group. The name is case insensitive.
@@ -38,9 +36,9 @@ type LookupIncidentRelationArgs struct {
 type LookupIncidentRelationResult struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The resource ID of the related resource
 	RelatedResourceId string `pulumi:"relatedResourceId"`
@@ -52,7 +50,7 @@ type LookupIncidentRelationResult struct {
 	RelatedResourceType string `pulumi:"relatedResourceType"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -72,8 +70,6 @@ func LookupIncidentRelationOutput(ctx *pulumi.Context, args LookupIncidentRelati
 type LookupIncidentRelationOutputArgs struct {
 	// Incident ID
 	IncidentId pulumi.StringInput `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
 	// Relation Name
 	RelationName pulumi.StringInput `pulumi:"relationName"`
 	// The name of the resource group. The name is case insensitive.
@@ -106,12 +102,12 @@ func (o LookupIncidentRelationResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIncidentRelationResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupIncidentRelationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupIncidentRelationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -141,7 +137,7 @@ func (o LookupIncidentRelationResultOutput) SystemData() SystemDataResponseOutpu
 	return o.ApplyT(func(v LookupIncidentRelationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupIncidentRelationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.Type }).(pulumi.StringOutput)
 }

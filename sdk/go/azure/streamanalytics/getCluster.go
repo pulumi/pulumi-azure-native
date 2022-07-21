@@ -11,7 +11,7 @@ import (
 )
 
 // A Stream Analytics Cluster object
-// API Version: 2020-03-01-preview.
+// API Version: 2020-03-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:streamanalytics:getCluster", args, &rv, opts...)
@@ -30,6 +30,14 @@ type LookupClusterArgs struct {
 
 // A Stream Analytics Cluster object
 type LookupClusterResult struct {
+	// Represents the number of streaming units currently being used on the cluster.
+	CapacityAllocated int `pulumi:"capacityAllocated"`
+	// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+	CapacityAssigned int `pulumi:"capacityAssigned"`
+	// Unique identifier for the cluster.
+	ClusterId string `pulumi:"clusterId"`
+	// The date this cluster was created.
+	CreatedDate string `pulumi:"createdDate"`
 	// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -38,8 +46,8 @@ type LookupClusterResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties associated with a Stream Analytics cluster.
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
+	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 	Sku *ClusterSkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -87,6 +95,26 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// Represents the number of streaming units currently being used on the cluster.
+func (o LookupClusterResultOutput) CapacityAllocated() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.CapacityAllocated }).(pulumi.IntOutput)
+}
+
+// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+func (o LookupClusterResultOutput) CapacityAssigned() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.CapacityAssigned }).(pulumi.IntOutput)
+}
+
+// Unique identifier for the cluster.
+func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The date this cluster was created.
+func (o LookupClusterResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
 // The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 func (o LookupClusterResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Etag }).(pulumi.StringOutput)
@@ -107,9 +135,9 @@ func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties associated with a Stream Analytics cluster.
-func (o LookupClusterResultOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v LookupClusterResult) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
+// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+func (o LookupClusterResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.

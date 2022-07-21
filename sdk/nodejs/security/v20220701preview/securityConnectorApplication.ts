@@ -92,8 +92,6 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityConnectorApplication" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityConnectorApplication.__pulumiType, name, resourceInputs, opts);
     }
 }

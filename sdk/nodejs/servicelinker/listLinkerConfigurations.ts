@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configurations for source resource, include appSettings, connectionString and serviceBindings
- * API Version: 2021-11-01-preview.
+ * API Version: 2022-05-01.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
     if (!opts) {

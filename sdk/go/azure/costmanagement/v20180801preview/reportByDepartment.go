@@ -47,12 +47,6 @@ func NewReportByDepartment(ctx *pulumi.Context,
 	if args.DepartmentId == nil {
 		return nil, errors.New("invalid value for required argument 'DepartmentId'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:costmanagement:ReportByDepartment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ReportByDepartment
 	err := ctx.RegisterResource("azure-native:costmanagement/v20180801preview:ReportByDepartment", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a scaling plan definition.
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-07-12.
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
@@ -83,10 +83,6 @@ export class ScalingPlan extends pulumi.CustomResource {
     public /*out*/ readonly objectId!: pulumi.Output<string>;
     public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
-     * The ring number of scaling plan.
-     */
-    public readonly ring!: pulumi.Output<number | undefined>;
-    /**
      * List of ScalingSchedule definitions.
      */
     public readonly schedules!: pulumi.Output<outputs.desktopvirtualization.ScalingScheduleResponse[] | undefined>;
@@ -129,7 +125,6 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ring"] = args ? args.ring : undefined;
             resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
             resourceInputs["schedules"] = args ? args.schedules : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -153,7 +148,6 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
-            resourceInputs["ring"] = undefined /*out*/;
             resourceInputs["schedules"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -209,10 +203,6 @@ export interface ScalingPlanArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The ring number of scaling plan.
-     */
-    ring?: pulumi.Input<number>;
     /**
      * The name of the scaling plan.
      */

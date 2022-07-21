@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource upload definition payload
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceResourceUploadUrlResult> {
     if (!opts) {

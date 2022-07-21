@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a cluster principal assignment.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterPrincipalAssignment.__pulumiType;
     }
 
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    public /*out*/ readonly aadObjectId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -106,12 +110,14 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["aadObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["tenantName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["aadObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;

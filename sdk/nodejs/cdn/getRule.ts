@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Rules name mapping to the any Rules or secret related information.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     if (!opts) {
@@ -25,7 +25,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
 
 export interface GetRuleArgs {
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -49,11 +49,11 @@ export interface GetRuleResult {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: (outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[];
+    readonly actions: (outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[];
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: (outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse)[];
+    readonly conditions?: (outputs.cdn.DeliveryRuleClientPortConditionResponse | outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHostNameConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleServerPortConditionResponse | outputs.cdn.DeliveryRuleSocketAddrConditionResponse | outputs.cdn.DeliveryRuleSslProtocolConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse)[];
     readonly deploymentStatus: string;
     /**
      * Resource ID.
@@ -76,6 +76,10 @@ export interface GetRuleResult {
      */
     readonly provisioningState: string;
     /**
+     * The name of the rule set containing the rule.
+     */
+    readonly ruleSetName: string;
+    /**
      * Read only system data
      */
     readonly systemData: outputs.cdn.SystemDataResponse;
@@ -91,7 +95,7 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptio
 
 export interface GetRuleOutputArgs {
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

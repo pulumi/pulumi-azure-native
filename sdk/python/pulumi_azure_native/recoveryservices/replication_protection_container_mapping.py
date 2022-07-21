@@ -127,7 +127,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  __props__=None):
         """
         Protection container mapping object.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Protection container mapping object.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionContainerMappingArgs args: The arguments to use to populate this resource's properties.

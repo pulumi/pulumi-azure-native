@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// The top level Workspace resource container.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The top level Workspace resource container.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -78,9 +78,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string CustomerId;
         /// <summary>
-        /// The ETag of the workspace.
+        /// The etag of the workspace.
         /// </summary>
-        public readonly string? ETag;
+        public readonly string? Etag;
         /// <summary>
         /// Workspace features.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string customerId,
 
-            string? eTag,
+            string? etag,
 
             Outputs.WorkspaceFeaturesResponse? features,
 
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         {
             CreatedDate = createdDate;
             CustomerId = customerId;
-            ETag = eTag;
+            Etag = etag;
             Features = features;
             ForceCmkForQuery = forceCmkForQuery;
             Id = id;

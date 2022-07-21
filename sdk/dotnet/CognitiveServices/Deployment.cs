@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// Cognitive Services account deployment.
-    /// API Version: 2021-10-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Deployment")]
     public partial class Deployment : Pulumi.CustomResource

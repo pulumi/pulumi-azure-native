@@ -12,7 +12,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 //
 // Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 type Trigger struct {
@@ -22,7 +22,7 @@ type Trigger struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Trigger in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of Trigger
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -187,7 +187,7 @@ func (o TriggerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Trigger in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of Trigger
 func (o TriggerOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Trigger) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

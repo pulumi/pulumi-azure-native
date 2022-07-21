@@ -28,10 +28,22 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<bool>? CollectAgentJobs { get; set; }
 
         /// <summary>
+        /// Flag for whether to collect databases from source server.
+        /// </summary>
+        [Input("collectDatabases")]
+        public Input<bool>? CollectDatabases { get; set; }
+
+        /// <summary>
         /// Flag for whether to collect logins from source server.
         /// </summary>
         [Input("collectLogins")]
         public Input<bool>? CollectLogins { get; set; }
+
+        /// <summary>
+        /// Flag for whether to collect TDE Certificate names from source server.
+        /// </summary>
+        [Input("collectTdeCertificateInfo")]
+        public Input<bool>? CollectTdeCertificateInfo { get; set; }
 
         /// <summary>
         /// Connection information for Source SQL Server
@@ -39,10 +51,19 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         [Input("sourceConnectionInfo", required: true)]
         public Input<Inputs.SqlConnectionInfoArgs> SourceConnectionInfo { get; set; } = null!;
 
+        /// <summary>
+        /// Flag for whether to validate SSIS catalog is reachable on the source server.
+        /// </summary>
+        [Input("validateSsisCatalogOnly")]
+        public Input<bool>? ValidateSsisCatalogOnly { get; set; }
+
         public ConnectToSourceSqlServerTaskInputArgs()
         {
             CollectAgentJobs = false;
+            CollectDatabases = true;
             CollectLogins = false;
+            CollectTdeCertificateInfo = false;
+            ValidateSsisCatalogOnly = false;
         }
     }
 }

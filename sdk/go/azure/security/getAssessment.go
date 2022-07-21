@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment on a resource
-// API Version: 2020-01-01.
+// Security assessment on a resource - response format
+// API Version: 2021-06-01.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
 	err := ctx.Invoke("azure-native:security:getAssessment", args, &rv, opts...)
@@ -30,7 +30,7 @@ type LookupAssessmentArgs struct {
 	ResourceId string `pulumi:"resourceId"`
 }
 
-// Security assessment on a resource
+// Security assessment on a resource - response format
 type LookupAssessmentResult struct {
 	// Additional data regarding the assessment
 	AdditionalData map[string]string `pulumi:"additionalData"`
@@ -49,7 +49,7 @@ type LookupAssessmentResult struct {
 	// Details of the resource that was assessed
 	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The result of the assessment
-	Status AssessmentStatusResponse `pulumi:"status"`
+	Status AssessmentStatusResponseResponse `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
@@ -80,7 +80,7 @@ func (LookupAssessmentOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupAssessmentArgs)(nil)).Elem()
 }
 
-// Security assessment on a resource
+// Security assessment on a resource - response format
 type LookupAssessmentResultOutput struct{ *pulumi.OutputState }
 
 func (LookupAssessmentResultOutput) ElementType() reflect.Type {
@@ -136,8 +136,8 @@ func (o LookupAssessmentResultOutput) ResourceDetails() pulumi.AnyOutput {
 }
 
 // The result of the assessment
-func (o LookupAssessmentResultOutput) Status() AssessmentStatusResponseOutput {
-	return o.ApplyT(func(v LookupAssessmentResult) AssessmentStatusResponse { return v.Status }).(AssessmentStatusResponseOutput)
+func (o LookupAssessmentResultOutput) Status() AssessmentStatusResponseResponseOutput {
+	return o.ApplyT(func(v LookupAssessmentResult) AssessmentStatusResponseResponse { return v.Status }).(AssessmentStatusResponseResponseOutput)
 }
 
 // Resource type

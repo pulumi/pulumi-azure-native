@@ -10,22 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
+    /// <summary>
+    /// Details about a user assigned identity.
+    /// </summary>
     public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client id of the user assigned identity.
+        /// The client ID of the user assigned identity.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The object id of the user assigned identity.
+        /// The object ID of the user assigned identity.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The resource id of the user assigned identity.
+        /// The resource ID of the user assigned identity.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

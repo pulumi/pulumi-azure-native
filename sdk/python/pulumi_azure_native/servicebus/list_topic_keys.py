@@ -122,7 +122,7 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicKeysResult:
     """
     Namespace/ServiceBus Connection String
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -159,7 +159,7 @@ def list_topic_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicKeysResult]:
     """
     Namespace/ServiceBus Connection String
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

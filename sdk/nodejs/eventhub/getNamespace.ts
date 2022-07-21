@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single Namespace item in List or Get Operation
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     if (!opts) {
@@ -37,13 +37,33 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * Alternate name specified when alias and namespace names are same.
+     */
+    readonly alternateName?: string;
+    /**
+     * Cluster ARM ID of the Namespace.
+     */
+    readonly clusterArmId?: string;
+    /**
      * The time the Namespace was created.
      */
     readonly createdAt: string;
     /**
+     * This property disables SAS authentication for the Event Hubs namespace.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: outputs.eventhub.EncryptionResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Properties of BYOK Identity description
+     */
+    readonly identity?: outputs.eventhub.IdentityResponse;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -69,6 +89,10 @@ export interface GetNamespaceResult {
      */
     readonly name: string;
     /**
+     * List of private endpoint connections.
+     */
+    readonly privateEndpointConnections?: outputs.eventhub.PrivateEndpointConnectionResponse[];
+    /**
      * Provisioning state of the Namespace.
      */
     readonly provisioningState: string;
@@ -81,6 +105,14 @@ export interface GetNamespaceResult {
      */
     readonly sku?: outputs.eventhub.SkuResponse;
     /**
+     * Status of the Namespace.
+     */
+    readonly status: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -92,6 +124,10 @@ export interface GetNamespaceResult {
      * The time the Namespace was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: boolean;
 }
 
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {

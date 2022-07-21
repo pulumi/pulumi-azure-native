@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 
@@ -32,6 +32,12 @@ type FileShare struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Returns the date and time the share was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+	LeaseDuration pulumi.StringOutput `pulumi:"leaseDuration"`
+	// Lease state of the share.
+	LeaseState pulumi.StringOutput `pulumi:"leaseState"`
+	// The lease status of the share.
+	LeaseStatus pulumi.StringOutput `pulumi:"leaseStatus"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the resource
@@ -44,6 +50,8 @@ type FileShare struct {
 	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.Float64Output `pulumi:"shareUsageBytes"`
+	// List of stored access policies specified on the share.
+	SignedIdentifiers SignedIdentifierResponseArrayOutput `pulumi:"signedIdentifiers"`
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -133,7 +141,7 @@ type fileShareArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols *string `pulumi:"enabledProtocols"`
-	// Optional, used to create a snapshot.
+	// Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
 	Expand *string `pulumi:"expand"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -145,6 +153,8 @@ type fileShareArgs struct {
 	ShareName *string `pulumi:"shareName"`
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota *int `pulumi:"shareQuota"`
+	// List of stored access policies specified on the share.
+	SignedIdentifiers []SignedIdentifier `pulumi:"signedIdentifiers"`
 }
 
 // The set of arguments for constructing a FileShare resource.
@@ -155,7 +165,7 @@ type FileShareArgs struct {
 	AccountName pulumi.StringInput
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols pulumi.StringPtrInput
-	// Optional, used to create a snapshot.
+	// Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
 	Expand pulumi.StringPtrInput
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapInput
@@ -167,6 +177,8 @@ type FileShareArgs struct {
 	ShareName pulumi.StringPtrInput
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrInput
+	// List of stored access policies specified on the share.
+	SignedIdentifiers SignedIdentifierArrayInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {
@@ -246,6 +258,21 @@ func (o FileShareOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+func (o FileShareOutput) LeaseDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.LeaseDuration }).(pulumi.StringOutput)
+}
+
+// Lease state of the share.
+func (o FileShareOutput) LeaseState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.LeaseState }).(pulumi.StringOutput)
+}
+
+// The lease status of the share.
+func (o FileShareOutput) LeaseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.LeaseStatus }).(pulumi.StringOutput)
+}
+
 // A name-value pair to associate with the share as metadata.
 func (o FileShareOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileShare) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
@@ -274,6 +301,11 @@ func (o FileShareOutput) ShareQuota() pulumi.IntPtrOutput {
 // The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 func (o FileShareOutput) ShareUsageBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v *FileShare) pulumi.Float64Output { return v.ShareUsageBytes }).(pulumi.Float64Output)
+}
+
+// List of stored access policies specified on the share.
+func (o FileShareOutput) SignedIdentifiers() SignedIdentifierResponseArrayOutput {
+	return o.ApplyT(func(v *FileShare) SignedIdentifierResponseArrayOutput { return v.SignedIdentifiers }).(SignedIdentifierResponseArrayOutput)
 }
 
 // Creation time of share snapshot returned in the response of list shares with expand param "snapshots".

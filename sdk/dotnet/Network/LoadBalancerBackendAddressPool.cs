@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Pool of backend IP addresses.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : Pulumi.CustomResource
@@ -23,10 +23,22 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse>> BackendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        /// </summary>
+        [Output("drainPeriodInSeconds")]
+        public Output<int?> DrainPeriodInSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of references to inbound NAT rules that use this backend address pool.
+        /// </summary>
+        [Output("inboundNatRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> InboundNatRules { get; private set; } = null!;
 
         /// <summary>
         /// An array of backend addresses.
@@ -39,6 +51,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("loadBalancingRules")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> LoadBalancingRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -63,6 +81,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of gateway load balancer tunnel interfaces.
+        /// </summary>
+        [Output("tunnelInterfaces")]
+        public Output<ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse>> TunnelInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.
@@ -136,6 +160,12 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? BackendAddressPoolName { get; set; }
 
         /// <summary>
+        /// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        /// </summary>
+        [Input("drainPeriodInSeconds")]
+        public Input<int>? DrainPeriodInSeconds { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -160,6 +190,12 @@ namespace Pulumi.AzureNative.Network
         public Input<string> LoadBalancerName { get; set; } = null!;
 
         /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
@@ -170,6 +206,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tunnelInterfaces")]
+        private InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>? _tunnelInterfaces;
+
+        /// <summary>
+        /// An array of gateway load balancer tunnel interfaces.
+        /// </summary>
+        public InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs> TunnelInterfaces
+        {
+            get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>());
+            set => _tunnelInterfaces = value;
+        }
 
         public LoadBalancerBackendAddressPoolArgs()
         {

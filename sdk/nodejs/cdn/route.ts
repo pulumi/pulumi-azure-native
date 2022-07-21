@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Routes name mapping to the any Routes or secret related information.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -37,18 +37,22 @@ export class Route extends pulumi.CustomResource {
     }
 
     /**
-     * compression settings.
+     * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
-    public readonly compressionSettings!: pulumi.Output<outputs.cdn.CompressionSettingsResponse | undefined>;
+    public readonly cacheConfiguration!: pulumi.Output<outputs.cdn.AfdRouteCacheConfigurationResponse | undefined>;
     /**
      * Domains referenced by this endpoint.
      */
-    public readonly customDomains!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[] | undefined>;
+    public readonly customDomains!: pulumi.Output<outputs.cdn.ActivatedResourceReferenceResponse[] | undefined>;
     public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
     public readonly enabledState!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the endpoint which holds the route.
+     */
+    public readonly endpointName!: pulumi.Output<string>;
     /**
      * Protocol this rule will use when forwarding traffic to backends.
      */
@@ -81,10 +85,6 @@ export class Route extends pulumi.CustomResource {
      * Provisioning status
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-     */
-    public readonly queryStringCachingBehavior!: pulumi.Output<string | undefined>;
     /**
      * rule sets referenced by this endpoint.
      */
@@ -125,7 +125,7 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["compressionSettings"] = args ? args.compressionSettings : undefined;
+            resourceInputs["cacheConfiguration"] = args ? args.cacheConfiguration : undefined;
             resourceInputs["customDomains"] = args ? args.customDomains : undefined;
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
@@ -136,7 +136,6 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["originPath"] = args ? args.originPath : undefined;
             resourceInputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routeName"] = args ? args.routeName : undefined;
             resourceInputs["ruleSets"] = args ? args.ruleSets : undefined;
@@ -147,10 +146,11 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["compressionSettings"] = undefined /*out*/;
+            resourceInputs["cacheConfiguration"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
             resourceInputs["forwardingProtocol"] = undefined /*out*/;
             resourceInputs["httpsRedirect"] = undefined /*out*/;
             resourceInputs["linkToDefaultDomain"] = undefined /*out*/;
@@ -159,7 +159,6 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["originPath"] = undefined /*out*/;
             resourceInputs["patternsToMatch"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["queryStringCachingBehavior"] = undefined /*out*/;
             resourceInputs["ruleSets"] = undefined /*out*/;
             resourceInputs["supportedProtocols"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -177,13 +176,13 @@ export class Route extends pulumi.CustomResource {
  */
 export interface RouteArgs {
     /**
-     * compression settings.
+     * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
-    compressionSettings?: pulumi.Input<inputs.cdn.CompressionSettingsArgs>;
+    cacheConfiguration?: pulumi.Input<inputs.cdn.AfdRouteCacheConfigurationArgs>;
     /**
      * Domains referenced by this endpoint.
      */
-    customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
+    customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ActivatedResourceReferenceArgs>[]>;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
@@ -217,13 +216,9 @@ export interface RouteArgs {
      */
     patternsToMatch?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
-    /**
-     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-     */
-    queryStringCachingBehavior?: pulumi.Input<enums.cdn.AfdQueryStringCachingBehavior>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

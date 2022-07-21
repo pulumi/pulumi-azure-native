@@ -155,7 +155,7 @@ class GetIoTRoleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 
@@ -195,7 +195,7 @@ def get_io_t_role(device_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTRoleResult:
     """
     Compute role.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -235,7 +235,7 @@ def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoTRoleResult]:
     """
     Compute role.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

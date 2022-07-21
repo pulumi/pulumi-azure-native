@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about packet capture session.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
     if (!opts) {

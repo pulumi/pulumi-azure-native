@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The storage account blob inventory policy.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export class BlobInventoryPolicy extends pulumi.CustomResource {
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Attached data network resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getAttachedDataNetwork(args: GetAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDataNetworkResult> {
     if (!opts) {
@@ -91,6 +91,10 @@ export interface GetAttachedDataNetworkResult {
      * The provisioning state of the attached data network resource.
      */
     readonly provisioningState: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

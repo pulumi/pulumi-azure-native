@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Role Assignment
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-15.
 type SqlResourceSqlRoleAssignment struct {
 	pulumi.CustomResourceState
 

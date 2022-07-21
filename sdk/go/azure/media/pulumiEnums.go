@@ -107,6 +107,18 @@ const (
 	ChannelMappingStereoRight = ChannelMapping("StereoRight")
 )
 
+// Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+type Complexity string
+
+const (
+	// Configures the encoder to use settings optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+	ComplexitySpeed = Complexity("Speed")
+	// Configures the encoder to use settings that achieve a balance between speed and quality.
+	ComplexityBalanced = Complexity("Balanced")
+	// Configures the encoder to use settings optimized to produce higher quality output at the expense of slower overall encode time.
+	ComplexityQuality = Complexity("Quality")
+)
+
 // The rental and lease key type.
 type ContentKeyPolicyFairPlayRentalAndLeaseKeyType string
 
@@ -173,6 +185,16 @@ const (
 	ContentKeyPolicyRestrictionTokenTypeSwt = ContentKeyPolicyRestrictionTokenType("Swt")
 	// JSON Web Token.
 	ContentKeyPolicyRestrictionTokenTypeJwt = ContentKeyPolicyRestrictionTokenType("Jwt")
+)
+
+// The behavior for IP access control in Key Delivery.
+type DefaultAction string
+
+const (
+	// All public IP addresses are allowed.
+	DefaultActionAllow = DefaultAction("Allow")
+	// Public IP addresses are blocked.
+	DefaultActionDeny = DefaultAction("Deny")
 )
 
 // The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -297,6 +319,18 @@ const (
 	H264ComplexityQuality = H264Complexity("Quality")
 )
 
+// The video rate control mode
+type H264RateControlMode string
+
+const (
+	// Average Bitrate (ABR) mode that hits the target bitrate: Default mode.
+	H264RateControlModeABR = H264RateControlMode("ABR")
+	// Constant Bitrate (CBR) mode that tightens bitrate variations around target bitrate.
+	H264RateControlModeCBR = H264RateControlMode("CBR")
+	// Constant Rate Factor (CRF) mode that targets at constant subjective quality.
+	H264RateControlModeCRF = H264RateControlMode("CRF")
+)
+
 // We currently support Baseline, Main, High, High422, High444. Default is Auto.
 type H264VideoProfile string
 
@@ -335,6 +369,8 @@ const (
 	H265VideoProfileAuto = H265VideoProfile("Auto")
 	// Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
 	H265VideoProfileMain = H265VideoProfile("Main")
+	// Main 10 profile (https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Main_10)
+	H265VideoProfileMain10 = H265VideoProfile("Main10")
 )
 
 // Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
@@ -349,16 +385,30 @@ const (
 	InsightsTypeAllInsights = InsightsType("AllInsights")
 )
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+type InterleaveOutput string
+
+const (
+	// The output is video-only or audio-only.
+	InterleaveOutputNonInterleavedOutput = InterleaveOutput("NonInterleavedOutput")
+	// The output includes both audio and video.
+	InterleaveOutputInterleavedOutput = InterleaveOutput("InterleavedOutput")
+)
+
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 type LiveEventEncodingType string
 
 const (
-	// A contribution live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. It is also called the pass-through mode.
+	// This is the same as PassthroughStandard, please see description below. This enumeration value is being deprecated.
 	LiveEventEncodingTypeNone = LiveEventEncodingType("None")
 	// A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 720p in resolution.
 	LiveEventEncodingTypeStandard = LiveEventEncodingType("Standard")
 	// A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 1080p in resolution.
 	LiveEventEncodingTypePremium1080p = LiveEventEncodingType("Premium1080p")
+	// The ingested stream passes through the live event from the contribution encoder without any further processing. In the PassthroughBasic mode, ingestion is limited to up to 5Mbps and only 1 concurrent live output is allowed. Live transcription is not available.
+	LiveEventEncodingTypePassthroughBasic = LiveEventEncodingType("PassthroughBasic")
+	// The ingested stream passes through the live event from the contribution encoder without any further processing. Live transcription is available. Ingestion bitrate limits are much higher and up to 3 concurrent live outputs are allowed.
+	LiveEventEncodingTypePassthroughStandard = LiveEventEncodingType("PassthroughStandard")
 )
 
 // The input protocol for the live event. This is specified at creation time and cannot be updated.
@@ -369,26 +419,6 @@ const (
 	LiveEventInputProtocolFragmentedMP4 = LiveEventInputProtocol("FragmentedMP4")
 	// RTMP input will be sent by the contribution encoder to the live event.
 	LiveEventInputProtocolRTMP = LiveEventInputProtocol("RTMP")
-)
-
-// The identity type.
-type ManagedIdentityType string
-
-const (
-	// A system-assigned managed identity.
-	ManagedIdentityTypeSystemAssigned = ManagedIdentityType("SystemAssigned")
-	// No managed identity.
-	ManagedIdentityTypeNone = ManagedIdentityType("None")
-)
-
-// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-type MediaGraphRtspTransport string
-
-const (
-	// HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
-	MediaGraphRtspTransportHttp = MediaGraphRtspTransport("Http")
-	// TCP transport. This should be used when HTTP tunneling is not desired.
-	MediaGraphRtspTransportTcp = MediaGraphRtspTransport("Tcp")
 )
 
 // A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
@@ -420,6 +450,16 @@ const (
 	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
 	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
 	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
+)
+
+// Whether or not public network access is allowed for resources under the Media Services account.
+type PublicNetworkAccess string
+
+const (
+	// Public network access is enabled.
+	PublicNetworkAccessEnabled = PublicNetworkAccess("Enabled")
+	// Public network access is disabled.
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
 )
 
 // The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
@@ -464,8 +504,10 @@ type StreamOptionsFlag string
 const (
 	// Live streaming with no special latency optimizations.
 	StreamOptionsFlagDefault = StreamOptionsFlag("Default")
-	// The live event provides lower end to end latency by reducing its internal buffers. This could result in more client buffering during playback if network bandwidth is low.
+	// The live event provides lower end to end latency by reducing its internal buffers.
 	StreamOptionsFlagLowLatency = StreamOptionsFlag("LowLatency")
+	// The live event is optimized for end to end latency. This option is only available for encoding live events with RTMP input. The outputs can be streamed using HLS or DASH formats. The outputs' archive or DVR rewind length is limited to 6 hours. Use "LowLatency" stream option for all other scenarios.
+	StreamOptionsFlagLowLatencyV2 = StreamOptionsFlag("LowLatencyV2")
 )
 
 // The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize

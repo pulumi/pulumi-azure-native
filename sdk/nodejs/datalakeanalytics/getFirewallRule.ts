@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data Lake Analytics firewall rule information.
- * API Version: 2016-11-01.
+ * API Version: 2019-11-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     if (!opts) {

@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The representation of a single video in a Video Analyzer account.
-// API Version: 2021-05-01-preview.
+// Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+// API Version: 2021-11-01-preview.
 func LookupVideo(ctx *pulumi.Context, args *LookupVideoArgs, opts ...pulumi.InvokeOption) (*LookupVideoResult, error) {
 	var rv LookupVideoResult
 	err := ctx.Invoke("azure-native:videoanalyzer:getVideo", args, &rv, opts...)
@@ -26,12 +26,16 @@ type LookupVideoArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the video to retrieve.
+	// The Video name.
 	VideoName string `pulumi:"videoName"`
 }
 
-// The representation of a single video in a Video Analyzer account.
+// Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
 type LookupVideoResult struct {
+	// Video archival properties.
+	Archival *VideoArchivalResponse `pulumi:"archival"`
+	// Set of URLs to the video content.
+	ContentUrls VideoContentUrlsResponse `pulumi:"contentUrls"`
 	// Optional video description provided by the user. Value can be up to 2048 characters long.
 	Description *string `pulumi:"description"`
 	// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
@@ -39,12 +43,10 @@ type LookupVideoResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Contains information about the video and audio content.
-	MediaInfo VideoMediaInfoResponse `pulumi:"mediaInfo"`
+	MediaInfo *VideoMediaInfoResponse `pulumi:"mediaInfo"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Video streaming holds information about video streaming URLs.
-	Streaming VideoStreamingResponse `pulumi:"streaming"`
-	// The system metadata relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Optional video title provided by the user. Value can be up to 256 characters long.
 	Title *string `pulumi:"title"`
@@ -70,7 +72,7 @@ type LookupVideoOutputArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// The name of the video to retrieve.
+	// The Video name.
 	VideoName pulumi.StringInput `pulumi:"videoName"`
 }
 
@@ -78,7 +80,7 @@ func (LookupVideoOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupVideoArgs)(nil)).Elem()
 }
 
-// The representation of a single video in a Video Analyzer account.
+// Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
 type LookupVideoResultOutput struct{ *pulumi.OutputState }
 
 func (LookupVideoResultOutput) ElementType() reflect.Type {
@@ -91,6 +93,16 @@ func (o LookupVideoResultOutput) ToLookupVideoResultOutput() LookupVideoResultOu
 
 func (o LookupVideoResultOutput) ToLookupVideoResultOutputWithContext(ctx context.Context) LookupVideoResultOutput {
 	return o
+}
+
+// Video archival properties.
+func (o LookupVideoResultOutput) Archival() VideoArchivalResponsePtrOutput {
+	return o.ApplyT(func(v LookupVideoResult) *VideoArchivalResponse { return v.Archival }).(VideoArchivalResponsePtrOutput)
+}
+
+// Set of URLs to the video content.
+func (o LookupVideoResultOutput) ContentUrls() VideoContentUrlsResponseOutput {
+	return o.ApplyT(func(v LookupVideoResult) VideoContentUrlsResponse { return v.ContentUrls }).(VideoContentUrlsResponseOutput)
 }
 
 // Optional video description provided by the user. Value can be up to 2048 characters long.
@@ -109,8 +121,8 @@ func (o LookupVideoResultOutput) Id() pulumi.StringOutput {
 }
 
 // Contains information about the video and audio content.
-func (o LookupVideoResultOutput) MediaInfo() VideoMediaInfoResponseOutput {
-	return o.ApplyT(func(v LookupVideoResult) VideoMediaInfoResponse { return v.MediaInfo }).(VideoMediaInfoResponseOutput)
+func (o LookupVideoResultOutput) MediaInfo() VideoMediaInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupVideoResult) *VideoMediaInfoResponse { return v.MediaInfo }).(VideoMediaInfoResponsePtrOutput)
 }
 
 // The name of the resource
@@ -118,12 +130,7 @@ func (o LookupVideoResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVideoResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Video streaming holds information about video streaming URLs.
-func (o LookupVideoResultOutput) Streaming() VideoStreamingResponseOutput {
-	return o.ApplyT(func(v LookupVideoResult) VideoStreamingResponse { return v.Streaming }).(VideoStreamingResponseOutput)
-}
-
-// The system metadata relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupVideoResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupVideoResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

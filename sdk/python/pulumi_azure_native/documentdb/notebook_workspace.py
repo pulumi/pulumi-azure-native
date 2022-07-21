@@ -75,7 +75,7 @@ class NotebookWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         A notebook workspace resource
-        API Version: 2021-03-15.
+        API Version: 2021-10-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,7 +91,7 @@ class NotebookWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A notebook workspace resource
-        API Version: 2021-03-15.
+        API Version: 2021-10-15.
 
         :param str resource_name: The name of the resource.
         :param NotebookWorkspaceArgs args: The arguments to use to populate this resource's properties.

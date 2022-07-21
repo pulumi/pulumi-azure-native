@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The key-value resource along with all resource properties.
- * API Version: 2020-07-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
     if (!opts) {

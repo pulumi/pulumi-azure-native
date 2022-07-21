@@ -12,7 +12,7 @@ import (
 )
 
 // An Application Insights private workbook definition.
-// API Version: 2020-10-20.
+// API Version: 2021-03-08.
 type MyWorkbook struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +36,8 @@ type MyWorkbook struct {
 	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
 	// BYOS Storage Account URI
 	StorageUri pulumi.StringPtrOutput `pulumi:"storageUri"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this private workbook definition.
@@ -262,6 +264,11 @@ func (o MyWorkbookOutput) SourceId() pulumi.StringPtrOutput {
 // BYOS Storage Account URI
 func (o MyWorkbookOutput) StorageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.StorageUri }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o MyWorkbookOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MyWorkbook) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

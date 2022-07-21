@@ -133,7 +133,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     ADP account
-    API Version: 2021-02-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str account_name: The name of the ADP account
@@ -165,7 +165,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     ADP account
-    API Version: 2021-02-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str account_name: The name of the ADP account

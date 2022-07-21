@@ -121,7 +121,7 @@ export class EventChannel extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventChannel" }, { type: "azure-native:eventgrid/v20200401preview:EventChannel" }, { type: "azure-native:eventgrid/v20201015preview:EventChannel" }, { type: "azure-native:eventgrid/v20210601preview:EventChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:EventChannel" }, { type: "azure-native:eventgrid/v20201015preview:EventChannel" }, { type: "azure-native:eventgrid/v20210601preview:EventChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventChannel.__pulumiType, name, resourceInputs, opts);
     }

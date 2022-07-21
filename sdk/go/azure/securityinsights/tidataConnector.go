@@ -12,7 +12,7 @@ import (
 )
 
 // Represents threat intelligence data connector.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 type TIDataConnector struct {
 	pulumi.CustomResourceState
 
@@ -23,13 +23,15 @@ type TIDataConnector struct {
 	// The kind of the data connector
 	// Expected value is 'ThreatIntelligence'.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tenant id to connect to, and get the data from.
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// The lookback period for the feed to be imported.
 	TipLookbackPeriod pulumi.StringPtrOutput `pulumi:"tipLookbackPeriod"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -125,7 +127,7 @@ type tidataConnectorArgs struct {
 	// The kind of the data connector
 	// Expected value is 'ThreatIntelligence'.
 	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tenant id to connect to, and get the data from.
 	TenantId *string `pulumi:"tenantId"`
@@ -144,7 +146,7 @@ type TIDataConnectorArgs struct {
 	// The kind of the data connector
 	// Expected value is 'ThreatIntelligence'.
 	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The tenant id to connect to, and get the data from.
 	TenantId pulumi.StringPtrInput
@@ -207,9 +209,14 @@ func (o TIDataConnectorOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *TIDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o TIDataConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TIDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o TIDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TIDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The tenant id to connect to, and get the data from.
@@ -222,7 +229,7 @@ func (o TIDataConnectorOutput) TipLookbackPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TIDataConnector) pulumi.StringPtrOutput { return v.TipLookbackPeriod }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o TIDataConnectorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *TIDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

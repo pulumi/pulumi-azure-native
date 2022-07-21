@@ -11,7 +11,7 @@ import (
 )
 
 // Data needed to decrypt asset files encrypted with legacy storage encryption.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func GetAssetEncryptionKey(ctx *pulumi.Context, args *GetAssetEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetAssetEncryptionKeyResult, error) {
 	var rv GetAssetEncryptionKeyResult
 	err := ctx.Invoke("azure-native:media:getAssetEncryptionKey", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource
-// API Version: 2021-04-01-preview.
+// API Version: 2022-02-01.
 type SignalRSharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type SignalRSharedPrivateLinkResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource id of the resource the shared private link resource is for
 	PrivateLinkResourceId pulumi.StringOutput `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
+	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource
 	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
@@ -185,7 +185,7 @@ func (o SignalRSharedPrivateLinkResourceOutput) PrivateLinkResourceId() pulumi.S
 	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.PrivateLinkResourceId }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the shared private link resource
+// Provisioning state of the resource.
 func (o SignalRSharedPrivateLinkResourceOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }

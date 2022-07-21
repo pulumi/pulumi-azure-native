@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * OpenShiftClusterCredentials represents an OpenShift cluster's credentials
- * API Version: 2020-04-30.
+ * OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
+ * API Version: 2022-04-01.
  */
 export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterCredentialsResult> {
     if (!opts) {
@@ -32,15 +32,15 @@ export interface ListOpenShiftClusterCredentialsArgs {
 }
 
 /**
- * OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+ * OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
  */
 export interface ListOpenShiftClusterCredentialsResult {
     /**
-     * The password for the kubeadmin user
+     * The password for the kubeadmin user.
      */
     readonly kubeadminPassword?: string;
     /**
-     * The username for the kubeadmin user
+     * The username for the kubeadmin user.
      */
     readonly kubeadminUsername?: string;
 }

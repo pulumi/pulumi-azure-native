@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHub Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**
@@ -61,9 +61,17 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly expressRouteGateway!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
+     * The hubRoutingPreference of this VirtualHub.
+     */
+    public readonly hubRoutingPreference!: pulumi.Output<string | undefined>;
+    /**
      * List of references to IpConfigurations.
      */
     public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
+     * Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -76,6 +84,10 @@ export class VirtualHub extends pulumi.CustomResource {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     public readonly p2SVpnGateway!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
+     * The preferred gateway to route on-prem traffic
+     */
+    public readonly preferredRoutingGateway!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the virtual hub resource.
      */
@@ -147,9 +159,11 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
             resourceInputs["azureFirewall"] = args ? args.azureFirewall : undefined;
             resourceInputs["expressRouteGateway"] = args ? args.expressRouteGateway : undefined;
+            resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
+            resourceInputs["preferredRoutingGateway"] = args ? args.preferredRoutingGateway : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routeTable"] = args ? args.routeTable : undefined;
             resourceInputs["securityPartnerProvider"] = args ? args.securityPartnerProvider : undefined;
@@ -165,6 +179,7 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["bgpConnections"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["routingState"] = undefined /*out*/;
@@ -176,10 +191,13 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["bgpConnections"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expressRouteGateway"] = undefined /*out*/;
+            resourceInputs["hubRoutingPreference"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["p2SVpnGateway"] = undefined /*out*/;
+            resourceInputs["preferredRoutingGateway"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["routeTable"] = undefined /*out*/;
             resourceInputs["routingState"] = undefined /*out*/;
@@ -222,6 +240,10 @@ export interface VirtualHubArgs {
      */
     expressRouteGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
+     * The hubRoutingPreference of this VirtualHub.
+     */
+    hubRoutingPreference?: pulumi.Input<string | enums.network.HubRoutingPreference>;
+    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
@@ -233,6 +255,10 @@ export interface VirtualHubArgs {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     p2SVpnGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
+    /**
+     * The preferred gateway to route on-prem traffic
+     */
+    preferredRoutingGateway?: pulumi.Input<string | enums.network.PreferredRoutingGateway>;
     /**
      * The resource group name of the VirtualHub.
      */

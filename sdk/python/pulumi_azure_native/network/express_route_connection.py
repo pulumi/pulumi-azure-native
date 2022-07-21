@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRouteConnectionArgs', 'ExpressRouteConnection']
+__all__ = ['ExpressRouteConnectionInitArgs', 'ExpressRouteConnection']
 
 @pulumi.input_type
-class ExpressRouteConnectionArgs:
+class ExpressRouteConnectionInitArgs:
     def __init__(__self__, *,
                  express_route_circuit_peering: pulumi.Input['ExpressRouteCircuitPeeringIdArgs'],
                  express_route_gateway_name: pulumi.Input[str],
@@ -211,7 +211,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRouteConnection resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,19 +231,19 @@ class ExpressRouteConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteConnectionArgs,
+                 args: ExpressRouteConnectionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRouteConnection resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteConnectionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -273,7 +273,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
+            __props__ = ExpressRouteConnectionInitArgs.__new__(ExpressRouteConnectionInitArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
             __props__.__dict__["connection_name"] = connection_name
@@ -317,7 +317,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
+        __props__ = ExpressRouteConnectionInitArgs.__new__(ExpressRouteConnectionInitArgs)
 
         __props__.__dict__["authorization_key"] = None
         __props__.__dict__["enable_internet_security"] = None

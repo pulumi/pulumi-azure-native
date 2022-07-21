@@ -13,10 +13,13 @@ from ._enums import *
 __all__ = [
     'AutoShutdownProfileResponse',
     'ConnectionProfileResponse',
+    'CredentialsResponse',
     'EnvironmentDetailsResponse',
     'EnvironmentSizeResponse',
     'GalleryImageReferenceResponse',
+    'ImageReferenceResponse',
     'LabDetailsResponse',
+    'LabNetworkProfileResponse',
     'LabPlanNetworkProfileResponse',
     'LatestOperationResultResponse',
     'NetworkInterfaceResponse',
@@ -26,12 +29,17 @@ __all__ = [
     'RegionalAvailabilityResponse',
     'ResourceSetResponse',
     'ResourceSettingsResponse',
+    'RosterProfileResponse',
+    'SecurityProfileResponse',
     'SizeAvailabilityResponse',
     'SizeConfigurationPropertiesResponse',
     'SizeInfoResponse',
+    'SkuResponse',
     'SupportInfoResponse',
     'SystemDataResponse',
+    'VirtualMachineAdditionalCapabilitiesResponse',
     'VirtualMachineDetailsResponse',
+    'VirtualMachineProfileResponse',
     'VmStateDetailsResponse',
 ]
 
@@ -239,6 +247,28 @@ class ConnectionProfileResponse(dict):
         The enabled access level for Web Access over SSH.
         """
         return pulumi.get(self, "web_ssh_access")
+
+
+@pulumi.output_type
+class CredentialsResponse(dict):
+    """
+    Credentials for a user on a lab VM.
+    """
+    def __init__(__self__, *,
+                 username: str):
+        """
+        Credentials for a user on a lab VM.
+        :param str username: The username to use when signing in to lab VMs.
+        """
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username to use when signing in to lab VMs.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -531,6 +561,105 @@ class GalleryImageReferenceResponse(dict):
 
 
 @pulumi.output_type
+class ImageReferenceResponse(dict):
+    """
+    Image reference information. Used in the virtual machine profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exactVersion":
+            suggest = "exact_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exact_version: str,
+                 id: Optional[str] = None,
+                 offer: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Image reference information. Used in the virtual machine profile.
+        :param str exact_version: The actual version of the image after use.
+        :param str id: Image resource ID
+        :param str offer: The image offer if applicable.
+        :param str publisher: The image publisher
+        :param str sku: The image SKU
+        :param str version: The image version specified on creation.
+        """
+        pulumi.set(__self__, "exact_version", exact_version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="exactVersion")
+    def exact_version(self) -> str:
+        """
+        The actual version of the image after use.
+        """
+        return pulumi.get(self, "exact_version")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Image resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[str]:
+        """
+        The image offer if applicable.
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The image publisher
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The image SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The image version specified on creation.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class LabDetailsResponse(dict):
     """
     This represents the details about a lab that the User is in, and its state.
@@ -586,6 +715,74 @@ class LabDetailsResponse(dict):
         The provisioning state of the lab.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class LabNetworkProfileResponse(dict):
+    """
+    Profile for how to handle networking for Labs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerId":
+            suggest = "load_balancer_id"
+        elif key == "publicIpId":
+            suggest = "public_ip_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabNetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabNetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 load_balancer_id: Optional[str] = None,
+                 public_ip_id: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        Profile for how to handle networking for Labs.
+        :param str load_balancer_id: The external load balancer resource id
+        :param str public_ip_id: The external public IP resource id
+        :param str subnet_id: The external subnet resource id
+        """
+        if load_balancer_id is not None:
+            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        if public_ip_id is not None:
+            pulumi.set(__self__, "public_ip_id", public_ip_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> Optional[str]:
+        """
+        The external load balancer resource id
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @property
+    @pulumi.getter(name="publicIpId")
+    def public_ip_id(self) -> Optional[str]:
+        """
+        The external public IP resource id
+        """
+        return pulumi.get(self, "public_ip_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The external subnet resource id
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -1182,6 +1379,155 @@ class ResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class RosterProfileResponse(dict):
+    """
+    The lab user list management profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryGroupId":
+            suggest = "active_directory_group_id"
+        elif key == "lmsInstance":
+            suggest = "lms_instance"
+        elif key == "ltiClientId":
+            suggest = "lti_client_id"
+        elif key == "ltiContextId":
+            suggest = "lti_context_id"
+        elif key == "ltiRosterEndpoint":
+            suggest = "lti_roster_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RosterProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RosterProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RosterProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory_group_id: Optional[str] = None,
+                 lms_instance: Optional[str] = None,
+                 lti_client_id: Optional[str] = None,
+                 lti_context_id: Optional[str] = None,
+                 lti_roster_endpoint: Optional[str] = None):
+        """
+        The lab user list management profile.
+        :param str active_directory_group_id: The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+        :param str lms_instance: The base URI identifying the lms instance.
+        :param str lti_client_id: The unique id of the azure lab services tool in the lms.
+        :param str lti_context_id: The unique context identifier for the lab in the lms.
+        :param str lti_roster_endpoint: The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+        """
+        if active_directory_group_id is not None:
+            pulumi.set(__self__, "active_directory_group_id", active_directory_group_id)
+        if lms_instance is not None:
+            pulumi.set(__self__, "lms_instance", lms_instance)
+        if lti_client_id is not None:
+            pulumi.set(__self__, "lti_client_id", lti_client_id)
+        if lti_context_id is not None:
+            pulumi.set(__self__, "lti_context_id", lti_context_id)
+        if lti_roster_endpoint is not None:
+            pulumi.set(__self__, "lti_roster_endpoint", lti_roster_endpoint)
+
+    @property
+    @pulumi.getter(name="activeDirectoryGroupId")
+    def active_directory_group_id(self) -> Optional[str]:
+        """
+        The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+        """
+        return pulumi.get(self, "active_directory_group_id")
+
+    @property
+    @pulumi.getter(name="lmsInstance")
+    def lms_instance(self) -> Optional[str]:
+        """
+        The base URI identifying the lms instance.
+        """
+        return pulumi.get(self, "lms_instance")
+
+    @property
+    @pulumi.getter(name="ltiClientId")
+    def lti_client_id(self) -> Optional[str]:
+        """
+        The unique id of the azure lab services tool in the lms.
+        """
+        return pulumi.get(self, "lti_client_id")
+
+    @property
+    @pulumi.getter(name="ltiContextId")
+    def lti_context_id(self) -> Optional[str]:
+        """
+        The unique context identifier for the lab in the lms.
+        """
+        return pulumi.get(self, "lti_context_id")
+
+    @property
+    @pulumi.getter(name="ltiRosterEndpoint")
+    def lti_roster_endpoint(self) -> Optional[str]:
+        """
+        The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+        """
+        return pulumi.get(self, "lti_roster_endpoint")
+
+
+@pulumi.output_type
+class SecurityProfileResponse(dict):
+    """
+    The lab security profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registrationCode":
+            suggest = "registration_code"
+        elif key == "openAccess":
+            suggest = "open_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registration_code: str,
+                 open_access: Optional[str] = None):
+        """
+        The lab security profile.
+        :param str registration_code: The registration code for the lab.
+        :param str open_access: Whether any user or only specified users can register to a lab.
+        """
+        pulumi.set(__self__, "registration_code", registration_code)
+        if open_access is not None:
+            pulumi.set(__self__, "open_access", open_access)
+
+    @property
+    @pulumi.getter(name="registrationCode")
+    def registration_code(self) -> str:
+        """
+        The registration code for the lab.
+        """
+        return pulumi.get(self, "registration_code")
+
+    @property
+    @pulumi.getter(name="openAccess")
+    def open_access(self) -> Optional[str]:
+        """
+        Whether any user or only specified users can register to a lab.
+        """
+        return pulumi.get(self, "open_access")
+
+
+@pulumi.output_type
 class SizeAvailabilityResponse(dict):
     """
     Represents the size information
@@ -1332,6 +1678,76 @@ class SizeInfoResponse(dict):
         The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
         """
         return pulumi.get(self, "price")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    The resource model definition representing SKU
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        The resource model definition representing SKU
+        :param str name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -1504,6 +1920,48 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class VirtualMachineAdditionalCapabilitiesResponse(dict):
+    """
+    The additional capabilities for a lab VM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installGpuDrivers":
+            suggest = "install_gpu_drivers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineAdditionalCapabilitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineAdditionalCapabilitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineAdditionalCapabilitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 install_gpu_drivers: Optional[str] = None):
+        """
+        The additional capabilities for a lab VM.
+        :param str install_gpu_drivers: Flag to pre-install dedicated GPU drivers.
+        """
+        if install_gpu_drivers is None:
+            install_gpu_drivers = 'Disabled'
+        if install_gpu_drivers is not None:
+            pulumi.set(__self__, "install_gpu_drivers", install_gpu_drivers)
+
+    @property
+    @pulumi.getter(name="installGpuDrivers")
+    def install_gpu_drivers(self) -> Optional[str]:
+        """
+        Flag to pre-install dedicated GPU drivers.
+        """
+        return pulumi.get(self, "install_gpu_drivers")
+
+
+@pulumi.output_type
 class VirtualMachineDetailsResponse(dict):
     """
     Details of the backing virtual machine.
@@ -1578,6 +2036,152 @@ class VirtualMachineDetailsResponse(dict):
         Compute VM login user name
         """
         return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class VirtualMachineProfileResponse(dict):
+    """
+    The base virtual machine configuration for a lab.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUser":
+            suggest = "admin_user"
+        elif key == "createOption":
+            suggest = "create_option"
+        elif key == "imageReference":
+            suggest = "image_reference"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "usageQuota":
+            suggest = "usage_quota"
+        elif key == "additionalCapabilities":
+            suggest = "additional_capabilities"
+        elif key == "nonAdminUser":
+            suggest = "non_admin_user"
+        elif key == "useSharedPassword":
+            suggest = "use_shared_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_user: 'outputs.CredentialsResponse',
+                 create_option: str,
+                 image_reference: 'outputs.ImageReferenceResponse',
+                 os_type: str,
+                 sku: 'outputs.SkuResponse',
+                 usage_quota: str,
+                 additional_capabilities: Optional['outputs.VirtualMachineAdditionalCapabilitiesResponse'] = None,
+                 non_admin_user: Optional['outputs.CredentialsResponse'] = None,
+                 use_shared_password: Optional[str] = None):
+        """
+        The base virtual machine configuration for a lab.
+        :param 'CredentialsResponse' admin_user: Credentials for the admin user on the VM.
+        :param str create_option: Indicates what lab virtual machines are created from.
+        :param 'ImageReferenceResponse' image_reference: The image configuration for lab virtual machines.
+        :param str os_type: The OS type of the image
+        :param 'SkuResponse' sku: The SKU for the lab. Defines the type of virtual machines used in the lab.
+        :param str usage_quota: The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+        :param 'VirtualMachineAdditionalCapabilitiesResponse' additional_capabilities: Additional VM capabilities.
+        :param 'CredentialsResponse' non_admin_user: Credentials for the non-admin user on the VM, if one exists.
+        :param str use_shared_password: Enabling this option will use the same password for all user VMs.
+        """
+        pulumi.set(__self__, "admin_user", admin_user)
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "image_reference", image_reference)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "usage_quota", usage_quota)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if non_admin_user is not None:
+            pulumi.set(__self__, "non_admin_user", non_admin_user)
+        if use_shared_password is None:
+            use_shared_password = 'Disabled'
+        if use_shared_password is not None:
+            pulumi.set(__self__, "use_shared_password", use_shared_password)
+
+    @property
+    @pulumi.getter(name="adminUser")
+    def admin_user(self) -> 'outputs.CredentialsResponse':
+        """
+        Credentials for the admin user on the VM.
+        """
+        return pulumi.get(self, "admin_user")
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> str:
+        """
+        Indicates what lab virtual machines are created from.
+        """
+        return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> 'outputs.ImageReferenceResponse':
+        """
+        The image configuration for lab virtual machines.
+        """
+        return pulumi.get(self, "image_reference")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The OS type of the image
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        The SKU for the lab. Defines the type of virtual machines used in the lab.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="usageQuota")
+    def usage_quota(self) -> str:
+        """
+        The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+        """
+        return pulumi.get(self, "usage_quota")
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional['outputs.VirtualMachineAdditionalCapabilitiesResponse']:
+        """
+        Additional VM capabilities.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @property
+    @pulumi.getter(name="nonAdminUser")
+    def non_admin_user(self) -> Optional['outputs.CredentialsResponse']:
+        """
+        Credentials for the non-admin user on the VM, if one exists.
+        """
+        return pulumi.get(self, "non_admin_user")
+
+    @property
+    @pulumi.getter(name="useSharedPassword")
+    def use_shared_password(self) -> Optional[str]:
+        """
+        Enabling this option will use the same password for all user VMs.
+        """
+        return pulumi.get(self, "use_shared_password")
 
 
 @pulumi.output_type

@@ -146,7 +146,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Base class for backup policy. Workload-specific backup policies are derived from this class.
-        API Version: 2021-02-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +166,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for backup policy. Workload-specific backup policies are derived from this class.
-        API Version: 2021-02-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ProtectionPolicyArgs args: The arguments to use to populate this resource's properties.

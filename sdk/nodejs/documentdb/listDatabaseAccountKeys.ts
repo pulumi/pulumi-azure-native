@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The access keys for the given database account.
- * API Version: 2021-03-15.
+ * API Version: 2021-10-15.
  */
 export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountKeysResult> {
     if (!opts) {

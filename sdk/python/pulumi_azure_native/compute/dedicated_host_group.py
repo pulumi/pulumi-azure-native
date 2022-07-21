@@ -144,7 +144,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        API Version: 2020-12-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +164,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        API Version: 2020-12-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostGroupArgs args: The arguments to use to populate this resource's properties.

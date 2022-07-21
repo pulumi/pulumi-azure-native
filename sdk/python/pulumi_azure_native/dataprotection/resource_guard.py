@@ -10,15 +10,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResourceGuardArgs', 'ResourceGuard']
+__all__ = ['ResourceGuardInitArgs', 'ResourceGuard']
 
 @pulumi.input_type
-class ResourceGuardArgs:
+class ResourceGuardInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['DppIdentityDetailsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ResourceGuardArgs']] = None,
                  resource_guards_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -27,6 +28,7 @@ class ResourceGuardArgs:
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input['DppIdentityDetailsArgs'] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['ResourceGuardArgs'] properties: ResourceGuardResource properties
         :param pulumi.Input[str] resource_guards_name: The name of ResourceGuard
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -37,6 +39,8 @@ class ResourceGuardArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if resource_guards_name is not None:
             pulumi.set(__self__, "resource_guards_name", resource_guards_name)
         if tags is not None:
@@ -91,6 +95,18 @@ class ResourceGuardArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ResourceGuardArgs']]:
+        """
+        ResourceGuardResource properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ResourceGuardArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGuardsName")
     def resource_guards_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -123,18 +139,20 @@ class ResourceGuard(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ResourceGuardArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guards_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2021-10-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[pulumi.InputType['ResourceGuardArgs']] properties: ResourceGuardResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] resource_guards_name: The name of ResourceGuard
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -143,18 +161,18 @@ class ResourceGuard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceGuardArgs,
+                 args: ResourceGuardInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2021-10-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
-        :param ResourceGuardArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceGuardInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceGuardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceGuardInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -166,6 +184,7 @@ class ResourceGuard(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ResourceGuardArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guards_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -179,18 +198,18 @@ class ResourceGuard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceGuardArgs.__new__(ResourceGuardArgs)
+            __props__ = ResourceGuardInitArgs.__new__(ResourceGuardInitArgs)
 
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_guards_name"] = resource_guards_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210701:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:ResourceGuard")])
@@ -215,7 +234,7 @@ class ResourceGuard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ResourceGuardArgs.__new__(ResourceGuardArgs)
+        __props__ = ResourceGuardInitArgs.__new__(ResourceGuardInitArgs)
 
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["identity"] = None

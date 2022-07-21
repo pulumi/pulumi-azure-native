@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-        /// API Version: 2020-05-15.
+        /// API Version: 2021-06-30-preview.
         /// </summary>
         public static Task<GetGen2EnvironmentResult> InvokeAsync(GetGen2EnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-        /// API Version: 2020-05-15.
+        /// API Version: 2021-06-30-preview.
         /// </summary>
         public static Output<GetGen2EnvironmentResult> Invoke(GetGen2EnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentInvokeArgs(), options.WithDefaults());
@@ -127,6 +127,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         public readonly Outputs.Gen2StorageConfigurationOutputResponse StorageConfiguration;
         /// <summary>
+        /// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+        /// </summary>
+        public readonly bool SupportsCustomerManagedKey;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -167,6 +171,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             Outputs.Gen2StorageConfigurationOutputResponse storageConfiguration,
 
+            bool supportsCustomerManagedKey,
+
             ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> timeSeriesIdProperties,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
             Sku = sku;
             Status = status;
             StorageConfiguration = storageConfiguration;
+            SupportsCustomerManagedKey = supportsCustomerManagedKey;
             Tags = tags;
             TimeSeriesIdProperties = timeSeriesIdProperties;
             Type = type;

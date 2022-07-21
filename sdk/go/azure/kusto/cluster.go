@@ -12,12 +12,20 @@ import (
 )
 
 // Class representing a Kusto cluster.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// The cluster's accepted audiences.
+	AcceptedAudiences AcceptedAudiencesResponseArrayOutput `pulumi:"acceptedAudiences"`
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdnList pulumi.StringArrayOutput `pulumi:"allowedFqdnList"`
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRangeList pulumi.StringArrayOutput `pulumi:"allowedIpRangeList"`
 	// The cluster data ingestion URI.
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
+	// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop pulumi.BoolPtrOutput `pulumi:"enableAutoStop"`
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
 	// A boolean value that indicates if double encryption is enabled.
@@ -42,14 +50,24 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale OptimizedAutoscaleResponsePtrOutput `pulumi:"optimizedAutoscale"`
+	// A list of private endpoint connections.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+	PublicIPType pulumi.StringPtrOutput `pulumi:"publicIPType"`
+	// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	RestrictOutboundNetworkAccess pulumi.StringPtrOutput `pulumi:"restrictOutboundNetworkAccess"`
 	// The SKU of the cluster.
 	Sku AzureSkuResponseOutput `pulumi:"sku"`
 	// The state of the resource.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The reason for the cluster's current state.
 	StateReason pulumi.StringOutput `pulumi:"stateReason"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The cluster's external tenants.
@@ -77,6 +95,9 @@ func NewCluster(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if isZero(args.EnableAutoStop) {
+		args.EnableAutoStop = pulumi.BoolPtr(true)
+	}
 	if isZero(args.EnableDiskEncryption) {
 		args.EnableDiskEncryption = pulumi.BoolPtr(false)
 	}
@@ -91,6 +112,15 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	if isZero(args.EngineType) {
 		args.EngineType = pulumi.StringPtr("V3")
+	}
+	if isZero(args.PublicIPType) {
+		args.PublicIPType = pulumi.StringPtr("IPv4")
+	}
+	if isZero(args.PublicNetworkAccess) {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	if isZero(args.RestrictOutboundNetworkAccess) {
+		args.RestrictOutboundNetworkAccess = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -163,8 +193,16 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// The cluster's accepted audiences.
+	AcceptedAudiences []AcceptedAudiences `pulumi:"acceptedAudiences"`
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdnList []string `pulumi:"allowedFqdnList"`
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRangeList []string `pulumi:"allowedIpRangeList"`
 	// The name of the Kusto cluster.
 	ClusterName *string `pulumi:"clusterName"`
+	// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop *bool `pulumi:"enableAutoStop"`
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// A boolean value that indicates if double encryption is enabled.
@@ -183,14 +221,22 @@ type clusterArgs struct {
 	Location *string `pulumi:"location"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale *OptimizedAutoscale `pulumi:"optimizedAutoscale"`
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+	PublicIPType *string `pulumi:"publicIPType"`
+	// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	RestrictOutboundNetworkAccess *string `pulumi:"restrictOutboundNetworkAccess"`
 	// The SKU of the cluster.
 	Sku AzureSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The cluster's external tenants.
 	TrustedExternalTenants []TrustedExternalTenant `pulumi:"trustedExternalTenants"`
+	// Virtual Cluster graduation properties
+	VirtualClusterGraduationProperties *string `pulumi:"virtualClusterGraduationProperties"`
 	// Virtual network definition.
 	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The availability zones of the cluster.
@@ -199,8 +245,16 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// The cluster's accepted audiences.
+	AcceptedAudiences AcceptedAudiencesArrayInput
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdnList pulumi.StringArrayInput
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRangeList pulumi.StringArrayInput
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringPtrInput
+	// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop pulumi.BoolPtrInput
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// A boolean value that indicates if double encryption is enabled.
@@ -219,14 +273,22 @@ type ClusterArgs struct {
 	Location pulumi.StringPtrInput
 	// Optimized auto scale definition.
 	OptimizedAutoscale OptimizedAutoscalePtrInput
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+	PublicIPType pulumi.StringPtrInput
+	// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
+	// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	RestrictOutboundNetworkAccess pulumi.StringPtrInput
 	// The SKU of the cluster.
 	Sku AzureSkuInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The cluster's external tenants.
 	TrustedExternalTenants TrustedExternalTenantArrayInput
+	// Virtual Cluster graduation properties
+	VirtualClusterGraduationProperties pulumi.StringPtrInput
 	// Virtual network definition.
 	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput
 	// The availability zones of the cluster.
@@ -270,9 +332,29 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The cluster's accepted audiences.
+func (o ClusterOutput) AcceptedAudiences() AcceptedAudiencesResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) AcceptedAudiencesResponseArrayOutput { return v.AcceptedAudiences }).(AcceptedAudiencesResponseArrayOutput)
+}
+
+// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+func (o ClusterOutput) AllowedFqdnList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
+}
+
+// The list of ips in the format of CIDR allowed to connect to the cluster.
+func (o ClusterOutput) AllowedIpRangeList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AllowedIpRangeList }).(pulumi.StringArrayOutput)
+}
+
 // The cluster data ingestion URI.
 func (o ClusterOutput) DataIngestionUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DataIngestionUri }).(pulumi.StringOutput)
+}
+
+// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+func (o ClusterOutput) EnableAutoStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableAutoStop }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value that indicates if the cluster's disks are encrypted.
@@ -335,9 +417,29 @@ func (o ClusterOutput) OptimizedAutoscale() OptimizedAutoscaleResponsePtrOutput 
 	return o.ApplyT(func(v *Cluster) OptimizedAutoscaleResponsePtrOutput { return v.OptimizedAutoscale }).(OptimizedAutoscaleResponsePtrOutput)
 }
 
+// A list of private endpoint connections.
+func (o ClusterOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The provisioned state of the resource.
 func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+func (o ClusterOutput) PublicIPType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PublicIPType }).(pulumi.StringPtrOutput)
+}
+
+// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+func (o ClusterOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+func (o ClusterOutput) RestrictOutboundNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.RestrictOutboundNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The SKU of the cluster.
@@ -353,6 +455,11 @@ func (o ClusterOutput) State() pulumi.StringOutput {
 // The reason for the cluster's current state.
 func (o ClusterOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

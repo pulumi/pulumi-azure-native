@@ -13,25 +13,24 @@ from ._enums import *
 __all__ = [
     'AutoPausePropertiesResponse',
     'AutoScalePropertiesResponse',
-    'AzureSkuResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
+    'CspWorkspaceAdminPropertiesResponse',
     'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
-    'DatabaseStatisticsResponse',
     'DynamicExecutorAllocationResponse',
     'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
-    'FollowerDatabaseDefinitionResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
+    'IntegrationRuntimeCustomerVirtualNetworkResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
     'IntegrationRuntimeDataProxyPropertiesResponse',
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
-    'LanguageExtensionResponse',
+    'KekIdentityPropertiesResponse',
     'LibraryInfoResponse',
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
@@ -54,6 +53,7 @@ __all__ = [
     'SelfHostedIntegrationRuntimeResponse',
     'SelfHostedIntegrationRuntimeStatusResponse',
     'SkuResponse',
+    'SparkConfigPropertiesResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
     'SsisEnvironmentReferenceResponse',
     'SsisEnvironmentResponse',
@@ -62,8 +62,7 @@ __all__ = [
     'SsisParameterResponse',
     'SsisProjectResponse',
     'SsisVariableResponse',
-    'SystemDataResponse',
-    'TableLevelSharingPropertiesResponse',
+    'UserAssignedManagedIdentityResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
     'WorkspaceKeyDetailsResponse',
@@ -186,51 +185,6 @@ class AutoScalePropertiesResponse(dict):
         The minimum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "min_node_count")
-
-
-@pulumi.output_type
-class AzureSkuResponse(dict):
-    """
-    Azure SKU definition.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 tier: str,
-                 capacity: Optional[int] = None):
-        """
-        Azure SKU definition.
-        :param str name: SKU name.
-        :param str tier: SKU tier.
-        :param int capacity: The number of instances of the cluster.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        SKU name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> str:
-        """
-        SKU tier.
-        """
-        return pulumi.get(self, "tier")
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        The number of instances of the cluster.
-        """
-        return pulumi.get(self, "capacity")
 
 
 @pulumi.output_type
@@ -376,19 +330,80 @@ class ComponentSetupResponse(dict):
 
 
 @pulumi.output_type
+class CspWorkspaceAdminPropertiesResponse(dict):
+    """
+    Initial workspace AAD admin properties for a CSP subscription
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialWorkspaceAdminObjectId":
+            suggest = "initial_workspace_admin_object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CspWorkspaceAdminPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CspWorkspaceAdminPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CspWorkspaceAdminPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_workspace_admin_object_id: Optional[str] = None):
+        """
+        Initial workspace AAD admin properties for a CSP subscription
+        :param str initial_workspace_admin_object_id: AAD object ID of initial workspace admin
+        """
+        if initial_workspace_admin_object_id is not None:
+            pulumi.set(__self__, "initial_workspace_admin_object_id", initial_workspace_admin_object_id)
+
+    @property
+    @pulumi.getter(name="initialWorkspaceAdminObjectId")
+    def initial_workspace_admin_object_id(self) -> Optional[str]:
+        """
+        AAD object ID of initial workspace admin
+        """
+        return pulumi.get(self, "initial_workspace_admin_object_id")
+
+
+@pulumi.output_type
 class CustomerManagedKeyDetailsResponse(dict):
     """
     Details of the customer managed key associated with the workspace
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kekIdentity":
+            suggest = "kek_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerManagedKeyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerManagedKeyDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerManagedKeyDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: str,
+                 kek_identity: Optional['outputs.KekIdentityPropertiesResponse'] = None,
                  key: Optional['outputs.WorkspaceKeyDetailsResponse'] = None):
         """
         Details of the customer managed key associated with the workspace
         :param str status: The customer managed key status on the workspace
+        :param 'KekIdentityPropertiesResponse' kek_identity: Key encryption key
         :param 'WorkspaceKeyDetailsResponse' key: The key object of the workspace
         """
         pulumi.set(__self__, "status", status)
+        if kek_identity is not None:
+            pulumi.set(__self__, "kek_identity", kek_identity)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -399,6 +414,14 @@ class CustomerManagedKeyDetailsResponse(dict):
         The customer managed key status on the workspace
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="kekIdentity")
+    def kek_identity(self) -> Optional['outputs.KekIdentityPropertiesResponse']:
+        """
+        Key encryption key
+        """
+        return pulumi.get(self, "kek_identity")
 
     @property
     @pulumi.getter
@@ -419,6 +442,10 @@ class DataLakeStorageAccountDetailsResponse(dict):
         suggest = None
         if key == "accountUrl":
             suggest = "account_url"
+        elif key == "createManagedPrivateEndpoint":
+            suggest = "create_managed_private_endpoint"
+        elif key == "resourceId":
+            suggest = "resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataLakeStorageAccountDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -433,16 +460,24 @@ class DataLakeStorageAccountDetailsResponse(dict):
 
     def __init__(__self__, *,
                  account_url: Optional[str] = None,
-                 filesystem: Optional[str] = None):
+                 create_managed_private_endpoint: Optional[bool] = None,
+                 filesystem: Optional[str] = None,
+                 resource_id: Optional[str] = None):
         """
         Details of the data lake storage account associated with the workspace
         :param str account_url: Account URL
+        :param bool create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param str filesystem: Filesystem name
+        :param str resource_id: ARM resource Id of this storage account
         """
         if account_url is not None:
             pulumi.set(__self__, "account_url", account_url)
+        if create_managed_private_endpoint is not None:
+            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
             pulumi.set(__self__, "filesystem", filesystem)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -453,6 +488,14 @@ class DataLakeStorageAccountDetailsResponse(dict):
         return pulumi.get(self, "account_url")
 
     @property
+    @pulumi.getter(name="createManagedPrivateEndpoint")
+    def create_managed_private_endpoint(self) -> Optional[bool]:
+        """
+        Create managed private endpoint to this storage account or not
+        """
+        return pulumi.get(self, "create_managed_private_endpoint")
+
+    @property
     @pulumi.getter
     def filesystem(self) -> Optional[str]:
         """
@@ -460,28 +503,13 @@ class DataLakeStorageAccountDetailsResponse(dict):
         """
         return pulumi.get(self, "filesystem")
 
-
-@pulumi.output_type
-class DatabaseStatisticsResponse(dict):
-    """
-    A class that contains database statistics information.
-    """
-    def __init__(__self__, *,
-                 size: Optional[float] = None):
-        """
-        A class that contains database statistics information.
-        :param float size: The database size - the total size of compressed data and index in bytes.
-        """
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
     @property
-    @pulumi.getter
-    def size(self) -> Optional[float]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
         """
-        The database size - the total size of compressed data and index in bytes.
+        ARM resource Id of this storage account
         """
-        return pulumi.get(self, "size")
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -489,14 +517,41 @@ class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxExecutors":
+            suggest = "max_executors"
+        elif key == "minExecutors":
+            suggest = "min_executors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicExecutorAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 max_executors: Optional[int] = None,
+                 min_executors: Optional[int] = None):
         """
         Dynamic Executor Allocation Properties
         :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        :param int max_executors: The maximum number of executors alloted
+        :param int min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -505,6 +560,22 @@ class DynamicExecutorAllocationResponse(dict):
         Indicates whether Dynamic Executor Allocation is enabled or not.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[int]:
+        """
+        The maximum number of executors alloted
+        """
+        return pulumi.get(self, "max_executors")
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[int]:
+        """
+        The minimum number of executors alloted
+        """
+        return pulumi.get(self, "min_executors")
 
 
 @pulumi.output_type
@@ -676,50 +747,6 @@ class EnvironmentVariableSetupResponse(dict):
 
 
 @pulumi.output_type
-class FollowerDatabaseDefinitionResponse(dict):
-    """
-    A class representing follower database request.
-    """
-    def __init__(__self__, *,
-                 attached_database_configuration_name: str,
-                 database_name: str,
-                 kusto_pool_resource_id: str):
-        """
-        A class representing follower database request.
-        :param str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
-        :param str database_name: The database name owned by this cluster that was followed. * in case following all databases.
-        :param str kusto_pool_resource_id: Resource id of the cluster that follows a database owned by this cluster.
-        """
-        pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "kusto_pool_resource_id", kusto_pool_resource_id)
-
-    @property
-    @pulumi.getter(name="attachedDatabaseConfigurationName")
-    def attached_database_configuration_name(self) -> str:
-        """
-        Resource name of the attached database configuration in the follower cluster.
-        """
-        return pulumi.get(self, "attached_database_configuration_name")
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
-        """
-        The database name owned by this cluster that was followed. * in case following all databases.
-        """
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter(name="kustoPoolResourceId")
-    def kusto_pool_resource_id(self) -> str:
-        """
-        Resource id of the cluster that follows a database owned by this cluster.
-        """
-        return pulumi.get(self, "kusto_pool_resource_id")
-
-
-@pulumi.output_type
 class IntegrationRuntimeComputePropertiesResponse(dict):
     """
     The compute resource properties for managed integration runtime.
@@ -879,6 +906,46 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         The SAS token of the Azure blob container.
         """
         return pulumi.get(self, "sas_token")
+
+
+@pulumi.output_type
+class IntegrationRuntimeCustomerVirtualNetworkResponse(dict):
+    """
+    The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeCustomerVirtualNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeCustomerVirtualNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeCustomerVirtualNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: Optional[str] = None):
+        """
+        The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+        :param str subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -1286,26 +1353,57 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class LanguageExtensionResponse(dict):
+class KekIdentityPropertiesResponse(dict):
     """
-    The language extension object.
+    Key encryption key properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSystemAssignedIdentity":
+            suggest = "use_system_assigned_identity"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KekIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KekIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KekIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 language_extension_name: Optional[str] = None):
+                 use_system_assigned_identity: Optional[Any] = None,
+                 user_assigned_identity: Optional[str] = None):
         """
-        The language extension object.
-        :param str language_extension_name: The language extension name.
+        Key encryption key properties
+        :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
+        :param str user_assigned_identity: User assigned identity resource Id
         """
-        if language_extension_name is not None:
-            pulumi.set(__self__, "language_extension_name", language_extension_name)
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
-    @pulumi.getter(name="languageExtensionName")
-    def language_extension_name(self) -> Optional[str]:
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[Any]:
         """
-        The language extension name.
+        Boolean specifying whether to use system assigned identity or not
         """
-        return pulumi.get(self, "language_extension_name")
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        User assigned identity resource Id
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type
@@ -1653,6 +1751,8 @@ class ManagedIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1668,17 +1768,21 @@ class ManagedIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
         The workspace managed identity
         :param str principal_id: The principal ID of the workspace managed identity
         :param str tenant_id: The tenant ID of the workspace managed identity
         :param str type: The type of managed identity for the workspace
+        :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The user assigned managed identities.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1703,6 +1807,14 @@ class ManagedIdentityResponse(dict):
         The type of managed identity for the workspace
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']]:
+        """
+        The user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -1890,8 +2002,14 @@ class ManagedIntegrationRuntimeResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeProperties":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeProperties":
             suggest = "compute_properties"
+        elif key == "customerVirtualNetwork":
+            suggest = "customer_virtual_network"
+        elif key == "referenceName":
+            suggest = "reference_name"
         elif key == "ssisProperties":
             suggest = "ssis_properties"
 
@@ -1907,36 +2025,48 @@ class ManagedIntegrationRuntimeResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 state: str,
+                 provisioning_state: str,
                  type: str,
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
+                 customer_virtual_network: Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse'] = None,
                  description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 reference_name: Optional[str] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-        :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
+        :param str provisioning_state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeCustomerVirtualNetworkResponse' customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param str description: Integration runtime description.
+        :param str id: The id of the managed virtual network.
+        :param str reference_name: The reference name of the managed virtual network
         :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
-        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", 'Managed')
         if compute_properties is not None:
             pulumi.set(__self__, "compute_properties", compute_properties)
+        if customer_virtual_network is not None:
+            pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
     @property
-    @pulumi.getter
-    def state(self) -> str:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Integration runtime state, only valid for managed dedicated integration runtime.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -1956,12 +2086,36 @@ class ManagedIntegrationRuntimeResponse(dict):
         return pulumi.get(self, "compute_properties")
 
     @property
+    @pulumi.getter(name="customerVirtualNetwork")
+    def customer_virtual_network(self) -> Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse']:
+        """
+        The name of virtual network to which Azure-SSIS integration runtime will join
+        """
+        return pulumi.get(self, "customer_virtual_network")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the managed virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[str]:
+        """
+        The reference name of the managed virtual network
+        """
+        return pulumi.get(self, "reference_name")
 
     @property
     @pulumi.getter(name="ssisProperties")
@@ -3025,6 +3179,81 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
+class SparkConfigPropertiesResponse(dict):
+    """
+    SparkConfig Properties for a Big Data pool powered by Apache Spark
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time: str,
+                 configuration_type: Optional[str] = None,
+                 content: Optional[str] = None,
+                 filename: Optional[str] = None):
+        """
+        SparkConfig Properties for a Big Data pool powered by Apache Spark
+        :param str time: The last update time of the spark config properties file.
+        :param str configuration_type: The type of the spark config properties file.
+        :param str content: The spark config properties.
+        :param str filename: The filename of the spark config properties file.
+        """
+        pulumi.set(__self__, "time", time)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The last update time of the spark config properties file.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[str]:
+        """
+        The type of the spark config properties file.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The spark config properties.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the spark config properties file.
+        """
+        return pulumi.get(self, "filename")
+
+
+@pulumi.output_type
 class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
     """
     Properties for an Sql pool vulnerability assessment rule baseline's result.
@@ -3716,223 +3945,55 @@ class SsisVariableResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
+class UserAssignedManagedIdentityResponse(dict):
     """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class TableLevelSharingPropertiesResponse(dict):
-    """
-    Tables that will be included and excluded in the follower database
+    User Assigned Managed Identity
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "externalTablesToExclude":
-            suggest = "external_tables_to_exclude"
-        elif key == "externalTablesToInclude":
-            suggest = "external_tables_to_include"
-        elif key == "materializedViewsToExclude":
-            suggest = "materialized_views_to_exclude"
-        elif key == "materializedViewsToInclude":
-            suggest = "materialized_views_to_include"
-        elif key == "tablesToExclude":
-            suggest = "tables_to_exclude"
-        elif key == "tablesToInclude":
-            suggest = "tables_to_include"
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TableLevelSharingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TableLevelSharingPropertiesResponse.__key_warning(key)
+        UserAssignedManagedIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TableLevelSharingPropertiesResponse.__key_warning(key)
+        UserAssignedManagedIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 external_tables_to_exclude: Optional[Sequence[str]] = None,
-                 external_tables_to_include: Optional[Sequence[str]] = None,
-                 materialized_views_to_exclude: Optional[Sequence[str]] = None,
-                 materialized_views_to_include: Optional[Sequence[str]] = None,
-                 tables_to_exclude: Optional[Sequence[str]] = None,
-                 tables_to_include: Optional[Sequence[str]] = None):
+                 client_id: str,
+                 principal_id: str):
         """
-        Tables that will be included and excluded in the follower database
-        :param Sequence[str] external_tables_to_exclude: List of external tables exclude from the follower database
-        :param Sequence[str] external_tables_to_include: List of external tables to include in the follower database
-        :param Sequence[str] materialized_views_to_exclude: List of materialized views exclude from the follower database
-        :param Sequence[str] materialized_views_to_include: List of materialized views to include in the follower database
-        :param Sequence[str] tables_to_exclude: List of tables to exclude from the follower database
-        :param Sequence[str] tables_to_include: List of tables to include in the follower database
+        User Assigned Managed Identity
+        :param str client_id: The client ID.
+        :param str principal_id: The principal ID.
         """
-        if external_tables_to_exclude is not None:
-            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
-        if external_tables_to_include is not None:
-            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
-        if materialized_views_to_exclude is not None:
-            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
-        if materialized_views_to_include is not None:
-            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
-        if tables_to_exclude is not None:
-            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
-        if tables_to_include is not None:
-            pulumi.set(__self__, "tables_to_include", tables_to_include)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
 
     @property
-    @pulumi.getter(name="externalTablesToExclude")
-    def external_tables_to_exclude(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
         """
-        List of external tables exclude from the follower database
+        The client ID.
         """
-        return pulumi.get(self, "external_tables_to_exclude")
+        return pulumi.get(self, "client_id")
 
     @property
-    @pulumi.getter(name="externalTablesToInclude")
-    def external_tables_to_include(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
-        List of external tables to include in the follower database
+        The principal ID.
         """
-        return pulumi.get(self, "external_tables_to_include")
-
-    @property
-    @pulumi.getter(name="materializedViewsToExclude")
-    def materialized_views_to_exclude(self) -> Optional[Sequence[str]]:
-        """
-        List of materialized views exclude from the follower database
-        """
-        return pulumi.get(self, "materialized_views_to_exclude")
-
-    @property
-    @pulumi.getter(name="materializedViewsToInclude")
-    def materialized_views_to_include(self) -> Optional[Sequence[str]]:
-        """
-        List of materialized views to include in the follower database
-        """
-        return pulumi.get(self, "materialized_views_to_include")
-
-    @property
-    @pulumi.getter(name="tablesToExclude")
-    def tables_to_exclude(self) -> Optional[Sequence[str]]:
-        """
-        List of tables to exclude from the follower database
-        """
-        return pulumi.get(self, "tables_to_exclude")
-
-    @property
-    @pulumi.getter(name="tablesToInclude")
-    def tables_to_include(self) -> Optional[Sequence[str]]:
-        """
-        List of tables to include in the follower database
-        """
-        return pulumi.get(self, "tables_to_include")
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

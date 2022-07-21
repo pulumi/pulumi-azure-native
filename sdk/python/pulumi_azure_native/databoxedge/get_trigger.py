@@ -68,7 +68,7 @@ class GetTriggerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Trigger in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of Trigger
         """
         return pulumi.get(self, "system_data")
 
@@ -100,7 +100,7 @@ def get_trigger(device_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
     Trigger details.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -133,7 +133,7 @@ def get_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Trigger details.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

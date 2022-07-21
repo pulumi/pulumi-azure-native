@@ -12,7 +12,7 @@ import (
 )
 
 // The private endpoint connection of a workspace
-// API Version: 2022-04-01-preview.
+// API Version: 2021-04-01-preview.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

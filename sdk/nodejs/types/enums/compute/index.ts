@@ -58,6 +58,16 @@ export {
     v20211201,
 };
 
+export const Architecture = {
+    X64: "x64",
+    Arm64: "Arm64",
+} as const;
+
+/**
+ * CPU architecture supported by an OS disk.
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
 export const CachingTypes = {
     None: "None",
     ReadOnly: "ReadOnly",
@@ -90,6 +100,33 @@ export const ComponentNames = {
  * The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
  */
 export type ComponentNames = (typeof ComponentNames)[keyof typeof ComponentNames];
+
+export const ConfidentialVMEncryptionType = {
+    EncryptedVMGuestStateOnlyWithPmk: "EncryptedVMGuestStateOnlyWithPmk",
+    EncryptedWithPmk: "EncryptedWithPmk",
+    EncryptedWithCmk: "EncryptedWithCmk",
+} as const;
+
+/**
+ * confidential VM encryption types
+ */
+export type ConfidentialVMEncryptionType = (typeof ConfidentialVMEncryptionType)[keyof typeof ConfidentialVMEncryptionType];
+
+export const DataAccessAuthMode = {
+    /**
+     * When export/upload URL is used, the system checks if the user has an identity in Azure Active Directory and has necessary permissions to export/upload the data. Please refer to aka.ms/DisksAzureADAuth.
+     */
+    AzureActiveDirectory: "AzureActiveDirectory",
+    /**
+     * No additional authentication would be performed when accessing export/upload URL.
+     */
+    None: "None",
+} as const;
+
+/**
+ * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+ */
+export type DataAccessAuthMode = (typeof DataAccessAuthMode)[keyof typeof DataAccessAuthMode];
 
 export const DedicatedHostLicenseTypes = {
     None: "None",
@@ -160,6 +197,18 @@ export const DiskCreateOption = {
      * Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
      */
     Upload: "Upload",
+    /**
+     * Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source.
+     */
+    CopyStart: "CopyStart",
+    /**
+     * Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+     */
+    ImportSecure: "ImportSecure",
+    /**
+     * Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+     */
+    UploadPreparedSecure: "UploadPreparedSecure",
 } as const;
 
 /**
@@ -216,6 +265,10 @@ export const DiskEncryptionSetType = {
      * Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
      */
     EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
+    /**
+     * Confidential VM supported disk and VM guest state would be encrypted with customer managed key.
+     */
+    ConfidentialVmEncryptedWithCustomerKey: "ConfidentialVmEncryptedWithCustomerKey",
 } as const;
 
 /**
@@ -228,6 +281,18 @@ export const DiskSecurityTypes = {
      * Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
      */
     TrustedLaunch: "TrustedLaunch",
+    /**
+     * Indicates Confidential VM disk with only VM guest state encrypted
+     */
+    ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey: "ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey",
+    /**
+     * Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a platform managed key
+     */
+    ConfidentialVM_DiskEncryptedWithPlatformKey: "ConfidentialVM_DiskEncryptedWithPlatformKey",
+    /**
+     * Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
+     */
+    ConfidentialVM_DiskEncryptedWithCustomerKey: "ConfidentialVM_DiskEncryptedWithCustomerKey",
 } as const;
 
 /**
@@ -295,6 +360,16 @@ export const ExtendedLocationTypes = {
  * The type of the extended location.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
+export const GalleryExtendedLocationType = {
+    EdgeZone: "EdgeZone",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * It is type of the extended location.
+ */
+export type GalleryExtendedLocationType = (typeof GalleryExtendedLocationType)[keyof typeof GalleryExtendedLocationType];
 
 export const GallerySharingPermissionTypes = {
     Private: "Private",
@@ -524,6 +599,43 @@ export const PublicIPAllocationMethod = {
  */
 export type PublicIPAllocationMethod = (typeof PublicIPAllocationMethod)[keyof typeof PublicIPAllocationMethod];
 
+export const PublicNetworkAccess = {
+    /**
+     * You can generate a SAS URI to access the underlying data of the disk publicly on the internet when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+     */
+    Enabled: "Enabled",
+    /**
+     * You cannot access the underlying data of the disk publicly on the internet even when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Policy for controlling export on the disk.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RepairAction = {
+    Replace: "Replace",
+    Restart: "Restart",
+    Reimage: "Reimage",
+} as const;
+
+/**
+ * Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+ */
+export type RepairAction = (typeof RepairAction)[keyof typeof RepairAction];
+
+export const ReplicationMode = {
+    Full: "Full",
+    Shallow: "Shallow",
+} as const;
+
+/**
+ * Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+ */
+export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -536,12 +648,23 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
-export const SecurityTypes = {
-    TrustedLaunch: "TrustedLaunch",
+export const SecurityEncryptionTypes = {
+    VMGuestStateOnly: "VMGuestStateOnly",
+    DiskWithVMGuestState: "DiskWithVMGuestState",
 } as const;
 
 /**
- * Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+ * Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs.
+ */
+export type SecurityEncryptionTypes = (typeof SecurityEncryptionTypes)[keyof typeof SecurityEncryptionTypes];
+
+export const SecurityTypes = {
+    TrustedLaunch: "TrustedLaunch",
+    ConfidentialVM: "ConfidentialVM",
+} as const;
+
+/**
+ * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set.
  */
 export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 
@@ -607,7 +730,7 @@ export const StorageAccountTypes = {
 } as const;
 
 /**
- * Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+ * Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
  */
 export type StorageAccountTypes = (typeof StorageAccountTypes)[keyof typeof StorageAccountTypes];
 

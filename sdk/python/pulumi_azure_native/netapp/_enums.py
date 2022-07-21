@@ -9,6 +9,8 @@ __all__ = [
     'AvsDataStore',
     'ChownMode',
     'EnableSubvolumes',
+    'EncryptionKeySource',
+    'EncryptionType',
     'EndpointType',
     'NetworkFeatures',
     'QosType',
@@ -59,6 +61,30 @@ class EnableSubvolumes(str, Enum):
     DISABLED = "Disabled"
     """
     subvolumes are not enabled
+    """
+
+
+class EncryptionKeySource(str, Enum):
+    """
+    Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
+    """
+    MICROSOFT_NET_APP = "Microsoft.NetApp"
+    """
+    Microsoft-managed key encryption
+    """
+
+
+class EncryptionType(str, Enum):
+    """
+    Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+    """
+    SINGLE = "Single"
+    """
+    EncryptionType Single, volumes will use single encryption at rest
+    """
+    DOUBLE = "Double"
+    """
+    EncryptionType Double, volumes will use double encryption at rest
     """
 
 

@@ -12,7 +12,7 @@ import (
 )
 
 // VirtualNetworkGatewayNatRule Resource.
-// API Version: 2021-03-01.
+// API Version: 2021-08-01.
 type VirtualNetworkGatewayNatRule struct {
 	pulumi.CustomResourceState
 

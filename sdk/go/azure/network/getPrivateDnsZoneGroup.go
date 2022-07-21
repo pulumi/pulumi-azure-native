@@ -11,7 +11,7 @@ import (
 )
 
 // Private dns zone group resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupPrivateDnsZoneGroup(ctx *pulumi.Context, args *LookupPrivateDnsZoneGroupArgs, opts ...pulumi.InvokeOption) (*LookupPrivateDnsZoneGroupResult, error) {
 	var rv LookupPrivateDnsZoneGroupResult
 	err := ctx.Invoke("azure-native:network:getPrivateDnsZoneGroup", args, &rv, opts...)

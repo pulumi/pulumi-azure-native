@@ -19,11 +19,15 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// <summary>
         /// Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DependsOnDefinitionResponse> DependsOn;
+        public readonly ImmutableArray<string> DependsOn;
         /// <summary>
         /// Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
         /// </summary>
         public readonly bool? Force;
+        /// <summary>
+        /// Name of the Kustomization, matching the key in the Kustomizations object map.
+        /// </summary>
+        public readonly string Name;
         /// <summary>
         /// The path in the source reference to reconcile on the cluster.
         /// </summary>
@@ -44,16 +48,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// The maximum time to attempt to reconcile the Kustomization on the cluster.
         /// </summary>
         public readonly double? TimeoutInSeconds;
-        /// <summary>
-        /// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-        /// </summary>
-        public readonly string? Validation;
 
         [OutputConstructor]
         private KustomizationDefinitionResponse(
-            ImmutableArray<Outputs.DependsOnDefinitionResponse> dependsOn,
+            ImmutableArray<string> dependsOn,
 
             bool? force,
+
+            string name,
 
             string? path,
 
@@ -63,18 +65,16 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
 
             double? syncIntervalInSeconds,
 
-            double? timeoutInSeconds,
-
-            string? validation)
+            double? timeoutInSeconds)
         {
             DependsOn = dependsOn;
             Force = force;
+            Name = name;
             Path = path;
             Prune = prune;
             RetryIntervalInSeconds = retryIntervalInSeconds;
             SyncIntervalInSeconds = syncIntervalInSeconds;
             TimeoutInSeconds = timeoutInSeconds;
-            Validation = validation;
         }
     }
 }

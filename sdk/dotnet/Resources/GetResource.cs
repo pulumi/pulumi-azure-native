@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Resource information.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetResourceResult
     {
         /// <summary>
+        /// Resource extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Resource ID
         /// </summary>
         public readonly string Id;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetResourceResult(
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.Resources
 
             string type)
         {
+            ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;
             Kind = kind;

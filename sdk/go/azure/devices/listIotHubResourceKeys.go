@@ -11,7 +11,7 @@ import (
 )
 
 // The list of shared access policies with a next link.
-// API Version: 2020-08-31.
+// API Version: 2021-07-02.
 func ListIotHubResourceKeys(ctx *pulumi.Context, args *ListIotHubResourceKeysArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysResult, error) {
 	var rv ListIotHubResourceKeysResult
 	err := ctx.Invoke("azure-native:devices:listIotHubResourceKeys", args, &rv, opts...)

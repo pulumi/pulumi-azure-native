@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Redis cache access keys.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-native:cache:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Redis cache access keys.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<ListRedisKeysResult> Invoke(ListRedisKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());

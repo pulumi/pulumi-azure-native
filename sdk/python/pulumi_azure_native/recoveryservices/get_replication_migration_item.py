@@ -100,7 +100,7 @@ def get_replication_migration_item(fabric_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationMigrationItemResult:
     """
     Migration item.
-    API Version: 2018-07-10.
+    API Version: 2022-03-01.
 
 
     :param str fabric_name: Fabric unique name.
@@ -138,7 +138,7 @@ def get_replication_migration_item_output(fabric_name: Optional[pulumi.Input[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationMigrationItemResult]:
     """
     Migration item.
-    API Version: 2018-07-10.
+    API Version: 2022-03-01.
 
 
     :param str fabric_name: Fabric unique name.

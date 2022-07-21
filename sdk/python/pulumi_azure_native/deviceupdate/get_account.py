@@ -21,7 +21,7 @@ class GetAccountResult:
     """
     Device Update account details.
     """
-    def __init__(__self__, host_name=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, host_name=None, id=None, identity=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -34,6 +34,9 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,6 +49,9 @@ class GetAccountResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -90,6 +96,14 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
+    def locations(self) -> Sequence['outputs.LocationResponse']:
+        """
+        Device Update account primary and failover location details
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -119,6 +133,14 @@ class GetAccountResult:
         Whether or not public network access is allowed for the account.
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Device Update Sku
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
@@ -155,10 +177,12 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             identity=self.identity,
             location=self.location,
+            locations=self.locations,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -169,7 +193,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Device Update account details.
-    API Version: 2020-03-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str account_name: Account name.
@@ -189,10 +213,12 @@ def get_account(account_name: Optional[str] = None,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
+        locations=__ret__.locations,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -204,7 +230,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Device Update account details.
-    API Version: 2020-03-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str account_name: Account name.

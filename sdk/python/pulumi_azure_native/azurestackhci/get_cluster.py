@@ -21,10 +21,16 @@ class GetClusterResult:
     """
     Cluster details.
     """
-    def __init__(__self__, aad_client_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, created_at=None, created_by=None, created_by_type=None, id=None, last_billing_timestamp=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, last_sync_timestamp=None, location=None, name=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, status=None, tags=None, trial_days_remaining=None, type=None):
+    def __init__(__self__, aad_application_object_id=None, aad_client_id=None, aad_service_principal_object_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, cloud_management_endpoint=None, created_at=None, created_by=None, created_by_type=None, desired_properties=None, id=None, last_billing_timestamp=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, last_sync_timestamp=None, location=None, name=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, service_endpoint=None, status=None, tags=None, trial_days_remaining=None, type=None):
+        if aad_application_object_id and not isinstance(aad_application_object_id, str):
+            raise TypeError("Expected argument 'aad_application_object_id' to be a str")
+        pulumi.set(__self__, "aad_application_object_id", aad_application_object_id)
         if aad_client_id and not isinstance(aad_client_id, str):
             raise TypeError("Expected argument 'aad_client_id' to be a str")
         pulumi.set(__self__, "aad_client_id", aad_client_id)
+        if aad_service_principal_object_id and not isinstance(aad_service_principal_object_id, str):
+            raise TypeError("Expected argument 'aad_service_principal_object_id' to be a str")
+        pulumi.set(__self__, "aad_service_principal_object_id", aad_service_principal_object_id)
         if aad_tenant_id and not isinstance(aad_tenant_id, str):
             raise TypeError("Expected argument 'aad_tenant_id' to be a str")
         pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
@@ -34,6 +40,9 @@ class GetClusterResult:
         if cloud_id and not isinstance(cloud_id, str):
             raise TypeError("Expected argument 'cloud_id' to be a str")
         pulumi.set(__self__, "cloud_id", cloud_id)
+        if cloud_management_endpoint and not isinstance(cloud_management_endpoint, str):
+            raise TypeError("Expected argument 'cloud_management_endpoint' to be a str")
+        pulumi.set(__self__, "cloud_management_endpoint", cloud_management_endpoint)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -43,6 +52,9 @@ class GetClusterResult:
         if created_by_type and not isinstance(created_by_type, str):
             raise TypeError("Expected argument 'created_by_type' to be a str")
         pulumi.set(__self__, "created_by_type", created_by_type)
+        if desired_properties and not isinstance(desired_properties, dict):
+            raise TypeError("Expected argument 'desired_properties' to be a dict")
+        pulumi.set(__self__, "desired_properties", desired_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -76,6 +88,9 @@ class GetClusterResult:
         if reported_properties and not isinstance(reported_properties, dict):
             raise TypeError("Expected argument 'reported_properties' to be a dict")
         pulumi.set(__self__, "reported_properties", reported_properties)
+        if service_endpoint and not isinstance(service_endpoint, str):
+            raise TypeError("Expected argument 'service_endpoint' to be a str")
+        pulumi.set(__self__, "service_endpoint", service_endpoint)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -90,16 +105,32 @@ class GetClusterResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="aadApplicationObjectId")
+    def aad_application_object_id(self) -> Optional[str]:
+        """
+        Object id of cluster AAD identity.
+        """
+        return pulumi.get(self, "aad_application_object_id")
+
+    @property
     @pulumi.getter(name="aadClientId")
-    def aad_client_id(self) -> str:
+    def aad_client_id(self) -> Optional[str]:
         """
         App id of cluster AAD identity.
         """
         return pulumi.get(self, "aad_client_id")
 
     @property
+    @pulumi.getter(name="aadServicePrincipalObjectId")
+    def aad_service_principal_object_id(self) -> Optional[str]:
+        """
+        Id of cluster identity service principal.
+        """
+        return pulumi.get(self, "aad_service_principal_object_id")
+
+    @property
     @pulumi.getter(name="aadTenantId")
-    def aad_tenant_id(self) -> str:
+    def aad_tenant_id(self) -> Optional[str]:
         """
         Tenant id of cluster AAD identity.
         """
@@ -120,6 +151,14 @@ class GetClusterResult:
         Unique, immutable resource id.
         """
         return pulumi.get(self, "cloud_id")
+
+    @property
+    @pulumi.getter(name="cloudManagementEndpoint")
+    def cloud_management_endpoint(self) -> Optional[str]:
+        """
+        Endpoint configured for management from the Azure portal.
+        """
+        return pulumi.get(self, "cloud_management_endpoint")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -144,6 +183,14 @@ class GetClusterResult:
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="desiredProperties")
+    def desired_properties(self) -> Optional['outputs.ClusterDesiredPropertiesResponse']:
+        """
+        Desired properties of the cluster.
+        """
+        return pulumi.get(self, "desired_properties")
 
     @property
     @pulumi.getter
@@ -227,11 +274,19 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="reportedProperties")
-    def reported_properties(self) -> Optional['outputs.ClusterReportedPropertiesResponse']:
+    def reported_properties(self) -> 'outputs.ClusterReportedPropertiesResponse':
         """
         Properties reported by cluster agent.
         """
         return pulumi.get(self, "reported_properties")
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> str:
+        """
+        Region specific DataPath Endpoint of the cluster.
+        """
+        return pulumi.get(self, "service_endpoint")
 
     @property
     @pulumi.getter
@@ -272,13 +327,17 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            aad_application_object_id=self.aad_application_object_id,
             aad_client_id=self.aad_client_id,
+            aad_service_principal_object_id=self.aad_service_principal_object_id,
             aad_tenant_id=self.aad_tenant_id,
             billing_model=self.billing_model,
             cloud_id=self.cloud_id,
+            cloud_management_endpoint=self.cloud_management_endpoint,
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
+            desired_properties=self.desired_properties,
             id=self.id,
             last_billing_timestamp=self.last_billing_timestamp,
             last_modified_at=self.last_modified_at,
@@ -290,6 +349,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             provisioning_state=self.provisioning_state,
             registration_timestamp=self.registration_timestamp,
             reported_properties=self.reported_properties,
+            service_endpoint=self.service_endpoint,
             status=self.status,
             tags=self.tags,
             trial_days_remaining=self.trial_days_remaining,
@@ -301,7 +361,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Cluster details.
-    API Version: 2020-10-01.
+    API Version: 2022-05-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -317,13 +377,17 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        aad_application_object_id=__ret__.aad_application_object_id,
         aad_client_id=__ret__.aad_client_id,
+        aad_service_principal_object_id=__ret__.aad_service_principal_object_id,
         aad_tenant_id=__ret__.aad_tenant_id,
         billing_model=__ret__.billing_model,
         cloud_id=__ret__.cloud_id,
+        cloud_management_endpoint=__ret__.cloud_management_endpoint,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
         created_by_type=__ret__.created_by_type,
+        desired_properties=__ret__.desired_properties,
         id=__ret__.id,
         last_billing_timestamp=__ret__.last_billing_timestamp,
         last_modified_at=__ret__.last_modified_at,
@@ -335,6 +399,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         registration_timestamp=__ret__.registration_timestamp,
         reported_properties=__ret__.reported_properties,
+        service_endpoint=__ret__.service_endpoint,
         status=__ret__.status,
         tags=__ret__.tags,
         trial_days_remaining=__ret__.trial_days_remaining,
@@ -347,7 +412,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Cluster details.
-    API Version: 2020-10-01.
+    API Version: 2022-05-01.
 
 
     :param str cluster_name: The name of the cluster.

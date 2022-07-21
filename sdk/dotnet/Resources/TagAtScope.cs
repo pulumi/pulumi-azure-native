@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
-    /// API Version: 2019-10-01.
+    /// API Version: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:TagAtScope")]
     public partial class TagAtScope : Pulumi.CustomResource

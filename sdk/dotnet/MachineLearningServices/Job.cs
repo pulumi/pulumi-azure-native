@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Job")]
     public partial class Job : Pulumi.CustomResource
     {
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("jobBaseProperties")]
+        public Output<object> JobBaseProperties { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -23,13 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("properties")]
-        public Output<Union<Outputs.CommandJobResponse, Outputs.SweepJobResponse>> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name and identifier for the Job.
+        /// The name and identifier for the Job. This is case-sensitive.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("properties", required: true)]
-        public InputUnion<Inputs.CommandJobArgs, Inputs.SweepJobArgs> Properties { get; set; } = null!;
+        [Input("jobBaseProperties", required: true)]
+        public object JobBaseProperties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

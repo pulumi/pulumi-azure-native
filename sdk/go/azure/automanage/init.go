@@ -21,12 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:automanage:Account":
-		r = &Account{}
+	case "azure-native:automanage:ConfigurationProfile":
+		r = &ConfigurationProfile{}
 	case "azure-native:automanage:ConfigurationProfileAssignment":
 		r = &ConfigurationProfileAssignment{}
-	case "azure-native:automanage:ConfigurationProfilePreference":
-		r = &ConfigurationProfilePreference{}
+	case "azure-native:automanage:ConfigurationProfileHCIAssignment":
+		r = &ConfigurationProfileHCIAssignment{}
+	case "azure-native:automanage:ConfigurationProfileHCRPAssignment":
+		r = &ConfigurationProfileHCRPAssignment{}
+	case "azure-native:automanage:ConfigurationProfilesVersion":
+		r = &ConfigurationProfilesVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

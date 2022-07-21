@@ -3,12 +3,35 @@
 
 package recoveryservices
 
+// Whether storage account lock is to be acquired for this container or not.
+type AcquireStorageAccountLock string
+
+const (
+	AcquireStorageAccountLockAcquire    = AcquireStorageAccountLock("Acquire")
+	AcquireStorageAccountLockNotAcquire = AcquireStorageAccountLock("NotAcquire")
+)
+
 // A value indicating whether the auto update is enabled.
 type AgentAutoUpdateStatus string
 
 const (
 	AgentAutoUpdateStatusDisabled = AgentAutoUpdateStatus("Disabled")
 	AgentAutoUpdateStatusEnabled  = AgentAutoUpdateStatus("Enabled")
+)
+
+type AlertsState string
+
+const (
+	AlertsStateEnabled  = AlertsState("Enabled")
+	AlertsStateDisabled = AlertsState("Disabled")
+)
+
+// A value indicating the type authentication to use for automation Account.
+type AutomationAccountAuthenticationType string
+
+const (
+	AutomationAccountAuthenticationTypeRunAsAccount           = AutomationAccountAuthenticationType("RunAsAccount")
+	AutomationAccountAuthenticationTypeSystemAssignedIdentity = AutomationAccountAuthenticationType("SystemAssignedIdentity")
 )
 
 // Type of backup items associated with this container.
@@ -54,21 +77,24 @@ const (
 type ContainerType string
 
 const (
-	ContainerTypeInvalid                    = ContainerType("Invalid")
-	ContainerTypeUnknown                    = ContainerType("Unknown")
-	ContainerTypeIaasVMContainer            = ContainerType("IaasVMContainer")
-	ContainerTypeIaasVMServiceContainer     = ContainerType("IaasVMServiceContainer")
-	ContainerTypeDPMContainer               = ContainerType("DPMContainer")
-	ContainerTypeAzureBackupServerContainer = ContainerType("AzureBackupServerContainer")
-	ContainerTypeMABContainer               = ContainerType("MABContainer")
-	ContainerTypeCluster                    = ContainerType("Cluster")
-	ContainerTypeAzureSqlContainer          = ContainerType("AzureSqlContainer")
-	ContainerTypeWindows                    = ContainerType("Windows")
-	ContainerTypeVCenter                    = ContainerType("VCenter")
-	ContainerTypeVMAppContainer             = ContainerType("VMAppContainer")
-	ContainerTypeSQLAGWorkLoadContainer     = ContainerType("SQLAGWorkLoadContainer")
-	ContainerTypeStorageContainer           = ContainerType("StorageContainer")
-	ContainerTypeGenericContainer           = ContainerType("GenericContainer")
+	ContainerTypeInvalid                                   = ContainerType("Invalid")
+	ContainerTypeUnknown                                   = ContainerType("Unknown")
+	ContainerTypeIaasVMContainer                           = ContainerType("IaasVMContainer")
+	ContainerTypeIaasVMServiceContainer                    = ContainerType("IaasVMServiceContainer")
+	ContainerTypeDPMContainer                              = ContainerType("DPMContainer")
+	ContainerTypeAzureBackupServerContainer                = ContainerType("AzureBackupServerContainer")
+	ContainerTypeMABContainer                              = ContainerType("MABContainer")
+	ContainerTypeCluster                                   = ContainerType("Cluster")
+	ContainerTypeAzureSqlContainer                         = ContainerType("AzureSqlContainer")
+	ContainerTypeWindows                                   = ContainerType("Windows")
+	ContainerTypeVCenter                                   = ContainerType("VCenter")
+	ContainerTypeVMAppContainer                            = ContainerType("VMAppContainer")
+	ContainerTypeSQLAGWorkLoadContainer                    = ContainerType("SQLAGWorkLoadContainer")
+	ContainerTypeStorageContainer                          = ContainerType("StorageContainer")
+	ContainerTypeGenericContainer                          = ContainerType("GenericContainer")
+	ContainerType_Microsoft_ClassicCompute_virtualMachines = ContainerType("Microsoft.ClassicCompute/virtualMachines")
+	ContainerType_Microsoft_Compute_virtualMachines        = ContainerType("Microsoft.Compute/virtualMachines")
+	ContainerTypeAzureWorkloadContainer                    = ContainerType("AzureWorkloadContainer")
 )
 
 // Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -122,6 +148,13 @@ const (
 	DiskAccountType_StandardSSD_LRS = DiskAccountType("StandardSSD_LRS")
 )
 
+// The extended location type.
+type ExtendedLocationType string
+
+const (
+	ExtendedLocationTypeEdgeZone = ExtendedLocationType("EdgeZone")
+)
+
 // The failover deployment model.
 type FailoverDeploymentModel string
 
@@ -139,6 +172,14 @@ const (
 	HealthStatusActionRequired  = HealthStatus("ActionRequired")
 	HealthStatusActionSuggested = HealthStatus("ActionSuggested")
 	HealthStatusInvalid         = HealthStatus("Invalid")
+)
+
+type IAASVMPolicyType string
+
+const (
+	IAASVMPolicyTypeInvalid = IAASVMPolicyType("Invalid")
+	IAASVMPolicyTypeV1      = IAASVMPolicyType("V1")
+	IAASVMPolicyTypeV2      = IAASVMPolicyType("V2")
 )
 
 // Enabling/Disabling the Double Encryption state
@@ -247,6 +288,18 @@ const (
 	ProtectedItemStateEnumProtectionPaused  = ProtectedItemStateEnum("ProtectionPaused")
 )
 
+// backup protectionIntent type.
+type ProtectionIntentItemType string
+
+const (
+	ProtectionIntentItemTypeInvalid                                    = ProtectionIntentItemType("Invalid")
+	ProtectionIntentItemTypeAzureResourceItem                          = ProtectionIntentItemType("AzureResourceItem")
+	ProtectionIntentItemTypeRecoveryServiceVaultItem                   = ProtectionIntentItemType("RecoveryServiceVaultItem")
+	ProtectionIntentItemTypeAzureWorkloadContainerAutoProtectionIntent = ProtectionIntentItemType("AzureWorkloadContainerAutoProtectionIntent")
+	ProtectionIntentItemTypeAzureWorkloadAutoProtectionIntent          = ProtectionIntentItemType("AzureWorkloadAutoProtectionIntent")
+	ProtectionIntentItemTypeAzureWorkloadSQLAutoProtectionIntent       = ProtectionIntentItemType("AzureWorkloadSQLAutoProtectionIntent")
+)
+
 // Backup state of this backup item.
 type ProtectionState string
 
@@ -280,6 +333,14 @@ const (
 	ProvisioningStatePending   = ProvisioningState("Pending")
 )
 
+// The fabric location.
+type RecoveryPlanActionLocation string
+
+const (
+	RecoveryPlanActionLocationPrimary  = RecoveryPlanActionLocation("Primary")
+	RecoveryPlanActionLocationRecovery = RecoveryPlanActionLocation("Recovery")
+)
+
 // The group type.
 type RecoveryPlanGroupType string
 
@@ -301,6 +362,7 @@ const (
 	ReplicationProtectedItemOperationTestFailoverCleanup = ReplicationProtectedItemOperation("TestFailoverCleanup")
 	ReplicationProtectedItemOperationFailback            = ReplicationProtectedItemOperation("Failback")
 	ReplicationProtectedItemOperationFinalizeFailback    = ReplicationProtectedItemOperation("FinalizeFailback")
+	ReplicationProtectedItemOperationCancelFailover      = ReplicationProtectedItemOperation("CancelFailover")
 	ReplicationProtectedItemOperationChangePit           = ReplicationProtectedItemOperation("ChangePit")
 	ReplicationProtectedItemOperationRepairReplication   = ReplicationProtectedItemOperation("RepairReplication")
 	ReplicationProtectedItemOperationSwitchProtection    = ReplicationProtectedItemOperation("SwitchProtection")
@@ -356,6 +418,7 @@ const (
 	ScheduleRunTypeInvalid = ScheduleRunType("Invalid")
 	ScheduleRunTypeDaily   = ScheduleRunType("Daily")
 	ScheduleRunTypeWeekly  = ScheduleRunType("Weekly")
+	ScheduleRunTypeHourly  = ScheduleRunType("Hourly")
 )
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
@@ -366,12 +429,22 @@ const (
 	SetMultiVmSyncStatusDisable = SetMultiVmSyncStatus("Disable")
 )
 
-// The Sku name.
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 type SkuName string
 
 const (
 	SkuNameStandard = SkuName("Standard")
 	SkuNameRS0      = SkuName("RS0")
+)
+
+// The SQL Server license type.
+type SqlServerLicenseType string
+
+const (
+	SqlServerLicenseTypeNotSpecified  = SqlServerLicenseType("NotSpecified")
+	SqlServerLicenseTypeNoLicenseType = SqlServerLicenseType("NoLicenseType")
+	SqlServerLicenseTypePAYG          = SqlServerLicenseType("PAYG")
+	SqlServerLicenseTypeAHUB          = SqlServerLicenseType("AHUB")
 )
 
 type WeekOfMonth string

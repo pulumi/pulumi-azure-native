@@ -12,18 +12,24 @@ import (
 )
 
 // Pool of backend IP addresses.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type LoadBalancerBackendAddressPool struct {
 	pulumi.CustomResourceState
 
 	// An array of references to IP addresses defined in network interfaces.
 	BackendIPConfigurations NetworkInterfaceIPConfigurationResponseArrayOutput `pulumi:"backendIPConfigurations"`
+	// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+	DrainPeriodInSeconds pulumi.IntPtrOutput `pulumi:"drainPeriodInSeconds"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// An array of references to inbound NAT rules that use this backend address pool.
+	InboundNatRules SubResourceResponseArrayOutput `pulumi:"inboundNatRules"`
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses LoadBalancerBackendAddressResponseArrayOutput `pulumi:"loadBalancerBackendAddresses"`
 	// An array of references to load balancing rules that use this backend address pool.
 	LoadBalancingRules SubResourceResponseArrayOutput `pulumi:"loadBalancingRules"`
+	// The location of the backend address pool.
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A reference to an outbound rule that uses this backend address pool.
@@ -32,6 +38,8 @@ type LoadBalancerBackendAddressPool struct {
 	OutboundRules SubResourceResponseArrayOutput `pulumi:"outboundRules"`
 	// The provisioning state of the backend address pool resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// An array of gateway load balancer tunnel interfaces.
+	TunnelInterfaces GatewayLoadBalancerTunnelInterfaceResponseArrayOutput `pulumi:"tunnelInterfaces"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -119,32 +127,44 @@ func (LoadBalancerBackendAddressPoolState) ElementType() reflect.Type {
 type loadBalancerBackendAddressPoolArgs struct {
 	// The name of the backend address pool.
 	BackendAddressPoolName *string `pulumi:"backendAddressPoolName"`
+	// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+	DrainPeriodInSeconds *int `pulumi:"drainPeriodInSeconds"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses []LoadBalancerBackendAddress `pulumi:"loadBalancerBackendAddresses"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
+	// The location of the backend address pool.
+	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// An array of gateway load balancer tunnel interfaces.
+	TunnelInterfaces []GatewayLoadBalancerTunnelInterface `pulumi:"tunnelInterfaces"`
 }
 
 // The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
 type LoadBalancerBackendAddressPoolArgs struct {
 	// The name of the backend address pool.
 	BackendAddressPoolName pulumi.StringPtrInput
+	// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+	DrainPeriodInSeconds pulumi.IntPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses LoadBalancerBackendAddressArrayInput
 	// The name of the load balancer.
 	LoadBalancerName pulumi.StringInput
+	// The location of the backend address pool.
+	Location pulumi.StringPtrInput
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// An array of gateway load balancer tunnel interfaces.
+	TunnelInterfaces GatewayLoadBalancerTunnelInterfaceArrayInput
 }
 
 func (LoadBalancerBackendAddressPoolArgs) ElementType() reflect.Type {
@@ -191,9 +211,19 @@ func (o LoadBalancerBackendAddressPoolOutput) BackendIPConfigurations() NetworkI
 	}).(NetworkInterfaceIPConfigurationResponseArrayOutput)
 }
 
+// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+func (o LoadBalancerBackendAddressPoolOutput) DrainPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.IntPtrOutput { return v.DrainPeriodInSeconds }).(pulumi.IntPtrOutput)
+}
+
 // A unique read-only string that changes whenever the resource is updated.
 func (o LoadBalancerBackendAddressPoolOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// An array of references to inbound NAT rules that use this backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) InboundNatRules() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) SubResourceResponseArrayOutput { return v.InboundNatRules }).(SubResourceResponseArrayOutput)
 }
 
 // An array of backend addresses.
@@ -206,6 +236,11 @@ func (o LoadBalancerBackendAddressPoolOutput) LoadBalancerBackendAddresses() Loa
 // An array of references to load balancing rules that use this backend address pool.
 func (o LoadBalancerBackendAddressPoolOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) SubResourceResponseArrayOutput { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
+}
+
+// The location of the backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -226,6 +261,13 @@ func (o LoadBalancerBackendAddressPoolOutput) OutboundRules() SubResourceRespons
 // The provisioning state of the backend address pool resource.
 func (o LoadBalancerBackendAddressPoolOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// An array of gateway load balancer tunnel interfaces.
+func (o LoadBalancerBackendAddressPoolOutput) TunnelInterfaces() GatewayLoadBalancerTunnelInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) GatewayLoadBalancerTunnelInterfaceResponseArrayOutput {
+		return v.TunnelInterfaces
+	}).(GatewayLoadBalancerTunnelInterfaceResponseArrayOutput)
 }
 
 // Type of the resource.

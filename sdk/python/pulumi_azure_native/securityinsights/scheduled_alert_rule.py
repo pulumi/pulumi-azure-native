@@ -7,7 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ScheduledAlertRuleArgs', 'ScheduledAlertRule']
 
@@ -27,10 +29,16 @@ class ScheduledAlertRuleArgs:
                  trigger_operator: pulumi.Input['TriggerOperator'],
                  trigger_threshold: pulumi.Input[int],
                  workspace_name: pulumi.Input[str],
+                 alert_details_override: Optional[pulumi.Input['AlertDetailsOverrideArgs']] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]] = None,
+                 event_grouping_settings: Optional[pulumi.Input['EventGroupingSettingsArgs']] = None,
+                 incident_configuration: Optional[pulumi.Input['IncidentConfigurationArgs']] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None):
+                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+                 template_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScheduledAlertRule resource.
         :param pulumi.Input[str] display_name: The display name for alerts created by this alert rule.
@@ -40,17 +48,23 @@ class ScheduledAlertRuleArgs:
         :param pulumi.Input[str] query: The query that creates alerts for this rule.
         :param pulumi.Input[str] query_frequency: The frequency (in ISO 8601 duration format) for this alert rule to run.
         :param pulumi.Input[str] query_period: The period (in ISO 8601 duration format) that this alert rule looks at.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'AlertSeverity']] severity: The severity for alerts created by this alert rule.
         :param pulumi.Input[str] suppression_duration: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
         :param pulumi.Input[bool] suppression_enabled: Determines whether the suppression for this alert rule is enabled or disabled.
         :param pulumi.Input['TriggerOperator'] trigger_operator: The operation against the threshold that triggers alert rule.
         :param pulumi.Input[int] trigger_threshold: The threshold triggers this alert rule.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input['AlertDetailsOverrideArgs'] alert_details_override: The alert details override settings
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: Dictionary of string key-value pairs of columns to be attached to the alert
         :param pulumi.Input[str] description: The description of the alert rule.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]] entity_mappings: Array of the entity mappings of the alert rule
+        :param pulumi.Input['EventGroupingSettingsArgs'] event_grouping_settings: The event grouping settings.
+        :param pulumi.Input['IncidentConfigurationArgs'] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] tactics: The tactics of the alert rule
+        :param pulumi.Input[str] template_version: The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "enabled", enabled)
@@ -65,14 +79,26 @@ class ScheduledAlertRuleArgs:
         pulumi.set(__self__, "trigger_operator", trigger_operator)
         pulumi.set(__self__, "trigger_threshold", trigger_threshold)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if alert_details_override is not None:
+            pulumi.set(__self__, "alert_details_override", alert_details_override)
         if alert_rule_template_name is not None:
             pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
+        if custom_details is not None:
+            pulumi.set(__self__, "custom_details", custom_details)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if entity_mappings is not None:
+            pulumi.set(__self__, "entity_mappings", entity_mappings)
+        if event_grouping_settings is not None:
+            pulumi.set(__self__, "event_grouping_settings", event_grouping_settings)
+        if incident_configuration is not None:
+            pulumi.set(__self__, "incident_configuration", incident_configuration)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
         if tactics is not None:
             pulumi.set(__self__, "tactics", tactics)
+        if template_version is not None:
+            pulumi.set(__self__, "template_version", template_version)
 
     @property
     @pulumi.getter(name="displayName")
@@ -151,7 +177,7 @@ class ScheduledAlertRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -232,6 +258,18 @@ class ScheduledAlertRuleArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
+    @pulumi.getter(name="alertDetailsOverride")
+    def alert_details_override(self) -> Optional[pulumi.Input['AlertDetailsOverrideArgs']]:
+        """
+        The alert details override settings
+        """
+        return pulumi.get(self, "alert_details_override")
+
+    @alert_details_override.setter
+    def alert_details_override(self, value: Optional[pulumi.Input['AlertDetailsOverrideArgs']]):
+        pulumi.set(self, "alert_details_override", value)
+
+    @property
     @pulumi.getter(name="alertRuleTemplateName")
     def alert_rule_template_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -244,6 +282,18 @@ class ScheduledAlertRuleArgs:
         pulumi.set(self, "alert_rule_template_name", value)
 
     @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Dictionary of string key-value pairs of columns to be attached to the alert
+        """
+        return pulumi.get(self, "custom_details")
+
+    @custom_details.setter
+    def custom_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_details", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -254,6 +304,42 @@ class ScheduledAlertRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="entityMappings")
+    def entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]]:
+        """
+        Array of the entity mappings of the alert rule
+        """
+        return pulumi.get(self, "entity_mappings")
+
+    @entity_mappings.setter
+    def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]]):
+        pulumi.set(self, "entity_mappings", value)
+
+    @property
+    @pulumi.getter(name="eventGroupingSettings")
+    def event_grouping_settings(self) -> Optional[pulumi.Input['EventGroupingSettingsArgs']]:
+        """
+        The event grouping settings.
+        """
+        return pulumi.get(self, "event_grouping_settings")
+
+    @event_grouping_settings.setter
+    def event_grouping_settings(self, value: Optional[pulumi.Input['EventGroupingSettingsArgs']]):
+        pulumi.set(self, "event_grouping_settings", value)
+
+    @property
+    @pulumi.getter(name="incidentConfiguration")
+    def incident_configuration(self) -> Optional[pulumi.Input['IncidentConfigurationArgs']]:
+        """
+        The settings of the incidents that created from alerts triggered by this analytics rule
+        """
+        return pulumi.get(self, "incident_configuration")
+
+    @incident_configuration.setter
+    def incident_configuration(self, value: Optional[pulumi.Input['IncidentConfigurationArgs']]):
+        pulumi.set(self, "incident_configuration", value)
 
     @property
     @pulumi.getter(name="ruleId")
@@ -279,16 +365,33 @@ class ScheduledAlertRuleArgs:
     def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]]):
         pulumi.set(self, "tactics", value)
 
+    @property
+    @pulumi.getter(name="templateVersion")
+    def template_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+        """
+        return pulumi.get(self, "template_version")
+
+    @template_version.setter
+    def template_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_version", value)
+
 
 class ScheduledAlertRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_details_override: Optional[pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']]] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]]] = None,
+                 event_grouping_settings: Optional[pulumi.Input[pulumi.InputType['EventGroupingSettingsArgs']]] = None,
+                 incident_configuration: Optional[pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_frequency: Optional[pulumi.Input[str]] = None,
@@ -299,31 +402,38 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+                 template_version: Optional[pulumi.Input[str]] = None,
                  trigger_operator: Optional[pulumi.Input['TriggerOperator']] = None,
                  trigger_threshold: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Represents scheduled alert rule.
-        API Version: 2020-01-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']] alert_details_override: The alert details override settings
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: Dictionary of string key-value pairs of columns to be attached to the alert
         :param pulumi.Input[str] description: The description of the alert rule.
         :param pulumi.Input[str] display_name: The display name for alerts created by this alert rule.
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]] entity_mappings: Array of the entity mappings of the alert rule
+        :param pulumi.Input[pulumi.InputType['EventGroupingSettingsArgs']] event_grouping_settings: The event grouping settings.
+        :param pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'Scheduled'.
         :param pulumi.Input[str] query: The query that creates alerts for this rule.
         :param pulumi.Input[str] query_frequency: The frequency (in ISO 8601 duration format) for this alert rule to run.
         :param pulumi.Input[str] query_period: The period (in ISO 8601 duration format) that this alert rule looks at.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Union[str, 'AlertSeverity']] severity: The severity for alerts created by this alert rule.
         :param pulumi.Input[str] suppression_duration: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
         :param pulumi.Input[bool] suppression_enabled: Determines whether the suppression for this alert rule is enabled or disabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] tactics: The tactics of the alert rule
+        :param pulumi.Input[str] template_version: The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
         :param pulumi.Input['TriggerOperator'] trigger_operator: The operation against the threshold that triggers alert rule.
         :param pulumi.Input[int] trigger_threshold: The threshold triggers this alert rule.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -336,7 +446,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents scheduled alert rule.
-        API Version: 2020-01-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param ScheduledAlertRuleArgs args: The arguments to use to populate this resource's properties.
@@ -353,10 +463,15 @@ class ScheduledAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_details_override: Optional[pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']]] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]]] = None,
+                 event_grouping_settings: Optional[pulumi.Input[pulumi.InputType['EventGroupingSettingsArgs']]] = None,
+                 incident_configuration: Optional[pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_frequency: Optional[pulumi.Input[str]] = None,
@@ -367,6 +482,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+                 template_version: Optional[pulumi.Input[str]] = None,
                  trigger_operator: Optional[pulumi.Input['TriggerOperator']] = None,
                  trigger_threshold: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -382,7 +498,9 @@ class ScheduledAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduledAlertRuleArgs.__new__(ScheduledAlertRuleArgs)
 
+            __props__.__dict__["alert_details_override"] = alert_details_override
             __props__.__dict__["alert_rule_template_name"] = alert_rule_template_name
+            __props__.__dict__["custom_details"] = custom_details
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -390,6 +508,9 @@ class ScheduledAlertRule(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["entity_mappings"] = entity_mappings
+            __props__.__dict__["event_grouping_settings"] = event_grouping_settings
+            __props__.__dict__["incident_configuration"] = incident_configuration
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Scheduled'
@@ -416,6 +537,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'suppression_enabled'")
             __props__.__dict__["suppression_enabled"] = suppression_enabled
             __props__.__dict__["tactics"] = tactics
+            __props__.__dict__["template_version"] = template_version
             if trigger_operator is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_operator'")
             __props__.__dict__["trigger_operator"] = trigger_operator
@@ -428,6 +550,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:ScheduledAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:ScheduledAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -453,11 +576,16 @@ class ScheduledAlertRule(pulumi.CustomResource):
 
         __props__ = ScheduledAlertRuleArgs.__new__(ScheduledAlertRuleArgs)
 
+        __props__.__dict__["alert_details_override"] = None
         __props__.__dict__["alert_rule_template_name"] = None
+        __props__.__dict__["custom_details"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["enabled"] = None
+        __props__.__dict__["entity_mappings"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["event_grouping_settings"] = None
+        __props__.__dict__["incident_configuration"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["last_modified_utc"] = None
         __props__.__dict__["name"] = None
@@ -467,11 +595,21 @@ class ScheduledAlertRule(pulumi.CustomResource):
         __props__.__dict__["severity"] = None
         __props__.__dict__["suppression_duration"] = None
         __props__.__dict__["suppression_enabled"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tactics"] = None
+        __props__.__dict__["template_version"] = None
         __props__.__dict__["trigger_operator"] = None
         __props__.__dict__["trigger_threshold"] = None
         __props__.__dict__["type"] = None
         return ScheduledAlertRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alertDetailsOverride")
+    def alert_details_override(self) -> pulumi.Output[Optional['outputs.AlertDetailsOverrideResponse']]:
+        """
+        The alert details override settings
+        """
+        return pulumi.get(self, "alert_details_override")
 
     @property
     @pulumi.getter(name="alertRuleTemplateName")
@@ -480,6 +618,14 @@ class ScheduledAlertRule(pulumi.CustomResource):
         The Name of the alert rule template used to create this rule.
         """
         return pulumi.get(self, "alert_rule_template_name")
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Dictionary of string key-value pairs of columns to be attached to the alert
+        """
+        return pulumi.get(self, "custom_details")
 
     @property
     @pulumi.getter
@@ -506,12 +652,36 @@ class ScheduledAlertRule(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="entityMappings")
+    def entity_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.EntityMappingResponse']]]:
+        """
+        Array of the entity mappings of the alert rule
+        """
+        return pulumi.get(self, "entity_mappings")
+
+    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="eventGroupingSettings")
+    def event_grouping_settings(self) -> pulumi.Output[Optional['outputs.EventGroupingSettingsResponse']]:
+        """
+        The event grouping settings.
+        """
+        return pulumi.get(self, "event_grouping_settings")
+
+    @property
+    @pulumi.getter(name="incidentConfiguration")
+    def incident_configuration(self) -> pulumi.Output[Optional['outputs.IncidentConfigurationResponse']]:
+        """
+        The settings of the incidents that created from alerts triggered by this analytics rule
+        """
+        return pulumi.get(self, "incident_configuration")
 
     @property
     @pulumi.getter
@@ -534,7 +704,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -587,12 +757,28 @@ class ScheduledAlertRule(pulumi.CustomResource):
         return pulumi.get(self, "suppression_enabled")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tactics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The tactics of the alert rule
         """
         return pulumi.get(self, "tactics")
+
+    @property
+    @pulumi.getter(name="templateVersion")
+    def template_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+        """
+        return pulumi.get(self, "template_version")
 
     @property
     @pulumi.getter(name="triggerOperator")
@@ -614,7 +800,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

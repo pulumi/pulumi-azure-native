@@ -5,27 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cloudConnector";
-export * from "./costAllocationRule";
 export * from "./export";
-export * from "./getCloudConnector";
-export * from "./getCostAllocationRule";
 export * from "./getExport";
-export * from "./getReport";
-export * from "./getReportByBillingAccount";
-export * from "./getReportByDepartment";
-export * from "./getReportByResourceGroupName";
-export * from "./getScheduledAction";
-export * from "./getScheduledActionByScope";
 export * from "./getSetting";
 export * from "./getView";
 export * from "./getViewByScope";
-export * from "./report";
-export * from "./reportByBillingAccount";
-export * from "./reportByDepartment";
-export * from "./reportByResourceGroupName";
-export * from "./scheduledAction";
-export * from "./scheduledActionByScope";
 export * from "./setting";
 export * from "./view";
 export * from "./viewByScope";
@@ -69,15 +53,7 @@ export {
 };
 
 // Import resources to register:
-import { CloudConnector } from "./cloudConnector";
-import { CostAllocationRule } from "./costAllocationRule";
 import { Export } from "./export";
-import { Report } from "./report";
-import { ReportByBillingAccount } from "./reportByBillingAccount";
-import { ReportByDepartment } from "./reportByDepartment";
-import { ReportByResourceGroupName } from "./reportByResourceGroupName";
-import { ScheduledAction } from "./scheduledAction";
-import { ScheduledActionByScope } from "./scheduledActionByScope";
 import { Setting } from "./setting";
 import { View } from "./view";
 import { ViewByScope } from "./viewByScope";
@@ -86,24 +62,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:costmanagement:CloudConnector":
-                return new CloudConnector(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:CostAllocationRule":
-                return new CostAllocationRule(name, <any>undefined, { urn })
             case "azure-native:costmanagement:Export":
                 return new Export(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:Report":
-                return new Report(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportByBillingAccount":
-                return new ReportByBillingAccount(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportByDepartment":
-                return new ReportByDepartment(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportByResourceGroupName":
-                return new ReportByResourceGroupName(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ScheduledAction":
-                return new ScheduledAction(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ScheduledActionByScope":
-                return new ScheduledActionByScope(name, <any>undefined, { urn })
             case "azure-native:costmanagement:Setting":
                 return new Setting(name, <any>undefined, { urn })
             case "azure-native:costmanagement:View":

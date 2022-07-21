@@ -10,6 +10,152 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Represents an accepted audience trusted by the cluster.
+type AcceptedAudiences struct {
+	// GUID or valid URL representing an accepted audience.
+	Value *string `pulumi:"value"`
+}
+
+// AcceptedAudiencesInput is an input type that accepts AcceptedAudiencesArgs and AcceptedAudiencesOutput values.
+// You can construct a concrete instance of `AcceptedAudiencesInput` via:
+//
+//          AcceptedAudiencesArgs{...}
+type AcceptedAudiencesInput interface {
+	pulumi.Input
+
+	ToAcceptedAudiencesOutput() AcceptedAudiencesOutput
+	ToAcceptedAudiencesOutputWithContext(context.Context) AcceptedAudiencesOutput
+}
+
+// Represents an accepted audience trusted by the cluster.
+type AcceptedAudiencesArgs struct {
+	// GUID or valid URL representing an accepted audience.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AcceptedAudiencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceptedAudiences)(nil)).Elem()
+}
+
+func (i AcceptedAudiencesArgs) ToAcceptedAudiencesOutput() AcceptedAudiencesOutput {
+	return i.ToAcceptedAudiencesOutputWithContext(context.Background())
+}
+
+func (i AcceptedAudiencesArgs) ToAcceptedAudiencesOutputWithContext(ctx context.Context) AcceptedAudiencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceptedAudiencesOutput)
+}
+
+// AcceptedAudiencesArrayInput is an input type that accepts AcceptedAudiencesArray and AcceptedAudiencesArrayOutput values.
+// You can construct a concrete instance of `AcceptedAudiencesArrayInput` via:
+//
+//          AcceptedAudiencesArray{ AcceptedAudiencesArgs{...} }
+type AcceptedAudiencesArrayInput interface {
+	pulumi.Input
+
+	ToAcceptedAudiencesArrayOutput() AcceptedAudiencesArrayOutput
+	ToAcceptedAudiencesArrayOutputWithContext(context.Context) AcceptedAudiencesArrayOutput
+}
+
+type AcceptedAudiencesArray []AcceptedAudiencesInput
+
+func (AcceptedAudiencesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcceptedAudiences)(nil)).Elem()
+}
+
+func (i AcceptedAudiencesArray) ToAcceptedAudiencesArrayOutput() AcceptedAudiencesArrayOutput {
+	return i.ToAcceptedAudiencesArrayOutputWithContext(context.Background())
+}
+
+func (i AcceptedAudiencesArray) ToAcceptedAudiencesArrayOutputWithContext(ctx context.Context) AcceptedAudiencesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceptedAudiencesArrayOutput)
+}
+
+// Represents an accepted audience trusted by the cluster.
+type AcceptedAudiencesOutput struct{ *pulumi.OutputState }
+
+func (AcceptedAudiencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceptedAudiences)(nil)).Elem()
+}
+
+func (o AcceptedAudiencesOutput) ToAcceptedAudiencesOutput() AcceptedAudiencesOutput {
+	return o
+}
+
+func (o AcceptedAudiencesOutput) ToAcceptedAudiencesOutputWithContext(ctx context.Context) AcceptedAudiencesOutput {
+	return o
+}
+
+// GUID or valid URL representing an accepted audience.
+func (o AcceptedAudiencesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcceptedAudiences) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AcceptedAudiencesArrayOutput struct{ *pulumi.OutputState }
+
+func (AcceptedAudiencesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcceptedAudiences)(nil)).Elem()
+}
+
+func (o AcceptedAudiencesArrayOutput) ToAcceptedAudiencesArrayOutput() AcceptedAudiencesArrayOutput {
+	return o
+}
+
+func (o AcceptedAudiencesArrayOutput) ToAcceptedAudiencesArrayOutputWithContext(ctx context.Context) AcceptedAudiencesArrayOutput {
+	return o
+}
+
+func (o AcceptedAudiencesArrayOutput) Index(i pulumi.IntInput) AcceptedAudiencesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AcceptedAudiences {
+		return vs[0].([]AcceptedAudiences)[vs[1].(int)]
+	}).(AcceptedAudiencesOutput)
+}
+
+// Represents an accepted audience trusted by the cluster.
+type AcceptedAudiencesResponse struct {
+	// GUID or valid URL representing an accepted audience.
+	Value *string `pulumi:"value"`
+}
+
+// Represents an accepted audience trusted by the cluster.
+type AcceptedAudiencesResponseOutput struct{ *pulumi.OutputState }
+
+func (AcceptedAudiencesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceptedAudiencesResponse)(nil)).Elem()
+}
+
+func (o AcceptedAudiencesResponseOutput) ToAcceptedAudiencesResponseOutput() AcceptedAudiencesResponseOutput {
+	return o
+}
+
+func (o AcceptedAudiencesResponseOutput) ToAcceptedAudiencesResponseOutputWithContext(ctx context.Context) AcceptedAudiencesResponseOutput {
+	return o
+}
+
+// GUID or valid URL representing an accepted audience.
+func (o AcceptedAudiencesResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcceptedAudiencesResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AcceptedAudiencesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AcceptedAudiencesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcceptedAudiencesResponse)(nil)).Elem()
+}
+
+func (o AcceptedAudiencesResponseArrayOutput) ToAcceptedAudiencesResponseArrayOutput() AcceptedAudiencesResponseArrayOutput {
+	return o
+}
+
+func (o AcceptedAudiencesResponseArrayOutput) ToAcceptedAudiencesResponseArrayOutputWithContext(ctx context.Context) AcceptedAudiencesResponseArrayOutput {
+	return o
+}
+
+func (o AcceptedAudiencesResponseArrayOutput) Index(i pulumi.IntInput) AcceptedAudiencesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AcceptedAudiencesResponse {
+		return vs[0].([]AcceptedAudiencesResponse)[vs[1].(int)]
+	}).(AcceptedAudiencesResponseOutput)
+}
+
 // Azure SKU definition.
 type AzureSku struct {
 	// The number of instances of the cluster.
@@ -302,7 +448,7 @@ type Identity struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 	Type string `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -321,7 +467,7 @@ type IdentityArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -408,8 +554,8 @@ func (o IdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -447,13 +593,13 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *Identity) map[string]interface{} {
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity for the resource.
@@ -623,9 +769,9 @@ func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.Strin
 // Properties of the key vault.
 type KeyVaultProperties struct {
 	// The name of the key vault key.
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The Uri of the key vault.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The user assigned identity (ARM resource id) that has access to the key.
@@ -646,9 +792,9 @@ type KeyVaultPropertiesInput interface {
 // Properties of the key vault.
 type KeyVaultPropertiesArgs struct {
 	// The name of the key vault key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The Uri of the key vault.
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 	// The user assigned identity (ARM resource id) that has access to the key.
@@ -734,13 +880,13 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 }
 
 // The name of the key vault key.
-func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyName }).(pulumi.StringOutput)
+func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // The Uri of the key vault.
-func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
 // The version of the key vault key.
@@ -783,7 +929,7 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.KeyName
+		return v.KeyName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -793,7 +939,7 @@ func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.KeyVaultUri
+		return v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -820,9 +966,9 @@ func (o KeyVaultPropertiesPtrOutput) UserIdentity() pulumi.StringPtrOutput {
 // Properties of the key vault.
 type KeyVaultPropertiesResponse struct {
 	// The name of the key vault key.
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The Uri of the key vault.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The user assigned identity (ARM resource id) that has access to the key.
@@ -845,13 +991,13 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWith
 }
 
 // The name of the key vault key.
-func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyName }).(pulumi.StringOutput)
+func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // The Uri of the key vault.
-func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
 // The version of the key vault key.
@@ -894,7 +1040,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.KeyName
+		return v.KeyName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -904,7 +1050,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.KeyVaultUri
+		return v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1306,6 +1452,103 @@ func (o OptimizedAutoscaleResponsePtrOutput) Version() pulumi.IntPtrOutput {
 		}
 		return &v.Version
 	}).(pulumi.IntPtrOutput)
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionResponse struct {
+	// Group id of the private endpoint.
+	GroupId string `pulumi:"groupId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
+	// Connection State of the Private Endpoint Connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Group id of the private endpoint.
+func (o PrivateEndpointConnectionResponseOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint which the connection belongs to.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointPropertyResponse { return v.PrivateEndpoint }).(PrivateEndpointPropertyResponseOutput)
+}
+
+// Connection State of the Private Endpoint Connection.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStatePropertyResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
+}
+
+// Provisioning state of the private endpoint.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
 }
 
 // Private endpoint which the connection belongs to.
@@ -2298,6 +2541,10 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPt
 }
 
 func init() {
+	pulumi.RegisterOutputType(AcceptedAudiencesOutput{})
+	pulumi.RegisterOutputType(AcceptedAudiencesArrayOutput{})
+	pulumi.RegisterOutputType(AcceptedAudiencesResponseOutput{})
+	pulumi.RegisterOutputType(AcceptedAudiencesResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalResponseOutput{})
@@ -2322,6 +2569,8 @@ func init() {
 	pulumi.RegisterOutputType(OptimizedAutoscalePtrOutput{})
 	pulumi.RegisterOutputType(OptimizedAutoscaleResponseOutput{})
 	pulumi.RegisterOutputType(OptimizedAutoscaleResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The Data Box Edge/Gateway device.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:databoxedge:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Data Box Edge/Gateway device.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:databoxedge:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
@@ -80,7 +80,11 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
-        public readonly string? DataBoxEdgeDeviceStatus;
+        public readonly string DataBoxEdgeDeviceStatus;
+        /// <summary>
+        /// The details of data-residency related properties for this resource
+        /// </summary>
+        public readonly Outputs.DataResidencyResponse? DataResidency;
         /// <summary>
         /// The Description of the Data Box Edge/Gateway device.
         /// </summary>
@@ -126,7 +130,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
-        /// The etag for the devices.
+        /// The kind of the device.
         /// </summary>
         public readonly string Kind;
         /// <summary>
@@ -180,7 +184,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string culture,
 
-            string? dataBoxEdgeDeviceStatus,
+            string dataBoxEdgeDeviceStatus,
+
+            Outputs.DataResidencyResponse? dataResidency,
 
             string description,
 
@@ -231,6 +237,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
             ConfiguredRoleTypes = configuredRoleTypes;
             Culture = culture;
             DataBoxEdgeDeviceStatus = dataBoxEdgeDeviceStatus;
+            DataResidency = dataResidency;
             Description = description;
             DeviceHcsVersion = deviceHcsVersion;
             DeviceLocalCapacity = deviceLocalCapacity;

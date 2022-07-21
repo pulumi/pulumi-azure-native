@@ -11,7 +11,7 @@ import (
 )
 
 // Subscription details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
 	var rv LookupSubscriptionResult
 	err := ctx.Invoke("azure-native:apimanagement:getSubscription", args, &rv, opts...)
@@ -42,9 +42,9 @@ type LookupSubscriptionResult struct {
 	EndDate *string `pulumi:"endDate"`
 	// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	NotificationDate *string `pulumi:"notificationDate"`
@@ -62,7 +62,7 @@ type LookupSubscriptionResult struct {
 	State string `pulumi:"state"`
 	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
 	StateComment *string `pulumi:"stateComment"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -132,12 +132,12 @@ func (o LookupSubscriptionResultOutput) ExpirationDate() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupSubscriptionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupSubscriptionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -182,7 +182,7 @@ func (o LookupSubscriptionResultOutput) StateComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.StateComment }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupSubscriptionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -97,7 +97,7 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysResult:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str function_name: Function name.
@@ -129,7 +129,7 @@ def list_web_app_function_keys_output(function_name: Optional[pulumi.Input[str]]
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionKeysResult]:
     """
     String dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str function_name: Function name.

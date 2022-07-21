@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly int? LogicalSectorSize;
         /// <summary>
+        /// If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+        /// </summary>
+        public readonly string? SecurityDataUri;
+        /// <summary>
         /// If createOption is Copy, this is the ARM id of the source snapshot or disk.
         /// </summary>
         public readonly string? SourceResourceId;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             int? logicalSectorSize,
 
+            string? securityDataUri,
+
             string? sourceResourceId,
 
             string sourceUniqueId,
@@ -77,6 +83,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             GalleryImageReference = galleryImageReference;
             ImageReference = imageReference;
             LogicalSectorSize = logicalSectorSize;
+            SecurityDataUri = securityDataUri;
             SourceResourceId = sourceResourceId;
             SourceUniqueId = sourceUniqueId;
             SourceUri = sourceUri;

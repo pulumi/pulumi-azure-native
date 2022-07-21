@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// An object that represents a webhook for a container registry.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a webhook for a container registry.
-        /// API Version: 2019-05-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly string? Status;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             ProvisioningState = provisioningState;
             Scope = scope;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

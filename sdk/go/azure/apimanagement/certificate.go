@@ -12,7 +12,7 @@ import (
 )
 
 // Certificate details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -20,13 +20,13 @@ type Certificate struct {
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// KeyVault location details of the certificate.
 	KeyVault KeyVaultContractPropertiesResponsePtrOutput `pulumi:"keyVault"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Subject attribute of the certificate.
 	Subject pulumi.StringOutput `pulumi:"subject"`
 	// Thumbprint of the certificate.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -197,7 +197,7 @@ func (o CertificateOutput) KeyVault() KeyVaultContractPropertiesResponsePtrOutpu
 	return o.ApplyT(func(v *Certificate) KeyVaultContractPropertiesResponsePtrOutput { return v.KeyVault }).(KeyVaultContractPropertiesResponsePtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o CertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -212,7 +212,7 @@ func (o CertificateOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o CertificateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

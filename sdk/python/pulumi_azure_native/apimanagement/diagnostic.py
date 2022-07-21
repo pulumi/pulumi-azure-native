@@ -230,7 +230,7 @@ class Diagnostic(pulumi.CustomResource):
                  __props__=None):
         """
         Diagnostic details.
-        API Version: 2020-12-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +255,7 @@ class Diagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
-        API Version: 2020-12-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param DiagnosticArgs args: The arguments to use to populate this resource's properties.
@@ -405,7 +405,7 @@ class Diagnostic(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -429,7 +429,7 @@ class Diagnostic(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

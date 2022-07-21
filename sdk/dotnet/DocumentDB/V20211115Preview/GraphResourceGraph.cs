@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:GraphResourceGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:GraphResourceGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:GraphResourceGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},

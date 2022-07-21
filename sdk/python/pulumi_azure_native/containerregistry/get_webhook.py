@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWebhookResult',
@@ -20,7 +21,7 @@ class GetWebhookResult:
     """
     An object that represents a webhook for a container registry.
     """
-    def __init__(__self__, actions=None, id=None, location=None, name=None, provisioning_state=None, scope=None, status=None, tags=None, type=None):
+    def __init__(__self__, actions=None, id=None, location=None, name=None, provisioning_state=None, scope=None, status=None, system_data=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -42,6 +43,9 @@ class GetWebhookResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -106,6 +110,14 @@ class GetWebhookResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -135,6 +147,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             provisioning_state=self.provisioning_state,
             scope=self.scope,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -145,7 +158,7 @@ def get_webhook(registry_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
     An object that represents a webhook for a container registry.
-    API Version: 2019-05-01.
+    API Version: 2021-09-01.
 
 
     :param str registry_name: The name of the container registry.
@@ -170,6 +183,7 @@ def get_webhook(registry_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         scope=__ret__.scope,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -181,7 +195,7 @@ def get_webhook_output(registry_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
     """
     An object that represents a webhook for a container registry.
-    API Version: 2019-05-01.
+    API Version: 2021-09-01.
 
 
     :param str registry_name: The name of the container registry.

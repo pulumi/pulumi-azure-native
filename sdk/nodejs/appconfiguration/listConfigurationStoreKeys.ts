@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The result of a request to list API keys.
- * API Version: 2020-06-01.
+ * API Version: 2022-05-01.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
     if (!opts) {

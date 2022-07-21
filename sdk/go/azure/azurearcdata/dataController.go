@@ -12,7 +12,7 @@ import (
 )
 
 // Data controller resource
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type DataController struct {
 	pulumi.CustomResourceState
 
@@ -24,11 +24,11 @@ type DataController struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The data controller's properties
 	Properties DataControllerPropertiesResponseOutput `pulumi:"properties"`
-	// Read only system data
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -45,6 +45,7 @@ func NewDataController(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.Properties = args.Properties.ToDataControllerPropertiesOutput().ApplyT(func(v DataControllerProperties) DataControllerProperties { return *v.Defaults() }).(DataControllerPropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210601preview:DataController"),
@@ -180,7 +181,7 @@ func (o DataControllerOutput) Properties() DataControllerPropertiesResponseOutpu
 	return o.ApplyT(func(v *DataController) DataControllerPropertiesResponseOutput { return v.Properties }).(DataControllerPropertiesResponseOutput)
 }
 
-// Read only system data
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o DataControllerOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *DataController) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
@@ -190,7 +191,7 @@ func (o DataControllerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataController) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o DataControllerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataController) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

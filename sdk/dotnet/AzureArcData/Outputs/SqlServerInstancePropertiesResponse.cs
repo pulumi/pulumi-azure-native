@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class SqlServerInstancePropertiesResponse
     {
         /// <summary>
+        /// Status of Azure Defender.
+        /// </summary>
+        public readonly string? AzureDefenderStatus;
+        /// <summary>
+        /// Timestamp of last Azure Defender status update.
+        /// </summary>
+        public readonly string? AzureDefenderStatusLastUpdated;
+        /// <summary>
         /// SQL Server collation.
         /// </summary>
         public readonly string? Collation;
@@ -76,6 +84,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private SqlServerInstancePropertiesResponse(
+            string? azureDefenderStatus,
+
+            string? azureDefenderStatusLastUpdated,
+
             string? collation,
 
             string containerResourceId,
@@ -106,6 +118,8 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string? version)
         {
+            AzureDefenderStatus = azureDefenderStatus;
+            AzureDefenderStatusLastUpdated = azureDefenderStatusLastUpdated;
             Collation = collation;
             ContainerResourceId = containerResourceId;
             CreateTime = createTime;

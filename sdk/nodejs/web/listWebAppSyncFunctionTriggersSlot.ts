@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function secrets.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionTriggersSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersSlotResult> {
     if (!opts) {

@@ -19,6 +19,8 @@ class DiskArgs:
                  creation_data: pulumi.Input['CreationDataArgs'],
                  resource_group_name: pulumi.Input[str],
                  bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 completion_percent: Optional[pulumi.Input[float]] = None,
+                 data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_only: Optional[pulumi.Input[float]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[float]] = None,
@@ -34,9 +36,11 @@ class DiskArgs:
                  max_shares: Optional[pulumi.Input[int]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  purchase_plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
                  security_profile: Optional[pulumi.Input['DiskSecurityProfileArgs']] = None,
                  sku: Optional[pulumi.Input['DiskSkuArgs']] = None,
+                 supported_capabilities: Optional[pulumi.Input['SupportedCapabilitiesArgs']] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -46,12 +50,14 @@ class DiskArgs:
         :param pulumi.Input['CreationDataArgs'] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        :param pulumi.Input[Union[str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-        :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input['EncryptionSettingsCollectionArgs'] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -61,9 +67,11 @@ class DiskArgs:
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
         :param pulumi.Input['PurchasePlanArgs'] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         :param pulumi.Input['DiskSecurityProfileArgs'] security_profile: Contains the security related information for the resource.
         :param pulumi.Input['DiskSkuArgs'] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+        :param pulumi.Input['SupportedCapabilitiesArgs'] supported_capabilities: List of supported capabilities for the image from which the OS disk was created.
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a disk supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -73,6 +81,10 @@ class DiskArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bursting_enabled is not None:
             pulumi.set(__self__, "bursting_enabled", bursting_enabled)
+        if completion_percent is not None:
+            pulumi.set(__self__, "completion_percent", completion_percent)
+        if data_access_auth_mode is not None:
+            pulumi.set(__self__, "data_access_auth_mode", data_access_auth_mode)
         if disk_access_id is not None:
             pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_iops_read_only is not None:
@@ -103,12 +115,16 @@ class DiskArgs:
             pulumi.set(__self__, "network_access_policy", network_access_policy)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if purchase_plan is not None:
             pulumi.set(__self__, "purchase_plan", purchase_plan)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if supported_capabilities is not None:
+            pulumi.set(__self__, "supported_capabilities", supported_capabilities)
         if supports_hibernation is not None:
             pulumi.set(__self__, "supports_hibernation", supports_hibernation)
         if tags is not None:
@@ -153,6 +169,30 @@ class DiskArgs:
     @bursting_enabled.setter
     def bursting_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bursting_enabled", value)
+
+    @property
+    @pulumi.getter(name="completionPercent")
+    def completion_percent(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        """
+        return pulumi.get(self, "completion_percent")
+
+    @completion_percent.setter
+    def completion_percent(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "completion_percent", value)
+
+    @property
+    @pulumi.getter(name="dataAccessAuthMode")
+    def data_access_auth_mode(self) -> Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]]:
+        """
+        Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        """
+        return pulumi.get(self, "data_access_auth_mode")
+
+    @data_access_auth_mode.setter
+    def data_access_auth_mode(self, value: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]]):
+        pulumi.set(self, "data_access_auth_mode", value)
 
     @property
     @pulumi.getter(name="diskAccessId")
@@ -218,7 +258,7 @@ class DiskArgs:
     @pulumi.getter(name="diskName")
     def disk_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         """
         return pulumi.get(self, "disk_name")
 
@@ -335,6 +375,18 @@ class DiskArgs:
         pulumi.set(self, "os_type", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Policy for controlling export on the disk.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> Optional[pulumi.Input['PurchasePlanArgs']]:
         """
@@ -369,6 +421,18 @@ class DiskArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['DiskSkuArgs']]):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="supportedCapabilities")
+    def supported_capabilities(self) -> Optional[pulumi.Input['SupportedCapabilitiesArgs']]:
+        """
+        List of supported capabilities for the image from which the OS disk was created.
+        """
+        return pulumi.get(self, "supported_capabilities")
+
+    @supported_capabilities.setter
+    def supported_capabilities(self, value: Optional[pulumi.Input['SupportedCapabilitiesArgs']]):
+        pulumi.set(self, "supported_capabilities", value)
 
     @property
     @pulumi.getter(name="supportsHibernation")
@@ -425,7 +489,9 @@ class Disk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 completion_percent: Optional[pulumi.Input[float]] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_only: Optional[pulumi.Input[float]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[float]] = None,
@@ -441,10 +507,12 @@ class Disk(pulumi.CustomResource):
                  max_shares: Optional[pulumi.Input[int]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
+                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -452,18 +520,20 @@ class Disk(pulumi.CustomResource):
                  __props__=None):
         """
         Disk resource.
-        API Version: 2020-12-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[Union[str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-        :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
@@ -473,10 +543,12 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
         :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']] security_profile: Contains the security related information for the resource.
         :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+        :param pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']] supported_capabilities: List of supported capabilities for the image from which the OS disk was created.
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a disk supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -490,7 +562,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Disk resource.
-        API Version: 2020-12-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.
@@ -508,7 +580,9 @@ class Disk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 completion_percent: Optional[pulumi.Input[float]] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_only: Optional[pulumi.Input[float]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[float]] = None,
@@ -524,10 +598,12 @@ class Disk(pulumi.CustomResource):
                  max_shares: Optional[pulumi.Input[int]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
+                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -545,9 +621,11 @@ class Disk(pulumi.CustomResource):
             __props__ = DiskArgs.__new__(DiskArgs)
 
             __props__.__dict__["bursting_enabled"] = bursting_enabled
+            __props__.__dict__["completion_percent"] = completion_percent
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
             __props__.__dict__["creation_data"] = creation_data
+            __props__.__dict__["data_access_auth_mode"] = data_access_auth_mode
             __props__.__dict__["disk_access_id"] = disk_access_id
             __props__.__dict__["disk_iops_read_only"] = disk_iops_read_only
             __props__.__dict__["disk_iops_read_write"] = disk_iops_read_write
@@ -563,12 +641,14 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["max_shares"] = max_shares
             __props__.__dict__["network_access_policy"] = network_access_policy
             __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["purchase_plan"] = purchase_plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["supported_capabilities"] = supported_capabilities
             __props__.__dict__["supports_hibernation"] = supports_hibernation
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
@@ -609,7 +689,9 @@ class Disk(pulumi.CustomResource):
         __props__ = DiskArgs.__new__(DiskArgs)
 
         __props__.__dict__["bursting_enabled"] = None
+        __props__.__dict__["completion_percent"] = None
         __props__.__dict__["creation_data"] = None
+        __props__.__dict__["data_access_auth_mode"] = None
         __props__.__dict__["disk_access_id"] = None
         __props__.__dict__["disk_iops_read_only"] = None
         __props__.__dict__["disk_iops_read_write"] = None
@@ -631,10 +713,12 @@ class Disk(pulumi.CustomResource):
         __props__.__dict__["os_type"] = None
         __props__.__dict__["property_updates_in_progress"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["purchase_plan"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["share_info"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["supported_capabilities"] = None
         __props__.__dict__["supports_hibernation"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tier"] = None
@@ -653,12 +737,28 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "bursting_enabled")
 
     @property
+    @pulumi.getter(name="completionPercent")
+    def completion_percent(self) -> pulumi.Output[Optional[float]]:
+        """
+        Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        """
+        return pulumi.get(self, "completion_percent")
+
+    @property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> pulumi.Output['outputs.CreationDataResponse']:
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
         return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="dataAccessAuthMode")
+    def data_access_auth_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        """
+        return pulumi.get(self, "data_access_auth_mode")
 
     @property
     @pulumi.getter(name="diskAccessId")
@@ -829,6 +929,14 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Policy for controlling export on the disk.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> pulumi.Output[Optional['outputs.PurchasePlanResponse']]:
         """
@@ -859,6 +967,14 @@ class Disk(pulumi.CustomResource):
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportedCapabilities")
+    def supported_capabilities(self) -> pulumi.Output[Optional['outputs.SupportedCapabilitiesResponse']]:
+        """
+        List of supported capabilities for the image from which the OS disk was created.
+        """
+        return pulumi.get(self, "supported_capabilities")
 
     @property
     @pulumi.getter(name="supportsHibernation")

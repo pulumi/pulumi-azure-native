@@ -11,7 +11,7 @@ import (
 )
 
 // The X509 Certificate.
-// API Version: 2020-03-01.
+// API Version: 2022-02-05.
 func LookupDpsCertificate(ctx *pulumi.Context, args *LookupDpsCertificateArgs, opts ...pulumi.InvokeOption) (*LookupDpsCertificateResult, error) {
 	var rv LookupDpsCertificateResult
 	err := ctx.Invoke("azure-native:devices:getDpsCertificate", args, &rv, opts...)
@@ -40,6 +40,8 @@ type LookupDpsCertificateResult struct {
 	Name string `pulumi:"name"`
 	// properties of a certificate
 	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -103,6 +105,11 @@ func (o LookupDpsCertificateResultOutput) Name() pulumi.StringOutput {
 // properties of a certificate
 func (o LookupDpsCertificateResultOutput) Properties() CertificatePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupDpsCertificateResult) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupDpsCertificateResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDpsCertificateResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type.

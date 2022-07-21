@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ExtendedLocation
     {
         /// <summary>
         /// Custom Locations definition.
-        /// API Version: 2021-03-15-preview.
+        /// API Version: 2021-08-15.
         /// </summary>
         public static Task<GetCustomLocationResult> InvokeAsync(GetCustomLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom Locations definition.
-        /// API Version: 2021-03-15-preview.
+        /// API Version: 2021-08-15.
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.ExtendedLocation
 
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string location,
 
             string name,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
             HostResourceId = hostResourceId;
             HostType = hostType;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Namespace = @namespace;

@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure SQL Database server.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:sql:getServer", args, &rv, opts...)
@@ -34,8 +34,10 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Azure Active Directory identity of the server.
+	// The Azure Active Directory administrator of the server.
 	Administrators *ServerExternalAdministratorResponse `pulumi:"administrators"`
+	// The Client id used for cross tenant CMK scenario
+	FederatedClientId *string `pulumi:"federatedClientId"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.
@@ -58,6 +60,8 @@ type LookupServerResult struct {
 	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	RestrictOutboundNetworkAccess *string `pulumi:"restrictOutboundNetworkAccess"`
 	// The state of the server.
 	State string `pulumi:"state"`
 	// Resource tags.
@@ -116,9 +120,14 @@ func (o LookupServerResultOutput) AdministratorLogin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Active Directory identity of the server.
+// The Azure Active Directory administrator of the server.
 func (o LookupServerResultOutput) Administrators() ServerExternalAdministratorResponsePtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *ServerExternalAdministratorResponse { return v.Administrators }).(ServerExternalAdministratorResponsePtrOutput)
+}
+
+// The Client id used for cross tenant CMK scenario
+func (o LookupServerResultOutput) FederatedClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.FederatedClientId }).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified domain name of the server.
@@ -176,6 +185,11 @@ func (o LookupServerResultOutput) PrivateEndpointConnections() ServerPrivateEndp
 // Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 func (o LookupServerResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+func (o LookupServerResultOutput) RestrictOutboundNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *string { return v.RestrictOutboundNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The state of the server.

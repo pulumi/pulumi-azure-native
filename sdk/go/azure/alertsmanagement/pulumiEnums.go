@@ -3,21 +3,12 @@
 
 package alertsmanagement
 
-// Indicates if the given action rule is enabled or disabled
-type ActionRuleStatus string
+// Action that should be applied.
+type ActionType string
 
 const (
-	ActionRuleStatusEnabled  = ActionRuleStatus("Enabled")
-	ActionRuleStatusDisabled = ActionRuleStatus("Disabled")
-)
-
-// Indicates type of action rule
-type ActionRuleType string
-
-const (
-	ActionRuleTypeSuppression = ActionRuleType("Suppression")
-	ActionRuleTypeActionGroup = ActionRuleType("ActionGroup")
-	ActionRuleTypeDiagnostics = ActionRuleType("Diagnostics")
+	ActionTypeAddActionGroups       = ActionType("AddActionGroups")
+	ActionTypeRemoveAllActionGroups = ActionType("RemoveAllActionGroups")
 )
 
 // The alert rule state.
@@ -28,7 +19,37 @@ const (
 	AlertRuleStateDisabled = AlertRuleState("Disabled")
 )
 
-// operator for a given condition
+// Days of week.
+type DaysOfWeek string
+
+const (
+	DaysOfWeekSunday    = DaysOfWeek("Sunday")
+	DaysOfWeekMonday    = DaysOfWeek("Monday")
+	DaysOfWeekTuesday   = DaysOfWeek("Tuesday")
+	DaysOfWeekWednesday = DaysOfWeek("Wednesday")
+	DaysOfWeekThursday  = DaysOfWeek("Thursday")
+	DaysOfWeekFriday    = DaysOfWeek("Friday")
+	DaysOfWeekSaturday  = DaysOfWeek("Saturday")
+)
+
+// Field for a given condition.
+type Field string
+
+const (
+	FieldSeverity            = Field("Severity")
+	FieldMonitorService      = Field("MonitorService")
+	FieldMonitorCondition    = Field("MonitorCondition")
+	FieldSignalType          = Field("SignalType")
+	FieldTargetResourceType  = Field("TargetResourceType")
+	FieldTargetResource      = Field("TargetResource")
+	FieldTargetResourceGroup = Field("TargetResourceGroup")
+	FieldAlertRuleId         = Field("AlertRuleId")
+	FieldAlertRuleName       = Field("AlertRuleName")
+	FieldDescription         = Field("Description")
+	FieldAlertContext        = Field("AlertContext")
+)
+
+// Operator for a given condition.
 type Operator string
 
 const (
@@ -38,13 +59,13 @@ const (
 	OperatorDoesNotContain = Operator("DoesNotContain")
 )
 
-// type of target scope
-type ScopeType string
+// Specifies when the recurrence should be applied.
+type RecurrenceType string
 
 const (
-	ScopeTypeResourceGroup = ScopeType("ResourceGroup")
-	ScopeTypeResource      = ScopeType("Resource")
-	ScopeTypeSubscription  = ScopeType("Subscription")
+	RecurrenceTypeDaily   = RecurrenceType("Daily")
+	RecurrenceTypeWeekly  = RecurrenceType("Weekly")
+	RecurrenceTypeMonthly = RecurrenceType("Monthly")
 )
 
 // The alert rule severity.
@@ -56,17 +77,6 @@ const (
 	SeveritySev2 = Severity("Sev2")
 	SeveritySev3 = Severity("Sev3")
 	SeveritySev4 = Severity("Sev4")
-)
-
-// Specifies when the suppression should be applied
-type SuppressionType string
-
-const (
-	SuppressionTypeAlways  = SuppressionType("Always")
-	SuppressionTypeOnce    = SuppressionType("Once")
-	SuppressionTypeDaily   = SuppressionType("Daily")
-	SuppressionTypeWeekly  = SuppressionType("Weekly")
-	SuppressionTypeMonthly = SuppressionType("Monthly")
 )
 
 func init() {

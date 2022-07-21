@@ -9,39 +9,44 @@ __all__ = [
     'BatchLoggingLevel',
     'BatchOutputAction',
     'ClusterPurpose',
-    'ComputeEnvironmentType',
     'ComputeInstanceAuthorizationType',
     'ComputeType',
+    'ConnectionAuthType',
+    'ConnectionCategory',
     'ContainerType',
-    'DataBindingMode',
-    'DatasetType',
-    'DatastoreTypeArm',
+    'CredentialsType',
+    'DataType',
+    'DatastoreType',
     'DistributionType',
-    'DockerSpecificationType',
     'EarlyTerminationPolicyType',
     'EncryptionStatus',
     'EndpointAuthMode',
     'EndpointComputeType',
     'Goal',
-    'Header',
     'IdentityConfigurationType',
-    'ImageAnnotationType',
+    'InputDeliveryMode',
+    'JobInputType',
+    'JobLimitsType',
+    'JobOutputType',
     'JobType',
-    'LinkedServiceLinkType',
-    'MediaType',
+    'LoadBalancerType',
+    'ManagedServiceIdentityType',
     'OperatingSystemType',
     'OsType',
+    'OutputDeliveryMode',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
+    'RandomSamplingAlgorithmRule',
     'ReferenceType',
     'RemoteLoginPortPublicAccess',
-    'ResourceIdentityAssignment',
-    'ResourceIdentityType',
-    'SamplingAlgorithm',
+    'SamplingAlgorithmType',
     'ScaleType',
-    'SourceType',
+    'SecretsType',
+    'ServiceDataAccessAuthIdentity',
+    'SkuTier',
     'SshPublicAccess',
+    'SslConfigStatus',
     'ValueFormat',
-    'VariantType',
     'VmPriority',
 ]
 
@@ -80,14 +85,6 @@ class ClusterPurpose(str, Enum):
     DEV_TEST = "DevTest"
 
 
-class ComputeEnvironmentType(str, Enum):
-    """
-    The compute environment type for the service.
-    """
-    ACI = "ACI"
-    AKS = "AKS"
-
-
 class ComputeInstanceAuthorizationType(str, Enum):
     """
     The Compute Instance Authorization type. Available values are personal (default).
@@ -100,6 +97,7 @@ class ComputeType(str, Enum):
     The type of compute
     """
     AKS = "AKS"
+    KUBERNETES = "Kubernetes"
     AML_COMPUTE = "AmlCompute"
     COMPUTE_INSTANCE = "ComputeInstance"
     DATA_FACTORY = "DataFactory"
@@ -107,6 +105,27 @@ class ComputeType(str, Enum):
     HD_INSIGHT = "HDInsight"
     DATABRICKS = "Databricks"
     DATA_LAKE_ANALYTICS = "DataLakeAnalytics"
+    SYNAPSE_SPARK = "SynapseSpark"
+
+
+class ConnectionAuthType(str, Enum):
+    """
+    Authentication type of the connection target
+    """
+    PAT = "PAT"
+    MANAGED_IDENTITY = "ManagedIdentity"
+    USERNAME_PASSWORD = "UsernamePassword"
+    NONE = "None"
+    SAS = "SAS"
+
+
+class ConnectionCategory(str, Enum):
+    """
+    Category of the connection
+    """
+    PYTHON_FEED = "PythonFeed"
+    CONTAINER_REGISTRY = "ContainerRegistry"
+    GIT = "Git"
 
 
 class ContainerType(str, Enum):
@@ -117,40 +136,34 @@ class ContainerType(str, Enum):
     INFERENCE_SERVER = "InferenceServer"
 
 
-class DataBindingMode(str, Enum):
+class CredentialsType(str, Enum):
     """
-    Mechanism for data movement to datastore.
+    [Required] Credential type used to authentication with storage.
     """
-    MOUNT = "Mount"
-    DOWNLOAD = "Download"
-    UPLOAD = "Upload"
-    READ_ONLY_MOUNT = "ReadOnlyMount"
-    READ_WRITE_MOUNT = "ReadWriteMount"
-    DIRECT = "Direct"
-    EVAL_MOUNT = "EvalMount"
-    EVAL_DOWNLOAD = "EvalDownload"
+    ACCOUNT_KEY = "AccountKey"
+    CERTIFICATE = "Certificate"
+    NONE = "None"
+    SAS = "Sas"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
 
 
-class DatasetType(str, Enum):
+class DataType(str, Enum):
     """
-    Specifies dataset type.
+    [Required] Specifies the type of data.
     """
-    TABULAR = "tabular"
-    FILE = "file"
+    URI_FILE = "uri_file"
+    URI_FOLDER = "uri_folder"
+    MLTABLE = "mltable"
 
 
-class DatastoreTypeArm(str, Enum):
+class DatastoreType(str, Enum):
     """
-    Specifies datastore type.
+    [Required] Storage type backing the datastore.
     """
-    BLOB = "blob"
-    ADLS = "adls"
-    ADLS_GEN2 = "adls-gen2"
-    DBFS = "dbfs"
-    FILE = "file"
-    MYSQLDB = "mysqldb"
-    SQLDB = "sqldb"
-    PSQLDB = "psqldb"
+    AZURE_BLOB = "AzureBlob"
+    AZURE_DATA_LAKE_GEN1 = "AzureDataLakeGen1"
+    AZURE_DATA_LAKE_GEN2 = "AzureDataLakeGen2"
+    AZURE_FILE = "AzureFile"
 
 
 class DistributionType(str, Enum):
@@ -160,14 +173,6 @@ class DistributionType(str, Enum):
     PY_TORCH = "PyTorch"
     TENSOR_FLOW = "TensorFlow"
     MPI = "Mpi"
-
-
-class DockerSpecificationType(str, Enum):
-    """
-    [Required] Docker specification must be either Build or Image
-    """
-    BUILD = "Build"
-    IMAGE = "Image"
 
 
 class EarlyTerminationPolicyType(str, Enum):
@@ -189,7 +194,7 @@ class EncryptionStatus(str, Enum):
 
 class EndpointAuthMode(str, Enum):
     """
-    [Required] Inference endpoint authentication mode type
+    [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
     """
     AML_TOKEN = "AMLToken"
     KEY = "Key"
@@ -201,7 +206,7 @@ class EndpointComputeType(str, Enum):
     [Required] The compute type of the endpoint.
     """
     MANAGED = "Managed"
-    K8_S = "K8S"
+    KUBERNETES = "Kubernetes"
     AZURE_ML_COMPUTE = "AzureMLCompute"
 
 
@@ -213,31 +218,58 @@ class Goal(str, Enum):
     MAXIMIZE = "Maximize"
 
 
-class Header(str, Enum):
-    """
-    Header type.
-    """
-    ALL_FILES_HAVE_SAME_HEADERS = "all_files_have_same_headers"
-    ONLY_FIRST_FILE_HAS_HEADERS = "only_first_file_has_headers"
-    NO_HEADERS = "no_headers"
-    COMBINE_ALL_FILES_HEADERS = "combine_all_files_headers"
-
-
 class IdentityConfigurationType(str, Enum):
     """
     [Required] Specifies the type of identity framework.
     """
     MANAGED = "Managed"
     AML_TOKEN = "AMLToken"
+    USER_IDENTITY = "UserIdentity"
 
 
-class ImageAnnotationType(str, Enum):
+class InputDeliveryMode(str, Enum):
     """
-    Annotation type of image labeling tasks.
+    Input Asset Delivery Mode.
     """
-    CLASSIFICATION = "Classification"
-    BOUNDING_BOX = "BoundingBox"
-    INSTANCE_SEGMENTATION = "InstanceSegmentation"
+    READ_ONLY_MOUNT = "ReadOnlyMount"
+    READ_WRITE_MOUNT = "ReadWriteMount"
+    DOWNLOAD = "Download"
+    DIRECT = "Direct"
+    EVAL_MOUNT = "EvalMount"
+    EVAL_DOWNLOAD = "EvalDownload"
+
+
+class JobInputType(str, Enum):
+    """
+    [Required] Specifies the type of job.
+    """
+    LITERAL = "literal"
+    URI_FILE = "uri_file"
+    URI_FOLDER = "uri_folder"
+    MLTABLE = "mltable"
+    CUSTOM_MODEL = "custom_model"
+    MLFLOW_MODEL = "mlflow_model"
+    TRITON_MODEL = "triton_model"
+
+
+class JobLimitsType(str, Enum):
+    """
+    [Required] JobLimit type.
+    """
+    COMMAND = "Command"
+    SWEEP = "Sweep"
+
+
+class JobOutputType(str, Enum):
+    """
+    [Required] Specifies the type of job.
+    """
+    URI_FILE = "uri_file"
+    URI_FOLDER = "uri_folder"
+    MLTABLE = "mltable"
+    CUSTOM_MODEL = "custom_model"
+    MLFLOW_MODEL = "mlflow_model"
+    TRITON_MODEL = "triton_model"
 
 
 class JobType(str, Enum):
@@ -246,27 +278,30 @@ class JobType(str, Enum):
     """
     COMMAND = "Command"
     SWEEP = "Sweep"
-    LABELING = "Labeling"
+    PIPELINE = "Pipeline"
 
 
-class LinkedServiceLinkType(str, Enum):
+class LoadBalancerType(str, Enum):
     """
-    Type of the link target.
+    Load Balancer Type
     """
-    SYNAPSE = "Synapse"
+    PUBLIC_IP = "PublicIp"
+    INTERNAL_LOAD_BALANCER = "InternalLoadBalancer"
 
 
-class MediaType(str, Enum):
+class ManagedServiceIdentityType(str, Enum):
     """
-    Media type of data asset.
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    IMAGE = "Image"
-    TEXT = "Text"
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class OperatingSystemType(str, Enum):
     """
-    The OS type the Environment.
+    The OS type of the environment.
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
@@ -280,6 +315,14 @@ class OsType(str, Enum):
     WINDOWS = "Windows"
 
 
+class OutputDeliveryMode(str, Enum):
+    """
+    Output Asset Delivery Mode.
+    """
+    READ_WRITE_MOUNT = "ReadWriteMount"
+    UPLOAD = "Upload"
+
+
 class PrivateEndpointServiceConnectionStatus(str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -289,6 +332,22 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
     TIMEOUT = "Timeout"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether requests from Public Network are allowed.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class RandomSamplingAlgorithmRule(str, Enum):
+    """
+    The specific type of random algorithm
+    """
+    RANDOM = "Random"
+    SOBOL = "Sobol"
 
 
 class ReferenceType(str, Enum):
@@ -309,29 +368,9 @@ class RemoteLoginPortPublicAccess(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
 
 
-class ResourceIdentityAssignment(str, Enum):
+class SamplingAlgorithmType(str, Enum):
     """
-    Defines values for a ResourceIdentity's type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-    NONE = "None"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    NONE = "None"
-
-
-class SamplingAlgorithm(str, Enum):
-    """
-    [Required] Type of the hyperparameter sampling algorithms
+    [Required] The algorithm used for generating hyperparameter values, along with configuration properties
     """
     GRID = "Grid"
     RANDOM = "Random"
@@ -342,17 +381,46 @@ class ScaleType(str, Enum):
     """
     [Required] Type of deployment scaling algorithm
     """
-    AUTO = "Auto"
-    MANUAL = "Manual"
+    DEFAULT = "Default"
+    TARGET_UTILIZATION = "TargetUtilization"
 
 
-class SourceType(str, Enum):
+class SecretsType(str, Enum):
     """
-    Data source type.
+    [Required] Credential type used to authentication with storage.
     """
-    DELIMITED_FILES = "delimited_files"
-    JSON_LINES_FILES = "json_lines_files"
-    PARQUET_FILES = "parquet_files"
+    ACCOUNT_KEY = "AccountKey"
+    CERTIFICATE = "Certificate"
+    SAS = "Sas"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+
+
+class ServiceDataAccessAuthIdentity(str, Enum):
+    """
+    Indicates which identity to use to authenticate service data access to customer's storage.
+    """
+    NONE = "None"
+    """
+    Do not use any identity for service data access.
+    """
+    WORKSPACE_SYSTEM_ASSIGNED_IDENTITY = "WorkspaceSystemAssignedIdentity"
+    """
+    Use the system assigned managed identity of the Workspace to authenticate service data access.
+    """
+    WORKSPACE_USER_ASSIGNED_IDENTITY = "WorkspaceUserAssignedIdentity"
+    """
+    Use the user assigned managed identity of the Workspace to authenticate service data access.
+    """
+
+
+class SkuTier(str, Enum):
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class SshPublicAccess(str, Enum):
@@ -363,19 +431,20 @@ class SshPublicAccess(str, Enum):
     DISABLED = "Disabled"
 
 
+class SslConfigStatus(str, Enum):
+    """
+    Enable or disable ssl for scoring
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+    AUTO = "Auto"
+
+
 class ValueFormat(str, Enum):
     """
     format for the workspace connection value
     """
     JSON = "JSON"
-
-
-class VariantType(str, Enum):
-    """
-    The type of the variant.
-    """
-    CONTROL = "Control"
-    TREATMENT = "Treatment"
 
 
 class VmPriority(str, Enum):

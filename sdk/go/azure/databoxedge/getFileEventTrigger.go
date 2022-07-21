@@ -11,7 +11,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupFileEventTrigger(ctx *pulumi.Context, args *LookupFileEventTriggerArgs, opts ...pulumi.InvokeOption) (*LookupFileEventTriggerResult, error) {
 	var rv LookupFileEventTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge:getFileEventTrigger", args, &rv, opts...)
@@ -45,7 +45,7 @@ type LookupFileEventTriggerResult struct {
 	SinkInfo RoleSinkInfoResponse `pulumi:"sinkInfo"`
 	// File event source details.
 	SourceInfo FileSourceInfoResponse `pulumi:"sourceInfo"`
-	// Trigger in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of Trigger
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -123,7 +123,7 @@ func (o LookupFileEventTriggerResultOutput) SourceInfo() FileSourceInfoResponseO
 	return o.ApplyT(func(v LookupFileEventTriggerResult) FileSourceInfoResponse { return v.SourceInfo }).(FileSourceInfoResponseOutput)
 }
 
-// Trigger in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of Trigger
 func (o LookupFileEventTriggerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupFileEventTriggerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

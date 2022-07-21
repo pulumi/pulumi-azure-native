@@ -10,10 +10,317 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ArmIdentity struct {
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type                   *ResourceIdentityType `pulumi:"type"`
+	UserAssignedIdentities []string              `pulumi:"userAssignedIdentities"`
+}
+
+// ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
+// You can construct a concrete instance of `ArmIdentityInput` via:
+//
+//          ArmIdentityArgs{...}
+type ArmIdentityInput interface {
+	pulumi.Input
+
+	ToArmIdentityOutput() ArmIdentityOutput
+	ToArmIdentityOutputWithContext(context.Context) ArmIdentityOutput
+}
+
+type ArmIdentityArgs struct {
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.StringArrayInput      `pulumi:"userAssignedIdentities"`
+}
+
+func (ArmIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
+}
+
+func (i ArmIdentityArgs) ToArmIdentityOutput() ArmIdentityOutput {
+	return i.ToArmIdentityOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityArgs) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput)
+}
+
+func (i ArmIdentityArgs) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return i.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityArgs) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput).ToArmIdentityPtrOutputWithContext(ctx)
+}
+
+// ArmIdentityPtrInput is an input type that accepts ArmIdentityArgs, ArmIdentityPtr and ArmIdentityPtrOutput values.
+// You can construct a concrete instance of `ArmIdentityPtrInput` via:
+//
+//          ArmIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmIdentityPtrInput interface {
+	pulumi.Input
+
+	ToArmIdentityPtrOutput() ArmIdentityPtrOutput
+	ToArmIdentityPtrOutputWithContext(context.Context) ArmIdentityPtrOutput
+}
+
+type armIdentityPtrType ArmIdentityArgs
+
+func ArmIdentityPtr(v *ArmIdentityArgs) ArmIdentityPtrInput {
+	return (*armIdentityPtrType)(v)
+}
+
+func (*armIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
+}
+
+func (i *armIdentityPtrType) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return i.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *armIdentityPtrType) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityPtrOutput)
+}
+
+type ArmIdentityOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
+}
+
+func (o ArmIdentityOutput) ToArmIdentityOutput() ArmIdentityOutput {
+	return o
+}
+
+func (o ArmIdentityOutput) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
+	return o
+}
+
+func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return o.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentity) *ArmIdentity {
+		return &v
+	}).(ArmIdentityPtrOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ArmIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ArmIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArmIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
+}
+
+func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return o
+}
+
+func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return o
+}
+
+func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
+	return o.ApplyT(func(v *ArmIdentity) ArmIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdentity
+		return ret
+	}).(ArmIdentityOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ArmIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ArmIdentity) *ResourceIdentityType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArmIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+type ArmIdentityResponse struct {
+	// Principal Id
+	PrincipalId string `pulumi:"principalId"`
+	// Tenant Id
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type                   *string                            `pulumi:"type"`
+	UserAssignedIdentities map[string]ArmUserIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+type ArmIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
+	return o
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
+	return o
+}
+
+// Principal Id
+func (o ArmIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ArmIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o ArmIdentityResponseOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) map[string]ArmUserIdentityResponse { return v.UserAssignedIdentities }).(ArmUserIdentityResponseMapOutput)
+}
+
+type ArmIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdentityResponse
+		return ret
+	}).(ArmIdentityResponseOutput)
+}
+
+// Principal Id
+func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ArmIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) map[string]ArmUserIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(ArmUserIdentityResponseMapOutput)
+}
+
+type ArmUserIdentityResponse struct {
+	ClientId    string `pulumi:"clientId"`
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type ArmUserIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o ArmUserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ArmUserIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUserIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmUserIdentityResponse {
+		return vs[0].(map[string]ArmUserIdentityResponse)[vs[1].(string)]
+	}).(ArmUserIdentityResponseOutput)
+}
+
 // The description of an X509 CA Certificate.
 type CertificateProperties struct {
-	// The certificate content
+	// base-64 representation of X509 certificate .cer file or just .pem file content.
 	Certificate *string `pulumi:"certificate"`
+	// Determines whether certificate has been verified.
+	IsVerified *bool `pulumi:"isVerified"`
 }
 
 // CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
@@ -29,8 +336,10 @@ type CertificatePropertiesInput interface {
 
 // The description of an X509 CA Certificate.
 type CertificatePropertiesArgs struct {
-	// The certificate content
+	// base-64 representation of X509 certificate .cer file or just .pem file content.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// Determines whether certificate has been verified.
+	IsVerified pulumi.BoolPtrInput `pulumi:"isVerified"`
 }
 
 func (CertificatePropertiesArgs) ElementType() reflect.Type {
@@ -111,9 +420,14 @@ func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext
 	}).(CertificatePropertiesPtrOutput)
 }
 
-// The certificate content
+// base-64 representation of X509 certificate .cer file or just .pem file content.
 func (o CertificatePropertiesOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateProperties) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether certificate has been verified.
+func (o CertificatePropertiesOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateProperties) *bool { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }
 
 type CertificatePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -140,7 +454,7 @@ func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
 	}).(CertificatePropertiesOutput)
 }
 
-// The certificate content
+// base-64 representation of X509 certificate .cer file or just .pem file content.
 func (o CertificatePropertiesPtrOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *string {
 		if v == nil {
@@ -150,16 +464,26 @@ func (o CertificatePropertiesPtrOutput) Certificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether certificate has been verified.
+func (o CertificatePropertiesPtrOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsVerified
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
 	// base-64 representation of X509 certificate .cer file or just .pem file content.
-	Certificate string `pulumi:"certificate"`
+	Certificate *string `pulumi:"certificate"`
 	// The certificate's creation date and time.
 	Created string `pulumi:"created"`
 	// The certificate's expiration date and time.
 	Expiry string `pulumi:"expiry"`
 	// Determines whether certificate has been verified.
-	IsVerified bool `pulumi:"isVerified"`
+	IsVerified *bool `pulumi:"isVerified"`
 	// The certificate's subject name.
 	Subject string `pulumi:"subject"`
 	// The certificate's thumbprint.
@@ -184,8 +508,8 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponseOutp
 }
 
 // base-64 representation of X509 certificate .cer file or just .pem file content.
-func (o CertificatePropertiesResponseOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Certificate }).(pulumi.StringOutput)
+func (o CertificatePropertiesResponseOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificatePropertiesResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
 // The certificate's creation date and time.
@@ -199,8 +523,8 @@ func (o CertificatePropertiesResponseOutput) Expiry() pulumi.StringOutput {
 }
 
 // Determines whether certificate has been verified.
-func (o CertificatePropertiesResponseOutput) IsVerified() pulumi.BoolOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) bool { return v.IsVerified }).(pulumi.BoolOutput)
+func (o CertificatePropertiesResponseOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificatePropertiesResponse) *bool { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }
 
 // The certificate's subject name.
@@ -671,7 +995,7 @@ func (o EnrichmentPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Enrich
 // The EventHub consumer group name.
 type EventHubConsumerGroupName struct {
 	// EventHub consumer group name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // EventHubConsumerGroupNameInput is an input type that accepts EventHubConsumerGroupNameArgs and EventHubConsumerGroupNameOutput values.
@@ -688,7 +1012,7 @@ type EventHubConsumerGroupNameInput interface {
 // The EventHub consumer group name.
 type EventHubConsumerGroupNameArgs struct {
 	// EventHub consumer group name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (EventHubConsumerGroupNameArgs) ElementType() reflect.Type {
@@ -701,47 +1025,6 @@ func (i EventHubConsumerGroupNameArgs) ToEventHubConsumerGroupNameOutput() Event
 
 func (i EventHubConsumerGroupNameArgs) ToEventHubConsumerGroupNameOutputWithContext(ctx context.Context) EventHubConsumerGroupNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupNameOutput)
-}
-
-func (i EventHubConsumerGroupNameArgs) ToEventHubConsumerGroupNamePtrOutput() EventHubConsumerGroupNamePtrOutput {
-	return i.ToEventHubConsumerGroupNamePtrOutputWithContext(context.Background())
-}
-
-func (i EventHubConsumerGroupNameArgs) ToEventHubConsumerGroupNamePtrOutputWithContext(ctx context.Context) EventHubConsumerGroupNamePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupNameOutput).ToEventHubConsumerGroupNamePtrOutputWithContext(ctx)
-}
-
-// EventHubConsumerGroupNamePtrInput is an input type that accepts EventHubConsumerGroupNameArgs, EventHubConsumerGroupNamePtr and EventHubConsumerGroupNamePtrOutput values.
-// You can construct a concrete instance of `EventHubConsumerGroupNamePtrInput` via:
-//
-//          EventHubConsumerGroupNameArgs{...}
-//
-//  or:
-//
-//          nil
-type EventHubConsumerGroupNamePtrInput interface {
-	pulumi.Input
-
-	ToEventHubConsumerGroupNamePtrOutput() EventHubConsumerGroupNamePtrOutput
-	ToEventHubConsumerGroupNamePtrOutputWithContext(context.Context) EventHubConsumerGroupNamePtrOutput
-}
-
-type eventHubConsumerGroupNamePtrType EventHubConsumerGroupNameArgs
-
-func EventHubConsumerGroupNamePtr(v *EventHubConsumerGroupNameArgs) EventHubConsumerGroupNamePtrInput {
-	return (*eventHubConsumerGroupNamePtrType)(v)
-}
-
-func (*eventHubConsumerGroupNamePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHubConsumerGroupName)(nil)).Elem()
-}
-
-func (i *eventHubConsumerGroupNamePtrType) ToEventHubConsumerGroupNamePtrOutput() EventHubConsumerGroupNamePtrOutput {
-	return i.ToEventHubConsumerGroupNamePtrOutputWithContext(context.Background())
-}
-
-func (i *eventHubConsumerGroupNamePtrType) ToEventHubConsumerGroupNamePtrOutputWithContext(ctx context.Context) EventHubConsumerGroupNamePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupNamePtrOutput)
 }
 
 // The EventHub consumer group name.
@@ -759,53 +1042,9 @@ func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNameOutputWithCo
 	return o
 }
 
-func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutput() EventHubConsumerGroupNamePtrOutput {
-	return o.ToEventHubConsumerGroupNamePtrOutputWithContext(context.Background())
-}
-
-func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutputWithContext(ctx context.Context) EventHubConsumerGroupNamePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubConsumerGroupName) *EventHubConsumerGroupName {
-		return &v
-	}).(EventHubConsumerGroupNamePtrOutput)
-}
-
 // EventHub consumer group name
-func (o EventHubConsumerGroupNameOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubConsumerGroupName) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type EventHubConsumerGroupNamePtrOutput struct{ *pulumi.OutputState }
-
-func (EventHubConsumerGroupNamePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHubConsumerGroupName)(nil)).Elem()
-}
-
-func (o EventHubConsumerGroupNamePtrOutput) ToEventHubConsumerGroupNamePtrOutput() EventHubConsumerGroupNamePtrOutput {
-	return o
-}
-
-func (o EventHubConsumerGroupNamePtrOutput) ToEventHubConsumerGroupNamePtrOutputWithContext(ctx context.Context) EventHubConsumerGroupNamePtrOutput {
-	return o
-}
-
-func (o EventHubConsumerGroupNamePtrOutput) Elem() EventHubConsumerGroupNameOutput {
-	return o.ApplyT(func(v *EventHubConsumerGroupName) EventHubConsumerGroupName {
-		if v != nil {
-			return *v
-		}
-		var ret EventHubConsumerGroupName
-		return ret
-	}).(EventHubConsumerGroupNameOutput)
-}
-
-// EventHub consumer group name
-func (o EventHubConsumerGroupNamePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventHubConsumerGroupName) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
+func (o EventHubConsumerGroupNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubConsumerGroupName) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
@@ -1613,6 +1852,9 @@ type IotDpsPropertiesDescription struct {
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
 	// List of authorization keys for a provisioning service.
 	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescription `pulumi:"authorizationPolicies"`
+	// Optional.
+	// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+	EnableDataResidency *bool `pulumi:"enableDataResidency"`
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs []IotHubDefinitionDescription `pulumi:"iotHubs"`
 	// The IP filter rules.
@@ -1644,6 +1886,9 @@ type IotDpsPropertiesDescriptionArgs struct {
 	AllocationPolicy pulumi.StringPtrInput `pulumi:"allocationPolicy"`
 	// List of authorization keys for a provisioning service.
 	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput `pulumi:"authorizationPolicies"`
+	// Optional.
+	// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+	EnableDataResidency pulumi.BoolPtrInput `pulumi:"enableDataResidency"`
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs IotHubDefinitionDescriptionArrayInput `pulumi:"iotHubs"`
 	// The IP filter rules.
@@ -1697,6 +1942,12 @@ func (o IotDpsPropertiesDescriptionOutput) AuthorizationPolicies() SharedAccessS
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput)
 }
 
+// Optional.
+// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+func (o IotDpsPropertiesDescriptionOutput) EnableDataResidency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescription) *bool { return v.EnableDataResidency }).(pulumi.BoolPtrOutput)
+}
+
 // List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) IotHubs() IotHubDefinitionDescriptionArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []IotHubDefinitionDescription { return v.IotHubs }).(IotHubDefinitionDescriptionArrayOutput)
@@ -1737,6 +1988,9 @@ type IotDpsPropertiesDescriptionResponse struct {
 	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"authorizationPolicies"`
 	// Device endpoint for this provisioning service.
 	DeviceProvisioningHostName string `pulumi:"deviceProvisioningHostName"`
+	// Optional.
+	// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+	EnableDataResidency *bool `pulumi:"enableDataResidency"`
 	// Unique identifier of this provisioning service.
 	IdScope string `pulumi:"idScope"`
 	// List of IoT hubs associated with this provisioning service.
@@ -1785,6 +2039,12 @@ func (o IotDpsPropertiesDescriptionResponseOutput) AuthorizationPolicies() Share
 // Device endpoint for this provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) DeviceProvisioningHostName() pulumi.StringOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) string { return v.DeviceProvisioningHostName }).(pulumi.StringOutput)
+}
+
+// Optional.
+// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+func (o IotDpsPropertiesDescriptionResponseOutput) EnableDataResidency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *bool { return v.EnableDataResidency }).(pulumi.BoolPtrOutput)
 }
 
 // Unique identifier of this provisioning service.
@@ -2189,12 +2449,22 @@ func (o IotHubLocationDescriptionResponseArrayOutput) Index(i pulumi.IntInput) I
 
 // The properties of an IoT hub.
 type IotHubProperties struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+	AllowedFqdnList []string `pulumi:"allowedFqdnList"`
 	// The shared access policies you can use to secure a connection to the IoT hub.
 	AuthorizationPolicies []SharedAccessSignatureAuthorizationRule `pulumi:"authorizationPolicies"`
 	// The IoT hub cloud-to-device messaging properties.
 	CloudToDevice *CloudToDeviceProperties `pulumi:"cloudToDevice"`
 	// IoT hub comments.
 	Comments *string `pulumi:"comments"`
+	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+	DisableDeviceSAS *bool `pulumi:"disableDeviceSAS"`
+	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// If true, all module scoped SAS keys cannot be used for authentication.
+	DisableModuleSAS *bool `pulumi:"disableModuleSAS"`
+	// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+	EnableDataResidency *bool `pulumi:"enableDataResidency"`
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
@@ -2213,6 +2483,8 @@ type IotHubProperties struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// Whether requests from Public Network are allowed
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+	RestrictOutboundNetworkAccess *bool `pulumi:"restrictOutboundNetworkAccess"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 	Routing *RoutingProperties `pulumi:"routing"`
 	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
@@ -2243,12 +2515,22 @@ type IotHubPropertiesInput interface {
 
 // The properties of an IoT hub.
 type IotHubPropertiesArgs struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+	AllowedFqdnList pulumi.StringArrayInput `pulumi:"allowedFqdnList"`
 	// The shared access policies you can use to secure a connection to the IoT hub.
 	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleArrayInput `pulumi:"authorizationPolicies"`
 	// The IoT hub cloud-to-device messaging properties.
 	CloudToDevice CloudToDevicePropertiesPtrInput `pulumi:"cloudToDevice"`
 	// IoT hub comments.
 	Comments pulumi.StringPtrInput `pulumi:"comments"`
+	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+	DisableDeviceSAS pulumi.BoolPtrInput `pulumi:"disableDeviceSAS"`
+	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
+	// If true, all module scoped SAS keys cannot be used for authentication.
+	DisableModuleSAS pulumi.BoolPtrInput `pulumi:"disableModuleSAS"`
+	// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+	EnableDataResidency pulumi.BoolPtrInput `pulumi:"enableDataResidency"`
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications pulumi.BoolPtrInput `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
@@ -2267,6 +2549,8 @@ type IotHubPropertiesArgs struct {
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
 	// Whether requests from Public Network are allowed
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+	RestrictOutboundNetworkAccess pulumi.BoolPtrInput `pulumi:"restrictOutboundNetworkAccess"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 	Routing RoutingPropertiesPtrInput `pulumi:"routing"`
 	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
@@ -2360,6 +2644,11 @@ func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutputWithContext(ctx conte
 	}).(IotHubPropertiesPtrOutput)
 }
 
+// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+func (o IotHubPropertiesOutput) AllowedFqdnList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IotHubProperties) []string { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
+}
+
 // The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleArrayOutput {
 	return o.ApplyT(func(v IotHubProperties) []SharedAccessSignatureAuthorizationRule { return v.AuthorizationPolicies }).(SharedAccessSignatureAuthorizationRuleArrayOutput)
@@ -2373,6 +2662,26 @@ func (o IotHubPropertiesOutput) CloudToDevice() CloudToDevicePropertiesPtrOutput
 // IoT hub comments.
 func (o IotHubPropertiesOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.Comments }).(pulumi.StringPtrOutput)
+}
+
+// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubProperties) *bool { return v.DisableDeviceSAS }).(pulumi.BoolPtrOutput)
+}
+
+// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubProperties) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// If true, all module scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubProperties) *bool { return v.DisableModuleSAS }).(pulumi.BoolPtrOutput)
+}
+
+// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+func (o IotHubPropertiesOutput) EnableDataResidency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubProperties) *bool { return v.EnableDataResidency }).(pulumi.BoolPtrOutput)
 }
 
 // If True, file upload notifications are enabled.
@@ -2420,6 +2729,11 @@ func (o IotHubPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
+// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+func (o IotHubPropertiesOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubProperties) *bool { return v.RestrictOutboundNetworkAccess }).(pulumi.BoolPtrOutput)
+}
+
 // The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 func (o IotHubPropertiesOutput) Routing() RoutingPropertiesPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *RoutingProperties { return v.Routing }).(RoutingPropertiesPtrOutput)
@@ -2454,6 +2768,16 @@ func (o IotHubPropertiesPtrOutput) Elem() IotHubPropertiesOutput {
 	}).(IotHubPropertiesOutput)
 }
 
+// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+func (o IotHubPropertiesPtrOutput) AllowedFqdnList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotHubProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedFqdnList
+	}).(pulumi.StringArrayOutput)
+}
+
 // The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesPtrOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleArrayOutput {
 	return o.ApplyT(func(v *IotHubProperties) []SharedAccessSignatureAuthorizationRule {
@@ -2482,6 +2806,46 @@ func (o IotHubPropertiesPtrOutput) Comments() pulumi.StringPtrOutput {
 		}
 		return v.Comments
 	}).(pulumi.StringPtrOutput)
+}
+
+// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesPtrOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IotHubProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableDeviceSAS
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IotHubProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, all module scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesPtrOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IotHubProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableModuleSAS
+	}).(pulumi.BoolPtrOutput)
+}
+
+// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+func (o IotHubPropertiesPtrOutput) EnableDataResidency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IotHubProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDataResidency
+	}).(pulumi.BoolPtrOutput)
 }
 
 // If True, file upload notifications are enabled.
@@ -2574,6 +2938,16 @@ func (o IotHubPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+func (o IotHubPropertiesPtrOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IotHubProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictOutboundNetworkAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 func (o IotHubPropertiesPtrOutput) Routing() RoutingPropertiesPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *RoutingProperties {
@@ -2596,12 +2970,22 @@ func (o IotHubPropertiesPtrOutput) StorageEndpoints() StorageEndpointPropertiesM
 
 // The properties of an IoT hub.
 type IotHubPropertiesResponse struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+	AllowedFqdnList []string `pulumi:"allowedFqdnList"`
 	// The shared access policies you can use to secure a connection to the IoT hub.
 	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleResponse `pulumi:"authorizationPolicies"`
 	// The IoT hub cloud-to-device messaging properties.
 	CloudToDevice *CloudToDevicePropertiesResponse `pulumi:"cloudToDevice"`
 	// IoT hub comments.
 	Comments *string `pulumi:"comments"`
+	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+	DisableDeviceSAS *bool `pulumi:"disableDeviceSAS"`
+	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// If true, all module scoped SAS keys cannot be used for authentication.
+	DisableModuleSAS *bool `pulumi:"disableModuleSAS"`
+	// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+	EnableDataResidency *bool `pulumi:"enableDataResidency"`
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
@@ -2626,6 +3010,8 @@ type IotHubPropertiesResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Whether requests from Public Network are allowed
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+	RestrictOutboundNetworkAccess *bool `pulumi:"restrictOutboundNetworkAccess"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 	Routing *RoutingPropertiesResponse `pulumi:"routing"`
 	// The hub state.
@@ -2660,6 +3046,11 @@ func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponseOutputWithCont
 	return o
 }
 
+// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+func (o IotHubPropertiesResponseOutput) AllowedFqdnList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) []string { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
+}
+
 // The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesResponseOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleResponseArrayOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) []SharedAccessSignatureAuthorizationRuleResponse {
@@ -2675,6 +3066,26 @@ func (o IotHubPropertiesResponseOutput) CloudToDevice() CloudToDevicePropertiesR
 // IoT hub comments.
 func (o IotHubPropertiesResponseOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.Comments }).(pulumi.StringPtrOutput)
+}
+
+// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesResponseOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.DisableDeviceSAS }).(pulumi.BoolPtrOutput)
+}
+
+// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// If true, all module scoped SAS keys cannot be used for authentication.
+func (o IotHubPropertiesResponseOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.DisableModuleSAS }).(pulumi.BoolPtrOutput)
+}
+
+// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+func (o IotHubPropertiesResponseOutput) EnableDataResidency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.EnableDataResidency }).(pulumi.BoolPtrOutput)
 }
 
 // If True, file upload notifications are enabled.
@@ -2739,6 +3150,11 @@ func (o IotHubPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput 
 // Whether requests from Public Network are allowed
 func (o IotHubPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+func (o IotHubPropertiesResponseOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.RestrictOutboundNetworkAccess }).(pulumi.BoolPtrOutput)
 }
 
 // The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -3038,6 +3454,206 @@ func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleResponse {
 		return vs[0].([]IpFilterRuleResponse)[vs[1].(int)]
 	}).(IpFilterRuleResponseOutput)
+}
+
+// The properties of the Managed identity.
+type ManagedIdentity struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
+// You can construct a concrete instance of `ManagedIdentityInput` via:
+//
+//          ManagedIdentityArgs{...}
+type ManagedIdentityInput interface {
+	pulumi.Input
+
+	ToManagedIdentityOutput() ManagedIdentityOutput
+	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
+}
+
+// The properties of the Managed identity.
+type ManagedIdentityArgs struct {
+	// The user assigned identity.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (ManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentity)(nil)).Elem()
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityOutput() ManagedIdentityOutput {
+	return i.ToManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityOutputWithContext(ctx context.Context) ManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityOutput)
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return i.ToManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityOutput).ToManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedIdentityPtrInput is an input type that accepts ManagedIdentityArgs, ManagedIdentityPtr and ManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedIdentityPtrInput` via:
+//
+//          ManagedIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput
+	ToManagedIdentityPtrOutputWithContext(context.Context) ManagedIdentityPtrOutput
+}
+
+type managedIdentityPtrType ManagedIdentityArgs
+
+func ManagedIdentityPtr(v *ManagedIdentityArgs) ManagedIdentityPtrInput {
+	return (*managedIdentityPtrType)(v)
+}
+
+func (*managedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentity)(nil)).Elem()
+}
+
+func (i *managedIdentityPtrType) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return i.ToManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
+}
+
+// The properties of the Managed identity.
+type ManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentity)(nil)).Elem()
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityOutput() ManagedIdentityOutput {
+	return o
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityOutputWithContext(ctx context.Context) ManagedIdentityOutput {
+	return o
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return o.ToManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentity) *ManagedIdentity {
+		return &v
+	}).(ManagedIdentityPtrOutput)
+}
+
+// The user assigned identity.
+func (o ManagedIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentity)(nil)).Elem()
+}
+
+func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
+	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentity
+		return ret
+	}).(ManagedIdentityOutput)
+}
+
+// The user assigned identity.
+func (o ManagedIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the Managed identity.
+type ManagedIdentityResponse struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// The properties of the Managed identity.
+type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityResponseOutput) ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityResponseOutput) ToManagedIdentityResponseOutputWithContext(ctx context.Context) ManagedIdentityResponseOutput {
+	return o
+}
+
+// The user assigned identity.
+func (o ManagedIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityResponsePtrOutput) Elem() ManagedIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityResponse
+		return ret
+	}).(ManagedIdentityResponseOutput)
+}
+
+// The user assigned identity.
+func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
 }
 
 // The properties of the messaging endpoints used by this IoT hub.
@@ -3942,6 +4558,8 @@ type PrivateEndpointConnectionResponse struct {
 	Name string `pulumi:"name"`
 	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -3976,6 +4594,11 @@ func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointCon
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *SystemDataResponse { return v.SystemData }).(SystemDataResponsePtrOutput)
 }
 
 // The resource type.
@@ -4712,6 +5335,8 @@ type RoutingEventHubProperties struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing event hub endpoint.
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -4743,6 +5368,8 @@ type RoutingEventHubPropertiesArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Managed identity properties of routing event hub endpoint.
+	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -4828,6 +5455,11 @@ func (o RoutingEventHubPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Managed identity properties of routing event hub endpoint.
+func (o RoutingEventHubPropertiesOutput) Identity() ManagedIdentityPtrOutput {
+	return o.ApplyT(func(v RoutingEventHubProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
+}
+
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 func (o RoutingEventHubPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -4875,6 +5507,8 @@ type RoutingEventHubPropertiesResponse struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing event hub endpoint.
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -4921,6 +5555,11 @@ func (o RoutingEventHubPropertiesResponseOutput) EntityPath() pulumi.StringPtrOu
 // Id of the event hub endpoint
 func (o RoutingEventHubPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity properties of routing event hub endpoint.
+func (o RoutingEventHubPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -5278,6 +5917,8 @@ type RoutingServiceBusQueueEndpointProperties struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing service bus queue endpoint.
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -5309,6 +5950,8 @@ type RoutingServiceBusQueueEndpointPropertiesArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Managed identity properties of routing service bus queue endpoint.
+	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -5394,6 +6037,11 @@ func (o RoutingServiceBusQueueEndpointPropertiesOutput) Id() pulumi.StringPtrOut
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Managed identity properties of routing service bus queue endpoint.
+func (o RoutingServiceBusQueueEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
+	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
+}
+
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -5441,6 +6089,8 @@ type RoutingServiceBusQueueEndpointPropertiesResponse struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing service bus queue endpoint.
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -5487,6 +6137,11 @@ func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) EntityPath() pul
 // Id of the service bus queue endpoint
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity properties of routing service bus queue endpoint.
+func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
@@ -5536,6 +6191,8 @@ type RoutingServiceBusTopicEndpointProperties struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing service bus topic endpoint.
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -5567,6 +6224,8 @@ type RoutingServiceBusTopicEndpointPropertiesArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Managed identity properties of routing service bus topic endpoint.
+	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -5652,6 +6311,11 @@ func (o RoutingServiceBusTopicEndpointPropertiesOutput) Id() pulumi.StringPtrOut
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Managed identity properties of routing service bus topic endpoint.
+func (o RoutingServiceBusTopicEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
+	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
+}
+
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -5699,6 +6363,8 @@ type RoutingServiceBusTopicEndpointPropertiesResponse struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing service bus topic endpoint.
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -5745,6 +6411,11 @@ func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) EntityPath() pul
 // Id of the service bus topic endpoint
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity properties of routing service bus topic endpoint.
+func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
@@ -5800,6 +6471,8 @@ type RoutingStorageContainerProperties struct {
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing storage endpoint.
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -5839,6 +6512,8 @@ type RoutingStorageContainerPropertiesArgs struct {
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Managed identity properties of routing storage endpoint.
+	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -5941,6 +6616,11 @@ func (o RoutingStorageContainerPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Managed identity properties of routing storage endpoint.
+func (o RoutingStorageContainerPropertiesOutput) Identity() ManagedIdentityPtrOutput {
+	return o.ApplyT(func(v RoutingStorageContainerProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
+}
+
 // Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 func (o RoutingStorageContainerPropertiesOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
@@ -5999,6 +6679,8 @@ type RoutingStorageContainerPropertiesResponse struct {
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id *string `pulumi:"id"`
+	// Managed identity properties of routing storage endpoint.
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -6062,6 +6744,11 @@ func (o RoutingStorageContainerPropertiesResponseOutput) FileNameFormat() pulumi
 // Id of the storage container endpoint
 func (o RoutingStorageContainerPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity properties of routing storage endpoint.
+func (o RoutingStorageContainerPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
@@ -6504,6 +7191,8 @@ type StorageEndpointProperties struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
+	// Managed identity properties of storage endpoint for file upload.
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
 }
@@ -6527,6 +7216,8 @@ type StorageEndpointPropertiesArgs struct {
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Managed identity properties of storage endpoint for file upload.
+	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
 }
@@ -6598,6 +7289,11 @@ func (o StorageEndpointPropertiesOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// Managed identity properties of storage endpoint for file upload.
+func (o StorageEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
+	return o.ApplyT(func(v StorageEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
+}
+
 // The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 func (o StorageEndpointPropertiesOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
@@ -6631,6 +7327,8 @@ type StorageEndpointPropertiesResponse struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
+	// Managed identity properties of storage endpoint for file upload.
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
 }
@@ -6665,6 +7363,11 @@ func (o StorageEndpointPropertiesResponseOutput) ContainerName() pulumi.StringOu
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// Managed identity properties of storage endpoint for file upload.
+func (o StorageEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
 // The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 func (o StorageEndpointPropertiesResponseOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
@@ -6688,6 +7391,151 @@ func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInpu
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageEndpointPropertiesResponse {
 		return vs[0].(map[string]StorageEndpointPropertiesResponse)[vs[1].(string)]
 	}).(StorageEndpointPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IP filter rules for a provisioning Service.
@@ -6885,6 +7733,12 @@ func (o TargetIpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) TargetIp
 }
 
 func init() {
+	pulumi.RegisterOutputType(ArmIdentityOutput{})
+	pulumi.RegisterOutputType(ArmIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ArmIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ArmIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
@@ -6897,7 +7751,6 @@ func init() {
 	pulumi.RegisterOutputType(EnrichmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnrichmentPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(EventHubConsumerGroupNameOutput{})
-	pulumi.RegisterOutputType(EventHubConsumerGroupNamePtrOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesMapOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesResponseOutput{})
@@ -6929,6 +7782,10 @@ func init() {
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})
@@ -6991,6 +7848,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageEndpointPropertiesMapOutput{})
 	pulumi.RegisterOutputType(StorageEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageEndpointPropertiesResponseMapOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetIpFilterRuleOutput{})
 	pulumi.RegisterOutputType(TargetIpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(TargetIpFilterRuleResponseOutput{})

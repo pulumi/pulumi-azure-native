@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
     {
         /// <summary>
         /// Describes an identity resource.
-        /// API Version: 2018-11-30.
+        /// API Version: 2022-01-31-preview.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes an identity resource.
-        /// API Version: 2018-11-30.
+        /// API Version: 2022-01-31-preview.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());

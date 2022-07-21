@@ -117,7 +117,7 @@ def get_sql_resource_sql_container(account_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlContainerResult:
     """
     An Azure Cosmos DB container.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -154,7 +154,7 @@ def get_sql_resource_sql_container_output(account_name: Optional[pulumi.Input[st
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlContainerResult]:
     """
     An Azure Cosmos DB container.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

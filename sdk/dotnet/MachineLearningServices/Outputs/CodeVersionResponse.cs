@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class CodeVersionResponse
     {
         /// <summary>
-        /// ARM resource ID of the datastore where the asset is located.
+        /// Uri where code is located
         /// </summary>
-        public readonly string? DatastoreId;
+        public readonly string? CodeUri;
         /// <summary>
         /// The asset description text.
         /// </summary>
@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly bool? IsAnonymous;
         /// <summary>
-        /// [Required] The path of the file/directory in the datastore.
+        /// Is the asset archived?
         /// </summary>
-        public readonly string Path;
+        public readonly bool? IsArchived;
         /// <summary>
         /// The asset property dictionary.
         /// </summary>
@@ -43,22 +43,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private CodeVersionResponse(
-            string? datastoreId,
+            string? codeUri,
 
             string? description,
 
             bool? isAnonymous,
 
-            string path,
+            bool? isArchived,
 
             ImmutableDictionary<string, string>? properties,
 
             ImmutableDictionary<string, string>? tags)
         {
-            DatastoreId = datastoreId;
+            CodeUri = codeUri;
             Description = description;
             IsAnonymous = isAnonymous;
-            Path = path;
+            IsArchived = isArchived;
             Properties = properties;
             Tags = tags;
         }

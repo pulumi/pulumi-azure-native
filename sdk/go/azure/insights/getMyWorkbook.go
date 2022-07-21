@@ -11,7 +11,7 @@ import (
 )
 
 // An Application Insights private workbook definition.
-// API Version: 2020-10-20.
+// API Version: 2021-03-08.
 func LookupMyWorkbook(ctx *pulumi.Context, args *LookupMyWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupMyWorkbookResult, error) {
 	var rv LookupMyWorkbookResult
 	err := ctx.Invoke("azure-native:insights:getMyWorkbook", args, &rv, opts...)
@@ -52,6 +52,8 @@ type LookupMyWorkbookResult struct {
 	SourceId *string `pulumi:"sourceId"`
 	// BYOS Storage Account URI
 	StorageUri *string `pulumi:"storageUri"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this private workbook definition.
@@ -156,6 +158,11 @@ func (o LookupMyWorkbookResultOutput) SourceId() pulumi.StringPtrOutput {
 // BYOS Storage Account URI
 func (o LookupMyWorkbookResultOutput) StorageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.StorageUri }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupMyWorkbookResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

@@ -10,6 +10,1022 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Parameters to reconcile to the AzureBlob source kind type.
+type AzureBlobDefinition struct {
+	// The account key (shared key) to access the storage account
+	AccountKey *string `pulumi:"accountKey"`
+	// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+	ContainerName *string `pulumi:"containerName"`
+	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthRef *string `pulumi:"localAuthRef"`
+	// Parameters to authenticate using a Managed Identity.
+	ManagedIdentity *ManagedIdentityDefinition `pulumi:"managedIdentity"`
+	// The Shared Access token to access the storage container
+	SasToken *string `pulumi:"sasToken"`
+	// Parameters to authenticate using Service Principal.
+	ServicePrincipal *ServicePrincipalDefinition `pulumi:"servicePrincipal"`
+	// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+	SyncIntervalInSeconds *float64 `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
+	// The URL to sync for the flux configuration Azure Blob storage account.
+	Url *string `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for AzureBlobDefinition
+func (val *AzureBlobDefinition) Defaults() *AzureBlobDefinition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ServicePrincipal = tmp.ServicePrincipal.Defaults()
+
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
+}
+
+// AzureBlobDefinitionInput is an input type that accepts AzureBlobDefinitionArgs and AzureBlobDefinitionOutput values.
+// You can construct a concrete instance of `AzureBlobDefinitionInput` via:
+//
+//          AzureBlobDefinitionArgs{...}
+type AzureBlobDefinitionInput interface {
+	pulumi.Input
+
+	ToAzureBlobDefinitionOutput() AzureBlobDefinitionOutput
+	ToAzureBlobDefinitionOutputWithContext(context.Context) AzureBlobDefinitionOutput
+}
+
+// Parameters to reconcile to the AzureBlob source kind type.
+type AzureBlobDefinitionArgs struct {
+	// The account key (shared key) to access the storage account
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthRef pulumi.StringPtrInput `pulumi:"localAuthRef"`
+	// Parameters to authenticate using a Managed Identity.
+	ManagedIdentity ManagedIdentityDefinitionPtrInput `pulumi:"managedIdentity"`
+	// The Shared Access token to access the storage container
+	SasToken pulumi.StringPtrInput `pulumi:"sasToken"`
+	// Parameters to authenticate using Service Principal.
+	ServicePrincipal ServicePrincipalDefinitionPtrInput `pulumi:"servicePrincipal"`
+	// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+	SyncIntervalInSeconds pulumi.Float64PtrInput `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
+	// The URL to sync for the flux configuration Azure Blob storage account.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for AzureBlobDefinitionArgs
+func (val *AzureBlobDefinitionArgs) Defaults() *AzureBlobDefinitionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.SyncIntervalInSeconds) {
+		tmp.SyncIntervalInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		tmp.TimeoutInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	return &tmp
+}
+func (AzureBlobDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobDefinition)(nil)).Elem()
+}
+
+func (i AzureBlobDefinitionArgs) ToAzureBlobDefinitionOutput() AzureBlobDefinitionOutput {
+	return i.ToAzureBlobDefinitionOutputWithContext(context.Background())
+}
+
+func (i AzureBlobDefinitionArgs) ToAzureBlobDefinitionOutputWithContext(ctx context.Context) AzureBlobDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobDefinitionOutput)
+}
+
+func (i AzureBlobDefinitionArgs) ToAzureBlobDefinitionPtrOutput() AzureBlobDefinitionPtrOutput {
+	return i.ToAzureBlobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i AzureBlobDefinitionArgs) ToAzureBlobDefinitionPtrOutputWithContext(ctx context.Context) AzureBlobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobDefinitionOutput).ToAzureBlobDefinitionPtrOutputWithContext(ctx)
+}
+
+// AzureBlobDefinitionPtrInput is an input type that accepts AzureBlobDefinitionArgs, AzureBlobDefinitionPtr and AzureBlobDefinitionPtrOutput values.
+// You can construct a concrete instance of `AzureBlobDefinitionPtrInput` via:
+//
+//          AzureBlobDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureBlobDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToAzureBlobDefinitionPtrOutput() AzureBlobDefinitionPtrOutput
+	ToAzureBlobDefinitionPtrOutputWithContext(context.Context) AzureBlobDefinitionPtrOutput
+}
+
+type azureBlobDefinitionPtrType AzureBlobDefinitionArgs
+
+func AzureBlobDefinitionPtr(v *AzureBlobDefinitionArgs) AzureBlobDefinitionPtrInput {
+	return (*azureBlobDefinitionPtrType)(v)
+}
+
+func (*azureBlobDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobDefinition)(nil)).Elem()
+}
+
+func (i *azureBlobDefinitionPtrType) ToAzureBlobDefinitionPtrOutput() AzureBlobDefinitionPtrOutput {
+	return i.ToAzureBlobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *azureBlobDefinitionPtrType) ToAzureBlobDefinitionPtrOutputWithContext(ctx context.Context) AzureBlobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobDefinitionPtrOutput)
+}
+
+// Parameters to reconcile to the AzureBlob source kind type.
+type AzureBlobDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobDefinition)(nil)).Elem()
+}
+
+func (o AzureBlobDefinitionOutput) ToAzureBlobDefinitionOutput() AzureBlobDefinitionOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionOutput) ToAzureBlobDefinitionOutputWithContext(ctx context.Context) AzureBlobDefinitionOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionOutput) ToAzureBlobDefinitionPtrOutput() AzureBlobDefinitionPtrOutput {
+	return o.ToAzureBlobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o AzureBlobDefinitionOutput) ToAzureBlobDefinitionPtrOutputWithContext(ctx context.Context) AzureBlobDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobDefinition) *AzureBlobDefinition {
+		return &v
+	}).(AzureBlobDefinitionPtrOutput)
+}
+
+// The account key (shared key) to access the storage account
+func (o AzureBlobDefinitionOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+func (o AzureBlobDefinitionOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o AzureBlobDefinitionOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *string { return v.LocalAuthRef }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+func (o AzureBlobDefinitionOutput) ManagedIdentity() ManagedIdentityDefinitionPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *ManagedIdentityDefinition { return v.ManagedIdentity }).(ManagedIdentityDefinitionPtrOutput)
+}
+
+// The Shared Access token to access the storage container
+func (o AzureBlobDefinitionOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *string { return v.SasToken }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+func (o AzureBlobDefinitionOutput) ServicePrincipal() ServicePrincipalDefinitionPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *ServicePrincipalDefinition { return v.ServicePrincipal }).(ServicePrincipalDefinitionPtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *float64 { return v.SyncIntervalInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration Azure Blob storage account.
+func (o AzureBlobDefinitionOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinition) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type AzureBlobDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobDefinition)(nil)).Elem()
+}
+
+func (o AzureBlobDefinitionPtrOutput) ToAzureBlobDefinitionPtrOutput() AzureBlobDefinitionPtrOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionPtrOutput) ToAzureBlobDefinitionPtrOutputWithContext(ctx context.Context) AzureBlobDefinitionPtrOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionPtrOutput) Elem() AzureBlobDefinitionOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) AzureBlobDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobDefinition
+		return ret
+	}).(AzureBlobDefinitionOutput)
+}
+
+// The account key (shared key) to access the storage account
+func (o AzureBlobDefinitionPtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+func (o AzureBlobDefinitionPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o AzureBlobDefinitionPtrOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+func (o AzureBlobDefinitionPtrOutput) ManagedIdentity() ManagedIdentityDefinitionPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *ManagedIdentityDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(ManagedIdentityDefinitionPtrOutput)
+}
+
+// The Shared Access token to access the storage container
+func (o AzureBlobDefinitionPtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+func (o AzureBlobDefinitionPtrOutput) ServicePrincipal() ServicePrincipalDefinitionPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *ServicePrincipalDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipal
+	}).(ServicePrincipalDefinitionPtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionPtrOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionPtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration Azure Blob storage account.
+func (o AzureBlobDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to reconcile to the AzureBlob source kind type.
+type AzureBlobDefinitionResponse struct {
+	// The account key (shared key) to access the storage account
+	AccountKey *string `pulumi:"accountKey"`
+	// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+	ContainerName *string `pulumi:"containerName"`
+	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthRef *string `pulumi:"localAuthRef"`
+	// Parameters to authenticate using a Managed Identity.
+	ManagedIdentity *ManagedIdentityDefinitionResponse `pulumi:"managedIdentity"`
+	// The Shared Access token to access the storage container
+	SasToken *string `pulumi:"sasToken"`
+	// Parameters to authenticate using Service Principal.
+	ServicePrincipal *ServicePrincipalDefinitionResponse `pulumi:"servicePrincipal"`
+	// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+	SyncIntervalInSeconds *float64 `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
+	// The URL to sync for the flux configuration Azure Blob storage account.
+	Url *string `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for AzureBlobDefinitionResponse
+func (val *AzureBlobDefinitionResponse) Defaults() *AzureBlobDefinitionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ServicePrincipal = tmp.ServicePrincipal.Defaults()
+
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
+}
+
+// Parameters to reconcile to the AzureBlob source kind type.
+type AzureBlobDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobDefinitionResponse)(nil)).Elem()
+}
+
+func (o AzureBlobDefinitionResponseOutput) ToAzureBlobDefinitionResponseOutput() AzureBlobDefinitionResponseOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionResponseOutput) ToAzureBlobDefinitionResponseOutputWithContext(ctx context.Context) AzureBlobDefinitionResponseOutput {
+	return o
+}
+
+// The account key (shared key) to access the storage account
+func (o AzureBlobDefinitionResponseOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+func (o AzureBlobDefinitionResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o AzureBlobDefinitionResponseOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *string { return v.LocalAuthRef }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+func (o AzureBlobDefinitionResponseOutput) ManagedIdentity() ManagedIdentityDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *ManagedIdentityDefinitionResponse { return v.ManagedIdentity }).(ManagedIdentityDefinitionResponsePtrOutput)
+}
+
+// The Shared Access token to access the storage container
+func (o AzureBlobDefinitionResponseOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *string { return v.SasToken }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+func (o AzureBlobDefinitionResponseOutput) ServicePrincipal() ServicePrincipalDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *ServicePrincipalDefinitionResponse { return v.ServicePrincipal }).(ServicePrincipalDefinitionResponsePtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionResponseOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *float64 { return v.SyncIntervalInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionResponseOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration Azure Blob storage account.
+func (o AzureBlobDefinitionResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobDefinitionResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type AzureBlobDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobDefinitionResponse)(nil)).Elem()
+}
+
+func (o AzureBlobDefinitionResponsePtrOutput) ToAzureBlobDefinitionResponsePtrOutput() AzureBlobDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionResponsePtrOutput) ToAzureBlobDefinitionResponsePtrOutputWithContext(ctx context.Context) AzureBlobDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o AzureBlobDefinitionResponsePtrOutput) Elem() AzureBlobDefinitionResponseOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) AzureBlobDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobDefinitionResponse
+		return ret
+	}).(AzureBlobDefinitionResponseOutput)
+}
+
+// The account key (shared key) to access the storage account
+func (o AzureBlobDefinitionResponsePtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Blob container name to sync from the url endpoint for the flux configuration.
+func (o AzureBlobDefinitionResponsePtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o AzureBlobDefinitionResponsePtrOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+func (o AzureBlobDefinitionResponsePtrOutput) ManagedIdentity() ManagedIdentityDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *ManagedIdentityDefinitionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(ManagedIdentityDefinitionResponsePtrOutput)
+}
+
+// The Shared Access token to access the storage container
+func (o AzureBlobDefinitionResponsePtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+func (o AzureBlobDefinitionResponsePtrOutput) ServicePrincipal() ServicePrincipalDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *ServicePrincipalDefinitionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipal
+	}).(ServicePrincipalDefinitionResponsePtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionResponsePtrOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+func (o AzureBlobDefinitionResponsePtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration Azure Blob storage account.
+func (o AzureBlobDefinitionResponsePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to reconcile to the Bucket source kind type.
+type BucketDefinition struct {
+	// Plaintext access key used to securely access the S3 bucket
+	AccessKey *string `pulumi:"accessKey"`
+	// The bucket name to sync from the url endpoint for the flux configuration.
+	BucketName *string `pulumi:"bucketName"`
+	// Specify whether to use insecure communication when puling data from the S3 bucket.
+	Insecure *bool `pulumi:"insecure"`
+	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthRef *string `pulumi:"localAuthRef"`
+	// The interval at which to re-reconcile the cluster bucket source with the remote.
+	SyncIntervalInSeconds *float64 `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
+	// The URL to sync for the flux configuration S3 bucket.
+	Url *string `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for BucketDefinition
+func (val *BucketDefinition) Defaults() *BucketDefinition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Insecure) {
+		insecure_ := true
+		tmp.Insecure = &insecure_
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
+}
+
+// BucketDefinitionInput is an input type that accepts BucketDefinitionArgs and BucketDefinitionOutput values.
+// You can construct a concrete instance of `BucketDefinitionInput` via:
+//
+//          BucketDefinitionArgs{...}
+type BucketDefinitionInput interface {
+	pulumi.Input
+
+	ToBucketDefinitionOutput() BucketDefinitionOutput
+	ToBucketDefinitionOutputWithContext(context.Context) BucketDefinitionOutput
+}
+
+// Parameters to reconcile to the Bucket source kind type.
+type BucketDefinitionArgs struct {
+	// Plaintext access key used to securely access the S3 bucket
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// The bucket name to sync from the url endpoint for the flux configuration.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Specify whether to use insecure communication when puling data from the S3 bucket.
+	Insecure pulumi.BoolPtrInput `pulumi:"insecure"`
+	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthRef pulumi.StringPtrInput `pulumi:"localAuthRef"`
+	// The interval at which to re-reconcile the cluster bucket source with the remote.
+	SyncIntervalInSeconds pulumi.Float64PtrInput `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
+	// The URL to sync for the flux configuration S3 bucket.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for BucketDefinitionArgs
+func (val *BucketDefinitionArgs) Defaults() *BucketDefinitionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Insecure) {
+		tmp.Insecure = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		tmp.SyncIntervalInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		tmp.TimeoutInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	return &tmp
+}
+func (BucketDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefinition)(nil)).Elem()
+}
+
+func (i BucketDefinitionArgs) ToBucketDefinitionOutput() BucketDefinitionOutput {
+	return i.ToBucketDefinitionOutputWithContext(context.Background())
+}
+
+func (i BucketDefinitionArgs) ToBucketDefinitionOutputWithContext(ctx context.Context) BucketDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefinitionOutput)
+}
+
+func (i BucketDefinitionArgs) ToBucketDefinitionPtrOutput() BucketDefinitionPtrOutput {
+	return i.ToBucketDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketDefinitionArgs) ToBucketDefinitionPtrOutputWithContext(ctx context.Context) BucketDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefinitionOutput).ToBucketDefinitionPtrOutputWithContext(ctx)
+}
+
+// BucketDefinitionPtrInput is an input type that accepts BucketDefinitionArgs, BucketDefinitionPtr and BucketDefinitionPtrOutput values.
+// You can construct a concrete instance of `BucketDefinitionPtrInput` via:
+//
+//          BucketDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToBucketDefinitionPtrOutput() BucketDefinitionPtrOutput
+	ToBucketDefinitionPtrOutputWithContext(context.Context) BucketDefinitionPtrOutput
+}
+
+type bucketDefinitionPtrType BucketDefinitionArgs
+
+func BucketDefinitionPtr(v *BucketDefinitionArgs) BucketDefinitionPtrInput {
+	return (*bucketDefinitionPtrType)(v)
+}
+
+func (*bucketDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefinition)(nil)).Elem()
+}
+
+func (i *bucketDefinitionPtrType) ToBucketDefinitionPtrOutput() BucketDefinitionPtrOutput {
+	return i.ToBucketDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketDefinitionPtrType) ToBucketDefinitionPtrOutputWithContext(ctx context.Context) BucketDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefinitionPtrOutput)
+}
+
+// Parameters to reconcile to the Bucket source kind type.
+type BucketDefinitionOutput struct{ *pulumi.OutputState }
+
+func (BucketDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefinition)(nil)).Elem()
+}
+
+func (o BucketDefinitionOutput) ToBucketDefinitionOutput() BucketDefinitionOutput {
+	return o
+}
+
+func (o BucketDefinitionOutput) ToBucketDefinitionOutputWithContext(ctx context.Context) BucketDefinitionOutput {
+	return o
+}
+
+func (o BucketDefinitionOutput) ToBucketDefinitionPtrOutput() BucketDefinitionPtrOutput {
+	return o.ToBucketDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketDefinitionOutput) ToBucketDefinitionPtrOutputWithContext(ctx context.Context) BucketDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDefinition) *BucketDefinition {
+		return &v
+	}).(BucketDefinitionPtrOutput)
+}
+
+// Plaintext access key used to securely access the S3 bucket
+func (o BucketDefinitionOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// The bucket name to sync from the url endpoint for the flux configuration.
+func (o BucketDefinitionOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Specify whether to use insecure communication when puling data from the S3 bucket.
+func (o BucketDefinitionOutput) Insecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *bool { return v.Insecure }).(pulumi.BoolPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o BucketDefinitionOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *string { return v.LocalAuthRef }).(pulumi.StringPtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *float64 { return v.SyncIntervalInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration S3 bucket.
+func (o BucketDefinitionOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinition) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type BucketDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefinition)(nil)).Elem()
+}
+
+func (o BucketDefinitionPtrOutput) ToBucketDefinitionPtrOutput() BucketDefinitionPtrOutput {
+	return o
+}
+
+func (o BucketDefinitionPtrOutput) ToBucketDefinitionPtrOutputWithContext(ctx context.Context) BucketDefinitionPtrOutput {
+	return o
+}
+
+func (o BucketDefinitionPtrOutput) Elem() BucketDefinitionOutput {
+	return o.ApplyT(func(v *BucketDefinition) BucketDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDefinition
+		return ret
+	}).(BucketDefinitionOutput)
+}
+
+// Plaintext access key used to securely access the S3 bucket
+func (o BucketDefinitionPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The bucket name to sync from the url endpoint for the flux configuration.
+func (o BucketDefinitionPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify whether to use insecure communication when puling data from the S3 bucket.
+func (o BucketDefinitionPtrOutput) Insecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Insecure
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o BucketDefinitionPtrOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionPtrOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionPtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration S3 bucket.
+func (o BucketDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to reconcile to the Bucket source kind type.
+type BucketDefinitionResponse struct {
+	// Plaintext access key used to securely access the S3 bucket
+	AccessKey *string `pulumi:"accessKey"`
+	// The bucket name to sync from the url endpoint for the flux configuration.
+	BucketName *string `pulumi:"bucketName"`
+	// Specify whether to use insecure communication when puling data from the S3 bucket.
+	Insecure *bool `pulumi:"insecure"`
+	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthRef *string `pulumi:"localAuthRef"`
+	// The interval at which to re-reconcile the cluster bucket source with the remote.
+	SyncIntervalInSeconds *float64 `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
+	// The URL to sync for the flux configuration S3 bucket.
+	Url *string `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for BucketDefinitionResponse
+func (val *BucketDefinitionResponse) Defaults() *BucketDefinitionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Insecure) {
+		insecure_ := true
+		tmp.Insecure = &insecure_
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
+}
+
+// Parameters to reconcile to the Bucket source kind type.
+type BucketDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (BucketDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefinitionResponse)(nil)).Elem()
+}
+
+func (o BucketDefinitionResponseOutput) ToBucketDefinitionResponseOutput() BucketDefinitionResponseOutput {
+	return o
+}
+
+func (o BucketDefinitionResponseOutput) ToBucketDefinitionResponseOutputWithContext(ctx context.Context) BucketDefinitionResponseOutput {
+	return o
+}
+
+// Plaintext access key used to securely access the S3 bucket
+func (o BucketDefinitionResponseOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// The bucket name to sync from the url endpoint for the flux configuration.
+func (o BucketDefinitionResponseOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Specify whether to use insecure communication when puling data from the S3 bucket.
+func (o BucketDefinitionResponseOutput) Insecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *bool { return v.Insecure }).(pulumi.BoolPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o BucketDefinitionResponseOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *string { return v.LocalAuthRef }).(pulumi.StringPtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionResponseOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *float64 { return v.SyncIntervalInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionResponseOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration S3 bucket.
+func (o BucketDefinitionResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefinitionResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type BucketDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefinitionResponse)(nil)).Elem()
+}
+
+func (o BucketDefinitionResponsePtrOutput) ToBucketDefinitionResponsePtrOutput() BucketDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o BucketDefinitionResponsePtrOutput) ToBucketDefinitionResponsePtrOutputWithContext(ctx context.Context) BucketDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o BucketDefinitionResponsePtrOutput) Elem() BucketDefinitionResponseOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) BucketDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDefinitionResponse
+		return ret
+	}).(BucketDefinitionResponseOutput)
+}
+
+// Plaintext access key used to securely access the S3 bucket
+func (o BucketDefinitionResponsePtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The bucket name to sync from the url endpoint for the flux configuration.
+func (o BucketDefinitionResponsePtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify whether to use insecure communication when puling data from the S3 bucket.
+func (o BucketDefinitionResponsePtrOutput) Insecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Insecure
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o BucketDefinitionResponsePtrOutput) LocalAuthRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval at which to re-reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionResponsePtrOutput) SyncIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum time to attempt to reconcile the cluster bucket source with the remote.
+func (o BucketDefinitionResponsePtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The URL to sync for the flux configuration S3 bucket.
+func (o BucketDefinitionResponsePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 // Compliance Status details
 type ComplianceStatusResponse struct {
 	// The compliance state of the configuration.
@@ -57,213 +1073,340 @@ func (o ComplianceStatusResponseOutput) MessageLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.MessageLevel }).(pulumi.StringPtrOutput)
 }
 
-// Identity for the managed cluster.
-type ConfigurationIdentity struct {
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type *ResourceIdentityType `pulumi:"type"`
+// The resource management error additional info.
+type ErrorAdditionalInfoResponse struct {
+	// The additional info.
+	Info interface{} `pulumi:"info"`
+	// The additional info type.
+	Type string `pulumi:"type"`
 }
 
-// ConfigurationIdentityInput is an input type that accepts ConfigurationIdentityArgs and ConfigurationIdentityOutput values.
-// You can construct a concrete instance of `ConfigurationIdentityInput` via:
+// The resource management error additional info.
+type ErrorAdditionalInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorAdditionalInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutput() ErrorAdditionalInfoResponseOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseOutput {
+	return o
+}
+
+// The additional info.
+func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
+}
+
+// The additional info type.
+func (o ErrorAdditionalInfoResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ErrorAdditionalInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorAdditionalInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) ToErrorAdditionalInfoResponseArrayOutput() ErrorAdditionalInfoResponseArrayOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) ToErrorAdditionalInfoResponseArrayOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseArrayOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) Index(i pulumi.IntInput) ErrorAdditionalInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorAdditionalInfoResponse {
+		return vs[0].([]ErrorAdditionalInfoResponse)[vs[1].(int)]
+	}).(ErrorAdditionalInfoResponseOutput)
+}
+
+// The error detail.
+type ErrorDetailResponse struct {
+	// The error additional info.
+	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
+	// The error code.
+	Code string `pulumi:"code"`
+	// The error details.
+	Details []ErrorDetailResponse `pulumi:"details"`
+	// The error message.
+	Message string `pulumi:"message"`
+	// The error target.
+	Target string `pulumi:"target"`
+}
+
+// The error detail.
+type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
+	return o
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
+	return o
+}
+
+// The error additional info.
+func (o ErrorDetailResponseOutput) AdditionalInfo() ErrorAdditionalInfoResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) []ErrorAdditionalInfoResponse { return v.AdditionalInfo }).(ErrorAdditionalInfoResponseArrayOutput)
+}
+
+// The error code.
+func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The error details.
+func (o ErrorDetailResponseOutput) Details() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
+}
+
+// The error message.
+func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The error target.
+func (o ErrorDetailResponseOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type ErrorDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponseArrayOutput) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailResponseArrayOutput) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailResponse {
+		return vs[0].([]ErrorDetailResponse)[vs[1].(int)]
+	}).(ErrorDetailResponseOutput)
+}
+
+// Identity of the Extension resource in an AKS cluster
+type ExtensionAksAssignedIdentity struct {
+	// The identity type.
+	Type *AKSIdentityType `pulumi:"type"`
+}
+
+// ExtensionAksAssignedIdentityInput is an input type that accepts ExtensionAksAssignedIdentityArgs and ExtensionAksAssignedIdentityOutput values.
+// You can construct a concrete instance of `ExtensionAksAssignedIdentityInput` via:
 //
-//          ConfigurationIdentityArgs{...}
-type ConfigurationIdentityInput interface {
+//          ExtensionAksAssignedIdentityArgs{...}
+type ExtensionAksAssignedIdentityInput interface {
 	pulumi.Input
 
-	ToConfigurationIdentityOutput() ConfigurationIdentityOutput
-	ToConfigurationIdentityOutputWithContext(context.Context) ConfigurationIdentityOutput
+	ToExtensionAksAssignedIdentityOutput() ExtensionAksAssignedIdentityOutput
+	ToExtensionAksAssignedIdentityOutputWithContext(context.Context) ExtensionAksAssignedIdentityOutput
 }
 
-// Identity for the managed cluster.
-type ConfigurationIdentityArgs struct {
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+// Identity of the Extension resource in an AKS cluster
+type ExtensionAksAssignedIdentityArgs struct {
+	// The identity type.
+	Type AKSIdentityTypePtrInput `pulumi:"type"`
 }
 
-func (ConfigurationIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationIdentity)(nil)).Elem()
+func (ExtensionAksAssignedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionAksAssignedIdentity)(nil)).Elem()
 }
 
-func (i ConfigurationIdentityArgs) ToConfigurationIdentityOutput() ConfigurationIdentityOutput {
-	return i.ToConfigurationIdentityOutputWithContext(context.Background())
+func (i ExtensionAksAssignedIdentityArgs) ToExtensionAksAssignedIdentityOutput() ExtensionAksAssignedIdentityOutput {
+	return i.ToExtensionAksAssignedIdentityOutputWithContext(context.Background())
 }
 
-func (i ConfigurationIdentityArgs) ToConfigurationIdentityOutputWithContext(ctx context.Context) ConfigurationIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityOutput)
+func (i ExtensionAksAssignedIdentityArgs) ToExtensionAksAssignedIdentityOutputWithContext(ctx context.Context) ExtensionAksAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAksAssignedIdentityOutput)
 }
 
-func (i ConfigurationIdentityArgs) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
-	return i.ToConfigurationIdentityPtrOutputWithContext(context.Background())
+func (i ExtensionAksAssignedIdentityArgs) ToExtensionAksAssignedIdentityPtrOutput() ExtensionAksAssignedIdentityPtrOutput {
+	return i.ToExtensionAksAssignedIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i ConfigurationIdentityArgs) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityOutput).ToConfigurationIdentityPtrOutputWithContext(ctx)
+func (i ExtensionAksAssignedIdentityArgs) ToExtensionAksAssignedIdentityPtrOutputWithContext(ctx context.Context) ExtensionAksAssignedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAksAssignedIdentityOutput).ToExtensionAksAssignedIdentityPtrOutputWithContext(ctx)
 }
 
-// ConfigurationIdentityPtrInput is an input type that accepts ConfigurationIdentityArgs, ConfigurationIdentityPtr and ConfigurationIdentityPtrOutput values.
-// You can construct a concrete instance of `ConfigurationIdentityPtrInput` via:
+// ExtensionAksAssignedIdentityPtrInput is an input type that accepts ExtensionAksAssignedIdentityArgs, ExtensionAksAssignedIdentityPtr and ExtensionAksAssignedIdentityPtrOutput values.
+// You can construct a concrete instance of `ExtensionAksAssignedIdentityPtrInput` via:
 //
-//          ConfigurationIdentityArgs{...}
+//          ExtensionAksAssignedIdentityArgs{...}
 //
 //  or:
 //
 //          nil
-type ConfigurationIdentityPtrInput interface {
+type ExtensionAksAssignedIdentityPtrInput interface {
 	pulumi.Input
 
-	ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput
-	ToConfigurationIdentityPtrOutputWithContext(context.Context) ConfigurationIdentityPtrOutput
+	ToExtensionAksAssignedIdentityPtrOutput() ExtensionAksAssignedIdentityPtrOutput
+	ToExtensionAksAssignedIdentityPtrOutputWithContext(context.Context) ExtensionAksAssignedIdentityPtrOutput
 }
 
-type configurationIdentityPtrType ConfigurationIdentityArgs
+type extensionAksAssignedIdentityPtrType ExtensionAksAssignedIdentityArgs
 
-func ConfigurationIdentityPtr(v *ConfigurationIdentityArgs) ConfigurationIdentityPtrInput {
-	return (*configurationIdentityPtrType)(v)
+func ExtensionAksAssignedIdentityPtr(v *ExtensionAksAssignedIdentityArgs) ExtensionAksAssignedIdentityPtrInput {
+	return (*extensionAksAssignedIdentityPtrType)(v)
 }
 
-func (*configurationIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationIdentity)(nil)).Elem()
+func (*extensionAksAssignedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionAksAssignedIdentity)(nil)).Elem()
 }
 
-func (i *configurationIdentityPtrType) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
-	return i.ToConfigurationIdentityPtrOutputWithContext(context.Background())
+func (i *extensionAksAssignedIdentityPtrType) ToExtensionAksAssignedIdentityPtrOutput() ExtensionAksAssignedIdentityPtrOutput {
+	return i.ToExtensionAksAssignedIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i *configurationIdentityPtrType) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityPtrOutput)
+func (i *extensionAksAssignedIdentityPtrType) ToExtensionAksAssignedIdentityPtrOutputWithContext(ctx context.Context) ExtensionAksAssignedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAksAssignedIdentityPtrOutput)
 }
 
-// Identity for the managed cluster.
-type ConfigurationIdentityOutput struct{ *pulumi.OutputState }
+// Identity of the Extension resource in an AKS cluster
+type ExtensionAksAssignedIdentityOutput struct{ *pulumi.OutputState }
 
-func (ConfigurationIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationIdentity)(nil)).Elem()
+func (ExtensionAksAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionAksAssignedIdentity)(nil)).Elem()
 }
 
-func (o ConfigurationIdentityOutput) ToConfigurationIdentityOutput() ConfigurationIdentityOutput {
+func (o ExtensionAksAssignedIdentityOutput) ToExtensionAksAssignedIdentityOutput() ExtensionAksAssignedIdentityOutput {
 	return o
 }
 
-func (o ConfigurationIdentityOutput) ToConfigurationIdentityOutputWithContext(ctx context.Context) ConfigurationIdentityOutput {
+func (o ExtensionAksAssignedIdentityOutput) ToExtensionAksAssignedIdentityOutputWithContext(ctx context.Context) ExtensionAksAssignedIdentityOutput {
 	return o
 }
 
-func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
-	return o.ToConfigurationIdentityPtrOutputWithContext(context.Background())
+func (o ExtensionAksAssignedIdentityOutput) ToExtensionAksAssignedIdentityPtrOutput() ExtensionAksAssignedIdentityPtrOutput {
+	return o.ToExtensionAksAssignedIdentityPtrOutputWithContext(context.Background())
 }
 
-func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationIdentity) *ConfigurationIdentity {
+func (o ExtensionAksAssignedIdentityOutput) ToExtensionAksAssignedIdentityPtrOutputWithContext(ctx context.Context) ExtensionAksAssignedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionAksAssignedIdentity) *ExtensionAksAssignedIdentity {
 		return &v
-	}).(ConfigurationIdentityPtrOutput)
+	}).(ExtensionAksAssignedIdentityPtrOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ConfigurationIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+// The identity type.
+func (o ExtensionAksAssignedIdentityOutput) Type() AKSIdentityTypePtrOutput {
+	return o.ApplyT(func(v ExtensionAksAssignedIdentity) *AKSIdentityType { return v.Type }).(AKSIdentityTypePtrOutput)
 }
 
-type ConfigurationIdentityPtrOutput struct{ *pulumi.OutputState }
+type ExtensionAksAssignedIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (ConfigurationIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationIdentity)(nil)).Elem()
+func (ExtensionAksAssignedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionAksAssignedIdentity)(nil)).Elem()
 }
 
-func (o ConfigurationIdentityPtrOutput) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
+func (o ExtensionAksAssignedIdentityPtrOutput) ToExtensionAksAssignedIdentityPtrOutput() ExtensionAksAssignedIdentityPtrOutput {
 	return o
 }
 
-func (o ConfigurationIdentityPtrOutput) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
+func (o ExtensionAksAssignedIdentityPtrOutput) ToExtensionAksAssignedIdentityPtrOutputWithContext(ctx context.Context) ExtensionAksAssignedIdentityPtrOutput {
 	return o
 }
 
-func (o ConfigurationIdentityPtrOutput) Elem() ConfigurationIdentityOutput {
-	return o.ApplyT(func(v *ConfigurationIdentity) ConfigurationIdentity {
+func (o ExtensionAksAssignedIdentityPtrOutput) Elem() ExtensionAksAssignedIdentityOutput {
+	return o.ApplyT(func(v *ExtensionAksAssignedIdentity) ExtensionAksAssignedIdentity {
 		if v != nil {
 			return *v
 		}
-		var ret ConfigurationIdentity
+		var ret ExtensionAksAssignedIdentity
 		return ret
-	}).(ConfigurationIdentityOutput)
+	}).(ExtensionAksAssignedIdentityOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ConfigurationIdentity) *ResourceIdentityType {
+// The identity type.
+func (o ExtensionAksAssignedIdentityPtrOutput) Type() AKSIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ExtensionAksAssignedIdentity) *AKSIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(AKSIdentityTypePtrOutput)
 }
 
-// Identity for the managed cluster.
-type ConfigurationIdentityResponse struct {
-	// The principal id of the system assigned identity which is used by the configuration.
+// Identity of the Extension resource in an AKS cluster
+type ExtensionResponseAksAssignedIdentity struct {
+	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by the configuration.
+	// The tenant ID of resource.
 	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
-// Identity for the managed cluster.
-type ConfigurationIdentityResponseOutput struct{ *pulumi.OutputState }
+// Identity of the Extension resource in an AKS cluster
+type ExtensionResponseAksAssignedIdentityOutput struct{ *pulumi.OutputState }
 
-func (ConfigurationIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationIdentityResponse)(nil)).Elem()
+func (ExtensionResponseAksAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionResponseAksAssignedIdentity)(nil)).Elem()
 }
 
-func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponseOutput() ConfigurationIdentityResponseOutput {
+func (o ExtensionResponseAksAssignedIdentityOutput) ToExtensionResponseAksAssignedIdentityOutput() ExtensionResponseAksAssignedIdentityOutput {
 	return o
 }
 
-func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponseOutputWithContext(ctx context.Context) ConfigurationIdentityResponseOutput {
+func (o ExtensionResponseAksAssignedIdentityOutput) ToExtensionResponseAksAssignedIdentityOutputWithContext(ctx context.Context) ExtensionResponseAksAssignedIdentityOutput {
 	return o
 }
 
-// The principal id of the system assigned identity which is used by the configuration.
-func (o ConfigurationIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+// The principal ID of resource identity.
+func (o ExtensionResponseAksAssignedIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionResponseAksAssignedIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by the configuration.
-func (o ConfigurationIdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+// The tenant ID of resource.
+func (o ExtensionResponseAksAssignedIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionResponseAksAssignedIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The identity type.
+func (o ExtensionResponseAksAssignedIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionResponseAksAssignedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type ConfigurationIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+type ExtensionResponseAksAssignedIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (ConfigurationIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationIdentityResponse)(nil)).Elem()
+func (ExtensionResponseAksAssignedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionResponseAksAssignedIdentity)(nil)).Elem()
 }
 
-func (o ConfigurationIdentityResponsePtrOutput) ToConfigurationIdentityResponsePtrOutput() ConfigurationIdentityResponsePtrOutput {
+func (o ExtensionResponseAksAssignedIdentityPtrOutput) ToExtensionResponseAksAssignedIdentityPtrOutput() ExtensionResponseAksAssignedIdentityPtrOutput {
 	return o
 }
 
-func (o ConfigurationIdentityResponsePtrOutput) ToConfigurationIdentityResponsePtrOutputWithContext(ctx context.Context) ConfigurationIdentityResponsePtrOutput {
+func (o ExtensionResponseAksAssignedIdentityPtrOutput) ToExtensionResponseAksAssignedIdentityPtrOutputWithContext(ctx context.Context) ExtensionResponseAksAssignedIdentityPtrOutput {
 	return o
 }
 
-func (o ConfigurationIdentityResponsePtrOutput) Elem() ConfigurationIdentityResponseOutput {
-	return o.ApplyT(func(v *ConfigurationIdentityResponse) ConfigurationIdentityResponse {
+func (o ExtensionResponseAksAssignedIdentityPtrOutput) Elem() ExtensionResponseAksAssignedIdentityOutput {
+	return o.ApplyT(func(v *ExtensionResponseAksAssignedIdentity) ExtensionResponseAksAssignedIdentity {
 		if v != nil {
 			return *v
 		}
-		var ret ConfigurationIdentityResponse
+		var ret ExtensionResponseAksAssignedIdentity
 		return ret
-	}).(ConfigurationIdentityResponseOutput)
+	}).(ExtensionResponseAksAssignedIdentityOutput)
 }
 
-// The principal id of the system assigned identity which is used by the configuration.
-func (o ConfigurationIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
+// The principal ID of resource identity.
+func (o ExtensionResponseAksAssignedIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionResponseAksAssignedIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -271,9 +1414,9 @@ func (o ConfigurationIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by the configuration.
-func (o ConfigurationIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
+// The tenant ID of resource.
+func (o ExtensionResponseAksAssignedIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionResponseAksAssignedIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -281,9 +1424,9 @@ func (o ConfigurationIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
+// The identity type.
+func (o ExtensionResponseAksAssignedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionResponseAksAssignedIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -291,194 +1434,15 @@ func (o ConfigurationIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-type DependsOnDefinition struct {
-	// Name of the kustomization to claim dependency on
-	KustomizationName *string `pulumi:"kustomizationName"`
-}
-
-// DependsOnDefinitionInput is an input type that accepts DependsOnDefinitionArgs and DependsOnDefinitionOutput values.
-// You can construct a concrete instance of `DependsOnDefinitionInput` via:
-//
-//          DependsOnDefinitionArgs{...}
-type DependsOnDefinitionInput interface {
-	pulumi.Input
-
-	ToDependsOnDefinitionOutput() DependsOnDefinitionOutput
-	ToDependsOnDefinitionOutputWithContext(context.Context) DependsOnDefinitionOutput
-}
-
-// Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-type DependsOnDefinitionArgs struct {
-	// Name of the kustomization to claim dependency on
-	KustomizationName pulumi.StringPtrInput `pulumi:"kustomizationName"`
-}
-
-func (DependsOnDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DependsOnDefinition)(nil)).Elem()
-}
-
-func (i DependsOnDefinitionArgs) ToDependsOnDefinitionOutput() DependsOnDefinitionOutput {
-	return i.ToDependsOnDefinitionOutputWithContext(context.Background())
-}
-
-func (i DependsOnDefinitionArgs) ToDependsOnDefinitionOutputWithContext(ctx context.Context) DependsOnDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DependsOnDefinitionOutput)
-}
-
-// DependsOnDefinitionArrayInput is an input type that accepts DependsOnDefinitionArray and DependsOnDefinitionArrayOutput values.
-// You can construct a concrete instance of `DependsOnDefinitionArrayInput` via:
-//
-//          DependsOnDefinitionArray{ DependsOnDefinitionArgs{...} }
-type DependsOnDefinitionArrayInput interface {
-	pulumi.Input
-
-	ToDependsOnDefinitionArrayOutput() DependsOnDefinitionArrayOutput
-	ToDependsOnDefinitionArrayOutputWithContext(context.Context) DependsOnDefinitionArrayOutput
-}
-
-type DependsOnDefinitionArray []DependsOnDefinitionInput
-
-func (DependsOnDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DependsOnDefinition)(nil)).Elem()
-}
-
-func (i DependsOnDefinitionArray) ToDependsOnDefinitionArrayOutput() DependsOnDefinitionArrayOutput {
-	return i.ToDependsOnDefinitionArrayOutputWithContext(context.Background())
-}
-
-func (i DependsOnDefinitionArray) ToDependsOnDefinitionArrayOutputWithContext(ctx context.Context) DependsOnDefinitionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DependsOnDefinitionArrayOutput)
-}
-
-// Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-type DependsOnDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DependsOnDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DependsOnDefinition)(nil)).Elem()
-}
-
-func (o DependsOnDefinitionOutput) ToDependsOnDefinitionOutput() DependsOnDefinitionOutput {
-	return o
-}
-
-func (o DependsOnDefinitionOutput) ToDependsOnDefinitionOutputWithContext(ctx context.Context) DependsOnDefinitionOutput {
-	return o
-}
-
-// Name of the kustomization to claim dependency on
-func (o DependsOnDefinitionOutput) KustomizationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DependsOnDefinition) *string { return v.KustomizationName }).(pulumi.StringPtrOutput)
-}
-
-type DependsOnDefinitionArrayOutput struct{ *pulumi.OutputState }
-
-func (DependsOnDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DependsOnDefinition)(nil)).Elem()
-}
-
-func (o DependsOnDefinitionArrayOutput) ToDependsOnDefinitionArrayOutput() DependsOnDefinitionArrayOutput {
-	return o
-}
-
-func (o DependsOnDefinitionArrayOutput) ToDependsOnDefinitionArrayOutputWithContext(ctx context.Context) DependsOnDefinitionArrayOutput {
-	return o
-}
-
-func (o DependsOnDefinitionArrayOutput) Index(i pulumi.IntInput) DependsOnDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DependsOnDefinition {
-		return vs[0].([]DependsOnDefinition)[vs[1].(int)]
-	}).(DependsOnDefinitionOutput)
-}
-
-// Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-type DependsOnDefinitionResponse struct {
-	// Name of the kustomization to claim dependency on
-	KustomizationName *string `pulumi:"kustomizationName"`
-}
-
-// Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-type DependsOnDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (DependsOnDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DependsOnDefinitionResponse)(nil)).Elem()
-}
-
-func (o DependsOnDefinitionResponseOutput) ToDependsOnDefinitionResponseOutput() DependsOnDefinitionResponseOutput {
-	return o
-}
-
-func (o DependsOnDefinitionResponseOutput) ToDependsOnDefinitionResponseOutputWithContext(ctx context.Context) DependsOnDefinitionResponseOutput {
-	return o
-}
-
-// Name of the kustomization to claim dependency on
-func (o DependsOnDefinitionResponseOutput) KustomizationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DependsOnDefinitionResponse) *string { return v.KustomizationName }).(pulumi.StringPtrOutput)
-}
-
-type DependsOnDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DependsOnDefinitionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DependsOnDefinitionResponse)(nil)).Elem()
-}
-
-func (o DependsOnDefinitionResponseArrayOutput) ToDependsOnDefinitionResponseArrayOutput() DependsOnDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o DependsOnDefinitionResponseArrayOutput) ToDependsOnDefinitionResponseArrayOutputWithContext(ctx context.Context) DependsOnDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o DependsOnDefinitionResponseArrayOutput) Index(i pulumi.IntInput) DependsOnDefinitionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DependsOnDefinitionResponse {
-		return vs[0].([]DependsOnDefinitionResponse)[vs[1].(int)]
-	}).(DependsOnDefinitionResponseOutput)
-}
-
-// Error definition.
-type ErrorDefinitionResponse struct {
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code string `pulumi:"code"`
-	// Description of the error.
-	Message string `pulumi:"message"`
-}
-
-// Error definition.
-type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
-}
-
-func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
-	return o
-}
-
-func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
-	return o
-}
-
-// Service specific error code which serves as the substatus for the HTTP error code.
-func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Description of the error.
-func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
-}
-
-// Status from this instance of the extension.
+// Status from the extension.
 type ExtensionStatus struct {
 	// Status code provided by the Extension
 	Code *string `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	// Short description of status of the extension.
 	DisplayStatus *string `pulumi:"displayStatus"`
 	// Level of the status.
 	Level *string `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
+	// Detailed message of the status from the Extension.
 	Message *string `pulumi:"message"`
 	// DateLiteral (per ISO8601) noting the time of installation status.
 	Time *string `pulumi:"time"`
@@ -508,15 +1472,15 @@ type ExtensionStatusInput interface {
 	ToExtensionStatusOutputWithContext(context.Context) ExtensionStatusOutput
 }
 
-// Status from this instance of the extension.
+// Status from the extension.
 type ExtensionStatusArgs struct {
 	// Status code provided by the Extension
 	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	// Short description of status of the extension.
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
 	// Level of the status.
 	Level pulumi.StringPtrInput `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
+	// Detailed message of the status from the Extension.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// DateLiteral (per ISO8601) noting the time of installation status.
 	Time pulumi.StringPtrInput `pulumi:"time"`
@@ -570,7 +1534,7 @@ func (i ExtensionStatusArray) ToExtensionStatusArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusArrayOutput)
 }
 
-// Status from this instance of the extension.
+// Status from the extension.
 type ExtensionStatusOutput struct{ *pulumi.OutputState }
 
 func (ExtensionStatusOutput) ElementType() reflect.Type {
@@ -590,7 +1554,7 @@ func (o ExtensionStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Short description of status of this instance of the extension.
+// Short description of status of the extension.
 func (o ExtensionStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
@@ -600,7 +1564,7 @@ func (o ExtensionStatusOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Detailed message of the status from the Extension instance.
+// Detailed message of the status from the Extension.
 func (o ExtensionStatusOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -630,15 +1594,15 @@ func (o ExtensionStatusArrayOutput) Index(i pulumi.IntInput) ExtensionStatusOutp
 	}).(ExtensionStatusOutput)
 }
 
-// Status from this instance of the extension.
+// Status from the extension.
 type ExtensionStatusResponse struct {
 	// Status code provided by the Extension
 	Code *string `pulumi:"code"`
-	// Short description of status of this instance of the extension.
+	// Short description of status of the extension.
 	DisplayStatus *string `pulumi:"displayStatus"`
 	// Level of the status.
 	Level *string `pulumi:"level"`
-	// Detailed message of the status from the Extension instance.
+	// Detailed message of the status from the Extension.
 	Message *string `pulumi:"message"`
 	// DateLiteral (per ISO8601) noting the time of installation status.
 	Time *string `pulumi:"time"`
@@ -657,7 +1621,7 @@ func (val *ExtensionStatusResponse) Defaults() *ExtensionStatusResponse {
 	return &tmp
 }
 
-// Status from this instance of the extension.
+// Status from the extension.
 type ExtensionStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionStatusResponseOutput) ElementType() reflect.Type {
@@ -677,7 +1641,7 @@ func (o ExtensionStatusResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Short description of status of this instance of the extension.
+// Short description of status of the extension.
 func (o ExtensionStatusResponseOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
@@ -687,7 +1651,7 @@ func (o ExtensionStatusResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Detailed message of the status from the Extension instance.
+// Detailed message of the status from the Extension.
 func (o ExtensionStatusResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -720,8 +1684,8 @@ func (o ExtensionStatusResponseArrayOutput) Index(i pulumi.IntInput) ExtensionSt
 // Parameters to reconcile to the GitRepository source kind type.
 type GitRepositoryDefinition struct {
 	// Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-	HttpsCAFile *string `pulumi:"httpsCAFile"`
-	// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+	HttpsCACert *string `pulumi:"httpsCACert"`
+	// Plaintext HTTPS username used to access private git repositories over HTTPS
 	HttpsUser *string `pulumi:"httpsUser"`
 	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
 	LocalAuthRef *string `pulumi:"localAuthRef"`
@@ -768,8 +1732,8 @@ type GitRepositoryDefinitionInput interface {
 // Parameters to reconcile to the GitRepository source kind type.
 type GitRepositoryDefinitionArgs struct {
 	// Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-	HttpsCAFile pulumi.StringPtrInput `pulumi:"httpsCAFile"`
-	// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+	HttpsCACert pulumi.StringPtrInput `pulumi:"httpsCACert"`
+	// Plaintext HTTPS username used to access private git repositories over HTTPS
 	HttpsUser pulumi.StringPtrInput `pulumi:"httpsUser"`
 	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
 	LocalAuthRef pulumi.StringPtrInput `pulumi:"localAuthRef"`
@@ -878,11 +1842,11 @@ func (o GitRepositoryDefinitionOutput) ToGitRepositoryDefinitionPtrOutputWithCon
 }
 
 // Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-func (o GitRepositoryDefinitionOutput) HttpsCAFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitRepositoryDefinition) *string { return v.HttpsCAFile }).(pulumi.StringPtrOutput)
+func (o GitRepositoryDefinitionOutput) HttpsCACert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDefinition) *string { return v.HttpsCACert }).(pulumi.StringPtrOutput)
 }
 
-// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+// Plaintext HTTPS username used to access private git repositories over HTTPS
 func (o GitRepositoryDefinitionOutput) HttpsUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitRepositoryDefinition) *string { return v.HttpsUser }).(pulumi.StringPtrOutput)
 }
@@ -942,16 +1906,16 @@ func (o GitRepositoryDefinitionPtrOutput) Elem() GitRepositoryDefinitionOutput {
 }
 
 // Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-func (o GitRepositoryDefinitionPtrOutput) HttpsCAFile() pulumi.StringPtrOutput {
+func (o GitRepositoryDefinitionPtrOutput) HttpsCACert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitRepositoryDefinition) *string {
 		if v == nil {
 			return nil
 		}
-		return v.HttpsCAFile
+		return v.HttpsCACert
 	}).(pulumi.StringPtrOutput)
 }
 
-// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+// Plaintext HTTPS username used to access private git repositories over HTTPS
 func (o GitRepositoryDefinitionPtrOutput) HttpsUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitRepositoryDefinition) *string {
 		if v == nil {
@@ -1024,8 +1988,8 @@ func (o GitRepositoryDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
 // Parameters to reconcile to the GitRepository source kind type.
 type GitRepositoryDefinitionResponse struct {
 	// Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-	HttpsCAFile *string `pulumi:"httpsCAFile"`
-	// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+	HttpsCACert *string `pulumi:"httpsCACert"`
+	// Plaintext HTTPS username used to access private git repositories over HTTPS
 	HttpsUser *string `pulumi:"httpsUser"`
 	// Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
 	LocalAuthRef *string `pulumi:"localAuthRef"`
@@ -1074,11 +2038,11 @@ func (o GitRepositoryDefinitionResponseOutput) ToGitRepositoryDefinitionResponse
 }
 
 // Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-func (o GitRepositoryDefinitionResponseOutput) HttpsCAFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitRepositoryDefinitionResponse) *string { return v.HttpsCAFile }).(pulumi.StringPtrOutput)
+func (o GitRepositoryDefinitionResponseOutput) HttpsCACert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDefinitionResponse) *string { return v.HttpsCACert }).(pulumi.StringPtrOutput)
 }
 
-// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+// Plaintext HTTPS username used to access private git repositories over HTTPS
 func (o GitRepositoryDefinitionResponseOutput) HttpsUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitRepositoryDefinitionResponse) *string { return v.HttpsUser }).(pulumi.StringPtrOutput)
 }
@@ -1138,16 +2102,16 @@ func (o GitRepositoryDefinitionResponsePtrOutput) Elem() GitRepositoryDefinition
 }
 
 // Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-func (o GitRepositoryDefinitionResponsePtrOutput) HttpsCAFile() pulumi.StringPtrOutput {
+func (o GitRepositoryDefinitionResponsePtrOutput) HttpsCACert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitRepositoryDefinitionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.HttpsCAFile
+		return v.HttpsCACert
 	}).(pulumi.StringPtrOutput)
 }
 
-// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+// Plaintext HTTPS username used to access private git repositories over HTTPS
 func (o GitRepositoryDefinitionResponsePtrOutput) HttpsUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitRepositoryDefinitionResponse) *string {
 		if v == nil {
@@ -1453,6 +2417,7 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties for HelmRelease objects
 type HelmReleasePropertiesDefinitionResponse struct {
 	// Total number of times that the HelmRelease failed to install or upgrade
 	FailureCount *float64 `pulumi:"failureCount"`
@@ -1466,6 +2431,7 @@ type HelmReleasePropertiesDefinitionResponse struct {
 	UpgradeFailureCount *float64 `pulumi:"upgradeFailureCount"`
 }
 
+// Properties for HelmRelease objects
 type HelmReleasePropertiesDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (HelmReleasePropertiesDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1581,227 +2547,244 @@ func (o HelmReleasePropertiesDefinitionResponsePtrOutput) UpgradeFailureCount() 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Properties that define a Azure Arc PrivateLinkScope resource.
-type KubernetesConfigurationPrivateLinkScopeProperties struct {
-	// Managed Cluster ARM ID for the private link scope  (Required)
-	ClusterResourceId string `pulumi:"clusterResourceId"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+// Identity for the resource.
+type Identity struct {
+	// The identity type.
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
-// KubernetesConfigurationPrivateLinkScopePropertiesInput is an input type that accepts KubernetesConfigurationPrivateLinkScopePropertiesArgs and KubernetesConfigurationPrivateLinkScopePropertiesOutput values.
-// You can construct a concrete instance of `KubernetesConfigurationPrivateLinkScopePropertiesInput` via:
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
 //
-//          KubernetesConfigurationPrivateLinkScopePropertiesArgs{...}
-type KubernetesConfigurationPrivateLinkScopePropertiesInput interface {
+//          IdentityArgs{...}
+type IdentityInput interface {
 	pulumi.Input
 
-	ToKubernetesConfigurationPrivateLinkScopePropertiesOutput() KubernetesConfigurationPrivateLinkScopePropertiesOutput
-	ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(context.Context) KubernetesConfigurationPrivateLinkScopePropertiesOutput
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Properties that define a Azure Arc PrivateLinkScope resource.
-type KubernetesConfigurationPrivateLinkScopePropertiesArgs struct {
-	// Managed Cluster ARM ID for the private link scope  (Required)
-	ClusterResourceId pulumi.StringInput `pulumi:"clusterResourceId"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+// Identity for the resource.
+type IdentityArgs struct {
+	// The identity type.
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
-func (KubernetesConfigurationPrivateLinkScopePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
 }
 
-func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesOutput() KubernetesConfigurationPrivateLinkScopePropertiesOutput {
-	return i.ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(context.Background())
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
 }
 
-func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConfigurationPrivateLinkScopePropertiesOutput)
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
 }
 
-func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
-	return i.ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Background())
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConfigurationPrivateLinkScopePropertiesOutput).ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx)
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
 }
 
-// KubernetesConfigurationPrivateLinkScopePropertiesPtrInput is an input type that accepts KubernetesConfigurationPrivateLinkScopePropertiesArgs, KubernetesConfigurationPrivateLinkScopePropertiesPtr and KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput values.
-// You can construct a concrete instance of `KubernetesConfigurationPrivateLinkScopePropertiesPtrInput` via:
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          KubernetesConfigurationPrivateLinkScopePropertiesArgs{...}
+//          IdentityArgs{...}
 //
 //  or:
 //
 //          nil
-type KubernetesConfigurationPrivateLinkScopePropertiesPtrInput interface {
+type IdentityPtrInput interface {
 	pulumi.Input
 
-	ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput
-	ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
 }
 
-type kubernetesConfigurationPrivateLinkScopePropertiesPtrType KubernetesConfigurationPrivateLinkScopePropertiesArgs
+type identityPtrType IdentityArgs
 
-func KubernetesConfigurationPrivateLinkScopePropertiesPtr(v *KubernetesConfigurationPrivateLinkScopePropertiesArgs) KubernetesConfigurationPrivateLinkScopePropertiesPtrInput {
-	return (*kubernetesConfigurationPrivateLinkScopePropertiesPtrType)(v)
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
 }
 
-func (*kubernetesConfigurationPrivateLinkScopePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
 }
 
-func (i *kubernetesConfigurationPrivateLinkScopePropertiesPtrType) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
-	return i.ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Background())
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i *kubernetesConfigurationPrivateLinkScopePropertiesPtrType) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput)
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Properties that define a Azure Arc PrivateLinkScope resource.
-type KubernetesConfigurationPrivateLinkScopePropertiesOutput struct{ *pulumi.OutputState }
+// Identity for the resource.
+type IdentityOutput struct{ *pulumi.OutputState }
 
-func (KubernetesConfigurationPrivateLinkScopePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
 }
 
-func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesOutput() KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
 	return o
 }
 
-func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
 	return o
 }
 
-func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
-	return o.ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Background())
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
 }
 
-func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesConfigurationPrivateLinkScopeProperties) *KubernetesConfigurationPrivateLinkScopeProperties {
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
-	}).(KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput)
+	}).(IdentityPtrOutput)
 }
 
-// Managed Cluster ARM ID for the private link scope  (Required)
-func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopeProperties) string { return v.ClusterResourceId }).(pulumi.StringOutput)
+// The identity type.
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopeProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
 }
 
-type KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
-}
-
-func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 	return o
 }
 
-func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
 	return o
 }
 
-func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) Elem() KubernetesConfigurationPrivateLinkScopePropertiesOutput {
-	return o.ApplyT(func(v *KubernetesConfigurationPrivateLinkScopeProperties) KubernetesConfigurationPrivateLinkScopeProperties {
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity {
 		if v != nil {
 			return *v
 		}
-		var ret KubernetesConfigurationPrivateLinkScopeProperties
+		var ret Identity
 		return ret
-	}).(KubernetesConfigurationPrivateLinkScopePropertiesOutput)
+	}).(IdentityOutput)
 }
 
-// Managed Cluster ARM ID for the private link scope  (Required)
-func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesConfigurationPrivateLinkScopeProperties) *string {
+// The identity type.
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
-		return &v.ClusterResourceId
-	}).(pulumi.StringPtrOutput)
+		return v.Type
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesConfigurationPrivateLinkScopeProperties) *string {
+// Identity for the resource.
+type IdentityResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// Identity for the resource.
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
+}
+
+// The principal ID of resource identity.
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PublicNetworkAccess
+		return &v.PrincipalId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties that define a Azure Arc PrivateLinkScope resource.
-type KubernetesConfigurationPrivateLinkScopePropertiesResponse struct {
-	// Managed Cluster ARM ID for the private link scope  (Required)
-	ClusterResourceId string `pulumi:"clusterResourceId"`
-	// The collection of associated Private Endpoint Connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The Guid id of the private link scope.
-	PrivateLinkScopeId string `pulumi:"privateLinkScopeId"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+// The tenant ID of resource.
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
-// Properties that define a Azure Arc PrivateLinkScope resource.
-type KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesConfigurationPrivateLinkScopePropertiesResponse)(nil)).Elem()
-}
-
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesResponseOutput() KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput {
-	return o
-}
-
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesResponseOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput {
-	return o
-}
-
-// Managed Cluster ARM ID for the private link scope  (Required)
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) string { return v.ClusterResourceId }).(pulumi.StringOutput)
-}
-
-// The collection of associated Private Endpoint Connections.
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) []PrivateEndpointConnectionResponse {
-		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionResponseArrayOutput)
-}
-
-// The Guid id of the private link scope.
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) PrivateLinkScopeId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) string { return v.PrivateLinkScopeId }).(pulumi.StringOutput)
-}
-
-// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) *string {
-		return v.PublicNetworkAccess
+// The identity type.
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
 // The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
 type KustomizationDefinition struct {
 	// Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
-	DependsOn []DependsOnDefinition `pulumi:"dependsOn"`
+	DependsOn []string `pulumi:"dependsOn"`
 	// Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
 	Force *bool `pulumi:"force"`
 	// The path in the source reference to reconcile on the cluster.
@@ -1814,8 +2797,6 @@ type KustomizationDefinition struct {
 	SyncIntervalInSeconds *float64 `pulumi:"syncIntervalInSeconds"`
 	// The maximum time to attempt to reconcile the Kustomization on the cluster.
 	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
-	// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-	Validation *string `pulumi:"validation"`
 }
 
 // Defaults sets the appropriate defaults for KustomizationDefinition
@@ -1861,7 +2842,7 @@ type KustomizationDefinitionInput interface {
 // The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
 type KustomizationDefinitionArgs struct {
 	// Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
-	DependsOn DependsOnDefinitionArrayInput `pulumi:"dependsOn"`
+	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
 	// Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
 	Force pulumi.BoolPtrInput `pulumi:"force"`
 	// The path in the source reference to reconcile on the cluster.
@@ -1874,8 +2855,6 @@ type KustomizationDefinitionArgs struct {
 	SyncIntervalInSeconds pulumi.Float64PtrInput `pulumi:"syncIntervalInSeconds"`
 	// The maximum time to attempt to reconcile the Kustomization on the cluster.
 	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
-	// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-	Validation pulumi.StringPtrInput `pulumi:"validation"`
 }
 
 // Defaults sets the appropriate defaults for KustomizationDefinitionArgs
@@ -1954,8 +2933,8 @@ func (o KustomizationDefinitionOutput) ToKustomizationDefinitionOutputWithContex
 }
 
 // Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
-func (o KustomizationDefinitionOutput) DependsOn() DependsOnDefinitionArrayOutput {
-	return o.ApplyT(func(v KustomizationDefinition) []DependsOnDefinition { return v.DependsOn }).(DependsOnDefinitionArrayOutput)
+func (o KustomizationDefinitionOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KustomizationDefinition) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
 }
 
 // Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
@@ -1988,11 +2967,6 @@ func (o KustomizationDefinitionOutput) TimeoutInSeconds() pulumi.Float64PtrOutpu
 	return o.ApplyT(func(v KustomizationDefinition) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-func (o KustomizationDefinitionOutput) Validation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KustomizationDefinition) *string { return v.Validation }).(pulumi.StringPtrOutput)
-}
-
 type KustomizationDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (KustomizationDefinitionMapOutput) ElementType() reflect.Type {
@@ -2016,9 +2990,11 @@ func (o KustomizationDefinitionMapOutput) MapIndex(k pulumi.StringInput) Kustomi
 // The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
 type KustomizationDefinitionResponse struct {
 	// Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
-	DependsOn []DependsOnDefinitionResponse `pulumi:"dependsOn"`
+	DependsOn []string `pulumi:"dependsOn"`
 	// Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
 	Force *bool `pulumi:"force"`
+	// Name of the Kustomization, matching the key in the Kustomizations object map.
+	Name string `pulumi:"name"`
 	// The path in the source reference to reconcile on the cluster.
 	Path *string `pulumi:"path"`
 	// Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
@@ -2029,8 +3005,6 @@ type KustomizationDefinitionResponse struct {
 	SyncIntervalInSeconds *float64 `pulumi:"syncIntervalInSeconds"`
 	// The maximum time to attempt to reconcile the Kustomization on the cluster.
 	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
-	// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-	Validation *string `pulumi:"validation"`
 }
 
 // Defaults sets the appropriate defaults for KustomizationDefinitionResponse
@@ -2078,13 +3052,18 @@ func (o KustomizationDefinitionResponseOutput) ToKustomizationDefinitionResponse
 }
 
 // Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
-func (o KustomizationDefinitionResponseOutput) DependsOn() DependsOnDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v KustomizationDefinitionResponse) []DependsOnDefinitionResponse { return v.DependsOn }).(DependsOnDefinitionResponseArrayOutput)
+func (o KustomizationDefinitionResponseOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KustomizationDefinitionResponse) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
 }
 
 // Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
 func (o KustomizationDefinitionResponseOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KustomizationDefinitionResponse) *bool { return v.Force }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the Kustomization, matching the key in the Kustomizations object map.
+func (o KustomizationDefinitionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KustomizationDefinitionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The path in the source reference to reconcile on the cluster.
@@ -2112,11 +3091,6 @@ func (o KustomizationDefinitionResponseOutput) TimeoutInSeconds() pulumi.Float64
 	return o.ApplyT(func(v KustomizationDefinitionResponse) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-func (o KustomizationDefinitionResponseOutput) Validation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KustomizationDefinitionResponse) *string { return v.Validation }).(pulumi.StringPtrOutput)
-}
-
 type KustomizationDefinitionResponseMapOutput struct{ *pulumi.OutputState }
 
 func (KustomizationDefinitionResponseMapOutput) ElementType() reflect.Type {
@@ -2135,6 +3109,206 @@ func (o KustomizationDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput)
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KustomizationDefinitionResponse {
 		return vs[0].(map[string]KustomizationDefinitionResponse)[vs[1].(string)]
 	}).(KustomizationDefinitionResponseOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+type ManagedIdentityDefinition struct {
+	// The client Id for authenticating a Managed Identity.
+	ClientId *string `pulumi:"clientId"`
+}
+
+// ManagedIdentityDefinitionInput is an input type that accepts ManagedIdentityDefinitionArgs and ManagedIdentityDefinitionOutput values.
+// You can construct a concrete instance of `ManagedIdentityDefinitionInput` via:
+//
+//          ManagedIdentityDefinitionArgs{...}
+type ManagedIdentityDefinitionInput interface {
+	pulumi.Input
+
+	ToManagedIdentityDefinitionOutput() ManagedIdentityDefinitionOutput
+	ToManagedIdentityDefinitionOutputWithContext(context.Context) ManagedIdentityDefinitionOutput
+}
+
+// Parameters to authenticate using a Managed Identity.
+type ManagedIdentityDefinitionArgs struct {
+	// The client Id for authenticating a Managed Identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+}
+
+func (ManagedIdentityDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityDefinition)(nil)).Elem()
+}
+
+func (i ManagedIdentityDefinitionArgs) ToManagedIdentityDefinitionOutput() ManagedIdentityDefinitionOutput {
+	return i.ToManagedIdentityDefinitionOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityDefinitionArgs) ToManagedIdentityDefinitionOutputWithContext(ctx context.Context) ManagedIdentityDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityDefinitionOutput)
+}
+
+func (i ManagedIdentityDefinitionArgs) ToManagedIdentityDefinitionPtrOutput() ManagedIdentityDefinitionPtrOutput {
+	return i.ToManagedIdentityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityDefinitionArgs) ToManagedIdentityDefinitionPtrOutputWithContext(ctx context.Context) ManagedIdentityDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityDefinitionOutput).ToManagedIdentityDefinitionPtrOutputWithContext(ctx)
+}
+
+// ManagedIdentityDefinitionPtrInput is an input type that accepts ManagedIdentityDefinitionArgs, ManagedIdentityDefinitionPtr and ManagedIdentityDefinitionPtrOutput values.
+// You can construct a concrete instance of `ManagedIdentityDefinitionPtrInput` via:
+//
+//          ManagedIdentityDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedIdentityDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentityDefinitionPtrOutput() ManagedIdentityDefinitionPtrOutput
+	ToManagedIdentityDefinitionPtrOutputWithContext(context.Context) ManagedIdentityDefinitionPtrOutput
+}
+
+type managedIdentityDefinitionPtrType ManagedIdentityDefinitionArgs
+
+func ManagedIdentityDefinitionPtr(v *ManagedIdentityDefinitionArgs) ManagedIdentityDefinitionPtrInput {
+	return (*managedIdentityDefinitionPtrType)(v)
+}
+
+func (*managedIdentityDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityDefinition)(nil)).Elem()
+}
+
+func (i *managedIdentityDefinitionPtrType) ToManagedIdentityDefinitionPtrOutput() ManagedIdentityDefinitionPtrOutput {
+	return i.ToManagedIdentityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedIdentityDefinitionPtrType) ToManagedIdentityDefinitionPtrOutputWithContext(ctx context.Context) ManagedIdentityDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityDefinitionPtrOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+type ManagedIdentityDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityDefinition)(nil)).Elem()
+}
+
+func (o ManagedIdentityDefinitionOutput) ToManagedIdentityDefinitionOutput() ManagedIdentityDefinitionOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionOutput) ToManagedIdentityDefinitionOutputWithContext(ctx context.Context) ManagedIdentityDefinitionOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionOutput) ToManagedIdentityDefinitionPtrOutput() ManagedIdentityDefinitionPtrOutput {
+	return o.ToManagedIdentityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityDefinitionOutput) ToManagedIdentityDefinitionPtrOutputWithContext(ctx context.Context) ManagedIdentityDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityDefinition) *ManagedIdentityDefinition {
+		return &v
+	}).(ManagedIdentityDefinitionPtrOutput)
+}
+
+// The client Id for authenticating a Managed Identity.
+func (o ManagedIdentityDefinitionOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityDefinition) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityDefinition)(nil)).Elem()
+}
+
+func (o ManagedIdentityDefinitionPtrOutput) ToManagedIdentityDefinitionPtrOutput() ManagedIdentityDefinitionPtrOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionPtrOutput) ToManagedIdentityDefinitionPtrOutputWithContext(ctx context.Context) ManagedIdentityDefinitionPtrOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionPtrOutput) Elem() ManagedIdentityDefinitionOutput {
+	return o.ApplyT(func(v *ManagedIdentityDefinition) ManagedIdentityDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityDefinition
+		return ret
+	}).(ManagedIdentityDefinitionOutput)
+}
+
+// The client Id for authenticating a Managed Identity.
+func (o ManagedIdentityDefinitionPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentityDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using a Managed Identity.
+type ManagedIdentityDefinitionResponse struct {
+	// The client Id for authenticating a Managed Identity.
+	ClientId *string `pulumi:"clientId"`
+}
+
+// Parameters to authenticate using a Managed Identity.
+type ManagedIdentityDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityDefinitionResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityDefinitionResponseOutput) ToManagedIdentityDefinitionResponseOutput() ManagedIdentityDefinitionResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionResponseOutput) ToManagedIdentityDefinitionResponseOutputWithContext(ctx context.Context) ManagedIdentityDefinitionResponseOutput {
+	return o
+}
+
+// The client Id for authenticating a Managed Identity.
+func (o ManagedIdentityDefinitionResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityDefinitionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityDefinitionResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityDefinitionResponsePtrOutput) ToManagedIdentityDefinitionResponsePtrOutput() ManagedIdentityDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionResponsePtrOutput) ToManagedIdentityDefinitionResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityDefinitionResponsePtrOutput) Elem() ManagedIdentityDefinitionResponseOutput {
+	return o.ApplyT(func(v *ManagedIdentityDefinitionResponse) ManagedIdentityDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityDefinitionResponse
+		return ret
+	}).(ManagedIdentityDefinitionResponseOutput)
+}
+
+// The client Id for authenticating a Managed Identity.
+func (o ManagedIdentityDefinitionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentityDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Object reference to a Kubernetes object on a cluster
@@ -2378,269 +3552,6 @@ func (o ObjectStatusDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Obje
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectStatusDefinitionResponse {
 		return vs[0].([]ObjectStatusDefinitionResponse)[vs[1].(int)]
 	}).(ObjectStatusDefinitionResponseOutput)
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-// The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
-		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
-	}).(PrivateEndpointConnectionResponseOutput)
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
-	Id string `pulumi:"id"`
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
-	return o
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
-	return o
-}
-
-// The ARM identifier for Private Endpoint
-func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-type PrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return o
-}
-
-func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o
-}
-
-func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
-}
-
-// The ARM identifier for Private Endpoint
-func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
-}
-
-// PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
-// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
-//
-//          PrivateLinkServiceConnectionStateArgs{...}
-type PrivateLinkServiceConnectionStateInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput
-	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
-	return i.ToPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
-	return o
-}
-
-// A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
-}
-
-// The reason for approval/rejection of the connection.
-func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
-	return o
-}
-
-// A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
-}
-
-// The reason for approval/rejection of the connection.
-func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The source reference for the GitRepository object.
@@ -2951,11 +3862,11 @@ func (o RepositoryRefDefinitionResponsePtrOutput) Tag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+// Scope of the extension. It can be either Cluster or Namespace; but not both.
 type Scope struct {
-	// Specifies that the scope of the extensionInstance is Cluster
+	// Specifies that the scope of the extension is Cluster
 	Cluster *ScopeCluster `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	// Specifies that the scope of the extension is Namespace
 	Namespace *ScopeNamespace `pulumi:"namespace"`
 }
 
@@ -2970,11 +3881,11 @@ type ScopeInput interface {
 	ToScopeOutputWithContext(context.Context) ScopeOutput
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+// Scope of the extension. It can be either Cluster or Namespace; but not both.
 type ScopeArgs struct {
-	// Specifies that the scope of the extensionInstance is Cluster
+	// Specifies that the scope of the extension is Cluster
 	Cluster ScopeClusterPtrInput `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	// Specifies that the scope of the extension is Namespace
 	Namespace ScopeNamespacePtrInput `pulumi:"namespace"`
 }
 
@@ -3031,7 +3942,7 @@ func (i *scopePtrType) ToScopePtrOutputWithContext(ctx context.Context) ScopePtr
 	return pulumi.ToOutputWithContext(ctx, i).(ScopePtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+// Scope of the extension. It can be either Cluster or Namespace; but not both.
 type ScopeOutput struct{ *pulumi.OutputState }
 
 func (ScopeOutput) ElementType() reflect.Type {
@@ -3056,12 +3967,12 @@ func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOu
 	}).(ScopePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 func (o ScopeOutput) Cluster() ScopeClusterPtrOutput {
 	return o.ApplyT(func(v Scope) *ScopeCluster { return v.Cluster }).(ScopeClusterPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 func (o ScopeOutput) Namespace() ScopeNamespacePtrOutput {
 	return o.ApplyT(func(v Scope) *ScopeNamespace { return v.Namespace }).(ScopeNamespacePtrOutput)
 }
@@ -3090,7 +4001,7 @@ func (o ScopePtrOutput) Elem() ScopeOutput {
 	}).(ScopeOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 func (o ScopePtrOutput) Cluster() ScopeClusterPtrOutput {
 	return o.ApplyT(func(v *Scope) *ScopeCluster {
 		if v == nil {
@@ -3100,7 +4011,7 @@ func (o ScopePtrOutput) Cluster() ScopeClusterPtrOutput {
 	}).(ScopeClusterPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 func (o ScopePtrOutput) Namespace() ScopeNamespacePtrOutput {
 	return o.ApplyT(func(v *Scope) *ScopeNamespace {
 		if v == nil {
@@ -3110,9 +4021,9 @@ func (o ScopePtrOutput) Namespace() ScopeNamespacePtrOutput {
 	}).(ScopeNamespacePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 type ScopeCluster struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 }
 
@@ -3127,9 +4038,9 @@ type ScopeClusterInput interface {
 	ToScopeClusterOutputWithContext(context.Context) ScopeClusterOutput
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 type ScopeClusterArgs struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
 }
 
@@ -3186,7 +4097,7 @@ func (i *scopeClusterPtrType) ToScopeClusterPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 type ScopeClusterOutput struct{ *pulumi.OutputState }
 
 func (ScopeClusterOutput) ElementType() reflect.Type {
@@ -3211,7 +4122,7 @@ func (o ScopeClusterOutput) ToScopeClusterPtrOutputWithContext(ctx context.Conte
 	}).(ScopeClusterPtrOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeClusterOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeCluster) *string { return v.ReleaseNamespace }).(pulumi.StringPtrOutput)
 }
@@ -3240,7 +4151,7 @@ func (o ScopeClusterPtrOutput) Elem() ScopeClusterOutput {
 	}).(ScopeClusterOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeClusterPtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeCluster) *string {
 		if v == nil {
@@ -3250,13 +4161,13 @@ func (o ScopeClusterPtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 type ScopeClusterResponse struct {
-	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 type ScopeClusterResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeClusterResponseOutput) ElementType() reflect.Type {
@@ -3271,7 +4182,7 @@ func (o ScopeClusterResponseOutput) ToScopeClusterResponseOutputWithContext(ctx 
 	return o
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeClusterResponseOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeClusterResponse) *string { return v.ReleaseNamespace }).(pulumi.StringPtrOutput)
 }
@@ -3300,7 +4211,7 @@ func (o ScopeClusterResponsePtrOutput) Elem() ScopeClusterResponseOutput {
 	}).(ScopeClusterResponseOutput)
 }
 
-// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeClusterResponsePtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeClusterResponse) *string {
 		if v == nil {
@@ -3310,9 +4221,9 @@ func (o ScopeClusterResponsePtrOutput) ReleaseNamespace() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 type ScopeNamespace struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
 
@@ -3327,9 +4238,9 @@ type ScopeNamespaceInput interface {
 	ToScopeNamespaceOutputWithContext(context.Context) ScopeNamespaceOutput
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 type ScopeNamespaceArgs struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
@@ -3386,7 +4297,7 @@ func (i *scopeNamespacePtrType) ToScopeNamespacePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespacePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 type ScopeNamespaceOutput struct{ *pulumi.OutputState }
 
 func (ScopeNamespaceOutput) ElementType() reflect.Type {
@@ -3411,7 +4322,7 @@ func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutputWithContext(ctx context.C
 	}).(ScopeNamespacePtrOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeNamespaceOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeNamespace) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -3440,7 +4351,7 @@ func (o ScopeNamespacePtrOutput) Elem() ScopeNamespaceOutput {
 	}).(ScopeNamespaceOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeNamespacePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeNamespace) *string {
 		if v == nil {
@@ -3450,13 +4361,13 @@ func (o ScopeNamespacePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 type ScopeNamespaceResponse struct {
-	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 type ScopeNamespaceResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeNamespaceResponseOutput) ElementType() reflect.Type {
@@ -3471,7 +4382,7 @@ func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponseOutputWithContext(
 	return o
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeNamespaceResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeNamespaceResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -3500,7 +4411,7 @@ func (o ScopeNamespaceResponsePtrOutput) Elem() ScopeNamespaceResponseOutput {
 	}).(ScopeNamespaceResponseOutput)
 }
 
-// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
 func (o ScopeNamespaceResponsePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeNamespaceResponse) *string {
 		if v == nil {
@@ -3510,15 +4421,15 @@ func (o ScopeNamespaceResponsePtrOutput) TargetNamespace() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+// Scope of the extension. It can be either Cluster or Namespace; but not both.
 type ScopeResponse struct {
-	// Specifies that the scope of the extensionInstance is Cluster
+	// Specifies that the scope of the extension is Cluster
 	Cluster *ScopeClusterResponse `pulumi:"cluster"`
-	// Specifies that the scope of the extensionInstance is Namespace
+	// Specifies that the scope of the extension is Namespace
 	Namespace *ScopeNamespaceResponse `pulumi:"namespace"`
 }
 
-// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+// Scope of the extension. It can be either Cluster or Namespace; but not both.
 type ScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeResponseOutput) ElementType() reflect.Type {
@@ -3533,12 +4444,12 @@ func (o ScopeResponseOutput) ToScopeResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 func (o ScopeResponseOutput) Cluster() ScopeClusterResponsePtrOutput {
 	return o.ApplyT(func(v ScopeResponse) *ScopeClusterResponse { return v.Cluster }).(ScopeClusterResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 func (o ScopeResponseOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 	return o.ApplyT(func(v ScopeResponse) *ScopeNamespaceResponse { return v.Namespace }).(ScopeNamespaceResponsePtrOutput)
 }
@@ -3567,7 +4478,7 @@ func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
 	}).(ScopeResponseOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Cluster
+// Specifies that the scope of the extension is Cluster
 func (o ScopeResponsePtrOutput) Cluster() ScopeClusterResponsePtrOutput {
 	return o.ApplyT(func(v *ScopeResponse) *ScopeClusterResponse {
 		if v == nil {
@@ -3577,7 +4488,7 @@ func (o ScopeResponsePtrOutput) Cluster() ScopeClusterResponsePtrOutput {
 	}).(ScopeClusterResponsePtrOutput)
 }
 
-// Specifies that the scope of the extensionInstance is Namespace
+// Specifies that the scope of the extension is Namespace
 func (o ScopeResponsePtrOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 	return o.ApplyT(func(v *ScopeResponse) *ScopeNamespaceResponse {
 		if v == nil {
@@ -3585,6 +4496,423 @@ func (o ScopeResponsePtrOutput) Namespace() ScopeNamespaceResponsePtrOutput {
 		}
 		return v.Namespace
 	}).(ScopeNamespaceResponsePtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+type ServicePrincipalDefinition struct {
+	// Base64-encoded certificate used to authenticate a Service Principal
+	ClientCertificate *string `pulumi:"clientCertificate"`
+	// The password for the certificate used to authenticate a Service Principal
+	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
+	// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+	ClientCertificateSendChain *bool `pulumi:"clientCertificateSendChain"`
+	// The client Id for authenticating a Service Principal.
+	ClientId *string `pulumi:"clientId"`
+	// The client secret for authenticating a Service Principal
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The tenant Id for authenticating a Service Principal
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// Defaults sets the appropriate defaults for ServicePrincipalDefinition
+func (val *ServicePrincipalDefinition) Defaults() *ServicePrincipalDefinition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertificateSendChain) {
+		clientCertificateSendChain_ := false
+		tmp.ClientCertificateSendChain = &clientCertificateSendChain_
+	}
+	return &tmp
+}
+
+// ServicePrincipalDefinitionInput is an input type that accepts ServicePrincipalDefinitionArgs and ServicePrincipalDefinitionOutput values.
+// You can construct a concrete instance of `ServicePrincipalDefinitionInput` via:
+//
+//          ServicePrincipalDefinitionArgs{...}
+type ServicePrincipalDefinitionInput interface {
+	pulumi.Input
+
+	ToServicePrincipalDefinitionOutput() ServicePrincipalDefinitionOutput
+	ToServicePrincipalDefinitionOutputWithContext(context.Context) ServicePrincipalDefinitionOutput
+}
+
+// Parameters to authenticate using Service Principal.
+type ServicePrincipalDefinitionArgs struct {
+	// Base64-encoded certificate used to authenticate a Service Principal
+	ClientCertificate pulumi.StringPtrInput `pulumi:"clientCertificate"`
+	// The password for the certificate used to authenticate a Service Principal
+	ClientCertificatePassword pulumi.StringPtrInput `pulumi:"clientCertificatePassword"`
+	// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+	ClientCertificateSendChain pulumi.BoolPtrInput `pulumi:"clientCertificateSendChain"`
+	// The client Id for authenticating a Service Principal.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret for authenticating a Service Principal
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The tenant Id for authenticating a Service Principal
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+// Defaults sets the appropriate defaults for ServicePrincipalDefinitionArgs
+func (val *ServicePrincipalDefinitionArgs) Defaults() *ServicePrincipalDefinitionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertificateSendChain) {
+		tmp.ClientCertificateSendChain = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
+func (ServicePrincipalDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalDefinition)(nil)).Elem()
+}
+
+func (i ServicePrincipalDefinitionArgs) ToServicePrincipalDefinitionOutput() ServicePrincipalDefinitionOutput {
+	return i.ToServicePrincipalDefinitionOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalDefinitionArgs) ToServicePrincipalDefinitionOutputWithContext(ctx context.Context) ServicePrincipalDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalDefinitionOutput)
+}
+
+func (i ServicePrincipalDefinitionArgs) ToServicePrincipalDefinitionPtrOutput() ServicePrincipalDefinitionPtrOutput {
+	return i.ToServicePrincipalDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalDefinitionArgs) ToServicePrincipalDefinitionPtrOutputWithContext(ctx context.Context) ServicePrincipalDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalDefinitionOutput).ToServicePrincipalDefinitionPtrOutputWithContext(ctx)
+}
+
+// ServicePrincipalDefinitionPtrInput is an input type that accepts ServicePrincipalDefinitionArgs, ServicePrincipalDefinitionPtr and ServicePrincipalDefinitionPtrOutput values.
+// You can construct a concrete instance of `ServicePrincipalDefinitionPtrInput` via:
+//
+//          ServicePrincipalDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ServicePrincipalDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalDefinitionPtrOutput() ServicePrincipalDefinitionPtrOutput
+	ToServicePrincipalDefinitionPtrOutputWithContext(context.Context) ServicePrincipalDefinitionPtrOutput
+}
+
+type servicePrincipalDefinitionPtrType ServicePrincipalDefinitionArgs
+
+func ServicePrincipalDefinitionPtr(v *ServicePrincipalDefinitionArgs) ServicePrincipalDefinitionPtrInput {
+	return (*servicePrincipalDefinitionPtrType)(v)
+}
+
+func (*servicePrincipalDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalDefinition)(nil)).Elem()
+}
+
+func (i *servicePrincipalDefinitionPtrType) ToServicePrincipalDefinitionPtrOutput() ServicePrincipalDefinitionPtrOutput {
+	return i.ToServicePrincipalDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *servicePrincipalDefinitionPtrType) ToServicePrincipalDefinitionPtrOutputWithContext(ctx context.Context) ServicePrincipalDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalDefinitionPtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+type ServicePrincipalDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalDefinition)(nil)).Elem()
+}
+
+func (o ServicePrincipalDefinitionOutput) ToServicePrincipalDefinitionOutput() ServicePrincipalDefinitionOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionOutput) ToServicePrincipalDefinitionOutputWithContext(ctx context.Context) ServicePrincipalDefinitionOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionOutput) ToServicePrincipalDefinitionPtrOutput() ServicePrincipalDefinitionPtrOutput {
+	return o.ToServicePrincipalDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePrincipalDefinitionOutput) ToServicePrincipalDefinitionPtrOutputWithContext(ctx context.Context) ServicePrincipalDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalDefinition) *ServicePrincipalDefinition {
+		return &v
+	}).(ServicePrincipalDefinitionPtrOutput)
+}
+
+// Base64-encoded certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinition) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The password for the certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinition) *string { return v.ClientCertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+func (o ServicePrincipalDefinitionOutput) ClientCertificateSendChain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinition) *bool { return v.ClientCertificateSendChain }).(pulumi.BoolPtrOutput)
+}
+
+// The client Id for authenticating a Service Principal.
+func (o ServicePrincipalDefinitionOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinition) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret for authenticating a Service Principal
+func (o ServicePrincipalDefinitionOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinition) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The tenant Id for authenticating a Service Principal
+func (o ServicePrincipalDefinitionOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinition) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ServicePrincipalDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalDefinition)(nil)).Elem()
+}
+
+func (o ServicePrincipalDefinitionPtrOutput) ToServicePrincipalDefinitionPtrOutput() ServicePrincipalDefinitionPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionPtrOutput) ToServicePrincipalDefinitionPtrOutputWithContext(ctx context.Context) ServicePrincipalDefinitionPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionPtrOutput) Elem() ServicePrincipalDefinitionOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) ServicePrincipalDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalDefinition
+		return ret
+	}).(ServicePrincipalDefinitionOutput)
+}
+
+// Base64-encoded certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionPtrOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionPtrOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificatePassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+func (o ServicePrincipalDefinitionPtrOutput) ClientCertificateSendChain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateSendChain
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The client Id for authenticating a Service Principal.
+func (o ServicePrincipalDefinitionPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret for authenticating a Service Principal
+func (o ServicePrincipalDefinitionPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant Id for authenticating a Service Principal
+func (o ServicePrincipalDefinitionPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to authenticate using Service Principal.
+type ServicePrincipalDefinitionResponse struct {
+	// Base64-encoded certificate used to authenticate a Service Principal
+	ClientCertificate *string `pulumi:"clientCertificate"`
+	// The password for the certificate used to authenticate a Service Principal
+	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
+	// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+	ClientCertificateSendChain *bool `pulumi:"clientCertificateSendChain"`
+	// The client Id for authenticating a Service Principal.
+	ClientId *string `pulumi:"clientId"`
+	// The client secret for authenticating a Service Principal
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The tenant Id for authenticating a Service Principal
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// Defaults sets the appropriate defaults for ServicePrincipalDefinitionResponse
+func (val *ServicePrincipalDefinitionResponse) Defaults() *ServicePrincipalDefinitionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertificateSendChain) {
+		clientCertificateSendChain_ := false
+		tmp.ClientCertificateSendChain = &clientCertificateSendChain_
+	}
+	return &tmp
+}
+
+// Parameters to authenticate using Service Principal.
+type ServicePrincipalDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalDefinitionResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalDefinitionResponseOutput) ToServicePrincipalDefinitionResponseOutput() ServicePrincipalDefinitionResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionResponseOutput) ToServicePrincipalDefinitionResponseOutputWithContext(ctx context.Context) ServicePrincipalDefinitionResponseOutput {
+	return o
+}
+
+// Base64-encoded certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionResponseOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinitionResponse) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The password for the certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionResponseOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinitionResponse) *string { return v.ClientCertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+func (o ServicePrincipalDefinitionResponseOutput) ClientCertificateSendChain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinitionResponse) *bool { return v.ClientCertificateSendChain }).(pulumi.BoolPtrOutput)
+}
+
+// The client Id for authenticating a Service Principal.
+func (o ServicePrincipalDefinitionResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinitionResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret for authenticating a Service Principal
+func (o ServicePrincipalDefinitionResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinitionResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The tenant Id for authenticating a Service Principal
+func (o ServicePrincipalDefinitionResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalDefinitionResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ServicePrincipalDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalDefinitionResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalDefinitionResponsePtrOutput) ToServicePrincipalDefinitionResponsePtrOutput() ServicePrincipalDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionResponsePtrOutput) ToServicePrincipalDefinitionResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalDefinitionResponsePtrOutput) Elem() ServicePrincipalDefinitionResponseOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) ServicePrincipalDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalDefinitionResponse
+		return ret
+	}).(ServicePrincipalDefinitionResponseOutput)
+}
+
+// Base64-encoded certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionResponsePtrOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the certificate used to authenticate a Service Principal
+func (o ServicePrincipalDefinitionResponsePtrOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificatePassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+func (o ServicePrincipalDefinitionResponsePtrOutput) ClientCertificateSendChain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateSendChain
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The client Id for authenticating a Service Principal.
+func (o ServicePrincipalDefinitionResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret for authenticating a Service Principal
+func (o ServicePrincipalDefinitionResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant Id for authenticating a Service Principal
+func (o ServicePrincipalDefinitionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -3648,101 +4976,24 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The timestamp of resource last modification (UTC)
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterOutputType(AzureBlobDefinitionOutput{})
+	pulumi.RegisterOutputType(AzureBlobDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(AzureBlobDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(AzureBlobDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(BucketDefinitionOutput{})
+	pulumi.RegisterOutputType(BucketDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(BucketDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(BucketDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComplianceStatusResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationIdentityOutput{})
-	pulumi.RegisterOutputType(ConfigurationIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(DependsOnDefinitionOutput{})
-	pulumi.RegisterOutputType(DependsOnDefinitionArrayOutput{})
-	pulumi.RegisterOutputType(DependsOnDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(DependsOnDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ErrorDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseOutput{})
+	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionAksAssignedIdentityOutput{})
+	pulumi.RegisterOutputType(ExtensionAksAssignedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionResponseAksAssignedIdentityOutput{})
+	pulumi.RegisterOutputType(ExtensionResponseAksAssignedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ExtensionStatusOutput{})
 	pulumi.RegisterOutputType(ExtensionStatusArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionStatusResponseOutput{})
@@ -3757,25 +5008,24 @@ func init() {
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(HelmReleasePropertiesDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(HelmReleasePropertiesDefinitionResponsePtrOutput{})
-	pulumi.RegisterOutputType(KubernetesConfigurationPrivateLinkScopePropertiesOutput{})
-	pulumi.RegisterOutputType(KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionMapOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionResponseMapOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityDefinitionOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ObjectReferenceDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ObjectReferenceDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ObjectStatusConditionDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ObjectStatusConditionDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ObjectStatusDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ObjectStatusDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(RepositoryRefDefinitionOutput{})
 	pulumi.RegisterOutputType(RepositoryRefDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRefDefinitionResponseOutput{})
@@ -3792,6 +5042,9 @@ func init() {
 	pulumi.RegisterOutputType(ScopeNamespaceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScopeResponseOutput{})
 	pulumi.RegisterOutputType(ScopeResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalDefinitionOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

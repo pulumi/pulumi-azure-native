@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkVirtualAppliance Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
@@ -81,6 +81,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Public key for SSH login.
+     */
+    public readonly sshPublicKey!: pulumi.Output<string | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -128,6 +132,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
             resourceInputs["nvaSku"] = args ? args.nvaSku : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
@@ -151,6 +156,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nvaSku"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sshPublicKey"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualApplianceAsn"] = undefined /*out*/;
@@ -205,6 +211,10 @@ export interface NetworkVirtualApplianceArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Public key for SSH login.
+     */
+    sshPublicKey?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

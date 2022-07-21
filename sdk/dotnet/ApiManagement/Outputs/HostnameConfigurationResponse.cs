@@ -25,6 +25,14 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>
+        /// Certificate Source.
+        /// </summary>
+        public readonly string? CertificateSource;
+        /// <summary>
+        /// Certificate Status.
+        /// </summary>
+        public readonly string? CertificateStatus;
+        /// <summary>
         /// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
         /// </summary>
         public readonly bool? DefaultSslBinding;
@@ -59,6 +67,10 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
 
             string? certificatePassword,
 
+            string? certificateSource,
+
+            string? certificateStatus,
+
             bool? defaultSslBinding,
 
             string? encodedCertificate,
@@ -75,6 +87,8 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         {
             Certificate = certificate;
             CertificatePassword = certificatePassword;
+            CertificateSource = certificateSource;
+            CertificateStatus = certificateStatus;
             DefaultSslBinding = defaultSslBinding;
             EncodedCertificate = encodedCertificate;
             HostName = hostName;

@@ -30,7 +30,7 @@ class SqlPoolWorkloadGroupArgs:
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_pool_name: SQL pool name
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] importance: The workload group importance level.
         :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
         :param pulumi.Input[int] query_execution_timeout: The workload group query execution timeout.
@@ -115,7 +115,7 @@ class SqlPoolWorkloadGroupArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -190,7 +190,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Workload group operations for a sql pool
-        API Version: 2021-03-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +203,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_pool_name: SQL pool name
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -213,7 +213,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload group operations for a sql pool
-        API Version: 2021-03-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadGroupArgs args: The arguments to use to populate this resource's properties.

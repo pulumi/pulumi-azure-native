@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// The top level Workspace resource container.
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -29,10 +29,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> CustomerId { get; private set; } = null!;
 
         /// <summary>
-        /// The ETag of the workspace.
+        /// The etag of the workspace.
         /// </summary>
-        [Output("eTag")]
-        public Output<string?> ETag { get; private set; } = null!;
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Workspace features.
@@ -172,12 +172,6 @@ namespace Pulumi.AzureNative.OperationalInsights
 
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ETag of the workspace.
-        /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
-
         /// <summary>
         /// Workspace features.
         /// </summary>

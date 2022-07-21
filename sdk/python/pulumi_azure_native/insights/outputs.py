@@ -13,10 +13,10 @@ from ._enums import *
 __all__ = [
     'ActionGroupResponse',
     'ActionListResponse',
+    'ActionsResponse',
     'AlertRuleAllOfConditionResponse',
     'AlertRuleAnyOfOrLeafConditionResponse',
     'AlertRuleLeafConditionResponse',
-    'AlertingActionResponse',
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
     'ApplicationInsightsComponentDataVolumeCapResponse',
     'ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions',
@@ -24,54 +24,43 @@ __all__ = [
     'AutomationRunbookReceiverResponse',
     'AutoscaleNotificationResponse',
     'AutoscaleProfileResponse',
-    'AzNsActionGroupResponse',
     'AzureAppPushReceiverResponse',
     'AzureFunctionReceiverResponse',
-    'CriteriaResponse',
+    'ConditionResponse',
+    'ConditionResponseFailingPeriods',
     'DataCollectionEndpointResourceResponseSystemData',
     'DataCollectionEndpointResponseConfigurationAccess',
     'DataCollectionEndpointResponseLogsIngestion',
     'DataCollectionEndpointResponseNetworkAcls',
+    'DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData',
+    'DataCollectionRuleResourceResponseSystemData',
     'DataCollectionRuleResponseDataSources',
     'DataCollectionRuleResponseDestinations',
     'DataFlowResponse',
-    'DataSourceConfigurationResponse',
-    'DataSourceResponse',
     'DestinationsSpecResponseAzureMonitorMetrics',
     'DimensionResponse',
     'DynamicMetricCriteriaResponse',
     'DynamicThresholdFailingPeriodsResponse',
     'EmailNotificationResponse',
     'EmailReceiverResponse',
-    'EtwEventConfigurationResponse',
-    'EtwProviderConfigurationResponse',
-    'EventLogConfigurationResponse',
+    'EventHubReceiverResponse',
     'ExtensionDataSourceResponse',
     'ItsmReceiverResponse',
     'LocationThresholdRuleConditionResponse',
     'LogAnalyticsDestinationResponse',
-    'LogMetricTriggerResponse',
-    'LogSettingsResponse',
-    'LogToMetricActionResponse',
     'LogicAppReceiverResponse',
     'ManagementEventAggregationConditionResponse',
     'ManagementEventRuleConditionResponse',
-    'ManagementGroupLogSettingsResponse',
     'MetricAlertActionResponse',
     'MetricAlertMultipleResourceMultipleMetricCriteriaResponse',
     'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
     'MetricCriteriaResponse',
     'MetricDimensionResponse',
-    'MetricSettingsResponse',
     'MetricTriggerResponse',
     'MyWorkbookManagedIdentityResponse',
     'MyWorkbookUserAssignedIdentitiesResponse',
     'PerfCounterDataSourceResponse',
-    'PerformanceCounterConfigurationResponse',
-    'PrivateEndpointConnectionResponse',
-    'PrivateEndpointPropertyResponse',
     'PrivateLinkScopedResourceResponse',
-    'PrivateLinkServiceConnectionStatePropertyResponse',
     'RecurrenceResponse',
     'RecurrentScheduleResponse',
     'RetentionPolicyResponse',
@@ -84,15 +73,13 @@ __all__ = [
     'ScaleCapacityResponse',
     'ScaleRuleMetricDimensionResponse',
     'ScaleRuleResponse',
-    'ScheduleResponse',
-    'SinkConfigurationResponse',
+    'ScheduledQueryRuleCriteriaResponse',
     'SmsReceiverResponse',
-    'SourceResponse',
-    'SubscriptionLogSettingsResponse',
     'SyslogDataSourceResponse',
+    'SystemDataResponse',
     'ThresholdRuleConditionResponse',
     'TimeWindowResponse',
-    'TriggerConditionResponse',
+    'UserAssignedIdentityResponse',
     'VoiceReceiverResponse',
     'WebTestGeolocationResponse',
     'WebTestPropertiesResponseConfiguration',
@@ -100,10 +87,9 @@ __all__ = [
     'WebhookReceiverResponse',
     'WebtestLocationAvailabilityCriteriaResponse',
     'WindowsEventLogDataSourceResponse',
-    'WorkbookManagedIdentityResponse',
+    'WorkbookResourceResponseIdentity',
     'WorkbookTemplateGalleryResponse',
     'WorkbookTemplateLocalizedGalleryResponse',
-    'WorkbookUserAssignedIdentitiesResponse',
 ]
 
 @pulumi.output_type
@@ -197,6 +183,60 @@ class ActionListResponse(dict):
         The list of the Action Groups.
         """
         return pulumi.get(self, "action_groups")
+
+
+@pulumi.output_type
+class ActionsResponse(dict):
+    """
+    Actions to invoke when the alert fires.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroups":
+            suggest = "action_groups"
+        elif key == "customProperties":
+            suggest = "custom_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_groups: Optional[Sequence[str]] = None,
+                 custom_properties: Optional[Mapping[str, str]] = None):
+        """
+        Actions to invoke when the alert fires.
+        :param Sequence[str] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param Mapping[str, str] custom_properties: The properties of an alert payload.
+        """
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[Sequence[str]]:
+        """
+        Action Group resource Ids to invoke when the alert fires.
+        """
+        return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of an alert payload.
+        """
+        return pulumi.get(self, "custom_properties")
 
 
 @pulumi.output_type
@@ -397,97 +437,6 @@ class AlertRuleLeafConditionResponse(dict):
         The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
         return pulumi.get(self, "field")
-
-
-@pulumi.output_type
-class AlertingActionResponse(dict):
-    """
-    Specify action need to be taken when rule type is Alert
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-        elif key == "aznsAction":
-            suggest = "azns_action"
-        elif key == "throttlingInMin":
-            suggest = "throttling_in_min"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertingActionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertingActionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertingActionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 odata_type: str,
-                 severity: str,
-                 trigger: 'outputs.TriggerConditionResponse',
-                 azns_action: Optional['outputs.AzNsActionGroupResponse'] = None,
-                 throttling_in_min: Optional[int] = None):
-        """
-        Specify action need to be taken when rule type is Alert
-        :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-               Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-        :param str severity: Severity of the alert
-        :param 'TriggerConditionResponse' trigger: The trigger condition that results in the alert rule being.
-        :param 'AzNsActionGroupResponse' azns_action: Azure action group reference.
-        :param int throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
-        """
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "trigger", trigger)
-        if azns_action is not None:
-            pulumi.set(__self__, "azns_action", azns_action)
-        if throttling_in_min is not None:
-            pulumi.set(__self__, "throttling_in_min", throttling_in_min)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
-    @pulumi.getter
-    def severity(self) -> str:
-        """
-        Severity of the alert
-        """
-        return pulumi.get(self, "severity")
-
-    @property
-    @pulumi.getter
-    def trigger(self) -> 'outputs.TriggerConditionResponse':
-        """
-        The trigger condition that results in the alert rule being.
-        """
-        return pulumi.get(self, "trigger")
-
-    @property
-    @pulumi.getter(name="aznsAction")
-    def azns_action(self) -> Optional['outputs.AzNsActionGroupResponse']:
-        """
-        Azure action group reference.
-        """
-        return pulumi.get(self, "azns_action")
-
-    @property
-    @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[int]:
-        """
-        time (in minutes) for which Alerts should be throttled or suppressed.
-        """
-        return pulumi.get(self, "throttling_in_min")
 
 
 @pulumi.output_type
@@ -1088,74 +1037,6 @@ class AutoscaleProfileResponse(dict):
 
 
 @pulumi.output_type
-class AzNsActionGroupResponse(dict):
-    """
-    Azure action group
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionGroup":
-            suggest = "action_group"
-        elif key == "customWebhookPayload":
-            suggest = "custom_webhook_payload"
-        elif key == "emailSubject":
-            suggest = "email_subject"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzNsActionGroupResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzNsActionGroupResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzNsActionGroupResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action_group: Optional[Sequence[str]] = None,
-                 custom_webhook_payload: Optional[str] = None,
-                 email_subject: Optional[str] = None):
-        """
-        Azure action group
-        :param Sequence[str] action_group: Azure Action Group reference.
-        :param str custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
-        :param str email_subject: Custom subject override for all email ids in Azure action group
-        """
-        if action_group is not None:
-            pulumi.set(__self__, "action_group", action_group)
-        if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
-        if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
-
-    @property
-    @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[Sequence[str]]:
-        """
-        Azure Action Group reference.
-        """
-        return pulumi.get(self, "action_group")
-
-    @property
-    @pulumi.getter(name="customWebhookPayload")
-    def custom_webhook_payload(self) -> Optional[str]:
-        """
-        Custom payload to be sent for all webhook URI in Azure action group
-        """
-        return pulumi.get(self, "custom_webhook_payload")
-
-    @property
-    @pulumi.getter(name="emailSubject")
-    def email_subject(self) -> Optional[str]:
-        """
-        Custom subject override for all email ids in Azure action group
-        """
-        return pulumi.get(self, "email_subject")
-
-
-@pulumi.output_type
 class AzureAppPushReceiverResponse(dict):
     """
     The Azure mobile App push notification receiver.
@@ -1298,54 +1179,205 @@ class AzureFunctionReceiverResponse(dict):
 
 
 @pulumi.output_type
-class CriteriaResponse(dict):
+class ConditionResponse(dict):
     """
-    Specifies the criteria for converting log to metric.
+    A condition of the scheduled query rule.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricName":
+        if key == "failingPeriods":
+            suggest = "failing_periods"
+        elif key == "metricMeasureColumn":
+            suggest = "metric_measure_column"
+        elif key == "metricName":
             suggest = "metric_name"
+        elif key == "resourceIdColumn":
+            suggest = "resource_id_column"
+        elif key == "timeAggregation":
+            suggest = "time_aggregation"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CriteriaResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConditionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CriteriaResponse.__key_warning(key)
+        ConditionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CriteriaResponse.__key_warning(key)
+        ConditionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_name: str,
-                 dimensions: Optional[Sequence['outputs.DimensionResponse']] = None):
+                 dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
+                 failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+                 metric_measure_column: Optional[str] = None,
+                 metric_name: Optional[str] = None,
+                 operator: Optional[str] = None,
+                 query: Optional[str] = None,
+                 resource_id_column: Optional[str] = None,
+                 threshold: Optional[float] = None,
+                 time_aggregation: Optional[str] = None):
         """
-        Specifies the criteria for converting log to metric.
-        :param str metric_name: Name of the metric
-        :param Sequence['DimensionResponse'] dimensions: List of Dimensions for creating metric
+        A condition of the scheduled query rule.
+        :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
+        :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        :param str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        :param str operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        :param str query: Log query alert
+        :param str resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        :param float threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        :param str time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-
-    @property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
-        """
-        Name of the metric
-        """
-        return pulumi.get(self, "metric_name")
+        if failing_periods is not None:
+            pulumi.set(__self__, "failing_periods", failing_periods)
+        if metric_measure_column is not None:
+            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if resource_id_column is not None:
+            pulumi.set(__self__, "resource_id_column", resource_id_column)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if time_aggregation is not None:
+            pulumi.set(__self__, "time_aggregation", time_aggregation)
 
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
         """
-        List of Dimensions for creating metric
+        List of Dimensions conditions
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> Optional['outputs.ConditionResponseFailingPeriods']:
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @property
+    @pulumi.getter(name="metricMeasureColumn")
+    def metric_measure_column(self) -> Optional[str]:
+        """
+        The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "metric_measure_column")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        """
+        The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        Log query alert
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="resourceIdColumn")
+    def resource_id_column(self) -> Optional[str]:
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "resource_id_column")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[float]:
+        """
+        the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Optional[str]:
+        """
+        Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+
+@pulumi.output_type
+class ConditionResponseFailingPeriods(dict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minFailingPeriodsToAlert":
+            suggest = "min_failing_periods_to_alert"
+        elif key == "numberOfEvaluationPeriods":
+            suggest = "number_of_evaluation_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionResponseFailingPeriods. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionResponseFailingPeriods.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionResponseFailingPeriods.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[float] = None,
+                 number_of_evaluation_periods: Optional[float] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[float]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[float]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
 
 
 @pulumi.output_type
@@ -1461,12 +1493,12 @@ class DataCollectionEndpointResourceResponseSystemData(dict):
 @pulumi.output_type
 class DataCollectionEndpointResponseConfigurationAccess(dict):
     """
-    The endpoint used by clients to access their configuration.
+    The endpoint used by agents to access their configuration.
     """
     def __init__(__self__, *,
                  endpoint: str):
         """
-        The endpoint used by clients to access their configuration.
+        The endpoint used by agents to access their configuration.
         :param str endpoint: The endpoint. This property is READ-ONLY.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -1540,6 +1572,226 @@ class DataCollectionEndpointResponseNetworkAcls(dict):
         The configuration to set whether network access from public internet to the endpoints are allowed.
         """
         return pulumi.get(self, "public_network_access")
+
+
+@pulumi.output_type
+class DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class DataCollectionRuleResourceResponseSystemData(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleResourceResponseSystemData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleResourceResponseSystemData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleResourceResponseSystemData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -1712,104 +1964,6 @@ class DataFlowResponse(dict):
 
 
 @pulumi.output_type
-class DataSourceConfigurationResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "eventLogs":
-            suggest = "event_logs"
-        elif key == "perfCounters":
-            suggest = "perf_counters"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataSourceConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataSourceConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 event_logs: Optional[Sequence['outputs.EventLogConfigurationResponse']] = None,
-                 perf_counters: Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']] = None,
-                 providers: Optional[Sequence['outputs.EtwProviderConfigurationResponse']] = None):
-        """
-        :param Sequence['EventLogConfigurationResponse'] event_logs: Windows event logs configuration.
-        :param Sequence['PerformanceCounterConfigurationResponse'] perf_counters: Performance counter configuration
-        :param Sequence['EtwProviderConfigurationResponse'] providers: ETW providers configuration
-        """
-        if event_logs is not None:
-            pulumi.set(__self__, "event_logs", event_logs)
-        if perf_counters is not None:
-            pulumi.set(__self__, "perf_counters", perf_counters)
-        if providers is not None:
-            pulumi.set(__self__, "providers", providers)
-
-    @property
-    @pulumi.getter(name="eventLogs")
-    def event_logs(self) -> Optional[Sequence['outputs.EventLogConfigurationResponse']]:
-        """
-        Windows event logs configuration.
-        """
-        return pulumi.get(self, "event_logs")
-
-    @property
-    @pulumi.getter(name="perfCounters")
-    def perf_counters(self) -> Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']]:
-        """
-        Performance counter configuration
-        """
-        return pulumi.get(self, "perf_counters")
-
-    @property
-    @pulumi.getter
-    def providers(self) -> Optional[Sequence['outputs.EtwProviderConfigurationResponse']]:
-        """
-        ETW providers configuration
-        """
-        return pulumi.get(self, "providers")
-
-
-@pulumi.output_type
-class DataSourceResponse(dict):
-    """
-    Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
-    """
-    def __init__(__self__, *,
-                 configuration: 'outputs.DataSourceConfigurationResponse',
-                 kind: str,
-                 sinks: Sequence['outputs.SinkConfigurationResponse']):
-        """
-        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
-        :param str kind: Datasource kind
-        """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "sinks", sinks)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> 'outputs.DataSourceConfigurationResponse':
-        return pulumi.get(self, "configuration")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        Datasource kind
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def sinks(self) -> Sequence['outputs.SinkConfigurationResponse']:
-        return pulumi.get(self, "sinks")
-
-
-@pulumi.output_type
 class DestinationsSpecResponseAzureMonitorMetrics(dict):
     """
     Azure Monitor Metrics destination.
@@ -1837,14 +1991,14 @@ class DestinationsSpecResponseAzureMonitorMetrics(dict):
 @pulumi.output_type
 class DimensionResponse(dict):
     """
-    Specifies the criteria for converting log to metric.
+    Dimension splitting and filtering definition
     """
     def __init__(__self__, *,
                  name: str,
                  operator: str,
                  values: Sequence[str]):
         """
-        Specifies the criteria for converting log to metric.
+        Dimension splitting and filtering definition
         :param str name: Name of the dimension
         :param str operator: Operator for dimension values
         :param Sequence[str] values: List of dimension values
@@ -2249,86 +2403,109 @@ class EmailReceiverResponse(dict):
 
 
 @pulumi.output_type
-class EtwEventConfigurationResponse(dict):
+class EventHubReceiverResponse(dict):
+    """
+    An Event hub receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "eventHubNameSpace":
+            suggest = "event_hub_name_space"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 id: int,
+                 event_hub_name: str,
+                 event_hub_name_space: str,
                  name: str,
-                 filter: Optional[str] = None):
-        pulumi.set(__self__, "id", id)
+                 subscription_id: str,
+                 tenant_id: Optional[str] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        An Event hub receiver.
+        :param str event_hub_name: The name of the specific Event Hub queue
+        :param str event_hub_name_space: The Event Hub namespace
+        :param str name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        :param str subscription_id: The Id for the subscription containing this event hub
+        :param str tenant_id: The tenant Id for the subscription containing this event hub
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_hub_name_space", event_hub_name_space)
         pulumi.set(__self__, "name", name)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
-    @pulumi.getter
-    def id(self) -> int:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> str:
+        """
+        The name of the specific Event Hub queue
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="eventHubNameSpace")
+    def event_hub_name_space(self) -> str:
+        """
+        The Event Hub namespace
+        """
+        return pulumi.get(self, "event_hub_name_space")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def filter(self) -> Optional[str]:
-        return pulumi.get(self, "filter")
-
-
-@pulumi.output_type
-class EtwProviderConfigurationResponse(dict):
-    def __init__(__self__, *,
-                 events: Sequence['outputs.EtwEventConfigurationResponse'],
-                 id: str):
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "id", id)
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        The Id for the subscription containing this event hub
+        """
+        return pulumi.get(self, "subscription_id")
 
     @property
-    @pulumi.getter
-    def events(self) -> Sequence['outputs.EtwEventConfigurationResponse']:
-        return pulumi.get(self, "events")
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant Id for the subscription containing this event hub
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
-    @pulumi.getter
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class EventLogConfigurationResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "logName":
-            suggest = "log_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventLogConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventLogConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventLogConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 log_name: str,
-                 filter: Optional[str] = None):
-        pulumi.set(__self__, "log_name", log_name)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
-
-    @property
-    @pulumi.getter(name="logName")
-    def log_name(self) -> str:
-        return pulumi.get(self, "log_name")
-
-    @property
-    @pulumi.getter
-    def filter(self) -> Optional[str]:
-        return pulumi.get(self, "filter")
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
 
 
 @pulumi.output_type
@@ -2665,201 +2842,6 @@ class LogAnalyticsDestinationResponse(dict):
 
 
 @pulumi.output_type
-class LogMetricTriggerResponse(dict):
-    """
-    A log metrics trigger descriptor.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "metricColumn":
-            suggest = "metric_column"
-        elif key == "metricTriggerType":
-            suggest = "metric_trigger_type"
-        elif key == "thresholdOperator":
-            suggest = "threshold_operator"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogMetricTriggerResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogMetricTriggerResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogMetricTriggerResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 metric_column: Optional[str] = None,
-                 metric_trigger_type: Optional[str] = None,
-                 threshold: Optional[float] = None,
-                 threshold_operator: Optional[str] = None):
-        """
-        A log metrics trigger descriptor.
-        :param str metric_column: Evaluation of metric on a particular column
-        :param str metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
-        :param float threshold: The threshold of the metric trigger.
-        :param str threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-        """
-        if metric_column is not None:
-            pulumi.set(__self__, "metric_column", metric_column)
-        if metric_trigger_type is not None:
-            pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
-        if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
-        if threshold_operator is not None:
-            pulumi.set(__self__, "threshold_operator", threshold_operator)
-
-    @property
-    @pulumi.getter(name="metricColumn")
-    def metric_column(self) -> Optional[str]:
-        """
-        Evaluation of metric on a particular column
-        """
-        return pulumi.get(self, "metric_column")
-
-    @property
-    @pulumi.getter(name="metricTriggerType")
-    def metric_trigger_type(self) -> Optional[str]:
-        """
-        Metric Trigger Type - 'Consecutive' or 'Total'
-        """
-        return pulumi.get(self, "metric_trigger_type")
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> Optional[float]:
-        """
-        The threshold of the metric trigger.
-        """
-        return pulumi.get(self, "threshold")
-
-    @property
-    @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> Optional[str]:
-        """
-        Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-        """
-        return pulumi.get(self, "threshold_operator")
-
-
-@pulumi.output_type
-class LogSettingsResponse(dict):
-    """
-    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionPolicy":
-            suggest = "retention_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: bool,
-                 category: Optional[str] = None,
-                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-        :param bool enabled: a value indicating whether this log is enabled.
-        :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        a value indicating whether this log is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[str]:
-        """
-        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
-        """
-        the retention policy for this log.
-        """
-        return pulumi.get(self, "retention_policy")
-
-
-@pulumi.output_type
-class LogToMetricActionResponse(dict):
-    """
-    Specify action need to be taken when rule type is converting log to metric
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "odataType":
-            suggest = "odata_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogToMetricActionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogToMetricActionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogToMetricActionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 criteria: Sequence['outputs.CriteriaResponse'],
-                 odata_type: str):
-        """
-        Specify action need to be taken when rule type is converting log to metric
-        :param Sequence['CriteriaResponse'] criteria: Criteria of Metric
-        :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-               Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-        """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
-
-    @property
-    @pulumi.getter
-    def criteria(self) -> Sequence['outputs.CriteriaResponse']:
-        """
-        Criteria of Metric
-        """
-        return pulumi.get(self, "criteria")
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
-        """
-        return pulumi.get(self, "odata_type")
-
-
-@pulumi.output_type
 class LogicAppReceiverResponse(dict):
     """
     A logic app receiver.
@@ -3067,39 +3049,6 @@ class ManagementEventRuleConditionResponse(dict):
         the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         return pulumi.get(self, "data_source")
-
-
-@pulumi.output_type
-class ManagementGroupLogSettingsResponse(dict):
-    """
-    Part of Management Group diagnostic setting. Specifies the settings for a particular log.
-    """
-    def __init__(__self__, *,
-                 category: str,
-                 enabled: bool):
-        """
-        Part of Management Group diagnostic setting. Specifies the settings for a particular log.
-        :param str category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-        :param bool enabled: a value indicating whether this log is enabled.
-        """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def category(self) -> str:
-        """
-        Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        a value indicating whether this log is enabled.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -3448,83 +3397,6 @@ class MetricDimensionResponse(dict):
         list of dimension values.
         """
         return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class MetricSettingsResponse(dict):
-    """
-    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionPolicy":
-            suggest = "retention_policy"
-        elif key == "timeGrain":
-            suggest = "time_grain"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MetricSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MetricSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MetricSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: bool,
-                 category: Optional[str] = None,
-                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
-                 time_grain: Optional[str] = None):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-        :param bool enabled: a value indicating whether this category is enabled.
-        :param str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
-        :param str time_grain: the timegrain of the metric in ISO8601 format.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-        if time_grain is not None:
-            pulumi.set(__self__, "time_grain", time_grain)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        a value indicating whether this category is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[str]:
-        """
-        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
-        """
-        the retention policy for this category.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @property
-    @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[str]:
-        """
-        the timegrain of the metric in ISO8601 format.
-        """
-        return pulumi.get(self, "time_grain")
 
 
 @pulumi.output_type
@@ -3898,173 +3770,6 @@ class PerfCounterDataSourceResponse(dict):
 
 
 @pulumi.output_type
-class PerformanceCounterConfigurationResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "samplingPeriod":
-            suggest = "sampling_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PerformanceCounterConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PerformanceCounterConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PerformanceCounterConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 sampling_period: str,
-                 instance: Optional[str] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sampling_period", sampling_period)
-        if instance is not None:
-            pulumi.set(__self__, "instance", instance)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="samplingPeriod")
-    def sampling_period(self) -> str:
-        return pulumi.get(self, "sampling_period")
-
-    @property
-    @pulumi.getter
-    def instance(self) -> Optional[str]:
-        return pulumi.get(self, "instance")
-
-
-@pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
-    """
-    A private endpoint connection
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-        elif key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 provisioning_state: str,
-                 type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
-        """
-        A private endpoint connection
-        :param str id: Azure resource Id
-        :param str name: Azure resource name
-        :param str provisioning_state: State of the private endpoint connection.
-        :param str type: Azure resource type
-        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Azure resource Id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Azure resource name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Azure resource type
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
-        """
-        Private endpoint which the connection belongs to.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
-        """
-        Connection state of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-
-@pulumi.output_type
-class PrivateEndpointPropertyResponse(dict):
-    """
-    Private endpoint which the connection belongs to.
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Private endpoint which the connection belongs to.
-        :param str id: Resource id of the private endpoint.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource id of the private endpoint.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
 class PrivateLinkScopedResourceResponse(dict):
     """
     The private link scope resource reference.
@@ -4116,67 +3821,6 @@ class PrivateLinkScopedResourceResponse(dict):
         The private link scope unique Identifier.
         """
         return pulumi.get(self, "scope_id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStatePropertyResponse(dict):
-    """
-    State of the private endpoint connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStatePropertyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions_required: str,
-                 description: str,
-                 status: str):
-        """
-        State of the private endpoint connection.
-        :param str actions_required: The actions required for private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
-        """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> str:
-        """
-        The actions required for private link service connection.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -5037,67 +4681,43 @@ class ScaleRuleResponse(dict):
 
 
 @pulumi.output_type
-class ScheduleResponse(dict):
+class ScheduledQueryRuleCriteriaResponse(dict):
     """
-    Defines how often to run the search and the time interval.
+    The rule criteria that defines the conditions of the scheduled query rule.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "frequencyInMinutes":
-            suggest = "frequency_in_minutes"
-        elif key == "timeWindowInMinutes":
-            suggest = "time_window_in_minutes"
+        if key == "allOf":
+            suggest = "all_of"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRuleCriteriaResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ScheduleResponse.__key_warning(key)
+        ScheduledQueryRuleCriteriaResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ScheduleResponse.__key_warning(key)
+        ScheduledQueryRuleCriteriaResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 frequency_in_minutes: int,
-                 time_window_in_minutes: int):
+                 all_of: Optional[Sequence['outputs.ConditionResponse']] = None):
         """
-        Defines how often to run the search and the time interval.
-        :param int frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param int time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        The rule criteria that defines the conditions of the scheduled query rule.
+        :param Sequence['ConditionResponse'] all_of: A list of conditions to evaluate against the specified scopes
         """
-        pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
-        pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
 
     @property
-    @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> int:
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[Sequence['outputs.ConditionResponse']]:
         """
-        frequency (in minutes) at which rule condition should be evaluated.
+        A list of conditions to evaluate against the specified scopes
         """
-        return pulumi.get(self, "frequency_in_minutes")
-
-    @property
-    @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> int:
-        """
-        Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-        """
-        return pulumi.get(self, "time_window_in_minutes")
-
-
-@pulumi.output_type
-class SinkConfigurationResponse(dict):
-    def __init__(__self__, *,
-                 kind: str):
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        return pulumi.get(self, "kind")
+        return pulumi.get(self, "all_of")
 
 
 @pulumi.output_type
@@ -5172,119 +4792,6 @@ class SmsReceiverResponse(dict):
         The status of the receiver.
         """
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class SourceResponse(dict):
-    """
-    Specifies the log search query.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataSourceId":
-            suggest = "data_source_id"
-        elif key == "authorizedResources":
-            suggest = "authorized_resources"
-        elif key == "queryType":
-            suggest = "query_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 data_source_id: str,
-                 authorized_resources: Optional[Sequence[str]] = None,
-                 query: Optional[str] = None,
-                 query_type: Optional[str] = None):
-        """
-        Specifies the log search query.
-        :param str data_source_id: The resource uri over which log search query is to be run.
-        :param Sequence[str] authorized_resources: List of  Resource referred into query
-        :param str query: Log search query. Required for action type - AlertingAction
-        :param str query_type: Set value to 'ResultCount' .
-        """
-        pulumi.set(__self__, "data_source_id", data_source_id)
-        if authorized_resources is not None:
-            pulumi.set(__self__, "authorized_resources", authorized_resources)
-        if query is not None:
-            pulumi.set(__self__, "query", query)
-        if query_type is not None:
-            pulumi.set(__self__, "query_type", query_type)
-
-    @property
-    @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> str:
-        """
-        The resource uri over which log search query is to be run.
-        """
-        return pulumi.get(self, "data_source_id")
-
-    @property
-    @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[Sequence[str]]:
-        """
-        List of  Resource referred into query
-        """
-        return pulumi.get(self, "authorized_resources")
-
-    @property
-    @pulumi.getter
-    def query(self) -> Optional[str]:
-        """
-        Log search query. Required for action type - AlertingAction
-        """
-        return pulumi.get(self, "query")
-
-    @property
-    @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[str]:
-        """
-        Set value to 'ResultCount' .
-        """
-        return pulumi.get(self, "query_type")
-
-
-@pulumi.output_type
-class SubscriptionLogSettingsResponse(dict):
-    """
-    Part of Subscription diagnostic setting. Specifies the settings for a particular log.
-    """
-    def __init__(__self__, *,
-                 enabled: bool,
-                 category: Optional[str] = None):
-        """
-        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
-        :param bool enabled: a value indicating whether this log is enabled.
-        :param str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        a value indicating whether this log is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[str]:
-        """
-        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-        """
-        return pulumi.get(self, "category")
 
 
 @pulumi.output_type
@@ -5369,6 +4876,116 @@ class SyslogDataSourceResponse(dict):
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -5539,67 +5156,55 @@ class TimeWindowResponse(dict):
 
 
 @pulumi.output_type
-class TriggerConditionResponse(dict):
+class UserAssignedIdentityResponse(dict):
     """
-    The condition that results in the Log Search rule.
+    User assigned identity properties
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "thresholdOperator":
-            suggest = "threshold_operator"
-        elif key == "metricTrigger":
-            suggest = "metric_trigger"
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TriggerConditionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TriggerConditionResponse.__key_warning(key)
+        UserAssignedIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TriggerConditionResponse.__key_warning(key)
+        UserAssignedIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 threshold: float,
-                 threshold_operator: str,
-                 metric_trigger: Optional['outputs.LogMetricTriggerResponse'] = None):
+                 client_id: str,
+                 principal_id: str):
         """
-        The condition that results in the Log Search rule.
-        :param float threshold: Result or count threshold based on which rule should be triggered.
-        :param str threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        :param 'LogMetricTriggerResponse' metric_trigger: Trigger condition for metric query rule
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_operator", threshold_operator)
-        if metric_trigger is not None:
-            pulumi.set(__self__, "metric_trigger", metric_trigger)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
 
     @property
-    @pulumi.getter
-    def threshold(self) -> float:
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
         """
-        Result or count threshold based on which rule should be triggered.
+        The client ID of the assigned identity.
         """
-        return pulumi.get(self, "threshold")
+        return pulumi.get(self, "client_id")
 
     @property
-    @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> str:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
-        Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+        The principal ID of the assigned identity.
         """
-        return pulumi.get(self, "threshold_operator")
-
-    @property
-    @pulumi.getter(name="metricTrigger")
-    def metric_trigger(self) -> Optional['outputs.LogMetricTriggerResponse']:
-        """
-        Trigger condition for metric query rule
-        """
-        return pulumi.get(self, "metric_trigger")
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -6055,53 +5660,78 @@ class WindowsEventLogDataSourceResponse(dict):
 
 
 @pulumi.output_type
-class WorkbookManagedIdentityResponse(dict):
+class WorkbookResourceResponseIdentity(dict):
     """
-    Customer Managed Identity
+    Identity used for BYOS
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userAssignedIdentities":
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkbookManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkbookResourceResponseIdentity. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkbookManagedIdentityResponse.__key_warning(key)
+        WorkbookResourceResponseIdentity.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkbookManagedIdentityResponse.__key_warning(key)
+        WorkbookResourceResponseIdentity.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: Optional[str] = None,
-                 user_assigned_identities: Optional['outputs.WorkbookUserAssignedIdentitiesResponse'] = None):
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Customer Managed Identity
-        :param str type: The identity type.
-        :param 'WorkbookUserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
+        Identity used for BYOS
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
-        The identity type.
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional['outputs.WorkbookUserAssignedIdentitiesResponse']:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
-        Customer Managed Identity
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -6244,70 +5874,5 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
         Valid JSON object containing workbook template payload.
         """
         return pulumi.get(self, "template_data")
-
-
-@pulumi.output_type
-class WorkbookUserAssignedIdentitiesResponse(dict):
-    """
-    Customer Managed Identity
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkbookUserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkbookUserAssignedIdentitiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkbookUserAssignedIdentitiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str,
-                 tenant_id: str):
-        """
-        Customer Managed Identity
-        :param str client_id: The client ID of resource.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client ID of resource.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant ID of resource.
-        """
-        return pulumi.get(self, "tenant_id")
 
 

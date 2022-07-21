@@ -98,7 +98,7 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDomainOwnershipIdentifierSlotResult:
     """
     A domain specific resource identifier.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
@@ -133,7 +133,7 @@ def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identif
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDomainOwnershipIdentifierSlotResult]:
     """
     A domain specific resource identifier.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.

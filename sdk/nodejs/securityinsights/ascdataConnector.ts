@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents ASC (Azure Security Center) data connector.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export class ASCDataConnector extends pulumi.CustomResource {
     /**
@@ -50,7 +50,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"AzureSecurityCenter">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -58,7 +58,11 @@ export class ASCDataConnector extends pulumi.CustomResource {
      */
     public readonly subscriptionId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -90,6 +94,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataTypes"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,7 +130,7 @@ export interface ASCDataConnectorArgs {
      */
     kind: pulumi.Input<"AzureSecurityCenter">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

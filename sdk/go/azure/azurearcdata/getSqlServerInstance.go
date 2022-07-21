@@ -11,7 +11,7 @@ import (
 )
 
 // A SqlServerInstance.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 func LookupSqlServerInstance(ctx *pulumi.Context, args *LookupSqlServerInstanceArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerInstanceResult, error) {
 	var rv LookupSqlServerInstanceResult
 	err := ctx.Invoke("azure-native:azurearcdata:getSqlServerInstance", args, &rv, opts...)
@@ -30,7 +30,7 @@ type LookupSqlServerInstanceArgs struct {
 
 // A SqlServerInstance.
 type LookupSqlServerInstanceResult struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
@@ -38,11 +38,11 @@ type LookupSqlServerInstanceResult struct {
 	Name string `pulumi:"name"`
 	// null
 	Properties SqlServerInstancePropertiesResponse `pulumi:"properties"`
-	// Read only system data
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -85,7 +85,7 @@ func (o LookupSqlServerInstanceResultOutput) ToLookupSqlServerInstanceResultOutp
 	return o
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupSqlServerInstanceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSqlServerInstanceResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -105,7 +105,7 @@ func (o LookupSqlServerInstanceResultOutput) Properties() SqlServerInstancePrope
 	return o.ApplyT(func(v LookupSqlServerInstanceResult) SqlServerInstancePropertiesResponse { return v.Properties }).(SqlServerInstancePropertiesResponseOutput)
 }
 
-// Read only system data
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupSqlServerInstanceResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupSqlServerInstanceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
@@ -115,7 +115,7 @@ func (o LookupSqlServerInstanceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSqlServerInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupSqlServerInstanceResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSqlServerInstanceResult) string { return v.Type }).(pulumi.StringOutput)
 }

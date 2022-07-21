@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Binding resource payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export class Binding extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Binding extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.appplatform.BindingResourcePropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,10 +79,12 @@ export class Binding extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

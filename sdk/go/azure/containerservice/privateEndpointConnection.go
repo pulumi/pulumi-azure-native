@@ -12,7 +12,7 @@ import (
 )
 
 // A private endpoint connection
-// API Version: 2021-03-01.
+// API Version: 2022-04-01.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -151,7 +151,7 @@ type privateEndpointConnectionArgs struct {
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
@@ -165,7 +165,7 @@ type PrivateEndpointConnectionArgs struct {
 	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput

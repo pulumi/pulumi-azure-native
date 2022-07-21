@@ -3,13 +3,12 @@
 
 package storagepool
 
-// Determines the SKU of VM deployed for Disk pool
-type DiskPoolTier string
+// Mode for Target connectivity.
+type IscsiTargetAclMode string
 
 const (
-	DiskPoolTierBasic    = DiskPoolTier("Basic")
-	DiskPoolTierStandard = DiskPoolTier("Standard")
-	DiskPoolTierPremium  = DiskPoolTier("Premium")
+	IscsiTargetAclModeDynamic = IscsiTargetAclMode("Dynamic")
+	IscsiTargetAclModeStatic  = IscsiTargetAclMode("Static")
 )
 
 func init() {

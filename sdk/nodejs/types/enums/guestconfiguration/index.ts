@@ -16,16 +16,6 @@ export {
     v20220125,
 };
 
-export const ActionAfterReboot = {
-    ContinueConfiguration: "ContinueConfiguration",
-    StopConfiguration: "StopConfiguration",
-} as const;
-
-/**
- * Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
- */
-export type ActionAfterReboot = (typeof ActionAfterReboot)[keyof typeof ActionAfterReboot];
-
 export const AssignmentType = {
     Audit: "Audit",
     DeployAndAutoCorrect: "DeployAndAutoCorrect",
@@ -37,17 +27,6 @@ export const AssignmentType = {
  * Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
  */
 export type AssignmentType = (typeof AssignmentType)[keyof typeof AssignmentType];
-
-export const ConfigurationMode = {
-    ApplyOnly: "ApplyOnly",
-    ApplyAndMonitor: "ApplyAndMonitor",
-    ApplyAndAutoCorrect: "ApplyAndAutoCorrect",
-} as const;
-
-/**
- * Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
- */
-export type ConfigurationMode = (typeof ConfigurationMode)[keyof typeof ConfigurationMode];
 
 export const Kind = {
     DSC: "DSC",

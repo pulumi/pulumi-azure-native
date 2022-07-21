@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a server firewall rule.
-// API Version: 2017-12-01.
+// API Version: 2021-06-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type FirewallRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -47,10 +49,25 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:FirewallRule"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200214preview:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:FirewallRule"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210601:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210601preview:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20220120preview:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -162,6 +179,11 @@ func (o FirewallRuleOutput) Name() pulumi.StringOutput {
 // The start IP address of the server firewall rule. Must be IPv4 format.
 func (o FirewallRuleOutput) StartIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o FirewallRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FirewallRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

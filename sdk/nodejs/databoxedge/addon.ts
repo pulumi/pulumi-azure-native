@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role Addon
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  *
  * @deprecated Please use one of the variants: ArcAddon, IoTAddon.
  */
@@ -48,7 +48,7 @@ export class Addon extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

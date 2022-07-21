@@ -11,7 +11,7 @@ import (
 )
 
 // Site REST Resource.
-// API Version: 2020-01-01.
+// API Version: 2020-07-07.
 func LookupHyperVSite(ctx *pulumi.Context, args *LookupHyperVSiteArgs, opts ...pulumi.InvokeOption) (*LookupHyperVSiteResult, error) {
 	var rv LookupHyperVSiteResult
 	err := ctx.Invoke("azure-native:offazure:getHyperVSite", args, &rv, opts...)
@@ -40,7 +40,9 @@ type LookupHyperVSiteResult struct {
 	Name *string `pulumi:"name"`
 	// Nested properties of Hyper-V site.
 	Properties SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string      `pulumi:"tags"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	Tags       map[string]string  `pulumi:"tags"`
 	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
 	Type string `pulumi:"type"`
 }
@@ -107,6 +109,11 @@ func (o LookupHyperVSiteResultOutput) Name() pulumi.StringPtrOutput {
 // Nested properties of Hyper-V site.
 func (o LookupHyperVSiteResultOutput) Properties() SitePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupHyperVSiteResult) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupHyperVSiteResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupHyperVSiteResultOutput) Tags() pulumi.StringMapOutput {

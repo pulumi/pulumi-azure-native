@@ -108,7 +108,7 @@ class GetViewByScopeResult:
     @pulumi.getter
     def currency(self) -> str:
         """
-        Selected currency.
+        Currency of the current view.
         """
         return pulumi.get(self, "currency")
 
@@ -124,7 +124,7 @@ class GetViewByScopeResult:
     @pulumi.getter(name="dateRange")
     def date_range(self) -> str:
         """
-        Selected date range for viewing cost in.
+        Date range of the current view.
         """
         return pulumi.get(self, "date_range")
 
@@ -154,9 +154,9 @@ class GetViewByScopeResult:
 
     @property
     @pulumi.getter(name="includeMonetaryCommitment")
-    def include_monetary_commitment(self) -> bool:
+    def include_monetary_commitment(self) -> Optional[bool]:
         """
-        Include monetary commitment
+        If true, report includes monetary commitment.
         """
         return pulumi.get(self, "include_monetary_commitment")
 
@@ -265,7 +265,7 @@ def get_view_by_scope(scope: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewByScopeResult:
     """
     States and configurations of Cost Analysis.
-    API Version: 2019-11-01.
+    API Version: 2021-10-01.
 
 
     :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
@@ -308,7 +308,7 @@ def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewByScopeResult]:
     """
     States and configurations of Cost Analysis.
-    API Version: 2019-11-01.
+    API Version: 2021-10-01.
 
 
     :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.

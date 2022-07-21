@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBox
 {
     /// <summary>
     /// Job Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databox:Job")]
     public partial class Job : Pulumi.CustomResource

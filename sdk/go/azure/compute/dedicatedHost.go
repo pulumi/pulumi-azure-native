@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the Dedicated host.
-// API Version: 2020-12-01.
+// API Version: 2021-11-01.
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type DedicatedHost struct {
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A list of references to all virtual machines in the Dedicated Host.
@@ -254,6 +256,11 @@ func (o DedicatedHostOutput) Sku() SkuResponseOutput {
 // Resource tags
 func (o DedicatedHostOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o DedicatedHostOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type

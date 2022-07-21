@@ -11,14 +11,14 @@ import (
 )
 
 // Description of NetworkRuleSet resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNetworkRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceNetworkRuleSetResult, error) {
 	var rv LookupNamespaceNetworkRuleSetResult
 	err := ctx.Invoke("azure-native:servicebus:getNamespaceNetworkRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupNamespaceNetworkRuleSetArgs struct {
@@ -32,16 +32,37 @@ type LookupNamespaceNetworkRuleSetArgs struct {
 type LookupNamespaceNetworkRuleSetResult struct {
 	// Default Action for Network Rule Set
 	DefaultAction *string `pulumi:"defaultAction"`
-	// Resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// List of IpRules
 	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
-	// Resource name
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 	// List VirtualNetwork Rules
 	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
+}
+
+// Defaults sets the appropriate defaults for LookupNamespaceNetworkRuleSetResult
+func (val *LookupNamespaceNetworkRuleSetResult) Defaults() *LookupNamespaceNetworkRuleSetResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }
 
 func LookupNamespaceNetworkRuleSetOutput(ctx *pulumi.Context, args LookupNamespaceNetworkRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceNetworkRuleSetResultOutput {
@@ -88,7 +109,7 @@ func (o LookupNamespaceNetworkRuleSetResultOutput) DefaultAction() pulumi.String
 	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupNamespaceNetworkRuleSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -98,12 +119,32 @@ func (o LookupNamespaceNetworkRuleSetResultOutput) IpRules() NWRuleSetIpRulesRes
 	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) []NWRuleSetIpRulesResponse { return v.IpRules }).(NWRuleSetIpRulesResponseArrayOutput)
 }
 
-// Resource name
+// The geo-location where the resource lives
+func (o LookupNamespaceNetworkRuleSetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupNamespaceNetworkRuleSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type
+// This determines if traffic is allowed over public network. By default it is enabled.
+func (o LookupNamespaceNetworkRuleSetResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupNamespaceNetworkRuleSetResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Value that indicates whether Trusted Service Access is Enabled or not.
+func (o LookupNamespaceNetworkRuleSetResultOutput) TrustedServiceAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) *bool { return v.TrustedServiceAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupNamespaceNetworkRuleSetResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Type }).(pulumi.StringOutput)
 }

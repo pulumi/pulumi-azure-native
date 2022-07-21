@@ -11,7 +11,7 @@ import (
 )
 
 // DC Access code in the case of Self Managed Shipping.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {
 	var rv ListOrderDCAccessCodeResult
 	err := ctx.Invoke("azure-native:databoxedge:listOrderDCAccessCode", args, &rv, opts...)

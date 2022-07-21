@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Storage Sync Service object.
- * API Version: 2020-03-01.
+ * API Version: 2020-09-01.
  */
 export class StorageSyncService extends pulumi.CustomResource {
     /**
@@ -73,6 +73,10 @@ export class StorageSyncService extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -107,6 +111,7 @@ export class StorageSyncService extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["storageSyncServiceStatus"] = undefined /*out*/;
             resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["incomingTrafficPolicy"] = undefined /*out*/;
@@ -118,6 +123,7 @@ export class StorageSyncService extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["storageSyncServiceStatus"] = undefined /*out*/;
             resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

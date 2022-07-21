@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about JIT request definition.
-    /// API Version: 2019-07-01.
+    /// API Version: 2021-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:JitRequest")]
     public partial class JitRequest : Pulumi.CustomResource
@@ -69,6 +69,12 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         [Output("publisherTenantId")]
         public Output<string> PublisherTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

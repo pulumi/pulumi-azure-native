@@ -11,7 +11,7 @@ import (
 )
 
 // A Content Key Policy resource.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupContentKeyPolicy(ctx *pulumi.Context, args *LookupContentKeyPolicyArgs, opts ...pulumi.InvokeOption) (*LookupContentKeyPolicyResult, error) {
 	var rv LookupContentKeyPolicyResult
 	err := ctx.Invoke("azure-native:media:getContentKeyPolicy", args, &rv, opts...)

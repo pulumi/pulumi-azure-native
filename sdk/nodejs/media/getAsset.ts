@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Asset.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
     if (!opts) {

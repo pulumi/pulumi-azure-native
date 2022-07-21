@@ -46,7 +46,7 @@ class GetTagResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -54,7 +54,7 @@ class GetTagResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +62,7 @@ class GetTagResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -85,7 +85,7 @@ def get_tag(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagResult:
     """
     Tag Contract details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -116,7 +116,7 @@ def get_tag_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
     """
     Tag Contract details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

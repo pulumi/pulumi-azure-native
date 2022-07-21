@@ -54,12 +54,6 @@ func NewBillingRoleAssignmentByDepartment(ctx *pulumi.Context,
 	if args.DepartmentName == nil {
 		return nil, errors.New("invalid value for required argument 'DepartmentName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:billing:BillingRoleAssignmentByDepartment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource BillingRoleAssignmentByDepartment
 	err := ctx.RegisterResource("azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment", name, args, &resource, opts...)
 	if err != nil {

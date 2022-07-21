@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Database, Server or Elastic Pool Advisor.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class DatabaseAdvisor extends pulumi.CustomResource {
     /**

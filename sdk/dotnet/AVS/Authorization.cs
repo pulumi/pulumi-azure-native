@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
-    /// API Version: 2020-03-20.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Authorization")]
     public partial class Authorization : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("expressRouteAuthorizationKey")]
         public Output<string> ExpressRouteAuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the ExpressRoute Circuit
+        /// </summary>
+        [Output("expressRouteId")]
+        public Output<string?> ExpressRouteId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -104,6 +110,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Input("authorizationName")]
         public Input<string>? AuthorizationName { get; set; }
+
+        /// <summary>
+        /// The ID of the ExpressRoute Circuit
+        /// </summary>
+        [Input("expressRouteId")]
+        public Input<string>? ExpressRouteId { get; set; }
 
         /// <summary>
         /// The name of the private cloud.

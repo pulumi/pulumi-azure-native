@@ -11,7 +11,7 @@ import (
 )
 
 // Response of a list VM Host Update Operation.
-// API Version: 2020-10-01.
+// API Version: 2022-01-01-preview.
 func ListMonitorVMHosts(ctx *pulumi.Context, args *ListMonitorVMHostsArgs, opts ...pulumi.InvokeOption) (*ListMonitorVMHostsResult, error) {
 	var rv ListMonitorVMHostsResult
 	err := ctx.Invoke("azure-native:logz:listMonitorVMHosts", args, &rv, opts...)

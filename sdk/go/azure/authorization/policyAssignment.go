@@ -12,7 +12,7 @@ import (
 )
 
 // The policy assignment.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
@@ -40,6 +40,8 @@ type PolicyAssignment struct {
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
 	Scope pulumi.StringOutput `pulumi:"scope"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the policy assignment.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -277,6 +279,11 @@ func (o PolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 // The scope for the policy assignment.
 func (o PolicyAssignmentOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o PolicyAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PolicyAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the policy assignment.

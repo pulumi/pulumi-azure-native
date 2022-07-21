@@ -12,24 +12,36 @@ import (
 )
 
 // A node pool snapshot resource.
-// API Version: 2021-08-01.
+// API Version: 2022-04-01.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
 	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData CreationDataResponsePtrOutput `pulumi:"creationData"`
-	// Resource location
+	// Whether to use a FIPS-enabled OS.
+	EnableFIPS pulumi.BoolOutput `pulumi:"enableFIPS"`
+	// The version of Kubernetes.
+	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The version of node image.
+	NodeImageVersion pulumi.StringOutput `pulumi:"nodeImageVersion"`
+	// Specifies an OS SKU. This value must not be specified if OSType is Windows.
+	OsSku pulumi.StringOutput `pulumi:"osSku"`
+	// The operating system type. The default is Linux.
+	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The type of a snapshot. The default is NodePool.
 	SnapshotType pulumi.StringPtrOutput `pulumi:"snapshotType"`
-	// The system metadata relating to this snapshot.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The size of the VM.
+	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -118,15 +130,15 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData *CreationData `pulumi:"creationData"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName *string `pulumi:"resourceName"`
 	// The type of a snapshot. The default is NodePool.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// Resource tags
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -134,15 +146,15 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData CreationDataPtrInput
-	// Resource location
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringPtrInput
 	// The type of a snapshot. The default is NodePool.
 	SnapshotType pulumi.StringPtrInput
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapInput
 }
 
@@ -188,14 +200,39 @@ func (o SnapshotOutput) CreationData() CreationDataResponsePtrOutput {
 	return o.ApplyT(func(v *Snapshot) CreationDataResponsePtrOutput { return v.CreationData }).(CreationDataResponsePtrOutput)
 }
 
-// Resource location
+// Whether to use a FIPS-enabled OS.
+func (o SnapshotOutput) EnableFIPS() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolOutput { return v.EnableFIPS }).(pulumi.BoolOutput)
+}
+
+// The version of Kubernetes.
+func (o SnapshotOutput) KubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KubernetesVersion }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
 func (o SnapshotOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o SnapshotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version of node image.
+func (o SnapshotOutput) NodeImageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NodeImageVersion }).(pulumi.StringOutput)
+}
+
+// Specifies an OS SKU. This value must not be specified if OSType is Windows.
+func (o SnapshotOutput) OsSku() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OsSku }).(pulumi.StringOutput)
+}
+
+// The operating system type. The default is Linux.
+func (o SnapshotOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
 }
 
 // The type of a snapshot. The default is NodePool.
@@ -203,19 +240,24 @@ func (o SnapshotOutput) SnapshotType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.SnapshotType }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this snapshot.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o SnapshotOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Snapshot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Resource tags
+// Resource tags.
 func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o SnapshotOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The size of the VM.
+func (o SnapshotOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.VmSize }).(pulumi.StringOutput)
 }
 
 func init() {

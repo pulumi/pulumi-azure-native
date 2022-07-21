@@ -12,7 +12,7 @@ import (
 )
 
 // NSX Public IP Block
-// API Version: 2021-06-01.
+// API Version: 2021-12-01.
 type WorkloadNetworkPublicIP struct {
 	pulumi.CustomResourceState
 

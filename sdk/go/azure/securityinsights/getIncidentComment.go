@@ -11,7 +11,7 @@ import (
 )
 
 // Represents an incident comment
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 func LookupIncidentComment(ctx *pulumi.Context, args *LookupIncidentCommentArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCommentResult, error) {
 	var rv LookupIncidentCommentResult
 	err := ctx.Invoke("azure-native:securityinsights:getIncidentComment", args, &rv, opts...)
@@ -26,8 +26,6 @@ type LookupIncidentCommentArgs struct {
 	IncidentCommentId string `pulumi:"incidentCommentId"`
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
@@ -42,17 +40,17 @@ type LookupIncidentCommentResult struct {
 	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The time the comment was updated
 	LastModifiedTimeUtc string `pulumi:"lastModifiedTimeUtc"`
 	// The comment message
 	Message string `pulumi:"message"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -74,8 +72,6 @@ type LookupIncidentCommentOutputArgs struct {
 	IncidentCommentId pulumi.StringInput `pulumi:"incidentCommentId"`
 	// Incident ID
 	IncidentId pulumi.StringInput `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the workspace.
@@ -116,7 +112,7 @@ func (o LookupIncidentCommentResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIncidentCommentResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupIncidentCommentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentCommentResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -131,7 +127,7 @@ func (o LookupIncidentCommentResultOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentCommentResult) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupIncidentCommentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentCommentResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -141,7 +137,7 @@ func (o LookupIncidentCommentResultOutput) SystemData() SystemDataResponseOutput
 	return o.ApplyT(func(v LookupIncidentCommentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupIncidentCommentResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIncidentCommentResult) string { return v.Type }).(pulumi.StringOutput)
 }

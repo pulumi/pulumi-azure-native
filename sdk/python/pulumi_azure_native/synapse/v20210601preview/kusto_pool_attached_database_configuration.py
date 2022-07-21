@@ -260,8 +260,6 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse:KustoPoolAttachedDatabaseConfiguration")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KustoPoolAttachedDatabaseConfiguration, __self__).__init__(
             'azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration',
             resource_name,

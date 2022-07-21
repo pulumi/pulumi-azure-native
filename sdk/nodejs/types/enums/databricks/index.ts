@@ -12,15 +12,14 @@ export {
     v20220401preview,
 };
 
-export const IdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
+export const EncryptionKeySource = {
+    Microsoft_Keyvault: "Microsoft.Keyvault",
 } as const;
 
 /**
- * The identity type.
+ * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
  */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+export type EncryptionKeySource = (typeof EncryptionKeySource)[keyof typeof EncryptionKeySource];
 
 export const KeySource = {
     Default: "Default",
@@ -43,3 +42,24 @@ export const PrivateLinkServiceConnectionStatus = {
  * The status of a private endpoint connection
  */
 export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RequiredNsgRules = {
+    AllRules: "AllRules",
+    NoAzureDatabricksRules: "NoAzureDatabricksRules",
+    NoAzureServiceRules: "NoAzureServiceRules",
+} as const;
+
+/**
+ * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+ */
+export type RequiredNsgRules = (typeof RequiredNsgRules)[keyof typeof RequiredNsgRules];

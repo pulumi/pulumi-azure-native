@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Create or update Restore Point collection parameters.
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:RestorePointCollection")]
     public partial class RestorePointCollection : Pulumi.CustomResource

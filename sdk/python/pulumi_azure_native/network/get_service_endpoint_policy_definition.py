@@ -20,7 +20,7 @@ class GetServiceEndpointPolicyDefinitionResult:
     """
     Service Endpoint policy definitions.
     """
-    def __init__(__self__, description=None, etag=None, id=None, name=None, provisioning_state=None, service=None, service_resources=None):
+    def __init__(__self__, description=None, etag=None, id=None, name=None, provisioning_state=None, service=None, service_resources=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -42,6 +42,9 @@ class GetServiceEndpointPolicyDefinitionResult:
         if service_resources and not isinstance(service_resources, list):
             raise TypeError("Expected argument 'service_resources' to be a list")
         pulumi.set(__self__, "service_resources", service_resources)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -99,6 +102,14 @@ class GetServiceEndpointPolicyDefinitionResult:
         """
         return pulumi.get(self, "service_resources")
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetServiceEndpointPolicyDefinitionResult(GetServiceEndpointPolicyDefinitionResult):
     # pylint: disable=using-constant-test
@@ -112,7 +123,8 @@ class AwaitableGetServiceEndpointPolicyDefinitionResult(GetServiceEndpointPolicy
             name=self.name,
             provisioning_state=self.provisioning_state,
             service=self.service,
-            service_resources=self.service_resources)
+            service_resources=self.service_resources,
+            type=self.type)
 
 
 def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = None,
@@ -121,7 +133,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyDefinitionResult:
     """
     Service Endpoint policy definitions.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -145,7 +157,8 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         service=__ret__.service,
-        service_resources=__ret__.service_resources)
+        service_resources=__ret__.service_resources,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_service_endpoint_policy_definition)
@@ -155,7 +168,7 @@ def get_service_endpoint_policy_definition_output(resource_group_name: Optional[
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyDefinitionResult]:
     """
     Service Endpoint policy definitions.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

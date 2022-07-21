@@ -12,22 +12,28 @@ import (
 )
 
 // A SQL Server availability group listener.
-// API Version: 2017-03-01-preview.
+// API Version: 2022-02-01.
 type AvailabilityGroupListener struct {
 	pulumi.CustomResourceState
 
+	// Availability Group configuration.
+	AvailabilityGroupConfiguration AgConfigurationResponsePtrOutput `pulumi:"availabilityGroupConfiguration"`
 	// Name of the availability group.
 	AvailabilityGroupName pulumi.StringPtrOutput `pulumi:"availabilityGroupName"`
 	// Create a default availability group if it does not exist.
 	CreateDefaultAvailabilityGroupIfNotExist pulumi.BoolPtrOutput `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
 	// List of load balancer configurations for an availability group listener.
 	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayOutput `pulumi:"loadBalancerConfigurations"`
+	// List of multi subnet IP configurations for an AG listener.
+	MultiSubnetIpConfigurations MultiSubnetIpConfigurationResponseArrayOutput `pulumi:"multiSubnetIpConfigurations"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Listener port.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Provisioning state to track the async operation status.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -92,6 +98,8 @@ func (AvailabilityGroupListenerState) ElementType() reflect.Type {
 }
 
 type availabilityGroupListenerArgs struct {
+	// Availability Group configuration.
+	AvailabilityGroupConfiguration *AgConfiguration `pulumi:"availabilityGroupConfiguration"`
 	// Name of the availability group listener.
 	AvailabilityGroupListenerName *string `pulumi:"availabilityGroupListenerName"`
 	// Name of the availability group.
@@ -100,6 +108,8 @@ type availabilityGroupListenerArgs struct {
 	CreateDefaultAvailabilityGroupIfNotExist *bool `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
 	// List of load balancer configurations for an availability group listener.
 	LoadBalancerConfigurations []LoadBalancerConfiguration `pulumi:"loadBalancerConfigurations"`
+	// List of multi subnet IP configurations for an AG listener.
+	MultiSubnetIpConfigurations []MultiSubnetIpConfiguration `pulumi:"multiSubnetIpConfigurations"`
 	// Listener port.
 	Port *int `pulumi:"port"`
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -110,6 +120,8 @@ type availabilityGroupListenerArgs struct {
 
 // The set of arguments for constructing a AvailabilityGroupListener resource.
 type AvailabilityGroupListenerArgs struct {
+	// Availability Group configuration.
+	AvailabilityGroupConfiguration AgConfigurationPtrInput
 	// Name of the availability group listener.
 	AvailabilityGroupListenerName pulumi.StringPtrInput
 	// Name of the availability group.
@@ -118,6 +130,8 @@ type AvailabilityGroupListenerArgs struct {
 	CreateDefaultAvailabilityGroupIfNotExist pulumi.BoolPtrInput
 	// List of load balancer configurations for an availability group listener.
 	LoadBalancerConfigurations LoadBalancerConfigurationArrayInput
+	// List of multi subnet IP configurations for an AG listener.
+	MultiSubnetIpConfigurations MultiSubnetIpConfigurationArrayInput
 	// Listener port.
 	Port pulumi.IntPtrInput
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -163,6 +177,13 @@ func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutputWithCo
 	return o
 }
 
+// Availability Group configuration.
+func (o AvailabilityGroupListenerOutput) AvailabilityGroupConfiguration() AgConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) AgConfigurationResponsePtrOutput {
+		return v.AvailabilityGroupConfiguration
+	}).(AgConfigurationResponsePtrOutput)
+}
+
 // Name of the availability group.
 func (o AvailabilityGroupListenerOutput) AvailabilityGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringPtrOutput { return v.AvailabilityGroupName }).(pulumi.StringPtrOutput)
@@ -182,6 +203,13 @@ func (o AvailabilityGroupListenerOutput) LoadBalancerConfigurations() LoadBalanc
 	}).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
+// List of multi subnet IP configurations for an AG listener.
+func (o AvailabilityGroupListenerOutput) MultiSubnetIpConfigurations() MultiSubnetIpConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) MultiSubnetIpConfigurationResponseArrayOutput {
+		return v.MultiSubnetIpConfigurations
+	}).(MultiSubnetIpConfigurationResponseArrayOutput)
+}
+
 // Resource name.
 func (o AvailabilityGroupListenerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -195,6 +223,11 @@ func (o AvailabilityGroupListenerOutput) Port() pulumi.IntPtrOutput {
 // Provisioning state to track the async operation status.
 func (o AvailabilityGroupListenerOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o AvailabilityGroupListenerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.

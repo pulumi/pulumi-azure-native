@@ -100,7 +100,7 @@ def get_data_connection(cluster_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectionResult:
     """
     Class representing an data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -136,7 +136,7 @@ def get_data_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataConnectionResult]:
     """
     Class representing an data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

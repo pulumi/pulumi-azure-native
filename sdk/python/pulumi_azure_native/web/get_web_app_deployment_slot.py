@@ -194,7 +194,7 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentSlotResult:
     """
     User credentials used for publishing activity.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str id: Deployment ID.
@@ -237,7 +237,7 @@ def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentSlotResult]:
     """
     User credentials used for publishing activity.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str id: Deployment ID.

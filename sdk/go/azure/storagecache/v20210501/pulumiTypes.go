@@ -1431,7 +1431,7 @@ type CacheIdentity struct {
 	// The type of identity used for the cache
 	Type *CacheIdentityType `pulumi:"type"`
 	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
@@ -1450,7 +1450,7 @@ type CacheIdentityArgs struct {
 	// The type of identity used for the cache
 	Type CacheIdentityTypePtrInput `pulumi:"type"`
 	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {
@@ -1537,8 +1537,8 @@ func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
 }
 
 // A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-func (o CacheIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v CacheIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o CacheIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1576,13 +1576,13 @@ func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
 }
 
 // A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-func (o CacheIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *CacheIdentity) map[string]interface{} {
+func (o CacheIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Cache identity properties.

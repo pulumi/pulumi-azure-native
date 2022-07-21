@@ -22,6 +22,7 @@ class CustomLocationArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  host_resource_id: Optional[pulumi.Input[str]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class CustomLocationArgs:
         :param pulumi.Input[str] display_name: Display name for the Custom Locations location.
         :param pulumi.Input[str] host_resource_id: Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
         :param pulumi.Input[Union[str, 'HostType']] host_type: Type of host the Custom Locations is referencing (Kubernetes, etc...).
+        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] namespace: Kubernetes namespace that will be created on the specified cluster.
         :param pulumi.Input[str] provisioning_state: Provisioning State for the Custom Location.
@@ -52,6 +54,8 @@ class CustomLocationArgs:
             pulumi.set(__self__, "host_resource_id", host_resource_id)
         if host_type is not None:
             pulumi.set(__self__, "host_type", host_type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if namespace is not None:
@@ -137,6 +141,18 @@ class CustomLocationArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -206,6 +222,7 @@ class CustomLocation(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  host_resource_id: Optional[pulumi.Input[str]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -215,7 +232,7 @@ class CustomLocation(pulumi.CustomResource):
                  __props__=None):
         """
         Custom Locations definition.
-        API Version: 2021-03-15-preview.
+        API Version: 2021-08-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,6 +241,7 @@ class CustomLocation(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Display name for the Custom Locations location.
         :param pulumi.Input[str] host_resource_id: Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
         :param pulumi.Input[Union[str, 'HostType']] host_type: Type of host the Custom Locations is referencing (Kubernetes, etc...).
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] namespace: Kubernetes namespace that will be created on the specified cluster.
         :param pulumi.Input[str] provisioning_state: Provisioning State for the Custom Location.
@@ -239,7 +257,7 @@ class CustomLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom Locations definition.
-        API Version: 2021-03-15-preview.
+        API Version: 2021-08-15.
 
         :param str resource_name: The name of the resource.
         :param CustomLocationArgs args: The arguments to use to populate this resource's properties.
@@ -261,6 +279,7 @@ class CustomLocation(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  host_resource_id: Optional[pulumi.Input[str]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -284,6 +303,7 @@ class CustomLocation(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["host_resource_id"] = host_resource_id
             __props__.__dict__["host_type"] = host_type
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["provisioning_state"] = provisioning_state
@@ -324,6 +344,7 @@ class CustomLocation(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["host_resource_id"] = None
         __props__.__dict__["host_type"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["namespace"] = None
@@ -372,6 +393,14 @@ class CustomLocation(pulumi.CustomResource):
         Type of host the Custom Locations is referencing (Kubernetes, etc...).
         """
         return pulumi.get(self, "host_type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

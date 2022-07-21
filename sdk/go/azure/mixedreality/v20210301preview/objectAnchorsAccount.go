@@ -50,12 +50,6 @@ func NewObjectAnchorsAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:mixedreality:ObjectAnchorsAccount"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ObjectAnchorsAccount
 	err := ctx.RegisterResource("azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -11,7 +11,7 @@ import (
 )
 
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionSlotResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot", args, &rv, opts...)
@@ -42,8 +42,6 @@ type LookupWebAppSwiftVirtualNetworkConnectionSlotResult struct {
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported *bool `pulumi:"swiftSupported"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -112,11 +110,6 @@ func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) SubnetResourc
 // A flag that specifies if the scale unit this Web App is on supports Swift integration.
 func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) SwiftSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) *bool { return v.SwiftSupported }).(pulumi.BoolPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.

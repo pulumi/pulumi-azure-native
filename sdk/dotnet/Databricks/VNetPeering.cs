@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
-    /// API Version: 2018-04-01.
+    /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:vNetPeering")]
     public partial class VNetPeering : Pulumi.CustomResource

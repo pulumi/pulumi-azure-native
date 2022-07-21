@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine group.
-    /// API Version: 2017-03-01-preview.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : Pulumi.CustomResource
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Output("sqlImageSku")]
         public Output<string?> SqlImageSku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

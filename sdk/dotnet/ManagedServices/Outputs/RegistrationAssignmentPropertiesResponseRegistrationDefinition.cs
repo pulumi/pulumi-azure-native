@@ -11,29 +11,33 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
 {
 
     /// <summary>
-    /// Registration definition inside registration assignment.
+    /// The registration definition associated with the registration assignment.
     /// </summary>
     [OutputType]
     public sealed class RegistrationAssignmentPropertiesResponseRegistrationDefinition
     {
         /// <summary>
-        /// Fully qualified path of the registration definition.
+        /// The fully qualified path of the registration definition.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// Properties of registration definition inside registration assignment.
+        /// The properties of the registration definition associated with the registration assignment.
         /// </summary>
         public readonly Outputs.RegistrationAssignmentPropertiesResponseProperties? Properties;
         /// <summary>
-        /// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+        /// The metadata for the registration definition resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         /// </summary>
         public readonly string Type;
 
@@ -47,12 +51,15 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
 
             Outputs.RegistrationAssignmentPropertiesResponseProperties? properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Plan = plan;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

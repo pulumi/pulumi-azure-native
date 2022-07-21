@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Binding resource payload
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform:getBinding", args ?? new GetBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Binding resource payload
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetBindingResult> Invoke(GetBindingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform:getBinding", args ?? new GetBindingInvokeArgs(), options.WithDefaults());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         public readonly Outputs.BindingResourcePropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -118,11 +122,14 @@ namespace Pulumi.AzureNative.AppPlatform
 
             Outputs.BindingResourcePropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

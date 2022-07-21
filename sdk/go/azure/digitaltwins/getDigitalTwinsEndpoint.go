@@ -11,7 +11,7 @@ import (
 )
 
 // DigitalTwinsInstance endpoint resource.
-// API Version: 2020-12-01.
+// API Version: 2022-05-31.
 func LookupDigitalTwinsEndpoint(ctx *pulumi.Context, args *LookupDigitalTwinsEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinsEndpointResult, error) {
 	var rv LookupDigitalTwinsEndpointResult
 	err := ctx.Invoke("azure-native:digitaltwins:getDigitalTwinsEndpoint", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupDigitalTwinsEndpointResult struct {
 	Name string `pulumi:"name"`
 	// DigitalTwinsInstance endpoint resource properties.
 	Properties interface{} `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -96,6 +98,11 @@ func (o LookupDigitalTwinsEndpointResultOutput) Name() pulumi.StringOutput {
 // DigitalTwinsInstance endpoint resource properties.
 func (o LookupDigitalTwinsEndpointResultOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDigitalTwinsEndpointResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupDigitalTwinsEndpointResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDigitalTwinsEndpointResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type.

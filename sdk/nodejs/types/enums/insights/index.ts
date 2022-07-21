@@ -65,19 +65,6 @@ export const AggregationTypeEnum = {
  */
 export type AggregationTypeEnum = (typeof AggregationTypeEnum)[keyof typeof AggregationTypeEnum];
 
-export const AlertSeverity = {
-    Zero: "0",
-    One: "1",
-    Two: "2",
-    Three: "3",
-    Four: "4",
-} as const;
-
-/**
- * Severity of the alert
- */
-export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
-
 export const ApplicationType = {
     Web: "web",
     Other: "other",
@@ -103,6 +90,7 @@ export const ComparisonOperationType = {
 export type ComparisonOperationType = (typeof ComparisonOperationType)[keyof typeof ComparisonOperationType];
 
 export const ConditionOperator = {
+    Equals: "Equals",
     GreaterThan: "GreaterThan",
     GreaterThanOrEqual: "GreaterThanOrEqual",
     LessThan: "LessThan",
@@ -110,22 +98,9 @@ export const ConditionOperator = {
 } as const;
 
 /**
- * the operator used to compare the data and the threshold.
+ * The criteria operator. Relevant and required only for rules of the kind LogAlert.
  */
 export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
-
-export const ConditionalOperator = {
-    GreaterThanOrEqual: "GreaterThanOrEqual",
-    LessThanOrEqual: "LessThanOrEqual",
-    GreaterThan: "GreaterThan",
-    LessThan: "LessThan",
-    Equal: "Equal",
-} as const;
-
-/**
- * Evaluation operation for rule - 'GreaterThan' or 'LessThan.
- */
-export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
 
 export const CriterionType = {
     StaticThresholdCriterion: "StaticThresholdCriterion",
@@ -136,6 +111,16 @@ export const CriterionType = {
  * Specifies the type of threshold criteria
  */
 export type CriterionType = (typeof CriterionType)[keyof typeof CriterionType];
+
+export const DimensionOperator = {
+    Include: "Include",
+    Exclude: "Exclude",
+} as const;
+
+/**
+ * Operator for dimension values
+ */
+export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
 
 export const DynamicThresholdOperator = {
     GreaterThan: "GreaterThan",
@@ -158,16 +143,6 @@ export const DynamicThresholdSensitivity = {
  * The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
  */
 export type DynamicThresholdSensitivity = (typeof DynamicThresholdSensitivity)[keyof typeof DynamicThresholdSensitivity];
-
-export const Enabled = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
- */
-export type Enabled = (typeof Enabled)[keyof typeof Enabled];
 
 export const FavoriteType = {
     Shared: "shared",
@@ -222,12 +197,12 @@ export const ItemType = {
 export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 export const Kind = {
-    User: "user",
-    Shared: "shared",
+    LogAlert: "LogAlert",
+    LogToMetric: "LogToMetric",
 } as const;
 
 /**
- * The kind of workbook. Choices are user and shared.
+ * Indicates the type of scheduled query rule. The default is LogAlert.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
@@ -341,6 +316,18 @@ export const KnownWindowsEventLogDataSourceStreams = {
 
 export type KnownWindowsEventLogDataSourceStreams = (typeof KnownWindowsEventLogDataSourceStreams)[keyof typeof KnownWindowsEventLogDataSourceStreams];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const MetricStatisticType = {
     Average: "Average",
     Min: "Min",
@@ -353,16 +340,6 @@ export const MetricStatisticType = {
  * the metric statistic type. How the metrics from multiple instances are combined.
  */
 export type MetricStatisticType = (typeof MetricStatisticType)[keyof typeof MetricStatisticType];
-
-export const MetricTriggerType = {
-    Consecutive: "Consecutive",
-    Total: "Total",
-} as const;
-
-/**
- * Metric Trigger Type - 'Consecutive' or 'Total'
- */
-export type MetricTriggerType = (typeof MetricTriggerType)[keyof typeof MetricTriggerType];
 
 export const Odatatype = {
     Microsoft_Azure_Monitor_SingleResourceMultipleMetricCriteria: "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
@@ -385,22 +362,33 @@ export const OperationType = {
 export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 export const Operator = {
-    Include: "Include",
+    Equals: "Equals",
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThan: "LessThan",
+    LessThanOrEqual: "LessThanOrEqual",
 } as const;
 
 /**
- * Operator for dimension values
+ * the criteria operator.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
-export const QueryType = {
-    ResultCount: "ResultCount",
+export const PublicNetworkAccessType = {
+    /**
+     * Enables connectivity to Application Insights through public DNS.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disables public connectivity to Application Insights through public DNS.
+     */
+    Disabled: "Disabled",
 } as const;
 
 /**
- * Set value to 'ResultCount' .
+ * The network access type for accessing Application Insights query.
  */
-export type QueryType = (typeof QueryType)[keyof typeof QueryType];
+export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const RecurrenceFrequency = {
     None: "None",
@@ -460,6 +448,19 @@ export const ScaleType = {
  */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
+export const TimeAggregation = {
+    Count: "Count",
+    Average: "Average",
+    Minimum: "Minimum",
+    Maximum: "Maximum",
+    Total: "Total",
+} as const;
+
+/**
+ * Aggregation type. Relevant and required only for rules of the kind LogAlert.
+ */
+export type TimeAggregation = (typeof TimeAggregation)[keyof typeof TimeAggregation];
+
 export const TimeAggregationOperator = {
     Average: "Average",
     Minimum: "Minimum",
@@ -496,3 +497,12 @@ export const WebTestKind = {
  * The kind of web test this is, valid choices are ping and multistep.
  */
 export type WebTestKind = (typeof WebTestKind)[keyof typeof WebTestKind];
+
+export const WorkbookSharedTypeKind = {
+    Shared: "shared",
+} as const;
+
+/**
+ * The kind of workbook. Only valid value is shared.
+ */
+export type WorkbookSharedTypeKind = (typeof WorkbookSharedTypeKind)[keyof typeof WorkbookSharedTypeKind];

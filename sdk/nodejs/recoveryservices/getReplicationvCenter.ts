@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * vCenter definition.
- * API Version: 2018-07-10.
+ * API Version: 2022-03-01.
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
     if (!opts) {
@@ -19,7 +19,7 @@ export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pu
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
-        "vCenterName": args.vCenterName,
+        "vcenterName": args.vcenterName,
     }, opts);
 }
 
@@ -37,9 +37,9 @@ export interface GetReplicationvCenterArgs {
      */
     resourceName: string;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName: string;
+    vcenterName: string;
 }
 
 /**
@@ -86,7 +86,7 @@ export interface GetReplicationvCenterOutputArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName: pulumi.Input<string>;
+    vcenterName: pulumi.Input<string>;
 }

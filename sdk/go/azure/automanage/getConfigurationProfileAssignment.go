@@ -11,7 +11,7 @@ import (
 )
 
 // Configuration profile assignment is an association between a VM and automanage profile configuration.
-// API Version: 2020-06-30-preview.
+// API Version: 2022-05-04.
 func LookupConfigurationProfileAssignment(ctx *pulumi.Context, args *LookupConfigurationProfileAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileAssignmentResult, error) {
 	var rv LookupConfigurationProfileAssignmentResult
 	err := ctx.Invoke("azure-native:automanage:getConfigurationProfileAssignment", args, &rv, opts...)
@@ -34,10 +34,14 @@ type LookupConfigurationProfileAssignmentArgs struct {
 type LookupConfigurationProfileAssignmentResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy string `pulumi:"managedBy"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -88,6 +92,11 @@ func (o LookupConfigurationProfileAssignmentResultOutput) Id() pulumi.StringOutp
 	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o LookupConfigurationProfileAssignmentResultOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
 // The name of the resource
 func (o LookupConfigurationProfileAssignmentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
@@ -98,6 +107,11 @@ func (o LookupConfigurationProfileAssignmentResultOutput) Properties() Configura
 	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) ConfigurationProfileAssignmentPropertiesResponse {
 		return v.Properties
 	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupConfigurationProfileAssignmentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

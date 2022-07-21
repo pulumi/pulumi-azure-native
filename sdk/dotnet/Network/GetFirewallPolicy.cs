@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// FirewallPolicy Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// FirewallPolicy Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Explicit Proxy Settings definition.
+        /// </summary>
+        public readonly Outputs.ExplicitProxySettingsResponse? ExplicitProxySettings;
+        /// <summary>
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
@@ -142,6 +146,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.FirewallPolicySNATResponse? Snat;
         /// <summary>
+        /// SQL Settings definition.
+        /// </summary>
+        public readonly Outputs.FirewallPolicySQLResponse? Sql;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -172,6 +180,8 @@ namespace Pulumi.AzureNative.Network
 
             string etag,
 
+            Outputs.ExplicitProxySettingsResponse? explicitProxySettings,
+
             ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
             string? id,
@@ -194,6 +204,8 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.FirewallPolicySNATResponse? snat,
 
+            Outputs.FirewallPolicySQLResponse? sql,
+
             ImmutableDictionary<string, string>? tags,
 
             string? threatIntelMode,
@@ -208,6 +220,7 @@ namespace Pulumi.AzureNative.Network
             ChildPolicies = childPolicies;
             DnsSettings = dnsSettings;
             Etag = etag;
+            ExplicitProxySettings = explicitProxySettings;
             Firewalls = firewalls;
             Id = id;
             Identity = identity;
@@ -219,6 +232,7 @@ namespace Pulumi.AzureNative.Network
             RuleCollectionGroups = ruleCollectionGroups;
             Sku = sku;
             Snat = snat;
+            Sql = sql;
             Tags = tags;
             ThreatIntelMode = threatIntelMode;
             ThreatIntelWhitelist = threatIntelWhitelist;

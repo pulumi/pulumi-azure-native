@@ -11,7 +11,7 @@ import (
 )
 
 // Mobile network resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupMobileNetwork(ctx *pulumi.Context, args *LookupMobileNetworkArgs, opts ...pulumi.InvokeOption) (*LookupMobileNetworkResult, error) {
 	var rv LookupMobileNetworkResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getMobileNetwork", args, &rv, opts...)
@@ -54,6 +54,8 @@ type LookupMobileNetworkResult struct {
 	PublicLandMobileNetworkIdentifier PlmnIdResponse `pulumi:"publicLandMobileNetworkIdentifier"`
 	// The mobile network resource identifier
 	ServiceKey string `pulumi:"serviceKey"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -157,6 +159,11 @@ func (o LookupMobileNetworkResultOutput) PublicLandMobileNetworkIdentifier() Plm
 // The mobile network resource identifier
 func (o LookupMobileNetworkResultOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMobileNetworkResult) string { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupMobileNetworkResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMobileNetworkResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

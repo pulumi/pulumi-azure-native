@@ -11,7 +11,7 @@ import (
 )
 
 // Description of Rule Resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
 	err := ctx.Invoke("azure-native:servicebus:getRule", args, &rv, opts...)
@@ -42,13 +42,17 @@ type LookupRuleResult struct {
 	CorrelationFilter *CorrelationFilterResponse `pulumi:"correlationFilter"`
 	// Filter type that is evaluated against a BrokeredMessage.
 	FilterType *string `pulumi:"filterType"`
-	// Resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of sqlFilter
 	SqlFilter *SqlFilterResponse `pulumi:"sqlFilter"`
-	// Resource type
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 }
 
@@ -127,12 +131,17 @@ func (o LookupRuleResultOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name
+// The geo-location where the resource lives
+func (o LookupRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -142,7 +151,12 @@ func (o LookupRuleResultOutput) SqlFilter() SqlFilterResponsePtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *SqlFilterResponse { return v.SqlFilter }).(SqlFilterResponsePtrOutput)
 }
 
-// Resource type
+// The system meta data relating to this resource.
+func (o LookupRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

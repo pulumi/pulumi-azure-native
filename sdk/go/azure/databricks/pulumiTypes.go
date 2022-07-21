@@ -10,30 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AccessConnectorPropertiesResponse struct {
-	// Provisioning status of the accessConnector.
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-type AccessConnectorPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AccessConnectorPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessConnectorPropertiesResponse)(nil)).Elem()
-}
-
-func (o AccessConnectorPropertiesResponseOutput) ToAccessConnectorPropertiesResponseOutput() AccessConnectorPropertiesResponseOutput {
-	return o
-}
-
-func (o AccessConnectorPropertiesResponseOutput) ToAccessConnectorPropertiesResponseOutputWithContext(ctx context.Context) AccessConnectorPropertiesResponseOutput {
-	return o
-}
-
-// Provisioning status of the accessConnector.
-func (o AccessConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
 // AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
 type AddressSpace struct {
 	// A list of address blocks reserved for this virtual network in CIDR notation.
@@ -549,6 +525,206 @@ func (o EncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Encryption entities for databricks workspace resource.
+type EncryptionEntitiesDefinition struct {
+	// Encryption properties for the databricks managed services.
+	ManagedServices *EncryptionV2 `pulumi:"managedServices"`
+}
+
+// EncryptionEntitiesDefinitionInput is an input type that accepts EncryptionEntitiesDefinitionArgs and EncryptionEntitiesDefinitionOutput values.
+// You can construct a concrete instance of `EncryptionEntitiesDefinitionInput` via:
+//
+//          EncryptionEntitiesDefinitionArgs{...}
+type EncryptionEntitiesDefinitionInput interface {
+	pulumi.Input
+
+	ToEncryptionEntitiesDefinitionOutput() EncryptionEntitiesDefinitionOutput
+	ToEncryptionEntitiesDefinitionOutputWithContext(context.Context) EncryptionEntitiesDefinitionOutput
+}
+
+// Encryption entities for databricks workspace resource.
+type EncryptionEntitiesDefinitionArgs struct {
+	// Encryption properties for the databricks managed services.
+	ManagedServices EncryptionV2PtrInput `pulumi:"managedServices"`
+}
+
+func (EncryptionEntitiesDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionEntitiesDefinition)(nil)).Elem()
+}
+
+func (i EncryptionEntitiesDefinitionArgs) ToEncryptionEntitiesDefinitionOutput() EncryptionEntitiesDefinitionOutput {
+	return i.ToEncryptionEntitiesDefinitionOutputWithContext(context.Background())
+}
+
+func (i EncryptionEntitiesDefinitionArgs) ToEncryptionEntitiesDefinitionOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionEntitiesDefinitionOutput)
+}
+
+func (i EncryptionEntitiesDefinitionArgs) ToEncryptionEntitiesDefinitionPtrOutput() EncryptionEntitiesDefinitionPtrOutput {
+	return i.ToEncryptionEntitiesDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionEntitiesDefinitionArgs) ToEncryptionEntitiesDefinitionPtrOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionEntitiesDefinitionOutput).ToEncryptionEntitiesDefinitionPtrOutputWithContext(ctx)
+}
+
+// EncryptionEntitiesDefinitionPtrInput is an input type that accepts EncryptionEntitiesDefinitionArgs, EncryptionEntitiesDefinitionPtr and EncryptionEntitiesDefinitionPtrOutput values.
+// You can construct a concrete instance of `EncryptionEntitiesDefinitionPtrInput` via:
+//
+//          EncryptionEntitiesDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionEntitiesDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionEntitiesDefinitionPtrOutput() EncryptionEntitiesDefinitionPtrOutput
+	ToEncryptionEntitiesDefinitionPtrOutputWithContext(context.Context) EncryptionEntitiesDefinitionPtrOutput
+}
+
+type encryptionEntitiesDefinitionPtrType EncryptionEntitiesDefinitionArgs
+
+func EncryptionEntitiesDefinitionPtr(v *EncryptionEntitiesDefinitionArgs) EncryptionEntitiesDefinitionPtrInput {
+	return (*encryptionEntitiesDefinitionPtrType)(v)
+}
+
+func (*encryptionEntitiesDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionEntitiesDefinition)(nil)).Elem()
+}
+
+func (i *encryptionEntitiesDefinitionPtrType) ToEncryptionEntitiesDefinitionPtrOutput() EncryptionEntitiesDefinitionPtrOutput {
+	return i.ToEncryptionEntitiesDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionEntitiesDefinitionPtrType) ToEncryptionEntitiesDefinitionPtrOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionEntitiesDefinitionPtrOutput)
+}
+
+// Encryption entities for databricks workspace resource.
+type EncryptionEntitiesDefinitionOutput struct{ *pulumi.OutputState }
+
+func (EncryptionEntitiesDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionEntitiesDefinition)(nil)).Elem()
+}
+
+func (o EncryptionEntitiesDefinitionOutput) ToEncryptionEntitiesDefinitionOutput() EncryptionEntitiesDefinitionOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionOutput) ToEncryptionEntitiesDefinitionOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionOutput) ToEncryptionEntitiesDefinitionPtrOutput() EncryptionEntitiesDefinitionPtrOutput {
+	return o.ToEncryptionEntitiesDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionEntitiesDefinitionOutput) ToEncryptionEntitiesDefinitionPtrOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionEntitiesDefinition) *EncryptionEntitiesDefinition {
+		return &v
+	}).(EncryptionEntitiesDefinitionPtrOutput)
+}
+
+// Encryption properties for the databricks managed services.
+func (o EncryptionEntitiesDefinitionOutput) ManagedServices() EncryptionV2PtrOutput {
+	return o.ApplyT(func(v EncryptionEntitiesDefinition) *EncryptionV2 { return v.ManagedServices }).(EncryptionV2PtrOutput)
+}
+
+type EncryptionEntitiesDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionEntitiesDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionEntitiesDefinition)(nil)).Elem()
+}
+
+func (o EncryptionEntitiesDefinitionPtrOutput) ToEncryptionEntitiesDefinitionPtrOutput() EncryptionEntitiesDefinitionPtrOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionPtrOutput) ToEncryptionEntitiesDefinitionPtrOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionPtrOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionPtrOutput) Elem() EncryptionEntitiesDefinitionOutput {
+	return o.ApplyT(func(v *EncryptionEntitiesDefinition) EncryptionEntitiesDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionEntitiesDefinition
+		return ret
+	}).(EncryptionEntitiesDefinitionOutput)
+}
+
+// Encryption properties for the databricks managed services.
+func (o EncryptionEntitiesDefinitionPtrOutput) ManagedServices() EncryptionV2PtrOutput {
+	return o.ApplyT(func(v *EncryptionEntitiesDefinition) *EncryptionV2 {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedServices
+	}).(EncryptionV2PtrOutput)
+}
+
+// Encryption entities for databricks workspace resource.
+type EncryptionEntitiesDefinitionResponse struct {
+	// Encryption properties for the databricks managed services.
+	ManagedServices *EncryptionV2Response `pulumi:"managedServices"`
+}
+
+// Encryption entities for databricks workspace resource.
+type EncryptionEntitiesDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionEntitiesDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionEntitiesDefinitionResponse)(nil)).Elem()
+}
+
+func (o EncryptionEntitiesDefinitionResponseOutput) ToEncryptionEntitiesDefinitionResponseOutput() EncryptionEntitiesDefinitionResponseOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionResponseOutput) ToEncryptionEntitiesDefinitionResponseOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionResponseOutput {
+	return o
+}
+
+// Encryption properties for the databricks managed services.
+func (o EncryptionEntitiesDefinitionResponseOutput) ManagedServices() EncryptionV2ResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionEntitiesDefinitionResponse) *EncryptionV2Response { return v.ManagedServices }).(EncryptionV2ResponsePtrOutput)
+}
+
+type EncryptionEntitiesDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionEntitiesDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionEntitiesDefinitionResponse)(nil)).Elem()
+}
+
+func (o EncryptionEntitiesDefinitionResponsePtrOutput) ToEncryptionEntitiesDefinitionResponsePtrOutput() EncryptionEntitiesDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionResponsePtrOutput) ToEncryptionEntitiesDefinitionResponsePtrOutputWithContext(ctx context.Context) EncryptionEntitiesDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionEntitiesDefinitionResponsePtrOutput) Elem() EncryptionEntitiesDefinitionResponseOutput {
+	return o.ApplyT(func(v *EncryptionEntitiesDefinitionResponse) EncryptionEntitiesDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionEntitiesDefinitionResponse
+		return ret
+	}).(EncryptionEntitiesDefinitionResponseOutput)
+}
+
+// Encryption properties for the databricks managed services.
+func (o EncryptionEntitiesDefinitionResponsePtrOutput) ManagedServices() EncryptionV2ResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionEntitiesDefinitionResponse) *EncryptionV2Response {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedServices
+	}).(EncryptionV2ResponsePtrOutput)
+}
+
 // The object that contains details of encryption used on the workspace.
 type EncryptionResponse struct {
 	// The name of KeyVault key.
@@ -673,237 +849,511 @@ func (o EncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
-type IdentityData struct {
-	// The identity type.
-	Type string `pulumi:"type"`
+// The object that contains details of encryption used on the workspace.
+type EncryptionV2 struct {
+	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+	KeySource string `pulumi:"keySource"`
+	// Key Vault input properties for encryption.
+	KeyVaultProperties *EncryptionV2KeyVaultProperties `pulumi:"keyVaultProperties"`
 }
 
-// IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
-// You can construct a concrete instance of `IdentityDataInput` via:
+// EncryptionV2Input is an input type that accepts EncryptionV2Args and EncryptionV2Output values.
+// You can construct a concrete instance of `EncryptionV2Input` via:
 //
-//          IdentityDataArgs{...}
-type IdentityDataInput interface {
+//          EncryptionV2Args{...}
+type EncryptionV2Input interface {
 	pulumi.Input
 
-	ToIdentityDataOutput() IdentityDataOutput
-	ToIdentityDataOutputWithContext(context.Context) IdentityDataOutput
+	ToEncryptionV2Output() EncryptionV2Output
+	ToEncryptionV2OutputWithContext(context.Context) EncryptionV2Output
 }
 
-// Identity for the resource.
-type IdentityDataArgs struct {
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+// The object that contains details of encryption used on the workspace.
+type EncryptionV2Args struct {
+	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+	KeySource pulumi.StringInput `pulumi:"keySource"`
+	// Key Vault input properties for encryption.
+	KeyVaultProperties EncryptionV2KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
 
-func (IdentityDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityData)(nil)).Elem()
+func (EncryptionV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionV2)(nil)).Elem()
 }
 
-func (i IdentityDataArgs) ToIdentityDataOutput() IdentityDataOutput {
-	return i.ToIdentityDataOutputWithContext(context.Background())
+func (i EncryptionV2Args) ToEncryptionV2Output() EncryptionV2Output {
+	return i.ToEncryptionV2OutputWithContext(context.Background())
 }
 
-func (i IdentityDataArgs) ToIdentityDataOutputWithContext(ctx context.Context) IdentityDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataOutput)
+func (i EncryptionV2Args) ToEncryptionV2OutputWithContext(ctx context.Context) EncryptionV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionV2Output)
 }
 
-func (i IdentityDataArgs) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
-	return i.ToIdentityDataPtrOutputWithContext(context.Background())
+func (i EncryptionV2Args) ToEncryptionV2PtrOutput() EncryptionV2PtrOutput {
+	return i.ToEncryptionV2PtrOutputWithContext(context.Background())
 }
 
-func (i IdentityDataArgs) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataOutput).ToIdentityDataPtrOutputWithContext(ctx)
+func (i EncryptionV2Args) ToEncryptionV2PtrOutputWithContext(ctx context.Context) EncryptionV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionV2Output).ToEncryptionV2PtrOutputWithContext(ctx)
 }
 
-// IdentityDataPtrInput is an input type that accepts IdentityDataArgs, IdentityDataPtr and IdentityDataPtrOutput values.
-// You can construct a concrete instance of `IdentityDataPtrInput` via:
+// EncryptionV2PtrInput is an input type that accepts EncryptionV2Args, EncryptionV2Ptr and EncryptionV2PtrOutput values.
+// You can construct a concrete instance of `EncryptionV2PtrInput` via:
 //
-//          IdentityDataArgs{...}
+//          EncryptionV2Args{...}
 //
 //  or:
 //
 //          nil
-type IdentityDataPtrInput interface {
+type EncryptionV2PtrInput interface {
 	pulumi.Input
 
-	ToIdentityDataPtrOutput() IdentityDataPtrOutput
-	ToIdentityDataPtrOutputWithContext(context.Context) IdentityDataPtrOutput
+	ToEncryptionV2PtrOutput() EncryptionV2PtrOutput
+	ToEncryptionV2PtrOutputWithContext(context.Context) EncryptionV2PtrOutput
 }
 
-type identityDataPtrType IdentityDataArgs
+type encryptionV2PtrType EncryptionV2Args
 
-func IdentityDataPtr(v *IdentityDataArgs) IdentityDataPtrInput {
-	return (*identityDataPtrType)(v)
+func EncryptionV2Ptr(v *EncryptionV2Args) EncryptionV2PtrInput {
+	return (*encryptionV2PtrType)(v)
 }
 
-func (*identityDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityData)(nil)).Elem()
+func (*encryptionV2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionV2)(nil)).Elem()
 }
 
-func (i *identityDataPtrType) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
-	return i.ToIdentityDataPtrOutputWithContext(context.Background())
+func (i *encryptionV2PtrType) ToEncryptionV2PtrOutput() EncryptionV2PtrOutput {
+	return i.ToEncryptionV2PtrOutputWithContext(context.Background())
 }
 
-func (i *identityDataPtrType) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataPtrOutput)
+func (i *encryptionV2PtrType) ToEncryptionV2PtrOutputWithContext(ctx context.Context) EncryptionV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionV2PtrOutput)
 }
 
-// Identity for the resource.
-type IdentityDataOutput struct{ *pulumi.OutputState }
+// The object that contains details of encryption used on the workspace.
+type EncryptionV2Output struct{ *pulumi.OutputState }
 
-func (IdentityDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityData)(nil)).Elem()
+func (EncryptionV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionV2)(nil)).Elem()
 }
 
-func (o IdentityDataOutput) ToIdentityDataOutput() IdentityDataOutput {
+func (o EncryptionV2Output) ToEncryptionV2Output() EncryptionV2Output {
 	return o
 }
 
-func (o IdentityDataOutput) ToIdentityDataOutputWithContext(ctx context.Context) IdentityDataOutput {
+func (o EncryptionV2Output) ToEncryptionV2OutputWithContext(ctx context.Context) EncryptionV2Output {
 	return o
 }
 
-func (o IdentityDataOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
-	return o.ToIdentityDataPtrOutputWithContext(context.Background())
+func (o EncryptionV2Output) ToEncryptionV2PtrOutput() EncryptionV2PtrOutput {
+	return o.ToEncryptionV2PtrOutputWithContext(context.Background())
 }
 
-func (o IdentityDataOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityData) *IdentityData {
+func (o EncryptionV2Output) ToEncryptionV2PtrOutputWithContext(ctx context.Context) EncryptionV2PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionV2) *EncryptionV2 {
 		return &v
-	}).(IdentityDataPtrOutput)
+	}).(EncryptionV2PtrOutput)
 }
 
-// The identity type.
-func (o IdentityDataOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityData) string { return v.Type }).(pulumi.StringOutput)
+// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+func (o EncryptionV2Output) KeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2) string { return v.KeySource }).(pulumi.StringOutput)
 }
 
-type IdentityDataPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityData)(nil)).Elem()
+// Key Vault input properties for encryption.
+func (o EncryptionV2Output) KeyVaultProperties() EncryptionV2KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v EncryptionV2) *EncryptionV2KeyVaultProperties { return v.KeyVaultProperties }).(EncryptionV2KeyVaultPropertiesPtrOutput)
 }
 
-func (o IdentityDataPtrOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+type EncryptionV2PtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionV2)(nil)).Elem()
+}
+
+func (o EncryptionV2PtrOutput) ToEncryptionV2PtrOutput() EncryptionV2PtrOutput {
 	return o
 }
 
-func (o IdentityDataPtrOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+func (o EncryptionV2PtrOutput) ToEncryptionV2PtrOutputWithContext(ctx context.Context) EncryptionV2PtrOutput {
 	return o
 }
 
-func (o IdentityDataPtrOutput) Elem() IdentityDataOutput {
-	return o.ApplyT(func(v *IdentityData) IdentityData {
+func (o EncryptionV2PtrOutput) Elem() EncryptionV2Output {
+	return o.ApplyT(func(v *EncryptionV2) EncryptionV2 {
 		if v != nil {
 			return *v
 		}
-		var ret IdentityData
+		var ret EncryptionV2
 		return ret
-	}).(IdentityDataOutput)
+	}).(EncryptionV2Output)
 }
 
-// The identity type.
-func (o IdentityDataPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityData) *string {
+// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+func (o EncryptionV2PtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return &v.KeySource
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
-type IdentityDataResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type string `pulumi:"type"`
+// Key Vault input properties for encryption.
+func (o EncryptionV2PtrOutput) KeyVaultProperties() EncryptionV2KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2) *EncryptionV2KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(EncryptionV2KeyVaultPropertiesPtrOutput)
 }
 
-// Identity for the resource.
-type IdentityDataResponseOutput struct{ *pulumi.OutputState }
-
-func (IdentityDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityDataResponse)(nil)).Elem()
+// Key Vault input properties for encryption.
+type EncryptionV2KeyVaultProperties struct {
+	// The name of KeyVault key.
+	KeyName string `pulumi:"keyName"`
+	// The Uri of KeyVault.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The version of KeyVault key.
+	KeyVersion string `pulumi:"keyVersion"`
 }
 
-func (o IdentityDataResponseOutput) ToIdentityDataResponseOutput() IdentityDataResponseOutput {
+// EncryptionV2KeyVaultPropertiesInput is an input type that accepts EncryptionV2KeyVaultPropertiesArgs and EncryptionV2KeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `EncryptionV2KeyVaultPropertiesInput` via:
+//
+//          EncryptionV2KeyVaultPropertiesArgs{...}
+type EncryptionV2KeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToEncryptionV2KeyVaultPropertiesOutput() EncryptionV2KeyVaultPropertiesOutput
+	ToEncryptionV2KeyVaultPropertiesOutputWithContext(context.Context) EncryptionV2KeyVaultPropertiesOutput
+}
+
+// Key Vault input properties for encryption.
+type EncryptionV2KeyVaultPropertiesArgs struct {
+	// The name of KeyVault key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The Uri of KeyVault.
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The version of KeyVault key.
+	KeyVersion pulumi.StringInput `pulumi:"keyVersion"`
+}
+
+func (EncryptionV2KeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionV2KeyVaultProperties)(nil)).Elem()
+}
+
+func (i EncryptionV2KeyVaultPropertiesArgs) ToEncryptionV2KeyVaultPropertiesOutput() EncryptionV2KeyVaultPropertiesOutput {
+	return i.ToEncryptionV2KeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i EncryptionV2KeyVaultPropertiesArgs) ToEncryptionV2KeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionV2KeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionV2KeyVaultPropertiesOutput)
+}
+
+func (i EncryptionV2KeyVaultPropertiesArgs) ToEncryptionV2KeyVaultPropertiesPtrOutput() EncryptionV2KeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionV2KeyVaultPropertiesArgs) ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionV2KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionV2KeyVaultPropertiesOutput).ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// EncryptionV2KeyVaultPropertiesPtrInput is an input type that accepts EncryptionV2KeyVaultPropertiesArgs, EncryptionV2KeyVaultPropertiesPtr and EncryptionV2KeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `EncryptionV2KeyVaultPropertiesPtrInput` via:
+//
+//          EncryptionV2KeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionV2KeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionV2KeyVaultPropertiesPtrOutput() EncryptionV2KeyVaultPropertiesPtrOutput
+	ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(context.Context) EncryptionV2KeyVaultPropertiesPtrOutput
+}
+
+type encryptionV2KeyVaultPropertiesPtrType EncryptionV2KeyVaultPropertiesArgs
+
+func EncryptionV2KeyVaultPropertiesPtr(v *EncryptionV2KeyVaultPropertiesArgs) EncryptionV2KeyVaultPropertiesPtrInput {
+	return (*encryptionV2KeyVaultPropertiesPtrType)(v)
+}
+
+func (*encryptionV2KeyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionV2KeyVaultProperties)(nil)).Elem()
+}
+
+func (i *encryptionV2KeyVaultPropertiesPtrType) ToEncryptionV2KeyVaultPropertiesPtrOutput() EncryptionV2KeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionV2KeyVaultPropertiesPtrType) ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionV2KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionV2KeyVaultPropertiesPtrOutput)
+}
+
+// Key Vault input properties for encryption.
+type EncryptionV2KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2KeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionV2KeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionV2KeyVaultPropertiesOutput) ToEncryptionV2KeyVaultPropertiesOutput() EncryptionV2KeyVaultPropertiesOutput {
 	return o
 }
 
-func (o IdentityDataResponseOutput) ToIdentityDataResponseOutputWithContext(ctx context.Context) IdentityDataResponseOutput {
+func (o EncryptionV2KeyVaultPropertiesOutput) ToEncryptionV2KeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionV2KeyVaultPropertiesOutput {
 	return o
 }
 
-// The principal ID of resource identity.
-func (o IdentityDataResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityDataResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o EncryptionV2KeyVaultPropertiesOutput) ToEncryptionV2KeyVaultPropertiesPtrOutput() EncryptionV2KeyVaultPropertiesPtrOutput {
+	return o.ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(context.Background())
 }
 
-// The tenant ID of resource.
-func (o IdentityDataResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityDataResponse) string { return v.TenantId }).(pulumi.StringOutput)
+func (o EncryptionV2KeyVaultPropertiesOutput) ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionV2KeyVaultPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionV2KeyVaultProperties) *EncryptionV2KeyVaultProperties {
+		return &v
+	}).(EncryptionV2KeyVaultPropertiesPtrOutput)
 }
 
-// The identity type.
-func (o IdentityDataResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityDataResponse) string { return v.Type }).(pulumi.StringOutput)
+// The name of KeyVault key.
+func (o EncryptionV2KeyVaultPropertiesOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2KeyVaultProperties) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-type IdentityDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityDataResponse)(nil)).Elem()
+// The Uri of KeyVault.
+func (o EncryptionV2KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2KeyVaultProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput {
+// The version of KeyVault key.
+func (o EncryptionV2KeyVaultPropertiesOutput) KeyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2KeyVaultProperties) string { return v.KeyVersion }).(pulumi.StringOutput)
+}
+
+type EncryptionV2KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionV2KeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionV2KeyVaultPropertiesPtrOutput) ToEncryptionV2KeyVaultPropertiesPtrOutput() EncryptionV2KeyVaultPropertiesPtrOutput {
 	return o
 }
 
-func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
+func (o EncryptionV2KeyVaultPropertiesPtrOutput) ToEncryptionV2KeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionV2KeyVaultPropertiesPtrOutput {
 	return o
 }
 
-func (o IdentityDataResponsePtrOutput) Elem() IdentityDataResponseOutput {
-	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse {
+func (o EncryptionV2KeyVaultPropertiesPtrOutput) Elem() EncryptionV2KeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionV2KeyVaultProperties) EncryptionV2KeyVaultProperties {
 		if v != nil {
 			return *v
 		}
-		var ret IdentityDataResponse
+		var ret EncryptionV2KeyVaultProperties
 		return ret
-	}).(IdentityDataResponseOutput)
+	}).(EncryptionV2KeyVaultPropertiesOutput)
 }
 
-// The principal ID of resource identity.
-func (o IdentityDataResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityDataResponse) *string {
+// The name of KeyVault key.
+func (o EncryptionV2KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2KeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PrincipalId
+		return &v.KeyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
-func (o IdentityDataResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityDataResponse) *string {
+// The Uri of KeyVault.
+func (o EncryptionV2KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2KeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.TenantId
+		return &v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
-func (o IdentityDataResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityDataResponse) *string {
+// The version of KeyVault key.
+func (o EncryptionV2KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2KeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return &v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object that contains details of encryption used on the workspace.
+type EncryptionV2Response struct {
+	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+	KeySource string `pulumi:"keySource"`
+	// Key Vault input properties for encryption.
+	KeyVaultProperties *EncryptionV2ResponseKeyVaultProperties `pulumi:"keyVaultProperties"`
+}
+
+// The object that contains details of encryption used on the workspace.
+type EncryptionV2ResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2ResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionV2Response)(nil)).Elem()
+}
+
+func (o EncryptionV2ResponseOutput) ToEncryptionV2ResponseOutput() EncryptionV2ResponseOutput {
+	return o
+}
+
+func (o EncryptionV2ResponseOutput) ToEncryptionV2ResponseOutputWithContext(ctx context.Context) EncryptionV2ResponseOutput {
+	return o
+}
+
+// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+func (o EncryptionV2ResponseOutput) KeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2Response) string { return v.KeySource }).(pulumi.StringOutput)
+}
+
+// Key Vault input properties for encryption.
+func (o EncryptionV2ResponseOutput) KeyVaultProperties() EncryptionV2ResponseKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v EncryptionV2Response) *EncryptionV2ResponseKeyVaultProperties { return v.KeyVaultProperties }).(EncryptionV2ResponseKeyVaultPropertiesPtrOutput)
+}
+
+type EncryptionV2ResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2ResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionV2Response)(nil)).Elem()
+}
+
+func (o EncryptionV2ResponsePtrOutput) ToEncryptionV2ResponsePtrOutput() EncryptionV2ResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionV2ResponsePtrOutput) ToEncryptionV2ResponsePtrOutputWithContext(ctx context.Context) EncryptionV2ResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionV2ResponsePtrOutput) Elem() EncryptionV2ResponseOutput {
+	return o.ApplyT(func(v *EncryptionV2Response) EncryptionV2Response {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionV2Response
+		return ret
+	}).(EncryptionV2ResponseOutput)
+}
+
+// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+func (o EncryptionV2ResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2Response) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key Vault input properties for encryption.
+func (o EncryptionV2ResponsePtrOutput) KeyVaultProperties() EncryptionV2ResponseKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2Response) *EncryptionV2ResponseKeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(EncryptionV2ResponseKeyVaultPropertiesPtrOutput)
+}
+
+// Key Vault input properties for encryption.
+type EncryptionV2ResponseKeyVaultProperties struct {
+	// The name of KeyVault key.
+	KeyName string `pulumi:"keyName"`
+	// The Uri of KeyVault.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The version of KeyVault key.
+	KeyVersion string `pulumi:"keyVersion"`
+}
+
+// Key Vault input properties for encryption.
+type EncryptionV2ResponseKeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2ResponseKeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionV2ResponseKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionV2ResponseKeyVaultPropertiesOutput) ToEncryptionV2ResponseKeyVaultPropertiesOutput() EncryptionV2ResponseKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o EncryptionV2ResponseKeyVaultPropertiesOutput) ToEncryptionV2ResponseKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionV2ResponseKeyVaultPropertiesOutput {
+	return o
+}
+
+// The name of KeyVault key.
+func (o EncryptionV2ResponseKeyVaultPropertiesOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2ResponseKeyVaultProperties) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The Uri of KeyVault.
+func (o EncryptionV2ResponseKeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2ResponseKeyVaultProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The version of KeyVault key.
+func (o EncryptionV2ResponseKeyVaultPropertiesOutput) KeyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionV2ResponseKeyVaultProperties) string { return v.KeyVersion }).(pulumi.StringOutput)
+}
+
+type EncryptionV2ResponseKeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionV2ResponseKeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionV2ResponseKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionV2ResponseKeyVaultPropertiesPtrOutput) ToEncryptionV2ResponseKeyVaultPropertiesPtrOutput() EncryptionV2ResponseKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionV2ResponseKeyVaultPropertiesPtrOutput) ToEncryptionV2ResponseKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionV2ResponseKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionV2ResponseKeyVaultPropertiesPtrOutput) Elem() EncryptionV2ResponseKeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionV2ResponseKeyVaultProperties) EncryptionV2ResponseKeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionV2ResponseKeyVaultProperties
+		return ret
+	}).(EncryptionV2ResponseKeyVaultPropertiesOutput)
+}
+
+// The name of KeyVault key.
+func (o EncryptionV2ResponseKeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2ResponseKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Uri of KeyVault.
+func (o EncryptionV2ResponseKeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2ResponseKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of KeyVault key.
+func (o EncryptionV2ResponseKeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionV2ResponseKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1098,6 +1548,75 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceCon
 // Provisioning state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The private endpoint connection of a workspace
+type PrivateEndpointConnectionResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The private endpoint connection properties.
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// The private endpoint connection of a workspace
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The private endpoint connection properties.
+func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
 }
 
 // The private endpoint property of a private endpoint connection
@@ -1507,6 +2026,67 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
@@ -3335,6 +3915,206 @@ func (o WorkspaceEncryptionParameterResponsePtrOutput) Value() EncryptionRespons
 	}).(EncryptionResponsePtrOutput)
 }
 
+// Encryption properties for databricks workspace
+type WorkspacePropertiesEncryption struct {
+	// Encryption entities definition for the workspace.
+	Entities EncryptionEntitiesDefinition `pulumi:"entities"`
+}
+
+// WorkspacePropertiesEncryptionInput is an input type that accepts WorkspacePropertiesEncryptionArgs and WorkspacePropertiesEncryptionOutput values.
+// You can construct a concrete instance of `WorkspacePropertiesEncryptionInput` via:
+//
+//          WorkspacePropertiesEncryptionArgs{...}
+type WorkspacePropertiesEncryptionInput interface {
+	pulumi.Input
+
+	ToWorkspacePropertiesEncryptionOutput() WorkspacePropertiesEncryptionOutput
+	ToWorkspacePropertiesEncryptionOutputWithContext(context.Context) WorkspacePropertiesEncryptionOutput
+}
+
+// Encryption properties for databricks workspace
+type WorkspacePropertiesEncryptionArgs struct {
+	// Encryption entities definition for the workspace.
+	Entities EncryptionEntitiesDefinitionInput `pulumi:"entities"`
+}
+
+func (WorkspacePropertiesEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePropertiesEncryption)(nil)).Elem()
+}
+
+func (i WorkspacePropertiesEncryptionArgs) ToWorkspacePropertiesEncryptionOutput() WorkspacePropertiesEncryptionOutput {
+	return i.ToWorkspacePropertiesEncryptionOutputWithContext(context.Background())
+}
+
+func (i WorkspacePropertiesEncryptionArgs) ToWorkspacePropertiesEncryptionOutputWithContext(ctx context.Context) WorkspacePropertiesEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesEncryptionOutput)
+}
+
+func (i WorkspacePropertiesEncryptionArgs) ToWorkspacePropertiesEncryptionPtrOutput() WorkspacePropertiesEncryptionPtrOutput {
+	return i.ToWorkspacePropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePropertiesEncryptionArgs) ToWorkspacePropertiesEncryptionPtrOutputWithContext(ctx context.Context) WorkspacePropertiesEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesEncryptionOutput).ToWorkspacePropertiesEncryptionPtrOutputWithContext(ctx)
+}
+
+// WorkspacePropertiesEncryptionPtrInput is an input type that accepts WorkspacePropertiesEncryptionArgs, WorkspacePropertiesEncryptionPtr and WorkspacePropertiesEncryptionPtrOutput values.
+// You can construct a concrete instance of `WorkspacePropertiesEncryptionPtrInput` via:
+//
+//          WorkspacePropertiesEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspacePropertiesEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePropertiesEncryptionPtrOutput() WorkspacePropertiesEncryptionPtrOutput
+	ToWorkspacePropertiesEncryptionPtrOutputWithContext(context.Context) WorkspacePropertiesEncryptionPtrOutput
+}
+
+type workspacePropertiesEncryptionPtrType WorkspacePropertiesEncryptionArgs
+
+func WorkspacePropertiesEncryptionPtr(v *WorkspacePropertiesEncryptionArgs) WorkspacePropertiesEncryptionPtrInput {
+	return (*workspacePropertiesEncryptionPtrType)(v)
+}
+
+func (*workspacePropertiesEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePropertiesEncryption)(nil)).Elem()
+}
+
+func (i *workspacePropertiesEncryptionPtrType) ToWorkspacePropertiesEncryptionPtrOutput() WorkspacePropertiesEncryptionPtrOutput {
+	return i.ToWorkspacePropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePropertiesEncryptionPtrType) ToWorkspacePropertiesEncryptionPtrOutputWithContext(ctx context.Context) WorkspacePropertiesEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesEncryptionPtrOutput)
+}
+
+// Encryption properties for databricks workspace
+type WorkspacePropertiesEncryptionOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePropertiesEncryption)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesEncryptionOutput) ToWorkspacePropertiesEncryptionOutput() WorkspacePropertiesEncryptionOutput {
+	return o
+}
+
+func (o WorkspacePropertiesEncryptionOutput) ToWorkspacePropertiesEncryptionOutputWithContext(ctx context.Context) WorkspacePropertiesEncryptionOutput {
+	return o
+}
+
+func (o WorkspacePropertiesEncryptionOutput) ToWorkspacePropertiesEncryptionPtrOutput() WorkspacePropertiesEncryptionPtrOutput {
+	return o.ToWorkspacePropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePropertiesEncryptionOutput) ToWorkspacePropertiesEncryptionPtrOutputWithContext(ctx context.Context) WorkspacePropertiesEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacePropertiesEncryption) *WorkspacePropertiesEncryption {
+		return &v
+	}).(WorkspacePropertiesEncryptionPtrOutput)
+}
+
+// Encryption entities definition for the workspace.
+func (o WorkspacePropertiesEncryptionOutput) Entities() EncryptionEntitiesDefinitionOutput {
+	return o.ApplyT(func(v WorkspacePropertiesEncryption) EncryptionEntitiesDefinition { return v.Entities }).(EncryptionEntitiesDefinitionOutput)
+}
+
+type WorkspacePropertiesEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePropertiesEncryption)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesEncryptionPtrOutput) ToWorkspacePropertiesEncryptionPtrOutput() WorkspacePropertiesEncryptionPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesEncryptionPtrOutput) ToWorkspacePropertiesEncryptionPtrOutputWithContext(ctx context.Context) WorkspacePropertiesEncryptionPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesEncryptionPtrOutput) Elem() WorkspacePropertiesEncryptionOutput {
+	return o.ApplyT(func(v *WorkspacePropertiesEncryption) WorkspacePropertiesEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePropertiesEncryption
+		return ret
+	}).(WorkspacePropertiesEncryptionOutput)
+}
+
+// Encryption entities definition for the workspace.
+func (o WorkspacePropertiesEncryptionPtrOutput) Entities() EncryptionEntitiesDefinitionPtrOutput {
+	return o.ApplyT(func(v *WorkspacePropertiesEncryption) *EncryptionEntitiesDefinition {
+		if v == nil {
+			return nil
+		}
+		return &v.Entities
+	}).(EncryptionEntitiesDefinitionPtrOutput)
+}
+
+// Encryption properties for databricks workspace
+type WorkspacePropertiesResponseEncryption struct {
+	// Encryption entities definition for the workspace.
+	Entities EncryptionEntitiesDefinitionResponse `pulumi:"entities"`
+}
+
+// Encryption properties for databricks workspace
+type WorkspacePropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesResponseEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesResponseEncryptionOutput) ToWorkspacePropertiesResponseEncryptionOutput() WorkspacePropertiesResponseEncryptionOutput {
+	return o
+}
+
+func (o WorkspacePropertiesResponseEncryptionOutput) ToWorkspacePropertiesResponseEncryptionOutputWithContext(ctx context.Context) WorkspacePropertiesResponseEncryptionOutput {
+	return o
+}
+
+// Encryption entities definition for the workspace.
+func (o WorkspacePropertiesResponseEncryptionOutput) Entities() EncryptionEntitiesDefinitionResponseOutput {
+	return o.ApplyT(func(v WorkspacePropertiesResponseEncryption) EncryptionEntitiesDefinitionResponse { return v.Entities }).(EncryptionEntitiesDefinitionResponseOutput)
+}
+
+type WorkspacePropertiesResponseEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesResponseEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesResponseEncryptionPtrOutput) ToWorkspacePropertiesResponseEncryptionPtrOutput() WorkspacePropertiesResponseEncryptionPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesResponseEncryptionPtrOutput) ToWorkspacePropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) WorkspacePropertiesResponseEncryptionPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesResponseEncryptionPtrOutput) Elem() WorkspacePropertiesResponseEncryptionOutput {
+	return o.ApplyT(func(v *WorkspacePropertiesResponseEncryption) WorkspacePropertiesResponseEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePropertiesResponseEncryption
+		return ret
+	}).(WorkspacePropertiesResponseEncryptionOutput)
+}
+
+// Encryption entities definition for the workspace.
+func (o WorkspacePropertiesResponseEncryptionPtrOutput) Entities() EncryptionEntitiesDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspacePropertiesResponseEncryption) *EncryptionEntitiesDefinitionResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Entities
+	}).(EncryptionEntitiesDefinitionResponsePtrOutput)
+}
+
 // The workspace provider authorization.
 type WorkspaceProviderAuthorization struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
@@ -3498,7 +4278,6 @@ func (o WorkspaceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccessConnectorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AddressSpaceOutput{})
 	pulumi.RegisterOutputType(AddressSpacePtrOutput{})
 	pulumi.RegisterOutputType(AddressSpaceResponseOutput{})
@@ -3507,16 +4286,26 @@ func init() {
 	pulumi.RegisterOutputType(CreatedByResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionEntitiesDefinitionOutput{})
+	pulumi.RegisterOutputType(EncryptionEntitiesDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionEntitiesDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionEntitiesDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentityDataOutput{})
-	pulumi.RegisterOutputType(IdentityDataPtrOutput{})
-	pulumi.RegisterOutputType(IdentityDataResponseOutput{})
-	pulumi.RegisterOutputType(IdentityDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionV2Output{})
+	pulumi.RegisterOutputType(EncryptionV2PtrOutput{})
+	pulumi.RegisterOutputType(EncryptionV2KeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionV2KeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionV2ResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionV2ResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionV2ResponseKeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionV2ResponseKeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
@@ -3525,6 +4314,7 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput{})
@@ -3549,6 +4339,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesEncryptionOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesResponseEncryptionOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesResponseEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseOutput{})

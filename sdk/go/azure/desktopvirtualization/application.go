@@ -12,7 +12,7 @@ import (
 )
 
 // Schema for Application properties.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-07-12.
 type Application struct {
 	pulumi.CustomResourceState
 

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class ServiceEndpointPolicyResponse
     {
         /// <summary>
+        /// A collection of contextual service endpoint policy.
+        /// </summary>
+        public readonly ImmutableArray<string> ContextualServiceEndpointPolicies;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -45,6 +49,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ResourceGuid;
         /// <summary>
+        /// The alias indicating if the policy belongs to a service
+        /// </summary>
+        public readonly string? ServiceAlias;
+        /// <summary>
         /// A collection of service endpoint policy definitions of the service endpoint policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> ServiceEndpointPolicyDefinitions;
@@ -63,6 +71,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private ServiceEndpointPolicyResponse(
+            ImmutableArray<string> contextualServiceEndpointPolicies,
+
             string etag,
 
             string? id,
@@ -77,6 +87,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string resourceGuid,
 
+            string? serviceAlias,
+
             ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> serviceEndpointPolicyDefinitions,
 
             ImmutableArray<Outputs.SubnetResponse> subnets,
@@ -85,6 +97,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string type)
         {
+            ContextualServiceEndpointPolicies = contextualServiceEndpointPolicies;
             Etag = etag;
             Id = id;
             Kind = kind;
@@ -92,6 +105,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Name = name;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
+            ServiceAlias = serviceAlias;
             ServiceEndpointPolicyDefinitions = serviceEndpointPolicyDefinitions;
             Subnets = subnets;
             Tags = tags;

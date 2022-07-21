@@ -12,13 +12,13 @@ import (
 )
 
 // Recipient User details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type NotificationRecipientUser struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// API Management UserId subscribed to notification.
 	UserId pulumi.StringPtrOutput `pulumi:"userId"`
@@ -170,12 +170,12 @@ func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutputWithCo
 	return o
 }
 
-// Resource name.
+// The name of the resource
 func (o NotificationRecipientUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o NotificationRecipientUserOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

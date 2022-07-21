@@ -11,7 +11,7 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
-// API Version: 2020-06-25.
+// API Version: 2022-01-25.
 func LookupGuestConfigurationAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationAssignmentResult, error) {
 	var rv LookupGuestConfigurationAssignmentResult
 	err := ctx.Invoke("azure-native:guestconfiguration:getGuestConfigurationAssignment", args, &rv, opts...)
@@ -40,6 +40,8 @@ type LookupGuestConfigurationAssignmentResult struct {
 	Name *string `pulumi:"name"`
 	// Properties of the Guest configuration assignment.
 	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -116,6 +118,11 @@ func (o LookupGuestConfigurationAssignmentResultOutput) Properties() GuestConfig
 	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) GuestConfigurationAssignmentPropertiesResponse {
 		return v.Properties
 	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupGuestConfigurationAssignmentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

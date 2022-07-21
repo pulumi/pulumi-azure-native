@@ -18,14 +18,6 @@ const (
 	AccessDeny  = Access("Deny")
 )
 
-// Direction that specifies whether the access rules is inbound/outbound.
-type AccessRuleDirection string
-
-const (
-	AccessRuleDirectionInbound  = AccessRuleDirection("Inbound")
-	AccessRuleDirectionOutbound = AccessRuleDirection("Outbound")
-)
-
 // Describes the override action to be applied when rule matches.
 type ActionType string
 
@@ -34,22 +26,6 @@ const (
 	ActionTypeBlock    = ActionType("Block")
 	ActionTypeLog      = ActionType("Log")
 	ActionTypeRedirect = ActionType("Redirect")
-)
-
-// Address prefix type.
-type AddressPrefixType string
-
-const (
-	AddressPrefixTypeIPPrefix   = AddressPrefixType("IPPrefix")
-	AddressPrefixTypeServiceTag = AddressPrefixType("ServiceTag")
-)
-
-// Whether the rule is custom or default.
-type AdminRuleKind string
-
-const (
-	AdminRuleKindCustom  = AdminRuleKind("Custom")
-	AdminRuleKindDefault = AdminRuleKind("Default")
 )
 
 // The allowed type DNS record types for this profile.
@@ -86,12 +62,23 @@ const (
 	ApplicationGatewayFirewallModePrevention = ApplicationGatewayFirewallMode("Prevention")
 )
 
+// Load Distribution Targets resource of an application gateway.
+type ApplicationGatewayLoadDistributionAlgorithm string
+
+const (
+	ApplicationGatewayLoadDistributionAlgorithmRoundRobin       = ApplicationGatewayLoadDistributionAlgorithm("RoundRobin")
+	ApplicationGatewayLoadDistributionAlgorithmLeastConnections = ApplicationGatewayLoadDistributionAlgorithm("LeastConnections")
+	ApplicationGatewayLoadDistributionAlgorithmIpHash           = ApplicationGatewayLoadDistributionAlgorithm("IpHash")
+)
+
 // The protocol used for the probe.
 type ApplicationGatewayProtocol string
 
 const (
 	ApplicationGatewayProtocolHttp  = ApplicationGatewayProtocol("Http")
 	ApplicationGatewayProtocolHttps = ApplicationGatewayProtocol("Https")
+	ApplicationGatewayProtocolTcp   = ApplicationGatewayProtocol("Tcp")
+	ApplicationGatewayProtocolTls   = ApplicationGatewayProtocol("Tls")
 )
 
 // HTTP redirection type.
@@ -195,15 +182,6 @@ const (
 	ApplicationGatewayTier_WAF_v2      = ApplicationGatewayTier("WAF_v2")
 )
 
-// Access mode on the association.
-type AssociationAccessMode string
-
-const (
-	AssociationAccessModeLearning = AssociationAccessMode("Learning")
-	AssociationAccessModeEnforced = AssociationAccessMode("Enforced")
-	AssociationAccessModeAudit    = AssociationAccessMode("Audit")
-)
-
 // The authorization use status.
 type AuthorizationUseStatus string
 
@@ -261,6 +239,7 @@ type AzureFirewallSkuTier string
 const (
 	AzureFirewallSkuTierStandard = AzureFirewallSkuTier("Standard")
 	AzureFirewallSkuTierPremium  = AzureFirewallSkuTier("Premium")
+	AzureFirewallSkuTierBasic    = AzureFirewallSkuTier("Basic")
 )
 
 // The operation mode for Threat Intelligence.
@@ -280,6 +259,14 @@ const (
 	BackendEnabledStateDisabled = BackendEnabledState("Disabled")
 )
 
+// The name of this Bastion Host.
+type BastionHostSkuName string
+
+const (
+	BastionHostSkuNameBasic    = BastionHostSkuName("Basic")
+	BastionHostSkuNameStandard = BastionHostSkuName("Standard")
+)
+
 // The commissioned state of the Custom IP Prefix.
 type CommissionedState string
 
@@ -290,15 +277,6 @@ const (
 	CommissionedStateCommissioned    = CommissionedState("Commissioned")
 	CommissionedStateDecommissioning = CommissionedState("Decommissioning")
 	CommissionedStateDeprovisioning  = CommissionedState("Deprovisioning")
-)
-
-// Configuration Deployment Type.
-type ConfigurationType string
-
-const (
-	ConfigurationTypeSecurityAdmin = ConfigurationType("SecurityAdmin")
-	ConfigurationTypeSecurityUser  = ConfigurationType("SecurityUser")
-	ConfigurationTypeConnectivity  = ConfigurationType("Connectivity")
 )
 
 // The type of item included in the filter. Currently only 'AgentAddress' is supported.
@@ -322,14 +300,6 @@ const (
 	ConnectionMonitorTestConfigurationProtocolTcp  = ConnectionMonitorTestConfigurationProtocol("Tcp")
 	ConnectionMonitorTestConfigurationProtocolHttp = ConnectionMonitorTestConfigurationProtocol("Http")
 	ConnectionMonitorTestConfigurationProtocolIcmp = ConnectionMonitorTestConfigurationProtocol("Icmp")
-)
-
-// Connectivity topology type.
-type ConnectivityTopology string
-
-const (
-	ConnectivityTopologyHubAndSpoke = ConnectivityTopology("HubAndSpoke")
-	ConnectivityTopologyMesh        = ConnectivityTopology("Mesh")
 )
 
 // Test coverage for the endpoint.
@@ -379,20 +349,12 @@ const (
 	DdosSettingsProtectionCoverageStandard = DdosSettingsProtectionCoverage("Standard")
 )
 
-// Flag if need to delete existing network security groups.
-type DeleteExistingNSGs string
+// Specify what happens to the public IP address when the VM using it is deleted
+type DeleteOptions string
 
 const (
-	DeleteExistingNSGsFalse = DeleteExistingNSGs("False")
-	DeleteExistingNSGsTrue  = DeleteExistingNSGs("True")
-)
-
-// Flag if need to remove current existing peerings.
-type DeleteExistingPeering string
-
-const (
-	DeleteExistingPeeringFalse = DeleteExistingPeering("False")
-	DeleteExistingPeeringTrue  = DeleteExistingPeering("True")
+	DeleteOptionsDelete = DeleteOptions("Delete")
+	DeleteOptionsDetach = DeleteOptions("Detach")
 )
 
 // Destination port behavior.
@@ -673,6 +635,7 @@ type FirewallPolicySkuTier string
 const (
 	FirewallPolicySkuTierStandard = FirewallPolicySkuTier("Standard")
 	FirewallPolicySkuTierPremium  = FirewallPolicySkuTier("Premium")
+	FirewallPolicySkuTierBasic    = FirewallPolicySkuTier("Basic")
 )
 
 // The file type of flow log.
@@ -680,14 +643,6 @@ type FlowLogFormatType string
 
 const (
 	FlowLogFormatTypeJSON = FlowLogFormatType("JSON")
-)
-
-// The state of forwarding rule.
-type ForwardingRuleStateEnum string
-
-const (
-	ForwardingRuleStateEnumEnabled  = ForwardingRuleStateEnum("Enabled")
-	ForwardingRuleStateEnumDisabled = ForwardingRuleStateEnum("Disabled")
 )
 
 // Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
@@ -767,12 +722,22 @@ const (
 	FrontDoorRedirectTypePermanentRedirect = FrontDoorRedirectType("PermanentRedirect")
 )
 
-// Group connectivity type.
-type GroupConnectivity string
+// Traffic type of gateway load balancer tunnel interface.
+type GatewayLoadBalancerTunnelInterfaceType string
 
 const (
-	GroupConnectivityNone              = GroupConnectivity("None")
-	GroupConnectivityDirectlyConnected = GroupConnectivity("DirectlyConnected")
+	GatewayLoadBalancerTunnelInterfaceTypeNone     = GatewayLoadBalancerTunnelInterfaceType("None")
+	GatewayLoadBalancerTunnelInterfaceTypeInternal = GatewayLoadBalancerTunnelInterfaceType("Internal")
+	GatewayLoadBalancerTunnelInterfaceTypeExternal = GatewayLoadBalancerTunnelInterfaceType("External")
+)
+
+// Protocol of gateway load balancer tunnel interface.
+type GatewayLoadBalancerTunnelProtocol string
+
+const (
+	GatewayLoadBalancerTunnelProtocolNone   = GatewayLoadBalancerTunnelProtocol("None")
+	GatewayLoadBalancerTunnelProtocolNative = GatewayLoadBalancerTunnelProtocol("Native")
+	GatewayLoadBalancerTunnelProtocolVXLAN  = GatewayLoadBalancerTunnelProtocol("VXLAN")
 )
 
 // The HTTP method to use.
@@ -798,6 +763,15 @@ type HealthProbeEnabled string
 const (
 	HealthProbeEnabledEnabled  = HealthProbeEnabled("Enabled")
 	HealthProbeEnabledDisabled = HealthProbeEnabled("Disabled")
+)
+
+// The hubRoutingPreference of this VirtualHub.
+type HubRoutingPreference string
+
+const (
+	HubRoutingPreferenceExpressRoute = HubRoutingPreference("ExpressRoute")
+	HubRoutingPreferenceVpnGateway   = HubRoutingPreference("VpnGateway")
+	HubRoutingPreferenceASPath       = HubRoutingPreference("ASPath")
 )
 
 // The private IP address allocation method.
@@ -841,14 +815,6 @@ const (
 	IkeIntegrityGCMAES128 = IkeIntegrity("GCMAES128")
 )
 
-// Private IP address allocation method.
-type IpAllocationMethod string
-
-const (
-	IpAllocationMethodStatic  = IpAllocationMethod("Static")
-	IpAllocationMethodDynamic = IpAllocationMethod("Dynamic")
-)
-
 // The type for the IpAllocation.
 type IpAllocationType string
 
@@ -884,12 +850,14 @@ const (
 	IpsecIntegrityGCMAES256 = IpsecIntegrity("GCMAES256")
 )
 
-// Flag if global mesh is supported.
-type IsGlobal string
+// A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+type LoadBalancerBackendAddressAdminState string
 
 const (
-	IsGlobalFalse = IsGlobal("False")
-	IsGlobalTrue  = IsGlobal("True")
+	LoadBalancerBackendAddressAdminStateNone  = LoadBalancerBackendAddressAdminState("None")
+	LoadBalancerBackendAddressAdminStateUp    = LoadBalancerBackendAddressAdminState("Up")
+	LoadBalancerBackendAddressAdminStateDown  = LoadBalancerBackendAddressAdminState("Down")
+	LoadBalancerBackendAddressAdminStateDrain = LoadBalancerBackendAddressAdminState("Drain")
 )
 
 // The protocol for the outbound rule in load balancer.
@@ -907,6 +875,7 @@ type LoadBalancerSkuName string
 const (
 	LoadBalancerSkuNameBasic    = LoadBalancerSkuName("Basic")
 	LoadBalancerSkuNameStandard = LoadBalancerSkuName("Standard")
+	LoadBalancerSkuNameGateway  = LoadBalancerSkuName("Gateway")
 )
 
 // Tier of a load balancer SKU.
@@ -955,7 +924,7 @@ const (
 	ManagedRuleExclusionSelectorMatchOperatorEqualsAny  = ManagedRuleExclusionSelectorMatchOperator("EqualsAny")
 )
 
-// Defines the action to take when a managed rule set score threshold is met.
+// Defines the rule set action.
 type ManagedRuleSetActionType string
 
 const (
@@ -986,6 +955,15 @@ type NatGatewaySkuName string
 
 const (
 	NatGatewaySkuNameStandard = NatGatewaySkuName("Standard")
+)
+
+// Auxiliary mode of Network Interface resource.
+type NetworkInterfaceAuxiliaryMode string
+
+const (
+	NetworkInterfaceAuxiliaryModeNone           = NetworkInterfaceAuxiliaryMode("None")
+	NetworkInterfaceAuxiliaryModeMaxConnections = NetworkInterfaceAuxiliaryMode("MaxConnections")
+	NetworkInterfaceAuxiliaryModeFloating       = NetworkInterfaceAuxiliaryMode("Floating")
 )
 
 // Migration phase of Network Interface resource.
@@ -1036,9 +1014,15 @@ const (
 type OwaspCrsExclusionEntryMatchVariable string
 
 const (
-	OwaspCrsExclusionEntryMatchVariableRequestHeaderNames = OwaspCrsExclusionEntryMatchVariable("RequestHeaderNames")
-	OwaspCrsExclusionEntryMatchVariableRequestCookieNames = OwaspCrsExclusionEntryMatchVariable("RequestCookieNames")
-	OwaspCrsExclusionEntryMatchVariableRequestArgNames    = OwaspCrsExclusionEntryMatchVariable("RequestArgNames")
+	OwaspCrsExclusionEntryMatchVariableRequestHeaderNames  = OwaspCrsExclusionEntryMatchVariable("RequestHeaderNames")
+	OwaspCrsExclusionEntryMatchVariableRequestCookieNames  = OwaspCrsExclusionEntryMatchVariable("RequestCookieNames")
+	OwaspCrsExclusionEntryMatchVariableRequestArgNames     = OwaspCrsExclusionEntryMatchVariable("RequestArgNames")
+	OwaspCrsExclusionEntryMatchVariableRequestHeaderKeys   = OwaspCrsExclusionEntryMatchVariable("RequestHeaderKeys")
+	OwaspCrsExclusionEntryMatchVariableRequestHeaderValues = OwaspCrsExclusionEntryMatchVariable("RequestHeaderValues")
+	OwaspCrsExclusionEntryMatchVariableRequestCookieKeys   = OwaspCrsExclusionEntryMatchVariable("RequestCookieKeys")
+	OwaspCrsExclusionEntryMatchVariableRequestCookieValues = OwaspCrsExclusionEntryMatchVariable("RequestCookieValues")
+	OwaspCrsExclusionEntryMatchVariableRequestArgKeys      = OwaspCrsExclusionEntryMatchVariable("RequestArgKeys")
+	OwaspCrsExclusionEntryMatchVariableRequestArgValues    = OwaspCrsExclusionEntryMatchVariable("RequestArgValues")
 )
 
 // When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
@@ -1106,6 +1090,15 @@ type PreferredIPVersion string
 const (
 	PreferredIPVersionIPv4 = PreferredIPVersion("IPv4")
 	PreferredIPVersionIPv6 = PreferredIPVersion("IPv6")
+)
+
+// The preferred gateway to route on-prem traffic
+type PreferredRoutingGateway string
+
+const (
+	PreferredRoutingGatewayExpressRoute = PreferredRoutingGateway("ExpressRoute")
+	PreferredRoutingGatewayVpnGateway   = PreferredRoutingGateway("VpnGateway")
+	PreferredRoutingGatewayNone         = PreferredRoutingGateway("None")
 )
 
 // The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
@@ -1429,35 +1422,6 @@ const (
 	RulesEngineOperatorEndsWith           = RulesEngineOperator("EndsWith")
 )
 
-// Indicates the access allowed for this particular rule
-type SecurityConfigurationRuleAccess string
-
-const (
-	SecurityConfigurationRuleAccessAllow       = SecurityConfigurationRuleAccess("Allow")
-	SecurityConfigurationRuleAccessDeny        = SecurityConfigurationRuleAccess("Deny")
-	SecurityConfigurationRuleAccessAlwaysAllow = SecurityConfigurationRuleAccess("AlwaysAllow")
-)
-
-// Indicates if the traffic matched against the rule in inbound or outbound.
-type SecurityConfigurationRuleDirection string
-
-const (
-	SecurityConfigurationRuleDirectionInbound  = SecurityConfigurationRuleDirection("Inbound")
-	SecurityConfigurationRuleDirectionOutbound = SecurityConfigurationRuleDirection("Outbound")
-)
-
-// Network protocol this rule applies to.
-type SecurityConfigurationRuleProtocol string
-
-const (
-	SecurityConfigurationRuleProtocolTcp  = SecurityConfigurationRuleProtocol("Tcp")
-	SecurityConfigurationRuleProtocolUdp  = SecurityConfigurationRuleProtocol("Udp")
-	SecurityConfigurationRuleProtocolIcmp = SecurityConfigurationRuleProtocol("Icmp")
-	SecurityConfigurationRuleProtocolEsp  = SecurityConfigurationRuleProtocol("Esp")
-	SecurityConfigurationRuleProtocolAny  = SecurityConfigurationRuleProtocol("Any")
-	SecurityConfigurationRuleProtocolAh   = SecurityConfigurationRuleProtocol("Ah")
-)
-
 // The security provider name.
 type SecurityProviderName string
 
@@ -1493,14 +1457,6 @@ const (
 	SecurityRuleProtocolEsp      = SecurityRuleProtocol("Esp")
 	SecurityRuleProtocolAsterisk = SecurityRuleProtocol("*")
 	SecurityRuleProtocolAh       = SecurityRuleProtocol("Ah")
-)
-
-// Security Type.
-type SecurityType string
-
-const (
-	SecurityTypeAdminPolicy = SecurityType("AdminPolicy")
-	SecurityTypeUserPolicy  = SecurityType("UserPolicy")
 )
 
 // The ServiceProviderProvisioningState state of the resource.
@@ -1591,20 +1547,12 @@ const (
 	TransportProtocolAll = TransportProtocol("All")
 )
 
-// Flag if need to use hub gateway.
-type UseHubGateway string
+// If the encrypted VNet allows VM that does not support encryption
+type VirtualNetworkEncryptionEnforcement string
 
 const (
-	UseHubGatewayFalse = UseHubGateway("False")
-	UseHubGatewayTrue  = UseHubGateway("True")
-)
-
-// Whether the rule is custom or default.
-type UserRuleKind string
-
-const (
-	UserRuleKindCustom  = UserRuleKind("Custom")
-	UserRuleKindDefault = UserRuleKind("Default")
+	VirtualNetworkEncryptionEnforcementDropUnencrypted  = VirtualNetworkEncryptionEnforcement("DropUnencrypted")
+	VirtualNetworkEncryptionEnforcementAllowUnencrypted = VirtualNetworkEncryptionEnforcement("AllowUnencrypted")
 )
 
 // The connection mode for this connection.
@@ -1687,6 +1635,16 @@ const (
 	VirtualNetworkGatewayTypeEnumVpn          = VirtualNetworkGatewayTypeEnum("Vpn")
 	VirtualNetworkGatewayTypeEnumExpressRoute = VirtualNetworkGatewayTypeEnum("ExpressRoute")
 	VirtualNetworkGatewayTypeEnumLocalGateway = VirtualNetworkGatewayTypeEnum("LocalGateway")
+)
+
+// The peering sync status of the virtual network peering.
+type VirtualNetworkPeeringLevel string
+
+const (
+	VirtualNetworkPeeringLevelFullyInSync             = VirtualNetworkPeeringLevel("FullyInSync")
+	VirtualNetworkPeeringLevelRemoteNotInSync         = VirtualNetworkPeeringLevel("RemoteNotInSync")
+	VirtualNetworkPeeringLevelLocalNotInSync          = VirtualNetworkPeeringLevel("LocalNotInSync")
+	VirtualNetworkPeeringLevelLocalAndRemoteNotInSync = VirtualNetworkPeeringLevel("LocalAndRemoteNotInSync")
 )
 
 // The status of the virtual network peering.

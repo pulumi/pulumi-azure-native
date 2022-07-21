@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.DataBox.Inputs
             set => _preferredDataCenterRegion = value;
         }
 
+        [Input("storageAccountAccessTierPreferences")]
+        private InputList<Union<string, Pulumi.AzureNative.DataBox.StorageAccountAccessTier>>? _storageAccountAccessTierPreferences;
+
+        /// <summary>
+        /// Preferences related to the Access Tier of storage accounts.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.DataBox.StorageAccountAccessTier>> StorageAccountAccessTierPreferences
+        {
+            get => _storageAccountAccessTierPreferences ?? (_storageAccountAccessTierPreferences = new InputList<Union<string, Pulumi.AzureNative.DataBox.StorageAccountAccessTier>>());
+            set => _storageAccountAccessTierPreferences = value;
+        }
+
         /// <summary>
         /// Preferences related to the shipment logistics of the sku.
         /// </summary>

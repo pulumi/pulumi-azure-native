@@ -159,8 +159,6 @@ class LedgerPropertiesResponse(dict):
             suggest = "aad_based_security_principals"
         elif key == "certBasedSecurityPrincipals":
             suggest = "cert_based_security_principals"
-        elif key == "ledgerStorageAccount":
-            suggest = "ledger_storage_account"
         elif key == "ledgerType":
             suggest = "ledger_type"
 
@@ -183,7 +181,6 @@ class LedgerPropertiesResponse(dict):
                  provisioning_state: str,
                  aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
                  cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
-                 ledger_storage_account: Optional[str] = None,
                  ledger_type: Optional[str] = None):
         """
         Additional Confidential Ledger properties.
@@ -194,7 +191,6 @@ class LedgerPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of Ledger Resource
         :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
         :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
-        :param str ledger_storage_account: Name of the Blob Storage Account for saving ledger files
         :param str ledger_type: Type of Confidential Ledger
         """
         pulumi.set(__self__, "identity_service_uri", identity_service_uri)
@@ -206,8 +202,6 @@ class LedgerPropertiesResponse(dict):
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
-        if ledger_storage_account is not None:
-            pulumi.set(__self__, "ledger_storage_account", ledger_storage_account)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
 
@@ -266,14 +260,6 @@ class LedgerPropertiesResponse(dict):
         Array of all cert based Security Principals.
         """
         return pulumi.get(self, "cert_based_security_principals")
-
-    @property
-    @pulumi.getter(name="ledgerStorageAccount")
-    def ledger_storage_account(self) -> Optional[str]:
-        """
-        Name of the Blob Storage Account for saving ledger files
-        """
-        return pulumi.get(self, "ledger_storage_account")
 
     @property
     @pulumi.getter(name="ledgerType")

@@ -28,14 +28,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? AutomationAccountArmId { get; set; }
 
         /// <summary>
+        /// A value indicating the type authentication to use for automation Account.
+        /// </summary>
+        [Input("automationAccountAuthenticationType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AutomationAccountAuthenticationType>? AutomationAccountAuthenticationType { get; set; }
+
+        /// <summary>
         /// The class type.
         /// Expected value is 'A2A'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         public A2AContainerMappingInputArgs()
         {
+            AutomationAccountAuthenticationType = "RunAsAccount";
         }
     }
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing a database principal assignment.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:kusto:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a database principal assignment.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetDatabasePrincipalAssignmentResult> Invoke(GetDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatabasePrincipalAssignmentResult>("azure-native:kusto:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Kusto
     public sealed class GetDatabasePrincipalAssignmentResult
     {
         /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        public readonly string AadObjectId;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetDatabasePrincipalAssignmentResult(
+            string aadObjectId,
+
             string id,
 
             string name,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            AadObjectId = aadObjectId;
             Id = id;
             Name = name;
             PrincipalId = principalId;

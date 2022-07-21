@@ -12,14 +12,18 @@ import (
 )
 
 // Disk resource.
-// API Version: 2020-12-01.
+// API Version: 2021-12-01.
 type Disk struct {
 	pulumi.CustomResourceState
 
 	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
 	BurstingEnabled pulumi.BoolPtrOutput `pulumi:"burstingEnabled"`
+	// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+	CompletionPercent pulumi.Float64PtrOutput `pulumi:"completionPercent"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataResponseOutput `pulumi:"creationData"`
+	// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+	DataAccessAuthMode pulumi.StringPtrOutput `pulumi:"dataAccessAuthMode"`
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -62,6 +66,8 @@ type Disk struct {
 	PropertyUpdatesInProgress PropertyUpdatesInProgressResponseOutput `pulumi:"propertyUpdatesInProgress"`
 	// The disk provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Policy for controlling export on the disk.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan PurchasePlanResponsePtrOutput `pulumi:"purchasePlan"`
 	// Contains the security related information for the resource.
@@ -70,6 +76,8 @@ type Disk struct {
 	ShareInfo ShareInfoElementResponseArrayOutput `pulumi:"shareInfo"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku DiskSkuResponsePtrOutput `pulumi:"sku"`
+	// List of supported capabilities for the image from which the OS disk was created.
+	SupportedCapabilities SupportedCapabilitiesResponsePtrOutput `pulumi:"supportedCapabilities"`
 	// Indicates the OS on a disk supports hibernation.
 	SupportsHibernation pulumi.BoolPtrOutput `pulumi:"supportsHibernation"`
 	// Resource tags
@@ -181,8 +189,12 @@ func (DiskState) ElementType() reflect.Type {
 type diskArgs struct {
 	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
 	BurstingEnabled *bool `pulumi:"burstingEnabled"`
+	// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+	CompletionPercent *float64 `pulumi:"completionPercent"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationData `pulumi:"creationData"`
+	// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+	DataAccessAuthMode *string `pulumi:"dataAccessAuthMode"`
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -193,7 +205,7 @@ type diskArgs struct {
 	DiskMBpsReadOnly *float64 `pulumi:"diskMBpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
 	DiskMBpsReadWrite *float64 `pulumi:"diskMBpsReadWrite"`
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskName *string `pulumi:"diskName"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -213,6 +225,8 @@ type diskArgs struct {
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
 	OsType *OperatingSystemTypes `pulumi:"osType"`
+	// Policy for controlling export on the disk.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan *PurchasePlan `pulumi:"purchasePlan"`
 	// The name of the resource group.
@@ -221,6 +235,8 @@ type diskArgs struct {
 	SecurityProfile *DiskSecurityProfile `pulumi:"securityProfile"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku *DiskSku `pulumi:"sku"`
+	// List of supported capabilities for the image from which the OS disk was created.
+	SupportedCapabilities *SupportedCapabilities `pulumi:"supportedCapabilities"`
 	// Indicates the OS on a disk supports hibernation.
 	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
@@ -235,8 +251,12 @@ type diskArgs struct {
 type DiskArgs struct {
 	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
 	BurstingEnabled pulumi.BoolPtrInput
+	// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+	CompletionPercent pulumi.Float64PtrInput
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataInput
+	// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+	DataAccessAuthMode pulumi.StringPtrInput
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -247,7 +267,7 @@ type DiskArgs struct {
 	DiskMBpsReadOnly pulumi.Float64PtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
 	DiskMBpsReadWrite pulumi.Float64PtrInput
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskName pulumi.StringPtrInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrInput
@@ -267,6 +287,8 @@ type DiskArgs struct {
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
 	OsType OperatingSystemTypesPtrInput
+	// Policy for controlling export on the disk.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.
@@ -275,6 +297,8 @@ type DiskArgs struct {
 	SecurityProfile DiskSecurityProfilePtrInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku DiskSkuPtrInput
+	// List of supported capabilities for the image from which the OS disk was created.
+	SupportedCapabilities SupportedCapabilitiesPtrInput
 	// Indicates the OS on a disk supports hibernation.
 	SupportsHibernation pulumi.BoolPtrInput
 	// Resource tags
@@ -327,9 +351,19 @@ func (o DiskOutput) BurstingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Disk) pulumi.BoolPtrOutput { return v.BurstingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+func (o DiskOutput) CompletionPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.Float64PtrOutput { return v.CompletionPercent }).(pulumi.Float64PtrOutput)
+}
+
 // Disk source information. CreationData information cannot be changed after the disk has been created.
 func (o DiskOutput) CreationData() CreationDataResponseOutput {
 	return o.ApplyT(func(v *Disk) CreationDataResponseOutput { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+func (o DiskOutput) DataAccessAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.DataAccessAuthMode }).(pulumi.StringPtrOutput)
 }
 
 // ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -437,6 +471,11 @@ func (o DiskOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Policy for controlling export on the disk.
+func (o DiskOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
 // Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 func (o DiskOutput) PurchasePlan() PurchasePlanResponsePtrOutput {
 	return o.ApplyT(func(v *Disk) PurchasePlanResponsePtrOutput { return v.PurchasePlan }).(PurchasePlanResponsePtrOutput)
@@ -455,6 +494,11 @@ func (o DiskOutput) ShareInfo() ShareInfoElementResponseArrayOutput {
 // The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 func (o DiskOutput) Sku() DiskSkuResponsePtrOutput {
 	return o.ApplyT(func(v *Disk) DiskSkuResponsePtrOutput { return v.Sku }).(DiskSkuResponsePtrOutput)
+}
+
+// List of supported capabilities for the image from which the OS disk was created.
+func (o DiskOutput) SupportedCapabilities() SupportedCapabilitiesResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) SupportedCapabilitiesResponsePtrOutput { return v.SupportedCapabilities }).(SupportedCapabilitiesResponsePtrOutput)
 }
 
 // Indicates the OS on a disk supports hibernation.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a bookmark in Azure Security Insights.
-    /// API Version: 2020-01-01.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Bookmark")]
     public partial class Bookmark : Pulumi.CustomResource
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -95,7 +95,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> QueryStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -249,7 +255,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? QueryStartTime { get; set; }
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

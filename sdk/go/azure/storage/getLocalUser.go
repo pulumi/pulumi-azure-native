@@ -11,7 +11,7 @@ import (
 )
 
 // The local user associated with the storage accounts.
-// API Version: 2021-08-01.
+// API Version: 2021-09-01.
 func LookupLocalUser(ctx *pulumi.Context, args *LookupLocalUserArgs, opts ...pulumi.InvokeOption) (*LookupLocalUserResult, error) {
 	var rv LookupLocalUserResult
 	err := ctx.Invoke("azure-native:storage:getLocalUser", args, &rv, opts...)

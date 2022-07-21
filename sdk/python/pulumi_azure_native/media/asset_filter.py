@@ -145,7 +145,7 @@ class AssetFilter(pulumi.CustomResource):
                  __props__=None):
         """
         An Asset Filter.
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class AssetFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Asset Filter.
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param AssetFilterArgs args: The arguments to use to populate this resource's properties.

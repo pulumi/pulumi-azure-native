@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// details of synchronization
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<ListShareSubscriptionSynchronizationDetailsResult> InvokeAsync(ListShareSubscriptionSynchronizationDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// details of synchronization
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<ListShareSubscriptionSynchronizationDetailsResult> Invoke(ListShareSubscriptionSynchronizationDetailsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsInvokeArgs(), options.WithDefaults());

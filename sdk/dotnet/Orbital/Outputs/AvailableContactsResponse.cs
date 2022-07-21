@@ -33,17 +33,17 @@ namespace Pulumi.AzureNative.Orbital.Outputs
         /// </summary>
         public readonly double MaximumElevationDegrees;
         /// <summary>
-        /// Time to lost receiving a signal.
+        /// Time to lost receiving a signal (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxEndTime;
         /// <summary>
-        /// Earliest time to receive a signal.
+        /// Earliest time to receive a signal (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxStartTime;
         /// <summary>
         /// The reference to the spacecraft resource.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? Spacecraft;
+        public readonly Outputs.AvailableContactsResponseSpacecraft? Spacecraft;
         /// <summary>
         /// Azimuth of the antenna at the start of the contact in decimal degrees.
         /// </summary>
@@ -53,11 +53,11 @@ namespace Pulumi.AzureNative.Orbital.Outputs
         /// </summary>
         public readonly double StartElevationDegrees;
         /// <summary>
-        /// Time at which antenna transmit will be disabled.
+        /// Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxEndTime;
         /// <summary>
-        /// Time at which antenna transmit will be enabled.
+        /// Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxStartTime;
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 
             string rxStartTime,
 
-            Outputs.ResourceReferenceResponse? spacecraft,
+            Outputs.AvailableContactsResponseSpacecraft? spacecraft,
 
             double startAzimuthDegrees,
 

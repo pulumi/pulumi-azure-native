@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
- * API Version: 2020-06-01.
+ * API Version: 2021-06-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -40,7 +40,7 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly endIP!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -48,7 +48,7 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly startIP!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

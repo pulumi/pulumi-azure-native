@@ -21,10 +21,10 @@ class GetComponentContainerResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, component_container_details=None, id=None, name=None, system_data=None, type=None):
-        if component_container_details and not isinstance(component_container_details, dict):
-            raise TypeError("Expected argument 'component_container_details' to be a dict")
-        pulumi.set(__self__, "component_container_details", component_container_details)
+    def __init__(__self__, component_container_properties=None, id=None, name=None, system_data=None, type=None):
+        if component_container_properties and not isinstance(component_container_properties, dict):
+            raise TypeError("Expected argument 'component_container_properties' to be a dict")
+        pulumi.set(__self__, "component_container_properties", component_container_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,12 +39,12 @@ class GetComponentContainerResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="componentContainerDetails")
-    def component_container_details(self) -> 'outputs.ComponentContainerResponse':
+    @pulumi.getter(name="componentContainerProperties")
+    def component_container_properties(self) -> 'outputs.ComponentContainerResponse':
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "component_container_details")
+        return pulumi.get(self, "component_container_properties")
 
     @property
     @pulumi.getter
@@ -85,7 +85,7 @@ class AwaitableGetComponentContainerResult(GetComponentContainerResult):
         if False:
             yield self
         return GetComponentContainerResult(
-            component_container_details=self.component_container_details,
+            component_container_properties=self.component_container_properties,
             id=self.id,
             name=self.name,
             system_data=self.system_data,
@@ -98,7 +98,7 @@ def get_component_container(name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-02-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str name: Container name.
@@ -116,7 +116,7 @@ def get_component_container(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getComponentContainer', __args__, opts=opts, typ=GetComponentContainerResult).value
 
     return AwaitableGetComponentContainerResult(
-        component_container_details=__ret__.component_container_details,
+        component_container_properties=__ret__.component_container_properties,
         id=__ret__.id,
         name=__ret__.name,
         system_data=__ret__.system_data,
@@ -130,7 +130,7 @@ def get_component_container_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-02-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str name: Container name.

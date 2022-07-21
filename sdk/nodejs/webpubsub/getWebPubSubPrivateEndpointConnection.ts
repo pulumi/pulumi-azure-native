@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection to an azure resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getWebPubSubPrivateEndpointConnection(args: GetWebPubSubPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetWebPubSubPrivateEndpointConnectionArgs {
  */
 export interface GetWebPubSubPrivateEndpointConnectionResult {
     /**
+     * Group IDs
+     */
+    readonly groupIds: string[];
+    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -50,15 +54,15 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     readonly privateEndpoint?: outputs.webpubsub.PrivateEndpointResponse;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     readonly privateLinkServiceConnectionState?: outputs.webpubsub.PrivateLinkServiceConnectionStateResponse;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**

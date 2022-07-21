@@ -55,19 +55,19 @@ class AwaitableGetFluidRelayServerKeysResult(GetFluidRelayServerKeysResult):
             key2=self.key2)
 
 
-def get_fluid_relay_server_keys(name: Optional[str] = None,
+def get_fluid_relay_server_keys(fluid_relay_server_name: Optional[str] = None,
                                 resource_group: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluidRelayServerKeysResult:
     """
     The set of available keys for this server.
-    API Version: 2021-03-12-preview.
+    API Version: 2022-05-26.
 
 
-    :param str name: The resource name.
+    :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['fluidRelayServerName'] = fluid_relay_server_name
     __args__['resourceGroup'] = resource_group
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -81,15 +81,15 @@ def get_fluid_relay_server_keys(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_fluid_relay_server_keys)
-def get_fluid_relay_server_keys_output(name: Optional[pulumi.Input[str]] = None,
+def get_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
                                        resource_group: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerKeysResult]:
     """
     The set of available keys for this server.
-    API Version: 2021-03-12-preview.
+    API Version: 2022-05-26.
 
 
-    :param str name: The resource name.
+    :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
     ...

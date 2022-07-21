@@ -11,7 +11,7 @@ import (
 )
 
 // An application type version resource for the specified application type name resource.
-// API Version: 2020-03-01.
+// API Version: 2022-01-01.
 func LookupApplicationTypeVersion(ctx *pulumi.Context, args *LookupApplicationTypeVersionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeVersionResult, error) {
 	var rv LookupApplicationTypeVersionResult
 	err := ctx.Invoke("azure-native:servicefabric:getApplicationTypeVersion", args, &rv, opts...)
@@ -36,18 +36,16 @@ type LookupApplicationTypeVersionArgs struct {
 type LookupApplicationTypeVersionResult struct {
 	// The URL to the application package
 	AppPackageUrl string `pulumi:"appPackageUrl"`
-	// List of application type parameters that can be overridden when creating or updating the application.
-	DefaultParameterList map[string]string `pulumi:"defaultParameterList"`
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
+	// Resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -102,22 +100,12 @@ func (o LookupApplicationTypeVersionResultOutput) AppPackageUrl() pulumi.StringO
 	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.AppPackageUrl }).(pulumi.StringOutput)
 }
 
-// List of application type parameters that can be overridden when creating or updating the application.
-func (o LookupApplicationTypeVersionResultOutput) DefaultParameterList() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupApplicationTypeVersionResult) map[string]string { return v.DefaultParameterList }).(pulumi.StringMapOutput)
-}
-
-// Azure resource etag.
-func (o LookupApplicationTypeVersionResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.Etag }).(pulumi.StringOutput)
-}
-
 // Azure resource identifier.
 func (o LookupApplicationTypeVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// It will be deprecated in New API, resource location depends on the parent resource.
+// Resource location depends on the parent resource.
 func (o LookupApplicationTypeVersionResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationTypeVersionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -130,6 +118,11 @@ func (o LookupApplicationTypeVersionResultOutput) Name() pulumi.StringOutput {
 // The current deployment or provisioning state, which only appears in the response
 func (o LookupApplicationTypeVersionResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApplicationTypeVersionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Azure resource tags.

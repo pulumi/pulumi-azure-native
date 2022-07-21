@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection to an azure resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2021-10-01.
  */
 export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -37,19 +37,23 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Group IDs
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     public readonly privateEndpoint!: pulumi.Output<outputs.webpubsub.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.webpubsub.PrivateLinkServiceConnectionStateResponse | undefined>;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -83,11 +87,13 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -107,7 +113,7 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface WebPubSubPrivateEndpointConnectionArgs {
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     privateEndpoint?: pulumi.Input<inputs.webpubsub.PrivateEndpointArgs>;
     /**
@@ -115,7 +121,7 @@ export interface WebPubSubPrivateEndpointConnectionArgs {
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.webpubsub.PrivateLinkServiceConnectionStateArgs>;
     /**

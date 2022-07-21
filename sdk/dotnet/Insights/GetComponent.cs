@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// An Application Insights component definition.
-        /// API Version: 2015-05-01.
+        /// API Version: 2020-02-02.
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component definition.
-        /// API Version: 2015-05-01.
+        /// API Version: 2020-02-02.
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
@@ -94,9 +94,21 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly bool? DisableIpMasking;
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// Resource etag
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         public readonly string? FlowType;
+        /// <summary>
+        /// Force users to create their own storage account for profiler and debugger.
+        /// </summary>
+        public readonly bool? ForceCustomerStorageForProfiler;
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         /// </summary>
@@ -126,6 +138,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// The date which the component got migrated to LA, in ISO 8601 format.
+        /// </summary>
+        public readonly string LaMigrationDate;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -141,6 +157,14 @@ namespace Pulumi.AzureNative.Insights
         /// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        public readonly string? PublicNetworkAccessForIngestion;
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        public readonly string? PublicNetworkAccessForQuery;
         /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
@@ -165,6 +189,10 @@ namespace Pulumi.AzureNative.Insights
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        /// </summary>
+        public readonly string? WorkspaceResourceId;
 
         [OutputConstructor]
         private GetComponentResult(
@@ -180,7 +208,13 @@ namespace Pulumi.AzureNative.Insights
 
             bool? disableIpMasking,
 
+            bool? disableLocalAuth,
+
+            string? etag,
+
             string? flowType,
+
+            bool? forceCustomerStorageForProfiler,
 
             string? hockeyAppId,
 
@@ -196,6 +230,8 @@ namespace Pulumi.AzureNative.Insights
 
             string kind,
 
+            string laMigrationDate,
+
             string location,
 
             string name,
@@ -203,6 +239,10 @@ namespace Pulumi.AzureNative.Insights
             ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> privateLinkScopedResources,
 
             string provisioningState,
+
+            string? publicNetworkAccessForIngestion,
+
+            string? publicNetworkAccessForQuery,
 
             string? requestSource,
 
@@ -214,7 +254,9 @@ namespace Pulumi.AzureNative.Insights
 
             string tenantId,
 
-            string type)
+            string type,
+
+            string? workspaceResourceId)
         {
             AppId = appId;
             ApplicationId = applicationId;
@@ -222,7 +264,10 @@ namespace Pulumi.AzureNative.Insights
             ConnectionString = connectionString;
             CreationDate = creationDate;
             DisableIpMasking = disableIpMasking;
+            DisableLocalAuth = disableLocalAuth;
+            Etag = etag;
             FlowType = flowType;
+            ForceCustomerStorageForProfiler = forceCustomerStorageForProfiler;
             HockeyAppId = hockeyAppId;
             HockeyAppToken = hockeyAppToken;
             Id = id;
@@ -230,16 +275,20 @@ namespace Pulumi.AzureNative.Insights
             IngestionMode = ingestionMode;
             InstrumentationKey = instrumentationKey;
             Kind = kind;
+            LaMigrationDate = laMigrationDate;
             Location = location;
             Name = name;
             PrivateLinkScopedResources = privateLinkScopedResources;
             ProvisioningState = provisioningState;
+            PublicNetworkAccessForIngestion = publicNetworkAccessForIngestion;
+            PublicNetworkAccessForQuery = publicNetworkAccessForQuery;
             RequestSource = requestSource;
             RetentionInDays = retentionInDays;
             SamplingPercentage = samplingPercentage;
             Tags = tags;
             TenantId = tenantId;
             Type = type;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

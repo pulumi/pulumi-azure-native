@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Marketplace
     {
         /// <summary>
         /// List of stop sell offers and plans notifications.
-        /// API Version: 2021-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListPrivateStoreStopSellOffersPlansNotificationsResult> InvokeAsync(ListPrivateStoreStopSellOffersPlansNotificationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of stop sell offers and plans notifications.
-        /// API Version: 2021-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> Invoke(ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs(), options.WithDefaults());

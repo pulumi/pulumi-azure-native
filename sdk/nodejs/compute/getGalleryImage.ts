@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery image definition that you want to create or update.
- * API Version: 2020-09-30.
+ * API Version: 2021-10-01.
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
     if (!opts) {
@@ -41,6 +41,10 @@ export interface GetGalleryImageArgs {
  * Specifies information about the gallery image definition that you want to create or update.
  */
 export interface GetGalleryImageResult {
+    /**
+     * The architecture of the image. Applicable to OS disks only.
+     */
+    readonly architecture?: string;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */

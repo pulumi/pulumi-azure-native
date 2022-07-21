@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Account resource
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-07-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -104,7 +104,7 @@ export interface GetAccountResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.purview.AccountPropertiesResponseSystemData;
+    readonly systemData: outputs.purview.TrackedResourceResponseSystemData;
     /**
      * Tags on the azure resource.
      */

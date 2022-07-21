@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlServerInstance.
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.azurearcdata.SqlServerInstancePropertiesResponse>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.azurearcdata.SystemDataResponse>;
     /**
@@ -57,7 +57,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

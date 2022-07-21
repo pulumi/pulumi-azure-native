@@ -179,7 +179,7 @@ class DedicatedHost(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the Dedicated host.
-        API Version: 2020-12-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +201,7 @@ class DedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the Dedicated host.
-        API Version: 2020-12-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
@@ -259,6 +259,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["provisioning_time"] = None
+            __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHost")])
@@ -296,6 +297,7 @@ class DedicatedHost(pulumi.CustomResource):
         __props__.__dict__["provisioning_time"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machines"] = None
         return DedicatedHost(resource_name, opts=opts, __props__=__props__)
@@ -387,6 +389,14 @@ class DedicatedHost(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        """
+        Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter

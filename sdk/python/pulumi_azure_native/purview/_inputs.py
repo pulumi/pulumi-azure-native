@@ -18,13 +18,17 @@ __all__ = [
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'Type']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'Type']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The Managed Identity of the resource
         :param pulumi.Input[Union[str, 'Type']] type: Identity Type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User Assigned Identities
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -37,6 +41,18 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        User Assigned Identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

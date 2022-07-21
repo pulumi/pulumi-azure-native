@@ -8,11 +8,12 @@ __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
     'BlobStorageEventType',
+    'ClusterNetworkAccessFlag',
     'ClusterPrincipalRole',
     'Compression',
     'DataConnectionKind',
-    'DataFormat',
     'DatabasePrincipalRole',
+    'DatabaseRouting',
     'DefaultPrincipalsModificationKind',
     'EngineType',
     'EventGridDataFormat',
@@ -21,6 +22,8 @@ __all__ = [
     'IotHubDataFormat',
     'Kind',
     'PrincipalType',
+    'PublicIPType',
+    'PublicNetworkAccess',
 ]
 
 
@@ -28,20 +31,24 @@ class AzureSkuName(str, Enum):
     """
     SKU name.
     """
+    DEV_NO_SL_A_STANDARD_D11_V2 = "Dev(No SLA)_Standard_D11_v2"
+    DEV_NO_SL_A_STANDARD_E2A_V4 = "Dev(No SLA)_Standard_E2a_v4"
+    STANDARD_D11_V2 = "Standard_D11_v2"
+    STANDARD_D12_V2 = "Standard_D12_v2"
+    STANDARD_D13_V2 = "Standard_D13_v2"
+    STANDARD_D14_V2 = "Standard_D14_v2"
+    STANDARD_D32D_V4 = "Standard_D32d_v4"
+    STANDARD_D16D_V5 = "Standard_D16d_v5"
+    STANDARD_D32D_V5 = "Standard_D32d_v5"
     STANDARD_DS13_V2_1_T_B_PS = "Standard_DS13_v2+1TB_PS"
     STANDARD_DS13_V2_2_T_B_PS = "Standard_DS13_v2+2TB_PS"
     STANDARD_DS14_V2_3_T_B_PS = "Standard_DS14_v2+3TB_PS"
     STANDARD_DS14_V2_4_T_B_PS = "Standard_DS14_v2+4TB_PS"
-    STANDARD_D13_V2 = "Standard_D13_v2"
-    STANDARD_D14_V2 = "Standard_D14_v2"
+    STANDARD_L4S = "Standard_L4s"
     STANDARD_L8S = "Standard_L8s"
     STANDARD_L16S = "Standard_L16s"
     STANDARD_L8S_V2 = "Standard_L8s_v2"
     STANDARD_L16S_V2 = "Standard_L16s_v2"
-    STANDARD_D11_V2 = "Standard_D11_v2"
-    STANDARD_D12_V2 = "Standard_D12_v2"
-    STANDARD_L4S = "Standard_L4s"
-    DEV_NO_SL_A_STANDARD_D11_V2 = "Dev(No SLA)_Standard_D11_v2"
     STANDARD_E64I_V3 = "Standard_E64i_v3"
     STANDARD_E80IDS_V4 = "Standard_E80ids_v4"
     STANDARD_E2A_V4 = "Standard_E2a_v4"
@@ -52,7 +59,22 @@ class AzureSkuName(str, Enum):
     STANDARD_E8AS_V4_2_T_B_PS = "Standard_E8as_v4+2TB_PS"
     STANDARD_E16AS_V4_3_T_B_PS = "Standard_E16as_v4+3TB_PS"
     STANDARD_E16AS_V4_4_T_B_PS = "Standard_E16as_v4+4TB_PS"
-    DEV_NO_SL_A_STANDARD_E2A_V4 = "Dev(No SLA)_Standard_E2a_v4"
+    STANDARD_E8AS_V5_1_T_B_PS = "Standard_E8as_v5+1TB_PS"
+    STANDARD_E8AS_V5_2_T_B_PS = "Standard_E8as_v5+2TB_PS"
+    STANDARD_E16AS_V5_3_T_B_PS = "Standard_E16as_v5+3TB_PS"
+    STANDARD_E16AS_V5_4_T_B_PS = "Standard_E16as_v5+4TB_PS"
+    STANDARD_E2ADS_V5 = "Standard_E2ads_v5"
+    STANDARD_E4ADS_V5 = "Standard_E4ads_v5"
+    STANDARD_E8ADS_V5 = "Standard_E8ads_v5"
+    STANDARD_E16ADS_V5 = "Standard_E16ads_v5"
+    STANDARD_E8S_V4_1_T_B_PS = "Standard_E8s_v4+1TB_PS"
+    STANDARD_E8S_V4_2_T_B_PS = "Standard_E8s_v4+2TB_PS"
+    STANDARD_E16S_V4_3_T_B_PS = "Standard_E16s_v4+3TB_PS"
+    STANDARD_E16S_V4_4_T_B_PS = "Standard_E16s_v4+4TB_PS"
+    STANDARD_E8S_V5_1_T_B_PS = "Standard_E8s_v5+1TB_PS"
+    STANDARD_E8S_V5_2_T_B_PS = "Standard_E8s_v5+2TB_PS"
+    STANDARD_E16S_V5_3_T_B_PS = "Standard_E16s_v5+3TB_PS"
+    STANDARD_E16S_V5_4_T_B_PS = "Standard_E16s_v5+4TB_PS"
 
 
 class AzureSkuTier(str, Enum):
@@ -69,6 +91,14 @@ class BlobStorageEventType(str, Enum):
     """
     MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
     MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
+
+
+class ClusterNetworkAccessFlag(str, Enum):
+    """
+    Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ClusterPrincipalRole(str, Enum):
@@ -96,15 +126,6 @@ class DataConnectionKind(str, Enum):
     IOT_HUB = "IotHub"
 
 
-class DataFormat(str, Enum):
-    """
-    The data format of the message. Optionally the data format can be added to each message.
-    """
-    MULTIJSON = "MULTIJSON"
-    JSON = "JSON"
-    CSV = "CSV"
-
-
 class DatabasePrincipalRole(str, Enum):
     """
     Database principal role.
@@ -115,6 +136,14 @@ class DatabasePrincipalRole(str, Enum):
     USER = "User"
     UNRESTRICTED_VIEWER = "UnrestrictedViewer"
     VIEWER = "Viewer"
+
+
+class DatabaseRouting(str, Enum):
+    """
+    Indication for database routing information from the data connection, by default only database routing information is allowed
+    """
+    SINGLE = "Single"
+    MULTI = "Multi"
 
 
 class DefaultPrincipalsModificationKind(str, Enum):
@@ -225,3 +254,19 @@ class PrincipalType(str, Enum):
     APP = "App"
     GROUP = "Group"
     USER = "User"
+
+
+class PublicIPType(str, Enum):
+    """
+    Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+    """
+    I_PV4 = "IPv4"
+    DUAL_STACK = "DualStack"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

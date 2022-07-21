@@ -28,6 +28,24 @@ namespace Pulumi.AzureNative.EventHub.Inputs
         public Input<string>? BlobContainer { get; set; }
 
         /// <summary>
+        /// The Azure Data Lake Store name for the captured events
+        /// </summary>
+        [Input("dataLakeAccountName")]
+        public Input<string>? DataLakeAccountName { get; set; }
+
+        /// <summary>
+        /// The destination folder path for the captured events
+        /// </summary>
+        [Input("dataLakeFolderPath")]
+        public Input<string>? DataLakeFolderPath { get; set; }
+
+        /// <summary>
+        /// Subscription Id of Azure Data Lake Store
+        /// </summary>
+        [Input("dataLakeSubscriptionId")]
+        public Input<string>? DataLakeSubscriptionId { get; set; }
+
+        /// <summary>
         /// Name for capture destination
         /// </summary>
         [Input("name")]

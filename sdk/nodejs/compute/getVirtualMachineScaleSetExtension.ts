@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set Extension.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleSetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetExtensionResult> {
     if (!opts) {
@@ -70,6 +70,10 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly protectedSettings?: any;
     /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    readonly protectedSettingsFromKeyVault?: any;
+    /**
      * Collection of extension names after which this extension needs to be provisioned.
      */
     readonly provisionAfterExtensions?: string[];
@@ -85,6 +89,10 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      * Json formatted public settings for the extension.
      */
     readonly settings?: any;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    readonly suppressFailures?: boolean;
     /**
      * Resource type
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // Description of topic resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type Topic struct {
 	pulumi.CustomResourceState
 
@@ -34,9 +34,13 @@ type Topic struct {
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes pulumi.Float64PtrOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
@@ -48,7 +52,9 @@ type Topic struct {
 	SubscriptionCount pulumi.IntOutput `pulumi:"subscriptionCount"`
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrOutput `pulumi:"supportOrdering"`
-	// Resource type
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -138,6 +144,8 @@ type topicArgs struct {
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The namespace name
@@ -168,6 +176,8 @@ type TopicArgs struct {
 	EnableExpress pulumi.BoolPtrInput
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrInput
+	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes pulumi.Float64PtrInput
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The namespace name
@@ -266,12 +276,22 @@ func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
 }
 
+// The geo-location where the resource lives
+func (o TopicOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+func (o TopicOutput) MaxMessageSizeInKilobytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.Float64PtrOutput { return v.MaxMessageSizeInKilobytes }).(pulumi.Float64PtrOutput)
+}
+
 // Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 func (o TopicOutput) MaxSizeInMegabytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.MaxSizeInMegabytes }).(pulumi.IntPtrOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o TopicOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -301,7 +321,12 @@ func (o TopicOutput) SupportOrdering() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.SupportOrdering }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type
+// The system meta data relating to this resource.
+func (o TopicOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Topic) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o TopicOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

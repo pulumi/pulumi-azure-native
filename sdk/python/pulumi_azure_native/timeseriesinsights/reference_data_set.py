@@ -145,7 +145,7 @@ class ReferenceDataSet(pulumi.CustomResource):
                  __props__=None):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class ReferenceDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param ReferenceDataSetArgs args: The arguments to use to populate this resource's properties.

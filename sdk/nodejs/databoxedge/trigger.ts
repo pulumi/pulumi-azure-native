@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  *
  * @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
  */
@@ -48,7 +48,7 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

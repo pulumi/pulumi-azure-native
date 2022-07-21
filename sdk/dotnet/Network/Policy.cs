@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines web application firewall policy.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Policy")]
     public partial class Policy : Pulumi.CustomResource

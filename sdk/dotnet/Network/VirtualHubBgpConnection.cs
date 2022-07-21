@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Appliance Site resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHubBgpConnection")]
     public partial class VirtualHubBgpConnection : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the HubVirtualNetworkConnection resource.
+        /// </summary>
+        [Output("hubVirtualNetworkConnection")]
+        public Output<Outputs.SubResourceResponse?> HubVirtualNetworkConnection { get; private set; } = null!;
 
         /// <summary>
         /// Name of the connection.
@@ -121,6 +127,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
+
+        /// <summary>
+        /// The reference to the HubVirtualNetworkConnection resource.
+        /// </summary>
+        [Input("hubVirtualNetworkConnection")]
+        public Input<Inputs.SubResourceArgs>? HubVirtualNetworkConnection { get; set; }
 
         /// <summary>
         /// Resource ID.

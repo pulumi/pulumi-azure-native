@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site ARM resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class StaticSite extends pulumi.CustomResource {
     /**
@@ -61,6 +61,10 @@ export class StaticSite extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
     /**
+     * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+     */
+    public readonly enterpriseGradeCdnStatus!: pulumi.Output<string | undefined>;
+    /**
      * Managed service identity.
      */
     public readonly identity!: pulumi.Output<outputs.web.ManagedServiceIdentityResponse | undefined>;
@@ -87,7 +91,7 @@ export class StaticSite extends pulumi.CustomResource {
     /**
      * The provider that submitted the last deployment to the primary environment of the static site.
      */
-    public /*out*/ readonly provider!: pulumi.Output<string>;
+    public readonly provider!: pulumi.Output<string | undefined>;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */
@@ -138,10 +142,12 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["allowConfigFileUpdates"] = args ? args.allowConfigFileUpdates : undefined;
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["buildProperties"] = args ? args.buildProperties : undefined;
+            resourceInputs["enterpriseGradeCdnStatus"] = args ? args.enterpriseGradeCdnStatus : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["provider"] = args ? args.provider : undefined;
             resourceInputs["repositoryToken"] = args ? args.repositoryToken : undefined;
             resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -154,7 +160,6 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["keyVaultReferenceIdentity"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provider"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userProvidedFunctionApps"] = undefined /*out*/;
         } else {
@@ -164,6 +169,7 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["contentDistributionEndpoint"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["enterpriseGradeCdnStatus"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["keyVaultReferenceIdentity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -204,6 +210,10 @@ export interface StaticSiteArgs {
      */
     buildProperties?: pulumi.Input<inputs.web.StaticSiteBuildPropertiesArgs>;
     /**
+     * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+     */
+    enterpriseGradeCdnStatus?: pulumi.Input<string | enums.web.EnterpriseGradeCdnStatus>;
+    /**
      * Managed service identity.
      */
     identity?: pulumi.Input<inputs.web.ManagedServiceIdentityArgs>;
@@ -219,6 +229,10 @@ export interface StaticSiteArgs {
      * Name of the static site to create or update.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The provider that submitted the last deployment to the primary environment of the static site.
+     */
+    provider?: pulumi.Input<string>;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */

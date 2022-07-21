@@ -12,7 +12,7 @@ import (
 )
 
 // User details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type GroupUser struct {
 	pulumi.CustomResourceState
 
@@ -26,7 +26,7 @@ type GroupUser struct {
 	Identities UserIdentityContractResponseArrayOutput `pulumi:"identities"`
 	// Last name.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Optional note about a user set by the administrator.
 	Note pulumi.StringPtrOutput `pulumi:"note"`
@@ -34,7 +34,7 @@ type GroupUser struct {
 	RegistrationDate pulumi.StringPtrOutput `pulumi:"registrationDate"`
 	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -209,7 +209,7 @@ func (o GroupUserOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o GroupUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -229,7 +229,7 @@ func (o GroupUserOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o GroupUserOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupUser) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

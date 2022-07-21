@@ -10,401 +10,22 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ActiveDirectoryConnectorDNSDetailsArgs',
-    'ActiveDirectoryConnectorDomainDetailsArgs',
-    'ActiveDirectoryConnectorPropertiesArgs',
-    'ActiveDirectoryConnectorSpecArgs',
-    'ActiveDirectoryConnectorStatusArgs',
-    'ActiveDirectoryDomainControllersArgs',
-    'ActiveDirectoryDomainControllerArgs',
     'BasicLoginInformationArgs',
     'DataControllerPropertiesArgs',
     'ExtendedLocationArgs',
+    'K8sResourceRequirementsArgs',
+    'K8sSchedulingOptionsArgs',
+    'K8sSchedulingArgs',
     'LogAnalyticsWorkspaceConfigArgs',
     'OnPremisePropertyArgs',
-    'PostgresInstancePropertiesArgs',
-    'PostgresInstanceSkuArgs',
+    'SqlManagedInstanceK8sRawArgs',
+    'SqlManagedInstanceK8sSpecArgs',
     'SqlManagedInstancePropertiesArgs',
     'SqlManagedInstanceSkuArgs',
     'SqlServerInstancePropertiesArgs',
     'UploadServicePrincipalArgs',
     'UploadWatermarkArgs',
 ]
-
-@pulumi.input_type
-class ActiveDirectoryConnectorDNSDetailsArgs:
-    def __init__(__self__, *,
-                 nameserver_ip_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 domain_name: Optional[pulumi.Input[str]] = None,
-                 prefer_k8s_dns_for_ptr_lookups: Optional[pulumi.Input[bool]] = None,
-                 replicas: Optional[pulumi.Input[float]] = None):
-        """
-        DNS server details
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] nameserver_ip_addresses: List of Active Directory DNS server IP addresses.
-        :param pulumi.Input[str] domain_name: DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-        :param pulumi.Input[bool] prefer_k8s_dns_for_ptr_lookups: Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-        :param pulumi.Input[float] replicas: Replica count for DNS proxy service. Default value is 1.
-        """
-        pulumi.set(__self__, "nameserver_ip_addresses", nameserver_ip_addresses)
-        if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
-        if prefer_k8s_dns_for_ptr_lookups is None:
-            prefer_k8s_dns_for_ptr_lookups = True
-        if prefer_k8s_dns_for_ptr_lookups is not None:
-            pulumi.set(__self__, "prefer_k8s_dns_for_ptr_lookups", prefer_k8s_dns_for_ptr_lookups)
-        if replicas is None:
-            replicas = 1
-        if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
-
-    @property
-    @pulumi.getter(name="nameserverIPAddresses")
-    def nameserver_ip_addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of Active Directory DNS server IP addresses.
-        """
-        return pulumi.get(self, "nameserver_ip_addresses")
-
-    @nameserver_ip_addresses.setter
-    def nameserver_ip_addresses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "nameserver_ip_addresses", value)
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "domain_name", value)
-
-    @property
-    @pulumi.getter(name="preferK8sDnsForPtrLookups")
-    def prefer_k8s_dns_for_ptr_lookups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-        """
-        return pulumi.get(self, "prefer_k8s_dns_for_ptr_lookups")
-
-    @prefer_k8s_dns_for_ptr_lookups.setter
-    def prefer_k8s_dns_for_ptr_lookups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "prefer_k8s_dns_for_ptr_lookups", value)
-
-    @property
-    @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[float]]:
-        """
-        Replica count for DNS proxy service. Default value is 1.
-        """
-        return pulumi.get(self, "replicas")
-
-    @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "replicas", value)
-
-
-@pulumi.input_type
-class ActiveDirectoryConnectorDomainDetailsArgs:
-    def __init__(__self__, *,
-                 domain_controllers: pulumi.Input['ActiveDirectoryDomainControllersArgs'],
-                 realm: pulumi.Input[str],
-                 netbios_domain_name: Optional[pulumi.Input[str]] = None,
-                 ou_distinguished_name: Optional[pulumi.Input[str]] = None,
-                 service_account_provisioning: Optional[pulumi.Input[Union[str, 'AccountProvisioningMode']]] = None):
-        """
-        Active Directory domain details
-        :param pulumi.Input['ActiveDirectoryDomainControllersArgs'] domain_controllers: null
-        :param pulumi.Input[str] realm: Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-        :param pulumi.Input[str] netbios_domain_name: NETBIOS name of the Active Directory domain.
-        :param pulumi.Input[str] ou_distinguished_name: The distinguished name of the Active Directory Organizational Unit.
-        :param pulumi.Input[Union[str, 'AccountProvisioningMode']] service_account_provisioning: The service account provisioning mode for this Active Directory connector.
-        """
-        pulumi.set(__self__, "domain_controllers", domain_controllers)
-        pulumi.set(__self__, "realm", realm)
-        if netbios_domain_name is not None:
-            pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
-        if ou_distinguished_name is not None:
-            pulumi.set(__self__, "ou_distinguished_name", ou_distinguished_name)
-        if service_account_provisioning is None:
-            service_account_provisioning = 'manual'
-        if service_account_provisioning is not None:
-            pulumi.set(__self__, "service_account_provisioning", service_account_provisioning)
-
-    @property
-    @pulumi.getter(name="domainControllers")
-    def domain_controllers(self) -> pulumi.Input['ActiveDirectoryDomainControllersArgs']:
-        """
-        null
-        """
-        return pulumi.get(self, "domain_controllers")
-
-    @domain_controllers.setter
-    def domain_controllers(self, value: pulumi.Input['ActiveDirectoryDomainControllersArgs']):
-        pulumi.set(self, "domain_controllers", value)
-
-    @property
-    @pulumi.getter
-    def realm(self) -> pulumi.Input[str]:
-        """
-        Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
-        """
-        return pulumi.get(self, "realm")
-
-    @realm.setter
-    def realm(self, value: pulumi.Input[str]):
-        pulumi.set(self, "realm", value)
-
-    @property
-    @pulumi.getter(name="netbiosDomainName")
-    def netbios_domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        NETBIOS name of the Active Directory domain.
-        """
-        return pulumi.get(self, "netbios_domain_name")
-
-    @netbios_domain_name.setter
-    def netbios_domain_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "netbios_domain_name", value)
-
-    @property
-    @pulumi.getter(name="ouDistinguishedName")
-    def ou_distinguished_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The distinguished name of the Active Directory Organizational Unit.
-        """
-        return pulumi.get(self, "ou_distinguished_name")
-
-    @ou_distinguished_name.setter
-    def ou_distinguished_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ou_distinguished_name", value)
-
-    @property
-    @pulumi.getter(name="serviceAccountProvisioning")
-    def service_account_provisioning(self) -> Optional[pulumi.Input[Union[str, 'AccountProvisioningMode']]]:
-        """
-        The service account provisioning mode for this Active Directory connector.
-        """
-        return pulumi.get(self, "service_account_provisioning")
-
-    @service_account_provisioning.setter
-    def service_account_provisioning(self, value: Optional[pulumi.Input[Union[str, 'AccountProvisioningMode']]]):
-        pulumi.set(self, "service_account_provisioning", value)
-
-
-@pulumi.input_type
-class ActiveDirectoryConnectorPropertiesArgs:
-    def __init__(__self__, *,
-                 spec: pulumi.Input['ActiveDirectoryConnectorSpecArgs'],
-                 domain_service_account_login_information: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
-                 status: Optional[pulumi.Input['ActiveDirectoryConnectorStatusArgs']] = None):
-        """
-        The properties of an Active Directory connector resource
-        :param pulumi.Input['ActiveDirectoryConnectorSpecArgs'] spec: null
-        :param pulumi.Input['BasicLoginInformationArgs'] domain_service_account_login_information: Username and password for domain service account authentication.
-        :param pulumi.Input['ActiveDirectoryConnectorStatusArgs'] status: null
-        """
-        pulumi.set(__self__, "spec", spec)
-        if domain_service_account_login_information is not None:
-            pulumi.set(__self__, "domain_service_account_login_information", domain_service_account_login_information)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def spec(self) -> pulumi.Input['ActiveDirectoryConnectorSpecArgs']:
-        """
-        null
-        """
-        return pulumi.get(self, "spec")
-
-    @spec.setter
-    def spec(self, value: pulumi.Input['ActiveDirectoryConnectorSpecArgs']):
-        pulumi.set(self, "spec", value)
-
-    @property
-    @pulumi.getter(name="domainServiceAccountLoginInformation")
-    def domain_service_account_login_information(self) -> Optional[pulumi.Input['BasicLoginInformationArgs']]:
-        """
-        Username and password for domain service account authentication.
-        """
-        return pulumi.get(self, "domain_service_account_login_information")
-
-    @domain_service_account_login_information.setter
-    def domain_service_account_login_information(self, value: Optional[pulumi.Input['BasicLoginInformationArgs']]):
-        pulumi.set(self, "domain_service_account_login_information", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['ActiveDirectoryConnectorStatusArgs']]:
-        """
-        null
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['ActiveDirectoryConnectorStatusArgs']]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class ActiveDirectoryConnectorSpecArgs:
-    def __init__(__self__, *,
-                 active_directory: pulumi.Input['ActiveDirectoryConnectorDomainDetailsArgs'],
-                 dns: pulumi.Input['ActiveDirectoryConnectorDNSDetailsArgs']):
-        """
-        The specifications of the AD Kubernetes resource.
-        :param pulumi.Input['ActiveDirectoryConnectorDomainDetailsArgs'] active_directory: null
-        :param pulumi.Input['ActiveDirectoryConnectorDNSDetailsArgs'] dns: null
-        """
-        pulumi.set(__self__, "active_directory", active_directory)
-        pulumi.set(__self__, "dns", dns)
-
-    @property
-    @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> pulumi.Input['ActiveDirectoryConnectorDomainDetailsArgs']:
-        """
-        null
-        """
-        return pulumi.get(self, "active_directory")
-
-    @active_directory.setter
-    def active_directory(self, value: pulumi.Input['ActiveDirectoryConnectorDomainDetailsArgs']):
-        pulumi.set(self, "active_directory", value)
-
-    @property
-    @pulumi.getter
-    def dns(self) -> pulumi.Input['ActiveDirectoryConnectorDNSDetailsArgs']:
-        """
-        null
-        """
-        return pulumi.get(self, "dns")
-
-    @dns.setter
-    def dns(self, value: pulumi.Input['ActiveDirectoryConnectorDNSDetailsArgs']):
-        pulumi.set(self, "dns", value)
-
-
-@pulumi.input_type
-class ActiveDirectoryConnectorStatusArgs:
-    def __init__(__self__, *,
-                 last_update_time: Optional[pulumi.Input[str]] = None,
-                 observed_generation: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
-        """
-        The status of the Kubernetes custom resource.
-        :param pulumi.Input[str] last_update_time: The time that the custom resource was last updated.
-        :param pulumi.Input[float] observed_generation: The version of the replicaSet associated with the AD connector custom resource.
-        :param pulumi.Input[str] state: The state of the AD connector custom resource.
-        """
-        if last_update_time is not None:
-            pulumi.set(__self__, "last_update_time", last_update_time)
-        if observed_generation is not None:
-            pulumi.set(__self__, "observed_generation", observed_generation)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="lastUpdateTime")
-    def last_update_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time that the custom resource was last updated.
-        """
-        return pulumi.get(self, "last_update_time")
-
-    @last_update_time.setter
-    def last_update_time(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_update_time", value)
-
-    @property
-    @pulumi.getter(name="observedGeneration")
-    def observed_generation(self) -> Optional[pulumi.Input[float]]:
-        """
-        The version of the replicaSet associated with the AD connector custom resource.
-        """
-        return pulumi.get(self, "observed_generation")
-
-    @observed_generation.setter
-    def observed_generation(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "observed_generation", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of the AD connector custom resource.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "state", value)
-
-
-@pulumi.input_type
-class ActiveDirectoryDomainControllersArgs:
-    def __init__(__self__, *,
-                 primary_domain_controller: Optional[pulumi.Input['ActiveDirectoryDomainControllerArgs']] = None,
-                 secondary_domain_controllers: Optional[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryDomainControllerArgs']]]] = None):
-        """
-        Details about the Active Directory domain controllers associated with this AD connector instance
-        :param pulumi.Input['ActiveDirectoryDomainControllerArgs'] primary_domain_controller: Information about the Primary Domain Controller (PDC) in the AD domain.
-        :param pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryDomainControllerArgs']]] secondary_domain_controllers: null
-        """
-        if primary_domain_controller is not None:
-            pulumi.set(__self__, "primary_domain_controller", primary_domain_controller)
-        if secondary_domain_controllers is not None:
-            pulumi.set(__self__, "secondary_domain_controllers", secondary_domain_controllers)
-
-    @property
-    @pulumi.getter(name="primaryDomainController")
-    def primary_domain_controller(self) -> Optional[pulumi.Input['ActiveDirectoryDomainControllerArgs']]:
-        """
-        Information about the Primary Domain Controller (PDC) in the AD domain.
-        """
-        return pulumi.get(self, "primary_domain_controller")
-
-    @primary_domain_controller.setter
-    def primary_domain_controller(self, value: Optional[pulumi.Input['ActiveDirectoryDomainControllerArgs']]):
-        pulumi.set(self, "primary_domain_controller", value)
-
-    @property
-    @pulumi.getter(name="secondaryDomainControllers")
-    def secondary_domain_controllers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryDomainControllerArgs']]]]:
-        """
-        null
-        """
-        return pulumi.get(self, "secondary_domain_controllers")
-
-    @secondary_domain_controllers.setter
-    def secondary_domain_controllers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryDomainControllerArgs']]]]):
-        pulumi.set(self, "secondary_domain_controllers", value)
-
-
-@pulumi.input_type
-class ActiveDirectoryDomainControllerArgs:
-    def __init__(__self__, *,
-                 hostname: pulumi.Input[str]):
-        """
-        Information about a domain controller in the AD domain.
-        :param pulumi.Input[str] hostname: Fully-qualified domain name of a domain controller in the AD domain.
-        """
-        pulumi.set(__self__, "hostname", hostname)
-
-    @property
-    @pulumi.getter
-    def hostname(self) -> pulumi.Input[str]:
-        """
-        Fully-qualified domain name of a domain controller in the AD domain.
-        """
-        return pulumi.get(self, "hostname")
-
-    @hostname.setter
-    def hostname(self, value: pulumi.Input[str]):
-        pulumi.set(self, "hostname", value)
-
 
 @pulumi.input_type
 class BasicLoginInformationArgs:
@@ -450,30 +71,52 @@ class BasicLoginInformationArgs:
 class DataControllerPropertiesArgs:
     def __init__(__self__, *,
                  basic_login_information: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 extension_id: Optional[pulumi.Input[str]] = None,
+                 infrastructure: Optional[pulumi.Input['Infrastructure']] = None,
                  k8s_raw: Optional[Any] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_config: Optional[pulumi.Input['LogAnalyticsWorkspaceConfigArgs']] = None,
+                 logs_dashboard_credential: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
+                 metrics_dashboard_credential: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
                  on_premise_property: Optional[pulumi.Input['OnPremisePropertyArgs']] = None,
                  upload_service_principal: Optional[pulumi.Input['UploadServicePrincipalArgs']] = None,
                  upload_watermark: Optional[pulumi.Input['UploadWatermarkArgs']] = None):
         """
         The data controller properties.
-        :param pulumi.Input['BasicLoginInformationArgs'] basic_login_information: Username and password for basic login authentication.
+        :param pulumi.Input['BasicLoginInformationArgs'] basic_login_information: Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
+        :param pulumi.Input[str] cluster_id: If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        :param pulumi.Input[str] extension_id: If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        :param pulumi.Input['Infrastructure'] infrastructure: The infrastructure the data controller is running on.
         :param Any k8s_raw: The raw kubernetes information
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from Kubernetes cluster. Defaults to current date time
         :param pulumi.Input['LogAnalyticsWorkspaceConfigArgs'] log_analytics_workspace_config: Log analytics workspace id and primary key
+        :param pulumi.Input['BasicLoginInformationArgs'] logs_dashboard_credential: Login credential for logs dashboard on the Kubernetes cluster.
+        :param pulumi.Input['BasicLoginInformationArgs'] metrics_dashboard_credential: Login credential for metrics dashboard on the Kubernetes cluster.
         :param pulumi.Input['OnPremisePropertyArgs'] on_premise_property: Properties from the Kubernetes data controller
-        :param pulumi.Input['UploadServicePrincipalArgs'] upload_service_principal: Service principal for uploading billing, metrics and logs.
+        :param pulumi.Input['UploadServicePrincipalArgs'] upload_service_principal: Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
         :param pulumi.Input['UploadWatermarkArgs'] upload_watermark: Properties on upload watermark.  Mostly timestamp for each upload data type
         """
         if basic_login_information is not None:
             pulumi.set(__self__, "basic_login_information", basic_login_information)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if extension_id is not None:
+            pulumi.set(__self__, "extension_id", extension_id)
+        if infrastructure is None:
+            infrastructure = 'other'
+        if infrastructure is not None:
+            pulumi.set(__self__, "infrastructure", infrastructure)
         if k8s_raw is not None:
             pulumi.set(__self__, "k8s_raw", k8s_raw)
         if last_uploaded_date is not None:
             pulumi.set(__self__, "last_uploaded_date", last_uploaded_date)
         if log_analytics_workspace_config is not None:
             pulumi.set(__self__, "log_analytics_workspace_config", log_analytics_workspace_config)
+        if logs_dashboard_credential is not None:
+            pulumi.set(__self__, "logs_dashboard_credential", logs_dashboard_credential)
+        if metrics_dashboard_credential is not None:
+            pulumi.set(__self__, "metrics_dashboard_credential", metrics_dashboard_credential)
         if on_premise_property is not None:
             pulumi.set(__self__, "on_premise_property", on_premise_property)
         if upload_service_principal is not None:
@@ -485,13 +128,49 @@ class DataControllerPropertiesArgs:
     @pulumi.getter(name="basicLoginInformation")
     def basic_login_information(self) -> Optional[pulumi.Input['BasicLoginInformationArgs']]:
         """
-        Username and password for basic login authentication.
+        Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
         """
         return pulumi.get(self, "basic_login_information")
 
     @basic_login_information.setter
     def basic_login_information(self, value: Optional[pulumi.Input['BasicLoginInformationArgs']]):
         pulumi.set(self, "basic_login_information", value)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="extensionId")
+    def extension_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        """
+        return pulumi.get(self, "extension_id")
+
+    @extension_id.setter
+    def extension_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_id", value)
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> Optional[pulumi.Input['Infrastructure']]:
+        """
+        The infrastructure the data controller is running on.
+        """
+        return pulumi.get(self, "infrastructure")
+
+    @infrastructure.setter
+    def infrastructure(self, value: Optional[pulumi.Input['Infrastructure']]):
+        pulumi.set(self, "infrastructure", value)
 
     @property
     @pulumi.getter(name="k8sRaw")
@@ -530,6 +209,30 @@ class DataControllerPropertiesArgs:
         pulumi.set(self, "log_analytics_workspace_config", value)
 
     @property
+    @pulumi.getter(name="logsDashboardCredential")
+    def logs_dashboard_credential(self) -> Optional[pulumi.Input['BasicLoginInformationArgs']]:
+        """
+        Login credential for logs dashboard on the Kubernetes cluster.
+        """
+        return pulumi.get(self, "logs_dashboard_credential")
+
+    @logs_dashboard_credential.setter
+    def logs_dashboard_credential(self, value: Optional[pulumi.Input['BasicLoginInformationArgs']]):
+        pulumi.set(self, "logs_dashboard_credential", value)
+
+    @property
+    @pulumi.getter(name="metricsDashboardCredential")
+    def metrics_dashboard_credential(self) -> Optional[pulumi.Input['BasicLoginInformationArgs']]:
+        """
+        Login credential for metrics dashboard on the Kubernetes cluster.
+        """
+        return pulumi.get(self, "metrics_dashboard_credential")
+
+    @metrics_dashboard_credential.setter
+    def metrics_dashboard_credential(self, value: Optional[pulumi.Input['BasicLoginInformationArgs']]):
+        pulumi.set(self, "metrics_dashboard_credential", value)
+
+    @property
     @pulumi.getter(name="onPremiseProperty")
     def on_premise_property(self) -> Optional[pulumi.Input['OnPremisePropertyArgs']]:
         """
@@ -545,7 +248,7 @@ class DataControllerPropertiesArgs:
     @pulumi.getter(name="uploadServicePrincipal")
     def upload_service_principal(self) -> Optional[pulumi.Input['UploadServicePrincipalArgs']]:
         """
-        Service principal for uploading billing, metrics and logs.
+        Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
         """
         return pulumi.get(self, "upload_service_principal")
 
@@ -604,6 +307,94 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class K8sResourceRequirementsArgs:
+    def __init__(__self__, *,
+                 limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 requests: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] limits: Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] requests: Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+        """
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+        """
+        return pulumi.get(self, "limits")
+
+    @limits.setter
+    def limits(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "limits", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "requests", value)
+
+
+@pulumi.input_type
+class K8sSchedulingOptionsArgs:
+    def __init__(__self__, *,
+                 resources: Optional[pulumi.Input['K8sResourceRequirementsArgs']] = None):
+        """
+        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        :param pulumi.Input['K8sResourceRequirementsArgs'] resources: The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        """
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input['K8sResourceRequirementsArgs']]:
+        """
+        The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input['K8sResourceRequirementsArgs']]):
+        pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
+class K8sSchedulingArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input['K8sSchedulingOptionsArgs']] = None):
+        """
+        The kubernetes scheduling information.
+        :param pulumi.Input['K8sSchedulingOptionsArgs'] default: The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input['K8sSchedulingOptionsArgs']]:
+        """
+        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input['K8sSchedulingOptionsArgs']]):
+        pulumi.set(self, "default", value)
 
 
 @pulumi.input_type
@@ -701,198 +492,67 @@ class OnPremisePropertyArgs:
 
 
 @pulumi.input_type
-class PostgresInstancePropertiesArgs:
+class SqlManagedInstanceK8sRawArgs:
     def __init__(__self__, *,
-                 admin: Optional[pulumi.Input[str]] = None,
-                 basic_login_information: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
-                 data_controller_id: Optional[pulumi.Input[str]] = None,
-                 k8s_raw: Optional[Any] = None,
-                 last_uploaded_date: Optional[pulumi.Input[str]] = None):
+                 spec: Optional[pulumi.Input['SqlManagedInstanceK8sSpecArgs']] = None):
         """
-        Postgres Instance properties.
-        :param pulumi.Input[str] admin: The instance admin
-        :param pulumi.Input['BasicLoginInformationArgs'] basic_login_information: Username and password for basic authentication.
-        :param pulumi.Input[str] data_controller_id: The data controller id
-        :param Any k8s_raw: The raw kubernetes information
-        :param pulumi.Input[str] last_uploaded_date: Last uploaded date from Kubernetes cluster. Defaults to current date time
+        The raw kubernetes information.
+        :param pulumi.Input['SqlManagedInstanceK8sSpecArgs'] spec: The kubernetes spec information.
         """
-        if admin is not None:
-            pulumi.set(__self__, "admin", admin)
-        if basic_login_information is not None:
-            pulumi.set(__self__, "basic_login_information", basic_login_information)
-        if data_controller_id is not None:
-            pulumi.set(__self__, "data_controller_id", data_controller_id)
-        if k8s_raw is not None:
-            pulumi.set(__self__, "k8s_raw", k8s_raw)
-        if last_uploaded_date is not None:
-            pulumi.set(__self__, "last_uploaded_date", last_uploaded_date)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
 
     @property
     @pulumi.getter
-    def admin(self) -> Optional[pulumi.Input[str]]:
+    def spec(self) -> Optional[pulumi.Input['SqlManagedInstanceK8sSpecArgs']]:
         """
-        The instance admin
+        The kubernetes spec information.
         """
-        return pulumi.get(self, "admin")
+        return pulumi.get(self, "spec")
 
-    @admin.setter
-    def admin(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "admin", value)
-
-    @property
-    @pulumi.getter(name="basicLoginInformation")
-    def basic_login_information(self) -> Optional[pulumi.Input['BasicLoginInformationArgs']]:
-        """
-        Username and password for basic authentication.
-        """
-        return pulumi.get(self, "basic_login_information")
-
-    @basic_login_information.setter
-    def basic_login_information(self, value: Optional[pulumi.Input['BasicLoginInformationArgs']]):
-        pulumi.set(self, "basic_login_information", value)
-
-    @property
-    @pulumi.getter(name="dataControllerId")
-    def data_controller_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The data controller id
-        """
-        return pulumi.get(self, "data_controller_id")
-
-    @data_controller_id.setter
-    def data_controller_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_controller_id", value)
-
-    @property
-    @pulumi.getter(name="k8sRaw")
-    def k8s_raw(self) -> Optional[Any]:
-        """
-        The raw kubernetes information
-        """
-        return pulumi.get(self, "k8s_raw")
-
-    @k8s_raw.setter
-    def k8s_raw(self, value: Optional[Any]):
-        pulumi.set(self, "k8s_raw", value)
-
-    @property
-    @pulumi.getter(name="lastUploadedDate")
-    def last_uploaded_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last uploaded date from Kubernetes cluster. Defaults to current date time
-        """
-        return pulumi.get(self, "last_uploaded_date")
-
-    @last_uploaded_date.setter
-    def last_uploaded_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_uploaded_date", value)
+    @spec.setter
+    def spec(self, value: Optional[pulumi.Input['SqlManagedInstanceK8sSpecArgs']]):
+        pulumi.set(self, "spec", value)
 
 
 @pulumi.input_type
-class PostgresInstanceSkuArgs:
+class SqlManagedInstanceK8sSpecArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 dev: Optional[pulumi.Input[bool]] = None,
-                 family: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input['PostgresInstanceSkuTier']] = None):
+                 replicas: Optional[pulumi.Input[int]] = None,
+                 scheduling: Optional[pulumi.Input['K8sSchedulingArgs']] = None):
         """
-        The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
-        :param pulumi.Input[str] name: The name of the SKU.  It is typically a letter+number code
-        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param pulumi.Input[bool] dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
-        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param pulumi.Input['PostgresInstanceSkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier.
+        The kubernetes spec information.
+        :param pulumi.Input[int] replicas: This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+        :param pulumi.Input['K8sSchedulingArgs'] scheduling: The kubernetes scheduling information.
         """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if dev is None:
-            dev = True
-        if dev is not None:
-            pulumi.set(__self__, "dev", dev)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is None:
-            tier = 'Hyperscale'
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+        if scheduling is not None:
+            pulumi.set(__self__, "scheduling", scheduling)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def replicas(self) -> Optional[pulumi.Input[int]]:
         """
-        The name of the SKU.  It is typically a letter+number code
+        This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "replicas")
 
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas", value)
 
     @property
     @pulumi.getter
-    def dev(self) -> Optional[pulumi.Input[bool]]:
+    def scheduling(self) -> Optional[pulumi.Input['K8sSchedulingArgs']]:
         """
-        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        The kubernetes scheduling information.
         """
-        return pulumi.get(self, "dev")
+        return pulumi.get(self, "scheduling")
 
-    @dev.setter
-    def dev(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "dev", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "size", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['PostgresInstanceSkuTier']]:
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input['PostgresInstanceSkuTier']]):
-        pulumi.set(self, "tier", value)
+    @scheduling.setter
+    def scheduling(self, value: Optional[pulumi.Input['K8sSchedulingArgs']]):
+        pulumi.set(self, "scheduling", value)
 
 
 @pulumi.input_type
@@ -900,33 +560,47 @@ class SqlManagedInstancePropertiesArgs:
     def __init__(__self__, *,
                  admin: Optional[pulumi.Input[str]] = None,
                  basic_login_information: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
                  data_controller_id: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 k8s_raw: Optional[Any] = None,
+                 extension_id: Optional[pulumi.Input[str]] = None,
+                 k8s_raw: Optional[pulumi.Input['SqlManagedInstanceK8sRawArgs']] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         Properties of sqlManagedInstance.
         :param pulumi.Input[str] admin: The instance admin user
         :param pulumi.Input['BasicLoginInformationArgs'] basic_login_information: Username and password for basic authentication.
+        :param pulumi.Input[str] cluster_id: If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
         :param pulumi.Input[str] data_controller_id: null
         :param pulumi.Input[str] end_time: The instance end time
-        :param Any k8s_raw: The raw kubernetes information
+        :param pulumi.Input[str] extension_id: If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        :param pulumi.Input['SqlManagedInstanceK8sRawArgs'] k8s_raw: The raw kubernetes information
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from Kubernetes cluster. Defaults to current date time
+        :param pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']] license_type: The license type to apply for this managed instance.
         :param pulumi.Input[str] start_time: The instance start time
         """
         if admin is not None:
             pulumi.set(__self__, "admin", admin)
         if basic_login_information is not None:
             pulumi.set(__self__, "basic_login_information", basic_login_information)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if data_controller_id is not None:
             pulumi.set(__self__, "data_controller_id", data_controller_id)
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
+        if extension_id is not None:
+            pulumi.set(__self__, "extension_id", extension_id)
         if k8s_raw is not None:
             pulumi.set(__self__, "k8s_raw", k8s_raw)
         if last_uploaded_date is not None:
             pulumi.set(__self__, "last_uploaded_date", last_uploaded_date)
+        if license_type is None:
+            license_type = 'BasePrice'
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
 
@@ -955,6 +629,18 @@ class SqlManagedInstancePropertiesArgs:
         pulumi.set(self, "basic_login_information", value)
 
     @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
     @pulumi.getter(name="dataControllerId")
     def data_controller_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -979,15 +665,27 @@ class SqlManagedInstancePropertiesArgs:
         pulumi.set(self, "end_time", value)
 
     @property
+    @pulumi.getter(name="extensionId")
+    def extension_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        """
+        return pulumi.get(self, "extension_id")
+
+    @extension_id.setter
+    def extension_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_id", value)
+
+    @property
     @pulumi.getter(name="k8sRaw")
-    def k8s_raw(self) -> Optional[Any]:
+    def k8s_raw(self) -> Optional[pulumi.Input['SqlManagedInstanceK8sRawArgs']]:
         """
         The raw kubernetes information
         """
         return pulumi.get(self, "k8s_raw")
 
     @k8s_raw.setter
-    def k8s_raw(self, value: Optional[Any]):
+    def k8s_raw(self, value: Optional[pulumi.Input['SqlManagedInstanceK8sRawArgs']]):
         pulumi.set(self, "k8s_raw", value)
 
     @property
@@ -1001,6 +699,18 @@ class SqlManagedInstancePropertiesArgs:
     @last_uploaded_date.setter
     def last_uploaded_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_uploaded_date", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]]:
+        """
+        The license type to apply for this managed instance.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]]):
+        pulumi.set(self, "license_type", value)
 
     @property
     @pulumi.getter(name="startTime")
@@ -1026,12 +736,10 @@ class SqlManagedInstanceSkuArgs:
                  tier: Optional[pulumi.Input['SqlManagedInstanceSkuTier']] = None):
         """
         The resource model definition representing SKU for Azure Managed Instance - Azure Arc
-        :param pulumi.Input[str] name: The name of the SKU.  It is typically a letter+number code
-        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[str] name: The name of the SKU.
         :param pulumi.Input[bool] dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
-        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param pulumi.Input['SqlManagedInstanceSkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier.
+        :param pulumi.Input['SqlManagedInstanceSkuTier'] tier: The pricing tier for the instance.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -1053,7 +761,7 @@ class SqlManagedInstanceSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the SKU.  It is typically a letter+number code
+        The name of the SKU.
         """
         return pulumi.get(self, "name")
 
@@ -1064,9 +772,6 @@ class SqlManagedInstanceSkuArgs:
     @property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -1088,9 +793,6 @@ class SqlManagedInstanceSkuArgs:
     @property
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -1113,7 +815,7 @@ class SqlManagedInstanceSkuArgs:
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input['SqlManagedInstanceSkuTier']]:
         """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier.
+        The pricing tier for the instance.
         """
         return pulumi.get(self, "tier")
 
@@ -1126,36 +828,44 @@ class SqlManagedInstanceSkuArgs:
 class SqlServerInstancePropertiesArgs:
     def __init__(__self__, *,
                  container_resource_id: pulumi.Input[str],
-                 status: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'ConnectionStatus']],
+                 azure_defender_status: Optional[pulumi.Input[Union[str, 'DefenderStatus']]] = None,
+                 azure_defender_status_last_updated: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[Union[str, 'EditionType']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]] = None,
                  patch_level: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  tcp_dynamic_ports: Optional[pulumi.Input[str]] = None,
                  tcp_static_ports: Optional[pulumi.Input[str]] = None,
                  v_core: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input[Union[str, 'SqlVersion']]] = None):
         """
         Properties of SqlServerInstance.
         :param pulumi.Input[str] container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
-        :param pulumi.Input[str] status: The cloud connectivity status.
+        :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The cloud connectivity status.
+        :param pulumi.Input[Union[str, 'DefenderStatus']] azure_defender_status: Status of Azure Defender.
+        :param pulumi.Input[str] azure_defender_status_last_updated: Timestamp of last Azure Defender status update.
         :param pulumi.Input[str] collation: SQL Server collation.
         :param pulumi.Input[str] current_version: SQL Server current version.
-        :param pulumi.Input[str] edition: SQL Server edition.
+        :param pulumi.Input[Union[str, 'EditionType']] edition: SQL Server edition.
         :param pulumi.Input[str] instance_name: SQL Server instance name.
-        :param pulumi.Input[str] license_type: SQL Server license type.
+        :param pulumi.Input[Union[str, 'ArcSqlServerLicenseType']] license_type: SQL Server license type.
         :param pulumi.Input[str] patch_level: SQL Server update level.
         :param pulumi.Input[str] product_id: SQL Server product ID.
         :param pulumi.Input[str] tcp_dynamic_ports: Dynamic TCP ports used by SQL Server.
         :param pulumi.Input[str] tcp_static_ports: Static TCP ports used by SQL Server.
         :param pulumi.Input[str] v_core: The number of logical processors used by the SQL Server instance.
-        :param pulumi.Input[str] version: SQL Server version.
+        :param pulumi.Input[Union[str, 'SqlVersion']] version: SQL Server version.
         """
         pulumi.set(__self__, "container_resource_id", container_resource_id)
         pulumi.set(__self__, "status", status)
+        if azure_defender_status is not None:
+            pulumi.set(__self__, "azure_defender_status", azure_defender_status)
+        if azure_defender_status_last_updated is not None:
+            pulumi.set(__self__, "azure_defender_status_last_updated", azure_defender_status_last_updated)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
         if current_version is not None:
@@ -1193,15 +903,39 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'ConnectionStatus']]:
         """
         The cloud connectivity status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'ConnectionStatus']]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="azureDefenderStatus")
+    def azure_defender_status(self) -> Optional[pulumi.Input[Union[str, 'DefenderStatus']]]:
+        """
+        Status of Azure Defender.
+        """
+        return pulumi.get(self, "azure_defender_status")
+
+    @azure_defender_status.setter
+    def azure_defender_status(self, value: Optional[pulumi.Input[Union[str, 'DefenderStatus']]]):
+        pulumi.set(self, "azure_defender_status", value)
+
+    @property
+    @pulumi.getter(name="azureDefenderStatusLastUpdated")
+    def azure_defender_status_last_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp of last Azure Defender status update.
+        """
+        return pulumi.get(self, "azure_defender_status_last_updated")
+
+    @azure_defender_status_last_updated.setter
+    def azure_defender_status_last_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_defender_status_last_updated", value)
 
     @property
     @pulumi.getter
@@ -1229,14 +963,14 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[str]]:
+    def edition(self) -> Optional[pulumi.Input[Union[str, 'EditionType']]]:
         """
         SQL Server edition.
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[str]]):
+    def edition(self, value: Optional[pulumi.Input[Union[str, 'EditionType']]]):
         pulumi.set(self, "edition", value)
 
     @property
@@ -1253,14 +987,14 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[str]]:
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]:
         """
         SQL Server license type.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[str]]):
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @property
@@ -1325,14 +1059,14 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
+    def version(self) -> Optional[pulumi.Input[Union[str, 'SqlVersion']]]:
         """
         SQL Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
+    def version(self, value: Optional[pulumi.Input[Union[str, 'SqlVersion']]]):
         pulumi.set(self, "version", value)
 
 

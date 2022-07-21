@@ -11,7 +11,7 @@ import (
 )
 
 // Product information.
-// API Version: 2017-06-01.
+// API Version: 2020-06-01-preview.
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	var rv GetProductResult
 	err := ctx.Invoke("azure-native:azurestack:getProduct", args, &rv, opts...)
@@ -72,6 +72,8 @@ type GetProductResult struct {
 	PublisherIdentifier *string `pulumi:"publisherIdentifier"`
 	// The product SKU.
 	Sku *string `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of Resource.
 	Type string `pulumi:"type"`
 	// The type of the Virtual Machine Extension.
@@ -217,6 +219,11 @@ func (o GetProductResultOutput) PublisherIdentifier() pulumi.StringPtrOutput {
 // The product SKU.
 func (o GetProductResultOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetProductResult) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o GetProductResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v GetProductResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Type of Resource.

@@ -11,7 +11,7 @@ import (
 )
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
 	err := ctx.Invoke("azure-native:cdn:getCustomDomain", args, &rv, opts...)
@@ -36,7 +36,7 @@ type LookupCustomDomainArgs struct {
 type LookupCustomDomainResult struct {
 	// Certificate parameters for securing custom HTTPS
 	CustomHttpsParameters interface{} `pulumi:"customHttpsParameters"`
-	// Provisioning status of Custom Https of the custom domain.
+	// Provisioning status of the custom domain.
 	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
 	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
@@ -46,7 +46,7 @@ type LookupCustomDomainResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Provisioning status of the custom domain.
+	// Provisioning status of Custom Https of the custom domain.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState string `pulumi:"resourceState"`
@@ -106,7 +106,7 @@ func (o LookupCustomDomainResultOutput) CustomHttpsParameters() pulumi.AnyOutput
 	return o.ApplyT(func(v LookupCustomDomainResult) interface{} { return v.CustomHttpsParameters }).(pulumi.AnyOutput)
 }
 
-// Provisioning status of Custom Https of the custom domain.
+// Provisioning status of the custom domain.
 func (o LookupCustomDomainResultOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomDomainResult) string { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
 }
@@ -131,7 +131,7 @@ func (o LookupCustomDomainResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomDomainResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provisioning status of the custom domain.
+// Provisioning status of Custom Https of the custom domain.
 func (o LookupCustomDomainResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomDomainResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }

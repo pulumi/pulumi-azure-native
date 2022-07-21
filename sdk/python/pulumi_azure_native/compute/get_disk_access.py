@@ -21,7 +21,10 @@ class GetDiskAccessResult:
     """
     disk access resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, time_created=None, type=None):
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, time_created=None, type=None):
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetDiskAccessResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location where the disk access will be created. Extended location cannot be changed.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetDiskAccessResult(GetDiskAccessResult):
         if False:
             yield self
         return GetDiskAccessResult(
+            extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -133,10 +145,10 @@ def get_disk_access(disk_access_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessResult:
     """
     disk access resource.
-    API Version: 2020-12-01.
+    API Version: 2021-12-01.
 
 
-    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
@@ -149,6 +161,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult).value
 
     return AwaitableGetDiskAccessResult(
+        extended_location=__ret__.extended_location,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
@@ -165,10 +178,10 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
     disk access resource.
-    API Version: 2020-12-01.
+    API Version: 2021-12-01.
 
 
-    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
     ...

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Cache.Inputs
     public sealed class ModuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        /// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         /// </summary>
         [Input("args")]
         public Input<string>? Args { get; set; }

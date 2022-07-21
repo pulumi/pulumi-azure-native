@@ -317,7 +317,7 @@ class AzureFirewall(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Firewall resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,7 +347,7 @@ class AzureFirewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Firewall resource.
-        API Version: 2020-11-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param AzureFirewallArgs args: The arguments to use to populate this resource's properties.

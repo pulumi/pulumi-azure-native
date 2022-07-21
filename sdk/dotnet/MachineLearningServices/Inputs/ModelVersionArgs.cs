@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class ModelVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARM resource ID of the datastore where the asset is located.
-        /// </summary>
-        [Input("datastoreId")]
-        public Input<string>? DatastoreId { get; set; }
-
-        /// <summary>
         /// The asset description text.
         /// </summary>
         [Input("description")]
@@ -46,10 +40,28 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<bool>? IsAnonymous { get; set; }
 
         /// <summary>
-        /// [Required] The path of the file/directory in the datastore.
+        /// Is the asset archived?
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("isArchived")]
+        public Input<bool>? IsArchived { get; set; }
+
+        /// <summary>
+        /// Name of the training job which produced this model
+        /// </summary>
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
+
+        /// <summary>
+        /// The storage format for this entity. Used for NCD.
+        /// </summary>
+        [Input("modelType")]
+        public Input<string>? ModelType { get; set; }
+
+        /// <summary>
+        /// The URI path to the model contents.
+        /// </summary>
+        [Input("modelUri")]
+        public Input<string>? ModelUri { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -77,6 +89,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public ModelVersionArgs()
         {
+            IsAnonymous = false;
+            IsArchived = false;
         }
     }
 }

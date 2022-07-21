@@ -11,7 +11,7 @@ import (
 )
 
 // EventGrid Topic
-// API Version: 2020-06-01.
+// API Version: 2022-06-15.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
 	err := ctx.Invoke("azure-native:eventgrid:getTopic", args, &rv, opts...)
@@ -30,10 +30,16 @@ type LookupTopicArgs struct {
 
 // EventGrid Topic
 type LookupTopicResult struct {
+	// Data Residency Boundary of the resource.
+	DataResidencyBoundary *string `pulumi:"dataResidencyBoundary"`
+	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Endpoint for the topic.
 	Endpoint string `pulumi:"endpoint"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
+	// Identity information for the resource.
+	Identity *IdentityInfoResponse `pulumi:"identity"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
@@ -66,6 +72,10 @@ func (val *LookupTopicResult) Defaults() *LookupTopicResult {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.DisableLocalAuth) {
+		disableLocalAuth_ := false
+		tmp.DisableLocalAuth = &disableLocalAuth_
+	}
 	if isZero(tmp.InputSchema) {
 		inputSchema_ := "EventGridSchema"
 		tmp.InputSchema = &inputSchema_
@@ -116,6 +126,16 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
+// Data Residency Boundary of the resource.
+func (o LookupTopicResultOutput) DataResidencyBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.DataResidencyBoundary }).(pulumi.StringPtrOutput)
+}
+
+// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+func (o LookupTopicResultOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
 // Endpoint for the topic.
 func (o LookupTopicResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Endpoint }).(pulumi.StringOutput)
@@ -124,6 +144,11 @@ func (o LookupTopicResultOutput) Endpoint() pulumi.StringOutput {
 // Fully qualified identifier of the resource.
 func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity information for the resource.
+func (o LookupTopicResultOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *IdentityInfoResponse { return v.Identity }).(IdentityInfoResponsePtrOutput)
 }
 
 // This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.

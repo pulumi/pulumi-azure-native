@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A project resource
- * API Version: 2018-04-19.
+ * API Version: 2021-06-30.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
@@ -68,11 +68,15 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MongoDbConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.OracleConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse;
     /**
      * Source platform for the project
      */
     readonly sourcePlatform: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.datamigration.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -80,7 +84,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MongoDbConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.OracleConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse;
     /**
      * Target platform for the project
      */

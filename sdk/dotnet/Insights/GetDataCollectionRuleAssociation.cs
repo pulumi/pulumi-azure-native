@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of generic ARM proxy resource.
-        /// API Version: 2019-11-01-preview.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Task<GetDataCollectionRuleAssociationResult> InvokeAsync(GetDataCollectionRuleAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of generic ARM proxy resource.
-        /// API Version: 2019-11-01-preview.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Output<GetDataCollectionRuleAssociationResult> Invoke(GetDataCollectionRuleAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationInvokeArgs(), options.WithDefaults());
@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetDataCollectionRuleAssociationResult
     {
         /// <summary>
+        /// The resource ID of the data collection endpoint that is to be associated.
+        /// </summary>
+        public readonly string? DataCollectionEndpointId;
+        /// <summary>
         /// The resource ID of the data collection rule that is to be associated.
         /// </summary>
         public readonly string? DataCollectionRuleId;
@@ -94,12 +98,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDataCollectionRuleAssociationResult(
+            string? dataCollectionEndpointId,
+
             string? dataCollectionRuleId,
 
             string? description,
@@ -112,14 +122,18 @@ namespace Pulumi.AzureNative.Insights
 
             string provisioningState,
 
+            Outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData systemData,
+
             string type)
         {
+            DataCollectionEndpointId = dataCollectionEndpointId;
             DataCollectionRuleId = dataCollectionRuleId;
             Description = description;
             Etag = etag;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

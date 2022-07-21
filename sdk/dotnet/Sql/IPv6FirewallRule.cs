@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An IPv6 server firewall rule.
-    /// API Version: 2021-08-01-preview.
+    /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:IPv6FirewallRule")]
     public partial class IPv6FirewallRule : Pulumi.CustomResource

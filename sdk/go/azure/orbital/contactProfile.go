@@ -12,26 +12,28 @@ import (
 )
 
 // Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 type ContactProfile struct {
 	pulumi.CustomResourceState
 
-	// Auto track configuration.
+	// Auto-tracking configuration.
 	AutoTrackingConfiguration pulumi.StringPtrOutput `pulumi:"autoTrackingConfiguration"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The URI of the Event Hub used for telemetry
+	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri pulumi.StringPtrOutput `pulumi:"eventHubUri"`
-	// Links of the Contact Profile
+	// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
 	Links ContactProfileLinkResponseArrayOutput `pulumi:"links"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Minimum viable elevation for the contact in decimal degrees.
+	// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
 	MinimumElevationDegrees pulumi.Float64PtrOutput `pulumi:"minimumElevationDegrees"`
-	// Minimum viable contact duration in ISO 8601 format.
+	// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
 	MinimumViableContactDuration pulumi.StringPtrOutput `pulumi:"minimumViableContactDuration"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesResponseNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -49,6 +51,9 @@ func NewContactProfile(ctx *pulumi.Context,
 
 	if args.Links == nil {
 		return nil, errors.New("invalid value for required argument 'Links'")
+	}
+	if args.NetworkConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -94,20 +99,22 @@ func (ContactProfileState) ElementType() reflect.Type {
 }
 
 type contactProfileArgs struct {
-	// Auto track configuration.
+	// Auto-tracking configuration.
 	AutoTrackingConfiguration *AutoTrackingConfiguration `pulumi:"autoTrackingConfiguration"`
-	// Contact Profile Name
+	// Contact Profile name.
 	ContactProfileName *string `pulumi:"contactProfileName"`
-	// The URI of the Event Hub used for telemetry
+	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri *string `pulumi:"eventHubUri"`
-	// Links of the Contact Profile
+	// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
 	Links []ContactProfileLink `pulumi:"links"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Minimum viable elevation for the contact in decimal degrees.
+	// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
 	MinimumElevationDegrees *float64 `pulumi:"minimumElevationDegrees"`
-	// Minimum viable contact duration in ISO 8601 format.
+	// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
 	MinimumViableContactDuration *string `pulumi:"minimumViableContactDuration"`
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -116,20 +123,22 @@ type contactProfileArgs struct {
 
 // The set of arguments for constructing a ContactProfile resource.
 type ContactProfileArgs struct {
-	// Auto track configuration.
+	// Auto-tracking configuration.
 	AutoTrackingConfiguration AutoTrackingConfigurationPtrInput
-	// Contact Profile Name
+	// Contact Profile name.
 	ContactProfileName pulumi.StringPtrInput
-	// The URI of the Event Hub used for telemetry
+	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri pulumi.StringPtrInput
-	// Links of the Contact Profile
+	// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
 	Links ContactProfileLinkArrayInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Minimum viable elevation for the contact in decimal degrees.
+	// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
 	MinimumElevationDegrees pulumi.Float64PtrInput
-	// Minimum viable contact duration in ISO 8601 format.
+	// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
 	MinimumViableContactDuration pulumi.StringPtrInput
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesNetworkConfigurationInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
@@ -173,7 +182,7 @@ func (o ContactProfileOutput) ToContactProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Auto track configuration.
+// Auto-tracking configuration.
 func (o ContactProfileOutput) AutoTrackingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.AutoTrackingConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -183,12 +192,12 @@ func (o ContactProfileOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The URI of the Event Hub used for telemetry
+// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 func (o ContactProfileOutput) EventHubUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.EventHubUri }).(pulumi.StringPtrOutput)
 }
 
-// Links of the Contact Profile
+// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
 func (o ContactProfileOutput) Links() ContactProfileLinkResponseArrayOutput {
 	return o.ApplyT(func(v *ContactProfile) ContactProfileLinkResponseArrayOutput { return v.Links }).(ContactProfileLinkResponseArrayOutput)
 }
@@ -198,12 +207,12 @@ func (o ContactProfileOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Minimum viable elevation for the contact in decimal degrees.
+// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
 func (o ContactProfileOutput) MinimumElevationDegrees() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.Float64PtrOutput { return v.MinimumElevationDegrees }).(pulumi.Float64PtrOutput)
 }
 
-// Minimum viable contact duration in ISO 8601 format.
+// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
 func (o ContactProfileOutput) MinimumViableContactDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.MinimumViableContactDuration }).(pulumi.StringPtrOutput)
 }
@@ -211,6 +220,13 @@ func (o ContactProfileOutput) MinimumViableContactDuration() pulumi.StringPtrOut
 // The name of the resource
 func (o ContactProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network configuration of customer virtual network.
+func (o ContactProfileOutput) NetworkConfiguration() ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ContactProfile) ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+		return v.NetworkConfiguration
+	}).(ContactProfilesPropertiesResponseNetworkConfigurationOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.

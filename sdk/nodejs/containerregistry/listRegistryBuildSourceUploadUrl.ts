@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of a response to source upload request.
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-04-01.
  */
 export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryBuildSourceUploadUrlResult> {
     if (!opts) {

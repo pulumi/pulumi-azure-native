@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A streaming job object, containing all information associated with the named streaming job.
- * API Version: 2016-03-01.
+ * API Version: 2021-10-01-preview.
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**
@@ -37,9 +37,17 @@ export class StreamingJob extends pulumi.CustomResource {
     }
 
     /**
+     * The cluster which streaming jobs will run on.
+     */
+    public readonly cluster!: pulumi.Output<outputs.streamanalytics.ClusterInfoResponse | undefined>;
+    /**
      * Controls certain runtime behaviors of the streaming job.
      */
     public readonly compatibilityLevel!: pulumi.Output<string | undefined>;
+    /**
+     * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+     */
+    public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
     /**
      * Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
      */
@@ -65,9 +73,17 @@ export class StreamingJob extends pulumi.CustomResource {
      */
     public readonly eventsOutOfOrderPolicy!: pulumi.Output<string | undefined>;
     /**
+     * The storage account where the custom code artifacts are located.
+     */
+    public readonly externals!: pulumi.Output<outputs.streamanalytics.ExternalResponse | undefined>;
+    /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
     public readonly functions!: pulumi.Output<outputs.streamanalytics.FunctionResponse[] | undefined>;
+    /**
+     * Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+     */
+    public readonly identity!: pulumi.Output<outputs.streamanalytics.IdentityResponse | undefined>;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
@@ -80,6 +96,14 @@ export class StreamingJob extends pulumi.CustomResource {
      * Describes the state of the streaming job.
      */
     public /*out*/ readonly jobState!: pulumi.Output<string>;
+    /**
+     * The properties that are associated with an Azure Storage account with MSI
+     */
+    public readonly jobStorageAccount!: pulumi.Output<outputs.streamanalytics.JobStorageAccountResponse | undefined>;
+    /**
+     * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+     */
+    public readonly jobType!: pulumi.Output<string | undefined>;
     /**
      * Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
      */
@@ -143,14 +167,20 @@ export class StreamingJob extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
             resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            resourceInputs["contentStoragePolicy"] = args ? args.contentStoragePolicy : undefined;
             resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
             resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
             resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
             resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
+            resourceInputs["externals"] = args ? args.externals : undefined;
             resourceInputs["functions"] = args ? args.functions : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["inputs"] = args ? args.inputs : undefined;
             resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["jobStorageAccount"] = args ? args.jobStorageAccount : undefined;
+            resourceInputs["jobType"] = args ? args.jobType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
             resourceInputs["outputStartMode"] = args ? args.outputStartMode : undefined;
@@ -159,7 +189,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transformation"] = args ? args.transformation : undefined;
+            resourceInputs["transformation"] = args ? (args.transformation ? pulumi.output(args.transformation).apply(inputs.streamanalytics.transformationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["jobId"] = undefined /*out*/;
@@ -169,17 +199,23 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["compatibilityLevel"] = undefined /*out*/;
+            resourceInputs["contentStoragePolicy"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["dataLocale"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = undefined /*out*/;
             resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = undefined /*out*/;
             resourceInputs["eventsOutOfOrderPolicy"] = undefined /*out*/;
+            resourceInputs["externals"] = undefined /*out*/;
             resourceInputs["functions"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;
             resourceInputs["jobId"] = undefined /*out*/;
             resourceInputs["jobState"] = undefined /*out*/;
+            resourceInputs["jobStorageAccount"] = undefined /*out*/;
+            resourceInputs["jobType"] = undefined /*out*/;
             resourceInputs["lastOutputEventTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -205,9 +241,17 @@ export class StreamingJob extends pulumi.CustomResource {
  */
 export interface StreamingJobArgs {
     /**
+     * The cluster which streaming jobs will run on.
+     */
+    cluster?: pulumi.Input<inputs.streamanalytics.ClusterInfoArgs>;
+    /**
      * Controls certain runtime behaviors of the streaming job.
      */
     compatibilityLevel?: pulumi.Input<string | enums.streamanalytics.CompatibilityLevel>;
+    /**
+     * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+     */
+    contentStoragePolicy?: pulumi.Input<string | enums.streamanalytics.ContentStoragePolicy>;
     /**
      * The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
      */
@@ -225,9 +269,17 @@ export interface StreamingJobArgs {
      */
     eventsOutOfOrderPolicy?: pulumi.Input<string | enums.streamanalytics.EventsOutOfOrderPolicy>;
     /**
+     * The storage account where the custom code artifacts are located.
+     */
+    externals?: pulumi.Input<inputs.streamanalytics.ExternalArgs>;
+    /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
     functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionArgs>[]>;
+    /**
+     * Describes the managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+     */
+    identity?: pulumi.Input<inputs.streamanalytics.IdentityArgs>;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
@@ -236,6 +288,14 @@ export interface StreamingJobArgs {
      * The name of the streaming job.
      */
     jobName?: pulumi.Input<string>;
+    /**
+     * The properties that are associated with an Azure Storage account with MSI
+     */
+    jobStorageAccount?: pulumi.Input<inputs.streamanalytics.JobStorageAccountArgs>;
+    /**
+     * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+     */
+    jobType?: pulumi.Input<string | enums.streamanalytics.JobType>;
     /**
      * The geo-location where the resource lives
      */
@@ -257,7 +317,7 @@ export interface StreamingJobArgs {
      */
     outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.OutputArgs>[]>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

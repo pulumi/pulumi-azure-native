@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? DefaultBackendHttpSettings;
         /// <summary>
+        /// Default Load Distribution Policy resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? DefaultLoadDistributionPolicy;
+        /// <summary>
         /// Default redirect configuration resource of URL path map.
         /// </summary>
         public readonly Outputs.SubResourceResponse? DefaultRedirectConfiguration;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.SubResourceResponse? defaultBackendHttpSettings,
 
+            Outputs.SubResourceResponse? defaultLoadDistributionPolicy,
+
             Outputs.SubResourceResponse? defaultRedirectConfiguration,
 
             Outputs.SubResourceResponse? defaultRewriteRuleSet,
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             DefaultBackendAddressPool = defaultBackendAddressPool;
             DefaultBackendHttpSettings = defaultBackendHttpSettings;
+            DefaultLoadDistributionPolicy = defaultLoadDistributionPolicy;
             DefaultRedirectConfiguration = defaultRedirectConfiguration;
             DefaultRewriteRuleSet = defaultRewriteRuleSet;
             Etag = etag;

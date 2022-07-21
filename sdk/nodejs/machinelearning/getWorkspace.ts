@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * API Version: 2016-04-01.
+ * API Version: 2019-10-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -59,6 +60,10 @@ export interface GetWorkspaceResult {
      * The email id of the owner for this workspace.
      */
     readonly ownerEmail: string;
+    /**
+     * The sku of the workspace.
+     */
+    readonly sku?: outputs.machinelearning.SkuResponse;
     /**
      * The regional endpoint for the machine learning studio service which hosts this workspace.
      */

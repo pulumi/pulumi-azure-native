@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// 
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<ListMediaServiceEdgePoliciesResult> Invoke(ListMediaServiceEdgePoliciesInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithDefaults());

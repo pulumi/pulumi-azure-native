@@ -11,7 +11,7 @@ import (
 )
 
 // Class of response for listPaths action
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func ListStreamingLocatorPaths(ctx *pulumi.Context, args *ListStreamingLocatorPathsArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorPathsResult, error) {
 	var rv ListStreamingLocatorPathsResult
 	err := ctx.Invoke("azure-native:media:listStreamingLocatorPaths", args, &rv, opts...)

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tenant access information contract of the API Management service.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
     if (!opts) {

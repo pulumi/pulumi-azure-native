@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// Describes a Machine Extension.
-        /// API Version: 2020-08-02.
+        /// API Version: 2022-03-10.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Machine Extension.
-        /// API Version: 2020-08-02.
+        /// API Version: 2022-03-10.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -38,11 +38,11 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the machine containing the extension.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public string MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -63,11 +63,11 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the machine containing the extension.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -82,21 +82,9 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class GetMachineExtensionResult
     {
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        /// </summary>
-        public readonly bool? AutoUpgradeMinorVersion;
-        /// <summary>
-        /// How the extension handler should be forced to update even if the extension configuration has not changed.
-        /// </summary>
-        public readonly string? ForceUpdateTag;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The machine extension instance view.
-        /// </summary>
-        public readonly Outputs.MachineExtensionPropertiesResponseInstanceView? InstanceView;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -106,21 +94,13 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        /// Describes Machine Extension Properties.
         /// </summary>
-        public readonly object? ProtectedSettings;
+        public readonly Outputs.MachineExtensionPropertiesResponse Properties;
         /// <summary>
-        /// The provisioning state, which only appears in the response.
+        /// The system meta data relating to this resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The name of the extension handler publisher.
-        /// </summary>
-        public readonly string? Publisher;
-        /// <summary>
-        /// Json formatted public settings for the extension.
-        /// </summary>
-        public readonly object? Settings;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -129,52 +109,30 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies the version of the script handler.
-        /// </summary>
-        public readonly string? TypeHandlerVersion;
 
         [OutputConstructor]
         private GetMachineExtensionResult(
-            bool? autoUpgradeMinorVersion,
-
-            string? forceUpdateTag,
-
             string id,
-
-            Outputs.MachineExtensionPropertiesResponseInstanceView? instanceView,
 
             string location,
 
             string name,
 
-            object? protectedSettings,
+            Outputs.MachineExtensionPropertiesResponse properties,
 
-            string provisioningState,
-
-            string? publisher,
-
-            object? settings,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? typeHandlerVersion)
+            string type)
         {
-            AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
-            ForceUpdateTag = forceUpdateTag;
             Id = id;
-            InstanceView = instanceView;
             Location = location;
             Name = name;
-            ProtectedSettings = protectedSettings;
-            ProvisioningState = provisioningState;
-            Publisher = publisher;
-            Settings = settings;
+            Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
-            TypeHandlerVersion = typeHandlerVersion;
         }
     }
 }

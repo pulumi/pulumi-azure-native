@@ -48,7 +48,7 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOrderDCAccessCodeResult:
     """
     DC Access code in the case of Self Managed Shipping.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name
@@ -73,7 +73,7 @@ def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[str]] = 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOrderDCAccessCodeResult]:
     """
     DC Access code in the case of Self Managed Shipping.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name

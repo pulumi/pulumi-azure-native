@@ -146,7 +146,7 @@ def get_application_package(account_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationPackageResult:
     """
     An application package which represents a particular version of an application.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -185,7 +185,7 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationPackageResult]:
     """
     An application package which represents a particular version of an application.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.

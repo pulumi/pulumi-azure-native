@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service Registry resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
     if (!opts) {

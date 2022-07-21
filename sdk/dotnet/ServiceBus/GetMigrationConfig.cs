@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Single item in List or Get Migration Config operation
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in List or Get Migration Config operation
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithDefaults());
@@ -82,15 +82,19 @@ namespace Pulumi.AzureNative.ServiceBus
     public sealed class GetMigrationConfigResult
     {
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
         /// <summary>
         /// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
         /// </summary>
         public readonly string MigrationState;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -106,17 +110,23 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Existing premium Namespace ARM Id name which has no entities, will be used for migration
         /// </summary>
         public readonly string TargetNamespace;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetMigrationConfigResult(
             string id,
+
+            string location,
 
             string migrationState,
 
@@ -128,16 +138,20 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string targetNamespace,
 
             string type)
         {
             Id = id;
+            Location = location;
             MigrationState = migrationState;
             Name = name;
             PendingReplicationOperationsCount = pendingReplicationOperationsCount;
             PostMigrationName = postMigrationName;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             TargetNamespace = targetNamespace;
             Type = type;
         }

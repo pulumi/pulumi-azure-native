@@ -11,7 +11,7 @@ import (
 )
 
 // A notebook workspace resource
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 func LookupNotebookWorkspace(ctx *pulumi.Context, args *LookupNotebookWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupNotebookWorkspaceResult, error) {
 	var rv LookupNotebookWorkspaceResult
 	err := ctx.Invoke("azure-native:documentdb:getNotebookWorkspace", args, &rv, opts...)

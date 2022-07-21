@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Storage Sync Service object.
- * API Version: 2020-03-01.
+ * API Version: 2020-09-01.
  */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
     if (!opts) {
@@ -76,6 +76,10 @@ export interface GetStorageSyncServiceResult {
      * Storage Sync service Uid
      */
     readonly storageSyncServiceUid: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.SystemDataResponse;
     /**
      * Resource tags.
      */

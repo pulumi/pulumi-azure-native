@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private cloud resource
- * API Version: 2020-03-20.
+ * API Version: 2021-12-01.
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
     if (!opts) {
@@ -37,17 +37,33 @@ export interface GetPrivateCloudArgs {
  */
 export interface GetPrivateCloudResult {
     /**
+     * Properties describing how the cloud is distributed across availability zones
+     */
+    readonly availability?: outputs.avs.AvailabilityPropertiesResponse;
+    /**
      * An ExpressRoute Circuit
      */
     readonly circuit?: outputs.avs.CircuitResponse;
+    /**
+     * Customer managed key encryption, can be enabled or disabled
+     */
+    readonly encryption?: outputs.avs.EncryptionResponse;
     /**
      * The endpoints
      */
     readonly endpoints: outputs.avs.EndpointsResponse;
     /**
+     * Array of cloud link IDs from other clouds that connect to this one
+     */
+    readonly externalCloudLinks: string[];
+    /**
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * The identity of the private cloud, if configured.
+     */
+    readonly identity?: outputs.avs.PrivateCloudIdentityResponse;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -92,6 +108,10 @@ export interface GetPrivateCloudResult {
      * The provisioning state
      */
     readonly provisioningState: string;
+    /**
+     * A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+     */
+    readonly secondaryCircuit?: outputs.avs.CircuitResponse;
     /**
      * The private cloud SKU
      */

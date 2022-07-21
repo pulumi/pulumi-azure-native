@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Operation details.
-// API Version: 2020-12-01.
+// API Operation details.
+// API Version: 2021-08-01.
 type ApiOperation struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type ApiOperation struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
 	Method pulumi.StringOutput `pulumi:"method"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Operation Policies
 	Policies pulumi.StringPtrOutput `pulumi:"policies"`
@@ -32,7 +32,7 @@ type ApiOperation struct {
 	Responses ResponseContractResponseArrayOutput `pulumi:"responses"`
 	// Collection of URL template parameters.
 	TemplateParameters ParameterContractResponseArrayOutput `pulumi:"templateParameters"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
 	UrlTemplate pulumi.StringOutput `pulumi:"urlTemplate"`
@@ -246,7 +246,7 @@ func (o ApiOperationOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ApiOperationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -271,7 +271,7 @@ func (o ApiOperationOutput) TemplateParameters() ParameterContractResponseArrayO
 	return o.ApplyT(func(v *ApiOperation) ParameterContractResponseArrayOutput { return v.TemplateParameters }).(ParameterContractResponseArrayOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ApiOperationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

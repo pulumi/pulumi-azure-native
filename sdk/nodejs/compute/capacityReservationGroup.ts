@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
- * API Version: 2021-04-01.
+ * API Version: 2021-11-01.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**

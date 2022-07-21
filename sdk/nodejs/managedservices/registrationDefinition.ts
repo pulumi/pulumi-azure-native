@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Registration definition.
- * API Version: 2019-09-01.
+ * The registration definition.
+ * API Version: 2022-01-01-preview.
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**
@@ -37,19 +37,23 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the registration definition.
+     * The name of the registration definition.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Plan details for the managed services.
+     * The details for the Managed Services offer’s plan in Azure Marketplace.
      */
     public readonly plan!: pulumi.Output<outputs.managedservices.PlanResponse | undefined>;
     /**
-     * Properties of a registration definition.
+     * The properties of a registration definition.
      */
     public readonly properties!: pulumi.Output<outputs.managedservices.RegistrationDefinitionPropertiesResponse>;
     /**
-     * Type of the resource.
+     * The metadata for the registration assignment resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.managedservices.SystemDataResponse>;
+    /**
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -72,11 +76,13 @@ export class RegistrationDefinition extends pulumi.CustomResource {
             resourceInputs["registrationDefinitionId"] = args ? args.registrationDefinitionId : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -91,19 +97,19 @@ export class RegistrationDefinition extends pulumi.CustomResource {
  */
 export interface RegistrationDefinitionArgs {
     /**
-     * Plan details for the managed services.
+     * The details for the Managed Services offer’s plan in Azure Marketplace.
      */
     plan?: pulumi.Input<inputs.managedservices.PlanArgs>;
     /**
-     * Properties of a registration definition.
+     * The properties of a registration definition.
      */
     properties?: pulumi.Input<inputs.managedservices.RegistrationDefinitionPropertiesArgs>;
     /**
-     * Guid of the registration definition.
+     * The GUID of the registration definition.
      */
     registrationDefinitionId?: pulumi.Input<string>;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: pulumi.Input<string>;
 }

@@ -49,12 +49,6 @@ func NewAutomation(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:Automation"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Automation
 	err := ctx.RegisterResource("azure-native:security/v20190101preview:Automation", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['RegistrationArgs', 'Registration']
@@ -93,7 +94,7 @@ class Registration(pulumi.CustomResource):
                  __props__=None):
         """
         Registration information.
-        API Version: 2017-06-01.
+        API Version: 2020-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +111,7 @@ class Registration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registration information.
-        API Version: 2017-06-01.
+        API Version: 2020-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -154,8 +155,10 @@ class Registration(pulumi.CustomResource):
             __props__.__dict__["billing_model"] = None
             __props__.__dict__["cloud_id"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestack/v20160101:Registration"), pulumi.Alias(type_="azure-native:azurestack/v20170601:Registration"), pulumi.Alias(type_="azure-native:azurestack/v20200601preview:Registration")])
@@ -185,9 +188,11 @@ class Registration(pulumi.CustomResource):
         __props__.__dict__["billing_model"] = None
         __props__.__dict__["cloud_id"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Registration(resource_name, opts=opts, __props__=__props__)
@@ -218,6 +223,14 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        The kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         Location of the resource.
@@ -239,6 +252,14 @@ class Registration(pulumi.CustomResource):
         The object identifier associated with the Azure Stack connecting to Azure.
         """
         return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

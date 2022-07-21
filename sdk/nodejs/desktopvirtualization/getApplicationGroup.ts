@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ApplicationGroup definition.
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-07-12.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
     if (!opts) {

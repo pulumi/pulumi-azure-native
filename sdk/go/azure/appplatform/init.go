@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:appplatform:ApiPortal":
-		r = &ApiPortal{}
-	case "azure-native:appplatform:ApiPortalCustomDomain":
-		r = &ApiPortalCustomDomain{}
 	case "azure-native:appplatform:App":
 		r = &App{}
 	case "azure-native:appplatform:Binding":
@@ -41,18 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDomain{}
 	case "azure-native:appplatform:Deployment":
 		r = &Deployment{}
-	case "azure-native:appplatform:Gateway":
-		r = &Gateway{}
-	case "azure-native:appplatform:GatewayCustomDomain":
-		r = &GatewayCustomDomain{}
-	case "azure-native:appplatform:GatewayRouteConfig":
-		r = &GatewayRouteConfig{}
 	case "azure-native:appplatform:Service":
 		r = &Service{}
 	case "azure-native:appplatform:ServiceRegistry":
 		r = &ServiceRegistry{}
-	case "azure-native:appplatform:Storage":
-		r = &Storage{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

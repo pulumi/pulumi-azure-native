@@ -200,6 +200,18 @@ export const DatabaseType = {
  */
 export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
 
+export const EnterpriseGradeCdnStatus = {
+    Enabled: "Enabled",
+    Enabling: "Enabling",
+    Disabled: "Disabled",
+    Disabling: "Disabling",
+} as const;
+
+/**
+ * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+ */
+export type EnterpriseGradeCdnStatus = (typeof EnterpriseGradeCdnStatus)[keyof typeof EnterpriseGradeCdnStatus];
+
 export const ForwardProxyConvention = {
     NoProxy: "NoProxy",
     Standard: "Standard",

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Packet core data plane resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetPacketCoreDataPlaneResult> InvokeAsync(GetPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Packet core data plane resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UserPlaneAccessInterface = userPlaneAccessInterface;

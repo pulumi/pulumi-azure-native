@@ -198,6 +198,26 @@ export const ChannelMapping = {
  */
 export type ChannelMapping = (typeof ChannelMapping)[keyof typeof ChannelMapping];
 
+export const Complexity = {
+    /**
+     * Configures the encoder to use settings optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+     */
+    Speed: "Speed",
+    /**
+     * Configures the encoder to use settings that achieve a balance between speed and quality.
+     */
+    Balanced: "Balanced",
+    /**
+     * Configures the encoder to use settings optimized to produce higher quality output at the expense of slower overall encode time.
+     */
+    Quality: "Quality",
+} as const;
+
+/**
+ * Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+ */
+export type Complexity = (typeof Complexity)[keyof typeof Complexity];
+
 export const ContentKeyPolicyFairPlayRentalAndLeaseKeyType = {
     /**
      * Represents a ContentKeyPolicyFairPlayRentalAndLeaseKeyType that is unavailable in current API version.
@@ -313,6 +333,22 @@ export const ContentKeyPolicyRestrictionTokenType = {
  * The type of token.
  */
 export type ContentKeyPolicyRestrictionTokenType = (typeof ContentKeyPolicyRestrictionTokenType)[keyof typeof ContentKeyPolicyRestrictionTokenType];
+
+export const DefaultAction = {
+    /**
+     * All public IP addresses are allowed.
+     */
+    Allow: "Allow",
+    /**
+     * Public IP addresses are blocked.
+     */
+    Deny: "Deny",
+} as const;
+
+/**
+ * The behavior for IP access control in Key Delivery.
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const DeinterlaceMode = {
     /**
@@ -526,6 +562,26 @@ export const H264Complexity = {
  */
 export type H264Complexity = (typeof H264Complexity)[keyof typeof H264Complexity];
 
+export const H264RateControlMode = {
+    /**
+     * Average Bitrate (ABR) mode that hits the target bitrate: Default mode.
+     */
+    ABR: "ABR",
+    /**
+     * Constant Bitrate (CBR) mode that tightens bitrate variations around target bitrate.
+     */
+    CBR: "CBR",
+    /**
+     * Constant Rate Factor (CRF) mode that targets at constant subjective quality.
+     */
+    CRF: "CRF",
+} as const;
+
+/**
+ * The video rate control mode
+ */
+export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
+
 export const H264VideoProfile = {
     /**
      * Tells the encoder to automatically determine the appropriate H.264 profile.
@@ -587,6 +643,10 @@ export const H265VideoProfile = {
      * Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
      */
     Main: "Main",
+    /**
+     * Main 10 profile (https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Main_10)
+     */
+    Main10: "Main10",
 } as const;
 
 /**
@@ -614,9 +674,25 @@ export const InsightsType = {
  */
 export type InsightsType = (typeof InsightsType)[keyof typeof InsightsType];
 
+export const InterleaveOutput = {
+    /**
+     * The output is video-only or audio-only.
+     */
+    NonInterleavedOutput: "NonInterleavedOutput",
+    /**
+     * The output includes both audio and video.
+     */
+    InterleavedOutput: "InterleavedOutput",
+} as const;
+
+/**
+ * Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+ */
+export type InterleaveOutput = (typeof InterleaveOutput)[keyof typeof InterleaveOutput];
+
 export const LiveEventEncodingType = {
     /**
-     * A contribution live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. It is also called the pass-through mode.
+     * This is the same as PassthroughStandard, please see description below. This enumeration value is being deprecated.
      */
     None: "None",
     /**
@@ -627,10 +703,18 @@ export const LiveEventEncodingType = {
      * A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 1080p in resolution.
      */
     Premium1080p: "Premium1080p",
+    /**
+     * The ingested stream passes through the live event from the contribution encoder without any further processing. In the PassthroughBasic mode, ingestion is limited to up to 5Mbps and only 1 concurrent live output is allowed. Live transcription is not available.
+     */
+    PassthroughBasic: "PassthroughBasic",
+    /**
+     * The ingested stream passes through the live event from the contribution encoder without any further processing. Live transcription is available. Ingestion bitrate limits are much higher and up to 3 concurrent live outputs are allowed.
+     */
+    PassthroughStandard: "PassthroughStandard",
 } as const;
 
 /**
- * Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+ * Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
  */
 export type LiveEventEncodingType = (typeof LiveEventEncodingType)[keyof typeof LiveEventEncodingType];
 
@@ -649,38 +733,6 @@ export const LiveEventInputProtocol = {
  * The input protocol for the live event. This is specified at creation time and cannot be updated.
  */
 export type LiveEventInputProtocol = (typeof LiveEventInputProtocol)[keyof typeof LiveEventInputProtocol];
-
-export const ManagedIdentityType = {
-    /**
-     * A system-assigned managed identity.
-     */
-    SystemAssigned: "SystemAssigned",
-    /**
-     * No managed identity.
-     */
-    None: "None",
-} as const;
-
-/**
- * The identity type.
- */
-export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
-
-export const MediaGraphRtspTransport = {
-    /**
-     * HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
-     */
-    Http: "Http",
-    /**
-     * TCP transport. This should be used when HTTP tunneling is not desired.
-     */
-    Tcp: "Tcp",
-} as const;
-
-/**
- * Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
- */
-export type MediaGraphRtspTransport = (typeof MediaGraphRtspTransport)[keyof typeof MediaGraphRtspTransport];
 
 export const OnErrorType = {
     /**
@@ -728,6 +780,22 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    /**
+     * Public network access is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Public network access is disabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for resources under the Media Services account.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const Rotation = {
     /**
@@ -796,9 +864,13 @@ export const StreamOptionsFlag = {
      */
     Default: "Default",
     /**
-     * The live event provides lower end to end latency by reducing its internal buffers. This could result in more client buffering during playback if network bandwidth is low.
+     * The live event provides lower end to end latency by reducing its internal buffers.
      */
     LowLatency: "LowLatency",
+    /**
+     * The live event is optimized for end to end latency. This option is only available for encoding live events with RTMP input. The outputs can be streamed using HLS or DASH formats. The outputs' archive or DVR rewind length is limited to 6 hours. Use "LowLatency" stream option for all other scenarios.
+     */
+    LowLatencyV2: "LowLatencyV2",
 } as const;
 
 export type StreamOptionsFlag = (typeof StreamOptionsFlag)[keyof typeof StreamOptionsFlag];

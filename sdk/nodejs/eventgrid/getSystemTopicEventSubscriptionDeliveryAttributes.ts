@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Result of the Get delivery attributes operation.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getSystemTopicEventSubscriptionDeliveryAttributes(args: GetSystemTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
     if (!opts) {

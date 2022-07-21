@@ -12,7 +12,7 @@ import (
 )
 
 // Server Endpoint object.
-// API Version: 2020-03-01.
+// API Version: 2020-09-01.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type ServerEndpoint struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy pulumi.StringPtrOutput `pulumi:"initialDownloadPolicy"`
+	// Policy for how the initial upload sync session is performed.
+	InitialUploadPolicy pulumi.StringPtrOutput `pulumi:"initialUploadPolicy"`
 	// Resource Last Operation Name
 	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId
@@ -46,10 +48,14 @@ type ServerEndpoint struct {
 	RecallStatus ServerEndpointRecallStatusResponseOutput `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
+	// Server name
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
 	SyncStatus ServerEndpointSyncStatusResponseOutput `pulumi:"syncStatus"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -76,6 +82,9 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	}
 	if isZero(args.InitialDownloadPolicy) {
 		args.InitialDownloadPolicy = pulumi.StringPtr("NamespaceThenModifiedFiles")
+	}
+	if isZero(args.InitialUploadPolicy) {
+		args.InitialUploadPolicy = pulumi.StringPtr("Merge")
 	}
 	if isZero(args.LocalCacheMode) {
 		args.LocalCacheMode = pulumi.StringPtr("UpdateLocallyCachedFiles")
@@ -157,6 +166,8 @@ type serverEndpointArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
+	// Policy for how the initial upload sync session is performed.
+	InitialUploadPolicy *string `pulumi:"initialUploadPolicy"`
 	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 	LocalCacheMode *string `pulumi:"localCacheMode"`
 	// Offline data transfer
@@ -189,6 +200,8 @@ type ServerEndpointArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy pulumi.StringPtrInput
+	// Policy for how the initial upload sync session is performed.
+	InitialUploadPolicy pulumi.StringPtrInput
 	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 	LocalCacheMode pulumi.StringPtrInput
 	// Offline data transfer
@@ -270,6 +283,11 @@ func (o ServerEndpointOutput) InitialDownloadPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.InitialDownloadPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Policy for how the initial upload sync session is performed.
+func (o ServerEndpointOutput) InitialUploadPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.InitialUploadPolicy }).(pulumi.StringPtrOutput)
+}
+
 // Resource Last Operation Name
 func (o ServerEndpointOutput) LastOperationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringOutput { return v.LastOperationName }).(pulumi.StringOutput)
@@ -325,6 +343,11 @@ func (o ServerEndpointOutput) ServerLocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.ServerLocalPath }).(pulumi.StringPtrOutput)
 }
 
+// Server name
+func (o ServerEndpointOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
+}
+
 // Server Resource Id.
 func (o ServerEndpointOutput) ServerResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.ServerResourceId }).(pulumi.StringPtrOutput)
@@ -333,6 +356,11 @@ func (o ServerEndpointOutput) ServerResourceId() pulumi.StringPtrOutput {
 // Server Endpoint sync status
 func (o ServerEndpointOutput) SyncStatus() ServerEndpointSyncStatusResponseOutput {
 	return o.ApplyT(func(v *ServerEndpoint) ServerEndpointSyncStatusResponseOutput { return v.SyncStatus }).(ServerEndpointSyncStatusResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ServerEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ServerEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tier files older than days.

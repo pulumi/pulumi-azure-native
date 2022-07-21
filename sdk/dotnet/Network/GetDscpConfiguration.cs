@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Network
     public static class GetDscpConfiguration
     {
         /// <summary>
-        /// DSCP Configuration in a resource group.
-        /// API Version: 2020-11-01.
+        /// Differentiated Services Code Point configuration for any given network interface
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// DSCP Configuration in a resource group.
-        /// API Version: 2020-11-01.
+        /// Differentiated Services Code Point configuration for any given network interface
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetDscpConfigurationResult> Invoke(GetDscpConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithDefaults());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string QosCollectionId;
         /// <summary>
+        /// QoS object definitions
+        /// </summary>
+        public readonly ImmutableArray<Outputs.QosDefinitionResponse> QosDefinitionCollection;
+        /// <summary>
         /// The resource GUID property of the DSCP Configuration resource.
         /// </summary>
         public readonly string ResourceGuid;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Network
 
             string qosCollectionId,
 
+            ImmutableArray<Outputs.QosDefinitionResponse> qosDefinitionCollection,
+
             string resourceGuid,
 
             ImmutableArray<Outputs.QosIpRangeResponse> sourceIpRanges,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNative.Network
             Protocol = protocol;
             ProvisioningState = provisioningState;
             QosCollectionId = qosCollectionId;
+            QosDefinitionCollection = qosDefinitionCollection;
             ResourceGuid = resourceGuid;
             SourceIpRanges = sourceIpRanges;
             SourcePortRanges = sourcePortRanges;

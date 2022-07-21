@@ -16,20 +16,74 @@ type A2AContainerMappingInput struct {
 	AgentAutoUpdateStatus *string `pulumi:"agentAutoUpdateStatus"`
 	// The automation account arm id.
 	AutomationAccountArmId *string `pulumi:"automationAccountArmId"`
+	// A value indicating the type authentication to use for automation Account.
+	AutomationAccountAuthenticationType *string `pulumi:"automationAccountAuthenticationType"`
 	// The class type.
 	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// Defaults sets the appropriate defaults for A2AContainerMappingInput
+func (val *A2AContainerMappingInput) Defaults() *A2AContainerMappingInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutomationAccountAuthenticationType) {
+		automationAccountAuthenticationType_ := "RunAsAccount"
+		tmp.AutomationAccountAuthenticationType = &automationAccountAuthenticationType_
+	}
+	return &tmp
+}
+
+// A2A Cross-Cluster Migration enable protection input.
+type A2ACrossClusterMigrationEnableProtectionInput struct {
+	// The fabric specific object Id of the virtual machine.
+	FabricObjectId *string `pulumi:"fabricObjectId"`
+	// The class type.
+	// Expected value is 'A2ACrossClusterMigration'.
+	InstanceType string `pulumi:"instanceType"`
+	// The recovery container Id.
+	RecoveryContainerId *string `pulumi:"recoveryContainerId"`
+}
+
+// A2A Cross-Cluster Migration Policy creation input.
+type A2ACrossClusterMigrationPolicyCreationInput struct {
+	// The class type.
+	// Expected value is 'A2ACrossClusterMigration'.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// A2A provider specific settings.
+type A2ACrossClusterMigrationReplicationDetailsResponse struct {
+	// The fabric specific object Id of the virtual machine.
+	FabricObjectId *string `pulumi:"fabricObjectId"`
+	// Gets the Instance type.
+	// Expected value is 'A2ACrossClusterMigration'.
+	InstanceType string `pulumi:"instanceType"`
+	// An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
+	LifecycleId *string `pulumi:"lifecycleId"`
+	// The type of operating system.
+	OsType *string `pulumi:"osType"`
+	// Primary fabric location.
+	PrimaryFabricLocation *string `pulumi:"primaryFabricLocation"`
+	// The protection state for the vm.
+	VmProtectionState *string `pulumi:"vmProtectionState"`
+	// The protection state description for the vm.
+	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
 }
 
 // A2A enable protection input.
 type A2AEnableProtectionInput struct {
-	// The recovery disk encryption information.
+	// The recovery disk encryption information (for two pass flows).
 	DiskEncryptionInfo *DiskEncryptionInfo `pulumi:"diskEncryptionInfo"`
 	// The fabric specific object Id of the virtual machine.
-	FabricObjectId *string `pulumi:"fabricObjectId"`
+	FabricObjectId string `pulumi:"fabricObjectId"`
 	// The class type.
 	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
+	// The multi vm group id.
+	MultiVmGroupId *string `pulumi:"multiVmGroupId"`
 	// The multi vm group name.
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The recovery availability set Id.
@@ -40,16 +94,22 @@ type A2AEnableProtectionInput struct {
 	RecoveryAzureNetworkId *string `pulumi:"recoveryAzureNetworkId"`
 	// The boot diagnostic storage account.
 	RecoveryBootDiagStorageAccountId *string `pulumi:"recoveryBootDiagStorageAccountId"`
+	// The recovery capacity reservation group Id.
+	RecoveryCapacityReservationGroupId *string `pulumi:"recoveryCapacityReservationGroupId"`
 	// The recovery cloud service Id. Valid for V1 scenarios.
 	RecoveryCloudServiceId *string `pulumi:"recoveryCloudServiceId"`
 	// The recovery container Id.
 	RecoveryContainerId *string `pulumi:"recoveryContainerId"`
+	// The recovery extended location.
+	RecoveryExtendedLocation *ExtendedLocation `pulumi:"recoveryExtendedLocation"`
 	// The recovery proximity placement group Id.
 	RecoveryProximityPlacementGroupId *string `pulumi:"recoveryProximityPlacementGroupId"`
 	// The recovery resource group Id. Valid for V2 scenarios.
 	RecoveryResourceGroupId *string `pulumi:"recoveryResourceGroupId"`
 	// The recovery subnet name.
 	RecoverySubnetName *string `pulumi:"recoverySubnetName"`
+	// The virtual machine scale set Id.
+	RecoveryVirtualMachineScaleSetId *string `pulumi:"recoveryVirtualMachineScaleSetId"`
 	// The list of vm disk details.
 	VmDisks []A2AVmDiskInputDetails `pulumi:"vmDisks"`
 	// The list of vm managed disk details.
@@ -64,7 +124,7 @@ type A2APolicyCreationInput struct {
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
 	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
@@ -108,6 +168,8 @@ type A2AProtectedDiskDetailsResponse struct {
 	DiskType *string `pulumi:"diskType"`
 	// The disk uri.
 	DiskUri *string `pulumi:"diskUri"`
+	// The failover name for the managed disk.
+	FailoverDiskName *string `pulumi:"failoverDiskName"`
 	// A value indicating whether vm has encrypted os disk or not.
 	IsDiskEncrypted *bool `pulumi:"isDiskEncrypted"`
 	// A value indicating whether disk key got encrypted or not.
@@ -132,6 +194,8 @@ type A2AProtectedDiskDetailsResponse struct {
 	ResyncRequired *bool `pulumi:"resyncRequired"`
 	// The secret URL / identifier (BEK).
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
+	// The test failover name for the managed disk.
+	TfoDiskName *string `pulumi:"tfoDiskName"`
 }
 
 // A2A protected managed disk details.
@@ -168,10 +232,14 @@ type A2AProtectedManagedDiskDetailsResponse struct {
 	MonitoringJobType *string `pulumi:"monitoringJobType"`
 	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
 	MonitoringPercentageCompletion *int `pulumi:"monitoringPercentageCompletion"`
+	// The primary disk encryption set Id.
+	PrimaryDiskEncryptionSetId *string `pulumi:"primaryDiskEncryptionSetId"`
 	// The primary staging storage account.
 	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
 	// The recovery disk encryption set Id.
 	RecoveryDiskEncryptionSetId *string `pulumi:"recoveryDiskEncryptionSetId"`
+	// Recovery original target disk Arm Id.
+	RecoveryOrignalTargetDiskId *string `pulumi:"recoveryOrignalTargetDiskId"`
 	// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
 	RecoveryReplicaDiskAccountType *string `pulumi:"recoveryReplicaDiskAccountType"`
 	// Recovery replica disk Arm Id.
@@ -196,6 +264,8 @@ type A2AProtectionContainerMappingDetailsResponse struct {
 	AgentAutoUpdateStatus *string `pulumi:"agentAutoUpdateStatus"`
 	// The automation account arm id.
 	AutomationAccountArmId *string `pulumi:"automationAccountArmId"`
+	// A value indicating the type authentication to use for automation Account.
+	AutomationAccountAuthenticationType *string `pulumi:"automationAccountAuthenticationType"`
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'A2A'.
 	InstanceType string `pulumi:"instanceType"`
@@ -205,16 +275,39 @@ type A2AProtectionContainerMappingDetailsResponse struct {
 	ScheduleName *string `pulumi:"scheduleName"`
 }
 
+// Defaults sets the appropriate defaults for A2AProtectionContainerMappingDetailsResponse
+func (val *A2AProtectionContainerMappingDetailsResponse) Defaults() *A2AProtectionContainerMappingDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutomationAccountAuthenticationType) {
+		automationAccountAuthenticationType_ := "RunAsAccount"
+		tmp.AutomationAccountAuthenticationType = &automationAccountAuthenticationType_
+	}
+	return &tmp
+}
+
 // A2A provider specific settings.
 type A2AReplicationDetailsResponse struct {
+	// Agent certificate expiry date.
+	AgentCertificateExpiryDate string `pulumi:"agentCertificateExpiryDate"`
+	// Agent expiry date.
+	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
 	// The agent version.
 	AgentVersion *string `pulumi:"agentVersion"`
+	// A value indicating whether the auto protection is enabled.
+	AutoProtectionOfDataDisk *string `pulumi:"autoProtectionOfDataDisk"`
 	// The fabric specific object Id of the virtual machine.
 	FabricObjectId *string `pulumi:"fabricObjectId"`
+	// The initial primary extended location.
+	InitialPrimaryExtendedLocation *ExtendedLocationResponse `pulumi:"initialPrimaryExtendedLocation"`
 	// The initial primary fabric location.
 	InitialPrimaryFabricLocation string `pulumi:"initialPrimaryFabricLocation"`
 	// The initial primary availability zone.
 	InitialPrimaryZone string `pulumi:"initialPrimaryZone"`
+	// The initial recovery extended location.
+	InitialRecoveryExtendedLocation *ExtendedLocationResponse `pulumi:"initialRecoveryExtendedLocation"`
 	// The initial recovery fabric location.
 	InitialRecoveryFabricLocation string `pulumi:"initialRecoveryFabricLocation"`
 	// The initial recovery availability zone.
@@ -222,6 +315,8 @@ type A2AReplicationDetailsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
 	InstanceType string `pulumi:"instanceType"`
+	// A value indicating whether agent certificate update is required.
+	IsReplicationAgentCertificateUpdateRequired *bool `pulumi:"isReplicationAgentCertificateUpdateRequired"`
 	// A value indicating whether replication agent update is required.
 	IsReplicationAgentUpdateRequired *bool `pulumi:"isReplicationAgentUpdateRequired"`
 	// The last heartbeat received from the source server.
@@ -244,6 +339,10 @@ type A2AReplicationDetailsResponse struct {
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The type of operating system.
 	OsType *string `pulumi:"osType"`
+	// The primary availability zone.
+	PrimaryAvailabilityZone *string `pulumi:"primaryAvailabilityZone"`
+	// The primary Extended Location.
+	PrimaryExtendedLocation *ExtendedLocationResponse `pulumi:"primaryExtendedLocation"`
 	// Primary fabric location.
 	PrimaryFabricLocation *string `pulumi:"primaryFabricLocation"`
 	// The list of protected disks.
@@ -254,6 +353,8 @@ type A2AReplicationDetailsResponse struct {
 	RecoveryAvailabilitySet *string `pulumi:"recoveryAvailabilitySet"`
 	// The recovery availability zone.
 	RecoveryAvailabilityZone *string `pulumi:"recoveryAvailabilityZone"`
+	// The recovery azure generation.
+	RecoveryAzureGeneration string `pulumi:"recoveryAzureGeneration"`
 	// The recovery resource group.
 	RecoveryAzureResourceGroupId *string `pulumi:"recoveryAzureResourceGroupId"`
 	// The name of recovery virtual machine.
@@ -262,14 +363,20 @@ type A2AReplicationDetailsResponse struct {
 	RecoveryAzureVMSize *string `pulumi:"recoveryAzureVMSize"`
 	// The recovery boot diagnostic storage account Arm Id.
 	RecoveryBootDiagStorageAccountId *string `pulumi:"recoveryBootDiagStorageAccountId"`
+	// The recovery capacity reservation group Id.
+	RecoveryCapacityReservationGroupId *string `pulumi:"recoveryCapacityReservationGroupId"`
 	// The recovery cloud service.
 	RecoveryCloudService *string `pulumi:"recoveryCloudService"`
+	// The recovery Extended Location.
+	RecoveryExtendedLocation *ExtendedLocationResponse `pulumi:"recoveryExtendedLocation"`
 	// The recovery fabric location.
 	RecoveryFabricLocation *string `pulumi:"recoveryFabricLocation"`
 	// The recovery fabric object Id.
 	RecoveryFabricObjectId *string `pulumi:"recoveryFabricObjectId"`
 	// The recovery proximity placement group Id.
 	RecoveryProximityPlacementGroupId *string `pulumi:"recoveryProximityPlacementGroupId"`
+	// The recovery virtual machine scale set id.
+	RecoveryVirtualMachineScaleSetId *string `pulumi:"recoveryVirtualMachineScaleSetId"`
 	// The last RPO value in seconds.
 	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The recovery virtual network.
@@ -278,7 +385,7 @@ type A2AReplicationDetailsResponse struct {
 	SelectedTfoAzureNetworkId *string `pulumi:"selectedTfoAzureNetworkId"`
 	// The test failover fabric object Id.
 	TestFailoverRecoveryFabricObjectId *string `pulumi:"testFailoverRecoveryFabricObjectId"`
-	// The test failover VM name.
+	// The test failover vm name.
 	TfoAzureVMName *string `pulumi:"tfoAzureVMName"`
 	// The list of unprotected disks.
 	UnprotectedDisks []A2AUnprotectedDiskDetailsResponse `pulumi:"unprotectedDisks"`
@@ -296,36 +403,46 @@ type A2AReplicationDetailsResponse struct {
 
 // A2A unprotected disk details.
 type A2AUnprotectedDiskDetailsResponse struct {
+	// A value indicating whether the disk auto protection is enabled.
+	DiskAutoProtectionStatus *string `pulumi:"diskAutoProtectionStatus"`
 	// The source lun Id for the data disk.
 	DiskLunId *int `pulumi:"diskLunId"`
 }
 
-// Azure VM disk input details.
+// A2A disk input details.
 type A2AVmDiskInputDetails struct {
 	// The disk Uri.
-	DiskUri *string `pulumi:"diskUri"`
+	DiskUri string `pulumi:"diskUri"`
 	// The primary staging storage account Id.
-	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
+	PrimaryStagingAzureStorageAccountId string `pulumi:"primaryStagingAzureStorageAccountId"`
 	// The recovery VHD storage account Id.
-	RecoveryAzureStorageAccountId *string `pulumi:"recoveryAzureStorageAccountId"`
+	RecoveryAzureStorageAccountId string `pulumi:"recoveryAzureStorageAccountId"`
 }
 
-// Azure VM managed disk input details.
+// A2A managed disk input details.
 type A2AVmManagedDiskInputDetails struct {
 	// The recovery disk encryption information (for one / single pass flows).
 	DiskEncryptionInfo *DiskEncryptionInfo `pulumi:"diskEncryptionInfo"`
 	// The disk Id.
-	DiskId *string `pulumi:"diskId"`
+	DiskId string `pulumi:"diskId"`
 	// The primary staging storage account Arm Id.
-	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
+	PrimaryStagingAzureStorageAccountId string `pulumi:"primaryStagingAzureStorageAccountId"`
 	// The recovery disk encryption set Id.
 	RecoveryDiskEncryptionSetId *string `pulumi:"recoveryDiskEncryptionSetId"`
 	// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
 	RecoveryReplicaDiskAccountType *string `pulumi:"recoveryReplicaDiskAccountType"`
 	// The target resource group Arm Id.
-	RecoveryResourceGroupId *string `pulumi:"recoveryResourceGroupId"`
+	RecoveryResourceGroupId string `pulumi:"recoveryResourceGroupId"`
 	// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
 	RecoveryTargetDiskAccountType *string `pulumi:"recoveryTargetDiskAccountType"`
+}
+
+// Zone details data.
+type A2AZoneDetailsResponse struct {
+	// Source zone info.
+	Source *string `pulumi:"source"`
+	// The target zone info.
+	Target *string `pulumi:"target"`
 }
 
 type AADProperties struct {
@@ -525,6 +642,8 @@ func (o AADPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 type AddRecoveryServicesProviderInputProperties struct {
 	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInput `pulumi:"authenticationIdentityInput"`
+	// The Bios Id of the machine.
+	BiosId *string `pulumi:"biosId"`
 	// The identity provider input for data plane authentication.
 	DataPlaneAuthenticationIdentityInput *IdentityProviderInput `pulumi:"dataPlaneAuthenticationIdentityInput"`
 	// The Id of the machine where the provider is getting added.
@@ -550,6 +669,8 @@ type AddRecoveryServicesProviderInputPropertiesInput interface {
 type AddRecoveryServicesProviderInputPropertiesArgs struct {
 	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInputInput `pulumi:"authenticationIdentityInput"`
+	// The Bios Id of the machine.
+	BiosId pulumi.StringPtrInput `pulumi:"biosId"`
 	// The identity provider input for data plane authentication.
 	DataPlaneAuthenticationIdentityInput IdentityProviderInputPtrInput `pulumi:"dataPlaneAuthenticationIdentityInput"`
 	// The Id of the machine where the provider is getting added.
@@ -592,6 +713,11 @@ func (o AddRecoveryServicesProviderInputPropertiesOutput) AuthenticationIdentity
 	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) IdentityProviderInput {
 		return v.AuthenticationIdentityInput
 	}).(IdentityProviderInputOutput)
+}
+
+// The Bios Id of the machine.
+func (o AddRecoveryServicesProviderInputPropertiesOutput) BiosId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) *string { return v.BiosId }).(pulumi.StringPtrOutput)
 }
 
 // The identity provider input for data plane authentication.
@@ -840,7 +966,7 @@ type AgentDetailsResponse struct {
 	AgentId string `pulumi:"agentId"`
 	// The machine BIOS Id.
 	BiosId string `pulumi:"biosId"`
-	// The details of agent disks.
+	// The disks.
 	Disks []AgentDiskDetailsResponse `pulumi:"disks"`
 	// The machine FQDN.
 	Fqdn string `pulumi:"fqdn"`
@@ -886,6 +1012,8 @@ type AzureBackupServerContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of protected items in the BackupEngine
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Protection status of the container.
@@ -920,6 +1048,8 @@ type AzureBackupServerContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of protected items in the BackupEngine
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Protection status of the container.
@@ -934,7 +1064,7 @@ type AzureBackupServerContainerResponse struct {
 type AzureFabricCreationInput struct {
 	// Gets the class type.
 	// Expected value is 'Azure'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The Location.
 	Location *string `pulumi:"location"`
 }
@@ -948,6 +1078,8 @@ type AzureFabricSpecificDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The Location for the Azure fabric.
 	Location *string `pulumi:"location"`
+	// The zones.
+	Zones []A2AZoneDetailsResponse `pulumi:"zones"`
 }
 
 // AzureStorage backup policy.
@@ -957,6 +1089,8 @@ type AzureFileShareProtectionPolicy struct {
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy with the details on backup copy retention ranges.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
@@ -974,6 +1108,8 @@ type AzureFileShareProtectionPolicyResponse struct {
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy with the details on backup copy retention ranges.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
@@ -1002,6 +1138,8 @@ type AzureFileshareProtectedItem struct {
 	ExtendedInfo *AzureFileshareProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of the fileshare represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1018,6 +1156,8 @@ type AzureFileshareProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// backup item type.
 	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
@@ -1025,6 +1165,8 @@ type AzureFileshareProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -1073,6 +1215,8 @@ type AzureFileshareProtectedItemResponse struct {
 	ExtendedInfo *AzureFileshareProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of the fileshare represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1089,6 +1233,8 @@ type AzureFileshareProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// backup item type.
 	// Expected value is 'AzureFileShareProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
@@ -1096,6 +1242,8 @@ type AzureFileshareProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -1116,6 +1264,8 @@ type AzureIaaSClassicComputeVMContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -1140,6 +1290,8 @@ type AzureIaaSClassicComputeVMContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -1172,6 +1324,8 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Health status of protected item.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1188,6 +1342,8 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1197,6 +1353,8 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Fully qualified ARM ID of the virtual machine represented by this item.
@@ -1229,6 +1387,8 @@ type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	HealthDetails []AzureIaaSVMHealthDetailsResponse `pulumi:"healthDetails"`
 	// Health status of protected item.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1245,6 +1405,8 @@ type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1254,6 +1416,8 @@ type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Fully qualified ARM ID of the virtual machine represented by this item.
@@ -1276,6 +1440,8 @@ type AzureIaaSComputeVMContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -1300,6 +1466,8 @@ type AzureIaaSComputeVMContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -1332,6 +1500,8 @@ type AzureIaaSComputeVMProtectedItem struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Health status of protected item.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1348,6 +1518,8 @@ type AzureIaaSComputeVMProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1357,6 +1529,8 @@ type AzureIaaSComputeVMProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Fully qualified ARM ID of the virtual machine represented by this item.
@@ -1389,6 +1563,8 @@ type AzureIaaSComputeVMProtectedItemResponse struct {
 	HealthDetails []AzureIaaSVMHealthDetailsResponse `pulumi:"healthDetails"`
 	// Health status of protected item.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1405,6 +1581,8 @@ type AzureIaaSComputeVMProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1414,6 +1592,8 @@ type AzureIaaSComputeVMProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Fully qualified ARM ID of the virtual machine represented by this item.
@@ -1456,6 +1636,8 @@ type AzureIaaSVMProtectedItem struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Health status of protected item.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1472,6 +1654,8 @@ type AzureIaaSVMProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1481,6 +1665,8 @@ type AzureIaaSVMProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Fully qualified ARM ID of the virtual machine represented by this item.
@@ -1533,6 +1719,8 @@ type AzureIaaSVMProtectedItemResponse struct {
 	HealthDetails []AzureIaaSVMHealthDetailsResponse `pulumi:"healthDetails"`
 	// Health status of protected item.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1549,6 +1737,8 @@ type AzureIaaSVMProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1558,6 +1748,8 @@ type AzureIaaSVMProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Fully qualified ARM ID of the virtual machine represented by this item.
@@ -1573,9 +1765,12 @@ type AzureIaaSVMProtectionPolicy struct {
 	BackupManagementType string                      `pulumi:"backupManagementType"`
 	InstantRPDetails     *InstantRPAdditionalDetails `pulumi:"instantRPDetails"`
 	// Instant RP retention policy range in days
-	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
+	InstantRpRetentionRangeInDays *int    `pulumi:"instantRpRetentionRangeInDays"`
+	PolicyType                    *string `pulumi:"policyType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy with the details on backup copy retention ranges.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
@@ -1591,15 +1786,211 @@ type AzureIaaSVMProtectionPolicyResponse struct {
 	BackupManagementType string                              `pulumi:"backupManagementType"`
 	InstantRPDetails     *InstantRPAdditionalDetailsResponse `pulumi:"instantRPDetails"`
 	// Instant RP retention policy range in days
-	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
+	InstantRpRetentionRangeInDays *int    `pulumi:"instantRpRetentionRangeInDays"`
+	PolicyType                    *string `pulumi:"policyType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy with the details on backup copy retention ranges.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
 	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
 	TimeZone *string `pulumi:"timeZone"`
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettings struct {
+	AlertsForAllJobFailures *string `pulumi:"alertsForAllJobFailures"`
+}
+
+// AzureMonitorAlertSettingsInput is an input type that accepts AzureMonitorAlertSettingsArgs and AzureMonitorAlertSettingsOutput values.
+// You can construct a concrete instance of `AzureMonitorAlertSettingsInput` via:
+//
+//          AzureMonitorAlertSettingsArgs{...}
+type AzureMonitorAlertSettingsInput interface {
+	pulumi.Input
+
+	ToAzureMonitorAlertSettingsOutput() AzureMonitorAlertSettingsOutput
+	ToAzureMonitorAlertSettingsOutputWithContext(context.Context) AzureMonitorAlertSettingsOutput
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsArgs struct {
+	AlertsForAllJobFailures pulumi.StringPtrInput `pulumi:"alertsForAllJobFailures"`
+}
+
+func (AzureMonitorAlertSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsOutput() AzureMonitorAlertSettingsOutput {
+	return i.ToAzureMonitorAlertSettingsOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorAlertSettingsOutput)
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return i.ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorAlertSettingsOutput).ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx)
+}
+
+// AzureMonitorAlertSettingsPtrInput is an input type that accepts AzureMonitorAlertSettingsArgs, AzureMonitorAlertSettingsPtr and AzureMonitorAlertSettingsPtrOutput values.
+// You can construct a concrete instance of `AzureMonitorAlertSettingsPtrInput` via:
+//
+//          AzureMonitorAlertSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureMonitorAlertSettingsPtrInput interface {
+	pulumi.Input
+
+	ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput
+	ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Context) AzureMonitorAlertSettingsPtrOutput
+}
+
+type azureMonitorAlertSettingsPtrType AzureMonitorAlertSettingsArgs
+
+func AzureMonitorAlertSettingsPtr(v *AzureMonitorAlertSettingsArgs) AzureMonitorAlertSettingsPtrInput {
+	return (*azureMonitorAlertSettingsPtrType)(v)
+}
+
+func (*azureMonitorAlertSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (i *azureMonitorAlertSettingsPtrType) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return i.ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *azureMonitorAlertSettingsPtrType) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsOutput() AzureMonitorAlertSettingsOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return o.ToAzureMonitorAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o AzureMonitorAlertSettingsOutput) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMonitorAlertSettings) *AzureMonitorAlertSettings {
+		return &v
+	}).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+func (o AzureMonitorAlertSettingsOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorAlertSettings) *string { return v.AlertsForAllJobFailures }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorAlertSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorAlertSettings)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) ToAzureMonitorAlertSettingsPtrOutput() AzureMonitorAlertSettingsPtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) ToAzureMonitorAlertSettingsPtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsPtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) Elem() AzureMonitorAlertSettingsOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettings) AzureMonitorAlertSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AzureMonitorAlertSettings
+		return ret
+	}).(AzureMonitorAlertSettingsOutput)
+}
+
+func (o AzureMonitorAlertSettingsPtrOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllJobFailures
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsResponse struct {
+	AlertsForAllJobFailures *string `pulumi:"alertsForAllJobFailures"`
+}
+
+// Settings for Azure Monitor based alerts
+type AzureMonitorAlertSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorAlertSettingsResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsResponseOutput) ToAzureMonitorAlertSettingsResponseOutput() AzureMonitorAlertSettingsResponseOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponseOutput) ToAzureMonitorAlertSettingsResponseOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsResponseOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponseOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorAlertSettingsResponse) *string { return v.AlertsForAllJobFailures }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorAlertSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorAlertSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorAlertSettingsResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) ToAzureMonitorAlertSettingsResponsePtrOutput() AzureMonitorAlertSettingsResponsePtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) ToAzureMonitorAlertSettingsResponsePtrOutputWithContext(ctx context.Context) AzureMonitorAlertSettingsResponsePtrOutput {
+	return o
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) Elem() AzureMonitorAlertSettingsResponseOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettingsResponse) AzureMonitorAlertSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureMonitorAlertSettingsResponse
+		return ret
+	}).(AzureMonitorAlertSettingsResponseOutput)
+}
+
+func (o AzureMonitorAlertSettingsResponsePtrOutput) AlertsForAllJobFailures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorAlertSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllJobFailures
+	}).(pulumi.StringPtrOutput)
 }
 
 // Azure Recovery Services Vault specific protection intent item.
@@ -1694,6 +2085,8 @@ type AzureSQLAGWorkloadContainerProtectionContainer struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Re-Do Operation
 	OperationType *string `pulumi:"operationType"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// ARM ID of the virtual machine represented by this Azure Workload Container
@@ -1722,6 +2115,8 @@ type AzureSQLAGWorkloadContainerProtectionContainerResponse struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Re-Do Operation
 	OperationType *string `pulumi:"operationType"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// ARM ID of the virtual machine represented by this Azure Workload Container
@@ -1744,6 +2139,8 @@ type AzureSqlContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
@@ -1762,6 +2159,8 @@ type AzureSqlContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
@@ -1782,6 +2181,8 @@ type AzureSqlProtectedItem struct {
 	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
 	// Additional information for this backup item.
 	ExtendedInfo *AzureSqlProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1792,6 +2193,8 @@ type AzureSqlProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1799,6 +2202,8 @@ type AzureSqlProtectedItem struct {
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -1841,6 +2246,8 @@ type AzureSqlProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
 	// Additional information for this backup item.
 	ExtendedInfo *AzureSqlProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -1851,6 +2258,8 @@ type AzureSqlProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
@@ -1858,6 +2267,8 @@ type AzureSqlProtectedItemResponse struct {
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of the backed up item.
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -1871,6 +2282,8 @@ type AzureSqlProtectionPolicy struct {
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy details.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 }
@@ -1882,12 +2295,16 @@ type AzureSqlProtectionPolicyResponse struct {
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy details.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 }
 
 // Azure Storage Account workload-specific container.
 type AzureStorageContainer struct {
+	// Whether storage account lock is to be acquired for this container or not.
+	AcquireStorageAccountLock *string `pulumi:"acquireStorageAccountLock"`
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -1900,6 +2317,8 @@ type AzureStorageContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of items backed up in this container.
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -1914,6 +2333,8 @@ type AzureStorageContainer struct {
 
 // Azure Storage Account workload-specific container.
 type AzureStorageContainerResponse struct {
+	// Whether storage account lock is to be acquired for this container or not.
+	AcquireStorageAccountLock *string `pulumi:"acquireStorageAccountLock"`
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -1926,6 +2347,8 @@ type AzureStorageContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of items backed up in this container.
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -1942,9 +2365,9 @@ type AzureStorageContainerResponse struct {
 type AzureToAzureCreateNetworkMappingInput struct {
 	// The instance type.
 	// Expected value is 'AzureToAzure'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The primary azure vnet Id.
-	PrimaryNetworkId *string `pulumi:"primaryNetworkId"`
+	PrimaryNetworkId string `pulumi:"primaryNetworkId"`
 }
 
 // A2A Network Mapping fabric specific settings.
@@ -1986,6 +2409,8 @@ type AzureVMAppContainerProtectionContainer struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Re-Do Operation
 	OperationType *string `pulumi:"operationType"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// ARM ID of the virtual machine represented by this Azure Workload Container
@@ -2014,6 +2439,8 @@ type AzureVMAppContainerProtectionContainerResponse struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Re-Do Operation
 	OperationType *string `pulumi:"operationType"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// ARM ID of the virtual machine represented by this Azure Workload Container
@@ -2024,6 +2451,8 @@ type AzureVMAppContainerProtectionContainerResponse struct {
 
 // Disk details for E2A provider.
 type AzureVmDiskDetailsResponse struct {
+	// The custom target Azure disk name.
+	CustomTargetDiskName *string `pulumi:"customTargetDiskName"`
 	// The DiskEncryptionSet ARM ID.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The disk resource id.
@@ -2062,6 +2491,8 @@ type AzureVmWorkloadProtectedItem struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2082,6 +2513,8 @@ type AzureVmWorkloadProtectedItem struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2093,6 +2526,8 @@ type AzureVmWorkloadProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2107,6 +2542,8 @@ type AzureVmWorkloadProtectedItemExtendedInfo struct {
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	RecoveryModel *string `pulumi:"recoveryModel"`
 	// Number of backup copies available for this backup item.
 	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
 }
@@ -2117,6 +2554,8 @@ type AzureVmWorkloadProtectedItemExtendedInfoResponse struct {
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	RecoveryModel *string `pulumi:"recoveryModel"`
 	// Number of backup copies available for this backup item.
 	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
 }
@@ -2139,6 +2578,8 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2161,6 +2602,8 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2172,6 +2615,8 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2189,6 +2634,8 @@ type AzureVmWorkloadProtectionPolicy struct {
 	MakePolicyConsistent *bool `pulumi:"makePolicyConsistent"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Common settings for the backup management
 	Settings *Settings `pulumi:"settings"`
 	// List of sub-protection policies which includes schedule and retention
@@ -2206,6 +2653,8 @@ type AzureVmWorkloadProtectionPolicyResponse struct {
 	MakePolicyConsistent *bool `pulumi:"makePolicyConsistent"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Common settings for the backup management
 	Settings *SettingsResponse `pulumi:"settings"`
 	// List of sub-protection policies which includes schedule and retention
@@ -2232,6 +2681,8 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2252,6 +2703,8 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2263,6 +2716,8 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2289,6 +2744,8 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2311,6 +2768,8 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2322,6 +2781,8 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2348,6 +2809,8 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2368,6 +2831,8 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2379,6 +2844,8 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2405,6 +2872,8 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2427,6 +2896,8 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2438,6 +2909,8 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2464,6 +2937,8 @@ type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2484,6 +2959,8 @@ type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2495,6 +2972,8 @@ type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2521,6 +3000,8 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of the DB represented by this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2543,6 +3024,8 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	ParentType *string `pulumi:"parentType"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Data ID of the protected item.
 	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
 	// Health status of the backup item, evaluated based on last heartbeat received
@@ -2554,6 +3037,8 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Host/Cluster Name for instance or AG
 	ServerName *string `pulumi:"serverName"`
 	// ARM ID of the resource to be backed up.
@@ -2616,12 +3101,48 @@ type AzureWorkloadContainer struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Re-Do Operation
 	OperationType *string `pulumi:"operationType"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// ARM ID of the virtual machine represented by this Azure Workload Container
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Workload type for which registration was sent.
 	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// Azure workload specific protection intent item.
+type AzureWorkloadContainerAutoProtectionIntent struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'AzureWorkloadContainerAutoProtectionIntent'.
+	ProtectionIntentItemType string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+}
+
+// Azure workload specific protection intent item.
+type AzureWorkloadContainerAutoProtectionIntentResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	// Expected value is 'AzureWorkloadContainerAutoProtectionIntent'.
+	ProtectionIntentItemType string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
 }
 
 // Extended information of the container.
@@ -2664,6 +3185,8 @@ type AzureWorkloadContainerResponse struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Re-Do Operation
 	OperationType *string `pulumi:"operationType"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// ARM ID of the virtual machine represented by this Azure Workload Container
@@ -2708,6 +3231,199 @@ type AzureWorkloadSQLAutoProtectionIntentResponse struct {
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Workload item type of the item for which intent is to be set
 	WorkloadItemType *string `pulumi:"workloadItemType"`
+}
+
+// Settings for classic alerts
+type ClassicAlertSettings struct {
+	AlertsForCriticalOperations *string `pulumi:"alertsForCriticalOperations"`
+}
+
+// ClassicAlertSettingsInput is an input type that accepts ClassicAlertSettingsArgs and ClassicAlertSettingsOutput values.
+// You can construct a concrete instance of `ClassicAlertSettingsInput` via:
+//
+//          ClassicAlertSettingsArgs{...}
+type ClassicAlertSettingsInput interface {
+	pulumi.Input
+
+	ToClassicAlertSettingsOutput() ClassicAlertSettingsOutput
+	ToClassicAlertSettingsOutputWithContext(context.Context) ClassicAlertSettingsOutput
+}
+
+// Settings for classic alerts
+type ClassicAlertSettingsArgs struct {
+	AlertsForCriticalOperations pulumi.StringPtrInput `pulumi:"alertsForCriticalOperations"`
+}
+
+func (ClassicAlertSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassicAlertSettings)(nil)).Elem()
+}
+
+func (i ClassicAlertSettingsArgs) ToClassicAlertSettingsOutput() ClassicAlertSettingsOutput {
+	return i.ToClassicAlertSettingsOutputWithContext(context.Background())
+}
+
+func (i ClassicAlertSettingsArgs) ToClassicAlertSettingsOutputWithContext(ctx context.Context) ClassicAlertSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassicAlertSettingsOutput)
+}
+
+func (i ClassicAlertSettingsArgs) ToClassicAlertSettingsPtrOutput() ClassicAlertSettingsPtrOutput {
+	return i.ToClassicAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ClassicAlertSettingsArgs) ToClassicAlertSettingsPtrOutputWithContext(ctx context.Context) ClassicAlertSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassicAlertSettingsOutput).ToClassicAlertSettingsPtrOutputWithContext(ctx)
+}
+
+// ClassicAlertSettingsPtrInput is an input type that accepts ClassicAlertSettingsArgs, ClassicAlertSettingsPtr and ClassicAlertSettingsPtrOutput values.
+// You can construct a concrete instance of `ClassicAlertSettingsPtrInput` via:
+//
+//          ClassicAlertSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClassicAlertSettingsPtrInput interface {
+	pulumi.Input
+
+	ToClassicAlertSettingsPtrOutput() ClassicAlertSettingsPtrOutput
+	ToClassicAlertSettingsPtrOutputWithContext(context.Context) ClassicAlertSettingsPtrOutput
+}
+
+type classicAlertSettingsPtrType ClassicAlertSettingsArgs
+
+func ClassicAlertSettingsPtr(v *ClassicAlertSettingsArgs) ClassicAlertSettingsPtrInput {
+	return (*classicAlertSettingsPtrType)(v)
+}
+
+func (*classicAlertSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassicAlertSettings)(nil)).Elem()
+}
+
+func (i *classicAlertSettingsPtrType) ToClassicAlertSettingsPtrOutput() ClassicAlertSettingsPtrOutput {
+	return i.ToClassicAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *classicAlertSettingsPtrType) ToClassicAlertSettingsPtrOutputWithContext(ctx context.Context) ClassicAlertSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassicAlertSettingsPtrOutput)
+}
+
+// Settings for classic alerts
+type ClassicAlertSettingsOutput struct{ *pulumi.OutputState }
+
+func (ClassicAlertSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassicAlertSettings)(nil)).Elem()
+}
+
+func (o ClassicAlertSettingsOutput) ToClassicAlertSettingsOutput() ClassicAlertSettingsOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsOutput) ToClassicAlertSettingsOutputWithContext(ctx context.Context) ClassicAlertSettingsOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsOutput) ToClassicAlertSettingsPtrOutput() ClassicAlertSettingsPtrOutput {
+	return o.ToClassicAlertSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ClassicAlertSettingsOutput) ToClassicAlertSettingsPtrOutputWithContext(ctx context.Context) ClassicAlertSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassicAlertSettings) *ClassicAlertSettings {
+		return &v
+	}).(ClassicAlertSettingsPtrOutput)
+}
+
+func (o ClassicAlertSettingsOutput) AlertsForCriticalOperations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassicAlertSettings) *string { return v.AlertsForCriticalOperations }).(pulumi.StringPtrOutput)
+}
+
+type ClassicAlertSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassicAlertSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassicAlertSettings)(nil)).Elem()
+}
+
+func (o ClassicAlertSettingsPtrOutput) ToClassicAlertSettingsPtrOutput() ClassicAlertSettingsPtrOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsPtrOutput) ToClassicAlertSettingsPtrOutputWithContext(ctx context.Context) ClassicAlertSettingsPtrOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsPtrOutput) Elem() ClassicAlertSettingsOutput {
+	return o.ApplyT(func(v *ClassicAlertSettings) ClassicAlertSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ClassicAlertSettings
+		return ret
+	}).(ClassicAlertSettingsOutput)
+}
+
+func (o ClassicAlertSettingsPtrOutput) AlertsForCriticalOperations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassicAlertSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForCriticalOperations
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for classic alerts
+type ClassicAlertSettingsResponse struct {
+	AlertsForCriticalOperations *string `pulumi:"alertsForCriticalOperations"`
+}
+
+// Settings for classic alerts
+type ClassicAlertSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ClassicAlertSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassicAlertSettingsResponse)(nil)).Elem()
+}
+
+func (o ClassicAlertSettingsResponseOutput) ToClassicAlertSettingsResponseOutput() ClassicAlertSettingsResponseOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsResponseOutput) ToClassicAlertSettingsResponseOutputWithContext(ctx context.Context) ClassicAlertSettingsResponseOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsResponseOutput) AlertsForCriticalOperations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassicAlertSettingsResponse) *string { return v.AlertsForCriticalOperations }).(pulumi.StringPtrOutput)
+}
+
+type ClassicAlertSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClassicAlertSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassicAlertSettingsResponse)(nil)).Elem()
+}
+
+func (o ClassicAlertSettingsResponsePtrOutput) ToClassicAlertSettingsResponsePtrOutput() ClassicAlertSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsResponsePtrOutput) ToClassicAlertSettingsResponsePtrOutputWithContext(ctx context.Context) ClassicAlertSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ClassicAlertSettingsResponsePtrOutput) Elem() ClassicAlertSettingsResponseOutput {
+	return o.ApplyT(func(v *ClassicAlertSettingsResponse) ClassicAlertSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClassicAlertSettingsResponse
+		return ret
+	}).(ClassicAlertSettingsResponseOutput)
+}
+
+func (o ClassicAlertSettingsResponsePtrOutput) AlertsForCriticalOperations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassicAlertSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForCriticalOperations
+	}).(pulumi.StringPtrOutput)
 }
 
 // The details of the identity used for CMK
@@ -3177,7 +3893,7 @@ type CreateNetworkMappingInputProperties struct {
 	// Recovery fabric Name.
 	RecoveryFabricName *string `pulumi:"recoveryFabricName"`
 	// Recovery network Id.
-	RecoveryNetworkId *string `pulumi:"recoveryNetworkId"`
+	RecoveryNetworkId string `pulumi:"recoveryNetworkId"`
 }
 
 // CreateNetworkMappingInputPropertiesInput is an input type that accepts CreateNetworkMappingInputPropertiesArgs and CreateNetworkMappingInputPropertiesOutput values.
@@ -3198,7 +3914,7 @@ type CreateNetworkMappingInputPropertiesArgs struct {
 	// Recovery fabric Name.
 	RecoveryFabricName pulumi.StringPtrInput `pulumi:"recoveryFabricName"`
 	// Recovery network Id.
-	RecoveryNetworkId pulumi.StringPtrInput `pulumi:"recoveryNetworkId"`
+	RecoveryNetworkId pulumi.StringInput `pulumi:"recoveryNetworkId"`
 }
 
 func (CreateNetworkMappingInputPropertiesArgs) ElementType() reflect.Type {
@@ -3211,47 +3927,6 @@ func (i CreateNetworkMappingInputPropertiesArgs) ToCreateNetworkMappingInputProp
 
 func (i CreateNetworkMappingInputPropertiesArgs) ToCreateNetworkMappingInputPropertiesOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CreateNetworkMappingInputPropertiesOutput)
-}
-
-func (i CreateNetworkMappingInputPropertiesArgs) ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput {
-	return i.ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateNetworkMappingInputPropertiesArgs) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateNetworkMappingInputPropertiesOutput).ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateNetworkMappingInputPropertiesPtrInput is an input type that accepts CreateNetworkMappingInputPropertiesArgs, CreateNetworkMappingInputPropertiesPtr and CreateNetworkMappingInputPropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateNetworkMappingInputPropertiesPtrInput` via:
-//
-//          CreateNetworkMappingInputPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateNetworkMappingInputPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput
-	ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(context.Context) CreateNetworkMappingInputPropertiesPtrOutput
-}
-
-type createNetworkMappingInputPropertiesPtrType CreateNetworkMappingInputPropertiesArgs
-
-func CreateNetworkMappingInputPropertiesPtr(v *CreateNetworkMappingInputPropertiesArgs) CreateNetworkMappingInputPropertiesPtrInput {
-	return (*createNetworkMappingInputPropertiesPtrType)(v)
-}
-
-func (*createNetworkMappingInputPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateNetworkMappingInputProperties)(nil)).Elem()
-}
-
-func (i *createNetworkMappingInputPropertiesPtrType) ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput {
-	return i.ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createNetworkMappingInputPropertiesPtrType) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateNetworkMappingInputPropertiesPtrOutput)
 }
 
 // Common input details for network mapping operation.
@@ -3269,16 +3944,6 @@ func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPr
 	return o
 }
 
-func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput {
-	return o.ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateNetworkMappingInputProperties) *CreateNetworkMappingInputProperties {
-		return &v
-	}).(CreateNetworkMappingInputPropertiesPtrOutput)
-}
-
 // Fabric specific input properties.
 func (o CreateNetworkMappingInputPropertiesOutput) FabricSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v CreateNetworkMappingInputProperties) interface{} { return v.FabricSpecificDetails }).(pulumi.AnyOutput)
@@ -3290,62 +3955,8 @@ func (o CreateNetworkMappingInputPropertiesOutput) RecoveryFabricName() pulumi.S
 }
 
 // Recovery network Id.
-func (o CreateNetworkMappingInputPropertiesOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *string { return v.RecoveryNetworkId }).(pulumi.StringPtrOutput)
-}
-
-type CreateNetworkMappingInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateNetworkMappingInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateNetworkMappingInputProperties)(nil)).Elem()
-}
-
-func (o CreateNetworkMappingInputPropertiesPtrOutput) ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateNetworkMappingInputPropertiesPtrOutput) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateNetworkMappingInputPropertiesPtrOutput) Elem() CreateNetworkMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) CreateNetworkMappingInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CreateNetworkMappingInputProperties
-		return ret
-	}).(CreateNetworkMappingInputPropertiesOutput)
-}
-
-// Fabric specific input properties.
-func (o CreateNetworkMappingInputPropertiesPtrOutput) FabricSpecificDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.FabricSpecificDetails
-	}).(pulumi.AnyOutput)
-}
-
-// Recovery fabric Name.
-func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryFabricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecoveryFabricName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Recovery network Id.
-func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecoveryNetworkId
-	}).(pulumi.StringPtrOutput)
+func (o CreateNetworkMappingInputPropertiesOutput) RecoveryNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateNetworkMappingInputProperties) string { return v.RecoveryNetworkId }).(pulumi.StringOutput)
 }
 
 // Policy creation properties.
@@ -3760,11 +4371,11 @@ func (o CreateRecoveryPlanInputPropertiesOutput) RecoveryFabricId() pulumi.Strin
 // Current job details of the migration item.
 type CurrentJobDetailsResponse struct {
 	// The ARM Id of the job being executed.
-	JobId *string `pulumi:"jobId"`
+	JobId string `pulumi:"jobId"`
 	// The job name.
-	JobName *string `pulumi:"jobName"`
+	JobName string `pulumi:"jobName"`
 	// The start time of the job.
-	StartTime *string `pulumi:"startTime"`
+	StartTime string `pulumi:"startTime"`
 }
 
 // Current job details of the migration item.
@@ -3783,18 +4394,18 @@ func (o CurrentJobDetailsResponseOutput) ToCurrentJobDetailsResponseOutputWithCo
 }
 
 // The ARM Id of the job being executed.
-func (o CurrentJobDetailsResponseOutput) JobId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CurrentJobDetailsResponse) *string { return v.JobId }).(pulumi.StringPtrOutput)
+func (o CurrentJobDetailsResponseOutput) JobId() pulumi.StringOutput {
+	return o.ApplyT(func(v CurrentJobDetailsResponse) string { return v.JobId }).(pulumi.StringOutput)
 }
 
 // The job name.
-func (o CurrentJobDetailsResponseOutput) JobName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CurrentJobDetailsResponse) *string { return v.JobName }).(pulumi.StringPtrOutput)
+func (o CurrentJobDetailsResponseOutput) JobName() pulumi.StringOutput {
+	return o.ApplyT(func(v CurrentJobDetailsResponse) string { return v.JobName }).(pulumi.StringOutput)
 }
 
 // The start time of the job.
-func (o CurrentJobDetailsResponseOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CurrentJobDetailsResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+func (o CurrentJobDetailsResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v CurrentJobDetailsResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 // Current scenario details of the protected entity.
@@ -3923,6 +4534,8 @@ type DPMProtectedItem struct {
 	ExtendedInfo *DPMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of the managed item
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -3933,11 +4546,15 @@ type DPMProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// backup item type.
 	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -4028,6 +4645,8 @@ type DPMProtectedItemResponse struct {
 	ExtendedInfo *DPMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of the managed item
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -4038,11 +4657,15 @@ type DPMProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// backup item type.
 	// Expected value is 'DPMProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protection state of the backup engine
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -4077,7 +4700,17 @@ type DailyRetentionScheduleResponse struct {
 	RetentionTimes []string `pulumi:"retentionTimes"`
 }
 
-// The data store details of the MT.
+type DailySchedule struct {
+	// List of times of day this schedule has to be run.
+	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
+}
+
+type DailyScheduleResponse struct {
+	// List of times of day this schedule has to be run.
+	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
+}
+
+// The datastore details of the MT.
 type DataStoreResponse struct {
 	// The capacity of data store in GBs.
 	Capacity *string `pulumi:"capacity"`
@@ -4107,7 +4740,7 @@ type DayResponse struct {
 	IsLast *bool `pulumi:"isLast"`
 }
 
-// On-prem disk details data.
+// Onprem disk details data.
 type DiskDetailsResponse struct {
 	// The hard disk max size in MB.
 	MaxSizeMB *float64 `pulumi:"maxSizeMB"`
@@ -4129,9 +4762,9 @@ type DiskEncryptionInfo struct {
 
 // Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfo struct {
-	// The KeyVault resource ARM Id for secret.
+	// The KeyVault resource ARM id for secret.
 	KeyVaultResourceArmId *string `pulumi:"keyVaultResourceArmId"`
-	// The secret URL / identifier.
+	// The secret url / identifier.
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
 }
 
@@ -4193,6 +4826,8 @@ type DpmContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of protected items in the BackupEngine
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Protection status of the container.
@@ -4227,6 +4862,8 @@ type DpmContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of protected items in the BackupEngine
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Protection status of the container.
@@ -4239,7 +4876,11 @@ type DpmContainerResponse struct {
 
 // DRA details.
 type DraDetailsResponse struct {
-	// The health of the DRA.
+	// The DRA Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The count of protected items which are protected in forward direction.
+	ForwardProtectedItemCount int `pulumi:"forwardProtectedItemCount"`
+	// The health.
 	Health string `pulumi:"health"`
 	// The health errors.
 	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
@@ -4249,7 +4890,9 @@ type DraDetailsResponse struct {
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
 	// The DRA name.
 	Name string `pulumi:"name"`
-	// The DRA version.
+	// The count of protected items which are protected in reverse direction.
+	ReverseProtectedItemCount int `pulumi:"reverseProtectedItemCount"`
+	// The version.
 	Version string `pulumi:"version"`
 }
 
@@ -4599,19 +5242,190 @@ type ErrorDetailResponse struct {
 	Recommendations []string `pulumi:"recommendations"`
 }
 
+// Extended location of the resource.
+type ExtendedLocation struct {
+	// The name of the extended location.
+	Name string `pulumi:"name"`
+	// The extended location type.
+	Type string `pulumi:"type"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// Extended location of the resource.
+type ExtendedLocationArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The extended location type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// Extended location of the resource.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtendedLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extended location type.
+func (o ExtendedLocationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtendedLocation) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocation
+		return ret
+	}).(ExtendedLocationOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Extended location of the resource.
+type ExtendedLocationResponse struct {
+	// The name of the extended location.
+	Name string `pulumi:"name"`
+	// The extended location type.
+	Type string `pulumi:"type"`
+}
+
 // Extended Properties for Azure IaasVM Backup.
 type ExtendedProperties struct {
 	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties *DiskExclusionProperties `pulumi:"diskExclusionProperties"`
+	// Linux VM name
+	LinuxVmApplicationName *string `pulumi:"linuxVmApplicationName"`
 }
 
 // Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponse struct {
 	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties *DiskExclusionPropertiesResponse `pulumi:"diskExclusionProperties"`
+	// Linux VM name
+	LinuxVmApplicationName *string `pulumi:"linuxVmApplicationName"`
 }
 
-// Properties of site details provided during the time of site creation
+// Properties of site details provided during the time of site creation.
 type FabricCreationInputProperties struct {
 	// Fabric provider specific creation input.
 	CustomDetails interface{} `pulumi:"customDetails"`
@@ -4628,7 +5442,7 @@ type FabricCreationInputPropertiesInput interface {
 	ToFabricCreationInputPropertiesOutputWithContext(context.Context) FabricCreationInputPropertiesOutput
 }
 
-// Properties of site details provided during the time of site creation
+// Properties of site details provided during the time of site creation.
 type FabricCreationInputPropertiesArgs struct {
 	// Fabric provider specific creation input.
 	CustomDetails pulumi.Input `pulumi:"customDetails"`
@@ -4687,7 +5501,7 @@ func (i *fabricCreationInputPropertiesPtrType) ToFabricCreationInputPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(FabricCreationInputPropertiesPtrOutput)
 }
 
-// Properties of site details provided during the time of site creation
+// Properties of site details provided during the time of site creation.
 type FabricCreationInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FabricCreationInputPropertiesOutput) ElementType() reflect.Type {
@@ -4844,6 +5658,8 @@ type GenericContainer struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
@@ -4886,6 +5702,8 @@ type GenericContainerResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
@@ -4908,6 +5726,8 @@ type GenericProtectedItem struct {
 	FabricName *string `pulumi:"fabricName"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -4918,6 +5738,8 @@ type GenericProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
@@ -4927,6 +5749,8 @@ type GenericProtectedItem struct {
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Loosely coupled (type, value) associations (example - parent of a protected item)
 	SourceAssociations map[string]string `pulumi:"sourceAssociations"`
 	// ARM ID of the resource to be backed up.
@@ -4953,6 +5777,8 @@ type GenericProtectedItemResponse struct {
 	FabricName *string `pulumi:"fabricName"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -4963,6 +5789,8 @@ type GenericProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Data Plane Service ID of the protected item.
@@ -4972,6 +5800,8 @@ type GenericProtectedItemResponse struct {
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Loosely coupled (type, value) associations (example - parent of a protected item)
 	SourceAssociations map[string]string `pulumi:"sourceAssociations"`
 	// ARM ID of the resource to be backed up.
@@ -4989,6 +5819,8 @@ type GenericProtectionPolicy struct {
 	FabricName *string `pulumi:"fabricName"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// List of sub-protection policies which includes schedule and retention
 	SubProtectionPolicy []SubProtectionPolicy `pulumi:"subProtectionPolicy"`
 	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
@@ -5004,15 +5836,17 @@ type GenericProtectionPolicyResponse struct {
 	FabricName *string `pulumi:"fabricName"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// List of sub-protection policies which includes schedule and retention
 	SubProtectionPolicy []SubProtectionPolicyResponse `pulumi:"subProtectionPolicy"`
 	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
 	TimeZone *string `pulumi:"timeZone"`
 }
 
-// Health Error
+// Health Error.
 type HealthErrorResponse struct {
-	// Error creation time (UTC)
+	// Error creation time (UTC).
 	CreationTimeUtc *string `pulumi:"creationTimeUtc"`
 	// Value indicating whether the health error is customer resolvable.
 	CustomerResolvability *string `pulumi:"customerResolvability"`
@@ -5044,7 +5878,7 @@ type HealthErrorResponse struct {
 	SummaryMessage *string `pulumi:"summaryMessage"`
 }
 
-// Health Error
+// Health Error.
 type HealthErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthErrorResponseOutput) ElementType() reflect.Type {
@@ -5059,7 +5893,7 @@ func (o HealthErrorResponseOutput) ToHealthErrorResponseOutputWithContext(ctx co
 	return o
 }
 
-// Error creation time (UTC)
+// Error creation time (UTC).
 func (o HealthErrorResponseOutput) CreationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.CreationTimeUtc }).(pulumi.StringPtrOutput)
 }
@@ -5154,22 +5988,76 @@ func (o HealthErrorResponseArrayOutput) Index(i pulumi.IntInput) HealthErrorResp
 	}).(HealthErrorResponseOutput)
 }
 
-// Azure specific enable protection input.
+type HourlySchedule struct {
+	// Interval at which backup needs to be triggered. For hourly the value
+	//  can be 4/6/8/12
+	Interval *int `pulumi:"interval"`
+	// To specify duration of the backup window
+	ScheduleWindowDuration *int `pulumi:"scheduleWindowDuration"`
+	// To specify start time of the backup window
+	ScheduleWindowStartTime *string `pulumi:"scheduleWindowStartTime"`
+}
+
+type HourlyScheduleResponse struct {
+	// Interval at which backup needs to be triggered. For hourly the value
+	//  can be 4/6/8/12
+	Interval *int `pulumi:"interval"`
+	// To specify duration of the backup window
+	ScheduleWindowDuration *int `pulumi:"scheduleWindowDuration"`
+	// To specify start time of the backup window
+	ScheduleWindowStartTime *string `pulumi:"scheduleWindowStartTime"`
+}
+
+// Hyper-V host details.
+type HyperVHostDetailsResponse struct {
+	// The Hyper-V host Id.
+	Id string `pulumi:"id"`
+	// The Mars agent version.
+	MarsAgentVersion string `pulumi:"marsAgentVersion"`
+	// The Hyper-V host name.
+	Name string `pulumi:"name"`
+}
+
+// Disk input details.
+type HyperVReplicaAzureDiskInputDetails struct {
+	// The DiskEncryptionSet ARM ID.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The DiskId.
+	DiskId *string `pulumi:"diskId"`
+	// The DiskType.
+	DiskType *string `pulumi:"diskType"`
+	// The LogStorageAccountId.
+	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
+}
+
+// HyperVReplicaAzure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInput struct {
-	// The list of VHD IDs of disks to be protected.
+	// The DiskEncryptionSet ARM Id.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The DiskType.
+	DiskType *string `pulumi:"diskType"`
+	// The list of VHD Ids of disks to be protected.
 	DisksToInclude []string `pulumi:"disksToInclude"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+	// The disks to include list for managed disks.
+	DisksToIncludeForManagedDisks []HyperVReplicaAzureDiskInputDetails `pulumi:"disksToIncludeForManagedDisks"`
+	// The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
 	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
-	// The Hyper-V host Vm Id.
+	// The Hyper-V host VM Id.
 	HvHostVmId *string `pulumi:"hvHostVmId"`
 	// The class type.
 	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
+	// License type.
+	LicenseType *string `pulumi:"licenseType"`
 	// The storage account to be used for logging during replication.
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
-	// The OS type associated with vm.
+	// The OS type associated with VM.
 	OsType *string `pulumi:"osType"`
-	// The availability set ARM Id.
+	// The tags for the seed managed disks.
+	SeedManagedDiskTags map[string]string `pulumi:"seedManagedDiskTags"`
+	// The SQL Server license type.
+	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
+	// The target availability set ARM Id for resource manager deployment.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
 	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
@@ -5181,20 +6069,40 @@ type HyperVReplicaAzureEnableProtectionInput struct {
 	TargetAzureV1ResourceGroupId *string `pulumi:"targetAzureV1ResourceGroupId"`
 	// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
 	TargetAzureV2ResourceGroupId *string `pulumi:"targetAzureV2ResourceGroupId"`
-	// The target azure Vm Name.
+	// The target azure VM Name.
 	TargetAzureVmName *string `pulumi:"targetAzureVmName"`
+	// The tags for the target managed disks.
+	TargetManagedDiskTags map[string]string `pulumi:"targetManagedDiskTags"`
+	// The tags for the target NICs.
+	TargetNicTags map[string]string `pulumi:"targetNicTags"`
 	// The proximity placement group ARM Id.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
-	// The storage account name.
+	// The storage account Id.
 	TargetStorageAccountId *string `pulumi:"targetStorageAccountId"`
 	// The target VM size.
 	TargetVmSize *string `pulumi:"targetVmSize"`
+	// The target VM tags.
+	TargetVmTags map[string]string `pulumi:"targetVmTags"`
 	// A value indicating whether managed disks should be used during failover.
 	UseManagedDisks *string `pulumi:"useManagedDisks"`
-	// The OS disk VHD id associated with vm.
+	// A value indicating whether managed disks should be used during replication.
+	UseManagedDisksForReplication *string `pulumi:"useManagedDisksForReplication"`
+	// The OS disk VHD id associated with VM.
 	VhdId *string `pulumi:"vhdId"`
-	// The Vm Name.
+	// The VM Name.
 	VmName *string `pulumi:"vmName"`
+}
+
+// Hyper-V Managed disk details.
+type HyperVReplicaAzureManagedDiskDetailsResponse struct {
+	// The disk encryption set ARM Id.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The disk Id.
+	DiskId *string `pulumi:"diskId"`
+	// The replica disk type.
+	ReplicaDiskType *string `pulumi:"replicaDiskType"`
+	// Seed managed disk Id.
+	SeedManagedDiskId *string `pulumi:"seedManagedDiskId"`
 }
 
 // Hyper-V Replica Azure specific protection profile details.
@@ -5222,7 +6130,7 @@ type HyperVReplicaAzurePolicyInput struct {
 	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
 	// The class type.
 	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
 	// The duration (in hours) to which point the recovery history needs to be maintained.
@@ -5237,7 +6145,7 @@ type HyperVReplicaAzurePolicyInput struct {
 type HyperVReplicaAzureReplicationDetailsResponse struct {
 	// Azure VM Disk details.
 	AzureVmDiskDetails []AzureVmDiskDetailsResponse `pulumi:"azureVmDiskDetails"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+	// The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
 	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
 	// The encryption info.
 	Encryption *string `pulumi:"encryption"`
@@ -5246,6 +6154,8 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'HyperVReplicaAzure'.
 	InstanceType string `pulumi:"instanceType"`
+	// The last recovery point received time.
+	LastRecoveryPointReceived string `pulumi:"lastRecoveryPointReceived"`
 	// The Last replication time.
 	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
 	// The last RPO calculated time.
@@ -5254,6 +6164,8 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// The operating system info.
 	OSDetails *OSDetailsResponse `pulumi:"oSDetails"`
+	// The list of protected managed disks.
+	ProtectedManagedDisks []HyperVReplicaAzureManagedDiskDetailsResponse `pulumi:"protectedManagedDisks"`
 	// The recovery availability set Id.
 	RecoveryAvailabilitySetId *string `pulumi:"recoveryAvailabilitySetId"`
 	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
@@ -5268,6 +6180,8 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	RecoveryAzureVmName *string `pulumi:"recoveryAzureVmName"`
 	// Last RPO value.
 	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
+	// The tags for the seed managed disks.
+	SeedManagedDiskTags map[string]string `pulumi:"seedManagedDiskTags"`
 	// The selected recovery azure network Id.
 	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The selected source nic Id which will be used as the primary nic during failover.
@@ -5276,10 +6190,18 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
 	// The RAM size of the VM on the primary side.
 	SourceVmRamSizeInMB *int `pulumi:"sourceVmRamSizeInMB"`
+	// The SQL Server license type.
+	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
 	// The target availability zone.
 	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
+	// The tags for the target managed disks.
+	TargetManagedDiskTags map[string]string `pulumi:"targetManagedDiskTags"`
+	// The tags for the target NICs.
+	TargetNicTags map[string]string `pulumi:"targetNicTags"`
 	// The target proximity placement group Id.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
+	// The target VM tags.
+	TargetVmTags map[string]string `pulumi:"targetVmTags"`
 	// A value indicating whether managed disks should be used during failover.
 	UseManagedDisks *string `pulumi:"useManagedDisks"`
 	// The virtual machine Id.
@@ -5313,7 +6235,7 @@ type HyperVReplicaBasePolicyDetailsResponse struct {
 	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
 	// A value indicating the number of recovery points.
 	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
+	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud.
 	ReplicaDeletionOption *string `pulumi:"replicaDeletionOption"`
 	// A value indicating the recovery HTTPS port.
 	ReplicationPort *int `pulumi:"replicationPort"`
@@ -5379,9 +6301,8 @@ type HyperVReplicaBluePolicyInput struct {
 	Compression *string `pulumi:"compression"`
 	// A value indicating whether IR is online.
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
-	// The class type.
 	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
 	// A value indicating the offline IR import path.
@@ -5458,7 +6379,7 @@ type HyperVReplicaPolicyInput struct {
 	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
 	// The class type.
 	// Expected value is 'HyperVReplica2012'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// A value indicating the offline IR export path.
 	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
 	// A value indicating the offline IR import path.
@@ -5496,19 +6417,29 @@ type HyperVReplicaReplicationDetailsResponse struct {
 
 // HyperVSite fabric specific details.
 type HyperVSiteDetailsResponse struct {
+	// The list of Hyper-V hosts associated with the fabric.
+	HyperVHosts []HyperVHostDetailsResponse `pulumi:"hyperVHosts"`
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'HyperVSite'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
-// IP configuration details.
-type IPConfigResponse struct {
-	// The backend address pools associated with the IP configuration.
-	LBBackendAddressPoolIds []string `pulumi:"lBBackendAddressPoolIds"`
-	// The Id of the public IP address associated with the IP configuration.
-	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
-	// The static IP address of the IP configuration.
-	StaticIPAddress *string `pulumi:"staticIPAddress"`
+type IPConfigDetailsResponse struct {
+	IpAddressType                   *string  `pulumi:"ipAddressType"`
+	IsPrimary                       *bool    `pulumi:"isPrimary"`
+	IsSeletedForFailover            *bool    `pulumi:"isSeletedForFailover"`
+	Name                            *string  `pulumi:"name"`
+	RecoveryIPAddressType           *string  `pulumi:"recoveryIPAddressType"`
+	RecoveryLBBackendAddressPoolIds []string `pulumi:"recoveryLBBackendAddressPoolIds"`
+	RecoveryPublicIPAddressId       *string  `pulumi:"recoveryPublicIPAddressId"`
+	RecoveryStaticIPAddress         *string  `pulumi:"recoveryStaticIPAddress"`
+	RecoverySubnetName              *string  `pulumi:"recoverySubnetName"`
+	StaticIPAddress                 *string  `pulumi:"staticIPAddress"`
+	SubnetName                      *string  `pulumi:"subnetName"`
+	TfoLBBackendAddressPoolIds      []string `pulumi:"tfoLBBackendAddressPoolIds"`
+	TfoPublicIPAddressId            *string  `pulumi:"tfoPublicIPAddressId"`
+	TfoStaticIPAddress              *string  `pulumi:"tfoStaticIPAddress"`
+	TfoSubnetName                   *string  `pulumi:"tfoSubnetName"`
 }
 
 // IaaS VM workload-specific container.
@@ -5519,12 +6450,14 @@ type IaaSVMContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'IaasVMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -5543,12 +6476,14 @@ type IaaSVMContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'IaasVMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Status of health of the container.
 	HealthStatus *string `pulumi:"healthStatus"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Status of registration of the container with the Recovery Services Vault.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource group name of Recovery Services Vault.
@@ -5564,7 +6499,7 @@ type IdentityData struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type string `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
@@ -5583,7 +6518,7 @@ type IdentityDataArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityDataArgs) ElementType() reflect.Type {
@@ -5670,8 +6605,8 @@ func (o IdentityDataOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityDataOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v IdentityData) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o IdentityDataOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentityData) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type IdentityDataPtrOutput struct{ *pulumi.OutputState }
@@ -5709,13 +6644,13 @@ func (o IdentityDataPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityDataPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *IdentityData) map[string]interface{} {
+func (o IdentityDataPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityData) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity for the resource.
@@ -6199,32 +7134,38 @@ type InMageAzureV2DiskInputDetails struct {
 
 // VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInput struct {
-	// The DiskEncryptionSet ARM ID.
+	// The DiskEncryptionSet ARM Id.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The DiskType.
 	DiskType *string `pulumi:"diskType"`
 	// The disks to include list.
 	DisksToInclude []InMageAzureV2DiskInputDetails `pulumi:"disksToInclude"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+	// The selected option to enable RDP\SSH on target VM after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
 	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
 	// The class type.
 	// Expected value is 'InMageAzureV2'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
+	// License type.
+	LicenseType *string `pulumi:"licenseType"`
 	// The storage account to be used for logging during replication.
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
 	// The Master target Id.
 	MasterTargetId *string `pulumi:"masterTargetId"`
-	// The multi vm group Id.
+	// The multi VM group Id.
 	MultiVmGroupId *string `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
+	// The multi VM group name.
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The Process Server Id.
 	ProcessServerId *string `pulumi:"processServerId"`
 	// The CS account Id.
 	RunAsAccountId *string `pulumi:"runAsAccountId"`
-	// The storage account name.
+	// The tags for the seed managed disks.
+	SeedManagedDiskTags map[string]string `pulumi:"seedManagedDiskTags"`
+	// The SQL Server license type.
+	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
+	// The storage account Id.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The availability set ARM Id.
+	// The target availability set ARM Id for resource manager deployment.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
 	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
@@ -6236,22 +7177,32 @@ type InMageAzureV2EnableProtectionInput struct {
 	TargetAzureV1ResourceGroupId *string `pulumi:"targetAzureV1ResourceGroupId"`
 	// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
 	TargetAzureV2ResourceGroupId *string `pulumi:"targetAzureV2ResourceGroupId"`
-	// The target azure Vm Name.
+	// The target azure VM Name.
 	TargetAzureVmName *string `pulumi:"targetAzureVmName"`
+	// The tags for the target managed disks.
+	TargetManagedDiskTags map[string]string `pulumi:"targetManagedDiskTags"`
+	// The tags for the target NICs.
+	TargetNicTags map[string]string `pulumi:"targetNicTags"`
 	// The proximity placement group ARM Id.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The target VM size.
 	TargetVmSize *string `pulumi:"targetVmSize"`
+	// The target VM tags.
+	TargetVmTags map[string]string `pulumi:"targetVmTags"`
 }
 
 // InMageAzureV2 Managed disk details.
 type InMageAzureV2ManagedDiskDetailsResponse struct {
+	// The DiskEncryptionSet ARM ID.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The disk id.
 	DiskId *string `pulumi:"diskId"`
 	// The replica disk type.
 	ReplicaDiskType *string `pulumi:"replicaDiskType"`
 	// Seed managed disk Id.
 	SeedManagedDiskId *string `pulumi:"seedManagedDiskId"`
+	// The target disk name.
+	TargetDiskName *string `pulumi:"targetDiskName"`
 }
 
 // InMage Azure v2 specific protection profile details.
@@ -6279,7 +7230,7 @@ type InMageAzureV2PolicyInput struct {
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
 	// Expected value is 'InMageAzureV2'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
@@ -6304,25 +7255,41 @@ type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	HealthErrorCode *string `pulumi:"healthErrorCode"`
 	// The last RPO calculated time.
 	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
+	// The Progress Health.
+	ProgressHealth *string `pulumi:"progressHealth"`
+	// The Progress Status.
+	ProgressStatus *string `pulumi:"progressStatus"`
 	// The protection stage.
 	ProtectionStage *string `pulumi:"protectionStage"`
 	// The PS data transit in MB.
 	PsDataInMegaBytes *float64 `pulumi:"psDataInMegaBytes"`
 	// The resync duration in seconds.
 	ResyncDurationInSeconds *float64 `pulumi:"resyncDurationInSeconds"`
+	// The resync last 15 minutes transferred bytes.
+	ResyncLast15MinutesTransferredBytes *float64 `pulumi:"resyncLast15MinutesTransferredBytes"`
+	// The last data transfer time in UTC.
+	ResyncLastDataTransferTimeUTC *string `pulumi:"resyncLastDataTransferTimeUTC"`
+	// The resync processed bytes.
+	ResyncProcessedBytes *float64 `pulumi:"resyncProcessedBytes"`
 	// The resync progress percentage.
 	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired *string `pulumi:"resyncRequired"`
+	// The resync start time.
+	ResyncStartTime *string `pulumi:"resyncStartTime"`
+	// The resync total transferred bytes.
+	ResyncTotalTransferredBytes *float64 `pulumi:"resyncTotalTransferredBytes"`
 	// The RPO in seconds.
 	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
+	// The seconds to take for switch provider.
+	SecondsToTakeSwitchProvider *float64 `pulumi:"secondsToTakeSwitchProvider"`
 	// The source data transit in MB.
 	SourceDataInMegaBytes *float64 `pulumi:"sourceDataInMegaBytes"`
 	// The target data transit in MB.
 	TargetDataInMegaBytes *float64 `pulumi:"targetDataInMegaBytes"`
 }
 
-// InMageAzureV2 provider specific settings
+// InMageAzureV2 provider specific settings.
 type InMageAzureV2ReplicationDetailsResponse struct {
 	// Agent expiry date.
 	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
@@ -6330,16 +7297,20 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Azure VM Disk details.
 	AzureVMDiskDetails []AzureVmDiskDetailsResponse `pulumi:"azureVMDiskDetails"`
+	// The target generation for this protected item.
+	AzureVmGeneration *string `pulumi:"azureVmGeneration"`
 	// The compressed data change rate in MB.
 	CompressedDataRateInMB *float64 `pulumi:"compressedDataRateInMB"`
-	// The data stores of the on-premise machine. Value can be list of strings that contain data store names.
+	// The datastores of the on-premise machine. Value can be list of strings that contain datastore names.
 	Datastores []string `pulumi:"datastores"`
 	// A value indicating the discovery type of the machine. Value can be vCenter or physical.
 	DiscoveryType *string `pulumi:"discoveryType"`
 	// A value indicating whether any disk is resized for this VM.
 	DiskResized *string `pulumi:"diskResized"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+	// The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
 	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
+	// The firmware type of this protected item.
+	FirmwareType *string `pulumi:"firmwareType"`
 	// The infrastructure VM Id.
 	InfrastructureVmId *string `pulumi:"infrastructureVmId"`
 	// Gets the Instance type.
@@ -6347,12 +7318,16 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The source IP address.
 	IpAddress *string `pulumi:"ipAddress"`
+	// A value indicating whether additional IR stats are available or not.
+	IsAdditionalStatsAvailable *bool `pulumi:"isAdditionalStatsAvailable"`
 	// A value indicating whether installed agent needs to be updated.
 	IsAgentUpdateRequired *string `pulumi:"isAgentUpdateRequired"`
 	// A value indicating whether the source server requires a restart after update.
 	IsRebootAfterUpdateRequired *string `pulumi:"isRebootAfterUpdateRequired"`
 	// The last heartbeat received from the source server.
 	LastHeartbeat *string `pulumi:"lastHeartbeat"`
+	// The last recovery point received time.
+	LastRecoveryPointReceived string `pulumi:"lastRecoveryPointReceived"`
 	// The last RPO calculated time.
 	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
 	// The last update time received from on-prem components.
@@ -6376,7 +7351,7 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	// The process server Id.
 	ProcessServerId *string `pulumi:"processServerId"`
 	// The process server name.
-	ProcessServerName string `pulumi:"processServerName"`
+	ProcessServerName *string `pulumi:"processServerName"`
 	// The list of protected disks.
 	ProtectedDisks []InMageAzureV2ProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
 	// The list of protected managed disks.
@@ -6401,6 +7376,8 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
 	// The RPO in seconds.
 	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
+	// The tags for the seed managed disks.
+	SeedManagedDiskTags map[string]string `pulumi:"seedManagedDiskTags"`
 	// The selected recovery azure network Id.
 	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
 	// The selected source nic Id which will be used as the primary nic during failover.
@@ -6411,12 +7388,28 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
 	// The RAM size of the VM on the primary side.
 	SourceVmRamSizeInMB *int `pulumi:"sourceVmRamSizeInMB"`
+	// The SQL Server license type.
+	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
+	// The switch provider blocking error information.
+	SwitchProviderBlockingErrorDetails []InMageAzureV2SwitchProviderBlockingErrorDetailsResponse `pulumi:"switchProviderBlockingErrorDetails"`
+	// The switch provider blocking error information.
+	SwitchProviderDetails *InMageAzureV2SwitchProviderDetailsResponse `pulumi:"switchProviderDetails"`
 	// The target availability zone.
 	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
+	// The tags for the target managed disks.
+	TargetManagedDiskTags map[string]string `pulumi:"targetManagedDiskTags"`
+	// The tags for the target NICs.
+	TargetNicTags map[string]string `pulumi:"targetNicTags"`
 	// The target proximity placement group Id.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
 	TargetVmId *string `pulumi:"targetVmId"`
+	// The target VM tags.
+	TargetVmTags map[string]string `pulumi:"targetVmTags"`
+	// The total transferred data in bytes.
+	TotalDataTransferred *float64 `pulumi:"totalDataTransferred"`
+	// The progress health.
+	TotalProgressHealth *string `pulumi:"totalProgressHealth"`
 	// The uncompressed data change rate in MB.
 	UncompressedDataRateInMB *float64 `pulumi:"uncompressedDataRateInMB"`
 	// A value indicating whether managed disks should be used during failover.
@@ -6435,6 +7428,34 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	VmProtectionState *string `pulumi:"vmProtectionState"`
 	// The protection state description for the vm.
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+}
+
+// InMageAzureV2 switch provider blocking error details.
+type InMageAzureV2SwitchProviderBlockingErrorDetailsResponse struct {
+	// The error code.
+	ErrorCode string `pulumi:"errorCode"`
+	// The error message.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The error message parameters.
+	ErrorMessageParameters map[string]string `pulumi:"errorMessageParameters"`
+	// The error tags.
+	ErrorTags map[string]string `pulumi:"errorTags"`
+	// The possible causes.
+	PossibleCauses string `pulumi:"possibleCauses"`
+	// The recommended action.
+	RecommendedAction string `pulumi:"recommendedAction"`
+}
+
+// InMageAzureV2 switch provider details.
+type InMageAzureV2SwitchProviderDetailsResponse struct {
+	// The target appliance Id.
+	TargetApplianceId string `pulumi:"targetApplianceId"`
+	// The target fabric Id.
+	TargetFabricId string `pulumi:"targetFabricId"`
+	// The target resource Id.
+	TargetResourceId string `pulumi:"targetResourceId"`
+	// The target vault Id.
+	TargetVaultId string `pulumi:"targetVaultId"`
 }
 
 // Base class for the policies of providers using InMage replication.
@@ -6468,7 +7489,7 @@ type InMageDiskSignatureExclusionOptions struct {
 
 // VMware Azure specific enable protection input.
 type InMageEnableProtectionInput struct {
-	// The target data store name.
+	// The target datastore name.
 	DatastoreName *string `pulumi:"datastoreName"`
 	// The enable disk exclusion input.
 	DiskExclusionInput *InMageDiskExclusionInput `pulumi:"diskExclusionInput"`
@@ -6476,12 +7497,12 @@ type InMageEnableProtectionInput struct {
 	DisksToInclude []string `pulumi:"disksToInclude"`
 	// The class type.
 	// Expected value is 'InMage'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The Master Target Id.
 	MasterTargetId string `pulumi:"masterTargetId"`
-	// The multi vm group Id.
+	// The multi VM group Id.
 	MultiVmGroupId string `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
+	// The multi VM group name.
 	MultiVmGroupName string `pulumi:"multiVmGroupName"`
 	// The Process Server Id.
 	ProcessServerId string `pulumi:"processServerId"`
@@ -6489,8 +7510,24 @@ type InMageEnableProtectionInput struct {
 	RetentionDrive string `pulumi:"retentionDrive"`
 	// The CS account Id.
 	RunAsAccountId *string `pulumi:"runAsAccountId"`
-	// The Vm Name.
+	// The VM Name.
 	VmFriendlyName *string `pulumi:"vmFriendlyName"`
+}
+
+// InMageFabric switch provider blocking error details.
+type InMageFabricSwitchProviderBlockingErrorDetailsResponse struct {
+	// The error code.
+	ErrorCode string `pulumi:"errorCode"`
+	// The error message.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The error message parameters.
+	ErrorMessageParameters map[string]string `pulumi:"errorMessageParameters"`
+	// The error tags.
+	ErrorTags map[string]string `pulumi:"errorTags"`
+	// The possible causes.
+	PossibleCauses string `pulumi:"possibleCauses"`
+	// The recommended action.
+	RecommendedAction string `pulumi:"recommendedAction"`
 }
 
 // InMage specific protection profile details.
@@ -6514,7 +7551,7 @@ type InMagePolicyInput struct {
 	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
 	// The class type.
 	// Expected value is 'InMage'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
@@ -6539,16 +7576,30 @@ type InMageProtectedDiskDetailsResponse struct {
 	HealthErrorCode *string `pulumi:"healthErrorCode"`
 	// The last RPO calculated time.
 	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
+	// The Progress Health.
+	ProgressHealth *string `pulumi:"progressHealth"`
+	// The Progress Status.
+	ProgressStatus *string `pulumi:"progressStatus"`
 	// The protection stage.
 	ProtectionStage *string `pulumi:"protectionStage"`
 	// The PS data transit in MB.
 	PsDataInMB *float64 `pulumi:"psDataInMB"`
 	// The resync duration in seconds.
 	ResyncDurationInSeconds *float64 `pulumi:"resyncDurationInSeconds"`
+	// The resync last 15 minutes transferred bytes.
+	ResyncLast15MinutesTransferredBytes *float64 `pulumi:"resyncLast15MinutesTransferredBytes"`
+	// The last data transfer time in UTC.
+	ResyncLastDataTransferTimeUTC *string `pulumi:"resyncLastDataTransferTimeUTC"`
+	// The resync processed bytes.
+	ResyncProcessedBytes *float64 `pulumi:"resyncProcessedBytes"`
 	// The resync progress percentage.
 	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired *string `pulumi:"resyncRequired"`
+	// The resync start time.
+	ResyncStartTime *string `pulumi:"resyncStartTime"`
+	// The resync total transferred bytes.
+	ResyncTotalTransferredBytes *float64 `pulumi:"resyncTotalTransferredBytes"`
 	// The RPO in seconds.
 	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
 	// The source data transit in MB.
@@ -6573,26 +7624,54 @@ type InMageRcmAgentUpgradeBlockingErrorDetailsResponse struct {
 	RecommendedAction string `pulumi:"recommendedAction"`
 }
 
+// InMageRcm discovered protected VM details.
+type InMageRcmDiscoveredProtectedVmDetailsResponse struct {
+	// The SDS created timestamp.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// The list of datastores.
+	Datastores []string `pulumi:"datastores"`
+	// The list of IP addresses.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// A value indicating whether the VM is deleted.
+	IsDeleted bool `pulumi:"isDeleted"`
+	// The last time when SDS information discovered in SRS.
+	LastDiscoveryTimeInUtc string `pulumi:"lastDiscoveryTimeInUtc"`
+	// The VM's OS name.
+	OsName string `pulumi:"osName"`
+	// The VM power status.
+	PowerStatus string `pulumi:"powerStatus"`
+	// The SDS updated timestamp.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+	// The VCenter fqdn.
+	VCenterFqdn string `pulumi:"vCenterFqdn"`
+	// The VCenter Id.
+	VCenterId string `pulumi:"vCenterId"`
+	// The VM fqdn.
+	VmFqdn string `pulumi:"vmFqdn"`
+	// The VMware tools status.
+	VmwareToolsStatus string `pulumi:"vmwareToolsStatus"`
+}
+
 // InMageRcm disk input.
 type InMageRcmDiskInput struct {
-	// The disk encryption set ARM Id.
+	// The DiskEncryptionSet ARM Id.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The disk Id.
-	DiskId *string `pulumi:"diskId"`
+	DiskId string `pulumi:"diskId"`
 	// The disk type.
-	DiskType *string `pulumi:"diskType"`
+	DiskType string `pulumi:"diskType"`
 	// The log storage account ARM Id.
-	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
+	LogStorageAccountId string `pulumi:"logStorageAccountId"`
 }
 
 // InMageRcm disk input.
 type InMageRcmDisksDefaultInput struct {
-	// The disk encryption set ARM Id.
+	// The DiskEncryptionSet ARM Id.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The disk type.
-	DiskType *string `pulumi:"diskType"`
+	DiskType string `pulumi:"diskType"`
 	// The log storage account ARM Id.
-	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
+	LogStorageAccountId string `pulumi:"logStorageAccountId"`
 }
 
 // InMageRcm specific enable protection input.
@@ -6602,16 +7681,16 @@ type InMageRcmEnableProtectionInput struct {
 	// The disks to include list.
 	DisksToInclude []InMageRcmDiskInput `pulumi:"disksToInclude"`
 	// The ARM Id of discovered machine.
-	FabricDiscoveryMachineId *string `pulumi:"fabricDiscoveryMachineId"`
+	FabricDiscoveryMachineId string `pulumi:"fabricDiscoveryMachineId"`
 	// The class type.
 	// Expected value is 'InMageRcm'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The license type.
 	LicenseType *string `pulumi:"licenseType"`
 	// The multi VM group name.
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The process server Id.
-	ProcessServerId *string `pulumi:"processServerId"`
+	ProcessServerId string `pulumi:"processServerId"`
 	// The run-as account Id.
 	RunAsAccountId *string `pulumi:"runAsAccountId"`
 	// The target availability set ARM Id.
@@ -6625,7 +7704,7 @@ type InMageRcmEnableProtectionInput struct {
 	// The target proximity placement group Id.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The target resource group ARM Id.
-	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
+	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
 	// The selected target subnet name.
 	TargetSubnetName *string `pulumi:"targetSubnetName"`
 	// The target VM name.
@@ -6640,17 +7719,15 @@ type InMageRcmEnableProtectionInput struct {
 
 // InMageRcm fabric provider specific settings.
 type InMageRcmFabricCreationInput struct {
-	// The certificate to be used for AAD authentication.
-	AuthCertificate *string `pulumi:"authCertificate"`
 	// Gets the class type.
 	// Expected value is 'InMageRcm'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The ARM Id of the physical site.
-	PhysicalSiteId *string `pulumi:"physicalSiteId"`
+	PhysicalSiteId string `pulumi:"physicalSiteId"`
 	// The identity provider input for source agent authentication.
-	SourceAgentIdentity *IdentityProviderInput `pulumi:"sourceAgentIdentity"`
+	SourceAgentIdentity IdentityProviderInput `pulumi:"sourceAgentIdentity"`
 	// The ARM Id of the VMware site.
-	VmwareSiteId *string `pulumi:"vmwareSiteId"`
+	VmwareSiteId string `pulumi:"vmwareSiteId"`
 }
 
 // InMageRcm fabric specific details.
@@ -6666,6 +7743,8 @@ type InMageRcmFabricSpecificDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'InMageRcm'.
 	InstanceType string `pulumi:"instanceType"`
+	// The list of Mars agents.
+	MarsAgents []MarsAgentDetailsResponse `pulumi:"marsAgents"`
 	// The ARM Id of the physical site.
 	PhysicalSiteId string `pulumi:"physicalSiteId"`
 	// The list of process servers.
@@ -6684,8 +7763,205 @@ type InMageRcmFabricSpecificDetailsResponse struct {
 	ServiceEndpoint string `pulumi:"serviceEndpoint"`
 	// The service resource Id.
 	ServiceResourceId string `pulumi:"serviceResourceId"`
+	// The source agent identity details.
+	SourceAgentIdentityDetails *IdentityProviderDetailsResponse `pulumi:"sourceAgentIdentityDetails"`
 	// The ARM Id of the VMware site.
 	VmwareSiteId string `pulumi:"vmwareSiteId"`
+}
+
+// InMageRcmFailback discovered VM details.
+type InMageRcmFailbackDiscoveredProtectedVmDetailsResponse struct {
+	// The SDS created timestamp.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// The list of datastores.
+	Datastores []string `pulumi:"datastores"`
+	// The list of IP addresses.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// A value indicating whether the VM is deleted.
+	IsDeleted bool `pulumi:"isDeleted"`
+	// The last time when SDS information discovered in SRS.
+	LastDiscoveryTimeInUtc string `pulumi:"lastDiscoveryTimeInUtc"`
+	// The VM's OS name.
+	OsName string `pulumi:"osName"`
+	// The VM power status.
+	PowerStatus string `pulumi:"powerStatus"`
+	// The SDS updated timestamp.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+	// The VCenter fqdn.
+	VCenterFqdn string `pulumi:"vCenterFqdn"`
+	// The VCenter Id.
+	VCenterId string `pulumi:"vCenterId"`
+	// The VM fqdn.
+	VmFqdn string `pulumi:"vmFqdn"`
+	// The VMware tools status.
+	VmwareToolsStatus string `pulumi:"vmwareToolsStatus"`
+}
+
+// InMageRcmFailback mobility agent details.
+type InMageRcmFailbackMobilityAgentDetailsResponse struct {
+	// The agent version expiry date.
+	AgentVersionExpiryDate string `pulumi:"agentVersionExpiryDate"`
+	// The driver version.
+	DriverVersion string `pulumi:"driverVersion"`
+	// The driver version expiry date.
+	DriverVersionExpiryDate string `pulumi:"driverVersionExpiryDate"`
+	// A value indicating whether agent is upgradeable or not.
+	IsUpgradeable string `pulumi:"isUpgradeable"`
+	// The time of the last heartbeat received from the agent.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The latest upgradeable version available without reboot.
+	LatestUpgradableVersionWithoutReboot string `pulumi:"latestUpgradableVersionWithoutReboot"`
+	// The latest agent version available.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The whether update is possible or not.
+	ReasonsBlockingUpgrade []string `pulumi:"reasonsBlockingUpgrade"`
+	// The agent version.
+	Version string `pulumi:"version"`
+}
+
+// InMageRcmFailback NIC details.
+type InMageRcmFailbackNicDetailsResponse struct {
+	// The adapter type.
+	AdapterType string `pulumi:"adapterType"`
+	// The mac address.
+	MacAddress string `pulumi:"macAddress"`
+	// The network name.
+	NetworkName string `pulumi:"networkName"`
+	// The IP address.
+	SourceIpAddress string `pulumi:"sourceIpAddress"`
+}
+
+// InMageRcmFailback policy creation input.
+type InMageRcmFailbackPolicyCreationInput struct {
+	// The app consistent snapshot frequency (in minutes).
+	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
+	// The crash consistent snapshot frequency (in minutes).
+	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
+	// The class type.
+	// Expected value is 'InMageRcmFailback'.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// InMageRcm failback specific policy details.
+type InMageRcmFailbackPolicyDetailsResponse struct {
+	// The app consistent snapshot frequency in minutes.
+	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
+	// The crash consistent snapshot frequency in minutes.
+	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
+	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMageRcmFailback'.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// InMageRcmFailback protected disk details.
+type InMageRcmFailbackProtectedDiskDetailsResponse struct {
+	// The disk capacity in bytes.
+	CapacityInBytes float64 `pulumi:"capacityInBytes"`
+	// The data pending at source agent in MB.
+	DataPendingAtSourceAgentInMB float64 `pulumi:"dataPendingAtSourceAgentInMB"`
+	// The data pending in log data store in MB.
+	DataPendingInLogDataStoreInMB float64 `pulumi:"dataPendingInLogDataStoreInMB"`
+	// The disk Id (reported by source agent).
+	DiskId string `pulumi:"diskId"`
+	// The disk name.
+	DiskName string `pulumi:"diskName"`
+	// The disk Uuid (reported by vCenter).
+	DiskUuid string `pulumi:"diskUuid"`
+	// The initial replication details.
+	IrDetails *InMageRcmFailbackSyncDetailsResponse `pulumi:"irDetails"`
+	// A value indicating whether initial replication is complete or not.
+	IsInitialReplicationComplete string `pulumi:"isInitialReplicationComplete"`
+	// A value indicating whether the disk is the OS disk.
+	IsOSDisk string `pulumi:"isOSDisk"`
+	// The last sync time.
+	LastSyncTime string `pulumi:"lastSyncTime"`
+	// The resync details.
+	ResyncDetails *InMageRcmFailbackSyncDetailsResponse `pulumi:"resyncDetails"`
+}
+
+// InMageRcmFailback provider specific details.
+type InMageRcmFailbackReplicationDetailsResponse struct {
+	// The ARM Id of the azure VM.
+	AzureVirtualMachineId string `pulumi:"azureVirtualMachineId"`
+	// The discovered VM information.
+	DiscoveredVmDetails *InMageRcmFailbackDiscoveredProtectedVmDetailsResponse `pulumi:"discoveredVmDetails"`
+	// The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+	InitialReplicationProcessedBytes float64 `pulumi:"initialReplicationProcessedBytes"`
+	// The initial replication progress health.
+	InitialReplicationProgressHealth string `pulumi:"initialReplicationProgressHealth"`
+	// The initial replication progress percentage.
+	InitialReplicationProgressPercentage int `pulumi:"initialReplicationProgressPercentage"`
+	// The initial replication transferred bytes from source VM to target for all selected disks on source VM.
+	InitialReplicationTransferredBytes float64 `pulumi:"initialReplicationTransferredBytes"`
+	// Gets the Instance type.
+	// Expected value is 'InMageRcmFailback'.
+	InstanceType string `pulumi:"instanceType"`
+	// The virtual machine internal identifier.
+	InternalIdentifier string `pulumi:"internalIdentifier"`
+	// A value indicating whether agent registration was successful after failover.
+	IsAgentRegistrationSuccessfulAfterFailover bool `pulumi:"isAgentRegistrationSuccessfulAfterFailover"`
+	// The last planned failover start time.
+	LastPlannedFailoverStartTime string `pulumi:"lastPlannedFailoverStartTime"`
+	// The last planned failover status.
+	LastPlannedFailoverStatus string `pulumi:"lastPlannedFailoverStatus"`
+	// The policy friendly name used by the forward replication.
+	LastUsedPolicyFriendlyName string `pulumi:"lastUsedPolicyFriendlyName"`
+	// The policy Id used by the forward replication.
+	LastUsedPolicyId string `pulumi:"lastUsedPolicyId"`
+	// The log storage account ARM Id.
+	LogStorageAccountId string `pulumi:"logStorageAccountId"`
+	// The mobility agent information.
+	MobilityAgentDetails *InMageRcmFailbackMobilityAgentDetailsResponse `pulumi:"mobilityAgentDetails"`
+	// The multi VM group name.
+	MultiVmGroupName string `pulumi:"multiVmGroupName"`
+	// The type of the OS on the VM.
+	OsType string `pulumi:"osType"`
+	// The list of protected disks.
+	ProtectedDisks []InMageRcmFailbackProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
+	// The reprotect agent Id.
+	ReprotectAgentId string `pulumi:"reprotectAgentId"`
+	// The reprotect agent name.
+	ReprotectAgentName string `pulumi:"reprotectAgentName"`
+	// The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+	ResyncProcessedBytes float64 `pulumi:"resyncProcessedBytes"`
+	// The resync progress health.
+	ResyncProgressHealth string `pulumi:"resyncProgressHealth"`
+	// The resync progress percentage.
+	ResyncProgressPercentage int `pulumi:"resyncProgressPercentage"`
+	// A value indicating whether resync is required.
+	ResyncRequired string `pulumi:"resyncRequired"`
+	// The resync state.
+	ResyncState string `pulumi:"resyncState"`
+	// The resync transferred bytes from source VM to target for all selected disks on source VM.
+	ResyncTransferredBytes float64 `pulumi:"resyncTransferredBytes"`
+	// The target datastore name.
+	TargetDataStoreName string `pulumi:"targetDataStoreName"`
+	// The target VM name.
+	TargetVmName string `pulumi:"targetVmName"`
+	// The target vCenter Id.
+	TargetvCenterId string `pulumi:"targetvCenterId"`
+	// The network details.
+	VmNics []InMageRcmFailbackNicDetailsResponse `pulumi:"vmNics"`
+}
+
+// InMageRcmFailback disk level sync details.
+type InMageRcmFailbackSyncDetailsResponse struct {
+	// The bytes transferred in last 15 minutes from source VM to target.
+	Last15MinutesTransferredBytes float64 `pulumi:"last15MinutesTransferredBytes"`
+	// The time of the last data transfer from source VM to target.
+	LastDataTransferTimeUtc string `pulumi:"lastDataTransferTimeUtc"`
+	// The last refresh time.
+	LastRefreshTime string `pulumi:"lastRefreshTime"`
+	// The total processed bytes. This includes bytes that are transferred from source VM to target and matched bytes.
+	ProcessedBytes float64 `pulumi:"processedBytes"`
+	// The progress health.
+	ProgressHealth string `pulumi:"progressHealth"`
+	// Progress in percentage. Progress percentage is calculated based on processed bytes.
+	ProgressPercentage int `pulumi:"progressPercentage"`
+	// The start time.
+	StartTime string `pulumi:"startTime"`
+	// The transferred bytes from source VM to azure for the disk.
+	TransferredBytes float64 `pulumi:"transferredBytes"`
 }
 
 // InMageRcm last source agent upgrade error details.
@@ -6716,6 +7992,8 @@ type InMageRcmMobilityAgentDetailsResponse struct {
 	IsUpgradeable string `pulumi:"isUpgradeable"`
 	// The time of the last heartbeat received from the agent.
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The latest agent version release date.
+	LatestAgentReleaseDate string `pulumi:"latestAgentReleaseDate"`
 	// The latest upgradeable version available without reboot.
 	LatestUpgradableVersionWithoutReboot string `pulumi:"latestUpgradableVersionWithoutReboot"`
 	// The latest agent version available.
@@ -6729,9 +8007,9 @@ type InMageRcmMobilityAgentDetailsResponse struct {
 // InMageRcm NIC details.
 type InMageRcmNicDetailsResponse struct {
 	// A value indicating whether this is the primary NIC.
-	IsPrimaryNic string `pulumi:"isPrimaryNic"`
+	IsPrimaryNic *string `pulumi:"isPrimaryNic"`
 	// A value indicating whether this NIC is selected for failover.
-	IsSelectedForFailover string `pulumi:"isSelectedForFailover"`
+	IsSelectedForFailover *string `pulumi:"isSelectedForFailover"`
 	// The NIC Id.
 	NicId string `pulumi:"nicId"`
 	// The source IP address.
@@ -6743,17 +8021,17 @@ type InMageRcmNicDetailsResponse struct {
 	// Source subnet name.
 	SourceSubnetName string `pulumi:"sourceSubnetName"`
 	// The target IP address.
-	TargetIPAddress string `pulumi:"targetIPAddress"`
+	TargetIPAddress *string `pulumi:"targetIPAddress"`
 	// The target IP address type.
-	TargetIPAddressType string `pulumi:"targetIPAddressType"`
+	TargetIPAddressType *string `pulumi:"targetIPAddressType"`
 	// Target subnet name.
-	TargetSubnetName string `pulumi:"targetSubnetName"`
+	TargetSubnetName *string `pulumi:"targetSubnetName"`
 	// The test IP address.
-	TestIPAddress string `pulumi:"testIPAddress"`
+	TestIPAddress *string `pulumi:"testIPAddress"`
 	// The test IP address type.
-	TestIPAddressType string `pulumi:"testIPAddressType"`
+	TestIPAddressType *string `pulumi:"testIPAddressType"`
 	// Test subnet name.
-	TestSubnetName string `pulumi:"testSubnetName"`
+	TestSubnetName *string `pulumi:"testSubnetName"`
 }
 
 // InMageRcm policy creation input.
@@ -6766,7 +8044,7 @@ type InMageRcmPolicyCreationInput struct {
 	EnableMultiVmSync *string `pulumi:"enableMultiVmSync"`
 	// The class type.
 	// Expected value is 'InMageRcm'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
 }
@@ -6774,48 +8052,73 @@ type InMageRcmPolicyCreationInput struct {
 // InMageRcm specific policy details.
 type InMageRcmPolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes int `pulumi:"appConsistentFrequencyInMinutes"`
+	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
 	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes int `pulumi:"crashConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// A value indicating whether multi-VM sync has to be enabled.
-	EnableMultiVmSync string `pulumi:"enableMultiVmSync"`
+	EnableMultiVmSync *string `pulumi:"enableMultiVmSync"`
 	// Gets the class type. Overridden in derived classes.
 	// Expected value is 'InMageRcm'.
 	InstanceType string `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistoryInMinutes int `pulumi:"recoveryPointHistoryInMinutes"`
+	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
 }
 
 // InMageRcm protected disk details.
 type InMageRcmProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	CapacityInBytes float64 `pulumi:"capacityInBytes"`
-	// The disk encryption set ARM Id.
+	// The data pending at source agent in MB.
+	DataPendingAtSourceAgentInMB float64 `pulumi:"dataPendingAtSourceAgentInMB"`
+	// The data pending in log data store in MB.
+	DataPendingInLogDataStoreInMB float64 `pulumi:"dataPendingInLogDataStoreInMB"`
+	// The DiskEncryptionSet ARM Id.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The disk Id.
 	DiskId string `pulumi:"diskId"`
 	// The disk name.
 	DiskName string `pulumi:"diskName"`
 	// The disk type.
-	DiskType string `pulumi:"diskType"`
+	DiskType *string `pulumi:"diskType"`
+	// The initial replication details.
+	IrDetails *InMageRcmSyncDetailsResponse `pulumi:"irDetails"`
+	// A value indicating whether initial replication is complete or not.
+	IsInitialReplicationComplete string `pulumi:"isInitialReplicationComplete"`
 	// A value indicating whether the disk is the OS disk.
 	IsOSDisk string `pulumi:"isOSDisk"`
 	// The log storage account ARM Id.
 	LogStorageAccountId string `pulumi:"logStorageAccountId"`
+	// The resync details.
+	ResyncDetails *InMageRcmSyncDetailsResponse `pulumi:"resyncDetails"`
 	// The ARM Id of the seed managed disk.
 	SeedManagedDiskId string `pulumi:"seedManagedDiskId"`
 	// The ARM Id of the target managed disk.
 	TargetManagedDiskId string `pulumi:"targetManagedDiskId"`
 }
 
+// InMageRcm provider specific container mapping details.
+type InMageRcmProtectionContainerMappingDetailsResponse struct {
+	// A value indicating whether the flag for enable agent auto upgrade.
+	EnableAgentAutoUpgrade string `pulumi:"enableAgentAutoUpgrade"`
+	// Gets the class type. Overridden in derived classes.
+	// Expected value is 'InMageRcm'.
+	InstanceType string `pulumi:"instanceType"`
+}
+
 // InMageRcm provider specific details.
 type InMageRcmReplicationDetailsResponse struct {
+	// The agent version to which last agent upgrade was attempted.
+	AgentUpgradeAttemptToVersion string `pulumi:"agentUpgradeAttemptToVersion"`
 	// The agent upgrade blocking error information.
 	AgentUpgradeBlockingErrorDetails []InMageRcmAgentUpgradeBlockingErrorDetailsResponse `pulumi:"agentUpgradeBlockingErrorDetails"`
+	// The agent upgrade job Id.
+	AgentUpgradeJobId string `pulumi:"agentUpgradeJobId"`
 	// The agent auto upgrade state.
 	AgentUpgradeState string `pulumi:"agentUpgradeState"`
 	// The allocated memory in MB.
 	AllocatedMemoryInMB float64 `pulumi:"allocatedMemoryInMB"`
+	// The discovered VM details.
+	DiscoveredVmDetails *InMageRcmDiscoveredProtectedVmDetailsResponse `pulumi:"discoveredVmDetails"`
 	// The type of the discovered VM.
 	DiscoveryType string `pulumi:"discoveryType"`
 	// The ARM Id of the discovered VM.
@@ -6826,6 +8129,8 @@ type InMageRcmReplicationDetailsResponse struct {
 	FirmwareType string `pulumi:"firmwareType"`
 	// The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
 	InitialReplicationProcessedBytes float64 `pulumi:"initialReplicationProcessedBytes"`
+	// The initial replication progress health.
+	InitialReplicationProgressHealth string `pulumi:"initialReplicationProgressHealth"`
 	// The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
 	InitialReplicationProgressPercentage int `pulumi:"initialReplicationProgressPercentage"`
 	// The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
@@ -6835,12 +8140,12 @@ type InMageRcmReplicationDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The virtual machine internal identifier.
 	InternalIdentifier string `pulumi:"internalIdentifier"`
+	// A value indicating whether agent registration was successful after failover.
+	IsAgentRegistrationSuccessfulAfterFailover bool `pulumi:"isAgentRegistrationSuccessfulAfterFailover"`
 	// A value indicating whether last agent upgrade was successful or not.
 	IsLastUpgradeSuccessful string `pulumi:"isLastUpgradeSuccessful"`
 	// The last agent upgrade error information.
 	LastAgentUpgradeErrorDetails []InMageRcmLastAgentUpgradeErrorDetailsResponse `pulumi:"lastAgentUpgradeErrorDetails"`
-	// The last agent upgrade failed or cancelled job Id.
-	LastAgentUpgradeFailedJobId string `pulumi:"lastAgentUpgradeFailedJobId"`
 	// The last agent upgrade type.
 	LastAgentUpgradeType string `pulumi:"lastAgentUpgradeType"`
 	// The last recovery point Id.
@@ -6852,13 +8157,15 @@ type InMageRcmReplicationDetailsResponse struct {
 	// The last recovery point objective value.
 	LastRpoInSeconds float64 `pulumi:"lastRpoInSeconds"`
 	// License Type of the VM to be used.
-	LicenseType string `pulumi:"licenseType"`
+	LicenseType *string `pulumi:"licenseType"`
 	// The mobility agent information.
-	MobilityAgentDetails InMageRcmMobilityAgentDetailsResponse `pulumi:"mobilityAgentDetails"`
+	MobilityAgentDetails *InMageRcmMobilityAgentDetailsResponse `pulumi:"mobilityAgentDetails"`
 	// The multi VM group name.
 	MultiVmGroupName string `pulumi:"multiVmGroupName"`
 	// The type of the OS on the VM.
 	OsType string `pulumi:"osType"`
+	// The IP address of the primary network interface.
+	PrimaryNicIpAddress string `pulumi:"primaryNicIpAddress"`
 	// The process server Id.
 	ProcessServerId string `pulumi:"processServerId"`
 	// The process server name.
@@ -6869,6 +8176,8 @@ type InMageRcmReplicationDetailsResponse struct {
 	ProtectedDisks []InMageRcmProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
 	// The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
 	ResyncProcessedBytes float64 `pulumi:"resyncProcessedBytes"`
+	// The resync progress health.
+	ResyncProgressHealth string `pulumi:"resyncProgressHealth"`
 	// The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
 	ResyncProgressPercentage int `pulumi:"resyncProgressPercentage"`
 	// A value indicating whether resync is required.
@@ -6880,30 +8189,52 @@ type InMageRcmReplicationDetailsResponse struct {
 	// The run-as account Id.
 	RunAsAccountId string `pulumi:"runAsAccountId"`
 	// The target availability set Id.
-	TargetAvailabilitySetId string `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The target availability zone.
-	TargetAvailabilityZone string `pulumi:"targetAvailabilityZone"`
+	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
 	// The target boot diagnostics storage account ARM Id.
-	TargetBootDiagnosticsStorageAccountId string `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
 	// The target generation.
 	TargetGeneration string `pulumi:"targetGeneration"`
+	// The target location.
+	TargetLocation *string `pulumi:"targetLocation"`
 	// The target network Id.
-	TargetNetworkId string `pulumi:"targetNetworkId"`
+	TargetNetworkId *string `pulumi:"targetNetworkId"`
 	// The target proximity placement group Id.
-	TargetProximityPlacementGroupId string `pulumi:"targetProximityPlacementGroupId"`
+	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The target resource group Id.
-	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
+	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
 	// Target VM name.
-	TargetVmName string `pulumi:"targetVmName"`
+	TargetVmName *string `pulumi:"targetVmName"`
 	// The target VM size.
-	TargetVmSize string `pulumi:"targetVmSize"`
+	TargetVmSize *string `pulumi:"targetVmSize"`
 	// The test network Id.
-	TestNetworkId string `pulumi:"testNetworkId"`
+	TestNetworkId *string `pulumi:"testNetworkId"`
 	// The network details.
 	VmNics []InMageRcmNicDetailsResponse `pulumi:"vmNics"`
 }
 
-// InMage provider specific settings
+// InMageRcm disk level sync details.
+type InMageRcmSyncDetailsResponse struct {
+	// The bytes transferred in last 15 minutes from source VM to azure.
+	Last15MinutesTransferredBytes float64 `pulumi:"last15MinutesTransferredBytes"`
+	// The time of the last data transfer from source VM to azure.
+	LastDataTransferTimeUtc string `pulumi:"lastDataTransferTimeUtc"`
+	// The last refresh time.
+	LastRefreshTime string `pulumi:"lastRefreshTime"`
+	// The total processed bytes. This includes bytes that are transferred from source VM to azure and matched bytes.
+	ProcessedBytes float64 `pulumi:"processedBytes"`
+	// The progress health.
+	ProgressHealth string `pulumi:"progressHealth"`
+	// Progress in percentage. Progress percentage is calculated based on processed bytes.
+	ProgressPercentage int `pulumi:"progressPercentage"`
+	// The start time.
+	StartTime string `pulumi:"startTime"`
+	// The transferred bytes from source VM to azure for the disk.
+	TransferredBytes float64 `pulumi:"transferredBytes"`
+}
+
+// InMage provider specific settings.
 type InMageReplicationDetailsResponse struct {
 	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
 	ActiveSiteType *string `pulumi:"activeSiteType"`
@@ -6915,7 +8246,7 @@ type InMageReplicationDetailsResponse struct {
 	CompressedDataRateInMB *float64 `pulumi:"compressedDataRateInMB"`
 	// The collection of Consistency points.
 	ConsistencyPoints map[string]string `pulumi:"consistencyPoints"`
-	// The data stores of the on-premise machine Value can be list of strings that contain data store names
+	// The datastores of the on-premise machine Value can be list of strings that contain datastore names.
 	Datastores []string `pulumi:"datastores"`
 	// A value indicating the discovery type of the machine.
 	DiscoveryType *string `pulumi:"discoveryType"`
@@ -6928,6 +8259,8 @@ type InMageReplicationDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The source IP address.
 	IpAddress *string `pulumi:"ipAddress"`
+	// A value indicating whether additional IR stats are available or not.
+	IsAdditionalStatsAvailable *bool `pulumi:"isAdditionalStatsAvailable"`
 	// The last heartbeat received from the source server.
 	LastHeartbeat *string `pulumi:"lastHeartbeat"`
 	// The last RPO calculated time.
@@ -6956,7 +8289,7 @@ type InMageReplicationDetailsResponse struct {
 	RebootAfterUpdateStatus *string `pulumi:"rebootAfterUpdateStatus"`
 	// The replica id of the protected item.
 	ReplicaId *string `pulumi:"replicaId"`
-	// The resync details of the machine
+	// The resync details of the machine.
 	ResyncDetails *InitialReplicationDetailsResponse `pulumi:"resyncDetails"`
 	// The retention window end time.
 	RetentionWindowEnd *string `pulumi:"retentionWindowEnd"`
@@ -6968,11 +8301,15 @@ type InMageReplicationDetailsResponse struct {
 	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
 	// The RAM size of the VM on the primary side.
 	SourceVmRamSizeInMB *int `pulumi:"sourceVmRamSizeInMB"`
+	// The total transferred data in bytes.
+	TotalDataTransferred *float64 `pulumi:"totalDataTransferred"`
+	// The progress health.
+	TotalProgressHealth *string `pulumi:"totalProgressHealth"`
 	// The uncompressed data change rate in MB.
 	UncompressedDataRateInMB *float64 `pulumi:"uncompressedDataRateInMB"`
 	// The vCenter infrastructure Id.
 	VCenterInfrastructureId *string `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors
+	// The validation errors of the on-premise machine Value can be list of validation errors.
 	ValidationErrors []HealthErrorResponse `pulumi:"validationErrors"`
 	// The virtual machine Id.
 	VmId *string `pulumi:"vmId"`
@@ -7002,14 +8339,18 @@ type InitialReplicationDetailsResponse struct {
 
 // Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponse struct {
-	// Error creation time (UTC)
+	// Error creation time (UTC).
 	CreationTimeUtc *string `pulumi:"creationTimeUtc"`
+	// Value indicating whether the health error is customer resolvable.
+	CustomerResolvability *string `pulumi:"customerResolvability"`
 	// ID of the entity.
 	EntityId *string `pulumi:"entityId"`
 	// Category of error.
 	ErrorCategory *string `pulumi:"errorCategory"`
 	// Error code.
 	ErrorCode *string `pulumi:"errorCode"`
+	// The health error unique id.
+	ErrorId *string `pulumi:"errorId"`
 	// Level of error.
 	ErrorLevel *string `pulumi:"errorLevel"`
 	// Error message.
@@ -7043,9 +8384,14 @@ func (o InnerHealthErrorResponseOutput) ToInnerHealthErrorResponseOutputWithCont
 	return o
 }
 
-// Error creation time (UTC)
+// Error creation time (UTC).
 func (o InnerHealthErrorResponseOutput) CreationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.CreationTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Value indicating whether the health error is customer resolvable.
+func (o InnerHealthErrorResponseOutput) CustomerResolvability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.CustomerResolvability }).(pulumi.StringPtrOutput)
 }
 
 // ID of the entity.
@@ -7061,6 +8407,11 @@ func (o InnerHealthErrorResponseOutput) ErrorCategory() pulumi.StringPtrOutput {
 // Error code.
 func (o InnerHealthErrorResponseOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
+}
+
+// The health error unique id.
+func (o InnerHealthErrorResponseOutput) ErrorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorId }).(pulumi.StringPtrOutput)
 }
 
 // Level of error.
@@ -7123,16 +8474,11 @@ func (o InnerHealthErrorResponseArrayOutput) Index(i pulumi.IntInput) InnerHealt
 	}).(InnerHealthErrorResponseOutput)
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponse struct {
-	// The input endpoint name.
 	EndpointName *string `pulumi:"endpointName"`
-	// The input endpoint private port.
-	PrivatePort *int `pulumi:"privatePort"`
-	// The input endpoint protocol.
-	Protocol *string `pulumi:"protocol"`
-	// The input endpoint public port.
-	PublicPort *int `pulumi:"publicPort"`
+	PrivatePort  *int    `pulumi:"privatePort"`
+	Protocol     *string `pulumi:"protocol"`
+	PublicPort   *int    `pulumi:"publicPort"`
 }
 
 // Details about inquired protectable items under a given container.
@@ -7317,6 +8663,8 @@ type MabContainer struct {
 	HealthStatus *string `pulumi:"healthStatus"`
 	// Health details on this mab container.
 	MabContainerHealthDetails []MABContainerHealthDetails `pulumi:"mabContainerHealthDetails"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of items backed up in this container.
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -7377,6 +8725,8 @@ type MabContainerResponse struct {
 	HealthStatus *string `pulumi:"healthStatus"`
 	// Health details on this mab container.
 	MabContainerHealthDetails []MABContainerHealthDetailsResponse `pulumi:"mabContainerHealthDetails"`
+	// Type of the protectable object associated with this container
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	// Number of items backed up in this container.
 	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
 	// Status of registration of the container with the Recovery Services Vault.
@@ -7405,6 +8755,8 @@ type MabFileFolderProtectedItem struct {
 	ExtendedInfo *MabFileFolderProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// Friendly name of this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -7419,11 +8771,15 @@ type MabFileFolderProtectedItem struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// backup item type.
 	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -7472,6 +8828,8 @@ type MabFileFolderProtectedItemResponse struct {
 	ExtendedInfo *MabFileFolderProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	// Friendly name of this backup item.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether datasource is protected in archive
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// Flag to identify whether the deferred deleted DS is to be purged soon
 	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	// Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -7486,11 +8844,15 @@ type MabFileFolderProtectedItemResponse struct {
 	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
+	// Name of the policy used for protection
+	PolicyName *string `pulumi:"policyName"`
 	// backup item type.
 	// Expected value is 'MabFileFolderProtectedItem'.
 	ProtectedItemType string `pulumi:"protectedItemType"`
 	// Protected, ProtectionStopped, IRPending or ProtectionError
 	ProtectionState *string `pulumi:"protectionState"`
+	// ResourceGuardOperationRequests on which LAC check will be performed
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// ARM ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Type of workload this item represents.
@@ -7504,6 +8866,8 @@ type MabProtectionPolicy struct {
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy details.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule of backup policy.
@@ -7517,10 +8881,34 @@ type MabProtectionPolicyResponse struct {
 	BackupManagementType string `pulumi:"backupManagementType"`
 	// Number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// ResourceGuard Operation Requests
+	ResourceGuardOperationRequests []string `pulumi:"resourceGuardOperationRequests"`
 	// Retention policy details.
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule of backup policy.
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+}
+
+// Mars agent details.
+type MarsAgentDetailsResponse struct {
+	// The Mars agent Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The fabric object Id.
+	FabricObjectId string `pulumi:"fabricObjectId"`
+	// The Mars agent Fqdn.
+	Fqdn string `pulumi:"fqdn"`
+	// The health of the Mars agent.
+	Health string `pulumi:"health"`
+	// The health errors.
+	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The Mars agent Id.
+	Id string `pulumi:"id"`
+	// The last heartbeat received from the Mars agent.
+	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
+	// The Mars agent name.
+	Name string `pulumi:"name"`
+	// The version.
+	Version string `pulumi:"version"`
 }
 
 // Details of a Master Target Server.
@@ -7559,20 +8947,26 @@ type MasterTargetServerResponse struct {
 	RetentionVolumes []RetentionVolumeResponse `pulumi:"retentionVolumes"`
 	// Validation errors.
 	ValidationErrors []HealthErrorResponse `pulumi:"validationErrors"`
-	// Version status
+	// Version status.
 	VersionStatus *string `pulumi:"versionStatus"`
 }
 
 // Migration item properties.
 type MigrationItemPropertiesResponse struct {
-	// The allowed operations on the migration item, based on the current migration state of the item.
+	// The allowed operations on the migration item based on the current migration state of the item.
 	AllowedOperations []string `pulumi:"allowedOperations"`
 	// The current job details.
 	CurrentJob CurrentJobDetailsResponse `pulumi:"currentJob"`
+	// The correlation Id for events associated with this migration item.
+	EventCorrelationId string `pulumi:"eventCorrelationId"`
 	// The consolidated health.
 	Health string `pulumi:"health"`
 	// The list of health errors.
 	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
+	// The status of the last test migration.
+	LastTestMigrationStatus string `pulumi:"lastTestMigrationStatus"`
+	// The last test migration time.
+	LastTestMigrationTime string `pulumi:"lastTestMigrationTime"`
 	// The on-premise virtual machine name.
 	MachineName string `pulumi:"machineName"`
 	// The migration status.
@@ -7585,8 +8979,6 @@ type MigrationItemPropertiesResponse struct {
 	PolicyId string `pulumi:"policyId"`
 	// The migration provider custom settings.
 	ProviderSpecificDetails *VMwareCbtMigrationDetailsResponse `pulumi:"providerSpecificDetails"`
-	// The recovery services provider ARM Id.
-	RecoveryServicesProviderId string `pulumi:"recoveryServicesProviderId"`
 	// The test migrate state.
 	TestMigrateState string `pulumi:"testMigrateState"`
 	// The test migrate state description.
@@ -7608,7 +9000,7 @@ func (o MigrationItemPropertiesResponseOutput) ToMigrationItemPropertiesResponse
 	return o
 }
 
-// The allowed operations on the migration item, based on the current migration state of the item.
+// The allowed operations on the migration item based on the current migration state of the item.
 func (o MigrationItemPropertiesResponseOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) []string { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
@@ -7616,6 +9008,11 @@ func (o MigrationItemPropertiesResponseOutput) AllowedOperations() pulumi.String
 // The current job details.
 func (o MigrationItemPropertiesResponseOutput) CurrentJob() CurrentJobDetailsResponseOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) CurrentJobDetailsResponse { return v.CurrentJob }).(CurrentJobDetailsResponseOutput)
+}
+
+// The correlation Id for events associated with this migration item.
+func (o MigrationItemPropertiesResponseOutput) EventCorrelationId() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.EventCorrelationId }).(pulumi.StringOutput)
 }
 
 // The consolidated health.
@@ -7626,6 +9023,16 @@ func (o MigrationItemPropertiesResponseOutput) Health() pulumi.StringOutput {
 // The list of health errors.
 func (o MigrationItemPropertiesResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
+}
+
+// The status of the last test migration.
+func (o MigrationItemPropertiesResponseOutput) LastTestMigrationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.LastTestMigrationStatus }).(pulumi.StringOutput)
+}
+
+// The last test migration time.
+func (o MigrationItemPropertiesResponseOutput) LastTestMigrationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.LastTestMigrationTime }).(pulumi.StringOutput)
 }
 
 // The on-premise virtual machine name.
@@ -7660,11 +9067,6 @@ func (o MigrationItemPropertiesResponseOutput) ProviderSpecificDetails() VMwareC
 	}).(VMwareCbtMigrationDetailsResponsePtrOutput)
 }
 
-// The recovery services provider ARM Id.
-func (o MigrationItemPropertiesResponseOutput) RecoveryServicesProviderId() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.RecoveryServicesProviderId }).(pulumi.StringOutput)
-}
-
 // The test migrate state.
 func (o MigrationItemPropertiesResponseOutput) TestMigrateState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.TestMigrateState }).(pulumi.StringOutput)
@@ -7683,6 +9085,244 @@ type MobilityServiceUpdateResponse struct {
 	RebootStatus *string `pulumi:"rebootStatus"`
 	// The version of the latest update.
 	Version *string `pulumi:"version"`
+}
+
+// Monitoring Settings of the vault
+type MonitoringSettings struct {
+	// Settings for Azure Monitor based alerts
+	AzureMonitorAlertSettings *AzureMonitorAlertSettings `pulumi:"azureMonitorAlertSettings"`
+	// Settings for classic alerts
+	ClassicAlertSettings *ClassicAlertSettings `pulumi:"classicAlertSettings"`
+}
+
+// MonitoringSettingsInput is an input type that accepts MonitoringSettingsArgs and MonitoringSettingsOutput values.
+// You can construct a concrete instance of `MonitoringSettingsInput` via:
+//
+//          MonitoringSettingsArgs{...}
+type MonitoringSettingsInput interface {
+	pulumi.Input
+
+	ToMonitoringSettingsOutput() MonitoringSettingsOutput
+	ToMonitoringSettingsOutputWithContext(context.Context) MonitoringSettingsOutput
+}
+
+// Monitoring Settings of the vault
+type MonitoringSettingsArgs struct {
+	// Settings for Azure Monitor based alerts
+	AzureMonitorAlertSettings AzureMonitorAlertSettingsPtrInput `pulumi:"azureMonitorAlertSettings"`
+	// Settings for classic alerts
+	ClassicAlertSettings ClassicAlertSettingsPtrInput `pulumi:"classicAlertSettings"`
+}
+
+func (MonitoringSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSettings)(nil)).Elem()
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsOutput() MonitoringSettingsOutput {
+	return i.ToMonitoringSettingsOutputWithContext(context.Background())
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsOutputWithContext(ctx context.Context) MonitoringSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSettingsOutput)
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return i.ToMonitoringSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringSettingsArgs) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSettingsOutput).ToMonitoringSettingsPtrOutputWithContext(ctx)
+}
+
+// MonitoringSettingsPtrInput is an input type that accepts MonitoringSettingsArgs, MonitoringSettingsPtr and MonitoringSettingsPtrOutput values.
+// You can construct a concrete instance of `MonitoringSettingsPtrInput` via:
+//
+//          MonitoringSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type MonitoringSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput
+	ToMonitoringSettingsPtrOutputWithContext(context.Context) MonitoringSettingsPtrOutput
+}
+
+type monitoringSettingsPtrType MonitoringSettingsArgs
+
+func MonitoringSettingsPtr(v *MonitoringSettingsArgs) MonitoringSettingsPtrInput {
+	return (*monitoringSettingsPtrType)(v)
+}
+
+func (*monitoringSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSettings)(nil)).Elem()
+}
+
+func (i *monitoringSettingsPtrType) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return i.ToMonitoringSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringSettingsPtrType) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSettingsPtrOutput)
+}
+
+// Monitoring Settings of the vault
+type MonitoringSettingsOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSettings)(nil)).Elem()
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsOutput() MonitoringSettingsOutput {
+	return o
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsOutputWithContext(ctx context.Context) MonitoringSettingsOutput {
+	return o
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return o.ToMonitoringSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringSettingsOutput) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSettings) *MonitoringSettings {
+		return &v
+	}).(MonitoringSettingsPtrOutput)
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsPtrOutput {
+	return o.ApplyT(func(v MonitoringSettings) *AzureMonitorAlertSettings { return v.AzureMonitorAlertSettings }).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+// Settings for classic alerts
+func (o MonitoringSettingsOutput) ClassicAlertSettings() ClassicAlertSettingsPtrOutput {
+	return o.ApplyT(func(v MonitoringSettings) *ClassicAlertSettings { return v.ClassicAlertSettings }).(ClassicAlertSettingsPtrOutput)
+}
+
+type MonitoringSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSettings)(nil)).Elem()
+}
+
+func (o MonitoringSettingsPtrOutput) ToMonitoringSettingsPtrOutput() MonitoringSettingsPtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsPtrOutput) ToMonitoringSettingsPtrOutputWithContext(ctx context.Context) MonitoringSettingsPtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsPtrOutput) Elem() MonitoringSettingsOutput {
+	return o.ApplyT(func(v *MonitoringSettings) MonitoringSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSettings
+		return ret
+	}).(MonitoringSettingsOutput)
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsPtrOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsPtrOutput {
+	return o.ApplyT(func(v *MonitoringSettings) *AzureMonitorAlertSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorAlertSettings
+	}).(AzureMonitorAlertSettingsPtrOutput)
+}
+
+// Settings for classic alerts
+func (o MonitoringSettingsPtrOutput) ClassicAlertSettings() ClassicAlertSettingsPtrOutput {
+	return o.ApplyT(func(v *MonitoringSettings) *ClassicAlertSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ClassicAlertSettings
+	}).(ClassicAlertSettingsPtrOutput)
+}
+
+// Monitoring Settings of the vault
+type MonitoringSettingsResponse struct {
+	// Settings for Azure Monitor based alerts
+	AzureMonitorAlertSettings *AzureMonitorAlertSettingsResponse `pulumi:"azureMonitorAlertSettings"`
+	// Settings for classic alerts
+	ClassicAlertSettings *ClassicAlertSettingsResponse `pulumi:"classicAlertSettings"`
+}
+
+// Monitoring Settings of the vault
+type MonitoringSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSettingsResponse)(nil)).Elem()
+}
+
+func (o MonitoringSettingsResponseOutput) ToMonitoringSettingsResponseOutput() MonitoringSettingsResponseOutput {
+	return o
+}
+
+func (o MonitoringSettingsResponseOutput) ToMonitoringSettingsResponseOutputWithContext(ctx context.Context) MonitoringSettingsResponseOutput {
+	return o
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsResponseOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsResponsePtrOutput {
+	return o.ApplyT(func(v MonitoringSettingsResponse) *AzureMonitorAlertSettingsResponse {
+		return v.AzureMonitorAlertSettings
+	}).(AzureMonitorAlertSettingsResponsePtrOutput)
+}
+
+// Settings for classic alerts
+func (o MonitoringSettingsResponseOutput) ClassicAlertSettings() ClassicAlertSettingsResponsePtrOutput {
+	return o.ApplyT(func(v MonitoringSettingsResponse) *ClassicAlertSettingsResponse { return v.ClassicAlertSettings }).(ClassicAlertSettingsResponsePtrOutput)
+}
+
+type MonitoringSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSettingsResponse)(nil)).Elem()
+}
+
+func (o MonitoringSettingsResponsePtrOutput) ToMonitoringSettingsResponsePtrOutput() MonitoringSettingsResponsePtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsResponsePtrOutput) ToMonitoringSettingsResponsePtrOutputWithContext(ctx context.Context) MonitoringSettingsResponsePtrOutput {
+	return o
+}
+
+func (o MonitoringSettingsResponsePtrOutput) Elem() MonitoringSettingsResponseOutput {
+	return o.ApplyT(func(v *MonitoringSettingsResponse) MonitoringSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSettingsResponse
+		return ret
+	}).(MonitoringSettingsResponseOutput)
+}
+
+// Settings for Azure Monitor based alerts
+func (o MonitoringSettingsResponsePtrOutput) AzureMonitorAlertSettings() AzureMonitorAlertSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *MonitoringSettingsResponse) *AzureMonitorAlertSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorAlertSettings
+	}).(AzureMonitorAlertSettingsResponsePtrOutput)
+}
+
+// Settings for classic alerts
+func (o MonitoringSettingsResponsePtrOutput) ClassicAlertSettings() ClassicAlertSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *MonitoringSettingsResponse) *ClassicAlertSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ClassicAlertSettings
+	}).(ClassicAlertSettingsResponsePtrOutput)
 }
 
 // Monthly retention schedule.
@@ -8220,8 +9860,14 @@ func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.Stri
 type PrivateEndpointConnectionVaultPropertiesResponse struct {
 	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
 	Id string `pulumi:"id"`
+	// The location of the private Endpoint connection
+	Location string `pulumi:"location"`
+	// The name of the private Endpoint Connection
+	Name string `pulumi:"name"`
 	// Private Endpoint Connection Response Properties.
 	Properties VaultPrivateEndpointConnectionResponse `pulumi:"properties"`
+	// The type, which will be of the format, Microsoft.RecoveryServices/vaults/privateEndpointConnections
+	Type string `pulumi:"type"`
 }
 
 // Information to be stored in Vault properties as an element of privateEndpointConnections List.
@@ -8244,11 +9890,26 @@ func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The location of the private Endpoint connection
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the private Endpoint Connection
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
 // Private Endpoint Connection Response Properties.
 func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Properties() VaultPrivateEndpointConnectionResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) VaultPrivateEndpointConnectionResponse {
 		return v.Properties
 	}).(VaultPrivateEndpointConnectionResponseOutput)
+}
+
+// The type, which will be of the format, Microsoft.RecoveryServices/vaults/privateEndpointConnections
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointConnectionVaultPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
@@ -8609,6 +10270,14 @@ type ProcessServerDetailsResponse struct {
 	AvailableMemoryInBytes float64 `pulumi:"availableMemoryInBytes"`
 	// The available disk space.
 	AvailableSpaceInBytes float64 `pulumi:"availableSpaceInBytes"`
+	// The process server Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The disk usage status.
+	DiskUsageStatus string `pulumi:"diskUsageStatus"`
+	// The fabric object Id.
+	FabricObjectId string `pulumi:"fabricObjectId"`
+	// The process server Fqdn.
+	Fqdn string `pulumi:"fqdn"`
 	// The free disk space percentage.
 	FreeSpacePercentage float64 `pulumi:"freeSpacePercentage"`
 	// The health of the process server.
@@ -8619,16 +10288,30 @@ type ProcessServerDetailsResponse struct {
 	HistoricHealth string `pulumi:"historicHealth"`
 	// The process server Id.
 	Id string `pulumi:"id"`
+	// The list of IP addresses for communicating with the RCM component.
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// The last heartbeat received from the process server.
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
 	// The memory usage percentage.
 	MemoryUsagePercentage float64 `pulumi:"memoryUsagePercentage"`
+	// The memory usage status.
+	MemoryUsageStatus string `pulumi:"memoryUsageStatus"`
 	// The process server name.
 	Name string `pulumi:"name"`
 	// The processor usage percentage.
 	ProcessorUsagePercentage float64 `pulumi:"processorUsagePercentage"`
+	// The processor usage status.
+	ProcessorUsageStatus string `pulumi:"processorUsageStatus"`
+	// The protected item count.
+	ProtectedItemCount int `pulumi:"protectedItemCount"`
+	// The system load.
+	SystemLoad float64 `pulumi:"systemLoad"`
+	// The system load status.
+	SystemLoadStatus string `pulumi:"systemLoadStatus"`
 	// The throughput in bytes.
 	ThroughputInBytes float64 `pulumi:"throughputInBytes"`
+	// The throughput status.
+	ThroughputStatus string `pulumi:"throughputStatus"`
 	// The uploading pending data in bytes.
 	ThroughputUploadPendingDataInBytes float64 `pulumi:"throughputUploadPendingDataInBytes"`
 	// The total memory.
@@ -8639,7 +10322,7 @@ type ProcessServerDetailsResponse struct {
 	UsedMemoryInBytes float64 `pulumi:"usedMemoryInBytes"`
 	// The used disk space.
 	UsedSpaceInBytes float64 `pulumi:"usedSpaceInBytes"`
-	// The process server version.
+	// The version.
 	Version string `pulumi:"version"`
 }
 
@@ -8715,7 +10398,7 @@ type ProcessServerResponse struct {
 	TotalMemoryInBytes *float64 `pulumi:"totalMemoryInBytes"`
 	// The total space.
 	TotalSpaceInBytes *float64 `pulumi:"totalSpaceInBytes"`
-	// Version status
+	// Version status.
 	VersionStatus *string `pulumi:"versionStatus"`
 }
 
@@ -8735,7 +10418,7 @@ type ProtectionContainerMappingPropertiesResponse struct {
 	SourceFabricFriendlyName *string `pulumi:"sourceFabricFriendlyName"`
 	// Friendly name of source protection container.
 	SourceProtectionContainerFriendlyName *string `pulumi:"sourceProtectionContainerFriendlyName"`
-	// Association Status
+	// Association Status.
 	State *string `pulumi:"state"`
 	// Friendly name of target fabric.
 	TargetFabricFriendlyName *string `pulumi:"targetFabricFriendlyName"`
@@ -8799,7 +10482,7 @@ func (o ProtectionContainerMappingPropertiesResponseOutput) SourceProtectionCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// Association Status
+// Association Status.
 func (o ProtectionContainerMappingPropertiesResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -8823,6 +10506,12 @@ func (o ProtectionContainerMappingPropertiesResponseOutput) TargetProtectionCont
 
 // Push installer details.
 type PushInstallerDetailsResponse struct {
+	// The push installer Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The fabric object Id.
+	FabricObjectId string `pulumi:"fabricObjectId"`
+	// The push installer Fqdn.
+	Fqdn string `pulumi:"fqdn"`
 	// The health of the push installer.
 	Health string `pulumi:"health"`
 	// The health errors.
@@ -8833,29 +10522,20 @@ type PushInstallerDetailsResponse struct {
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
 	// The push installer name.
 	Name string `pulumi:"name"`
-	// The push installer version.
+	// The version.
 	Version string `pulumi:"version"`
-}
-
-// RCM based Azure migration specific policy details.
-type RcmAzureMigrationPolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'RcmAzureMigration'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // RCM proxy details.
 type RcmProxyDetailsResponse struct {
+	// The RCM proxy Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The client authentication type.
+	ClientAuthenticationType string `pulumi:"clientAuthenticationType"`
+	// The fabric object Id.
+	FabricObjectId string `pulumi:"fabricObjectId"`
+	// The RCM proxy Fqdn.
+	Fqdn string `pulumi:"fqdn"`
 	// The health of the RCM proxy.
 	Health string `pulumi:"health"`
 	// The health errors.
@@ -8866,7 +10546,7 @@ type RcmProxyDetailsResponse struct {
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
 	// The RCM proxy name.
 	Name string `pulumi:"name"`
-	// The RCM proxy version.
+	// The version.
 	Version string `pulumi:"version"`
 }
 
@@ -8936,9 +10616,13 @@ func (o RecoveryPlanA2ADetailsResponseArrayOutput) Index(i pulumi.IntInput) Reco
 type RecoveryPlanA2AInput struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
+	// The primary extended location.
+	PrimaryExtendedLocation *ExtendedLocation `pulumi:"primaryExtendedLocation"`
 	// The primary zone.
 	PrimaryZone *string `pulumi:"primaryZone"`
+	// The recovery extended location.
+	RecoveryExtendedLocation *ExtendedLocation `pulumi:"recoveryExtendedLocation"`
 	// The recovery zone.
 	RecoveryZone *string `pulumi:"recoveryZone"`
 }
@@ -8958,9 +10642,13 @@ type RecoveryPlanA2AInputInput interface {
 type RecoveryPlanA2AInputArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'A2A'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The primary extended location.
+	PrimaryExtendedLocation ExtendedLocationPtrInput `pulumi:"primaryExtendedLocation"`
 	// The primary zone.
 	PrimaryZone pulumi.StringPtrInput `pulumi:"primaryZone"`
+	// The recovery extended location.
+	RecoveryExtendedLocation ExtendedLocationPtrInput `pulumi:"recoveryExtendedLocation"`
 	// The recovery zone.
 	RecoveryZone pulumi.StringPtrInput `pulumi:"recoveryZone"`
 }
@@ -9019,13 +10707,23 @@ func (o RecoveryPlanA2AInputOutput) ToRecoveryPlanA2AInputOutputWithContext(ctx 
 
 // Gets the Instance type.
 // Expected value is 'A2A'.
-func (o RecoveryPlanA2AInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecoveryPlanA2AInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+func (o RecoveryPlanA2AInputOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecoveryPlanA2AInput) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The primary extended location.
+func (o RecoveryPlanA2AInputOutput) PrimaryExtendedLocation() ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v RecoveryPlanA2AInput) *ExtendedLocation { return v.PrimaryExtendedLocation }).(ExtendedLocationPtrOutput)
 }
 
 // The primary zone.
 func (o RecoveryPlanA2AInputOutput) PrimaryZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanA2AInput) *string { return v.PrimaryZone }).(pulumi.StringPtrOutput)
+}
+
+// The recovery extended location.
+func (o RecoveryPlanA2AInputOutput) RecoveryExtendedLocation() ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v RecoveryPlanA2AInput) *ExtendedLocation { return v.RecoveryExtendedLocation }).(ExtendedLocationPtrOutput)
 }
 
 // The recovery zone.
@@ -9057,6 +10755,8 @@ func (o RecoveryPlanA2AInputArrayOutput) Index(i pulumi.IntInput) RecoveryPlanA2
 type RecoveryPlanAction struct {
 	// The action name.
 	ActionName string `pulumi:"actionName"`
+	// The custom details.
+	CustomDetails interface{} `pulumi:"customDetails"`
 	// The list of failover directions.
 	FailoverDirections []string `pulumi:"failoverDirections"`
 	// The list of failover types.
@@ -9078,6 +10778,8 @@ type RecoveryPlanActionInput interface {
 type RecoveryPlanActionArgs struct {
 	// The action name.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
+	// The custom details.
+	CustomDetails pulumi.Input `pulumi:"customDetails"`
 	// The list of failover directions.
 	FailoverDirections pulumi.StringArrayInput `pulumi:"failoverDirections"`
 	// The list of failover types.
@@ -9139,6 +10841,11 @@ func (o RecoveryPlanActionOutput) ToRecoveryPlanActionOutputWithContext(ctx cont
 // The action name.
 func (o RecoveryPlanActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanAction) string { return v.ActionName }).(pulumi.StringOutput)
+}
+
+// The custom details.
+func (o RecoveryPlanActionOutput) CustomDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v RecoveryPlanAction) interface{} { return v.CustomDetails }).(pulumi.AnyOutput)
 }
 
 // The list of failover directions.
@@ -9236,6 +10943,19 @@ func (o RecoveryPlanActionResponseArrayOutput) Index(i pulumi.IntInput) Recovery
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryPlanActionResponse {
 		return vs[0].([]RecoveryPlanActionResponse)[vs[1].(int)]
 	}).(RecoveryPlanActionResponseOutput)
+}
+
+// Recovery plan Automation runbook action details.
+type RecoveryPlanAutomationRunbookActionDetails struct {
+	// The fabric location.
+	FabricLocation string `pulumi:"fabricLocation"`
+	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'AutomationRunbookActionDetails'.
+	InstanceType string `pulumi:"instanceType"`
+	// The runbook ARM Id.
+	RunbookId *string `pulumi:"runbookId"`
+	// The runbook timeout.
+	Timeout *string `pulumi:"timeout"`
 }
 
 // Recovery plan Automation runbook action details.
@@ -9448,6 +11168,15 @@ func (o RecoveryPlanGroupResponseArrayOutput) Index(i pulumi.IntInput) RecoveryP
 }
 
 // Recovery plan manual action details.
+type RecoveryPlanManualActionDetails struct {
+	// The manual action description.
+	Description *string `pulumi:"description"`
+	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'ManualActionDetails'.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponse struct {
 	// The manual action description.
 	Description *string `pulumi:"description"`
@@ -9456,7 +11185,7 @@ type RecoveryPlanManualActionDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 }
 
-// Recovery plan custom details.
+// Recovery plan properties.
 type RecoveryPlanPropertiesResponse struct {
 	// The list of allowed operations.
 	AllowedOperations []string `pulumi:"allowedOperations"`
@@ -9492,7 +11221,7 @@ type RecoveryPlanPropertiesResponse struct {
 	ReplicationProviders []string `pulumi:"replicationProviders"`
 }
 
-// Recovery plan custom details.
+// Recovery plan properties.
 type RecoveryPlanPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanPropertiesResponseOutput) ElementType() reflect.Type {
@@ -9752,6 +11481,19 @@ func (o RecoveryPlanProtectedItemResponseArrayOutput) Index(i pulumi.IntInput) R
 }
 
 // Recovery plan script action details.
+type RecoveryPlanScriptActionDetails struct {
+	// The fabric location.
+	FabricLocation string `pulumi:"fabricLocation"`
+	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
+	// Expected value is 'ScriptActionDetails'.
+	InstanceType string `pulumi:"instanceType"`
+	// The script path.
+	Path string `pulumi:"path"`
+	// The script timeout.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponse struct {
 	// The fabric location.
 	FabricLocation string `pulumi:"fabricLocation"`
@@ -9770,8 +11512,12 @@ type RecoveryServicesProviderPropertiesResponse struct {
 	AllowedScenarios []string `pulumi:"allowedScenarios"`
 	// The authentication identity details.
 	AuthenticationIdentityDetails *IdentityProviderDetailsResponse `pulumi:"authenticationIdentityDetails"`
+	// The Bios Id.
+	BiosId *string `pulumi:"biosId"`
 	// A value indicating whether DRA is responsive.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// The data plane authentication identity details.
+	DataPlaneAuthenticationIdentityDetails *IdentityProviderDetailsResponse `pulumi:"dataPlaneAuthenticationIdentityDetails"`
 	// The DRA Id.
 	DraIdentifier *string `pulumi:"draIdentifier"`
 	// The fabric friendly name.
@@ -9784,6 +11530,10 @@ type RecoveryServicesProviderPropertiesResponse struct {
 	HealthErrorDetails []HealthErrorResponse `pulumi:"healthErrorDetails"`
 	// Time when last heartbeat was sent by the DRA.
 	LastHeartBeat *string `pulumi:"lastHeartBeat"`
+	// The machine Id.
+	MachineId *string `pulumi:"machineId"`
+	// The machine name.
+	MachineName *string `pulumi:"machineName"`
 	// Number of protected VMs currently managed by the DRA.
 	ProtectedItemCount *int `pulumi:"protectedItemCount"`
 	// The provider version.
@@ -9827,9 +11577,21 @@ func (o RecoveryServicesProviderPropertiesResponseOutput) AuthenticationIdentity
 	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
+// The Bios Id.
+func (o RecoveryServicesProviderPropertiesResponseOutput) BiosId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.BiosId }).(pulumi.StringPtrOutput)
+}
+
 // A value indicating whether DRA is responsive.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ConnectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// The data plane authentication identity details.
+func (o RecoveryServicesProviderPropertiesResponseOutput) DataPlaneAuthenticationIdentityDetails() IdentityProviderDetailsResponsePtrOutput {
+	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *IdentityProviderDetailsResponse {
+		return v.DataPlaneAuthenticationIdentityDetails
+	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
 // The DRA Id.
@@ -9860,6 +11622,16 @@ func (o RecoveryServicesProviderPropertiesResponseOutput) HealthErrorDetails() H
 // Time when last heartbeat was sent by the DRA.
 func (o RecoveryServicesProviderPropertiesResponseOutput) LastHeartBeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.LastHeartBeat }).(pulumi.StringPtrOutput)
+}
+
+// The machine Id.
+func (o RecoveryServicesProviderPropertiesResponseOutput) MachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.MachineId }).(pulumi.StringPtrOutput)
+}
+
+// The machine name.
+func (o RecoveryServicesProviderPropertiesResponseOutput) MachineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.MachineName }).(pulumi.StringPtrOutput)
 }
 
 // Number of protected VMs currently managed by the DRA.
@@ -9903,6 +11675,12 @@ func (o RecoveryServicesProviderPropertiesResponseOutput) ServerVersion() pulumi
 
 // Replication agent details.
 type ReplicationAgentDetailsResponse struct {
+	// The replication agent Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The fabric object Id.
+	FabricObjectId string `pulumi:"fabricObjectId"`
+	// The replication agent Fqdn.
+	Fqdn string `pulumi:"fqdn"`
 	// The health of the replication agent.
 	Health string `pulumi:"health"`
 	// The health errors.
@@ -9913,7 +11691,7 @@ type ReplicationAgentDetailsResponse struct {
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
 	// The replication agent name.
 	Name string `pulumi:"name"`
-	// The replication agent version.
+	// The version.
 	Version string `pulumi:"version"`
 }
 
@@ -9925,6 +11703,8 @@ type ReplicationProtectedItemPropertiesResponse struct {
 	AllowedOperations []string `pulumi:"allowedOperations"`
 	// The current scenario.
 	CurrentScenario *CurrentScenarioDetailsResponse `pulumi:"currentScenario"`
+	// The correlation Id for events associated with this protected item.
+	EventCorrelationId *string `pulumi:"eventCorrelationId"`
 	// The consolidated failover health for the VM.
 	FailoverHealth *string `pulumi:"failoverHealth"`
 	// The recovery point ARM Id to which the Vm was failed over.
@@ -9969,6 +11749,10 @@ type ReplicationProtectedItemPropertiesResponse struct {
 	RecoveryServicesProviderId *string `pulumi:"recoveryServicesProviderId"`
 	// The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
 	ReplicationHealth *string `pulumi:"replicationHealth"`
+	// The switch provider state.
+	SwitchProviderState *string `pulumi:"switchProviderState"`
+	// The switch provider state description.
+	SwitchProviderStateDescription *string `pulumi:"switchProviderStateDescription"`
 	// The Test failover state.
 	TestFailoverState *string `pulumi:"testFailoverState"`
 	// The Test failover state description.
@@ -10005,6 +11789,11 @@ func (o ReplicationProtectedItemPropertiesResponseOutput) CurrentScenario() Curr
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *CurrentScenarioDetailsResponse {
 		return v.CurrentScenario
 	}).(CurrentScenarioDetailsResponsePtrOutput)
+}
+
+// The correlation Id for events associated with this protected item.
+func (o ReplicationProtectedItemPropertiesResponseOutput) EventCorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.EventCorrelationId }).(pulumi.StringPtrOutput)
 }
 
 // The consolidated failover health for the VM.
@@ -10121,6 +11910,16 @@ func (o ReplicationProtectedItemPropertiesResponseOutput) ReplicationHealth() pu
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ReplicationHealth }).(pulumi.StringPtrOutput)
 }
 
+// The switch provider state.
+func (o ReplicationProtectedItemPropertiesResponseOutput) SwitchProviderState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.SwitchProviderState }).(pulumi.StringPtrOutput)
+}
+
+// The switch provider state description.
+func (o ReplicationProtectedItemPropertiesResponseOutput) SwitchProviderStateDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.SwitchProviderStateDescription }).(pulumi.StringPtrOutput)
+}
+
 // The Test failover state.
 func (o ReplicationProtectedItemPropertiesResponseOutput) TestFailoverState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.TestFailoverState }).(pulumi.StringPtrOutput)
@@ -10133,16 +11932,30 @@ func (o ReplicationProtectedItemPropertiesResponseOutput) TestFailoverStateDescr
 
 // Reprotect agent details.
 type ReprotectAgentDetailsResponse struct {
+	// The list of accessible datastores fetched from discovery.
+	AccessibleDatastores []string `pulumi:"accessibleDatastores"`
+	// The reprotect agent Bios Id.
+	BiosId string `pulumi:"biosId"`
+	// The fabric object Id.
+	FabricObjectId string `pulumi:"fabricObjectId"`
+	// The reprotect agent Fqdn.
+	Fqdn string `pulumi:"fqdn"`
 	// The health of the reprotect agent.
 	Health string `pulumi:"health"`
 	// The health errors.
 	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
 	// The reprotect agent Id.
 	Id string `pulumi:"id"`
+	// The last time when SDS information discovered in SRS.
+	LastDiscoveryInUtc string `pulumi:"lastDiscoveryInUtc"`
 	// The last heartbeat received from the reprotect agent.
 	LastHeartbeatUtc string `pulumi:"lastHeartbeatUtc"`
 	// The reprotect agent name.
 	Name string `pulumi:"name"`
+	// The protected item count.
+	ProtectedItemCount int `pulumi:"protectedItemCount"`
+	// The Vcenter Id.
+	VcenterId string `pulumi:"vcenterId"`
 	// The version.
 	Version string `pulumi:"version"`
 }
@@ -10195,6 +12008,7 @@ func (o ResourceGuardOperationDetailResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 type ResourceGuardProxyBaseResponse struct {
+	Description                   *string                                `pulumi:"description"`
 	LastUpdatedTime               *string                                `pulumi:"lastUpdatedTime"`
 	ResourceGuardOperationDetails []ResourceGuardOperationDetailResponse `pulumi:"resourceGuardOperationDetails"`
 	ResourceGuardResourceId       *string                                `pulumi:"resourceGuardResourceId"`
@@ -10212,6 +12026,10 @@ func (o ResourceGuardProxyBaseResponseOutput) ToResourceGuardProxyBaseResponseOu
 
 func (o ResourceGuardProxyBaseResponseOutput) ToResourceGuardProxyBaseResponseOutputWithContext(ctx context.Context) ResourceGuardProxyBaseResponseOutput {
 	return o
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBaseResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o ResourceGuardProxyBaseResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
@@ -10278,13 +12096,6 @@ type RunAsAccountResponse struct {
 	AccountName *string `pulumi:"accountName"`
 }
 
-// San enable protection provider specific input.
-type SanEnableProtectionInput struct {
-	// The class type.
-	// Expected value is 'San'.
-	InstanceType *string `pulumi:"instanceType"`
-}
-
 // Common settings field for backup management
 type Settings struct {
 	// Workload compression flag. This has been added so that 'isSqlCompression'
@@ -10327,6 +12138,8 @@ type SimpleRetentionPolicyResponse struct {
 
 // Simple policy schedule.
 type SimpleSchedulePolicy struct {
+	// Hourly Schedule of this Policy
+	HourlySchedule *HourlySchedule `pulumi:"hourlySchedule"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
@@ -10342,6 +12155,8 @@ type SimpleSchedulePolicy struct {
 
 // Simple policy schedule.
 type SimpleSchedulePolicyResponse struct {
+	// Hourly Schedule of this Policy
+	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
@@ -10355,10 +12170,46 @@ type SimpleSchedulePolicyResponse struct {
 	ScheduleWeeklyFrequency *int `pulumi:"scheduleWeeklyFrequency"`
 }
 
+// The V2 policy schedule for IaaS that supports hourly backups.
+type SimpleSchedulePolicyV2 struct {
+	// Daily schedule of this policy
+	DailySchedule *DailySchedule `pulumi:"dailySchedule"`
+	// hourly schedule of this policy
+	HourlySchedule *HourlySchedule `pulumi:"hourlySchedule"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicyV2'.
+	SchedulePolicyType string `pulumi:"schedulePolicyType"`
+	// Frequency of the schedule operation of this policy.
+	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
+	// Weekly schedule of this policy
+	WeeklySchedule *WeeklySchedule `pulumi:"weeklySchedule"`
+}
+
+// The V2 policy schedule for IaaS that supports hourly backups.
+type SimpleSchedulePolicyV2Response struct {
+	// Daily schedule of this policy
+	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
+	// hourly schedule of this policy
+	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicyV2'.
+	SchedulePolicyType string `pulumi:"schedulePolicyType"`
+	// Frequency of the schedule operation of this policy.
+	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
+	// Weekly schedule of this policy
+	WeeklySchedule *WeeklyScheduleResponse `pulumi:"weeklySchedule"`
+}
+
 // Identifies the unique system identifier for each Azure resource.
 type Sku struct {
-	// The Sku name.
+	// The sku capacity
+	Capacity *string `pulumi:"capacity"`
+	// The sku family
+	Family *string `pulumi:"family"`
+	// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 	Name string `pulumi:"name"`
+	// The sku size
+	Size *string `pulumi:"size"`
 	// The Sku tier.
 	Tier *string `pulumi:"tier"`
 }
@@ -10376,8 +12227,14 @@ type SkuInput interface {
 
 // Identifies the unique system identifier for each Azure resource.
 type SkuArgs struct {
-	// The Sku name.
+	// The sku capacity
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// The sku family
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 	Name pulumi.StringInput `pulumi:"name"`
+	// The sku size
+	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The Sku tier.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
@@ -10460,9 +12317,24 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The Sku name.
+// The sku capacity
+func (o SkuOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// The sku family
+func (o SkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku size
+func (o SkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
 // The Sku tier.
@@ -10494,13 +12366,43 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The Sku name.
+// The sku capacity
+func (o SkuPtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku family
+func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku size
+func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10516,8 +12418,14 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 
 // Identifies the unique system identifier for each Azure resource.
 type SkuResponse struct {
-	// The Sku name.
+	// The sku capacity
+	Capacity *string `pulumi:"capacity"`
+	// The sku family
+	Family *string `pulumi:"family"`
+	// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 	Name string `pulumi:"name"`
+	// The sku size
+	Size *string `pulumi:"size"`
 	// The Sku tier.
 	Tier *string `pulumi:"tier"`
 }
@@ -10537,9 +12445,24 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The Sku name.
+// The sku capacity
+func (o SkuResponseOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// The sku family
+func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku size
+func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
 // The Sku tier.
@@ -10571,13 +12494,43 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The Sku name.
+// The sku capacity
+func (o SkuResponsePtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku family
+func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku size
+func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11187,42 +13140,30 @@ func (o VCenterPropertiesResponseOutput) RunAsAccountId() pulumi.StringPtrOutput
 type VMNicDetailsResponse struct {
 	// A value indicating whether the NIC has accelerated networking enabled.
 	EnableAcceleratedNetworkingOnRecovery *bool `pulumi:"enableAcceleratedNetworkingOnRecovery"`
-	// Whether the test failover NIC has accelerated networking enabled.
+	// Whether the TFO NIC has accelerated networking enabled.
 	EnableAcceleratedNetworkingOnTfo *bool `pulumi:"enableAcceleratedNetworkingOnTfo"`
-	// Ip address type.
-	IpAddressType *string `pulumi:"ipAddressType"`
+	// The IP configurations of the NIC.
+	IpConfigs []IPConfigDetailsResponse `pulumi:"ipConfigs"`
 	// The nic Id.
 	NicId *string `pulumi:"nicId"`
-	// Primary nic static IP address.
-	PrimaryNicStaticIPAddress *string `pulumi:"primaryNicStaticIPAddress"`
-	// The target backend address pools for the NIC.
-	RecoveryLBBackendAddressPoolIds []string `pulumi:"recoveryLBBackendAddressPoolIds"`
 	// The id of the NSG associated with the NIC.
 	RecoveryNetworkSecurityGroupId *string `pulumi:"recoveryNetworkSecurityGroupId"`
-	// IP allocation type for recovery VM.
-	RecoveryNicIpAddressType *string `pulumi:"recoveryNicIpAddressType"`
 	// The name of the NIC to be used when creating target NICs.
 	RecoveryNicName *string `pulumi:"recoveryNicName"`
 	// The resource group of the NIC to be used when creating target NICs.
 	RecoveryNicResourceGroupName *string `pulumi:"recoveryNicResourceGroupName"`
-	// The id of the public IP address resource associated with the NIC.
-	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
 	// Recovery VM network Id.
 	RecoveryVMNetworkId *string `pulumi:"recoveryVMNetworkId"`
-	// Recovery VM subnet name.
-	RecoveryVMSubnetName *string `pulumi:"recoveryVMSubnetName"`
 	// The replica nic Id.
 	ReplicaNicId *string `pulumi:"replicaNicId"`
-	// Replica nic static IP address.
-	ReplicaNicStaticIPAddress *string `pulumi:"replicaNicStaticIPAddress"`
 	// A value indicating whether an existing NIC is allowed to be reused during failover subject to availability.
 	ReuseExistingNic *bool `pulumi:"reuseExistingNic"`
 	// Selection type for failover.
 	SelectionType *string `pulumi:"selectionType"`
 	// The source nic ARM Id.
 	SourceNicArmId *string `pulumi:"sourceNicArmId"`
-	// The IP configurations to be used by NIC during test failover.
-	TfoIPConfigs []IPConfigResponse `pulumi:"tfoIPConfigs"`
+	// Target NIC name.
+	TargetNicName *string `pulumi:"targetNicName"`
 	// The NSG to be used by NIC during test failover.
 	TfoNetworkSecurityGroupId *string `pulumi:"tfoNetworkSecurityGroupId"`
 	// The name of the NIC to be used when creating target NICs in TFO.
@@ -11233,12 +13174,8 @@ type VMNicDetailsResponse struct {
 	TfoReuseExistingNic *bool `pulumi:"tfoReuseExistingNic"`
 	// The network to be used by NIC during test failover.
 	TfoVMNetworkId *string `pulumi:"tfoVMNetworkId"`
-	// The subnet to be used by NIC during test failover.
-	TfoVMSubnetName *string `pulumi:"tfoVMSubnetName"`
 	// VM network name.
 	VMNetworkName *string `pulumi:"vMNetworkName"`
-	// VM subnet name.
-	VMSubnetName *string `pulumi:"vMSubnetName"`
 }
 
 // Defaults sets the appropriate defaults for VMNicDetailsResponse
@@ -11262,23 +13199,25 @@ func (val *VMNicDetailsResponse) Defaults() *VMNicDetailsResponse {
 type VMwareCbtContainerMappingInput struct {
 	// The class type.
 	// Expected value is 'VMwareCbt'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The target key vault ARM Id.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The target key vault URL.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The secret name of the service bus connection string.
-	ServiceBusConnectionStringSecretName string `pulumi:"serviceBusConnectionStringSecretName"`
+	ServiceBusConnectionStringSecretName *string `pulumi:"serviceBusConnectionStringSecretName"`
 	// The storage account ARM Id.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// The secret name of the storage account.
-	StorageAccountSasSecretName string `pulumi:"storageAccountSasSecretName"`
+	StorageAccountSasSecretName *string `pulumi:"storageAccountSasSecretName"`
 	// The target location.
 	TargetLocation string `pulumi:"targetLocation"`
 }
 
 // VMwareCbt disk input.
 type VMwareCbtDiskInput struct {
+	// The DiskEncryptionSet ARM Id.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The disk Id.
 	DiskId string `pulumi:"diskId"`
 	// The disk type.
@@ -11304,6 +13243,8 @@ type VMwareCbtDiskInputInput interface {
 
 // VMwareCbt disk input.
 type VMwareCbtDiskInputArgs struct {
+	// The DiskEncryptionSet ARM Id.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The disk Id.
 	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// The disk type.
@@ -11368,6 +13309,11 @@ func (o VMwareCbtDiskInputOutput) ToVMwareCbtDiskInputOutputWithContext(ctx cont
 	return o
 }
 
+// The DiskEncryptionSet ARM Id.
+func (o VMwareCbtDiskInputOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtDiskInput) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
 // The disk Id.
 func (o VMwareCbtDiskInputOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) string { return v.DiskId }).(pulumi.StringOutput)
@@ -11415,7 +13361,7 @@ func (o VMwareCbtDiskInputArrayOutput) Index(i pulumi.IntInput) VMwareCbtDiskInp
 
 // VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInput struct {
-	// The data mover RunAs account Id.
+	// The data mover run as account Id.
 	DataMoverRunAsAccountId string `pulumi:"dataMoverRunAsAccountId"`
 	// The disks to include list.
 	DisksToInclude []VMwareCbtDiskInput `pulumi:"disksToInclude"`
@@ -11424,14 +13370,28 @@ type VMwareCbtEnableMigrationInput struct {
 	InstanceType string `pulumi:"instanceType"`
 	// License type.
 	LicenseType *string `pulumi:"licenseType"`
-	// The snapshot RunAs account Id.
+	// A value indicating whether auto resync is to be done.
+	PerformAutoResync *string `pulumi:"performAutoResync"`
+	// The tags for the seed disks.
+	SeedDiskTags map[string]string `pulumi:"seedDiskTags"`
+	// The snapshot run as account Id.
 	SnapshotRunAsAccountId string `pulumi:"snapshotRunAsAccountId"`
+	// The SQL Server license type.
+	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
 	// The target availability set ARM Id.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
 	// The target boot diagnostics storage account ARM Id.
 	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The tags for the target disks.
+	TargetDiskTags map[string]string `pulumi:"targetDiskTags"`
 	// The target network ARM Id.
 	TargetNetworkId string `pulumi:"targetNetworkId"`
+	// The tags for the target NICs.
+	TargetNicTags map[string]string `pulumi:"targetNicTags"`
+	// The target proximity placement group ARM Id.
+	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The target resource group ARM Id.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
 	// The target subnet name.
@@ -11440,6 +13400,12 @@ type VMwareCbtEnableMigrationInput struct {
 	TargetVmName *string `pulumi:"targetVmName"`
 	// The target VM size.
 	TargetVmSize *string `pulumi:"targetVmSize"`
+	// The target VM tags.
+	TargetVmTags map[string]string `pulumi:"targetVmTags"`
+	// The selected test network ARM Id.
+	TestNetworkId *string `pulumi:"testNetworkId"`
+	// The selected test subnet name.
+	TestSubnetName *string `pulumi:"testSubnetName"`
 	// The ARM Id of the VM discovered in VMware.
 	VmwareMachineId string `pulumi:"vmwareMachineId"`
 }
@@ -11457,7 +13423,7 @@ type VMwareCbtEnableMigrationInputInput interface {
 
 // VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInputArgs struct {
-	// The data mover RunAs account Id.
+	// The data mover run as account Id.
 	DataMoverRunAsAccountId pulumi.StringInput `pulumi:"dataMoverRunAsAccountId"`
 	// The disks to include list.
 	DisksToInclude VMwareCbtDiskInputArrayInput `pulumi:"disksToInclude"`
@@ -11466,14 +13432,28 @@ type VMwareCbtEnableMigrationInputArgs struct {
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// License type.
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// The snapshot RunAs account Id.
+	// A value indicating whether auto resync is to be done.
+	PerformAutoResync pulumi.StringPtrInput `pulumi:"performAutoResync"`
+	// The tags for the seed disks.
+	SeedDiskTags pulumi.StringMapInput `pulumi:"seedDiskTags"`
+	// The snapshot run as account Id.
 	SnapshotRunAsAccountId pulumi.StringInput `pulumi:"snapshotRunAsAccountId"`
+	// The SQL Server license type.
+	SqlServerLicenseType pulumi.StringPtrInput `pulumi:"sqlServerLicenseType"`
 	// The target availability set ARM Id.
 	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
 	// The target boot diagnostics storage account ARM Id.
 	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The tags for the target disks.
+	TargetDiskTags pulumi.StringMapInput `pulumi:"targetDiskTags"`
 	// The target network ARM Id.
 	TargetNetworkId pulumi.StringInput `pulumi:"targetNetworkId"`
+	// The tags for the target NICs.
+	TargetNicTags pulumi.StringMapInput `pulumi:"targetNicTags"`
+	// The target proximity placement group ARM Id.
+	TargetProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"targetProximityPlacementGroupId"`
 	// The target resource group ARM Id.
 	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
 	// The target subnet name.
@@ -11482,6 +13462,12 @@ type VMwareCbtEnableMigrationInputArgs struct {
 	TargetVmName pulumi.StringPtrInput `pulumi:"targetVmName"`
 	// The target VM size.
 	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
+	// The target VM tags.
+	TargetVmTags pulumi.StringMapInput `pulumi:"targetVmTags"`
+	// The selected test network ARM Id.
+	TestNetworkId pulumi.StringPtrInput `pulumi:"testNetworkId"`
+	// The selected test subnet name.
+	TestSubnetName pulumi.StringPtrInput `pulumi:"testSubnetName"`
 	// The ARM Id of the VM discovered in VMware.
 	VmwareMachineId pulumi.StringInput `pulumi:"vmwareMachineId"`
 }
@@ -11513,7 +13499,7 @@ func (o VMwareCbtEnableMigrationInputOutput) ToVMwareCbtEnableMigrationInputOutp
 	return o
 }
 
-// The data mover RunAs account Id.
+// The data mover run as account Id.
 func (o VMwareCbtEnableMigrationInputOutput) DataMoverRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.DataMoverRunAsAccountId }).(pulumi.StringOutput)
 }
@@ -11534,9 +13520,24 @@ func (o VMwareCbtEnableMigrationInputOutput) LicenseType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// The snapshot RunAs account Id.
+// A value indicating whether auto resync is to be done.
+func (o VMwareCbtEnableMigrationInputOutput) PerformAutoResync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.PerformAutoResync }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the seed disks.
+func (o VMwareCbtEnableMigrationInputOutput) SeedDiskTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) map[string]string { return v.SeedDiskTags }).(pulumi.StringMapOutput)
+}
+
+// The snapshot run as account Id.
 func (o VMwareCbtEnableMigrationInputOutput) SnapshotRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.SnapshotRunAsAccountId }).(pulumi.StringOutput)
+}
+
+// The SQL Server license type.
+func (o VMwareCbtEnableMigrationInputOutput) SqlServerLicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.SqlServerLicenseType }).(pulumi.StringPtrOutput)
 }
 
 // The target availability set ARM Id.
@@ -11544,14 +13545,34 @@ func (o VMwareCbtEnableMigrationInputOutput) TargetAvailabilitySetId() pulumi.St
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
+// The target availability zone.
+func (o VMwareCbtEnableMigrationInputOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
 // The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtEnableMigrationInputOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetBootDiagnosticsStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the target disks.
+func (o VMwareCbtEnableMigrationInputOutput) TargetDiskTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) map[string]string { return v.TargetDiskTags }).(pulumi.StringMapOutput)
+}
+
 // The target network ARM Id.
 func (o VMwareCbtEnableMigrationInputOutput) TargetNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.TargetNetworkId }).(pulumi.StringOutput)
+}
+
+// The tags for the target NICs.
+func (o VMwareCbtEnableMigrationInputOutput) TargetNicTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) map[string]string { return v.TargetNicTags }).(pulumi.StringMapOutput)
+}
+
+// The target proximity placement group ARM Id.
+func (o VMwareCbtEnableMigrationInputOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The target resource group ARM Id.
@@ -11574,51 +13595,102 @@ func (o VMwareCbtEnableMigrationInputOutput) TargetVmSize() pulumi.StringPtrOutp
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
+// The target VM tags.
+func (o VMwareCbtEnableMigrationInputOutput) TargetVmTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) map[string]string { return v.TargetVmTags }).(pulumi.StringMapOutput)
+}
+
+// The selected test network ARM Id.
+func (o VMwareCbtEnableMigrationInputOutput) TestNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TestNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The selected test subnet name.
+func (o VMwareCbtEnableMigrationInputOutput) TestSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TestSubnetName }).(pulumi.StringPtrOutput)
+}
+
 // The ARM Id of the VM discovered in VMware.
 func (o VMwareCbtEnableMigrationInputOutput) VmwareMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.VmwareMachineId }).(pulumi.StringOutput)
 }
 
-// VMwareCbt provider specific settings
+// VMwareCbt provider specific settings.
 type VMwareCbtMigrationDetailsResponse struct {
-	// The data mover RunAs account Id.
+	// The data mover run as account Id.
 	DataMoverRunAsAccountId string `pulumi:"dataMoverRunAsAccountId"`
+	// The firmware type.
+	FirmwareType string `pulumi:"firmwareType"`
+	// The initial seeding progress percentage.
+	InitialSeedingProgressPercentage int `pulumi:"initialSeedingProgressPercentage"`
+	// The initial seeding retry count.
+	InitialSeedingRetryCount float64 `pulumi:"initialSeedingRetryCount"`
 	// Gets the instance type.
 	// Expected value is 'VMwareCbt'.
 	InstanceType string `pulumi:"instanceType"`
+	// The last recovery point Id.
+	LastRecoveryPointId string `pulumi:"lastRecoveryPointId"`
 	// The last recovery point received time.
 	LastRecoveryPointReceived string `pulumi:"lastRecoveryPointReceived"`
 	// License Type of the VM to be used.
 	LicenseType *string `pulumi:"licenseType"`
+	// The migration progress percentage.
+	MigrationProgressPercentage int `pulumi:"migrationProgressPercentage"`
 	// The recovery point Id to which the VM was migrated.
 	MigrationRecoveryPointId string `pulumi:"migrationRecoveryPointId"`
 	// The type of the OS on the VM.
 	OsType string `pulumi:"osType"`
+	// A value indicating whether auto resync is to be done.
+	PerformAutoResync *string `pulumi:"performAutoResync"`
 	// The list of protected disks.
 	ProtectedDisks []VMwareCbtProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
-	// The snapshot RunAs account Id.
+	// The resync progress percentage.
+	ResyncProgressPercentage int `pulumi:"resyncProgressPercentage"`
+	// A value indicating whether resync is required.
+	ResyncRequired string `pulumi:"resyncRequired"`
+	// The resync retry count.
+	ResyncRetryCount float64 `pulumi:"resyncRetryCount"`
+	// The resync state.
+	ResyncState string `pulumi:"resyncState"`
+	// The tags for the seed disks.
+	SeedDiskTags map[string]string `pulumi:"seedDiskTags"`
+	// The snapshot run as account Id.
 	SnapshotRunAsAccountId string `pulumi:"snapshotRunAsAccountId"`
+	// The SQL Server license type.
+	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
 	// The target availability set Id.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// The target availability zone.
+	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
 	// The target boot diagnostics storage account ARM Id.
 	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	// The tags for the target disks.
+	TargetDiskTags map[string]string `pulumi:"targetDiskTags"`
+	// The target generation.
+	TargetGeneration string `pulumi:"targetGeneration"`
 	// The target location.
 	TargetLocation string `pulumi:"targetLocation"`
 	// The target network Id.
 	TargetNetworkId *string `pulumi:"targetNetworkId"`
+	// The tags for the target NICs.
+	TargetNicTags map[string]string `pulumi:"targetNicTags"`
+	// The target proximity placement group Id.
+	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The target resource group Id.
 	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
 	// Target VM name.
 	TargetVmName *string `pulumi:"targetVmName"`
 	// The target VM size.
 	TargetVmSize *string `pulumi:"targetVmSize"`
+	// The target VM tags.
+	TargetVmTags map[string]string `pulumi:"targetVmTags"`
 	// The network details.
 	VmNics []VMwareCbtNicDetailsResponse `pulumi:"vmNics"`
 	// The ARM Id of the VM discovered in VMware.
 	VmwareMachineId string `pulumi:"vmwareMachineId"`
 }
 
-// VMwareCbt provider specific settings
+// VMwareCbt provider specific settings.
 type VMwareCbtMigrationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtMigrationDetailsResponseOutput) ElementType() reflect.Type {
@@ -11633,15 +13705,35 @@ func (o VMwareCbtMigrationDetailsResponseOutput) ToVMwareCbtMigrationDetailsResp
 	return o
 }
 
-// The data mover RunAs account Id.
+// The data mover run as account Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) DataMoverRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.DataMoverRunAsAccountId }).(pulumi.StringOutput)
+}
+
+// The firmware type.
+func (o VMwareCbtMigrationDetailsResponseOutput) FirmwareType() pulumi.StringOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.FirmwareType }).(pulumi.StringOutput)
+}
+
+// The initial seeding progress percentage.
+func (o VMwareCbtMigrationDetailsResponseOutput) InitialSeedingProgressPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) int { return v.InitialSeedingProgressPercentage }).(pulumi.IntOutput)
+}
+
+// The initial seeding retry count.
+func (o VMwareCbtMigrationDetailsResponseOutput) InitialSeedingRetryCount() pulumi.Float64Output {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) float64 { return v.InitialSeedingRetryCount }).(pulumi.Float64Output)
 }
 
 // Gets the instance type.
 // Expected value is 'VMwareCbt'.
 func (o VMwareCbtMigrationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The last recovery point Id.
+func (o VMwareCbtMigrationDetailsResponseOutput) LastRecoveryPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.LastRecoveryPointId }).(pulumi.StringOutput)
 }
 
 // The last recovery point received time.
@@ -11654,6 +13746,11 @@ func (o VMwareCbtMigrationDetailsResponseOutput) LicenseType() pulumi.StringPtrO
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
+// The migration progress percentage.
+func (o VMwareCbtMigrationDetailsResponseOutput) MigrationProgressPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) int { return v.MigrationProgressPercentage }).(pulumi.IntOutput)
+}
+
 // The recovery point Id to which the VM was migrated.
 func (o VMwareCbtMigrationDetailsResponseOutput) MigrationRecoveryPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.MigrationRecoveryPointId }).(pulumi.StringOutput)
@@ -11664,6 +13761,11 @@ func (o VMwareCbtMigrationDetailsResponseOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
 
+// A value indicating whether auto resync is to be done.
+func (o VMwareCbtMigrationDetailsResponseOutput) PerformAutoResync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.PerformAutoResync }).(pulumi.StringPtrOutput)
+}
+
 // The list of protected disks.
 func (o VMwareCbtMigrationDetailsResponseOutput) ProtectedDisks() VMwareCbtProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) []VMwareCbtProtectedDiskDetailsResponse {
@@ -11671,9 +13773,39 @@ func (o VMwareCbtMigrationDetailsResponseOutput) ProtectedDisks() VMwareCbtProte
 	}).(VMwareCbtProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The snapshot RunAs account Id.
+// The resync progress percentage.
+func (o VMwareCbtMigrationDetailsResponseOutput) ResyncProgressPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) int { return v.ResyncProgressPercentage }).(pulumi.IntOutput)
+}
+
+// A value indicating whether resync is required.
+func (o VMwareCbtMigrationDetailsResponseOutput) ResyncRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.ResyncRequired }).(pulumi.StringOutput)
+}
+
+// The resync retry count.
+func (o VMwareCbtMigrationDetailsResponseOutput) ResyncRetryCount() pulumi.Float64Output {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) float64 { return v.ResyncRetryCount }).(pulumi.Float64Output)
+}
+
+// The resync state.
+func (o VMwareCbtMigrationDetailsResponseOutput) ResyncState() pulumi.StringOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.ResyncState }).(pulumi.StringOutput)
+}
+
+// The tags for the seed disks.
+func (o VMwareCbtMigrationDetailsResponseOutput) SeedDiskTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) map[string]string { return v.SeedDiskTags }).(pulumi.StringMapOutput)
+}
+
+// The snapshot run as account Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) SnapshotRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.SnapshotRunAsAccountId }).(pulumi.StringOutput)
+}
+
+// The SQL Server license type.
+func (o VMwareCbtMigrationDetailsResponseOutput) SqlServerLicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.SqlServerLicenseType }).(pulumi.StringPtrOutput)
 }
 
 // The target availability set Id.
@@ -11681,9 +13813,24 @@ func (o VMwareCbtMigrationDetailsResponseOutput) TargetAvailabilitySetId() pulum
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
+// The target availability zone.
+func (o VMwareCbtMigrationDetailsResponseOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
 // The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetBootDiagnosticsStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the target disks.
+func (o VMwareCbtMigrationDetailsResponseOutput) TargetDiskTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) map[string]string { return v.TargetDiskTags }).(pulumi.StringMapOutput)
+}
+
+// The target generation.
+func (o VMwareCbtMigrationDetailsResponseOutput) TargetGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.TargetGeneration }).(pulumi.StringOutput)
 }
 
 // The target location.
@@ -11694,6 +13841,16 @@ func (o VMwareCbtMigrationDetailsResponseOutput) TargetLocation() pulumi.StringO
 // The target network Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the target NICs.
+func (o VMwareCbtMigrationDetailsResponseOutput) TargetNicTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) map[string]string { return v.TargetNicTags }).(pulumi.StringMapOutput)
+}
+
+// The target proximity placement group Id.
+func (o VMwareCbtMigrationDetailsResponseOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The target resource group Id.
@@ -11709,6 +13866,11 @@ func (o VMwareCbtMigrationDetailsResponseOutput) TargetVmName() pulumi.StringPtr
 // The target VM size.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
+}
+
+// The target VM tags.
+func (o VMwareCbtMigrationDetailsResponseOutput) TargetVmTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) map[string]string { return v.TargetVmTags }).(pulumi.StringMapOutput)
 }
 
 // The network details.
@@ -11745,7 +13907,7 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) Elem() VMwareCbtMigrationDet
 	}).(VMwareCbtMigrationDetailsResponseOutput)
 }
 
-// The data mover RunAs account Id.
+// The data mover run as account Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) DataMoverRunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -11753,6 +13915,36 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) DataMoverRunAsAccountId() pu
 		}
 		return &v.DataMoverRunAsAccountId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The firmware type.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) FirmwareType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirmwareType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The initial seeding progress percentage.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) InitialSeedingProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InitialSeedingProgressPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The initial seeding retry count.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) InitialSeedingRetryCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.InitialSeedingRetryCount
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Gets the instance type.
@@ -11763,6 +13955,16 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) InstanceType() pulumi.String
 			return nil
 		}
 		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last recovery point Id.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) LastRecoveryPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastRecoveryPointId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11786,6 +13988,16 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) LicenseType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The migration progress percentage.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) MigrationProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MigrationProgressPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
 // The recovery point Id to which the VM was migrated.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) MigrationRecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
@@ -11806,6 +14018,16 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) OsType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A value indicating whether auto resync is to be done.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) PerformAutoResync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PerformAutoResync
+	}).(pulumi.StringPtrOutput)
+}
+
 // The list of protected disks.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) ProtectedDisks() VMwareCbtProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) []VMwareCbtProtectedDiskDetailsResponse {
@@ -11816,13 +14038,73 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) ProtectedDisks() VMwareCbtPr
 	}).(VMwareCbtProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The snapshot RunAs account Id.
+// The resync progress percentage.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResyncProgressPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// A value indicating whether resync is required.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResyncRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resync retry count.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncRetryCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ResyncRetryCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The resync state.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResyncState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tags for the seed disks.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) SeedDiskTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SeedDiskTags
+	}).(pulumi.StringMapOutput)
+}
+
+// The snapshot run as account Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) SnapshotRunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.SnapshotRunAsAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SQL Server license type.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) SqlServerLicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlServerLicenseType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11836,6 +14118,16 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetAvailabilitySetId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The target availability zone.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
 // The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
@@ -11843,6 +14135,26 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetBootDiagnosticsStorage
 			return nil
 		}
 		return v.TargetBootDiagnosticsStorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tags for the target disks.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetDiskTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDiskTags
+	}).(pulumi.StringMapOutput)
+}
+
+// The target generation.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetGeneration
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11863,6 +14175,26 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetNetworkId() pulumi.Str
 			return nil
 		}
 		return v.TargetNetworkId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tags for the target NICs.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetNicTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetNicTags
+	}).(pulumi.StringMapOutput)
+}
+
+// The target proximity placement group Id.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetProximityPlacementGroupId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11894,6 +14226,16 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetVmSize() pulumi.String
 		}
 		return v.TargetVmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+// The target VM tags.
+func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetVmTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetVmTags
+	}).(pulumi.StringMapOutput)
 }
 
 // The network details.
@@ -11934,8 +14276,18 @@ type VMwareCbtNicDetailsResponse struct {
 	TargetIPAddress *string `pulumi:"targetIPAddress"`
 	// The target IP address type.
 	TargetIPAddressType *string `pulumi:"targetIPAddressType"`
+	// Target NIC name.
+	TargetNicName *string `pulumi:"targetNicName"`
 	// Target subnet name.
 	TargetSubnetName *string `pulumi:"targetSubnetName"`
+	// The test IP address.
+	TestIPAddress *string `pulumi:"testIPAddress"`
+	// The test IP address type.
+	TestIPAddressType *string `pulumi:"testIPAddressType"`
+	// Source network Id.
+	TestNetworkId *string `pulumi:"testNetworkId"`
+	// Test subnet name.
+	TestSubnetName *string `pulumi:"testSubnetName"`
 }
 
 // VMwareCbt NIC details.
@@ -11993,9 +14345,34 @@ func (o VMwareCbtNicDetailsResponseOutput) TargetIPAddressType() pulumi.StringPt
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TargetIPAddressType }).(pulumi.StringPtrOutput)
 }
 
+// Target NIC name.
+func (o VMwareCbtNicDetailsResponseOutput) TargetNicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TargetNicName }).(pulumi.StringPtrOutput)
+}
+
 // Target subnet name.
 func (o VMwareCbtNicDetailsResponseOutput) TargetSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The test IP address.
+func (o VMwareCbtNicDetailsResponseOutput) TestIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TestIPAddress }).(pulumi.StringPtrOutput)
+}
+
+// The test IP address type.
+func (o VMwareCbtNicDetailsResponseOutput) TestIPAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TestIPAddressType }).(pulumi.StringPtrOutput)
+}
+
+// Source network Id.
+func (o VMwareCbtNicDetailsResponseOutput) TestNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TestNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// Test subnet name.
+func (o VMwareCbtNicDetailsResponseOutput) TestSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TestSubnetName }).(pulumi.StringPtrOutput)
 }
 
 type VMwareCbtNicDetailsResponseArrayOutput struct{ *pulumi.OutputState }
@@ -12026,7 +14403,7 @@ type VMwareCbtPolicyCreationInput struct {
 	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
 	// The class type.
 	// Expected value is 'VMwareCbt'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
 }
@@ -12035,6 +14412,8 @@ type VMwareCbtPolicyCreationInput struct {
 type VMwareCbtProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
 	CapacityInBytes float64 `pulumi:"capacityInBytes"`
+	// The DiskEncryptionSet ARM Id.
+	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The disk id.
 	DiskId string `pulumi:"diskId"`
 	// The disk name.
@@ -12051,6 +14430,8 @@ type VMwareCbtProtectedDiskDetailsResponse struct {
 	LogStorageAccountSasSecretName string `pulumi:"logStorageAccountSasSecretName"`
 	// The ARM Id of the seed managed disk.
 	SeedManagedDiskId string `pulumi:"seedManagedDiskId"`
+	// The name for the target managed disk.
+	TargetDiskName *string `pulumi:"targetDiskName"`
 	// The ARM Id of the target managed disk.
 	TargetManagedDiskId string `pulumi:"targetManagedDiskId"`
 }
@@ -12073,6 +14454,11 @@ func (o VMwareCbtProtectedDiskDetailsResponseOutput) ToVMwareCbtProtectedDiskDet
 // The disk capacity in bytes.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) CapacityInBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) float64 { return v.CapacityInBytes }).(pulumi.Float64Output)
+}
+
+// The DiskEncryptionSet ARM Id.
+func (o VMwareCbtProtectedDiskDetailsResponseOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
 }
 
 // The disk id.
@@ -12113,6 +14499,11 @@ func (o VMwareCbtProtectedDiskDetailsResponseOutput) LogStorageAccountSasSecretN
 // The ARM Id of the seed managed disk.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) SeedManagedDiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.SeedManagedDiskId }).(pulumi.StringOutput)
+}
+
+// The name for the target managed disk.
+func (o VMwareCbtProtectedDiskDetailsResponseOutput) TargetDiskName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) *string { return v.TargetDiskName }).(pulumi.StringPtrOutput)
 }
 
 // The ARM Id of the target managed disk.
@@ -12214,6 +14605,8 @@ type VMwareDetailsResponse struct {
 	SslCertExpiryDate *string `pulumi:"sslCertExpiryDate"`
 	// CS SSL cert expiry date.
 	SslCertExpiryRemainingDays *int `pulumi:"sslCertExpiryRemainingDays"`
+	// The switch provider blocking error information.
+	SwitchProviderBlockingErrorDetails []InMageFabricSwitchProviderBlockingErrorDetailsResponse `pulumi:"switchProviderBlockingErrorDetails"`
 	// The percentage of the system load.
 	SystemLoad *string `pulumi:"systemLoad"`
 	// The system load status.
@@ -12222,7 +14615,7 @@ type VMwareDetailsResponse struct {
 	TotalMemoryInBytes *float64 `pulumi:"totalMemoryInBytes"`
 	// The total space.
 	TotalSpaceInBytes *float64 `pulumi:"totalSpaceInBytes"`
-	// Version status
+	// Version status.
 	VersionStatus *string `pulumi:"versionStatus"`
 	// The web load.
 	WebLoad *string `pulumi:"webLoad"`
@@ -12234,11 +14627,13 @@ type VMwareDetailsResponse struct {
 type VMwareV2FabricCreationInput struct {
 	// Gets the class type.
 	// Expected value is 'VMwareV2'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 	// The ARM Id of the migration solution.
 	MigrationSolutionId string `pulumi:"migrationSolutionId"`
+	// The ARM Id of the physical site.
+	PhysicalSiteId *string `pulumi:"physicalSiteId"`
 	// The ARM Id of the VMware site.
-	VmwareSiteId string `pulumi:"vmwareSiteId"`
+	VmwareSiteId *string `pulumi:"vmwareSiteId"`
 }
 
 // VMwareV2 fabric specific details.
@@ -12248,6 +14643,12 @@ type VMwareV2FabricSpecificDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The Migration solution ARM Id.
 	MigrationSolutionId string `pulumi:"migrationSolutionId"`
+	// The ARM Id of the physical site.
+	PhysicalSiteId string `pulumi:"physicalSiteId"`
+	// The list of process servers.
+	ProcessServers []ProcessServerDetailsResponse `pulumi:"processServers"`
+	// The service container Id.
+	ServiceContainerId string `pulumi:"serviceContainerId"`
 	// The service endpoint.
 	ServiceEndpoint string `pulumi:"serviceEndpoint"`
 	// The service resource Id.
@@ -12342,6 +14743,8 @@ func (o VaultPrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.St
 type VaultProperties struct {
 	// Customer Managed Key details of the resource.
 	Encryption *VaultPropertiesEncryption `pulumi:"encryption"`
+	// Monitoring Settings of the vault
+	MonitoringSettings *MonitoringSettings `pulumi:"monitoringSettings"`
 }
 
 // VaultPropertiesInput is an input type that accepts VaultPropertiesArgs and VaultPropertiesOutput values.
@@ -12359,6 +14762,8 @@ type VaultPropertiesInput interface {
 type VaultPropertiesArgs struct {
 	// Customer Managed Key details of the resource.
 	Encryption VaultPropertiesEncryptionPtrInput `pulumi:"encryption"`
+	// Monitoring Settings of the vault
+	MonitoringSettings MonitoringSettingsPtrInput `pulumi:"monitoringSettings"`
 }
 
 func (VaultPropertiesArgs) ElementType() reflect.Type {
@@ -12444,6 +14849,11 @@ func (o VaultPropertiesOutput) Encryption() VaultPropertiesEncryptionPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *VaultPropertiesEncryption { return v.Encryption }).(VaultPropertiesEncryptionPtrOutput)
 }
 
+// Monitoring Settings of the vault
+func (o VaultPropertiesOutput) MonitoringSettings() MonitoringSettingsPtrOutput {
+	return o.ApplyT(func(v VaultProperties) *MonitoringSettings { return v.MonitoringSettings }).(MonitoringSettingsPtrOutput)
+}
+
 type VaultPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (VaultPropertiesPtrOutput) ElementType() reflect.Type {
@@ -12476,6 +14886,16 @@ func (o VaultPropertiesPtrOutput) Encryption() VaultPropertiesEncryptionPtrOutpu
 		}
 		return v.Encryption
 	}).(VaultPropertiesEncryptionPtrOutput)
+}
+
+// Monitoring Settings of the vault
+func (o VaultPropertiesPtrOutput) MonitoringSettings() MonitoringSettingsPtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *MonitoringSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringSettings
+	}).(MonitoringSettingsPtrOutput)
 }
 
 // Customer Managed Key details of the resource.
@@ -12658,8 +15078,16 @@ func (o VaultPropertiesEncryptionPtrOutput) KeyVaultProperties() CmkKeyVaultProp
 
 // Properties of the vault.
 type VaultPropertiesResponse struct {
+	// Backup storage version
+	BackupStorageVersion string `pulumi:"backupStorageVersion"`
 	// Customer Managed Key details of the resource.
 	Encryption *VaultPropertiesResponseEncryption `pulumi:"encryption"`
+	// Monitoring Settings of the vault
+	MonitoringSettings *MonitoringSettingsResponse `pulumi:"monitoringSettings"`
+	// The details of the latest move operation performed on the Azure Resource
+	MoveDetails *VaultPropertiesResponseMoveDetails `pulumi:"moveDetails"`
+	// The State of the Resource after the move operation
+	MoveState string `pulumi:"moveState"`
 	// List of private endpoint connection.
 	PrivateEndpointConnections []PrivateEndpointConnectionVaultPropertiesResponse `pulumi:"privateEndpointConnections"`
 	// Private endpoint state for backup.
@@ -12668,6 +15096,8 @@ type VaultPropertiesResponse struct {
 	PrivateEndpointStateForSiteRecovery string `pulumi:"privateEndpointStateForSiteRecovery"`
 	// Provisioning State.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The redundancy Settings of a Vault
+	RedundancySettings *VaultPropertiesResponseRedundancySettings `pulumi:"redundancySettings"`
 	// Details for upgrading vault.
 	UpgradeDetails *UpgradeDetailsResponse `pulumi:"upgradeDetails"`
 }
@@ -12687,9 +15117,29 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponseOutputWithContex
 	return o
 }
 
+// Backup storage version
+func (o VaultPropertiesResponseOutput) BackupStorageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.BackupStorageVersion }).(pulumi.StringOutput)
+}
+
 // Customer Managed Key details of the resource.
 func (o VaultPropertiesResponseOutput) Encryption() VaultPropertiesResponseEncryptionPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponseEncryption { return v.Encryption }).(VaultPropertiesResponseEncryptionPtrOutput)
+}
+
+// Monitoring Settings of the vault
+func (o VaultPropertiesResponseOutput) MonitoringSettings() MonitoringSettingsResponsePtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *MonitoringSettingsResponse { return v.MonitoringSettings }).(MonitoringSettingsResponsePtrOutput)
+}
+
+// The details of the latest move operation performed on the Azure Resource
+func (o VaultPropertiesResponseOutput) MoveDetails() VaultPropertiesResponseMoveDetailsPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponseMoveDetails { return v.MoveDetails }).(VaultPropertiesResponseMoveDetailsPtrOutput)
+}
+
+// The State of the Resource after the move operation
+func (o VaultPropertiesResponseOutput) MoveState() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.MoveState }).(pulumi.StringOutput)
 }
 
 // List of private endpoint connection.
@@ -12712,6 +15162,13 @@ func (o VaultPropertiesResponseOutput) PrivateEndpointStateForSiteRecovery() pul
 // Provisioning State.
 func (o VaultPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The redundancy Settings of a Vault
+func (o VaultPropertiesResponseOutput) RedundancySettings() VaultPropertiesResponseRedundancySettingsPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponseRedundancySettings {
+		return v.RedundancySettings
+	}).(VaultPropertiesResponseRedundancySettingsPtrOutput)
 }
 
 // Details for upgrading vault.
@@ -12811,6 +15268,211 @@ func (o VaultPropertiesResponseEncryptionPtrOutput) KeyVaultProperties() CmkKeyV
 		}
 		return v.KeyVaultProperties
 	}).(CmkKeyVaultPropertiesResponsePtrOutput)
+}
+
+// The details of the latest move operation performed on the Azure Resource
+type VaultPropertiesResponseMoveDetails struct {
+	// End Time of the Resource Move Operation
+	CompletionTimeUtc string `pulumi:"completionTimeUtc"`
+	// OperationId of the Resource Move Operation
+	OperationId string `pulumi:"operationId"`
+	// Source Resource of the Resource Move Operation
+	SourceResourceId string `pulumi:"sourceResourceId"`
+	// Start Time of the Resource Move Operation
+	StartTimeUtc string `pulumi:"startTimeUtc"`
+	// Target Resource of the Resource Move Operation
+	TargetResourceId string `pulumi:"targetResourceId"`
+}
+
+// The details of the latest move operation performed on the Azure Resource
+type VaultPropertiesResponseMoveDetailsOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseMoveDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesResponseMoveDetails)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseMoveDetailsOutput) ToVaultPropertiesResponseMoveDetailsOutput() VaultPropertiesResponseMoveDetailsOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseMoveDetailsOutput) ToVaultPropertiesResponseMoveDetailsOutputWithContext(ctx context.Context) VaultPropertiesResponseMoveDetailsOutput {
+	return o
+}
+
+// End Time of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsOutput) CompletionTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseMoveDetails) string { return v.CompletionTimeUtc }).(pulumi.StringOutput)
+}
+
+// OperationId of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsOutput) OperationId() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseMoveDetails) string { return v.OperationId }).(pulumi.StringOutput)
+}
+
+// Source Resource of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsOutput) SourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseMoveDetails) string { return v.SourceResourceId }).(pulumi.StringOutput)
+}
+
+// Start Time of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseMoveDetails) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
+// Target Resource of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsOutput) TargetResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseMoveDetails) string { return v.TargetResourceId }).(pulumi.StringOutput)
+}
+
+type VaultPropertiesResponseMoveDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseMoveDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesResponseMoveDetails)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) ToVaultPropertiesResponseMoveDetailsPtrOutput() VaultPropertiesResponseMoveDetailsPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) ToVaultPropertiesResponseMoveDetailsPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseMoveDetailsPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) Elem() VaultPropertiesResponseMoveDetailsOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseMoveDetails) VaultPropertiesResponseMoveDetails {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPropertiesResponseMoveDetails
+		return ret
+	}).(VaultPropertiesResponseMoveDetailsOutput)
+}
+
+// End Time of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) CompletionTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CompletionTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// OperationId of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) OperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source Resource of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start Time of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) StartTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target Resource of the Resource Move Operation
+func (o VaultPropertiesResponseMoveDetailsPtrOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseMoveDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The redundancy Settings of a Vault
+type VaultPropertiesResponseRedundancySettings struct {
+	// Flag to show if Cross Region Restore is enabled on the Vault or not
+	CrossRegionRestore string `pulumi:"crossRegionRestore"`
+	// The storage redundancy setting of a vault
+	StandardTierStorageRedundancy string `pulumi:"standardTierStorageRedundancy"`
+}
+
+// The redundancy Settings of a Vault
+type VaultPropertiesResponseRedundancySettingsOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseRedundancySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesResponseRedundancySettings)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseRedundancySettingsOutput) ToVaultPropertiesResponseRedundancySettingsOutput() VaultPropertiesResponseRedundancySettingsOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseRedundancySettingsOutput) ToVaultPropertiesResponseRedundancySettingsOutputWithContext(ctx context.Context) VaultPropertiesResponseRedundancySettingsOutput {
+	return o
+}
+
+// Flag to show if Cross Region Restore is enabled on the Vault or not
+func (o VaultPropertiesResponseRedundancySettingsOutput) CrossRegionRestore() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseRedundancySettings) string { return v.CrossRegionRestore }).(pulumi.StringOutput)
+}
+
+// The storage redundancy setting of a vault
+func (o VaultPropertiesResponseRedundancySettingsOutput) StandardTierStorageRedundancy() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseRedundancySettings) string { return v.StandardTierStorageRedundancy }).(pulumi.StringOutput)
+}
+
+type VaultPropertiesResponseRedundancySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseRedundancySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesResponseRedundancySettings)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseRedundancySettingsPtrOutput) ToVaultPropertiesResponseRedundancySettingsPtrOutput() VaultPropertiesResponseRedundancySettingsPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseRedundancySettingsPtrOutput) ToVaultPropertiesResponseRedundancySettingsPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseRedundancySettingsPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseRedundancySettingsPtrOutput) Elem() VaultPropertiesResponseRedundancySettingsOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseRedundancySettings) VaultPropertiesResponseRedundancySettings {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPropertiesResponseRedundancySettings
+		return ret
+	}).(VaultPropertiesResponseRedundancySettingsOutput)
+}
+
+// Flag to show if Cross Region Restore is enabled on the Vault or not
+func (o VaultPropertiesResponseRedundancySettingsPtrOutput) CrossRegionRestore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseRedundancySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrossRegionRestore
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage redundancy setting of a vault
+func (o VaultPropertiesResponseRedundancySettingsPtrOutput) StandardTierStorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseRedundancySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StandardTierStorageRedundancy
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version related details.
@@ -12918,7 +15580,7 @@ type VmmDetailsResponse struct {
 type VmmToAzureCreateNetworkMappingInput struct {
 	// The instance type.
 	// Expected value is 'VmmToAzure'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 }
 
 // E2A Network Mapping fabric specific settings.
@@ -12932,7 +15594,7 @@ type VmmToAzureNetworkMappingSettingsResponse struct {
 type VmmToVmmCreateNetworkMappingInput struct {
 	// The instance type.
 	// Expected value is 'VmmToVmm'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
 }
 
 // E2E Network Mapping fabric specific settings.
@@ -12989,6 +15651,18 @@ type WeeklyRetentionScheduleResponse struct {
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
 	// Retention times of retention policy.
 	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+type WeeklySchedule struct {
+	ScheduleRunDays []DayOfWeek `pulumi:"scheduleRunDays"`
+	// List of times of day this schedule has to be run.
+	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
+}
+
+type WeeklyScheduleResponse struct {
+	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
+	// List of times of day this schedule has to be run.
+	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
 }
 
 type WorkloadCrrAccessTokenResponse struct {
@@ -13301,6 +15975,14 @@ func init() {
 	pulumi.RegisterOutputType(AddRecoveryServicesProviderInputPropertiesOutput{})
 	pulumi.RegisterOutputType(AddVCenterRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(AddVCenterRequestPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsResponseOutput{})
+	pulumi.RegisterOutputType(AzureMonitorAlertSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClassicAlertSettingsOutput{})
+	pulumi.RegisterOutputType(ClassicAlertSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ClassicAlertSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ClassicAlertSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CmkKekIdentityOutput{})
 	pulumi.RegisterOutputType(CmkKekIdentityPtrOutput{})
 	pulumi.RegisterOutputType(CmkKekIdentityResponseOutput{})
@@ -13310,7 +15992,6 @@ func init() {
 	pulumi.RegisterOutputType(CmkKeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CmkKeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CreateNetworkMappingInputPropertiesOutput{})
-	pulumi.RegisterOutputType(CreateNetworkMappingInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreatePolicyInputPropertiesOutput{})
 	pulumi.RegisterOutputType(CreatePolicyInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreateProtectionContainerMappingInputPropertiesOutput{})
@@ -13324,6 +16005,8 @@ func init() {
 	pulumi.RegisterOutputType(EnableProtectionInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
 	pulumi.RegisterOutputType(FabricCreationInputPropertiesOutput{})
 	pulumi.RegisterOutputType(FabricCreationInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FabricPropertiesResponseOutput{})
@@ -13340,6 +16023,10 @@ func init() {
 	pulumi.RegisterOutputType(InnerHealthErrorResponseOutput{})
 	pulumi.RegisterOutputType(InnerHealthErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(MigrationItemPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsResponseOutput{})
+	pulumi.RegisterOutputType(MonitoringSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkMappingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
@@ -13409,6 +16096,10 @@ func init() {
 	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseEncryptionOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseMoveDetailsOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseMoveDetailsPtrOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseRedundancySettingsOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseRedundancySettingsPtrOutput{})
 	pulumi.RegisterOutputType(VersionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VersionDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkloadCrrAccessTokenResponseOutput{})

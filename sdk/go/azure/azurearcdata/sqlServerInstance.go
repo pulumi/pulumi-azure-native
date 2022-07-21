@@ -12,7 +12,7 @@ import (
 )
 
 // A SqlServerInstance.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type SqlServerInstance struct {
 	pulumi.CustomResourceState
 
@@ -22,11 +22,11 @@ type SqlServerInstance struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// null
 	Properties SqlServerInstancePropertiesResponseOutput `pulumi:"properties"`
-	// Read only system data
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -168,7 +168,7 @@ func (o SqlServerInstanceOutput) Properties() SqlServerInstancePropertiesRespons
 	return o.ApplyT(func(v *SqlServerInstance) SqlServerInstancePropertiesResponseOutput { return v.Properties }).(SqlServerInstancePropertiesResponseOutput)
 }
 
-// Read only system data
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o SqlServerInstanceOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *SqlServerInstance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
@@ -178,7 +178,7 @@ func (o SqlServerInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SqlServerInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o SqlServerInstanceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlServerInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

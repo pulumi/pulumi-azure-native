@@ -3,12 +3,21 @@
 
 package maps
 
-// The Map account key to use for signing.
-type SigningKey string
+// Get or Set Kind property.
+type Kind string
 
 const (
-	SigningKeyPrimaryKey   = SigningKey("primaryKey")
-	SigningKeySecondaryKey = SigningKey("secondaryKey")
+	KindGen1 = Kind("Gen1")
+	KindGen2 = Kind("Gen2")
+)
+
+// The name of the SKU, in standard format (such as S0).
+type Name string
+
+const (
+	NameS0 = Name("S0")
+	NameS1 = Name("S1")
+	NameG2 = Name("G2")
 )
 
 func init() {

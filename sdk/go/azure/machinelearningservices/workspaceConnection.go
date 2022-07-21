@@ -11,25 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace connection.
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 
-	// Authorization type of the workspace connection.
-	AuthType pulumi.StringPtrOutput `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category pulumi.StringPtrOutput `pulumi:"category"`
-	// Friendly name of the workspace connection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Target of the workspace connection.
-	Target pulumi.StringPtrOutput `pulumi:"target"`
-	// Resource type of workspace connection.
+	// The name of the resource
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Value details of the workspace connection.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
-	// format for the workspace connection value
-	ValueFormat pulumi.StringPtrOutput `pulumi:"valueFormat"`
 }
 
 // NewWorkspaceConnection registers a new resource with the given unique name, arguments, and options.
@@ -39,6 +31,9 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,44 +105,22 @@ func (WorkspaceConnectionState) ElementType() reflect.Type {
 }
 
 type workspaceConnectionArgs struct {
-	// Authorization type of the workspace connection.
-	AuthType *string `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category *string `pulumi:"category"`
 	// Friendly name of the workspace connection
-	ConnectionName *string `pulumi:"connectionName"`
-	// Friendly name of the workspace connection
-	Name *string `pulumi:"name"`
-	// Name of the resource group in which workspace is located.
+	ConnectionName *string     `pulumi:"connectionName"`
+	Properties     interface{} `pulumi:"properties"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Target of the workspace connection.
-	Target *string `pulumi:"target"`
-	// Value details of the workspace connection.
-	Value *string `pulumi:"value"`
-	// format for the workspace connection value
-	ValueFormat *string `pulumi:"valueFormat"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a WorkspaceConnection resource.
 type WorkspaceConnectionArgs struct {
-	// Authorization type of the workspace connection.
-	AuthType pulumi.StringPtrInput
-	// Category of the workspace connection.
-	Category pulumi.StringPtrInput
 	// Friendly name of the workspace connection
 	ConnectionName pulumi.StringPtrInput
-	// Friendly name of the workspace connection
-	Name pulumi.StringPtrInput
-	// Name of the resource group in which workspace is located.
+	Properties     pulumi.Input
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Target of the workspace connection.
-	Target pulumi.StringPtrInput
-	// Value details of the workspace connection.
-	Value pulumi.StringPtrInput
-	// format for the workspace connection value
-	ValueFormat pulumi.StringPtrInput
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput
 }
@@ -189,39 +162,23 @@ func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutputWithContext(ctx co
 	return o
 }
 
-// Authorization type of the workspace connection.
-func (o WorkspaceConnectionOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.AuthType }).(pulumi.StringPtrOutput)
-}
-
-// Category of the workspace connection.
-func (o WorkspaceConnectionOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
-}
-
-// Friendly name of the workspace connection.
+// The name of the resource
 func (o WorkspaceConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Target of the workspace connection.
-func (o WorkspaceConnectionOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.Target }).(pulumi.StringPtrOutput)
+func (o WorkspaceConnectionOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Resource type of workspace connection.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o WorkspaceConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o WorkspaceConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
-}
-
-// Value details of the workspace connection.
-func (o WorkspaceConnectionOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-// format for the workspace connection value
-func (o WorkspaceConnectionOutput) ValueFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.ValueFormat }).(pulumi.StringPtrOutput)
 }
 
 func init() {

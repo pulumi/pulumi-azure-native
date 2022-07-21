@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2021-03-01.
+ * API Version: 2022-04-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.Inv
 
 export interface GetManagedClusterArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -37,19 +37,19 @@ export interface GetManagedClusterArgs {
  */
 export interface GetManagedClusterResult {
     /**
-     * Profile of Azure Active Directory configuration.
+     * The Azure Active Directory configuration.
      */
     readonly aadProfile?: outputs.containerservice.ManagedClusterAADProfileResponse;
     /**
-     * Profile of managed cluster add-on.
+     * The profile of managed cluster add-on.
      */
     readonly addonProfiles?: {[key: string]: outputs.containerservice.ManagedClusterAddonProfileResponse};
     /**
-     * Properties of the agent pool.
+     * The agent pool properties.
      */
     readonly agentPoolProfiles?: outputs.containerservice.ManagedClusterAgentPoolProfileResponse[];
     /**
-     * Access profile for managed cluster API server.
+     * The access profile for managed cluster API server.
      */
     readonly apiServerAccessProfile?: outputs.containerservice.ManagedClusterAPIServerAccessProfileResponse;
     /**
@@ -57,23 +57,27 @@ export interface GetManagedClusterResult {
      */
     readonly autoScalerProfile?: outputs.containerservice.ManagedClusterPropertiesResponseAutoScalerProfile;
     /**
-     * Profile of auto upgrade configuration.
+     * The auto upgrade configuration.
      */
     readonly autoUpgradeProfile?: outputs.containerservice.ManagedClusterAutoUpgradeProfileResponse;
     /**
-     * FQDN for the master pool which used by proxy config.
+     * The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
      */
     readonly azurePortalFQDN: string;
     /**
-     * If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+     * If kubernetesVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If kubernetesVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used.
+     */
+    readonly currentKubernetesVersion: string;
+    /**
+     * If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
      */
     readonly disableLocalAccounts?: boolean;
     /**
-     * ResourceId of the disk encryption set to use for enabling encryption at rest.
+     * This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
      */
     readonly diskEncryptionSetID?: string;
     /**
-     * DNS prefix specified when creating the managed cluster.
+     * This cannot be updated once the Managed Cluster has been created.
      */
     readonly dnsPrefix?: string;
     /**
@@ -89,11 +93,11 @@ export interface GetManagedClusterResult {
      */
     readonly extendedLocation?: outputs.containerservice.ExtendedLocationResponse;
     /**
-     * FQDN for the master pool.
+     * The FQDN of the master pool.
      */
     readonly fqdn: string;
     /**
-     * FQDN subdomain specified when creating private cluster with custom private dns zone.
+     * This cannot be updated once the Managed Cluster has been created.
      */
     readonly fqdnSubdomain?: string;
     /**
@@ -101,7 +105,7 @@ export interface GetManagedClusterResult {
      */
     readonly httpProxyConfig?: outputs.containerservice.ManagedClusterHTTPProxyConfigResponse;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -111,17 +115,17 @@ export interface GetManagedClusterResult {
     /**
      * Identities associated with the cluster.
      */
-    readonly identityProfile?: {[key: string]: outputs.containerservice.ManagedClusterPropertiesResponseIdentityProfile};
+    readonly identityProfile?: {[key: string]: outputs.containerservice.UserAssignedIdentityResponse};
     /**
-     * Version of Kubernetes specified when creating the managed cluster.
+     * Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
      */
     readonly kubernetesVersion?: string;
     /**
-     * Profile for Linux VMs in the container service cluster.
+     * The profile for Linux VMs in the Managed Cluster.
      */
     readonly linuxProfile?: outputs.containerservice.ContainerServiceLinuxProfileResponse;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -129,27 +133,27 @@ export interface GetManagedClusterResult {
      */
     readonly maxAgentPools: number;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Profile of network configuration.
+     * The network configuration profile.
      */
     readonly networkProfile?: outputs.containerservice.ContainerServiceNetworkProfileResponse;
     /**
-     * Name of the resource group containing agent pool nodes.
+     * The name of the resource group containing agent pool nodes.
      */
     readonly nodeResourceGroup?: string;
     /**
-     * Profile of managed cluster pod identity.
+     * See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
      */
     readonly podIdentityProfile?: outputs.containerservice.ManagedClusterPodIdentityProfileResponse;
     /**
-     * Represents the Power State of the cluster
+     * The Power State of the cluster.
      */
     readonly powerState: outputs.containerservice.PowerStateResponse;
     /**
-     * FQDN of private cluster.
+     * The FQDN of private cluster.
      */
     readonly privateFQDN: string;
     /**
@@ -157,9 +161,17 @@ export interface GetManagedClusterResult {
      */
     readonly privateLinkResources?: outputs.containerservice.PrivateLinkResourceResponse[];
     /**
-     * The current deployment or provisioning state, which only appears in the response.
+     * The current provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Allow or deny public network access for AKS
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Security profile for the managed cluster.
+     */
+    readonly securityProfile?: outputs.containerservice.ManagedClusterSecurityProfileResponse;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
@@ -169,15 +181,23 @@ export interface GetManagedClusterResult {
      */
     readonly sku?: outputs.containerservice.ManagedClusterSKUResponse;
     /**
-     * Resource tags
+     * Storage profile for the managed cluster.
+     */
+    readonly storageProfile?: outputs.containerservice.ManagedClusterStorageProfileResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.containerservice.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * Profile for Windows VMs in the container service cluster.
+     * The profile for Windows VMs in the Managed Cluster.
      */
     readonly windowsProfile?: outputs.containerservice.ManagedClusterWindowsProfileResponse;
 }
@@ -188,7 +208,7 @@ export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?
 
 export interface GetManagedClusterOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

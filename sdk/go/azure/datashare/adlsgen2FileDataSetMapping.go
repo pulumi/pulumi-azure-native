@@ -12,7 +12,7 @@ import (
 )
 
 // An ADLS Gen2 file data set mapping.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type ADLSGen2FileDataSetMapping struct {
 	pulumi.CustomResourceState
 

@@ -92,7 +92,7 @@ class ServerTrustCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-        API Version: 2021-05-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +109,7 @@ class ServerTrustCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-        API Version: 2021-05-01-preview.
+        API Version: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServerTrustCertificateArgs args: The arguments to use to populate this resource's properties.

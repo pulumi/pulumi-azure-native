@@ -21,7 +21,7 @@ class GetContactProfileResult:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     """
-    def __init__(__self__, auto_tracking_configuration=None, etag=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_tracking_configuration=None, etag=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, network_configuration=None, system_data=None, tags=None, type=None):
         if auto_tracking_configuration and not isinstance(auto_tracking_configuration, str):
             raise TypeError("Expected argument 'auto_tracking_configuration' to be a str")
         pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
@@ -49,6 +49,9 @@ class GetContactProfileResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_configuration and not isinstance(network_configuration, dict):
+            raise TypeError("Expected argument 'network_configuration' to be a dict")
+        pulumi.set(__self__, "network_configuration", network_configuration)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -63,7 +66,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="autoTrackingConfiguration")
     def auto_tracking_configuration(self) -> Optional[str]:
         """
-        Auto track configuration.
+        Auto-tracking configuration.
         """
         return pulumi.get(self, "auto_tracking_configuration")
 
@@ -79,7 +82,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="eventHubUri")
     def event_hub_uri(self) -> Optional[str]:
         """
-        The URI of the Event Hub used for telemetry
+        ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         """
         return pulumi.get(self, "event_hub_uri")
 
@@ -95,7 +98,7 @@ class GetContactProfileResult:
     @pulumi.getter
     def links(self) -> Sequence['outputs.ContactProfileLinkResponse']:
         """
-        Links of the Contact Profile
+        Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
         return pulumi.get(self, "links")
 
@@ -111,7 +114,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="minimumElevationDegrees")
     def minimum_elevation_degrees(self) -> Optional[float]:
         """
-        Minimum viable elevation for the contact in decimal degrees.
+        Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_elevation_degrees")
 
@@ -119,7 +122,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="minimumViableContactDuration")
     def minimum_viable_contact_duration(self) -> Optional[str]:
         """
-        Minimum viable contact duration in ISO 8601 format.
+        Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_viable_contact_duration")
 
@@ -130,6 +133,14 @@ class GetContactProfileResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> 'outputs.ContactProfilesPropertiesResponseNetworkConfiguration':
+        """
+        Network configuration of customer virtual network.
+        """
+        return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="systemData")
@@ -171,6 +182,7 @@ class AwaitableGetContactProfileResult(GetContactProfileResult):
             minimum_elevation_degrees=self.minimum_elevation_degrees,
             minimum_viable_contact_duration=self.minimum_viable_contact_duration,
             name=self.name,
+            network_configuration=self.network_configuration,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -181,10 +193,10 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactProfileResult:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
-    :param str contact_profile_name: Contact Profile Name
+    :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -206,6 +218,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
         minimum_elevation_degrees=__ret__.minimum_elevation_degrees,
         minimum_viable_contact_duration=__ret__.minimum_viable_contact_duration,
         name=__ret__.name,
+        network_configuration=__ret__.network_configuration,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -217,10 +230,10 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactProfileResult]:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
-    :param str contact_profile_name: Contact Profile Name
+    :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

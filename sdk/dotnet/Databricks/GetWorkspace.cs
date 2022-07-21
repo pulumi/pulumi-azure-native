@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Databricks
     {
         /// <summary>
         /// Information about workspace.
-        /// API Version: 2018-04-01.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:databricks:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about workspace.
-        /// API Version: 2018-04-01.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:databricks:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly string CreatedDateTime;
         /// <summary>
+        /// Encryption properties for databricks workspace
+        /// </summary>
+        public readonly Outputs.WorkspacePropertiesResponseEncryption? Encryption;
+        /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -102,9 +106,21 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly Outputs.WorkspaceCustomParametersResponse? Parameters;
         /// <summary>
+        /// Private endpoint connections created on the workspace
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The workspace provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        /// </summary>
+        public readonly string? RequiredNsgRules;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -113,6 +129,10 @@ namespace Pulumi.AzureNative.Databricks
         /// The details of Managed Identity of Storage Account
         /// </summary>
         public readonly Outputs.ManagedIdentityConfigurationResponse? StorageAccountIdentity;
+        /// <summary>
+        /// The system metadata relating to this resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -146,6 +166,8 @@ namespace Pulumi.AzureNative.Databricks
 
             string createdDateTime,
 
+            Outputs.WorkspacePropertiesResponseEncryption? encryption,
+
             string id,
 
             string location,
@@ -156,11 +178,19 @@ namespace Pulumi.AzureNative.Databricks
 
             Outputs.WorkspaceCustomParametersResponse? parameters,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
+
+            string? requiredNsgRules,
 
             Outputs.SkuResponse? sku,
 
             Outputs.ManagedIdentityConfigurationResponse? storageAccountIdentity,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -177,14 +207,19 @@ namespace Pulumi.AzureNative.Databricks
             Authorizations = authorizations;
             CreatedBy = createdBy;
             CreatedDateTime = createdDateTime;
+            Encryption = encryption;
             Id = id;
             Location = location;
             ManagedResourceGroupId = managedResourceGroupId;
             Name = name;
             Parameters = parameters;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
+            RequiredNsgRules = requiredNsgRules;
             Sku = sku;
             StorageAccountIdentity = storageAccountIdentity;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UiDefinitionUri = uiDefinitionUri;

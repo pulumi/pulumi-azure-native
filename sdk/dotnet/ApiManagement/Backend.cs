@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Backend details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Backend")]
     public partial class Backend : Pulumi.CustomResource
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<Outputs.BackendProxyContractResponse?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<Outputs.BackendTlsPropertiesResponse?> Tls { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

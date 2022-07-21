@@ -12,7 +12,7 @@ import (
 )
 
 // A Media Services account.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 type MediaService struct {
 	pulumi.CustomResourceState
 
@@ -20,12 +20,20 @@ type MediaService struct {
 	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	// The Key Delivery properties for Media Services account.
+	KeyDelivery KeyDeliveryResponsePtrOutput `pulumi:"keyDelivery"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Media Services account ID.
 	MediaServiceId pulumi.StringOutput `pulumi:"mediaServiceId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Private Endpoint Connections created for the Media Service account.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// Provisioning state of the Media Services account.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for resources under the Media Services account.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The storage accounts for this resource.
 	StorageAccounts       StorageAccountResponseArrayOutput `pulumi:"storageAccounts"`
 	StorageAuthentication pulumi.StringPtrOutput            `pulumi:"storageAuthentication"`
@@ -112,8 +120,12 @@ type mediaServiceArgs struct {
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentity `pulumi:"identity"`
+	// The Key Delivery properties for Media Services account.
+	KeyDelivery *KeyDelivery `pulumi:"keyDelivery"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Whether or not public network access is allowed for resources under the Media Services account.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage accounts for this resource.
@@ -131,8 +143,12 @@ type MediaServiceArgs struct {
 	Encryption AccountEncryptionPtrInput
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityPtrInput
+	// The Key Delivery properties for Media Services account.
+	KeyDelivery KeyDeliveryPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Whether or not public network access is allowed for resources under the Media Services account.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The storage accounts for this resource.
@@ -189,6 +205,11 @@ func (o MediaServiceOutput) Identity() MediaServiceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *MediaService) MediaServiceIdentityResponsePtrOutput { return v.Identity }).(MediaServiceIdentityResponsePtrOutput)
 }
 
+// The Key Delivery properties for Media Services account.
+func (o MediaServiceOutput) KeyDelivery() KeyDeliveryResponsePtrOutput {
+	return o.ApplyT(func(v *MediaService) KeyDeliveryResponsePtrOutput { return v.KeyDelivery }).(KeyDeliveryResponsePtrOutput)
+}
+
 // The geo-location where the resource lives
 func (o MediaServiceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -202,6 +223,23 @@ func (o MediaServiceOutput) MediaServiceId() pulumi.StringOutput {
 // The name of the resource
 func (o MediaServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private Endpoint Connections created for the Media Service account.
+func (o MediaServiceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *MediaService) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the Media Services account.
+func (o MediaServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is allowed for resources under the Media Services account.
+func (o MediaServiceOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The storage accounts for this resource.

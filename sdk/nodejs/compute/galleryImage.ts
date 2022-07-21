@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery image definition that you want to create or update.
- * API Version: 2020-09-30.
+ * API Version: 2021-10-01.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class GalleryImage extends pulumi.CustomResource {
         return obj['__pulumiType'] === GalleryImage.__pulumiType;
     }
 
+    /**
+     * The architecture of the image. Applicable to OS disks only.
+     */
+    public readonly architecture!: pulumi.Output<string | undefined>;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */
@@ -135,6 +139,7 @@ export class GalleryImage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disallowed"] = args ? args.disallowed : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
@@ -157,6 +162,7 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["architecture"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disallowed"] = undefined /*out*/;
             resourceInputs["endOfLifeDate"] = undefined /*out*/;
@@ -187,6 +193,10 @@ export class GalleryImage extends pulumi.CustomResource {
  * The set of arguments for constructing a GalleryImage resource.
  */
 export interface GalleryImageArgs {
+    /**
+     * The architecture of the image. Applicable to OS disks only.
+     */
+    architecture?: pulumi.Input<string | enums.compute.Architecture>;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */

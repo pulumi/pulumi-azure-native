@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function information.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A set of Azure Batch account keys.
- * API Version: 2021-01-01.
+ * API Version: 2022-06-01.
  */
 export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchAccountKeysResult> {
     if (!opts) {

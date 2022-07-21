@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for Disk pool request.
-// API Version: 2020-03-15-preview.
+// Response for Disk Pool request.
+// API Version: 2021-08-01.
 func LookupDiskPool(ctx *pulumi.Context, args *LookupDiskPoolArgs, opts ...pulumi.InvokeOption) (*LookupDiskPoolResult, error) {
 	var rv LookupDiskPoolResult
 	err := ctx.Invoke("azure-native:storagepool:getDiskPool", args, &rv, opts...)
@@ -22,38 +22,42 @@ func LookupDiskPool(ctx *pulumi.Context, args *LookupDiskPoolArgs, opts ...pulum
 }
 
 type LookupDiskPoolArgs struct {
-	// The name of the Disk pool.
+	// The name of the Disk Pool.
 	DiskPoolName string `pulumi:"diskPoolName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Response for Disk pool request.
+// Response for Disk Pool request.
 type LookupDiskPoolResult struct {
-	// List of additional capabilities for Disk pool.
+	// List of additional capabilities for Disk Pool.
 	AdditionalCapabilities []string `pulumi:"additionalCapabilities"`
-	// Logical zone for Disk pool resource; example: ["1"].
+	// Logical zone for Disk Pool resource; example: ["1"].
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+	// List of Azure Managed Disks to attach to a Disk Pool.
 	Disks []DiskResponse `pulumi:"disks"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives.
 	Location string `pulumi:"location"`
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy string `pulumi:"managedBy"`
+	// List of Azure resource ids that manage this resource.
+	ManagedByExtended []string `pulumi:"managedByExtended"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// State of the operation on the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Operational status of the Disk pool.
+	// Operational status of the Disk Pool.
 	Status string `pulumi:"status"`
-	// Azure Resource ID of a Subnet for the Disk pool.
+	// Azure Resource ID of a Subnet for the Disk Pool.
 	SubnetId string `pulumi:"subnetId"`
 	// Resource metadata required by ARM RPC
 	SystemData SystemMetadataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Determines the SKU of VM deployed for Disk pool
-	Tier string `pulumi:"tier"`
+	// Sku tier
+	Tier *string `pulumi:"tier"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }
@@ -72,7 +76,7 @@ func LookupDiskPoolOutput(ctx *pulumi.Context, args LookupDiskPoolOutputArgs, op
 }
 
 type LookupDiskPoolOutputArgs struct {
-	// The name of the Disk pool.
+	// The name of the Disk Pool.
 	DiskPoolName pulumi.StringInput `pulumi:"diskPoolName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -82,7 +86,7 @@ func (LookupDiskPoolOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupDiskPoolArgs)(nil)).Elem()
 }
 
-// Response for Disk pool request.
+// Response for Disk Pool request.
 type LookupDiskPoolResultOutput struct{ *pulumi.OutputState }
 
 func (LookupDiskPoolResultOutput) ElementType() reflect.Type {
@@ -97,17 +101,17 @@ func (o LookupDiskPoolResultOutput) ToLookupDiskPoolResultOutputWithContext(ctx 
 	return o
 }
 
-// List of additional capabilities for Disk pool.
+// List of additional capabilities for Disk Pool.
 func (o LookupDiskPoolResultOutput) AdditionalCapabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) []string { return v.AdditionalCapabilities }).(pulumi.StringArrayOutput)
 }
 
-// Logical zone for Disk pool resource; example: ["1"].
+// Logical zone for Disk Pool resource; example: ["1"].
 func (o LookupDiskPoolResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+// List of Azure Managed Disks to attach to a Disk Pool.
 func (o LookupDiskPoolResultOutput) Disks() DiskResponseArrayOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) []DiskResponse { return v.Disks }).(DiskResponseArrayOutput)
 }
@@ -122,6 +126,16 @@ func (o LookupDiskPoolResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o LookupDiskPoolResultOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// List of Azure resource ids that manage this resource.
+func (o LookupDiskPoolResultOutput) ManagedByExtended() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDiskPoolResult) []string { return v.ManagedByExtended }).(pulumi.StringArrayOutput)
+}
+
 // The name of the resource
 func (o LookupDiskPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.Name }).(pulumi.StringOutput)
@@ -132,12 +146,12 @@ func (o LookupDiskPoolResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Operational status of the Disk pool.
+// Operational status of the Disk Pool.
 func (o LookupDiskPoolResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Azure Resource ID of a Subnet for the Disk pool.
+// Azure Resource ID of a Subnet for the Disk Pool.
 func (o LookupDiskPoolResultOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -152,9 +166,9 @@ func (o LookupDiskPoolResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDiskPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Determines the SKU of VM deployed for Disk pool
-func (o LookupDiskPoolResultOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDiskPoolResult) string { return v.Tier }).(pulumi.StringOutput)
+// Sku tier
+func (o LookupDiskPoolResultOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskPoolResult) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

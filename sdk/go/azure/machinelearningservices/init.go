@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:machinelearningservices:ACIService":
-		r = &ACIService{}
-	case "azure-native:machinelearningservices:AKSService":
-		r = &AKSService{}
 	case "azure-native:machinelearningservices:BatchDeployment":
 		r = &BatchDeployment{}
 	case "azure-native:machinelearningservices:BatchEndpoint":
@@ -37,32 +33,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ComponentContainer{}
 	case "azure-native:machinelearningservices:ComponentVersion":
 		r = &ComponentVersion{}
+	case "azure-native:machinelearningservices:Compute":
+		r = &Compute{}
 	case "azure-native:machinelearningservices:DataContainer":
 		r = &DataContainer{}
 	case "azure-native:machinelearningservices:DataVersion":
 		r = &DataVersion{}
-	case "azure-native:machinelearningservices:EndpointVariant":
-		r = &EndpointVariant{}
+	case "azure-native:machinelearningservices:Datastore":
+		r = &Datastore{}
 	case "azure-native:machinelearningservices:EnvironmentContainer":
 		r = &EnvironmentContainer{}
-	case "azure-native:machinelearningservices:EnvironmentSpecificationVersion":
-		r = &EnvironmentSpecificationVersion{}
+	case "azure-native:machinelearningservices:EnvironmentVersion":
+		r = &EnvironmentVersion{}
 	case "azure-native:machinelearningservices:Job":
 		r = &Job{}
-	case "azure-native:machinelearningservices:LabelingJob":
-		r = &LabelingJob{}
-	case "azure-native:machinelearningservices:LinkedService":
-		r = &LinkedService{}
-	case "azure-native:machinelearningservices:LinkedWorkspace":
-		r = &LinkedWorkspace{}
-	case "azure-native:machinelearningservices:MachineLearningCompute":
-		r = &MachineLearningCompute{}
-	case "azure-native:machinelearningservices:MachineLearningDataset":
-		r = &MachineLearningDataset{}
-	case "azure-native:machinelearningservices:MachineLearningDatastore":
-		r = &MachineLearningDatastore{}
-	case "azure-native:machinelearningservices:MachineLearningService":
-		r = &MachineLearningService{}
 	case "azure-native:machinelearningservices:ModelContainer":
 		r = &ModelContainer{}
 	case "azure-native:machinelearningservices:ModelVersion":

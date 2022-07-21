@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The details of subscription under management group.
- * API Version: 2020-05-01.
+ * API Version: 2021-04-01.
  */
 export class ManagementGroupSubscription extends pulumi.CustomResource {
     /**
@@ -45,9 +45,9 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the parent management group.
+     * The ID, name and displayName of the parent management group.
      */
-    public /*out*/ readonly parent!: pulumi.Output<outputs.management.DescendantParentGroupInfoResponse | undefined>;
+    public /*out*/ readonly parent!: pulumi.Output<outputs.management.ParentGroupBagInfoResponse | undefined>;
     /**
      * The state of the subscription.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRoute gateway resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 
@@ -158,6 +158,8 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 type expressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
+	// List of ExpressRoute connections to the ExpressRoute gateway.
+	ExpressRouteConnections []ExpressRouteConnectionType `pulumi:"expressRouteConnections"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName *string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
@@ -176,6 +178,8 @@ type expressRouteGatewayArgs struct {
 type ExpressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
+	// List of ExpressRoute connections to the ExpressRoute gateway.
+	ExpressRouteConnections ExpressRouteConnectionTypeArrayInput
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName pulumi.StringPtrInput
 	// Resource ID.

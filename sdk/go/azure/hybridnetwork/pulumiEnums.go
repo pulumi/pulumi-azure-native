@@ -44,6 +44,15 @@ const (
 	NetworkFunctionRoleConfigurationTypeVirtualMachine = NetworkFunctionRoleConfigurationType("VirtualMachine")
 )
 
+// The network function type.
+type NetworkFunctionType string
+
+const (
+	NetworkFunctionTypeUnknown                      = NetworkFunctionType("Unknown")
+	NetworkFunctionTypeVirtualNetworkFunction       = NetworkFunctionType("VirtualNetworkFunction")
+	NetworkFunctionTypeContainerizedNetworkFunction = NetworkFunctionType("ContainerizedNetworkFunction")
+)
+
 // The OS type.
 type OperatingSystemTypes string
 

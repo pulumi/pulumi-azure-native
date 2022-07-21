@@ -12,7 +12,7 @@ import (
 )
 
 // An Application Insights workbook template definition.
-// API Version: 2019-10-17-preview.
+// API Version: 2020-11-20.
 type WorkbookTemplate struct {
 	pulumi.CustomResourceState
 

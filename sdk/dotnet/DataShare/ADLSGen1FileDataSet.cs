@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// An ADLS Gen 1 file data set.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ADLSGen1FileDataSet")]
     public partial class ADLSGen1FileDataSet : Pulumi.CustomResource

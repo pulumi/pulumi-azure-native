@@ -12,15 +12,19 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetCloudEdgeManagementRole
     {
         /// <summary>
-        /// CloudEdgeManagementRole role.
-        /// API Version: 2020-12-01.
+        /// The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal. 
+        /// For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
+        /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetCloudEdgeManagementRoleResult> InvokeAsync(GetCloudEdgeManagementRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// CloudEdgeManagementRole role.
-        /// API Version: 2020-12-01.
+        /// The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal. 
+        /// For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
+        /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetCloudEdgeManagementRoleResult> Invoke(GetCloudEdgeManagementRoleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleInvokeArgs(), options.WithDefaults());
@@ -107,7 +111,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string RoleStatus;
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

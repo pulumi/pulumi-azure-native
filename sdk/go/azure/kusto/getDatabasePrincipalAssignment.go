@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing a database principal assignment.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 func LookupDatabasePrincipalAssignment(ctx *pulumi.Context, args *LookupDatabasePrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupDatabasePrincipalAssignmentResult, error) {
 	var rv LookupDatabasePrincipalAssignmentResult
 	err := ctx.Invoke("azure-native:kusto:getDatabasePrincipalAssignment", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupDatabasePrincipalAssignmentArgs struct {
 
 // Class representing a database principal assignment.
 type LookupDatabasePrincipalAssignmentResult struct {
+	// The service principal object id in AAD (Azure active directory)
+	AadObjectId string `pulumi:"aadObjectId"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
@@ -97,6 +99,11 @@ func (o LookupDatabasePrincipalAssignmentResultOutput) ToLookupDatabasePrincipal
 
 func (o LookupDatabasePrincipalAssignmentResultOutput) ToLookupDatabasePrincipalAssignmentResultOutputWithContext(ctx context.Context) LookupDatabasePrincipalAssignmentResultOutput {
 	return o
+}
+
+// The service principal object id in AAD (Azure active directory)
+func (o LookupDatabasePrincipalAssignmentResultOutput) AadObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabasePrincipalAssignmentResult) string { return v.AadObjectId }).(pulumi.StringOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

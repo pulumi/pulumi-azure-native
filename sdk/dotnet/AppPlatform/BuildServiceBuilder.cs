@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// KPack Builder resource
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildServiceBuilder")]
     public partial class BuildServiceBuilder : Pulumi.CustomResource

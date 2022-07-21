@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ConnectionStatus',
+    'CreateMode',
     'IdentityType',
     'PublicNetworkAccess',
 ]
@@ -19,6 +20,14 @@ class ConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class CreateMode(str, Enum):
+    """
+    Indicates whether the configuration store need to be recovered.
+    """
+    RECOVER = "Recover"
+    DEFAULT = "Default"
 
 
 class IdentityType(str, Enum):

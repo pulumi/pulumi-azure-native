@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a connected cluster.
-// API Version: 2021-03-01.
+// API Version: 2021-10-01.
 type ConnectedCluster struct {
 	pulumi.CustomResourceState
 

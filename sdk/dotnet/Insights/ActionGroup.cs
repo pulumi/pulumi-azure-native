@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An action group resource.
-    /// API Version: 2019-06-01.
+    /// API Version: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActionGroup")]
     public partial class ActionGroup : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of event hub receivers that are part of this action group.
+        /// </summary>
+        [Output("eventHubReceivers")]
+        public Output<ImmutableArray<Outputs.EventHubReceiverResponse>> EventHubReceivers { get; private set; } = null!;
 
         /// <summary>
         /// The short name of the action group. This will be used in SMS messages.
@@ -251,6 +257,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
+
+        [Input("eventHubReceivers")]
+        private InputList<Inputs.EventHubReceiverArgs>? _eventHubReceivers;
+
+        /// <summary>
+        /// The list of event hub receivers that are part of this action group.
+        /// </summary>
+        public InputList<Inputs.EventHubReceiverArgs> EventHubReceivers
+        {
+            get => _eventHubReceivers ?? (_eventHubReceivers = new InputList<Inputs.EventHubReceiverArgs>());
+            set => _eventHubReceivers = value;
+        }
 
         /// <summary>
         /// The short name of the action group. This will be used in SMS messages.

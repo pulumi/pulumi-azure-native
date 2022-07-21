@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Load Distribution Policy resource of URL path map path rule.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? LoadDistributionPolicy;
+        /// <summary>
         /// Name of the path rule that is unique within an Application Gateway.
         /// </summary>
         public readonly string? Name;
@@ -73,6 +77,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? id,
 
+            Outputs.SubResourceResponse? loadDistributionPolicy,
+
             string? name,
 
             ImmutableArray<string> paths,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Etag = etag;
             FirewallPolicy = firewallPolicy;
             Id = id;
+            LoadDistributionPolicy = loadDistributionPolicy;
             Name = name;
             Paths = paths;
             ProvisioningState = provisioningState;

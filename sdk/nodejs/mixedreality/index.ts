@@ -5,13 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getObjectAnchorsAccount";
 export * from "./getRemoteRenderingAccount";
 export * from "./getSpatialAnchorsAccount";
-export * from "./listObjectAnchorsAccountKeys";
 export * from "./listRemoteRenderingAccountKeys";
 export * from "./listSpatialAnchorsAccountKeys";
-export * from "./objectAnchorsAccount";
 export * from "./remoteRenderingAccount";
 export * from "./spatialAnchorsAccount";
 
@@ -36,7 +33,6 @@ export {
 };
 
 // Import resources to register:
-import { ObjectAnchorsAccount } from "./objectAnchorsAccount";
 import { RemoteRenderingAccount } from "./remoteRenderingAccount";
 import { SpatialAnchorsAccount } from "./spatialAnchorsAccount";
 
@@ -44,8 +40,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:mixedreality:ObjectAnchorsAccount":
-                return new ObjectAnchorsAccount(name, <any>undefined, { urn })
             case "azure-native:mixedreality:RemoteRenderingAccount":
                 return new RemoteRenderingAccount(name, <any>undefined, { urn })
             case "azure-native:mixedreality:SpatialAnchorsAccount":

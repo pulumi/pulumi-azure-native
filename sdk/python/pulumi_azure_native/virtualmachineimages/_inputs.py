@@ -16,10 +16,13 @@ __all__ = [
     'ImageTemplateManagedImageSourceArgs',
     'ImageTemplatePlatformImageSourceArgs',
     'ImageTemplatePowerShellCustomizerArgs',
+    'ImageTemplatePowerShellValidatorArgs',
+    'ImageTemplatePropertiesValidateArgs',
     'ImageTemplateRestartCustomizerArgs',
     'ImageTemplateSharedImageDistributorArgs',
     'ImageTemplateSharedImageVersionSourceArgs',
     'ImageTemplateShellCustomizerArgs',
+    'ImageTemplateShellValidatorArgs',
     'ImageTemplateVhdDistributorArgs',
     'ImageTemplateVmProfileArgs',
     'ImageTemplateWindowsUpdateCustomizerArgs',
@@ -122,11 +125,11 @@ class ImageTemplateFileCustomizerArgs:
 class ImageTemplateIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the image template.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -147,14 +150,14 @@ class ImageTemplateIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -250,7 +253,7 @@ class ImageTemplateManagedImageSourceArgs:
                  image_id: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        Describes an image source that is a managed image in customer subscription.
+        Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
         :param pulumi.Input[str] image_id: ARM resource id of the managed image in customer subscription
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
                Expected value is 'ManagedImage'.
@@ -301,7 +304,7 @@ class ImageTemplatePlatformImageSourceArgs:
         :param pulumi.Input['PlatformImagePurchasePlanArgs'] plan_info: Optional configuration of purchase plan for platform image.
         :param pulumi.Input[str] publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param pulumi.Input[str] version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
+        :param pulumi.Input[str] version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
         """
         pulumi.set(__self__, "type", 'PlatformImage')
         if offer is not None:
@@ -380,7 +383,7 @@ class ImageTemplatePlatformImageSourceArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
         """
         return pulumi.get(self, "version")
 
@@ -530,6 +533,209 @@ class ImageTemplatePowerShellCustomizerArgs:
     @valid_exit_codes.setter
     def valid_exit_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "valid_exit_codes", value)
+
+
+@pulumi.input_type
+class ImageTemplatePowerShellValidatorArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 run_as_system: Optional[pulumi.Input[bool]] = None,
+                 run_elevated: Optional[pulumi.Input[bool]] = None,
+                 script_uri: Optional[pulumi.Input[str]] = None,
+                 sha256_checksum: Optional[pulumi.Input[str]] = None,
+                 valid_exit_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+        :param pulumi.Input[str] type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+               Expected value is 'PowerShell'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of PowerShell commands to execute
+        :param pulumi.Input[str] name: Friendly Name to provide context on what this validation step does
+        :param pulumi.Input[bool] run_as_system: If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        :param pulumi.Input[bool] run_elevated: If specified, the PowerShell script will be run with elevated privileges
+        :param pulumi.Input[str] script_uri: URI of the PowerShell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the power shell script provided in the scriptUri field above
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
+        """
+        pulumi.set(__self__, "type", 'PowerShell')
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if run_as_system is None:
+            run_as_system = False
+        if run_as_system is not None:
+            pulumi.set(__self__, "run_as_system", run_as_system)
+        if run_elevated is None:
+            run_elevated = False
+        if run_elevated is not None:
+            pulumi.set(__self__, "run_elevated", run_elevated)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is None:
+            sha256_checksum = ''
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+        if valid_exit_codes is not None:
+            pulumi.set(__self__, "valid_exit_codes", valid_exit_codes)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+        Expected value is 'PowerShell'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of PowerShell commands to execute
+        """
+        return pulumi.get(self, "inline")
+
+    @inline.setter
+    def inline(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inline", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly Name to provide context on what this validation step does
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runAsSystem")
+    def run_as_system(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        """
+        return pulumi.get(self, "run_as_system")
+
+    @run_as_system.setter
+    def run_as_system(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_system", value)
+
+    @property
+    @pulumi.getter(name="runElevated")
+    def run_elevated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If specified, the PowerShell script will be run with elevated privileges
+        """
+        return pulumi.get(self, "run_elevated")
+
+    @run_elevated.setter
+    def run_elevated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_elevated", value)
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the PowerShell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        """
+        return pulumi.get(self, "script_uri")
+
+    @script_uri.setter
+    def script_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_uri", value)
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[pulumi.Input[str]]:
+        """
+        SHA256 checksum of the power shell script provided in the scriptUri field above
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @sha256_checksum.setter
+    def sha256_checksum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sha256_checksum", value)
+
+    @property
+    @pulumi.getter(name="validExitCodes")
+    def valid_exit_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Valid exit codes for the PowerShell script. [Default: 0]
+        """
+        return pulumi.get(self, "valid_exit_codes")
+
+    @valid_exit_codes.setter
+    def valid_exit_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "valid_exit_codes", value)
+
+
+@pulumi.input_type
+class ImageTemplatePropertiesValidateArgs:
+    def __init__(__self__, *,
+                 continue_distribute_on_failure: Optional[pulumi.Input[bool]] = None,
+                 in_vm_validations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplatePowerShellValidatorArgs', 'ImageTemplateShellValidatorArgs']]]]] = None,
+                 source_validation_only: Optional[pulumi.Input[bool]] = None):
+        """
+        Configuration options and list of validations to be performed on the resulting image.
+        :param pulumi.Input[bool] continue_distribute_on_failure: If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplatePowerShellValidatorArgs', 'ImageTemplateShellValidatorArgs']]]] in_vm_validations: List of validations to be performed.
+        :param pulumi.Input[bool] source_validation_only: If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
+        """
+        if continue_distribute_on_failure is None:
+            continue_distribute_on_failure = False
+        if continue_distribute_on_failure is not None:
+            pulumi.set(__self__, "continue_distribute_on_failure", continue_distribute_on_failure)
+        if in_vm_validations is not None:
+            pulumi.set(__self__, "in_vm_validations", in_vm_validations)
+        if source_validation_only is None:
+            source_validation_only = False
+        if source_validation_only is not None:
+            pulumi.set(__self__, "source_validation_only", source_validation_only)
+
+    @property
+    @pulumi.getter(name="continueDistributeOnFailure")
+    def continue_distribute_on_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
+        """
+        return pulumi.get(self, "continue_distribute_on_failure")
+
+    @continue_distribute_on_failure.setter
+    def continue_distribute_on_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "continue_distribute_on_failure", value)
+
+    @property
+    @pulumi.getter(name="inVMValidations")
+    def in_vm_validations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplatePowerShellValidatorArgs', 'ImageTemplateShellValidatorArgs']]]]]:
+        """
+        List of validations to be performed.
+        """
+        return pulumi.get(self, "in_vm_validations")
+
+    @in_vm_validations.setter
+    def in_vm_validations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplatePowerShellValidatorArgs', 'ImageTemplateShellValidatorArgs']]]]]):
+        pulumi.set(self, "in_vm_validations", value)
+
+    @property
+    @pulumi.getter(name="sourceValidationOnly")
+    def source_validation_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
+        """
+        return pulumi.get(self, "source_validation_only")
+
+    @source_validation_only.setter
+    def source_validation_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "source_validation_only", value)
 
 
 @pulumi.input_type
@@ -873,6 +1079,97 @@ class ImageTemplateShellCustomizerArgs:
 
 
 @pulumi.input_type
+class ImageTemplateShellValidatorArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 script_uri: Optional[pulumi.Input[str]] = None,
+                 sha256_checksum: Optional[pulumi.Input[str]] = None):
+        """
+        Runs the specified shell script during the validation phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+        :param pulumi.Input[str] type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+               Expected value is 'Shell'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of shell commands to execute
+        :param pulumi.Input[str] name: Friendly Name to provide context on what this validation step does
+        :param pulumi.Input[str] script_uri: URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the shell script provided in the scriptUri field
+        """
+        pulumi.set(__self__, "type", 'Shell')
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is None:
+            sha256_checksum = ''
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+        Expected value is 'Shell'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of shell commands to execute
+        """
+        return pulumi.get(self, "inline")
+
+    @inline.setter
+    def inline(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inline", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly Name to provide context on what this validation step does
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        """
+        return pulumi.get(self, "script_uri")
+
+    @script_uri.setter
+    def script_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_uri", value)
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[pulumi.Input[str]]:
+        """
+        SHA256 checksum of the shell script provided in the scriptUri field
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @sha256_checksum.setter
+    def sha256_checksum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sha256_checksum", value)
+
+
+@pulumi.input_type
 class ImageTemplateVhdDistributorArgs:
     def __init__(__self__, *,
                  run_output_name: pulumi.Input[str],
@@ -932,18 +1229,22 @@ class ImageTemplateVhdDistributorArgs:
 class ImageTemplateVmProfileArgs:
     def __init__(__self__, *,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_config: Optional[pulumi.Input['VirtualNetworkConfigArgs']] = None):
         """
-        Describes the virtual machine used to build, customize and capture images
+        Describes the virtual machines used to build and validate images
         :param pulumi.Input[int] os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
         :param pulumi.Input[str] vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
-        :param pulumi.Input['VirtualNetworkConfigArgs'] vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        :param pulumi.Input['VirtualNetworkConfigArgs'] vnet_config: Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         """
         if os_disk_size_gb is None:
             os_disk_size_gb = 0
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
         if vm_size is None:
             vm_size = ''
         if vm_size is not None:
@@ -964,6 +1265,18 @@ class ImageTemplateVmProfileArgs:
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+    @property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -979,7 +1292,7 @@ class ImageTemplateVmProfileArgs:
     @pulumi.getter(name="vnetConfig")
     def vnet_config(self) -> Optional[pulumi.Input['VirtualNetworkConfigArgs']]:
         """
-        Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         """
         return pulumi.get(self, "vnet_config")
 
@@ -1133,13 +1446,31 @@ class PlatformImagePurchasePlanArgs:
 @pulumi.input_type
 class VirtualNetworkConfigArgs:
     def __init__(__self__, *,
+                 proxy_vm_size: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Virtual Network configuration.
+        :param pulumi.Input[str] proxy_vm_size: Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
         :param pulumi.Input[str] subnet_id: Resource id of a pre-existing subnet.
         """
+        if proxy_vm_size is None:
+            proxy_vm_size = ''
+        if proxy_vm_size is not None:
+            pulumi.set(__self__, "proxy_vm_size", proxy_vm_size)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="proxyVmSize")
+    def proxy_vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
+        """
+        return pulumi.get(self, "proxy_vm_size")
+
+    @proxy_vm_size.setter
+    def proxy_vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy_vm_size", value)
 
     @property
     @pulumi.getter(name="subnetId")

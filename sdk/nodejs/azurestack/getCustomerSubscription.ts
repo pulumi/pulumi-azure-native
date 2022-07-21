@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Customer subscription.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
     if (!opts) {
@@ -52,6 +53,10 @@ export interface GetCustomerSubscriptionResult {
      * Name of the resource.
      */
     readonly name: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.azurestack.SystemDataResponse;
     /**
      * Tenant Id.
      */

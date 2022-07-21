@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type User struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.
 	ShareAccessRights ShareAccessRightResponseArrayOutput `pulumi:"shareAccessRights"`
-	// User in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of User
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -198,7 +198,7 @@ func (o UserOutput) ShareAccessRights() ShareAccessRightResponseArrayOutput {
 	return o.ApplyT(func(v *User) ShareAccessRightResponseArrayOutput { return v.ShareAccessRights }).(ShareAccessRightResponseArrayOutput)
 }
 
-// User in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of User
 func (o UserOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *User) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

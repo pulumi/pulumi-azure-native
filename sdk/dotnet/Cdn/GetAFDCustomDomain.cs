@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAFDCustomDomainResult> Invoke(GetAFDCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Cdn
         public string CustomDomainName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> CustomDomainName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -103,6 +103,14 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Resource reference to the Azure resource where custom domain ownership was prevalidated
+        /// </summary>
+        public readonly Outputs.ResourceReferenceResponse? PreValidatedCustomDomainResourceId;
+        /// <summary>
+        /// The name of the profile which holds the domain.
+        /// </summary>
+        public readonly string ProfileName;
+        /// <summary>
         /// Provisioning status
         /// </summary>
         public readonly string ProvisioningState;
@@ -137,6 +145,10 @@ namespace Pulumi.AzureNative.Cdn
 
             string name,
 
+            Outputs.ResourceReferenceResponse? preValidatedCustomDomainResourceId,
+
+            string profileName,
+
             string provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -153,6 +165,8 @@ namespace Pulumi.AzureNative.Cdn
             HostName = hostName;
             Id = id;
             Name = name;
+            PreValidatedCustomDomainResourceId = preValidatedCustomDomainResourceId;
+            ProfileName = profileName;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             TlsSettings = tlsSettings;

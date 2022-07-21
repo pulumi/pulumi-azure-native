@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly Outputs.BasicLoginInformationResponse? BasicLoginInformation;
         /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        /// </summary>
+        public readonly string? ClusterId;
+        /// <summary>
         /// null
         /// </summary>
         public readonly string? DataControllerId;
@@ -33,13 +37,21 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        /// </summary>
+        public readonly string? ExtensionId;
+        /// <summary>
         /// The raw kubernetes information
         /// </summary>
-        public readonly object? K8sRaw;
+        public readonly Outputs.SqlManagedInstanceK8sRawResponse? K8sRaw;
         /// <summary>
         /// Last uploaded date from Kubernetes cluster. Defaults to current date time
         /// </summary>
         public readonly string? LastUploadedDate;
+        /// <summary>
+        /// The license type to apply for this managed instance.
+        /// </summary>
+        public readonly string? LicenseType;
         public readonly string ProvisioningState;
         /// <summary>
         /// The instance start time
@@ -52,13 +64,19 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             Outputs.BasicLoginInformationResponse? basicLoginInformation,
 
+            string? clusterId,
+
             string? dataControllerId,
 
             string? endTime,
 
-            object? k8sRaw,
+            string? extensionId,
+
+            Outputs.SqlManagedInstanceK8sRawResponse? k8sRaw,
 
             string? lastUploadedDate,
+
+            string? licenseType,
 
             string provisioningState,
 
@@ -66,10 +84,13 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         {
             Admin = admin;
             BasicLoginInformation = basicLoginInformation;
+            ClusterId = clusterId;
             DataControllerId = dataControllerId;
             EndTime = endTime;
+            ExtensionId = extensionId;
             K8sRaw = k8sRaw;
             LastUploadedDate = lastUploadedDate;
+            LicenseType = licenseType;
             ProvisioningState = provisioningState;
             StartTime = startTime;
         }

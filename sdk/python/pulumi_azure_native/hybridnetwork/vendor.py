@@ -44,7 +44,7 @@ class Vendor(pulumi.CustomResource):
                  __props__=None):
         """
         Vendor resource.
-        API Version: 2020-01-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -58,7 +58,7 @@ class Vendor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Vendor resource.
-        API Version: 2020-01-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param VendorArgs args: The arguments to use to populate this resource's properties.
@@ -92,6 +92,7 @@ class Vendor(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["skus"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:Vendor"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:Vendor"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:Vendor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -120,6 +121,7 @@ class Vendor(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["skus"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Vendor(resource_name, opts=opts, __props__=__props__)
 
@@ -146,6 +148,14 @@ class Vendor(pulumi.CustomResource):
         A list of IDs of the vendor skus offered by the vendor.
         """
         return pulumi.get(self, "skus")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

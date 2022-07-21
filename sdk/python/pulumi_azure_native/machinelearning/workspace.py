@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WorkspaceArgs', 'Workspace']
 
@@ -18,6 +20,7 @@ class WorkspaceArgs:
                  user_storage_account_id: pulumi.Input[str],
                  key_vault_identifier_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None):
         """
@@ -27,6 +30,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
         :param pulumi.Input[str] key_vault_identifier_id: The key vault identifier used for encrypted workspaces.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] workspace_name: The name of the machine learning workspace.
         """
@@ -37,6 +41,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "key_vault_identifier_id", key_vault_identifier_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workspace_name is not None:
@@ -104,6 +110,18 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags of the resource.
@@ -136,13 +154,14 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  owner_email: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An object that represents a machine learning workspace.
-        API Version: 2016-04-01.
+        API Version: 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,6 +169,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
         :param pulumi.Input[str] workspace_name: The name of the machine learning workspace.
@@ -162,7 +182,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a machine learning workspace.
-        API Version: 2016-04-01.
+        API Version: 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -183,6 +203,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  owner_email: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -206,6 +227,7 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             if user_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_storage_account_id'")
@@ -247,6 +269,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner_email"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["studio_endpoint"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -295,6 +318,14 @@ class Workspace(pulumi.CustomResource):
         The email id of the owner for this workspace.
         """
         return pulumi.get(self, "owner_email")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="studioEndpoint")

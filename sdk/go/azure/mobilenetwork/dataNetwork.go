@@ -12,7 +12,7 @@ import (
 )
 
 // Data network resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 type DataNetwork struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +36,8 @@ type DataNetwork struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the data network resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -235,6 +237,11 @@ func (o DataNetworkOutput) Name() pulumi.StringOutput {
 // The provisioning state of the data network resource.
 func (o DataNetworkOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o DataNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

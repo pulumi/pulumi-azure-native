@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Watchlist item in Azure Security Insights.
-// API Version: 2021-03-01-preview.
+// Represents a Watchlist Item in Azure Security Insights.
+// API Version: 2021-10-01.
 type WatchlistItem struct {
 	pulumi.CustomResourceState
 
@@ -28,13 +28,13 @@ type WatchlistItem struct {
 	IsDeleted pulumi.BoolPtrOutput `pulumi:"isDeleted"`
 	// key-value pairs for a watchlist item
 	ItemsKeyValue pulumi.AnyOutput `pulumi:"itemsKeyValue"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tenantId to which the watchlist item belongs to
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The last time the watchlist item was updated
 	Updated pulumi.StringPtrOutput `pulumi:"updated"`
@@ -55,9 +55,6 @@ func NewWatchlistItem(ctx *pulumi.Context,
 
 	if args.ItemsKeyValue == nil {
 		return nil, errors.New("invalid value for required argument 'ItemsKeyValue'")
-	}
-	if args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -146,8 +143,6 @@ type watchlistItemArgs struct {
 	IsDeleted *bool `pulumi:"isDeleted"`
 	// key-value pairs for a watchlist item
 	ItemsKeyValue interface{} `pulumi:"itemsKeyValue"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tenantId to which the watchlist item belongs to
@@ -156,7 +151,7 @@ type watchlistItemArgs struct {
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist item
 	UpdatedBy *WatchlistUserInfo `pulumi:"updatedBy"`
-	// Watchlist Alias
+	// The watchlist alias
 	WatchlistAlias string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist item
 	WatchlistItemId *string `pulumi:"watchlistItemId"`
@@ -178,8 +173,6 @@ type WatchlistItemArgs struct {
 	IsDeleted pulumi.BoolPtrInput
 	// key-value pairs for a watchlist item
 	ItemsKeyValue pulumi.Input
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The tenantId to which the watchlist item belongs to
@@ -188,7 +181,7 @@ type WatchlistItemArgs struct {
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist item
 	UpdatedBy WatchlistUserInfoPtrInput
-	// Watchlist Alias
+	// The watchlist alias
 	WatchlistAlias pulumi.StringInput
 	// The id (a Guid) of the watchlist item
 	WatchlistItemId pulumi.StringPtrInput
@@ -265,7 +258,7 @@ func (o WatchlistItemOutput) ItemsKeyValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WatchlistItem) pulumi.AnyOutput { return v.ItemsKeyValue }).(pulumi.AnyOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o WatchlistItemOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WatchlistItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -280,7 +273,7 @@ func (o WatchlistItemOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o WatchlistItemOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *WatchlistItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

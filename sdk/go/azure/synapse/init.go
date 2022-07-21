@@ -23,34 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:synapse:BigDataPool":
 		r = &BigDataPool{}
-	case "azure-native:synapse:DataConnection":
-		r = &DataConnection{}
-	case "azure-native:synapse:Database":
-		r = &Database{}
-	case "azure-native:synapse:DatabasePrincipalAssignment":
-		r = &DatabasePrincipalAssignment{}
-	case "azure-native:synapse:EventGridDataConnection":
-		r = &EventGridDataConnection{}
-	case "azure-native:synapse:EventHubDataConnection":
-		r = &EventHubDataConnection{}
 	case "azure-native:synapse:IntegrationRuntime":
 		r = &IntegrationRuntime{}
-	case "azure-native:synapse:IotHubDataConnection":
-		r = &IotHubDataConnection{}
 	case "azure-native:synapse:IpFirewallRule":
 		r = &IpFirewallRule{}
 	case "azure-native:synapse:Key":
 		r = &Key{}
-	case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
-		r = &KustoPoolAttachedDatabaseConfiguration{}
-	case "azure-native:synapse:KustoPoolPrincipalAssignment":
-		r = &KustoPoolPrincipalAssignment{}
 	case "azure-native:synapse:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:synapse:PrivateLinkHub":
 		r = &PrivateLinkHub{}
-	case "azure-native:synapse:ReadWriteDatabase":
-		r = &ReadWriteDatabase{}
 	case "azure-native:synapse:SqlPool":
 		r = &SqlPool{}
 	case "azure-native:synapse:SqlPoolSensitivityLabel":
@@ -73,8 +55,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkspaceManagedSqlServerVulnerabilityAssessment{}
 	case "azure-native:synapse:WorkspaceSqlAadAdmin":
 		r = &WorkspaceSqlAadAdmin{}
-	case "azure-native:synapse:kustoPool":
-		r = &KustoPool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

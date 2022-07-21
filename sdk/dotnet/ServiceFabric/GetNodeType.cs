@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetNodeTypeResult
     {
         /// <summary>
+        /// Additional managed data disks.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VmssDataDiskResponse> AdditionalDataDisks;
+        /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
         /// </summary>
         public readonly Outputs.EndpointRangeDescriptionResponse? ApplicationPorts;
@@ -90,33 +94,77 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Capacities;
         /// <summary>
-        /// Disk size for each vm in the node type in GBs.
+        /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         /// </summary>
-        public readonly int DataDiskSizeGB;
+        public readonly string? DataDiskLetter;
+        /// <summary>
+        /// Disk size for the managed disk attached to the vms on the node type in GBs.
+        /// </summary>
+        public readonly int? DataDiskSizeGB;
+        /// <summary>
+        /// Managed data disk type. Specifies the storage account type for the managed disk
+        /// </summary>
+        public readonly string? DataDiskType;
+        /// <summary>
+        /// Specifies whether the network interface is accelerated networking-enabled.
+        /// </summary>
+        public readonly bool? EnableAcceleratedNetworking;
+        /// <summary>
+        /// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        /// </summary>
+        public readonly bool? EnableEncryptionAtHost;
+        /// <summary>
+        /// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+        /// </summary>
+        public readonly bool? EnableOverProvisioning;
         /// <summary>
         /// The range of ephemeral ports that nodes in this node type should be configured with.
         /// </summary>
         public readonly Outputs.EndpointRangeDescriptionResponse? EphemeralPorts;
         /// <summary>
+        /// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FrontendConfigurationResponse> FrontendConfigurations;
+        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        /// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         /// </summary>
         public readonly bool IsPrimary;
+        /// <summary>
+        /// Indicates if the node type can only host Stateless workloads.
+        /// </summary>
+        public readonly bool? IsStateless;
+        /// <summary>
+        /// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        /// </summary>
+        public readonly bool? MultiplePlacementGroups;
         /// <summary>
         /// Azure resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkSecurityRuleResponse> NetworkSecurityRules;
+        /// <summary>
         /// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? PlacementProperties;
         /// <summary>
-        /// The provisioning state of the managed cluster resource.
+        /// The provisioning state of the node type resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The node type sku.
+        /// </summary>
+        public readonly Outputs.NodeTypeSkuResponse? Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -125,6 +173,14 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Azure resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        /// </summary>
+        public readonly bool? UseDefaultPublicLoadBalancer;
+        /// <summary>
+        /// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        /// </summary>
+        public readonly bool? UseTempDataDisk;
         /// <summary>
         /// Set of extensions that should be installed onto the virtual machines.
         /// </summary>
@@ -146,9 +202,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string? VmImageVersion;
         /// <summary>
-        /// The number of nodes in the node type.
+        /// The number of nodes in the node type. &lt;br /&gt;&lt;br /&gt;**Values:** &lt;br /&gt;-1 - Use when auto scale rules are configured or sku.capacity is defined &lt;br /&gt; 0 - Not supported &lt;br /&gt; &gt;0 - Use for manual scale.
         /// </summary>
         public readonly int VmInstanceCount;
+        /// <summary>
+        /// Identities to assign to the virtual machine scale set under the node type.
+        /// </summary>
+        public readonly Outputs.VmManagedIdentityResponse? VmManagedIdentity;
         /// <summary>
         /// The secrets to install in the virtual machines.
         /// </summary>
@@ -160,27 +220,55 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetNodeTypeResult(
+            ImmutableArray<Outputs.VmssDataDiskResponse> additionalDataDisks,
+
             Outputs.EndpointRangeDescriptionResponse? applicationPorts,
 
             ImmutableDictionary<string, string>? capacities,
 
-            int dataDiskSizeGB,
+            string? dataDiskLetter,
+
+            int? dataDiskSizeGB,
+
+            string? dataDiskType,
+
+            bool? enableAcceleratedNetworking,
+
+            bool? enableEncryptionAtHost,
+
+            bool? enableOverProvisioning,
 
             Outputs.EndpointRangeDescriptionResponse? ephemeralPorts,
+
+            ImmutableArray<Outputs.FrontendConfigurationResponse> frontendConfigurations,
 
             string id,
 
             bool isPrimary,
 
+            bool? isStateless,
+
+            bool? multiplePlacementGroups,
+
             string name,
+
+            ImmutableArray<Outputs.NetworkSecurityRuleResponse> networkSecurityRules,
 
             ImmutableDictionary<string, string>? placementProperties,
 
             string provisioningState,
 
+            Outputs.NodeTypeSkuResponse? sku,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
+
+            bool? useDefaultPublicLoadBalancer,
+
+            bool? useTempDataDisk,
 
             ImmutableArray<Outputs.VMSSExtensionResponse> vmExtensions,
 
@@ -194,27 +282,44 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             int vmInstanceCount,
 
+            Outputs.VmManagedIdentityResponse? vmManagedIdentity,
+
             ImmutableArray<Outputs.VaultSecretGroupResponse> vmSecrets,
 
             string? vmSize)
         {
+            AdditionalDataDisks = additionalDataDisks;
             ApplicationPorts = applicationPorts;
             Capacities = capacities;
+            DataDiskLetter = dataDiskLetter;
             DataDiskSizeGB = dataDiskSizeGB;
+            DataDiskType = dataDiskType;
+            EnableAcceleratedNetworking = enableAcceleratedNetworking;
+            EnableEncryptionAtHost = enableEncryptionAtHost;
+            EnableOverProvisioning = enableOverProvisioning;
             EphemeralPorts = ephemeralPorts;
+            FrontendConfigurations = frontendConfigurations;
             Id = id;
             IsPrimary = isPrimary;
+            IsStateless = isStateless;
+            MultiplePlacementGroups = multiplePlacementGroups;
             Name = name;
+            NetworkSecurityRules = networkSecurityRules;
             PlacementProperties = placementProperties;
             ProvisioningState = provisioningState;
+            Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
+            UseDefaultPublicLoadBalancer = useDefaultPublicLoadBalancer;
+            UseTempDataDisk = useTempDataDisk;
             VmExtensions = vmExtensions;
             VmImageOffer = vmImageOffer;
             VmImagePublisher = vmImagePublisher;
             VmImageSku = vmImageSku;
             VmImageVersion = vmImageVersion;
             VmInstanceCount = vmInstanceCount;
+            VmManagedIdentity = vmManagedIdentity;
             VmSecrets = vmSecrets;
             VmSize = vmSize;
         }

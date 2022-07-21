@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export class EnvironmentContainer extends pulumi.CustomResource {
     /**
@@ -37,15 +37,15 @@ export class EnvironmentContainer extends pulumi.CustomResource {
     }
 
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    public readonly environmentContainerProperties!: pulumi.Output<outputs.machinelearningservices.EnvironmentContainerResponse>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.EnvironmentContainerResponse>;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -64,8 +64,8 @@ export class EnvironmentContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.environmentContainerProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'environmentContainerProperties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -73,15 +73,15 @@ export class EnvironmentContainer extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["environmentContainerProperties"] = args ? (args.environmentContainerProperties ? pulumi.output(args.environmentContainerProperties).apply(inputs.machinelearningservices.environmentContainerArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["environmentContainerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -97,13 +97,13 @@ export class EnvironmentContainer extends pulumi.CustomResource {
  */
 export interface EnvironmentContainerArgs {
     /**
-     * Container name.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * [Required] Additional attributes of the entity.
      */
-    properties: pulumi.Input<inputs.machinelearningservices.EnvironmentContainerArgs>;
+    environmentContainerProperties: pulumi.Input<inputs.machinelearningservices.EnvironmentContainerArgs>;
+    /**
+     * Container name. This is case-sensitive.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

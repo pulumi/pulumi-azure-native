@@ -13,7 +13,6 @@ from .get_vendor import *
 from .get_vendor_sku_preview import *
 from .get_vendor_skus import *
 from .list_device_registration_key import *
-from .list_vendor_skus_credential import *
 from .network_function import *
 from .vendor import *
 from .vendor_sku_preview import *

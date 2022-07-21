@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App resource payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     if (!opts) {
@@ -66,6 +66,10 @@ export interface GetAppResult {
      * Properties of the App resource
      */
     readonly properties: outputs.appplatform.AppResourcePropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
     /**
      * The type of the resource.
      */

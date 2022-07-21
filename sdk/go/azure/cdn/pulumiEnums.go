@@ -32,8 +32,9 @@ const (
 type AfdCertificateType string
 
 const (
-	AfdCertificateTypeCustomerCertificate = AfdCertificateType("CustomerCertificate")
-	AfdCertificateTypeManagedCertificate  = AfdCertificateType("ManagedCertificate")
+	AfdCertificateTypeCustomerCertificate               = AfdCertificateType("CustomerCertificate")
+	AfdCertificateTypeManagedCertificate                = AfdCertificateType("ManagedCertificate")
+	AfdCertificateTypeAzureFirstPartyManagedCertificate = AfdCertificateType("AzureFirstPartyManagedCertificate")
 )
 
 // TLS protocol version that will be used for Https
@@ -201,177 +202,31 @@ func (in *afdMinimumTlsVersionPtr) ToAfdMinimumTlsVersionPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AfdMinimumTlsVersionPtrOutput)
 }
 
-// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+// Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
 type AfdQueryStringCachingBehavior string
 
 const (
-	AfdQueryStringCachingBehaviorIgnoreQueryString = AfdQueryStringCachingBehavior("IgnoreQueryString")
-	AfdQueryStringCachingBehaviorUseQueryString    = AfdQueryStringCachingBehavior("UseQueryString")
-	AfdQueryStringCachingBehaviorNotSet            = AfdQueryStringCachingBehavior("NotSet")
+	AfdQueryStringCachingBehaviorIgnoreQueryString            = AfdQueryStringCachingBehavior("IgnoreQueryString")
+	AfdQueryStringCachingBehaviorUseQueryString               = AfdQueryStringCachingBehavior("UseQueryString")
+	AfdQueryStringCachingBehaviorIgnoreSpecifiedQueryStrings  = AfdQueryStringCachingBehavior("IgnoreSpecifiedQueryStrings")
+	AfdQueryStringCachingBehaviorIncludeSpecifiedQueryStrings = AfdQueryStringCachingBehavior("IncludeSpecifiedQueryStrings")
 )
-
-func (AfdQueryStringCachingBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*AfdQueryStringCachingBehavior)(nil)).Elem()
-}
-
-func (e AfdQueryStringCachingBehavior) ToAfdQueryStringCachingBehaviorOutput() AfdQueryStringCachingBehaviorOutput {
-	return pulumi.ToOutput(e).(AfdQueryStringCachingBehaviorOutput)
-}
-
-func (e AfdQueryStringCachingBehavior) ToAfdQueryStringCachingBehaviorOutputWithContext(ctx context.Context) AfdQueryStringCachingBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AfdQueryStringCachingBehaviorOutput)
-}
-
-func (e AfdQueryStringCachingBehavior) ToAfdQueryStringCachingBehaviorPtrOutput() AfdQueryStringCachingBehaviorPtrOutput {
-	return e.ToAfdQueryStringCachingBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (e AfdQueryStringCachingBehavior) ToAfdQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) AfdQueryStringCachingBehaviorPtrOutput {
-	return AfdQueryStringCachingBehavior(e).ToAfdQueryStringCachingBehaviorOutputWithContext(ctx).ToAfdQueryStringCachingBehaviorPtrOutputWithContext(ctx)
-}
-
-func (e AfdQueryStringCachingBehavior) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AfdQueryStringCachingBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AfdQueryStringCachingBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AfdQueryStringCachingBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AfdQueryStringCachingBehaviorOutput struct{ *pulumi.OutputState }
-
-func (AfdQueryStringCachingBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AfdQueryStringCachingBehavior)(nil)).Elem()
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToAfdQueryStringCachingBehaviorOutput() AfdQueryStringCachingBehaviorOutput {
-	return o
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToAfdQueryStringCachingBehaviorOutputWithContext(ctx context.Context) AfdQueryStringCachingBehaviorOutput {
-	return o
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToAfdQueryStringCachingBehaviorPtrOutput() AfdQueryStringCachingBehaviorPtrOutput {
-	return o.ToAfdQueryStringCachingBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToAfdQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) AfdQueryStringCachingBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AfdQueryStringCachingBehavior) *AfdQueryStringCachingBehavior {
-		return &v
-	}).(AfdQueryStringCachingBehaviorPtrOutput)
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AfdQueryStringCachingBehavior) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AfdQueryStringCachingBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AfdQueryStringCachingBehavior) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AfdQueryStringCachingBehaviorPtrOutput struct{ *pulumi.OutputState }
-
-func (AfdQueryStringCachingBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AfdQueryStringCachingBehavior)(nil)).Elem()
-}
-
-func (o AfdQueryStringCachingBehaviorPtrOutput) ToAfdQueryStringCachingBehaviorPtrOutput() AfdQueryStringCachingBehaviorPtrOutput {
-	return o
-}
-
-func (o AfdQueryStringCachingBehaviorPtrOutput) ToAfdQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) AfdQueryStringCachingBehaviorPtrOutput {
-	return o
-}
-
-func (o AfdQueryStringCachingBehaviorPtrOutput) Elem() AfdQueryStringCachingBehaviorOutput {
-	return o.ApplyT(func(v *AfdQueryStringCachingBehavior) AfdQueryStringCachingBehavior {
-		if v != nil {
-			return *v
-		}
-		var ret AfdQueryStringCachingBehavior
-		return ret
-	}).(AfdQueryStringCachingBehaviorOutput)
-}
-
-func (o AfdQueryStringCachingBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AfdQueryStringCachingBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AfdQueryStringCachingBehavior) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AfdQueryStringCachingBehaviorInput is an input type that accepts AfdQueryStringCachingBehaviorArgs and AfdQueryStringCachingBehaviorOutput values.
-// You can construct a concrete instance of `AfdQueryStringCachingBehaviorInput` via:
-//
-//          AfdQueryStringCachingBehaviorArgs{...}
-type AfdQueryStringCachingBehaviorInput interface {
-	pulumi.Input
-
-	ToAfdQueryStringCachingBehaviorOutput() AfdQueryStringCachingBehaviorOutput
-	ToAfdQueryStringCachingBehaviorOutputWithContext(context.Context) AfdQueryStringCachingBehaviorOutput
-}
-
-var afdQueryStringCachingBehaviorPtrType = reflect.TypeOf((**AfdQueryStringCachingBehavior)(nil)).Elem()
-
-type AfdQueryStringCachingBehaviorPtrInput interface {
-	pulumi.Input
-
-	ToAfdQueryStringCachingBehaviorPtrOutput() AfdQueryStringCachingBehaviorPtrOutput
-	ToAfdQueryStringCachingBehaviorPtrOutputWithContext(context.Context) AfdQueryStringCachingBehaviorPtrOutput
-}
-
-type afdQueryStringCachingBehaviorPtr string
-
-func AfdQueryStringCachingBehaviorPtr(v string) AfdQueryStringCachingBehaviorPtrInput {
-	return (*afdQueryStringCachingBehaviorPtr)(&v)
-}
-
-func (*afdQueryStringCachingBehaviorPtr) ElementType() reflect.Type {
-	return afdQueryStringCachingBehaviorPtrType
-}
-
-func (in *afdQueryStringCachingBehaviorPtr) ToAfdQueryStringCachingBehaviorPtrOutput() AfdQueryStringCachingBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(AfdQueryStringCachingBehaviorPtrOutput)
-}
-
-func (in *afdQueryStringCachingBehaviorPtr) ToAfdQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) AfdQueryStringCachingBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AfdQueryStringCachingBehaviorPtrOutput)
-}
 
 // Algorithm to use for URL signing
 type Algorithm string
 
 const (
 	AlgorithmSHA256 = Algorithm("SHA256")
+)
+
+// Indicates the endpoint name reuse scope. The default value is TenantReuse.
+type AutoGeneratedDomainNameLabelScope string
+
+const (
+	AutoGeneratedDomainNameLabelScopeTenantReuse        = AutoGeneratedDomainNameLabelScope("TenantReuse")
+	AutoGeneratedDomainNameLabelScopeSubscriptionReuse  = AutoGeneratedDomainNameLabelScope("SubscriptionReuse")
+	AutoGeneratedDomainNameLabelScopeResourceGroupReuse = AutoGeneratedDomainNameLabelScope("ResourceGroupReuse")
+	AutoGeneratedDomainNameLabelScopeNoReuse            = AutoGeneratedDomainNameLabelScope("NoReuse")
 )
 
 // Caching behavior for the requests
@@ -388,6 +243,22 @@ type CacheType string
 
 const (
 	CacheTypeAll = CacheType("All")
+)
+
+// Describes operator to be matched
+type ClientPortOperator string
+
+const (
+	ClientPortOperatorAny                = ClientPortOperator("Any")
+	ClientPortOperatorEqual              = ClientPortOperator("Equal")
+	ClientPortOperatorContains           = ClientPortOperator("Contains")
+	ClientPortOperatorBeginsWith         = ClientPortOperator("BeginsWith")
+	ClientPortOperatorEndsWith           = ClientPortOperator("EndsWith")
+	ClientPortOperatorLessThan           = ClientPortOperator("LessThan")
+	ClientPortOperatorLessThanOrEqual    = ClientPortOperator("LessThanOrEqual")
+	ClientPortOperatorGreaterThan        = ClientPortOperator("GreaterThan")
+	ClientPortOperatorGreaterThanOrEqual = ClientPortOperator("GreaterThanOrEqual")
+	ClientPortOperatorRegEx              = ClientPortOperator("RegEx")
 )
 
 // Describes operator to be matched
@@ -418,14 +289,15 @@ const (
 type DeliveryRuleAction string
 
 const (
-	DeliveryRuleActionCacheExpiration      = DeliveryRuleAction("CacheExpiration")
-	DeliveryRuleActionCacheKeyQueryString  = DeliveryRuleAction("CacheKeyQueryString")
-	DeliveryRuleActionModifyRequestHeader  = DeliveryRuleAction("ModifyRequestHeader")
-	DeliveryRuleActionModifyResponseHeader = DeliveryRuleAction("ModifyResponseHeader")
-	DeliveryRuleActionUrlRedirect          = DeliveryRuleAction("UrlRedirect")
-	DeliveryRuleActionUrlRewrite           = DeliveryRuleAction("UrlRewrite")
-	DeliveryRuleActionUrlSigning           = DeliveryRuleAction("UrlSigning")
-	DeliveryRuleActionOriginGroupOverride  = DeliveryRuleAction("OriginGroupOverride")
+	DeliveryRuleActionCacheExpiration            = DeliveryRuleAction("CacheExpiration")
+	DeliveryRuleActionCacheKeyQueryString        = DeliveryRuleAction("CacheKeyQueryString")
+	DeliveryRuleActionModifyRequestHeader        = DeliveryRuleAction("ModifyRequestHeader")
+	DeliveryRuleActionModifyResponseHeader       = DeliveryRuleAction("ModifyResponseHeader")
+	DeliveryRuleActionUrlRedirect                = DeliveryRuleAction("UrlRedirect")
+	DeliveryRuleActionUrlRewrite                 = DeliveryRuleAction("UrlRewrite")
+	DeliveryRuleActionUrlSigning                 = DeliveryRuleAction("UrlSigning")
+	DeliveryRuleActionOriginGroupOverride        = DeliveryRuleAction("OriginGroupOverride")
+	DeliveryRuleActionRouteConfigurationOverride = DeliveryRuleAction("RouteConfigurationOverride")
 )
 
 // Protocol to use for the redirect. The default value is MatchRequest
@@ -795,6 +667,22 @@ func (in *healthProbeRequestTypePtr) ToHealthProbeRequestTypePtrOutputWithContex
 }
 
 // Describes operator to be matched
+type HostNameOperator string
+
+const (
+	HostNameOperatorAny                = HostNameOperator("Any")
+	HostNameOperatorEqual              = HostNameOperator("Equal")
+	HostNameOperatorContains           = HostNameOperator("Contains")
+	HostNameOperatorBeginsWith         = HostNameOperator("BeginsWith")
+	HostNameOperatorEndsWith           = HostNameOperator("EndsWith")
+	HostNameOperatorLessThan           = HostNameOperator("LessThan")
+	HostNameOperatorLessThanOrEqual    = HostNameOperator("LessThanOrEqual")
+	HostNameOperatorGreaterThan        = HostNameOperator("GreaterThan")
+	HostNameOperatorGreaterThanOrEqual = HostNameOperator("GreaterThanOrEqual")
+	HostNameOperatorRegEx              = HostNameOperator("RegEx")
+)
+
+// Describes operator to be matched
 type HttpVersionOperator string
 
 const (
@@ -858,6 +746,11 @@ const (
 	MatchVariableHttpVersion      = MatchVariable("HttpVersion")
 	MatchVariableCookies          = MatchVariable("Cookies")
 	MatchVariableIsDevice         = MatchVariable("IsDevice")
+	MatchVariableSocketAddr       = MatchVariable("SocketAddr")
+	MatchVariableClientPort       = MatchVariable("ClientPort")
+	MatchVariableServerPort       = MatchVariable("ServerPort")
+	MatchVariableHostName         = MatchVariable("HostName")
+	MatchVariableSslProtocol      = MatchVariable("SslProtocol")
 )
 
 // Describes operator to be matched
@@ -1529,13 +1422,41 @@ func (in *responseBasedDetectedErrorTypesPtr) ToResponseBasedDetectedErrorTypesP
 	return pulumi.ToOutputWithContext(ctx, in).(ResponseBasedDetectedErrorTypesPtrOutput)
 }
 
-// The type of the Secret to create.
+// Caching behavior for the requests
+type RuleCacheBehavior string
+
+const (
+	RuleCacheBehaviorHonorOrigin             = RuleCacheBehavior("HonorOrigin")
+	RuleCacheBehaviorOverrideAlways          = RuleCacheBehavior("OverrideAlways")
+	RuleCacheBehaviorOverrideIfOriginMissing = RuleCacheBehavior("OverrideIfOriginMissing")
+)
+
+// Indicates whether content compression is enabled. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+type RuleIsCompressionEnabled string
+
+const (
+	RuleIsCompressionEnabledEnabled  = RuleIsCompressionEnabled("Enabled")
+	RuleIsCompressionEnabledDisabled = RuleIsCompressionEnabled("Disabled")
+)
+
+// Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
+type RuleQueryStringCachingBehavior string
+
+const (
+	RuleQueryStringCachingBehaviorIgnoreQueryString            = RuleQueryStringCachingBehavior("IgnoreQueryString")
+	RuleQueryStringCachingBehaviorUseQueryString               = RuleQueryStringCachingBehavior("UseQueryString")
+	RuleQueryStringCachingBehaviorIgnoreSpecifiedQueryStrings  = RuleQueryStringCachingBehavior("IgnoreSpecifiedQueryStrings")
+	RuleQueryStringCachingBehaviorIncludeSpecifiedQueryStrings = RuleQueryStringCachingBehavior("IncludeSpecifiedQueryStrings")
+)
+
+// The type of the secret resource.
 type SecretType string
 
 const (
-	SecretTypeUrlSigningKey       = SecretType("UrlSigningKey")
-	SecretTypeCustomerCertificate = SecretType("CustomerCertificate")
-	SecretTypeManagedCertificate  = SecretType("ManagedCertificate")
+	SecretTypeUrlSigningKey                     = SecretType("UrlSigningKey")
+	SecretTypeCustomerCertificate               = SecretType("CustomerCertificate")
+	SecretTypeManagedCertificate                = SecretType("ManagedCertificate")
+	SecretTypeAzureFirstPartyManagedCertificate = SecretType("AzureFirstPartyManagedCertificate")
 )
 
 // The type of the Security policy to create.
@@ -1543,6 +1464,22 @@ type SecurityPolicyType string
 
 const (
 	SecurityPolicyTypeWebApplicationFirewall = SecurityPolicyType("WebApplicationFirewall")
+)
+
+// Describes operator to be matched
+type ServerPortOperator string
+
+const (
+	ServerPortOperatorAny                = ServerPortOperator("Any")
+	ServerPortOperatorEqual              = ServerPortOperator("Equal")
+	ServerPortOperatorContains           = ServerPortOperator("Contains")
+	ServerPortOperatorBeginsWith         = ServerPortOperator("BeginsWith")
+	ServerPortOperatorEndsWith           = ServerPortOperator("EndsWith")
+	ServerPortOperatorLessThan           = ServerPortOperator("LessThan")
+	ServerPortOperatorLessThanOrEqual    = ServerPortOperator("LessThanOrEqual")
+	ServerPortOperatorGreaterThan        = ServerPortOperator("GreaterThan")
+	ServerPortOperatorGreaterThanOrEqual = ServerPortOperator("GreaterThanOrEqual")
+	ServerPortOperatorRegEx              = ServerPortOperator("RegEx")
 )
 
 // Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
@@ -1723,7 +1660,6 @@ const (
 	SkuName_Standard_Akamai                    = SkuName("Standard_Akamai")
 	SkuName_Standard_ChinaCdn                  = SkuName("Standard_ChinaCdn")
 	SkuName_Standard_Microsoft                 = SkuName("Standard_Microsoft")
-	SkuName_Premium_ChinaCdn                   = SkuName("Premium_ChinaCdn")
 	SkuName_Standard_AzureFrontDoor            = SkuName("Standard_AzureFrontDoor")
 	SkuName_Premium_AzureFrontDoor             = SkuName("Premium_AzureFrontDoor")
 	SkuName_Standard_955BandWidth_ChinaCdn     = SkuName("Standard_955BandWidth_ChinaCdn")
@@ -1731,6 +1667,30 @@ const (
 	SkuName_StandardPlus_ChinaCdn              = SkuName("StandardPlus_ChinaCdn")
 	SkuName_StandardPlus_955BandWidth_ChinaCdn = SkuName("StandardPlus_955BandWidth_ChinaCdn")
 	SkuName_StandardPlus_AvgBandWidth_ChinaCdn = SkuName("StandardPlus_AvgBandWidth_ChinaCdn")
+)
+
+// Describes operator to be matched
+type SocketAddrOperator string
+
+const (
+	SocketAddrOperatorAny     = SocketAddrOperator("Any")
+	SocketAddrOperatorIPMatch = SocketAddrOperator("IPMatch")
+)
+
+// The protocol of an established TLS connection.
+type SslProtocol string
+
+const (
+	SslProtocolTLSv1    = SslProtocol("TLSv1")
+	SslProtocol_TLSv1_1 = SslProtocol("TLSv1.1")
+	SslProtocol_TLSv1_2 = SslProtocol("TLSv1.2")
+)
+
+// Describes operator to be matched
+type SslProtocolOperator string
+
+const (
+	SslProtocolOperatorEqual = SslProtocolOperator("Equal")
 )
 
 // Describes what transforms are applied before matching
@@ -1806,11 +1766,24 @@ const (
 	UrlPathOperatorRegEx              = UrlPathOperator("RegEx")
 )
 
+// Match variable to compare against.
+type WafMatchVariable string
+
+const (
+	WafMatchVariableRemoteAddr    = WafMatchVariable("RemoteAddr")
+	WafMatchVariableSocketAddr    = WafMatchVariable("SocketAddr")
+	WafMatchVariableRequestMethod = WafMatchVariable("RequestMethod")
+	WafMatchVariableRequestHeader = WafMatchVariable("RequestHeader")
+	WafMatchVariableRequestUri    = WafMatchVariable("RequestUri")
+	WafMatchVariableQueryString   = WafMatchVariable("QueryString")
+	WafMatchVariableRequestBody   = WafMatchVariable("RequestBody")
+	WafMatchVariableCookies       = WafMatchVariable("Cookies")
+	WafMatchVariablePostArgs      = WafMatchVariable("PostArgs")
+)
+
 func init() {
 	pulumi.RegisterOutputType(AfdMinimumTlsVersionOutput{})
 	pulumi.RegisterOutputType(AfdMinimumTlsVersionPtrOutput{})
-	pulumi.RegisterOutputType(AfdQueryStringCachingBehaviorOutput{})
-	pulumi.RegisterOutputType(AfdQueryStringCachingBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(GeoFilterActionsOutput{})
 	pulumi.RegisterOutputType(GeoFilterActionsPtrOutput{})
 	pulumi.RegisterOutputType(HealthProbeRequestTypeOutput{})

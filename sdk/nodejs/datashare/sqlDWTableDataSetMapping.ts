@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL DW Table data set mapping.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export class SqlDWTableDataSetMapping extends pulumi.CustomResource {
     /**

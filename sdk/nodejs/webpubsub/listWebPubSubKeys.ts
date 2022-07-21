@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represents the access keys of the resource.
- * API Version: 2021-04-01-preview.
+ * API Version: 2021-10-01.
  */
 export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebPubSubKeysResult> {
     if (!opts) {

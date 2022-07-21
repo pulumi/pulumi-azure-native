@@ -12,15 +12,15 @@ import (
 )
 
 // Azure Resource Manager resource envelope.
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 type ModelContainer struct {
 	pulumi.CustomResourceState
 
+	// [Required] Additional attributes of the entity.
+	ModelContainerProperties ModelContainerResponseOutput `pulumi:"modelContainerProperties"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties ModelContainerResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -33,8 +33,8 @@ func NewModelContainer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
+	if args.ModelContainerProperties == nil {
+		return nil, errors.New("invalid value for required argument 'ModelContainerProperties'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -42,6 +42,7 @@ func NewModelContainer(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	args.ModelContainerProperties = args.ModelContainerProperties.ToModelContainerTypeOutput().ApplyT(func(v ModelContainerType) ModelContainerType { return *v.Defaults() }).(ModelContainerTypeOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:ModelContainer"),
@@ -86,10 +87,10 @@ func (ModelContainerState) ElementType() reflect.Type {
 }
 
 type modelContainerArgs struct {
-	// Container name.
-	Name *string `pulumi:"name"`
 	// [Required] Additional attributes of the entity.
-	Properties ModelContainerType `pulumi:"properties"`
+	ModelContainerProperties ModelContainerType `pulumi:"modelContainerProperties"`
+	// Container name. This is case-sensitive.
+	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Azure Machine Learning workspace.
@@ -98,10 +99,10 @@ type modelContainerArgs struct {
 
 // The set of arguments for constructing a ModelContainer resource.
 type ModelContainerArgs struct {
-	// Container name.
-	Name pulumi.StringPtrInput
 	// [Required] Additional attributes of the entity.
-	Properties ModelContainerTypeInput
+	ModelContainerProperties ModelContainerTypeInput
+	// Container name. This is case-sensitive.
+	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of Azure Machine Learning workspace.
@@ -145,17 +146,17 @@ func (o ModelContainerOutput) ToModelContainerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// [Required] Additional attributes of the entity.
+func (o ModelContainerOutput) ModelContainerProperties() ModelContainerResponseOutput {
+	return o.ApplyT(func(v *ModelContainer) ModelContainerResponseOutput { return v.ModelContainerProperties }).(ModelContainerResponseOutput)
+}
+
 // The name of the resource
 func (o ModelContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o ModelContainerOutput) Properties() ModelContainerResponseOutput {
-	return o.ApplyT(func(v *ModelContainer) ModelContainerResponseOutput { return v.Properties }).(ModelContainerResponseOutput)
-}
-
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o ModelContainerOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *ModelContainer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

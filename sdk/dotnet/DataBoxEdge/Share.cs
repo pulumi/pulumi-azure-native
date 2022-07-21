@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Share")]
     public partial class Share : Pulumi.CustomResource
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> ShareStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Share on ASE device
+        /// Metadata pertaining to creation and last modification of Share
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

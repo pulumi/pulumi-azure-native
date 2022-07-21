@@ -11,7 +11,7 @@ import (
 )
 
 // The properties of a storage account’s Queue service.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupQueueServiceProperties(ctx *pulumi.Context, args *LookupQueueServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupQueueServicePropertiesResult, error) {
 	var rv LookupQueueServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage:getQueueServiceProperties", args, &rv, opts...)

@@ -12,16 +12,18 @@ import (
 )
 
 // Complete information about the private endpoint.
-// API Version: 2020-03-01-preview.
+// API Version: 2020-03-01.
 type PrivateEndpoint struct {
 	pulumi.CustomResourceState
 
+	// The date when this private endpoint was created.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// A list of connections to the remote resource. Immutable after it is set.
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput `pulumi:"manualPrivateLinkServiceConnections"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with a private endpoint.
-	Properties PrivateEndpointPropertiesResponseOutput `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -82,10 +84,10 @@ func (PrivateEndpointState) ElementType() reflect.Type {
 type privateEndpointArgs struct {
 	// The name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// A list of connections to the remote resource. Immutable after it is set.
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
 	// The name of the private endpoint.
 	PrivateEndpointName *string `pulumi:"privateEndpointName"`
-	// The properties associated with a private endpoint.
-	Properties *PrivateEndpointProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -94,10 +96,10 @@ type privateEndpointArgs struct {
 type PrivateEndpointArgs struct {
 	// The name of the cluster.
 	ClusterName pulumi.StringInput
+	// A list of connections to the remote resource. Immutable after it is set.
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
 	// The name of the private endpoint.
 	PrivateEndpointName pulumi.StringPtrInput
-	// The properties associated with a private endpoint.
-	Properties PrivateEndpointPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }
@@ -139,19 +141,26 @@ func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// The date when this private endpoint was created.
+func (o PrivateEndpointOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
 // Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
 func (o PrivateEndpointOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// A list of connections to the remote resource. Immutable after it is set.
+func (o PrivateEndpointOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateLinkServiceConnectionResponseArrayOutput {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
 // The name of the resource
 func (o PrivateEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with a private endpoint.
-func (o PrivateEndpointOutput) Properties() PrivateEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpointPropertiesResponseOutput { return v.Properties }).(PrivateEndpointPropertiesResponseOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

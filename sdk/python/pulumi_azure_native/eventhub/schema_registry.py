@@ -120,7 +120,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Schema Group operation
-        API Version: 2022-01-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Schema Group operation
-        API Version: 2022-01-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryArgs args: The arguments to use to populate this resource's properties.

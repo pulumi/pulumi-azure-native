@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Storage Account Local User keys.
- * API Version: 2021-08-01.
+ * API Version: 2021-09-01.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
     if (!opts) {

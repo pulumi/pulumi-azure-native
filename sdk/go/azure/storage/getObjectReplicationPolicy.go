@@ -11,7 +11,7 @@ import (
 )
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupObjectReplicationPolicy(ctx *pulumi.Context, args *LookupObjectReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupObjectReplicationPolicyResult, error) {
 	var rv LookupObjectReplicationPolicyResult
 	err := ctx.Invoke("azure-native:storage:getObjectReplicationPolicy", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupObjectReplicationPolicy(ctx *pulumi.Context, args *LookupObjectReplic
 type LookupObjectReplicationPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
+	// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
 	ObjectReplicationPolicyId string `pulumi:"objectReplicationPolicyId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -32,7 +32,7 @@ type LookupObjectReplicationPolicyArgs struct {
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 type LookupObjectReplicationPolicyResult struct {
-	// Required. Destination account name.
+	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
 	DestinationAccount string `pulumi:"destinationAccount"`
 	// Indicates when the policy is enabled on the source account.
 	EnabledTime string `pulumi:"enabledTime"`
@@ -44,7 +44,7 @@ type LookupObjectReplicationPolicyResult struct {
 	PolicyId string `pulumi:"policyId"`
 	// The storage account object replication rules.
 	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
-	// Required. Source account name.
+	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
 	SourceAccount string `pulumi:"sourceAccount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -66,7 +66,7 @@ func LookupObjectReplicationPolicyOutput(ctx *pulumi.Context, args LookupObjectR
 type LookupObjectReplicationPolicyOutputArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
+	// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
 	ObjectReplicationPolicyId pulumi.StringInput `pulumi:"objectReplicationPolicyId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -91,7 +91,7 @@ func (o LookupObjectReplicationPolicyResultOutput) ToLookupObjectReplicationPoli
 	return o
 }
 
-// Required. Destination account name.
+// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
 func (o LookupObjectReplicationPolicyResultOutput) DestinationAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupObjectReplicationPolicyResult) string { return v.DestinationAccount }).(pulumi.StringOutput)
 }
@@ -121,7 +121,7 @@ func (o LookupObjectReplicationPolicyResultOutput) Rules() ObjectReplicationPoli
 	return o.ApplyT(func(v LookupObjectReplicationPolicyResult) []ObjectReplicationPolicyRuleResponse { return v.Rules }).(ObjectReplicationPolicyRuleResponseArrayOutput)
 }
 
-// Required. Source account name.
+// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
 func (o LookupObjectReplicationPolicyResultOutput) SourceAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupObjectReplicationPolicyResult) string { return v.SourceAccount }).(pulumi.StringOutput)
 }

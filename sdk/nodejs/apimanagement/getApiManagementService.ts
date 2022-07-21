@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
     if (!opts) {
@@ -109,9 +109,17 @@ export interface GetApiManagementServiceResult {
      */
     readonly notificationSenderEmail?: string;
     /**
+     * Compute Platform Version running the service in this location.
+     */
+    readonly platformVersion: string;
+    /**
      * Publisher portal endpoint Url of the API Management service.
      */
     readonly portalUrl: string;
+    /**
+     * List of Private Endpoint Connections of this service.
+     */
+    readonly privateEndpointConnections?: outputs.apimanagement.RemotePrivateEndpointConnectionWrapperResponse[];
     /**
      * Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
      */
@@ -124,6 +132,14 @@ export interface GetApiManagementServiceResult {
      * Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
      */
     readonly publicIPAddresses: string[];
+    /**
+     * Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+     */
+    readonly publicIpAddressId?: string;
+    /**
+     * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Publisher email.
      */
@@ -144,6 +160,10 @@ export interface GetApiManagementServiceResult {
      * SKU properties of the API Management service.
      */
     readonly sku: outputs.apimanagement.ApiManagementServiceSkuPropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.apimanagement.SystemDataResponse;
     /**
      * Resource tags.
      */

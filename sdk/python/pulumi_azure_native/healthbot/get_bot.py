@@ -19,12 +19,15 @@ __all__ = [
 @pulumi.output_type
 class GetBotResult:
     """
-    HealthBot resource definition
+    Azure Health Bot resource definition
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,6 +60,14 @@ class GetBotResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the Azure Health Bot.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The geo-location where the resource lives
@@ -75,7 +86,7 @@ class GetBotResult:
     @pulumi.getter
     def properties(self) -> 'outputs.HealthBotPropertiesResponse':
         """
-        The set of properties specific to Healthbot resource.
+        The set of properties specific to Azure Health Bot resource.
         """
         return pulumi.get(self, "properties")
 
@@ -83,7 +94,7 @@ class GetBotResult:
     @pulumi.getter
     def sku(self) -> 'outputs.SkuResponse':
         """
-        SKU of the HealthBot.
+        SKU of the Azure Health Bot.
         """
         return pulumi.get(self, "sku")
 
@@ -119,6 +130,7 @@ class AwaitableGetBotResult(GetBotResult):
             yield self
         return GetBotResult(
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -132,8 +144,8 @@ def get_bot(bot_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
-    HealthBot resource definition
-    API Version: 2020-12-08.
+    Azure Health Bot resource definition
+    API Version: 2021-08-24.
 
 
     :param str bot_name: The name of the Bot resource.
@@ -150,6 +162,7 @@ def get_bot(bot_name: Optional[str] = None,
 
     return AwaitableGetBotResult(
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
@@ -164,8 +177,8 @@ def get_bot_output(bot_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
-    HealthBot resource definition
-    API Version: 2020-12-08.
+    Azure Health Bot resource definition
+    API Version: 2021-08-24.
 
 
     :param str bot_name: The name of the Bot resource.

@@ -10,224 +10,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-type ApplicationDeltaHealthPolicy struct {
-	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicy `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
-	// The map with service type delta health policy per service type name. The map is empty by default.
-	ServiceTypeDeltaHealthPolicies map[string]ServiceTypeDeltaHealthPolicy `pulumi:"serviceTypeDeltaHealthPolicies"`
+// Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
+type AddRemoveIncrementalNamedPartitionScalingMechanism struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'AddRemoveIncrementalNamedPartition'.
+	Kind string `pulumi:"kind"`
+	// Maximum number of named partitions of the service.
+	MaxPartitionCount int `pulumi:"maxPartitionCount"`
+	// Minimum number of named partitions of the service.
+	MinPartitionCount int `pulumi:"minPartitionCount"`
+	// The number of instances to add or remove during a scaling operation.
+	ScaleIncrement int `pulumi:"scaleIncrement"`
 }
 
-// Defaults sets the appropriate defaults for ApplicationDeltaHealthPolicy
-func (val *ApplicationDeltaHealthPolicy) Defaults() *ApplicationDeltaHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.DefaultServiceTypeDeltaHealthPolicy = tmp.DefaultServiceTypeDeltaHealthPolicy.Defaults()
-
-	return &tmp
-}
-
-// ApplicationDeltaHealthPolicyInput is an input type that accepts ApplicationDeltaHealthPolicyArgs and ApplicationDeltaHealthPolicyOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyInput` via:
-//
-//          ApplicationDeltaHealthPolicyArgs{...}
-type ApplicationDeltaHealthPolicyInput interface {
-	pulumi.Input
-
-	ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput
-	ToApplicationDeltaHealthPolicyOutputWithContext(context.Context) ApplicationDeltaHealthPolicyOutput
-}
-
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-type ApplicationDeltaHealthPolicyArgs struct {
-	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyPtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
-	// The map with service type delta health policy per service type name. The map is empty by default.
-	ServiceTypeDeltaHealthPolicies ServiceTypeDeltaHealthPolicyMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
-}
-
-// Defaults sets the appropriate defaults for ApplicationDeltaHealthPolicyArgs
-func (val *ApplicationDeltaHealthPolicyArgs) Defaults() *ApplicationDeltaHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
-func (ApplicationDeltaHealthPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput {
-	return i.ToApplicationDeltaHealthPolicyOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyOutput)
-}
-
-// ApplicationDeltaHealthPolicyMapInput is an input type that accepts ApplicationDeltaHealthPolicyMap and ApplicationDeltaHealthPolicyMapOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapInput` via:
-//
-//          ApplicationDeltaHealthPolicyMap{ "key": ApplicationDeltaHealthPolicyArgs{...} }
-type ApplicationDeltaHealthPolicyMapInput interface {
-	pulumi.Input
-
-	ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput
-	ToApplicationDeltaHealthPolicyMapOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapOutput
-}
-
-type ApplicationDeltaHealthPolicyMap map[string]ApplicationDeltaHealthPolicyInput
-
-func (ApplicationDeltaHealthPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
-	return i.ToApplicationDeltaHealthPolicyMapOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapOutput)
-}
-
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-type ApplicationDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyOutput) ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyOutput) ToApplicationDeltaHealthPolicyOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyOutput {
-	return o
-}
-
-// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-func (o ApplicationDeltaHealthPolicyOutput) DefaultServiceTypeDeltaHealthPolicy() ServiceTypeDeltaHealthPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
-		return v.DefaultServiceTypeDeltaHealthPolicy
-	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
-}
-
-// The map with service type delta health policy per service type name. The map is empty by default.
-func (o ApplicationDeltaHealthPolicyOutput) ServiceTypeDeltaHealthPolicies() ServiceTypeDeltaHealthPolicyMapOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicy) map[string]ServiceTypeDeltaHealthPolicy {
-		return v.ServiceTypeDeltaHealthPolicies
-	}).(ServiceTypeDeltaHealthPolicyMapOutput)
-}
-
-type ApplicationDeltaHealthPolicyMapOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ApplicationDeltaHealthPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationDeltaHealthPolicy {
-		return vs[0].(map[string]ApplicationDeltaHealthPolicy)[vs[1].(string)]
-	}).(ApplicationDeltaHealthPolicyOutput)
-}
-
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-type ApplicationDeltaHealthPolicyResponse struct {
-	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicyResponse `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
-	// The map with service type delta health policy per service type name. The map is empty by default.
-	ServiceTypeDeltaHealthPolicies map[string]ServiceTypeDeltaHealthPolicyResponse `pulumi:"serviceTypeDeltaHealthPolicies"`
-}
-
-// Defaults sets the appropriate defaults for ApplicationDeltaHealthPolicyResponse
-func (val *ApplicationDeltaHealthPolicyResponse) Defaults() *ApplicationDeltaHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.DefaultServiceTypeDeltaHealthPolicy = tmp.DefaultServiceTypeDeltaHealthPolicy.Defaults()
-
-	return &tmp
-}
-
-// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-type ApplicationDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyResponseOutput) ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyResponseOutput) ToApplicationDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseOutput {
-	return o
-}
-
-// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-func (o ApplicationDeltaHealthPolicyResponseOutput) DefaultServiceTypeDeltaHealthPolicy() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
-		return v.DefaultServiceTypeDeltaHealthPolicy
-	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
-}
-
-// The map with service type delta health policy per service type name. The map is empty by default.
-func (o ApplicationDeltaHealthPolicyResponseOutput) ServiceTypeDeltaHealthPolicies() ServiceTypeDeltaHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicyResponse) map[string]ServiceTypeDeltaHealthPolicyResponse {
-		return v.ServiceTypeDeltaHealthPolicies
-	}).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
-}
-
-type ApplicationDeltaHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyResponseMapOutput) ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyResponseMapOutput) ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseMapOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationDeltaHealthPolicyResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationDeltaHealthPolicyResponse {
-		return vs[0].(map[string]ApplicationDeltaHealthPolicyResponse)[vs[1].(string)]
-	}).(ApplicationDeltaHealthPolicyResponseOutput)
+// Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
+type AddRemoveIncrementalNamedPartitionScalingMechanismResponse struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'AddRemoveIncrementalNamedPartition'.
+	Kind string `pulumi:"kind"`
+	// Maximum number of named partitions of the service.
+	MaxPartitionCount int `pulumi:"maxPartitionCount"`
+	// Minimum number of named partitions of the service.
+	MinPartitionCount int `pulumi:"minPartitionCount"`
+	// The number of instances to add or remove during a scaling operation.
+	ScaleIncrement int `pulumi:"scaleIncrement"`
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicy struct {
+	// Indicates whether warnings are treated with the same severity as errors.
+	ConsiderWarningAsError bool `pulumi:"considerWarningAsError"`
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicy `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+	// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+	// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+	MaxPercentUnhealthyDeployedApplications int `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicies map[string]ServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicies"`
-}
-
-// Defaults sets the appropriate defaults for ApplicationHealthPolicy
-func (val *ApplicationHealthPolicy) Defaults() *ApplicationHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
-
-	return &tmp
+	ServiceTypeHealthPolicyMap map[string]ServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
 // ApplicationHealthPolicyInput is an input type that accepts ApplicationHealthPolicyArgs and ApplicationHealthPolicyOutput values.
@@ -243,21 +64,19 @@ type ApplicationHealthPolicyInput interface {
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyArgs struct {
+	// Indicates whether warnings are treated with the same severity as errors.
+	ConsiderWarningAsError pulumi.BoolInput `pulumi:"considerWarningAsError"`
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyPtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+	// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+	// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+	MaxPercentUnhealthyDeployedApplications pulumi.IntInput `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicies ServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicies"`
+	ServiceTypeHealthPolicyMap ServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
-// Defaults sets the appropriate defaults for ApplicationHealthPolicyArgs
-func (val *ApplicationHealthPolicyArgs) Defaults() *ApplicationHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
 func (ApplicationHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationHealthPolicy)(nil)).Elem()
 }
@@ -270,29 +89,45 @@ func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyOutput)
 }
 
-// ApplicationHealthPolicyMapInput is an input type that accepts ApplicationHealthPolicyMap and ApplicationHealthPolicyMapOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapInput` via:
+func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyPtrOutput() ApplicationHealthPolicyPtrOutput {
+	return i.ToApplicationHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyOutput).ToApplicationHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ApplicationHealthPolicyPtrInput is an input type that accepts ApplicationHealthPolicyArgs, ApplicationHealthPolicyPtr and ApplicationHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyPtrInput` via:
 //
-//          ApplicationHealthPolicyMap{ "key": ApplicationHealthPolicyArgs{...} }
-type ApplicationHealthPolicyMapInput interface {
+//          ApplicationHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationHealthPolicyPtrInput interface {
 	pulumi.Input
 
-	ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput
-	ToApplicationHealthPolicyMapOutputWithContext(context.Context) ApplicationHealthPolicyMapOutput
+	ToApplicationHealthPolicyPtrOutput() ApplicationHealthPolicyPtrOutput
+	ToApplicationHealthPolicyPtrOutputWithContext(context.Context) ApplicationHealthPolicyPtrOutput
 }
 
-type ApplicationHealthPolicyMap map[string]ApplicationHealthPolicyInput
+type applicationHealthPolicyPtrType ApplicationHealthPolicyArgs
 
-func (ApplicationHealthPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationHealthPolicy)(nil)).Elem()
+func ApplicationHealthPolicyPtr(v *ApplicationHealthPolicyArgs) ApplicationHealthPolicyPtrInput {
+	return (*applicationHealthPolicyPtrType)(v)
 }
 
-func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
-	return i.ToApplicationHealthPolicyMapOutputWithContext(context.Background())
+func (*applicationHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHealthPolicy)(nil)).Elem()
 }
 
-func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapOutput)
+func (i *applicationHealthPolicyPtrType) ToApplicationHealthPolicyPtrOutput() ApplicationHealthPolicyPtrOutput {
+	return i.ToApplicationHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationHealthPolicyPtrType) ToApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyPtrOutput)
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
@@ -310,53 +145,121 @@ func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyOutputWithContex
 	return o
 }
 
+func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyPtrOutput() ApplicationHealthPolicyPtrOutput {
+	return o.ToApplicationHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationHealthPolicy) *ApplicationHealthPolicy {
+		return &v
+	}).(ApplicationHealthPolicyPtrOutput)
+}
+
+// Indicates whether warnings are treated with the same severity as errors.
+func (o ApplicationHealthPolicyOutput) ConsiderWarningAsError() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) bool { return v.ConsiderWarningAsError }).(pulumi.BoolOutput)
+}
+
 // The health policy used by default to evaluate the health of a service type.
 func (o ApplicationHealthPolicyOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyPtrOutput {
 	return o.ApplyT(func(v ApplicationHealthPolicy) *ServiceTypeHealthPolicy { return v.DefaultServiceTypeHealthPolicy }).(ServiceTypeHealthPolicyPtrOutput)
 }
 
+// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+func (o ApplicationHealthPolicyOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) int { return v.MaxPercentUnhealthyDeployedApplications }).(pulumi.IntOutput)
+}
+
 // The map with service type health policy per service type name. The map is empty by default.
-func (o ApplicationHealthPolicyOutput) ServiceTypeHealthPolicies() ServiceTypeHealthPolicyMapOutput {
-	return o.ApplyT(func(v ApplicationHealthPolicy) map[string]ServiceTypeHealthPolicy { return v.ServiceTypeHealthPolicies }).(ServiceTypeHealthPolicyMapOutput)
+func (o ApplicationHealthPolicyOutput) ServiceTypeHealthPolicyMap() ServiceTypeHealthPolicyMapOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) map[string]ServiceTypeHealthPolicy {
+		return v.ServiceTypeHealthPolicyMap
+	}).(ServiceTypeHealthPolicyMapOutput)
 }
 
-type ApplicationHealthPolicyMapOutput struct{ *pulumi.OutputState }
+type ApplicationHealthPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationHealthPolicy)(nil)).Elem()
+func (ApplicationHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHealthPolicy)(nil)).Elem()
 }
 
-func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
+func (o ApplicationHealthPolicyPtrOutput) ToApplicationHealthPolicyPtrOutput() ApplicationHealthPolicyPtrOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapOutput {
+func (o ApplicationHealthPolicyPtrOutput) ToApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyPtrOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ApplicationHealthPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationHealthPolicy {
-		return vs[0].(map[string]ApplicationHealthPolicy)[vs[1].(string)]
+func (o ApplicationHealthPolicyPtrOutput) Elem() ApplicationHealthPolicyOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicy) ApplicationHealthPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationHealthPolicy
+		return ret
 	}).(ApplicationHealthPolicyOutput)
+}
+
+// Indicates whether warnings are treated with the same severity as errors.
+func (o ApplicationHealthPolicyPtrOutput) ConsiderWarningAsError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ConsiderWarningAsError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The health policy used by default to evaluate the health of a service type.
+func (o ApplicationHealthPolicyPtrOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyPtrOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicy) *ServiceTypeHealthPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultServiceTypeHealthPolicy
+	}).(ServiceTypeHealthPolicyPtrOutput)
+}
+
+// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+func (o ApplicationHealthPolicyPtrOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUnhealthyDeployedApplications
+	}).(pulumi.IntPtrOutput)
+}
+
+// The map with service type health policy per service type name. The map is empty by default.
+func (o ApplicationHealthPolicyPtrOutput) ServiceTypeHealthPolicyMap() ServiceTypeHealthPolicyMapOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicy) map[string]ServiceTypeHealthPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceTypeHealthPolicyMap
+	}).(ServiceTypeHealthPolicyMapOutput)
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
 type ApplicationHealthPolicyResponse struct {
+	// Indicates whether warnings are treated with the same severity as errors.
+	ConsiderWarningAsError bool `pulumi:"considerWarningAsError"`
 	// The health policy used by default to evaluate the health of a service type.
 	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicyResponse `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+	// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+	// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+	MaxPercentUnhealthyDeployedApplications int `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicies map[string]ServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicies"`
-}
-
-// Defaults sets the appropriate defaults for ApplicationHealthPolicyResponse
-func (val *ApplicationHealthPolicyResponse) Defaults() *ApplicationHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
-
-	return &tmp
+	ServiceTypeHealthPolicyMap map[string]ServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
@@ -374,6 +277,11 @@ func (o ApplicationHealthPolicyResponseOutput) ToApplicationHealthPolicyResponse
 	return o
 }
 
+// Indicates whether warnings are treated with the same severity as errors.
+func (o ApplicationHealthPolicyResponseOutput) ConsiderWarningAsError() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicyResponse) bool { return v.ConsiderWarningAsError }).(pulumi.BoolOutput)
+}
+
 // The health policy used by default to evaluate the health of a service type.
 func (o ApplicationHealthPolicyResponseOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
@@ -381,280 +289,92 @@ func (o ApplicationHealthPolicyResponseOutput) DefaultServiceTypeHealthPolicy() 
 	}).(ServiceTypeHealthPolicyResponsePtrOutput)
 }
 
+// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+func (o ApplicationHealthPolicyResponseOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicyResponse) int { return v.MaxPercentUnhealthyDeployedApplications }).(pulumi.IntOutput)
+}
+
 // The map with service type health policy per service type name. The map is empty by default.
-func (o ApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicies() ServiceTypeHealthPolicyResponseMapOutput {
+func (o ApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicyMap() ServiceTypeHealthPolicyResponseMapOutput {
 	return o.ApplyT(func(v ApplicationHealthPolicyResponse) map[string]ServiceTypeHealthPolicyResponse {
-		return v.ServiceTypeHealthPolicies
+		return v.ServiceTypeHealthPolicyMap
 	}).(ServiceTypeHealthPolicyResponseMapOutput)
 }
 
-type ApplicationHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
+type ApplicationHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHealthPolicyResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationHealthPolicyResponse)(nil)).Elem()
+func (ApplicationHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (o ApplicationHealthPolicyResponseMapOutput) ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput {
+func (o ApplicationHealthPolicyResponsePtrOutput) ToApplicationHealthPolicyResponsePtrOutput() ApplicationHealthPolicyResponsePtrOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyResponseMapOutput) ToApplicationHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseMapOutput {
+func (o ApplicationHealthPolicyResponsePtrOutput) ToApplicationHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponsePtrOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationHealthPolicyResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationHealthPolicyResponse {
-		return vs[0].(map[string]ApplicationHealthPolicyResponse)[vs[1].(string)]
+func (o ApplicationHealthPolicyResponsePtrOutput) Elem() ApplicationHealthPolicyResponseOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicyResponse) ApplicationHealthPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationHealthPolicyResponse
+		return ret
 	}).(ApplicationHealthPolicyResponseOutput)
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
-type ApplicationMetricDescription struct {
-	// The maximum node capacity for Service Fabric application.
-	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-	// If set to zero, capacity for this metric is unlimited on each node.
-	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity *float64 `pulumi:"maximumCapacity"`
-	// The name of the metric.
-	Name *string `pulumi:"name"`
-	// The node reservation capacity for Service Fabric application.
-	// This is the amount of load which is reserved on nodes which have instances of this application.
-	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-	// If set to zero, no capacity is reserved for this metric.
-	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity *float64 `pulumi:"reservationCapacity"`
-	// The total metric capacity for Service Fabric application.
-	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity *float64 `pulumi:"totalApplicationCapacity"`
+// Indicates whether warnings are treated with the same severity as errors.
+func (o ApplicationHealthPolicyResponsePtrOutput) ConsiderWarningAsError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ConsiderWarningAsError
+	}).(pulumi.BoolPtrOutput)
 }
 
-// ApplicationMetricDescriptionInput is an input type that accepts ApplicationMetricDescriptionArgs and ApplicationMetricDescriptionOutput values.
-// You can construct a concrete instance of `ApplicationMetricDescriptionInput` via:
-//
-//          ApplicationMetricDescriptionArgs{...}
-type ApplicationMetricDescriptionInput interface {
-	pulumi.Input
-
-	ToApplicationMetricDescriptionOutput() ApplicationMetricDescriptionOutput
-	ToApplicationMetricDescriptionOutputWithContext(context.Context) ApplicationMetricDescriptionOutput
+// The health policy used by default to evaluate the health of a service type.
+func (o ApplicationHealthPolicyResponsePtrOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultServiceTypeHealthPolicy
+	}).(ServiceTypeHealthPolicyResponsePtrOutput)
 }
 
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
-type ApplicationMetricDescriptionArgs struct {
-	// The maximum node capacity for Service Fabric application.
-	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-	// If set to zero, capacity for this metric is unlimited on each node.
-	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity pulumi.Float64PtrInput `pulumi:"maximumCapacity"`
-	// The name of the metric.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The node reservation capacity for Service Fabric application.
-	// This is the amount of load which is reserved on nodes which have instances of this application.
-	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-	// If set to zero, no capacity is reserved for this metric.
-	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity pulumi.Float64PtrInput `pulumi:"reservationCapacity"`
-	// The total metric capacity for Service Fabric application.
-	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity pulumi.Float64PtrInput `pulumi:"totalApplicationCapacity"`
+// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+func (o ApplicationHealthPolicyResponsePtrOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUnhealthyDeployedApplications
+	}).(pulumi.IntPtrOutput)
 }
 
-func (ApplicationMetricDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescription)(nil)).Elem()
+// The map with service type health policy per service type name. The map is empty by default.
+func (o ApplicationHealthPolicyResponsePtrOutput) ServiceTypeHealthPolicyMap() ServiceTypeHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v *ApplicationHealthPolicyResponse) map[string]ServiceTypeHealthPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceTypeHealthPolicyMap
+	}).(ServiceTypeHealthPolicyResponseMapOutput)
 }
 
-func (i ApplicationMetricDescriptionArgs) ToApplicationMetricDescriptionOutput() ApplicationMetricDescriptionOutput {
-	return i.ToApplicationMetricDescriptionOutputWithContext(context.Background())
-}
-
-func (i ApplicationMetricDescriptionArgs) ToApplicationMetricDescriptionOutputWithContext(ctx context.Context) ApplicationMetricDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionOutput)
-}
-
-// ApplicationMetricDescriptionArrayInput is an input type that accepts ApplicationMetricDescriptionArray and ApplicationMetricDescriptionArrayOutput values.
-// You can construct a concrete instance of `ApplicationMetricDescriptionArrayInput` via:
-//
-//          ApplicationMetricDescriptionArray{ ApplicationMetricDescriptionArgs{...} }
-type ApplicationMetricDescriptionArrayInput interface {
-	pulumi.Input
-
-	ToApplicationMetricDescriptionArrayOutput() ApplicationMetricDescriptionArrayOutput
-	ToApplicationMetricDescriptionArrayOutputWithContext(context.Context) ApplicationMetricDescriptionArrayOutput
-}
-
-type ApplicationMetricDescriptionArray []ApplicationMetricDescriptionInput
-
-func (ApplicationMetricDescriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationMetricDescription)(nil)).Elem()
-}
-
-func (i ApplicationMetricDescriptionArray) ToApplicationMetricDescriptionArrayOutput() ApplicationMetricDescriptionArrayOutput {
-	return i.ToApplicationMetricDescriptionArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationMetricDescriptionArray) ToApplicationMetricDescriptionArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionArrayOutput)
-}
-
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
-type ApplicationMetricDescriptionOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescription)(nil)).Elem()
-}
-
-func (o ApplicationMetricDescriptionOutput) ToApplicationMetricDescriptionOutput() ApplicationMetricDescriptionOutput {
-	return o
-}
-
-func (o ApplicationMetricDescriptionOutput) ToApplicationMetricDescriptionOutputWithContext(ctx context.Context) ApplicationMetricDescriptionOutput {
-	return o
-}
-
-// The maximum node capacity for Service Fabric application.
-// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-// If set to zero, capacity for this metric is unlimited on each node.
-// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-func (o ApplicationMetricDescriptionOutput) MaximumCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *float64 { return v.MaximumCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// The name of the metric.
-func (o ApplicationMetricDescriptionOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The node reservation capacity for Service Fabric application.
-// This is the amount of load which is reserved on nodes which have instances of this application.
-// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-// If set to zero, no capacity is reserved for this metric.
-// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-func (o ApplicationMetricDescriptionOutput) ReservationCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *float64 { return v.ReservationCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// The total metric capacity for Service Fabric application.
-// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-func (o ApplicationMetricDescriptionOutput) TotalApplicationCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescription) *float64 { return v.TotalApplicationCapacity }).(pulumi.Float64PtrOutput)
-}
-
-type ApplicationMetricDescriptionArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationMetricDescription)(nil)).Elem()
-}
-
-func (o ApplicationMetricDescriptionArrayOutput) ToApplicationMetricDescriptionArrayOutput() ApplicationMetricDescriptionArrayOutput {
-	return o
-}
-
-func (o ApplicationMetricDescriptionArrayOutput) ToApplicationMetricDescriptionArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionArrayOutput {
-	return o
-}
-
-func (o ApplicationMetricDescriptionArrayOutput) Index(i pulumi.IntInput) ApplicationMetricDescriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationMetricDescription {
-		return vs[0].([]ApplicationMetricDescription)[vs[1].(int)]
-	}).(ApplicationMetricDescriptionOutput)
-}
-
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
-type ApplicationMetricDescriptionResponse struct {
-	// The maximum node capacity for Service Fabric application.
-	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-	// If set to zero, capacity for this metric is unlimited on each node.
-	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-	MaximumCapacity *float64 `pulumi:"maximumCapacity"`
-	// The name of the metric.
-	Name *string `pulumi:"name"`
-	// The node reservation capacity for Service Fabric application.
-	// This is the amount of load which is reserved on nodes which have instances of this application.
-	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-	// If set to zero, no capacity is reserved for this metric.
-	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-	ReservationCapacity *float64 `pulumi:"reservationCapacity"`
-	// The total metric capacity for Service Fabric application.
-	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-	TotalApplicationCapacity *float64 `pulumi:"totalApplicationCapacity"`
-}
-
-// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
-type ApplicationMetricDescriptionResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescriptionResponse)(nil)).Elem()
-}
-
-func (o ApplicationMetricDescriptionResponseOutput) ToApplicationMetricDescriptionResponseOutput() ApplicationMetricDescriptionResponseOutput {
-	return o
-}
-
-func (o ApplicationMetricDescriptionResponseOutput) ToApplicationMetricDescriptionResponseOutputWithContext(ctx context.Context) ApplicationMetricDescriptionResponseOutput {
-	return o
-}
-
-// The maximum node capacity for Service Fabric application.
-// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-// If set to zero, capacity for this metric is unlimited on each node.
-// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-func (o ApplicationMetricDescriptionResponseOutput) MaximumCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *float64 { return v.MaximumCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// The name of the metric.
-func (o ApplicationMetricDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The node reservation capacity for Service Fabric application.
-// This is the amount of load which is reserved on nodes which have instances of this application.
-// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-// If set to zero, no capacity is reserved for this metric.
-// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-func (o ApplicationMetricDescriptionResponseOutput) ReservationCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *float64 { return v.ReservationCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// The total metric capacity for Service Fabric application.
-// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-func (o ApplicationMetricDescriptionResponseOutput) TotalApplicationCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *float64 { return v.TotalApplicationCapacity }).(pulumi.Float64PtrOutput)
-}
-
-type ApplicationMetricDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationMetricDescriptionResponse)(nil)).Elem()
-}
-
-func (o ApplicationMetricDescriptionResponseArrayOutput) ToApplicationMetricDescriptionResponseArrayOutput() ApplicationMetricDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o ApplicationMetricDescriptionResponseArrayOutput) ToApplicationMetricDescriptionResponseArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o ApplicationMetricDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ApplicationMetricDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationMetricDescriptionResponse {
-		return vs[0].([]ApplicationMetricDescriptionResponse)[vs[1].(int)]
-	}).(ApplicationMetricDescriptionResponseOutput)
-}
-
+// The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
 type ApplicationTypeVersionsCleanupPolicy struct {
 	// Number of unused versions per application type to keep.
-	MaxUnusedVersionsToKeep float64 `pulumi:"maxUnusedVersionsToKeep"`
+	MaxUnusedVersionsToKeep int `pulumi:"maxUnusedVersionsToKeep"`
 }
 
 // ApplicationTypeVersionsCleanupPolicyInput is an input type that accepts ApplicationTypeVersionsCleanupPolicyArgs and ApplicationTypeVersionsCleanupPolicyOutput values.
@@ -668,9 +388,10 @@ type ApplicationTypeVersionsCleanupPolicyInput interface {
 	ToApplicationTypeVersionsCleanupPolicyOutputWithContext(context.Context) ApplicationTypeVersionsCleanupPolicyOutput
 }
 
+// The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
 type ApplicationTypeVersionsCleanupPolicyArgs struct {
 	// Number of unused versions per application type to keep.
-	MaxUnusedVersionsToKeep pulumi.Float64Input `pulumi:"maxUnusedVersionsToKeep"`
+	MaxUnusedVersionsToKeep pulumi.IntInput `pulumi:"maxUnusedVersionsToKeep"`
 }
 
 func (ApplicationTypeVersionsCleanupPolicyArgs) ElementType() reflect.Type {
@@ -726,6 +447,7 @@ func (i *applicationTypeVersionsCleanupPolicyPtrType) ToApplicationTypeVersionsC
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionsCleanupPolicyPtrOutput)
 }
 
+// The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
 type ApplicationTypeVersionsCleanupPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeVersionsCleanupPolicyOutput) ElementType() reflect.Type {
@@ -751,8 +473,8 @@ func (o ApplicationTypeVersionsCleanupPolicyOutput) ToApplicationTypeVersionsCle
 }
 
 // Number of unused versions per application type to keep.
-func (o ApplicationTypeVersionsCleanupPolicyOutput) MaxUnusedVersionsToKeep() pulumi.Float64Output {
-	return o.ApplyT(func(v ApplicationTypeVersionsCleanupPolicy) float64 { return v.MaxUnusedVersionsToKeep }).(pulumi.Float64Output)
+func (o ApplicationTypeVersionsCleanupPolicyOutput) MaxUnusedVersionsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionsCleanupPolicy) int { return v.MaxUnusedVersionsToKeep }).(pulumi.IntOutput)
 }
 
 type ApplicationTypeVersionsCleanupPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -780,20 +502,22 @@ func (o ApplicationTypeVersionsCleanupPolicyPtrOutput) Elem() ApplicationTypeVer
 }
 
 // Number of unused versions per application type to keep.
-func (o ApplicationTypeVersionsCleanupPolicyPtrOutput) MaxUnusedVersionsToKeep() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ApplicationTypeVersionsCleanupPolicy) *float64 {
+func (o ApplicationTypeVersionsCleanupPolicyPtrOutput) MaxUnusedVersionsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersionsCleanupPolicy) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.MaxUnusedVersionsToKeep
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
+// The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
 type ApplicationTypeVersionsCleanupPolicyResponse struct {
 	// Number of unused versions per application type to keep.
-	MaxUnusedVersionsToKeep float64 `pulumi:"maxUnusedVersionsToKeep"`
+	MaxUnusedVersionsToKeep int `pulumi:"maxUnusedVersionsToKeep"`
 }
 
+// The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
 type ApplicationTypeVersionsCleanupPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeVersionsCleanupPolicyResponseOutput) ElementType() reflect.Type {
@@ -809,8 +533,8 @@ func (o ApplicationTypeVersionsCleanupPolicyResponseOutput) ToApplicationTypeVer
 }
 
 // Number of unused versions per application type to keep.
-func (o ApplicationTypeVersionsCleanupPolicyResponseOutput) MaxUnusedVersionsToKeep() pulumi.Float64Output {
-	return o.ApplyT(func(v ApplicationTypeVersionsCleanupPolicyResponse) float64 { return v.MaxUnusedVersionsToKeep }).(pulumi.Float64Output)
+func (o ApplicationTypeVersionsCleanupPolicyResponseOutput) MaxUnusedVersionsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionsCleanupPolicyResponse) int { return v.MaxUnusedVersionsToKeep }).(pulumi.IntOutput)
 }
 
 type ApplicationTypeVersionsCleanupPolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -838,40 +562,31 @@ func (o ApplicationTypeVersionsCleanupPolicyResponsePtrOutput) Elem() Applicatio
 }
 
 // Number of unused versions per application type to keep.
-func (o ApplicationTypeVersionsCleanupPolicyResponsePtrOutput) MaxUnusedVersionsToKeep() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ApplicationTypeVersionsCleanupPolicyResponse) *float64 {
+func (o ApplicationTypeVersionsCleanupPolicyResponsePtrOutput) MaxUnusedVersionsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersionsCleanupPolicyResponse) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.MaxUnusedVersionsToKeep
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicy struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicy *ArmApplicationHealthPolicy `pulumi:"applicationHealthPolicy"`
+	ApplicationHealthPolicy *ApplicationHealthPolicy `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart *bool `pulumi:"forceRestart"`
-	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+	InstanceCloseDelayDuration *float64 `pulumi:"instanceCloseDelayDuration"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 	RecreateApplication *bool `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
-	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicy `pulumi:"rollingUpgradeMonitoringPolicy"`
-	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+	RollingUpgradeMonitoringPolicy *RollingUpgradeMonitoringPolicy `pulumi:"rollingUpgradeMonitoringPolicy"`
+	// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-	UpgradeReplicaSetCheckTimeout *string `pulumi:"upgradeReplicaSetCheckTimeout"`
-}
-
-// Defaults sets the appropriate defaults for ApplicationUpgradePolicy
-func (val *ApplicationUpgradePolicy) Defaults() *ApplicationUpgradePolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.ApplicationHealthPolicy = tmp.ApplicationHealthPolicy.Defaults()
-
-	return &tmp
+	UpgradeReplicaSetCheckTimeout *float64 `pulumi:"upgradeReplicaSetCheckTimeout"`
 }
 
 // ApplicationUpgradePolicyInput is an input type that accepts ApplicationUpgradePolicyArgs and ApplicationUpgradePolicyOutput values.
@@ -888,28 +603,21 @@ type ApplicationUpgradePolicyInput interface {
 // Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyArgs struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicy ArmApplicationHealthPolicyPtrInput `pulumi:"applicationHealthPolicy"`
+	ApplicationHealthPolicy ApplicationHealthPolicyPtrInput `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
-	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+	InstanceCloseDelayDuration pulumi.Float64PtrInput `pulumi:"instanceCloseDelayDuration"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 	RecreateApplication pulumi.BoolPtrInput `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
-	RollingUpgradeMonitoringPolicy ArmRollingUpgradeMonitoringPolicyPtrInput `pulumi:"rollingUpgradeMonitoringPolicy"`
-	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+	RollingUpgradeMonitoringPolicy RollingUpgradeMonitoringPolicyPtrInput `pulumi:"rollingUpgradeMonitoringPolicy"`
+	// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 	UpgradeMode pulumi.StringPtrInput `pulumi:"upgradeMode"`
 	// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-	UpgradeReplicaSetCheckTimeout pulumi.StringPtrInput `pulumi:"upgradeReplicaSetCheckTimeout"`
+	UpgradeReplicaSetCheckTimeout pulumi.Float64PtrInput `pulumi:"upgradeReplicaSetCheckTimeout"`
 }
 
-// Defaults sets the appropriate defaults for ApplicationUpgradePolicyArgs
-func (val *ApplicationUpgradePolicyArgs) Defaults() *ApplicationUpgradePolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
 func (ApplicationUpgradePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationUpgradePolicy)(nil)).Elem()
 }
@@ -989,8 +697,8 @@ func (o ApplicationUpgradePolicyOutput) ToApplicationUpgradePolicyPtrOutputWithC
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
-func (o ApplicationUpgradePolicyOutput) ApplicationHealthPolicy() ArmApplicationHealthPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicy) *ArmApplicationHealthPolicy { return v.ApplicationHealthPolicy }).(ArmApplicationHealthPolicyPtrOutput)
+func (o ApplicationUpgradePolicyOutput) ApplicationHealthPolicy() ApplicationHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *ApplicationHealthPolicy { return v.ApplicationHealthPolicy }).(ApplicationHealthPolicyPtrOutput)
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
@@ -998,26 +706,31 @@ func (o ApplicationUpgradePolicyOutput) ForceRestart() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicy) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+func (o ApplicationUpgradePolicyOutput) InstanceCloseDelayDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *float64 { return v.InstanceCloseDelayDuration }).(pulumi.Float64PtrOutput)
+}
+
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 func (o ApplicationUpgradePolicyOutput) RecreateApplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicy) *bool { return v.RecreateApplication }).(pulumi.BoolPtrOutput)
 }
 
 // The policy used for monitoring the application upgrade
-func (o ApplicationUpgradePolicyOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicy) *ArmRollingUpgradeMonitoringPolicy {
+func (o ApplicationUpgradePolicyOutput) RollingUpgradeMonitoringPolicy() RollingUpgradeMonitoringPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *RollingUpgradeMonitoringPolicy {
 		return v.RollingUpgradeMonitoringPolicy
-	}).(ArmRollingUpgradeMonitoringPolicyPtrOutput)
+	}).(RollingUpgradeMonitoringPolicyPtrOutput)
 }
 
-// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 func (o ApplicationUpgradePolicyOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicy) *string { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }
 
 // The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-func (o ApplicationUpgradePolicyOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicy) *string { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.StringPtrOutput)
+func (o ApplicationUpgradePolicyOutput) UpgradeReplicaSetCheckTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *float64 { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.Float64PtrOutput)
 }
 
 type ApplicationUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -1045,13 +758,13 @@ func (o ApplicationUpgradePolicyPtrOutput) Elem() ApplicationUpgradePolicyOutput
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
-func (o ApplicationUpgradePolicyPtrOutput) ApplicationHealthPolicy() ArmApplicationHealthPolicyPtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicy) *ArmApplicationHealthPolicy {
+func (o ApplicationUpgradePolicyPtrOutput) ApplicationHealthPolicy() ApplicationHealthPolicyPtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) *ApplicationHealthPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationHealthPolicy
-	}).(ArmApplicationHealthPolicyPtrOutput)
+	}).(ApplicationHealthPolicyPtrOutput)
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
@@ -1064,7 +777,17 @@ func (o ApplicationUpgradePolicyPtrOutput) ForceRestart() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+func (o ApplicationUpgradePolicyPtrOutput) InstanceCloseDelayDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCloseDelayDuration
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 func (o ApplicationUpgradePolicyPtrOutput) RecreateApplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationUpgradePolicy) *bool {
 		if v == nil {
@@ -1075,16 +798,16 @@ func (o ApplicationUpgradePolicyPtrOutput) RecreateApplication() pulumi.BoolPtrO
 }
 
 // The policy used for monitoring the application upgrade
-func (o ApplicationUpgradePolicyPtrOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicy) *ArmRollingUpgradeMonitoringPolicy {
+func (o ApplicationUpgradePolicyPtrOutput) RollingUpgradeMonitoringPolicy() RollingUpgradeMonitoringPolicyPtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) *RollingUpgradeMonitoringPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.RollingUpgradeMonitoringPolicy
-	}).(ArmRollingUpgradeMonitoringPolicyPtrOutput)
+	}).(RollingUpgradeMonitoringPolicyPtrOutput)
 }
 
-// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 func (o ApplicationUpgradePolicyPtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationUpgradePolicy) *string {
 		if v == nil {
@@ -1095,40 +818,31 @@ func (o ApplicationUpgradePolicyPtrOutput) UpgradeMode() pulumi.StringPtrOutput 
 }
 
 // The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-func (o ApplicationUpgradePolicyPtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicy) *string {
+func (o ApplicationUpgradePolicyPtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UpgradeReplicaSetCheckTimeout
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Describes the policy for a monitored application upgrade.
 type ApplicationUpgradePolicyResponse struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicy *ArmApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicy"`
+	ApplicationHealthPolicy *ApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart *bool `pulumi:"forceRestart"`
-	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+	InstanceCloseDelayDuration *float64 `pulumi:"instanceCloseDelayDuration"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 	RecreateApplication *bool `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
-	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicyResponse `pulumi:"rollingUpgradeMonitoringPolicy"`
-	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+	RollingUpgradeMonitoringPolicy *RollingUpgradeMonitoringPolicyResponse `pulumi:"rollingUpgradeMonitoringPolicy"`
+	// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-	UpgradeReplicaSetCheckTimeout *string `pulumi:"upgradeReplicaSetCheckTimeout"`
-}
-
-// Defaults sets the appropriate defaults for ApplicationUpgradePolicyResponse
-func (val *ApplicationUpgradePolicyResponse) Defaults() *ApplicationUpgradePolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.ApplicationHealthPolicy = tmp.ApplicationHealthPolicy.Defaults()
-
-	return &tmp
+	UpgradeReplicaSetCheckTimeout *float64 `pulumi:"upgradeReplicaSetCheckTimeout"`
 }
 
 // Describes the policy for a monitored application upgrade.
@@ -1147,10 +861,10 @@ func (o ApplicationUpgradePolicyResponseOutput) ToApplicationUpgradePolicyRespon
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
-func (o ApplicationUpgradePolicyResponseOutput) ApplicationHealthPolicy() ArmApplicationHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *ArmApplicationHealthPolicyResponse {
+func (o ApplicationUpgradePolicyResponseOutput) ApplicationHealthPolicy() ApplicationHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *ApplicationHealthPolicyResponse {
 		return v.ApplicationHealthPolicy
-	}).(ArmApplicationHealthPolicyResponsePtrOutput)
+	}).(ApplicationHealthPolicyResponsePtrOutput)
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
@@ -1158,26 +872,31 @@ func (o ApplicationUpgradePolicyResponseOutput) ForceRestart() pulumi.BoolPtrOut
 	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+func (o ApplicationUpgradePolicyResponseOutput) InstanceCloseDelayDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *float64 { return v.InstanceCloseDelayDuration }).(pulumi.Float64PtrOutput)
+}
+
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 func (o ApplicationUpgradePolicyResponseOutput) RecreateApplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *bool { return v.RecreateApplication }).(pulumi.BoolPtrOutput)
 }
 
 // The policy used for monitoring the application upgrade
-func (o ApplicationUpgradePolicyResponseOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *ArmRollingUpgradeMonitoringPolicyResponse {
+func (o ApplicationUpgradePolicyResponseOutput) RollingUpgradeMonitoringPolicy() RollingUpgradeMonitoringPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *RollingUpgradeMonitoringPolicyResponse {
 		return v.RollingUpgradeMonitoringPolicy
-	}).(ArmRollingUpgradeMonitoringPolicyResponsePtrOutput)
+	}).(RollingUpgradeMonitoringPolicyResponsePtrOutput)
 }
 
-// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 func (o ApplicationUpgradePolicyResponseOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *string { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }
 
 // The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-func (o ApplicationUpgradePolicyResponseOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *string { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.StringPtrOutput)
+func (o ApplicationUpgradePolicyResponseOutput) UpgradeReplicaSetCheckTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *float64 { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.Float64PtrOutput)
 }
 
 type ApplicationUpgradePolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1205,13 +924,13 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) Elem() ApplicationUpgradePoli
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
-func (o ApplicationUpgradePolicyResponsePtrOutput) ApplicationHealthPolicy() ArmApplicationHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *ArmApplicationHealthPolicyResponse {
+func (o ApplicationUpgradePolicyResponsePtrOutput) ApplicationHealthPolicy() ApplicationHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *ApplicationHealthPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationHealthPolicy
-	}).(ArmApplicationHealthPolicyResponsePtrOutput)
+	}).(ApplicationHealthPolicyResponsePtrOutput)
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
@@ -1224,7 +943,17 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) ForceRestart() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+func (o ApplicationUpgradePolicyResponsePtrOutput) InstanceCloseDelayDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCloseDelayDuration
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
 func (o ApplicationUpgradePolicyResponsePtrOutput) RecreateApplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *bool {
 		if v == nil {
@@ -1235,16 +964,16 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) RecreateApplication() pulumi.
 }
 
 // The policy used for monitoring the application upgrade
-func (o ApplicationUpgradePolicyResponsePtrOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *ArmRollingUpgradeMonitoringPolicyResponse {
+func (o ApplicationUpgradePolicyResponsePtrOutput) RollingUpgradeMonitoringPolicy() RollingUpgradeMonitoringPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *RollingUpgradeMonitoringPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.RollingUpgradeMonitoringPolicy
-	}).(ArmRollingUpgradeMonitoringPolicyResponsePtrOutput)
+	}).(RollingUpgradeMonitoringPolicyResponsePtrOutput)
 }
 
-// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
 func (o ApplicationUpgradePolicyResponsePtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *string {
 		if v == nil {
@@ -1255,13 +984,13 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) UpgradeMode() pulumi.StringPt
 }
 
 // The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-func (o ApplicationUpgradePolicyResponsePtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *string {
+func (o ApplicationUpgradePolicyResponsePtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.UpgradeReplicaSetCheckTimeout
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ApplicationUserAssignedIdentity struct {
@@ -1421,1170 +1150,68 @@ func (o ApplicationUserAssignedIdentityResponseArrayOutput) Index(i pulumi.IntIn
 	}).(ApplicationUserAssignedIdentityResponseOutput)
 }
 
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
-type ArmApplicationHealthPolicy struct {
-	// Indicates whether warnings are treated with the same severity as errors.
-	ConsiderWarningAsError *bool `pulumi:"considerWarningAsError"`
-	// The health policy used by default to evaluate the health of a service type.
-	DefaultServiceTypeHealthPolicy *ArmServiceTypeHealthPolicy `pulumi:"defaultServiceTypeHealthPolicy"`
-	// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-	// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-	// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-	MaxPercentUnhealthyDeployedApplications *int `pulumi:"maxPercentUnhealthyDeployedApplications"`
-	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap map[string]ArmServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicyMap"`
-}
-
-// Defaults sets the appropriate defaults for ArmApplicationHealthPolicy
-func (val *ArmApplicationHealthPolicy) Defaults() *ArmApplicationHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ConsiderWarningAsError) {
-		considerWarningAsError_ := false
-		tmp.ConsiderWarningAsError = &considerWarningAsError_
-	}
-	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
-
-	if isZero(tmp.MaxPercentUnhealthyDeployedApplications) {
-		maxPercentUnhealthyDeployedApplications_ := 0
-		tmp.MaxPercentUnhealthyDeployedApplications = &maxPercentUnhealthyDeployedApplications_
-	}
-	return &tmp
-}
-
-// ArmApplicationHealthPolicyInput is an input type that accepts ArmApplicationHealthPolicyArgs and ArmApplicationHealthPolicyOutput values.
-// You can construct a concrete instance of `ArmApplicationHealthPolicyInput` via:
-//
-//          ArmApplicationHealthPolicyArgs{...}
-type ArmApplicationHealthPolicyInput interface {
-	pulumi.Input
-
-	ToArmApplicationHealthPolicyOutput() ArmApplicationHealthPolicyOutput
-	ToArmApplicationHealthPolicyOutputWithContext(context.Context) ArmApplicationHealthPolicyOutput
-}
-
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
-type ArmApplicationHealthPolicyArgs struct {
-	// Indicates whether warnings are treated with the same severity as errors.
-	ConsiderWarningAsError pulumi.BoolPtrInput `pulumi:"considerWarningAsError"`
-	// The health policy used by default to evaluate the health of a service type.
-	DefaultServiceTypeHealthPolicy ArmServiceTypeHealthPolicyPtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
-	// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-	// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-	// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-	MaxPercentUnhealthyDeployedApplications pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyDeployedApplications"`
-	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap ArmServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicyMap"`
-}
-
-// Defaults sets the appropriate defaults for ArmApplicationHealthPolicyArgs
-func (val *ArmApplicationHealthPolicyArgs) Defaults() *ArmApplicationHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ConsiderWarningAsError) {
-		tmp.ConsiderWarningAsError = pulumi.BoolPtr(false)
-	}
-
-	if isZero(tmp.MaxPercentUnhealthyDeployedApplications) {
-		tmp.MaxPercentUnhealthyDeployedApplications = pulumi.IntPtr(0)
-	}
-	return &tmp
-}
-func (ArmApplicationHealthPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmApplicationHealthPolicy)(nil)).Elem()
-}
-
-func (i ArmApplicationHealthPolicyArgs) ToArmApplicationHealthPolicyOutput() ArmApplicationHealthPolicyOutput {
-	return i.ToArmApplicationHealthPolicyOutputWithContext(context.Background())
-}
-
-func (i ArmApplicationHealthPolicyArgs) ToArmApplicationHealthPolicyOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmApplicationHealthPolicyOutput)
-}
-
-func (i ArmApplicationHealthPolicyArgs) ToArmApplicationHealthPolicyPtrOutput() ArmApplicationHealthPolicyPtrOutput {
-	return i.ToArmApplicationHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ArmApplicationHealthPolicyArgs) ToArmApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmApplicationHealthPolicyOutput).ToArmApplicationHealthPolicyPtrOutputWithContext(ctx)
-}
-
-// ArmApplicationHealthPolicyPtrInput is an input type that accepts ArmApplicationHealthPolicyArgs, ArmApplicationHealthPolicyPtr and ArmApplicationHealthPolicyPtrOutput values.
-// You can construct a concrete instance of `ArmApplicationHealthPolicyPtrInput` via:
-//
-//          ArmApplicationHealthPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmApplicationHealthPolicyPtrInput interface {
-	pulumi.Input
-
-	ToArmApplicationHealthPolicyPtrOutput() ArmApplicationHealthPolicyPtrOutput
-	ToArmApplicationHealthPolicyPtrOutputWithContext(context.Context) ArmApplicationHealthPolicyPtrOutput
-}
-
-type armApplicationHealthPolicyPtrType ArmApplicationHealthPolicyArgs
-
-func ArmApplicationHealthPolicyPtr(v *ArmApplicationHealthPolicyArgs) ArmApplicationHealthPolicyPtrInput {
-	return (*armApplicationHealthPolicyPtrType)(v)
-}
-
-func (*armApplicationHealthPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmApplicationHealthPolicy)(nil)).Elem()
-}
-
-func (i *armApplicationHealthPolicyPtrType) ToArmApplicationHealthPolicyPtrOutput() ArmApplicationHealthPolicyPtrOutput {
-	return i.ToArmApplicationHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *armApplicationHealthPolicyPtrType) ToArmApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmApplicationHealthPolicyPtrOutput)
-}
-
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
-type ArmApplicationHealthPolicyOutput struct{ *pulumi.OutputState }
-
-func (ArmApplicationHealthPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmApplicationHealthPolicy)(nil)).Elem()
-}
-
-func (o ArmApplicationHealthPolicyOutput) ToArmApplicationHealthPolicyOutput() ArmApplicationHealthPolicyOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyOutput) ToArmApplicationHealthPolicyOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyOutput) ToArmApplicationHealthPolicyPtrOutput() ArmApplicationHealthPolicyPtrOutput {
-	return o.ToArmApplicationHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ArmApplicationHealthPolicyOutput) ToArmApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmApplicationHealthPolicy) *ArmApplicationHealthPolicy {
-		return &v
-	}).(ArmApplicationHealthPolicyPtrOutput)
-}
-
-// Indicates whether warnings are treated with the same severity as errors.
-func (o ArmApplicationHealthPolicyOutput) ConsiderWarningAsError() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicy) *bool { return v.ConsiderWarningAsError }).(pulumi.BoolPtrOutput)
-}
-
-// The health policy used by default to evaluate the health of a service type.
-func (o ArmApplicationHealthPolicyOutput) DefaultServiceTypeHealthPolicy() ArmServiceTypeHealthPolicyPtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicy) *ArmServiceTypeHealthPolicy {
-		return v.DefaultServiceTypeHealthPolicy
-	}).(ArmServiceTypeHealthPolicyPtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-func (o ArmApplicationHealthPolicyOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicy) *int { return v.MaxPercentUnhealthyDeployedApplications }).(pulumi.IntPtrOutput)
-}
-
-// The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicy) map[string]ArmServiceTypeHealthPolicy {
-		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyMapOutput)
-}
-
-type ArmApplicationHealthPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmApplicationHealthPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmApplicationHealthPolicy)(nil)).Elem()
-}
-
-func (o ArmApplicationHealthPolicyPtrOutput) ToArmApplicationHealthPolicyPtrOutput() ArmApplicationHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyPtrOutput) ToArmApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyPtrOutput) Elem() ArmApplicationHealthPolicyOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) ArmApplicationHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ArmApplicationHealthPolicy
-		return ret
-	}).(ArmApplicationHealthPolicyOutput)
-}
-
-// Indicates whether warnings are treated with the same severity as errors.
-func (o ArmApplicationHealthPolicyPtrOutput) ConsiderWarningAsError() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ConsiderWarningAsError
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The health policy used by default to evaluate the health of a service type.
-func (o ArmApplicationHealthPolicyPtrOutput) DefaultServiceTypeHealthPolicy() ArmServiceTypeHealthPolicyPtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) *ArmServiceTypeHealthPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultServiceTypeHealthPolicy
-	}).(ArmServiceTypeHealthPolicyPtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-func (o ArmApplicationHealthPolicyPtrOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyDeployedApplications
-	}).(pulumi.IntPtrOutput)
-}
-
-// The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyPtrOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) map[string]ArmServiceTypeHealthPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyMapOutput)
-}
-
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
-type ArmApplicationHealthPolicyResponse struct {
-	// Indicates whether warnings are treated with the same severity as errors.
-	ConsiderWarningAsError *bool `pulumi:"considerWarningAsError"`
-	// The health policy used by default to evaluate the health of a service type.
-	DefaultServiceTypeHealthPolicy *ArmServiceTypeHealthPolicyResponse `pulumi:"defaultServiceTypeHealthPolicy"`
-	// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-	// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-	// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-	MaxPercentUnhealthyDeployedApplications *int `pulumi:"maxPercentUnhealthyDeployedApplications"`
-	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap map[string]ArmServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicyMap"`
-}
-
-// Defaults sets the appropriate defaults for ArmApplicationHealthPolicyResponse
-func (val *ArmApplicationHealthPolicyResponse) Defaults() *ArmApplicationHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ConsiderWarningAsError) {
-		considerWarningAsError_ := false
-		tmp.ConsiderWarningAsError = &considerWarningAsError_
-	}
-	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
-
-	if isZero(tmp.MaxPercentUnhealthyDeployedApplications) {
-		maxPercentUnhealthyDeployedApplications_ := 0
-		tmp.MaxPercentUnhealthyDeployedApplications = &maxPercentUnhealthyDeployedApplications_
-	}
-	return &tmp
-}
-
-// Defines a health policy used to evaluate the health of an application or one of its children entities.
-type ArmApplicationHealthPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ArmApplicationHealthPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmApplicationHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmApplicationHealthPolicyResponseOutput) ToArmApplicationHealthPolicyResponseOutput() ArmApplicationHealthPolicyResponseOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyResponseOutput) ToArmApplicationHealthPolicyResponseOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyResponseOutput {
-	return o
-}
-
-// Indicates whether warnings are treated with the same severity as errors.
-func (o ArmApplicationHealthPolicyResponseOutput) ConsiderWarningAsError() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) *bool { return v.ConsiderWarningAsError }).(pulumi.BoolPtrOutput)
-}
-
-// The health policy used by default to evaluate the health of a service type.
-func (o ArmApplicationHealthPolicyResponseOutput) DefaultServiceTypeHealthPolicy() ArmServiceTypeHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) *ArmServiceTypeHealthPolicyResponse {
-		return v.DefaultServiceTypeHealthPolicy
-	}).(ArmServiceTypeHealthPolicyResponsePtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-func (o ArmApplicationHealthPolicyResponseOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) *int { return v.MaxPercentUnhealthyDeployedApplications }).(pulumi.IntPtrOutput)
-}
-
-// The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) map[string]ArmServiceTypeHealthPolicyResponse {
-		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyResponseMapOutput)
-}
-
-type ArmApplicationHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ArmApplicationHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmApplicationHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmApplicationHealthPolicyResponsePtrOutput) ToArmApplicationHealthPolicyResponsePtrOutput() ArmApplicationHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyResponsePtrOutput) ToArmApplicationHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ArmApplicationHealthPolicyResponsePtrOutput) Elem() ArmApplicationHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) ArmApplicationHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmApplicationHealthPolicyResponse
-		return ret
-	}).(ArmApplicationHealthPolicyResponseOutput)
-}
-
-// Indicates whether warnings are treated with the same severity as errors.
-func (o ArmApplicationHealthPolicyResponsePtrOutput) ConsiderWarningAsError() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ConsiderWarningAsError
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The health policy used by default to evaluate the health of a service type.
-func (o ArmApplicationHealthPolicyResponsePtrOutput) DefaultServiceTypeHealthPolicy() ArmServiceTypeHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) *ArmServiceTypeHealthPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultServiceTypeHealthPolicy
-	}).(ArmServiceTypeHealthPolicyResponsePtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-func (o ArmApplicationHealthPolicyResponsePtrOutput) MaxPercentUnhealthyDeployedApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyDeployedApplications
-	}).(pulumi.IntPtrOutput)
-}
-
-// The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyResponsePtrOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) map[string]ArmServiceTypeHealthPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyResponseMapOutput)
-}
-
-// The policy used for monitoring the application upgrade
-type ArmRollingUpgradeMonitoringPolicy struct {
-	// The activation Mode of the service package
-	FailureAction *string `pulumi:"failureAction"`
-	// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckRetryTimeout *string `pulumi:"healthCheckRetryTimeout"`
-	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckStableDuration *string `pulumi:"healthCheckStableDuration"`
-	// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckWaitDuration *string `pulumi:"healthCheckWaitDuration"`
-	// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	UpgradeDomainTimeout *string `pulumi:"upgradeDomainTimeout"`
-	// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	UpgradeTimeout *string `pulumi:"upgradeTimeout"`
-}
-
-// ArmRollingUpgradeMonitoringPolicyInput is an input type that accepts ArmRollingUpgradeMonitoringPolicyArgs and ArmRollingUpgradeMonitoringPolicyOutput values.
-// You can construct a concrete instance of `ArmRollingUpgradeMonitoringPolicyInput` via:
-//
-//          ArmRollingUpgradeMonitoringPolicyArgs{...}
-type ArmRollingUpgradeMonitoringPolicyInput interface {
-	pulumi.Input
-
-	ToArmRollingUpgradeMonitoringPolicyOutput() ArmRollingUpgradeMonitoringPolicyOutput
-	ToArmRollingUpgradeMonitoringPolicyOutputWithContext(context.Context) ArmRollingUpgradeMonitoringPolicyOutput
-}
-
-// The policy used for monitoring the application upgrade
-type ArmRollingUpgradeMonitoringPolicyArgs struct {
-	// The activation Mode of the service package
-	FailureAction pulumi.StringPtrInput `pulumi:"failureAction"`
-	// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckRetryTimeout pulumi.StringPtrInput `pulumi:"healthCheckRetryTimeout"`
-	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckStableDuration pulumi.StringPtrInput `pulumi:"healthCheckStableDuration"`
-	// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckWaitDuration pulumi.StringPtrInput `pulumi:"healthCheckWaitDuration"`
-	// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	UpgradeDomainTimeout pulumi.StringPtrInput `pulumi:"upgradeDomainTimeout"`
-	// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	UpgradeTimeout pulumi.StringPtrInput `pulumi:"upgradeTimeout"`
-}
-
-func (ArmRollingUpgradeMonitoringPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmRollingUpgradeMonitoringPolicy)(nil)).Elem()
-}
-
-func (i ArmRollingUpgradeMonitoringPolicyArgs) ToArmRollingUpgradeMonitoringPolicyOutput() ArmRollingUpgradeMonitoringPolicyOutput {
-	return i.ToArmRollingUpgradeMonitoringPolicyOutputWithContext(context.Background())
-}
-
-func (i ArmRollingUpgradeMonitoringPolicyArgs) ToArmRollingUpgradeMonitoringPolicyOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRollingUpgradeMonitoringPolicyOutput)
-}
-
-func (i ArmRollingUpgradeMonitoringPolicyArgs) ToArmRollingUpgradeMonitoringPolicyPtrOutput() ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return i.ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ArmRollingUpgradeMonitoringPolicyArgs) ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRollingUpgradeMonitoringPolicyOutput).ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx)
-}
-
-// ArmRollingUpgradeMonitoringPolicyPtrInput is an input type that accepts ArmRollingUpgradeMonitoringPolicyArgs, ArmRollingUpgradeMonitoringPolicyPtr and ArmRollingUpgradeMonitoringPolicyPtrOutput values.
-// You can construct a concrete instance of `ArmRollingUpgradeMonitoringPolicyPtrInput` via:
-//
-//          ArmRollingUpgradeMonitoringPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmRollingUpgradeMonitoringPolicyPtrInput interface {
-	pulumi.Input
-
-	ToArmRollingUpgradeMonitoringPolicyPtrOutput() ArmRollingUpgradeMonitoringPolicyPtrOutput
-	ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Context) ArmRollingUpgradeMonitoringPolicyPtrOutput
-}
-
-type armRollingUpgradeMonitoringPolicyPtrType ArmRollingUpgradeMonitoringPolicyArgs
-
-func ArmRollingUpgradeMonitoringPolicyPtr(v *ArmRollingUpgradeMonitoringPolicyArgs) ArmRollingUpgradeMonitoringPolicyPtrInput {
-	return (*armRollingUpgradeMonitoringPolicyPtrType)(v)
-}
-
-func (*armRollingUpgradeMonitoringPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmRollingUpgradeMonitoringPolicy)(nil)).Elem()
-}
-
-func (i *armRollingUpgradeMonitoringPolicyPtrType) ToArmRollingUpgradeMonitoringPolicyPtrOutput() ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return i.ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *armRollingUpgradeMonitoringPolicyPtrType) ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRollingUpgradeMonitoringPolicyPtrOutput)
-}
-
-// The policy used for monitoring the application upgrade
-type ArmRollingUpgradeMonitoringPolicyOutput struct{ *pulumi.OutputState }
-
-func (ArmRollingUpgradeMonitoringPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmRollingUpgradeMonitoringPolicy)(nil)).Elem()
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyOutput) ToArmRollingUpgradeMonitoringPolicyOutput() ArmRollingUpgradeMonitoringPolicyOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyOutput) ToArmRollingUpgradeMonitoringPolicyOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyOutput) ToArmRollingUpgradeMonitoringPolicyPtrOutput() ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o.ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyOutput) ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmRollingUpgradeMonitoringPolicy) *ArmRollingUpgradeMonitoringPolicy {
-		return &v
-	}).(ArmRollingUpgradeMonitoringPolicyPtrOutput)
-}
-
-// The activation Mode of the service package
-func (o ArmRollingUpgradeMonitoringPolicyOutput) FailureAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *string { return v.FailureAction }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *string { return v.HealthCheckRetryTimeout }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *string { return v.HealthCheckStableDuration }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *string { return v.HealthCheckWaitDuration }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *string { return v.UpgradeDomainTimeout }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyOutput) UpgradeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *string { return v.UpgradeTimeout }).(pulumi.StringPtrOutput)
-}
-
-type ArmRollingUpgradeMonitoringPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmRollingUpgradeMonitoringPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmRollingUpgradeMonitoringPolicy)(nil)).Elem()
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) ToArmRollingUpgradeMonitoringPolicyPtrOutput() ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) Elem() ArmRollingUpgradeMonitoringPolicyOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) ArmRollingUpgradeMonitoringPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ArmRollingUpgradeMonitoringPolicy
-		return ret
-	}).(ArmRollingUpgradeMonitoringPolicyOutput)
-}
-
-// The activation Mode of the service package
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) FailureAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FailureAction
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckRetryTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckStableDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckWaitDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeDomainTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The policy used for monitoring the application upgrade
-type ArmRollingUpgradeMonitoringPolicyResponse struct {
-	// The activation Mode of the service package
-	FailureAction *string `pulumi:"failureAction"`
-	// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckRetryTimeout *string `pulumi:"healthCheckRetryTimeout"`
-	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckStableDuration *string `pulumi:"healthCheckStableDuration"`
-	// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	HealthCheckWaitDuration *string `pulumi:"healthCheckWaitDuration"`
-	// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	UpgradeDomainTimeout *string `pulumi:"upgradeDomainTimeout"`
-	// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-	UpgradeTimeout *string `pulumi:"upgradeTimeout"`
-}
-
-// The policy used for monitoring the application upgrade
-type ArmRollingUpgradeMonitoringPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ArmRollingUpgradeMonitoringPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmRollingUpgradeMonitoringPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) ToArmRollingUpgradeMonitoringPolicyResponseOutput() ArmRollingUpgradeMonitoringPolicyResponseOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) ToArmRollingUpgradeMonitoringPolicyResponseOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyResponseOutput {
-	return o
-}
-
-// The activation Mode of the service package
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) FailureAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *string { return v.FailureAction }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *string { return v.HealthCheckRetryTimeout }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *string { return v.HealthCheckStableDuration }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *string { return v.HealthCheckWaitDuration }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *string { return v.UpgradeDomainTimeout }).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) UpgradeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *string { return v.UpgradeTimeout }).(pulumi.StringPtrOutput)
-}
-
-type ArmRollingUpgradeMonitoringPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmRollingUpgradeMonitoringPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) ToArmRollingUpgradeMonitoringPolicyResponsePtrOutput() ArmRollingUpgradeMonitoringPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) ToArmRollingUpgradeMonitoringPolicyResponsePtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) Elem() ArmRollingUpgradeMonitoringPolicyResponseOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) ArmRollingUpgradeMonitoringPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmRollingUpgradeMonitoringPolicyResponse
-		return ret
-	}).(ArmRollingUpgradeMonitoringPolicyResponseOutput)
-}
-
-// The activation Mode of the service package
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) FailureAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FailureAction
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckRetryTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckStableDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckWaitDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeDomainTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// Represents the health policy used to evaluate the health of services belonging to a service type.
-type ArmServiceTypeHealthPolicy struct {
-	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyPartitionsPerService *int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
-	// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyReplicasPerPartition *int `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
-	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ArmServiceTypeHealthPolicy
-func (val *ArmServiceTypeHealthPolicy) Defaults() *ArmServiceTypeHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyPartitionsPerService) {
-		maxPercentUnhealthyPartitionsPerService_ := 0
-		tmp.MaxPercentUnhealthyPartitionsPerService = &maxPercentUnhealthyPartitionsPerService_
-	}
-	if isZero(tmp.MaxPercentUnhealthyReplicasPerPartition) {
-		maxPercentUnhealthyReplicasPerPartition_ := 0
-		tmp.MaxPercentUnhealthyReplicasPerPartition = &maxPercentUnhealthyReplicasPerPartition_
-	}
-	if isZero(tmp.MaxPercentUnhealthyServices) {
-		maxPercentUnhealthyServices_ := 0
-		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
-	}
-	return &tmp
-}
-
-// ArmServiceTypeHealthPolicyInput is an input type that accepts ArmServiceTypeHealthPolicyArgs and ArmServiceTypeHealthPolicyOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyInput` via:
-//
-//          ArmServiceTypeHealthPolicyArgs{...}
-type ArmServiceTypeHealthPolicyInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyOutput() ArmServiceTypeHealthPolicyOutput
-	ToArmServiceTypeHealthPolicyOutputWithContext(context.Context) ArmServiceTypeHealthPolicyOutput
-}
-
-// Represents the health policy used to evaluate the health of services belonging to a service type.
-type ArmServiceTypeHealthPolicyArgs struct {
-	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyPartitionsPerService pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyPartitionsPerService"`
-	// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyReplicasPerPartition pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
-	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ArmServiceTypeHealthPolicyArgs
-func (val *ArmServiceTypeHealthPolicyArgs) Defaults() *ArmServiceTypeHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyPartitionsPerService) {
-		tmp.MaxPercentUnhealthyPartitionsPerService = pulumi.IntPtr(0)
-	}
-	if isZero(tmp.MaxPercentUnhealthyReplicasPerPartition) {
-		tmp.MaxPercentUnhealthyReplicasPerPartition = pulumi.IntPtr(0)
-	}
-	if isZero(tmp.MaxPercentUnhealthyServices) {
-		tmp.MaxPercentUnhealthyServices = pulumi.IntPtr(0)
-	}
-	return &tmp
-}
-func (ArmServiceTypeHealthPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicy)(nil)).Elem()
-}
-
-func (i ArmServiceTypeHealthPolicyArgs) ToArmServiceTypeHealthPolicyOutput() ArmServiceTypeHealthPolicyOutput {
-	return i.ToArmServiceTypeHealthPolicyOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyArgs) ToArmServiceTypeHealthPolicyOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyOutput)
-}
-
-func (i ArmServiceTypeHealthPolicyArgs) ToArmServiceTypeHealthPolicyPtrOutput() ArmServiceTypeHealthPolicyPtrOutput {
-	return i.ToArmServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyArgs) ToArmServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyOutput).ToArmServiceTypeHealthPolicyPtrOutputWithContext(ctx)
-}
-
-// ArmServiceTypeHealthPolicyPtrInput is an input type that accepts ArmServiceTypeHealthPolicyArgs, ArmServiceTypeHealthPolicyPtr and ArmServiceTypeHealthPolicyPtrOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyPtrInput` via:
-//
-//          ArmServiceTypeHealthPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmServiceTypeHealthPolicyPtrInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyPtrOutput() ArmServiceTypeHealthPolicyPtrOutput
-	ToArmServiceTypeHealthPolicyPtrOutputWithContext(context.Context) ArmServiceTypeHealthPolicyPtrOutput
-}
-
-type armServiceTypeHealthPolicyPtrType ArmServiceTypeHealthPolicyArgs
-
-func ArmServiceTypeHealthPolicyPtr(v *ArmServiceTypeHealthPolicyArgs) ArmServiceTypeHealthPolicyPtrInput {
-	return (*armServiceTypeHealthPolicyPtrType)(v)
-}
-
-func (*armServiceTypeHealthPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicy)(nil)).Elem()
-}
-
-func (i *armServiceTypeHealthPolicyPtrType) ToArmServiceTypeHealthPolicyPtrOutput() ArmServiceTypeHealthPolicyPtrOutput {
-	return i.ToArmServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *armServiceTypeHealthPolicyPtrType) ToArmServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyPtrOutput)
-}
-
-// ArmServiceTypeHealthPolicyMapInput is an input type that accepts ArmServiceTypeHealthPolicyMap and ArmServiceTypeHealthPolicyMapOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapInput` via:
-//
-//          ArmServiceTypeHealthPolicyMap{ "key": ArmServiceTypeHealthPolicyArgs{...} }
-type ArmServiceTypeHealthPolicyMapInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput
-	ToArmServiceTypeHealthPolicyMapOutputWithContext(context.Context) ArmServiceTypeHealthPolicyMapOutput
-}
-
-type ArmServiceTypeHealthPolicyMap map[string]ArmServiceTypeHealthPolicyInput
-
-func (ArmServiceTypeHealthPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicy)(nil)).Elem()
-}
-
-func (i ArmServiceTypeHealthPolicyMap) ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput {
-	return i.ToArmServiceTypeHealthPolicyMapOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyMap) ToArmServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapOutput)
-}
-
-// Represents the health policy used to evaluate the health of services belonging to a service type.
-type ArmServiceTypeHealthPolicyOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicy)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyOutput) ToArmServiceTypeHealthPolicyOutput() ArmServiceTypeHealthPolicyOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyOutput) ToArmServiceTypeHealthPolicyOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyOutput) ToArmServiceTypeHealthPolicyPtrOutput() ArmServiceTypeHealthPolicyPtrOutput {
-	return o.ToArmServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ArmServiceTypeHealthPolicyOutput) ToArmServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmServiceTypeHealthPolicy) *ArmServiceTypeHealthPolicy {
-		return &v
-	}).(ArmServiceTypeHealthPolicyPtrOutput)
-}
-
-// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicy) *int { return v.MaxPercentUnhealthyPartitionsPerService }).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicy) *int { return v.MaxPercentUnhealthyReplicasPerPartition }).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicy) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
-}
-
-type ArmServiceTypeHealthPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicy)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyPtrOutput) ToArmServiceTypeHealthPolicyPtrOutput() ArmServiceTypeHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyPtrOutput) ToArmServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyPtrOutput) Elem() ArmServiceTypeHealthPolicyOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicy) ArmServiceTypeHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ArmServiceTypeHealthPolicy
-		return ret
-	}).(ArmServiceTypeHealthPolicyOutput)
-}
-
-// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyPartitionsPerService
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyReplicasPerPartition
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyServices
-	}).(pulumi.IntPtrOutput)
-}
-
-type ArmServiceTypeHealthPolicyMapOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicy)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyMapOutput) ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapOutput) ToArmServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ArmServiceTypeHealthPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmServiceTypeHealthPolicy {
-		return vs[0].(map[string]ArmServiceTypeHealthPolicy)[vs[1].(string)]
-	}).(ArmServiceTypeHealthPolicyOutput)
-}
-
-// Represents the health policy used to evaluate the health of services belonging to a service type.
-type ArmServiceTypeHealthPolicyResponse struct {
-	// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyPartitionsPerService *int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
-	// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyReplicasPerPartition *int `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
-	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ArmServiceTypeHealthPolicyResponse
-func (val *ArmServiceTypeHealthPolicyResponse) Defaults() *ArmServiceTypeHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyPartitionsPerService) {
-		maxPercentUnhealthyPartitionsPerService_ := 0
-		tmp.MaxPercentUnhealthyPartitionsPerService = &maxPercentUnhealthyPartitionsPerService_
-	}
-	if isZero(tmp.MaxPercentUnhealthyReplicasPerPartition) {
-		maxPercentUnhealthyReplicasPerPartition_ := 0
-		tmp.MaxPercentUnhealthyReplicasPerPartition = &maxPercentUnhealthyReplicasPerPartition_
-	}
-	if isZero(tmp.MaxPercentUnhealthyServices) {
-		maxPercentUnhealthyServices_ := 0
-		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
-	}
-	return &tmp
-}
-
-// Represents the health policy used to evaluate the health of services belonging to a service type.
-type ArmServiceTypeHealthPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyResponseOutput) ToArmServiceTypeHealthPolicyResponseOutput() ArmServiceTypeHealthPolicyResponseOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyResponseOutput) ToArmServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponseOutput {
-	return o
-}
-
-// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicyResponse) *int { return v.MaxPercentUnhealthyPartitionsPerService }).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicyResponse) *int { return v.MaxPercentUnhealthyReplicasPerPartition }).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicyResponse) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
-}
-
-type ArmServiceTypeHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyResponsePtrOutput) ToArmServiceTypeHealthPolicyResponsePtrOutput() ArmServiceTypeHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyResponsePtrOutput) ToArmServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyResponsePtrOutput) Elem() ArmServiceTypeHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyResponse) ArmServiceTypeHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmServiceTypeHealthPolicyResponse
-		return ret
-	}).(ArmServiceTypeHealthPolicyResponseOutput)
-}
-
-// The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyPartitionsPerService
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyReplicasPerPartition
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-func (o ArmServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyServices
-	}).(pulumi.IntPtrOutput)
-}
-
-type ArmServiceTypeHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyResponseMapOutput) ToArmServiceTypeHealthPolicyResponseMapOutput() ArmServiceTypeHealthPolicyResponseMapOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyResponseMapOutput) ToArmServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponseMapOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ArmServiceTypeHealthPolicyResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmServiceTypeHealthPolicyResponse {
-		return vs[0].(map[string]ArmServiceTypeHealthPolicyResponse)[vs[1].(string)]
-	}).(ArmServiceTypeHealthPolicyResponseOutput)
+// Represents a scaling trigger related to an average load of a metric/resource of a partition.
+type AveragePartitionLoadScalingTrigger struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'AveragePartitionLoadTrigger'.
+	Kind string `pulumi:"kind"`
+	// The lower limit of the load below which a scale in operation should be performed.
+	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
+	// The name of the metric for which usage should be tracked.
+	MetricName string `pulumi:"metricName"`
+	// The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
+	ScaleInterval string `pulumi:"scaleInterval"`
+	// The upper limit of the load beyond which a scale out operation should be performed.
+	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+}
+
+// Represents a scaling trigger related to an average load of a metric/resource of a partition.
+type AveragePartitionLoadScalingTriggerResponse struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'AveragePartitionLoadTrigger'.
+	Kind string `pulumi:"kind"`
+	// The lower limit of the load below which a scale in operation should be performed.
+	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
+	// The name of the metric for which usage should be tracked.
+	MetricName string `pulumi:"metricName"`
+	// The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
+	ScaleInterval string `pulumi:"scaleInterval"`
+	// The upper limit of the load beyond which a scale out operation should be performed.
+	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+}
+
+// Represents a scaling policy related to an average load of a metric/resource of a service.
+type AverageServiceLoadScalingTrigger struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'AverageServiceLoadTrigger'.
+	Kind string `pulumi:"kind"`
+	// The lower limit of the load below which a scale in operation should be performed.
+	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
+	// The name of the metric for which usage should be tracked.
+	MetricName string `pulumi:"metricName"`
+	// The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
+	ScaleInterval string `pulumi:"scaleInterval"`
+	// The upper limit of the load beyond which a scale out operation should be performed.
+	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+	// Flag determines whether only the load of primary replica should be considered for scaling. If set to true, then trigger will only consider the load of primary replicas of stateful service. If set to false, trigger will consider load of all replicas. This parameter cannot be set to true for stateless service.
+	UseOnlyPrimaryLoad bool `pulumi:"useOnlyPrimaryLoad"`
+}
+
+// Represents a scaling policy related to an average load of a metric/resource of a service.
+type AverageServiceLoadScalingTriggerResponse struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'AverageServiceLoadTrigger'.
+	Kind string `pulumi:"kind"`
+	// The lower limit of the load below which a scale in operation should be performed.
+	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
+	// The name of the metric for which usage should be tracked.
+	MetricName string `pulumi:"metricName"`
+	// The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
+	ScaleInterval string `pulumi:"scaleInterval"`
+	// The upper limit of the load beyond which a scale out operation should be performed.
+	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+	// Flag determines whether only the load of primary replica should be considered for scaling. If set to true, then trigger will only consider the load of primary replicas of stateful service. If set to false, trigger will consider load of all replicas. This parameter cannot be set to true for stateless service.
+	UseOnlyPrimaryLoad bool `pulumi:"useOnlyPrimaryLoad"`
 }
 
 // The settings to enable AAD authentication on the cluster.
@@ -2859,287 +1486,15 @@ func (o AzureActiveDirectoryResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the certificate details.
-type CertificateDescription struct {
-	// Thumbprint of the primary certificate.
-	Thumbprint string `pulumi:"thumbprint"`
-	// Thumbprint of the secondary certificate.
-	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
-	// The local certificate store location.
-	X509StoreName *string `pulumi:"x509StoreName"`
-}
-
-// CertificateDescriptionInput is an input type that accepts CertificateDescriptionArgs and CertificateDescriptionOutput values.
-// You can construct a concrete instance of `CertificateDescriptionInput` via:
-//
-//          CertificateDescriptionArgs{...}
-type CertificateDescriptionInput interface {
-	pulumi.Input
-
-	ToCertificateDescriptionOutput() CertificateDescriptionOutput
-	ToCertificateDescriptionOutputWithContext(context.Context) CertificateDescriptionOutput
-}
-
-// Describes the certificate details.
-type CertificateDescriptionArgs struct {
-	// Thumbprint of the primary certificate.
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-	// Thumbprint of the secondary certificate.
-	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
-	// The local certificate store location.
-	X509StoreName pulumi.StringPtrInput `pulumi:"x509StoreName"`
-}
-
-func (CertificateDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDescription)(nil)).Elem()
-}
-
-func (i CertificateDescriptionArgs) ToCertificateDescriptionOutput() CertificateDescriptionOutput {
-	return i.ToCertificateDescriptionOutputWithContext(context.Background())
-}
-
-func (i CertificateDescriptionArgs) ToCertificateDescriptionOutputWithContext(ctx context.Context) CertificateDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionOutput)
-}
-
-func (i CertificateDescriptionArgs) ToCertificateDescriptionPtrOutput() CertificateDescriptionPtrOutput {
-	return i.ToCertificateDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (i CertificateDescriptionArgs) ToCertificateDescriptionPtrOutputWithContext(ctx context.Context) CertificateDescriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionOutput).ToCertificateDescriptionPtrOutputWithContext(ctx)
-}
-
-// CertificateDescriptionPtrInput is an input type that accepts CertificateDescriptionArgs, CertificateDescriptionPtr and CertificateDescriptionPtrOutput values.
-// You can construct a concrete instance of `CertificateDescriptionPtrInput` via:
-//
-//          CertificateDescriptionArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificateDescriptionPtrInput interface {
-	pulumi.Input
-
-	ToCertificateDescriptionPtrOutput() CertificateDescriptionPtrOutput
-	ToCertificateDescriptionPtrOutputWithContext(context.Context) CertificateDescriptionPtrOutput
-}
-
-type certificateDescriptionPtrType CertificateDescriptionArgs
-
-func CertificateDescriptionPtr(v *CertificateDescriptionArgs) CertificateDescriptionPtrInput {
-	return (*certificateDescriptionPtrType)(v)
-}
-
-func (*certificateDescriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDescription)(nil)).Elem()
-}
-
-func (i *certificateDescriptionPtrType) ToCertificateDescriptionPtrOutput() CertificateDescriptionPtrOutput {
-	return i.ToCertificateDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *certificateDescriptionPtrType) ToCertificateDescriptionPtrOutputWithContext(ctx context.Context) CertificateDescriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionPtrOutput)
-}
-
-// Describes the certificate details.
-type CertificateDescriptionOutput struct{ *pulumi.OutputState }
-
-func (CertificateDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDescription)(nil)).Elem()
-}
-
-func (o CertificateDescriptionOutput) ToCertificateDescriptionOutput() CertificateDescriptionOutput {
-	return o
-}
-
-func (o CertificateDescriptionOutput) ToCertificateDescriptionOutputWithContext(ctx context.Context) CertificateDescriptionOutput {
-	return o
-}
-
-func (o CertificateDescriptionOutput) ToCertificateDescriptionPtrOutput() CertificateDescriptionPtrOutput {
-	return o.ToCertificateDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (o CertificateDescriptionOutput) ToCertificateDescriptionPtrOutputWithContext(ctx context.Context) CertificateDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDescription) *CertificateDescription {
-		return &v
-	}).(CertificateDescriptionPtrOutput)
-}
-
-// Thumbprint of the primary certificate.
-func (o CertificateDescriptionOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateDescription) string { return v.Thumbprint }).(pulumi.StringOutput)
-}
-
-// Thumbprint of the secondary certificate.
-func (o CertificateDescriptionOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDescription) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
-}
-
-// The local certificate store location.
-func (o CertificateDescriptionOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDescription) *string { return v.X509StoreName }).(pulumi.StringPtrOutput)
-}
-
-type CertificateDescriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateDescriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDescription)(nil)).Elem()
-}
-
-func (o CertificateDescriptionPtrOutput) ToCertificateDescriptionPtrOutput() CertificateDescriptionPtrOutput {
-	return o
-}
-
-func (o CertificateDescriptionPtrOutput) ToCertificateDescriptionPtrOutputWithContext(ctx context.Context) CertificateDescriptionPtrOutput {
-	return o
-}
-
-func (o CertificateDescriptionPtrOutput) Elem() CertificateDescriptionOutput {
-	return o.ApplyT(func(v *CertificateDescription) CertificateDescription {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDescription
-		return ret
-	}).(CertificateDescriptionOutput)
-}
-
-// Thumbprint of the primary certificate.
-func (o CertificateDescriptionPtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDescription) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Thumbprint of the secondary certificate.
-func (o CertificateDescriptionPtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDescription) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ThumbprintSecondary
-	}).(pulumi.StringPtrOutput)
-}
-
-// The local certificate store location.
-func (o CertificateDescriptionPtrOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDescription) *string {
-		if v == nil {
-			return nil
-		}
-		return v.X509StoreName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the certificate details.
-type CertificateDescriptionResponse struct {
-	// Thumbprint of the primary certificate.
-	Thumbprint string `pulumi:"thumbprint"`
-	// Thumbprint of the secondary certificate.
-	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
-	// The local certificate store location.
-	X509StoreName *string `pulumi:"x509StoreName"`
-}
-
-// Describes the certificate details.
-type CertificateDescriptionResponseOutput struct{ *pulumi.OutputState }
-
-func (CertificateDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDescriptionResponse)(nil)).Elem()
-}
-
-func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponseOutput() CertificateDescriptionResponseOutput {
-	return o
-}
-
-func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponseOutputWithContext(ctx context.Context) CertificateDescriptionResponseOutput {
-	return o
-}
-
-// Thumbprint of the primary certificate.
-func (o CertificateDescriptionResponseOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateDescriptionResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
-}
-
-// Thumbprint of the secondary certificate.
-func (o CertificateDescriptionResponseOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDescriptionResponse) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
-}
-
-// The local certificate store location.
-func (o CertificateDescriptionResponseOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDescriptionResponse) *string { return v.X509StoreName }).(pulumi.StringPtrOutput)
-}
-
-type CertificateDescriptionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateDescriptionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDescriptionResponse)(nil)).Elem()
-}
-
-func (o CertificateDescriptionResponsePtrOutput) ToCertificateDescriptionResponsePtrOutput() CertificateDescriptionResponsePtrOutput {
-	return o
-}
-
-func (o CertificateDescriptionResponsePtrOutput) ToCertificateDescriptionResponsePtrOutputWithContext(ctx context.Context) CertificateDescriptionResponsePtrOutput {
-	return o
-}
-
-func (o CertificateDescriptionResponsePtrOutput) Elem() CertificateDescriptionResponseOutput {
-	return o.ApplyT(func(v *CertificateDescriptionResponse) CertificateDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDescriptionResponse
-		return ret
-	}).(CertificateDescriptionResponseOutput)
-}
-
-// Thumbprint of the primary certificate.
-func (o CertificateDescriptionResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDescriptionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Thumbprint of the secondary certificate.
-func (o CertificateDescriptionResponsePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDescriptionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ThumbprintSecondary
-	}).(pulumi.StringPtrOutput)
-}
-
-// The local certificate store location.
-func (o CertificateDescriptionResponsePtrOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDescriptionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.X509StoreName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Client Certificate definition.
+// Client certificate definition.
 type ClientCertificate struct {
-	// Certificate Common name.
+	// Certificate common name.
 	CommonName *string `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
+	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
 	IsAdmin bool `pulumi:"isAdmin"`
 	// Issuer thumbprint for the certificate. Only used together with CommonName.
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
+	// Certificate thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
@@ -3154,15 +1509,15 @@ type ClientCertificateInput interface {
 	ToClientCertificateOutputWithContext(context.Context) ClientCertificateOutput
 }
 
-// Client Certificate definition.
+// Client certificate definition.
 type ClientCertificateArgs struct {
-	// Certificate Common name.
+	// Certificate common name.
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
+	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
 	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
 	// Issuer thumbprint for the certificate. Only used together with CommonName.
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
+	// Certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
@@ -3203,7 +1558,7 @@ func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateArrayOutput)
 }
 
-// Client Certificate definition.
+// Client certificate definition.
 type ClientCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateOutput) ElementType() reflect.Type {
@@ -3218,12 +1573,12 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// Certificate Common name.
+// Certificate common name.
 func (o ClientCertificateOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the certificate is admin or not.
+// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
 func (o ClientCertificateOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientCertificate) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
@@ -3233,7 +1588,7 @@ func (o ClientCertificateOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Certificate Thumbprint.
+// Certificate thumbprint.
 func (o ClientCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -3258,197 +1613,19 @@ func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificate
 	}).(ClientCertificateOutput)
 }
 
-// Describes the client certificate details using common name.
-type ClientCertificateCommonName struct {
-	// The common name of the client certificate.
-	CertificateCommonName string `pulumi:"certificateCommonName"`
-	// The issuer thumbprint of the client certificate.
-	CertificateIssuerThumbprint string `pulumi:"certificateIssuerThumbprint"`
-	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-	IsAdmin bool `pulumi:"isAdmin"`
-}
-
-// ClientCertificateCommonNameInput is an input type that accepts ClientCertificateCommonNameArgs and ClientCertificateCommonNameOutput values.
-// You can construct a concrete instance of `ClientCertificateCommonNameInput` via:
-//
-//          ClientCertificateCommonNameArgs{...}
-type ClientCertificateCommonNameInput interface {
-	pulumi.Input
-
-	ToClientCertificateCommonNameOutput() ClientCertificateCommonNameOutput
-	ToClientCertificateCommonNameOutputWithContext(context.Context) ClientCertificateCommonNameOutput
-}
-
-// Describes the client certificate details using common name.
-type ClientCertificateCommonNameArgs struct {
-	// The common name of the client certificate.
-	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
-	// The issuer thumbprint of the client certificate.
-	CertificateIssuerThumbprint pulumi.StringInput `pulumi:"certificateIssuerThumbprint"`
-	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
-}
-
-func (ClientCertificateCommonNameArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateCommonName)(nil)).Elem()
-}
-
-func (i ClientCertificateCommonNameArgs) ToClientCertificateCommonNameOutput() ClientCertificateCommonNameOutput {
-	return i.ToClientCertificateCommonNameOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateCommonNameArgs) ToClientCertificateCommonNameOutputWithContext(ctx context.Context) ClientCertificateCommonNameOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameOutput)
-}
-
-// ClientCertificateCommonNameArrayInput is an input type that accepts ClientCertificateCommonNameArray and ClientCertificateCommonNameArrayOutput values.
-// You can construct a concrete instance of `ClientCertificateCommonNameArrayInput` via:
-//
-//          ClientCertificateCommonNameArray{ ClientCertificateCommonNameArgs{...} }
-type ClientCertificateCommonNameArrayInput interface {
-	pulumi.Input
-
-	ToClientCertificateCommonNameArrayOutput() ClientCertificateCommonNameArrayOutput
-	ToClientCertificateCommonNameArrayOutputWithContext(context.Context) ClientCertificateCommonNameArrayOutput
-}
-
-type ClientCertificateCommonNameArray []ClientCertificateCommonNameInput
-
-func (ClientCertificateCommonNameArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateCommonName)(nil)).Elem()
-}
-
-func (i ClientCertificateCommonNameArray) ToClientCertificateCommonNameArrayOutput() ClientCertificateCommonNameArrayOutput {
-	return i.ToClientCertificateCommonNameArrayOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateCommonNameArray) ToClientCertificateCommonNameArrayOutputWithContext(ctx context.Context) ClientCertificateCommonNameArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameArrayOutput)
-}
-
-// Describes the client certificate details using common name.
-type ClientCertificateCommonNameOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateCommonNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateCommonName)(nil)).Elem()
-}
-
-func (o ClientCertificateCommonNameOutput) ToClientCertificateCommonNameOutput() ClientCertificateCommonNameOutput {
-	return o
-}
-
-func (o ClientCertificateCommonNameOutput) ToClientCertificateCommonNameOutputWithContext(ctx context.Context) ClientCertificateCommonNameOutput {
-	return o
-}
-
-// The common name of the client certificate.
-func (o ClientCertificateCommonNameOutput) CertificateCommonName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientCertificateCommonName) string { return v.CertificateCommonName }).(pulumi.StringOutput)
-}
-
-// The issuer thumbprint of the client certificate.
-func (o ClientCertificateCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientCertificateCommonName) string { return v.CertificateIssuerThumbprint }).(pulumi.StringOutput)
-}
-
-// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-func (o ClientCertificateCommonNameOutput) IsAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func(v ClientCertificateCommonName) bool { return v.IsAdmin }).(pulumi.BoolOutput)
-}
-
-type ClientCertificateCommonNameArrayOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateCommonNameArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateCommonName)(nil)).Elem()
-}
-
-func (o ClientCertificateCommonNameArrayOutput) ToClientCertificateCommonNameArrayOutput() ClientCertificateCommonNameArrayOutput {
-	return o
-}
-
-func (o ClientCertificateCommonNameArrayOutput) ToClientCertificateCommonNameArrayOutputWithContext(ctx context.Context) ClientCertificateCommonNameArrayOutput {
-	return o
-}
-
-func (o ClientCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ClientCertificateCommonNameOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateCommonName {
-		return vs[0].([]ClientCertificateCommonName)[vs[1].(int)]
-	}).(ClientCertificateCommonNameOutput)
-}
-
-// Describes the client certificate details using common name.
-type ClientCertificateCommonNameResponse struct {
-	// The common name of the client certificate.
-	CertificateCommonName string `pulumi:"certificateCommonName"`
-	// The issuer thumbprint of the client certificate.
-	CertificateIssuerThumbprint string `pulumi:"certificateIssuerThumbprint"`
-	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-	IsAdmin bool `pulumi:"isAdmin"`
-}
-
-// Describes the client certificate details using common name.
-type ClientCertificateCommonNameResponseOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateCommonNameResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (o ClientCertificateCommonNameResponseOutput) ToClientCertificateCommonNameResponseOutput() ClientCertificateCommonNameResponseOutput {
-	return o
-}
-
-func (o ClientCertificateCommonNameResponseOutput) ToClientCertificateCommonNameResponseOutputWithContext(ctx context.Context) ClientCertificateCommonNameResponseOutput {
-	return o
-}
-
-// The common name of the client certificate.
-func (o ClientCertificateCommonNameResponseOutput) CertificateCommonName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientCertificateCommonNameResponse) string { return v.CertificateCommonName }).(pulumi.StringOutput)
-}
-
-// The issuer thumbprint of the client certificate.
-func (o ClientCertificateCommonNameResponseOutput) CertificateIssuerThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientCertificateCommonNameResponse) string { return v.CertificateIssuerThumbprint }).(pulumi.StringOutput)
-}
-
-// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-func (o ClientCertificateCommonNameResponseOutput) IsAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func(v ClientCertificateCommonNameResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
-}
-
-type ClientCertificateCommonNameResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateCommonNameResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (o ClientCertificateCommonNameResponseArrayOutput) ToClientCertificateCommonNameResponseArrayOutput() ClientCertificateCommonNameResponseArrayOutput {
-	return o
-}
-
-func (o ClientCertificateCommonNameResponseArrayOutput) ToClientCertificateCommonNameResponseArrayOutputWithContext(ctx context.Context) ClientCertificateCommonNameResponseArrayOutput {
-	return o
-}
-
-func (o ClientCertificateCommonNameResponseArrayOutput) Index(i pulumi.IntInput) ClientCertificateCommonNameResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateCommonNameResponse {
-		return vs[0].([]ClientCertificateCommonNameResponse)[vs[1].(int)]
-	}).(ClientCertificateCommonNameResponseOutput)
-}
-
-// Client Certificate definition.
+// Client certificate definition.
 type ClientCertificateResponse struct {
-	// Certificate Common name.
+	// Certificate common name.
 	CommonName *string `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
+	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
 	IsAdmin bool `pulumi:"isAdmin"`
 	// Issuer thumbprint for the certificate. Only used together with CommonName.
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
+	// Certificate thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
-// Client Certificate definition.
+// Client certificate definition.
 type ClientCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateResponseOutput) ElementType() reflect.Type {
@@ -3463,12 +1640,12 @@ func (o ClientCertificateResponseOutput) ToClientCertificateResponseOutputWithCo
 	return o
 }
 
-// Certificate Common name.
+// Certificate common name.
 func (o ClientCertificateResponseOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the certificate is admin or not.
+// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
 func (o ClientCertificateResponseOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
@@ -3478,7 +1655,7 @@ func (o ClientCertificateResponseOutput) IssuerThumbprint() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Certificate Thumbprint.
+// Certificate thumbprint.
 func (o ClientCertificateResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -3501,1891 +1678,6 @@ func (o ClientCertificateResponseArrayOutput) Index(i pulumi.IntInput) ClientCer
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateResponse {
 		return vs[0].([]ClientCertificateResponse)[vs[1].(int)]
 	}).(ClientCertificateResponseOutput)
-}
-
-// Describes the client certificate details using thumbprint.
-type ClientCertificateThumbprint struct {
-	// The thumbprint of the client certificate.
-	CertificateThumbprint string `pulumi:"certificateThumbprint"`
-	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-	IsAdmin bool `pulumi:"isAdmin"`
-}
-
-// ClientCertificateThumbprintInput is an input type that accepts ClientCertificateThumbprintArgs and ClientCertificateThumbprintOutput values.
-// You can construct a concrete instance of `ClientCertificateThumbprintInput` via:
-//
-//          ClientCertificateThumbprintArgs{...}
-type ClientCertificateThumbprintInput interface {
-	pulumi.Input
-
-	ToClientCertificateThumbprintOutput() ClientCertificateThumbprintOutput
-	ToClientCertificateThumbprintOutputWithContext(context.Context) ClientCertificateThumbprintOutput
-}
-
-// Describes the client certificate details using thumbprint.
-type ClientCertificateThumbprintArgs struct {
-	// The thumbprint of the client certificate.
-	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
-	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
-}
-
-func (ClientCertificateThumbprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateThumbprint)(nil)).Elem()
-}
-
-func (i ClientCertificateThumbprintArgs) ToClientCertificateThumbprintOutput() ClientCertificateThumbprintOutput {
-	return i.ToClientCertificateThumbprintOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateThumbprintArgs) ToClientCertificateThumbprintOutputWithContext(ctx context.Context) ClientCertificateThumbprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintOutput)
-}
-
-// ClientCertificateThumbprintArrayInput is an input type that accepts ClientCertificateThumbprintArray and ClientCertificateThumbprintArrayOutput values.
-// You can construct a concrete instance of `ClientCertificateThumbprintArrayInput` via:
-//
-//          ClientCertificateThumbprintArray{ ClientCertificateThumbprintArgs{...} }
-type ClientCertificateThumbprintArrayInput interface {
-	pulumi.Input
-
-	ToClientCertificateThumbprintArrayOutput() ClientCertificateThumbprintArrayOutput
-	ToClientCertificateThumbprintArrayOutputWithContext(context.Context) ClientCertificateThumbprintArrayOutput
-}
-
-type ClientCertificateThumbprintArray []ClientCertificateThumbprintInput
-
-func (ClientCertificateThumbprintArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateThumbprint)(nil)).Elem()
-}
-
-func (i ClientCertificateThumbprintArray) ToClientCertificateThumbprintArrayOutput() ClientCertificateThumbprintArrayOutput {
-	return i.ToClientCertificateThumbprintArrayOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateThumbprintArray) ToClientCertificateThumbprintArrayOutputWithContext(ctx context.Context) ClientCertificateThumbprintArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintArrayOutput)
-}
-
-// Describes the client certificate details using thumbprint.
-type ClientCertificateThumbprintOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateThumbprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateThumbprint)(nil)).Elem()
-}
-
-func (o ClientCertificateThumbprintOutput) ToClientCertificateThumbprintOutput() ClientCertificateThumbprintOutput {
-	return o
-}
-
-func (o ClientCertificateThumbprintOutput) ToClientCertificateThumbprintOutputWithContext(ctx context.Context) ClientCertificateThumbprintOutput {
-	return o
-}
-
-// The thumbprint of the client certificate.
-func (o ClientCertificateThumbprintOutput) CertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientCertificateThumbprint) string { return v.CertificateThumbprint }).(pulumi.StringOutput)
-}
-
-// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-func (o ClientCertificateThumbprintOutput) IsAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func(v ClientCertificateThumbprint) bool { return v.IsAdmin }).(pulumi.BoolOutput)
-}
-
-type ClientCertificateThumbprintArrayOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateThumbprintArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateThumbprint)(nil)).Elem()
-}
-
-func (o ClientCertificateThumbprintArrayOutput) ToClientCertificateThumbprintArrayOutput() ClientCertificateThumbprintArrayOutput {
-	return o
-}
-
-func (o ClientCertificateThumbprintArrayOutput) ToClientCertificateThumbprintArrayOutputWithContext(ctx context.Context) ClientCertificateThumbprintArrayOutput {
-	return o
-}
-
-func (o ClientCertificateThumbprintArrayOutput) Index(i pulumi.IntInput) ClientCertificateThumbprintOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateThumbprint {
-		return vs[0].([]ClientCertificateThumbprint)[vs[1].(int)]
-	}).(ClientCertificateThumbprintOutput)
-}
-
-// Describes the client certificate details using thumbprint.
-type ClientCertificateThumbprintResponse struct {
-	// The thumbprint of the client certificate.
-	CertificateThumbprint string `pulumi:"certificateThumbprint"`
-	// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-	IsAdmin bool `pulumi:"isAdmin"`
-}
-
-// Describes the client certificate details using thumbprint.
-type ClientCertificateThumbprintResponseOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateThumbprintResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateThumbprintResponse)(nil)).Elem()
-}
-
-func (o ClientCertificateThumbprintResponseOutput) ToClientCertificateThumbprintResponseOutput() ClientCertificateThumbprintResponseOutput {
-	return o
-}
-
-func (o ClientCertificateThumbprintResponseOutput) ToClientCertificateThumbprintResponseOutputWithContext(ctx context.Context) ClientCertificateThumbprintResponseOutput {
-	return o
-}
-
-// The thumbprint of the client certificate.
-func (o ClientCertificateThumbprintResponseOutput) CertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientCertificateThumbprintResponse) string { return v.CertificateThumbprint }).(pulumi.StringOutput)
-}
-
-// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-func (o ClientCertificateThumbprintResponseOutput) IsAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func(v ClientCertificateThumbprintResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
-}
-
-type ClientCertificateThumbprintResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ClientCertificateThumbprintResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateThumbprintResponse)(nil)).Elem()
-}
-
-func (o ClientCertificateThumbprintResponseArrayOutput) ToClientCertificateThumbprintResponseArrayOutput() ClientCertificateThumbprintResponseArrayOutput {
-	return o
-}
-
-func (o ClientCertificateThumbprintResponseArrayOutput) ToClientCertificateThumbprintResponseArrayOutputWithContext(ctx context.Context) ClientCertificateThumbprintResponseArrayOutput {
-	return o
-}
-
-func (o ClientCertificateThumbprintResponseArrayOutput) Index(i pulumi.IntInput) ClientCertificateThumbprintResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateThumbprintResponse {
-		return vs[0].([]ClientCertificateThumbprintResponse)[vs[1].(int)]
-	}).(ClientCertificateThumbprintResponseOutput)
-}
-
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-type ClusterHealthPolicy struct {
-	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies map[string]ApplicationHealthPolicy `pulumi:"applicationHealthPolicies"`
-	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-	//
-	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-	// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-	// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-	// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-	MaxPercentUnhealthyApplications *int `pulumi:"maxPercentUnhealthyApplications"`
-	// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-	//
-	// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-	// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-	// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-	//
-	// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-	MaxPercentUnhealthyNodes *int `pulumi:"maxPercentUnhealthyNodes"`
-}
-
-// Defaults sets the appropriate defaults for ClusterHealthPolicy
-func (val *ClusterHealthPolicy) Defaults() *ClusterHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyApplications) {
-		maxPercentUnhealthyApplications_ := 0
-		tmp.MaxPercentUnhealthyApplications = &maxPercentUnhealthyApplications_
-	}
-	if isZero(tmp.MaxPercentUnhealthyNodes) {
-		maxPercentUnhealthyNodes_ := 0
-		tmp.MaxPercentUnhealthyNodes = &maxPercentUnhealthyNodes_
-	}
-	return &tmp
-}
-
-// ClusterHealthPolicyInput is an input type that accepts ClusterHealthPolicyArgs and ClusterHealthPolicyOutput values.
-// You can construct a concrete instance of `ClusterHealthPolicyInput` via:
-//
-//          ClusterHealthPolicyArgs{...}
-type ClusterHealthPolicyInput interface {
-	pulumi.Input
-
-	ToClusterHealthPolicyOutput() ClusterHealthPolicyOutput
-	ToClusterHealthPolicyOutputWithContext(context.Context) ClusterHealthPolicyOutput
-}
-
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-type ClusterHealthPolicyArgs struct {
-	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies ApplicationHealthPolicyMapInput `pulumi:"applicationHealthPolicies"`
-	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-	//
-	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-	// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-	// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-	// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-	MaxPercentUnhealthyApplications pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyApplications"`
-	// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-	//
-	// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-	// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-	// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-	//
-	// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-	MaxPercentUnhealthyNodes pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyNodes"`
-}
-
-// Defaults sets the appropriate defaults for ClusterHealthPolicyArgs
-func (val *ClusterHealthPolicyArgs) Defaults() *ClusterHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyApplications) {
-		tmp.MaxPercentUnhealthyApplications = pulumi.IntPtr(0)
-	}
-	if isZero(tmp.MaxPercentUnhealthyNodes) {
-		tmp.MaxPercentUnhealthyNodes = pulumi.IntPtr(0)
-	}
-	return &tmp
-}
-func (ClusterHealthPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterHealthPolicy)(nil)).Elem()
-}
-
-func (i ClusterHealthPolicyArgs) ToClusterHealthPolicyOutput() ClusterHealthPolicyOutput {
-	return i.ToClusterHealthPolicyOutputWithContext(context.Background())
-}
-
-func (i ClusterHealthPolicyArgs) ToClusterHealthPolicyOutputWithContext(ctx context.Context) ClusterHealthPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyOutput)
-}
-
-func (i ClusterHealthPolicyArgs) ToClusterHealthPolicyPtrOutput() ClusterHealthPolicyPtrOutput {
-	return i.ToClusterHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterHealthPolicyArgs) ToClusterHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyOutput).ToClusterHealthPolicyPtrOutputWithContext(ctx)
-}
-
-// ClusterHealthPolicyPtrInput is an input type that accepts ClusterHealthPolicyArgs, ClusterHealthPolicyPtr and ClusterHealthPolicyPtrOutput values.
-// You can construct a concrete instance of `ClusterHealthPolicyPtrInput` via:
-//
-//          ClusterHealthPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterHealthPolicyPtrInput interface {
-	pulumi.Input
-
-	ToClusterHealthPolicyPtrOutput() ClusterHealthPolicyPtrOutput
-	ToClusterHealthPolicyPtrOutputWithContext(context.Context) ClusterHealthPolicyPtrOutput
-}
-
-type clusterHealthPolicyPtrType ClusterHealthPolicyArgs
-
-func ClusterHealthPolicyPtr(v *ClusterHealthPolicyArgs) ClusterHealthPolicyPtrInput {
-	return (*clusterHealthPolicyPtrType)(v)
-}
-
-func (*clusterHealthPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterHealthPolicy)(nil)).Elem()
-}
-
-func (i *clusterHealthPolicyPtrType) ToClusterHealthPolicyPtrOutput() ClusterHealthPolicyPtrOutput {
-	return i.ToClusterHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterHealthPolicyPtrType) ToClusterHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyPtrOutput)
-}
-
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-type ClusterHealthPolicyOutput struct{ *pulumi.OutputState }
-
-func (ClusterHealthPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterHealthPolicy)(nil)).Elem()
-}
-
-func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyOutput() ClusterHealthPolicyOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyOutputWithContext(ctx context.Context) ClusterHealthPolicyOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyPtrOutput() ClusterHealthPolicyPtrOutput {
-	return o.ToClusterHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterHealthPolicy) *ClusterHealthPolicy {
-		return &v
-	}).(ClusterHealthPolicyPtrOutput)
-}
-
-// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapOutput {
-	return o.ApplyT(func(v ClusterHealthPolicy) map[string]ApplicationHealthPolicy { return v.ApplicationHealthPolicies }).(ApplicationHealthPolicyMapOutput)
-}
-
-// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-func (o ClusterHealthPolicyOutput) MaxPercentUnhealthyApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicy) *int { return v.MaxPercentUnhealthyApplications }).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-//
-// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-func (o ClusterHealthPolicyOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicy) *int { return v.MaxPercentUnhealthyNodes }).(pulumi.IntPtrOutput)
-}
-
-type ClusterHealthPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterHealthPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterHealthPolicy)(nil)).Elem()
-}
-
-func (o ClusterHealthPolicyPtrOutput) ToClusterHealthPolicyPtrOutput() ClusterHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyPtrOutput) ToClusterHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyPtrOutput) Elem() ClusterHealthPolicyOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) ClusterHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterHealthPolicy
-		return ret
-	}).(ClusterHealthPolicyOutput)
-}
-
-// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyPtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) map[string]ApplicationHealthPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapOutput)
-}
-
-// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-func (o ClusterHealthPolicyPtrOutput) MaxPercentUnhealthyApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyApplications
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-//
-// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-func (o ClusterHealthPolicyPtrOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-type ClusterHealthPolicyResponse struct {
-	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies map[string]ApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicies"`
-	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-	//
-	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-	// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-	// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-	// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-	MaxPercentUnhealthyApplications *int `pulumi:"maxPercentUnhealthyApplications"`
-	// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-	//
-	// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-	// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-	// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-	//
-	// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-	MaxPercentUnhealthyNodes *int `pulumi:"maxPercentUnhealthyNodes"`
-}
-
-// Defaults sets the appropriate defaults for ClusterHealthPolicyResponse
-func (val *ClusterHealthPolicyResponse) Defaults() *ClusterHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyApplications) {
-		maxPercentUnhealthyApplications_ := 0
-		tmp.MaxPercentUnhealthyApplications = &maxPercentUnhealthyApplications_
-	}
-	if isZero(tmp.MaxPercentUnhealthyNodes) {
-		maxPercentUnhealthyNodes_ := 0
-		tmp.MaxPercentUnhealthyNodes = &maxPercentUnhealthyNodes_
-	}
-	return &tmp
-}
-
-// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-type ClusterHealthPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ClusterHealthPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponseOutput() ClusterHealthPolicyResponseOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponseOutputWithContext(ctx context.Context) ClusterHealthPolicyResponseOutput {
-	return o
-}
-
-// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyResponseOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v ClusterHealthPolicyResponse) map[string]ApplicationHealthPolicyResponse {
-		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyResponseMapOutput)
-}
-
-// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-func (o ClusterHealthPolicyResponseOutput) MaxPercentUnhealthyApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicyResponse) *int { return v.MaxPercentUnhealthyApplications }).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-//
-// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-func (o ClusterHealthPolicyResponseOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicyResponse) *int { return v.MaxPercentUnhealthyNodes }).(pulumi.IntPtrOutput)
-}
-
-type ClusterHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ClusterHealthPolicyResponsePtrOutput) ToClusterHealthPolicyResponsePtrOutput() ClusterHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyResponsePtrOutput) ToClusterHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ClusterHealthPolicyResponsePtrOutput) Elem() ClusterHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) ClusterHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterHealthPolicyResponse
-		return ret
-	}).(ClusterHealthPolicyResponseOutput)
-}
-
-// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyResponsePtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) map[string]ApplicationHealthPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyResponseMapOutput)
-}
-
-// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-// This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-// The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-func (o ClusterHealthPolicyResponsePtrOutput) MaxPercentUnhealthyApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyApplications
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-//
-// The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-// If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-// The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-//
-// In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-func (o ClusterHealthPolicyResponsePtrOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentUnhealthyNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Describes the delta health policies for the cluster upgrade.
-type ClusterUpgradeDeltaHealthPolicy struct {
-	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicy `pulumi:"applicationDeltaHealthPolicies"`
-	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-	MaxPercentDeltaUnhealthyApplications int `pulumi:"maxPercentDeltaUnhealthyApplications"`
-	// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-	MaxPercentDeltaUnhealthyNodes int `pulumi:"maxPercentDeltaUnhealthyNodes"`
-	// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-	MaxPercentUpgradeDomainDeltaUnhealthyNodes int `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
-}
-
-// ClusterUpgradeDeltaHealthPolicyInput is an input type that accepts ClusterUpgradeDeltaHealthPolicyArgs and ClusterUpgradeDeltaHealthPolicyOutput values.
-// You can construct a concrete instance of `ClusterUpgradeDeltaHealthPolicyInput` via:
-//
-//          ClusterUpgradeDeltaHealthPolicyArgs{...}
-type ClusterUpgradeDeltaHealthPolicyInput interface {
-	pulumi.Input
-
-	ToClusterUpgradeDeltaHealthPolicyOutput() ClusterUpgradeDeltaHealthPolicyOutput
-	ToClusterUpgradeDeltaHealthPolicyOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyOutput
-}
-
-// Describes the delta health policies for the cluster upgrade.
-type ClusterUpgradeDeltaHealthPolicyArgs struct {
-	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapInput `pulumi:"applicationDeltaHealthPolicies"`
-	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-	MaxPercentDeltaUnhealthyApplications pulumi.IntInput `pulumi:"maxPercentDeltaUnhealthyApplications"`
-	// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-	MaxPercentDeltaUnhealthyNodes pulumi.IntInput `pulumi:"maxPercentDeltaUnhealthyNodes"`
-	// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-	MaxPercentUpgradeDomainDeltaUnhealthyNodes pulumi.IntInput `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
-}
-
-func (ClusterUpgradeDeltaHealthPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyArgs) ToClusterUpgradeDeltaHealthPolicyOutput() ClusterUpgradeDeltaHealthPolicyOutput {
-	return i.ToClusterUpgradeDeltaHealthPolicyOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyArgs) ToClusterUpgradeDeltaHealthPolicyOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyOutput)
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyArgs) ToClusterUpgradeDeltaHealthPolicyPtrOutput() ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return i.ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyArgs) ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyOutput).ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(ctx)
-}
-
-// ClusterUpgradeDeltaHealthPolicyPtrInput is an input type that accepts ClusterUpgradeDeltaHealthPolicyArgs, ClusterUpgradeDeltaHealthPolicyPtr and ClusterUpgradeDeltaHealthPolicyPtrOutput values.
-// You can construct a concrete instance of `ClusterUpgradeDeltaHealthPolicyPtrInput` via:
-//
-//          ClusterUpgradeDeltaHealthPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterUpgradeDeltaHealthPolicyPtrInput interface {
-	pulumi.Input
-
-	ToClusterUpgradeDeltaHealthPolicyPtrOutput() ClusterUpgradeDeltaHealthPolicyPtrOutput
-	ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyPtrOutput
-}
-
-type clusterUpgradeDeltaHealthPolicyPtrType ClusterUpgradeDeltaHealthPolicyArgs
-
-func ClusterUpgradeDeltaHealthPolicyPtr(v *ClusterUpgradeDeltaHealthPolicyArgs) ClusterUpgradeDeltaHealthPolicyPtrInput {
-	return (*clusterUpgradeDeltaHealthPolicyPtrType)(v)
-}
-
-func (*clusterUpgradeDeltaHealthPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i *clusterUpgradeDeltaHealthPolicyPtrType) ToClusterUpgradeDeltaHealthPolicyPtrOutput() ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return i.ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterUpgradeDeltaHealthPolicyPtrType) ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyPtrOutput)
-}
-
-// Describes the delta health policies for the cluster upgrade.
-type ClusterUpgradeDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradeDeltaHealthPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicyOutput() ClusterUpgradeDeltaHealthPolicyOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicyOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicyPtrOutput() ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o.ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeDeltaHealthPolicy) *ClusterUpgradeDeltaHealthPolicy {
-		return &v
-	}).(ClusterUpgradeDeltaHealthPolicyPtrOutput)
-}
-
-// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) map[string]ApplicationDeltaHealthPolicy {
-		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapOutput)
-}
-
-// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-func (o ClusterUpgradeDeltaHealthPolicyOutput) MaxPercentDeltaUnhealthyApplications() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) int { return v.MaxPercentDeltaUnhealthyApplications }).(pulumi.IntOutput)
-}
-
-// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyOutput) MaxPercentDeltaUnhealthyNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) int { return v.MaxPercentDeltaUnhealthyNodes }).(pulumi.IntOutput)
-}
-
-// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) int { return v.MaxPercentUpgradeDomainDeltaUnhealthyNodes }).(pulumi.IntOutput)
-}
-
-type ClusterUpgradeDeltaHealthPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradeDeltaHealthPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ToClusterUpgradeDeltaHealthPolicyPtrOutput() ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradeDeltaHealthPolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) ClusterUpgradeDeltaHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradeDeltaHealthPolicy
-		return ret
-	}).(ClusterUpgradeDeltaHealthPolicyOutput)
-}
-
-// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) map[string]ApplicationDeltaHealthPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapOutput)
-}
-
-// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentDeltaUnhealthyApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxPercentDeltaUnhealthyApplications
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentDeltaUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxPercentDeltaUnhealthyNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxPercentUpgradeDomainDeltaUnhealthyNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Describes the delta health policies for the cluster upgrade.
-type ClusterUpgradeDeltaHealthPolicyResponse struct {
-	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicyResponse `pulumi:"applicationDeltaHealthPolicies"`
-	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-	MaxPercentDeltaUnhealthyApplications int `pulumi:"maxPercentDeltaUnhealthyApplications"`
-	// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-	MaxPercentDeltaUnhealthyNodes int `pulumi:"maxPercentDeltaUnhealthyNodes"`
-	// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-	MaxPercentUpgradeDomainDeltaUnhealthyNodes int `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
-}
-
-// Describes the delta health policies for the cluster upgrade.
-type ClusterUpgradeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHealthPolicyResponseOutput() ClusterUpgradeDeltaHealthPolicyResponseOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponseOutput {
-	return o
-}
-
-// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) map[string]ApplicationDeltaHealthPolicyResponse {
-		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyResponseMapOutput)
-}
-
-// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) MaxPercentDeltaUnhealthyApplications() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) int { return v.MaxPercentDeltaUnhealthyApplications }).(pulumi.IntOutput)
-}
-
-// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) MaxPercentDeltaUnhealthyNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) int { return v.MaxPercentDeltaUnhealthyNodes }).(pulumi.IntOutput)
-}
-
-// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) int {
-		return v.MaxPercentUpgradeDomainDeltaUnhealthyNodes
-	}).(pulumi.IntOutput)
-}
-
-type ClusterUpgradeDeltaHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) Elem() ClusterUpgradeDeltaHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) ClusterUpgradeDeltaHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradeDeltaHealthPolicyResponse
-		return ret
-	}).(ClusterUpgradeDeltaHealthPolicyResponseOutput)
-}
-
-// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) map[string]ApplicationDeltaHealthPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyResponseMapOutput)
-}
-
-// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) MaxPercentDeltaUnhealthyApplications() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxPercentDeltaUnhealthyApplications
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) MaxPercentDeltaUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxPercentDeltaUnhealthyNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxPercentUpgradeDomainDeltaUnhealthyNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Describes the policy used when upgrading the cluster.
-type ClusterUpgradePolicy struct {
-	// The cluster delta health policy used when upgrading the cluster.
-	DeltaHealthPolicy *ClusterUpgradeDeltaHealthPolicy `pulumi:"deltaHealthPolicy"`
-	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart *bool `pulumi:"forceRestart"`
-	// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckRetryTimeout string `pulumi:"healthCheckRetryTimeout"`
-	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckStableDuration string `pulumi:"healthCheckStableDuration"`
-	// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckWaitDuration string `pulumi:"healthCheckWaitDuration"`
-	// The cluster health policy used when upgrading the cluster.
-	HealthPolicy ClusterHealthPolicy `pulumi:"healthPolicy"`
-	// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeDomainTimeout string `pulumi:"upgradeDomainTimeout"`
-	// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeReplicaSetCheckTimeout string `pulumi:"upgradeReplicaSetCheckTimeout"`
-	// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeTimeout string `pulumi:"upgradeTimeout"`
-}
-
-// Defaults sets the appropriate defaults for ClusterUpgradePolicy
-func (val *ClusterUpgradePolicy) Defaults() *ClusterUpgradePolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.HealthPolicy = *tmp.HealthPolicy.Defaults()
-
-	return &tmp
-}
-
-// ClusterUpgradePolicyInput is an input type that accepts ClusterUpgradePolicyArgs and ClusterUpgradePolicyOutput values.
-// You can construct a concrete instance of `ClusterUpgradePolicyInput` via:
-//
-//          ClusterUpgradePolicyArgs{...}
-type ClusterUpgradePolicyInput interface {
-	pulumi.Input
-
-	ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput
-	ToClusterUpgradePolicyOutputWithContext(context.Context) ClusterUpgradePolicyOutput
-}
-
-// Describes the policy used when upgrading the cluster.
-type ClusterUpgradePolicyArgs struct {
-	// The cluster delta health policy used when upgrading the cluster.
-	DeltaHealthPolicy ClusterUpgradeDeltaHealthPolicyPtrInput `pulumi:"deltaHealthPolicy"`
-	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
-	// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckRetryTimeout pulumi.StringInput `pulumi:"healthCheckRetryTimeout"`
-	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckStableDuration pulumi.StringInput `pulumi:"healthCheckStableDuration"`
-	// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckWaitDuration pulumi.StringInput `pulumi:"healthCheckWaitDuration"`
-	// The cluster health policy used when upgrading the cluster.
-	HealthPolicy ClusterHealthPolicyInput `pulumi:"healthPolicy"`
-	// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeDomainTimeout pulumi.StringInput `pulumi:"upgradeDomainTimeout"`
-	// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeReplicaSetCheckTimeout pulumi.StringInput `pulumi:"upgradeReplicaSetCheckTimeout"`
-	// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeTimeout pulumi.StringInput `pulumi:"upgradeTimeout"`
-}
-
-// Defaults sets the appropriate defaults for ClusterUpgradePolicyArgs
-func (val *ClusterUpgradePolicyArgs) Defaults() *ClusterUpgradePolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
-func (ClusterUpgradePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
-}
-
-func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput {
-	return i.ToClusterUpgradePolicyOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput)
-}
-
-func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
-	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput).ToClusterUpgradePolicyPtrOutputWithContext(ctx)
-}
-
-// ClusterUpgradePolicyPtrInput is an input type that accepts ClusterUpgradePolicyArgs, ClusterUpgradePolicyPtr and ClusterUpgradePolicyPtrOutput values.
-// You can construct a concrete instance of `ClusterUpgradePolicyPtrInput` via:
-//
-//          ClusterUpgradePolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterUpgradePolicyPtrInput interface {
-	pulumi.Input
-
-	ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput
-	ToClusterUpgradePolicyPtrOutputWithContext(context.Context) ClusterUpgradePolicyPtrOutput
-}
-
-type clusterUpgradePolicyPtrType ClusterUpgradePolicyArgs
-
-func ClusterUpgradePolicyPtr(v *ClusterUpgradePolicyArgs) ClusterUpgradePolicyPtrInput {
-	return (*clusterUpgradePolicyPtrType)(v)
-}
-
-func (*clusterUpgradePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradePolicy)(nil)).Elem()
-}
-
-func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
-	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyPtrOutput)
-}
-
-// Describes the policy used when upgrading the cluster.
-type ClusterUpgradePolicyOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
-}
-
-func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
-	return o.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicy) *ClusterUpgradePolicy {
-		return &v
-	}).(ClusterUpgradePolicyPtrOutput)
-}
-
-// The cluster delta health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyOutput) DeltaHealthPolicy() ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradeDeltaHealthPolicy { return v.DeltaHealthPolicy }).(ClusterUpgradeDeltaHealthPolicyPtrOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ClusterUpgradePolicyOutput) ForceRestart() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyOutput) HealthCheckRetryTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) string { return v.HealthCheckRetryTimeout }).(pulumi.StringOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyOutput) HealthCheckStableDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) string { return v.HealthCheckStableDuration }).(pulumi.StringOutput)
-}
-
-// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyOutput) HealthCheckWaitDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) string { return v.HealthCheckWaitDuration }).(pulumi.StringOutput)
-}
-
-// The cluster health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyOutput) HealthPolicy() ClusterHealthPolicyOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) ClusterHealthPolicy { return v.HealthPolicy }).(ClusterHealthPolicyOutput)
-}
-
-// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyOutput) UpgradeDomainTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) string { return v.UpgradeDomainTimeout }).(pulumi.StringOutput)
-}
-
-// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) string { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.StringOutput)
-}
-
-// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyOutput) UpgradeTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) string { return v.UpgradeTimeout }).(pulumi.StringOutput)
-}
-
-type ClusterUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradePolicy)(nil)).Elem()
-}
-
-func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyPtrOutput) Elem() ClusterUpgradePolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradePolicy
-		return ret
-	}).(ClusterUpgradePolicyOutput)
-}
-
-// The cluster delta health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyPtrOutput) DeltaHealthPolicy() ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *ClusterUpgradeDeltaHealthPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.DeltaHealthPolicy
-	}).(ClusterUpgradeDeltaHealthPolicyPtrOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ClusterUpgradePolicyPtrOutput) ForceRestart() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ForceRestart
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyPtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthCheckRetryTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyPtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthCheckStableDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyPtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthCheckWaitDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The cluster health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyPtrOutput) HealthPolicy() ClusterHealthPolicyPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *ClusterHealthPolicy {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthPolicy
-	}).(ClusterHealthPolicyPtrOutput)
-}
-
-// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyPtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpgradeDomainTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyPtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpgradeReplicaSetCheckTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpgradeTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the policy used when upgrading the cluster.
-type ClusterUpgradePolicyResponse struct {
-	// The cluster delta health policy used when upgrading the cluster.
-	DeltaHealthPolicy *ClusterUpgradeDeltaHealthPolicyResponse `pulumi:"deltaHealthPolicy"`
-	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart *bool `pulumi:"forceRestart"`
-	// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckRetryTimeout string `pulumi:"healthCheckRetryTimeout"`
-	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckStableDuration string `pulumi:"healthCheckStableDuration"`
-	// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	HealthCheckWaitDuration string `pulumi:"healthCheckWaitDuration"`
-	// The cluster health policy used when upgrading the cluster.
-	HealthPolicy ClusterHealthPolicyResponse `pulumi:"healthPolicy"`
-	// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeDomainTimeout string `pulumi:"upgradeDomainTimeout"`
-	// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeReplicaSetCheckTimeout string `pulumi:"upgradeReplicaSetCheckTimeout"`
-	// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-	UpgradeTimeout string `pulumi:"upgradeTimeout"`
-}
-
-// Defaults sets the appropriate defaults for ClusterUpgradePolicyResponse
-func (val *ClusterUpgradePolicyResponse) Defaults() *ClusterUpgradePolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.HealthPolicy = *tmp.HealthPolicy.Defaults()
-
-	return &tmp
-}
-
-// Describes the policy used when upgrading the cluster.
-type ClusterUpgradePolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradePolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradePolicyResponse)(nil)).Elem()
-}
-
-func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponseOutput() ClusterUpgradePolicyResponseOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponseOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponseOutput {
-	return o
-}
-
-// The cluster delta health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyResponseOutput) DeltaHealthPolicy() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) *ClusterUpgradeDeltaHealthPolicyResponse {
-		return v.DeltaHealthPolicy
-	}).(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ClusterUpgradePolicyResponseOutput) ForceRestart() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponseOutput) HealthCheckRetryTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) string { return v.HealthCheckRetryTimeout }).(pulumi.StringOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponseOutput) HealthCheckStableDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) string { return v.HealthCheckStableDuration }).(pulumi.StringOutput)
-}
-
-// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponseOutput) HealthCheckWaitDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) string { return v.HealthCheckWaitDuration }).(pulumi.StringOutput)
-}
-
-// The cluster health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyResponseOutput) HealthPolicy() ClusterHealthPolicyResponseOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) ClusterHealthPolicyResponse { return v.HealthPolicy }).(ClusterHealthPolicyResponseOutput)
-}
-
-// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponseOutput) UpgradeDomainTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) string { return v.UpgradeDomainTimeout }).(pulumi.StringOutput)
-}
-
-// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponseOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) string { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.StringOutput)
-}
-
-// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponseOutput) UpgradeTimeout() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyResponse) string { return v.UpgradeTimeout }).(pulumi.StringOutput)
-}
-
-type ClusterUpgradePolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterUpgradePolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradePolicyResponse)(nil)).Elem()
-}
-
-func (o ClusterUpgradePolicyResponsePtrOutput) ToClusterUpgradePolicyResponsePtrOutput() ClusterUpgradePolicyResponsePtrOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyResponsePtrOutput) ToClusterUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponsePtrOutput {
-	return o
-}
-
-func (o ClusterUpgradePolicyResponsePtrOutput) Elem() ClusterUpgradePolicyResponseOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) ClusterUpgradePolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradePolicyResponse
-		return ret
-	}).(ClusterUpgradePolicyResponseOutput)
-}
-
-// The cluster delta health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyResponsePtrOutput) DeltaHealthPolicy() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *ClusterUpgradeDeltaHealthPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DeltaHealthPolicy
-	}).(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ClusterUpgradePolicyResponsePtrOutput) ForceRestart() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ForceRestart
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponsePtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthCheckRetryTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponsePtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthCheckStableDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponsePtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthCheckWaitDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The cluster health policy used when upgrading the cluster.
-func (o ClusterUpgradePolicyResponsePtrOutput) HealthPolicy() ClusterHealthPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *ClusterHealthPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthPolicy
-	}).(ClusterHealthPolicyResponsePtrOutput)
-}
-
-// The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpgradeDomainTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpgradeReplicaSetCheckTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpgradeTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetailsResponse struct {
-	// The Service Fabric runtime version of the cluster.
-	CodeVersion *string `pulumi:"codeVersion"`
-	// Indicates if this version is for Windows or Linux operating system.
-	Environment *string `pulumi:"environment"`
-	// The date of expiry of support of the version.
-	SupportExpiryUtc *string `pulumi:"supportExpiryUtc"`
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (ClusterVersionDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetailsResponse)(nil)).Elem()
-}
-
-func (o ClusterVersionDetailsResponseOutput) ToClusterVersionDetailsResponseOutput() ClusterVersionDetailsResponseOutput {
-	return o
-}
-
-func (o ClusterVersionDetailsResponseOutput) ToClusterVersionDetailsResponseOutputWithContext(ctx context.Context) ClusterVersionDetailsResponseOutput {
-	return o
-}
-
-// The Service Fabric runtime version of the cluster.
-func (o ClusterVersionDetailsResponseOutput) CodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetailsResponse) *string { return v.CodeVersion }).(pulumi.StringPtrOutput)
-}
-
-// Indicates if this version is for Windows or Linux operating system.
-func (o ClusterVersionDetailsResponseOutput) Environment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetailsResponse) *string { return v.Environment }).(pulumi.StringPtrOutput)
-}
-
-// The date of expiry of support of the version.
-func (o ClusterVersionDetailsResponseOutput) SupportExpiryUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetailsResponse) *string { return v.SupportExpiryUtc }).(pulumi.StringPtrOutput)
-}
-
-type ClusterVersionDetailsResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterVersionDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterVersionDetailsResponse)(nil)).Elem()
-}
-
-func (o ClusterVersionDetailsResponseArrayOutput) ToClusterVersionDetailsResponseArrayOutput() ClusterVersionDetailsResponseArrayOutput {
-	return o
-}
-
-func (o ClusterVersionDetailsResponseArrayOutput) ToClusterVersionDetailsResponseArrayOutputWithContext(ctx context.Context) ClusterVersionDetailsResponseArrayOutput {
-	return o
-}
-
-func (o ClusterVersionDetailsResponseArrayOutput) Index(i pulumi.IntInput) ClusterVersionDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterVersionDetailsResponse {
-		return vs[0].([]ClusterVersionDetailsResponse)[vs[1].(int)]
-	}).(ClusterVersionDetailsResponseOutput)
-}
-
-// The storage account information for storing Service Fabric diagnostic logs.
-type DiagnosticsStorageAccountConfig struct {
-	// The blob endpoint of the azure storage account.
-	BlobEndpoint string `pulumi:"blobEndpoint"`
-	// The protected diagnostics storage key name.
-	ProtectedAccountKeyName string `pulumi:"protectedAccountKeyName"`
-	// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-	ProtectedAccountKeyName2 *string `pulumi:"protectedAccountKeyName2"`
-	// The queue endpoint of the azure storage account.
-	QueueEndpoint string `pulumi:"queueEndpoint"`
-	// The Azure storage account name.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// The table endpoint of the azure storage account.
-	TableEndpoint string `pulumi:"tableEndpoint"`
-}
-
-// DiagnosticsStorageAccountConfigInput is an input type that accepts DiagnosticsStorageAccountConfigArgs and DiagnosticsStorageAccountConfigOutput values.
-// You can construct a concrete instance of `DiagnosticsStorageAccountConfigInput` via:
-//
-//          DiagnosticsStorageAccountConfigArgs{...}
-type DiagnosticsStorageAccountConfigInput interface {
-	pulumi.Input
-
-	ToDiagnosticsStorageAccountConfigOutput() DiagnosticsStorageAccountConfigOutput
-	ToDiagnosticsStorageAccountConfigOutputWithContext(context.Context) DiagnosticsStorageAccountConfigOutput
-}
-
-// The storage account information for storing Service Fabric diagnostic logs.
-type DiagnosticsStorageAccountConfigArgs struct {
-	// The blob endpoint of the azure storage account.
-	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
-	// The protected diagnostics storage key name.
-	ProtectedAccountKeyName pulumi.StringInput `pulumi:"protectedAccountKeyName"`
-	// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-	ProtectedAccountKeyName2 pulumi.StringPtrInput `pulumi:"protectedAccountKeyName2"`
-	// The queue endpoint of the azure storage account.
-	QueueEndpoint pulumi.StringInput `pulumi:"queueEndpoint"`
-	// The Azure storage account name.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
-	// The table endpoint of the azure storage account.
-	TableEndpoint pulumi.StringInput `pulumi:"tableEndpoint"`
-}
-
-func (DiagnosticsStorageAccountConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsStorageAccountConfig)(nil)).Elem()
-}
-
-func (i DiagnosticsStorageAccountConfigArgs) ToDiagnosticsStorageAccountConfigOutput() DiagnosticsStorageAccountConfigOutput {
-	return i.ToDiagnosticsStorageAccountConfigOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsStorageAccountConfigArgs) ToDiagnosticsStorageAccountConfigOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigOutput)
-}
-
-func (i DiagnosticsStorageAccountConfigArgs) ToDiagnosticsStorageAccountConfigPtrOutput() DiagnosticsStorageAccountConfigPtrOutput {
-	return i.ToDiagnosticsStorageAccountConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsStorageAccountConfigArgs) ToDiagnosticsStorageAccountConfigPtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigOutput).ToDiagnosticsStorageAccountConfigPtrOutputWithContext(ctx)
-}
-
-// DiagnosticsStorageAccountConfigPtrInput is an input type that accepts DiagnosticsStorageAccountConfigArgs, DiagnosticsStorageAccountConfigPtr and DiagnosticsStorageAccountConfigPtrOutput values.
-// You can construct a concrete instance of `DiagnosticsStorageAccountConfigPtrInput` via:
-//
-//          DiagnosticsStorageAccountConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type DiagnosticsStorageAccountConfigPtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticsStorageAccountConfigPtrOutput() DiagnosticsStorageAccountConfigPtrOutput
-	ToDiagnosticsStorageAccountConfigPtrOutputWithContext(context.Context) DiagnosticsStorageAccountConfigPtrOutput
-}
-
-type diagnosticsStorageAccountConfigPtrType DiagnosticsStorageAccountConfigArgs
-
-func DiagnosticsStorageAccountConfigPtr(v *DiagnosticsStorageAccountConfigArgs) DiagnosticsStorageAccountConfigPtrInput {
-	return (*diagnosticsStorageAccountConfigPtrType)(v)
-}
-
-func (*diagnosticsStorageAccountConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticsStorageAccountConfig)(nil)).Elem()
-}
-
-func (i *diagnosticsStorageAccountConfigPtrType) ToDiagnosticsStorageAccountConfigPtrOutput() DiagnosticsStorageAccountConfigPtrOutput {
-	return i.ToDiagnosticsStorageAccountConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticsStorageAccountConfigPtrType) ToDiagnosticsStorageAccountConfigPtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigPtrOutput)
-}
-
-// The storage account information for storing Service Fabric diagnostic logs.
-type DiagnosticsStorageAccountConfigOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsStorageAccountConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsStorageAccountConfig)(nil)).Elem()
-}
-
-func (o DiagnosticsStorageAccountConfigOutput) ToDiagnosticsStorageAccountConfigOutput() DiagnosticsStorageAccountConfigOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigOutput) ToDiagnosticsStorageAccountConfigOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigOutput) ToDiagnosticsStorageAccountConfigPtrOutput() DiagnosticsStorageAccountConfigPtrOutput {
-	return o.ToDiagnosticsStorageAccountConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticsStorageAccountConfigOutput) ToDiagnosticsStorageAccountConfigPtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsStorageAccountConfig) *DiagnosticsStorageAccountConfig {
-		return &v
-	}).(DiagnosticsStorageAccountConfigPtrOutput)
-}
-
-// The blob endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigOutput) BlobEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
-}
-
-// The protected diagnostics storage key name.
-func (o DiagnosticsStorageAccountConfigOutput) ProtectedAccountKeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
-}
-
-// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-func (o DiagnosticsStorageAccountConfigOutput) ProtectedAccountKeyName2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) *string { return v.ProtectedAccountKeyName2 }).(pulumi.StringPtrOutput)
-}
-
-// The queue endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigOutput) QueueEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
-}
-
-// The Azure storage account name.
-func (o DiagnosticsStorageAccountConfigOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
-}
-
-// The table endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigOutput) TableEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
-}
-
-type DiagnosticsStorageAccountConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsStorageAccountConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticsStorageAccountConfig)(nil)).Elem()
-}
-
-func (o DiagnosticsStorageAccountConfigPtrOutput) ToDiagnosticsStorageAccountConfigPtrOutput() DiagnosticsStorageAccountConfigPtrOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigPtrOutput) ToDiagnosticsStorageAccountConfigPtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigPtrOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigPtrOutput) Elem() DiagnosticsStorageAccountConfigOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) DiagnosticsStorageAccountConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsStorageAccountConfig
-		return ret
-	}).(DiagnosticsStorageAccountConfigOutput)
-}
-
-// The blob endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigPtrOutput) BlobEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BlobEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The protected diagnostics storage key name.
-func (o DiagnosticsStorageAccountConfigPtrOutput) ProtectedAccountKeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProtectedAccountKeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-func (o DiagnosticsStorageAccountConfigPtrOutput) ProtectedAccountKeyName2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProtectedAccountKeyName2
-	}).(pulumi.StringPtrOutput)
-}
-
-// The queue endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigPtrOutput) QueueEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.QueueEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure storage account name.
-func (o DiagnosticsStorageAccountConfigPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The table endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigPtrOutput) TableEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The storage account information for storing Service Fabric diagnostic logs.
-type DiagnosticsStorageAccountConfigResponse struct {
-	// The blob endpoint of the azure storage account.
-	BlobEndpoint string `pulumi:"blobEndpoint"`
-	// The protected diagnostics storage key name.
-	ProtectedAccountKeyName string `pulumi:"protectedAccountKeyName"`
-	// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-	ProtectedAccountKeyName2 *string `pulumi:"protectedAccountKeyName2"`
-	// The queue endpoint of the azure storage account.
-	QueueEndpoint string `pulumi:"queueEndpoint"`
-	// The Azure storage account name.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// The table endpoint of the azure storage account.
-	TableEndpoint string `pulumi:"tableEndpoint"`
-}
-
-// The storage account information for storing Service Fabric diagnostic logs.
-type DiagnosticsStorageAccountConfigResponseOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsStorageAccountConfigResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsStorageAccountConfigResponse)(nil)).Elem()
-}
-
-func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccountConfigResponseOutput() DiagnosticsStorageAccountConfigResponseOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccountConfigResponseOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponseOutput {
-	return o
-}
-
-// The blob endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigResponseOutput) BlobEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) string { return v.BlobEndpoint }).(pulumi.StringOutput)
-}
-
-// The protected diagnostics storage key name.
-func (o DiagnosticsStorageAccountConfigResponseOutput) ProtectedAccountKeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
-}
-
-// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-func (o DiagnosticsStorageAccountConfigResponseOutput) ProtectedAccountKeyName2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) *string { return v.ProtectedAccountKeyName2 }).(pulumi.StringPtrOutput)
-}
-
-// The queue endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigResponseOutput) QueueEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) string { return v.QueueEndpoint }).(pulumi.StringOutput)
-}
-
-// The Azure storage account name.
-func (o DiagnosticsStorageAccountConfigResponseOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) string { return v.StorageAccountName }).(pulumi.StringOutput)
-}
-
-// The table endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigResponseOutput) TableEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) string { return v.TableEndpoint }).(pulumi.StringOutput)
-}
-
-type DiagnosticsStorageAccountConfigResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsStorageAccountConfigResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticsStorageAccountConfigResponse)(nil)).Elem()
-}
-
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) ToDiagnosticsStorageAccountConfigResponsePtrOutput() DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return o
-}
-
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) Elem() DiagnosticsStorageAccountConfigResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) DiagnosticsStorageAccountConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsStorageAccountConfigResponse
-		return ret
-	}).(DiagnosticsStorageAccountConfigResponseOutput)
-}
-
-// The blob endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) BlobEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BlobEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The protected diagnostics storage key name.
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) ProtectedAccountKeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProtectedAccountKeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) ProtectedAccountKeyName2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProtectedAccountKeyName2
-	}).(pulumi.StringPtrOutput)
-}
-
-// The queue endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) QueueEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.QueueEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure storage account name.
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) StorageAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The table endpoint of the azure storage account.
-func (o DiagnosticsStorageAccountConfigResponsePtrOutput) TableEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableEndpoint
-	}).(pulumi.StringPtrOutput)
 }
 
 // Port range details
@@ -5624,12 +1916,356 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// Describes the frontend configurations for the node type.
+type FrontendConfiguration struct {
+	// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+	LoadBalancerBackendAddressPoolId *string `pulumi:"loadBalancerBackendAddressPoolId"`
+	// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+	LoadBalancerInboundNatPoolId *string `pulumi:"loadBalancerInboundNatPoolId"`
+}
+
+// FrontendConfigurationInput is an input type that accepts FrontendConfigurationArgs and FrontendConfigurationOutput values.
+// You can construct a concrete instance of `FrontendConfigurationInput` via:
+//
+//          FrontendConfigurationArgs{...}
+type FrontendConfigurationInput interface {
+	pulumi.Input
+
+	ToFrontendConfigurationOutput() FrontendConfigurationOutput
+	ToFrontendConfigurationOutputWithContext(context.Context) FrontendConfigurationOutput
+}
+
+// Describes the frontend configurations for the node type.
+type FrontendConfigurationArgs struct {
+	// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+	LoadBalancerBackendAddressPoolId pulumi.StringPtrInput `pulumi:"loadBalancerBackendAddressPoolId"`
+	// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+	LoadBalancerInboundNatPoolId pulumi.StringPtrInput `pulumi:"loadBalancerInboundNatPoolId"`
+}
+
+func (FrontendConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendConfiguration)(nil)).Elem()
+}
+
+func (i FrontendConfigurationArgs) ToFrontendConfigurationOutput() FrontendConfigurationOutput {
+	return i.ToFrontendConfigurationOutputWithContext(context.Background())
+}
+
+func (i FrontendConfigurationArgs) ToFrontendConfigurationOutputWithContext(ctx context.Context) FrontendConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendConfigurationOutput)
+}
+
+// FrontendConfigurationArrayInput is an input type that accepts FrontendConfigurationArray and FrontendConfigurationArrayOutput values.
+// You can construct a concrete instance of `FrontendConfigurationArrayInput` via:
+//
+//          FrontendConfigurationArray{ FrontendConfigurationArgs{...} }
+type FrontendConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFrontendConfigurationArrayOutput() FrontendConfigurationArrayOutput
+	ToFrontendConfigurationArrayOutputWithContext(context.Context) FrontendConfigurationArrayOutput
+}
+
+type FrontendConfigurationArray []FrontendConfigurationInput
+
+func (FrontendConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontendConfiguration)(nil)).Elem()
+}
+
+func (i FrontendConfigurationArray) ToFrontendConfigurationArrayOutput() FrontendConfigurationArrayOutput {
+	return i.ToFrontendConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FrontendConfigurationArray) ToFrontendConfigurationArrayOutputWithContext(ctx context.Context) FrontendConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendConfigurationArrayOutput)
+}
+
+// Describes the frontend configurations for the node type.
+type FrontendConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FrontendConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendConfiguration)(nil)).Elem()
+}
+
+func (o FrontendConfigurationOutput) ToFrontendConfigurationOutput() FrontendConfigurationOutput {
+	return o
+}
+
+func (o FrontendConfigurationOutput) ToFrontendConfigurationOutputWithContext(ctx context.Context) FrontendConfigurationOutput {
+	return o
+}
+
+// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+func (o FrontendConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+func (o FrontendConfigurationOutput) LoadBalancerBackendAddressPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendConfiguration) *string { return v.LoadBalancerBackendAddressPoolId }).(pulumi.StringPtrOutput)
+}
+
+// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+func (o FrontendConfigurationOutput) LoadBalancerInboundNatPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendConfiguration) *string { return v.LoadBalancerInboundNatPoolId }).(pulumi.StringPtrOutput)
+}
+
+type FrontendConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontendConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontendConfiguration)(nil)).Elem()
+}
+
+func (o FrontendConfigurationArrayOutput) ToFrontendConfigurationArrayOutput() FrontendConfigurationArrayOutput {
+	return o
+}
+
+func (o FrontendConfigurationArrayOutput) ToFrontendConfigurationArrayOutputWithContext(ctx context.Context) FrontendConfigurationArrayOutput {
+	return o
+}
+
+func (o FrontendConfigurationArrayOutput) Index(i pulumi.IntInput) FrontendConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontendConfiguration {
+		return vs[0].([]FrontendConfiguration)[vs[1].(int)]
+	}).(FrontendConfigurationOutput)
+}
+
+// Describes the frontend configurations for the node type.
+type FrontendConfigurationResponse struct {
+	// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+	LoadBalancerBackendAddressPoolId *string `pulumi:"loadBalancerBackendAddressPoolId"`
+	// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+	LoadBalancerInboundNatPoolId *string `pulumi:"loadBalancerInboundNatPoolId"`
+}
+
+// Describes the frontend configurations for the node type.
+type FrontendConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (FrontendConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendConfigurationResponse)(nil)).Elem()
+}
+
+func (o FrontendConfigurationResponseOutput) ToFrontendConfigurationResponseOutput() FrontendConfigurationResponseOutput {
+	return o
+}
+
+func (o FrontendConfigurationResponseOutput) ToFrontendConfigurationResponseOutputWithContext(ctx context.Context) FrontendConfigurationResponseOutput {
+	return o
+}
+
+// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+func (o FrontendConfigurationResponseOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendConfigurationResponse) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+func (o FrontendConfigurationResponseOutput) LoadBalancerBackendAddressPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendConfigurationResponse) *string { return v.LoadBalancerBackendAddressPoolId }).(pulumi.StringPtrOutput)
+}
+
+// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+func (o FrontendConfigurationResponseOutput) LoadBalancerInboundNatPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendConfigurationResponse) *string { return v.LoadBalancerInboundNatPoolId }).(pulumi.StringPtrOutput)
+}
+
+type FrontendConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontendConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontendConfigurationResponse)(nil)).Elem()
+}
+
+func (o FrontendConfigurationResponseArrayOutput) ToFrontendConfigurationResponseArrayOutput() FrontendConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o FrontendConfigurationResponseArrayOutput) ToFrontendConfigurationResponseArrayOutputWithContext(ctx context.Context) FrontendConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o FrontendConfigurationResponseArrayOutput) Index(i pulumi.IntInput) FrontendConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontendConfigurationResponse {
+		return vs[0].([]FrontendConfigurationResponse)[vs[1].(int)]
+	}).(FrontendConfigurationResponseOutput)
+}
+
+// IPTag associated with the object.
+type IPTag struct {
+	// The IP tag type.
+	IpTagType string `pulumi:"ipTagType"`
+	// The value of the IP tag.
+	Tag string `pulumi:"tag"`
+}
+
+// IPTagInput is an input type that accepts IPTagArgs and IPTagOutput values.
+// You can construct a concrete instance of `IPTagInput` via:
+//
+//          IPTagArgs{...}
+type IPTagInput interface {
+	pulumi.Input
+
+	ToIPTagOutput() IPTagOutput
+	ToIPTagOutputWithContext(context.Context) IPTagOutput
+}
+
+// IPTag associated with the object.
+type IPTagArgs struct {
+	// The IP tag type.
+	IpTagType pulumi.StringInput `pulumi:"ipTagType"`
+	// The value of the IP tag.
+	Tag pulumi.StringInput `pulumi:"tag"`
+}
+
+func (IPTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPTag)(nil)).Elem()
+}
+
+func (i IPTagArgs) ToIPTagOutput() IPTagOutput {
+	return i.ToIPTagOutputWithContext(context.Background())
+}
+
+func (i IPTagArgs) ToIPTagOutputWithContext(ctx context.Context) IPTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPTagOutput)
+}
+
+// IPTagArrayInput is an input type that accepts IPTagArray and IPTagArrayOutput values.
+// You can construct a concrete instance of `IPTagArrayInput` via:
+//
+//          IPTagArray{ IPTagArgs{...} }
+type IPTagArrayInput interface {
+	pulumi.Input
+
+	ToIPTagArrayOutput() IPTagArrayOutput
+	ToIPTagArrayOutputWithContext(context.Context) IPTagArrayOutput
+}
+
+type IPTagArray []IPTagInput
+
+func (IPTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPTag)(nil)).Elem()
+}
+
+func (i IPTagArray) ToIPTagArrayOutput() IPTagArrayOutput {
+	return i.ToIPTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPTagArray) ToIPTagArrayOutputWithContext(ctx context.Context) IPTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPTagArrayOutput)
+}
+
+// IPTag associated with the object.
+type IPTagOutput struct{ *pulumi.OutputState }
+
+func (IPTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPTag)(nil)).Elem()
+}
+
+func (o IPTagOutput) ToIPTagOutput() IPTagOutput {
+	return o
+}
+
+func (o IPTagOutput) ToIPTagOutputWithContext(ctx context.Context) IPTagOutput {
+	return o
+}
+
+// The IP tag type.
+func (o IPTagOutput) IpTagType() pulumi.StringOutput {
+	return o.ApplyT(func(v IPTag) string { return v.IpTagType }).(pulumi.StringOutput)
+}
+
+// The value of the IP tag.
+func (o IPTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v IPTag) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+type IPTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPTag)(nil)).Elem()
+}
+
+func (o IPTagArrayOutput) ToIPTagArrayOutput() IPTagArrayOutput {
+	return o
+}
+
+func (o IPTagArrayOutput) ToIPTagArrayOutputWithContext(ctx context.Context) IPTagArrayOutput {
+	return o
+}
+
+func (o IPTagArrayOutput) Index(i pulumi.IntInput) IPTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPTag {
+		return vs[0].([]IPTag)[vs[1].(int)]
+	}).(IPTagOutput)
+}
+
+// IPTag associated with the object.
+type IPTagResponse struct {
+	// The IP tag type.
+	IpTagType string `pulumi:"ipTagType"`
+	// The value of the IP tag.
+	Tag string `pulumi:"tag"`
+}
+
+// IPTag associated with the object.
+type IPTagResponseOutput struct{ *pulumi.OutputState }
+
+func (IPTagResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPTagResponse)(nil)).Elem()
+}
+
+func (o IPTagResponseOutput) ToIPTagResponseOutput() IPTagResponseOutput {
+	return o
+}
+
+func (o IPTagResponseOutput) ToIPTagResponseOutputWithContext(ctx context.Context) IPTagResponseOutput {
+	return o
+}
+
+// The IP tag type.
+func (o IPTagResponseOutput) IpTagType() pulumi.StringOutput {
+	return o.ApplyT(func(v IPTagResponse) string { return v.IpTagType }).(pulumi.StringOutput)
+}
+
+// The value of the IP tag.
+func (o IPTagResponseOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v IPTagResponse) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+type IPTagResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPTagResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPTagResponse)(nil)).Elem()
+}
+
+func (o IPTagResponseArrayOutput) ToIPTagResponseArrayOutput() IPTagResponseArrayOutput {
+	return o
+}
+
+func (o IPTagResponseArrayOutput) ToIPTagResponseArrayOutputWithContext(ctx context.Context) IPTagResponseArrayOutput {
+	return o
+}
+
+func (o IPTagResponseArrayOutput) Index(i pulumi.IntInput) IPTagResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPTagResponse {
+		return vs[0].([]IPTagResponse)[vs[1].(int)]
+	}).(IPTagResponseOutput)
+}
+
 // Describes a load balancing rule.
 type LoadBalancingRule struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 	BackendPort int `pulumi:"backendPort"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
 	FrontendPort int `pulumi:"frontendPort"`
+	// The load distribution policy for this rule.
+	LoadDistribution *string `pulumi:"loadDistribution"`
+	// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+	ProbePort *int `pulumi:"probePort"`
 	// the reference to the load balancer probe used by the load balancing rule.
 	ProbeProtocol string `pulumi:"probeProtocol"`
 	// The probe request path. Only supported for HTTP/HTTPS probes.
@@ -5655,6 +2291,10 @@ type LoadBalancingRuleArgs struct {
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
 	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	// The load distribution policy for this rule.
+	LoadDistribution pulumi.StringPtrInput `pulumi:"loadDistribution"`
+	// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+	ProbePort pulumi.IntPtrInput `pulumi:"probePort"`
 	// the reference to the load balancer probe used by the load balancing rule.
 	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
 	// The probe request path. Only supported for HTTP/HTTPS probes.
@@ -5725,6 +2365,16 @@ func (o LoadBalancingRuleOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRule) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
+// The load distribution policy for this rule.
+func (o LoadBalancingRuleOutput) LoadDistribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRule) *string { return v.LoadDistribution }).(pulumi.StringPtrOutput)
+}
+
+// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+func (o LoadBalancingRuleOutput) ProbePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRule) *int { return v.ProbePort }).(pulumi.IntPtrOutput)
+}
+
 // the reference to the load balancer probe used by the load balancing rule.
 func (o LoadBalancingRuleOutput) ProbeProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRule) string { return v.ProbeProtocol }).(pulumi.StringOutput)
@@ -5766,6 +2416,10 @@ type LoadBalancingRuleResponse struct {
 	BackendPort int `pulumi:"backendPort"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
 	FrontendPort int `pulumi:"frontendPort"`
+	// The load distribution policy for this rule.
+	LoadDistribution *string `pulumi:"loadDistribution"`
+	// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+	ProbePort *int `pulumi:"probePort"`
 	// the reference to the load balancer probe used by the load balancing rule.
 	ProbeProtocol string `pulumi:"probeProtocol"`
 	// The probe request path. Only supported for HTTP/HTTPS probes.
@@ -5797,6 +2451,16 @@ func (o LoadBalancingRuleResponseOutput) BackendPort() pulumi.IntOutput {
 // The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
 func (o LoadBalancingRuleResponseOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// The load distribution policy for this rule.
+func (o LoadBalancingRuleResponseOutput) LoadDistribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.LoadDistribution }).(pulumi.StringPtrOutput)
+}
+
+// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+func (o LoadBalancingRuleResponseOutput) ProbePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) *int { return v.ProbePort }).(pulumi.IntPtrOutput)
 }
 
 // the reference to the load balancer probe used by the load balancing rule.
@@ -5840,7 +2504,7 @@ type ManagedIdentity struct {
 	Type *ManagedIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -5860,7 +2524,7 @@ type ManagedIdentityArgs struct {
 	Type ManagedIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -5948,8 +2612,8 @@ func (o ManagedIdentityOutput) Type() ManagedIdentityTypePtrOutput {
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -5988,13 +2652,13 @@ func (o ManagedIdentityPtrOutput) Type() ManagedIdentityTypePtrOutput {
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedIdentity) map[string]interface{} {
+func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Describes the managed identities for an Azure resource.
@@ -6114,10 +2778,8 @@ func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedI
 }
 
 // Describes the named partition scheme of the service.
-type NamedPartitionSchemeDescription struct {
-	// The number of partitions.
-	Count int `pulumi:"count"`
-	// Array of size specified by the ‘count’ parameter, for the names of the partitions.
+type NamedPartitionScheme struct {
+	// Array for the names of the partitions.
 	Names []string `pulumi:"names"`
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Named'.
@@ -6125,966 +2787,1242 @@ type NamedPartitionSchemeDescription struct {
 }
 
 // Describes the named partition scheme of the service.
-type NamedPartitionSchemeDescriptionResponse struct {
-	// The number of partitions.
-	Count int `pulumi:"count"`
-	// Array of size specified by the ‘count’ parameter, for the names of the partitions.
+type NamedPartitionSchemeResponse struct {
+	// Array for the names of the partitions.
 	Names []string `pulumi:"names"`
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Named'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-type NodeTypeDescription struct {
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts *EndpointRangeDescription `pulumi:"applicationPorts"`
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities map[string]string `pulumi:"capacities"`
-	// The TCP cluster management endpoint port.
-	ClientConnectionEndpointPort int `pulumi:"clientConnectionEndpointPort"`
-	// The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-	//
-	//   - Bronze - No privileges. This is the default.
-	//   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-	//   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-	DurabilityLevel *string `pulumi:"durabilityLevel"`
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts *EndpointRangeDescription `pulumi:"ephemeralPorts"`
-	// The HTTP cluster management endpoint port.
-	HttpGatewayEndpointPort int `pulumi:"httpGatewayEndpointPort"`
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-	IsPrimary bool `pulumi:"isPrimary"`
-	// The name of the node type.
+// Describes a network security rule.
+type NetworkSecurityRule struct {
+	// The network traffic is allowed or denied.
+	Access string `pulumi:"access"`
+	// Network security rule description.
+	Description *string `pulumi:"description"`
+	// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
+	// he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+	DestinationPortRange *string `pulumi:"destinationPortRange"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// Network security rule direction.
+	Direction string `pulumi:"direction"`
+	// Network security rule name.
 	Name string `pulumi:"name"`
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties map[string]string `pulumi:"placementProperties"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
-	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-	VmInstanceCount int `pulumi:"vmInstanceCount"`
+	// The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority int `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
+	// The CIDR or source IP ranges.
+	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
+	// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+	SourcePortRange *string `pulumi:"sourcePortRange"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
-// NodeTypeDescriptionInput is an input type that accepts NodeTypeDescriptionArgs and NodeTypeDescriptionOutput values.
-// You can construct a concrete instance of `NodeTypeDescriptionInput` via:
+// NetworkSecurityRuleInput is an input type that accepts NetworkSecurityRuleArgs and NetworkSecurityRuleOutput values.
+// You can construct a concrete instance of `NetworkSecurityRuleInput` via:
 //
-//          NodeTypeDescriptionArgs{...}
-type NodeTypeDescriptionInput interface {
+//          NetworkSecurityRuleArgs{...}
+type NetworkSecurityRuleInput interface {
 	pulumi.Input
 
-	ToNodeTypeDescriptionOutput() NodeTypeDescriptionOutput
-	ToNodeTypeDescriptionOutputWithContext(context.Context) NodeTypeDescriptionOutput
+	ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput
+	ToNetworkSecurityRuleOutputWithContext(context.Context) NetworkSecurityRuleOutput
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-type NodeTypeDescriptionArgs struct {
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts EndpointRangeDescriptionPtrInput `pulumi:"applicationPorts"`
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities pulumi.StringMapInput `pulumi:"capacities"`
-	// The TCP cluster management endpoint port.
-	ClientConnectionEndpointPort pulumi.IntInput `pulumi:"clientConnectionEndpointPort"`
-	// The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-	//
-	//   - Bronze - No privileges. This is the default.
-	//   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-	//   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-	DurabilityLevel pulumi.StringPtrInput `pulumi:"durabilityLevel"`
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts EndpointRangeDescriptionPtrInput `pulumi:"ephemeralPorts"`
-	// The HTTP cluster management endpoint port.
-	HttpGatewayEndpointPort pulumi.IntInput `pulumi:"httpGatewayEndpointPort"`
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
-	// The name of the node type.
+// Describes a network security rule.
+type NetworkSecurityRuleArgs struct {
+	// The network traffic is allowed or denied.
+	Access pulumi.StringInput `pulumi:"access"`
+	// Network security rule description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+	DestinationAddressPrefix pulumi.StringPtrInput `pulumi:"destinationAddressPrefix"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	DestinationAddressPrefixes pulumi.StringArrayInput `pulumi:"destinationAddressPrefixes"`
+	// he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// Network security rule direction.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// Network security rule name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
-	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-	VmInstanceCount pulumi.IntInput `pulumi:"vmInstanceCount"`
+	// The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+	SourceAddressPrefix pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
+	// The CIDR or source IP ranges.
+	SourceAddressPrefixes pulumi.StringArrayInput `pulumi:"sourceAddressPrefixes"`
+	// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 }
 
-func (NodeTypeDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeTypeDescription)(nil)).Elem()
+func (NetworkSecurityRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityRule)(nil)).Elem()
 }
 
-func (i NodeTypeDescriptionArgs) ToNodeTypeDescriptionOutput() NodeTypeDescriptionOutput {
-	return i.ToNodeTypeDescriptionOutputWithContext(context.Background())
+func (i NetworkSecurityRuleArgs) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {
+	return i.ToNetworkSecurityRuleOutputWithContext(context.Background())
 }
 
-func (i NodeTypeDescriptionArgs) ToNodeTypeDescriptionOutputWithContext(ctx context.Context) NodeTypeDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionOutput)
+func (i NetworkSecurityRuleArgs) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleOutput)
 }
 
-// NodeTypeDescriptionArrayInput is an input type that accepts NodeTypeDescriptionArray and NodeTypeDescriptionArrayOutput values.
-// You can construct a concrete instance of `NodeTypeDescriptionArrayInput` via:
+// NetworkSecurityRuleArrayInput is an input type that accepts NetworkSecurityRuleArray and NetworkSecurityRuleArrayOutput values.
+// You can construct a concrete instance of `NetworkSecurityRuleArrayInput` via:
 //
-//          NodeTypeDescriptionArray{ NodeTypeDescriptionArgs{...} }
-type NodeTypeDescriptionArrayInput interface {
+//          NetworkSecurityRuleArray{ NetworkSecurityRuleArgs{...} }
+type NetworkSecurityRuleArrayInput interface {
 	pulumi.Input
 
-	ToNodeTypeDescriptionArrayOutput() NodeTypeDescriptionArrayOutput
-	ToNodeTypeDescriptionArrayOutputWithContext(context.Context) NodeTypeDescriptionArrayOutput
+	ToNetworkSecurityRuleArrayOutput() NetworkSecurityRuleArrayOutput
+	ToNetworkSecurityRuleArrayOutputWithContext(context.Context) NetworkSecurityRuleArrayOutput
 }
 
-type NodeTypeDescriptionArray []NodeTypeDescriptionInput
+type NetworkSecurityRuleArray []NetworkSecurityRuleInput
 
-func (NodeTypeDescriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeTypeDescription)(nil)).Elem()
+func (NetworkSecurityRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSecurityRule)(nil)).Elem()
 }
 
-func (i NodeTypeDescriptionArray) ToNodeTypeDescriptionArrayOutput() NodeTypeDescriptionArrayOutput {
-	return i.ToNodeTypeDescriptionArrayOutputWithContext(context.Background())
+func (i NetworkSecurityRuleArray) ToNetworkSecurityRuleArrayOutput() NetworkSecurityRuleArrayOutput {
+	return i.ToNetworkSecurityRuleArrayOutputWithContext(context.Background())
 }
 
-func (i NodeTypeDescriptionArray) ToNodeTypeDescriptionArrayOutputWithContext(ctx context.Context) NodeTypeDescriptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionArrayOutput)
+func (i NetworkSecurityRuleArray) ToNetworkSecurityRuleArrayOutputWithContext(ctx context.Context) NetworkSecurityRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleArrayOutput)
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-type NodeTypeDescriptionOutput struct{ *pulumi.OutputState }
+// Describes a network security rule.
+type NetworkSecurityRuleOutput struct{ *pulumi.OutputState }
 
-func (NodeTypeDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeTypeDescription)(nil)).Elem()
+func (NetworkSecurityRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityRule)(nil)).Elem()
 }
 
-func (o NodeTypeDescriptionOutput) ToNodeTypeDescriptionOutput() NodeTypeDescriptionOutput {
+func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {
 	return o
 }
 
-func (o NodeTypeDescriptionOutput) ToNodeTypeDescriptionOutputWithContext(ctx context.Context) NodeTypeDescriptionOutput {
+func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
 	return o
 }
 
-// The range of ports from which cluster assigned port to Service Fabric applications.
-func (o NodeTypeDescriptionOutput) ApplicationPorts() EndpointRangeDescriptionPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescription) *EndpointRangeDescription { return v.ApplicationPorts }).(EndpointRangeDescriptionPtrOutput)
+// The network traffic is allowed or denied.
+func (o NetworkSecurityRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-func (o NodeTypeDescriptionOutput) Capacities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NodeTypeDescription) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
+// Network security rule description.
+func (o NetworkSecurityRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The TCP cluster management endpoint port.
-func (o NodeTypeDescriptionOutput) ClientConnectionEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeTypeDescription) int { return v.ClientConnectionEndpointPort }).(pulumi.IntOutput)
+// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+func (o NetworkSecurityRuleOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) *string { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-//
-//   - Bronze - No privileges. This is the default.
-//   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-//   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-func (o NodeTypeDescriptionOutput) DurabilityLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescription) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o NetworkSecurityRuleOutput) DestinationAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) []string { return v.DestinationAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The range of ephemeral ports that nodes in this node type should be configured with.
-func (o NodeTypeDescriptionOutput) EphemeralPorts() EndpointRangeDescriptionPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescription) *EndpointRangeDescription { return v.EphemeralPorts }).(EndpointRangeDescriptionPtrOutput)
+// he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+func (o NetworkSecurityRuleOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP cluster management endpoint port.
-func (o NodeTypeDescriptionOutput) HttpGatewayEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeTypeDescription) int { return v.HttpGatewayEndpointPort }).(pulumi.IntOutput)
+// The destination port ranges.
+func (o NetworkSecurityRuleOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
 }
 
-// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-func (o NodeTypeDescriptionOutput) IsPrimary() pulumi.BoolOutput {
-	return o.ApplyT(func(v NodeTypeDescription) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+// Network security rule direction.
+func (o NetworkSecurityRuleOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// The name of the node type.
-func (o NodeTypeDescriptionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NodeTypeDescription) string { return v.Name }).(pulumi.StringOutput)
+// Network security rule name.
+func (o NetworkSecurityRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-func (o NodeTypeDescriptionOutput) PlacementProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NodeTypeDescription) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
+// The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o NetworkSecurityRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The endpoint used by reverse proxy.
-func (o NodeTypeDescriptionOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescription) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
+// Network protocol this rule applies to.
+func (o NetworkSecurityRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-func (o NodeTypeDescriptionOutput) VmInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeTypeDescription) int { return v.VmInstanceCount }).(pulumi.IntOutput)
+// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+func (o NetworkSecurityRuleOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) *string { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-type NodeTypeDescriptionArrayOutput struct{ *pulumi.OutputState }
-
-func (NodeTypeDescriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeTypeDescription)(nil)).Elem()
+// The CIDR or source IP ranges.
+func (o NetworkSecurityRuleOutput) SourceAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) []string { return v.SourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-func (o NodeTypeDescriptionArrayOutput) ToNodeTypeDescriptionArrayOutput() NodeTypeDescriptionArrayOutput {
+// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+func (o NetworkSecurityRuleOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
+}
+
+// The source port ranges.
+func (o NetworkSecurityRuleOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRule) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+type NetworkSecurityRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkSecurityRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSecurityRule)(nil)).Elem()
+}
+
+func (o NetworkSecurityRuleArrayOutput) ToNetworkSecurityRuleArrayOutput() NetworkSecurityRuleArrayOutput {
 	return o
 }
 
-func (o NodeTypeDescriptionArrayOutput) ToNodeTypeDescriptionArrayOutputWithContext(ctx context.Context) NodeTypeDescriptionArrayOutput {
+func (o NetworkSecurityRuleArrayOutput) ToNetworkSecurityRuleArrayOutputWithContext(ctx context.Context) NetworkSecurityRuleArrayOutput {
 	return o
 }
 
-func (o NodeTypeDescriptionArrayOutput) Index(i pulumi.IntInput) NodeTypeDescriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeTypeDescription {
-		return vs[0].([]NodeTypeDescription)[vs[1].(int)]
-	}).(NodeTypeDescriptionOutput)
+func (o NetworkSecurityRuleArrayOutput) Index(i pulumi.IntInput) NetworkSecurityRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSecurityRule {
+		return vs[0].([]NetworkSecurityRule)[vs[1].(int)]
+	}).(NetworkSecurityRuleOutput)
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-type NodeTypeDescriptionResponse struct {
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities map[string]string `pulumi:"capacities"`
-	// The TCP cluster management endpoint port.
-	ClientConnectionEndpointPort int `pulumi:"clientConnectionEndpointPort"`
-	// The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-	//
-	//   - Bronze - No privileges. This is the default.
-	//   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-	//   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-	DurabilityLevel *string `pulumi:"durabilityLevel"`
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts *EndpointRangeDescriptionResponse `pulumi:"ephemeralPorts"`
-	// The HTTP cluster management endpoint port.
-	HttpGatewayEndpointPort int `pulumi:"httpGatewayEndpointPort"`
-	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-	IsPrimary bool `pulumi:"isPrimary"`
-	// The name of the node type.
+// Describes a network security rule.
+type NetworkSecurityRuleResponse struct {
+	// The network traffic is allowed or denied.
+	Access string `pulumi:"access"`
+	// Network security rule description.
+	Description *string `pulumi:"description"`
+	// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
+	// he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+	DestinationPortRange *string `pulumi:"destinationPortRange"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// Network security rule direction.
+	Direction string `pulumi:"direction"`
+	// Network security rule name.
 	Name string `pulumi:"name"`
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties map[string]string `pulumi:"placementProperties"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
-	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-	VmInstanceCount int `pulumi:"vmInstanceCount"`
+	// The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority int `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
+	// The CIDR or source IP ranges.
+	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
+	// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+	SourcePortRange *string `pulumi:"sourcePortRange"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-type NodeTypeDescriptionResponseOutput struct{ *pulumi.OutputState }
+// Describes a network security rule.
+type NetworkSecurityRuleResponseOutput struct{ *pulumi.OutputState }
 
-func (NodeTypeDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeTypeDescriptionResponse)(nil)).Elem()
+func (NetworkSecurityRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityRuleResponse)(nil)).Elem()
 }
 
-func (o NodeTypeDescriptionResponseOutput) ToNodeTypeDescriptionResponseOutput() NodeTypeDescriptionResponseOutput {
+func (o NetworkSecurityRuleResponseOutput) ToNetworkSecurityRuleResponseOutput() NetworkSecurityRuleResponseOutput {
 	return o
 }
 
-func (o NodeTypeDescriptionResponseOutput) ToNodeTypeDescriptionResponseOutputWithContext(ctx context.Context) NodeTypeDescriptionResponseOutput {
+func (o NetworkSecurityRuleResponseOutput) ToNetworkSecurityRuleResponseOutputWithContext(ctx context.Context) NetworkSecurityRuleResponseOutput {
 	return o
 }
 
-// The range of ports from which cluster assigned port to Service Fabric applications.
-func (o NodeTypeDescriptionResponseOutput) ApplicationPorts() EndpointRangeDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) *EndpointRangeDescriptionResponse { return v.ApplicationPorts }).(EndpointRangeDescriptionResponsePtrOutput)
+// The network traffic is allowed or denied.
+func (o NetworkSecurityRuleResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-func (o NodeTypeDescriptionResponseOutput) Capacities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
+// Network security rule description.
+func (o NetworkSecurityRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The TCP cluster management endpoint port.
-func (o NodeTypeDescriptionResponseOutput) ClientConnectionEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) int { return v.ClientConnectionEndpointPort }).(pulumi.IntOutput)
+// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+func (o NetworkSecurityRuleResponseOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) *string { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o NetworkSecurityRuleResponseOutput) DestinationAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) []string { return v.DestinationAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+func (o NetworkSecurityRuleResponseOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
+}
+
+// The destination port ranges.
+func (o NetworkSecurityRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// Network security rule direction.
+func (o NetworkSecurityRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// Network security rule name.
+func (o NetworkSecurityRuleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o NetworkSecurityRuleResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Network protocol this rule applies to.
+func (o NetworkSecurityRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+func (o NetworkSecurityRuleResponseOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) *string { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o NetworkSecurityRuleResponseOutput) SourceAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) []string { return v.SourceAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+func (o NetworkSecurityRuleResponseOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
+}
+
+// The source port ranges.
+func (o NetworkSecurityRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSecurityRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+type NetworkSecurityRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkSecurityRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSecurityRuleResponse)(nil)).Elem()
+}
+
+func (o NetworkSecurityRuleResponseArrayOutput) ToNetworkSecurityRuleResponseArrayOutput() NetworkSecurityRuleResponseArrayOutput {
+	return o
+}
+
+func (o NetworkSecurityRuleResponseArrayOutput) ToNetworkSecurityRuleResponseArrayOutputWithContext(ctx context.Context) NetworkSecurityRuleResponseArrayOutput {
+	return o
+}
+
+func (o NetworkSecurityRuleResponseArrayOutput) Index(i pulumi.IntInput) NetworkSecurityRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSecurityRuleResponse {
+		return vs[0].([]NetworkSecurityRuleResponse)[vs[1].(int)]
+	}).(NetworkSecurityRuleResponseOutput)
+}
+
+// Describes a node type sku.
+type NodeTypeSku struct {
+	// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+	Capacity int `pulumi:"capacity"`
+	// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+	Name *string `pulumi:"name"`
+	// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+	Tier *string `pulumi:"tier"`
+}
+
+// NodeTypeSkuInput is an input type that accepts NodeTypeSkuArgs and NodeTypeSkuOutput values.
+// You can construct a concrete instance of `NodeTypeSkuInput` via:
 //
-//   - Bronze - No privileges. This is the default.
-//   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-//   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-func (o NodeTypeDescriptionResponseOutput) DurabilityLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
-}
-
-// The range of ephemeral ports that nodes in this node type should be configured with.
-func (o NodeTypeDescriptionResponseOutput) EphemeralPorts() EndpointRangeDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) *EndpointRangeDescriptionResponse { return v.EphemeralPorts }).(EndpointRangeDescriptionResponsePtrOutput)
-}
-
-// The HTTP cluster management endpoint port.
-func (o NodeTypeDescriptionResponseOutput) HttpGatewayEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) int { return v.HttpGatewayEndpointPort }).(pulumi.IntOutput)
-}
-
-// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-func (o NodeTypeDescriptionResponseOutput) IsPrimary() pulumi.BoolOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) bool { return v.IsPrimary }).(pulumi.BoolOutput)
-}
-
-// The name of the node type.
-func (o NodeTypeDescriptionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-func (o NodeTypeDescriptionResponseOutput) PlacementProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
-}
-
-// The endpoint used by reverse proxy.
-func (o NodeTypeDescriptionResponseOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
-}
-
-// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-func (o NodeTypeDescriptionResponseOutput) VmInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) int { return v.VmInstanceCount }).(pulumi.IntOutput)
-}
-
-type NodeTypeDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (NodeTypeDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeTypeDescriptionResponse)(nil)).Elem()
-}
-
-func (o NodeTypeDescriptionResponseArrayOutput) ToNodeTypeDescriptionResponseArrayOutput() NodeTypeDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o NodeTypeDescriptionResponseArrayOutput) ToNodeTypeDescriptionResponseArrayOutputWithContext(ctx context.Context) NodeTypeDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o NodeTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) NodeTypeDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeTypeDescriptionResponse {
-		return vs[0].([]NodeTypeDescriptionResponse)[vs[1].(int)]
-	}).(NodeTypeDescriptionResponseOutput)
-}
-
-// Describes Az Resiliency status of Base resources
-type ResourceAzStatusResponse struct {
-	// VM Size name.
-	IsZoneResilient bool `pulumi:"isZoneResilient"`
-	// VM Size properties.
-	ResourceName string `pulumi:"resourceName"`
-	// VM Size id.
-	ResourceType string `pulumi:"resourceType"`
-}
-
-// Describes Az Resiliency status of Base resources
-type ResourceAzStatusResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceAzStatusResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAzStatusResponse)(nil)).Elem()
-}
-
-func (o ResourceAzStatusResponseOutput) ToResourceAzStatusResponseOutput() ResourceAzStatusResponseOutput {
-	return o
-}
-
-func (o ResourceAzStatusResponseOutput) ToResourceAzStatusResponseOutputWithContext(ctx context.Context) ResourceAzStatusResponseOutput {
-	return o
-}
-
-// VM Size name.
-func (o ResourceAzStatusResponseOutput) IsZoneResilient() pulumi.BoolOutput {
-	return o.ApplyT(func(v ResourceAzStatusResponse) bool { return v.IsZoneResilient }).(pulumi.BoolOutput)
-}
-
-// VM Size properties.
-func (o ResourceAzStatusResponseOutput) ResourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceAzStatusResponse) string { return v.ResourceName }).(pulumi.StringOutput)
-}
-
-// VM Size id.
-func (o ResourceAzStatusResponseOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceAzStatusResponse) string { return v.ResourceType }).(pulumi.StringOutput)
-}
-
-type ResourceAzStatusResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ResourceAzStatusResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceAzStatusResponse)(nil)).Elem()
-}
-
-func (o ResourceAzStatusResponseArrayOutput) ToResourceAzStatusResponseArrayOutput() ResourceAzStatusResponseArrayOutput {
-	return o
-}
-
-func (o ResourceAzStatusResponseArrayOutput) ToResourceAzStatusResponseArrayOutputWithContext(ctx context.Context) ResourceAzStatusResponseArrayOutput {
-	return o
-}
-
-func (o ResourceAzStatusResponseArrayOutput) Index(i pulumi.IntInput) ResourceAzStatusResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAzStatusResponse {
-		return vs[0].([]ResourceAzStatusResponse)[vs[1].(int)]
-	}).(ResourceAzStatusResponseOutput)
-}
-
-// Describes the server certificate details using common name.
-type ServerCertificateCommonName struct {
-	// The common name of the server certificate.
-	CertificateCommonName string `pulumi:"certificateCommonName"`
-	// The issuer thumbprint of the server certificate.
-	CertificateIssuerThumbprint string `pulumi:"certificateIssuerThumbprint"`
-}
-
-// ServerCertificateCommonNameInput is an input type that accepts ServerCertificateCommonNameArgs and ServerCertificateCommonNameOutput values.
-// You can construct a concrete instance of `ServerCertificateCommonNameInput` via:
-//
-//          ServerCertificateCommonNameArgs{...}
-type ServerCertificateCommonNameInput interface {
+//          NodeTypeSkuArgs{...}
+type NodeTypeSkuInput interface {
 	pulumi.Input
 
-	ToServerCertificateCommonNameOutput() ServerCertificateCommonNameOutput
-	ToServerCertificateCommonNameOutputWithContext(context.Context) ServerCertificateCommonNameOutput
+	ToNodeTypeSkuOutput() NodeTypeSkuOutput
+	ToNodeTypeSkuOutputWithContext(context.Context) NodeTypeSkuOutput
 }
 
-// Describes the server certificate details using common name.
-type ServerCertificateCommonNameArgs struct {
-	// The common name of the server certificate.
-	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
-	// The issuer thumbprint of the server certificate.
-	CertificateIssuerThumbprint pulumi.StringInput `pulumi:"certificateIssuerThumbprint"`
+// Describes a node type sku.
+type NodeTypeSkuArgs struct {
+	// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
-func (ServerCertificateCommonNameArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonName)(nil)).Elem()
+func (NodeTypeSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeTypeSku)(nil)).Elem()
 }
 
-func (i ServerCertificateCommonNameArgs) ToServerCertificateCommonNameOutput() ServerCertificateCommonNameOutput {
-	return i.ToServerCertificateCommonNameOutputWithContext(context.Background())
+func (i NodeTypeSkuArgs) ToNodeTypeSkuOutput() NodeTypeSkuOutput {
+	return i.ToNodeTypeSkuOutputWithContext(context.Background())
 }
 
-func (i ServerCertificateCommonNameArgs) ToServerCertificateCommonNameOutputWithContext(ctx context.Context) ServerCertificateCommonNameOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNameOutput)
+func (i NodeTypeSkuArgs) ToNodeTypeSkuOutputWithContext(ctx context.Context) NodeTypeSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeSkuOutput)
 }
 
-// ServerCertificateCommonNameArrayInput is an input type that accepts ServerCertificateCommonNameArray and ServerCertificateCommonNameArrayOutput values.
-// You can construct a concrete instance of `ServerCertificateCommonNameArrayInput` via:
+func (i NodeTypeSkuArgs) ToNodeTypeSkuPtrOutput() NodeTypeSkuPtrOutput {
+	return i.ToNodeTypeSkuPtrOutputWithContext(context.Background())
+}
+
+func (i NodeTypeSkuArgs) ToNodeTypeSkuPtrOutputWithContext(ctx context.Context) NodeTypeSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeSkuOutput).ToNodeTypeSkuPtrOutputWithContext(ctx)
+}
+
+// NodeTypeSkuPtrInput is an input type that accepts NodeTypeSkuArgs, NodeTypeSkuPtr and NodeTypeSkuPtrOutput values.
+// You can construct a concrete instance of `NodeTypeSkuPtrInput` via:
 //
-//          ServerCertificateCommonNameArray{ ServerCertificateCommonNameArgs{...} }
-type ServerCertificateCommonNameArrayInput interface {
-	pulumi.Input
-
-	ToServerCertificateCommonNameArrayOutput() ServerCertificateCommonNameArrayOutput
-	ToServerCertificateCommonNameArrayOutputWithContext(context.Context) ServerCertificateCommonNameArrayOutput
-}
-
-type ServerCertificateCommonNameArray []ServerCertificateCommonNameInput
-
-func (ServerCertificateCommonNameArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerCertificateCommonName)(nil)).Elem()
-}
-
-func (i ServerCertificateCommonNameArray) ToServerCertificateCommonNameArrayOutput() ServerCertificateCommonNameArrayOutput {
-	return i.ToServerCertificateCommonNameArrayOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNameArray) ToServerCertificateCommonNameArrayOutputWithContext(ctx context.Context) ServerCertificateCommonNameArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNameArrayOutput)
-}
-
-// Describes the server certificate details using common name.
-type ServerCertificateCommonNameOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonName)(nil)).Elem()
-}
-
-func (o ServerCertificateCommonNameOutput) ToServerCertificateCommonNameOutput() ServerCertificateCommonNameOutput {
-	return o
-}
-
-func (o ServerCertificateCommonNameOutput) ToServerCertificateCommonNameOutputWithContext(ctx context.Context) ServerCertificateCommonNameOutput {
-	return o
-}
-
-// The common name of the server certificate.
-func (o ServerCertificateCommonNameOutput) CertificateCommonName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerCertificateCommonName) string { return v.CertificateCommonName }).(pulumi.StringOutput)
-}
-
-// The issuer thumbprint of the server certificate.
-func (o ServerCertificateCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerCertificateCommonName) string { return v.CertificateIssuerThumbprint }).(pulumi.StringOutput)
-}
-
-type ServerCertificateCommonNameArrayOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNameArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerCertificateCommonName)(nil)).Elem()
-}
-
-func (o ServerCertificateCommonNameArrayOutput) ToServerCertificateCommonNameArrayOutput() ServerCertificateCommonNameArrayOutput {
-	return o
-}
-
-func (o ServerCertificateCommonNameArrayOutput) ToServerCertificateCommonNameArrayOutputWithContext(ctx context.Context) ServerCertificateCommonNameArrayOutput {
-	return o
-}
-
-func (o ServerCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ServerCertificateCommonNameOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerCertificateCommonName {
-		return vs[0].([]ServerCertificateCommonName)[vs[1].(int)]
-	}).(ServerCertificateCommonNameOutput)
-}
-
-// Describes the server certificate details using common name.
-type ServerCertificateCommonNameResponse struct {
-	// The common name of the server certificate.
-	CertificateCommonName string `pulumi:"certificateCommonName"`
-	// The issuer thumbprint of the server certificate.
-	CertificateIssuerThumbprint string `pulumi:"certificateIssuerThumbprint"`
-}
-
-// Describes the server certificate details using common name.
-type ServerCertificateCommonNameResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNameResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (o ServerCertificateCommonNameResponseOutput) ToServerCertificateCommonNameResponseOutput() ServerCertificateCommonNameResponseOutput {
-	return o
-}
-
-func (o ServerCertificateCommonNameResponseOutput) ToServerCertificateCommonNameResponseOutputWithContext(ctx context.Context) ServerCertificateCommonNameResponseOutput {
-	return o
-}
-
-// The common name of the server certificate.
-func (o ServerCertificateCommonNameResponseOutput) CertificateCommonName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerCertificateCommonNameResponse) string { return v.CertificateCommonName }).(pulumi.StringOutput)
-}
-
-// The issuer thumbprint of the server certificate.
-func (o ServerCertificateCommonNameResponseOutput) CertificateIssuerThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerCertificateCommonNameResponse) string { return v.CertificateIssuerThumbprint }).(pulumi.StringOutput)
-}
-
-type ServerCertificateCommonNameResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNameResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (o ServerCertificateCommonNameResponseArrayOutput) ToServerCertificateCommonNameResponseArrayOutput() ServerCertificateCommonNameResponseArrayOutput {
-	return o
-}
-
-func (o ServerCertificateCommonNameResponseArrayOutput) ToServerCertificateCommonNameResponseArrayOutputWithContext(ctx context.Context) ServerCertificateCommonNameResponseArrayOutput {
-	return o
-}
-
-func (o ServerCertificateCommonNameResponseArrayOutput) Index(i pulumi.IntInput) ServerCertificateCommonNameResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerCertificateCommonNameResponse {
-		return vs[0].([]ServerCertificateCommonNameResponse)[vs[1].(int)]
-	}).(ServerCertificateCommonNameResponseOutput)
-}
-
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-type ServerCertificateCommonNames struct {
-	// The list of server certificates referenced by common name that are used to secure the cluster.
-	CommonNames []ServerCertificateCommonName `pulumi:"commonNames"`
-	// The local certificate store location.
-	X509StoreName *string `pulumi:"x509StoreName"`
-}
-
-// ServerCertificateCommonNamesInput is an input type that accepts ServerCertificateCommonNamesArgs and ServerCertificateCommonNamesOutput values.
-// You can construct a concrete instance of `ServerCertificateCommonNamesInput` via:
-//
-//          ServerCertificateCommonNamesArgs{...}
-type ServerCertificateCommonNamesInput interface {
-	pulumi.Input
-
-	ToServerCertificateCommonNamesOutput() ServerCertificateCommonNamesOutput
-	ToServerCertificateCommonNamesOutputWithContext(context.Context) ServerCertificateCommonNamesOutput
-}
-
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-type ServerCertificateCommonNamesArgs struct {
-	// The list of server certificates referenced by common name that are used to secure the cluster.
-	CommonNames ServerCertificateCommonNameArrayInput `pulumi:"commonNames"`
-	// The local certificate store location.
-	X509StoreName pulumi.StringPtrInput `pulumi:"x509StoreName"`
-}
-
-func (ServerCertificateCommonNamesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonNames)(nil)).Elem()
-}
-
-func (i ServerCertificateCommonNamesArgs) ToServerCertificateCommonNamesOutput() ServerCertificateCommonNamesOutput {
-	return i.ToServerCertificateCommonNamesOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNamesArgs) ToServerCertificateCommonNamesOutputWithContext(ctx context.Context) ServerCertificateCommonNamesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesOutput)
-}
-
-func (i ServerCertificateCommonNamesArgs) ToServerCertificateCommonNamesPtrOutput() ServerCertificateCommonNamesPtrOutput {
-	return i.ToServerCertificateCommonNamesPtrOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNamesArgs) ToServerCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesOutput).ToServerCertificateCommonNamesPtrOutputWithContext(ctx)
-}
-
-// ServerCertificateCommonNamesPtrInput is an input type that accepts ServerCertificateCommonNamesArgs, ServerCertificateCommonNamesPtr and ServerCertificateCommonNamesPtrOutput values.
-// You can construct a concrete instance of `ServerCertificateCommonNamesPtrInput` via:
-//
-//          ServerCertificateCommonNamesArgs{...}
+//          NodeTypeSkuArgs{...}
 //
 //  or:
 //
 //          nil
-type ServerCertificateCommonNamesPtrInput interface {
+type NodeTypeSkuPtrInput interface {
 	pulumi.Input
 
-	ToServerCertificateCommonNamesPtrOutput() ServerCertificateCommonNamesPtrOutput
-	ToServerCertificateCommonNamesPtrOutputWithContext(context.Context) ServerCertificateCommonNamesPtrOutput
+	ToNodeTypeSkuPtrOutput() NodeTypeSkuPtrOutput
+	ToNodeTypeSkuPtrOutputWithContext(context.Context) NodeTypeSkuPtrOutput
 }
 
-type serverCertificateCommonNamesPtrType ServerCertificateCommonNamesArgs
+type nodeTypeSkuPtrType NodeTypeSkuArgs
 
-func ServerCertificateCommonNamesPtr(v *ServerCertificateCommonNamesArgs) ServerCertificateCommonNamesPtrInput {
-	return (*serverCertificateCommonNamesPtrType)(v)
+func NodeTypeSkuPtr(v *NodeTypeSkuArgs) NodeTypeSkuPtrInput {
+	return (*nodeTypeSkuPtrType)(v)
 }
 
-func (*serverCertificateCommonNamesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerCertificateCommonNames)(nil)).Elem()
+func (*nodeTypeSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeTypeSku)(nil)).Elem()
 }
 
-func (i *serverCertificateCommonNamesPtrType) ToServerCertificateCommonNamesPtrOutput() ServerCertificateCommonNamesPtrOutput {
-	return i.ToServerCertificateCommonNamesPtrOutputWithContext(context.Background())
+func (i *nodeTypeSkuPtrType) ToNodeTypeSkuPtrOutput() NodeTypeSkuPtrOutput {
+	return i.ToNodeTypeSkuPtrOutputWithContext(context.Background())
 }
 
-func (i *serverCertificateCommonNamesPtrType) ToServerCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesPtrOutput)
+func (i *nodeTypeSkuPtrType) ToNodeTypeSkuPtrOutputWithContext(ctx context.Context) NodeTypeSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeSkuPtrOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-type ServerCertificateCommonNamesOutput struct{ *pulumi.OutputState }
+// Describes a node type sku.
+type NodeTypeSkuOutput struct{ *pulumi.OutputState }
 
-func (ServerCertificateCommonNamesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonNames)(nil)).Elem()
+func (NodeTypeSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeTypeSku)(nil)).Elem()
 }
 
-func (o ServerCertificateCommonNamesOutput) ToServerCertificateCommonNamesOutput() ServerCertificateCommonNamesOutput {
+func (o NodeTypeSkuOutput) ToNodeTypeSkuOutput() NodeTypeSkuOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesOutput) ToServerCertificateCommonNamesOutputWithContext(ctx context.Context) ServerCertificateCommonNamesOutput {
+func (o NodeTypeSkuOutput) ToNodeTypeSkuOutputWithContext(ctx context.Context) NodeTypeSkuOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesOutput) ToServerCertificateCommonNamesPtrOutput() ServerCertificateCommonNamesPtrOutput {
-	return o.ToServerCertificateCommonNamesPtrOutputWithContext(context.Background())
+func (o NodeTypeSkuOutput) ToNodeTypeSkuPtrOutput() NodeTypeSkuPtrOutput {
+	return o.ToNodeTypeSkuPtrOutputWithContext(context.Background())
 }
 
-func (o ServerCertificateCommonNamesOutput) ToServerCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCertificateCommonNames) *ServerCertificateCommonNames {
+func (o NodeTypeSkuOutput) ToNodeTypeSkuPtrOutputWithContext(ctx context.Context) NodeTypeSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeTypeSku) *NodeTypeSku {
 		return &v
-	}).(ServerCertificateCommonNamesPtrOutput)
+	}).(NodeTypeSkuPtrOutput)
 }
 
-// The list of server certificates referenced by common name that are used to secure the cluster.
-func (o ServerCertificateCommonNamesOutput) CommonNames() ServerCertificateCommonNameArrayOutput {
-	return o.ApplyT(func(v ServerCertificateCommonNames) []ServerCertificateCommonName { return v.CommonNames }).(ServerCertificateCommonNameArrayOutput)
+// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+func (o NodeTypeSkuOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeTypeSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The local certificate store location.
-func (o ServerCertificateCommonNamesOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerCertificateCommonNames) *string { return v.X509StoreName }).(pulumi.StringPtrOutput)
+// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+func (o NodeTypeSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeTypeSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ServerCertificateCommonNamesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNamesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerCertificateCommonNames)(nil)).Elem()
+// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+func (o NodeTypeSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeTypeSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-func (o ServerCertificateCommonNamesPtrOutput) ToServerCertificateCommonNamesPtrOutput() ServerCertificateCommonNamesPtrOutput {
+type NodeTypeSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (NodeTypeSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeTypeSku)(nil)).Elem()
+}
+
+func (o NodeTypeSkuPtrOutput) ToNodeTypeSkuPtrOutput() NodeTypeSkuPtrOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesPtrOutput) ToServerCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesPtrOutput {
+func (o NodeTypeSkuPtrOutput) ToNodeTypeSkuPtrOutputWithContext(ctx context.Context) NodeTypeSkuPtrOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesPtrOutput) Elem() ServerCertificateCommonNamesOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNames) ServerCertificateCommonNames {
+func (o NodeTypeSkuPtrOutput) Elem() NodeTypeSkuOutput {
+	return o.ApplyT(func(v *NodeTypeSku) NodeTypeSku {
 		if v != nil {
 			return *v
 		}
-		var ret ServerCertificateCommonNames
+		var ret NodeTypeSku
 		return ret
-	}).(ServerCertificateCommonNamesOutput)
+	}).(NodeTypeSkuOutput)
 }
 
-// The list of server certificates referenced by common name that are used to secure the cluster.
-func (o ServerCertificateCommonNamesPtrOutput) CommonNames() ServerCertificateCommonNameArrayOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNames) []ServerCertificateCommonName {
+// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+func (o NodeTypeSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeTypeSku) *int {
 		if v == nil {
 			return nil
 		}
-		return v.CommonNames
-	}).(ServerCertificateCommonNameArrayOutput)
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
-// The local certificate store location.
-func (o ServerCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNames) *string {
+// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+func (o NodeTypeSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeTypeSku) *string {
 		if v == nil {
 			return nil
 		}
-		return v.X509StoreName
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-type ServerCertificateCommonNamesResponse struct {
-	// The list of server certificates referenced by common name that are used to secure the cluster.
-	CommonNames []ServerCertificateCommonNameResponse `pulumi:"commonNames"`
-	// The local certificate store location.
-	X509StoreName *string `pulumi:"x509StoreName"`
+// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+func (o NodeTypeSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeTypeSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-type ServerCertificateCommonNamesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNamesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonNamesResponse)(nil)).Elem()
+// Describes a node type sku.
+type NodeTypeSkuResponse struct {
+	// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+	Capacity int `pulumi:"capacity"`
+	// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+	Name *string `pulumi:"name"`
+	// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+	Tier *string `pulumi:"tier"`
 }
 
-func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNamesResponseOutput() ServerCertificateCommonNamesResponseOutput {
+// Describes a node type sku.
+type NodeTypeSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (NodeTypeSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeTypeSkuResponse)(nil)).Elem()
+}
+
+func (o NodeTypeSkuResponseOutput) ToNodeTypeSkuResponseOutput() NodeTypeSkuResponseOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNamesResponseOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponseOutput {
+func (o NodeTypeSkuResponseOutput) ToNodeTypeSkuResponseOutputWithContext(ctx context.Context) NodeTypeSkuResponseOutput {
 	return o
 }
 
-// The list of server certificates referenced by common name that are used to secure the cluster.
-func (o ServerCertificateCommonNamesResponseOutput) CommonNames() ServerCertificateCommonNameResponseArrayOutput {
-	return o.ApplyT(func(v ServerCertificateCommonNamesResponse) []ServerCertificateCommonNameResponse {
-		return v.CommonNames
-	}).(ServerCertificateCommonNameResponseArrayOutput)
+// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+func (o NodeTypeSkuResponseOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeTypeSkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The local certificate store location.
-func (o ServerCertificateCommonNamesResponseOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerCertificateCommonNamesResponse) *string { return v.X509StoreName }).(pulumi.StringPtrOutput)
+// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+func (o NodeTypeSkuResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeTypeSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ServerCertificateCommonNamesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerCertificateCommonNamesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerCertificateCommonNamesResponse)(nil)).Elem()
+// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+func (o NodeTypeSkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeTypeSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-func (o ServerCertificateCommonNamesResponsePtrOutput) ToServerCertificateCommonNamesResponsePtrOutput() ServerCertificateCommonNamesResponsePtrOutput {
+type NodeTypeSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeTypeSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeTypeSkuResponse)(nil)).Elem()
+}
+
+func (o NodeTypeSkuResponsePtrOutput) ToNodeTypeSkuResponsePtrOutput() NodeTypeSkuResponsePtrOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesResponsePtrOutput) ToServerCertificateCommonNamesResponsePtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponsePtrOutput {
+func (o NodeTypeSkuResponsePtrOutput) ToNodeTypeSkuResponsePtrOutputWithContext(ctx context.Context) NodeTypeSkuResponsePtrOutput {
 	return o
 }
 
-func (o ServerCertificateCommonNamesResponsePtrOutput) Elem() ServerCertificateCommonNamesResponseOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNamesResponse) ServerCertificateCommonNamesResponse {
+func (o NodeTypeSkuResponsePtrOutput) Elem() NodeTypeSkuResponseOutput {
+	return o.ApplyT(func(v *NodeTypeSkuResponse) NodeTypeSkuResponse {
 		if v != nil {
 			return *v
 		}
-		var ret ServerCertificateCommonNamesResponse
+		var ret NodeTypeSkuResponse
 		return ret
-	}).(ServerCertificateCommonNamesResponseOutput)
+	}).(NodeTypeSkuResponseOutput)
 }
 
-// The list of server certificates referenced by common name that are used to secure the cluster.
-func (o ServerCertificateCommonNamesResponsePtrOutput) CommonNames() ServerCertificateCommonNameResponseArrayOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNamesResponse) []ServerCertificateCommonNameResponse {
+// The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+func (o NodeTypeSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeTypeSkuResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return v.CommonNames
-	}).(ServerCertificateCommonNameResponseArrayOutput)
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
-// The local certificate store location.
-func (o ServerCertificateCommonNamesResponsePtrOutput) X509StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNamesResponse) *string {
+// The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+func (o NodeTypeSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeTypeSkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.X509StoreName
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// Creates a particular correlation between services.
-type ServiceCorrelationDescription struct {
-	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-	Scheme string `pulumi:"scheme"`
-	// The name of the service that the correlation relationship is established with.
-	ServiceName string `pulumi:"serviceName"`
+// Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+func (o NodeTypeSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeTypeSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceCorrelationDescriptionInput is an input type that accepts ServiceCorrelationDescriptionArgs and ServiceCorrelationDescriptionOutput values.
-// You can construct a concrete instance of `ServiceCorrelationDescriptionInput` via:
+// Represents a scaling mechanism for adding or removing instances of stateless service partition.
+type PartitionInstanceCountScaleMechanism struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'ScalePartitionInstanceCount'.
+	Kind string `pulumi:"kind"`
+	// Maximum number of instances of the partition.
+	MaxInstanceCount int `pulumi:"maxInstanceCount"`
+	// Minimum number of instances of the partition.
+	MinInstanceCount int `pulumi:"minInstanceCount"`
+	// The number of instances to add or remove during a scaling operation.
+	ScaleIncrement int `pulumi:"scaleIncrement"`
+}
+
+// Represents a scaling mechanism for adding or removing instances of stateless service partition.
+type PartitionInstanceCountScaleMechanismResponse struct {
+	// Enumerates the ways that a service can be partitioned.
+	// Expected value is 'ScalePartitionInstanceCount'.
+	Kind string `pulumi:"kind"`
+	// Maximum number of instances of the partition.
+	MaxInstanceCount int `pulumi:"maxInstanceCount"`
+	// Minimum number of instances of the partition.
+	MinInstanceCount int `pulumi:"minInstanceCount"`
+	// The number of instances to add or remove during a scaling operation.
+	ScaleIncrement int `pulumi:"scaleIncrement"`
+}
+
+// The policy used for monitoring the application upgrade
+type RollingUpgradeMonitoringPolicy struct {
+	// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+	FailureAction string `pulumi:"failureAction"`
+	// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckRetryTimeout string `pulumi:"healthCheckRetryTimeout"`
+	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckStableDuration string `pulumi:"healthCheckStableDuration"`
+	// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckWaitDuration string `pulumi:"healthCheckWaitDuration"`
+	// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	UpgradeDomainTimeout string `pulumi:"upgradeDomainTimeout"`
+	// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	UpgradeTimeout string `pulumi:"upgradeTimeout"`
+}
+
+// RollingUpgradeMonitoringPolicyInput is an input type that accepts RollingUpgradeMonitoringPolicyArgs and RollingUpgradeMonitoringPolicyOutput values.
+// You can construct a concrete instance of `RollingUpgradeMonitoringPolicyInput` via:
 //
-//          ServiceCorrelationDescriptionArgs{...}
-type ServiceCorrelationDescriptionInput interface {
+//          RollingUpgradeMonitoringPolicyArgs{...}
+type RollingUpgradeMonitoringPolicyInput interface {
 	pulumi.Input
 
-	ToServiceCorrelationDescriptionOutput() ServiceCorrelationDescriptionOutput
-	ToServiceCorrelationDescriptionOutputWithContext(context.Context) ServiceCorrelationDescriptionOutput
+	ToRollingUpgradeMonitoringPolicyOutput() RollingUpgradeMonitoringPolicyOutput
+	ToRollingUpgradeMonitoringPolicyOutputWithContext(context.Context) RollingUpgradeMonitoringPolicyOutput
 }
 
-// Creates a particular correlation between services.
-type ServiceCorrelationDescriptionArgs struct {
-	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-	Scheme pulumi.StringInput `pulumi:"scheme"`
-	// The name of the service that the correlation relationship is established with.
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+// The policy used for monitoring the application upgrade
+type RollingUpgradeMonitoringPolicyArgs struct {
+	// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+	FailureAction pulumi.StringInput `pulumi:"failureAction"`
+	// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckRetryTimeout pulumi.StringInput `pulumi:"healthCheckRetryTimeout"`
+	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckStableDuration pulumi.StringInput `pulumi:"healthCheckStableDuration"`
+	// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckWaitDuration pulumi.StringInput `pulumi:"healthCheckWaitDuration"`
+	// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	UpgradeDomainTimeout pulumi.StringInput `pulumi:"upgradeDomainTimeout"`
+	// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	UpgradeTimeout pulumi.StringInput `pulumi:"upgradeTimeout"`
 }
 
-func (ServiceCorrelationDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCorrelationDescription)(nil)).Elem()
+func (RollingUpgradeMonitoringPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RollingUpgradeMonitoringPolicy)(nil)).Elem()
 }
 
-func (i ServiceCorrelationDescriptionArgs) ToServiceCorrelationDescriptionOutput() ServiceCorrelationDescriptionOutput {
-	return i.ToServiceCorrelationDescriptionOutputWithContext(context.Background())
+func (i RollingUpgradeMonitoringPolicyArgs) ToRollingUpgradeMonitoringPolicyOutput() RollingUpgradeMonitoringPolicyOutput {
+	return i.ToRollingUpgradeMonitoringPolicyOutputWithContext(context.Background())
 }
 
-func (i ServiceCorrelationDescriptionArgs) ToServiceCorrelationDescriptionOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionOutput)
+func (i RollingUpgradeMonitoringPolicyArgs) ToRollingUpgradeMonitoringPolicyOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RollingUpgradeMonitoringPolicyOutput)
 }
 
-// ServiceCorrelationDescriptionArrayInput is an input type that accepts ServiceCorrelationDescriptionArray and ServiceCorrelationDescriptionArrayOutput values.
-// You can construct a concrete instance of `ServiceCorrelationDescriptionArrayInput` via:
+func (i RollingUpgradeMonitoringPolicyArgs) ToRollingUpgradeMonitoringPolicyPtrOutput() RollingUpgradeMonitoringPolicyPtrOutput {
+	return i.ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RollingUpgradeMonitoringPolicyArgs) ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RollingUpgradeMonitoringPolicyOutput).ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx)
+}
+
+// RollingUpgradeMonitoringPolicyPtrInput is an input type that accepts RollingUpgradeMonitoringPolicyArgs, RollingUpgradeMonitoringPolicyPtr and RollingUpgradeMonitoringPolicyPtrOutput values.
+// You can construct a concrete instance of `RollingUpgradeMonitoringPolicyPtrInput` via:
 //
-//          ServiceCorrelationDescriptionArray{ ServiceCorrelationDescriptionArgs{...} }
-type ServiceCorrelationDescriptionArrayInput interface {
+//          RollingUpgradeMonitoringPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RollingUpgradeMonitoringPolicyPtrInput interface {
 	pulumi.Input
 
-	ToServiceCorrelationDescriptionArrayOutput() ServiceCorrelationDescriptionArrayOutput
-	ToServiceCorrelationDescriptionArrayOutputWithContext(context.Context) ServiceCorrelationDescriptionArrayOutput
+	ToRollingUpgradeMonitoringPolicyPtrOutput() RollingUpgradeMonitoringPolicyPtrOutput
+	ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Context) RollingUpgradeMonitoringPolicyPtrOutput
 }
 
-type ServiceCorrelationDescriptionArray []ServiceCorrelationDescriptionInput
+type rollingUpgradeMonitoringPolicyPtrType RollingUpgradeMonitoringPolicyArgs
 
-func (ServiceCorrelationDescriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceCorrelationDescription)(nil)).Elem()
+func RollingUpgradeMonitoringPolicyPtr(v *RollingUpgradeMonitoringPolicyArgs) RollingUpgradeMonitoringPolicyPtrInput {
+	return (*rollingUpgradeMonitoringPolicyPtrType)(v)
 }
 
-func (i ServiceCorrelationDescriptionArray) ToServiceCorrelationDescriptionArrayOutput() ServiceCorrelationDescriptionArrayOutput {
-	return i.ToServiceCorrelationDescriptionArrayOutputWithContext(context.Background())
+func (*rollingUpgradeMonitoringPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RollingUpgradeMonitoringPolicy)(nil)).Elem()
 }
 
-func (i ServiceCorrelationDescriptionArray) ToServiceCorrelationDescriptionArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionArrayOutput)
+func (i *rollingUpgradeMonitoringPolicyPtrType) ToRollingUpgradeMonitoringPolicyPtrOutput() RollingUpgradeMonitoringPolicyPtrOutput {
+	return i.ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Background())
 }
 
-// Creates a particular correlation between services.
-type ServiceCorrelationDescriptionOutput struct{ *pulumi.OutputState }
-
-func (ServiceCorrelationDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCorrelationDescription)(nil)).Elem()
+func (i *rollingUpgradeMonitoringPolicyPtrType) ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RollingUpgradeMonitoringPolicyPtrOutput)
 }
 
-func (o ServiceCorrelationDescriptionOutput) ToServiceCorrelationDescriptionOutput() ServiceCorrelationDescriptionOutput {
+// The policy used for monitoring the application upgrade
+type RollingUpgradeMonitoringPolicyOutput struct{ *pulumi.OutputState }
+
+func (RollingUpgradeMonitoringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RollingUpgradeMonitoringPolicy)(nil)).Elem()
+}
+
+func (o RollingUpgradeMonitoringPolicyOutput) ToRollingUpgradeMonitoringPolicyOutput() RollingUpgradeMonitoringPolicyOutput {
 	return o
 }
 
-func (o ServiceCorrelationDescriptionOutput) ToServiceCorrelationDescriptionOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionOutput {
+func (o RollingUpgradeMonitoringPolicyOutput) ToRollingUpgradeMonitoringPolicyOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyOutput {
 	return o
 }
 
-// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-func (o ServiceCorrelationDescriptionOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCorrelationDescription) string { return v.Scheme }).(pulumi.StringOutput)
+func (o RollingUpgradeMonitoringPolicyOutput) ToRollingUpgradeMonitoringPolicyPtrOutput() RollingUpgradeMonitoringPolicyPtrOutput {
+	return o.ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(context.Background())
 }
 
-// The name of the service that the correlation relationship is established with.
-func (o ServiceCorrelationDescriptionOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCorrelationDescription) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o RollingUpgradeMonitoringPolicyOutput) ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RollingUpgradeMonitoringPolicy) *RollingUpgradeMonitoringPolicy {
+		return &v
+	}).(RollingUpgradeMonitoringPolicyPtrOutput)
 }
 
-type ServiceCorrelationDescriptionArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceCorrelationDescriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceCorrelationDescription)(nil)).Elem()
+// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+func (o RollingUpgradeMonitoringPolicyOutput) FailureAction() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicy) string { return v.FailureAction }).(pulumi.StringOutput)
 }
 
-func (o ServiceCorrelationDescriptionArrayOutput) ToServiceCorrelationDescriptionArrayOutput() ServiceCorrelationDescriptionArrayOutput {
+// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyOutput) HealthCheckRetryTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicy) string { return v.HealthCheckRetryTimeout }).(pulumi.StringOutput)
+}
+
+// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyOutput) HealthCheckStableDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicy) string { return v.HealthCheckStableDuration }).(pulumi.StringOutput)
+}
+
+// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyOutput) HealthCheckWaitDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicy) string { return v.HealthCheckWaitDuration }).(pulumi.StringOutput)
+}
+
+// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyOutput) UpgradeDomainTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicy) string { return v.UpgradeDomainTimeout }).(pulumi.StringOutput)
+}
+
+// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyOutput) UpgradeTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicy) string { return v.UpgradeTimeout }).(pulumi.StringOutput)
+}
+
+type RollingUpgradeMonitoringPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RollingUpgradeMonitoringPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RollingUpgradeMonitoringPolicy)(nil)).Elem()
+}
+
+func (o RollingUpgradeMonitoringPolicyPtrOutput) ToRollingUpgradeMonitoringPolicyPtrOutput() RollingUpgradeMonitoringPolicyPtrOutput {
 	return o
 }
 
-func (o ServiceCorrelationDescriptionArrayOutput) ToServiceCorrelationDescriptionArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionArrayOutput {
+func (o RollingUpgradeMonitoringPolicyPtrOutput) ToRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyPtrOutput {
 	return o
 }
 
-func (o ServiceCorrelationDescriptionArrayOutput) Index(i pulumi.IntInput) ServiceCorrelationDescriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCorrelationDescription {
-		return vs[0].([]ServiceCorrelationDescription)[vs[1].(int)]
-	}).(ServiceCorrelationDescriptionOutput)
+func (o RollingUpgradeMonitoringPolicyPtrOutput) Elem() RollingUpgradeMonitoringPolicyOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) RollingUpgradeMonitoringPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RollingUpgradeMonitoringPolicy
+		return ret
+	}).(RollingUpgradeMonitoringPolicyOutput)
 }
 
-// Creates a particular correlation between services.
-type ServiceCorrelationDescriptionResponse struct {
-	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-	Scheme string `pulumi:"scheme"`
-	// The name of the service that the correlation relationship is established with.
-	ServiceName string `pulumi:"serviceName"`
+// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+func (o RollingUpgradeMonitoringPolicyPtrOutput) FailureAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureAction
+	}).(pulumi.StringPtrOutput)
 }
 
-// Creates a particular correlation between services.
-type ServiceCorrelationDescriptionResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceCorrelationDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCorrelationDescriptionResponse)(nil)).Elem()
+// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyPtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheckRetryTimeout
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceCorrelationDescriptionResponseOutput) ToServiceCorrelationDescriptionResponseOutput() ServiceCorrelationDescriptionResponseOutput {
+// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyPtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheckStableDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyPtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheckWaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyPtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpgradeDomainTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpgradeTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy used for monitoring the application upgrade
+type RollingUpgradeMonitoringPolicyResponse struct {
+	// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+	FailureAction string `pulumi:"failureAction"`
+	// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckRetryTimeout string `pulumi:"healthCheckRetryTimeout"`
+	// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckStableDuration string `pulumi:"healthCheckStableDuration"`
+	// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	HealthCheckWaitDuration string `pulumi:"healthCheckWaitDuration"`
+	// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	UpgradeDomainTimeout string `pulumi:"upgradeDomainTimeout"`
+	// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+	UpgradeTimeout string `pulumi:"upgradeTimeout"`
+}
+
+// The policy used for monitoring the application upgrade
+type RollingUpgradeMonitoringPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (RollingUpgradeMonitoringPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RollingUpgradeMonitoringPolicyResponse)(nil)).Elem()
+}
+
+func (o RollingUpgradeMonitoringPolicyResponseOutput) ToRollingUpgradeMonitoringPolicyResponseOutput() RollingUpgradeMonitoringPolicyResponseOutput {
 	return o
 }
 
-func (o ServiceCorrelationDescriptionResponseOutput) ToServiceCorrelationDescriptionResponseOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionResponseOutput {
+func (o RollingUpgradeMonitoringPolicyResponseOutput) ToRollingUpgradeMonitoringPolicyResponseOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyResponseOutput {
 	return o
 }
 
-// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-func (o ServiceCorrelationDescriptionResponseOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCorrelationDescriptionResponse) string { return v.Scheme }).(pulumi.StringOutput)
+// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+func (o RollingUpgradeMonitoringPolicyResponseOutput) FailureAction() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicyResponse) string { return v.FailureAction }).(pulumi.StringOutput)
 }
 
-// The name of the service that the correlation relationship is established with.
-func (o ServiceCorrelationDescriptionResponseOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCorrelationDescriptionResponse) string { return v.ServiceName }).(pulumi.StringOutput)
+// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponseOutput) HealthCheckRetryTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicyResponse) string { return v.HealthCheckRetryTimeout }).(pulumi.StringOutput)
 }
 
-type ServiceCorrelationDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceCorrelationDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceCorrelationDescriptionResponse)(nil)).Elem()
+// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponseOutput) HealthCheckStableDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicyResponse) string { return v.HealthCheckStableDuration }).(pulumi.StringOutput)
 }
 
-func (o ServiceCorrelationDescriptionResponseArrayOutput) ToServiceCorrelationDescriptionResponseArrayOutput() ServiceCorrelationDescriptionResponseArrayOutput {
+// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponseOutput) HealthCheckWaitDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicyResponse) string { return v.HealthCheckWaitDuration }).(pulumi.StringOutput)
+}
+
+// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponseOutput) UpgradeDomainTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicyResponse) string { return v.UpgradeDomainTimeout }).(pulumi.StringOutput)
+}
+
+// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponseOutput) UpgradeTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v RollingUpgradeMonitoringPolicyResponse) string { return v.UpgradeTimeout }).(pulumi.StringOutput)
+}
+
+type RollingUpgradeMonitoringPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RollingUpgradeMonitoringPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RollingUpgradeMonitoringPolicyResponse)(nil)).Elem()
+}
+
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) ToRollingUpgradeMonitoringPolicyResponsePtrOutput() RollingUpgradeMonitoringPolicyResponsePtrOutput {
 	return o
 }
 
-func (o ServiceCorrelationDescriptionResponseArrayOutput) ToServiceCorrelationDescriptionResponseArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionResponseArrayOutput {
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) ToRollingUpgradeMonitoringPolicyResponsePtrOutputWithContext(ctx context.Context) RollingUpgradeMonitoringPolicyResponsePtrOutput {
 	return o
 }
 
-func (o ServiceCorrelationDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ServiceCorrelationDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCorrelationDescriptionResponse {
-		return vs[0].([]ServiceCorrelationDescriptionResponse)[vs[1].(int)]
-	}).(ServiceCorrelationDescriptionResponseOutput)
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) Elem() RollingUpgradeMonitoringPolicyResponseOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) RollingUpgradeMonitoringPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RollingUpgradeMonitoringPolicyResponse
+		return ret
+	}).(RollingUpgradeMonitoringPolicyResponseOutput)
+}
+
+// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) FailureAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheckRetryTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheckStableDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheckWaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpgradeDomainTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+func (o RollingUpgradeMonitoringPolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradeMonitoringPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpgradeTimeout
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies a metric to load balance a service during runtime.
-type ServiceLoadMetricDescription struct {
+type ScalingPolicy struct {
+	// Specifies the mechanism associated with this scaling policy
+	ScalingMechanism interface{} `pulumi:"scalingMechanism"`
+	// Specifies the trigger associated with this scaling policy.
+	ScalingTrigger interface{} `pulumi:"scalingTrigger"`
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ScalingPolicyResponse struct {
+	// Specifies the mechanism associated with this scaling policy
+	ScalingMechanism interface{} `pulumi:"scalingMechanism"`
+	// Specifies the trigger associated with this scaling policy.
+	ScalingTrigger interface{} `pulumi:"scalingTrigger"`
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelation struct {
+	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+	Scheme string `pulumi:"scheme"`
+	// The Arm Resource ID of the service that the correlation relationship is established with.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelationResponse struct {
+	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+	Scheme string `pulumi:"scheme"`
+	// The Arm Resource ID of the service that the correlation relationship is established with.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// The service endpoint properties.
+type ServiceEndpoint struct {
+	// A list of locations.
+	Locations []string `pulumi:"locations"`
+	// The type of the endpoint service.
+	Service string `pulumi:"service"`
+}
+
+// ServiceEndpointInput is an input type that accepts ServiceEndpointArgs and ServiceEndpointOutput values.
+// You can construct a concrete instance of `ServiceEndpointInput` via:
+//
+//          ServiceEndpointArgs{...}
+type ServiceEndpointInput interface {
+	pulumi.Input
+
+	ToServiceEndpointOutput() ServiceEndpointOutput
+	ToServiceEndpointOutputWithContext(context.Context) ServiceEndpointOutput
+}
+
+// The service endpoint properties.
+type ServiceEndpointArgs struct {
+	// A list of locations.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// The type of the endpoint service.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (ServiceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpoint)(nil)).Elem()
+}
+
+func (i ServiceEndpointArgs) ToServiceEndpointOutput() ServiceEndpointOutput {
+	return i.ToServiceEndpointOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointArgs) ToServiceEndpointOutputWithContext(ctx context.Context) ServiceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointOutput)
+}
+
+// ServiceEndpointArrayInput is an input type that accepts ServiceEndpointArray and ServiceEndpointArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointArrayInput` via:
+//
+//          ServiceEndpointArray{ ServiceEndpointArgs{...} }
+type ServiceEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServiceEndpointArrayOutput() ServiceEndpointArrayOutput
+	ToServiceEndpointArrayOutputWithContext(context.Context) ServiceEndpointArrayOutput
+}
+
+type ServiceEndpointArray []ServiceEndpointInput
+
+func (ServiceEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpoint)(nil)).Elem()
+}
+
+func (i ServiceEndpointArray) ToServiceEndpointArrayOutput() ServiceEndpointArrayOutput {
+	return i.ToServiceEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointArray) ToServiceEndpointArrayOutputWithContext(ctx context.Context) ServiceEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArrayOutput)
+}
+
+// The service endpoint properties.
+type ServiceEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpoint)(nil)).Elem()
+}
+
+func (o ServiceEndpointOutput) ToServiceEndpointOutput() ServiceEndpointOutput {
+	return o
+}
+
+func (o ServiceEndpointOutput) ToServiceEndpointOutputWithContext(ctx context.Context) ServiceEndpointOutput {
+	return o
+}
+
+// A list of locations.
+func (o ServiceEndpointOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceEndpoint) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// The type of the endpoint service.
+func (o ServiceEndpointOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpoint) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type ServiceEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpoint)(nil)).Elem()
+}
+
+func (o ServiceEndpointArrayOutput) ToServiceEndpointArrayOutput() ServiceEndpointArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointArrayOutput) ToServiceEndpointArrayOutputWithContext(ctx context.Context) ServiceEndpointArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointArrayOutput) Index(i pulumi.IntInput) ServiceEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpoint {
+		return vs[0].([]ServiceEndpoint)[vs[1].(int)]
+	}).(ServiceEndpointOutput)
+}
+
+// The service endpoint properties.
+type ServiceEndpointResponse struct {
+	// A list of locations.
+	Locations []string `pulumi:"locations"`
+	// The type of the endpoint service.
+	Service string `pulumi:"service"`
+}
+
+// The service endpoint properties.
+type ServiceEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointResponse)(nil)).Elem()
+}
+
+func (o ServiceEndpointResponseOutput) ToServiceEndpointResponseOutput() ServiceEndpointResponseOutput {
+	return o
+}
+
+func (o ServiceEndpointResponseOutput) ToServiceEndpointResponseOutputWithContext(ctx context.Context) ServiceEndpointResponseOutput {
+	return o
+}
+
+// A list of locations.
+func (o ServiceEndpointResponseOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceEndpointResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// The type of the endpoint service.
+func (o ServiceEndpointResponseOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointResponse) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type ServiceEndpointResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointResponse)(nil)).Elem()
+}
+
+func (o ServiceEndpointResponseArrayOutput) ToServiceEndpointResponseArrayOutput() ServiceEndpointResponseArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointResponseArrayOutput) ToServiceEndpointResponseArrayOutputWithContext(ctx context.Context) ServiceEndpointResponseArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointResponseArrayOutput) Index(i pulumi.IntInput) ServiceEndpointResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointResponse {
+		return vs[0].([]ServiceEndpointResponse)[vs[1].(int)]
+	}).(ServiceEndpointResponseOutput)
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetric struct {
 	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
 	DefaultLoad *int `pulumi:"defaultLoad"`
 	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
@@ -7097,130 +4035,8 @@ type ServiceLoadMetricDescription struct {
 	Weight *string `pulumi:"weight"`
 }
 
-// ServiceLoadMetricDescriptionInput is an input type that accepts ServiceLoadMetricDescriptionArgs and ServiceLoadMetricDescriptionOutput values.
-// You can construct a concrete instance of `ServiceLoadMetricDescriptionInput` via:
-//
-//          ServiceLoadMetricDescriptionArgs{...}
-type ServiceLoadMetricDescriptionInput interface {
-	pulumi.Input
-
-	ToServiceLoadMetricDescriptionOutput() ServiceLoadMetricDescriptionOutput
-	ToServiceLoadMetricDescriptionOutputWithContext(context.Context) ServiceLoadMetricDescriptionOutput
-}
-
 // Specifies a metric to load balance a service during runtime.
-type ServiceLoadMetricDescriptionArgs struct {
-	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
-	DefaultLoad pulumi.IntPtrInput `pulumi:"defaultLoad"`
-	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
-	PrimaryDefaultLoad pulumi.IntPtrInput `pulumi:"primaryDefaultLoad"`
-	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
-	SecondaryDefaultLoad pulumi.IntPtrInput `pulumi:"secondaryDefaultLoad"`
-	// The service load metric relative weight, compared to other metrics configured for this service, as a number.
-	Weight pulumi.StringPtrInput `pulumi:"weight"`
-}
-
-func (ServiceLoadMetricDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricDescription)(nil)).Elem()
-}
-
-func (i ServiceLoadMetricDescriptionArgs) ToServiceLoadMetricDescriptionOutput() ServiceLoadMetricDescriptionOutput {
-	return i.ToServiceLoadMetricDescriptionOutputWithContext(context.Background())
-}
-
-func (i ServiceLoadMetricDescriptionArgs) ToServiceLoadMetricDescriptionOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionOutput)
-}
-
-// ServiceLoadMetricDescriptionArrayInput is an input type that accepts ServiceLoadMetricDescriptionArray and ServiceLoadMetricDescriptionArrayOutput values.
-// You can construct a concrete instance of `ServiceLoadMetricDescriptionArrayInput` via:
-//
-//          ServiceLoadMetricDescriptionArray{ ServiceLoadMetricDescriptionArgs{...} }
-type ServiceLoadMetricDescriptionArrayInput interface {
-	pulumi.Input
-
-	ToServiceLoadMetricDescriptionArrayOutput() ServiceLoadMetricDescriptionArrayOutput
-	ToServiceLoadMetricDescriptionArrayOutputWithContext(context.Context) ServiceLoadMetricDescriptionArrayOutput
-}
-
-type ServiceLoadMetricDescriptionArray []ServiceLoadMetricDescriptionInput
-
-func (ServiceLoadMetricDescriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceLoadMetricDescription)(nil)).Elem()
-}
-
-func (i ServiceLoadMetricDescriptionArray) ToServiceLoadMetricDescriptionArrayOutput() ServiceLoadMetricDescriptionArrayOutput {
-	return i.ToServiceLoadMetricDescriptionArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceLoadMetricDescriptionArray) ToServiceLoadMetricDescriptionArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionArrayOutput)
-}
-
-// Specifies a metric to load balance a service during runtime.
-type ServiceLoadMetricDescriptionOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricDescription)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricDescriptionOutput) ToServiceLoadMetricDescriptionOutput() ServiceLoadMetricDescriptionOutput {
-	return o
-}
-
-func (o ServiceLoadMetricDescriptionOutput) ToServiceLoadMetricDescriptionOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionOutput {
-	return o
-}
-
-// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
-func (o ServiceLoadMetricDescriptionOutput) DefaultLoad() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescription) *int { return v.DefaultLoad }).(pulumi.IntPtrOutput)
-}
-
-// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
-func (o ServiceLoadMetricDescriptionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescription) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
-func (o ServiceLoadMetricDescriptionOutput) PrimaryDefaultLoad() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescription) *int { return v.PrimaryDefaultLoad }).(pulumi.IntPtrOutput)
-}
-
-// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
-func (o ServiceLoadMetricDescriptionOutput) SecondaryDefaultLoad() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescription) *int { return v.SecondaryDefaultLoad }).(pulumi.IntPtrOutput)
-}
-
-// The service load metric relative weight, compared to other metrics configured for this service, as a number.
-func (o ServiceLoadMetricDescriptionOutput) Weight() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescription) *string { return v.Weight }).(pulumi.StringPtrOutput)
-}
-
-type ServiceLoadMetricDescriptionArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricDescriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceLoadMetricDescription)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricDescriptionArrayOutput) ToServiceLoadMetricDescriptionArrayOutput() ServiceLoadMetricDescriptionArrayOutput {
-	return o
-}
-
-func (o ServiceLoadMetricDescriptionArrayOutput) ToServiceLoadMetricDescriptionArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionArrayOutput {
-	return o
-}
-
-func (o ServiceLoadMetricDescriptionArrayOutput) Index(i pulumi.IntInput) ServiceLoadMetricDescriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLoadMetricDescription {
-		return vs[0].([]ServiceLoadMetricDescription)[vs[1].(int)]
-	}).(ServiceLoadMetricDescriptionOutput)
-}
-
-// Specifies a metric to load balance a service during runtime.
-type ServiceLoadMetricDescriptionResponse struct {
+type ServiceLoadMetricResponse struct {
 	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
 	DefaultLoad *int `pulumi:"defaultLoad"`
 	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
@@ -7233,545 +4049,145 @@ type ServiceLoadMetricDescriptionResponse struct {
 	Weight *string `pulumi:"weight"`
 }
 
-// Specifies a metric to load balance a service during runtime.
-type ServiceLoadMetricDescriptionResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricDescriptionResponse)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricDescriptionResponseOutput) ToServiceLoadMetricDescriptionResponseOutput() ServiceLoadMetricDescriptionResponseOutput {
-	return o
-}
-
-func (o ServiceLoadMetricDescriptionResponseOutput) ToServiceLoadMetricDescriptionResponseOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionResponseOutput {
-	return o
-}
-
-// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
-func (o ServiceLoadMetricDescriptionResponseOutput) DefaultLoad() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *int { return v.DefaultLoad }).(pulumi.IntPtrOutput)
-}
-
-// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
-func (o ServiceLoadMetricDescriptionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
-func (o ServiceLoadMetricDescriptionResponseOutput) PrimaryDefaultLoad() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *int { return v.PrimaryDefaultLoad }).(pulumi.IntPtrOutput)
-}
-
-// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
-func (o ServiceLoadMetricDescriptionResponseOutput) SecondaryDefaultLoad() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *int { return v.SecondaryDefaultLoad }).(pulumi.IntPtrOutput)
-}
-
-// The service load metric relative weight, compared to other metrics configured for this service, as a number.
-func (o ServiceLoadMetricDescriptionResponseOutput) Weight() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *string { return v.Weight }).(pulumi.StringPtrOutput)
-}
-
-type ServiceLoadMetricDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceLoadMetricDescriptionResponse)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricDescriptionResponseArrayOutput) ToServiceLoadMetricDescriptionResponseArrayOutput() ServiceLoadMetricDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o ServiceLoadMetricDescriptionResponseArrayOutput) ToServiceLoadMetricDescriptionResponseArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o ServiceLoadMetricDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ServiceLoadMetricDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLoadMetricDescriptionResponse {
-		return vs[0].([]ServiceLoadMetricDescriptionResponse)[vs[1].(int)]
-	}).(ServiceLoadMetricDescriptionResponseOutput)
-}
-
-// Describes the policy to be used for placement of a Service Fabric service.
-type ServicePlacementPolicyDescription struct {
+// Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
+type ServicePlacementInvalidDomainPolicy struct {
+	// The name of the domain that should not be used for placement.
+	DomainName string `pulumi:"domainName"`
 	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'InvalidDomain'.
 	Type string `pulumi:"type"`
 }
 
-// ServicePlacementPolicyDescriptionInput is an input type that accepts ServicePlacementPolicyDescriptionArgs and ServicePlacementPolicyDescriptionOutput values.
-// You can construct a concrete instance of `ServicePlacementPolicyDescriptionInput` via:
-//
-//          ServicePlacementPolicyDescriptionArgs{...}
-type ServicePlacementPolicyDescriptionInput interface {
-	pulumi.Input
-
-	ToServicePlacementPolicyDescriptionOutput() ServicePlacementPolicyDescriptionOutput
-	ToServicePlacementPolicyDescriptionOutputWithContext(context.Context) ServicePlacementPolicyDescriptionOutput
-}
-
-// Describes the policy to be used for placement of a Service Fabric service.
-type ServicePlacementPolicyDescriptionArgs struct {
+// Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
+type ServicePlacementInvalidDomainPolicyResponse struct {
+	// The name of the domain that should not be used for placement.
+	DomainName string `pulumi:"domainName"`
 	// The type of placement policy for a service fabric service. Following are the possible values.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServicePlacementPolicyDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPolicyDescription)(nil)).Elem()
-}
-
-func (i ServicePlacementPolicyDescriptionArgs) ToServicePlacementPolicyDescriptionOutput() ServicePlacementPolicyDescriptionOutput {
-	return i.ToServicePlacementPolicyDescriptionOutputWithContext(context.Background())
-}
-
-func (i ServicePlacementPolicyDescriptionArgs) ToServicePlacementPolicyDescriptionOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionOutput)
-}
-
-// ServicePlacementPolicyDescriptionArrayInput is an input type that accepts ServicePlacementPolicyDescriptionArray and ServicePlacementPolicyDescriptionArrayOutput values.
-// You can construct a concrete instance of `ServicePlacementPolicyDescriptionArrayInput` via:
-//
-//          ServicePlacementPolicyDescriptionArray{ ServicePlacementPolicyDescriptionArgs{...} }
-type ServicePlacementPolicyDescriptionArrayInput interface {
-	pulumi.Input
-
-	ToServicePlacementPolicyDescriptionArrayOutput() ServicePlacementPolicyDescriptionArrayOutput
-	ToServicePlacementPolicyDescriptionArrayOutputWithContext(context.Context) ServicePlacementPolicyDescriptionArrayOutput
-}
-
-type ServicePlacementPolicyDescriptionArray []ServicePlacementPolicyDescriptionInput
-
-func (ServicePlacementPolicyDescriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServicePlacementPolicyDescription)(nil)).Elem()
-}
-
-func (i ServicePlacementPolicyDescriptionArray) ToServicePlacementPolicyDescriptionArrayOutput() ServicePlacementPolicyDescriptionArrayOutput {
-	return i.ToServicePlacementPolicyDescriptionArrayOutputWithContext(context.Background())
-}
-
-func (i ServicePlacementPolicyDescriptionArray) ToServicePlacementPolicyDescriptionArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionArrayOutput)
-}
-
-// Describes the policy to be used for placement of a Service Fabric service.
-type ServicePlacementPolicyDescriptionOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPolicyDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPolicyDescription)(nil)).Elem()
-}
-
-func (o ServicePlacementPolicyDescriptionOutput) ToServicePlacementPolicyDescriptionOutput() ServicePlacementPolicyDescriptionOutput {
-	return o
-}
-
-func (o ServicePlacementPolicyDescriptionOutput) ToServicePlacementPolicyDescriptionOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionOutput {
-	return o
-}
-
-// The type of placement policy for a service fabric service. Following are the possible values.
-func (o ServicePlacementPolicyDescriptionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePlacementPolicyDescription) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ServicePlacementPolicyDescriptionArrayOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPolicyDescriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServicePlacementPolicyDescription)(nil)).Elem()
-}
-
-func (o ServicePlacementPolicyDescriptionArrayOutput) ToServicePlacementPolicyDescriptionArrayOutput() ServicePlacementPolicyDescriptionArrayOutput {
-	return o
-}
-
-func (o ServicePlacementPolicyDescriptionArrayOutput) ToServicePlacementPolicyDescriptionArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionArrayOutput {
-	return o
-}
-
-func (o ServicePlacementPolicyDescriptionArrayOutput) Index(i pulumi.IntInput) ServicePlacementPolicyDescriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServicePlacementPolicyDescription {
-		return vs[0].([]ServicePlacementPolicyDescription)[vs[1].(int)]
-	}).(ServicePlacementPolicyDescriptionOutput)
-}
-
-// Describes the policy to be used for placement of a Service Fabric service.
-type ServicePlacementPolicyDescriptionResponse struct {
-	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'InvalidDomain'.
 	Type string `pulumi:"type"`
 }
 
-// Describes the policy to be used for placement of a Service Fabric service.
-type ServicePlacementPolicyDescriptionResponseOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPolicyDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPolicyDescriptionResponse)(nil)).Elem()
+// The name of the domain that should used for placement as per this policy.
+type ServicePlacementNonPartiallyPlaceServicePolicy struct {
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'NonPartiallyPlaceService'.
+	Type string `pulumi:"type"`
 }
 
-func (o ServicePlacementPolicyDescriptionResponseOutput) ToServicePlacementPolicyDescriptionResponseOutput() ServicePlacementPolicyDescriptionResponseOutput {
-	return o
+// The name of the domain that should used for placement as per this policy.
+type ServicePlacementNonPartiallyPlaceServicePolicyResponse struct {
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'NonPartiallyPlaceService'.
+	Type string `pulumi:"type"`
 }
 
-func (o ServicePlacementPolicyDescriptionResponseOutput) ToServicePlacementPolicyDescriptionResponseOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionResponseOutput {
-	return o
-}
-
-// The type of placement policy for a service fabric service. Following are the possible values.
-func (o ServicePlacementPolicyDescriptionResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePlacementPolicyDescriptionResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ServicePlacementPolicyDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPolicyDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServicePlacementPolicyDescriptionResponse)(nil)).Elem()
-}
-
-func (o ServicePlacementPolicyDescriptionResponseArrayOutput) ToServicePlacementPolicyDescriptionResponseArrayOutput() ServicePlacementPolicyDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o ServicePlacementPolicyDescriptionResponseArrayOutput) ToServicePlacementPolicyDescriptionResponseArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionResponseArrayOutput {
-	return o
-}
-
-func (o ServicePlacementPolicyDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ServicePlacementPolicyDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServicePlacementPolicyDescriptionResponse {
-		return vs[0].([]ServicePlacementPolicyDescriptionResponse)[vs[1].(int)]
-	}).(ServicePlacementPolicyDescriptionResponseOutput)
-}
-
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
-type ServiceTypeDeltaHealthPolicy struct {
-	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ServiceTypeDeltaHealthPolicy
-func (val *ServiceTypeDeltaHealthPolicy) Defaults() *ServiceTypeDeltaHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
-		maxPercentDeltaUnhealthyServices_ := 0
-		tmp.MaxPercentDeltaUnhealthyServices = &maxPercentDeltaUnhealthyServices_
-	}
-	return &tmp
-}
-
-// ServiceTypeDeltaHealthPolicyInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs and ServiceTypeDeltaHealthPolicyOutput values.
-// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyInput` via:
+// Describes the policy to be used for placement of a Service Fabric service where the service's
+// Primary replicas should optimally be placed in a particular domain.
 //
-//          ServiceTypeDeltaHealthPolicyArgs{...}
-type ServiceTypeDeltaHealthPolicyInput interface {
-	pulumi.Input
-
-	ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput
-	ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyOutput
+// This placement policy is usually used with fault domains in scenarios where the Service Fabric
+// cluster is geographically distributed in order to indicate that a service's primary replica should
+// be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
+// or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
+// may not end up located in this domain due to failures, capacity limits, or other constraints.
+type ServicePlacementPreferPrimaryDomainPolicy struct {
+	// The name of the domain that should used for placement as per this policy.
+	DomainName string `pulumi:"domainName"`
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'PreferredPrimaryDomain'.
+	Type string `pulumi:"type"`
 }
 
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
-type ServiceTypeDeltaHealthPolicyArgs struct {
-	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ServiceTypeDeltaHealthPolicyArgs
-func (val *ServiceTypeDeltaHealthPolicyArgs) Defaults() *ServiceTypeDeltaHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
-		tmp.MaxPercentDeltaUnhealthyServices = pulumi.IntPtr(0)
-	}
-	return &tmp
-}
-func (ServiceTypeDeltaHealthPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput {
-	return i.ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyOutput)
-}
-
-func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
-	return i.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyOutput).ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx)
-}
-
-// ServiceTypeDeltaHealthPolicyPtrInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs, ServiceTypeDeltaHealthPolicyPtr and ServiceTypeDeltaHealthPolicyPtrOutput values.
-// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyPtrInput` via:
+// Describes the policy to be used for placement of a Service Fabric service where the service's
+// Primary replicas should optimally be placed in a particular domain.
 //
-//          ServiceTypeDeltaHealthPolicyArgs{...}
+// This placement policy is usually used with fault domains in scenarios where the Service Fabric
+// cluster is geographically distributed in order to indicate that a service's primary replica should
+// be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
+// or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
+// may not end up located in this domain due to failures, capacity limits, or other constraints.
+type ServicePlacementPreferPrimaryDomainPolicyResponse struct {
+	// The name of the domain that should used for placement as per this policy.
+	DomainName string `pulumi:"domainName"`
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'PreferredPrimaryDomain'.
+	Type string `pulumi:"type"`
+}
+
+// Describes the policy to be used for placement of a Service Fabric service where two replicas
+// from the same partition should never be placed in the same fault or upgrade domain.
 //
-//  or:
+// While this is not common it can expose the service to an increased risk of concurrent failures
+// due to unplanned outages or other cases of subsequent/concurrent failures. As an example, consider
+// a case where replicas are deployed across different data center, with one replica per location.
+// In the event that one of the datacenters goes offline, normally the replica that was placed in that
+// datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
+// policy should be set.
+type ServicePlacementRequireDomainDistributionPolicy struct {
+	// The name of the domain that should used for placement as per this policy.
+	DomainName string `pulumi:"domainName"`
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'RequiredDomainDistribution'.
+	Type string `pulumi:"type"`
+}
+
+// Describes the policy to be used for placement of a Service Fabric service where two replicas
+// from the same partition should never be placed in the same fault or upgrade domain.
 //
-//          nil
-type ServiceTypeDeltaHealthPolicyPtrInput interface {
-	pulumi.Input
-
-	ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput
-	ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyPtrOutput
+// While this is not common it can expose the service to an increased risk of concurrent failures
+// due to unplanned outages or other cases of subsequent/concurrent failures. As an example, consider
+// a case where replicas are deployed across different data center, with one replica per location.
+// In the event that one of the datacenters goes offline, normally the replica that was placed in that
+// datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
+// policy should be set.
+type ServicePlacementRequireDomainDistributionPolicyResponse struct {
+	// The name of the domain that should used for placement as per this policy.
+	DomainName string `pulumi:"domainName"`
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'RequiredDomainDistribution'.
+	Type string `pulumi:"type"`
 }
 
-type serviceTypeDeltaHealthPolicyPtrType ServiceTypeDeltaHealthPolicyArgs
-
-func ServiceTypeDeltaHealthPolicyPtr(v *ServiceTypeDeltaHealthPolicyArgs) ServiceTypeDeltaHealthPolicyPtrInput {
-	return (*serviceTypeDeltaHealthPolicyPtrType)(v)
+// Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
+type ServicePlacementRequiredDomainPolicy struct {
+	// The name of the domain that should used for placement as per this policy.
+	DomainName string `pulumi:"domainName"`
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'RequiredDomain'.
+	Type string `pulumi:"type"`
 }
 
-func (*serviceTypeDeltaHealthPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
-	return i.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyPtrOutput)
-}
-
-// ServiceTypeDeltaHealthPolicyMapInput is an input type that accepts ServiceTypeDeltaHealthPolicyMap and ServiceTypeDeltaHealthPolicyMapOutput values.
-// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyMapInput` via:
-//
-//          ServiceTypeDeltaHealthPolicyMap{ "key": ServiceTypeDeltaHealthPolicyArgs{...} }
-type ServiceTypeDeltaHealthPolicyMapInput interface {
-	pulumi.Input
-
-	ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput
-	ToServiceTypeDeltaHealthPolicyMapOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyMapOutput
-}
-
-type ServiceTypeDeltaHealthPolicyMap map[string]ServiceTypeDeltaHealthPolicyInput
-
-func (ServiceTypeDeltaHealthPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput {
-	return i.ToServiceTypeDeltaHealthPolicyMapOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyMapOutput)
-}
-
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
-type ServiceTypeDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeDeltaHealthPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
-	return o.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
-		return &v
-	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
-}
-
-// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ServiceTypeDeltaHealthPolicyOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicy) *int { return v.MaxPercentDeltaUnhealthyServices }).(pulumi.IntPtrOutput)
-}
-
-type ServiceTypeDeltaHealthPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeDeltaHealthPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyPtrOutput) Elem() ServiceTypeDeltaHealthPolicyOutput {
-	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) ServiceTypeDeltaHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceTypeDeltaHealthPolicy
-		return ret
-	}).(ServiceTypeDeltaHealthPolicyOutput)
-}
-
-// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ServiceTypeDeltaHealthPolicyPtrOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentDeltaUnhealthyServices
-	}).(pulumi.IntPtrOutput)
-}
-
-type ServiceTypeDeltaHealthPolicyMapOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeDeltaHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicy)(nil)).Elem()
-}
-
-func (o ServiceTypeDeltaHealthPolicyMapOutput) ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyMapOutput) ToServiceTypeDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyMapOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeDeltaHealthPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeDeltaHealthPolicy {
-		return vs[0].(map[string]ServiceTypeDeltaHealthPolicy)[vs[1].(string)]
-	}).(ServiceTypeDeltaHealthPolicyOutput)
-}
-
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
-type ServiceTypeDeltaHealthPolicyResponse struct {
-	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ServiceTypeDeltaHealthPolicyResponse
-func (val *ServiceTypeDeltaHealthPolicyResponse) Defaults() *ServiceTypeDeltaHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
-		maxPercentDeltaUnhealthyServices_ := 0
-		tmp.MaxPercentDeltaUnhealthyServices = &maxPercentDeltaUnhealthyServices_
-	}
-	return &tmp
-}
-
-// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
-type ServiceTypeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
-	return o
-}
-
-// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ServiceTypeDeltaHealthPolicyResponseOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicyResponse) *int { return v.MaxPercentDeltaUnhealthyServices }).(pulumi.IntPtrOutput)
-}
-
-type ServiceTypeDeltaHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeDeltaHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) Elem() ServiceTypeDeltaHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) ServiceTypeDeltaHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceTypeDeltaHealthPolicyResponse
-		return ret
-	}).(ServiceTypeDeltaHealthPolicyResponseOutput)
-}
-
-// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPercentDeltaUnhealthyServices
-	}).(pulumi.IntPtrOutput)
-}
-
-type ServiceTypeDeltaHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeDeltaHealthPolicyResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput {
-	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeDeltaHealthPolicyResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeDeltaHealthPolicyResponse {
-		return vs[0].(map[string]ServiceTypeDeltaHealthPolicyResponse)[vs[1].(string)]
-	}).(ServiceTypeDeltaHealthPolicyResponseOutput)
+// Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
+type ServicePlacementRequiredDomainPolicyResponse struct {
+	// The name of the domain that should used for placement as per this policy.
+	DomainName string `pulumi:"domainName"`
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	// Expected value is 'RequiredDomain'.
+	Type string `pulumi:"type"`
 }
 
 // Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicy struct {
-	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ServiceTypeHealthPolicy
-func (val *ServiceTypeHealthPolicy) Defaults() *ServiceTypeHealthPolicy {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyServices) {
-		maxPercentUnhealthyServices_ := 0
-		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
-	}
-	return &tmp
+	// The maximum allowed percentage of unhealthy partitions per service.
+	//
+	// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+	// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+	// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+	// The computation rounds up to tolerate one failure on small numbers of partitions.
+	MaxPercentUnhealthyPartitionsPerService int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
+	// The maximum allowed percentage of unhealthy replicas per partition.
+	//
+	// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+	// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+	// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+	// The computation rounds up to tolerate one failure on small numbers of replicas.
+	MaxPercentUnhealthyReplicasPerPartition int `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
+	// The maximum allowed percentage of unhealthy services.
+	//
+	// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+	// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+	// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+	// The computation rounds up to tolerate one failure on small numbers of services.
+	MaxPercentUnhealthyServices int `pulumi:"maxPercentUnhealthyServices"`
 }
 
 // ServiceTypeHealthPolicyInput is an input type that accepts ServiceTypeHealthPolicyArgs and ServiceTypeHealthPolicyOutput values.
@@ -7787,21 +4203,29 @@ type ServiceTypeHealthPolicyInput interface {
 
 // Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyArgs struct {
-	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
+	// The maximum allowed percentage of unhealthy partitions per service.
+	//
+	// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+	// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+	// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+	// The computation rounds up to tolerate one failure on small numbers of partitions.
+	MaxPercentUnhealthyPartitionsPerService pulumi.IntInput `pulumi:"maxPercentUnhealthyPartitionsPerService"`
+	// The maximum allowed percentage of unhealthy replicas per partition.
+	//
+	// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+	// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+	// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+	// The computation rounds up to tolerate one failure on small numbers of replicas.
+	MaxPercentUnhealthyReplicasPerPartition pulumi.IntInput `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
+	// The maximum allowed percentage of unhealthy services.
+	//
+	// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+	// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+	// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+	// The computation rounds up to tolerate one failure on small numbers of services.
+	MaxPercentUnhealthyServices pulumi.IntInput `pulumi:"maxPercentUnhealthyServices"`
 }
 
-// Defaults sets the appropriate defaults for ServiceTypeHealthPolicyArgs
-func (val *ServiceTypeHealthPolicyArgs) Defaults() *ServiceTypeHealthPolicyArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyServices) {
-		tmp.MaxPercentUnhealthyServices = pulumi.IntPtr(0)
-	}
-	return &tmp
-}
 func (ServiceTypeHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceTypeHealthPolicy)(nil)).Elem()
 }
@@ -7905,9 +4329,34 @@ func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutputWithCon
 	}).(ServiceTypeHealthPolicyPtrOutput)
 }
 
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-func (o ServiceTypeHealthPolicyOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceTypeHealthPolicy) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
+// The maximum allowed percentage of unhealthy partitions per service.
+//
+// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+// The computation rounds up to tolerate one failure on small numbers of partitions.
+func (o ServiceTypeHealthPolicyOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) int { return v.MaxPercentUnhealthyPartitionsPerService }).(pulumi.IntOutput)
+}
+
+// The maximum allowed percentage of unhealthy replicas per partition.
+//
+// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+// The computation rounds up to tolerate one failure on small numbers of replicas.
+func (o ServiceTypeHealthPolicyOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) int { return v.MaxPercentUnhealthyReplicasPerPartition }).(pulumi.IntOutput)
+}
+
+// The maximum allowed percentage of unhealthy services.
+//
+// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+// The computation rounds up to tolerate one failure on small numbers of services.
+func (o ServiceTypeHealthPolicyOutput) MaxPercentUnhealthyServices() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) int { return v.MaxPercentUnhealthyServices }).(pulumi.IntOutput)
 }
 
 type ServiceTypeHealthPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -7934,13 +4383,48 @@ func (o ServiceTypeHealthPolicyPtrOutput) Elem() ServiceTypeHealthPolicyOutput {
 	}).(ServiceTypeHealthPolicyOutput)
 }
 
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+// The maximum allowed percentage of unhealthy partitions per service.
+//
+// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+// The computation rounds up to tolerate one failure on small numbers of partitions.
+func (o ServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUnhealthyPartitionsPerService
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum allowed percentage of unhealthy replicas per partition.
+//
+// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+// The computation rounds up to tolerate one failure on small numbers of replicas.
+func (o ServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUnhealthyReplicasPerPartition
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum allowed percentage of unhealthy services.
+//
+// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+// The computation rounds up to tolerate one failure on small numbers of services.
 func (o ServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceTypeHealthPolicy) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MaxPercentUnhealthyServices
+		return &v.MaxPercentUnhealthyServices
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -7966,21 +4450,27 @@ func (o ServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Service
 
 // Represents the health policy used to evaluate the health of services belonging to a service type.
 type ServiceTypeHealthPolicyResponse struct {
-	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
-}
-
-// Defaults sets the appropriate defaults for ServiceTypeHealthPolicyResponse
-func (val *ServiceTypeHealthPolicyResponse) Defaults() *ServiceTypeHealthPolicyResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.MaxPercentUnhealthyServices) {
-		maxPercentUnhealthyServices_ := 0
-		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
-	}
-	return &tmp
+	// The maximum allowed percentage of unhealthy partitions per service.
+	//
+	// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+	// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+	// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+	// The computation rounds up to tolerate one failure on small numbers of partitions.
+	MaxPercentUnhealthyPartitionsPerService int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
+	// The maximum allowed percentage of unhealthy replicas per partition.
+	//
+	// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+	// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+	// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+	// The computation rounds up to tolerate one failure on small numbers of replicas.
+	MaxPercentUnhealthyReplicasPerPartition int `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
+	// The maximum allowed percentage of unhealthy services.
+	//
+	// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+	// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+	// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+	// The computation rounds up to tolerate one failure on small numbers of services.
+	MaxPercentUnhealthyServices int `pulumi:"maxPercentUnhealthyServices"`
 }
 
 // Represents the health policy used to evaluate the health of services belonging to a service type.
@@ -7998,9 +4488,34 @@ func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponse
 	return o
 }
 
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
+// The maximum allowed percentage of unhealthy partitions per service.
+//
+// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+// The computation rounds up to tolerate one failure on small numbers of partitions.
+func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) int { return v.MaxPercentUnhealthyPartitionsPerService }).(pulumi.IntOutput)
+}
+
+// The maximum allowed percentage of unhealthy replicas per partition.
+//
+// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+// The computation rounds up to tolerate one failure on small numbers of replicas.
+func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) int { return v.MaxPercentUnhealthyReplicasPerPartition }).(pulumi.IntOutput)
+}
+
+// The maximum allowed percentage of unhealthy services.
+//
+// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+// The computation rounds up to tolerate one failure on small numbers of services.
+func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyServices() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) int { return v.MaxPercentUnhealthyServices }).(pulumi.IntOutput)
 }
 
 type ServiceTypeHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8027,13 +4542,48 @@ func (o ServiceTypeHealthPolicyResponsePtrOutput) Elem() ServiceTypeHealthPolicy
 	}).(ServiceTypeHealthPolicyResponseOutput)
 }
 
-// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+// The maximum allowed percentage of unhealthy partitions per service.
+//
+// The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+// If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+// The computation rounds up to tolerate one failure on small numbers of partitions.
+func (o ServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyPartitionsPerService() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUnhealthyPartitionsPerService
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum allowed percentage of unhealthy replicas per partition.
+//
+// The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+// If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+// The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+// The computation rounds up to tolerate one failure on small numbers of replicas.
+func (o ServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyReplicasPerPartition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUnhealthyReplicasPerPartition
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum allowed percentage of unhealthy services.
+//
+// The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+// If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+// This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+// The computation rounds up to tolerate one failure on small numbers of services.
 func (o ServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MaxPercentUnhealthyServices
+		return &v.MaxPercentUnhealthyServices
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -8382,20 +4932,20 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 // Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
-type SingletonPartitionSchemeDescription struct {
+type SingletonPartitionScheme struct {
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Singleton'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
 // Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
-type SingletonPartitionSchemeDescriptionResponse struct {
+type SingletonPartitionSchemeResponse struct {
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'Singleton'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
-// Sku definition
+// Service Fabric managed cluster Sku definition
 type Sku struct {
 	// Sku Name.
 	Name string `pulumi:"name"`
@@ -8412,7 +4962,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku definition
+// Service Fabric managed cluster Sku definition
 type SkuArgs struct {
 	// Sku Name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -8471,7 +5021,7 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku definition
+// Service Fabric managed cluster Sku definition
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -8535,13 +5085,13 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku definition
+// Service Fabric managed cluster Sku definition
 type SkuResponse struct {
 	// Sku Name.
 	Name string `pulumi:"name"`
 }
 
-// Sku definition
+// Service Fabric managed cluster Sku definition
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -8593,6 +5143,150 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of a stateful service resource.
+type StatefulServiceProperties struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme []ServiceCorrelation `pulumi:"correlationScheme"`
+	// Specifies the move cost for the service.
+	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
+	// A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.
+	HasPersistedState *bool `pulumi:"hasPersistedState"`
+	// The minimum replica set size as a number.
+	MinReplicaSetSize *int `pulumi:"minReplicaSetSize"`
+	// Describes how the service is partitioned.
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints *string `pulumi:"placementConstraints"`
+	// The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format "hh:mm:ss".
+	QuorumLossWaitDuration *string `pulumi:"quorumLossWaitDuration"`
+	// The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format "hh:mm:ss".
+	ReplicaRestartWaitDuration *string `pulumi:"replicaRestartWaitDuration"`
+	// Scaling policies for this service.
+	ScalingPolicies []ScalingPolicy `pulumi:"scalingPolicies"`
+	// The kind of service (Stateless or Stateful).
+	// Expected value is 'Stateful'.
+	ServiceKind string `pulumi:"serviceKind"`
+	// The service load metrics is given as an array of ServiceLoadMetric objects.
+	ServiceLoadMetrics []ServiceLoadMetric `pulumi:"serviceLoadMetrics"`
+	// The activation Mode of the service package
+	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies []interface{} `pulumi:"servicePlacementPolicies"`
+	// The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format "hh:mm:ss".
+	ServicePlacementTimeLimit *string `pulumi:"servicePlacementTimeLimit"`
+	// The name of the service type
+	ServiceTypeName string `pulumi:"serviceTypeName"`
+	// The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
+	StandByReplicaKeepDuration *string `pulumi:"standByReplicaKeepDuration"`
+	// The target replica set size as a number.
+	TargetReplicaSetSize *int `pulumi:"targetReplicaSetSize"`
+}
+
+// The properties of a stateful service resource.
+type StatefulServicePropertiesResponse struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme []ServiceCorrelationResponse `pulumi:"correlationScheme"`
+	// Specifies the move cost for the service.
+	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
+	// A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.
+	HasPersistedState *bool `pulumi:"hasPersistedState"`
+	// The minimum replica set size as a number.
+	MinReplicaSetSize *int `pulumi:"minReplicaSetSize"`
+	// Describes how the service is partitioned.
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints *string `pulumi:"placementConstraints"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format "hh:mm:ss".
+	QuorumLossWaitDuration *string `pulumi:"quorumLossWaitDuration"`
+	// The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format "hh:mm:ss".
+	ReplicaRestartWaitDuration *string `pulumi:"replicaRestartWaitDuration"`
+	// Scaling policies for this service.
+	ScalingPolicies []ScalingPolicyResponse `pulumi:"scalingPolicies"`
+	// The kind of service (Stateless or Stateful).
+	// Expected value is 'Stateful'.
+	ServiceKind string `pulumi:"serviceKind"`
+	// The service load metrics is given as an array of ServiceLoadMetric objects.
+	ServiceLoadMetrics []ServiceLoadMetricResponse `pulumi:"serviceLoadMetrics"`
+	// The activation Mode of the service package
+	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies []interface{} `pulumi:"servicePlacementPolicies"`
+	// The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format "hh:mm:ss".
+	ServicePlacementTimeLimit *string `pulumi:"servicePlacementTimeLimit"`
+	// The name of the service type
+	ServiceTypeName string `pulumi:"serviceTypeName"`
+	// The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
+	StandByReplicaKeepDuration *string `pulumi:"standByReplicaKeepDuration"`
+	// The target replica set size as a number.
+	TargetReplicaSetSize *int `pulumi:"targetReplicaSetSize"`
+}
+
+// The properties of a stateless service resource.
+type StatelessServiceProperties struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme []ServiceCorrelation `pulumi:"correlationScheme"`
+	// Specifies the move cost for the service.
+	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
+	// The instance count.
+	InstanceCount int `pulumi:"instanceCount"`
+	// MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	// MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
+	MinInstancePercentage *int `pulumi:"minInstancePercentage"`
+	// Describes how the service is partitioned.
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints *string `pulumi:"placementConstraints"`
+	// Scaling policies for this service.
+	ScalingPolicies []ScalingPolicy `pulumi:"scalingPolicies"`
+	// The kind of service (Stateless or Stateful).
+	// Expected value is 'Stateless'.
+	ServiceKind string `pulumi:"serviceKind"`
+	// The service load metrics is given as an array of ServiceLoadMetric objects.
+	ServiceLoadMetrics []ServiceLoadMetric `pulumi:"serviceLoadMetrics"`
+	// The activation Mode of the service package
+	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies []interface{} `pulumi:"servicePlacementPolicies"`
+	// The name of the service type
+	ServiceTypeName string `pulumi:"serviceTypeName"`
+}
+
+// The properties of a stateless service resource.
+type StatelessServicePropertiesResponse struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme []ServiceCorrelationResponse `pulumi:"correlationScheme"`
+	// Specifies the move cost for the service.
+	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
+	// The instance count.
+	InstanceCount int `pulumi:"instanceCount"`
+	// MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	// MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
+	MinInstancePercentage *int `pulumi:"minInstancePercentage"`
+	// Describes how the service is partitioned.
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints *string `pulumi:"placementConstraints"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Scaling policies for this service.
+	ScalingPolicies []ScalingPolicyResponse `pulumi:"scalingPolicies"`
+	// The kind of service (Stateless or Stateful).
+	// Expected value is 'Stateless'.
+	ServiceKind string `pulumi:"serviceKind"`
+	// The service load metrics is given as an array of ServiceLoadMetric objects.
+	ServiceLoadMetrics []ServiceLoadMetricResponse `pulumi:"serviceLoadMetrics"`
+	// The activation Mode of the service package
+	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies []interface{} `pulumi:"servicePlacementPolicies"`
+	// The name of the service type
+	ServiceTypeName string `pulumi:"serviceTypeName"`
 }
 
 // Azure resource identifier.
@@ -8676,31 +5370,302 @@ func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Describes a Subnet.
+type Subnet struct {
+	// Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+	EnableIpv6 *bool `pulumi:"enableIpv6"`
+	// Subnet name.
+	Name string `pulumi:"name"`
+	// Full resource id for the network security group.
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	// Enable or Disable apply network policies on private end point in the subnet.
+	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
+	// Enable or Disable apply network policies on private link service in the subnet.
+	PrivateLinkServiceNetworkPolicies *string `pulumi:"privateLinkServiceNetworkPolicies"`
+}
+
+// SubnetInput is an input type that accepts SubnetArgs and SubnetOutput values.
+// You can construct a concrete instance of `SubnetInput` via:
+//
+//          SubnetArgs{...}
+type SubnetInput interface {
+	pulumi.Input
+
+	ToSubnetOutput() SubnetOutput
+	ToSubnetOutputWithContext(context.Context) SubnetOutput
+}
+
+// Describes a Subnet.
+type SubnetArgs struct {
+	// Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+	EnableIpv6 pulumi.BoolPtrInput `pulumi:"enableIpv6"`
+	// Subnet name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Full resource id for the network security group.
+	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
+	// Enable or Disable apply network policies on private end point in the subnet.
+	PrivateEndpointNetworkPolicies pulumi.StringPtrInput `pulumi:"privateEndpointNetworkPolicies"`
+	// Enable or Disable apply network policies on private link service in the subnet.
+	PrivateLinkServiceNetworkPolicies pulumi.StringPtrInput `pulumi:"privateLinkServiceNetworkPolicies"`
+}
+
+func (SubnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subnet)(nil)).Elem()
+}
+
+func (i SubnetArgs) ToSubnetOutput() SubnetOutput {
+	return i.ToSubnetOutputWithContext(context.Background())
+}
+
+func (i SubnetArgs) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
+}
+
+// SubnetArrayInput is an input type that accepts SubnetArray and SubnetArrayOutput values.
+// You can construct a concrete instance of `SubnetArrayInput` via:
+//
+//          SubnetArray{ SubnetArgs{...} }
+type SubnetArrayInput interface {
+	pulumi.Input
+
+	ToSubnetArrayOutput() SubnetArrayOutput
+	ToSubnetArrayOutputWithContext(context.Context) SubnetArrayOutput
+}
+
+type SubnetArray []SubnetInput
+
+func (SubnetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Subnet)(nil)).Elem()
+}
+
+func (i SubnetArray) ToSubnetArrayOutput() SubnetArrayOutput {
+	return i.ToSubnetArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetArray) ToSubnetArrayOutputWithContext(ctx context.Context) SubnetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetArrayOutput)
+}
+
+// Describes a Subnet.
+type SubnetOutput struct{ *pulumi.OutputState }
+
+func (SubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subnet)(nil)).Elem()
+}
+
+func (o SubnetOutput) ToSubnetOutput() SubnetOutput {
+	return o
+}
+
+func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
+	return o
+}
+
+// Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+func (o SubnetOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Subnet) *bool { return v.EnableIpv6 }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet name.
+func (o SubnetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Subnet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Full resource id for the network security group.
+func (o SubnetOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Subnet) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Enable or Disable apply network policies on private end point in the subnet.
+func (o SubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Subnet) *string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+// Enable or Disable apply network policies on private link service in the subnet.
+func (o SubnetOutput) PrivateLinkServiceNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Subnet) *string { return v.PrivateLinkServiceNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+type SubnetArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Subnet)(nil)).Elem()
+}
+
+func (o SubnetArrayOutput) ToSubnetArrayOutput() SubnetArrayOutput {
+	return o
+}
+
+func (o SubnetArrayOutput) ToSubnetArrayOutputWithContext(ctx context.Context) SubnetArrayOutput {
+	return o
+}
+
+func (o SubnetArrayOutput) Index(i pulumi.IntInput) SubnetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Subnet {
+		return vs[0].([]Subnet)[vs[1].(int)]
+	}).(SubnetOutput)
+}
+
+// Describes a Subnet.
+type SubnetResponse struct {
+	// Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+	EnableIpv6 *bool `pulumi:"enableIpv6"`
+	// Subnet name.
+	Name string `pulumi:"name"`
+	// Full resource id for the network security group.
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	// Enable or Disable apply network policies on private end point in the subnet.
+	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
+	// Enable or Disable apply network policies on private link service in the subnet.
+	PrivateLinkServiceNetworkPolicies *string `pulumi:"privateLinkServiceNetworkPolicies"`
+}
+
+// Describes a Subnet.
+type SubnetResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetResponse)(nil)).Elem()
+}
+
+func (o SubnetResponseOutput) ToSubnetResponseOutput() SubnetResponseOutput {
+	return o
+}
+
+func (o SubnetResponseOutput) ToSubnetResponseOutputWithContext(ctx context.Context) SubnetResponseOutput {
+	return o
+}
+
+// Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+func (o SubnetResponseOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SubnetResponse) *bool { return v.EnableIpv6 }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet name.
+func (o SubnetResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Full resource id for the network security group.
+func (o SubnetResponseOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetResponse) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Enable or Disable apply network policies on private end point in the subnet.
+func (o SubnetResponseOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetResponse) *string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+// Enable or Disable apply network policies on private link service in the subnet.
+func (o SubnetResponseOutput) PrivateLinkServiceNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetResponse) *string { return v.PrivateLinkServiceNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+type SubnetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetResponse)(nil)).Elem()
+}
+
+func (o SubnetResponseArrayOutput) ToSubnetResponseArrayOutput() SubnetResponseArrayOutput {
+	return o
+}
+
+func (o SubnetResponseArrayOutput) ToSubnetResponseArrayOutputWithContext(ctx context.Context) SubnetResponseArrayOutput {
+	return o
+}
+
+func (o SubnetResponseArrayOutput) Index(i pulumi.IntInput) SubnetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetResponse {
+		return vs[0].([]SubnetResponse)[vs[1].(int)]
+	}).(SubnetResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC).
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC).
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
 // Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
-type UniformInt64RangePartitionSchemeDescription struct {
+type UniformInt64RangePartitionScheme struct {
 	// The number of partitions.
 	Count int `pulumi:"count"`
-	// String indicating the upper bound of the partition key range that
-	// should be split between the partition ‘count’
-	HighKey string `pulumi:"highKey"`
-	// String indicating the lower bound of the partition key range that
-	// should be split between the partition ‘count’
-	LowKey string `pulumi:"lowKey"`
+	// The upper bound of the partition key range that
+	// should be split between the partition ‘Count’
+	HighKey float64 `pulumi:"highKey"`
+	// The lower bound of the partition key range that
+	// should be split between the partition ‘Count’
+	LowKey float64 `pulumi:"lowKey"`
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'UniformInt64Range'.
 	PartitionScheme string `pulumi:"partitionScheme"`
 }
 
 // Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
-type UniformInt64RangePartitionSchemeDescriptionResponse struct {
+type UniformInt64RangePartitionSchemeResponse struct {
 	// The number of partitions.
 	Count int `pulumi:"count"`
-	// String indicating the upper bound of the partition key range that
-	// should be split between the partition ‘count’
-	HighKey string `pulumi:"highKey"`
-	// String indicating the lower bound of the partition key range that
-	// should be split between the partition ‘count’
-	LowKey string `pulumi:"lowKey"`
+	// The upper bound of the partition key range that
+	// should be split between the partition ‘Count’
+	HighKey float64 `pulumi:"highKey"`
+	// The lower bound of the partition key range that
+	// should be split between the partition ‘Count’
+	LowKey float64 `pulumi:"lowKey"`
 	// Enumerates the ways that a service can be partitioned.
 	// Expected value is 'UniformInt64Range'.
 	PartitionScheme string `pulumi:"partitionScheme"`
@@ -8761,6 +5726,8 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 type VMSSExtension struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -8794,6 +5761,8 @@ type VMSSExtensionInput interface {
 type VMSSExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -8869,6 +5838,11 @@ func (o VMSSExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VMSSExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+func (o VMSSExtensionOutput) EnableAutomaticUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMSSExtension) *bool { return v.EnableAutomaticUpgrade }).(pulumi.BoolPtrOutput)
+}
+
 // If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 func (o VMSSExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMSSExtension) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
@@ -8933,6 +5907,8 @@ func (o VMSSExtensionArrayOutput) Index(i pulumi.IntInput) VMSSExtensionOutput {
 type VMSSExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -8971,6 +5947,11 @@ func (o VMSSExtensionResponseOutput) ToVMSSExtensionResponseOutputWithContext(ct
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o VMSSExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+func (o VMSSExtensionResponseOutput) EnableAutomaticUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) *bool { return v.EnableAutomaticUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
@@ -9362,19 +6343,405 @@ func (o VaultSecretGroupResponseArrayOutput) Index(i pulumi.IntInput) VaultSecre
 	}).(VaultSecretGroupResponseOutput)
 }
 
+// Identities for the virtual machine scale set under the node type.
+type VmManagedIdentity struct {
+	// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// VmManagedIdentityInput is an input type that accepts VmManagedIdentityArgs and VmManagedIdentityOutput values.
+// You can construct a concrete instance of `VmManagedIdentityInput` via:
+//
+//          VmManagedIdentityArgs{...}
+type VmManagedIdentityInput interface {
+	pulumi.Input
+
+	ToVmManagedIdentityOutput() VmManagedIdentityOutput
+	ToVmManagedIdentityOutputWithContext(context.Context) VmManagedIdentityOutput
+}
+
+// Identities for the virtual machine scale set under the node type.
+type VmManagedIdentityArgs struct {
+	// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (VmManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmManagedIdentity)(nil)).Elem()
+}
+
+func (i VmManagedIdentityArgs) ToVmManagedIdentityOutput() VmManagedIdentityOutput {
+	return i.ToVmManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i VmManagedIdentityArgs) ToVmManagedIdentityOutputWithContext(ctx context.Context) VmManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmManagedIdentityOutput)
+}
+
+func (i VmManagedIdentityArgs) ToVmManagedIdentityPtrOutput() VmManagedIdentityPtrOutput {
+	return i.ToVmManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i VmManagedIdentityArgs) ToVmManagedIdentityPtrOutputWithContext(ctx context.Context) VmManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmManagedIdentityOutput).ToVmManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// VmManagedIdentityPtrInput is an input type that accepts VmManagedIdentityArgs, VmManagedIdentityPtr and VmManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `VmManagedIdentityPtrInput` via:
+//
+//          VmManagedIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type VmManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToVmManagedIdentityPtrOutput() VmManagedIdentityPtrOutput
+	ToVmManagedIdentityPtrOutputWithContext(context.Context) VmManagedIdentityPtrOutput
+}
+
+type vmManagedIdentityPtrType VmManagedIdentityArgs
+
+func VmManagedIdentityPtr(v *VmManagedIdentityArgs) VmManagedIdentityPtrInput {
+	return (*vmManagedIdentityPtrType)(v)
+}
+
+func (*vmManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmManagedIdentity)(nil)).Elem()
+}
+
+func (i *vmManagedIdentityPtrType) ToVmManagedIdentityPtrOutput() VmManagedIdentityPtrOutput {
+	return i.ToVmManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *vmManagedIdentityPtrType) ToVmManagedIdentityPtrOutputWithContext(ctx context.Context) VmManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmManagedIdentityPtrOutput)
+}
+
+// Identities for the virtual machine scale set under the node type.
+type VmManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (VmManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmManagedIdentity)(nil)).Elem()
+}
+
+func (o VmManagedIdentityOutput) ToVmManagedIdentityOutput() VmManagedIdentityOutput {
+	return o
+}
+
+func (o VmManagedIdentityOutput) ToVmManagedIdentityOutputWithContext(ctx context.Context) VmManagedIdentityOutput {
+	return o
+}
+
+func (o VmManagedIdentityOutput) ToVmManagedIdentityPtrOutput() VmManagedIdentityPtrOutput {
+	return o.ToVmManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o VmManagedIdentityOutput) ToVmManagedIdentityPtrOutputWithContext(ctx context.Context) VmManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VmManagedIdentity) *VmManagedIdentity {
+		return &v
+	}).(VmManagedIdentityPtrOutput)
+}
+
+// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o VmManagedIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmManagedIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type VmManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (VmManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmManagedIdentity)(nil)).Elem()
+}
+
+func (o VmManagedIdentityPtrOutput) ToVmManagedIdentityPtrOutput() VmManagedIdentityPtrOutput {
+	return o
+}
+
+func (o VmManagedIdentityPtrOutput) ToVmManagedIdentityPtrOutputWithContext(ctx context.Context) VmManagedIdentityPtrOutput {
+	return o
+}
+
+func (o VmManagedIdentityPtrOutput) Elem() VmManagedIdentityOutput {
+	return o.ApplyT(func(v *VmManagedIdentity) VmManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret VmManagedIdentity
+		return ret
+	}).(VmManagedIdentityOutput)
+}
+
+// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o VmManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VmManagedIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Identities for the virtual machine scale set under the node type.
+type VmManagedIdentityResponse struct {
+	// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// Identities for the virtual machine scale set under the node type.
+type VmManagedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (VmManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o VmManagedIdentityResponseOutput) ToVmManagedIdentityResponseOutput() VmManagedIdentityResponseOutput {
+	return o
+}
+
+func (o VmManagedIdentityResponseOutput) ToVmManagedIdentityResponseOutputWithContext(ctx context.Context) VmManagedIdentityResponseOutput {
+	return o
+}
+
+// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o VmManagedIdentityResponseOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmManagedIdentityResponse) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type VmManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VmManagedIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o VmManagedIdentityResponsePtrOutput) ToVmManagedIdentityResponsePtrOutput() VmManagedIdentityResponsePtrOutput {
+	return o
+}
+
+func (o VmManagedIdentityResponsePtrOutput) ToVmManagedIdentityResponsePtrOutputWithContext(ctx context.Context) VmManagedIdentityResponsePtrOutput {
+	return o
+}
+
+func (o VmManagedIdentityResponsePtrOutput) Elem() VmManagedIdentityResponseOutput {
+	return o.ApplyT(func(v *VmManagedIdentityResponse) VmManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VmManagedIdentityResponse
+		return ret
+	}).(VmManagedIdentityResponseOutput)
+}
+
+// The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o VmManagedIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VmManagedIdentityResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Managed data disk description.
+type VmssDataDisk struct {
+	// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+	DiskLetter string `pulumi:"diskLetter"`
+	// Disk size for each vm in the node type in GBs.
+	DiskSizeGB int `pulumi:"diskSizeGB"`
+	// Managed data disk type. Specifies the storage account type for the managed disk
+	DiskType string `pulumi:"diskType"`
+	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+	Lun int `pulumi:"lun"`
+}
+
+// VmssDataDiskInput is an input type that accepts VmssDataDiskArgs and VmssDataDiskOutput values.
+// You can construct a concrete instance of `VmssDataDiskInput` via:
+//
+//          VmssDataDiskArgs{...}
+type VmssDataDiskInput interface {
+	pulumi.Input
+
+	ToVmssDataDiskOutput() VmssDataDiskOutput
+	ToVmssDataDiskOutputWithContext(context.Context) VmssDataDiskOutput
+}
+
+// Managed data disk description.
+type VmssDataDiskArgs struct {
+	// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+	DiskLetter pulumi.StringInput `pulumi:"diskLetter"`
+	// Disk size for each vm in the node type in GBs.
+	DiskSizeGB pulumi.IntInput `pulumi:"diskSizeGB"`
+	// Managed data disk type. Specifies the storage account type for the managed disk
+	DiskType pulumi.StringInput `pulumi:"diskType"`
+	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+	Lun pulumi.IntInput `pulumi:"lun"`
+}
+
+func (VmssDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmssDataDisk)(nil)).Elem()
+}
+
+func (i VmssDataDiskArgs) ToVmssDataDiskOutput() VmssDataDiskOutput {
+	return i.ToVmssDataDiskOutputWithContext(context.Background())
+}
+
+func (i VmssDataDiskArgs) ToVmssDataDiskOutputWithContext(ctx context.Context) VmssDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmssDataDiskOutput)
+}
+
+// VmssDataDiskArrayInput is an input type that accepts VmssDataDiskArray and VmssDataDiskArrayOutput values.
+// You can construct a concrete instance of `VmssDataDiskArrayInput` via:
+//
+//          VmssDataDiskArray{ VmssDataDiskArgs{...} }
+type VmssDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToVmssDataDiskArrayOutput() VmssDataDiskArrayOutput
+	ToVmssDataDiskArrayOutputWithContext(context.Context) VmssDataDiskArrayOutput
+}
+
+type VmssDataDiskArray []VmssDataDiskInput
+
+func (VmssDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmssDataDisk)(nil)).Elem()
+}
+
+func (i VmssDataDiskArray) ToVmssDataDiskArrayOutput() VmssDataDiskArrayOutput {
+	return i.ToVmssDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i VmssDataDiskArray) ToVmssDataDiskArrayOutputWithContext(ctx context.Context) VmssDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmssDataDiskArrayOutput)
+}
+
+// Managed data disk description.
+type VmssDataDiskOutput struct{ *pulumi.OutputState }
+
+func (VmssDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmssDataDisk)(nil)).Elem()
+}
+
+func (o VmssDataDiskOutput) ToVmssDataDiskOutput() VmssDataDiskOutput {
+	return o
+}
+
+func (o VmssDataDiskOutput) ToVmssDataDiskOutputWithContext(ctx context.Context) VmssDataDiskOutput {
+	return o
+}
+
+// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+func (o VmssDataDiskOutput) DiskLetter() pulumi.StringOutput {
+	return o.ApplyT(func(v VmssDataDisk) string { return v.DiskLetter }).(pulumi.StringOutput)
+}
+
+// Disk size for each vm in the node type in GBs.
+func (o VmssDataDiskOutput) DiskSizeGB() pulumi.IntOutput {
+	return o.ApplyT(func(v VmssDataDisk) int { return v.DiskSizeGB }).(pulumi.IntOutput)
+}
+
+// Managed data disk type. Specifies the storage account type for the managed disk
+func (o VmssDataDiskOutput) DiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmssDataDisk) string { return v.DiskType }).(pulumi.StringOutput)
+}
+
+// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+func (o VmssDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v VmssDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+type VmssDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (VmssDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmssDataDisk)(nil)).Elem()
+}
+
+func (o VmssDataDiskArrayOutput) ToVmssDataDiskArrayOutput() VmssDataDiskArrayOutput {
+	return o
+}
+
+func (o VmssDataDiskArrayOutput) ToVmssDataDiskArrayOutputWithContext(ctx context.Context) VmssDataDiskArrayOutput {
+	return o
+}
+
+func (o VmssDataDiskArrayOutput) Index(i pulumi.IntInput) VmssDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmssDataDisk {
+		return vs[0].([]VmssDataDisk)[vs[1].(int)]
+	}).(VmssDataDiskOutput)
+}
+
+// Managed data disk description.
+type VmssDataDiskResponse struct {
+	// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+	DiskLetter string `pulumi:"diskLetter"`
+	// Disk size for each vm in the node type in GBs.
+	DiskSizeGB int `pulumi:"diskSizeGB"`
+	// Managed data disk type. Specifies the storage account type for the managed disk
+	DiskType string `pulumi:"diskType"`
+	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+	Lun int `pulumi:"lun"`
+}
+
+// Managed data disk description.
+type VmssDataDiskResponseOutput struct{ *pulumi.OutputState }
+
+func (VmssDataDiskResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmssDataDiskResponse)(nil)).Elem()
+}
+
+func (o VmssDataDiskResponseOutput) ToVmssDataDiskResponseOutput() VmssDataDiskResponseOutput {
+	return o
+}
+
+func (o VmssDataDiskResponseOutput) ToVmssDataDiskResponseOutputWithContext(ctx context.Context) VmssDataDiskResponseOutput {
+	return o
+}
+
+// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+func (o VmssDataDiskResponseOutput) DiskLetter() pulumi.StringOutput {
+	return o.ApplyT(func(v VmssDataDiskResponse) string { return v.DiskLetter }).(pulumi.StringOutput)
+}
+
+// Disk size for each vm in the node type in GBs.
+func (o VmssDataDiskResponseOutput) DiskSizeGB() pulumi.IntOutput {
+	return o.ApplyT(func(v VmssDataDiskResponse) int { return v.DiskSizeGB }).(pulumi.IntOutput)
+}
+
+// Managed data disk type. Specifies the storage account type for the managed disk
+func (o VmssDataDiskResponseOutput) DiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmssDataDiskResponse) string { return v.DiskType }).(pulumi.StringOutput)
+}
+
+// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+func (o VmssDataDiskResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v VmssDataDiskResponse) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+type VmssDataDiskResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VmssDataDiskResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmssDataDiskResponse)(nil)).Elem()
+}
+
+func (o VmssDataDiskResponseArrayOutput) ToVmssDataDiskResponseArrayOutput() VmssDataDiskResponseArrayOutput {
+	return o
+}
+
+func (o VmssDataDiskResponseArrayOutput) ToVmssDataDiskResponseArrayOutputWithContext(ctx context.Context) VmssDataDiskResponseArrayOutput {
+	return o
+}
+
+func (o VmssDataDiskResponseArrayOutput) Index(i pulumi.IntInput) VmssDataDiskResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmssDataDiskResponse {
+		return vs[0].([]VmssDataDiskResponse)[vs[1].(int)]
+	}).(VmssDataDiskResponseOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(ApplicationHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyResponseMapOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionsCleanupPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionsCleanupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionsCleanupPolicyResponseOutput{})
@@ -9387,62 +6754,26 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationUserAssignedIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationUserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationUserAssignedIdentityResponseArrayOutput{})
-	pulumi.RegisterOutputType(ArmApplicationHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ArmApplicationHealthPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ArmApplicationHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ArmApplicationHealthPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ArmRollingUpgradeMonitoringPolicyOutput{})
-	pulumi.RegisterOutputType(ArmRollingUpgradeMonitoringPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ArmRollingUpgradeMonitoringPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ArmRollingUpgradeMonitoringPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponsePtrOutput{})
-	pulumi.RegisterOutputType(CertificateDescriptionOutput{})
-	pulumi.RegisterOutputType(CertificateDescriptionPtrOutput{})
-	pulumi.RegisterOutputType(CertificateDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(CertificateDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClientCertificateOutput{})
 	pulumi.RegisterOutputType(ClientCertificateArrayOutput{})
-	pulumi.RegisterOutputType(ClientCertificateCommonNameOutput{})
-	pulumi.RegisterOutputType(ClientCertificateCommonNameArrayOutput{})
-	pulumi.RegisterOutputType(ClientCertificateCommonNameResponseOutput{})
-	pulumi.RegisterOutputType(ClientCertificateCommonNameResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateResponseArrayOutput{})
-	pulumi.RegisterOutputType(ClientCertificateThumbprintOutput{})
-	pulumi.RegisterOutputType(ClientCertificateThumbprintArrayOutput{})
-	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
-	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseArrayOutput{})
-	pulumi.RegisterOutputType(ClusterHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ClusterHealthPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ClusterHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ClusterHealthPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradePolicyResponseOutput{})
-	pulumi.RegisterOutputType(ClusterUpgradePolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterVersionDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ClusterVersionDetailsResponseArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigOutput{})
-	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigPtrOutput{})
-	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigResponseOutput{})
-	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(FrontendConfigurationOutput{})
+	pulumi.RegisterOutputType(FrontendConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FrontendConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(FrontendConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(IPTagOutput{})
+	pulumi.RegisterOutputType(IPTagArrayOutput{})
+	pulumi.RegisterOutputType(IPTagResponseOutput{})
+	pulumi.RegisterOutputType(IPTagResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleResponseOutput{})
@@ -9451,38 +6782,22 @@ func init() {
 	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(NodeTypeDescriptionOutput{})
-	pulumi.RegisterOutputType(NodeTypeDescriptionArrayOutput{})
-	pulumi.RegisterOutputType(NodeTypeDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(NodeTypeDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ResourceAzStatusResponseOutput{})
-	pulumi.RegisterOutputType(ResourceAzStatusResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNameOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNameArrayOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNameResponseOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNameResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNamesOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNamesPtrOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponseOutput{})
-	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceCorrelationDescriptionOutput{})
-	pulumi.RegisterOutputType(ServiceCorrelationDescriptionArrayOutput{})
-	pulumi.RegisterOutputType(ServiceCorrelationDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(ServiceCorrelationDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionArrayOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionArrayOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyOutput{})
-	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponseMapOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityRuleOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityRuleArrayOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityRuleResponseOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(NodeTypeSkuOutput{})
+	pulumi.RegisterOutputType(NodeTypeSkuPtrOutput{})
+	pulumi.RegisterOutputType(NodeTypeSkuResponseOutput{})
+	pulumi.RegisterOutputType(NodeTypeSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(RollingUpgradeMonitoringPolicyOutput{})
+	pulumi.RegisterOutputType(RollingUpgradeMonitoringPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RollingUpgradeMonitoringPolicyResponseOutput{})
+	pulumi.RegisterOutputType(RollingUpgradeMonitoringPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointResponseOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTypeHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ServiceTypeHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTypeHealthPolicyMapOutput{})
@@ -9503,6 +6818,11 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
+	pulumi.RegisterOutputType(SubnetOutput{})
+	pulumi.RegisterOutputType(SubnetArrayOutput{})
+	pulumi.RegisterOutputType(SubnetResponseOutput{})
+	pulumi.RegisterOutputType(SubnetResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(VMSSExtensionOutput{})
@@ -9517,4 +6837,12 @@ func init() {
 	pulumi.RegisterOutputType(VaultSecretGroupArrayOutput{})
 	pulumi.RegisterOutputType(VaultSecretGroupResponseOutput{})
 	pulumi.RegisterOutputType(VaultSecretGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(VmManagedIdentityOutput{})
+	pulumi.RegisterOutputType(VmManagedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(VmManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(VmManagedIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(VmssDataDiskOutput{})
+	pulumi.RegisterOutputType(VmssDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(VmssDataDiskResponseOutput{})
+	pulumi.RegisterOutputType(VmssDataDiskResponseArrayOutput{})
 }

@@ -11,14 +11,14 @@ import (
 )
 
 // Backup of a Volume
-// API Version: 2020-12-01.
+// API Version: 2022-01-01.
 func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.InvokeOption) (*LookupBackupResult, error) {
 	var rv LookupBackupResult
 	err := ctx.Invoke("azure-native:netapp:getBackup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBackupArgs struct {
@@ -58,8 +58,23 @@ type LookupBackupResult struct {
 	Size float64 `pulumi:"size"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+	UseExistingSnapshot *bool `pulumi:"useExistingSnapshot"`
 	// Volume name
 	VolumeName string `pulumi:"volumeName"`
+}
+
+// Defaults sets the appropriate defaults for LookupBackupResult
+func (val *LookupBackupResult) Defaults() *LookupBackupResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseExistingSnapshot) {
+		useExistingSnapshot_ := false
+		tmp.UseExistingSnapshot = &useExistingSnapshot_
+	}
+	return &tmp
 }
 
 func LookupBackupOutput(ctx *pulumi.Context, args LookupBackupOutputArgs, opts ...pulumi.InvokeOption) LookupBackupResultOutput {
@@ -160,6 +175,11 @@ func (o LookupBackupResultOutput) Size() pulumi.Float64Output {
 // Resource type
 func (o LookupBackupResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+func (o LookupBackupResultOutput) UseExistingSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBackupResult) *bool { return v.UseExistingSnapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Volume name

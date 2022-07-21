@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// The properties of a response to source upload request.
-        /// API Version: 2019-06-01-preview.
+        /// API Version: 2019-04-01.
         /// </summary>
         public static Task<ListRegistryBuildSourceUploadUrlResult> InvokeAsync(ListRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a response to source upload request.
-        /// API Version: 2019-06-01-preview.
+        /// API Version: 2019-04-01.
         /// </summary>
         public static Output<ListRegistryBuildSourceUploadUrlResult> Invoke(ListRegistryBuildSourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlInvokeArgs(), options.WithDefaults());

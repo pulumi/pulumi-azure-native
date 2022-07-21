@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:Token"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:Token"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Token"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Token"},

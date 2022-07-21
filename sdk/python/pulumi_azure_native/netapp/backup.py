@@ -19,7 +19,8 @@ class BackupArgs:
                  volume_name: pulumi.Input[str],
                  backup_name: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -29,6 +30,7 @@ class BackupArgs:
         :param pulumi.Input[str] backup_name: The name of the backup
         :param pulumi.Input[str] label: Label for backup
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
@@ -40,6 +42,10 @@ class BackupArgs:
             pulumi.set(__self__, "label", label)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if use_existing_snapshot is None:
+            use_existing_snapshot = False
+        if use_existing_snapshot is not None:
+            pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
 
     @property
     @pulumi.getter(name="accountName")
@@ -125,6 +131,18 @@ class BackupArgs:
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
 
+    @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
+
+    @use_existing_snapshot.setter
+    def use_existing_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_existing_snapshot", value)
+
 
 class Backup(pulumi.CustomResource):
     @overload
@@ -137,11 +155,12 @@ class Backup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Backup of a Volume
-        API Version: 2020-12-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,6 +170,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         ...
@@ -161,7 +181,7 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup of a Volume
-        API Version: 2020-12-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.
@@ -184,6 +204,7 @@ class Backup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -209,6 +230,9 @@ class Backup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if use_existing_snapshot is None:
+                use_existing_snapshot = False
+            __props__.__dict__["use_existing_snapshot"] = use_existing_snapshot
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
@@ -254,6 +278,7 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["size"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["use_existing_snapshot"] = None
         __props__.__dict__["volume_name"] = None
         return Backup(resource_name, opts=opts, __props__=__props__)
 
@@ -336,6 +361,14 @@ class Backup(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
 
     @property
     @pulumi.getter(name="volumeName")

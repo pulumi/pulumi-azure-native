@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of deployments for a remediation.
- * API Version: 2019-07-01.
+ * API Version: 2021-10-01.
  */
 export function listRemediationDeploymentsAtManagementGroup(args: ListRemediationDeploymentsAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtManagementGroupResult> {
     if (!opts) {

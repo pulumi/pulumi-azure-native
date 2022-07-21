@@ -18,7 +18,6 @@ class AutomationRuleArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
                  display_name: pulumi.Input[str],
-                 operational_insights_resource_provider: pulumi.Input[str],
                  order: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
                  triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
@@ -27,17 +26,15 @@ class AutomationRuleArgs:
         """
         The set of arguments for constructing a AutomationRule resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered
-        :param pulumi.Input[str] display_name: The display name of the automation  rule
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        :param pulumi.Input[str] display_name: The display name of the automation rule
         :param pulumi.Input[int] order: The order of execution of the automation rule
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: The triggering logic of the automation rule
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: Describes automation rule triggering logic
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "triggering_logic", triggering_logic)
@@ -61,25 +58,13 @@ class AutomationRuleArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        The display name of the automation  rule
+        The display name of the automation rule
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
     def display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter
@@ -97,7 +82,7 @@ class AutomationRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -109,7 +94,7 @@ class AutomationRuleArgs:
     @pulumi.getter(name="triggeringLogic")
     def triggering_logic(self) -> pulumi.Input['AutomationRuleTriggeringLogicArgs']:
         """
-        The triggering logic of the automation rule
+        Describes automation rule triggering logic
         """
         return pulumi.get(self, "triggering_logic")
 
@@ -150,25 +135,22 @@ class AutomationRule(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Represents an automation rule.
-        API Version: 2019-01-01-preview.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]] actions: The actions to execute when the automation rule is triggered
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
-        :param pulumi.Input[str] display_name: The display name of the automation  rule
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        :param pulumi.Input[str] display_name: The display name of the automation rule
         :param pulumi.Input[int] order: The order of execution of the automation rule
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']] triggering_logic: The triggering logic of the automation rule
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']] triggering_logic: Describes automation rule triggering logic
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -178,8 +160,7 @@ class AutomationRule(pulumi.CustomResource):
                  args: AutomationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents an automation rule.
-        API Version: 2019-01-01-preview.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -199,7 +180,6 @@ class AutomationRule(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
@@ -223,9 +203,6 @@ class AutomationRule(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")
             __props__.__dict__["order"] = order
@@ -244,6 +221,7 @@ class AutomationRule(pulumi.CustomResource):
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AutomationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -278,6 +256,7 @@ class AutomationRule(pulumi.CustomResource):
         __props__.__dict__["last_modified_time_utc"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["order"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["triggering_logic"] = None
         __props__.__dict__["type"] = None
         return AutomationRule(resource_name, opts=opts, __props__=__props__)
@@ -294,7 +273,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output['outputs.ClientInfoResponse']:
         """
-        Describes the client that created the automation rule
+        Information on the client (user or application) that made some action
         """
         return pulumi.get(self, "created_by")
 
@@ -310,7 +289,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        The display name of the automation  rule
+        The display name of the automation rule
         """
         return pulumi.get(self, "display_name")
 
@@ -326,7 +305,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> pulumi.Output['outputs.ClientInfoResponse']:
         """
-        Describes the client that last updated the automation rule
+        Information on the client (user or application) that made some action
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -342,7 +321,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -355,10 +334,18 @@ class AutomationRule(pulumi.CustomResource):
         return pulumi.get(self, "order")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="triggeringLogic")
     def triggering_logic(self) -> pulumi.Output['outputs.AutomationRuleTriggeringLogicResponse']:
         """
-        The triggering logic of the automation rule
+        Describes automation rule triggering logic
         """
         return pulumi.get(self, "triggering_logic")
 
@@ -366,7 +353,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

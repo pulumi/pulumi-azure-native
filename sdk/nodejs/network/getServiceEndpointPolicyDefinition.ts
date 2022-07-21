@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service Endpoint policy definitions.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
     if (!opts) {
@@ -68,6 +68,10 @@ export interface GetServiceEndpointPolicyDefinitionResult {
      * A list of service resources.
      */
     readonly serviceResources?: string[];
+    /**
+     * The type of the resource.
+     */
+    readonly type?: string;
 }
 
 export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {

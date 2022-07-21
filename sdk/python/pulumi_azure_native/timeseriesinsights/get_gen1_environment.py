@@ -21,7 +21,7 @@ class GetGen1EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
     """
-    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, id=None, kind=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, id=None, kind=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, supports_customer_managed_key=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -61,6 +61,9 @@ class GetGen1EnvironmentResult:
         if storage_limit_exceeded_behavior and not isinstance(storage_limit_exceeded_behavior, str):
             raise TypeError("Expected argument 'storage_limit_exceeded_behavior' to be a str")
         pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
+        if supports_customer_managed_key and not isinstance(supports_customer_managed_key, bool):
+            raise TypeError("Expected argument 'supports_customer_managed_key' to be a bool")
+        pulumi.set(__self__, "supports_customer_managed_key", supports_customer_managed_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -174,6 +177,14 @@ class GetGen1EnvironmentResult:
         return pulumi.get(self, "storage_limit_exceeded_behavior")
 
     @property
+    @pulumi.getter(name="supportsCustomerManagedKey")
+    def supports_customer_managed_key(self) -> bool:
+        """
+        Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+        """
+        return pulumi.get(self, "supports_customer_managed_key")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -209,6 +220,7 @@ class AwaitableGetGen1EnvironmentResult(GetGen1EnvironmentResult):
             sku=self.sku,
             status=self.status,
             storage_limit_exceeded_behavior=self.storage_limit_exceeded_behavior,
+            supports_customer_managed_key=self.supports_customer_managed_key,
             tags=self.tags,
             type=self.type)
 
@@ -219,7 +231,7 @@ def get_gen1_environment(environment_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGen1EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -250,6 +262,7 @@ def get_gen1_environment(environment_name: Optional[str] = None,
         sku=__ret__.sku,
         status=__ret__.status,
         storage_limit_exceeded_behavior=__ret__.storage_limit_exceeded_behavior,
+        supports_customer_managed_key=__ret__.supports_customer_managed_key,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -261,7 +274,7 @@ def get_gen1_environment_output(environment_name: Optional[pulumi.Input[str]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGen1EnvironmentResult]:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

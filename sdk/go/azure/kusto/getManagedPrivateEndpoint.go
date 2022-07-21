@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing a managed private endpoint.
-// API Version: 2021-08-27.
+// API Version: 2022-02-01.
 func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrivateEndpointResult, error) {
 	var rv LookupManagedPrivateEndpointResult
 	err := ctx.Invoke("azure-native:kusto:getManagedPrivateEndpoint", args, &rv, opts...)

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWCFRelayResult',
@@ -20,7 +21,7 @@ class GetWCFRelayResult:
     """
     Description of the WCF relay resource.
     """
-    def __init__(__self__, created_at=None, id=None, is_dynamic=None, listener_count=None, name=None, relay_type=None, requires_client_authorization=None, requires_transport_security=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, created_at=None, id=None, is_dynamic=None, listener_count=None, location=None, name=None, relay_type=None, requires_client_authorization=None, requires_transport_security=None, system_data=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -33,6 +34,9 @@ class GetWCFRelayResult:
         if listener_count and not isinstance(listener_count, int):
             raise TypeError("Expected argument 'listener_count' to be a int")
         pulumi.set(__self__, "listener_count", listener_count)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -45,6 +49,9 @@ class GetWCFRelayResult:
         if requires_transport_security and not isinstance(requires_transport_security, bool):
             raise TypeError("Expected argument 'requires_transport_security' to be a bool")
         pulumi.set(__self__, "requires_transport_security", requires_transport_security)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -67,7 +74,7 @@ class GetWCFRelayResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -89,9 +96,17 @@ class GetWCFRelayResult:
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -120,10 +135,18 @@ class GetWCFRelayResult:
         return pulumi.get(self, "requires_transport_security")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 
@@ -154,10 +177,12 @@ class AwaitableGetWCFRelayResult(GetWCFRelayResult):
             id=self.id,
             is_dynamic=self.is_dynamic,
             listener_count=self.listener_count,
+            location=self.location,
             name=self.name,
             relay_type=self.relay_type,
             requires_client_authorization=self.requires_client_authorization,
             requires_transport_security=self.requires_transport_security,
+            system_data=self.system_data,
             type=self.type,
             updated_at=self.updated_at,
             user_metadata=self.user_metadata)
@@ -169,7 +194,7 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayResult:
     """
     Description of the WCF relay resource.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name
@@ -191,10 +216,12 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
         id=__ret__.id,
         is_dynamic=__ret__.is_dynamic,
         listener_count=__ret__.listener_count,
+        location=__ret__.location,
         name=__ret__.name,
         relay_type=__ret__.relay_type,
         requires_client_authorization=__ret__.requires_client_authorization,
         requires_transport_security=__ret__.requires_transport_security,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         user_metadata=__ret__.user_metadata)
@@ -207,7 +234,7 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWCFRelayResult]:
     """
     Description of the WCF relay resource.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Live Output.
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**
@@ -81,6 +81,10 @@ export class LiveOutput extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -126,6 +130,7 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archiveWindowLength"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["outputSnapTime"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -51,3 +51,13 @@ export const PublicNetworkAccess = {
  * Whether or not public network access is allowed for the account.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const SKU = {
+    Free: "Free",
+    Standard: "Standard",
+} as const;
+
+/**
+ * Device Update Sku
+ */
+export type SKU = (typeof SKU)[keyof typeof SKU];

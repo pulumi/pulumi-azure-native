@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:Service"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:Service"},

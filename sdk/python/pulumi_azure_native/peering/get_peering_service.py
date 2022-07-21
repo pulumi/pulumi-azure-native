@@ -21,13 +21,16 @@ class GetPeeringServiceResult:
     """
     Peering Service
     """
-    def __init__(__self__, id=None, location=None, name=None, peering_service_location=None, peering_service_provider=None, provider_backup_peering_location=None, provider_primary_peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, log_analytics_workspace_properties=None, name=None, peering_service_location=None, peering_service_provider=None, provider_backup_peering_location=None, provider_primary_peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if log_analytics_workspace_properties and not isinstance(log_analytics_workspace_properties, dict):
+            raise TypeError("Expected argument 'log_analytics_workspace_properties' to be a dict")
+        pulumi.set(__self__, "log_analytics_workspace_properties", log_analytics_workspace_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -71,6 +74,14 @@ class GetPeeringServiceResult:
         The location of the resource.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceProperties")
+    def log_analytics_workspace_properties(self) -> Optional['outputs.LogAnalyticsWorkspacePropertiesResponse']:
+        """
+        The Log Analytics Workspace Properties
+        """
+        return pulumi.get(self, "log_analytics_workspace_properties")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetPeeringServiceResult(GetPeeringServiceResult):
         return GetPeeringServiceResult(
             id=self.id,
             location=self.location,
+            log_analytics_workspace_properties=self.log_analytics_workspace_properties,
             name=self.name,
             peering_service_location=self.peering_service_location,
             peering_service_provider=self.peering_service_provider,
@@ -169,7 +181,7 @@ def get_peering_service(peering_service_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringServiceResult:
     """
     Peering Service
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peering_service_name: The name of the peering.
@@ -187,6 +199,7 @@ def get_peering_service(peering_service_name: Optional[str] = None,
     return AwaitableGetPeeringServiceResult(
         id=__ret__.id,
         location=__ret__.location,
+        log_analytics_workspace_properties=__ret__.log_analytics_workspace_properties,
         name=__ret__.name,
         peering_service_location=__ret__.peering_service_location,
         peering_service_provider=__ret__.peering_service_provider,
@@ -204,7 +217,7 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringServiceResult]:
     """
     Peering Service
-    API Version: 2021-01-01.
+    API Version: 2022-01-01.
 
 
     :param str peering_service_name: The name of the peering.

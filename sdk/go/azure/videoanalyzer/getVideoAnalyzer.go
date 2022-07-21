@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Video Analyzer account.
-// API Version: 2021-05-01-preview.
+// The Video Analyzer account.
+// API Version: 2021-11-01-preview.
 func LookupVideoAnalyzer(ctx *pulumi.Context, args *LookupVideoAnalyzerArgs, opts ...pulumi.InvokeOption) (*LookupVideoAnalyzerResult, error) {
 	var rv LookupVideoAnalyzerResult
 	err := ctx.Invoke("azure-native:videoanalyzer:getVideoAnalyzer", args, &rv, opts...)
@@ -28,23 +28,33 @@ type LookupVideoAnalyzerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// A Video Analyzer account.
+// The Video Analyzer account.
 type LookupVideoAnalyzerResult struct {
 	// The account encryption properties.
-	Encryption AccountEncryptionResponse `pulumi:"encryption"`
-	// The list of endpoints associated with this resource.
+	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
+	// The endpoints associated with this resource.
 	Endpoints []EndpointResponse `pulumi:"endpoints"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// The set of managed identities associated with the Video Analyzer resource.
+	// The identities associated to the Video Analyzer resource.
 	Identity *VideoAnalyzerIdentityResponse `pulumi:"identity"`
+	// The IoT Hubs for this resource.
+	IotHubs []IotHubResponse `pulumi:"iotHubs"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Network access control for Video Analyzer.
+	NetworkAccessControl *NetworkAccessControlResponse `pulumi:"networkAccessControl"`
+	// Private Endpoint Connections created under Video Analyzer account.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Provisioning state of the Video Analyzer account.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for resources under the Video Analyzer account.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The storage accounts for this resource.
 	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
-	// The system data of the Video Analyzer account.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -76,7 +86,7 @@ func (LookupVideoAnalyzerOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupVideoAnalyzerArgs)(nil)).Elem()
 }
 
-// A Video Analyzer account.
+// The Video Analyzer account.
 type LookupVideoAnalyzerResultOutput struct{ *pulumi.OutputState }
 
 func (LookupVideoAnalyzerResultOutput) ElementType() reflect.Type {
@@ -92,11 +102,11 @@ func (o LookupVideoAnalyzerResultOutput) ToLookupVideoAnalyzerResultOutputWithCo
 }
 
 // The account encryption properties.
-func (o LookupVideoAnalyzerResultOutput) Encryption() AccountEncryptionResponseOutput {
-	return o.ApplyT(func(v LookupVideoAnalyzerResult) AccountEncryptionResponse { return v.Encryption }).(AccountEncryptionResponseOutput)
+func (o LookupVideoAnalyzerResultOutput) Encryption() AccountEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupVideoAnalyzerResult) *AccountEncryptionResponse { return v.Encryption }).(AccountEncryptionResponsePtrOutput)
 }
 
-// The list of endpoints associated with this resource.
+// The endpoints associated with this resource.
 func (o LookupVideoAnalyzerResultOutput) Endpoints() EndpointResponseArrayOutput {
 	return o.ApplyT(func(v LookupVideoAnalyzerResult) []EndpointResponse { return v.Endpoints }).(EndpointResponseArrayOutput)
 }
@@ -106,9 +116,14 @@ func (o LookupVideoAnalyzerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVideoAnalyzerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The set of managed identities associated with the Video Analyzer resource.
+// The identities associated to the Video Analyzer resource.
 func (o LookupVideoAnalyzerResultOutput) Identity() VideoAnalyzerIdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupVideoAnalyzerResult) *VideoAnalyzerIdentityResponse { return v.Identity }).(VideoAnalyzerIdentityResponsePtrOutput)
+}
+
+// The IoT Hubs for this resource.
+func (o LookupVideoAnalyzerResultOutput) IotHubs() IotHubResponseArrayOutput {
+	return o.ApplyT(func(v LookupVideoAnalyzerResult) []IotHubResponse { return v.IotHubs }).(IotHubResponseArrayOutput)
 }
 
 // The geo-location where the resource lives
@@ -121,12 +136,34 @@ func (o LookupVideoAnalyzerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVideoAnalyzerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Network access control for Video Analyzer.
+func (o LookupVideoAnalyzerResultOutput) NetworkAccessControl() NetworkAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v LookupVideoAnalyzerResult) *NetworkAccessControlResponse { return v.NetworkAccessControl }).(NetworkAccessControlResponsePtrOutput)
+}
+
+// Private Endpoint Connections created under Video Analyzer account.
+func (o LookupVideoAnalyzerResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupVideoAnalyzerResult) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the Video Analyzer account.
+func (o LookupVideoAnalyzerResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVideoAnalyzerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is allowed for resources under the Video Analyzer account.
+func (o LookupVideoAnalyzerResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVideoAnalyzerResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
 // The storage accounts for this resource.
 func (o LookupVideoAnalyzerResultOutput) StorageAccounts() StorageAccountResponseArrayOutput {
 	return o.ApplyT(func(v LookupVideoAnalyzerResult) []StorageAccountResponse { return v.StorageAccounts }).(StorageAccountResponseArrayOutput)
 }
 
-// The system data of the Video Analyzer account.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupVideoAnalyzerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupVideoAnalyzerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

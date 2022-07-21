@@ -11,7 +11,7 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
 	err := ctx.Invoke("azure-native:storage:getTable", args, &rv, opts...)
@@ -36,6 +36,8 @@ type LookupTableResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// List of stored access policies specified on the table.
+	SignedIdentifiers []TableSignedIdentifierResponse `pulumi:"signedIdentifiers"`
 	// Table name under the specified account
 	TableName string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -91,6 +93,11 @@ func (o LookupTableResultOutput) Id() pulumi.StringOutput {
 // The name of the resource
 func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of stored access policies specified on the table.
+func (o LookupTableResultOutput) SignedIdentifiers() TableSignedIdentifierResponseArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []TableSignedIdentifierResponse { return v.SignedIdentifiers }).(TableSignedIdentifierResponseArrayOutput)
 }
 
 // Table name under the specified account

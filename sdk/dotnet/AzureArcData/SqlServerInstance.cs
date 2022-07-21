@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// A SqlServerInstance.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerInstance")]
     public partial class SqlServerInstance : Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.AzureArcData
         public Output<Outputs.SqlServerInstancePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.AzureArcData
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

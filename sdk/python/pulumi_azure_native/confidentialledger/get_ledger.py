@@ -121,7 +121,7 @@ def get_ledger(ledger_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLedgerResult:
     """
     Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-    API Version: 2020-12-01-preview.
+    API Version: 2022-05-13.
 
 
     :param str ledger_name: Name of the Confidential Ledger
@@ -152,7 +152,7 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-    API Version: 2020-12-01-preview.
+    API Version: 2022-05-13.
 
 
     :param str ledger_name: Name of the Confidential Ledger

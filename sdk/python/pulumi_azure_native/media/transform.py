@@ -111,7 +111,7 @@ class Transform(pulumi.CustomResource):
                  __props__=None):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class Transform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param TransformArgs args: The arguments to use to populate this resource's properties.

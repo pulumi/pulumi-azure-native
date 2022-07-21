@@ -11,7 +11,13 @@ export {
 };
 
 export const CoreNetworkType = {
+    /**
+     * 5G core
+     */
     CoreNetworkType_5GC: "5GC",
+    /**
+     * EPC / 4G core
+     */
     EPC: "EPC",
 } as const;
 
@@ -33,7 +39,13 @@ export const CreatedByType = {
 export type CreatedByType = (typeof CreatedByType)[keyof typeof CreatedByType];
 
 export const NaptEnabled = {
+    /**
+     * NAPT is enabled
+     */
     Enabled: "Enabled",
+    /**
+     * NAPT is disabled
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -53,7 +65,13 @@ export const PduSessionType = {
 export type PduSessionType = (typeof PduSessionType)[keyof typeof PduSessionType];
 
 export const PreemptionCapability = {
+    /**
+     * Cannot preempt
+     */
     NotPreempt: "NotPreempt",
+    /**
+     * May preempt
+     */
     MayPreempt: "MayPreempt",
 } as const;
 
@@ -63,7 +81,13 @@ export const PreemptionCapability = {
 export type PreemptionCapability = (typeof PreemptionCapability)[keyof typeof PreemptionCapability];
 
 export const PreemptionVulnerability = {
+    /**
+     * Cannot be preempted
+     */
     NotPreemptable: "NotPreemptable",
+    /**
+     * May be preempted
+     */
     Preemptable: "Preemptable",
 } as const;
 
@@ -73,8 +97,17 @@ export const PreemptionVulnerability = {
 export type PreemptionVulnerability = (typeof PreemptionVulnerability)[keyof typeof PreemptionVulnerability];
 
 export const SdfDirection = {
+    /**
+     * Traffic flowing from the UE to the data network.
+     */
     Uplink: "Uplink",
+    /**
+     * Traffic flowing from the data network to the UE.
+     */
     Downlink: "Downlink",
+    /**
+     * Traffic flowing both to and from the UE.
+     */
     Bidirectional: "Bidirectional",
 } as const;
 
@@ -84,7 +117,13 @@ export const SdfDirection = {
 export type SdfDirection = (typeof SdfDirection)[keyof typeof SdfDirection];
 
 export const TrafficControlPermission = {
+    /**
+     * Traffic matching this rule is allowed to flow.
+     */
     Enabled: "Enabled",
+    /**
+     * Traffic matching this rule is not allowed to flow.
+     */
     Blocked: "Blocked",
 } as const;
 

@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetVMProfileResponse
     {
         /// <summary>
+        /// Specifies the gallery applications that should be made available to the VM/VMSS
+        /// </summary>
+        public readonly Outputs.ApplicationProfileResponse? ApplicationProfile;
+        /// <summary>
         /// Specifies the billing related details of a Azure Spot VMSS. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01.
         /// </summary>
         public readonly Outputs.BillingProfileResponse? BillingProfile;
+        /// <summary>
+        /// Specifies the capacity reservation related details of a scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
+        /// </summary>
+        public readonly Outputs.CapacityReservationProfileResponse? CapacityReservation;
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
@@ -32,6 +40,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Specifies a collection of settings for extensions installed on virtual machines in the scale set.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetExtensionProfileResponse? ExtensionProfile;
+        /// <summary>
+        /// Specifies the hardware profile related details of a scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetHardwareProfileResponse? HardwareProfile;
         /// <summary>
         /// Specifies that the image or disk that is being used was licensed on-premises. &lt;br&gt;&lt;br&gt; Possible values for Windows Server operating system are: &lt;br&gt;&lt;br&gt; Windows_Client &lt;br&gt;&lt;br&gt; Windows_Server &lt;br&gt;&lt;br&gt; Possible values for Linux Server operating system are: &lt;br&gt;&lt;br&gt; RHEL_BYOS (for RHEL) &lt;br&gt;&lt;br&gt; SLES_BYOS (for SUSE) &lt;br&gt;&lt;br&gt; For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) &lt;br&gt;&lt;br&gt; [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) &lt;br&gt;&lt;br&gt; Minimum api-version: 2015-06-15
         /// </summary>
@@ -67,13 +79,19 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private VirtualMachineScaleSetVMProfileResponse(
+            Outputs.ApplicationProfileResponse? applicationProfile,
+
             Outputs.BillingProfileResponse? billingProfile,
+
+            Outputs.CapacityReservationProfileResponse? capacityReservation,
 
             Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
 
             string? evictionPolicy,
 
             Outputs.VirtualMachineScaleSetExtensionProfileResponse? extensionProfile,
+
+            Outputs.VirtualMachineScaleSetHardwareProfileResponse? hardwareProfile,
 
             string? licenseType,
 
@@ -91,10 +109,13 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? userData)
         {
+            ApplicationProfile = applicationProfile;
             BillingProfile = billingProfile;
+            CapacityReservation = capacityReservation;
             DiagnosticsProfile = diagnosticsProfile;
             EvictionPolicy = evictionPolicy;
             ExtensionProfile = extensionProfile;
+            HardwareProfile = hardwareProfile;
             LicenseType = licenseType;
             NetworkProfile = networkProfile;
             OsProfile = osProfile;

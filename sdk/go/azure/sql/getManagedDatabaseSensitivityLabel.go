@@ -11,7 +11,7 @@ import (
 )
 
 // A sensitivity label.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupManagedDatabaseSensitivityLabel(ctx *pulumi.Context, args *LookupManagedDatabaseSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupManagedDatabaseSensitivityLabelResult, error) {
 	var rv LookupManagedDatabaseSensitivityLabelResult
 	err := ctx.Invoke("azure-native:sql:getManagedDatabaseSensitivityLabel", args, &rv, opts...)

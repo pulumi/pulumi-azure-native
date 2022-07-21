@@ -12,13 +12,15 @@ import (
 )
 
 // Friendly RuleSet name mapping to the any RuleSet or secret related information.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type RuleSet struct {
 	pulumi.CustomResourceState
 
 	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The name of the profile which holds the rule set.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Read only system data
@@ -81,7 +83,7 @@ func (RuleSetState) ElementType() reflect.Type {
 }
 
 type ruleSetArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -91,7 +93,7 @@ type ruleSetArgs struct {
 
 // The set of arguments for constructing a RuleSet resource.
 type RuleSetArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
@@ -143,6 +145,11 @@ func (o RuleSetOutput) DeploymentStatus() pulumi.StringOutput {
 // Resource name.
 func (o RuleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the profile which holds the rule set.
+func (o RuleSetOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSet) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // Provisioning status

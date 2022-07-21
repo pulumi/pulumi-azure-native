@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Sql pool transparent data encryption configuration.
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
     if (!opts) {
@@ -36,7 +36,7 @@ export interface GetSqlPoolTransparentDataEncryptionArgs {
      */
     transparentDataEncryptionName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -85,7 +85,7 @@ export interface GetSqlPoolTransparentDataEncryptionOutputArgs {
      */
     transparentDataEncryptionName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A node pool snapshot resource.
- * API Version: 2021-08-01.
+ * API Version: 2022-04-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetSnapshotArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -41,33 +41,57 @@ export interface GetSnapshotResult {
      */
     readonly creationData?: outputs.containerservice.CreationDataResponse;
     /**
-     * Resource Id
+     * Whether to use a FIPS-enabled OS.
+     */
+    readonly enableFIPS: boolean;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The version of Kubernetes.
+     */
+    readonly kubernetesVersion: string;
+    /**
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * The version of node image.
+     */
+    readonly nodeImageVersion: string;
+    /**
+     * Specifies an OS SKU. This value must not be specified if OSType is Windows.
+     */
+    readonly osSku: string;
+    /**
+     * The operating system type. The default is Linux.
+     */
+    readonly osType: string;
     /**
      * The type of a snapshot. The default is NodePool.
      */
     readonly snapshotType?: string;
     /**
-     * The system metadata relating to this snapshot.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.containerservice.SystemDataResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The size of the VM.
+     */
+    readonly vmSize: string;
 }
 
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
@@ -76,7 +100,7 @@ export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.Inv
 
 export interface GetSnapshotOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

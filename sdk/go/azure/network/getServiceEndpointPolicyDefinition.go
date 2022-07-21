@@ -11,7 +11,7 @@ import (
 )
 
 // Service Endpoint policy definitions.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupServiceEndpointPolicyDefinition(ctx *pulumi.Context, args *LookupServiceEndpointPolicyDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointPolicyDefinitionResult, error) {
 	var rv LookupServiceEndpointPolicyDefinitionResult
 	err := ctx.Invoke("azure-native:network:getServiceEndpointPolicyDefinition", args, &rv, opts...)
@@ -46,6 +46,8 @@ type LookupServiceEndpointPolicyDefinitionResult struct {
 	Service *string `pulumi:"service"`
 	// A list of service resources.
 	ServiceResources []string `pulumi:"serviceResources"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 func LookupServiceEndpointPolicyDefinitionOutput(ctx *pulumi.Context, args LookupServiceEndpointPolicyDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupServiceEndpointPolicyDefinitionResultOutput {
@@ -122,6 +124,11 @@ func (o LookupServiceEndpointPolicyDefinitionResultOutput) Service() pulumi.Stri
 // A list of service resources.
 func (o LookupServiceEndpointPolicyDefinitionResultOutput) ServiceResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServiceEndpointPolicyDefinitionResult) []string { return v.ServiceResources }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource.
+func (o LookupServiceEndpointPolicyDefinitionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceEndpointPolicyDefinitionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

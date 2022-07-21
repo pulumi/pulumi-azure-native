@@ -21,12 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:azurearcdata:ActiveDirectoryConnector":
-		r = &ActiveDirectoryConnector{}
 	case "azure-native:azurearcdata:DataController":
 		r = &DataController{}
-	case "azure-native:azurearcdata:PostgresInstance":
-		r = &PostgresInstance{}
 	case "azure-native:azurearcdata:SqlManagedInstance":
 		r = &SqlManagedInstance{}
 	case "azure-native:azurearcdata:SqlServerInstance":

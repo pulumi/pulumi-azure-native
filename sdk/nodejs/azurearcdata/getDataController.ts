@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data controller resource
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
     if (!opts) {
@@ -38,7 +38,7 @@ export interface GetDataControllerResult {
      */
     readonly extendedLocation?: outputs.azurearcdata.ExtendedLocationResponse;
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -54,7 +54,7 @@ export interface GetDataControllerResult {
      */
     readonly properties: outputs.azurearcdata.DataControllerPropertiesResponse;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.azurearcdata.SystemDataResponse;
     /**
@@ -62,7 +62,7 @@ export interface GetDataControllerResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

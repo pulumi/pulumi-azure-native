@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getEnvironmentContainer(args: GetEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentContainerResult> {
     if (!opts) {
@@ -24,7 +24,7 @@ export function getEnvironmentContainer(args: GetEnvironmentContainerArgs, opts?
 
 export interface GetEnvironmentContainerArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: string;
     /**
@@ -42,6 +42,10 @@ export interface GetEnvironmentContainerArgs {
  */
 export interface GetEnvironmentContainerResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly environmentContainerProperties: outputs.machinelearningservices.EnvironmentContainerResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -50,11 +54,7 @@ export interface GetEnvironmentContainerResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.EnvironmentContainerResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -69,7 +69,7 @@ export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutpu
 
 export interface GetEnvironmentContainerOutputArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
     /**

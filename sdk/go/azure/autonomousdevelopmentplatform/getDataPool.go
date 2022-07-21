@@ -11,7 +11,7 @@ import (
 )
 
 // ADP Data Pool
-// API Version: 2021-02-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupDataPool(ctx *pulumi.Context, args *LookupDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupDataPoolResult, error) {
 	var rv LookupDataPoolResult
 	err := ctx.Invoke("azure-native:autonomousdevelopmentplatform:getDataPool", args, &rv, opts...)
@@ -44,6 +44,8 @@ type LookupDataPoolResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The system meta data relating to this resource
 	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -117,6 +119,11 @@ func (o LookupDataPoolResultOutput) ProvisioningState() pulumi.StringOutput {
 // The system meta data relating to this resource
 func (o LookupDataPoolResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupDataPoolResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o LookupDataPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

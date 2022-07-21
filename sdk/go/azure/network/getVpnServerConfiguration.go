@@ -11,7 +11,7 @@ import (
 )
 
 // VpnServerConfiguration Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupVpnServerConfiguration(ctx *pulumi.Context, args *LookupVpnServerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVpnServerConfigurationResult, error) {
 	var rv LookupVpnServerConfigurationResult
 	err := ctx.Invoke("azure-native:network:getVpnServerConfiguration", args, &rv, opts...)
@@ -32,6 +32,8 @@ type LookupVpnServerConfigurationArgs struct {
 type LookupVpnServerConfigurationResult struct {
 	// The set of aad vpn authentication parameters.
 	AadAuthenticationParameters *AadAuthenticationParametersResponse `pulumi:"aadAuthenticationParameters"`
+	// List of all VpnServerConfigurationPolicyGroups.
+	ConfigurationPolicyGroups []VpnServerConfigurationPolicyGroupResponse `pulumi:"configurationPolicyGroups"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
@@ -114,6 +116,13 @@ func (o LookupVpnServerConfigurationResultOutput) AadAuthenticationParameters() 
 	return o.ApplyT(func(v LookupVpnServerConfigurationResult) *AadAuthenticationParametersResponse {
 		return v.AadAuthenticationParameters
 	}).(AadAuthenticationParametersResponsePtrOutput)
+}
+
+// List of all VpnServerConfigurationPolicyGroups.
+func (o LookupVpnServerConfigurationResultOutput) ConfigurationPolicyGroups() VpnServerConfigurationPolicyGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupVpnServerConfigurationResult) []VpnServerConfigurationPolicyGroupResponse {
+		return v.ConfigurationPolicyGroups
+	}).(VpnServerConfigurationPolicyGroupResponseArrayOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.

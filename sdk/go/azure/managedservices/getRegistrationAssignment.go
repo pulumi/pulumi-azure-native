@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration assignment.
-// API Version: 2019-09-01.
+// The registration assignment.
+// API Version: 2022-01-01-preview.
 func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationAssignmentResult, error) {
 	var rv LookupRegistrationAssignmentResult
 	err := ctx.Invoke("azure-native:managedservices:getRegistrationAssignment", args, &rv, opts...)
@@ -22,23 +22,25 @@ func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationA
 }
 
 type LookupRegistrationAssignmentArgs struct {
-	// Tells whether to return registration definition details also along with registration assignment details.
+	// The flag indicating whether to return the registration definition details along with the registration assignment details.
 	ExpandRegistrationDefinition *bool `pulumi:"expandRegistrationDefinition"`
-	// Guid of the registration assignment.
+	// The GUID of the registration assignment.
 	RegistrationAssignmentId string `pulumi:"registrationAssignmentId"`
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope string `pulumi:"scope"`
 }
 
-// Registration assignment.
+// The registration assignment.
 type LookupRegistrationAssignmentResult struct {
 	// The fully qualified path of the registration assignment.
 	Id string `pulumi:"id"`
-	// Name of the registration assignment.
+	// The name of the registration assignment.
 	Name string `pulumi:"name"`
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
+	// The metadata for the registration assignment resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 	Type string `pulumi:"type"`
 }
 
@@ -56,11 +58,11 @@ func LookupRegistrationAssignmentOutput(ctx *pulumi.Context, args LookupRegistra
 }
 
 type LookupRegistrationAssignmentOutputArgs struct {
-	// Tells whether to return registration definition details also along with registration assignment details.
+	// The flag indicating whether to return the registration definition details along with the registration assignment details.
 	ExpandRegistrationDefinition pulumi.BoolPtrInput `pulumi:"expandRegistrationDefinition"`
-	// Guid of the registration assignment.
+	// The GUID of the registration assignment.
 	RegistrationAssignmentId pulumi.StringInput `pulumi:"registrationAssignmentId"`
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
@@ -68,7 +70,7 @@ func (LookupRegistrationAssignmentOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupRegistrationAssignmentArgs)(nil)).Elem()
 }
 
-// Registration assignment.
+// The registration assignment.
 type LookupRegistrationAssignmentResultOutput struct{ *pulumi.OutputState }
 
 func (LookupRegistrationAssignmentResultOutput) ElementType() reflect.Type {
@@ -88,19 +90,24 @@ func (o LookupRegistrationAssignmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistrationAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the registration assignment.
+// The name of the registration assignment.
 func (o LookupRegistrationAssignmentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistrationAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of a registration assignment.
+// The properties of a registration assignment.
 func (o LookupRegistrationAssignmentResultOutput) Properties() RegistrationAssignmentPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupRegistrationAssignmentResult) RegistrationAssignmentPropertiesResponse {
 		return v.Properties
 	}).(RegistrationAssignmentPropertiesResponseOutput)
 }
 
-// Type of the resource.
+// The metadata for the registration assignment resource.
+func (o LookupRegistrationAssignmentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRegistrationAssignmentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 func (o LookupRegistrationAssignmentResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistrationAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
 }

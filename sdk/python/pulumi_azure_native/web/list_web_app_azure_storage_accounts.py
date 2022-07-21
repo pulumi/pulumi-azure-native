@@ -97,7 +97,7 @@ def list_web_app_azure_storage_accounts(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAzureStorageAccountsResult:
     """
     AzureStorageInfo dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -126,7 +126,7 @@ def list_web_app_azure_storage_accounts_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsResult]:
     """
     AzureStorageInfo dictionary resource.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

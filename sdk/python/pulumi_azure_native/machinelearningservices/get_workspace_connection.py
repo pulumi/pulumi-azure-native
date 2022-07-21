@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkspaceConnectionResult',
@@ -17,56 +18,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceConnectionResult:
-    """
-    Workspace connection.
-    """
-    def __init__(__self__, auth_type=None, category=None, id=None, name=None, target=None, type=None, value=None, value_format=None):
-        if auth_type and not isinstance(auth_type, str):
-            raise TypeError("Expected argument 'auth_type' to be a str")
-        pulumi.set(__self__, "auth_type", auth_type)
-        if category and not isinstance(category, str):
-            raise TypeError("Expected argument 'category' to be a str")
-        pulumi.set(__self__, "category", category)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if target and not isinstance(target, str):
-            raise TypeError("Expected argument 'target' to be a str")
-        pulumi.set(__self__, "target", target)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        pulumi.set(__self__, "value", value)
-        if value_format and not isinstance(value_format, str):
-            raise TypeError("Expected argument 'value_format' to be a str")
-        pulumi.set(__self__, "value_format", value_format)
-
-    @property
-    @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[str]:
-        """
-        Authorization type of the workspace connection.
-        """
-        return pulumi.get(self, "auth_type")
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[str]:
-        """
-        Category of the workspace connection.
-        """
-        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        ResourceId of the workspace connection.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -74,41 +47,30 @@ class GetWorkspaceConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Friendly name of the workspace connection.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def properties(self) -> Any:
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Target of the workspace connection.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type of workspace connection.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[str]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
 
 
 class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
@@ -117,14 +79,11 @@ class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
         if False:
             yield self
         return GetWorkspaceConnectionResult(
-            auth_type=self.auth_type,
-            category=self.category,
             id=self.id,
             name=self.name,
-            target=self.target,
-            type=self.type,
-            value=self.value,
-            value_format=self.value_format)
+            properties=self.properties,
+            system_data=self.system_data,
+            type=self.type)
 
 
 def get_workspace_connection(connection_name: Optional[str] = None,
@@ -132,12 +91,11 @@ def get_workspace_connection(connection_name: Optional[str] = None,
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
-    Workspace connection.
-    API Version: 2021-01-01.
+    API Version: 2022-05-01.
 
 
     :param str connection_name: Friendly name of the workspace connection
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
@@ -151,14 +109,11 @@ def get_workspace_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getWorkspaceConnection', __args__, opts=opts, typ=GetWorkspaceConnectionResult).value
 
     return AwaitableGetWorkspaceConnectionResult(
-        auth_type=__ret__.auth_type,
-        category=__ret__.category,
         id=__ret__.id,
         name=__ret__.name,
-        target=__ret__.target,
-        type=__ret__.type,
-        value=__ret__.value,
-        value_format=__ret__.value_format)
+        properties=__ret__.properties,
+        system_data=__ret__.system_data,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_workspace_connection)
@@ -167,12 +122,11 @@ def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]]
                                     workspace_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceConnectionResult]:
     """
-    Workspace connection.
-    API Version: 2021-01-01.
+    API Version: 2022-05-01.
 
 
     :param str connection_name: Friendly name of the workspace connection
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     ...

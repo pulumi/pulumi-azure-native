@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Sim policy resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:SimPolicy")]
     public partial class SimPolicy : Pulumi.CustomResource
@@ -93,6 +93,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("sliceConfigurations")]
         public Output<ImmutableArray<Outputs.SliceConfigurationResponse>> SliceConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The alert rule information
- * API Version: 2019-06-01.
+ * API Version: 2021-04-01.
  */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
     if (!opts) {
@@ -54,7 +54,7 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly detector: outputs.alertsmanagement.DetectorResponse;
     /**
-     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
      */
     readonly frequency: string;
     /**

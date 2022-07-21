@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Server Endpoint object.
- * API Version: 2020-03-01.
+ * API Version: 2020-09-01.
  */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
     if (!opts) {
@@ -67,6 +67,10 @@ export interface GetServerEndpointResult {
      */
     readonly initialDownloadPolicy?: string;
     /**
+     * Policy for how the initial upload sync session is performed.
+     */
+    readonly initialUploadPolicy?: string;
+    /**
      * Resource Last Operation Name
      */
     readonly lastOperationName: string;
@@ -111,6 +115,10 @@ export interface GetServerEndpointResult {
      */
     readonly serverLocalPath?: string;
     /**
+     * Server name
+     */
+    readonly serverName: string;
+    /**
      * Server Resource Id.
      */
     readonly serverResourceId?: string;
@@ -118,6 +126,10 @@ export interface GetServerEndpointResult {
      * Server Endpoint sync status
      */
     readonly syncStatus: outputs.storagesync.ServerEndpointSyncStatusResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.SystemDataResponse;
     /**
      * Tier files older than days.
      */

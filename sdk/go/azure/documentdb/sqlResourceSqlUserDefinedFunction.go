@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB userDefinedFunction.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 

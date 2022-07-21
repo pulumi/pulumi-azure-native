@@ -868,6 +868,12 @@ type Destination struct {
 	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
 	// Blob container Name
 	BlobContainer *string `pulumi:"blobContainer"`
+	// The Azure Data Lake Store name for the captured events
+	DataLakeAccountName *string `pulumi:"dataLakeAccountName"`
+	// The destination folder path for the captured events
+	DataLakeFolderPath *string `pulumi:"dataLakeFolderPath"`
+	// Subscription Id of Azure Data Lake Store
+	DataLakeSubscriptionId *string `pulumi:"dataLakeSubscriptionId"`
 	// Name for capture destination
 	Name *string `pulumi:"name"`
 	// Resource id of the storage account to be used to create the blobs
@@ -891,6 +897,12 @@ type DestinationArgs struct {
 	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
 	// Blob container Name
 	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
+	// The Azure Data Lake Store name for the captured events
+	DataLakeAccountName pulumi.StringPtrInput `pulumi:"dataLakeAccountName"`
+	// The destination folder path for the captured events
+	DataLakeFolderPath pulumi.StringPtrInput `pulumi:"dataLakeFolderPath"`
+	// Subscription Id of Azure Data Lake Store
+	DataLakeSubscriptionId pulumi.StringPtrInput `pulumi:"dataLakeSubscriptionId"`
 	// Name for capture destination
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Resource id of the storage account to be used to create the blobs
@@ -985,6 +997,21 @@ func (o DestinationOutput) BlobContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
 }
 
+// The Azure Data Lake Store name for the captured events
+func (o DestinationOutput) DataLakeAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.DataLakeAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The destination folder path for the captured events
+func (o DestinationOutput) DataLakeFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.DataLakeFolderPath }).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id of Azure Data Lake Store
+func (o DestinationOutput) DataLakeSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.DataLakeSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
 // Name for capture destination
 func (o DestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -1039,6 +1066,36 @@ func (o DestinationPtrOutput) BlobContainer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Azure Data Lake Store name for the captured events
+func (o DestinationPtrOutput) DataLakeAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination folder path for the captured events
+func (o DestinationPtrOutput) DataLakeFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeFolderPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id of Azure Data Lake Store
+func (o DestinationPtrOutput) DataLakeSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name for capture destination
 func (o DestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Destination) *string {
@@ -1065,6 +1122,12 @@ type DestinationResponse struct {
 	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
 	// Blob container Name
 	BlobContainer *string `pulumi:"blobContainer"`
+	// The Azure Data Lake Store name for the captured events
+	DataLakeAccountName *string `pulumi:"dataLakeAccountName"`
+	// The destination folder path for the captured events
+	DataLakeFolderPath *string `pulumi:"dataLakeFolderPath"`
+	// Subscription Id of Azure Data Lake Store
+	DataLakeSubscriptionId *string `pulumi:"dataLakeSubscriptionId"`
 	// Name for capture destination
 	Name *string `pulumi:"name"`
 	// Resource id of the storage account to be used to create the blobs
@@ -1094,6 +1157,21 @@ func (o DestinationResponseOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
 // Blob container Name
 func (o DestinationResponseOutput) BlobContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DestinationResponse) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Data Lake Store name for the captured events
+func (o DestinationResponseOutput) DataLakeAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.DataLakeAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The destination folder path for the captured events
+func (o DestinationResponseOutput) DataLakeFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.DataLakeFolderPath }).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id of Azure Data Lake Store
+func (o DestinationResponseOutput) DataLakeSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.DataLakeSubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 // Name for capture destination
@@ -1150,6 +1228,36 @@ func (o DestinationResponsePtrOutput) BlobContainer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Azure Data Lake Store name for the captured events
+func (o DestinationResponsePtrOutput) DataLakeAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination folder path for the captured events
+func (o DestinationResponsePtrOutput) DataLakeFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeFolderPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id of Azure Data Lake Store
+func (o DestinationResponsePtrOutput) DataLakeSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name for capture destination
 func (o DestinationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationResponse) *string {
@@ -1170,25 +1278,780 @@ func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
+// Properties to configure Encryption
+type Encryption struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *KeySource `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties []KeyVaultProperties `pulumi:"keyVaultProperties"`
+	// Enable Infrastructure Encryption (Double Encryption)
+	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
+}
+
+// Defaults sets the appropriate defaults for Encryption
+func (val *Encryption) Defaults() *Encryption {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := KeySource("Microsoft.KeyVault")
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
+}
+
+// EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
+// You can construct a concrete instance of `EncryptionInput` via:
+//
+//          EncryptionArgs{...}
+type EncryptionInput interface {
+	pulumi.Input
+
+	ToEncryptionOutput() EncryptionOutput
+	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
+}
+
+// Properties to configure Encryption
+type EncryptionArgs struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource KeySourcePtrInput `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
+	// Enable Infrastructure Encryption (Double Encryption)
+	RequireInfrastructureEncryption pulumi.BoolPtrInput `pulumi:"requireInfrastructureEncryption"`
+}
+
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = KeySource("Microsoft.KeyVault")
+	}
+	return &tmp
+}
+func (EncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Encryption)(nil)).Elem()
+}
+
+func (i EncryptionArgs) ToEncryptionOutput() EncryptionOutput {
+	return i.ToEncryptionOutputWithContext(context.Background())
+}
+
+func (i EncryptionArgs) ToEncryptionOutputWithContext(ctx context.Context) EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionOutput)
+}
+
+func (i EncryptionArgs) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return i.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionArgs) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionOutput).ToEncryptionPtrOutputWithContext(ctx)
+}
+
+// EncryptionPtrInput is an input type that accepts EncryptionArgs, EncryptionPtr and EncryptionPtrOutput values.
+// You can construct a concrete instance of `EncryptionPtrInput` via:
+//
+//          EncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPtrOutput() EncryptionPtrOutput
+	ToEncryptionPtrOutputWithContext(context.Context) EncryptionPtrOutput
+}
+
+type encryptionPtrType EncryptionArgs
+
+func EncryptionPtr(v *EncryptionArgs) EncryptionPtrInput {
+	return (*encryptionPtrType)(v)
+}
+
+func (*encryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Encryption)(nil)).Elem()
+}
+
+func (i *encryptionPtrType) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return i.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
+}
+
+// Properties to configure Encryption
+type EncryptionOutput struct{ *pulumi.OutputState }
+
+func (EncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Encryption)(nil)).Elem()
+}
+
+func (o EncryptionOutput) ToEncryptionOutput() EncryptionOutput {
+	return o
+}
+
+func (o EncryptionOutput) ToEncryptionOutputWithContext(ctx context.Context) EncryptionOutput {
+	return o
+}
+
+func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return o.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
+		return &v
+	}).(EncryptionPtrOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionOutput) KeySource() KeySourcePtrOutput {
+	return o.ApplyT(func(v Encryption) *KeySource { return v.KeySource }).(KeySourcePtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesArrayOutput {
+	return o.ApplyT(func(v Encryption) []KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesArrayOutput)
+}
+
+// Enable Infrastructure Encryption (Double Encryption)
+func (o EncryptionOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Encryption) *bool { return v.RequireInfrastructureEncryption }).(pulumi.BoolPtrOutput)
+}
+
+type EncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Encryption)(nil)).Elem()
+}
+
+func (o EncryptionPtrOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPtrOutput) Elem() EncryptionOutput {
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionPtrOutput) KeySource() KeySourcePtrOutput {
+	return o.ApplyT(func(v *Encryption) *KeySource {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(KeySourcePtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesArrayOutput {
+	return o.ApplyT(func(v *Encryption) []KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesArrayOutput)
+}
+
+// Enable Infrastructure Encryption (Double Encryption)
+func (o EncryptionPtrOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Encryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireInfrastructureEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Properties to configure Encryption
+type EncryptionResponse struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *string `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties []KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// Enable Infrastructure Encryption (Double Encryption)
+	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
+}
+
+// Defaults sets the appropriate defaults for EncryptionResponse
+func (val *EncryptionResponse) Defaults() *EncryptionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Microsoft.KeyVault"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
+}
+
+// Properties to configure Encryption
+type EncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponseOutput() EncryptionResponseOutput {
+	return o
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponseOutputWithContext(ctx context.Context) EncryptionResponseOutput {
+	return o
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionResponseOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v EncryptionResponse) []KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponseArrayOutput)
+}
+
+// Enable Infrastructure Encryption (Double Encryption)
+func (o EncryptionResponseOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *bool { return v.RequireInfrastructureEncryption }).(pulumi.BoolPtrOutput)
+}
+
+type EncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *EncryptionResponse) []KeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponseArrayOutput)
+}
+
+// Enable Infrastructure Encryption (Double Encryption)
+func (o EncryptionResponsePtrOutput) RequireInfrastructureEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireInfrastructureEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type Identity struct {
+	// Type of managed service identity.
+	Type *ManagedServiceIdentityType `pulumi:"type"`
+	// Properties for User Assigned Identities
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
+//
+//          IdentityArgs{...}
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityArgs struct {
+	// Type of managed service identity.
+	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	// Properties for User Assigned Identities
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
+}
+
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
+//
+//          IdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
+}
+
+type identityPtrType IdentityArgs
+
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
+}
+
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityOutput struct{ *pulumi.OutputState }
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+		return &v
+	}).(IdentityPtrOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
+}
+
+// Properties for User Assigned Identities
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ManagedServiceIdentityType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ManagedServiceIdentityTypePtrOutput)
+}
+
+// Properties for User Assigned Identities
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponse struct {
+	// ObjectId from the KeyVault
+	PrincipalId string `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId string `pulumi:"tenantId"`
+	// Type of managed service identity.
+	Type *string `pulumi:"type"`
+	// Properties for User Assigned Identities
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Properties for User Assigned Identities
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties for User Assigned Identities
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+// Properties to configure keyVault Properties
+type KeyVaultProperties struct {
+	Identity *UserAssignedIdentityProperties `pulumi:"identity"`
+	// Name of the Key from KeyVault
+	KeyName *string `pulumi:"keyName"`
+	// Uri of KeyVault
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
+	// Key Version
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+type KeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
+	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
+}
+
+// Properties to configure keyVault Properties
+type KeyVaultPropertiesArgs struct {
+	Identity UserAssignedIdentityPropertiesPtrInput `pulumi:"identity"`
+	// Name of the Key from KeyVault
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Uri of KeyVault
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	// Key Version
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
+}
+
+// KeyVaultPropertiesArrayInput is an input type that accepts KeyVaultPropertiesArray and KeyVaultPropertiesArrayOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesArrayInput` via:
+//
+//          KeyVaultPropertiesArray{ KeyVaultPropertiesArgs{...} }
+type KeyVaultPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesArrayOutput() KeyVaultPropertiesArrayOutput
+	ToKeyVaultPropertiesArrayOutputWithContext(context.Context) KeyVaultPropertiesArrayOutput
+}
+
+type KeyVaultPropertiesArray []KeyVaultPropertiesInput
+
+func (KeyVaultPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultProperties)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesArray) ToKeyVaultPropertiesArrayOutput() KeyVaultPropertiesArrayOutput {
+	return i.ToKeyVaultPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArray) ToKeyVaultPropertiesArrayOutputWithContext(ctx context.Context) KeyVaultPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesArrayOutput)
+}
+
+// Properties to configure keyVault Properties
+type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) Identity() UserAssignedIdentityPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *UserAssignedIdentityProperties { return v.Identity }).(UserAssignedIdentityPropertiesPtrOutput)
+}
+
+// Name of the Key from KeyVault
+func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Uri of KeyVault
+func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
+}
+
+// Key Version
+func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesArrayOutput) ToKeyVaultPropertiesArrayOutput() KeyVaultPropertiesArrayOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesArrayOutput) ToKeyVaultPropertiesArrayOutputWithContext(ctx context.Context) KeyVaultPropertiesArrayOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesArrayOutput) Index(i pulumi.IntInput) KeyVaultPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultProperties {
+		return vs[0].([]KeyVaultProperties)[vs[1].(int)]
+	}).(KeyVaultPropertiesOutput)
+}
+
+// Properties to configure keyVault Properties
+type KeyVaultPropertiesResponse struct {
+	Identity *UserAssignedIdentityPropertiesResponse `pulumi:"identity"`
+	// Name of the Key from KeyVault
+	KeyName *string `pulumi:"keyName"`
+	// Uri of KeyVault
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
+	// Key Version
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// Properties to configure keyVault Properties
+type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) Identity() UserAssignedIdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *UserAssignedIdentityPropertiesResponse { return v.Identity }).(UserAssignedIdentityPropertiesResponsePtrOutput)
+}
+
+// Name of the Key from KeyVault
+func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Uri of KeyVault
+func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
+}
+
+// Key Version
+func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponseArrayOutput) ToKeyVaultPropertiesResponseArrayOutput() KeyVaultPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseArrayOutput) ToKeyVaultPropertiesResponseArrayOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultPropertiesResponse {
+		return vs[0].([]KeyVaultPropertiesResponse)[vs[1].(int)]
+	}).(KeyVaultPropertiesResponseOutput)
+}
+
+// The response from the List namespace operation.
 type NWRuleSetIpRules struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
 	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
-}
-
-// Defaults sets the appropriate defaults for NWRuleSetIpRules
-func (val *NWRuleSetIpRules) Defaults() *NWRuleSetIpRules {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Action) {
-		action_ := "Allow"
-		tmp.Action = &action_
-	}
-	return &tmp
 }
 
 // NWRuleSetIpRulesInput is an input type that accepts NWRuleSetIpRulesArgs and NWRuleSetIpRulesOutput values.
@@ -1202,7 +2065,7 @@ type NWRuleSetIpRulesInput interface {
 	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
+// The response from the List namespace operation.
 type NWRuleSetIpRulesArgs struct {
 	// The IP Filter Action
 	Action pulumi.StringPtrInput `pulumi:"action"`
@@ -1210,17 +2073,6 @@ type NWRuleSetIpRulesArgs struct {
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
-// Defaults sets the appropriate defaults for NWRuleSetIpRulesArgs
-func (val *NWRuleSetIpRulesArgs) Defaults() *NWRuleSetIpRulesArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Action) {
-		tmp.Action = pulumi.StringPtr("Allow")
-	}
-	return &tmp
-}
 func (NWRuleSetIpRulesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
 }
@@ -1258,7 +2110,7 @@ func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
+// The response from the List namespace operation.
 type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
@@ -1303,7 +2155,7 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 	}).(NWRuleSetIpRulesOutput)
 }
 
-// Description of NetWorkRuleSet - IpRules resource.
+// The response from the List namespace operation.
 type NWRuleSetIpRulesResponse struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1311,20 +2163,7 @@ type NWRuleSetIpRulesResponse struct {
 	IpMask *string `pulumi:"ipMask"`
 }
 
-// Defaults sets the appropriate defaults for NWRuleSetIpRulesResponse
-func (val *NWRuleSetIpRulesResponse) Defaults() *NWRuleSetIpRulesResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Action) {
-		action_ := "Allow"
-		tmp.Action = &action_
-	}
-	return &tmp
-}
-
-// Description of NetWorkRuleSet - IpRules resource.
+// The response from the List namespace operation.
 type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
@@ -1369,9 +2208,9 @@ func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetI
 	}).(NWRuleSetIpRulesResponseOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
+// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRules struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
+	// Value that indicates whether to ignore missing Vnet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet *Subnet `pulumi:"subnet"`
@@ -1388,9 +2227,9 @@ type NWRuleSetVirtualNetworkRulesInput interface {
 	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
+// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesArgs struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
+	// Value that indicates whether to ignore missing Vnet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet SubnetPtrInput `pulumi:"subnet"`
@@ -1433,7 +2272,7 @@ func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
+// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
@@ -1448,7 +2287,7 @@ func (o NWRuleSetVirtualNetworkRulesOutput) ToNWRuleSetVirtualNetworkRulesOutput
 	return o
 }
 
-// Value that indicates whether to ignore missing VNet Service Endpoint
+// Value that indicates whether to ignore missing Vnet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -1478,15 +2317,15 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	}).(NWRuleSetVirtualNetworkRulesOutput)
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
+// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesResponse struct {
-	// Value that indicates whether to ignore missing VNet Service Endpoint
+	// Value that indicates whether to ignore missing Vnet Service Endpoint
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Subnet properties
 	Subnet *SubnetResponse `pulumi:"subnet"`
 }
 
-// Description of VirtualNetworkRules - NetworkRules resource.
+// The response from the List namespace operation.
 type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
@@ -1501,7 +2340,7 @@ func (o NWRuleSetVirtualNetworkRulesResponseOutput) ToNWRuleSetVirtualNetworkRul
 	return o
 }
 
-// Value that indicates whether to ignore missing VNet Service Endpoint
+// Value that indicates whether to ignore missing Vnet Service Endpoint
 func (o NWRuleSetVirtualNetworkRulesResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -1671,6 +2510,221 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties of the PrivateEndpointConnection.
+type PrivateEndpointConnectionType struct {
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// Properties of the PrivateEndpointConnection.
+type PrivateEndpointConnectionTypeArgs struct {
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+// PrivateEndpointConnectionTypeArrayInput is an input type that accepts PrivateEndpointConnectionTypeArray and PrivateEndpointConnectionTypeArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeArrayInput` via:
+//
+//          PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
+type PrivateEndpointConnectionTypeArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput
+	ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Context) PrivateEndpointConnectionTypeArrayOutput
+}
+
+type PrivateEndpointConnectionTypeArray []PrivateEndpointConnectionTypeInput
+
+func (PrivateEndpointConnectionTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
+	return i.ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
+}
+
+// Properties of the PrivateEndpointConnection.
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// The Private Endpoint resource for this Connection.
+func (o PrivateEndpointConnectionTypeOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
+}
+
+// Details about the state of the connection.
+func (o PrivateEndpointConnectionTypeOutput) PrivateLinkServiceConnectionState() ConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *ConnectionState { return v.PrivateLinkServiceConnectionState }).(ConnectionStatePtrOutput)
+}
+
+// Provisioning state of the Private Endpoint Connection.
+func (o PrivateEndpointConnectionTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionType {
+		return vs[0].([]PrivateEndpointConnectionType)[vs[1].(int)]
+	}).(PrivateEndpointConnectionTypeOutput)
+}
+
+// Properties of the PrivateEndpointConnection.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	Type string `pulumi:"type"`
+}
+
+// Properties of the PrivateEndpointConnection.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o PrivateEndpointConnectionResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private Endpoint resource for this Connection.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// Details about the state of the connection.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() ConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *ConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(ConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the Private Endpoint Connection.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
 // PrivateEndpoint information.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint.
@@ -1733,7 +2787,7 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 
 // SKU parameters supplied to the create namespace operation
 type Sku struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity *int `pulumi:"capacity"`
 	// Name of this SKU.
 	Name string `pulumi:"name"`
@@ -1754,7 +2808,7 @@ type SkuInput interface {
 
 // SKU parameters supplied to the create namespace operation
 type SkuArgs struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of this SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1840,7 +2894,7 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -1879,7 +2933,7 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -1911,7 +2965,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 
 // SKU parameters supplied to the create namespace operation
 type SkuResponse struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity *int `pulumi:"capacity"`
 	// Name of this SKU.
 	Name string `pulumi:"name"`
@@ -1934,7 +2988,7 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -1973,7 +3027,7 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -2006,7 +3060,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Properties supplied for Subnet
 type Subnet struct {
 	// Resource ID of Virtual Network Subnet
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // SubnetInput is an input type that accepts SubnetArgs and SubnetOutput values.
@@ -2023,7 +3077,7 @@ type SubnetInput interface {
 // Properties supplied for Subnet
 type SubnetArgs struct {
 	// Resource ID of Virtual Network Subnet
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (SubnetArgs) ElementType() reflect.Type {
@@ -2105,8 +3159,8 @@ func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPt
 }
 
 // Resource ID of Virtual Network Subnet
-func (o SubnetOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v Subnet) string { return v.Id }).(pulumi.StringOutput)
+func (o SubnetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Subnet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 type SubnetPtrOutput struct{ *pulumi.OutputState }
@@ -2139,14 +3193,14 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
 // Properties supplied for Subnet
 type SubnetResponse struct {
 	// Resource ID of Virtual Network Subnet
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // Properties supplied for Subnet
@@ -2165,8 +3219,8 @@ func (o SubnetResponseOutput) ToSubnetResponseOutputWithContext(ctx context.Cont
 }
 
 // Resource ID of Virtual Network Subnet
-func (o SubnetResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v SubnetResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o SubnetResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 type SubnetResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2199,7 +3253,7 @@ func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2264,203 +3318,252 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-// Properties of the throttling policy
-type ThrottlingPolicy struct {
-	// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-	MetricId string `pulumi:"metricId"`
-	// The Name of this policy
-	Name string `pulumi:"name"`
-	// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-	RateLimitThreshold float64 `pulumi:"rateLimitThreshold"`
-	// Application Group Policy types
-	// Expected value is 'ThrottlingPolicy'.
-	Type string `pulumi:"type"`
+type UserAssignedIdentityProperties struct {
+	// ARM ID of user Identity selected for encryption
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
-// ThrottlingPolicyInput is an input type that accepts ThrottlingPolicyArgs and ThrottlingPolicyOutput values.
-// You can construct a concrete instance of `ThrottlingPolicyInput` via:
+// UserAssignedIdentityPropertiesInput is an input type that accepts UserAssignedIdentityPropertiesArgs and UserAssignedIdentityPropertiesOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityPropertiesInput` via:
 //
-//          ThrottlingPolicyArgs{...}
-type ThrottlingPolicyInput interface {
+//          UserAssignedIdentityPropertiesArgs{...}
+type UserAssignedIdentityPropertiesInput interface {
 	pulumi.Input
 
-	ToThrottlingPolicyOutput() ThrottlingPolicyOutput
-	ToThrottlingPolicyOutputWithContext(context.Context) ThrottlingPolicyOutput
+	ToUserAssignedIdentityPropertiesOutput() UserAssignedIdentityPropertiesOutput
+	ToUserAssignedIdentityPropertiesOutputWithContext(context.Context) UserAssignedIdentityPropertiesOutput
 }
 
-// Properties of the throttling policy
-type ThrottlingPolicyArgs struct {
-	// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-	MetricId pulumi.StringInput `pulumi:"metricId"`
-	// The Name of this policy
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-	RateLimitThreshold pulumi.Float64Input `pulumi:"rateLimitThreshold"`
-	// Application Group Policy types
-	// Expected value is 'ThrottlingPolicy'.
-	Type pulumi.StringInput `pulumi:"type"`
+type UserAssignedIdentityPropertiesArgs struct {
+	// ARM ID of user Identity selected for encryption
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
-func (ThrottlingPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThrottlingPolicy)(nil)).Elem()
+func (UserAssignedIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityProperties)(nil)).Elem()
 }
 
-func (i ThrottlingPolicyArgs) ToThrottlingPolicyOutput() ThrottlingPolicyOutput {
-	return i.ToThrottlingPolicyOutputWithContext(context.Background())
+func (i UserAssignedIdentityPropertiesArgs) ToUserAssignedIdentityPropertiesOutput() UserAssignedIdentityPropertiesOutput {
+	return i.ToUserAssignedIdentityPropertiesOutputWithContext(context.Background())
 }
 
-func (i ThrottlingPolicyArgs) ToThrottlingPolicyOutputWithContext(ctx context.Context) ThrottlingPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingPolicyOutput)
+func (i UserAssignedIdentityPropertiesArgs) ToUserAssignedIdentityPropertiesOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertiesOutput)
 }
 
-// ThrottlingPolicyArrayInput is an input type that accepts ThrottlingPolicyArray and ThrottlingPolicyArrayOutput values.
-// You can construct a concrete instance of `ThrottlingPolicyArrayInput` via:
+func (i UserAssignedIdentityPropertiesArgs) ToUserAssignedIdentityPropertiesPtrOutput() UserAssignedIdentityPropertiesPtrOutput {
+	return i.ToUserAssignedIdentityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityPropertiesArgs) ToUserAssignedIdentityPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertiesOutput).ToUserAssignedIdentityPropertiesPtrOutputWithContext(ctx)
+}
+
+// UserAssignedIdentityPropertiesPtrInput is an input type that accepts UserAssignedIdentityPropertiesArgs, UserAssignedIdentityPropertiesPtr and UserAssignedIdentityPropertiesPtrOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityPropertiesPtrInput` via:
 //
-//          ThrottlingPolicyArray{ ThrottlingPolicyArgs{...} }
-type ThrottlingPolicyArrayInput interface {
+//          UserAssignedIdentityPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type UserAssignedIdentityPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToThrottlingPolicyArrayOutput() ThrottlingPolicyArrayOutput
-	ToThrottlingPolicyArrayOutputWithContext(context.Context) ThrottlingPolicyArrayOutput
+	ToUserAssignedIdentityPropertiesPtrOutput() UserAssignedIdentityPropertiesPtrOutput
+	ToUserAssignedIdentityPropertiesPtrOutputWithContext(context.Context) UserAssignedIdentityPropertiesPtrOutput
 }
 
-type ThrottlingPolicyArray []ThrottlingPolicyInput
+type userAssignedIdentityPropertiesPtrType UserAssignedIdentityPropertiesArgs
 
-func (ThrottlingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThrottlingPolicy)(nil)).Elem()
+func UserAssignedIdentityPropertiesPtr(v *UserAssignedIdentityPropertiesArgs) UserAssignedIdentityPropertiesPtrInput {
+	return (*userAssignedIdentityPropertiesPtrType)(v)
 }
 
-func (i ThrottlingPolicyArray) ToThrottlingPolicyArrayOutput() ThrottlingPolicyArrayOutput {
-	return i.ToThrottlingPolicyArrayOutputWithContext(context.Background())
+func (*userAssignedIdentityPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedIdentityProperties)(nil)).Elem()
 }
 
-func (i ThrottlingPolicyArray) ToThrottlingPolicyArrayOutputWithContext(ctx context.Context) ThrottlingPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingPolicyArrayOutput)
+func (i *userAssignedIdentityPropertiesPtrType) ToUserAssignedIdentityPropertiesPtrOutput() UserAssignedIdentityPropertiesPtrOutput {
+	return i.ToUserAssignedIdentityPropertiesPtrOutputWithContext(context.Background())
 }
 
-// Properties of the throttling policy
-type ThrottlingPolicyOutput struct{ *pulumi.OutputState }
-
-func (ThrottlingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThrottlingPolicy)(nil)).Elem()
+func (i *userAssignedIdentityPropertiesPtrType) ToUserAssignedIdentityPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertiesPtrOutput)
 }
 
-func (o ThrottlingPolicyOutput) ToThrottlingPolicyOutput() ThrottlingPolicyOutput {
+type UserAssignedIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityProperties)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityPropertiesOutput) ToUserAssignedIdentityPropertiesOutput() UserAssignedIdentityPropertiesOutput {
 	return o
 }
 
-func (o ThrottlingPolicyOutput) ToThrottlingPolicyOutputWithContext(ctx context.Context) ThrottlingPolicyOutput {
+func (o UserAssignedIdentityPropertiesOutput) ToUserAssignedIdentityPropertiesOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesOutput {
 	return o
 }
 
-// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-func (o ThrottlingPolicyOutput) MetricId() pulumi.StringOutput {
-	return o.ApplyT(func(v ThrottlingPolicy) string { return v.MetricId }).(pulumi.StringOutput)
+func (o UserAssignedIdentityPropertiesOutput) ToUserAssignedIdentityPropertiesPtrOutput() UserAssignedIdentityPropertiesPtrOutput {
+	return o.ToUserAssignedIdentityPropertiesPtrOutputWithContext(context.Background())
 }
 
-// The Name of this policy
-func (o ThrottlingPolicyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ThrottlingPolicy) string { return v.Name }).(pulumi.StringOutput)
+func (o UserAssignedIdentityPropertiesOutput) ToUserAssignedIdentityPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAssignedIdentityProperties) *UserAssignedIdentityProperties {
+		return &v
+	}).(UserAssignedIdentityPropertiesPtrOutput)
 }
 
-// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-func (o ThrottlingPolicyOutput) RateLimitThreshold() pulumi.Float64Output {
-	return o.ApplyT(func(v ThrottlingPolicy) float64 { return v.RateLimitThreshold }).(pulumi.Float64Output)
+// ARM ID of user Identity selected for encryption
+func (o UserAssignedIdentityPropertiesOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityProperties) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
-// Application Group Policy types
-// Expected value is 'ThrottlingPolicy'.
-func (o ThrottlingPolicyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ThrottlingPolicy) string { return v.Type }).(pulumi.StringOutput)
+type UserAssignedIdentityPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedIdentityProperties)(nil)).Elem()
 }
 
-type ThrottlingPolicyArrayOutput struct{ *pulumi.OutputState }
-
-func (ThrottlingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThrottlingPolicy)(nil)).Elem()
-}
-
-func (o ThrottlingPolicyArrayOutput) ToThrottlingPolicyArrayOutput() ThrottlingPolicyArrayOutput {
+func (o UserAssignedIdentityPropertiesPtrOutput) ToUserAssignedIdentityPropertiesPtrOutput() UserAssignedIdentityPropertiesPtrOutput {
 	return o
 }
 
-func (o ThrottlingPolicyArrayOutput) ToThrottlingPolicyArrayOutputWithContext(ctx context.Context) ThrottlingPolicyArrayOutput {
+func (o UserAssignedIdentityPropertiesPtrOutput) ToUserAssignedIdentityPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesPtrOutput {
 	return o
 }
 
-func (o ThrottlingPolicyArrayOutput) Index(i pulumi.IntInput) ThrottlingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThrottlingPolicy {
-		return vs[0].([]ThrottlingPolicy)[vs[1].(int)]
-	}).(ThrottlingPolicyOutput)
+func (o UserAssignedIdentityPropertiesPtrOutput) Elem() UserAssignedIdentityPropertiesOutput {
+	return o.ApplyT(func(v *UserAssignedIdentityProperties) UserAssignedIdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret UserAssignedIdentityProperties
+		return ret
+	}).(UserAssignedIdentityPropertiesOutput)
 }
 
-// Properties of the throttling policy
-type ThrottlingPolicyResponse struct {
-	// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-	MetricId string `pulumi:"metricId"`
-	// The Name of this policy
-	Name string `pulumi:"name"`
-	// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-	RateLimitThreshold float64 `pulumi:"rateLimitThreshold"`
-	// Application Group Policy types
-	// Expected value is 'ThrottlingPolicy'.
-	Type string `pulumi:"type"`
+// ARM ID of user Identity selected for encryption
+func (o UserAssignedIdentityPropertiesPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAssignedIdentityProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the throttling policy
-type ThrottlingPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (ThrottlingPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThrottlingPolicyResponse)(nil)).Elem()
+type UserAssignedIdentityPropertiesResponse struct {
+	// ARM ID of user Identity selected for encryption
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
-func (o ThrottlingPolicyResponseOutput) ToThrottlingPolicyResponseOutput() ThrottlingPolicyResponseOutput {
+type UserAssignedIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityPropertiesResponseOutput) ToUserAssignedIdentityPropertiesResponseOutput() UserAssignedIdentityPropertiesResponseOutput {
 	return o
 }
 
-func (o ThrottlingPolicyResponseOutput) ToThrottlingPolicyResponseOutputWithContext(ctx context.Context) ThrottlingPolicyResponseOutput {
+func (o UserAssignedIdentityPropertiesResponseOutput) ToUserAssignedIdentityPropertiesResponseOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesResponseOutput {
 	return o
 }
 
-// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-func (o ThrottlingPolicyResponseOutput) MetricId() pulumi.StringOutput {
-	return o.ApplyT(func(v ThrottlingPolicyResponse) string { return v.MetricId }).(pulumi.StringOutput)
+// ARM ID of user Identity selected for encryption
+func (o UserAssignedIdentityPropertiesResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityPropertiesResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
-// The Name of this policy
-func (o ThrottlingPolicyResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ThrottlingPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
+type UserAssignedIdentityPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedIdentityPropertiesResponse)(nil)).Elem()
 }
 
-// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-func (o ThrottlingPolicyResponseOutput) RateLimitThreshold() pulumi.Float64Output {
-	return o.ApplyT(func(v ThrottlingPolicyResponse) float64 { return v.RateLimitThreshold }).(pulumi.Float64Output)
-}
-
-// Application Group Policy types
-// Expected value is 'ThrottlingPolicy'.
-func (o ThrottlingPolicyResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ThrottlingPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ThrottlingPolicyResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ThrottlingPolicyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThrottlingPolicyResponse)(nil)).Elem()
-}
-
-func (o ThrottlingPolicyResponseArrayOutput) ToThrottlingPolicyResponseArrayOutput() ThrottlingPolicyResponseArrayOutput {
+func (o UserAssignedIdentityPropertiesResponsePtrOutput) ToUserAssignedIdentityPropertiesResponsePtrOutput() UserAssignedIdentityPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o ThrottlingPolicyResponseArrayOutput) ToThrottlingPolicyResponseArrayOutputWithContext(ctx context.Context) ThrottlingPolicyResponseArrayOutput {
+func (o UserAssignedIdentityPropertiesResponsePtrOutput) ToUserAssignedIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o ThrottlingPolicyResponseArrayOutput) Index(i pulumi.IntInput) ThrottlingPolicyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThrottlingPolicyResponse {
-		return vs[0].([]ThrottlingPolicyResponse)[vs[1].(int)]
-	}).(ThrottlingPolicyResponseOutput)
+func (o UserAssignedIdentityPropertiesResponsePtrOutput) Elem() UserAssignedIdentityPropertiesResponseOutput {
+	return o.ApplyT(func(v *UserAssignedIdentityPropertiesResponse) UserAssignedIdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserAssignedIdentityPropertiesResponse
+		return ret
+	}).(UserAssignedIdentityPropertiesResponseOutput)
+}
+
+// ARM ID of user Identity selected for encryption
+func (o UserAssignedIdentityPropertiesResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAssignedIdentityPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Recognized Dictionary value.
+type UserAssignedIdentityResponse struct {
+	// Client Id of user assigned identity
+	ClientId string `pulumi:"clientId"`
+	// Principal Id of user assigned identity
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// Recognized Dictionary value.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// Client Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
 }
 
 func init() {
@@ -2480,6 +3583,18 @@ func init() {
 	pulumi.RegisterOutputType(DestinationPtrOutput{})
 	pulumi.RegisterOutputType(DestinationResponseOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionOutput{})
+	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseOutput{})
@@ -2490,6 +3605,10 @@ func init() {
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
@@ -2501,8 +3620,10 @@ func init() {
 	pulumi.RegisterOutputType(SubnetResponseOutput{})
 	pulumi.RegisterOutputType(SubnetResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(ThrottlingPolicyOutput{})
-	pulumi.RegisterOutputType(ThrottlingPolicyArrayOutput{})
-	pulumi.RegisterOutputType(ThrottlingPolicyResponseOutput{})
-	pulumi.RegisterOutputType(ThrottlingPolicyResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -30,7 +30,7 @@ type StorageAccount struct {
 	StorageAccountCredentialId pulumi.StringPtrOutput `pulumi:"storageAccountCredentialId"`
 	// Current status of the storage account
 	StorageAccountStatus pulumi.StringPtrOutput `pulumi:"storageAccountStatus"`
-	// StorageAccount object on ASE device
+	// Metadata pertaining to creation and last modification of StorageAccount
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -226,7 +226,7 @@ func (o StorageAccountOutput) StorageAccountStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.StorageAccountStatus }).(pulumi.StringPtrOutput)
 }
 
-// StorageAccount object on ASE device
+// Metadata pertaining to creation and last modification of StorageAccount
 func (o StorageAccountOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *StorageAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

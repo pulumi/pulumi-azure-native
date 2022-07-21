@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRoute Circuit Authorization
-// API Version: 2020-03-20.
+// API Version: 2021-12-01.
 type Authorization struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type Authorization struct {
 	ExpressRouteAuthorizationId pulumi.StringOutput `pulumi:"expressRouteAuthorizationId"`
 	// The key of the ExpressRoute Circuit Authorization
 	ExpressRouteAuthorizationKey pulumi.StringOutput `pulumi:"expressRouteAuthorizationKey"`
+	// The ID of the ExpressRoute Circuit
+	ExpressRouteId pulumi.StringPtrOutput `pulumi:"expressRouteId"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The state of the  ExpressRoute Circuit Authorization provisioning
@@ -93,6 +95,8 @@ func (AuthorizationState) ElementType() reflect.Type {
 type authorizationArgs struct {
 	// Name of the ExpressRoute Circuit Authorization in the private cloud
 	AuthorizationName *string `pulumi:"authorizationName"`
+	// The ID of the ExpressRoute Circuit
+	ExpressRouteId *string `pulumi:"expressRouteId"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
@@ -103,6 +107,8 @@ type authorizationArgs struct {
 type AuthorizationArgs struct {
 	// Name of the ExpressRoute Circuit Authorization in the private cloud
 	AuthorizationName pulumi.StringPtrInput
+	// The ID of the ExpressRoute Circuit
+	ExpressRouteId pulumi.StringPtrInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
@@ -154,6 +160,11 @@ func (o AuthorizationOutput) ExpressRouteAuthorizationId() pulumi.StringOutput {
 // The key of the ExpressRoute Circuit Authorization
 func (o AuthorizationOutput) ExpressRouteAuthorizationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorization) pulumi.StringOutput { return v.ExpressRouteAuthorizationKey }).(pulumi.StringOutput)
+}
+
+// The ID of the ExpressRoute Circuit
+func (o AuthorizationOutput) ExpressRouteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorization) pulumi.StringPtrOutput { return v.ExpressRouteId }).(pulumi.StringPtrOutput)
 }
 
 // Resource name.

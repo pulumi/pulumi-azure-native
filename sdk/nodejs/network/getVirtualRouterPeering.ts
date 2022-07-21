@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Router Peering resource.
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export function getVirtualRouterPeering(args: GetVirtualRouterPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterPeeringResult> {
     if (!opts) {

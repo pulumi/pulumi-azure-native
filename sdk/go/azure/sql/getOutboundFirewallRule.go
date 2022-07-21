@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure SQL DB Server Outbound Firewall Rule.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupOutboundFirewallRule(ctx *pulumi.Context, args *LookupOutboundFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupOutboundFirewallRuleResult, error) {
 	var rv LookupOutboundFirewallRuleResult
 	err := ctx.Invoke("azure-native:sql:getOutboundFirewallRule", args, &rv, opts...)

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class ActiveDirectoryPropertiesResponse
     {
         /// <summary>
+        /// Specifies the Active Directory account type for Azure Storage.
+        /// </summary>
+        public readonly string? AccountType;
+        /// <summary>
         /// Specifies the security identifier (SID) for Azure Storage.
         /// </summary>
         public readonly string AzureStorageSid;
@@ -40,9 +44,15 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// Specifies the NetBIOS domain name.
         /// </summary>
         public readonly string NetBiosDomainName;
+        /// <summary>
+        /// Specifies the Active Directory SAMAccountName for Azure Storage.
+        /// </summary>
+        public readonly string? SamAccountName;
 
         [OutputConstructor]
         private ActiveDirectoryPropertiesResponse(
+            string? accountType,
+
             string azureStorageSid,
 
             string domainGuid,
@@ -53,14 +63,18 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
             string forestName,
 
-            string netBiosDomainName)
+            string netBiosDomainName,
+
+            string? samAccountName)
         {
+            AccountType = accountType;
             AzureStorageSid = azureStorageSid;
             DomainGuid = domainGuid;
             DomainName = domainName;
             DomainSid = domainSid;
             ForestName = forestName;
             NetBiosDomainName = netBiosDomainName;
+            SamAccountName = samAccountName;
         }
     }
 }

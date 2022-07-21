@@ -145,7 +145,7 @@ def get_monitor(monitor_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Monitor resource.
-    API Version: 2020-07-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -178,7 +178,7 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Monitor resource.
-    API Version: 2020-07-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

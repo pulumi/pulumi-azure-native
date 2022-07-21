@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {
@@ -74,7 +74,7 @@ export interface GetStorageAccountResult {
      */
     readonly storageAccountStatus?: string;
     /**
-     * StorageAccount object on ASE device
+     * Metadata pertaining to creation and last modification of StorageAccount
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

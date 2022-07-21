@@ -222,7 +222,7 @@ def get_domain_event_subscription(domain_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainEventSubscriptionResult:
     """
     Event Subscription
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the partner topic.
@@ -264,7 +264,7 @@ def get_domain_event_subscription_output(domain_name: Optional[pulumi.Input[str]
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainEventSubscriptionResult]:
     """
     Event Subscription
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the partner topic.

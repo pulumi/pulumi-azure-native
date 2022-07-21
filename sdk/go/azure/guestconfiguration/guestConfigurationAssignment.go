@@ -12,7 +12,7 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
-// API Version: 2020-06-25.
+// API Version: 2022-01-25.
 type GuestConfigurationAssignment struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type GuestConfigurationAssignment struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Properties of the Guest configuration assignment.
 	Properties GuestConfigurationAssignmentPropertiesResponseOutput `pulumi:"properties"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -38,11 +40,6 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	}
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
-	}
-	if args.Properties != nil {
-		args.Properties = args.Properties.ToGuestConfigurationAssignmentPropertiesPtrOutput().ApplyT(func(v *GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
-			return v.Defaults()
-		}).(GuestConfigurationAssignmentPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -176,6 +173,11 @@ func (o GuestConfigurationAssignmentOutput) Properties() GuestConfigurationAssig
 	return o.ApplyT(func(v *GuestConfigurationAssignment) GuestConfigurationAssignmentPropertiesResponseOutput {
 		return v.Properties
 	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o GuestConfigurationAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

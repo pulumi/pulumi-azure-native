@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.Consumption
         }
 
         public static ThresholdType Actual { get; } = new ThresholdType("Actual");
+        public static ThresholdType Forecasted { get; } = new ThresholdType("Forecasted");
 
         public static bool operator ==(ThresholdType left, ThresholdType right) => left.Equals(right);
         public static bool operator !=(ThresholdType left, ThresholdType right) => !left.Equals(right);

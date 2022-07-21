@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
- * API Version: 2020-09-30.
+ * API Version: 2021-10-01.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
     if (!opts) {
@@ -16,6 +16,7 @@ export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute:getGallery", {
+        "expand": args.expand,
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,
         "select": args.select,
@@ -23,6 +24,10 @@ export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetGalleryArgs {
+    /**
+     * The expand query option to apply on the operation.
+     */
+    expand?: string;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -70,6 +75,14 @@ export interface GetGalleryResult {
      */
     readonly sharingProfile?: outputs.compute.SharingProfileResponse;
     /**
+     * Sharing status of current gallery.
+     */
+    readonly sharingStatus: outputs.compute.SharingStatusResponse;
+    /**
+     * Contains information about the soft deletion policy of the gallery.
+     */
+    readonly softDeletePolicy?: outputs.compute.SoftDeletePolicyResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -84,6 +97,10 @@ export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetGalleryOutputArgs {
+    /**
+     * The expand query option to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */

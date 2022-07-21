@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The order details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Order")]
     public partial class Order : Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<ImmutableArray<Outputs.TrackingInfoResponse>> DeliveryTrackingInfo { get; private set; } = null!;
 
         /// <summary>
+        /// It specify the order api version.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("orderHistory")]
         public Output<ImmutableArray<Outputs.OrderStatusResponse>> OrderHistory { get; private set; } = null!;
+
+        /// <summary>
+        /// It specify the order resource id.
+        /// </summary>
+        [Output("orderId")]
+        public Output<string> OrderId { get; private set; } = null!;
 
         /// <summary>
         /// Tracking information for the package returned from the customer whether it has an original or a replacement device.
@@ -69,6 +81,12 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("shippingAddress")]
         public Output<Outputs.AddressResponse?> ShippingAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of Order
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

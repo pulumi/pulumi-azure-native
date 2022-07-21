@@ -11,7 +11,7 @@ import (
 )
 
 // An ADLS Gen2 file system data set mapping.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupADLSGen2FileSystemDataSetMapping(ctx *pulumi.Context, args *LookupADLSGen2FileSystemDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2FileSystemDataSetMappingResult, error) {
 	var rv LookupADLSGen2FileSystemDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare:getADLSGen2FileSystemDataSetMapping", args, &rv, opts...)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IpAllocation resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
     if (!opts) {

@@ -13,14 +13,12 @@ __all__ = [
     'MigrationRequestPropertiesArgs',
     'MsixPackageApplicationsArgs',
     'MsixPackageDependenciesArgs',
-    'PrivateLinkServiceConnectionStateArgs',
     'RegistrationInfoArgs',
     'ResourceModelWithAllowedPropertySetIdentityArgs',
     'ResourceModelWithAllowedPropertySetPlanArgs',
     'ResourceModelWithAllowedPropertySetSkuArgs',
     'ScalingHostPoolReferenceArgs',
     'ScalingScheduleArgs',
-    'TimeArgs',
 ]
 
 @pulumi.input_type
@@ -237,62 +235,6 @@ class MsixPackageDependenciesArgs:
     @publisher.setter
     def publisher(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "publisher", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[str]]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "actions_required", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -878,43 +820,5 @@ class ScalingScheduleArgs:
     @ramp_up_start_time.setter
     def ramp_up_start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ramp_up_start_time", value)
-
-
-@pulumi.input_type
-class TimeArgs:
-    def __init__(__self__, *,
-                 hour: pulumi.Input[int],
-                 minute: pulumi.Input[int]):
-        """
-        The time for a scaling action to occur.
-        :param pulumi.Input[int] hour: The hour.
-        :param pulumi.Input[int] minute: The minute.
-        """
-        pulumi.set(__self__, "hour", hour)
-        pulumi.set(__self__, "minute", minute)
-
-    @property
-    @pulumi.getter
-    def hour(self) -> pulumi.Input[int]:
-        """
-        The hour.
-        """
-        return pulumi.get(self, "hour")
-
-    @hour.setter
-    def hour(self, value: pulumi.Input[int]):
-        pulumi.set(self, "hour", value)
-
-    @property
-    @pulumi.getter
-    def minute(self) -> pulumi.Input[int]:
-        """
-        The minute.
-        """
-        return pulumi.get(self, "minute")
-
-    @minute.setter
-    def minute(self, value: pulumi.Input[int]):
-        pulumi.set(self, "minute", value)
 
 

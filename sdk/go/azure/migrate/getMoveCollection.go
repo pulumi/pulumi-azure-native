@@ -11,7 +11,7 @@ import (
 )
 
 // Define the move collection.
-// API Version: 2021-01-01.
+// API Version: 2021-08-01.
 func LookupMoveCollection(ctx *pulumi.Context, args *LookupMoveCollectionArgs, opts ...pulumi.InvokeOption) (*LookupMoveCollectionResult, error) {
 	var rv LookupMoveCollectionResult
 	err := ctx.Invoke("azure-native:migrate:getMoveCollection", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupMoveCollectionResult struct {
 	Name string `pulumi:"name"`
 	// Defines the move collection properties.
 	Properties MoveCollectionPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -115,6 +117,11 @@ func (o LookupMoveCollectionResultOutput) Name() pulumi.StringOutput {
 // Defines the move collection properties.
 func (o LookupMoveCollectionResultOutput) Properties() MoveCollectionPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupMoveCollectionResult) MoveCollectionPropertiesResponse { return v.Properties }).(MoveCollectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupMoveCollectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMoveCollectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

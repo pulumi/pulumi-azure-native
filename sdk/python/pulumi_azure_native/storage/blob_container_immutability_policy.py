@@ -17,6 +17,7 @@ class BlobContainerImmutabilityPolicyArgs:
                  container_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
+                 allow_protected_append_writes_all: Optional[pulumi.Input[bool]] = None,
                  immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None):
         """
@@ -24,7 +25,8 @@ class BlobContainerImmutabilityPolicyArgs:
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        :param pulumi.Input[bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+        :param pulumi.Input[bool] allow_protected_append_writes_all: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         """
@@ -33,6 +35,8 @@ class BlobContainerImmutabilityPolicyArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_protected_append_writes is not None:
             pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        if allow_protected_append_writes_all is not None:
+            pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
         if immutability_period_since_creation_in_days is not None:
             pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         if immutability_policy_name is not None:
@@ -78,13 +82,25 @@ class BlobContainerImmutabilityPolicyArgs:
     @pulumi.getter(name="allowProtectedAppendWrites")
     def allow_protected_append_writes(self) -> Optional[pulumi.Input[bool]]:
         """
-        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
         """
         return pulumi.get(self, "allow_protected_append_writes")
 
     @allow_protected_append_writes.setter
     def allow_protected_append_writes(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_protected_append_writes", value)
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWritesAll")
+    def allow_protected_append_writes_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+        """
+        return pulumi.get(self, "allow_protected_append_writes_all")
+
+    @allow_protected_append_writes_all.setter
+    def allow_protected_append_writes_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_protected_append_writes_all", value)
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
@@ -118,6 +134,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
+                 allow_protected_append_writes_all: Optional[pulumi.Input[bool]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
@@ -125,12 +142,13 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-        API Version: 2021-02-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        :param pulumi.Input[bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+        :param pulumi.Input[bool] allow_protected_append_writes_all: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
@@ -144,7 +162,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-        API Version: 2021-02-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param BlobContainerImmutabilityPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -163,6 +181,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
+                 allow_protected_append_writes_all: Optional[pulumi.Input[bool]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
@@ -183,6 +202,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allow_protected_append_writes"] = allow_protected_append_writes
+            __props__.__dict__["allow_protected_append_writes_all"] = allow_protected_append_writes_all
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
@@ -220,6 +240,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         __props__ = BlobContainerImmutabilityPolicyArgs.__new__(BlobContainerImmutabilityPolicyArgs)
 
         __props__.__dict__["allow_protected_append_writes"] = None
+        __props__.__dict__["allow_protected_append_writes_all"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["immutability_period_since_creation_in_days"] = None
         __props__.__dict__["name"] = None
@@ -231,9 +252,17 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
     @pulumi.getter(name="allowProtectedAppendWrites")
     def allow_protected_append_writes(self) -> pulumi.Output[Optional[bool]]:
         """
-        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
         """
         return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWritesAll")
+    def allow_protected_append_writes_all(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+        """
+        return pulumi.get(self, "allow_protected_append_writes_all")
 
     @property
     @pulumi.getter

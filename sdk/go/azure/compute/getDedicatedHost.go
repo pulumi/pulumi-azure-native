@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the Dedicated host.
-// API Version: 2020-12-01.
+// API Version: 2021-11-01.
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult
 	err := ctx.Invoke("azure-native:compute:getDedicatedHost", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opt
 }
 
 type LookupDedicatedHostArgs struct {
-	// The expand expression to apply on the operation.
+	// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
 	Expand *string `pulumi:"expand"`
 	// The name of the dedicated host group.
 	HostGroupName string `pulumi:"hostGroupName"`
@@ -58,6 +58,8 @@ type LookupDedicatedHostResult struct {
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+	TimeCreated string `pulumi:"timeCreated"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of references to all virtual machines in the Dedicated Host.
@@ -78,7 +80,7 @@ func LookupDedicatedHostOutput(ctx *pulumi.Context, args LookupDedicatedHostOutp
 }
 
 type LookupDedicatedHostOutputArgs struct {
-	// The expand expression to apply on the operation.
+	// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
 	Expand pulumi.StringPtrInput `pulumi:"expand"`
 	// The name of the dedicated host group.
 	HostGroupName pulumi.StringInput `pulumi:"hostGroupName"`
@@ -165,6 +167,11 @@ func (o LookupDedicatedHostResultOutput) Sku() SkuResponseOutput {
 // Resource tags
 func (o LookupDedicatedHostResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o LookupDedicatedHostResultOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // Resource type

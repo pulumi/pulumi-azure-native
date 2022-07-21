@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// The policy definition.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetPolicyDefinitionResult> InvokeAsync(GetPolicyDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionResult>("azure-native:authorization:getPolicyDefinition", args ?? new GetPolicyDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy definition.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetPolicyDefinitionResult> Invoke(GetPolicyDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionResult>("azure-native:authorization:getPolicyDefinition", args ?? new GetPolicyDefinitionInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? PolicyType;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource (Microsoft.Authorization/policyDefinitions).
         /// </summary>
         public readonly string Type;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Authorization
 
             string? policyType,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Description = description;
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Authorization
             Parameters = parameters;
             PolicyRule = policyRule;
             PolicyType = policyType;
+            SystemData = systemData;
             Type = type;
         }
     }

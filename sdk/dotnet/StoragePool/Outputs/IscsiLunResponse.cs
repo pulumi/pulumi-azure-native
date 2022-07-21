@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
     public sealed class IscsiLunResponse
     {
         /// <summary>
+        /// Specifies the Logical Unit Number of the iSCSI LUN.
+        /// </summary>
+        public readonly int Lun;
+        /// <summary>
         /// Azure Resource ID of the Managed Disk.
         /// </summary>
         public readonly string ManagedDiskAzureResourceId;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
 
         [OutputConstructor]
         private IscsiLunResponse(
+            int lun,
+
             string managedDiskAzureResourceId,
 
             string name)
         {
+            Lun = lun;
             ManagedDiskAzureResourceId = managedDiskAzureResourceId;
             Name = name;
         }

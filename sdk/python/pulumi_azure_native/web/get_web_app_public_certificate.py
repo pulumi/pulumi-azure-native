@@ -121,7 +121,7 @@ def get_web_app_public_certificate(name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
     Public certificate object
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -155,7 +155,7 @@ def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateResult]:
     """
     Public certificate object
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

@@ -76,7 +76,7 @@ class HierarchySetting(pulumi.CustomResource):
                  __props__=None):
         """
         Settings defined at the Management Group scope.
-        API Version: 2020-05-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,7 +92,7 @@ class HierarchySetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings defined at the Management Group scope.
-        API Version: 2020-05-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param HierarchySettingArgs args: The arguments to use to populate this resource's properties.

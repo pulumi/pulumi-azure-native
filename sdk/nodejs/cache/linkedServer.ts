@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get linked server (with properties) for Redis cache.
- * API Version: 2020-06-01.
+ * API Version: 2021-06-01.
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     public readonly linkedRedisCacheLocation!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     public readonly serverRole!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

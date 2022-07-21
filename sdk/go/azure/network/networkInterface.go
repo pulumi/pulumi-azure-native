@@ -12,10 +12,12 @@ import (
 )
 
 // A network interface in a resource group.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
+	// Auxiliary mode of Network Interface resource.
+	AuxiliaryMode pulumi.StringPtrOutput `pulumi:"auxiliaryMode"`
 	// The DNS settings in network interface.
 	DnsSettings NetworkInterfaceDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
 	// A reference to the dscp configuration to which the network interface is linked.
@@ -62,6 +64,10 @@ type NetworkInterface struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The reference to a virtual machine.
 	VirtualMachine SubResourceResponseOutput `pulumi:"virtualMachine"`
+	// Whether the virtual machine this nic is attached to supports encryption.
+	VnetEncryptionSupported pulumi.BoolOutput `pulumi:"vnetEncryptionSupported"`
+	// WorkloadType of the NetworkInterface for BareMetal resources
+	WorkloadType pulumi.StringPtrOutput `pulumi:"workloadType"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -232,6 +238,8 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
+	// Auxiliary mode of Network Interface resource.
+	AuxiliaryMode *string `pulumi:"auxiliaryMode"`
 	// The DNS settings in network interface.
 	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
 	// If the network interface is accelerated networking enabled.
@@ -260,10 +268,14 @@ type networkInterfaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// WorkloadType of the NetworkInterface for BareMetal resources
+	WorkloadType *string `pulumi:"workloadType"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
+	// Auxiliary mode of Network Interface resource.
+	AuxiliaryMode pulumi.StringPtrInput
 	// The DNS settings in network interface.
 	DnsSettings NetworkInterfaceDnsSettingsPtrInput
 	// If the network interface is accelerated networking enabled.
@@ -292,6 +304,8 @@ type NetworkInterfaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// WorkloadType of the NetworkInterface for BareMetal resources
+	WorkloadType pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {
@@ -329,6 +343,11 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutpu
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
 	return o
+}
+
+// Auxiliary mode of Network Interface resource.
+func (o NetworkInterfaceOutput) AuxiliaryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.AuxiliaryMode }).(pulumi.StringPtrOutput)
 }
 
 // The DNS settings in network interface.
@@ -448,6 +467,16 @@ func (o NetworkInterfaceOutput) Type() pulumi.StringOutput {
 // The reference to a virtual machine.
 func (o NetworkInterfaceOutput) VirtualMachine() SubResourceResponseOutput {
 	return o.ApplyT(func(v *NetworkInterface) SubResourceResponseOutput { return v.VirtualMachine }).(SubResourceResponseOutput)
+}
+
+// Whether the virtual machine this nic is attached to supports encryption.
+func (o NetworkInterfaceOutput) VnetEncryptionSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.VnetEncryptionSupported }).(pulumi.BoolOutput)
+}
+
+// WorkloadType of the NetworkInterface for BareMetal resources
+func (o NetworkInterfaceOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 func init() {

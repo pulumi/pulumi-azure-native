@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-10-01-preview.
+// API Version: 2022-05-01.
 type ResourceGuard struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +111,8 @@ type resourceGuardArgs struct {
 	Identity *DppIdentityDetails `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// ResourceGuardResource properties
+	Properties *ResourceGuardType `pulumi:"properties"`
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of ResourceGuard
@@ -127,6 +129,8 @@ type ResourceGuardArgs struct {
 	Identity DppIdentityDetailsPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// ResourceGuardResource properties
+	Properties ResourceGuardTypePtrInput
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of ResourceGuard

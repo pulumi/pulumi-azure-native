@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
- * API Version: 2020-09-30.
+ * API Version: 2021-10-01.
  */
 export class GalleryApplication extends pulumi.CustomResource {
     /**

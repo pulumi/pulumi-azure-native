@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site User Provided Function App ARM resource.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.CustomResource {
     /**

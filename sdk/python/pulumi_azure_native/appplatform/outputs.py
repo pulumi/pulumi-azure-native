@@ -11,18 +11,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ApiPortalCustomDomainPropertiesResponse',
-    'ApiPortalInstanceResponse',
-    'ApiPortalPropertiesResponse',
-    'ApiPortalResourceRequestsResponse',
     'AppResourcePropertiesResponse',
     'BindingResourcePropertiesResponse',
+    'BuildResultUserSourceInfoResponse',
     'BuilderPropertiesResponse',
     'BuildpackBindingLaunchPropertiesResponse',
     'BuildpackBindingPropertiesResponse',
     'BuildpackPropertiesResponse',
     'BuildpacksGroupPropertiesResponse',
-    'CertificatePropertiesResponse',
     'ClusterResourcePropertiesResponse',
     'ConfigurationServiceGitPropertyResponse',
     'ConfigurationServiceGitRepositoryResponse',
@@ -30,271 +26,31 @@ __all__ = [
     'ConfigurationServicePropertiesResponse',
     'ConfigurationServiceResourceRequestsResponse',
     'ConfigurationServiceSettingsResponse',
+    'ContentCertificatePropertiesResponse',
     'CustomDomainPropertiesResponse',
     'DeploymentInstanceResponse',
     'DeploymentResourcePropertiesResponse',
     'DeploymentSettingsResponse',
-    'GatewayApiMetadataPropertiesResponse',
-    'GatewayApiRouteResponse',
-    'GatewayCorsPropertiesResponse',
-    'GatewayCustomDomainPropertiesResponse',
-    'GatewayInstanceResponse',
-    'GatewayOperatorPropertiesResponse',
-    'GatewayOperatorResourceRequestsResponse',
-    'GatewayPropertiesResponse',
-    'GatewayResourceRequestsResponse',
-    'GatewayRouteConfigPropertiesResponse',
+    'JarUploadedUserSourceInfoResponse',
+    'KeyVaultCertificatePropertiesResponse',
+    'LoadedCertificateResponse',
     'ManagedIdentityPropertiesResponse',
+    'NetCoreZipUploadedUserSourceInfoResponse',
     'NetworkProfileResponse',
     'NetworkProfileResponseOutboundIPs',
     'PersistentDiskResponse',
     'RequiredTrafficResponse',
+    'ResourceRequestsResponse',
     'ServiceRegistryInstanceResponse',
     'ServiceRegistryPropertiesResponse',
     'ServiceRegistryResourceRequestsResponse',
     'SkuResponse',
-    'SsoPropertiesResponse',
+    'SourceUploadedUserSourceInfoResponse',
     'StackPropertiesResponse',
-    'StorageAccountResponse',
     'SystemDataResponse',
     'TemporaryDiskResponse',
-    'UserSourceInfoResponse',
+    'UploadedUserSourceInfoResponse',
 ]
-
-@pulumi.output_type
-class ApiPortalCustomDomainPropertiesResponse(dict):
-    """
-    The properties of custom domain for API portal
-    """
-    def __init__(__self__, *,
-                 thumbprint: Optional[str] = None):
-        """
-        The properties of custom domain for API portal
-        :param str thumbprint: The thumbprint of bound certificate.
-        """
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of bound certificate.
-        """
-        return pulumi.get(self, "thumbprint")
-
-
-@pulumi.output_type
-class ApiPortalInstanceResponse(dict):
-    """
-    Collection of instances belong to the API portal
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 status: str):
-        """
-        Collection of instances belong to the API portal
-        :param str name: Name of the API portal instance
-        :param str status: Status of the API portal instance
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the API portal instance
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Status of the API portal instance
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class ApiPortalPropertiesResponse(dict):
-    """
-    API portal properties payload
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "resourceRequests":
-            suggest = "resource_requests"
-        elif key == "gatewayIds":
-            suggest = "gateway_ids"
-        elif key == "httpsOnly":
-            suggest = "https_only"
-        elif key == "sourceUrls":
-            suggest = "source_urls"
-        elif key == "ssoProperties":
-            suggest = "sso_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApiPortalPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApiPortalPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApiPortalPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instances: Sequence['outputs.ApiPortalInstanceResponse'],
-                 provisioning_state: str,
-                 resource_requests: 'outputs.ApiPortalResourceRequestsResponse',
-                 url: str,
-                 gateway_ids: Optional[Sequence[str]] = None,
-                 https_only: Optional[bool] = None,
-                 public: Optional[bool] = None,
-                 source_urls: Optional[Sequence[str]] = None,
-                 sso_properties: Optional['outputs.SsoPropertiesResponse'] = None):
-        """
-        API portal properties payload
-        :param Sequence['ApiPortalInstanceResponse'] instances: Collection of instances belong to API portal.
-        :param str provisioning_state: State of the API portal.
-        :param 'ApiPortalResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
-        :param str url: URL of the API portal, exposed when 'public' is true.
-        :param Sequence[str] gateway_ids: The array of resource Ids of gateway to integrate with API portal.
-        :param bool https_only: Indicate if only https is allowed.
-        :param bool public: Indicates whether the API portal exposes endpoint.
-        :param Sequence[str] source_urls: Collection of OpenAPI source URL locations.
-        :param 'SsoPropertiesResponse' sso_properties: Single sign-on related configuration
-        """
-        pulumi.set(__self__, "instances", instances)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_requests", resource_requests)
-        pulumi.set(__self__, "url", url)
-        if gateway_ids is not None:
-            pulumi.set(__self__, "gateway_ids", gateway_ids)
-        if https_only is None:
-            https_only = False
-        if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
-        if public is None:
-            public = False
-        if public is not None:
-            pulumi.set(__self__, "public", public)
-        if source_urls is not None:
-            pulumi.set(__self__, "source_urls", source_urls)
-        if sso_properties is not None:
-            pulumi.set(__self__, "sso_properties", sso_properties)
-
-    @property
-    @pulumi.getter
-    def instances(self) -> Sequence['outputs.ApiPortalInstanceResponse']:
-        """
-        Collection of instances belong to API portal.
-        """
-        return pulumi.get(self, "instances")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the API portal.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceRequests")
-    def resource_requests(self) -> 'outputs.ApiPortalResourceRequestsResponse':
-        """
-        The requested resource quantity for required CPU and Memory.
-        """
-        return pulumi.get(self, "resource_requests")
-
-    @property
-    @pulumi.getter
-    def url(self) -> str:
-        """
-        URL of the API portal, exposed when 'public' is true.
-        """
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter(name="gatewayIds")
-    def gateway_ids(self) -> Optional[Sequence[str]]:
-        """
-        The array of resource Ids of gateway to integrate with API portal.
-        """
-        return pulumi.get(self, "gateway_ids")
-
-    @property
-    @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[bool]:
-        """
-        Indicate if only https is allowed.
-        """
-        return pulumi.get(self, "https_only")
-
-    @property
-    @pulumi.getter
-    def public(self) -> Optional[bool]:
-        """
-        Indicates whether the API portal exposes endpoint.
-        """
-        return pulumi.get(self, "public")
-
-    @property
-    @pulumi.getter(name="sourceUrls")
-    def source_urls(self) -> Optional[Sequence[str]]:
-        """
-        Collection of OpenAPI source URL locations.
-        """
-        return pulumi.get(self, "source_urls")
-
-    @property
-    @pulumi.getter(name="ssoProperties")
-    def sso_properties(self) -> Optional['outputs.SsoPropertiesResponse']:
-        """
-        Single sign-on related configuration
-        """
-        return pulumi.get(self, "sso_properties")
-
-
-@pulumi.output_type
-class ApiPortalResourceRequestsResponse(dict):
-    """
-    Resource requests of the API portal
-    """
-    def __init__(__self__, *,
-                 cpu: str,
-                 memory: str):
-        """
-        Resource requests of the API portal
-        :param str cpu: Cpu allocated to each API portal instance
-        :param str memory: Memory allocated to each API portal instance
-        """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "memory", memory)
-
-    @property
-    @pulumi.getter
-    def cpu(self) -> str:
-        """
-        Cpu allocated to each API portal instance
-        """
-        return pulumi.get(self, "cpu")
-
-    @property
-    @pulumi.getter
-    def memory(self) -> str:
-        """
-        Memory allocated to each API portal instance
-        """
-        return pulumi.get(self, "memory")
-
 
 @pulumi.output_type
 class AppResourcePropertiesResponse(dict):
@@ -304,14 +60,16 @@ class AppResourcePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "createdTime":
-            suggest = "created_time"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "activeDeploymentName":
-            suggest = "active_deployment_name"
+        elif key == "addonConfigs":
+            suggest = "addon_configs"
+        elif key == "enableEndToEndTLS":
+            suggest = "enable_end_to_end_tls"
         elif key == "httpsOnly":
             suggest = "https_only"
+        elif key == "loadedCertificates":
+            suggest = "loaded_certificates"
         elif key == "persistentDisk":
             suggest = "persistent_disk"
         elif key == "temporaryDisk":
@@ -329,52 +87,51 @@ class AppResourcePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 created_time: str,
                  provisioning_state: str,
                  url: str,
-                 active_deployment_name: Optional[str] = None,
+                 addon_configs: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 enable_end_to_end_tls: Optional[bool] = None,
                  fqdn: Optional[str] = None,
                  https_only: Optional[bool] = None,
+                 loaded_certificates: Optional[Sequence['outputs.LoadedCertificateResponse']] = None,
                  persistent_disk: Optional['outputs.PersistentDiskResponse'] = None,
                  public: Optional[bool] = None,
                  temporary_disk: Optional['outputs.TemporaryDiskResponse'] = None):
         """
         App resource properties payload
-        :param str created_time: Date time when the resource is created
         :param str provisioning_state: Provisioning state of the App
         :param str url: URL of the App
-        :param str active_deployment_name: Name of the active deployment of the App
+        :param Mapping[str, Mapping[str, Any]] addon_configs: Collection of addons
+        :param bool enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param str fqdn: Fully qualified dns Name.
         :param bool https_only: Indicate if only https is allowed.
+        :param Sequence['LoadedCertificateResponse'] loaded_certificates: Collection of loaded certificates
         :param 'PersistentDiskResponse' persistent_disk: Persistent disk settings
         :param bool public: Indicates whether the App exposes public endpoint
         :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
         """
-        pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "url", url)
-        if active_deployment_name is not None:
-            pulumi.set(__self__, "active_deployment_name", active_deployment_name)
+        if addon_configs is not None:
+            pulumi.set(__self__, "addon_configs", addon_configs)
+        if enable_end_to_end_tls is None:
+            enable_end_to_end_tls = False
+        if enable_end_to_end_tls is not None:
+            pulumi.set(__self__, "enable_end_to_end_tls", enable_end_to_end_tls)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if https_only is None:
             https_only = False
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
+        if loaded_certificates is not None:
+            pulumi.set(__self__, "loaded_certificates", loaded_certificates)
         if persistent_disk is not None:
             pulumi.set(__self__, "persistent_disk", persistent_disk)
         if public is not None:
             pulumi.set(__self__, "public", public)
         if temporary_disk is not None:
             pulumi.set(__self__, "temporary_disk", temporary_disk)
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        Date time when the resource is created
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -393,12 +150,20 @@ class AppResourcePropertiesResponse(dict):
         return pulumi.get(self, "url")
 
     @property
-    @pulumi.getter(name="activeDeploymentName")
-    def active_deployment_name(self) -> Optional[str]:
+    @pulumi.getter(name="addonConfigs")
+    def addon_configs(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
         """
-        Name of the active deployment of the App
+        Collection of addons
         """
-        return pulumi.get(self, "active_deployment_name")
+        return pulumi.get(self, "addon_configs")
+
+    @property
+    @pulumi.getter(name="enableEndToEndTLS")
+    def enable_end_to_end_tls(self) -> Optional[bool]:
+        """
+        Indicate if end to end TLS is enabled.
+        """
+        return pulumi.get(self, "enable_end_to_end_tls")
 
     @property
     @pulumi.getter
@@ -415,6 +180,14 @@ class AppResourcePropertiesResponse(dict):
         Indicate if only https is allowed.
         """
         return pulumi.get(self, "https_only")
+
+    @property
+    @pulumi.getter(name="loadedCertificates")
+    def loaded_certificates(self) -> Optional[Sequence['outputs.LoadedCertificateResponse']]:
+        """
+        Collection of loaded certificates
+        """
+        return pulumi.get(self, "loaded_certificates")
 
     @property
     @pulumi.getter(name="persistentDisk")
@@ -570,6 +343,71 @@ class BindingResourcePropertiesResponse(dict):
         The Azure resource id of the bound resource
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class BuildResultUserSourceInfoResponse(dict):
+    """
+    Reference to a build result
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildResultId":
+            suggest = "build_result_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildResultUserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildResultUserSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildResultUserSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 build_result_id: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Reference to a build result
+        :param str type: Type of the source uploaded
+               Expected value is 'BuildResult'.
+        :param str build_result_id: Resource id of an existing succeeded build result under the same Spring instance.
+        :param str version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'BuildResult')
+        if build_result_id is not None:
+            pulumi.set(__self__, "build_result_id", build_result_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the source uploaded
+        Expected value is 'BuildResult'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="buildResultId")
+    def build_result_id(self) -> Optional[str]:
+        """
+        Resource id of an existing succeeded build result under the same Spring instance.
+        """
+        return pulumi.get(self, "build_result_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -798,159 +636,6 @@ class BuildpacksGroupPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class CertificatePropertiesResponse(dict):
-    """
-    Certificate resource payload.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "activateDate":
-            suggest = "activate_date"
-        elif key == "dnsNames":
-            suggest = "dns_names"
-        elif key == "expirationDate":
-            suggest = "expiration_date"
-        elif key == "issuedDate":
-            suggest = "issued_date"
-        elif key == "keyVaultCertName":
-            suggest = "key_vault_cert_name"
-        elif key == "subjectName":
-            suggest = "subject_name"
-        elif key == "vaultUri":
-            suggest = "vault_uri"
-        elif key == "certVersion":
-            suggest = "cert_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CertificatePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CertificatePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 activate_date: str,
-                 dns_names: Sequence[str],
-                 expiration_date: str,
-                 issued_date: str,
-                 issuer: str,
-                 key_vault_cert_name: str,
-                 subject_name: str,
-                 thumbprint: str,
-                 vault_uri: str,
-                 cert_version: Optional[str] = None):
-        """
-        Certificate resource payload.
-        :param str activate_date: The activate date of certificate.
-        :param Sequence[str] dns_names: The domain list of certificate.
-        :param str expiration_date: The expiration date of certificate.
-        :param str issued_date: The issue date of certificate.
-        :param str issuer: The issuer of certificate.
-        :param str key_vault_cert_name: The certificate name of key vault.
-        :param str subject_name: The subject name of certificate.
-        :param str thumbprint: The thumbprint of certificate.
-        :param str vault_uri: The vault uri of user key vault.
-        :param str cert_version: The certificate version of key vault.
-        """
-        pulumi.set(__self__, "activate_date", activate_date)
-        pulumi.set(__self__, "dns_names", dns_names)
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "issued_date", issued_date)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "key_vault_cert_name", key_vault_cert_name)
-        pulumi.set(__self__, "subject_name", subject_name)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "vault_uri", vault_uri)
-        if cert_version is not None:
-            pulumi.set(__self__, "cert_version", cert_version)
-
-    @property
-    @pulumi.getter(name="activateDate")
-    def activate_date(self) -> str:
-        """
-        The activate date of certificate.
-        """
-        return pulumi.get(self, "activate_date")
-
-    @property
-    @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Sequence[str]:
-        """
-        The domain list of certificate.
-        """
-        return pulumi.get(self, "dns_names")
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> str:
-        """
-        The expiration date of certificate.
-        """
-        return pulumi.get(self, "expiration_date")
-
-    @property
-    @pulumi.getter(name="issuedDate")
-    def issued_date(self) -> str:
-        """
-        The issue date of certificate.
-        """
-        return pulumi.get(self, "issued_date")
-
-    @property
-    @pulumi.getter
-    def issuer(self) -> str:
-        """
-        The issuer of certificate.
-        """
-        return pulumi.get(self, "issuer")
-
-    @property
-    @pulumi.getter(name="keyVaultCertName")
-    def key_vault_cert_name(self) -> str:
-        """
-        The certificate name of key vault.
-        """
-        return pulumi.get(self, "key_vault_cert_name")
-
-    @property
-    @pulumi.getter(name="subjectName")
-    def subject_name(self) -> str:
-        """
-        The subject name of certificate.
-        """
-        return pulumi.get(self, "subject_name")
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> str:
-        """
-        The thumbprint of certificate.
-        """
-        return pulumi.get(self, "thumbprint")
-
-    @property
-    @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> str:
-        """
-        The vault uri of user key vault.
-        """
-        return pulumi.get(self, "vault_uri")
-
-    @property
-    @pulumi.getter(name="certVersion")
-    def cert_version(self) -> Optional[str]:
-        """
-        The certificate version of key vault.
-        """
-        return pulumi.get(self, "cert_version")
-
-
-@pulumi.output_type
 class ClusterResourcePropertiesResponse(dict):
     """
     Service properties payload
@@ -964,6 +649,8 @@ class ClusterResourcePropertiesResponse(dict):
             suggest = "service_id"
         elif key == "networkProfile":
             suggest = "network_profile"
+        elif key == "zoneRedundant":
+            suggest = "zone_redundant"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -977,22 +664,38 @@ class ClusterResourcePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 fqdn: str,
                  provisioning_state: str,
                  service_id: str,
                  version: int,
-                 network_profile: Optional['outputs.NetworkProfileResponse'] = None):
+                 network_profile: Optional['outputs.NetworkProfileResponse'] = None,
+                 zone_redundant: Optional[bool] = None):
         """
         Service properties payload
+        :param str fqdn: Fully qualified dns name of the service instance
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
         :param 'NetworkProfileResponse' network_profile: Network profile of the Service
         """
+        pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
         pulumi.set(__self__, "version", version)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if zone_redundant is None:
+            zone_redundant = False
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        Fully qualified dns name of the service instance
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1025,6 +728,11 @@ class ClusterResourcePropertiesResponse(dict):
         Network profile of the Service
         """
         return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        return pulumi.get(self, "zone_redundant")
 
 
 @pulumi.output_type
@@ -1424,6 +1132,132 @@ class ConfigurationServiceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ContentCertificatePropertiesResponse(dict):
+    """
+    Properties of certificate imported from key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activateDate":
+            suggest = "activate_date"
+        elif key == "dnsNames":
+            suggest = "dns_names"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "issuedDate":
+            suggest = "issued_date"
+        elif key == "subjectName":
+            suggest = "subject_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentCertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentCertificatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentCertificatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activate_date: str,
+                 dns_names: Sequence[str],
+                 expiration_date: str,
+                 issued_date: str,
+                 issuer: str,
+                 subject_name: str,
+                 thumbprint: str,
+                 type: str):
+        """
+        Properties of certificate imported from key vault.
+        :param str activate_date: The activate date of certificate.
+        :param Sequence[str] dns_names: The domain list of certificate.
+        :param str expiration_date: The expiration date of certificate.
+        :param str issued_date: The issue date of certificate.
+        :param str issuer: The issuer of certificate.
+        :param str subject_name: The subject name of certificate.
+        :param str thumbprint: The thumbprint of certificate.
+        :param str type: The type of the certificate source.
+               Expected value is 'ContentCertificate'.
+        """
+        pulumi.set(__self__, "activate_date", activate_date)
+        pulumi.set(__self__, "dns_names", dns_names)
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        pulumi.set(__self__, "issued_date", issued_date)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "type", 'ContentCertificate')
+
+    @property
+    @pulumi.getter(name="activateDate")
+    def activate_date(self) -> str:
+        """
+        The activate date of certificate.
+        """
+        return pulumi.get(self, "activate_date")
+
+    @property
+    @pulumi.getter(name="dnsNames")
+    def dns_names(self) -> Sequence[str]:
+        """
+        The domain list of certificate.
+        """
+        return pulumi.get(self, "dns_names")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        The expiration date of certificate.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="issuedDate")
+    def issued_date(self) -> str:
+        """
+        The issue date of certificate.
+        """
+        return pulumi.get(self, "issued_date")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The issuer of certificate.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        The subject name of certificate.
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The thumbprint of certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the certificate source.
+        Expected value is 'ContentCertificate'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class CustomDomainPropertiesResponse(dict):
     """
     Custom domain of app resource payload.
@@ -1517,7 +1351,8 @@ class DeploymentInstanceResponse(dict):
                  name: str,
                  reason: str,
                  start_time: str,
-                 status: str):
+                 status: str,
+                 zone: str):
         """
         Deployment instance payload
         :param str discovery_status: Discovery status of the deployment instance
@@ -1525,12 +1360,14 @@ class DeploymentInstanceResponse(dict):
         :param str reason: Failed reason of the deployment instance
         :param str start_time: Start time of the deployment instance
         :param str status: Status of the deployment instance
+        :param str zone: Availability zone information of the deployment instance
         """
         pulumi.set(__self__, "discovery_status", discovery_status)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "reason", reason)
         pulumi.set(__self__, "start_time", start_time)
         pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="discoveryStatus")
@@ -1572,6 +1409,14 @@ class DeploymentInstanceResponse(dict):
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        """
+        Availability zone information of the deployment instance
+        """
+        return pulumi.get(self, "zone")
+
 
 @pulumi.output_type
 class DeploymentResourcePropertiesResponse(dict):
@@ -1581,11 +1426,7 @@ class DeploymentResourcePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "appName":
-            suggest = "app_name"
-        elif key == "createdTime":
-            suggest = "created_time"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "deploymentSettings":
             suggest = "deployment_settings"
@@ -1602,59 +1443,30 @@ class DeploymentResourcePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 active: bool,
-                 app_name: str,
-                 created_time: str,
                  instances: Sequence['outputs.DeploymentInstanceResponse'],
                  provisioning_state: str,
                  status: str,
+                 active: Optional[bool] = None,
                  deployment_settings: Optional['outputs.DeploymentSettingsResponse'] = None,
-                 source: Optional['outputs.UserSourceInfoResponse'] = None):
+                 source: Optional[Any] = None):
         """
         Deployment resource properties payload
-        :param bool active: Indicates whether the Deployment is active
-        :param str app_name: App name of the deployment
-        :param str created_time: Date time when the resource is created
         :param Sequence['DeploymentInstanceResponse'] instances: Collection of instances belong to the Deployment
         :param str provisioning_state: Provisioning state of the Deployment
         :param str status: Status of the Deployment
+        :param bool active: Indicates whether the Deployment is active
         :param 'DeploymentSettingsResponse' deployment_settings: Deployment settings of the Deployment
-        :param 'UserSourceInfoResponse' source: Uploaded source information of the deployment.
+        :param Union['BuildResultUserSourceInfoResponse', 'JarUploadedUserSourceInfoResponse', 'NetCoreZipUploadedUserSourceInfoResponse', 'SourceUploadedUserSourceInfoResponse', 'UploadedUserSourceInfoResponse'] source: Uploaded source information of the deployment.
         """
-        pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "app_name", app_name)
-        pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "instances", instances)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
         if deployment_settings is not None:
             pulumi.set(__self__, "deployment_settings", deployment_settings)
         if source is not None:
             pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def active(self) -> bool:
-        """
-        Indicates whether the Deployment is active
-        """
-        return pulumi.get(self, "active")
-
-    @property
-    @pulumi.getter(name="appName")
-    def app_name(self) -> str:
-        """
-        App name of the deployment
-        """
-        return pulumi.get(self, "app_name")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        Date time when the resource is created
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -1681,6 +1493,14 @@ class DeploymentResourcePropertiesResponse(dict):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        Indicates whether the Deployment is active
+        """
+        return pulumi.get(self, "active")
+
+    @property
     @pulumi.getter(name="deploymentSettings")
     def deployment_settings(self) -> Optional['outputs.DeploymentSettingsResponse']:
         """
@@ -1690,7 +1510,7 @@ class DeploymentResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.UserSourceInfoResponse']:
+    def source(self) -> Optional[Any]:
         """
         Uploaded source information of the deployment.
         """
@@ -1705,16 +1525,12 @@ class DeploymentSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "environmentVariables":
+        if key == "addonConfigs":
+            suggest = "addon_configs"
+        elif key == "environmentVariables":
             suggest = "environment_variables"
-        elif key == "jvmOptions":
-            suggest = "jvm_options"
-        elif key == "memoryInGB":
-            suggest = "memory_in_gb"
-        elif key == "netCoreMainEntryPath":
-            suggest = "net_core_main_entry_path"
-        elif key == "runtimeVersion":
-            suggest = "runtime_version"
+        elif key == "resourceRequests":
+            suggest = "resource_requests"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeploymentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1728,47 +1544,29 @@ class DeploymentSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cpu: Optional[int] = None,
+                 addon_configs: Optional[Mapping[str, Mapping[str, Any]]] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
-                 jvm_options: Optional[str] = None,
-                 memory_in_gb: Optional[int] = None,
-                 net_core_main_entry_path: Optional[str] = None,
-                 runtime_version: Optional[str] = None):
+                 resource_requests: Optional['outputs.ResourceRequestsResponse'] = None):
         """
         Deployment settings payload
-        :param int cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        :param Mapping[str, Mapping[str, Any]] addon_configs: Collection of addons
         :param Mapping[str, str] environment_variables: Collection of environment variables
-        :param str jvm_options: JVM parameter
-        :param int memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-        :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
-        :param str runtime_version: Runtime version
+        :param 'ResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         """
-        if cpu is None:
-            cpu = 1
-        if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+        if addon_configs is not None:
+            pulumi.set(__self__, "addon_configs", addon_configs)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
-        if jvm_options is not None:
-            pulumi.set(__self__, "jvm_options", jvm_options)
-        if memory_in_gb is None:
-            memory_in_gb = 1
-        if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
-        if net_core_main_entry_path is not None:
-            pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
-        if runtime_version is None:
-            runtime_version = 'Java_8'
-        if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+        if resource_requests is not None:
+            pulumi.set(__self__, "resource_requests", resource_requests)
 
     @property
-    @pulumi.getter
-    def cpu(self) -> Optional[int]:
+    @pulumi.getter(name="addonConfigs")
+    def addon_configs(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
         """
-        Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        Collection of addons
         """
-        return pulumi.get(self, "cpu")
+        return pulumi.get(self, "addon_configs")
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -1779,6 +1577,75 @@ class DeploymentSettingsResponse(dict):
         return pulumi.get(self, "environment_variables")
 
     @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> Optional['outputs.ResourceRequestsResponse']:
+        """
+        The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+        """
+        return pulumi.get(self, "resource_requests")
+
+
+@pulumi.output_type
+class JarUploadedUserSourceInfoResponse(dict):
+    """
+    Uploaded Jar binary for a deployment
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jvmOptions":
+            suggest = "jvm_options"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JarUploadedUserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JarUploadedUserSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JarUploadedUserSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 jvm_options: Optional[str] = None,
+                 relative_path: Optional[str] = None,
+                 runtime_version: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Uploaded Jar binary for a deployment
+        :param str type: Type of the source uploaded
+               Expected value is 'Jar'.
+        :param str jvm_options: JVM parameter
+        :param str relative_path: Relative path of the storage which stores the source
+        :param str runtime_version: Runtime version of the Jar file
+        :param str version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'Jar')
+        if jvm_options is not None:
+            pulumi.set(__self__, "jvm_options", jvm_options)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the source uploaded
+        Expected value is 'Jar'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
     @pulumi.getter(name="jvmOptions")
     def jvm_options(self) -> Optional[str]:
         """
@@ -1787,791 +1654,265 @@ class DeploymentSettingsResponse(dict):
         return pulumi.get(self, "jvm_options")
 
     @property
-    @pulumi.getter(name="memoryInGB")
-    def memory_in_gb(self) -> Optional[int]:
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[str]:
         """
-        Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+        Relative path of the storage which stores the source
         """
-        return pulumi.get(self, "memory_in_gb")
-
-    @property
-    @pulumi.getter(name="netCoreMainEntryPath")
-    def net_core_main_entry_path(self) -> Optional[str]:
-        """
-        The path to the .NET executable relative to zip root
-        """
-        return pulumi.get(self, "net_core_main_entry_path")
+        return pulumi.get(self, "relative_path")
 
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        Runtime version
+        Runtime version of the Jar file
         """
         return pulumi.get(self, "runtime_version")
-
-
-@pulumi.output_type
-class GatewayApiMetadataPropertiesResponse(dict):
-    """
-    API metadata property for Spring Cloud Gateway
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serverUrl":
-            suggest = "server_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayApiMetadataPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayApiMetadataPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayApiMetadataPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 documentation: Optional[str] = None,
-                 server_url: Optional[str] = None,
-                 title: Optional[str] = None,
-                 version: Optional[str] = None):
-        """
-        API metadata property for Spring Cloud Gateway
-        :param str description: Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-        :param str documentation: Location of additional documentation for the APIs available on the Gateway instance
-        :param str server_url: Base URL that API consumers will use to access APIs on the Gateway instance.
-        :param str title: Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-        :param str version: Version of APIs available on this Gateway instance (default: `unspecified`).
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if documentation is not None:
-            pulumi.set(__self__, "documentation", documentation)
-        if server_url is not None:
-            pulumi.set(__self__, "server_url", server_url)
-        if title is not None:
-            pulumi.set(__self__, "title", title)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def documentation(self) -> Optional[str]:
-        """
-        Location of additional documentation for the APIs available on the Gateway instance
-        """
-        return pulumi.get(self, "documentation")
-
-    @property
-    @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[str]:
-        """
-        Base URL that API consumers will use to access APIs on the Gateway instance.
-        """
-        return pulumi.get(self, "server_url")
-
-    @property
-    @pulumi.getter
-    def title(self) -> Optional[str]:
-        """
-        Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-        """
-        return pulumi.get(self, "title")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Version of APIs available on this Gateway instance (default: `unspecified`).
+        Version of the source
         """
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
-class GatewayApiRouteResponse(dict):
+class KeyVaultCertificatePropertiesResponse(dict):
     """
-    API route config of the Spring Cloud Gateway
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ssoEnabled":
-            suggest = "sso_enabled"
-        elif key == "tokenRelay":
-            suggest = "token_relay"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayApiRouteResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayApiRouteResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayApiRouteResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 filters: Optional[Sequence[str]] = None,
-                 order: Optional[int] = None,
-                 predicates: Optional[Sequence[str]] = None,
-                 sso_enabled: Optional[bool] = None,
-                 tags: Optional[Sequence[str]] = None,
-                 title: Optional[str] = None,
-                 token_relay: Optional[bool] = None,
-                 uri: Optional[str] = None):
-        """
-        API route config of the Spring Cloud Gateway
-        :param str description: A description, will be applied to methods in the generated OpenAPI documentation.
-        :param Sequence[str] filters: To modify the request before sending it to the target endpoint, or the received response.
-        :param int order: Route processing order.
-        :param Sequence[str] predicates: A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        :param bool sso_enabled: Enable sso validation.
-        :param Sequence[str] tags: Classification tags, will be applied to methods in the generated OpenAPI documentation.
-        :param str title: A title, will be applied to methods in the generated OpenAPI documentation.
-        :param bool token_relay: Pass currently-authenticated user's identity token to application service, default is 'false'
-        :param str uri: Full uri, will override `appName`.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if predicates is not None:
-            pulumi.set(__self__, "predicates", predicates)
-        if sso_enabled is not None:
-            pulumi.set(__self__, "sso_enabled", sso_enabled)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if title is not None:
-            pulumi.set(__self__, "title", title)
-        if token_relay is not None:
-            pulumi.set(__self__, "token_relay", token_relay)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        A description, will be applied to methods in the generated OpenAPI documentation.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[Sequence[str]]:
-        """
-        To modify the request before sending it to the target endpoint, or the received response.
-        """
-        return pulumi.get(self, "filters")
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[int]:
-        """
-        Route processing order.
-        """
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def predicates(self) -> Optional[Sequence[str]]:
-        """
-        A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        """
-        return pulumi.get(self, "predicates")
-
-    @property
-    @pulumi.getter(name="ssoEnabled")
-    def sso_enabled(self) -> Optional[bool]:
-        """
-        Enable sso validation.
-        """
-        return pulumi.get(self, "sso_enabled")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence[str]]:
-        """
-        Classification tags, will be applied to methods in the generated OpenAPI documentation.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def title(self) -> Optional[str]:
-        """
-        A title, will be applied to methods in the generated OpenAPI documentation.
-        """
-        return pulumi.get(self, "title")
-
-    @property
-    @pulumi.getter(name="tokenRelay")
-    def token_relay(self) -> Optional[bool]:
-        """
-        Pass currently-authenticated user's identity token to application service, default is 'false'
-        """
-        return pulumi.get(self, "token_relay")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        Full uri, will override `appName`.
-        """
-        return pulumi.get(self, "uri")
-
-
-@pulumi.output_type
-class GatewayCorsPropertiesResponse(dict):
-    """
-    Cross-Origin Resource Sharing property
+    Properties of certificate imported from key vault.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowCredentials":
-            suggest = "allow_credentials"
-        elif key == "allowedHeaders":
-            suggest = "allowed_headers"
-        elif key == "allowedMethods":
-            suggest = "allowed_methods"
-        elif key == "allowedOrigins":
-            suggest = "allowed_origins"
-        elif key == "exposedHeaders":
-            suggest = "exposed_headers"
-        elif key == "maxAge":
-            suggest = "max_age"
+        if key == "activateDate":
+            suggest = "activate_date"
+        elif key == "dnsNames":
+            suggest = "dns_names"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "issuedDate":
+            suggest = "issued_date"
+        elif key == "keyVaultCertName":
+            suggest = "key_vault_cert_name"
+        elif key == "subjectName":
+            suggest = "subject_name"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
+        elif key == "certVersion":
+            suggest = "cert_version"
+        elif key == "excludePrivateKey":
+            suggest = "exclude_private_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayCorsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultCertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GatewayCorsPropertiesResponse.__key_warning(key)
+        KeyVaultCertificatePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GatewayCorsPropertiesResponse.__key_warning(key)
+        KeyVaultCertificatePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allow_credentials: Optional[bool] = None,
-                 allowed_headers: Optional[Sequence[str]] = None,
-                 allowed_methods: Optional[Sequence[str]] = None,
-                 allowed_origins: Optional[Sequence[str]] = None,
-                 exposed_headers: Optional[Sequence[str]] = None,
-                 max_age: Optional[int] = None):
+                 activate_date: str,
+                 dns_names: Sequence[str],
+                 expiration_date: str,
+                 issued_date: str,
+                 issuer: str,
+                 key_vault_cert_name: str,
+                 subject_name: str,
+                 thumbprint: str,
+                 type: str,
+                 vault_uri: str,
+                 cert_version: Optional[str] = None,
+                 exclude_private_key: Optional[bool] = None):
         """
-        Cross-Origin Resource Sharing property
-        :param bool allow_credentials: Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-        :param Sequence[str] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-        :param Sequence[str] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-        :param Sequence[str] allowed_origins: Allowed origins to make cross-site requests. The special value `*` allows all domains.
-        :param Sequence[str] exposed_headers: HTTP response headers to expose for cross-site requests.
-        :param int max_age: How long, in seconds, the response from a pre-flight request can be cached by clients.
+        Properties of certificate imported from key vault.
+        :param str activate_date: The activate date of certificate.
+        :param Sequence[str] dns_names: The domain list of certificate.
+        :param str expiration_date: The expiration date of certificate.
+        :param str issued_date: The issue date of certificate.
+        :param str issuer: The issuer of certificate.
+        :param str key_vault_cert_name: The certificate name of key vault.
+        :param str subject_name: The subject name of certificate.
+        :param str thumbprint: The thumbprint of certificate.
+        :param str type: The type of the certificate source.
+               Expected value is 'KeyVaultCertificate'.
+        :param str vault_uri: The vault uri of user key vault.
+        :param str cert_version: The certificate version of key vault.
+        :param bool exclude_private_key: Optional. If set to true, it will not import private key from key vault.
         """
-        if allow_credentials is not None:
-            pulumi.set(__self__, "allow_credentials", allow_credentials)
-        if allowed_headers is not None:
-            pulumi.set(__self__, "allowed_headers", allowed_headers)
-        if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
-        if allowed_origins is not None:
-            pulumi.set(__self__, "allowed_origins", allowed_origins)
-        if exposed_headers is not None:
-            pulumi.set(__self__, "exposed_headers", exposed_headers)
-        if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+        pulumi.set(__self__, "activate_date", activate_date)
+        pulumi.set(__self__, "dns_names", dns_names)
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        pulumi.set(__self__, "issued_date", issued_date)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "key_vault_cert_name", key_vault_cert_name)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "type", 'KeyVaultCertificate')
+        pulumi.set(__self__, "vault_uri", vault_uri)
+        if cert_version is not None:
+            pulumi.set(__self__, "cert_version", cert_version)
+        if exclude_private_key is None:
+            exclude_private_key = False
+        if exclude_private_key is not None:
+            pulumi.set(__self__, "exclude_private_key", exclude_private_key)
 
     @property
-    @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[bool]:
+    @pulumi.getter(name="activateDate")
+    def activate_date(self) -> str:
         """
-        Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
+        The activate date of certificate.
         """
-        return pulumi.get(self, "allow_credentials")
+        return pulumi.get(self, "activate_date")
 
     @property
-    @pulumi.getter(name="allowedHeaders")
-    def allowed_headers(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="dnsNames")
+    def dns_names(self) -> Sequence[str]:
         """
-        Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+        The domain list of certificate.
         """
-        return pulumi.get(self, "allowed_headers")
+        return pulumi.get(self, "dns_names")
 
     @property
-    @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
         """
-        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        The expiration date of certificate.
         """
-        return pulumi.get(self, "allowed_methods")
+        return pulumi.get(self, "expiration_date")
 
     @property
-    @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="issuedDate")
+    def issued_date(self) -> str:
         """
-        Allowed origins to make cross-site requests. The special value `*` allows all domains.
+        The issue date of certificate.
         """
-        return pulumi.get(self, "allowed_origins")
-
-    @property
-    @pulumi.getter(name="exposedHeaders")
-    def exposed_headers(self) -> Optional[Sequence[str]]:
-        """
-        HTTP response headers to expose for cross-site requests.
-        """
-        return pulumi.get(self, "exposed_headers")
-
-    @property
-    @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[int]:
-        """
-        How long, in seconds, the response from a pre-flight request can be cached by clients.
-        """
-        return pulumi.get(self, "max_age")
-
-
-@pulumi.output_type
-class GatewayCustomDomainPropertiesResponse(dict):
-    """
-    The properties of custom domain for Spring Cloud Gateway
-    """
-    def __init__(__self__, *,
-                 thumbprint: Optional[str] = None):
-        """
-        The properties of custom domain for Spring Cloud Gateway
-        :param str thumbprint: The thumbprint of bound certificate.
-        """
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+        return pulumi.get(self, "issued_date")
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
+    def issuer(self) -> str:
         """
-        The thumbprint of bound certificate.
+        The issuer of certificate.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="keyVaultCertName")
+    def key_vault_cert_name(self) -> str:
+        """
+        The certificate name of key vault.
+        """
+        return pulumi.get(self, "key_vault_cert_name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        The subject name of certificate.
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The thumbprint of certificate.
         """
         return pulumi.get(self, "thumbprint")
 
-
-@pulumi.output_type
-class GatewayInstanceResponse(dict):
-    """
-    Collection of instances belong to the Spring Cloud Gateway
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 status: str):
-        """
-        Collection of instances belong to the Spring Cloud Gateway
-        :param str name: Name of the Spring Cloud Gateway instance
-        :param str status: Status of the Spring Cloud Gateway instance
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def type(self) -> str:
         """
-        Name of the Spring Cloud Gateway instance
+        The type of the certificate source.
+        Expected value is 'KeyVaultCertificate'.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter
-    def status(self) -> str:
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> str:
         """
-        Status of the Spring Cloud Gateway instance
+        The vault uri of user key vault.
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "vault_uri")
+
+    @property
+    @pulumi.getter(name="certVersion")
+    def cert_version(self) -> Optional[str]:
+        """
+        The certificate version of key vault.
+        """
+        return pulumi.get(self, "cert_version")
+
+    @property
+    @pulumi.getter(name="excludePrivateKey")
+    def exclude_private_key(self) -> Optional[bool]:
+        """
+        Optional. If set to true, it will not import private key from key vault.
+        """
+        return pulumi.get(self, "exclude_private_key")
 
 
 @pulumi.output_type
-class GatewayOperatorPropertiesResponse(dict):
+class LoadedCertificateResponse(dict):
     """
-    Properties of the Spring Cloud Gateway Operator.
+    Loaded certificate payload
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceRequests":
-            suggest = "resource_requests"
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "loadTrustStore":
+            suggest = "load_trust_store"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayOperatorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LoadedCertificateResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GatewayOperatorPropertiesResponse.__key_warning(key)
+        LoadedCertificateResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GatewayOperatorPropertiesResponse.__key_warning(key)
+        LoadedCertificateResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instances: Sequence['outputs.GatewayInstanceResponse'],
-                 resource_requests: 'outputs.GatewayOperatorResourceRequestsResponse'):
+                 resource_id: str,
+                 load_trust_store: Optional[bool] = None):
         """
-        Properties of the Spring Cloud Gateway Operator.
-        :param Sequence['GatewayInstanceResponse'] instances: Collection of instances belong to Spring Cloud Gateway operator.
-        :param 'GatewayOperatorResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
+        Loaded certificate payload
+        :param str resource_id: Resource Id of loaded certificate
+        :param bool load_trust_store: Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
         """
-        pulumi.set(__self__, "instances", instances)
-        pulumi.set(__self__, "resource_requests", resource_requests)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if load_trust_store is None:
+            load_trust_store = False
+        if load_trust_store is not None:
+            pulumi.set(__self__, "load_trust_store", load_trust_store)
 
     @property
-    @pulumi.getter
-    def instances(self) -> Sequence['outputs.GatewayInstanceResponse']:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
         """
-        Collection of instances belong to Spring Cloud Gateway operator.
+        Resource Id of loaded certificate
         """
-        return pulumi.get(self, "instances")
+        return pulumi.get(self, "resource_id")
 
     @property
-    @pulumi.getter(name="resourceRequests")
-    def resource_requests(self) -> 'outputs.GatewayOperatorResourceRequestsResponse':
+    @pulumi.getter(name="loadTrustStore")
+    def load_trust_store(self) -> Optional[bool]:
         """
-        The requested resource quantity for required CPU and Memory.
+        Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
         """
-        return pulumi.get(self, "resource_requests")
-
-
-@pulumi.output_type
-class GatewayOperatorResourceRequestsResponse(dict):
-    """
-    Properties of the Spring Cloud Gateway Operator.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceCount":
-            suggest = "instance_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayOperatorResourceRequestsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayOperatorResourceRequestsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayOperatorResourceRequestsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cpu: str,
-                 instance_count: int,
-                 memory: str):
-        """
-        Properties of the Spring Cloud Gateway Operator.
-        :param str cpu: Cpu allocated to each Spring Cloud Gateway Operator instance.
-        :param int instance_count: Instance count of the Spring Cloud Gateway Operator.
-        :param str memory: Memory allocated to each Spring Cloud Gateway Operator instance.
-        """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "memory", memory)
-
-    @property
-    @pulumi.getter
-    def cpu(self) -> str:
-        """
-        Cpu allocated to each Spring Cloud Gateway Operator instance.
-        """
-        return pulumi.get(self, "cpu")
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> int:
-        """
-        Instance count of the Spring Cloud Gateway Operator.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @property
-    @pulumi.getter
-    def memory(self) -> str:
-        """
-        Memory allocated to each Spring Cloud Gateway Operator instance.
-        """
-        return pulumi.get(self, "memory")
-
-
-@pulumi.output_type
-class GatewayPropertiesResponse(dict):
-    """
-    Spring Cloud Gateway properties payload
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "operatorProperties":
-            suggest = "operator_properties"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "apiMetadataProperties":
-            suggest = "api_metadata_properties"
-        elif key == "corsProperties":
-            suggest = "cors_properties"
-        elif key == "httpsOnly":
-            suggest = "https_only"
-        elif key == "resourceRequests":
-            suggest = "resource_requests"
-        elif key == "ssoProperties":
-            suggest = "sso_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instances: Sequence['outputs.GatewayInstanceResponse'],
-                 operator_properties: 'outputs.GatewayOperatorPropertiesResponse',
-                 provisioning_state: str,
-                 url: str,
-                 api_metadata_properties: Optional['outputs.GatewayApiMetadataPropertiesResponse'] = None,
-                 cors_properties: Optional['outputs.GatewayCorsPropertiesResponse'] = None,
-                 https_only: Optional[bool] = None,
-                 public: Optional[bool] = None,
-                 resource_requests: Optional['outputs.GatewayResourceRequestsResponse'] = None,
-                 sso_properties: Optional['outputs.SsoPropertiesResponse'] = None):
-        """
-        Spring Cloud Gateway properties payload
-        :param Sequence['GatewayInstanceResponse'] instances: Collection of instances belong to Spring Cloud Gateway.
-        :param 'GatewayOperatorPropertiesResponse' operator_properties: Properties of the Spring Cloud Gateway Operator.
-        :param str provisioning_state: State of the Spring Cloud Gateway.
-        :param str url: URL of the Spring Cloud Gateway, exposed when 'public' is true.
-        :param 'GatewayApiMetadataPropertiesResponse' api_metadata_properties: API metadata property for Spring Cloud Gateway
-        :param 'GatewayCorsPropertiesResponse' cors_properties: Cross-Origin Resource Sharing property
-        :param bool https_only: Indicate if only https is allowed.
-        :param bool public: Indicates whether the Spring Cloud Gateway exposes endpoint.
-        :param 'GatewayResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
-        :param 'SsoPropertiesResponse' sso_properties: Single sign-on related configuration
-        """
-        pulumi.set(__self__, "instances", instances)
-        pulumi.set(__self__, "operator_properties", operator_properties)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "url", url)
-        if api_metadata_properties is not None:
-            pulumi.set(__self__, "api_metadata_properties", api_metadata_properties)
-        if cors_properties is not None:
-            pulumi.set(__self__, "cors_properties", cors_properties)
-        if https_only is None:
-            https_only = False
-        if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
-        if public is None:
-            public = False
-        if public is not None:
-            pulumi.set(__self__, "public", public)
-        if resource_requests is not None:
-            pulumi.set(__self__, "resource_requests", resource_requests)
-        if sso_properties is not None:
-            pulumi.set(__self__, "sso_properties", sso_properties)
-
-    @property
-    @pulumi.getter
-    def instances(self) -> Sequence['outputs.GatewayInstanceResponse']:
-        """
-        Collection of instances belong to Spring Cloud Gateway.
-        """
-        return pulumi.get(self, "instances")
-
-    @property
-    @pulumi.getter(name="operatorProperties")
-    def operator_properties(self) -> 'outputs.GatewayOperatorPropertiesResponse':
-        """
-        Properties of the Spring Cloud Gateway Operator.
-        """
-        return pulumi.get(self, "operator_properties")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the Spring Cloud Gateway.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def url(self) -> str:
-        """
-        URL of the Spring Cloud Gateway, exposed when 'public' is true.
-        """
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter(name="apiMetadataProperties")
-    def api_metadata_properties(self) -> Optional['outputs.GatewayApiMetadataPropertiesResponse']:
-        """
-        API metadata property for Spring Cloud Gateway
-        """
-        return pulumi.get(self, "api_metadata_properties")
-
-    @property
-    @pulumi.getter(name="corsProperties")
-    def cors_properties(self) -> Optional['outputs.GatewayCorsPropertiesResponse']:
-        """
-        Cross-Origin Resource Sharing property
-        """
-        return pulumi.get(self, "cors_properties")
-
-    @property
-    @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[bool]:
-        """
-        Indicate if only https is allowed.
-        """
-        return pulumi.get(self, "https_only")
-
-    @property
-    @pulumi.getter
-    def public(self) -> Optional[bool]:
-        """
-        Indicates whether the Spring Cloud Gateway exposes endpoint.
-        """
-        return pulumi.get(self, "public")
-
-    @property
-    @pulumi.getter(name="resourceRequests")
-    def resource_requests(self) -> Optional['outputs.GatewayResourceRequestsResponse']:
-        """
-        The requested resource quantity for required CPU and Memory.
-        """
-        return pulumi.get(self, "resource_requests")
-
-    @property
-    @pulumi.getter(name="ssoProperties")
-    def sso_properties(self) -> Optional['outputs.SsoPropertiesResponse']:
-        """
-        Single sign-on related configuration
-        """
-        return pulumi.get(self, "sso_properties")
-
-
-@pulumi.output_type
-class GatewayResourceRequestsResponse(dict):
-    """
-    Resource request payload of Spring Cloud Gateway.
-    """
-    def __init__(__self__, *,
-                 cpu: Optional[str] = None,
-                 memory: Optional[str] = None):
-        """
-        Resource request payload of Spring Cloud Gateway.
-        :param str cpu: Cpu allocated to each Spring Cloud Gateway instance.
-        :param str memory: Memory allocated to each Spring Cloud Gateway instance.
-        """
-        if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
-        if memory is not None:
-            pulumi.set(__self__, "memory", memory)
-
-    @property
-    @pulumi.getter
-    def cpu(self) -> Optional[str]:
-        """
-        Cpu allocated to each Spring Cloud Gateway instance.
-        """
-        return pulumi.get(self, "cpu")
-
-    @property
-    @pulumi.getter
-    def memory(self) -> Optional[str]:
-        """
-        Memory allocated to each Spring Cloud Gateway instance.
-        """
-        return pulumi.get(self, "memory")
-
-
-@pulumi.output_type
-class GatewayRouteConfigPropertiesResponse(dict):
-    """
-    API route config of the Spring Cloud Gateway
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "appResourceId":
-            suggest = "app_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayRouteConfigPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayRouteConfigPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 app_resource_id: Optional[str] = None,
-                 routes: Optional[Sequence['outputs.GatewayApiRouteResponse']] = None):
-        """
-        API route config of the Spring Cloud Gateway
-        :param str provisioning_state: State of the Spring Cloud Gateway route config.
-        :param str app_resource_id: The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-        :param Sequence['GatewayApiRouteResponse'] routes: Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if app_resource_id is not None:
-            pulumi.set(__self__, "app_resource_id", app_resource_id)
-        if routes is not None:
-            pulumi.set(__self__, "routes", routes)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the Spring Cloud Gateway route config.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="appResourceId")
-    def app_resource_id(self) -> Optional[str]:
-        """
-        The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-        """
-        return pulumi.get(self, "app_resource_id")
-
-    @property
-    @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.GatewayApiRouteResponse']]:
-        """
-        Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-        """
-        return pulumi.get(self, "routes")
+        return pulumi.get(self, "load_trust_store")
 
 
 @pulumi.output_type
@@ -2604,8 +1945,8 @@ class ManagedIdentityPropertiesResponse(dict):
                  type: Optional[str] = None):
         """
         Managed identity properties retrieved from ARM request headers.
-        :param str principal_id: Principal Id
-        :param str tenant_id: Tenant Id
+        :param str principal_id: Principal Id of system-assigned managed identity.
+        :param str tenant_id: Tenant Id of system-assigned managed identity.
         :param str type: Type of the managed identity
         """
         if principal_id is not None:
@@ -2619,7 +1960,7 @@ class ManagedIdentityPropertiesResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        Principal Id
+        Principal Id of system-assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -2627,7 +1968,7 @@ class ManagedIdentityPropertiesResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        Tenant Id
+        Tenant Id of system-assigned managed identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2638,6 +1979,99 @@ class ManagedIdentityPropertiesResponse(dict):
         Type of the managed identity
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NetCoreZipUploadedUserSourceInfoResponse(dict):
+    """
+    Uploaded Jar binary for a deployment
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "netCoreMainEntryPath":
+            suggest = "net_core_main_entry_path"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetCoreZipUploadedUserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetCoreZipUploadedUserSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetCoreZipUploadedUserSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 net_core_main_entry_path: Optional[str] = None,
+                 relative_path: Optional[str] = None,
+                 runtime_version: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Uploaded Jar binary for a deployment
+        :param str type: Type of the source uploaded
+               Expected value is 'NetCoreZip'.
+        :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
+        :param str relative_path: Relative path of the storage which stores the source
+        :param str runtime_version: Runtime version of the .Net file
+        :param str version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'NetCoreZip')
+        if net_core_main_entry_path is not None:
+            pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the source uploaded
+        Expected value is 'NetCoreZip'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="netCoreMainEntryPath")
+    def net_core_main_entry_path(self) -> Optional[str]:
+        """
+        The path to the .NET executable relative to zip root
+        """
+        return pulumi.get(self, "net_core_main_entry_path")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[str]:
+        """
+        Relative path of the storage which stores the source
+        """
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
+        """
+        Runtime version of the .Net file
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -2684,13 +2118,13 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[str] = None):
         """
         Service network profile payload
-        :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
-        :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
-        :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
-        :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-        :param str service_cidr: Azure Spring Cloud service reserved CIDR
-        :param str service_runtime_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
-        :param str service_runtime_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+        :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Apps resource.
+        :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Apps resource.
+        :param str app_network_resource_group: Name of the resource group containing network resources for customer apps in Azure Spring Apps
+        :param str app_subnet_id: Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
+        :param str service_cidr: Azure Spring Apps service reserved CIDR
+        :param str service_runtime_network_resource_group: Name of the resource group containing network resources of Azure Spring Apps Service Runtime
+        :param str service_runtime_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
         """
         pulumi.set(__self__, "outbound_ips", outbound_ips)
         pulumi.set(__self__, "required_traffics", required_traffics)
@@ -2709,7 +2143,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="outboundIPs")
     def outbound_ips(self) -> 'outputs.NetworkProfileResponseOutboundIPs':
         """
-        Desired outbound IP resources for Azure Spring Cloud instance.
+        Desired outbound IP resources for Azure Spring Apps resource.
         """
         return pulumi.get(self, "outbound_ips")
 
@@ -2717,7 +2151,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="requiredTraffics")
     def required_traffics(self) -> Sequence['outputs.RequiredTrafficResponse']:
         """
-        Required inbound or outbound traffics for Azure Spring Cloud instance.
+        Required inbound or outbound traffics for Azure Spring Apps resource.
         """
         return pulumi.get(self, "required_traffics")
 
@@ -2725,7 +2159,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="appNetworkResourceGroup")
     def app_network_resource_group(self) -> Optional[str]:
         """
-        Name of the resource group containing network resources of Azure Spring Cloud Apps
+        Name of the resource group containing network resources for customer apps in Azure Spring Apps
         """
         return pulumi.get(self, "app_network_resource_group")
 
@@ -2733,7 +2167,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="appSubnetId")
     def app_subnet_id(self) -> Optional[str]:
         """
-        Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+        Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
         """
         return pulumi.get(self, "app_subnet_id")
 
@@ -2741,7 +2175,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="serviceCidr")
     def service_cidr(self) -> Optional[str]:
         """
-        Azure Spring Cloud service reserved CIDR
+        Azure Spring Apps service reserved CIDR
         """
         return pulumi.get(self, "service_cidr")
 
@@ -2749,7 +2183,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="serviceRuntimeNetworkResourceGroup")
     def service_runtime_network_resource_group(self) -> Optional[str]:
         """
-        Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+        Name of the resource group containing network resources of Azure Spring Apps Service Runtime
         """
         return pulumi.get(self, "service_runtime_network_resource_group")
 
@@ -2757,7 +2191,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="serviceRuntimeSubnetId")
     def service_runtime_subnet_id(self) -> Optional[str]:
         """
-        Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+        Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
         """
         return pulumi.get(self, "service_runtime_subnet_id")
 
@@ -2765,7 +2199,7 @@ class NetworkProfileResponse(dict):
 @pulumi.output_type
 class NetworkProfileResponseOutboundIPs(dict):
     """
-    Desired outbound IP resources for Azure Spring Cloud instance.
+    Desired outbound IP resources for Azure Spring Apps resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2787,7 +2221,7 @@ class NetworkProfileResponseOutboundIPs(dict):
     def __init__(__self__, *,
                  public_ips: Sequence[str]):
         """
-        Desired outbound IP resources for Azure Spring Cloud instance.
+        Desired outbound IP resources for Azure Spring Apps resource.
         :param Sequence[str] public_ips: A list of public IP addresses.
         """
         pulumi.set(__self__, "public_ips", public_ips)
@@ -2871,7 +2305,7 @@ class PersistentDiskResponse(dict):
 @pulumi.output_type
 class RequiredTrafficResponse(dict):
     """
-    Required inbound or outbound traffic for Azure Spring Cloud instance.
+    Required inbound or outbound traffic for Azure Spring Apps resource.
     """
     def __init__(__self__, *,
                  direction: str,
@@ -2880,7 +2314,7 @@ class RequiredTrafficResponse(dict):
                  port: int,
                  protocol: str):
         """
-        Required inbound or outbound traffic for Azure Spring Cloud instance.
+        Required inbound or outbound traffic for Azure Spring Apps resource.
         :param str direction: The direction of required traffic
         :param Sequence[str] fqdns: The FQDN list of required traffic
         :param Sequence[str] ips: The ip list of required traffic
@@ -2932,6 +2366,41 @@ class RequiredTrafficResponse(dict):
         The protocol of required traffic
         """
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class ResourceRequestsResponse(dict):
+    """
+    Deployment resource request payload
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[str] = None,
+                 memory: Optional[str] = None):
+        """
+        Deployment resource request payload
+        :param str cpu: Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+        :param str memory: Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+        """
+        return pulumi.get(self, "memory")
 
 
 @pulumi.output_type
@@ -3094,22 +2563,26 @@ class ServiceRegistryResourceRequestsResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    Sku of Azure Spring Cloud
+    Sku of Azure Spring Apps
     """
     def __init__(__self__, *,
                  capacity: Optional[int] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
-        Sku of Azure Spring Cloud
+        Sku of Azure Spring Apps
         :param int capacity: Current capacity of the target resource
         :param str name: Name of the Sku
         :param str tier: Tier of the Sku
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if name is None:
+            name = 'S0'
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tier is None:
+            tier = 'Standard'
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -3139,83 +2612,98 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class SsoPropertiesResponse(dict):
+class SourceUploadedUserSourceInfoResponse(dict):
     """
-    Single sign-on related configuration
+    Uploaded Java source code binary for a deployment
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "clientSecret":
-            suggest = "client_secret"
-        elif key == "issuerUri":
-            suggest = "issuer_uri"
+        if key == "artifactSelector":
+            suggest = "artifact_selector"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SsoPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SourceUploadedUserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SsoPropertiesResponse.__key_warning(key)
+        SourceUploadedUserSourceInfoResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SsoPropertiesResponse.__key_warning(key)
+        SourceUploadedUserSourceInfoResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: Optional[str] = None,
-                 client_secret: Optional[str] = None,
-                 issuer_uri: Optional[str] = None,
-                 scope: Optional[Sequence[str]] = None):
+                 type: str,
+                 artifact_selector: Optional[str] = None,
+                 relative_path: Optional[str] = None,
+                 runtime_version: Optional[str] = None,
+                 version: Optional[str] = None):
         """
-        Single sign-on related configuration
-        :param str client_id: The public identifier for the application
-        :param str client_secret: The secret known only to the application and the authorization server
-        :param str issuer_uri: The URI of Issuer Identifier
-        :param Sequence[str] scope: It defines the specific actions applications can be allowed to do on a user's behalf
+        Uploaded Java source code binary for a deployment
+        :param str type: Type of the source uploaded
+               Expected value is 'Source'.
+        :param str artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
+               the relative path to the target module/project.
+        :param str relative_path: Relative path of the storage which stores the source
+        :param str runtime_version: Runtime version of the source file
+        :param str version: Version of the source
         """
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
-        if issuer_uri is not None:
-            pulumi.set(__self__, "issuer_uri", issuer_uri)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[str]:
-        """
-        The public identifier for the application
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[str]:
-        """
-        The secret known only to the application and the authorization server
-        """
-        return pulumi.get(self, "client_secret")
-
-    @property
-    @pulumi.getter(name="issuerUri")
-    def issuer_uri(self) -> Optional[str]:
-        """
-        The URI of Issuer Identifier
-        """
-        return pulumi.get(self, "issuer_uri")
+        pulumi.set(__self__, "type", 'Source')
+        if artifact_selector is not None:
+            pulumi.set(__self__, "artifact_selector", artifact_selector)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[Sequence[str]]:
+    def type(self) -> str:
         """
-        It defines the specific actions applications can be allowed to do on a user's behalf
+        Type of the source uploaded
+        Expected value is 'Source'.
         """
-        return pulumi.get(self, "scope")
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="artifactSelector")
+    def artifact_selector(self) -> Optional[str]:
+        """
+        Selector for the artifact to be used for the deployment for multi-module projects. This should be
+        the relative path to the target module/project.
+        """
+        return pulumi.get(self, "artifact_selector")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[str]:
+        """
+        Relative path of the storage which stores the source
+        """
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
+        """
+        Runtime version of the source file
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -3251,60 +2739,6 @@ class StackPropertiesResponse(dict):
         Version of the ClusterStack
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class StorageAccountResponse(dict):
-    """
-    storage resource of type Azure Storage Account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountName":
-            suggest = "account_name"
-        elif key == "storageType":
-            suggest = "storage_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageAccountResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageAccountResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageAccountResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 account_name: str,
-                 storage_type: str):
-        """
-        storage resource of type Azure Storage Account.
-        :param str account_name: The account name of the Azure Storage Account.
-        :param str storage_type: The type of the storage.
-               Expected value is 'StorageAccount'.
-        """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "storage_type", 'StorageAccount')
-
-    @property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
-        """
-        The account name of the Azure Storage Account.
-        """
-        return pulumi.get(self, "account_name")
-
-    @property
-    @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
-        """
-        The type of the storage.
-        Expected value is 'StorageAccount'.
-        """
-        return pulumi.get(self, "storage_type")
 
 
 @pulumi.output_type
@@ -3351,7 +2785,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_at: The timestamp of resource modification (UTC).
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -3396,7 +2830,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of resource last modification (UTC)
+        The timestamp of resource modification (UTC).
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -3474,59 +2908,52 @@ class TemporaryDiskResponse(dict):
 
 
 @pulumi.output_type
-class UserSourceInfoResponse(dict):
+class UploadedUserSourceInfoResponse(dict):
     """
-    Source information for a deployment
+    Source with uploaded location
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "artifactSelector":
-            suggest = "artifact_selector"
-        elif key == "relativePath":
+        if key == "relativePath":
             suggest = "relative_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UploadedUserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserSourceInfoResponse.__key_warning(key)
+        UploadedUserSourceInfoResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserSourceInfoResponse.__key_warning(key)
+        UploadedUserSourceInfoResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 artifact_selector: Optional[str] = None,
+                 type: str,
                  relative_path: Optional[str] = None,
-                 type: Optional[str] = None,
                  version: Optional[str] = None):
         """
-        Source information for a deployment
-        :param str artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
-               the relative path to the target module/project.
-        :param str relative_path: Relative path of the storage which stores the source
+        Source with uploaded location
         :param str type: Type of the source uploaded
+               Expected value is 'UploadedUserSourceInfo'.
+        :param str relative_path: Relative path of the storage which stores the source
         :param str version: Version of the source
         """
-        if artifact_selector is not None:
-            pulumi.set(__self__, "artifact_selector", artifact_selector)
+        pulumi.set(__self__, "type", 'UploadedUserSourceInfo')
         if relative_path is not None:
             pulumi.set(__self__, "relative_path", relative_path)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="artifactSelector")
-    def artifact_selector(self) -> Optional[str]:
+    @pulumi.getter
+    def type(self) -> str:
         """
-        Selector for the artifact to be used for the deployment for multi-module projects. This should be
-        the relative path to the target module/project.
+        Type of the source uploaded
+        Expected value is 'UploadedUserSourceInfo'.
         """
-        return pulumi.get(self, "artifact_selector")
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="relativePath")
@@ -3535,14 +2962,6 @@ class UserSourceInfoResponse(dict):
         Relative path of the storage which stores the source
         """
         return pulumi.get(self, "relative_path")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of the source uploaded
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter

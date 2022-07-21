@@ -11,7 +11,7 @@ import (
 )
 
 // A database resource.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:sql:getDatabase", args, &rv, opts...)
@@ -56,10 +56,18 @@ type LookupDatabaseResult struct {
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// Failover Group resource identifier that this database belongs to.
 	FailoverGroupId string `pulumi:"failoverGroupId"`
-	// The number of secondary replicas associated with the database that are used to provide high availability.
+	// The Client id used for cross tenant per database CMK scenario
+	FederatedClientId *string `pulumi:"federatedClientId"`
+	// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Resource ID.
 	Id string `pulumi:"id"`
+	// The Azure Active Directory identity of the database.
+	Identity *DatabaseIdentityResponse `pulumi:"identity"`
+	// Infra encryption is enabled for this database.
+	IsInfraEncryptionEnabled bool `pulumi:"isInfraEncryptionEnabled"`
+	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+	IsLedgerOn *bool `pulumi:"isLedgerOn"`
 	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -80,7 +88,7 @@ type LookupDatabaseResult struct {
 	Name string `pulumi:"name"`
 	// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
 	PausedDate string `pulumi:"pausedDate"`
-	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale *string `pulumi:"readScale"`
 	// The storage account type to be used to store backups for this database.
 	RequestedBackupStorageRedundancy *string `pulumi:"requestedBackupStorageRedundancy"`
@@ -205,7 +213,12 @@ func (o LookupDatabaseResultOutput) FailoverGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.FailoverGroupId }).(pulumi.StringOutput)
 }
 
-// The number of secondary replicas associated with the database that are used to provide high availability.
+// The Client id used for cross tenant per database CMK scenario
+func (o LookupDatabaseResultOutput) FederatedClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.FederatedClientId }).(pulumi.StringPtrOutput)
+}
+
+// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 func (o LookupDatabaseResultOutput) HighAvailabilityReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *int { return v.HighAvailabilityReplicaCount }).(pulumi.IntPtrOutput)
 }
@@ -213,6 +226,21 @@ func (o LookupDatabaseResultOutput) HighAvailabilityReplicaCount() pulumi.IntPtr
 // Resource ID.
 func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory identity of the database.
+func (o LookupDatabaseResultOutput) Identity() DatabaseIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *DatabaseIdentityResponse { return v.Identity }).(DatabaseIdentityResponsePtrOutput)
+}
+
+// Infra encryption is enabled for this database.
+func (o LookupDatabaseResultOutput) IsInfraEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) bool { return v.IsInfraEncryptionEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+func (o LookupDatabaseResultOutput) IsLedgerOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *bool { return v.IsLedgerOn }).(pulumi.BoolPtrOutput)
 }
 
 // Kind of database. This is metadata used for the Azure portal experience.
@@ -265,7 +293,7 @@ func (o LookupDatabaseResultOutput) PausedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.PausedDate }).(pulumi.StringOutput)
 }
 
-// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 func (o LookupDatabaseResultOutput) ReadScale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.ReadScale }).(pulumi.StringPtrOutput)
 }

@@ -2793,7 +2793,7 @@ type ManagedIdentity struct {
 	// The type of managed identity for the workspace
 	Type *ResourceIdentityType `pulumi:"type"`
 	// The user assigned managed identities.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -2812,7 +2812,7 @@ type ManagedIdentityArgs struct {
 	// The type of managed identity for the workspace
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The user assigned managed identities.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -2899,8 +2899,8 @@ func (o ManagedIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The user assigned managed identities.
-func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2938,13 +2938,13 @@ func (o ManagedIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The user assigned managed identities.
-func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedIdentity) map[string]interface{} {
+func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The workspace managed identity

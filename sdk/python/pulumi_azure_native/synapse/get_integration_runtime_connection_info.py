@@ -109,7 +109,7 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
     Connection information for encrypting the on-premises data source credentials.
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -142,7 +142,7 @@ def get_integration_runtime_connection_info_output(integration_runtime_name: Opt
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
     Connection information for encrypting the on-premises data source credentials.
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str integration_runtime_name: Integration runtime name

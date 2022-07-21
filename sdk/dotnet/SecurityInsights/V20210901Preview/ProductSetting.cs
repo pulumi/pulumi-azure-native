@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:ProductSetting"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ProductSetting"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ProductSetting"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ProductSetting"},

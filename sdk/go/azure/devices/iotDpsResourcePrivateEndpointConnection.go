@@ -12,7 +12,7 @@ import (
 )
 
 // The private endpoint connection of a provisioning service
-// API Version: 2020-03-01.
+// API Version: 2022-02-05.
 type IotDpsResourcePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type IotDpsResourcePrivateEndpointConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -156,6 +158,11 @@ func (o IotDpsResourcePrivateEndpointConnectionOutput) Properties() PrivateEndpo
 	return o.ApplyT(func(v *IotDpsResourcePrivateEndpointConnection) PrivateEndpointConnectionPropertiesResponseOutput {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o IotDpsResourcePrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IotDpsResourcePrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type.

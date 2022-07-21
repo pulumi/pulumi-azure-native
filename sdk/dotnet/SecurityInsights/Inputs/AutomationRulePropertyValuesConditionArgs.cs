@@ -10,23 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Inputs
 {
 
-    /// <summary>
-    /// Describes an automation rule condition that evaluates a property's value
-    /// </summary>
     public sealed class AutomationRulePropertyValuesConditionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration of the automation rule condition
-        /// </summary>
-        [Input("conditionProperties", required: true)]
-        public Input<Inputs.AutomationRulePropertyValuesConditionConditionPropertiesArgs> ConditionProperties { get; set; } = null!;
+        [Input("operator")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.AutomationRulePropertyConditionSupportedOperator>? Operator { get; set; }
 
         /// <summary>
-        /// The type of the automation rule condition
-        /// Expected value is 'Property'.
+        /// The property to evaluate in an automation rule property condition
         /// </summary>
-        [Input("conditionType", required: true)]
-        public Input<string> ConditionType { get; set; } = null!;
+        [Input("propertyName")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.AutomationRulePropertyConditionSupportedProperty>? PropertyName { get; set; }
+
+        [Input("propertyValues")]
+        private InputList<string>? _propertyValues;
+        public InputList<string> PropertyValues
+        {
+            get => _propertyValues ?? (_propertyValues = new InputList<string>());
+            set => _propertyValues = value;
+        }
 
         public AutomationRulePropertyValuesConditionArgs()
         {

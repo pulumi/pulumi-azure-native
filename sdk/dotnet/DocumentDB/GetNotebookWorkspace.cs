@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// A notebook workspace resource
-        /// API Version: 2021-03-15.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Task<GetNotebookWorkspaceResult> InvokeAsync(GetNotebookWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-native:documentdb:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A notebook workspace resource
-        /// API Version: 2021-03-15.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Output<GetNotebookWorkspaceResult> Invoke(GetNotebookWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNotebookWorkspaceResult>("azure-native:documentdb:getNotebookWorkspace", args ?? new GetNotebookWorkspaceInvokeArgs(), options.WithDefaults());

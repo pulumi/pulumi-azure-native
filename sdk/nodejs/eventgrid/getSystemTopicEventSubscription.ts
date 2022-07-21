@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
     if (!opts) {

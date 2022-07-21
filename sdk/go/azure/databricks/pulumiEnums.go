@@ -3,12 +3,11 @@
 
 package databricks
 
-// The identity type.
-type IdentityType string
+// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+type EncryptionKeySource string
 
 const (
-	IdentityTypeNone           = IdentityType("None")
-	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
+	EncryptionKeySource_Microsoft_Keyvault = EncryptionKeySource("Microsoft.Keyvault")
 )
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
@@ -27,6 +26,23 @@ const (
 	PrivateLinkServiceConnectionStatusApproved     = PrivateLinkServiceConnectionStatus("Approved")
 	PrivateLinkServiceConnectionStatusRejected     = PrivateLinkServiceConnectionStatus("Rejected")
 	PrivateLinkServiceConnectionStatusDisconnected = PrivateLinkServiceConnectionStatus("Disconnected")
+)
+
+// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+type PublicNetworkAccess string
+
+const (
+	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
+// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+type RequiredNsgRules string
+
+const (
+	RequiredNsgRulesAllRules               = RequiredNsgRules("AllRules")
+	RequiredNsgRulesNoAzureDatabricksRules = RequiredNsgRules("NoAzureDatabricksRules")
+	RequiredNsgRulesNoAzureServiceRules    = RequiredNsgRules("NoAzureServiceRules")
 )
 
 func init() {

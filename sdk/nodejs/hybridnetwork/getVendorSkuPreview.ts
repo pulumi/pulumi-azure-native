@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Customer subscription which can use a sku.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
     if (!opts) {
@@ -48,6 +49,14 @@ export interface GetVendorSkuPreviewResult {
      * The preview subscription ID.
      */
     readonly name: string;
+    /**
+     * The provisioning state of the PreviewSubscription resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * The type of the resource.
      */

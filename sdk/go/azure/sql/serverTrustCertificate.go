@@ -12,7 +12,7 @@ import (
 )
 
 // Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-// API Version: 2021-05-01-preview.
+// API Version: 2021-11-01-preview.
 type ServerTrustCertificate struct {
 	pulumi.CustomResourceState
 

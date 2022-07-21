@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
-    /// Kubelet configurations of agent nodes.
+    /// See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     /// </summary>
     public sealed class KubeletConfigArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<string>? _allowedUnsafeSysctls;
 
         /// <summary>
-        /// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        /// Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
         /// </summary>
         public InputList<string> AllowedUnsafeSysctls
         {
@@ -40,19 +40,19 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int>? ContainerLogMaxSizeMB { get; set; }
 
         /// <summary>
-        /// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        /// The default is true.
         /// </summary>
         [Input("cpuCfsQuota")]
         public Input<bool>? CpuCfsQuota { get; set; }
 
         /// <summary>
-        /// Sets CPU CFS quota period value.
+        /// The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
         /// </summary>
         [Input("cpuCfsQuotaPeriod")]
         public Input<string>? CpuCfsQuotaPeriod { get; set; }
 
         /// <summary>
-        /// CPU Manager policy to use.
+        /// The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
         /// </summary>
         [Input("cpuManagerPolicy")]
         public Input<string>? CpuManagerPolicy { get; set; }
@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? FailSwapOn { get; set; }
 
         /// <summary>
-        /// The percent of disk usage after which image garbage collection is always run.
+        /// To disable image garbage collection, set to 100. The default is 85%
         /// </summary>
         [Input("imageGcHighThreshold")]
         public Input<int>? ImageGcHighThreshold { get; set; }
 
         /// <summary>
-        /// The percent of disk usage before which image garbage collection is never run.
+        /// This cannot be set higher than imageGcHighThreshold. The default is 80%
         /// </summary>
         [Input("imageGcLowThreshold")]
         public Input<int>? ImageGcLowThreshold { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int>? PodMaxPids { get; set; }
 
         /// <summary>
-        /// Topology Manager policy to use.
+        /// For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         /// </summary>
         [Input("topologyManagerPolicy")]
         public Input<string>? TopologyManagerPolicy { get; set; }

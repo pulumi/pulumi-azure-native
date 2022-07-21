@@ -11,11 +11,23 @@ namespace Pulumi.AzureNative.Marketplace
 {
     /// <summary>
     /// The Collection data structure.
-    /// API Version: 2021-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollection")]
     public partial class PrivateStoreCollection : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicating whether all items are approved for this collection (=true) or not (=false).
+        /// </summary>
+        [Output("allItemsApproved")]
+        public Output<bool> AllItemsApproved { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the modified date of all items approved.
+        /// </summary>
+        [Output("allItemsApprovedModifiedAt")]
+        public Output<string> AllItemsApprovedModifiedAt { get; private set; } = null!;
+
         /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
         /// </summary>

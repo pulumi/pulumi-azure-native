@@ -11,7 +11,7 @@ import (
 )
 
 // A private endpoint connection to an azure resource
-// API Version: 2021-04-01-preview.
+// API Version: 2021-10-01.
 func LookupWebPubSubPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebPubSubPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebPubSubPrivateEndpointConnectionResult, error) {
 	var rv LookupWebPubSubPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:webpubsub:getWebPubSubPrivateEndpointConnection", args, &rv, opts...)
@@ -32,15 +32,17 @@ type LookupWebPubSubPrivateEndpointConnectionArgs struct {
 
 // A private endpoint connection to an azure resource
 type LookupWebPubSubPrivateEndpointConnectionResult struct {
+	// Group IDs
+	GroupIds []string `pulumi:"groupIds"`
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
+	// Private endpoint
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
+	// Connection state of the private endpoint connection
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
+	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -89,6 +91,11 @@ func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) ToLookupWebPubSubP
 	return o
 }
 
+// Group IDs
+func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupWebPubSubPrivateEndpointConnectionResult) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
 // Fully qualified resource Id for the resource.
 func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWebPubSubPrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
@@ -99,21 +106,21 @@ func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) Name() pulumi.Stri
 	return o.ApplyT(func(v LookupWebPubSubPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private endpoint associated with the private endpoint connection
+// Private endpoint
 func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v LookupWebPubSubPrivateEndpointConnectionResult) *PrivateEndpointResponse {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Connection state
+// Connection state of the private endpoint connection
 func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v LookupWebPubSubPrivateEndpointConnectionResult) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Provisioning state of the private endpoint connection
+// Provisioning state of the resource.
 func (o LookupWebPubSubPrivateEndpointConnectionResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWebPubSubPrivateEndpointConnectionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Shared access keys of the Topic
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
  */
 export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicSharedAccessKeysResult> {
     if (!opts) {

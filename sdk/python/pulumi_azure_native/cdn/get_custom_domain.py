@@ -68,7 +68,7 @@ class GetCustomDomainResult:
     @pulumi.getter(name="customHttpsProvisioningState")
     def custom_https_provisioning_state(self) -> str:
         """
-        Provisioning status of Custom Https of the custom domain.
+        Provisioning status of the custom domain.
         """
         return pulumi.get(self, "custom_https_provisioning_state")
 
@@ -108,7 +108,7 @@ class GetCustomDomainResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning status of the custom domain.
+        Provisioning status of Custom Https of the custom domain.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -171,7 +171,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
@@ -212,7 +212,7 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.

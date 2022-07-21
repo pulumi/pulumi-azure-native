@@ -18,6 +18,7 @@ __all__ = [
     'CookieExpirationConvention',
     'CustomHostNameDnsRecordType',
     'DatabaseType',
+    'EnterpriseGradeCdnStatus',
     'ForwardProxyConvention',
     'FrequencyUnit',
     'FrontEndServiceType',
@@ -177,6 +178,16 @@ class DatabaseType(str, Enum):
     MY_SQL = "MySql"
     LOCAL_MY_SQL = "LocalMySql"
     POSTGRE_SQL = "PostgreSql"
+
+
+class EnterpriseGradeCdnStatus(str, Enum):
+    """
+    State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+    """
+    ENABLED = "Enabled"
+    ENABLING = "Enabling"
+    DISABLED = "Disabled"
+    DISABLING = "Disabling"
 
 
 class ForwardProxyConvention(str, Enum):

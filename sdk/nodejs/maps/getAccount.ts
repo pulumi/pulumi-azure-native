@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
- * API Version: 2018-05-01.
+ * API Version: 2021-02-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -27,7 +27,7 @@ export interface GetAccountArgs {
      */
     accountName: string;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -37,15 +37,19 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The fully qualified Maps Account resource identifier.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The location of the resource.
+     * Get or Set Kind property.
+     */
+    readonly kind?: string;
+    /**
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The name of the Maps Account, which is unique within a Resource Group.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -57,11 +61,15 @@ export interface GetAccountResult {
      */
     readonly sku: outputs.maps.SkuResponse;
     /**
-     * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+     * The system meta data relating to this resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly systemData: outputs.maps.SystemDataResponse;
     /**
-     * Azure resource type.
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -76,7 +84,7 @@ export interface GetAccountOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

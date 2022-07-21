@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Gremlin database.
-// API Version: 2021-03-15.
+// API Version: 2021-10-15.
 type GremlinResourceGremlinDatabase struct {
 	pulumi.CustomResourceState
 

@@ -11,7 +11,7 @@ import (
 )
 
 // The X509 Certificate.
-// API Version: 2020-08-31.
+// API Version: 2021-07-02.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:devices:getCertificate", args, &rv, opts...)

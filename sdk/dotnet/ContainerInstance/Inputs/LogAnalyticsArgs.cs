@@ -45,17 +45,11 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         [Input("workspaceKey", required: true)]
         public Input<string> WorkspaceKey { get; set; } = null!;
 
-        [Input("workspaceResourceId")]
-        private InputMap<string>? _workspaceResourceId;
-
         /// <summary>
         /// The workspace resource id for log analytics
         /// </summary>
-        public InputMap<string> WorkspaceResourceId
-        {
-            get => _workspaceResourceId ?? (_workspaceResourceId = new InputMap<string>());
-            set => _workspaceResourceId = value;
-        }
+        [Input("workspaceResourceId")]
+        public Input<string>? WorkspaceResourceId { get; set; }
 
         public LogAnalyticsArgs()
         {

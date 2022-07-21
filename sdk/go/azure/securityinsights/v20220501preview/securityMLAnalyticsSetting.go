@@ -47,9 +47,6 @@ func NewSecurityMLAnalyticsSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:securityinsights:SecurityMLAnalyticsSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"),
 		},
 		{

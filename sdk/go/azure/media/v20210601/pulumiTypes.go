@@ -8731,7 +8731,7 @@ type MediaServiceIdentity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The user assigned managed identities.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // MediaServiceIdentityInput is an input type that accepts MediaServiceIdentityArgs and MediaServiceIdentityOutput values.
@@ -8749,7 +8749,7 @@ type MediaServiceIdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user assigned managed identities.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (MediaServiceIdentityArgs) ElementType() reflect.Type {
@@ -8835,8 +8835,8 @@ func (o MediaServiceIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The user assigned managed identities.
-func (o MediaServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v MediaServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o MediaServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MediaServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type MediaServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -8874,13 +8874,13 @@ func (o MediaServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The user assigned managed identities.
-func (o MediaServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *MediaServiceIdentity) map[string]interface{} {
+func (o MediaServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MediaServiceIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type MediaServiceIdentityResponse struct {

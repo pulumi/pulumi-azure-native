@@ -356,8 +356,6 @@ type LedgerProperties struct {
 	AadBasedSecurityPrincipals []AADBasedSecurityPrincipal `pulumi:"aadBasedSecurityPrincipals"`
 	// Array of all cert based Security Principals.
 	CertBasedSecurityPrincipals []CertBasedSecurityPrincipal `pulumi:"certBasedSecurityPrincipals"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount *string `pulumi:"ledgerStorageAccount"`
 	// Type of Confidential Ledger
 	LedgerType *string `pulumi:"ledgerType"`
 }
@@ -379,8 +377,6 @@ type LedgerPropertiesArgs struct {
 	AadBasedSecurityPrincipals AADBasedSecurityPrincipalArrayInput `pulumi:"aadBasedSecurityPrincipals"`
 	// Array of all cert based Security Principals.
 	CertBasedSecurityPrincipals CertBasedSecurityPrincipalArrayInput `pulumi:"certBasedSecurityPrincipals"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount pulumi.StringPtrInput `pulumi:"ledgerStorageAccount"`
 	// Type of Confidential Ledger
 	LedgerType pulumi.StringPtrInput `pulumi:"ledgerType"`
 }
@@ -473,11 +469,6 @@ func (o LedgerPropertiesOutput) CertBasedSecurityPrincipals() CertBasedSecurityP
 	return o.ApplyT(func(v LedgerProperties) []CertBasedSecurityPrincipal { return v.CertBasedSecurityPrincipals }).(CertBasedSecurityPrincipalArrayOutput)
 }
 
-// Name of the Blob Storage Account for saving ledger files
-func (o LedgerPropertiesOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LedgerProperties) *string { return v.LedgerStorageAccount }).(pulumi.StringPtrOutput)
-}
-
 // Type of Confidential Ledger
 func (o LedgerPropertiesOutput) LedgerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LedgerProperties) *string { return v.LedgerType }).(pulumi.StringPtrOutput)
@@ -527,16 +518,6 @@ func (o LedgerPropertiesPtrOutput) CertBasedSecurityPrincipals() CertBasedSecuri
 	}).(CertBasedSecurityPrincipalArrayOutput)
 }
 
-// Name of the Blob Storage Account for saving ledger files
-func (o LedgerPropertiesPtrOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LedgerProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LedgerStorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
 // Type of Confidential Ledger
 func (o LedgerPropertiesPtrOutput) LedgerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LedgerProperties) *string {
@@ -559,8 +540,6 @@ type LedgerPropertiesResponse struct {
 	LedgerInternalNamespace string `pulumi:"ledgerInternalNamespace"`
 	// Unique name for the Confidential Ledger.
 	LedgerName string `pulumi:"ledgerName"`
-	// Name of the Blob Storage Account for saving ledger files
-	LedgerStorageAccount *string `pulumi:"ledgerStorageAccount"`
 	// Type of Confidential Ledger
 	LedgerType *string `pulumi:"ledgerType"`
 	// Endpoint for calling Ledger Service.
@@ -611,11 +590,6 @@ func (o LedgerPropertiesResponseOutput) LedgerInternalNamespace() pulumi.StringO
 // Unique name for the Confidential Ledger.
 func (o LedgerPropertiesResponseOutput) LedgerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LedgerPropertiesResponse) string { return v.LedgerName }).(pulumi.StringOutput)
-}
-
-// Name of the Blob Storage Account for saving ledger files
-func (o LedgerPropertiesResponseOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LedgerPropertiesResponse) *string { return v.LedgerStorageAccount }).(pulumi.StringPtrOutput)
 }
 
 // Type of Confidential Ledger

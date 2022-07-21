@@ -11,7 +11,7 @@ import (
 )
 
 // Certificate resource payload.
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:appplatform:getCertificate", args, &rv, opts...)
@@ -37,7 +37,9 @@ type LookupCertificateResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the certificate resource payload.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -94,8 +96,13 @@ func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
 }
 
 // Properties of the certificate resource payload.
-func (o LookupCertificateResultOutput) Properties() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v LookupCertificateResult) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
+func (o LookupCertificateResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupCertificateResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupCertificateResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCertificateResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Peerings in a virtual network resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkPeering")]
     public partial class VirtualNetworkPeering : Pulumi.CustomResource
@@ -59,13 +59,19 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> PeeringState { get; private set; } = null!;
 
         /// <summary>
+        /// The peering sync status of the virtual network peering.
+        /// </summary>
+        [Output("peeringSyncLevel")]
+        public Output<string?> PeeringSyncLevel { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the virtual network peering resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The reference to the remote virtual network address space.
+        /// The reference to the address space peered with the remote virtual network.
         /// </summary>
         [Output("remoteAddressSpace")]
         public Output<Outputs.AddressSpaceResponse?> RemoteAddressSpace { get; private set; } = null!;
@@ -81,6 +87,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("remoteVirtualNetwork")]
         public Output<Outputs.SubResourceResponse?> RemoteVirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the current address space of the remote virtual network.
+        /// </summary>
+        [Output("remoteVirtualNetworkAddressSpace")]
+        public Output<Outputs.AddressSpaceResponse?> RemoteVirtualNetworkAddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the remote virtual network's encryption
+        /// </summary>
+        [Output("remoteVirtualNetworkEncryption")]
+        public Output<Outputs.VirtualNetworkEncryptionResponse> RemoteVirtualNetworkEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The resourceGuid property of the Virtual Network peering resource.
@@ -229,7 +247,13 @@ namespace Pulumi.AzureNative.Network
         public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkPeeringState>? PeeringState { get; set; }
 
         /// <summary>
-        /// The reference to the remote virtual network address space.
+        /// The peering sync status of the virtual network peering.
+        /// </summary>
+        [Input("peeringSyncLevel")]
+        public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkPeeringLevel>? PeeringSyncLevel { get; set; }
+
+        /// <summary>
+        /// The reference to the address space peered with the remote virtual network.
         /// </summary>
         [Input("remoteAddressSpace")]
         public Input<Inputs.AddressSpaceArgs>? RemoteAddressSpace { get; set; }
@@ -247,10 +271,22 @@ namespace Pulumi.AzureNative.Network
         public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
 
         /// <summary>
+        /// The reference to the current address space of the remote virtual network.
+        /// </summary>
+        [Input("remoteVirtualNetworkAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? RemoteVirtualNetworkAddressSpace { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
+        /// </summary>
+        [Input("syncRemoteAddressSpace")]
+        public Input<string>? SyncRemoteAddressSpace { get; set; }
 
         /// <summary>
         /// Resource type.

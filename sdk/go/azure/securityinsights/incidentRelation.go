@@ -12,13 +12,13 @@ import (
 )
 
 // Represents a relation between two resources
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 type IncidentRelation struct {
 	pulumi.CustomResourceState
 
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource ID of the related resource
 	RelatedResourceId pulumi.StringOutput `pulumi:"relatedResourceId"`
@@ -30,7 +30,7 @@ type IncidentRelation struct {
 	RelatedResourceType pulumi.StringOutput `pulumi:"relatedResourceType"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -43,9 +43,6 @@ func NewIncidentRelation(ctx *pulumi.Context,
 
 	if args.IncidentId == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentId'")
-	}
-	if args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
 	if args.RelatedResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'RelatedResourceId'")
@@ -126,8 +123,6 @@ func (IncidentRelationState) ElementType() reflect.Type {
 type incidentRelationArgs struct {
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The resource ID of the related resource
 	RelatedResourceId string `pulumi:"relatedResourceId"`
 	// Relation Name
@@ -142,8 +137,6 @@ type incidentRelationArgs struct {
 type IncidentRelationArgs struct {
 	// Incident ID
 	IncidentId pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput
 	// The resource ID of the related resource
 	RelatedResourceId pulumi.StringInput
 	// Relation Name
@@ -196,7 +189,7 @@ func (o IncidentRelationOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentRelation) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o IncidentRelationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -226,7 +219,7 @@ func (o IncidentRelationOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *IncidentRelation) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o IncidentRelationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

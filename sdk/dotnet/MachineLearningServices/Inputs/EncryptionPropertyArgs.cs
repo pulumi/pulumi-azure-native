@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// Customer Key vault properties.
         /// </summary>
         [Input("keyVaultProperties", required: true)]
-        public Input<Inputs.KeyVaultPropertiesArgs> KeyVaultProperties { get; set; } = null!;
+        public Input<Inputs.EncryptionKeyVaultPropertiesArgs> KeyVaultProperties { get; set; } = null!;
 
         /// <summary>
         /// Indicates whether or not the encryption is enabled for the workspace.

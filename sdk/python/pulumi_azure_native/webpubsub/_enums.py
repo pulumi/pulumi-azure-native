@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ACLAction',
-    'FeatureFlags',
     'ManagedIdentityType',
     'PrivateLinkServiceConnectionStatus',
     'UpstreamAuthType',
@@ -17,28 +16,15 @@ __all__ = [
 
 class ACLAction(str, Enum):
     """
-    Default action when no other rule matches
+    Azure Networking ACL Action.
     """
     ALLOW = "Allow"
     DENY = "Deny"
 
 
-class FeatureFlags(str, Enum):
-    """
-    FeatureFlags is the supported features of Azure SignalR service.
-     - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-     - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-     - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-     
-    """
-    ENABLE_CONNECTIVITY_LOGS = "EnableConnectivityLogs"
-    ENABLE_MESSAGING_LOGS = "EnableMessagingLogs"
-    ENABLE_LIVE_TRACE = "EnableLiveTrace"
-
-
 class ManagedIdentityType(str, Enum):
     """
-    Represent the identity type: systemAssigned, userAssigned, None
+    Represents the identity type: systemAssigned, userAssigned, None
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
@@ -65,7 +51,7 @@ class UpstreamAuthType(str, Enum):
 
 class WebPubSubRequestType(str, Enum):
     """
-    Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    The incoming request type to the service
     """
     CLIENT_CONNECTION = "ClientConnection"
     SERVER_CONNECTION = "ServerConnection"

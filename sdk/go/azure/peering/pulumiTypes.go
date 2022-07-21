@@ -1156,6 +1156,100 @@ func (o ExchangeConnectionResponseArrayOutput) Index(i pulumi.IntInput) Exchange
 	}).(ExchangeConnectionResponseOutput)
 }
 
+// The properties that define a Log Analytics Workspace.
+type LogAnalyticsWorkspacePropertiesResponse struct {
+	// The list of connected agents.
+	ConnectedAgents []string `pulumi:"connectedAgents"`
+	// The Workspace Key.
+	Key string `pulumi:"key"`
+	// The Workspace ID.
+	WorkspaceID string `pulumi:"workspaceID"`
+}
+
+// The properties that define a Log Analytics Workspace.
+type LogAnalyticsWorkspacePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsWorkspacePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsWorkspacePropertiesResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsWorkspacePropertiesResponseOutput) ToLogAnalyticsWorkspacePropertiesResponseOutput() LogAnalyticsWorkspacePropertiesResponseOutput {
+	return o
+}
+
+func (o LogAnalyticsWorkspacePropertiesResponseOutput) ToLogAnalyticsWorkspacePropertiesResponseOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponseOutput {
+	return o
+}
+
+// The list of connected agents.
+func (o LogAnalyticsWorkspacePropertiesResponseOutput) ConnectedAgents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAnalyticsWorkspacePropertiesResponse) []string { return v.ConnectedAgents }).(pulumi.StringArrayOutput)
+}
+
+// The Workspace Key.
+func (o LogAnalyticsWorkspacePropertiesResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAnalyticsWorkspacePropertiesResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Workspace ID.
+func (o LogAnalyticsWorkspacePropertiesResponseOutput) WorkspaceID() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAnalyticsWorkspacePropertiesResponse) string { return v.WorkspaceID }).(pulumi.StringOutput)
+}
+
+type LogAnalyticsWorkspacePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsWorkspacePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnalyticsWorkspacePropertiesResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) ToLogAnalyticsWorkspacePropertiesResponsePtrOutput() LogAnalyticsWorkspacePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) Elem() LogAnalyticsWorkspacePropertiesResponseOutput {
+	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) LogAnalyticsWorkspacePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogAnalyticsWorkspacePropertiesResponse
+		return ret
+	}).(LogAnalyticsWorkspacePropertiesResponseOutput)
+}
+
+// The list of connected agents.
+func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) ConnectedAgents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectedAgents
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Workspace Key.
+func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Workspace ID.
+func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) WorkspaceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceID
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties that define a direct peering.
 type PeeringPropertiesDirect struct {
 	// The set of connections that constitute a direct peering.
@@ -1957,14 +2051,8 @@ func (o PeeringServiceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 
 // The SKU that defines the tier and kind of the peering.
 type PeeringSku struct {
-	// The family of the peering SKU.
-	Family *string `pulumi:"family"`
 	// The name of the peering SKU.
 	Name *string `pulumi:"name"`
-	// The size of the peering SKU.
-	Size *string `pulumi:"size"`
-	// The tier of the peering SKU.
-	Tier *string `pulumi:"tier"`
 }
 
 // PeeringSkuInput is an input type that accepts PeeringSkuArgs and PeeringSkuOutput values.
@@ -1980,14 +2068,8 @@ type PeeringSkuInput interface {
 
 // The SKU that defines the tier and kind of the peering.
 type PeeringSkuArgs struct {
-	// The family of the peering SKU.
-	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the peering SKU.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The size of the peering SKU.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the peering SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PeeringSkuArgs) ElementType() reflect.Type {
@@ -2017,36 +2099,21 @@ func (o PeeringSkuOutput) ToPeeringSkuOutputWithContext(ctx context.Context) Pee
 	return o
 }
 
-// The family of the peering SKU.
-func (o PeeringSkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeeringSku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
 // The name of the peering SKU.
 func (o PeeringSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The size of the peering SKU.
-func (o PeeringSkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeeringSku) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// The tier of the peering SKU.
-func (o PeeringSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeeringSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
 // The SKU that defines the tier and kind of the peering.
 type PeeringSkuResponse struct {
 	// The family of the peering SKU.
-	Family *string `pulumi:"family"`
+	Family string `pulumi:"family"`
 	// The name of the peering SKU.
 	Name *string `pulumi:"name"`
 	// The size of the peering SKU.
-	Size *string `pulumi:"size"`
+	Size string `pulumi:"size"`
 	// The tier of the peering SKU.
-	Tier *string `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
 }
 
 // The SKU that defines the tier and kind of the peering.
@@ -2065,8 +2132,8 @@ func (o PeeringSkuResponseOutput) ToPeeringSkuResponseOutputWithContext(ctx cont
 }
 
 // The family of the peering SKU.
-func (o PeeringSkuResponseOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+func (o PeeringSkuResponseOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringSkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
 // The name of the peering SKU.
@@ -2075,13 +2142,13 @@ func (o PeeringSkuResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The size of the peering SKU.
-func (o PeeringSkuResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+func (o PeeringSkuResponseOutput) Size() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringSkuResponse) string { return v.Size }).(pulumi.StringOutput)
 }
 
 // The tier of the peering SKU.
-func (o PeeringSkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o PeeringSkuResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 // The sub resource.
@@ -2301,6 +2368,8 @@ func init() {
 	pulumi.RegisterOutputType(ExchangeConnectionArrayOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsWorkspacePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsWorkspacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectPtrOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectResponseOutput{})

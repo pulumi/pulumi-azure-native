@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Trigger details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:FileEventTrigger")]
     public partial class FileEventTrigger : Pulumi.CustomResource
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<Outputs.FileSourceInfoResponse> SourceInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Trigger in DataBoxEdge Resource
+        /// Metadata pertaining to creation and last modification of Trigger
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

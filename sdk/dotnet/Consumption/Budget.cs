@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Consumption
 {
     /// <summary>
     /// A budget resource.
-    /// API Version: 2019-10-01.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:consumption:Budget")]
     public partial class Budget : Pulumi.CustomResource

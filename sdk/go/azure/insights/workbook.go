@@ -11,40 +11,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights workbook definition.
-// API Version: 2020-10-20.
+// A workbook definition.
+// API Version: 2022-04-01.
 type Workbook struct {
 	pulumi.CustomResourceState
 
 	// Workbook category, as defined by the user at creation time.
 	Category pulumi.StringOutput `pulumi:"category"`
+	// The description of the workbook.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Resource etag
-	Etag pulumi.StringMapOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Identity used for BYOS
-	Identity WorkbookManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
+	Identity WorkbookResourceResponseIdentityPtrOutput `pulumi:"identity"`
+	// The kind of workbook. Only valid value is shared.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The unique revision id for this workbook definition
+	Revision pulumi.StringOutput `pulumi:"revision"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
 	// ResourceId for a source resource.
 	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
-	// BYOS Storage Account URI
+	// The resourceId to the storage account when bring your own storage is used
 	StorageUri pulumi.StringPtrOutput `pulumi:"storageUri"`
-	// Resource tags
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.
 	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Azure resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringOutput `pulumi:"type"`
 	// Unique user id of the specific user that owns this workbook.
 	UserId pulumi.StringOutput `pulumi:"userId"`
-	// Workbook version
+	// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
@@ -122,33 +128,29 @@ func (WorkbookState) ElementType() reflect.Type {
 type workbookArgs struct {
 	// Workbook category, as defined by the user at creation time.
 	Category string `pulumi:"category"`
+	// The description of the workbook.
+	Description *string `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName string `pulumi:"displayName"`
-	// Azure resource Id
-	Id *string `pulumi:"id"`
 	// Identity used for BYOS
-	Identity *WorkbookManagedIdentity `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
+	Identity *WorkbookResourceIdentity `pulumi:"identity"`
+	// The kind of workbook. Only valid value is shared.
 	Kind *string `pulumi:"kind"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
+	// The name of the resource.
 	ResourceName *string `pulumi:"resourceName"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// ResourceId for a source resource.
 	SourceId *string `pulumi:"sourceId"`
-	// BYOS Storage Account URI
+	// The resourceId to the storage account when bring your own storage is used
 	StorageUri *string `pulumi:"storageUri"`
-	// Resource tags
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
-	// Workbook version
+	// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
 	Version *string `pulumi:"version"`
 }
 
@@ -156,33 +158,29 @@ type workbookArgs struct {
 type WorkbookArgs struct {
 	// Workbook category, as defined by the user at creation time.
 	Category pulumi.StringInput
+	// The description of the workbook.
+	Description pulumi.StringPtrInput
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringInput
-	// Azure resource Id
-	Id pulumi.StringPtrInput
 	// Identity used for BYOS
-	Identity WorkbookManagedIdentityPtrInput
-	// The kind of workbook. Choices are user and shared.
+	Identity WorkbookResourceIdentityPtrInput
+	// The kind of workbook. Only valid value is shared.
 	Kind pulumi.StringPtrInput
-	// Resource location
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
+	// The name of the resource.
 	ResourceName pulumi.StringPtrInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput
 	// ResourceId for a source resource.
 	SourceId pulumi.StringPtrInput
-	// BYOS Storage Account URI
+	// The resourceId to the storage account when bring your own storage is used
 	StorageUri pulumi.StringPtrInput
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
-	// Workbook version
+	// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
 	Version pulumi.StringPtrInput
 }
 
@@ -228,34 +226,44 @@ func (o WorkbookOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
 }
 
+// The description of the workbook.
+func (o WorkbookOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // The user-defined name (display name) of the workbook.
 func (o WorkbookOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Resource etag
-func (o WorkbookOutput) Etag() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Workbook) pulumi.StringMapOutput { return v.Etag }).(pulumi.StringMapOutput)
+func (o WorkbookOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Identity used for BYOS
-func (o WorkbookOutput) Identity() WorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *Workbook) WorkbookManagedIdentityResponsePtrOutput { return v.Identity }).(WorkbookManagedIdentityResponsePtrOutput)
+func (o WorkbookOutput) Identity() WorkbookResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *Workbook) WorkbookResourceResponseIdentityPtrOutput { return v.Identity }).(WorkbookResourceResponseIdentityPtrOutput)
 }
 
-// The kind of workbook. Choices are user and shared.
+// The kind of workbook. Only valid value is shared.
 func (o WorkbookOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource location
-func (o WorkbookOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+// The geo-location where the resource lives
+func (o WorkbookOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Azure resource name
-func (o WorkbookOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+// The name of the resource
+func (o WorkbookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The unique revision id for this workbook definition
+func (o WorkbookOutput) Revision() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Revision }).(pulumi.StringOutput)
 }
 
 // Configuration of this particular workbook. Configuration data is a string containing valid JSON
@@ -268,12 +276,17 @@ func (o WorkbookOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
-// BYOS Storage Account URI
+// The resourceId to the storage account when bring your own storage is used
 func (o WorkbookOutput) StorageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.StorageUri }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
+// Metadata pertaining to creation and last modification of the resource.
+func (o WorkbookOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Workbook) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o WorkbookOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -283,9 +296,9 @@ func (o WorkbookOutput) TimeModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
 }
 
-// Azure resource type
-func (o WorkbookOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o WorkbookOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 // Unique user id of the specific user that owns this workbook.
@@ -293,7 +306,7 @@ func (o WorkbookOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
-// Workbook version
+// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
 func (o WorkbookOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }

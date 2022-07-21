@@ -11,7 +11,7 @@ import (
 )
 
 // OAuth Server Secrets Contract.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func ListAuthorizationServerSecrets(ctx *pulumi.Context, args *ListAuthorizationServerSecretsArgs, opts ...pulumi.InvokeOption) (*ListAuthorizationServerSecretsResult, error) {
 	var rv ListAuthorizationServerSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listAuthorizationServerSecrets", args, &rv, opts...)

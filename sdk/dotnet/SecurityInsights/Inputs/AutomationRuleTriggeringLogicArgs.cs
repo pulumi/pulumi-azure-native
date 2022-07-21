@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     public sealed class AutomationRuleTriggeringLogicArgs : Pulumi.ResourceArgs
     {
         [Input("conditions")]
-        private InputList<Inputs.AutomationRulePropertyValuesConditionArgs>? _conditions;
+        private InputList<Inputs.PropertyConditionPropertiesArgs>? _conditions;
 
         /// <summary>
         /// The conditions to evaluate to determine if the automation rule should be triggered on a given object
         /// </summary>
-        public InputList<Inputs.AutomationRulePropertyValuesConditionArgs> Conditions
+        public InputList<Inputs.PropertyConditionPropertiesArgs> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Inputs.AutomationRulePropertyValuesConditionArgs>());
+            get => _conditions ?? (_conditions = new InputList<Inputs.PropertyConditionPropertiesArgs>());
             set => _conditions = value;
         }
 
@@ -34,20 +34,14 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         public Input<string>? ExpirationTimeUtc { get; set; }
 
         /// <summary>
-        /// Determines whether the automation rule is enabled or disabled.
+        /// Determines whether the automation rule is enabled or disabled
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// The type of object the automation rule triggers on
-        /// </summary>
         [Input("triggersOn", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.TriggersOn> TriggersOn { get; set; } = null!;
 
-        /// <summary>
-        /// The type of event the automation rule triggers on
-        /// </summary>
         [Input("triggersWhen", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.TriggersWhen> TriggersWhen { get; set; } = null!;
 

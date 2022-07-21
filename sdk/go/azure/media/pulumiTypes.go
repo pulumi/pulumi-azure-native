@@ -62,7 +62,240 @@ type AbsoluteClipTimeResponse struct {
 	Time string `pulumi:"time"`
 }
 
+type AccessControl struct {
+	// The behavior for IP access control in Key Delivery.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+	IpAllowList []string `pulumi:"ipAllowList"`
+}
+
+// AccessControlInput is an input type that accepts AccessControlArgs and AccessControlOutput values.
+// You can construct a concrete instance of `AccessControlInput` via:
+//
+//          AccessControlArgs{...}
+type AccessControlInput interface {
+	pulumi.Input
+
+	ToAccessControlOutput() AccessControlOutput
+	ToAccessControlOutputWithContext(context.Context) AccessControlOutput
+}
+
+type AccessControlArgs struct {
+	// The behavior for IP access control in Key Delivery.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+	IpAllowList pulumi.StringArrayInput `pulumi:"ipAllowList"`
+}
+
+func (AccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControl)(nil)).Elem()
+}
+
+func (i AccessControlArgs) ToAccessControlOutput() AccessControlOutput {
+	return i.ToAccessControlOutputWithContext(context.Background())
+}
+
+func (i AccessControlArgs) ToAccessControlOutputWithContext(ctx context.Context) AccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlOutput)
+}
+
+func (i AccessControlArgs) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return i.ToAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i AccessControlArgs) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlOutput).ToAccessControlPtrOutputWithContext(ctx)
+}
+
+// AccessControlPtrInput is an input type that accepts AccessControlArgs, AccessControlPtr and AccessControlPtrOutput values.
+// You can construct a concrete instance of `AccessControlPtrInput` via:
+//
+//          AccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessControlPtrInput interface {
+	pulumi.Input
+
+	ToAccessControlPtrOutput() AccessControlPtrOutput
+	ToAccessControlPtrOutputWithContext(context.Context) AccessControlPtrOutput
+}
+
+type accessControlPtrType AccessControlArgs
+
+func AccessControlPtr(v *AccessControlArgs) AccessControlPtrInput {
+	return (*accessControlPtrType)(v)
+}
+
+func (*accessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessControl)(nil)).Elem()
+}
+
+func (i *accessControlPtrType) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return i.ToAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *accessControlPtrType) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlPtrOutput)
+}
+
+type AccessControlOutput struct{ *pulumi.OutputState }
+
+func (AccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControl)(nil)).Elem()
+}
+
+func (o AccessControlOutput) ToAccessControlOutput() AccessControlOutput {
+	return o
+}
+
+func (o AccessControlOutput) ToAccessControlOutputWithContext(ctx context.Context) AccessControlOutput {
+	return o
+}
+
+func (o AccessControlOutput) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return o.ToAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o AccessControlOutput) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessControl) *AccessControl {
+		return &v
+	}).(AccessControlPtrOutput)
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessControl) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessControl) []string { return v.IpAllowList }).(pulumi.StringArrayOutput)
+}
+
+type AccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessControl)(nil)).Elem()
+}
+
+func (o AccessControlPtrOutput) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return o
+}
+
+func (o AccessControlPtrOutput) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return o
+}
+
+func (o AccessControlPtrOutput) Elem() AccessControlOutput {
+	return o.ApplyT(func(v *AccessControl) AccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControl
+		return ret
+	}).(AccessControlOutput)
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlPtrOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAllowList
+	}).(pulumi.StringArrayOutput)
+}
+
+type AccessControlResponse struct {
+	// The behavior for IP access control in Key Delivery.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+	IpAllowList []string `pulumi:"ipAllowList"`
+}
+
+type AccessControlResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessControlResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlResponse)(nil)).Elem()
+}
+
+func (o AccessControlResponseOutput) ToAccessControlResponseOutput() AccessControlResponseOutput {
+	return o
+}
+
+func (o AccessControlResponseOutput) ToAccessControlResponseOutputWithContext(ctx context.Context) AccessControlResponseOutput {
+	return o
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlResponseOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessControlResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlResponseOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessControlResponse) []string { return v.IpAllowList }).(pulumi.StringArrayOutput)
+}
+
+type AccessControlResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessControlResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessControlResponse)(nil)).Elem()
+}
+
+func (o AccessControlResponsePtrOutput) ToAccessControlResponsePtrOutput() AccessControlResponsePtrOutput {
+	return o
+}
+
+func (o AccessControlResponsePtrOutput) ToAccessControlResponsePtrOutputWithContext(ctx context.Context) AccessControlResponsePtrOutput {
+	return o
+}
+
+func (o AccessControlResponsePtrOutput) Elem() AccessControlResponseOutput {
+	return o.ApplyT(func(v *AccessControlResponse) AccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControlResponse
+		return ret
+	}).(AccessControlResponseOutput)
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessControlResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlResponsePtrOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessControlResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAllowList
+	}).(pulumi.StringArrayOutput)
+}
+
 type AccountEncryption struct {
+	// The Key Vault identity.
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// The properties of the key used to encrypt the account.
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// The type of key used to encrypt the Account Key.
@@ -81,6 +314,8 @@ type AccountEncryptionInput interface {
 }
 
 type AccountEncryptionArgs struct {
+	// The Key Vault identity.
+	Identity ResourceIdentityPtrInput `pulumi:"identity"`
 	// The properties of the key used to encrypt the account.
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 	// The type of key used to encrypt the Account Key.
@@ -164,6 +399,11 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx con
 	}).(AccountEncryptionPtrOutput)
 }
 
+// The Key Vault identity.
+func (o AccountEncryptionOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
+}
+
 // The properties of the key used to encrypt the account.
 func (o AccountEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
@@ -198,6 +438,16 @@ func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
 	}).(AccountEncryptionOutput)
 }
 
+// The Key Vault identity.
+func (o AccountEncryptionPtrOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *ResourceIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(ResourceIdentityPtrOutput)
+}
+
 // The properties of the key used to encrypt the account.
 func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *KeyVaultProperties {
@@ -219,8 +469,12 @@ func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type AccountEncryptionResponse struct {
+	// The Key Vault identity.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The properties of the key used to encrypt the account.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// The current status of the Key Vault mapping.
+	Status string `pulumi:"status"`
 	// The type of key used to encrypt the Account Key.
 	Type string `pulumi:"type"`
 }
@@ -239,9 +493,19 @@ func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponseOutputWithCo
 	return o
 }
 
+// The Key Vault identity.
+func (o AccountEncryptionResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
 // The properties of the key used to encrypt the account.
 func (o AccountEncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The current status of the Key Vault mapping.
+func (o AccountEncryptionResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // The type of key used to encrypt the Account Key.
@@ -273,6 +537,16 @@ func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutp
 	}).(AccountEncryptionResponseOutput)
 }
 
+// The Key Vault identity.
+func (o AccountEncryptionResponsePtrOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *ResourceIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(ResourceIdentityResponsePtrOutput)
+}
+
 // The properties of the key used to encrypt the account.
 func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *KeyVaultPropertiesResponse {
@@ -281,6 +555,16 @@ func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropert
 		}
 		return v.KeyVaultProperties
 	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The current status of the Key Vault mapping.
+func (o AccountEncryptionResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of key used to encrypt the Account Key.
@@ -675,6 +959,223 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput) Index(i pulum
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseOutput)
 }
 
+// The streaming endpoint current sku.
+type ArmStreamingEndpointCurrentSku struct {
+	// The streaming endpoint sku capacity.
+	Capacity *int `pulumi:"capacity"`
+}
+
+// ArmStreamingEndpointCurrentSkuInput is an input type that accepts ArmStreamingEndpointCurrentSkuArgs and ArmStreamingEndpointCurrentSkuOutput values.
+// You can construct a concrete instance of `ArmStreamingEndpointCurrentSkuInput` via:
+//
+//          ArmStreamingEndpointCurrentSkuArgs{...}
+type ArmStreamingEndpointCurrentSkuInput interface {
+	pulumi.Input
+
+	ToArmStreamingEndpointCurrentSkuOutput() ArmStreamingEndpointCurrentSkuOutput
+	ToArmStreamingEndpointCurrentSkuOutputWithContext(context.Context) ArmStreamingEndpointCurrentSkuOutput
+}
+
+// The streaming endpoint current sku.
+type ArmStreamingEndpointCurrentSkuArgs struct {
+	// The streaming endpoint sku capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+}
+
+func (ArmStreamingEndpointCurrentSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmStreamingEndpointCurrentSku)(nil)).Elem()
+}
+
+func (i ArmStreamingEndpointCurrentSkuArgs) ToArmStreamingEndpointCurrentSkuOutput() ArmStreamingEndpointCurrentSkuOutput {
+	return i.ToArmStreamingEndpointCurrentSkuOutputWithContext(context.Background())
+}
+
+func (i ArmStreamingEndpointCurrentSkuArgs) ToArmStreamingEndpointCurrentSkuOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmStreamingEndpointCurrentSkuOutput)
+}
+
+func (i ArmStreamingEndpointCurrentSkuArgs) ToArmStreamingEndpointCurrentSkuPtrOutput() ArmStreamingEndpointCurrentSkuPtrOutput {
+	return i.ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(context.Background())
+}
+
+func (i ArmStreamingEndpointCurrentSkuArgs) ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmStreamingEndpointCurrentSkuOutput).ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(ctx)
+}
+
+// ArmStreamingEndpointCurrentSkuPtrInput is an input type that accepts ArmStreamingEndpointCurrentSkuArgs, ArmStreamingEndpointCurrentSkuPtr and ArmStreamingEndpointCurrentSkuPtrOutput values.
+// You can construct a concrete instance of `ArmStreamingEndpointCurrentSkuPtrInput` via:
+//
+//          ArmStreamingEndpointCurrentSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmStreamingEndpointCurrentSkuPtrInput interface {
+	pulumi.Input
+
+	ToArmStreamingEndpointCurrentSkuPtrOutput() ArmStreamingEndpointCurrentSkuPtrOutput
+	ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(context.Context) ArmStreamingEndpointCurrentSkuPtrOutput
+}
+
+type armStreamingEndpointCurrentSkuPtrType ArmStreamingEndpointCurrentSkuArgs
+
+func ArmStreamingEndpointCurrentSkuPtr(v *ArmStreamingEndpointCurrentSkuArgs) ArmStreamingEndpointCurrentSkuPtrInput {
+	return (*armStreamingEndpointCurrentSkuPtrType)(v)
+}
+
+func (*armStreamingEndpointCurrentSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmStreamingEndpointCurrentSku)(nil)).Elem()
+}
+
+func (i *armStreamingEndpointCurrentSkuPtrType) ToArmStreamingEndpointCurrentSkuPtrOutput() ArmStreamingEndpointCurrentSkuPtrOutput {
+	return i.ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *armStreamingEndpointCurrentSkuPtrType) ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmStreamingEndpointCurrentSkuPtrOutput)
+}
+
+// The streaming endpoint current sku.
+type ArmStreamingEndpointCurrentSkuOutput struct{ *pulumi.OutputState }
+
+func (ArmStreamingEndpointCurrentSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmStreamingEndpointCurrentSku)(nil)).Elem()
+}
+
+func (o ArmStreamingEndpointCurrentSkuOutput) ToArmStreamingEndpointCurrentSkuOutput() ArmStreamingEndpointCurrentSkuOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuOutput) ToArmStreamingEndpointCurrentSkuOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuOutput) ToArmStreamingEndpointCurrentSkuPtrOutput() ArmStreamingEndpointCurrentSkuPtrOutput {
+	return o.ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(context.Background())
+}
+
+func (o ArmStreamingEndpointCurrentSkuOutput) ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmStreamingEndpointCurrentSku) *ArmStreamingEndpointCurrentSku {
+		return &v
+	}).(ArmStreamingEndpointCurrentSkuPtrOutput)
+}
+
+// The streaming endpoint sku capacity.
+func (o ArmStreamingEndpointCurrentSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArmStreamingEndpointCurrentSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+type ArmStreamingEndpointCurrentSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (ArmStreamingEndpointCurrentSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmStreamingEndpointCurrentSku)(nil)).Elem()
+}
+
+func (o ArmStreamingEndpointCurrentSkuPtrOutput) ToArmStreamingEndpointCurrentSkuPtrOutput() ArmStreamingEndpointCurrentSkuPtrOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuPtrOutput) ToArmStreamingEndpointCurrentSkuPtrOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuPtrOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuPtrOutput) Elem() ArmStreamingEndpointCurrentSkuOutput {
+	return o.ApplyT(func(v *ArmStreamingEndpointCurrentSku) ArmStreamingEndpointCurrentSku {
+		if v != nil {
+			return *v
+		}
+		var ret ArmStreamingEndpointCurrentSku
+		return ret
+	}).(ArmStreamingEndpointCurrentSkuOutput)
+}
+
+// The streaming endpoint sku capacity.
+func (o ArmStreamingEndpointCurrentSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArmStreamingEndpointCurrentSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The streaming endpoint current sku.
+type ArmStreamingEndpointCurrentSkuResponse struct {
+	// The streaming endpoint sku capacity.
+	Capacity *int `pulumi:"capacity"`
+	// The streaming endpoint sku name.
+	Name string `pulumi:"name"`
+}
+
+// The streaming endpoint current sku.
+type ArmStreamingEndpointCurrentSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmStreamingEndpointCurrentSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmStreamingEndpointCurrentSkuResponse)(nil)).Elem()
+}
+
+func (o ArmStreamingEndpointCurrentSkuResponseOutput) ToArmStreamingEndpointCurrentSkuResponseOutput() ArmStreamingEndpointCurrentSkuResponseOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuResponseOutput) ToArmStreamingEndpointCurrentSkuResponseOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuResponseOutput {
+	return o
+}
+
+// The streaming endpoint sku capacity.
+func (o ArmStreamingEndpointCurrentSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArmStreamingEndpointCurrentSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The streaming endpoint sku name.
+func (o ArmStreamingEndpointCurrentSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmStreamingEndpointCurrentSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ArmStreamingEndpointCurrentSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArmStreamingEndpointCurrentSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmStreamingEndpointCurrentSkuResponse)(nil)).Elem()
+}
+
+func (o ArmStreamingEndpointCurrentSkuResponsePtrOutput) ToArmStreamingEndpointCurrentSkuResponsePtrOutput() ArmStreamingEndpointCurrentSkuResponsePtrOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuResponsePtrOutput) ToArmStreamingEndpointCurrentSkuResponsePtrOutputWithContext(ctx context.Context) ArmStreamingEndpointCurrentSkuResponsePtrOutput {
+	return o
+}
+
+func (o ArmStreamingEndpointCurrentSkuResponsePtrOutput) Elem() ArmStreamingEndpointCurrentSkuResponseOutput {
+	return o.ApplyT(func(v *ArmStreamingEndpointCurrentSkuResponse) ArmStreamingEndpointCurrentSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmStreamingEndpointCurrentSkuResponse
+		return ret
+	}).(ArmStreamingEndpointCurrentSkuResponseOutput)
+}
+
+// The streaming endpoint sku capacity.
+func (o ArmStreamingEndpointCurrentSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArmStreamingEndpointCurrentSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The streaming endpoint sku name.
+func (o ArmStreamingEndpointCurrentSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmStreamingEndpointCurrentSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Asset File Storage encryption metadata.
 type AssetFileEncryptionMetadataResponse struct {
 	// The Asset File Id.
@@ -958,6 +1459,8 @@ type AudioTrackResponse struct {
 
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPreset struct {
+	// Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
+	Configurations *PresetConfigurations `pulumi:"configurations"`
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
@@ -967,6 +1470,8 @@ type BuiltInStandardEncoderPreset struct {
 
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponse struct {
+	// Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
+	Configurations *PresetConfigurationsResponse `pulumi:"configurations"`
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
@@ -4672,6 +5177,8 @@ type H264Layer struct {
 	Bitrate int `pulumi:"bitrate"`
 	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
 	BufferWindow *string `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 23.
+	Crf *float64 `pulumi:"crf"`
 	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 	EntropyMode *string `pulumi:"entropyMode"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
@@ -4684,9 +5191,6 @@ type H264Layer struct {
 	Level *string `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Layer'.
-	OdataType string `pulumi:"odataType"`
 	// We currently support Baseline, Main, High, High422, High444. Default is Auto.
 	Profile *string `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
@@ -4707,6 +5211,8 @@ type H264LayerResponse struct {
 	Bitrate int `pulumi:"bitrate"`
 	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
 	BufferWindow *string `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 23.
+	Crf *float64 `pulumi:"crf"`
 	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 	EntropyMode *string `pulumi:"entropyMode"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
@@ -4719,9 +5225,6 @@ type H264LayerResponse struct {
 	Level *string `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H264Layer'.
-	OdataType string `pulumi:"odataType"`
 	// We currently support Baseline, Main, High, High422, High444. Default is Auto.
 	Profile *string `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
@@ -4745,6 +5248,8 @@ type H264Video struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.H264Video'.
 	OdataType string `pulumi:"odataType"`
+	// The video rate control mode
+	RateControlMode *string `pulumi:"rateControlMode"`
 	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
 	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
@@ -4766,6 +5271,8 @@ type H264VideoResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.H264Video'.
 	OdataType string `pulumi:"odataType"`
+	// The video rate control mode
+	RateControlMode *string `pulumi:"rateControlMode"`
 	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
 	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
@@ -4784,6 +5291,8 @@ type H265Layer struct {
 	Bitrate int `pulumi:"bitrate"`
 	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
 	BufferWindow *string `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 28.
+	Crf *float64 `pulumi:"crf"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate *string `pulumi:"frameRate"`
 	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
@@ -4794,9 +5303,6 @@ type H265Layer struct {
 	Level *string `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H265Layer'.
-	OdataType string `pulumi:"odataType"`
 	// We currently support Main. Default is Auto.
 	Profile *string `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
@@ -4817,6 +5323,8 @@ type H265LayerResponse struct {
 	Bitrate int `pulumi:"bitrate"`
 	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
 	BufferWindow *string `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 28.
+	Crf *float64 `pulumi:"crf"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate *string `pulumi:"frameRate"`
 	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
@@ -4827,9 +5335,6 @@ type H265LayerResponse struct {
 	Level *string `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.H265Layer'.
-	OdataType string `pulumi:"odataType"`
 	// We currently support Main. Default is Auto.
 	Profile *string `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
@@ -5675,7 +6180,7 @@ type JobInputAsset struct {
 	AssetName string `pulumi:"assetName"`
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End interface{} `pulumi:"end"`
-	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
 	Files []string `pulumi:"files"`
 	// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
 	InputDefinitions []interface{} `pulumi:"inputDefinitions"`
@@ -5694,7 +6199,7 @@ type JobInputAssetResponse struct {
 	AssetName string `pulumi:"assetName"`
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End interface{} `pulumi:"end"`
-	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
 	Files []string `pulumi:"files"`
 	// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
 	InputDefinitions []interface{} `pulumi:"inputDefinitions"`
@@ -5711,7 +6216,7 @@ type JobInputAssetResponse struct {
 type JobInputClip struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End interface{} `pulumi:"end"`
-	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
 	Files []string `pulumi:"files"`
 	// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
 	InputDefinitions []interface{} `pulumi:"inputDefinitions"`
@@ -5728,7 +6233,7 @@ type JobInputClip struct {
 type JobInputClipResponse struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End interface{} `pulumi:"end"`
-	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
 	Files []string `pulumi:"files"`
 	// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
 	InputDefinitions []interface{} `pulumi:"inputDefinitions"`
@@ -5743,11 +6248,11 @@ type JobInputClipResponse struct {
 
 // Represents HTTPS job input.
 type JobInputHttp struct {
-	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters. The query strings will not be returned in service responses to prevent sensitive data exposure.
 	BaseUri *string `pulumi:"baseUri"`
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End interface{} `pulumi:"end"`
-	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
 	Files []string `pulumi:"files"`
 	// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
 	InputDefinitions []interface{} `pulumi:"inputDefinitions"`
@@ -5762,11 +6267,11 @@ type JobInputHttp struct {
 
 // Represents HTTPS job input.
 type JobInputHttpResponse struct {
-	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters. The query strings will not be returned in service responses to prevent sensitive data exposure.
 	BaseUri *string `pulumi:"baseUri"`
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End interface{} `pulumi:"end"`
-	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
 	Files []string `pulumi:"files"`
 	// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
 	InputDefinitions []interface{} `pulumi:"inputDefinitions"`
@@ -5824,6 +6329,8 @@ type JobOutputAsset struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType string `pulumi:"odataType"`
+	// A preset used to override the preset in the corresponding transform output.
+	PresetOverride interface{} `pulumi:"presetOverride"`
 }
 
 // JobOutputAssetInput is an input type that accepts JobOutputAssetArgs and JobOutputAssetOutput values.
@@ -5846,6 +6353,8 @@ type JobOutputAssetArgs struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// A preset used to override the preset in the corresponding transform output.
+	PresetOverride pulumi.Input `pulumi:"presetOverride"`
 }
 
 func (JobOutputAssetArgs) ElementType() reflect.Type {
@@ -5916,6 +6425,11 @@ func (o JobOutputAssetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAsset) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
+// A preset used to override the preset in the corresponding transform output.
+func (o JobOutputAssetOutput) PresetOverride() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobOutputAsset) interface{} { return v.PresetOverride }).(pulumi.AnyOutput)
+}
+
 type JobOutputAssetArrayOutput struct{ *pulumi.OutputState }
 
 func (JobOutputAssetArrayOutput) ElementType() reflect.Type {
@@ -5949,6 +6463,8 @@ type JobOutputAssetResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.JobOutputAsset'.
 	OdataType string `pulumi:"odataType"`
+	// A preset used to override the preset in the corresponding transform output.
+	PresetOverride interface{} `pulumi:"presetOverride"`
 	// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
 	Progress int `pulumi:"progress"`
 	// The UTC date and time at which this Job Output began processing.
@@ -5996,6 +6512,11 @@ func (o JobOutputAssetResponseOutput) Label() pulumi.StringPtrOutput {
 // Expected value is '#Microsoft.Media.JobOutputAsset'.
 func (o JobOutputAssetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputAssetResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A preset used to override the preset in the corresponding transform output.
+func (o JobOutputAssetResponseOutput) PresetOverride() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobOutputAssetResponse) interface{} { return v.PresetOverride }).(pulumi.AnyOutput)
 }
 
 // If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
@@ -6107,9 +6628,6 @@ type JpgLayer struct {
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgLayer'.
-	OdataType string `pulumi:"odataType"`
 	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
 	Quality *int `pulumi:"quality"`
 	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
@@ -6122,13 +6640,205 @@ type JpgLayerResponse struct {
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JpgLayer'.
-	OdataType string `pulumi:"odataType"`
 	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
 	Quality *int `pulumi:"quality"`
 	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
+}
+
+type KeyDelivery struct {
+	// The access control properties for Key Delivery.
+	AccessControl *AccessControl `pulumi:"accessControl"`
+}
+
+// KeyDeliveryInput is an input type that accepts KeyDeliveryArgs and KeyDeliveryOutput values.
+// You can construct a concrete instance of `KeyDeliveryInput` via:
+//
+//          KeyDeliveryArgs{...}
+type KeyDeliveryInput interface {
+	pulumi.Input
+
+	ToKeyDeliveryOutput() KeyDeliveryOutput
+	ToKeyDeliveryOutputWithContext(context.Context) KeyDeliveryOutput
+}
+
+type KeyDeliveryArgs struct {
+	// The access control properties for Key Delivery.
+	AccessControl AccessControlPtrInput `pulumi:"accessControl"`
+}
+
+func (KeyDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDelivery)(nil)).Elem()
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryOutput() KeyDeliveryOutput {
+	return i.ToKeyDeliveryOutputWithContext(context.Background())
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryOutputWithContext(ctx context.Context) KeyDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDeliveryOutput)
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return i.ToKeyDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDeliveryOutput).ToKeyDeliveryPtrOutputWithContext(ctx)
+}
+
+// KeyDeliveryPtrInput is an input type that accepts KeyDeliveryArgs, KeyDeliveryPtr and KeyDeliveryPtrOutput values.
+// You can construct a concrete instance of `KeyDeliveryPtrInput` via:
+//
+//          KeyDeliveryArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput
+	ToKeyDeliveryPtrOutputWithContext(context.Context) KeyDeliveryPtrOutput
+}
+
+type keyDeliveryPtrType KeyDeliveryArgs
+
+func KeyDeliveryPtr(v *KeyDeliveryArgs) KeyDeliveryPtrInput {
+	return (*keyDeliveryPtrType)(v)
+}
+
+func (*keyDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDelivery)(nil)).Elem()
+}
+
+func (i *keyDeliveryPtrType) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return i.ToKeyDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *keyDeliveryPtrType) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDeliveryPtrOutput)
+}
+
+type KeyDeliveryOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDelivery)(nil)).Elem()
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryOutput() KeyDeliveryOutput {
+	return o
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryOutputWithContext(ctx context.Context) KeyDeliveryOutput {
+	return o
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return o.ToKeyDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDelivery) *KeyDelivery {
+		return &v
+	}).(KeyDeliveryPtrOutput)
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryOutput) AccessControl() AccessControlPtrOutput {
+	return o.ApplyT(func(v KeyDelivery) *AccessControl { return v.AccessControl }).(AccessControlPtrOutput)
+}
+
+type KeyDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDelivery)(nil)).Elem()
+}
+
+func (o KeyDeliveryPtrOutput) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return o
+}
+
+func (o KeyDeliveryPtrOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return o
+}
+
+func (o KeyDeliveryPtrOutput) Elem() KeyDeliveryOutput {
+	return o.ApplyT(func(v *KeyDelivery) KeyDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDelivery
+		return ret
+	}).(KeyDeliveryOutput)
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryPtrOutput) AccessControl() AccessControlPtrOutput {
+	return o.ApplyT(func(v *KeyDelivery) *AccessControl {
+		if v == nil {
+			return nil
+		}
+		return v.AccessControl
+	}).(AccessControlPtrOutput)
+}
+
+type KeyDeliveryResponse struct {
+	// The access control properties for Key Delivery.
+	AccessControl *AccessControlResponse `pulumi:"accessControl"`
+}
+
+type KeyDeliveryResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDeliveryResponse)(nil)).Elem()
+}
+
+func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponseOutput() KeyDeliveryResponseOutput {
+	return o
+}
+
+func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponseOutputWithContext(ctx context.Context) KeyDeliveryResponseOutput {
+	return o
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryResponseOutput) AccessControl() AccessControlResponsePtrOutput {
+	return o.ApplyT(func(v KeyDeliveryResponse) *AccessControlResponse { return v.AccessControl }).(AccessControlResponsePtrOutput)
+}
+
+type KeyDeliveryResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDeliveryResponse)(nil)).Elem()
+}
+
+func (o KeyDeliveryResponsePtrOutput) ToKeyDeliveryResponsePtrOutput() KeyDeliveryResponsePtrOutput {
+	return o
+}
+
+func (o KeyDeliveryResponsePtrOutput) ToKeyDeliveryResponsePtrOutputWithContext(ctx context.Context) KeyDeliveryResponsePtrOutput {
+	return o
+}
+
+func (o KeyDeliveryResponsePtrOutput) Elem() KeyDeliveryResponseOutput {
+	return o.ApplyT(func(v *KeyDeliveryResponse) KeyDeliveryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDeliveryResponse
+		return ret
+	}).(KeyDeliveryResponseOutput)
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryResponsePtrOutput) AccessControl() AccessControlResponsePtrOutput {
+	return o.ApplyT(func(v *KeyDeliveryResponse) *AccessControlResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AccessControl
+	}).(AccessControlResponsePtrOutput)
 }
 
 type KeyVaultProperties struct {
@@ -6345,7 +7055,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncoding struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType *string `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
@@ -6368,7 +7078,7 @@ type LiveEventEncodingInput interface {
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingArgs struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
@@ -6456,7 +7166,7 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx con
 	}).(LiveEventEncodingPtrOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
@@ -6500,7 +7210,7 @@ func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
 	}).(LiveEventEncodingOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -6542,7 +7252,7 @@ func (o LiveEventEncodingPtrOutput) StretchMode() pulumi.StringPtrOutput {
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingResponse struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType *string `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
@@ -6567,7 +7277,7 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponseOutputWithCo
 	return o
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingResponseOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
@@ -6611,7 +7321,7 @@ func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutp
 	}).(LiveEventEncodingResponseOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {
@@ -8262,515 +8972,11 @@ func (o LiveEventTranscriptionResponseArrayOutput) Index(i pulumi.IntInput) Live
 	}).(LiveEventTranscriptionResponseOutput)
 }
 
-// Asset sink.
-type MediaGraphAssetSink struct {
-	// Asset name.
-	AssetName string `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs []string `pulumi:"inputs"`
-	// Sink name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType string `pulumi:"odataType"`
-}
-
-// MediaGraphAssetSinkInput is an input type that accepts MediaGraphAssetSinkArgs and MediaGraphAssetSinkOutput values.
-// You can construct a concrete instance of `MediaGraphAssetSinkInput` via:
-//
-//          MediaGraphAssetSinkArgs{...}
-type MediaGraphAssetSinkInput interface {
-	pulumi.Input
-
-	ToMediaGraphAssetSinkOutput() MediaGraphAssetSinkOutput
-	ToMediaGraphAssetSinkOutputWithContext(context.Context) MediaGraphAssetSinkOutput
-}
-
-// Asset sink.
-type MediaGraphAssetSinkArgs struct {
-	// Asset name.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
-	// Sink name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-}
-
-func (MediaGraphAssetSinkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphAssetSink)(nil)).Elem()
-}
-
-func (i MediaGraphAssetSinkArgs) ToMediaGraphAssetSinkOutput() MediaGraphAssetSinkOutput {
-	return i.ToMediaGraphAssetSinkOutputWithContext(context.Background())
-}
-
-func (i MediaGraphAssetSinkArgs) ToMediaGraphAssetSinkOutputWithContext(ctx context.Context) MediaGraphAssetSinkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkOutput)
-}
-
-// MediaGraphAssetSinkArrayInput is an input type that accepts MediaGraphAssetSinkArray and MediaGraphAssetSinkArrayOutput values.
-// You can construct a concrete instance of `MediaGraphAssetSinkArrayInput` via:
-//
-//          MediaGraphAssetSinkArray{ MediaGraphAssetSinkArgs{...} }
-type MediaGraphAssetSinkArrayInput interface {
-	pulumi.Input
-
-	ToMediaGraphAssetSinkArrayOutput() MediaGraphAssetSinkArrayOutput
-	ToMediaGraphAssetSinkArrayOutputWithContext(context.Context) MediaGraphAssetSinkArrayOutput
-}
-
-type MediaGraphAssetSinkArray []MediaGraphAssetSinkInput
-
-func (MediaGraphAssetSinkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MediaGraphAssetSink)(nil)).Elem()
-}
-
-func (i MediaGraphAssetSinkArray) ToMediaGraphAssetSinkArrayOutput() MediaGraphAssetSinkArrayOutput {
-	return i.ToMediaGraphAssetSinkArrayOutputWithContext(context.Background())
-}
-
-func (i MediaGraphAssetSinkArray) ToMediaGraphAssetSinkArrayOutputWithContext(ctx context.Context) MediaGraphAssetSinkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkArrayOutput)
-}
-
-// Asset sink.
-type MediaGraphAssetSinkOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphAssetSinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphAssetSink)(nil)).Elem()
-}
-
-func (o MediaGraphAssetSinkOutput) ToMediaGraphAssetSinkOutput() MediaGraphAssetSinkOutput {
-	return o
-}
-
-func (o MediaGraphAssetSinkOutput) ToMediaGraphAssetSinkOutputWithContext(ctx context.Context) MediaGraphAssetSinkOutput {
-	return o
-}
-
-// Asset name.
-func (o MediaGraphAssetSinkOutput) AssetName() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.AssetName }).(pulumi.StringOutput)
-}
-
-// Sink inputs.
-func (o MediaGraphAssetSinkOutput) Inputs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MediaGraphAssetSink) []string { return v.Inputs }).(pulumi.StringArrayOutput)
-}
-
-// Sink name.
-func (o MediaGraphAssetSinkOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-func (o MediaGraphAssetSinkOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-type MediaGraphAssetSinkArrayOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphAssetSinkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MediaGraphAssetSink)(nil)).Elem()
-}
-
-func (o MediaGraphAssetSinkArrayOutput) ToMediaGraphAssetSinkArrayOutput() MediaGraphAssetSinkArrayOutput {
-	return o
-}
-
-func (o MediaGraphAssetSinkArrayOutput) ToMediaGraphAssetSinkArrayOutputWithContext(ctx context.Context) MediaGraphAssetSinkArrayOutput {
-	return o
-}
-
-func (o MediaGraphAssetSinkArrayOutput) Index(i pulumi.IntInput) MediaGraphAssetSinkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphAssetSink {
-		return vs[0].([]MediaGraphAssetSink)[vs[1].(int)]
-	}).(MediaGraphAssetSinkOutput)
-}
-
-// Asset sink.
-type MediaGraphAssetSinkResponse struct {
-	// Asset name.
-	AssetName string `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs []string `pulumi:"inputs"`
-	// Sink name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType string `pulumi:"odataType"`
-}
-
-// Asset sink.
-type MediaGraphAssetSinkResponseOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphAssetSinkResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphAssetSinkResponse)(nil)).Elem()
-}
-
-func (o MediaGraphAssetSinkResponseOutput) ToMediaGraphAssetSinkResponseOutput() MediaGraphAssetSinkResponseOutput {
-	return o
-}
-
-func (o MediaGraphAssetSinkResponseOutput) ToMediaGraphAssetSinkResponseOutputWithContext(ctx context.Context) MediaGraphAssetSinkResponseOutput {
-	return o
-}
-
-// Asset name.
-func (o MediaGraphAssetSinkResponseOutput) AssetName() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.AssetName }).(pulumi.StringOutput)
-}
-
-// Sink inputs.
-func (o MediaGraphAssetSinkResponseOutput) Inputs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MediaGraphAssetSinkResponse) []string { return v.Inputs }).(pulumi.StringArrayOutput)
-}
-
-// Sink name.
-func (o MediaGraphAssetSinkResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-func (o MediaGraphAssetSinkResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-type MediaGraphAssetSinkResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphAssetSinkResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MediaGraphAssetSinkResponse)(nil)).Elem()
-}
-
-func (o MediaGraphAssetSinkResponseArrayOutput) ToMediaGraphAssetSinkResponseArrayOutput() MediaGraphAssetSinkResponseArrayOutput {
-	return o
-}
-
-func (o MediaGraphAssetSinkResponseArrayOutput) ToMediaGraphAssetSinkResponseArrayOutputWithContext(ctx context.Context) MediaGraphAssetSinkResponseArrayOutput {
-	return o
-}
-
-func (o MediaGraphAssetSinkResponseArrayOutput) Index(i pulumi.IntInput) MediaGraphAssetSinkResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphAssetSinkResponse {
-		return vs[0].([]MediaGraphAssetSinkResponse)[vs[1].(int)]
-	}).(MediaGraphAssetSinkResponseOutput)
-}
-
-// An endpoint to connect to with no encryption in transit.
-type MediaGraphClearEndpoint struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
-}
-
-// An endpoint to connect to with no encryption in transit.
-type MediaGraphClearEndpointResponse struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
-}
-
-// A list of PEM formatted certificates.
-type MediaGraphPemCertificateList struct {
-	// PEM formatted public certificates, one per entry.
-	Certificates []string `pulumi:"certificates"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-	OdataType string `pulumi:"odataType"`
-}
-
-// A list of PEM formatted certificates.
-type MediaGraphPemCertificateListResponse struct {
-	// PEM formatted public certificates, one per entry.
-	Certificates []string `pulumi:"certificates"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-	OdataType string `pulumi:"odataType"`
-}
-
-// RTSP source.
-type MediaGraphRtspSource struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint interface{} `pulumi:"endpoint"`
-	// Source name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType string `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-	Transport string `pulumi:"transport"`
-}
-
-// MediaGraphRtspSourceInput is an input type that accepts MediaGraphRtspSourceArgs and MediaGraphRtspSourceOutput values.
-// You can construct a concrete instance of `MediaGraphRtspSourceInput` via:
-//
-//          MediaGraphRtspSourceArgs{...}
-type MediaGraphRtspSourceInput interface {
-	pulumi.Input
-
-	ToMediaGraphRtspSourceOutput() MediaGraphRtspSourceOutput
-	ToMediaGraphRtspSourceOutputWithContext(context.Context) MediaGraphRtspSourceOutput
-}
-
-// RTSP source.
-type MediaGraphRtspSourceArgs struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint pulumi.Input `pulumi:"endpoint"`
-	// Source name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-	Transport pulumi.StringInput `pulumi:"transport"`
-}
-
-func (MediaGraphRtspSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphRtspSource)(nil)).Elem()
-}
-
-func (i MediaGraphRtspSourceArgs) ToMediaGraphRtspSourceOutput() MediaGraphRtspSourceOutput {
-	return i.ToMediaGraphRtspSourceOutputWithContext(context.Background())
-}
-
-func (i MediaGraphRtspSourceArgs) ToMediaGraphRtspSourceOutputWithContext(ctx context.Context) MediaGraphRtspSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceOutput)
-}
-
-// MediaGraphRtspSourceArrayInput is an input type that accepts MediaGraphRtspSourceArray and MediaGraphRtspSourceArrayOutput values.
-// You can construct a concrete instance of `MediaGraphRtspSourceArrayInput` via:
-//
-//          MediaGraphRtspSourceArray{ MediaGraphRtspSourceArgs{...} }
-type MediaGraphRtspSourceArrayInput interface {
-	pulumi.Input
-
-	ToMediaGraphRtspSourceArrayOutput() MediaGraphRtspSourceArrayOutput
-	ToMediaGraphRtspSourceArrayOutputWithContext(context.Context) MediaGraphRtspSourceArrayOutput
-}
-
-type MediaGraphRtspSourceArray []MediaGraphRtspSourceInput
-
-func (MediaGraphRtspSourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MediaGraphRtspSource)(nil)).Elem()
-}
-
-func (i MediaGraphRtspSourceArray) ToMediaGraphRtspSourceArrayOutput() MediaGraphRtspSourceArrayOutput {
-	return i.ToMediaGraphRtspSourceArrayOutputWithContext(context.Background())
-}
-
-func (i MediaGraphRtspSourceArray) ToMediaGraphRtspSourceArrayOutputWithContext(ctx context.Context) MediaGraphRtspSourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceArrayOutput)
-}
-
-// RTSP source.
-type MediaGraphRtspSourceOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphRtspSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphRtspSource)(nil)).Elem()
-}
-
-func (o MediaGraphRtspSourceOutput) ToMediaGraphRtspSourceOutput() MediaGraphRtspSourceOutput {
-	return o
-}
-
-func (o MediaGraphRtspSourceOutput) ToMediaGraphRtspSourceOutputWithContext(ctx context.Context) MediaGraphRtspSourceOutput {
-	return o
-}
-
-// RTSP endpoint of the stream being connected to.
-func (o MediaGraphRtspSourceOutput) Endpoint() pulumi.AnyOutput {
-	return o.ApplyT(func(v MediaGraphRtspSource) interface{} { return v.Endpoint }).(pulumi.AnyOutput)
-}
-
-// Source name.
-func (o MediaGraphRtspSourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-func (o MediaGraphRtspSourceOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-func (o MediaGraphRtspSourceOutput) Transport() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.Transport }).(pulumi.StringOutput)
-}
-
-type MediaGraphRtspSourceArrayOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphRtspSourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MediaGraphRtspSource)(nil)).Elem()
-}
-
-func (o MediaGraphRtspSourceArrayOutput) ToMediaGraphRtspSourceArrayOutput() MediaGraphRtspSourceArrayOutput {
-	return o
-}
-
-func (o MediaGraphRtspSourceArrayOutput) ToMediaGraphRtspSourceArrayOutputWithContext(ctx context.Context) MediaGraphRtspSourceArrayOutput {
-	return o
-}
-
-func (o MediaGraphRtspSourceArrayOutput) Index(i pulumi.IntInput) MediaGraphRtspSourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphRtspSource {
-		return vs[0].([]MediaGraphRtspSource)[vs[1].(int)]
-	}).(MediaGraphRtspSourceOutput)
-}
-
-// RTSP source.
-type MediaGraphRtspSourceResponse struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint interface{} `pulumi:"endpoint"`
-	// Source name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType string `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-	Transport string `pulumi:"transport"`
-}
-
-// RTSP source.
-type MediaGraphRtspSourceResponseOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphRtspSourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraphRtspSourceResponse)(nil)).Elem()
-}
-
-func (o MediaGraphRtspSourceResponseOutput) ToMediaGraphRtspSourceResponseOutput() MediaGraphRtspSourceResponseOutput {
-	return o
-}
-
-func (o MediaGraphRtspSourceResponseOutput) ToMediaGraphRtspSourceResponseOutputWithContext(ctx context.Context) MediaGraphRtspSourceResponseOutput {
-	return o
-}
-
-// RTSP endpoint of the stream being connected to.
-func (o MediaGraphRtspSourceResponseOutput) Endpoint() pulumi.AnyOutput {
-	return o.ApplyT(func(v MediaGraphRtspSourceResponse) interface{} { return v.Endpoint }).(pulumi.AnyOutput)
-}
-
-// Source name.
-func (o MediaGraphRtspSourceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-func (o MediaGraphRtspSourceResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-func (o MediaGraphRtspSourceResponseOutput) Transport() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.Transport }).(pulumi.StringOutput)
-}
-
-type MediaGraphRtspSourceResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (MediaGraphRtspSourceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MediaGraphRtspSourceResponse)(nil)).Elem()
-}
-
-func (o MediaGraphRtspSourceResponseArrayOutput) ToMediaGraphRtspSourceResponseArrayOutput() MediaGraphRtspSourceResponseArrayOutput {
-	return o
-}
-
-func (o MediaGraphRtspSourceResponseArrayOutput) ToMediaGraphRtspSourceResponseArrayOutputWithContext(ctx context.Context) MediaGraphRtspSourceResponseArrayOutput {
-	return o
-}
-
-func (o MediaGraphRtspSourceResponseArrayOutput) Index(i pulumi.IntInput) MediaGraphRtspSourceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphRtspSourceResponse {
-		return vs[0].([]MediaGraphRtspSourceResponse)[vs[1].(int)]
-	}).(MediaGraphRtspSourceResponseOutput)
-}
-
-// An endpoint which must be connected over TLS/SSL.
-type MediaGraphTlsEndpoint struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-	TrustedCertificates *MediaGraphPemCertificateList `pulumi:"trustedCertificates"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
-	// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-	ValidationOptions *MediaGraphTlsValidationOptions `pulumi:"validationOptions"`
-}
-
-// An endpoint which must be connected over TLS/SSL.
-type MediaGraphTlsEndpointResponse struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-	TrustedCertificates *MediaGraphPemCertificateListResponse `pulumi:"trustedCertificates"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
-	// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-	ValidationOptions *MediaGraphTlsValidationOptionsResponse `pulumi:"validationOptions"`
-}
-
-// Options for controlling the authentication of TLS endpoints.
-type MediaGraphTlsValidationOptions struct {
-	// Ignore the host name (common name) during validation.
-	IgnoreHostname bool `pulumi:"ignoreHostname"`
-	// Ignore the integrity of the certificate chain at the current time.
-	IgnoreSignature bool `pulumi:"ignoreSignature"`
-}
-
-// Options for controlling the authentication of TLS endpoints.
-type MediaGraphTlsValidationOptionsResponse struct {
-	// Ignore the host name (common name) during validation.
-	IgnoreHostname bool `pulumi:"ignoreHostname"`
-	// Ignore the integrity of the certificate chain at the current time.
-	IgnoreSignature bool `pulumi:"ignoreSignature"`
-}
-
-// Username/password credential pair.
-type MediaGraphUsernamePasswordCredentials struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
-	OdataType string `pulumi:"odataType"`
-	// Password for a username/password pair.
-	Password string `pulumi:"password"`
-	// Username for a username/password pair.
-	Username string `pulumi:"username"`
-}
-
-// Username/password credential pair.
-type MediaGraphUsernamePasswordCredentialsResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
-	OdataType string `pulumi:"odataType"`
-	// Password for a username/password pair.
-	Password string `pulumi:"password"`
-	// Username for a username/password pair.
-	Username string `pulumi:"username"`
-}
-
 type MediaServiceIdentity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // MediaServiceIdentityInput is an input type that accepts MediaServiceIdentityArgs and MediaServiceIdentityOutput values.
@@ -8787,6 +8993,8 @@ type MediaServiceIdentityInput interface {
 type MediaServiceIdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (MediaServiceIdentityArgs) ElementType() reflect.Type {
@@ -8871,6 +9079,11 @@ func (o MediaServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The user assigned managed identities.
+func (o MediaServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MediaServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
 type MediaServiceIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (MediaServiceIdentityPtrOutput) ElementType() reflect.Type {
@@ -8905,6 +9118,16 @@ func (o MediaServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user assigned managed identities.
+func (o MediaServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MediaServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
 type MediaServiceIdentityResponse struct {
 	// The Principal ID of the identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -8912,6 +9135,8 @@ type MediaServiceIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The identity type.
 	Type string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities map[string]UserAssignedManagedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 type MediaServiceIdentityResponseOutput struct{ *pulumi.OutputState }
@@ -8941,6 +9166,13 @@ func (o MediaServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 // The identity type.
 func (o MediaServiceIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user assigned managed identities.
+func (o MediaServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v MediaServiceIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
 type MediaServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8995,6 +9227,16 @@ func (o MediaServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned managed identities.
+func (o MediaServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
 // Describes the properties for an output ISO MP4 file.
@@ -9323,9 +9565,6 @@ type PngLayer struct {
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngLayer'.
-	OdataType string `pulumi:"odataType"`
 	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
 }
@@ -9336,9 +9575,6 @@ type PngLayerResponse struct {
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.PngLayer'.
-	OdataType string `pulumi:"odataType"`
 	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
 }
@@ -9723,6 +9959,129 @@ func (o PresentationTimeRangeResponsePtrOutput) Timescale() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
+// An object of optional configuration settings for encoder.
+type PresetConfigurations struct {
+	// Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+	Complexity *string `pulumi:"complexity"`
+	// Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+	InterleaveOutput *string `pulumi:"interleaveOutput"`
+	// The key frame interval in seconds. Example: set KeyFrameIntervalInSeconds as 2 to reduce the playback buffering for some players.
+	KeyFrameIntervalInSeconds *float64 `pulumi:"keyFrameIntervalInSeconds"`
+	// The maximum bitrate in bits per second (threshold for the top video layer). Example: set MaxBitrateBps as 6000000 to avoid producing very high bitrate outputs for contents with high complexity.
+	MaxBitrateBps *int `pulumi:"maxBitrateBps"`
+	// The maximum height of output video layers. Example: set MaxHeight as 720 to produce output layers up to 720P even if the input is 4K.
+	MaxHeight *int `pulumi:"maxHeight"`
+	// The maximum number of output video layers. Example: set MaxLayers as 4 to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+	MaxLayers *int `pulumi:"maxLayers"`
+	// The minimum bitrate in bits per second (threshold for the bottom video layer). Example: set MinBitrateBps as 200000 to have a bottom layer that covers users with low network bandwidth.
+	MinBitrateBps *int `pulumi:"minBitrateBps"`
+	// The minimum height of output video layers. Example: set MinHeight as 360 to avoid output layers of smaller resolutions like 180P.
+	MinHeight *int `pulumi:"minHeight"`
+}
+
+// An object of optional configuration settings for encoder.
+type PresetConfigurationsResponse struct {
+	// Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+	Complexity *string `pulumi:"complexity"`
+	// Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+	InterleaveOutput *string `pulumi:"interleaveOutput"`
+	// The key frame interval in seconds. Example: set KeyFrameIntervalInSeconds as 2 to reduce the playback buffering for some players.
+	KeyFrameIntervalInSeconds *float64 `pulumi:"keyFrameIntervalInSeconds"`
+	// The maximum bitrate in bits per second (threshold for the top video layer). Example: set MaxBitrateBps as 6000000 to avoid producing very high bitrate outputs for contents with high complexity.
+	MaxBitrateBps *int `pulumi:"maxBitrateBps"`
+	// The maximum height of output video layers. Example: set MaxHeight as 720 to produce output layers up to 720P even if the input is 4K.
+	MaxHeight *int `pulumi:"maxHeight"`
+	// The maximum number of output video layers. Example: set MaxLayers as 4 to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+	MaxLayers *int `pulumi:"maxLayers"`
+	// The minimum bitrate in bits per second (threshold for the bottom video layer). Example: set MinBitrateBps as 200000 to have a bottom layer that covers users with low network bandwidth.
+	MinBitrateBps *int `pulumi:"minBitrateBps"`
+	// The minimum height of output video layers. Example: set MinHeight as 360 to avoid output layers of smaller resolutions like 180P.
+	MinHeight *int `pulumi:"minHeight"`
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
 // The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
@@ -9920,6 +10279,237 @@ type RectangleResponse struct {
 	Width *string `pulumi:"width"`
 }
 
+type ResourceIdentity struct {
+	// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+	UseSystemAssignedIdentity bool `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned managed identity's ARM ID to use when accessing a resource.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
+// You can construct a concrete instance of `ResourceIdentityInput` via:
+//
+//          ResourceIdentityArgs{...}
+type ResourceIdentityInput interface {
+	pulumi.Input
+
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
+}
+
+type ResourceIdentityArgs struct {
+	// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+	UseSystemAssignedIdentity pulumi.BoolInput `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned managed identity's ARM ID to use when accessing a resource.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
+//
+//          ResourceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
+}
+
+type resourceIdentityPtrType ResourceIdentityArgs
+
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
+}
+
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
+}
+
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+		return &v
+	}).(ResourceIdentityPtrOutput)
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceIdentity) bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityResponse struct {
+	// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+	UseSystemAssignedIdentity bool `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned managed identity's ARM ID to use when accessing a resource.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
+	return o
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityResponseOutput) UseSystemAssignedIdentity() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityResponsePtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // Select audio tracks from the input by specifying an attribute and an attribute filter.
 type SelectAudioTrackByAttribute struct {
 	// The TrackAttribute to filter the tracks by.
@@ -10046,6 +10636,8 @@ type StandardEncoderPresetResponse struct {
 type StorageAccount struct {
 	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 	Id *string `pulumi:"id"`
+	// The storage account identity.
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// The type of the storage account.
 	Type string `pulumi:"type"`
 }
@@ -10065,6 +10657,8 @@ type StorageAccountInput interface {
 type StorageAccountArgs struct {
 	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The storage account identity.
+	Identity ResourceIdentityPtrInput `pulumi:"identity"`
 	// The type of the storage account.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10126,6 +10720,11 @@ func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The storage account identity.
+func (o StorageAccountOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
+}
+
 // The type of the storage account.
 func (o StorageAccountOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Type }).(pulumi.StringOutput)
@@ -10155,6 +10754,10 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 type StorageAccountResponse struct {
 	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 	Id *string `pulumi:"id"`
+	// The storage account identity.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The current status of the storage account mapping.
+	Status string `pulumi:"status"`
 	// The type of the storage account.
 	Type string `pulumi:"type"`
 }
@@ -10177,6 +10780,16 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 // The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
 func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The storage account identity.
+func (o StorageAccountResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The current status of the storage account mapping.
+func (o StorageAccountResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // The type of the storage account.
@@ -12410,6 +13023,57 @@ type TransportStreamFormatResponse struct {
 	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
 }
 
+type UserAssignedManagedIdentityResponse struct {
+	// The client ID.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutput() UserAssignedManagedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseOutput {
+	return o
+}
+
+// The client ID.
+func (o UserAssignedManagedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID.
+func (o UserAssignedManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedManagedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutput() UserAssignedManagedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedManagedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedManagedIdentityResponse {
+		return vs[0].(map[string]UserAssignedManagedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedManagedIdentityResponseOutput)
+}
+
 // Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
 type UtcClipTime struct {
 	// The discriminator for derived types.
@@ -12567,6 +13231,10 @@ type VideoTrackResponse struct {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessControlOutput{})
+	pulumi.RegisterOutputType(AccessControlPtrOutput{})
+	pulumi.RegisterOutputType(AccessControlResponseOutput{})
+	pulumi.RegisterOutputType(AccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
@@ -12579,6 +13247,10 @@ func init() {
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyArrayOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ArmStreamingEndpointCurrentSkuOutput{})
+	pulumi.RegisterOutputType(ArmStreamingEndpointCurrentSkuPtrOutput{})
+	pulumi.RegisterOutputType(ArmStreamingEndpointCurrentSkuResponseOutput{})
+	pulumi.RegisterOutputType(ArmStreamingEndpointCurrentSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssetFileEncryptionMetadataResponseOutput{})
 	pulumi.RegisterOutputType(AssetFileEncryptionMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(AssetStreamingLocatorResponseOutput{})
@@ -12654,6 +13326,10 @@ func init() {
 	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryPtrOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryResponseOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
@@ -12692,14 +13368,6 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventTranscriptionArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(MediaGraphAssetSinkOutput{})
-	pulumi.RegisterOutputType(MediaGraphAssetSinkArrayOutput{})
-	pulumi.RegisterOutputType(MediaGraphAssetSinkResponseOutput{})
-	pulumi.RegisterOutputType(MediaGraphAssetSinkResponseArrayOutput{})
-	pulumi.RegisterOutputType(MediaGraphRtspSourceOutput{})
-	pulumi.RegisterOutputType(MediaGraphRtspSourceArrayOutput{})
-	pulumi.RegisterOutputType(MediaGraphRtspSourceResponseOutput{})
-	pulumi.RegisterOutputType(MediaGraphRtspSourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityResponseOutput{})
@@ -12712,10 +13380,16 @@ func init() {
 	pulumi.RegisterOutputType(PresentationTimeRangePtrOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponseOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
@@ -12763,4 +13437,6 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseMapOutput{})
 }

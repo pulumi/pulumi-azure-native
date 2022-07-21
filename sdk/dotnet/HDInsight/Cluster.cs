@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HDInsight
 {
     /// <summary>
     /// The HDInsight cluster.
-    /// API Version: 2018-06-01-preview.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
@@ -29,10 +29,10 @@ namespace Pulumi.AzureNative.HDInsight
         public Output<Outputs.ClusterIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -47,16 +47,28 @@ namespace Pulumi.AzureNative.HDInsight
         public Output<Outputs.ClusterGetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The availability zones.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,6 +161,18 @@ namespace Pulumi.AzureNative.HDInsight
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// The availability zones.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public ClusterArgs()

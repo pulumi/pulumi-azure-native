@@ -146,7 +146,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReferenceDataSetResult:
     """
     A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -182,7 +182,7 @@ def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReferenceDataSetResult]:
     """
     A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

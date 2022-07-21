@@ -15,13 +15,18 @@ __all__ = [
     'ClusterSkuResponse',
     'ConnectionStateResponse',
     'DestinationResponse',
+    'EncryptionResponse',
+    'IdentityResponse',
+    'KeyVaultPropertiesResponse',
     'NWRuleSetIpRulesResponse',
     'NWRuleSetVirtualNetworkRulesResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'SkuResponse',
     'SubnetResponse',
     'SystemDataResponse',
-    'ThrottlingPolicyResponse',
+    'UserAssignedIdentityPropertiesResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -209,6 +214,12 @@ class DestinationResponse(dict):
             suggest = "archive_name_format"
         elif key == "blobContainer":
             suggest = "blob_container"
+        elif key == "dataLakeAccountName":
+            suggest = "data_lake_account_name"
+        elif key == "dataLakeFolderPath":
+            suggest = "data_lake_folder_path"
+        elif key == "dataLakeSubscriptionId":
+            suggest = "data_lake_subscription_id"
         elif key == "storageAccountResourceId":
             suggest = "storage_account_resource_id"
 
@@ -226,12 +237,18 @@ class DestinationResponse(dict):
     def __init__(__self__, *,
                  archive_name_format: Optional[str] = None,
                  blob_container: Optional[str] = None,
+                 data_lake_account_name: Optional[str] = None,
+                 data_lake_folder_path: Optional[str] = None,
+                 data_lake_subscription_id: Optional[str] = None,
                  name: Optional[str] = None,
                  storage_account_resource_id: Optional[str] = None):
         """
         Capture storage details for capture description
         :param str archive_name_format: Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
         :param str blob_container: Blob container Name
+        :param str data_lake_account_name: The Azure Data Lake Store name for the captured events
+        :param str data_lake_folder_path: The destination folder path for the captured events
+        :param str data_lake_subscription_id: Subscription Id of Azure Data Lake Store
         :param str name: Name for capture destination
         :param str storage_account_resource_id: Resource id of the storage account to be used to create the blobs
         """
@@ -239,6 +256,12 @@ class DestinationResponse(dict):
             pulumi.set(__self__, "archive_name_format", archive_name_format)
         if blob_container is not None:
             pulumi.set(__self__, "blob_container", blob_container)
+        if data_lake_account_name is not None:
+            pulumi.set(__self__, "data_lake_account_name", data_lake_account_name)
+        if data_lake_folder_path is not None:
+            pulumi.set(__self__, "data_lake_folder_path", data_lake_folder_path)
+        if data_lake_subscription_id is not None:
+            pulumi.set(__self__, "data_lake_subscription_id", data_lake_subscription_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_account_resource_id is not None:
@@ -261,6 +284,30 @@ class DestinationResponse(dict):
         return pulumi.get(self, "blob_container")
 
     @property
+    @pulumi.getter(name="dataLakeAccountName")
+    def data_lake_account_name(self) -> Optional[str]:
+        """
+        The Azure Data Lake Store name for the captured events
+        """
+        return pulumi.get(self, "data_lake_account_name")
+
+    @property
+    @pulumi.getter(name="dataLakeFolderPath")
+    def data_lake_folder_path(self) -> Optional[str]:
+        """
+        The destination folder path for the captured events
+        """
+        return pulumi.get(self, "data_lake_folder_path")
+
+    @property
+    @pulumi.getter(name="dataLakeSubscriptionId")
+    def data_lake_subscription_id(self) -> Optional[str]:
+        """
+        Subscription Id of Azure Data Lake Store
+        """
+        return pulumi.get(self, "data_lake_subscription_id")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -278,9 +325,233 @@ class DestinationResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionResponse(dict):
+    """
+    Properties to configure Encryption
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+        elif key == "requireInfrastructureEncryption":
+            suggest = "require_infrastructure_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_source: Optional[str] = None,
+                 key_vault_properties: Optional[Sequence['outputs.KeyVaultPropertiesResponse']] = None,
+                 require_infrastructure_encryption: Optional[bool] = None):
+        """
+        Properties to configure Encryption
+        :param str key_source: Enumerates the possible value of keySource for Encryption
+        :param Sequence['KeyVaultPropertiesResponse'] key_vault_properties: Properties of KeyVault
+        :param bool require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
+        """
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if require_infrastructure_encryption is not None:
+            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[Sequence['outputs.KeyVaultPropertiesResponse']]:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter(name="requireInfrastructureEncryption")
+    def require_infrastructure_encryption(self) -> Optional[bool]:
+        """
+        Enable Infrastructure Encryption (Double Encryption)
+        """
+        return pulumi.get(self, "require_infrastructure_encryption")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Properties to configure Identity for Bring your Own Keys
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        :param str principal_id: ObjectId from the KeyVault
+        :param str tenant_id: TenantId from the KeyVault
+        :param str type: Type of managed service identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: Properties for User Assigned Identities
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        Properties for User Assigned Identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    """
+    Properties to configure keyVault Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: Optional['outputs.UserAssignedIdentityPropertiesResponse'] = None,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
+                 key_version: Optional[str] = None):
+        """
+        Properties to configure keyVault Properties
+        :param str key_name: Name of the Key from KeyVault
+        :param str key_vault_uri: Uri of KeyVault
+        :param str key_version: Key Version
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.UserAssignedIdentityPropertiesResponse']:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        Name of the Key from KeyVault
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[str]:
+        """
+        Uri of KeyVault
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        Key Version
+        """
+        return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
 class NWRuleSetIpRulesResponse(dict):
     """
-    Description of NetWorkRuleSet - IpRules resource.
+    The response from the List namespace operation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -303,12 +574,10 @@ class NWRuleSetIpRulesResponse(dict):
                  action: Optional[str] = None,
                  ip_mask: Optional[str] = None):
         """
-        Description of NetWorkRuleSet - IpRules resource.
+        The response from the List namespace operation.
         :param str action: The IP Filter Action
         :param str ip_mask: IP Mask
         """
-        if action is None:
-            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
         if ip_mask is not None:
@@ -334,7 +603,7 @@ class NWRuleSetIpRulesResponse(dict):
 @pulumi.output_type
 class NWRuleSetVirtualNetworkRulesResponse(dict):
     """
-    Description of VirtualNetworkRules - NetworkRules resource.
+    The response from the List namespace operation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -357,8 +626,8 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
                  ignore_missing_vnet_service_endpoint: Optional[bool] = None,
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
-        Description of VirtualNetworkRules - NetworkRules resource.
-        :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
+        The response from the List namespace operation.
+        :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
         :param 'SubnetResponse' subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
@@ -370,7 +639,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
         """
-        Value that indicates whether to ignore missing VNet Service Endpoint
+        Value that indicates whether to ignore missing Vnet Service Endpoint
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -381,6 +650,131 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
         Subnet properties
         """
         return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    Properties of the PrivateEndpointConnection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 location: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.ConnectionStateResponse'] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Properties of the PrivateEndpointConnection.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str location: The geo-location where the resource lives
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: The system meta data relating to this resource.
+        :param str type: The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint resource for this Connection.
+        :param 'ConnectionStateResponse' private_link_service_connection_state: Details about the state of the connection.
+        :param str provisioning_state: Provisioning state of the Private Endpoint Connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The Private Endpoint resource for this Connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.ConnectionStateResponse']:
+        """
+        Details about the state of the connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -418,7 +812,7 @@ class SkuResponse(dict):
         """
         SKU parameters supplied to the create namespace operation
         :param str name: Name of this SKU.
-        :param int capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param int capacity: The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         :param str tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -439,7 +833,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         """
         return pulumi.get(self, "capacity")
 
@@ -458,16 +852,17 @@ class SubnetResponse(dict):
     Properties supplied for Subnet
     """
     def __init__(__self__, *,
-                 id: str):
+                 id: Optional[str] = None):
         """
         Properties supplied for Subnet
         :param str id: Resource ID of Virtual Network Subnet
         """
-        pulumi.set(__self__, "id", id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Resource ID of Virtual Network Subnet
         """
@@ -585,78 +980,90 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class ThrottlingPolicyResponse(dict):
+class UserAssignedIdentityPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        :param str user_assigned_identity: ARM ID of user Identity selected for encryption
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        ARM ID of user Identity selected for encryption
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
     """
-    Properties of the throttling policy
+    Recognized Dictionary value.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricId":
-            suggest = "metric_id"
-        elif key == "rateLimitThreshold":
-            suggest = "rate_limit_threshold"
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ThrottlingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ThrottlingPolicyResponse.__key_warning(key)
+        UserAssignedIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ThrottlingPolicyResponse.__key_warning(key)
+        UserAssignedIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_id: str,
-                 name: str,
-                 rate_limit_threshold: float,
-                 type: str):
+                 client_id: str,
+                 principal_id: str):
         """
-        Properties of the throttling policy
-        :param str metric_id: Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-        :param str name: The Name of this policy
-        :param float rate_limit_threshold: The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-        :param str type: Application Group Policy types
-               Expected value is 'ThrottlingPolicy'.
+        Recognized Dictionary value.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
         """
-        pulumi.set(__self__, "metric_id", metric_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
-        pulumi.set(__self__, "type", 'ThrottlingPolicy')
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
 
     @property
-    @pulumi.getter(name="metricId")
-    def metric_id(self) -> str:
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
         """
-        Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+        Client Id of user assigned identity
         """
-        return pulumi.get(self, "metric_id")
+        return pulumi.get(self, "client_id")
 
     @property
-    @pulumi.getter
-    def name(self) -> str:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
-        The Name of this policy
+        Principal Id of user assigned identity
         """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="rateLimitThreshold")
-    def rate_limit_threshold(self) -> float:
-        """
-        The Threshold limit above which the application group will be throttled.Rate limit is always per second.
-        """
-        return pulumi.get(self, "rate_limit_threshold")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Application Group Policy types
-        Expected value is 'ThrottlingPolicy'.
-        """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "principal_id")
 
 

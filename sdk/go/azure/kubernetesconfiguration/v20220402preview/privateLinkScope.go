@@ -39,12 +39,6 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:kubernetesconfiguration:PrivateLinkScope"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PrivateLinkScope
 	err := ctx.RegisterResource("azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope", name, args, &resource, opts...)
 	if err != nil {

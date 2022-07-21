@@ -10,9 +10,7 @@ export * from "./getDisasterRecoveryConfig";
 export * from "./getMigrationConfig";
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
-export * from "./getNamespaceIpFilterRule";
 export * from "./getNamespaceNetworkRuleSet";
-export * from "./getNamespaceVirtualNetworkRule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getQueue";
 export * from "./getQueueAuthorizationRule";
@@ -27,9 +25,7 @@ export * from "./listTopicKeys";
 export * from "./migrationConfig";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
-export * from "./namespaceIpFilterRule";
 export * from "./namespaceNetworkRuleSet";
-export * from "./namespaceVirtualNetworkRule";
 export * from "./privateEndpointConnection";
 export * from "./queue";
 export * from "./queueAuthorizationRule";
@@ -67,9 +63,7 @@ import { DisasterRecoveryConfig } from "./disasterRecoveryConfig";
 import { MigrationConfig } from "./migrationConfig";
 import { Namespace } from "./namespace";
 import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
-import { NamespaceIpFilterRule } from "./namespaceIpFilterRule";
 import { NamespaceNetworkRuleSet } from "./namespaceNetworkRuleSet";
-import { NamespaceVirtualNetworkRule } from "./namespaceVirtualNetworkRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Queue } from "./queue";
 import { QueueAuthorizationRule } from "./queueAuthorizationRule";
@@ -90,12 +84,8 @@ const _module = {
                 return new Namespace(name, <any>undefined, { urn })
             case "azure-native:servicebus:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-native:servicebus:NamespaceIpFilterRule":
-                return new NamespaceIpFilterRule(name, <any>undefined, { urn })
             case "azure-native:servicebus:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
-            case "azure-native:servicebus:NamespaceVirtualNetworkRule":
-                return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:servicebus:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:servicebus:Queue":

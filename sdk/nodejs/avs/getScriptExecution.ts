@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An instance of a script executed by a user - custom or AVS
- * API Version: 2021-06-01.
+ * API Version: 2021-12-01.
  */
 export function getScriptExecution(args: GetScriptExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionResult> {
     if (!opts) {

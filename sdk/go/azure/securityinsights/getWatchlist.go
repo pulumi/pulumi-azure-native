@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a Watchlist in Azure Security Insights.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pulumi.InvokeOption) (*LookupWatchlistResult, error) {
 	var rv LookupWatchlistResult
 	err := ctx.Invoke("azure-native:securityinsights:getWatchlist", args, &rv, opts...)
@@ -22,11 +22,9 @@ func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pul
 }
 
 type LookupWatchlistArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Watchlist Alias
+	// The watchlist alias
 	WatchlistAlias string `pulumi:"watchlistAlias"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -34,7 +32,7 @@ type LookupWatchlistArgs struct {
 
 // Represents a Watchlist in Azure Security Insights.
 type LookupWatchlistResult struct {
-	// The content type of the raw content. Example : text/csv or text/tsv
+	// The content type of the raw content. For now, only text/csv is valid
 	ContentType *string `pulumi:"contentType"`
 	// The time the watchlist was created
 	Created *string `pulumi:"created"`
@@ -48,7 +46,7 @@ type LookupWatchlistResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
@@ -56,13 +54,15 @@ type LookupWatchlistResult struct {
 	ItemsSearchKey string `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// The number of lines in a csv/tsv content to skip before the header
+	// The number of lines in a csv content to skip before the header
 	NumberOfLinesToSkip *int `pulumi:"numberOfLinesToSkip"`
 	// The provider of the watchlist
 	Provider string `pulumi:"provider"`
-	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	// The raw content that represents to watchlist items to create. Example : This line will be skipped
+	// header1,header2
+	// value1,value2
 	RawContent *string `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source string `pulumi:"source"`
@@ -70,20 +70,18 @@ type LookupWatchlistResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tenantId where the watchlist belongs to
 	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The last time the watchlist was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *WatchlistUserInfoResponse `pulumi:"updatedBy"`
-	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
 	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias *string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId *string `pulumi:"watchlistId"`
-	// The number of Watchlist Items in the Watchlist
-	WatchlistItemsCount *int `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
 }
@@ -102,11 +100,9 @@ func LookupWatchlistOutput(ctx *pulumi.Context, args LookupWatchlistOutputArgs, 
 }
 
 type LookupWatchlistOutputArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Watchlist Alias
+	// The watchlist alias
 	WatchlistAlias pulumi.StringInput `pulumi:"watchlistAlias"`
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -131,7 +127,7 @@ func (o LookupWatchlistResultOutput) ToLookupWatchlistResultOutputWithContext(ct
 	return o
 }
 
-// The content type of the raw content. Example : text/csv or text/tsv
+// The content type of the raw content. For now, only text/csv is valid
 func (o LookupWatchlistResultOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
@@ -166,7 +162,7 @@ func (o LookupWatchlistResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupWatchlistResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -186,12 +182,12 @@ func (o LookupWatchlistResultOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupWatchlistResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of lines in a csv/tsv content to skip before the header
+// The number of lines in a csv content to skip before the header
 func (o LookupWatchlistResultOutput) NumberOfLinesToSkip() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *int { return v.NumberOfLinesToSkip }).(pulumi.IntPtrOutput)
 }
@@ -201,7 +197,9 @@ func (o LookupWatchlistResultOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+// The raw content that represents to watchlist items to create. Example : This line will be skipped
+// header1,header2
+// value1,value2
 func (o LookupWatchlistResultOutput) RawContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *string { return v.RawContent }).(pulumi.StringPtrOutput)
 }
@@ -221,7 +219,7 @@ func (o LookupWatchlistResultOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupWatchlistResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -236,7 +234,7 @@ func (o LookupWatchlistResultOutput) UpdatedBy() WatchlistUserInfoResponsePtrOut
 	return o.ApplyT(func(v LookupWatchlistResult) *WatchlistUserInfoResponse { return v.UpdatedBy }).(WatchlistUserInfoResponsePtrOutput)
 }
 
-// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+// The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
 func (o LookupWatchlistResultOutput) UploadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *string { return v.UploadStatus }).(pulumi.StringPtrOutput)
 }
@@ -249,11 +247,6 @@ func (o LookupWatchlistResultOutput) WatchlistAlias() pulumi.StringPtrOutput {
 // The id (a Guid) of the watchlist
 func (o LookupWatchlistResultOutput) WatchlistId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWatchlistResult) *string { return v.WatchlistId }).(pulumi.StringPtrOutput)
-}
-
-// The number of Watchlist Items in the Watchlist
-func (o LookupWatchlistResultOutput) WatchlistItemsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupWatchlistResult) *int { return v.WatchlistItemsCount }).(pulumi.IntPtrOutput)
 }
 
 // The type of the watchlist

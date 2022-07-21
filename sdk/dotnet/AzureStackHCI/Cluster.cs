@@ -11,22 +11,34 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Cluster details.
-    /// API Version: 2020-10-01.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Object id of cluster AAD identity.
+        /// </summary>
+        [Output("aadApplicationObjectId")]
+        public Output<string?> AadApplicationObjectId { get; private set; } = null!;
+
+        /// <summary>
         /// App id of cluster AAD identity.
         /// </summary>
         [Output("aadClientId")]
-        public Output<string> AadClientId { get; private set; } = null!;
+        public Output<string?> AadClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of cluster identity service principal.
+        /// </summary>
+        [Output("aadServicePrincipalObjectId")]
+        public Output<string?> AadServicePrincipalObjectId { get; private set; } = null!;
 
         /// <summary>
         /// Tenant id of cluster AAD identity.
         /// </summary>
         [Output("aadTenantId")]
-        public Output<string> AadTenantId { get; private set; } = null!;
+        public Output<string?> AadTenantId { get; private set; } = null!;
 
         /// <summary>
         /// Type of billing applied to the resource.
@@ -39,6 +51,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("cloudId")]
         public Output<string> CloudId { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint configured for management from the Azure portal.
+        /// </summary>
+        [Output("cloudManagementEndpoint")]
+        public Output<string?> CloudManagementEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -57,6 +75,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("createdByType")]
         public Output<string?> CreatedByType { get; private set; } = null!;
+
+        /// <summary>
+        /// Desired properties of the cluster.
+        /// </summary>
+        [Output("desiredProperties")]
+        public Output<Outputs.ClusterDesiredPropertiesResponse?> DesiredProperties { get; private set; } = null!;
 
         /// <summary>
         /// Most recent billing meter timestamp.
@@ -116,7 +140,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Properties reported by cluster agent.
         /// </summary>
         [Output("reportedProperties")]
-        public Output<Outputs.ClusterReportedPropertiesResponse?> ReportedProperties { get; private set; } = null!;
+        public Output<Outputs.ClusterReportedPropertiesResponse> ReportedProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Region specific DataPath Endpoint of the cluster.
+        /// </summary>
+        [Output("serviceEndpoint")]
+        public Output<string> ServiceEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Status of the cluster agent.
@@ -198,16 +228,34 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Object id of cluster AAD identity.
+        /// </summary>
+        [Input("aadApplicationObjectId")]
+        public Input<string>? AadApplicationObjectId { get; set; }
+
+        /// <summary>
         /// App id of cluster AAD identity.
         /// </summary>
-        [Input("aadClientId", required: true)]
-        public Input<string> AadClientId { get; set; } = null!;
+        [Input("aadClientId")]
+        public Input<string>? AadClientId { get; set; }
+
+        /// <summary>
+        /// Id of cluster identity service principal.
+        /// </summary>
+        [Input("aadServicePrincipalObjectId")]
+        public Input<string>? AadServicePrincipalObjectId { get; set; }
 
         /// <summary>
         /// Tenant id of cluster AAD identity.
         /// </summary>
-        [Input("aadTenantId", required: true)]
-        public Input<string> AadTenantId { get; set; } = null!;
+        [Input("aadTenantId")]
+        public Input<string>? AadTenantId { get; set; }
+
+        /// <summary>
+        /// Endpoint configured for management from the Azure portal.
+        /// </summary>
+        [Input("cloudManagementEndpoint")]
+        public Input<string>? CloudManagementEndpoint { get; set; }
 
         /// <summary>
         /// The name of the cluster.
@@ -232,6 +280,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("createdByType")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? CreatedByType { get; set; }
+
+        /// <summary>
+        /// Desired properties of the cluster.
+        /// </summary>
+        [Input("desiredProperties")]
+        public Input<Inputs.ClusterDesiredPropertiesArgs>? DesiredProperties { get; set; }
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)

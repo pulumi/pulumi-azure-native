@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class DataCenterResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<bool>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
+        /// </summary>
+        [Input("backupStorageCustomerKeyUri")]
+        public Input<string>? BackupStorageCustomerKeyUri { get; set; }
+
+        /// <summary>
         /// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
         /// </summary>
         [Input("base64EncodedCassandraYamlFragment")]
@@ -34,6 +46,24 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<string>? DelegatedSubnetId { get; set; }
 
         /// <summary>
+        /// Number of disk used for data centers. Default value is 4.
+        /// </summary>
+        [Input("diskCapacity")]
+        public Input<int>? DiskCapacity { get; set; }
+
+        /// <summary>
+        /// Disk SKU used for data centers. Default value is P30.
+        /// </summary>
+        [Input("diskSku")]
+        public Input<string>? DiskSku { get; set; }
+
+        /// <summary>
+        /// Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
+        /// </summary>
+        [Input("managedDiskCustomerKeyUri")]
+        public Input<string>? ManagedDiskCustomerKeyUri { get; set; }
+
+        /// <summary>
         /// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
         /// </summary>
         [Input("nodeCount")]
@@ -44,6 +74,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.DocumentDB.ManagedCassandraProvisioningState>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         public DataCenterResourcePropertiesArgs()
         {

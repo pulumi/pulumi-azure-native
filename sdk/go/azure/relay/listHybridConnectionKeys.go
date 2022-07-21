@@ -11,7 +11,7 @@ import (
 )
 
 // Namespace/Relay Connection String
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func ListHybridConnectionKeys(ctx *pulumi.Context, args *ListHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListHybridConnectionKeysResult, error) {
 	var rv ListHybridConnectionKeysResult
 	err := ctx.Invoke("azure-native:relay:listHybridConnectionKeys", args, &rv, opts...)

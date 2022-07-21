@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The connection strings for the given database account.
- * API Version: 2021-03-15.
+ * API Version: 2021-10-15.
  */
 export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountConnectionStringsResult> {
     if (!opts) {

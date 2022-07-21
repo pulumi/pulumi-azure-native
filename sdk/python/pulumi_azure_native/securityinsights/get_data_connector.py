@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDataConnectorResult',
@@ -22,7 +23,7 @@ class GetDataConnectorResult:
     """
     Data connector.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, name=None, type=None):
+    def __init__(__self__, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -35,6 +36,9 @@ class GetDataConnectorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -51,7 +55,7 @@ class GetDataConnectorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -67,15 +71,23 @@ class GetDataConnectorResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -90,6 +102,7 @@ class AwaitableGetDataConnectorResult(GetDataConnectorResult):
             id=self.id,
             kind=self.kind,
             name=self.name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -99,11 +112,11 @@ def get_data_connector(data_connector_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectorResult:
     """
     Data connector.
-    API Version: 2020-01-01.
+    API Version: 2021-10-01.
 
 
     :param str data_connector_id: Connector ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     pulumi.log.warn("""get_data_connector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.""")
@@ -122,6 +135,7 @@ def get_data_connector(data_connector_id: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -132,11 +146,11 @@ def get_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = N
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataConnectorResult]:
     """
     Data connector.
-    API Version: 2020-01-01.
+    API Version: 2021-10-01.
 
 
     :param str data_connector_id: Connector ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     pulumi.log.warn("""get_data_connector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.""")

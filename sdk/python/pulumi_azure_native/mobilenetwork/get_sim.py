@@ -21,10 +21,7 @@ class GetSimResult:
     """
     Sim resource.
     """
-    def __init__(__self__, configuration_state=None, created_at=None, created_by=None, created_by_type=None, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, mobile_network=None, name=None, provisioning_state=None, sim_policy=None, static_ip_configuration=None, tags=None, type=None):
-        if configuration_state and not isinstance(configuration_state, str):
-            raise TypeError("Expected argument 'configuration_state' to be a str")
-        pulumi.set(__self__, "configuration_state", configuration_state)
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, mobile_network=None, name=None, provisioning_state=None, sim_policy=None, sim_state=None, static_ip_configuration=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -70,23 +67,21 @@ class GetSimResult:
         if sim_policy and not isinstance(sim_policy, dict):
             raise TypeError("Expected argument 'sim_policy' to be a dict")
         pulumi.set(__self__, "sim_policy", sim_policy)
+        if sim_state and not isinstance(sim_state, str):
+            raise TypeError("Expected argument 'sim_state' to be a str")
+        pulumi.set(__self__, "sim_state", sim_state)
         if static_ip_configuration and not isinstance(static_ip_configuration, list):
             raise TypeError("Expected argument 'static_ip_configuration' to be a list")
         pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="configurationState")
-    def configuration_state(self) -> str:
-        """
-        The configuration state of the sim resource - complete or incomplete.
-        """
-        return pulumi.get(self, "configuration_state")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -209,12 +204,28 @@ class GetSimResult:
         return pulumi.get(self, "sim_policy")
 
     @property
+    @pulumi.getter(name="simState")
+    def sim_state(self) -> str:
+        """
+        The state of the sim resource.
+        """
+        return pulumi.get(self, "sim_state")
+
+    @property
     @pulumi.getter(name="staticIpConfiguration")
     def static_ip_configuration(self) -> Optional[Sequence['outputs.SimStaticIpPropertiesResponse']]:
         """
         A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         return pulumi.get(self, "static_ip_configuration")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -239,7 +250,6 @@ class AwaitableGetSimResult(GetSimResult):
         if False:
             yield self
         return GetSimResult(
-            configuration_state=self.configuration_state,
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
@@ -255,7 +265,9 @@ class AwaitableGetSimResult(GetSimResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             sim_policy=self.sim_policy,
+            sim_state=self.sim_state,
             static_ip_configuration=self.static_ip_configuration,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -265,7 +277,7 @@ def get_sim(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimResult:
     """
     Sim resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -281,7 +293,6 @@ def get_sim(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSim', __args__, opts=opts, typ=GetSimResult).value
 
     return AwaitableGetSimResult(
-        configuration_state=__ret__.configuration_state,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
         created_by_type=__ret__.created_by_type,
@@ -297,7 +308,9 @@ def get_sim(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         sim_policy=__ret__.sim_policy,
+        sim_state=__ret__.sim_state,
         static_ip_configuration=__ret__.static_ip_configuration,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -308,7 +321,7 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimResult]:
     """
     Sim resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

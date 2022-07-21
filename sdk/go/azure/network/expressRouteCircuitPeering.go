@@ -12,7 +12,7 @@ import (
 )
 
 // Peering in an ExpressRouteCircuit resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type ExpressRouteCircuitPeering struct {
 	pulumi.CustomResourceState
 

@@ -21,7 +21,7 @@ class GetDatastoreResult:
     """
     A datastore resource
     """
-    def __init__(__self__, disk_pool_volume=None, id=None, name=None, net_app_volume=None, provisioning_state=None, type=None):
+    def __init__(__self__, disk_pool_volume=None, id=None, name=None, net_app_volume=None, provisioning_state=None, status=None, type=None):
         if disk_pool_volume and not isinstance(disk_pool_volume, dict):
             raise TypeError("Expected argument 'disk_pool_volume' to be a dict")
         pulumi.set(__self__, "disk_pool_volume", disk_pool_volume)
@@ -37,6 +37,9 @@ class GetDatastoreResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,6 +86,14 @@ class GetDatastoreResult:
 
     @property
     @pulumi.getter
+    def status(self) -> str:
+        """
+        The operational status of the datastore
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
@@ -101,6 +112,7 @@ class AwaitableGetDatastoreResult(GetDatastoreResult):
             name=self.name,
             net_app_volume=self.net_app_volume,
             provisioning_state=self.provisioning_state,
+            status=self.status,
             type=self.type)
 
 
@@ -111,7 +123,7 @@ def get_datastore(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     A datastore resource
-    API Version: 2021-01-01-preview.
+    API Version: 2021-12-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud
@@ -136,6 +148,7 @@ def get_datastore(cluster_name: Optional[str] = None,
         name=__ret__.name,
         net_app_volume=__ret__.net_app_volume,
         provisioning_state=__ret__.provisioning_state,
+        status=__ret__.status,
         type=__ret__.type)
 
 
@@ -147,7 +160,7 @@ def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     A datastore resource
-    API Version: 2021-01-01-preview.
+    API Version: 2021-12-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

@@ -71,38 +71,6 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
-    /// Type of managed service identity.
-    /// </summary>
-    [EnumType]
-    public readonly struct IdentityType : IEquatable<IdentityType>
-    {
-        private readonly string _value;
-
-        private IdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IdentityType None { get; } = new IdentityType("None");
-        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
-        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
-
-        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
-        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(IdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
-        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Enumerates the possible value of keySource for Encryption
     /// </summary>
     [EnumType]
@@ -180,7 +148,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
         public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
         public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-        public static PrivateEndpointServiceConnectionStatus Disconnected { get; } = new PrivateEndpointServiceConnectionStatus("Disconnected");
 
         public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
         public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
@@ -198,7 +165,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
-    /// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// Whether or not public endpoint access is allowed for this account.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -221,6 +188,73 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuTier : IEquatable<SkuTier>
+    {
+        private readonly string _value;
+
+        private SkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuTier Free { get; } = new SkuTier("Free");
+        public static SkuTier Basic { get; } = new SkuTier("Basic");
+        public static SkuTier Standard { get; } = new SkuTier("Standard");
+        public static SkuTier Premium { get; } = new SkuTier("Premium");
+        public static SkuTier Enterprise { get; } = new SkuTier("Enterprise");
+
+        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
+        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(SkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
+        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

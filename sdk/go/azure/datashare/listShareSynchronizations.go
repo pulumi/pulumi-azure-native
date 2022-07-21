@@ -11,7 +11,7 @@ import (
 )
 
 // List response for get ShareSynchronization.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func ListShareSynchronizations(ctx *pulumi.Context, args *ListShareSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSynchronizationsResult, error) {
 	var rv ListShareSynchronizationsResult
 	err := ctx.Invoke("azure-native:datashare:listShareSynchronizations", args, &rv, opts...)

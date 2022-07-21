@@ -10,12 +10,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The service account provisioning mode for this Active Directory connector.
-type AccountProvisioningMode string
+// The license type to apply for this managed instance.
+type ArcSqlManagedInstanceLicenseType string
 
 const (
-	AccountProvisioningModeAutomatic = AccountProvisioningMode("automatic")
-	AccountProvisioningModeManual    = AccountProvisioningMode("manual")
+	ArcSqlManagedInstanceLicenseTypeBasePrice        = ArcSqlManagedInstanceLicenseType("BasePrice")
+	ArcSqlManagedInstanceLicenseTypeLicenseIncluded  = ArcSqlManagedInstanceLicenseType("LicenseIncluded")
+	ArcSqlManagedInstanceLicenseTypeDisasterRecovery = ArcSqlManagedInstanceLicenseType("DisasterRecovery")
+)
+
+// SQL Server license type.
+type ArcSqlServerLicenseType string
+
+const (
+	ArcSqlServerLicenseTypePaid      = ArcSqlServerLicenseType("Paid")
+	ArcSqlServerLicenseTypeFree      = ArcSqlServerLicenseType("Free")
+	ArcSqlServerLicenseTypeHADR      = ArcSqlServerLicenseType("HADR")
+	ArcSqlServerLicenseTypeUndefined = ArcSqlServerLicenseType("Undefined")
+)
+
+// The cloud connectivity status.
+type ConnectionStatus string
+
+const (
+	ConnectionStatusConnected    = ConnectionStatus("Connected")
+	ConnectionStatusDisconnected = ConnectionStatus("Disconnected")
+	ConnectionStatusUnknown      = ConnectionStatus("Unknown")
+)
+
+// Status of Azure Defender.
+type DefenderStatus string
+
+const (
+	DefenderStatusProtected   = DefenderStatus("Protected")
+	DefenderStatusUnprotected = DefenderStatus("Unprotected")
+	DefenderStatusUnknown     = DefenderStatus("Unknown")
+)
+
+// SQL Server edition.
+type EditionType string
+
+const (
+	EditionTypeEvaluation = EditionType("Evaluation")
+	EditionTypeEnterprise = EditionType("Enterprise")
+	EditionTypeStandard   = EditionType("Standard")
+	EditionTypeWeb        = EditionType("Web")
+	EditionTypeDeveloper  = EditionType("Developer")
+	EditionTypeExpress    = EditionType("Express")
 )
 
 // The type of the extended location.
@@ -25,124 +66,129 @@ const (
 	ExtendedLocationTypesCustomLocation = ExtendedLocationTypes("CustomLocation")
 )
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-type PostgresInstanceSkuTier string
+// The infrastructure the data controller is running on.
+type Infrastructure string
 
 const (
-	PostgresInstanceSkuTierHyperscale = PostgresInstanceSkuTier("Hyperscale")
+	InfrastructureAzure      = Infrastructure("azure")
+	InfrastructureGcp        = Infrastructure("gcp")
+	InfrastructureAws        = Infrastructure("aws")
+	InfrastructureAlibaba    = Infrastructure("alibaba")
+	InfrastructureOnpremises = Infrastructure("onpremises")
+	InfrastructureOther      = Infrastructure("other")
 )
 
-func (PostgresInstanceSkuTier) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceSkuTier)(nil)).Elem()
+func (Infrastructure) ElementType() reflect.Type {
+	return reflect.TypeOf((*Infrastructure)(nil)).Elem()
 }
 
-func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierOutput() PostgresInstanceSkuTierOutput {
-	return pulumi.ToOutput(e).(PostgresInstanceSkuTierOutput)
+func (e Infrastructure) ToInfrastructureOutput() InfrastructureOutput {
+	return pulumi.ToOutput(e).(InfrastructureOutput)
 }
 
-func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierOutputWithContext(ctx context.Context) PostgresInstanceSkuTierOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PostgresInstanceSkuTierOutput)
+func (e Infrastructure) ToInfrastructureOutputWithContext(ctx context.Context) InfrastructureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfrastructureOutput)
 }
 
-func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
-	return e.ToPostgresInstanceSkuTierPtrOutputWithContext(context.Background())
+func (e Infrastructure) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return e.ToInfrastructurePtrOutputWithContext(context.Background())
 }
 
-func (e PostgresInstanceSkuTier) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
-	return PostgresInstanceSkuTier(e).ToPostgresInstanceSkuTierOutputWithContext(ctx).ToPostgresInstanceSkuTierPtrOutputWithContext(ctx)
+func (e Infrastructure) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return Infrastructure(e).ToInfrastructureOutputWithContext(ctx).ToInfrastructurePtrOutputWithContext(ctx)
 }
 
-func (e PostgresInstanceSkuTier) ToStringOutput() pulumi.StringOutput {
+func (e Infrastructure) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PostgresInstanceSkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Infrastructure) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PostgresInstanceSkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Infrastructure) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PostgresInstanceSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Infrastructure) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PostgresInstanceSkuTierOutput struct{ *pulumi.OutputState }
+type InfrastructureOutput struct{ *pulumi.OutputState }
 
-func (PostgresInstanceSkuTierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceSkuTier)(nil)).Elem()
+func (InfrastructureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Infrastructure)(nil)).Elem()
 }
 
-func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierOutput() PostgresInstanceSkuTierOutput {
+func (o InfrastructureOutput) ToInfrastructureOutput() InfrastructureOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierOutputWithContext(ctx context.Context) PostgresInstanceSkuTierOutput {
+func (o InfrastructureOutput) ToInfrastructureOutputWithContext(ctx context.Context) InfrastructureOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
-	return o.ToPostgresInstanceSkuTierPtrOutputWithContext(context.Background())
+func (o InfrastructureOutput) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return o.ToInfrastructurePtrOutputWithContext(context.Background())
 }
 
-func (o PostgresInstanceSkuTierOutput) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceSkuTier) *PostgresInstanceSkuTier {
+func (o InfrastructureOutput) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Infrastructure) *Infrastructure {
 		return &v
-	}).(PostgresInstanceSkuTierPtrOutput)
+	}).(InfrastructurePtrOutput)
 }
 
-func (o PostgresInstanceSkuTierOutput) ToStringOutput() pulumi.StringOutput {
+func (o InfrastructureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PostgresInstanceSkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresInstanceSkuTier) string {
+func (o InfrastructureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Infrastructure) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PostgresInstanceSkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o InfrastructureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PostgresInstanceSkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresInstanceSkuTier) *string {
+func (o InfrastructureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Infrastructure) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PostgresInstanceSkuTierPtrOutput struct{ *pulumi.OutputState }
+type InfrastructurePtrOutput struct{ *pulumi.OutputState }
 
-func (PostgresInstanceSkuTierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceSkuTier)(nil)).Elem()
+func (InfrastructurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Infrastructure)(nil)).Elem()
 }
 
-func (o PostgresInstanceSkuTierPtrOutput) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
+func (o InfrastructurePtrOutput) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuTierPtrOutput) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
+func (o InfrastructurePtrOutput) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
 	return o
 }
 
-func (o PostgresInstanceSkuTierPtrOutput) Elem() PostgresInstanceSkuTierOutput {
-	return o.ApplyT(func(v *PostgresInstanceSkuTier) PostgresInstanceSkuTier {
+func (o InfrastructurePtrOutput) Elem() InfrastructureOutput {
+	return o.ApplyT(func(v *Infrastructure) Infrastructure {
 		if v != nil {
 			return *v
 		}
-		var ret PostgresInstanceSkuTier
+		var ret Infrastructure
 		return ret
-	}).(PostgresInstanceSkuTierOutput)
+	}).(InfrastructureOutput)
 }
 
-func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o InfrastructurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresInstanceSkuTier) *string {
+func (o InfrastructurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Infrastructure) *string {
 		if e == nil {
 			return nil
 		}
@@ -151,45 +197,45 @@ func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// PostgresInstanceSkuTierInput is an input type that accepts PostgresInstanceSkuTierArgs and PostgresInstanceSkuTierOutput values.
-// You can construct a concrete instance of `PostgresInstanceSkuTierInput` via:
+// InfrastructureInput is an input type that accepts InfrastructureArgs and InfrastructureOutput values.
+// You can construct a concrete instance of `InfrastructureInput` via:
 //
-//          PostgresInstanceSkuTierArgs{...}
-type PostgresInstanceSkuTierInput interface {
+//          InfrastructureArgs{...}
+type InfrastructureInput interface {
 	pulumi.Input
 
-	ToPostgresInstanceSkuTierOutput() PostgresInstanceSkuTierOutput
-	ToPostgresInstanceSkuTierOutputWithContext(context.Context) PostgresInstanceSkuTierOutput
+	ToInfrastructureOutput() InfrastructureOutput
+	ToInfrastructureOutputWithContext(context.Context) InfrastructureOutput
 }
 
-var postgresInstanceSkuTierPtrType = reflect.TypeOf((**PostgresInstanceSkuTier)(nil)).Elem()
+var infrastructurePtrType = reflect.TypeOf((**Infrastructure)(nil)).Elem()
 
-type PostgresInstanceSkuTierPtrInput interface {
+type InfrastructurePtrInput interface {
 	pulumi.Input
 
-	ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput
-	ToPostgresInstanceSkuTierPtrOutputWithContext(context.Context) PostgresInstanceSkuTierPtrOutput
+	ToInfrastructurePtrOutput() InfrastructurePtrOutput
+	ToInfrastructurePtrOutputWithContext(context.Context) InfrastructurePtrOutput
 }
 
-type postgresInstanceSkuTierPtr string
+type infrastructurePtr string
 
-func PostgresInstanceSkuTierPtr(v string) PostgresInstanceSkuTierPtrInput {
-	return (*postgresInstanceSkuTierPtr)(&v)
+func InfrastructurePtr(v string) InfrastructurePtrInput {
+	return (*infrastructurePtr)(&v)
 }
 
-func (*postgresInstanceSkuTierPtr) ElementType() reflect.Type {
-	return postgresInstanceSkuTierPtrType
+func (*infrastructurePtr) ElementType() reflect.Type {
+	return infrastructurePtrType
 }
 
-func (in *postgresInstanceSkuTierPtr) ToPostgresInstanceSkuTierPtrOutput() PostgresInstanceSkuTierPtrOutput {
-	return pulumi.ToOutput(in).(PostgresInstanceSkuTierPtrOutput)
+func (in *infrastructurePtr) ToInfrastructurePtrOutput() InfrastructurePtrOutput {
+	return pulumi.ToOutput(in).(InfrastructurePtrOutput)
 }
 
-func (in *postgresInstanceSkuTierPtr) ToPostgresInstanceSkuTierPtrOutputWithContext(ctx context.Context) PostgresInstanceSkuTierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PostgresInstanceSkuTierPtrOutput)
+func (in *infrastructurePtr) ToInfrastructurePtrOutputWithContext(ctx context.Context) InfrastructurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfrastructurePtrOutput)
 }
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier.
+// The pricing tier for the instance.
 type SqlManagedInstanceSkuTier string
 
 const (
@@ -354,9 +400,18 @@ func (in *sqlManagedInstanceSkuTierPtr) ToSqlManagedInstanceSkuTierPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(SqlManagedInstanceSkuTierPtrOutput)
 }
 
+// SQL Server version.
+type SqlVersion string
+
+const (
+	SqlVersion_SQL_Server_2019 = SqlVersion("SQL Server 2019")
+	SqlVersion_SQL_Server_2017 = SqlVersion("SQL Server 2017")
+	SqlVersion_SQL_Server_2016 = SqlVersion("SQL Server 2016")
+)
+
 func init() {
-	pulumi.RegisterOutputType(PostgresInstanceSkuTierOutput{})
-	pulumi.RegisterOutputType(PostgresInstanceSkuTierPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureOutput{})
+	pulumi.RegisterOutputType(InfrastructurePtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuTierOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuTierPtrOutput{})
 }

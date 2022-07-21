@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Streaming Policy resource
-    /// API Version: 2020-05-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:StreamingPolicy")]
     public partial class StreamingPolicy : Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// 
-        /// API Version: 2020-10-01.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetSubAccountResult> InvokeAsync(GetSubAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2020-10-01.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());

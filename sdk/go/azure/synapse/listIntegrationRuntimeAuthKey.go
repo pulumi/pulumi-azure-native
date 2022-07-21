@@ -11,7 +11,7 @@ import (
 )
 
 // The integration runtime authentication keys.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func ListIntegrationRuntimeAuthKey(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeyArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeyResult, error) {
 	var rv ListIntegrationRuntimeAuthKeyResult
 	err := ctx.Invoke("azure-native:synapse:listIntegrationRuntimeAuthKey", args, &rv, opts...)

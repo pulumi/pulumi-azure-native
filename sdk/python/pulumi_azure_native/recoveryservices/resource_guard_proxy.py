@@ -71,7 +71,7 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2021-02-01-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  args: ResourceGuardProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2021-02-01-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.

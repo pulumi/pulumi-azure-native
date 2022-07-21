@@ -11,17 +11,18 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AnalyticalStorageConfigurationResponse',
     'ApiPropertiesResponse',
     'AutoscaleSettingsResponse',
+    'BackupPolicyMigrationStateResponse',
     'CapabilityResponse',
+    'CapacityResponse',
     'CassandraKeyspaceGetPropertiesResponseOptions',
     'CassandraKeyspaceGetPropertiesResponseResource',
     'CassandraPartitionKeyResponse',
     'CassandraSchemaResponse',
     'CassandraTableGetPropertiesResponseOptions',
     'CassandraTableGetPropertiesResponseResource',
-    'CassandraViewGetPropertiesResponseOptions',
-    'CassandraViewGetPropertiesResponseResource',
     'CertificateResponse',
     'ClusterKeyResponse',
     'ClusterResourceResponseProperties',
@@ -33,13 +34,10 @@ __all__ = [
     'ContinuousModeBackupPolicyResponse',
     'CorsPolicyResponse',
     'DataCenterResourceResponseProperties',
-    'DataTransferRegionalServiceResourceResponse',
-    'DataTransferServiceResourcePropertiesResponse',
     'DatabaseAccountConnectionStringResponse',
+    'DatabaseRestoreResourceResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
-    'GraphResourceGetPropertiesResponseOptions',
-    'GraphResourceGetPropertiesResponseResource',
     'GremlinDatabaseGetPropertiesResponseOptions',
     'GremlinDatabaseGetPropertiesResponseResource',
     'GremlinGraphGetPropertiesResponseOptions',
@@ -49,6 +47,7 @@ __all__ = [
     'IndexingPolicyResponse',
     'IpAddressOrRangeResponse',
     'LocationResponse',
+    'ManagedCassandraManagedServiceIdentityResponse',
     'ManagedServiceIdentityResponse',
     'ManagedServiceIdentityResponseUserAssignedIdentities',
     'MongoDBCollectionGetPropertiesResponseOptions',
@@ -64,26 +63,63 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
-    'PrivilegeResponse',
-    'PrivilegeResponseResource',
-    'RoleResponse',
+    'RestoreParametersResponse',
     'SeedNodeResponse',
     'SpatialSpecResponse',
     'SqlContainerGetPropertiesResponseOptions',
     'SqlContainerGetPropertiesResponseResource',
     'SqlDatabaseGetPropertiesResponseOptions',
     'SqlDatabaseGetPropertiesResponseResource',
-    'SqlDedicatedGatewayRegionalServiceResourceResponse',
-    'SqlDedicatedGatewayServiceResourcePropertiesResponse',
     'SqlStoredProcedureGetPropertiesResponseResource',
     'SqlTriggerGetPropertiesResponseResource',
     'SqlUserDefinedFunctionGetPropertiesResponseResource',
+    'SystemDataResponse',
     'TableGetPropertiesResponseOptions',
     'TableGetPropertiesResponseResource',
     'UniqueKeyPolicyResponse',
     'UniqueKeyResponse',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class AnalyticalStorageConfigurationResponse(dict):
+    """
+    Analytical storage specific properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaType":
+            suggest = "schema_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticalStorageConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticalStorageConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticalStorageConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_type: Optional[str] = None):
+        """
+        Analytical storage specific properties.
+        :param str schema_type: Describes the types of schema for analytical storage.
+        """
+        if schema_type is not None:
+            pulumi.set(__self__, "schema_type", schema_type)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> Optional[str]:
+        """
+        Describes the types of schema for analytical storage.
+        """
+        return pulumi.get(self, "schema_type")
+
 
 @pulumi.output_type
 class ApiPropertiesResponse(dict):
@@ -158,6 +194,72 @@ class AutoscaleSettingsResponse(dict):
 
 
 @pulumi.output_type
+class BackupPolicyMigrationStateResponse(dict):
+    """
+    The object representing the state of the migration between the backup policies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+        elif key == "targetType":
+            suggest = "target_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyMigrationStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyMigrationStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyMigrationStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_time: Optional[str] = None,
+                 status: Optional[str] = None,
+                 target_type: Optional[str] = None):
+        """
+        The object representing the state of the migration between the backup policies.
+        :param str start_time: Time at which the backup policy migration started (ISO-8601 format).
+        :param str status: Describes the status of migration between backup policy types.
+        :param str target_type: Describes the target backup policy type of the backup policy migration.
+        """
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Time at which the backup policy migration started (ISO-8601 format).
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Describes the status of migration between backup policy types.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[str]:
+        """
+        Describes the target backup policy type of the backup policy migration.
+        """
+        return pulumi.get(self, "target_type")
+
+
+@pulumi.output_type
 class CapabilityResponse(dict):
     """
     Cosmos DB capability object
@@ -178,6 +280,46 @@ class CapabilityResponse(dict):
         Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CapacityResponse(dict):
+    """
+    The object that represents all properties related to capacity enforcement on an account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "totalThroughputLimit":
+            suggest = "total_throughput_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 total_throughput_limit: Optional[int] = None):
+        """
+        The object that represents all properties related to capacity enforcement on an account.
+        :param int total_throughput_limit: The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+        if total_throughput_limit is not None:
+            pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+
+    @property
+    @pulumi.getter(name="totalThroughputLimit")
+    def total_throughput_limit(self) -> Optional[int]:
+        """
+        The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+        return pulumi.get(self, "total_throughput_limit")
 
 
 @pulumi.output_type
@@ -523,133 +665,6 @@ class CassandraTableGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
-class CassandraViewGetPropertiesResponseOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "autoscaleSettings":
-            suggest = "autoscale_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CassandraViewGetPropertiesResponseOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CassandraViewGetPropertiesResponseOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CassandraViewGetPropertiesResponseOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
-                 throughput: Optional[int] = None):
-        """
-        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
-        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-        """
-        if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
-        if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
-
-    @property
-    @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsResponse']:
-        """
-        Specifies the Autoscale settings.
-        """
-        return pulumi.get(self, "autoscale_settings")
-
-    @property
-    @pulumi.getter
-    def throughput(self) -> Optional[int]:
-        """
-        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-        """
-        return pulumi.get(self, "throughput")
-
-
-@pulumi.output_type
-class CassandraViewGetPropertiesResponseResource(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "viewDefinition":
-            suggest = "view_definition"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CassandraViewGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CassandraViewGetPropertiesResponseResource.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CassandraViewGetPropertiesResponseResource.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 etag: str,
-                 id: str,
-                 rid: str,
-                 ts: float,
-                 view_definition: str):
-        """
-        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
-        :param str id: Name of the Cosmos DB Cassandra view
-        :param str rid: A system generated property. A unique identifier.
-        :param float ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param str view_definition: View Definition of the Cosmos DB Cassandra view
-        """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
-        pulumi.set(__self__, "view_definition", view_definition)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A system generated property representing the resource etag required for optimistic concurrency control.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Name of the Cosmos DB Cassandra view
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def rid(self) -> str:
-        """
-        A system generated property. A unique identifier.
-        """
-        return pulumi.get(self, "rid")
-
-    @property
-    @pulumi.getter
-    def ts(self) -> float:
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
-        """
-        return pulumi.get(self, "ts")
-
-    @property
-    @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> str:
-        """
-        View Definition of the Cosmos DB Cassandra view
-        """
-        return pulumi.get(self, "view_definition")
-
-
-@pulumi.output_type
 class CertificateResponse(dict):
     def __init__(__self__, *,
                  pem: Optional[str] = None):
@@ -734,6 +749,8 @@ class ClusterResourceResponseProperties(dict):
             suggest = "seed_nodes"
         elif key == "authenticationMethod":
             suggest = "authentication_method"
+        elif key == "cassandraAuditLoggingEnabled":
+            suggest = "cassandra_audit_logging_enabled"
         elif key == "cassandraVersion":
             suggest = "cassandra_version"
         elif key == "clientCertificates":
@@ -770,9 +787,11 @@ class ClusterResourceResponseProperties(dict):
                  gossip_certificates: Sequence['outputs.CertificateResponse'],
                  seed_nodes: Sequence['outputs.SeedNodeResponse'],
                  authentication_method: Optional[str] = None,
+                 cassandra_audit_logging_enabled: Optional[bool] = None,
                  cassandra_version: Optional[str] = None,
                  client_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
                  cluster_name_override: Optional[str] = None,
+                 deallocated: Optional[bool] = None,
                  delegated_management_subnet_id: Optional[str] = None,
                  external_gossip_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
                  external_seed_nodes: Optional[Sequence['outputs.SeedNodeResponse']] = None,
@@ -785,9 +804,11 @@ class ClusterResourceResponseProperties(dict):
         :param Sequence['CertificateResponse'] gossip_certificates: List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
         :param Sequence['SeedNodeResponse'] seed_nodes: List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
         :param str authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        :param bool cassandra_audit_logging_enabled: Whether Cassandra audit logging is enabled
         :param str cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         :param Sequence['CertificateResponse'] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
         :param str cluster_name_override: If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+        :param bool deallocated: Whether the cluster and associated data centers has been deallocated.
         :param str delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         :param Sequence['CertificateResponse'] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
         :param Sequence['SeedNodeResponse'] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
@@ -800,12 +821,16 @@ class ClusterResourceResponseProperties(dict):
         pulumi.set(__self__, "seed_nodes", seed_nodes)
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
+        if cassandra_audit_logging_enabled is not None:
+            pulumi.set(__self__, "cassandra_audit_logging_enabled", cassandra_audit_logging_enabled)
         if cassandra_version is not None:
             pulumi.set(__self__, "cassandra_version", cassandra_version)
         if client_certificates is not None:
             pulumi.set(__self__, "client_certificates", client_certificates)
         if cluster_name_override is not None:
             pulumi.set(__self__, "cluster_name_override", cluster_name_override)
+        if deallocated is not None:
+            pulumi.set(__self__, "deallocated", deallocated)
         if delegated_management_subnet_id is not None:
             pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
         if external_gossip_certificates is not None:
@@ -846,6 +871,14 @@ class ClusterResourceResponseProperties(dict):
         return pulumi.get(self, "authentication_method")
 
     @property
+    @pulumi.getter(name="cassandraAuditLoggingEnabled")
+    def cassandra_audit_logging_enabled(self) -> Optional[bool]:
+        """
+        Whether Cassandra audit logging is enabled
+        """
+        return pulumi.get(self, "cassandra_audit_logging_enabled")
+
+    @property
     @pulumi.getter(name="cassandraVersion")
     def cassandra_version(self) -> Optional[str]:
         """
@@ -868,6 +901,14 @@ class ClusterResourceResponseProperties(dict):
         If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
         """
         return pulumi.get(self, "cluster_name_override")
+
+    @property
+    @pulumi.getter
+    def deallocated(self) -> Optional[bool]:
+        """
+        Whether the cluster and associated data centers has been deallocated.
+        """
+        return pulumi.get(self, "deallocated")
 
     @property
     @pulumi.getter(name="delegatedManagementSubnetId")
@@ -1209,14 +1250,35 @@ class ContinuousModeBackupPolicyResponse(dict):
     """
     The object representing continuous mode backup policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "migrationState":
+            suggest = "migration_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousModeBackupPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousModeBackupPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousModeBackupPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 migration_state: Optional['outputs.BackupPolicyMigrationStateResponse'] = None):
         """
         The object representing continuous mode backup policy.
         :param str type: Describes the mode of backups.
                Expected value is 'Continuous'.
+        :param 'BackupPolicyMigrationStateResponse' migration_state: The object representing the state of the migration between the backup policies.
         """
         pulumi.set(__self__, "type", 'Continuous')
+        if migration_state is not None:
+            pulumi.set(__self__, "migration_state", migration_state)
 
     @property
     @pulumi.getter
@@ -1226,6 +1288,14 @@ class ContinuousModeBackupPolicyResponse(dict):
         Expected value is 'Continuous'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> Optional['outputs.BackupPolicyMigrationStateResponse']:
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        return pulumi.get(self, "migration_state")
 
 
 @pulumi.output_type
@@ -1333,12 +1403,22 @@ class DataCenterResourceResponseProperties(dict):
         suggest = None
         if key == "seedNodes":
             suggest = "seed_nodes"
+        elif key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "backupStorageCustomerKeyUri":
+            suggest = "backup_storage_customer_key_uri"
         elif key == "base64EncodedCassandraYamlFragment":
             suggest = "base64_encoded_cassandra_yaml_fragment"
         elif key == "dataCenterLocation":
             suggest = "data_center_location"
         elif key == "delegatedSubnetId":
             suggest = "delegated_subnet_id"
+        elif key == "diskCapacity":
+            suggest = "disk_capacity"
+        elif key == "diskSku":
+            suggest = "disk_sku"
+        elif key == "managedDiskCustomerKeyUri":
+            suggest = "managed_disk_customer_key_uri"
         elif key == "nodeCount":
             suggest = "node_count"
         elif key == "provisioningState":
@@ -1357,31 +1437,55 @@ class DataCenterResourceResponseProperties(dict):
 
     def __init__(__self__, *,
                  seed_nodes: Sequence['outputs.SeedNodeResponse'],
+                 availability_zone: Optional[bool] = None,
+                 backup_storage_customer_key_uri: Optional[str] = None,
                  base64_encoded_cassandra_yaml_fragment: Optional[str] = None,
                  data_center_location: Optional[str] = None,
                  delegated_subnet_id: Optional[str] = None,
+                 disk_capacity: Optional[int] = None,
+                 disk_sku: Optional[str] = None,
+                 managed_disk_customer_key_uri: Optional[str] = None,
                  node_count: Optional[int] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: Optional[str] = None,
+                 sku: Optional[str] = None):
         """
         Properties of a managed Cassandra data center.
         :param Sequence['SeedNodeResponse'] seed_nodes: IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+        :param bool availability_zone: If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        :param str backup_storage_customer_key_uri: Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
         :param str base64_encoded_cassandra_yaml_fragment: A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
         :param str data_center_location: The region this data center should be created in.
         :param str delegated_subnet_id: Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+        :param int disk_capacity: Number of disk used for data centers. Default value is 4.
+        :param str disk_sku: Disk SKU used for data centers. Default value is P30.
+        :param str managed_disk_customer_key_uri: Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
         :param int node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
         :param str provisioning_state: The status of the resource at the time the operation was called.
+        :param str sku: Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
         """
         pulumi.set(__self__, "seed_nodes", seed_nodes)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if backup_storage_customer_key_uri is not None:
+            pulumi.set(__self__, "backup_storage_customer_key_uri", backup_storage_customer_key_uri)
         if base64_encoded_cassandra_yaml_fragment is not None:
             pulumi.set(__self__, "base64_encoded_cassandra_yaml_fragment", base64_encoded_cassandra_yaml_fragment)
         if data_center_location is not None:
             pulumi.set(__self__, "data_center_location", data_center_location)
         if delegated_subnet_id is not None:
             pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
+        if disk_capacity is not None:
+            pulumi.set(__self__, "disk_capacity", disk_capacity)
+        if disk_sku is not None:
+            pulumi.set(__self__, "disk_sku", disk_sku)
+        if managed_disk_customer_key_uri is not None:
+            pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter(name="seedNodes")
@@ -1390,6 +1494,22 @@ class DataCenterResourceResponseProperties(dict):
         IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
         """
         return pulumi.get(self, "seed_nodes")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[bool]:
+        """
+        If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="backupStorageCustomerKeyUri")
+    def backup_storage_customer_key_uri(self) -> Optional[str]:
+        """
+        Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
+        """
+        return pulumi.get(self, "backup_storage_customer_key_uri")
 
     @property
     @pulumi.getter(name="base64EncodedCassandraYamlFragment")
@@ -1416,6 +1536,30 @@ class DataCenterResourceResponseProperties(dict):
         return pulumi.get(self, "delegated_subnet_id")
 
     @property
+    @pulumi.getter(name="diskCapacity")
+    def disk_capacity(self) -> Optional[int]:
+        """
+        Number of disk used for data centers. Default value is 4.
+        """
+        return pulumi.get(self, "disk_capacity")
+
+    @property
+    @pulumi.getter(name="diskSku")
+    def disk_sku(self) -> Optional[str]:
+        """
+        Disk SKU used for data centers. Default value is P30.
+        """
+        return pulumi.get(self, "disk_sku")
+
+    @property
+    @pulumi.getter(name="managedDiskCustomerKeyUri")
+    def managed_disk_customer_key_uri(self) -> Optional[str]:
+        """
+        Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
+        """
+        return pulumi.get(self, "managed_disk_customer_key_uri")
+
+    @property
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[int]:
         """
@@ -1431,153 +1575,13 @@ class DataCenterResourceResponseProperties(dict):
         """
         return pulumi.get(self, "provisioning_state")
 
-
-@pulumi.output_type
-class DataTransferRegionalServiceResourceResponse(dict):
-    """
-    Resource for a regional service location.
-    """
-    def __init__(__self__, *,
-                 location: str,
-                 name: str,
-                 status: str):
-        """
-        Resource for a regional service location.
-        :param str location: The location name.
-        :param str name: The regional service name.
-        :param str status: Describes the status of a service.
-        """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def sku(self) -> Optional[str]:
         """
-        The location name.
+        Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
         """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The regional service name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Describes the status of a service.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class DataTransferServiceResourcePropertiesResponse(dict):
-    """
-    Properties for DataTransferServiceResource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "creationTime":
-            suggest = "creation_time"
-        elif key == "serviceType":
-            suggest = "service_type"
-        elif key == "instanceCount":
-            suggest = "instance_count"
-        elif key == "instanceSize":
-            suggest = "instance_size"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataTransferServiceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataTransferServiceResourcePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataTransferServiceResourcePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 creation_time: str,
-                 locations: Sequence['outputs.DataTransferRegionalServiceResourceResponse'],
-                 service_type: str,
-                 status: str,
-                 instance_count: Optional[int] = None,
-                 instance_size: Optional[str] = None):
-        """
-        Properties for DataTransferServiceResource.
-        :param str creation_time: Time of the last state change (ISO-8601 format).
-        :param Sequence['DataTransferRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
-        :param str service_type: ServiceType for the service.
-               Expected value is 'DataTransfer'.
-        :param str status: Describes the status of a service.
-        :param int instance_count: Instance count for the service.
-        :param str instance_size: Instance type for the service.
-        """
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "service_type", 'DataTransfer')
-        pulumi.set(__self__, "status", status)
-        if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
-        """
-        Time of the last state change (ISO-8601 format).
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter
-    def locations(self) -> Sequence['outputs.DataTransferRegionalServiceResourceResponse']:
-        """
-        An array that contains all of the locations for the service.
-        """
-        return pulumi.get(self, "locations")
-
-    @property
-    @pulumi.getter(name="serviceType")
-    def service_type(self) -> str:
-        """
-        ServiceType for the service.
-        Expected value is 'DataTransfer'.
-        """
-        return pulumi.get(self, "service_type")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Describes the status of a service.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[int]:
-        """
-        Instance count for the service.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[str]:
-        """
-        Instance type for the service.
-        """
-        return pulumi.get(self, "instance_size")
+        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type
@@ -1611,6 +1615,60 @@ class DatabaseAccountConnectionStringResponse(dict):
         Description of the connection string
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class DatabaseRestoreResourceResponse(dict):
+    """
+    Specific Databases to restore.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionNames":
+            suggest = "collection_names"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseRestoreResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseRestoreResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseRestoreResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_names: Optional[Sequence[str]] = None,
+                 database_name: Optional[str] = None):
+        """
+        Specific Databases to restore.
+        :param Sequence[str] collection_names: The names of the collections available for restore.
+        :param str database_name: The name of the database available for restore.
+        """
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[Sequence[str]]:
+        """
+        The names of the collections available for restore.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the database available for restore.
+        """
+        return pulumi.get(self, "database_name")
 
 
 @pulumi.output_type
@@ -1695,72 +1753,6 @@ class FailoverPolicyResponse(dict):
         The name of the region in which the database account exists.
         """
         return pulumi.get(self, "location_name")
-
-
-@pulumi.output_type
-class GraphResourceGetPropertiesResponseOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "autoscaleSettings":
-            suggest = "autoscale_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GraphResourceGetPropertiesResponseOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GraphResourceGetPropertiesResponseOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GraphResourceGetPropertiesResponseOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
-                 throughput: Optional[int] = None):
-        """
-        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
-        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-        """
-        if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
-        if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
-
-    @property
-    @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsResponse']:
-        """
-        Specifies the Autoscale settings.
-        """
-        return pulumi.get(self, "autoscale_settings")
-
-    @property
-    @pulumi.getter
-    def throughput(self) -> Optional[int]:
-        """
-        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-        """
-        return pulumi.get(self, "throughput")
-
-
-@pulumi.output_type
-class GraphResourceGetPropertiesResponseResource(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: Name of the Cosmos DB Graph
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Name of the Cosmos DB Graph
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2405,6 +2397,70 @@ class LocationResponse(dict):
 
 
 @pulumi.output_type
+class ManagedCassandraManagedServiceIdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedCassandraManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedCassandraManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedCassandraManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The object id of the identity resource.
+        :param str tenant_id: The tenant id of the resource.
+        :param str type: The type of the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The object id of the identity resource.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
     Identity for the resource.
@@ -2901,7 +2957,9 @@ class PeriodicModeBackupPolicyResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "periodicModeProperties":
+        if key == "migrationState":
+            suggest = "migration_state"
+        elif key == "periodicModeProperties":
             suggest = "periodic_mode_properties"
 
         if suggest:
@@ -2917,14 +2975,18 @@ class PeriodicModeBackupPolicyResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 migration_state: Optional['outputs.BackupPolicyMigrationStateResponse'] = None,
                  periodic_mode_properties: Optional['outputs.PeriodicModePropertiesResponse'] = None):
         """
         The object representing periodic mode backup policy.
         :param str type: Describes the mode of backups.
                Expected value is 'Periodic'.
+        :param 'BackupPolicyMigrationStateResponse' migration_state: The object representing the state of the migration between the backup policies.
         :param 'PeriodicModePropertiesResponse' periodic_mode_properties: Configuration values for periodic mode backup
         """
         pulumi.set(__self__, "type", 'Periodic')
+        if migration_state is not None:
+            pulumi.set(__self__, "migration_state", migration_state)
         if periodic_mode_properties is not None:
             pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
 
@@ -2936,6 +2998,14 @@ class PeriodicModeBackupPolicyResponse(dict):
         Expected value is 'Periodic'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> Optional['outputs.BackupPolicyMigrationStateResponse']:
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        return pulumi.get(self, "migration_state")
 
     @property
     @pulumi.getter(name="periodicModeProperties")
@@ -2958,6 +3028,8 @@ class PeriodicModePropertiesResponse(dict):
             suggest = "backup_interval_in_minutes"
         elif key == "backupRetentionIntervalInHours":
             suggest = "backup_retention_interval_in_hours"
+        elif key == "backupStorageRedundancy":
+            suggest = "backup_storage_redundancy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PeriodicModePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2972,16 +3044,20 @@ class PeriodicModePropertiesResponse(dict):
 
     def __init__(__self__, *,
                  backup_interval_in_minutes: Optional[int] = None,
-                 backup_retention_interval_in_hours: Optional[int] = None):
+                 backup_retention_interval_in_hours: Optional[int] = None,
+                 backup_storage_redundancy: Optional[str] = None):
         """
         Configuration values for periodic mode backup
         :param int backup_interval_in_minutes: An integer representing the interval in minutes between two backups
         :param int backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        :param str backup_storage_redundancy: Enum to indicate type of backup residency
         """
         if backup_interval_in_minutes is not None:
             pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
             pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+        if backup_storage_redundancy is not None:
+            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -2998,6 +3074,14 @@ class PeriodicModePropertiesResponse(dict):
         An integer representing the time (in hours) that each backup is retained
         """
         return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    @property
+    @pulumi.getter(name="backupStorageRedundancy")
+    def backup_storage_redundancy(self) -> Optional[str]:
+        """
+        Enum to indicate type of backup residency
+        """
+        return pulumi.get(self, "backup_storage_redundancy")
 
 
 @pulumi.output_type
@@ -3256,108 +3340,85 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
-class PrivilegeResponse(dict):
+class RestoreParametersResponse(dict):
     """
-    The set of data plane operations permitted through this Role Definition.
+    Parameters to indicate the information about the restore.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databasesToRestore":
+            suggest = "databases_to_restore"
+        elif key == "restoreMode":
+            suggest = "restore_mode"
+        elif key == "restoreSource":
+            suggest = "restore_source"
+        elif key == "restoreTimestampInUtc":
+            suggest = "restore_timestamp_in_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestoreParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestoreParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestoreParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 actions: Optional[Sequence[str]] = None,
-                 resource: Optional['outputs.PrivilegeResponseResource'] = None):
+                 databases_to_restore: Optional[Sequence['outputs.DatabaseRestoreResourceResponse']] = None,
+                 restore_mode: Optional[str] = None,
+                 restore_source: Optional[str] = None,
+                 restore_timestamp_in_utc: Optional[str] = None):
         """
-        The set of data plane operations permitted through this Role Definition.
-        :param Sequence[str] actions: An array of actions that are allowed.
-        :param 'PrivilegeResponseResource' resource: An Azure Cosmos DB Mongo DB Resource.
+        Parameters to indicate the information about the restore.
+        :param Sequence['DatabaseRestoreResourceResponse'] databases_to_restore: List of specific databases available for restore.
+        :param str restore_mode: Describes the mode of the restore.
+        :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+        if databases_to_restore is not None:
+            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+        if restore_mode is not None:
+            pulumi.set(__self__, "restore_mode", restore_mode)
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
 
     @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="databasesToRestore")
+    def databases_to_restore(self) -> Optional[Sequence['outputs.DatabaseRestoreResourceResponse']]:
         """
-        An array of actions that are allowed.
+        List of specific databases available for restore.
         """
-        return pulumi.get(self, "actions")
+        return pulumi.get(self, "databases_to_restore")
 
     @property
-    @pulumi.getter
-    def resource(self) -> Optional['outputs.PrivilegeResponseResource']:
+    @pulumi.getter(name="restoreMode")
+    def restore_mode(self) -> Optional[str]:
         """
-        An Azure Cosmos DB Mongo DB Resource.
+        Describes the mode of the restore.
         """
-        return pulumi.get(self, "resource")
-
-
-@pulumi.output_type
-class PrivilegeResponseResource(dict):
-    """
-    An Azure Cosmos DB Mongo DB Resource.
-    """
-    def __init__(__self__, *,
-                 collection: Optional[str] = None,
-                 db: Optional[str] = None):
-        """
-        An Azure Cosmos DB Mongo DB Resource.
-        :param str collection: The collection name the role is applied.
-        :param str db: The database name the role is applied.
-        """
-        if collection is not None:
-            pulumi.set(__self__, "collection", collection)
-        if db is not None:
-            pulumi.set(__self__, "db", db)
+        return pulumi.get(self, "restore_mode")
 
     @property
-    @pulumi.getter
-    def collection(self) -> Optional[str]:
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[str]:
         """
-        The collection name the role is applied.
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         """
-        return pulumi.get(self, "collection")
+        return pulumi.get(self, "restore_source")
 
     @property
-    @pulumi.getter
-    def db(self) -> Optional[str]:
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[str]:
         """
-        The database name the role is applied.
+        Time to which the account has to be restored (ISO-8601 format).
         """
-        return pulumi.get(self, "db")
-
-
-@pulumi.output_type
-class RoleResponse(dict):
-    """
-    The set of roles permitted through this Role Definition.
-    """
-    def __init__(__self__, *,
-                 db: Optional[str] = None,
-                 role: Optional[str] = None):
-        """
-        The set of roles permitted through this Role Definition.
-        :param str db: The database name the role is applied.
-        :param str role: The role name.
-        """
-        if db is not None:
-            pulumi.set(__self__, "db", db)
-        if role is not None:
-            pulumi.set(__self__, "role", role)
-
-    @property
-    @pulumi.getter
-    def db(self) -> Optional[str]:
-        """
-        The database name the role is applied.
-        """
-        return pulumi.get(self, "db")
-
-    @property
-    @pulumi.getter
-    def role(self) -> Optional[str]:
-        """
-        The role name.
-        """
-        return pulumi.get(self, "role")
+        return pulumi.get(self, "restore_timestamp_in_utc")
 
 
 @pulumi.output_type
@@ -3749,196 +3810,6 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
-class SqlDedicatedGatewayRegionalServiceResourceResponse(dict):
-    """
-    Resource for a regional service location.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sqlDedicatedGatewayEndpoint":
-            suggest = "sql_dedicated_gateway_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SqlDedicatedGatewayRegionalServiceResourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SqlDedicatedGatewayRegionalServiceResourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SqlDedicatedGatewayRegionalServiceResourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 location: str,
-                 name: str,
-                 sql_dedicated_gateway_endpoint: str,
-                 status: str):
-        """
-        Resource for a regional service location.
-        :param str location: The location name.
-        :param str name: The regional service name.
-        :param str sql_dedicated_gateway_endpoint: The regional endpoint for SqlDedicatedGateway.
-        :param str status: Describes the status of a service.
-        """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sql_dedicated_gateway_endpoint", sql_dedicated_gateway_endpoint)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        The location name.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The regional service name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="sqlDedicatedGatewayEndpoint")
-    def sql_dedicated_gateway_endpoint(self) -> str:
-        """
-        The regional endpoint for SqlDedicatedGateway.
-        """
-        return pulumi.get(self, "sql_dedicated_gateway_endpoint")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Describes the status of a service.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
-    """
-    Properties for SqlDedicatedGatewayServiceResource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "creationTime":
-            suggest = "creation_time"
-        elif key == "serviceType":
-            suggest = "service_type"
-        elif key == "instanceCount":
-            suggest = "instance_count"
-        elif key == "instanceSize":
-            suggest = "instance_size"
-        elif key == "sqlDedicatedGatewayEndpoint":
-            suggest = "sql_dedicated_gateway_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SqlDedicatedGatewayServiceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SqlDedicatedGatewayServiceResourcePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SqlDedicatedGatewayServiceResourcePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 creation_time: str,
-                 locations: Sequence['outputs.SqlDedicatedGatewayRegionalServiceResourceResponse'],
-                 service_type: str,
-                 status: str,
-                 instance_count: Optional[int] = None,
-                 instance_size: Optional[str] = None,
-                 sql_dedicated_gateway_endpoint: Optional[str] = None):
-        """
-        Properties for SqlDedicatedGatewayServiceResource.
-        :param str creation_time: Time of the last state change (ISO-8601 format).
-        :param Sequence['SqlDedicatedGatewayRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
-        :param str service_type: ServiceType for the service.
-               Expected value is 'SqlDedicatedGateway'.
-        :param str status: Describes the status of a service.
-        :param int instance_count: Instance count for the service.
-        :param str instance_size: Instance type for the service.
-        :param str sql_dedicated_gateway_endpoint: SqlDedicatedGateway endpoint for the service.
-        """
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "service_type", 'SqlDedicatedGateway')
-        pulumi.set(__self__, "status", status)
-        if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
-        if sql_dedicated_gateway_endpoint is not None:
-            pulumi.set(__self__, "sql_dedicated_gateway_endpoint", sql_dedicated_gateway_endpoint)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
-        """
-        Time of the last state change (ISO-8601 format).
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter
-    def locations(self) -> Sequence['outputs.SqlDedicatedGatewayRegionalServiceResourceResponse']:
-        """
-        An array that contains all of the locations for the service.
-        """
-        return pulumi.get(self, "locations")
-
-    @property
-    @pulumi.getter(name="serviceType")
-    def service_type(self) -> str:
-        """
-        ServiceType for the service.
-        Expected value is 'SqlDedicatedGateway'.
-        """
-        return pulumi.get(self, "service_type")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Describes the status of a service.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[int]:
-        """
-        Instance count for the service.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[str]:
-        """
-        Instance type for the service.
-        """
-        return pulumi.get(self, "instance_size")
-
-    @property
-    @pulumi.getter(name="sqlDedicatedGatewayEndpoint")
-    def sql_dedicated_gateway_endpoint(self) -> Optional[str]:
-        """
-        SqlDedicatedGateway endpoint for the service.
-        """
-        return pulumi.get(self, "sql_dedicated_gateway_endpoint")
-
-
-@pulumi.output_type
 class SqlStoredProcedureGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
@@ -4168,6 +4039,116 @@ class SqlUserDefinedFunctionGetPropertiesResponseResource(dict):
         Body of the User Defined Function
         """
         return pulumi.get(self, "body")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

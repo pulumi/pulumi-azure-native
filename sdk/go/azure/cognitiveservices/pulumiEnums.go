@@ -27,172 +27,6 @@ const (
 	HostingModelDisconnectedContainer = HostingModel("DisconnectedContainer")
 )
 
-// Type of managed service identity.
-type IdentityType string
-
-const (
-	IdentityTypeNone           = IdentityType("None")
-	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
-	IdentityTypeUserAssigned   = IdentityType("UserAssigned")
-)
-
-func (IdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (e IdentityType) ToIdentityTypeOutput() IdentityTypeOutput {
-	return pulumi.ToOutput(e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return e.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (e IdentityType) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return IdentityType(e).ToIdentityTypeOutputWithContext(ctx).ToIdentityTypePtrOutputWithContext(ctx)
-}
-
-func (e IdentityType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e IdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e IdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type IdentityTypeOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutput() IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityType) *IdentityType {
-		return &v
-	}).(IdentityTypePtrOutput)
-}
-
-func (o IdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type IdentityTypePtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityType)(nil)).Elem()
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) Elem() IdentityTypeOutput {
-	return o.ApplyT(func(v *IdentityType) IdentityType {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityType
-		return ret
-	}).(IdentityTypeOutput)
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdentityType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
-// You can construct a concrete instance of `IdentityTypeInput` via:
-//
-//          IdentityTypeArgs{...}
-type IdentityTypeInput interface {
-	pulumi.Input
-
-	ToIdentityTypeOutput() IdentityTypeOutput
-	ToIdentityTypeOutputWithContext(context.Context) IdentityTypeOutput
-}
-
-var identityTypePtrType = reflect.TypeOf((**IdentityType)(nil)).Elem()
-
-type IdentityTypePtrInput interface {
-	pulumi.Input
-
-	ToIdentityTypePtrOutput() IdentityTypePtrOutput
-	ToIdentityTypePtrOutputWithContext(context.Context) IdentityTypePtrOutput
-}
-
-type identityTypePtr string
-
-func IdentityTypePtr(v string) IdentityTypePtrInput {
-	return (*identityTypePtr)(&v)
-}
-
-func (*identityTypePtr) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return pulumi.ToOutput(in).(IdentityTypePtrOutput)
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
-}
-
 // Enumerates the possible value of keySource for Encryption
 type KeySource string
 
@@ -213,13 +47,12 @@ const (
 type PrivateEndpointServiceConnectionStatus string
 
 const (
-	PrivateEndpointServiceConnectionStatusPending      = PrivateEndpointServiceConnectionStatus("Pending")
-	PrivateEndpointServiceConnectionStatusApproved     = PrivateEndpointServiceConnectionStatus("Approved")
-	PrivateEndpointServiceConnectionStatusRejected     = PrivateEndpointServiceConnectionStatus("Rejected")
-	PrivateEndpointServiceConnectionStatusDisconnected = PrivateEndpointServiceConnectionStatus("Disconnected")
+	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
+	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
+	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
 )
 
-// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+// Whether or not public endpoint access is allowed for this account.
 type PublicNetworkAccess string
 
 const (
@@ -227,7 +60,185 @@ const (
 	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
 )
 
+// The identity type.
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
+)
+
+func (ResourceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+		return &v
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityType
+		return ret
+	}).(ResourceIdentityTypeOutput)
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
+// You can construct a concrete instance of `ResourceIdentityTypeInput` via:
+//
+//          ResourceIdentityTypeArgs{...}
+type ResourceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
+	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+}
+
+var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+
+type ResourceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
+	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+}
+
+type resourceIdentityTypePtr string
+
+func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
+	return (*resourceIdentityTypePtr)(&v)
+}
+
+func (*resourceIdentityTypePtr) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+type SkuTier string
+
+const (
+	SkuTierFree       = SkuTier("Free")
+	SkuTierBasic      = SkuTier("Basic")
+	SkuTierStandard   = SkuTier("Standard")
+	SkuTierPremium    = SkuTier("Premium")
+	SkuTierEnterprise = SkuTier("Enterprise")
+)
+
 func init() {
-	pulumi.RegisterOutputType(IdentityTypeOutput{})
-	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 }

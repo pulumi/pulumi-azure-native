@@ -43,12 +43,6 @@ func NewSecurityConnectorApplication(ctx *pulumi.Context,
 	if args.SourceResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceResourceType'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:SecurityConnectorApplication"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource SecurityConnectorApplication
 	err := ctx.RegisterResource("azure-native:security/v20220701preview:SecurityConnectorApplication", name, args, &resource, opts...)
 	if err != nil {

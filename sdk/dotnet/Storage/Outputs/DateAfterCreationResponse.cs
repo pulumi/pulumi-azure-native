@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
 {
 
     /// <summary>
-    /// Object to define the number of days after creation.
+    /// Object to define snapshot and version action conditions.
     /// </summary>
     [OutputType]
     public sealed class DateAfterCreationResponse
@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// Value indicating the age in days after creation
         /// </summary>
         public readonly double DaysAfterCreationGreaterThan;
+        /// <summary>
+        /// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+        /// </summary>
+        public readonly double? DaysAfterLastTierChangeGreaterThan;
 
         [OutputConstructor]
-        private DateAfterCreationResponse(double daysAfterCreationGreaterThan)
+        private DateAfterCreationResponse(
+            double daysAfterCreationGreaterThan,
+
+            double? daysAfterLastTierChangeGreaterThan)
         {
             DaysAfterCreationGreaterThan = daysAfterCreationGreaterThan;
+            DaysAfterLastTierChangeGreaterThan = daysAfterLastTierChangeGreaterThan;
         }
     }
 }

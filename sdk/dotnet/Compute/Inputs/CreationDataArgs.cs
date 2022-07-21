@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<int>? LogicalSectorSize { get; set; }
 
         /// <summary>
+        /// If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+        /// </summary>
+        [Input("securityDataUri")]
+        public Input<string>? SecurityDataUri { get; set; }
+
+        /// <summary>
         /// If createOption is Copy, this is the ARM id of the source snapshot or disk.
         /// </summary>
         [Input("sourceResourceId")]

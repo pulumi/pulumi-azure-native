@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2")]
     public partial class WebAppAuthSettingsV2 : Pulumi.CustomResource

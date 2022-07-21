@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An elastic pool.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
     if (!opts) {
@@ -46,6 +46,10 @@ export interface GetElasticPoolResult {
      */
     readonly creationDate: string;
     /**
+     * The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+     */
+    readonly highAvailabilityReplicaCount?: number;
+    /**
      * Resource ID.
      */
     readonly id: string;
@@ -69,6 +73,10 @@ export interface GetElasticPoolResult {
      * The storage limit for the database elastic pool in bytes.
      */
     readonly maxSizeBytes?: number;
+    /**
+     * Minimal capacity that serverless pool will not shrink below, if not paused
+     */
+    readonly minCapacity?: number;
     /**
      * Resource name.
      */

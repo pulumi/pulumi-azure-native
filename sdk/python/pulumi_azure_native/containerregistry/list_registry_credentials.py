@@ -61,7 +61,7 @@ def list_registry_credentials(registry_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryCredentialsResult:
     """
     The response from the ListCredentials operation.
-    API Version: 2019-05-01.
+    API Version: 2021-09-01.
 
 
     :param str registry_name: The name of the container registry.
@@ -87,7 +87,7 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
     """
     The response from the ListCredentials operation.
-    API Version: 2019-05-01.
+    API Version: 2021-09-01.
 
 
     :param str registry_name: The name of the container registry.

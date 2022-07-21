@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Identity Provider details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
     if (!opts) {
@@ -57,11 +57,11 @@ export interface GetIdentityProviderResult {
      */
     readonly clientSecret?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -85,7 +85,7 @@ export interface GetIdentityProviderResult {
      */
     readonly signupPolicyName?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

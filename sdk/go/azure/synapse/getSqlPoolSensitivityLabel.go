@@ -11,7 +11,7 @@ import (
 )
 
 // A sensitivity label.
-// API Version: 2021-03-01.
+// API Version: 2021-06-01.
 func LookupSqlPoolSensitivityLabel(ctx *pulumi.Context, args *LookupSqlPoolSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolSensitivityLabelResult, error) {
 	var rv LookupSqlPoolSensitivityLabelResult
 	err := ctx.Invoke("azure-native:synapse:getSqlPoolSensitivityLabel", args, &rv, opts...)
@@ -34,7 +34,7 @@ type LookupSqlPoolSensitivityLabelArgs struct {
 	SqlPoolName string `pulumi:"sqlPoolName"`
 	// The name of the table.
 	TableName string `pulumi:"tableName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -93,7 +93,7 @@ type LookupSqlPoolSensitivityLabelOutputArgs struct {
 	SqlPoolName pulumi.StringInput `pulumi:"sqlPoolName"`
 	// The name of the table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 

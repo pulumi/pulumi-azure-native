@@ -11,7 +11,7 @@ import (
 )
 
 // The Collection data structure.
-// API Version: 2021-12-01.
+// API Version: 2022-03-01.
 func LookupPrivateStoreCollection(ctx *pulumi.Context, args *LookupPrivateStoreCollectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreCollectionResult, error) {
 	var rv LookupPrivateStoreCollectionResult
 	err := ctx.Invoke("azure-native:marketplace:getPrivateStoreCollection", args, &rv, opts...)
@@ -30,6 +30,10 @@ type LookupPrivateStoreCollectionArgs struct {
 
 // The Collection data structure.
 type LookupPrivateStoreCollectionResult struct {
+	// Indicating whether all items are approved for this collection (=true) or not (=false).
+	AllItemsApproved bool `pulumi:"allItemsApproved"`
+	// Gets the modified date of all items approved.
+	AllItemsApprovedModifiedAt string `pulumi:"allItemsApprovedModifiedAt"`
 	// Indicating whether all subscriptions are selected (=true) or not (=false).
 	AllSubscriptions *bool `pulumi:"allSubscriptions"`
 	// Gets or sets the association with Commercial's Billing Account.
@@ -91,6 +95,16 @@ func (o LookupPrivateStoreCollectionResultOutput) ToLookupPrivateStoreCollection
 
 func (o LookupPrivateStoreCollectionResultOutput) ToLookupPrivateStoreCollectionResultOutputWithContext(ctx context.Context) LookupPrivateStoreCollectionResultOutput {
 	return o
+}
+
+// Indicating whether all items are approved for this collection (=true) or not (=false).
+func (o LookupPrivateStoreCollectionResultOutput) AllItemsApproved() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) bool { return v.AllItemsApproved }).(pulumi.BoolOutput)
+}
+
+// Gets the modified date of all items approved.
+func (o LookupPrivateStoreCollectionResultOutput) AllItemsApprovedModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) string { return v.AllItemsApprovedModifiedAt }).(pulumi.StringOutput)
 }
 
 // Indicating whether all subscriptions are selected (=true) or not (=false).

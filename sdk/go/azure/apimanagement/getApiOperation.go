@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Operation details.
-// API Version: 2020-12-01.
+// API Operation details.
+// API Version: 2021-08-01.
 func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationResult, error) {
 	var rv LookupApiOperationResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiOperation", args, &rv, opts...)
@@ -32,17 +32,17 @@ type LookupApiOperationArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// Api Operation details.
+// API Operation details.
 type LookupApiOperationResult struct {
 	// Description of the operation. May include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// Operation Name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
 	Method string `pulumi:"method"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Operation Policies
 	Policies *string `pulumi:"policies"`
@@ -52,7 +52,7 @@ type LookupApiOperationResult struct {
 	Responses []ResponseContractResponse `pulumi:"responses"`
 	// Collection of URL template parameters.
 	TemplateParameters []ParameterContractResponse `pulumi:"templateParameters"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
 	UrlTemplate string `pulumi:"urlTemplate"`
@@ -86,7 +86,7 @@ func (LookupApiOperationOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupApiOperationArgs)(nil)).Elem()
 }
 
-// Api Operation details.
+// API Operation details.
 type LookupApiOperationResultOutput struct{ *pulumi.OutputState }
 
 func (LookupApiOperationResultOutput) ElementType() reflect.Type {
@@ -111,7 +111,7 @@ func (o LookupApiOperationResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupApiOperationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -121,7 +121,7 @@ func (o LookupApiOperationResultOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationResult) string { return v.Method }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupApiOperationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -146,7 +146,7 @@ func (o LookupApiOperationResultOutput) TemplateParameters() ParameterContractRe
 	return o.ApplyT(func(v LookupApiOperationResult) []ParameterContractResponse { return v.TemplateParameters }).(ParameterContractResponseArrayOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupApiOperationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiOperationResult) string { return v.Type }).(pulumi.StringOutput)
 }

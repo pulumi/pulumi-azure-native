@@ -61,7 +61,7 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGatewayKeysResult:
     """
     Gateway authentication keys.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -90,7 +90,7 @@ def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGatewayKeysResult]:
     """
     Gateway authentication keys.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

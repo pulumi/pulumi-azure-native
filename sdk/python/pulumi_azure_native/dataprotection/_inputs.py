@@ -15,6 +15,7 @@ __all__ = [
     'AdhocBasedTriggerContextArgs',
     'AzureBackupParamsArgs',
     'AzureBackupRuleArgs',
+    'AzureMonitorAlertSettingsArgs',
     'AzureOperationalStoreParametersArgs',
     'AzureRetentionRuleArgs',
     'BackupInstanceArgs',
@@ -29,11 +30,15 @@ __all__ = [
     'DayArgs',
     'DppIdentityDetailsArgs',
     'ImmediateCopyOptionArgs',
+    'MonitoringSettingsArgs',
     'PolicyInfoArgs',
     'PolicyParametersArgs',
+    'ResourceGuardArgs',
     'RetentionTagArgs',
     'ScheduleBasedBackupCriteriaArgs',
     'ScheduleBasedTriggerContextArgs',
+    'SecretStoreBasedAuthCredentialsArgs',
+    'SecretStoreResourceArgs',
     'SourceLifeCycleArgs',
     'StorageSettingArgs',
     'TaggingCriteriaArgs',
@@ -267,6 +272,26 @@ class AzureBackupRuleArgs:
 
 
 @pulumi.input_type
+class AzureMonitorAlertSettingsArgs:
+    def __init__(__self__, *,
+                 alerts_for_all_job_failures: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None):
+        """
+        Settings for Azure Monitor based alerts
+        """
+        if alerts_for_all_job_failures is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures", alerts_for_all_job_failures)
+
+    @property
+    @pulumi.getter(name="alertsForAllJobFailures")
+    def alerts_for_all_job_failures(self) -> Optional[pulumi.Input[Union[str, 'AlertsState']]]:
+        return pulumi.get(self, "alerts_for_all_job_failures")
+
+    @alerts_for_all_job_failures.setter
+    def alerts_for_all_job_failures(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
+        pulumi.set(self, "alerts_for_all_job_failures", value)
+
+
+@pulumi.input_type
 class AzureOperationalStoreParametersArgs:
     def __init__(__self__, *,
                  data_store_type: pulumi.Input[Union[str, 'DataStoreTypes']],
@@ -388,21 +413,29 @@ class BackupInstanceArgs:
                  object_type: pulumi.Input[str],
                  policy_info: pulumi.Input['PolicyInfoArgs'],
                  data_source_set_info: Optional[pulumi.Input['DatasourceSetArgs']] = None,
-                 friendly_name: Optional[pulumi.Input[str]] = None):
+                 datasource_auth_credentials: Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 validation_type: Optional[pulumi.Input[Union[str, 'ValidationType']]] = None):
         """
         Backup Instance
         :param pulumi.Input['DatasourceArgs'] data_source_info: Gets or sets the data source information.
         :param pulumi.Input['PolicyInfoArgs'] policy_info: Gets or sets the policy information.
         :param pulumi.Input['DatasourceSetArgs'] data_source_set_info: Gets or sets the data source set information.
+        :param pulumi.Input['SecretStoreBasedAuthCredentialsArgs'] datasource_auth_credentials: Credentials to use to authenticate with data source provider.
         :param pulumi.Input[str] friendly_name: Gets or sets the Backup Instance friendly name.
+        :param pulumi.Input[Union[str, 'ValidationType']] validation_type: Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
         """
         pulumi.set(__self__, "data_source_info", data_source_info)
         pulumi.set(__self__, "object_type", object_type)
         pulumi.set(__self__, "policy_info", policy_info)
         if data_source_set_info is not None:
             pulumi.set(__self__, "data_source_set_info", data_source_set_info)
+        if datasource_auth_credentials is not None:
+            pulumi.set(__self__, "datasource_auth_credentials", datasource_auth_credentials)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if validation_type is not None:
+            pulumi.set(__self__, "validation_type", validation_type)
 
     @property
     @pulumi.getter(name="dataSourceInfo")
@@ -450,6 +483,18 @@ class BackupInstanceArgs:
         pulumi.set(self, "data_source_set_info", value)
 
     @property
+    @pulumi.getter(name="datasourceAuthCredentials")
+    def datasource_auth_credentials(self) -> Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']]:
+        """
+        Credentials to use to authenticate with data source provider.
+        """
+        return pulumi.get(self, "datasource_auth_credentials")
+
+    @datasource_auth_credentials.setter
+    def datasource_auth_credentials(self, value: Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']]):
+        pulumi.set(self, "datasource_auth_credentials", value)
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -460,6 +505,18 @@ class BackupInstanceArgs:
     @friendly_name.setter
     def friendly_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="validationType")
+    def validation_type(self) -> Optional[pulumi.Input[Union[str, 'ValidationType']]]:
+        """
+        Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+        """
+        return pulumi.get(self, "validation_type")
+
+    @validation_type.setter
+    def validation_type(self, value: Optional[pulumi.Input[Union[str, 'ValidationType']]]):
+        pulumi.set(self, "validation_type", value)
 
 
 @pulumi.input_type
@@ -520,12 +577,16 @@ class BackupPolicyArgs:
 @pulumi.input_type
 class BackupScheduleArgs:
     def __init__(__self__, *,
-                 repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 time_zone: Optional[pulumi.Input[str]] = None):
         """
         Schedule for backup
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repeating_time_intervals: ISO 8601 repeating time interval format
+        :param pulumi.Input[str] time_zone: Time zone for a schedule. Example: Pacific Standard Time
         """
         pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="repeatingTimeIntervals")
@@ -539,16 +600,32 @@ class BackupScheduleArgs:
     def repeating_time_intervals(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "repeating_time_intervals", value)
 
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time zone for a schedule. Example: Pacific Standard Time
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
 
 @pulumi.input_type
 class BackupVaultArgs:
     def __init__(__self__, *,
-                 storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]):
+                 storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]],
+                 monitoring_settings: Optional[pulumi.Input['MonitoringSettingsArgs']] = None):
         """
         Backup Vault
         :param pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]] storage_settings: Storage Settings
+        :param pulumi.Input['MonitoringSettingsArgs'] monitoring_settings: Monitoring Settings
         """
         pulumi.set(__self__, "storage_settings", storage_settings)
+        if monitoring_settings is not None:
+            pulumi.set(__self__, "monitoring_settings", monitoring_settings)
 
     @property
     @pulumi.getter(name="storageSettings")
@@ -561,6 +638,18 @@ class BackupVaultArgs:
     @storage_settings.setter
     def storage_settings(self, value: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]):
         pulumi.set(self, "storage_settings", value)
+
+    @property
+    @pulumi.getter(name="monitoringSettings")
+    def monitoring_settings(self) -> Optional[pulumi.Input['MonitoringSettingsArgs']]:
+        """
+        Monitoring Settings
+        """
+        return pulumi.get(self, "monitoring_settings")
+
+    @monitoring_settings.setter
+    def monitoring_settings(self, value: Optional[pulumi.Input['MonitoringSettingsArgs']]):
+        pulumi.set(self, "monitoring_settings", value)
 
 
 @pulumi.input_type
@@ -995,6 +1084,30 @@ class ImmediateCopyOptionArgs:
 
 
 @pulumi.input_type
+class MonitoringSettingsArgs:
+    def __init__(__self__, *,
+                 azure_monitor_alert_settings: Optional[pulumi.Input['AzureMonitorAlertSettingsArgs']] = None):
+        """
+        Monitoring Settings
+        :param pulumi.Input['AzureMonitorAlertSettingsArgs'] azure_monitor_alert_settings: Settings for Azure Monitor based alerts
+        """
+        if azure_monitor_alert_settings is not None:
+            pulumi.set(__self__, "azure_monitor_alert_settings", azure_monitor_alert_settings)
+
+    @property
+    @pulumi.getter(name="azureMonitorAlertSettings")
+    def azure_monitor_alert_settings(self) -> Optional[pulumi.Input['AzureMonitorAlertSettingsArgs']]:
+        """
+        Settings for Azure Monitor based alerts
+        """
+        return pulumi.get(self, "azure_monitor_alert_settings")
+
+    @azure_monitor_alert_settings.setter
+    def azure_monitor_alert_settings(self, value: Optional[pulumi.Input['AzureMonitorAlertSettingsArgs']]):
+        pulumi.set(self, "azure_monitor_alert_settings", value)
+
+
+@pulumi.input_type
 class PolicyInfoArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[str],
@@ -1051,6 +1164,29 @@ class PolicyParametersArgs:
     @data_store_parameters_list.setter
     def data_store_parameters_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureOperationalStoreParametersArgs']]]]):
         pulumi.set(self, "data_store_parameters_list", value)
+
+
+@pulumi.input_type
+class ResourceGuardArgs:
+    def __init__(__self__, *,
+                 vault_critical_operation_exclusion_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vault_critical_operation_exclusion_list: List of critical operations which are not protected by this resourceGuard
+        """
+        if vault_critical_operation_exclusion_list is not None:
+            pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperationExclusionList")
+    def vault_critical_operation_exclusion_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of critical operations which are not protected by this resourceGuard
+        """
+        return pulumi.get(self, "vault_critical_operation_exclusion_list")
+
+    @vault_critical_operation_exclusion_list.setter
+    def vault_critical_operation_exclusion_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vault_critical_operation_exclusion_list", value)
 
 
 @pulumi.input_type
@@ -1252,6 +1388,102 @@ class ScheduleBasedTriggerContextArgs:
     @tagging_criteria.setter
     def tagging_criteria(self, value: pulumi.Input[Sequence[pulumi.Input['TaggingCriteriaArgs']]]):
         pulumi.set(self, "tagging_criteria", value)
+
+
+@pulumi.input_type
+class SecretStoreBasedAuthCredentialsArgs:
+    def __init__(__self__, *,
+                 object_type: pulumi.Input[str],
+                 secret_store_resource: Optional[pulumi.Input['SecretStoreResourceArgs']] = None):
+        """
+        Secret store based authentication credentials.
+        :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
+               Expected value is 'SecretStoreBasedAuthCredentials'.
+        :param pulumi.Input['SecretStoreResourceArgs'] secret_store_resource: Secret store resource
+        """
+        pulumi.set(__self__, "object_type", 'SecretStoreBasedAuthCredentials')
+        if secret_store_resource is not None:
+            pulumi.set(__self__, "secret_store_resource", secret_store_resource)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> pulumi.Input[str]:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'SecretStoreBasedAuthCredentials'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type", value)
+
+    @property
+    @pulumi.getter(name="secretStoreResource")
+    def secret_store_resource(self) -> Optional[pulumi.Input['SecretStoreResourceArgs']]:
+        """
+        Secret store resource
+        """
+        return pulumi.get(self, "secret_store_resource")
+
+    @secret_store_resource.setter
+    def secret_store_resource(self, value: Optional[pulumi.Input['SecretStoreResourceArgs']]):
+        pulumi.set(self, "secret_store_resource", value)
+
+
+@pulumi.input_type
+class SecretStoreResourceArgs:
+    def __init__(__self__, *,
+                 secret_store_type: pulumi.Input[Union[str, 'SecretStoreType']],
+                 uri: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Class representing a secret store resource.
+        :param pulumi.Input[Union[str, 'SecretStoreType']] secret_store_type: Gets or sets the type of secret store
+        :param pulumi.Input[str] uri: Uri to get to the resource
+        :param pulumi.Input[str] value: Gets or sets value stored in secret store resource
+        """
+        pulumi.set(__self__, "secret_store_type", secret_store_type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="secretStoreType")
+    def secret_store_type(self) -> pulumi.Input[Union[str, 'SecretStoreType']]:
+        """
+        Gets or sets the type of secret store
+        """
+        return pulumi.get(self, "secret_store_type")
+
+    @secret_store_type.setter
+    def secret_store_type(self, value: pulumi.Input[Union[str, 'SecretStoreType']]):
+        pulumi.set(self, "secret_store_type", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Uri to get to the resource
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets value stored in secret store resource
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

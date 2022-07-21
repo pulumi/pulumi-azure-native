@@ -11,7 +11,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource
-// API Version: 2021-04-01-preview.
+// API Version: 2022-02-01.
 func LookupSignalRSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupSignalRSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupSignalRSharedPrivateLinkResourceResult, error) {
 	var rv LookupSignalRSharedPrivateLinkResourceResult
 	err := ctx.Invoke("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args, &rv, opts...)
@@ -40,7 +40,7 @@ type LookupSignalRSharedPrivateLinkResourceResult struct {
 	Name string `pulumi:"name"`
 	// The resource id of the resource the shared private link resource is for
 	PrivateLinkResourceId string `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
+	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource
 	RequestMessage *string `pulumi:"requestMessage"`
@@ -113,7 +113,7 @@ func (o LookupSignalRSharedPrivateLinkResourceResultOutput) PrivateLinkResourceI
 	return o.ApplyT(func(v LookupSignalRSharedPrivateLinkResourceResult) string { return v.PrivateLinkResourceId }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the shared private link resource
+// Provisioning state of the resource.
 func (o LookupSignalRSharedPrivateLinkResourceResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSignalRSharedPrivateLinkResourceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }

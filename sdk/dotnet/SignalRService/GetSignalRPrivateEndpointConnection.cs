@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.SignalRService
     public static class GetSignalRPrivateEndpointConnection
     {
         /// <summary>
-        /// A private endpoint connection to SignalR resource
-        /// API Version: 2020-05-01.
+        /// A private endpoint connection to an azure resource
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetSignalRPrivateEndpointConnectionResult> InvokeAsync(GetSignalRPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private endpoint connection to SignalR resource
-        /// API Version: 2020-05-01.
+        /// A private endpoint connection to an azure resource
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetSignalRPrivateEndpointConnectionResult> Invoke(GetSignalRPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the SignalR resource.
+        /// The name of the private endpoint connection
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.SignalRService
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the SignalR resource.
+        /// The name of the private endpoint connection
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Group IDs
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -90,17 +94,21 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Provisioning state of the private endpoint connection
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         /// </summary>
@@ -108,6 +116,8 @@ namespace Pulumi.AzureNative.SignalRService
 
         [OutputConstructor]
         private GetSignalRPrivateEndpointConnectionResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -118,13 +128,17 @@ namespace Pulumi.AzureNative.SignalRService
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

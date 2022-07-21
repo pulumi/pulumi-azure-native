@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of a storage account’s Queue service.
-    /// API Version: 2021-02-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:QueueServiceProperties")]
     public partial class QueueServiceProperties : Pulumi.CustomResource

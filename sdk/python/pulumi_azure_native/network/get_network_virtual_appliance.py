@@ -21,7 +21,7 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, provisioning_state=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+    def __init__(__self__, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, provisioning_state=None, ssh_public_key=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -58,6 +58,9 @@ class GetNetworkVirtualApplianceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if ssh_public_key and not isinstance(ssh_public_key, str):
+            raise TypeError("Expected argument 'ssh_public_key' to be a str")
+        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -174,6 +177,14 @@ class GetNetworkVirtualApplianceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> Optional[str]:
+        """
+        Public key for SSH login.
+        """
+        return pulumi.get(self, "ssh_public_key")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -240,6 +251,7 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             name=self.name,
             nva_sku=self.nva_sku,
             provisioning_state=self.provisioning_state,
+            ssh_public_key=self.ssh_public_key,
             tags=self.tags,
             type=self.type,
             virtual_appliance_asn=self.virtual_appliance_asn,
@@ -254,7 +266,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -284,6 +296,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         name=__ret__.name,
         nva_sku=__ret__.nva_sku,
         provisioning_state=__ret__.provisioning_state,
+        ssh_public_key=__ret__.ssh_public_key,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_appliance_asn=__ret__.virtual_appliance_asn,
@@ -299,7 +312,7 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """
     NetworkVirtualAppliance Resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

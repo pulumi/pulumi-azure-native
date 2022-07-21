@@ -76,12 +76,6 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	if args.ResponderRoleSettings == nil {
 		return nil, errors.New("invalid value for required argument 'ResponderRoleSettings'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:logic:RosettaNetProcessConfiguration"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource RosettaNetProcessConfiguration
 	err := ctx.RegisterResource("azure-native:logic/v20160601:RosettaNetProcessConfiguration", name, args, &resource, opts...)
 	if err != nil {

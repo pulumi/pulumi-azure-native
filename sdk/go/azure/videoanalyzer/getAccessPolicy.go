@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy that determines how a video can be accessed.
-// API Version: 2021-05-01-preview.
+// Access policies help define the authentication rules, and control access to specific video resources.
+// API Version: 2021-11-01-preview.
 func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPolicyResult, error) {
 	var rv LookupAccessPolicyResult
 	err := ctx.Invoke("azure-native:videoanalyzer:getAccessPolicy", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts 
 }
 
 type LookupAccessPolicyArgs struct {
-	// The name of the access policy to retrieve.
+	// The Access Policy name.
 	AccessPolicyName string `pulumi:"accessPolicyName"`
 	// The Azure Video Analyzer account name.
 	AccountName string `pulumi:"accountName"`
@@ -30,7 +30,7 @@ type LookupAccessPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Policy that determines how a video can be accessed.
+// Access policies help define the authentication rules, and control access to specific video resources.
 type LookupAccessPolicyResult struct {
 	// Authentication method to be used when validating client API access.
 	Authentication *JwtAuthenticationResponse `pulumi:"authentication"`
@@ -40,7 +40,7 @@ type LookupAccessPolicyResult struct {
 	Name string `pulumi:"name"`
 	// Defines the access level granted by this policy.
 	Role *string `pulumi:"role"`
-	// The system metadata relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -60,7 +60,7 @@ func LookupAccessPolicyOutput(ctx *pulumi.Context, args LookupAccessPolicyOutput
 }
 
 type LookupAccessPolicyOutputArgs struct {
-	// The name of the access policy to retrieve.
+	// The Access Policy name.
 	AccessPolicyName pulumi.StringInput `pulumi:"accessPolicyName"`
 	// The Azure Video Analyzer account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
@@ -72,7 +72,7 @@ func (LookupAccessPolicyOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupAccessPolicyArgs)(nil)).Elem()
 }
 
-// Policy that determines how a video can be accessed.
+// Access policies help define the authentication rules, and control access to specific video resources.
 type LookupAccessPolicyResultOutput struct{ *pulumi.OutputState }
 
 func (LookupAccessPolicyResultOutput) ElementType() reflect.Type {
@@ -107,7 +107,7 @@ func (o LookupAccessPolicyResultOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessPolicyResult) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupAccessPolicyResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupAccessPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

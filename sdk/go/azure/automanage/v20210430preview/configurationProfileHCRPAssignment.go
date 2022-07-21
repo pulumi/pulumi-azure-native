@@ -40,6 +40,9 @@ func NewConfigurationProfileHCRPAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automanage:ConfigurationProfileHCRPAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment"),
 		},
 	})

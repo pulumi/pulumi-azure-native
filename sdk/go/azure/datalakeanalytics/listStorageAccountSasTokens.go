@@ -11,7 +11,7 @@ import (
 )
 
 // The SAS response that contains the storage account, container and associated SAS token for connection use.
-// API Version: 2016-11-01.
+// API Version: 2019-11-01-preview.
 func ListStorageAccountSasTokens(ctx *pulumi.Context, args *ListStorageAccountSasTokensArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountSasTokensResult, error) {
 	var rv ListStorageAccountSasTokensResult
 	err := ctx.Invoke("azure-native:datalakeanalytics:listStorageAccountSasTokens", args, &rv, opts...)

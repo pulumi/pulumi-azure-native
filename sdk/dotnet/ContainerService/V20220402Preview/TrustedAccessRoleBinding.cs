@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:TrustedAccessRoleBinding"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"},
                 },
             };

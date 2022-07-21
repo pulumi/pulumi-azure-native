@@ -13,22 +13,18 @@ export * from "./getDataExport";
 export * from "./getDataSource";
 export * from "./getLinkedService";
 export * from "./getLinkedStorageAccount";
-export * from "./getMachineGroup";
 export * from "./getQuery";
 export * from "./getQueryPack";
 export * from "./getSavedSearch";
 export * from "./getSharedKeys";
 export * from "./getStorageInsightConfig";
-export * from "./getTable";
 export * from "./getWorkspace";
 export * from "./linkedService";
 export * from "./linkedStorageAccount";
-export * from "./machineGroup";
 export * from "./query";
 export * from "./queryPack";
 export * from "./savedSearch";
 export * from "./storageInsightConfig";
-export * from "./table";
 export * from "./workspace";
 
 // Export enums:
@@ -65,12 +61,10 @@ import { DataExport } from "./dataExport";
 import { DataSource } from "./dataSource";
 import { LinkedService } from "./linkedService";
 import { LinkedStorageAccount } from "./linkedStorageAccount";
-import { MachineGroup } from "./machineGroup";
 import { Query } from "./query";
 import { QueryPack } from "./queryPack";
 import { SavedSearch } from "./savedSearch";
 import { StorageInsightConfig } from "./storageInsightConfig";
-import { Table } from "./table";
 import { Workspace } from "./workspace";
 
 const _module = {
@@ -87,8 +81,6 @@ const _module = {
                 return new LinkedService(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:LinkedStorageAccount":
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
-            case "azure-native:operationalinsights:MachineGroup":
-                return new MachineGroup(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Query":
                 return new Query(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:QueryPack":
@@ -97,8 +89,6 @@ const _module = {
                 return new SavedSearch(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:StorageInsightConfig":
                 return new StorageInsightConfig(name, <any>undefined, { urn })
-            case "azure-native:operationalinsights:Table":
-                return new Table(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

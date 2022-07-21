@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// An export resource.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// An export resource.
-        /// API Version: 2020-06-01.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string NextRunTimeEstimate;
         /// <summary>
+        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+        /// </summary>
+        public readonly bool? PartitionData;
+        /// <summary>
         /// If requested, has the most recent execution history for the export.
         /// </summary>
         public readonly Outputs.ExportExecutionListResultResponse? RunHistory;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.CostManagement
 
             string nextRunTimeEstimate,
 
+            bool? partitionData,
+
             Outputs.ExportExecutionListResultResponse? runHistory,
 
             Outputs.ExportScheduleResponse? schedule,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.CostManagement
             Id = id;
             Name = name;
             NextRunTimeEstimate = nextRunTimeEstimate;
+            PartitionData = partitionData;
             RunHistory = runHistory;
             Schedule = schedule;
             Type = type;

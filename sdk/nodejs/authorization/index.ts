@@ -5,10 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessReviewHistoryDefinitionById";
-export * from "./accessReviewScheduleDefinitionById";
-export * from "./getAccessReviewHistoryDefinitionById";
-export * from "./getAccessReviewScheduleDefinitionById";
 export * from "./getClientConfig";
 export * from "./getClientToken";
 export * from "./getManagementLockAtResourceGroupLevel";
@@ -18,16 +14,11 @@ export * from "./getManagementLockByScope";
 export * from "./getPolicyAssignment";
 export * from "./getPolicyDefinition";
 export * from "./getPolicyDefinitionAtManagementGroup";
-export * from "./getPolicyExemption";
 export * from "./getPolicySetDefinition";
 export * from "./getPolicySetDefinitionAtManagementGroup";
 export * from "./getPrivateLinkAssociation";
 export * from "./getResourceManagementPrivateLink";
-export * from "./getRoleAssignment";
-export * from "./getRoleDefinition";
 export * from "./getRoleManagementPolicyAssignment";
-export * from "./getScopeAccessReviewHistoryDefinitionById";
-export * from "./getScopeAccessReviewScheduleDefinitionById";
 export * from "./managementLockAtResourceGroupLevel";
 export * from "./managementLockAtResourceLevel";
 export * from "./managementLockAtSubscriptionLevel";
@@ -35,16 +26,11 @@ export * from "./managementLockByScope";
 export * from "./policyAssignment";
 export * from "./policyDefinition";
 export * from "./policyDefinitionAtManagementGroup";
-export * from "./policyExemption";
 export * from "./policySetDefinition";
 export * from "./policySetDefinitionAtManagementGroup";
 export * from "./privateLinkAssociation";
 export * from "./resourceManagementPrivateLink";
-export * from "./roleAssignment";
-export * from "./roleDefinition";
 export * from "./roleManagementPolicyAssignment";
-export * from "./scopeAccessReviewHistoryDefinitionById";
-export * from "./scopeAccessReviewScheduleDefinitionById";
 
 // Export enums:
 export * from "../types/enums/authorization";
@@ -117,8 +103,6 @@ export {
 };
 
 // Import resources to register:
-import { AccessReviewHistoryDefinitionById } from "./accessReviewHistoryDefinitionById";
-import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
 import { ManagementLockAtResourceGroupLevel } from "./managementLockAtResourceGroupLevel";
 import { ManagementLockAtResourceLevel } from "./managementLockAtResourceLevel";
 import { ManagementLockAtSubscriptionLevel } from "./managementLockAtSubscriptionLevel";
@@ -126,25 +110,16 @@ import { ManagementLockByScope } from "./managementLockByScope";
 import { PolicyAssignment } from "./policyAssignment";
 import { PolicyDefinition } from "./policyDefinition";
 import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagementGroup";
-import { PolicyExemption } from "./policyExemption";
 import { PolicySetDefinition } from "./policySetDefinition";
 import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
 import { PrivateLinkAssociation } from "./privateLinkAssociation";
 import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
-import { RoleAssignment } from "./roleAssignment";
-import { RoleDefinition } from "./roleDefinition";
 import { RoleManagementPolicyAssignment } from "./roleManagementPolicyAssignment";
-import { ScopeAccessReviewHistoryDefinitionById } from "./scopeAccessReviewHistoryDefinitionById";
-import { ScopeAccessReviewScheduleDefinitionById } from "./scopeAccessReviewScheduleDefinitionById";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:authorization:AccessReviewHistoryDefinitionById":
-                return new AccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
-            case "azure-native:authorization:AccessReviewScheduleDefinitionById":
-                return new AccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceLevel":
@@ -159,8 +134,6 @@ const _module = {
                 return new PolicyDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyDefinitionAtManagementGroup":
                 return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
-            case "azure-native:authorization:PolicyExemption":
-                return new PolicyExemption(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
@@ -169,16 +142,8 @@ const _module = {
                 return new PrivateLinkAssociation(name, <any>undefined, { urn })
             case "azure-native:authorization:ResourceManagementPrivateLink":
                 return new ResourceManagementPrivateLink(name, <any>undefined, { urn })
-            case "azure-native:authorization:RoleAssignment":
-                return new RoleAssignment(name, <any>undefined, { urn })
-            case "azure-native:authorization:RoleDefinition":
-                return new RoleDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
-            case "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById":
-                return new ScopeAccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
-            case "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById":
-                return new ScopeAccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

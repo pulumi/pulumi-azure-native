@@ -122,7 +122,7 @@ def get_protection_policy(policy_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionPolicyResult:
     """
     Base class for backup policy. Workload-specific backup policies are derived from this class.
-    API Version: 2021-02-01.
+    API Version: 2022-03-01.
 
 
     :param str policy_name: Backup policy information to be fetched.
@@ -156,7 +156,7 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionPolicyResult]:
     """
     Base class for backup policy. Workload-specific backup policies are derived from this class.
-    API Version: 2021-02-01.
+    API Version: 2022-03-01.
 
 
     :param str policy_name: Backup policy information to be fetched.

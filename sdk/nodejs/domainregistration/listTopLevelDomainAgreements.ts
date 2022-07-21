@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Collection of top-level domain legal agreements.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
     if (!opts) {

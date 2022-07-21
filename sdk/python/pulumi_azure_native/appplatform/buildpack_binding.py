@@ -127,7 +127,7 @@ class BuildpackBinding(pulumi.CustomResource):
                  __props__=None):
         """
         Buildpack Binding Resource object
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class BuildpackBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Buildpack Binding Resource object
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param BuildpackBindingArgs args: The arguments to use to populate this resource's properties.

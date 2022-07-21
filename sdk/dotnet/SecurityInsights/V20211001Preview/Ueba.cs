@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Ueba"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Ueba"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Ueba"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Ueba"},

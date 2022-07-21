@@ -11,7 +11,7 @@ import (
 )
 
 // Configurations for source resource, include appSettings, connectionString and serviceBindings
-// API Version: 2021-11-01-preview.
+// API Version: 2022-05-01.
 func ListLinkerConfigurations(ctx *pulumi.Context, args *ListLinkerConfigurationsArgs, opts ...pulumi.InvokeOption) (*ListLinkerConfigurationsResult, error) {
 	var rv ListLinkerConfigurationsResult
 	err := ctx.Invoke("azure-native:servicelinker:listLinkerConfigurations", args, &rv, opts...)

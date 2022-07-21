@@ -49,7 +49,7 @@ def list_identity_provider_secrets(identity_provider_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIdentityProviderSecretsResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -77,7 +77,7 @@ def list_identity_provider_secrets_output(identity_provider_name: Optional[pulum
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIdentityProviderSecretsResult]:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.

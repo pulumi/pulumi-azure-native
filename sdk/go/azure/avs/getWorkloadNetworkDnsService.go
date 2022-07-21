@@ -11,7 +11,7 @@ import (
 )
 
 // NSX DNS Service
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 func LookupWorkloadNetworkDnsService(ctx *pulumi.Context, args *LookupWorkloadNetworkDnsServiceArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDnsServiceResult, error) {
 	var rv LookupWorkloadNetworkDnsServiceResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkDnsService", args, &rv, opts...)

@@ -16,9 +16,7 @@ export * from "./getIntegrationAccountSchema";
 export * from "./getIntegrationAccountSession";
 export * from "./getIntegrationServiceEnvironment";
 export * from "./getIntegrationServiceEnvironmentManagedApi";
-export * from "./getRosettaNetProcessConfiguration";
 export * from "./getWorkflow";
-export * from "./getWorkflowAccessKey";
 export * from "./integrationAccount";
 export * from "./integrationAccountAgreement";
 export * from "./integrationAccountAssembly";
@@ -37,15 +35,12 @@ export * from "./listIntegrationAccountKeyVaultKeys";
 export * from "./listIntegrationAccountMapContentCallbackUrl";
 export * from "./listIntegrationAccountPartnerContentCallbackUrl";
 export * from "./listIntegrationAccountSchemaContentCallbackUrl";
-export * from "./listWorkflowAccessKeySecretKeys";
 export * from "./listWorkflowCallbackUrl";
 export * from "./listWorkflowRunActionExpressionTraces";
 export * from "./listWorkflowRunActionRepetitionExpressionTraces";
 export * from "./listWorkflowTriggerCallbackUrl";
 export * from "./listWorkflowVersionTriggerCallbackUrl";
-export * from "./rosettaNetProcessConfiguration";
 export * from "./workflow";
-export * from "./workflowAccessKey";
 
 // Export enums:
 export * from "../types/enums/logic";
@@ -77,9 +72,7 @@ import { IntegrationAccountSchema } from "./integrationAccountSchema";
 import { IntegrationAccountSession } from "./integrationAccountSession";
 import { IntegrationServiceEnvironment } from "./integrationServiceEnvironment";
 import { IntegrationServiceEnvironmentManagedApi } from "./integrationServiceEnvironmentManagedApi";
-import { RosettaNetProcessConfiguration } from "./rosettaNetProcessConfiguration";
 import { Workflow } from "./workflow";
-import { WorkflowAccessKey } from "./workflowAccessKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -107,12 +100,8 @@ const _module = {
                 return new IntegrationServiceEnvironment(name, <any>undefined, { urn })
             case "azure-native:logic:IntegrationServiceEnvironmentManagedApi":
                 return new IntegrationServiceEnvironmentManagedApi(name, <any>undefined, { urn })
-            case "azure-native:logic:RosettaNetProcessConfiguration":
-                return new RosettaNetProcessConfiguration(name, <any>undefined, { urn })
             case "azure-native:logic:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
-            case "azure-native:logic:WorkflowAccessKey":
-                return new WorkflowAccessKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

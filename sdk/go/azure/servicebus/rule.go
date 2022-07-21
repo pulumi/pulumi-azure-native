@@ -12,7 +12,7 @@ import (
 )
 
 // Description of Rule Resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type Rule struct {
 	pulumi.CustomResourceState
 
@@ -22,11 +22,15 @@ type Rule struct {
 	CorrelationFilter CorrelationFilterResponsePtrOutput `pulumi:"correlationFilter"`
 	// Filter type that is evaluated against a BrokeredMessage.
 	FilterType pulumi.StringPtrOutput `pulumi:"filterType"`
-	// Resource name
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of sqlFilter
 	SqlFilter SqlFilterResponsePtrOutput `pulumi:"sqlFilter"`
-	// Resource type
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -205,7 +209,12 @@ func (o RuleOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// Resource name
+// The geo-location where the resource lives
+func (o RuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -215,7 +224,12 @@ func (o RuleOutput) SqlFilter() SqlFilterResponsePtrOutput {
 	return o.ApplyT(func(v *Rule) SqlFilterResponsePtrOutput { return v.SqlFilter }).(SqlFilterResponsePtrOutput)
 }
 
-// Resource type
+// The system meta data relating to this resource.
+func (o RuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Rule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o RuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// A SQL DW table data set.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetSqlDWTableDataSetResult> InvokeAsync(GetSqlDWTableDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDWTableDataSetResult>("azure-native:datashare:getSqlDWTableDataSet", args ?? new GetSqlDWTableDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL DW table data set.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetSqlDWTableDataSetResult> Invoke(GetSqlDWTableDataSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSqlDWTableDataSetResult>("azure-native:datashare:getSqlDWTableDataSet", args ?? new GetSqlDWTableDataSetInvokeArgs(), options.WithDefaults());

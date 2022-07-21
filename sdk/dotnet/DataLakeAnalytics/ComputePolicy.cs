@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     /// <summary>
     /// Data Lake Analytics compute policy information.
-    /// API Version: 2016-11-01.
+    /// API Version: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:ComputePolicy")]
     public partial class ComputePolicy : Pulumi.CustomResource

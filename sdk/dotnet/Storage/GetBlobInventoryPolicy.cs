@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The storage account blob inventory policy.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account blob inventory policy.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-09-01.
         /// </summary>
         public static Output<GetBlobInventoryPolicyResult> Invoke(GetBlobInventoryPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBlobInventoryPolicyResult>("azure-native:storage:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyInvokeArgs(), options.WithDefaults());

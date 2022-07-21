@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The list of credential result response.
- * API Version: 2021-03-01.
+ * The list credential result response.
+ * API Version: 2022-04-01.
  */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
     if (!opts) {
@@ -16,24 +16,34 @@ export function listManagedClusterUserCredentials(args: ListManagedClusterUserCr
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerservice:listManagedClusterUserCredentials", {
+        "format": args.format,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "serverFqdn": args.serverFqdn,
     }, opts);
 }
 
 export interface ListManagedClusterUserCredentialsArgs {
     /**
-     * The name of the resource group.
+     * Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+     */
+    format?: string;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
      * The name of the managed cluster resource.
      */
     resourceName: string;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: string;
 }
 
 /**
- * The list of credential result response.
+ * The list credential result response.
  */
 export interface ListManagedClusterUserCredentialsResult {
     /**
@@ -48,11 +58,19 @@ export function listManagedClusterUserCredentialsOutput(args: ListManagedCluster
 
 export interface ListManagedClusterUserCredentialsOutputArgs {
     /**
-     * The name of the resource group.
+     * Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+     */
+    format?: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
     resourceName: pulumi.Input<string>;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: pulumi.Input<string>;
 }

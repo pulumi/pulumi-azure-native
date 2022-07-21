@@ -122,7 +122,7 @@ def get_long_term_retention_policy(database_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLongTermRetentionPolicyResult:
     """
     A long term retention policy.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -159,7 +159,7 @@ def get_long_term_retention_policy_output(database_name: Optional[pulumi.Input[s
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLongTermRetentionPolicyResult]:
     """
     A long term retention policy.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01-preview.
 
 
     :param str database_name: The name of the database.

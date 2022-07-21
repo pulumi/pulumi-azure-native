@@ -146,7 +146,7 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubRouteTableResult:
     """
     RouteTable resource in a virtual hub.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -182,7 +182,7 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubRouteTableResult]:
     """
     RouteTable resource in a virtual hub.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.

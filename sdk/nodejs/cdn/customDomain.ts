@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.CdnManagedHttpsParametersResponse | outputs.cdn.UserManagedHttpsParametersResponse | undefined>;
     /**
-     * Provisioning status of Custom Https of the custom domain.
+     * Provisioning status of the custom domain.
      */
     public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning status of the custom domain.
+     * Provisioning status of Custom Https of the custom domain.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**

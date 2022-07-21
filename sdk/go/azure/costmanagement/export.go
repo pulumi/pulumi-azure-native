@@ -12,7 +12,7 @@ import (
 )
 
 // An export resource.
-// API Version: 2020-06-01.
+// API Version: 2021-10-01.
 type Export struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type Export struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If the export has an active schedule, provides an estimate of the next execution time.
 	NextRunTimeEstimate pulumi.StringOutput `pulumi:"nextRunTimeEstimate"`
+	// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+	PartitionData pulumi.BoolPtrOutput `pulumi:"partitionData"`
 	// If requested, has the most recent execution history for the export.
 	RunHistory ExportExecutionListResultResponsePtrOutput `pulumi:"runHistory"`
 	// Has schedule information for the export.
@@ -121,6 +123,8 @@ type exportArgs struct {
 	ExportName *string `pulumi:"exportName"`
 	// The format of the export being delivered. Currently only 'Csv' is supported.
 	Format *string `pulumi:"format"`
+	// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+	PartitionData *bool `pulumi:"partitionData"`
 	// Has schedule information for the export.
 	Schedule *ExportSchedule `pulumi:"schedule"`
 	// The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
@@ -139,6 +143,8 @@ type ExportArgs struct {
 	ExportName pulumi.StringPtrInput
 	// The format of the export being delivered. Currently only 'Csv' is supported.
 	Format pulumi.StringPtrInput
+	// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+	PartitionData pulumi.BoolPtrInput
 	// Has schedule information for the export.
 	Schedule ExportSchedulePtrInput
 	// The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
@@ -210,6 +216,11 @@ func (o ExportOutput) Name() pulumi.StringOutput {
 // If the export has an active schedule, provides an estimate of the next execution time.
 func (o ExportOutput) NextRunTimeEstimate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.NextRunTimeEstimate }).(pulumi.StringOutput)
+}
+
+// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+func (o ExportOutput) PartitionData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Export) pulumi.BoolPtrOutput { return v.PartitionData }).(pulumi.BoolPtrOutput)
 }
 
 // If requested, has the most recent execution history for the export.

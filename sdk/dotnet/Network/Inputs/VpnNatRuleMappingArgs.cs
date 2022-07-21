@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("addressSpace")]
         public Input<string>? AddressSpace { get; set; }
 
+        /// <summary>
+        /// Port range for Vpn NatRule mapping.
+        /// </summary>
+        [Input("portRange")]
+        public Input<string>? PortRange { get; set; }
+
         public VpnNatRuleMappingArgs()
         {
         }

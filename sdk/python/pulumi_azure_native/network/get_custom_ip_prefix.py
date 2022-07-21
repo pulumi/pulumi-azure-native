@@ -21,19 +21,31 @@ class GetCustomIPPrefixResult:
     """
     Custom IP prefix resource.
     """
-    def __init__(__self__, cidr=None, commissioned_state=None, etag=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, public_ip_prefixes=None, resource_guid=None, tags=None, type=None, zones=None):
+    def __init__(__self__, authorization_message=None, child_custom_ip_prefixes=None, cidr=None, commissioned_state=None, custom_ip_prefix_parent=None, etag=None, extended_location=None, failed_reason=None, id=None, location=None, name=None, provisioning_state=None, public_ip_prefixes=None, resource_guid=None, signed_message=None, tags=None, type=None, zones=None):
+        if authorization_message and not isinstance(authorization_message, str):
+            raise TypeError("Expected argument 'authorization_message' to be a str")
+        pulumi.set(__self__, "authorization_message", authorization_message)
+        if child_custom_ip_prefixes and not isinstance(child_custom_ip_prefixes, list):
+            raise TypeError("Expected argument 'child_custom_ip_prefixes' to be a list")
+        pulumi.set(__self__, "child_custom_ip_prefixes", child_custom_ip_prefixes)
         if cidr and not isinstance(cidr, str):
             raise TypeError("Expected argument 'cidr' to be a str")
         pulumi.set(__self__, "cidr", cidr)
         if commissioned_state and not isinstance(commissioned_state, str):
             raise TypeError("Expected argument 'commissioned_state' to be a str")
         pulumi.set(__self__, "commissioned_state", commissioned_state)
+        if custom_ip_prefix_parent and not isinstance(custom_ip_prefix_parent, dict):
+            raise TypeError("Expected argument 'custom_ip_prefix_parent' to be a dict")
+        pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
+        if failed_reason and not isinstance(failed_reason, str):
+            raise TypeError("Expected argument 'failed_reason' to be a str")
+        pulumi.set(__self__, "failed_reason", failed_reason)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +64,9 @@ class GetCustomIPPrefixResult:
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
+        if signed_message and not isinstance(signed_message, str):
+            raise TypeError("Expected argument 'signed_message' to be a str")
+        pulumi.set(__self__, "signed_message", signed_message)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -61,6 +76,22 @@ class GetCustomIPPrefixResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="authorizationMessage")
+    def authorization_message(self) -> Optional[str]:
+        """
+        Authorization message for WAN validation.
+        """
+        return pulumi.get(self, "authorization_message")
+
+    @property
+    @pulumi.getter(name="childCustomIpPrefixes")
+    def child_custom_ip_prefixes(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        The list of all Children for IPv6 /48 CustomIpPrefix.
+        """
+        return pulumi.get(self, "child_custom_ip_prefixes")
 
     @property
     @pulumi.getter
@@ -79,6 +110,14 @@ class GetCustomIPPrefixResult:
         return pulumi.get(self, "commissioned_state")
 
     @property
+    @pulumi.getter(name="customIpPrefixParent")
+    def custom_ip_prefix_parent(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        """
+        return pulumi.get(self, "custom_ip_prefix_parent")
+
+    @property
     @pulumi.getter
     def etag(self) -> str:
         """
@@ -93,6 +132,14 @@ class GetCustomIPPrefixResult:
         The extended location of the custom IP prefix.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> str:
+        """
+        The reason why resource is in failed state.
+        """
+        return pulumi.get(self, "failed_reason")
 
     @property
     @pulumi.getter
@@ -143,6 +190,14 @@ class GetCustomIPPrefixResult:
         return pulumi.get(self, "resource_guid")
 
     @property
+    @pulumi.getter(name="signedMessage")
+    def signed_message(self) -> Optional[str]:
+        """
+        Signed message for WAN validation.
+        """
+        return pulumi.get(self, "signed_message")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -173,16 +228,21 @@ class AwaitableGetCustomIPPrefixResult(GetCustomIPPrefixResult):
         if False:
             yield self
         return GetCustomIPPrefixResult(
+            authorization_message=self.authorization_message,
+            child_custom_ip_prefixes=self.child_custom_ip_prefixes,
             cidr=self.cidr,
             commissioned_state=self.commissioned_state,
+            custom_ip_prefix_parent=self.custom_ip_prefix_parent,
             etag=self.etag,
             extended_location=self.extended_location,
+            failed_reason=self.failed_reason,
             id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             public_ip_prefixes=self.public_ip_prefixes,
             resource_guid=self.resource_guid,
+            signed_message=self.signed_message,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -194,7 +254,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomIPPrefixResult:
     """
     Custom IP prefix resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str custom_ip_prefix_name: The name of the custom IP prefix.
@@ -212,16 +272,21 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getCustomIPPrefix', __args__, opts=opts, typ=GetCustomIPPrefixResult).value
 
     return AwaitableGetCustomIPPrefixResult(
+        authorization_message=__ret__.authorization_message,
+        child_custom_ip_prefixes=__ret__.child_custom_ip_prefixes,
         cidr=__ret__.cidr,
         commissioned_state=__ret__.commissioned_state,
+        custom_ip_prefix_parent=__ret__.custom_ip_prefix_parent,
         etag=__ret__.etag,
         extended_location=__ret__.extended_location,
+        failed_reason=__ret__.failed_reason,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         public_ip_prefixes=__ret__.public_ip_prefixes,
         resource_guid=__ret__.resource_guid,
+        signed_message=__ret__.signed_message,
         tags=__ret__.tags,
         type=__ret__.type,
         zones=__ret__.zones)
@@ -234,7 +299,7 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomIPPrefixResult]:
     """
     Custom IP prefix resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str custom_ip_prefix_name: The name of the custom IP prefix.

@@ -49,9 +49,6 @@ func NewAnomalies(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Anomalies")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:securityinsights:Anomalies"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:Anomalies"),
 		},
 		{

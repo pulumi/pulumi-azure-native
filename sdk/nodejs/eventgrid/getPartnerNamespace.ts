@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Partner Namespace.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
     if (!opts) {
@@ -65,6 +65,11 @@ export interface GetPartnerNamespaceResult {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     readonly partnerRegistrationFullyQualifiedId?: string;
+    /**
+     * This determines if events published to this partner namespace should use the source attribute in the event payload
+     * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+     */
+    readonly partnerTopicRoutingMode?: string;
     readonly privateEndpointConnections: outputs.eventgrid.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the partner namespace.

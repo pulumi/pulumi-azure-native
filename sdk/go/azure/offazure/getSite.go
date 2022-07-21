@@ -11,7 +11,7 @@ import (
 )
 
 // Site REST Resource.
-// API Version: 2020-01-01.
+// API Version: 2020-07-07.
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	var rv LookupSiteResult
 	err := ctx.Invoke("azure-native:offazure:getSite", args, &rv, opts...)
@@ -40,7 +40,9 @@ type LookupSiteResult struct {
 	Name *string `pulumi:"name"`
 	// Nested properties of VMWare site.
 	Properties SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string      `pulumi:"tags"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	Tags       map[string]string  `pulumi:"tags"`
 	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
 	Type string `pulumi:"type"`
 }
@@ -107,6 +109,11 @@ func (o LookupSiteResultOutput) Name() pulumi.StringPtrOutput {
 // Nested properties of VMWare site.
 func (o LookupSiteResultOutput) Properties() SitePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupSiteResult) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupSiteResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSiteResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupSiteResultOutput) Tags() pulumi.StringMapOutput {

@@ -12,7 +12,7 @@ import (
 )
 
 // SSL certificate purchase order.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 type AppServiceCertificateOrder struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type AppServiceCertificateOrder struct {
 	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
 	Certificates AppServiceCertificateResponseMapOutput `pulumi:"certificates"`
+	// Contact info
+	Contact CertificateOrderContactResponseOutput `pulumi:"contact"`
 	// Last CSR that was created for this order.
 	Csr pulumi.StringPtrOutput `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -58,13 +60,11 @@ type AppServiceCertificateOrder struct {
 	SignedCertificate CertificateDetailsResponseOutput `pulumi:"signedCertificate"`
 	// Current order status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Duration in years (must be between 1 and 3).
+	// Duration in years (must be 1).
 	ValidityInYears pulumi.IntPtrOutput `pulumi:"validityInYears"`
 }
 
@@ -183,7 +183,7 @@ type appServiceCertificateOrderArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Duration in years (must be between 1 and 3).
+	// Duration in years (must be 1).
 	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
@@ -211,7 +211,7 @@ type AppServiceCertificateOrderArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Duration in years (must be between 1 and 3).
+	// Duration in years (must be 1).
 	ValidityInYears pulumi.IntPtrInput
 }
 
@@ -267,6 +267,11 @@ func (o AppServiceCertificateOrderOutput) AutoRenew() pulumi.BoolPtrOutput {
 // State of the Key Vault secret.
 func (o AppServiceCertificateOrderOutput) Certificates() AppServiceCertificateResponseMapOutput {
 	return o.ApplyT(func(v *AppServiceCertificateOrder) AppServiceCertificateResponseMapOutput { return v.Certificates }).(AppServiceCertificateResponseMapOutput)
+}
+
+// Contact info
+func (o AppServiceCertificateOrderOutput) Contact() CertificateOrderContactResponseOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) CertificateOrderContactResponseOutput { return v.Contact }).(CertificateOrderContactResponseOutput)
 }
 
 // Last CSR that was created for this order.
@@ -359,11 +364,6 @@ func (o AppServiceCertificateOrderOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AppServiceCertificateOrderOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrder) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource tags.
 func (o AppServiceCertificateOrderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -374,7 +374,7 @@ func (o AppServiceCertificateOrderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Duration in years (must be between 1 and 3).
+// Duration in years (must be 1).
 func (o AppServiceCertificateOrderOutput) ValidityInYears() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.IntPtrOutput { return v.ValidityInYears }).(pulumi.IntPtrOutput)
 }

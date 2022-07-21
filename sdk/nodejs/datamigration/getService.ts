@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Database Migration Service resource
- * API Version: 2018-04-19.
+ * API Version: 2021-06-30.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
@@ -69,6 +69,10 @@ export interface GetServiceResult {
      */
     readonly sku?: outputs.datamigration.ServiceSkuResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.datamigration.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -76,6 +80,10 @@ export interface GetServiceResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    readonly virtualNicId?: string;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */

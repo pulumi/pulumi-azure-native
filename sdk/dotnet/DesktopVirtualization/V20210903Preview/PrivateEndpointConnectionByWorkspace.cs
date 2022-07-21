@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace"},

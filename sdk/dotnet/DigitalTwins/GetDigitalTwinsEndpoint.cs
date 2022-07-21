@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DigitalTwins
     {
         /// <summary>
         /// DigitalTwinsInstance endpoint resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-05-31.
         /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// DigitalTwinsInstance endpoint resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-05-31.
         /// </summary>
         public static Output<GetDigitalTwinsEndpointResult> Invoke(GetDigitalTwinsEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// </summary>
         public readonly object Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
@@ -106,11 +110,14 @@ namespace Pulumi.AzureNative.DigitalTwins
 
             object properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

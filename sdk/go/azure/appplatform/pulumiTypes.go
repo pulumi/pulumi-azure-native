@@ -10,612 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of custom domain for API portal
-type ApiPortalCustomDomainProperties struct {
-	// The thumbprint of bound certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
-}
-
-// ApiPortalCustomDomainPropertiesInput is an input type that accepts ApiPortalCustomDomainPropertiesArgs and ApiPortalCustomDomainPropertiesOutput values.
-// You can construct a concrete instance of `ApiPortalCustomDomainPropertiesInput` via:
-//
-//          ApiPortalCustomDomainPropertiesArgs{...}
-type ApiPortalCustomDomainPropertiesInput interface {
-	pulumi.Input
-
-	ToApiPortalCustomDomainPropertiesOutput() ApiPortalCustomDomainPropertiesOutput
-	ToApiPortalCustomDomainPropertiesOutputWithContext(context.Context) ApiPortalCustomDomainPropertiesOutput
-}
-
-// The properties of custom domain for API portal
-type ApiPortalCustomDomainPropertiesArgs struct {
-	// The thumbprint of bound certificate.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (ApiPortalCustomDomainPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalCustomDomainProperties)(nil)).Elem()
-}
-
-func (i ApiPortalCustomDomainPropertiesArgs) ToApiPortalCustomDomainPropertiesOutput() ApiPortalCustomDomainPropertiesOutput {
-	return i.ToApiPortalCustomDomainPropertiesOutputWithContext(context.Background())
-}
-
-func (i ApiPortalCustomDomainPropertiesArgs) ToApiPortalCustomDomainPropertiesOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPortalCustomDomainPropertiesOutput)
-}
-
-func (i ApiPortalCustomDomainPropertiesArgs) ToApiPortalCustomDomainPropertiesPtrOutput() ApiPortalCustomDomainPropertiesPtrOutput {
-	return i.ToApiPortalCustomDomainPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ApiPortalCustomDomainPropertiesArgs) ToApiPortalCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPortalCustomDomainPropertiesOutput).ToApiPortalCustomDomainPropertiesPtrOutputWithContext(ctx)
-}
-
-// ApiPortalCustomDomainPropertiesPtrInput is an input type that accepts ApiPortalCustomDomainPropertiesArgs, ApiPortalCustomDomainPropertiesPtr and ApiPortalCustomDomainPropertiesPtrOutput values.
-// You can construct a concrete instance of `ApiPortalCustomDomainPropertiesPtrInput` via:
-//
-//          ApiPortalCustomDomainPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ApiPortalCustomDomainPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToApiPortalCustomDomainPropertiesPtrOutput() ApiPortalCustomDomainPropertiesPtrOutput
-	ToApiPortalCustomDomainPropertiesPtrOutputWithContext(context.Context) ApiPortalCustomDomainPropertiesPtrOutput
-}
-
-type apiPortalCustomDomainPropertiesPtrType ApiPortalCustomDomainPropertiesArgs
-
-func ApiPortalCustomDomainPropertiesPtr(v *ApiPortalCustomDomainPropertiesArgs) ApiPortalCustomDomainPropertiesPtrInput {
-	return (*apiPortalCustomDomainPropertiesPtrType)(v)
-}
-
-func (*apiPortalCustomDomainPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPortalCustomDomainProperties)(nil)).Elem()
-}
-
-func (i *apiPortalCustomDomainPropertiesPtrType) ToApiPortalCustomDomainPropertiesPtrOutput() ApiPortalCustomDomainPropertiesPtrOutput {
-	return i.ToApiPortalCustomDomainPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *apiPortalCustomDomainPropertiesPtrType) ToApiPortalCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPortalCustomDomainPropertiesPtrOutput)
-}
-
-// The properties of custom domain for API portal
-type ApiPortalCustomDomainPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalCustomDomainPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalCustomDomainProperties)(nil)).Elem()
-}
-
-func (o ApiPortalCustomDomainPropertiesOutput) ToApiPortalCustomDomainPropertiesOutput() ApiPortalCustomDomainPropertiesOutput {
-	return o
-}
-
-func (o ApiPortalCustomDomainPropertiesOutput) ToApiPortalCustomDomainPropertiesOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesOutput {
-	return o
-}
-
-func (o ApiPortalCustomDomainPropertiesOutput) ToApiPortalCustomDomainPropertiesPtrOutput() ApiPortalCustomDomainPropertiesPtrOutput {
-	return o.ToApiPortalCustomDomainPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ApiPortalCustomDomainPropertiesOutput) ToApiPortalCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPortalCustomDomainProperties) *ApiPortalCustomDomainProperties {
-		return &v
-	}).(ApiPortalCustomDomainPropertiesPtrOutput)
-}
-
-// The thumbprint of bound certificate.
-func (o ApiPortalCustomDomainPropertiesOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiPortalCustomDomainProperties) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type ApiPortalCustomDomainPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalCustomDomainPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPortalCustomDomainProperties)(nil)).Elem()
-}
-
-func (o ApiPortalCustomDomainPropertiesPtrOutput) ToApiPortalCustomDomainPropertiesPtrOutput() ApiPortalCustomDomainPropertiesPtrOutput {
-	return o
-}
-
-func (o ApiPortalCustomDomainPropertiesPtrOutput) ToApiPortalCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesPtrOutput {
-	return o
-}
-
-func (o ApiPortalCustomDomainPropertiesPtrOutput) Elem() ApiPortalCustomDomainPropertiesOutput {
-	return o.ApplyT(func(v *ApiPortalCustomDomainProperties) ApiPortalCustomDomainProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApiPortalCustomDomainProperties
-		return ret
-	}).(ApiPortalCustomDomainPropertiesOutput)
-}
-
-// The thumbprint of bound certificate.
-func (o ApiPortalCustomDomainPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiPortalCustomDomainProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of custom domain for API portal
-type ApiPortalCustomDomainPropertiesResponse struct {
-	// The thumbprint of bound certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
-}
-
-// The properties of custom domain for API portal
-type ApiPortalCustomDomainPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalCustomDomainPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalCustomDomainPropertiesResponse)(nil)).Elem()
-}
-
-func (o ApiPortalCustomDomainPropertiesResponseOutput) ToApiPortalCustomDomainPropertiesResponseOutput() ApiPortalCustomDomainPropertiesResponseOutput {
-	return o
-}
-
-func (o ApiPortalCustomDomainPropertiesResponseOutput) ToApiPortalCustomDomainPropertiesResponseOutputWithContext(ctx context.Context) ApiPortalCustomDomainPropertiesResponseOutput {
-	return o
-}
-
-// The thumbprint of bound certificate.
-func (o ApiPortalCustomDomainPropertiesResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiPortalCustomDomainPropertiesResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// Collection of instances belong to the API portal
-type ApiPortalInstanceResponse struct {
-	// Name of the API portal instance
-	Name string `pulumi:"name"`
-	// Status of the API portal instance
-	Status string `pulumi:"status"`
-}
-
-// Collection of instances belong to the API portal
-type ApiPortalInstanceResponseOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalInstanceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalInstanceResponse)(nil)).Elem()
-}
-
-func (o ApiPortalInstanceResponseOutput) ToApiPortalInstanceResponseOutput() ApiPortalInstanceResponseOutput {
-	return o
-}
-
-func (o ApiPortalInstanceResponseOutput) ToApiPortalInstanceResponseOutputWithContext(ctx context.Context) ApiPortalInstanceResponseOutput {
-	return o
-}
-
-// Name of the API portal instance
-func (o ApiPortalInstanceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiPortalInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Status of the API portal instance
-func (o ApiPortalInstanceResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiPortalInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type ApiPortalInstanceResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalInstanceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiPortalInstanceResponse)(nil)).Elem()
-}
-
-func (o ApiPortalInstanceResponseArrayOutput) ToApiPortalInstanceResponseArrayOutput() ApiPortalInstanceResponseArrayOutput {
-	return o
-}
-
-func (o ApiPortalInstanceResponseArrayOutput) ToApiPortalInstanceResponseArrayOutputWithContext(ctx context.Context) ApiPortalInstanceResponseArrayOutput {
-	return o
-}
-
-func (o ApiPortalInstanceResponseArrayOutput) Index(i pulumi.IntInput) ApiPortalInstanceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiPortalInstanceResponse {
-		return vs[0].([]ApiPortalInstanceResponse)[vs[1].(int)]
-	}).(ApiPortalInstanceResponseOutput)
-}
-
-// API portal properties payload
-type ApiPortalProperties struct {
-	// The array of resource Ids of gateway to integrate with API portal.
-	GatewayIds []string `pulumi:"gatewayIds"`
-	// Indicate if only https is allowed.
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Indicates whether the API portal exposes endpoint.
-	Public *bool `pulumi:"public"`
-	// Collection of OpenAPI source URL locations.
-	SourceUrls []string `pulumi:"sourceUrls"`
-	// Single sign-on related configuration
-	SsoProperties *SsoProperties `pulumi:"ssoProperties"`
-}
-
-// Defaults sets the appropriate defaults for ApiPortalProperties
-func (val *ApiPortalProperties) Defaults() *ApiPortalProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.HttpsOnly) {
-		httpsOnly_ := false
-		tmp.HttpsOnly = &httpsOnly_
-	}
-	if isZero(tmp.Public) {
-		public_ := false
-		tmp.Public = &public_
-	}
-	return &tmp
-}
-
-// ApiPortalPropertiesInput is an input type that accepts ApiPortalPropertiesArgs and ApiPortalPropertiesOutput values.
-// You can construct a concrete instance of `ApiPortalPropertiesInput` via:
-//
-//          ApiPortalPropertiesArgs{...}
-type ApiPortalPropertiesInput interface {
-	pulumi.Input
-
-	ToApiPortalPropertiesOutput() ApiPortalPropertiesOutput
-	ToApiPortalPropertiesOutputWithContext(context.Context) ApiPortalPropertiesOutput
-}
-
-// API portal properties payload
-type ApiPortalPropertiesArgs struct {
-	// The array of resource Ids of gateway to integrate with API portal.
-	GatewayIds pulumi.StringArrayInput `pulumi:"gatewayIds"`
-	// Indicate if only https is allowed.
-	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
-	// Indicates whether the API portal exposes endpoint.
-	Public pulumi.BoolPtrInput `pulumi:"public"`
-	// Collection of OpenAPI source URL locations.
-	SourceUrls pulumi.StringArrayInput `pulumi:"sourceUrls"`
-	// Single sign-on related configuration
-	SsoProperties SsoPropertiesPtrInput `pulumi:"ssoProperties"`
-}
-
-// Defaults sets the appropriate defaults for ApiPortalPropertiesArgs
-func (val *ApiPortalPropertiesArgs) Defaults() *ApiPortalPropertiesArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.HttpsOnly) {
-		tmp.HttpsOnly = pulumi.BoolPtr(false)
-	}
-	if isZero(tmp.Public) {
-		tmp.Public = pulumi.BoolPtr(false)
-	}
-	return &tmp
-}
-func (ApiPortalPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalProperties)(nil)).Elem()
-}
-
-func (i ApiPortalPropertiesArgs) ToApiPortalPropertiesOutput() ApiPortalPropertiesOutput {
-	return i.ToApiPortalPropertiesOutputWithContext(context.Background())
-}
-
-func (i ApiPortalPropertiesArgs) ToApiPortalPropertiesOutputWithContext(ctx context.Context) ApiPortalPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPortalPropertiesOutput)
-}
-
-func (i ApiPortalPropertiesArgs) ToApiPortalPropertiesPtrOutput() ApiPortalPropertiesPtrOutput {
-	return i.ToApiPortalPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ApiPortalPropertiesArgs) ToApiPortalPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPortalPropertiesOutput).ToApiPortalPropertiesPtrOutputWithContext(ctx)
-}
-
-// ApiPortalPropertiesPtrInput is an input type that accepts ApiPortalPropertiesArgs, ApiPortalPropertiesPtr and ApiPortalPropertiesPtrOutput values.
-// You can construct a concrete instance of `ApiPortalPropertiesPtrInput` via:
-//
-//          ApiPortalPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ApiPortalPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToApiPortalPropertiesPtrOutput() ApiPortalPropertiesPtrOutput
-	ToApiPortalPropertiesPtrOutputWithContext(context.Context) ApiPortalPropertiesPtrOutput
-}
-
-type apiPortalPropertiesPtrType ApiPortalPropertiesArgs
-
-func ApiPortalPropertiesPtr(v *ApiPortalPropertiesArgs) ApiPortalPropertiesPtrInput {
-	return (*apiPortalPropertiesPtrType)(v)
-}
-
-func (*apiPortalPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPortalProperties)(nil)).Elem()
-}
-
-func (i *apiPortalPropertiesPtrType) ToApiPortalPropertiesPtrOutput() ApiPortalPropertiesPtrOutput {
-	return i.ToApiPortalPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *apiPortalPropertiesPtrType) ToApiPortalPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPortalPropertiesPtrOutput)
-}
-
-// API portal properties payload
-type ApiPortalPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalProperties)(nil)).Elem()
-}
-
-func (o ApiPortalPropertiesOutput) ToApiPortalPropertiesOutput() ApiPortalPropertiesOutput {
-	return o
-}
-
-func (o ApiPortalPropertiesOutput) ToApiPortalPropertiesOutputWithContext(ctx context.Context) ApiPortalPropertiesOutput {
-	return o
-}
-
-func (o ApiPortalPropertiesOutput) ToApiPortalPropertiesPtrOutput() ApiPortalPropertiesPtrOutput {
-	return o.ToApiPortalPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ApiPortalPropertiesOutput) ToApiPortalPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPortalProperties) *ApiPortalProperties {
-		return &v
-	}).(ApiPortalPropertiesPtrOutput)
-}
-
-// The array of resource Ids of gateway to integrate with API portal.
-func (o ApiPortalPropertiesOutput) GatewayIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiPortalProperties) []string { return v.GatewayIds }).(pulumi.StringArrayOutput)
-}
-
-// Indicate if only https is allowed.
-func (o ApiPortalPropertiesOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApiPortalProperties) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether the API portal exposes endpoint.
-func (o ApiPortalPropertiesOutput) Public() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApiPortalProperties) *bool { return v.Public }).(pulumi.BoolPtrOutput)
-}
-
-// Collection of OpenAPI source URL locations.
-func (o ApiPortalPropertiesOutput) SourceUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiPortalProperties) []string { return v.SourceUrls }).(pulumi.StringArrayOutput)
-}
-
-// Single sign-on related configuration
-func (o ApiPortalPropertiesOutput) SsoProperties() SsoPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiPortalProperties) *SsoProperties { return v.SsoProperties }).(SsoPropertiesPtrOutput)
-}
-
-type ApiPortalPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPortalProperties)(nil)).Elem()
-}
-
-func (o ApiPortalPropertiesPtrOutput) ToApiPortalPropertiesPtrOutput() ApiPortalPropertiesPtrOutput {
-	return o
-}
-
-func (o ApiPortalPropertiesPtrOutput) ToApiPortalPropertiesPtrOutputWithContext(ctx context.Context) ApiPortalPropertiesPtrOutput {
-	return o
-}
-
-func (o ApiPortalPropertiesPtrOutput) Elem() ApiPortalPropertiesOutput {
-	return o.ApplyT(func(v *ApiPortalProperties) ApiPortalProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApiPortalProperties
-		return ret
-	}).(ApiPortalPropertiesOutput)
-}
-
-// The array of resource Ids of gateway to integrate with API portal.
-func (o ApiPortalPropertiesPtrOutput) GatewayIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApiPortalProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GatewayIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Indicate if only https is allowed.
-func (o ApiPortalPropertiesPtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApiPortalProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether the API portal exposes endpoint.
-func (o ApiPortalPropertiesPtrOutput) Public() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApiPortalProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Public
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Collection of OpenAPI source URL locations.
-func (o ApiPortalPropertiesPtrOutput) SourceUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApiPortalProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceUrls
-	}).(pulumi.StringArrayOutput)
-}
-
-// Single sign-on related configuration
-func (o ApiPortalPropertiesPtrOutput) SsoProperties() SsoPropertiesPtrOutput {
-	return o.ApplyT(func(v *ApiPortalProperties) *SsoProperties {
-		if v == nil {
-			return nil
-		}
-		return v.SsoProperties
-	}).(SsoPropertiesPtrOutput)
-}
-
-// API portal properties payload
-type ApiPortalPropertiesResponse struct {
-	// The array of resource Ids of gateway to integrate with API portal.
-	GatewayIds []string `pulumi:"gatewayIds"`
-	// Indicate if only https is allowed.
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Collection of instances belong to API portal.
-	Instances []ApiPortalInstanceResponse `pulumi:"instances"`
-	// State of the API portal.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether the API portal exposes endpoint.
-	Public *bool `pulumi:"public"`
-	// The requested resource quantity for required CPU and Memory.
-	ResourceRequests ApiPortalResourceRequestsResponse `pulumi:"resourceRequests"`
-	// Collection of OpenAPI source URL locations.
-	SourceUrls []string `pulumi:"sourceUrls"`
-	// Single sign-on related configuration
-	SsoProperties *SsoPropertiesResponse `pulumi:"ssoProperties"`
-	// URL of the API portal, exposed when 'public' is true.
-	Url string `pulumi:"url"`
-}
-
-// Defaults sets the appropriate defaults for ApiPortalPropertiesResponse
-func (val *ApiPortalPropertiesResponse) Defaults() *ApiPortalPropertiesResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.HttpsOnly) {
-		httpsOnly_ := false
-		tmp.HttpsOnly = &httpsOnly_
-	}
-	if isZero(tmp.Public) {
-		public_ := false
-		tmp.Public = &public_
-	}
-	return &tmp
-}
-
-// API portal properties payload
-type ApiPortalPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalPropertiesResponse)(nil)).Elem()
-}
-
-func (o ApiPortalPropertiesResponseOutput) ToApiPortalPropertiesResponseOutput() ApiPortalPropertiesResponseOutput {
-	return o
-}
-
-func (o ApiPortalPropertiesResponseOutput) ToApiPortalPropertiesResponseOutputWithContext(ctx context.Context) ApiPortalPropertiesResponseOutput {
-	return o
-}
-
-// The array of resource Ids of gateway to integrate with API portal.
-func (o ApiPortalPropertiesResponseOutput) GatewayIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) []string { return v.GatewayIds }).(pulumi.StringArrayOutput)
-}
-
-// Indicate if only https is allowed.
-func (o ApiPortalPropertiesResponseOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
-}
-
-// Collection of instances belong to API portal.
-func (o ApiPortalPropertiesResponseOutput) Instances() ApiPortalInstanceResponseArrayOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) []ApiPortalInstanceResponse { return v.Instances }).(ApiPortalInstanceResponseArrayOutput)
-}
-
-// State of the API portal.
-func (o ApiPortalPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Indicates whether the API portal exposes endpoint.
-func (o ApiPortalPropertiesResponseOutput) Public() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) *bool { return v.Public }).(pulumi.BoolPtrOutput)
-}
-
-// The requested resource quantity for required CPU and Memory.
-func (o ApiPortalPropertiesResponseOutput) ResourceRequests() ApiPortalResourceRequestsResponseOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) ApiPortalResourceRequestsResponse { return v.ResourceRequests }).(ApiPortalResourceRequestsResponseOutput)
-}
-
-// Collection of OpenAPI source URL locations.
-func (o ApiPortalPropertiesResponseOutput) SourceUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) []string { return v.SourceUrls }).(pulumi.StringArrayOutput)
-}
-
-// Single sign-on related configuration
-func (o ApiPortalPropertiesResponseOutput) SsoProperties() SsoPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) *SsoPropertiesResponse { return v.SsoProperties }).(SsoPropertiesResponsePtrOutput)
-}
-
-// URL of the API portal, exposed when 'public' is true.
-func (o ApiPortalPropertiesResponseOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiPortalPropertiesResponse) string { return v.Url }).(pulumi.StringOutput)
-}
-
-// Resource requests of the API portal
-type ApiPortalResourceRequestsResponse struct {
-	// Cpu allocated to each API portal instance
-	Cpu string `pulumi:"cpu"`
-	// Memory allocated to each API portal instance
-	Memory string `pulumi:"memory"`
-}
-
-// Resource requests of the API portal
-type ApiPortalResourceRequestsResponseOutput struct{ *pulumi.OutputState }
-
-func (ApiPortalResourceRequestsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPortalResourceRequestsResponse)(nil)).Elem()
-}
-
-func (o ApiPortalResourceRequestsResponseOutput) ToApiPortalResourceRequestsResponseOutput() ApiPortalResourceRequestsResponseOutput {
-	return o
-}
-
-func (o ApiPortalResourceRequestsResponseOutput) ToApiPortalResourceRequestsResponseOutputWithContext(ctx context.Context) ApiPortalResourceRequestsResponseOutput {
-	return o
-}
-
-// Cpu allocated to each API portal instance
-func (o ApiPortalResourceRequestsResponseOutput) Cpu() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiPortalResourceRequestsResponse) string { return v.Cpu }).(pulumi.StringOutput)
-}
-
-// Memory allocated to each API portal instance
-func (o ApiPortalResourceRequestsResponseOutput) Memory() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiPortalResourceRequestsResponse) string { return v.Memory }).(pulumi.StringOutput)
-}
-
 // App resource properties payload
 type AppResourceProperties struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
+	// Collection of addons
+	AddonConfigs map[string]map[string]interface{} `pulumi:"addonConfigs"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS *bool `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn *string `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
+	// Collection of loaded certificates
+	LoadedCertificates []LoadedCertificate `pulumi:"loadedCertificates"`
 	// Persistent disk settings
 	PersistentDisk *PersistentDisk `pulumi:"persistentDisk"`
 	// Indicates whether the App exposes public endpoint
@@ -630,6 +36,10 @@ func (val *AppResourceProperties) Defaults() *AppResourceProperties {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.EnableEndToEndTLS) {
+		enableEndToEndTLS_ := false
+		tmp.EnableEndToEndTLS = &enableEndToEndTLS_
+	}
 	if isZero(tmp.HttpsOnly) {
 		httpsOnly_ := false
 		tmp.HttpsOnly = &httpsOnly_
@@ -652,12 +62,16 @@ type AppResourcePropertiesInput interface {
 
 // App resource properties payload
 type AppResourcePropertiesArgs struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
+	// Collection of addons
+	AddonConfigs pulumi.MapMapInput `pulumi:"addonConfigs"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS pulumi.BoolPtrInput `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
 	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
+	// Collection of loaded certificates
+	LoadedCertificates LoadedCertificateArrayInput `pulumi:"loadedCertificates"`
 	// Persistent disk settings
 	PersistentDisk PersistentDiskPtrInput `pulumi:"persistentDisk"`
 	// Indicates whether the App exposes public endpoint
@@ -672,6 +86,9 @@ func (val *AppResourcePropertiesArgs) Defaults() *AppResourcePropertiesArgs {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.EnableEndToEndTLS) {
+		tmp.EnableEndToEndTLS = pulumi.BoolPtr(false)
+	}
 	if isZero(tmp.HttpsOnly) {
 		tmp.HttpsOnly = pulumi.BoolPtr(false)
 	}
@@ -756,9 +173,14 @@ func (o AppResourcePropertiesOutput) ToAppResourcePropertiesPtrOutputWithContext
 	}).(AppResourcePropertiesPtrOutput)
 }
 
-// Name of the active deployment of the App
-func (o AppResourcePropertiesOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppResourceProperties) *string { return v.ActiveDeploymentName }).(pulumi.StringPtrOutput)
+// Collection of addons
+func (o AppResourcePropertiesOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v AppResourceProperties) map[string]map[string]interface{} { return v.AddonConfigs }).(pulumi.MapMapOutput)
+}
+
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppResourceProperties) *bool { return v.EnableEndToEndTLS }).(pulumi.BoolPtrOutput)
 }
 
 // Fully qualified dns Name.
@@ -769,6 +191,11 @@ func (o AppResourcePropertiesOutput) Fqdn() pulumi.StringPtrOutput {
 // Indicate if only https is allowed.
 func (o AppResourcePropertiesOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Collection of loaded certificates
+func (o AppResourcePropertiesOutput) LoadedCertificates() LoadedCertificateArrayOutput {
+	return o.ApplyT(func(v AppResourceProperties) []LoadedCertificate { return v.LoadedCertificates }).(LoadedCertificateArrayOutput)
 }
 
 // Persistent disk settings
@@ -810,14 +237,24 @@ func (o AppResourcePropertiesPtrOutput) Elem() AppResourcePropertiesOutput {
 	}).(AppResourcePropertiesOutput)
 }
 
-// Name of the active deployment of the App
-func (o AppResourcePropertiesPtrOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppResourceProperties) *string {
+// Collection of addons
+func (o AppResourcePropertiesPtrOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *AppResourceProperties) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
-		return v.ActiveDeploymentName
-	}).(pulumi.StringPtrOutput)
+		return v.AddonConfigs
+	}).(pulumi.MapMapOutput)
+}
+
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesPtrOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppResourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEndToEndTLS
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Fully qualified dns Name.
@@ -838,6 +275,16 @@ func (o AppResourcePropertiesPtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
 		}
 		return v.HttpsOnly
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Collection of loaded certificates
+func (o AppResourcePropertiesPtrOutput) LoadedCertificates() LoadedCertificateArrayOutput {
+	return o.ApplyT(func(v *AppResourceProperties) []LoadedCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.LoadedCertificates
+	}).(LoadedCertificateArrayOutput)
 }
 
 // Persistent disk settings
@@ -872,14 +319,16 @@ func (o AppResourcePropertiesPtrOutput) TemporaryDisk() TemporaryDiskPtrOutput {
 
 // App resource properties payload
 type AppResourcePropertiesResponse struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
-	// Date time when the resource is created
-	CreatedTime string `pulumi:"createdTime"`
+	// Collection of addons
+	AddonConfigs map[string]map[string]interface{} `pulumi:"addonConfigs"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS *bool `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn *string `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
+	// Collection of loaded certificates
+	LoadedCertificates []LoadedCertificateResponse `pulumi:"loadedCertificates"`
 	// Persistent disk settings
 	PersistentDisk *PersistentDiskResponse `pulumi:"persistentDisk"`
 	// Provisioning state of the App
@@ -898,6 +347,10 @@ func (val *AppResourcePropertiesResponse) Defaults() *AppResourcePropertiesRespo
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.EnableEndToEndTLS) {
+		enableEndToEndTLS_ := false
+		tmp.EnableEndToEndTLS = &enableEndToEndTLS_
+	}
 	if isZero(tmp.HttpsOnly) {
 		httpsOnly_ := false
 		tmp.HttpsOnly = &httpsOnly_
@@ -922,14 +375,14 @@ func (o AppResourcePropertiesResponseOutput) ToAppResourcePropertiesResponseOutp
 	return o
 }
 
-// Name of the active deployment of the App
-func (o AppResourcePropertiesResponseOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppResourcePropertiesResponse) *string { return v.ActiveDeploymentName }).(pulumi.StringPtrOutput)
+// Collection of addons
+func (o AppResourcePropertiesResponseOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v AppResourcePropertiesResponse) map[string]map[string]interface{} { return v.AddonConfigs }).(pulumi.MapMapOutput)
 }
 
-// Date time when the resource is created
-func (o AppResourcePropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v AppResourcePropertiesResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesResponseOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesResponse) *bool { return v.EnableEndToEndTLS }).(pulumi.BoolPtrOutput)
 }
 
 // Fully qualified dns Name.
@@ -940,6 +393,11 @@ func (o AppResourcePropertiesResponseOutput) Fqdn() pulumi.StringPtrOutput {
 // Indicate if only https is allowed.
 func (o AppResourcePropertiesResponseOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Collection of loaded certificates
+func (o AppResourcePropertiesResponseOutput) LoadedCertificates() LoadedCertificateResponseArrayOutput {
+	return o.ApplyT(func(v AppResourcePropertiesResponse) []LoadedCertificateResponse { return v.LoadedCertificates }).(LoadedCertificateResponseArrayOutput)
 }
 
 // Persistent disk settings
@@ -1218,6 +676,28 @@ func (o BindingResourcePropertiesResponseOutput) ResourceType() pulumi.StringOut
 // Update time of the Binding resource
 func (o BindingResourcePropertiesResponseOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Reference to a build result
+type BuildResultUserSourceInfo struct {
+	// Resource id of an existing succeeded build result under the same Spring instance.
+	BuildResultId *string `pulumi:"buildResultId"`
+	// Type of the source uploaded
+	// Expected value is 'BuildResult'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
+}
+
+// Reference to a build result
+type BuildResultUserSourceInfoResponse struct {
+	// Resource id of an existing succeeded build result under the same Spring instance.
+	BuildResultId *string `pulumi:"buildResultId"`
+	// Type of the source uploaded
+	// Expected value is 'BuildResult'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
 }
 
 // KPack Builder properties payload
@@ -2164,277 +1644,24 @@ func (o BuildpacksGroupPropertiesResponseArrayOutput) Index(i pulumi.IntInput) B
 	}).(BuildpacksGroupPropertiesResponseOutput)
 }
 
-// Certificate resource payload.
-type CertificateProperties struct {
-	// The certificate version of key vault.
-	CertVersion *string `pulumi:"certVersion"`
-	// The certificate name of key vault.
-	KeyVaultCertName string `pulumi:"keyVaultCertName"`
-	// The vault uri of user key vault.
-	VaultUri string `pulumi:"vaultUri"`
-}
-
-// CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
-// You can construct a concrete instance of `CertificatePropertiesInput` via:
-//
-//          CertificatePropertiesArgs{...}
-type CertificatePropertiesInput interface {
-	pulumi.Input
-
-	ToCertificatePropertiesOutput() CertificatePropertiesOutput
-	ToCertificatePropertiesOutputWithContext(context.Context) CertificatePropertiesOutput
-}
-
-// Certificate resource payload.
-type CertificatePropertiesArgs struct {
-	// The certificate version of key vault.
-	CertVersion pulumi.StringPtrInput `pulumi:"certVersion"`
-	// The certificate name of key vault.
-	KeyVaultCertName pulumi.StringInput `pulumi:"keyVaultCertName"`
-	// The vault uri of user key vault.
-	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
-}
-
-func (CertificatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateProperties)(nil)).Elem()
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesOutput() CertificatePropertiesOutput {
-	return i.ToCertificatePropertiesOutputWithContext(context.Background())
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesOutputWithContext(ctx context.Context) CertificatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesOutput)
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return i.ToCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesOutput).ToCertificatePropertiesPtrOutputWithContext(ctx)
-}
-
-// CertificatePropertiesPtrInput is an input type that accepts CertificatePropertiesArgs, CertificatePropertiesPtr and CertificatePropertiesPtrOutput values.
-// You can construct a concrete instance of `CertificatePropertiesPtrInput` via:
-//
-//          CertificatePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificatePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput
-	ToCertificatePropertiesPtrOutputWithContext(context.Context) CertificatePropertiesPtrOutput
-}
-
-type certificatePropertiesPtrType CertificatePropertiesArgs
-
-func CertificatePropertiesPtr(v *CertificatePropertiesArgs) CertificatePropertiesPtrInput {
-	return (*certificatePropertiesPtrType)(v)
-}
-
-func (*certificatePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateProperties)(nil)).Elem()
-}
-
-func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return i.ToCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesPtrOutput)
-}
-
-// Certificate resource payload.
-type CertificatePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CertificatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateProperties)(nil)).Elem()
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesOutput() CertificatePropertiesOutput {
-	return o
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesOutputWithContext(ctx context.Context) CertificatePropertiesOutput {
-	return o
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return o.ToCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateProperties) *CertificateProperties {
-		return &v
-	}).(CertificatePropertiesPtrOutput)
-}
-
-// The certificate version of key vault.
-func (o CertificatePropertiesOutput) CertVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.CertVersion }).(pulumi.StringPtrOutput)
-}
-
-// The certificate name of key vault.
-func (o CertificatePropertiesOutput) KeyVaultCertName() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateProperties) string { return v.KeyVaultCertName }).(pulumi.StringOutput)
-}
-
-// The vault uri of user key vault.
-func (o CertificatePropertiesOutput) VaultUri() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateProperties) string { return v.VaultUri }).(pulumi.StringOutput)
-}
-
-type CertificatePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificatePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateProperties)(nil)).Elem()
-}
-
-func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateProperties) CertificateProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateProperties
-		return ret
-	}).(CertificatePropertiesOutput)
-}
-
-// The certificate version of key vault.
-func (o CertificatePropertiesPtrOutput) CertVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The certificate name of key vault.
-func (o CertificatePropertiesPtrOutput) KeyVaultCertName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyVaultCertName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The vault uri of user key vault.
-func (o CertificatePropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate resource payload.
-type CertificatePropertiesResponse struct {
-	// The activate date of certificate.
-	ActivateDate string `pulumi:"activateDate"`
-	// The certificate version of key vault.
-	CertVersion *string `pulumi:"certVersion"`
-	// The domain list of certificate.
-	DnsNames []string `pulumi:"dnsNames"`
-	// The expiration date of certificate.
-	ExpirationDate string `pulumi:"expirationDate"`
-	// The issue date of certificate.
-	IssuedDate string `pulumi:"issuedDate"`
-	// The issuer of certificate.
-	Issuer string `pulumi:"issuer"`
-	// The certificate name of key vault.
-	KeyVaultCertName string `pulumi:"keyVaultCertName"`
-	// The subject name of certificate.
-	SubjectName string `pulumi:"subjectName"`
-	// The thumbprint of certificate.
-	Thumbprint string `pulumi:"thumbprint"`
-	// The vault uri of user key vault.
-	VaultUri string `pulumi:"vaultUri"`
-}
-
-// Certificate resource payload.
-type CertificatePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (CertificatePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificatePropertiesResponse)(nil)).Elem()
-}
-
-func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponseOutput() CertificatePropertiesResponseOutput {
-	return o
-}
-
-func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponseOutputWithContext(ctx context.Context) CertificatePropertiesResponseOutput {
-	return o
-}
-
-// The activate date of certificate.
-func (o CertificatePropertiesResponseOutput) ActivateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.ActivateDate }).(pulumi.StringOutput)
-}
-
-// The certificate version of key vault.
-func (o CertificatePropertiesResponseOutput) CertVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *string { return v.CertVersion }).(pulumi.StringPtrOutput)
-}
-
-// The domain list of certificate.
-func (o CertificatePropertiesResponseOutput) DnsNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
-}
-
-// The expiration date of certificate.
-func (o CertificatePropertiesResponseOutput) ExpirationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.ExpirationDate }).(pulumi.StringOutput)
-}
-
-// The issue date of certificate.
-func (o CertificatePropertiesResponseOutput) IssuedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.IssuedDate }).(pulumi.StringOutput)
-}
-
-// The issuer of certificate.
-func (o CertificatePropertiesResponseOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Issuer }).(pulumi.StringOutput)
-}
-
-// The certificate name of key vault.
-func (o CertificatePropertiesResponseOutput) KeyVaultCertName() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.KeyVaultCertName }).(pulumi.StringOutput)
-}
-
-// The subject name of certificate.
-func (o CertificatePropertiesResponseOutput) SubjectName() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.SubjectName }).(pulumi.StringOutput)
-}
-
-// The thumbprint of certificate.
-func (o CertificatePropertiesResponseOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
-}
-
-// The vault uri of user key vault.
-func (o CertificatePropertiesResponseOutput) VaultUri() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.VaultUri }).(pulumi.StringOutput)
-}
-
 // Service properties payload
 type ClusterResourceProperties struct {
 	// Network profile of the Service
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
+	ZoneRedundant  *bool           `pulumi:"zoneRedundant"`
+}
+
+// Defaults sets the appropriate defaults for ClusterResourceProperties
+func (val *ClusterResourceProperties) Defaults() *ClusterResourceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ZoneRedundant) {
+		zoneRedundant_ := false
+		tmp.ZoneRedundant = &zoneRedundant_
+	}
+	return &tmp
 }
 
 // ClusterResourcePropertiesInput is an input type that accepts ClusterResourcePropertiesArgs and ClusterResourcePropertiesOutput values.
@@ -2452,8 +1679,20 @@ type ClusterResourcePropertiesInput interface {
 type ClusterResourcePropertiesArgs struct {
 	// Network profile of the Service
 	NetworkProfile NetworkProfilePtrInput `pulumi:"networkProfile"`
+	ZoneRedundant  pulumi.BoolPtrInput    `pulumi:"zoneRedundant"`
 }
 
+// Defaults sets the appropriate defaults for ClusterResourcePropertiesArgs
+func (val *ClusterResourcePropertiesArgs) Defaults() *ClusterResourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ZoneRedundant) {
+		tmp.ZoneRedundant = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ClusterResourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterResourceProperties)(nil)).Elem()
 }
@@ -2537,6 +1776,10 @@ func (o ClusterResourcePropertiesOutput) NetworkProfile() NetworkProfilePtrOutpu
 	return o.ApplyT(func(v ClusterResourceProperties) *NetworkProfile { return v.NetworkProfile }).(NetworkProfilePtrOutput)
 }
 
+func (o ClusterResourcePropertiesOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 type ClusterResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterResourcePropertiesPtrOutput) ElementType() reflect.Type {
@@ -2571,8 +1814,19 @@ func (o ClusterResourcePropertiesPtrOutput) NetworkProfile() NetworkProfilePtrOu
 	}).(NetworkProfilePtrOutput)
 }
 
+func (o ClusterResourcePropertiesPtrOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ZoneRedundant
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Service properties payload
 type ClusterResourcePropertiesResponse struct {
+	// Fully qualified dns name of the service instance
+	Fqdn string `pulumi:"fqdn"`
 	// Network profile of the Service
 	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
 	// Provisioning state of the Service
@@ -2580,7 +1834,21 @@ type ClusterResourcePropertiesResponse struct {
 	// ServiceInstanceEntity GUID which uniquely identifies a created resource
 	ServiceId string `pulumi:"serviceId"`
 	// Version of the Service
-	Version int `pulumi:"version"`
+	Version       int   `pulumi:"version"`
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+}
+
+// Defaults sets the appropriate defaults for ClusterResourcePropertiesResponse
+func (val *ClusterResourcePropertiesResponse) Defaults() *ClusterResourcePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ZoneRedundant) {
+		zoneRedundant_ := false
+		tmp.ZoneRedundant = &zoneRedundant_
+	}
+	return &tmp
 }
 
 // Service properties payload
@@ -2596,6 +1864,11 @@ func (o ClusterResourcePropertiesResponseOutput) ToClusterResourcePropertiesResp
 
 func (o ClusterResourcePropertiesResponseOutput) ToClusterResourcePropertiesResponseOutputWithContext(ctx context.Context) ClusterResourcePropertiesResponseOutput {
 	return o
+}
+
+// Fully qualified dns name of the service instance
+func (o ClusterResourcePropertiesResponseOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesResponse) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
 // Network profile of the Service
@@ -2616,6 +1889,10 @@ func (o ClusterResourcePropertiesResponseOutput) ServiceId() pulumi.StringOutput
 // Version of the Service
 func (o ClusterResourcePropertiesResponseOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) int { return v.Version }).(pulumi.IntOutput)
+}
+
+func (o ClusterResourcePropertiesResponseOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 // Property of git environment.
@@ -3614,6 +2891,36 @@ func (o ConfigurationServiceSettingsResponsePtrOutput) GitProperty() Configurati
 	}).(ConfigurationServiceGitPropertyResponsePtrOutput)
 }
 
+// Properties of certificate imported from key vault.
+type ContentCertificateProperties struct {
+	// The content of uploaded certificate.
+	Content *string `pulumi:"content"`
+	// The type of the certificate source.
+	// Expected value is 'ContentCertificate'.
+	Type string `pulumi:"type"`
+}
+
+// Properties of certificate imported from key vault.
+type ContentCertificatePropertiesResponse struct {
+	// The activate date of certificate.
+	ActivateDate string `pulumi:"activateDate"`
+	// The domain list of certificate.
+	DnsNames []string `pulumi:"dnsNames"`
+	// The expiration date of certificate.
+	ExpirationDate string `pulumi:"expirationDate"`
+	// The issue date of certificate.
+	IssuedDate string `pulumi:"issuedDate"`
+	// The issuer of certificate.
+	Issuer string `pulumi:"issuer"`
+	// The subject name of certificate.
+	SubjectName string `pulumi:"subjectName"`
+	// The thumbprint of certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The type of the certificate source.
+	// Expected value is 'ContentCertificate'.
+	Type string `pulumi:"type"`
+}
+
 // Custom domain of app resource payload.
 type CustomDomainProperties struct {
 	// The bound certificate name of domain.
@@ -3825,6 +3132,8 @@ type DeploymentInstanceResponse struct {
 	StartTime string `pulumi:"startTime"`
 	// Status of the deployment instance
 	Status string `pulumi:"status"`
+	// Availability zone information of the deployment instance
+	Zone string `pulumi:"zone"`
 }
 
 // Deployment instance payload
@@ -3867,6 +3176,11 @@ func (o DeploymentInstanceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Availability zone information of the deployment instance
+func (o DeploymentInstanceResponseOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.Zone }).(pulumi.StringOutput)
+}
+
 type DeploymentInstanceResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentInstanceResponseArrayOutput) ElementType() reflect.Type {
@@ -3889,21 +3203,12 @@ func (o DeploymentInstanceResponseArrayOutput) Index(i pulumi.IntInput) Deployme
 
 // Deployment resource properties payload
 type DeploymentResourceProperties struct {
+	// Indicates whether the Deployment is active
+	Active *bool `pulumi:"active"`
 	// Deployment settings of the Deployment
 	DeploymentSettings *DeploymentSettings `pulumi:"deploymentSettings"`
 	// Uploaded source information of the deployment.
-	Source *UserSourceInfo `pulumi:"source"`
-}
-
-// Defaults sets the appropriate defaults for DeploymentResourceProperties
-func (val *DeploymentResourceProperties) Defaults() *DeploymentResourceProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.DeploymentSettings = tmp.DeploymentSettings.Defaults()
-
-	return &tmp
+	Source interface{} `pulumi:"source"`
 }
 
 // DeploymentResourcePropertiesInput is an input type that accepts DeploymentResourcePropertiesArgs and DeploymentResourcePropertiesOutput values.
@@ -3919,21 +3224,14 @@ type DeploymentResourcePropertiesInput interface {
 
 // Deployment resource properties payload
 type DeploymentResourcePropertiesArgs struct {
+	// Indicates whether the Deployment is active
+	Active pulumi.BoolPtrInput `pulumi:"active"`
 	// Deployment settings of the Deployment
 	DeploymentSettings DeploymentSettingsPtrInput `pulumi:"deploymentSettings"`
 	// Uploaded source information of the deployment.
-	Source UserSourceInfoPtrInput `pulumi:"source"`
+	Source pulumi.Input `pulumi:"source"`
 }
 
-// Defaults sets the appropriate defaults for DeploymentResourcePropertiesArgs
-func (val *DeploymentResourcePropertiesArgs) Defaults() *DeploymentResourcePropertiesArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-
-	return &tmp
-}
 func (DeploymentResourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentResourceProperties)(nil)).Elem()
 }
@@ -4012,14 +3310,19 @@ func (o DeploymentResourcePropertiesOutput) ToDeploymentResourcePropertiesPtrOut
 	}).(DeploymentResourcePropertiesPtrOutput)
 }
 
+// Indicates whether the Deployment is active
+func (o DeploymentResourcePropertiesOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentResourceProperties) *bool { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
 // Deployment settings of the Deployment
 func (o DeploymentResourcePropertiesOutput) DeploymentSettings() DeploymentSettingsPtrOutput {
 	return o.ApplyT(func(v DeploymentResourceProperties) *DeploymentSettings { return v.DeploymentSettings }).(DeploymentSettingsPtrOutput)
 }
 
 // Uploaded source information of the deployment.
-func (o DeploymentResourcePropertiesOutput) Source() UserSourceInfoPtrOutput {
-	return o.ApplyT(func(v DeploymentResourceProperties) *UserSourceInfo { return v.Source }).(UserSourceInfoPtrOutput)
+func (o DeploymentResourcePropertiesOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentResourceProperties) interface{} { return v.Source }).(pulumi.AnyOutput)
 }
 
 type DeploymentResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -4046,6 +3349,16 @@ func (o DeploymentResourcePropertiesPtrOutput) Elem() DeploymentResourceProperti
 	}).(DeploymentResourcePropertiesOutput)
 }
 
+// Indicates whether the Deployment is active
+func (o DeploymentResourcePropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentResourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Active
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Deployment settings of the Deployment
 func (o DeploymentResourcePropertiesPtrOutput) DeploymentSettings() DeploymentSettingsPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourceProperties) *DeploymentSettings {
@@ -4057,23 +3370,19 @@ func (o DeploymentResourcePropertiesPtrOutput) DeploymentSettings() DeploymentSe
 }
 
 // Uploaded source information of the deployment.
-func (o DeploymentResourcePropertiesPtrOutput) Source() UserSourceInfoPtrOutput {
-	return o.ApplyT(func(v *DeploymentResourceProperties) *UserSourceInfo {
+func (o DeploymentResourcePropertiesPtrOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentResourceProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Source
-	}).(UserSourceInfoPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Deployment resource properties payload
 type DeploymentResourcePropertiesResponse struct {
 	// Indicates whether the Deployment is active
-	Active bool `pulumi:"active"`
-	// App name of the deployment
-	AppName string `pulumi:"appName"`
-	// Date time when the resource is created
-	CreatedTime string `pulumi:"createdTime"`
+	Active *bool `pulumi:"active"`
 	// Deployment settings of the Deployment
 	DeploymentSettings *DeploymentSettingsResponse `pulumi:"deploymentSettings"`
 	// Collection of instances belong to the Deployment
@@ -4081,20 +3390,9 @@ type DeploymentResourcePropertiesResponse struct {
 	// Provisioning state of the Deployment
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Uploaded source information of the deployment.
-	Source *UserSourceInfoResponse `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Status of the Deployment
 	Status string `pulumi:"status"`
-}
-
-// Defaults sets the appropriate defaults for DeploymentResourcePropertiesResponse
-func (val *DeploymentResourcePropertiesResponse) Defaults() *DeploymentResourcePropertiesResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.DeploymentSettings = tmp.DeploymentSettings.Defaults()
-
-	return &tmp
 }
 
 // Deployment resource properties payload
@@ -4113,18 +3411,8 @@ func (o DeploymentResourcePropertiesResponseOutput) ToDeploymentResourceProperti
 }
 
 // Indicates whether the Deployment is active
-func (o DeploymentResourcePropertiesResponseOutput) Active() pulumi.BoolOutput {
-	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) bool { return v.Active }).(pulumi.BoolOutput)
-}
-
-// App name of the deployment
-func (o DeploymentResourcePropertiesResponseOutput) AppName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) string { return v.AppName }).(pulumi.StringOutput)
-}
-
-// Date time when the resource is created
-func (o DeploymentResourcePropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+func (o DeploymentResourcePropertiesResponseOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
 // Deployment settings of the Deployment
@@ -4143,8 +3431,8 @@ func (o DeploymentResourcePropertiesResponseOutput) ProvisioningState() pulumi.S
 }
 
 // Uploaded source information of the deployment.
-func (o DeploymentResourcePropertiesResponseOutput) Source() UserSourceInfoResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) *UserSourceInfoResponse { return v.Source }).(UserSourceInfoResponsePtrOutput)
+func (o DeploymentResourcePropertiesResponseOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) interface{} { return v.Source }).(pulumi.AnyOutput)
 }
 
 // Status of the Deployment
@@ -4154,39 +3442,12 @@ func (o DeploymentResourcePropertiesResponseOutput) Status() pulumi.StringOutput
 
 // Deployment settings payload
 type DeploymentSettings struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu *int `pulumi:"cpu"`
+	// Collection of addons
+	AddonConfigs map[string]map[string]interface{} `pulumi:"addonConfigs"`
 	// Collection of environment variables
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// JVM parameter
-	JvmOptions *string `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB *int `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
-	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion *string `pulumi:"runtimeVersion"`
-}
-
-// Defaults sets the appropriate defaults for DeploymentSettings
-func (val *DeploymentSettings) Defaults() *DeploymentSettings {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Cpu) {
-		cpu_ := 1
-		tmp.Cpu = &cpu_
-	}
-	if isZero(tmp.MemoryInGB) {
-		memoryInGB_ := 1
-		tmp.MemoryInGB = &memoryInGB_
-	}
-	if isZero(tmp.RuntimeVersion) {
-		runtimeVersion_ := "Java_8"
-		tmp.RuntimeVersion = &runtimeVersion_
-	}
-	return &tmp
+	// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+	ResourceRequests *ResourceRequests `pulumi:"resourceRequests"`
 }
 
 // DeploymentSettingsInput is an input type that accepts DeploymentSettingsArgs and DeploymentSettingsOutput values.
@@ -4202,37 +3463,14 @@ type DeploymentSettingsInput interface {
 
 // Deployment settings payload
 type DeploymentSettingsArgs struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
+	// Collection of addons
+	AddonConfigs pulumi.MapMapInput `pulumi:"addonConfigs"`
 	// Collection of environment variables
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// JVM parameter
-	JvmOptions pulumi.StringPtrInput `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB pulumi.IntPtrInput `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
-	NetCoreMainEntryPath pulumi.StringPtrInput `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+	ResourceRequests ResourceRequestsPtrInput `pulumi:"resourceRequests"`
 }
 
-// Defaults sets the appropriate defaults for DeploymentSettingsArgs
-func (val *DeploymentSettingsArgs) Defaults() *DeploymentSettingsArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Cpu) {
-		tmp.Cpu = pulumi.IntPtr(1)
-	}
-	if isZero(tmp.MemoryInGB) {
-		tmp.MemoryInGB = pulumi.IntPtr(1)
-	}
-	if isZero(tmp.RuntimeVersion) {
-		tmp.RuntimeVersion = pulumi.StringPtr("Java_8")
-	}
-	return &tmp
-}
 func (DeploymentSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentSettings)(nil)).Elem()
 }
@@ -4311,9 +3549,9 @@ func (o DeploymentSettingsOutput) ToDeploymentSettingsPtrOutputWithContext(ctx c
 	}).(DeploymentSettingsPtrOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-func (o DeploymentSettingsOutput) Cpu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+// Collection of addons
+func (o DeploymentSettingsOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v DeploymentSettings) map[string]map[string]interface{} { return v.AddonConfigs }).(pulumi.MapMapOutput)
 }
 
 // Collection of environment variables
@@ -4321,24 +3559,9 @@ func (o DeploymentSettingsOutput) EnvironmentVariables() pulumi.StringMapOutput 
 	return o.ApplyT(func(v DeploymentSettings) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// JVM parameter
-func (o DeploymentSettingsOutput) JvmOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *string { return v.JvmOptions }).(pulumi.StringPtrOutput)
-}
-
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-func (o DeploymentSettingsOutput) MemoryInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
-}
-
-// The path to the .NET executable relative to zip root
-func (o DeploymentSettingsOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
-}
-
-// Runtime version
-func (o DeploymentSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+func (o DeploymentSettingsOutput) ResourceRequests() ResourceRequestsPtrOutput {
+	return o.ApplyT(func(v DeploymentSettings) *ResourceRequests { return v.ResourceRequests }).(ResourceRequestsPtrOutput)
 }
 
 type DeploymentSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -4365,14 +3588,14 @@ func (o DeploymentSettingsPtrOutput) Elem() DeploymentSettingsOutput {
 	}).(DeploymentSettingsOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-func (o DeploymentSettingsPtrOutput) Cpu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettings) *int {
+// Collection of addons
+func (o DeploymentSettingsPtrOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *DeploymentSettings) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
-		return v.Cpu
-	}).(pulumi.IntPtrOutput)
+		return v.AddonConfigs
+	}).(pulumi.MapMapOutput)
 }
 
 // Collection of environment variables
@@ -4385,81 +3608,24 @@ func (o DeploymentSettingsPtrOutput) EnvironmentVariables() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// JVM parameter
-func (o DeploymentSettingsPtrOutput) JvmOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettings) *string {
+// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+func (o DeploymentSettingsPtrOutput) ResourceRequests() ResourceRequestsPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettings) *ResourceRequests {
 		if v == nil {
 			return nil
 		}
-		return v.JvmOptions
-	}).(pulumi.StringPtrOutput)
-}
-
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-func (o DeploymentSettingsPtrOutput) MemoryInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MemoryInGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// The path to the .NET executable relative to zip root
-func (o DeploymentSettingsPtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NetCoreMainEntryPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Runtime version
-func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RuntimeVersion
-	}).(pulumi.StringPtrOutput)
+		return v.ResourceRequests
+	}).(ResourceRequestsPtrOutput)
 }
 
 // Deployment settings payload
 type DeploymentSettingsResponse struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu *int `pulumi:"cpu"`
+	// Collection of addons
+	AddonConfigs map[string]map[string]interface{} `pulumi:"addonConfigs"`
 	// Collection of environment variables
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// JVM parameter
-	JvmOptions *string `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB *int `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
-	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion *string `pulumi:"runtimeVersion"`
-}
-
-// Defaults sets the appropriate defaults for DeploymentSettingsResponse
-func (val *DeploymentSettingsResponse) Defaults() *DeploymentSettingsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Cpu) {
-		cpu_ := 1
-		tmp.Cpu = &cpu_
-	}
-	if isZero(tmp.MemoryInGB) {
-		memoryInGB_ := 1
-		tmp.MemoryInGB = &memoryInGB_
-	}
-	if isZero(tmp.RuntimeVersion) {
-		runtimeVersion_ := "Java_8"
-		tmp.RuntimeVersion = &runtimeVersion_
-	}
-	return &tmp
+	// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+	ResourceRequests *ResourceRequestsResponse `pulumi:"resourceRequests"`
 }
 
 // Deployment settings payload
@@ -4477,9 +3643,9 @@ func (o DeploymentSettingsResponseOutput) ToDeploymentSettingsResponseOutputWith
 	return o
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-func (o DeploymentSettingsResponseOutput) Cpu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+// Collection of addons
+func (o DeploymentSettingsResponseOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v DeploymentSettingsResponse) map[string]map[string]interface{} { return v.AddonConfigs }).(pulumi.MapMapOutput)
 }
 
 // Collection of environment variables
@@ -4487,24 +3653,9 @@ func (o DeploymentSettingsResponseOutput) EnvironmentVariables() pulumi.StringMa
 	return o.ApplyT(func(v DeploymentSettingsResponse) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// JVM parameter
-func (o DeploymentSettingsResponseOutput) JvmOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.JvmOptions }).(pulumi.StringPtrOutput)
-}
-
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-func (o DeploymentSettingsResponseOutput) MemoryInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
-}
-
-// The path to the .NET executable relative to zip root
-func (o DeploymentSettingsResponseOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
-}
-
-// Runtime version
-func (o DeploymentSettingsResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+func (o DeploymentSettingsResponseOutput) ResourceRequests() ResourceRequestsResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsResponse) *ResourceRequestsResponse { return v.ResourceRequests }).(ResourceRequestsResponsePtrOutput)
 }
 
 type DeploymentSettingsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4531,14 +3682,14 @@ func (o DeploymentSettingsResponsePtrOutput) Elem() DeploymentSettingsResponseOu
 	}).(DeploymentSettingsResponseOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-func (o DeploymentSettingsResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) *int {
+// Collection of addons
+func (o DeploymentSettingsResponsePtrOutput) AddonConfigs() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *DeploymentSettingsResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
-		return v.Cpu
-	}).(pulumi.IntPtrOutput)
+		return v.AddonConfigs
+	}).(pulumi.MapMapOutput)
 }
 
 // Collection of environment variables
@@ -4551,2152 +3702,320 @@ func (o DeploymentSettingsResponsePtrOutput) EnvironmentVariables() pulumi.Strin
 	}).(pulumi.StringMapOutput)
 }
 
-// JVM parameter
-func (o DeploymentSettingsResponsePtrOutput) JvmOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JvmOptions
-	}).(pulumi.StringPtrOutput)
-}
-
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-func (o DeploymentSettingsResponsePtrOutput) MemoryInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MemoryInGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// The path to the .NET executable relative to zip root
-func (o DeploymentSettingsResponsePtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NetCoreMainEntryPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Runtime version
-func (o DeploymentSettingsResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RuntimeVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// API metadata property for Spring Cloud Gateway
-type GatewayApiMetadataProperties struct {
-	// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-	Description *string `pulumi:"description"`
-	// Location of additional documentation for the APIs available on the Gateway instance
-	Documentation *string `pulumi:"documentation"`
-	// Base URL that API consumers will use to access APIs on the Gateway instance.
-	ServerUrl *string `pulumi:"serverUrl"`
-	// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-	Title *string `pulumi:"title"`
-	// Version of APIs available on this Gateway instance (default: `unspecified`).
-	Version *string `pulumi:"version"`
-}
-
-// GatewayApiMetadataPropertiesInput is an input type that accepts GatewayApiMetadataPropertiesArgs and GatewayApiMetadataPropertiesOutput values.
-// You can construct a concrete instance of `GatewayApiMetadataPropertiesInput` via:
-//
-//          GatewayApiMetadataPropertiesArgs{...}
-type GatewayApiMetadataPropertiesInput interface {
-	pulumi.Input
-
-	ToGatewayApiMetadataPropertiesOutput() GatewayApiMetadataPropertiesOutput
-	ToGatewayApiMetadataPropertiesOutputWithContext(context.Context) GatewayApiMetadataPropertiesOutput
-}
-
-// API metadata property for Spring Cloud Gateway
-type GatewayApiMetadataPropertiesArgs struct {
-	// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Location of additional documentation for the APIs available on the Gateway instance
-	Documentation pulumi.StringPtrInput `pulumi:"documentation"`
-	// Base URL that API consumers will use to access APIs on the Gateway instance.
-	ServerUrl pulumi.StringPtrInput `pulumi:"serverUrl"`
-	// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// Version of APIs available on this Gateway instance (default: `unspecified`).
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (GatewayApiMetadataPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiMetadataProperties)(nil)).Elem()
-}
-
-func (i GatewayApiMetadataPropertiesArgs) ToGatewayApiMetadataPropertiesOutput() GatewayApiMetadataPropertiesOutput {
-	return i.ToGatewayApiMetadataPropertiesOutputWithContext(context.Background())
-}
-
-func (i GatewayApiMetadataPropertiesArgs) ToGatewayApiMetadataPropertiesOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiMetadataPropertiesOutput)
-}
-
-func (i GatewayApiMetadataPropertiesArgs) ToGatewayApiMetadataPropertiesPtrOutput() GatewayApiMetadataPropertiesPtrOutput {
-	return i.ToGatewayApiMetadataPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayApiMetadataPropertiesArgs) ToGatewayApiMetadataPropertiesPtrOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiMetadataPropertiesOutput).ToGatewayApiMetadataPropertiesPtrOutputWithContext(ctx)
-}
-
-// GatewayApiMetadataPropertiesPtrInput is an input type that accepts GatewayApiMetadataPropertiesArgs, GatewayApiMetadataPropertiesPtr and GatewayApiMetadataPropertiesPtrOutput values.
-// You can construct a concrete instance of `GatewayApiMetadataPropertiesPtrInput` via:
-//
-//          GatewayApiMetadataPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayApiMetadataPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToGatewayApiMetadataPropertiesPtrOutput() GatewayApiMetadataPropertiesPtrOutput
-	ToGatewayApiMetadataPropertiesPtrOutputWithContext(context.Context) GatewayApiMetadataPropertiesPtrOutput
-}
-
-type gatewayApiMetadataPropertiesPtrType GatewayApiMetadataPropertiesArgs
-
-func GatewayApiMetadataPropertiesPtr(v *GatewayApiMetadataPropertiesArgs) GatewayApiMetadataPropertiesPtrInput {
-	return (*gatewayApiMetadataPropertiesPtrType)(v)
-}
-
-func (*gatewayApiMetadataPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayApiMetadataProperties)(nil)).Elem()
-}
-
-func (i *gatewayApiMetadataPropertiesPtrType) ToGatewayApiMetadataPropertiesPtrOutput() GatewayApiMetadataPropertiesPtrOutput {
-	return i.ToGatewayApiMetadataPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayApiMetadataPropertiesPtrType) ToGatewayApiMetadataPropertiesPtrOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiMetadataPropertiesPtrOutput)
-}
-
-// API metadata property for Spring Cloud Gateway
-type GatewayApiMetadataPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiMetadataPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiMetadataProperties)(nil)).Elem()
-}
-
-func (o GatewayApiMetadataPropertiesOutput) ToGatewayApiMetadataPropertiesOutput() GatewayApiMetadataPropertiesOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesOutput) ToGatewayApiMetadataPropertiesOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesOutput) ToGatewayApiMetadataPropertiesPtrOutput() GatewayApiMetadataPropertiesPtrOutput {
-	return o.ToGatewayApiMetadataPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayApiMetadataPropertiesOutput) ToGatewayApiMetadataPropertiesPtrOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayApiMetadataProperties) *GatewayApiMetadataProperties {
-		return &v
-	}).(GatewayApiMetadataPropertiesPtrOutput)
-}
-
-// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-func (o GatewayApiMetadataPropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Location of additional documentation for the APIs available on the Gateway instance
-func (o GatewayApiMetadataPropertiesOutput) Documentation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataProperties) *string { return v.Documentation }).(pulumi.StringPtrOutput)
-}
-
-// Base URL that API consumers will use to access APIs on the Gateway instance.
-func (o GatewayApiMetadataPropertiesOutput) ServerUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataProperties) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
-}
-
-// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-func (o GatewayApiMetadataPropertiesOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataProperties) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// Version of APIs available on this Gateway instance (default: `unspecified`).
-func (o GatewayApiMetadataPropertiesOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type GatewayApiMetadataPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiMetadataPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayApiMetadataProperties)(nil)).Elem()
-}
-
-func (o GatewayApiMetadataPropertiesPtrOutput) ToGatewayApiMetadataPropertiesPtrOutput() GatewayApiMetadataPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesPtrOutput) ToGatewayApiMetadataPropertiesPtrOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesPtrOutput) Elem() GatewayApiMetadataPropertiesOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataProperties) GatewayApiMetadataProperties {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayApiMetadataProperties
-		return ret
-	}).(GatewayApiMetadataPropertiesOutput)
-}
-
-// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-func (o GatewayApiMetadataPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Location of additional documentation for the APIs available on the Gateway instance
-func (o GatewayApiMetadataPropertiesPtrOutput) Documentation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Documentation
-	}).(pulumi.StringPtrOutput)
-}
-
-// Base URL that API consumers will use to access APIs on the Gateway instance.
-func (o GatewayApiMetadataPropertiesPtrOutput) ServerUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-func (o GatewayApiMetadataPropertiesPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of APIs available on this Gateway instance (default: `unspecified`).
-func (o GatewayApiMetadataPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// API metadata property for Spring Cloud Gateway
-type GatewayApiMetadataPropertiesResponse struct {
-	// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-	Description *string `pulumi:"description"`
-	// Location of additional documentation for the APIs available on the Gateway instance
-	Documentation *string `pulumi:"documentation"`
-	// Base URL that API consumers will use to access APIs on the Gateway instance.
-	ServerUrl *string `pulumi:"serverUrl"`
-	// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-	Title *string `pulumi:"title"`
-	// Version of APIs available on this Gateway instance (default: `unspecified`).
-	Version *string `pulumi:"version"`
-}
-
-// API metadata property for Spring Cloud Gateway
-type GatewayApiMetadataPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiMetadataPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiMetadataPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayApiMetadataPropertiesResponseOutput) ToGatewayApiMetadataPropertiesResponseOutput() GatewayApiMetadataPropertiesResponseOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesResponseOutput) ToGatewayApiMetadataPropertiesResponseOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesResponseOutput {
-	return o
-}
-
-// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-func (o GatewayApiMetadataPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Location of additional documentation for the APIs available on the Gateway instance
-func (o GatewayApiMetadataPropertiesResponseOutput) Documentation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataPropertiesResponse) *string { return v.Documentation }).(pulumi.StringPtrOutput)
-}
-
-// Base URL that API consumers will use to access APIs on the Gateway instance.
-func (o GatewayApiMetadataPropertiesResponseOutput) ServerUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataPropertiesResponse) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
-}
-
-// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-func (o GatewayApiMetadataPropertiesResponseOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataPropertiesResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// Version of APIs available on this Gateway instance (default: `unspecified`).
-func (o GatewayApiMetadataPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiMetadataPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type GatewayApiMetadataPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiMetadataPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayApiMetadataPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) ToGatewayApiMetadataPropertiesResponsePtrOutput() GatewayApiMetadataPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) ToGatewayApiMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) GatewayApiMetadataPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) Elem() GatewayApiMetadataPropertiesResponseOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataPropertiesResponse) GatewayApiMetadataPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayApiMetadataPropertiesResponse
-		return ret
-	}).(GatewayApiMetadataPropertiesResponseOutput)
-}
-
-// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Location of additional documentation for the APIs available on the Gateway instance
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) Documentation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Documentation
-	}).(pulumi.StringPtrOutput)
-}
-
-// Base URL that API consumers will use to access APIs on the Gateway instance.
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) ServerUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of APIs available on this Gateway instance (default: `unspecified`).
-func (o GatewayApiMetadataPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayApiMetadataPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayApiRoute struct {
-	// A description, will be applied to methods in the generated OpenAPI documentation.
-	Description *string `pulumi:"description"`
-	// To modify the request before sending it to the target endpoint, or the received response.
-	Filters []string `pulumi:"filters"`
-	// Route processing order.
-	Order *int `pulumi:"order"`
-	// A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-	Predicates []string `pulumi:"predicates"`
-	// Enable sso validation.
-	SsoEnabled *bool `pulumi:"ssoEnabled"`
-	// Classification tags, will be applied to methods in the generated OpenAPI documentation.
-	Tags []string `pulumi:"tags"`
-	// A title, will be applied to methods in the generated OpenAPI documentation.
-	Title *string `pulumi:"title"`
-	// Pass currently-authenticated user's identity token to application service, default is 'false'
-	TokenRelay *bool `pulumi:"tokenRelay"`
-	// Full uri, will override `appName`.
-	Uri *string `pulumi:"uri"`
-}
-
-// GatewayApiRouteInput is an input type that accepts GatewayApiRouteArgs and GatewayApiRouteOutput values.
-// You can construct a concrete instance of `GatewayApiRouteInput` via:
-//
-//          GatewayApiRouteArgs{...}
-type GatewayApiRouteInput interface {
-	pulumi.Input
-
-	ToGatewayApiRouteOutput() GatewayApiRouteOutput
-	ToGatewayApiRouteOutputWithContext(context.Context) GatewayApiRouteOutput
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayApiRouteArgs struct {
-	// A description, will be applied to methods in the generated OpenAPI documentation.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// To modify the request before sending it to the target endpoint, or the received response.
-	Filters pulumi.StringArrayInput `pulumi:"filters"`
-	// Route processing order.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-	Predicates pulumi.StringArrayInput `pulumi:"predicates"`
-	// Enable sso validation.
-	SsoEnabled pulumi.BoolPtrInput `pulumi:"ssoEnabled"`
-	// Classification tags, will be applied to methods in the generated OpenAPI documentation.
-	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// A title, will be applied to methods in the generated OpenAPI documentation.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// Pass currently-authenticated user's identity token to application service, default is 'false'
-	TokenRelay pulumi.BoolPtrInput `pulumi:"tokenRelay"`
-	// Full uri, will override `appName`.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (GatewayApiRouteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiRoute)(nil)).Elem()
-}
-
-func (i GatewayApiRouteArgs) ToGatewayApiRouteOutput() GatewayApiRouteOutput {
-	return i.ToGatewayApiRouteOutputWithContext(context.Background())
-}
-
-func (i GatewayApiRouteArgs) ToGatewayApiRouteOutputWithContext(ctx context.Context) GatewayApiRouteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiRouteOutput)
-}
-
-// GatewayApiRouteArrayInput is an input type that accepts GatewayApiRouteArray and GatewayApiRouteArrayOutput values.
-// You can construct a concrete instance of `GatewayApiRouteArrayInput` via:
-//
-//          GatewayApiRouteArray{ GatewayApiRouteArgs{...} }
-type GatewayApiRouteArrayInput interface {
-	pulumi.Input
-
-	ToGatewayApiRouteArrayOutput() GatewayApiRouteArrayOutput
-	ToGatewayApiRouteArrayOutputWithContext(context.Context) GatewayApiRouteArrayOutput
-}
-
-type GatewayApiRouteArray []GatewayApiRouteInput
-
-func (GatewayApiRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayApiRoute)(nil)).Elem()
-}
-
-func (i GatewayApiRouteArray) ToGatewayApiRouteArrayOutput() GatewayApiRouteArrayOutput {
-	return i.ToGatewayApiRouteArrayOutputWithContext(context.Background())
-}
-
-func (i GatewayApiRouteArray) ToGatewayApiRouteArrayOutputWithContext(ctx context.Context) GatewayApiRouteArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiRouteArrayOutput)
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayApiRouteOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiRoute)(nil)).Elem()
-}
-
-func (o GatewayApiRouteOutput) ToGatewayApiRouteOutput() GatewayApiRouteOutput {
-	return o
-}
-
-func (o GatewayApiRouteOutput) ToGatewayApiRouteOutputWithContext(ctx context.Context) GatewayApiRouteOutput {
-	return o
-}
-
-// A description, will be applied to methods in the generated OpenAPI documentation.
-func (o GatewayApiRouteOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiRoute) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// To modify the request before sending it to the target endpoint, or the received response.
-func (o GatewayApiRouteOutput) Filters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayApiRoute) []string { return v.Filters }).(pulumi.StringArrayOutput)
-}
-
-// Route processing order.
-func (o GatewayApiRouteOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewayApiRoute) *int { return v.Order }).(pulumi.IntPtrOutput)
-}
-
-// A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-func (o GatewayApiRouteOutput) Predicates() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayApiRoute) []string { return v.Predicates }).(pulumi.StringArrayOutput)
-}
-
-// Enable sso validation.
-func (o GatewayApiRouteOutput) SsoEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayApiRoute) *bool { return v.SsoEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Classification tags, will be applied to methods in the generated OpenAPI documentation.
-func (o GatewayApiRouteOutput) Tags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayApiRoute) []string { return v.Tags }).(pulumi.StringArrayOutput)
-}
-
-// A title, will be applied to methods in the generated OpenAPI documentation.
-func (o GatewayApiRouteOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiRoute) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// Pass currently-authenticated user's identity token to application service, default is 'false'
-func (o GatewayApiRouteOutput) TokenRelay() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayApiRoute) *bool { return v.TokenRelay }).(pulumi.BoolPtrOutput)
-}
-
-// Full uri, will override `appName`.
-func (o GatewayApiRouteOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiRoute) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type GatewayApiRouteArrayOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiRouteArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayApiRoute)(nil)).Elem()
-}
-
-func (o GatewayApiRouteArrayOutput) ToGatewayApiRouteArrayOutput() GatewayApiRouteArrayOutput {
-	return o
-}
-
-func (o GatewayApiRouteArrayOutput) ToGatewayApiRouteArrayOutputWithContext(ctx context.Context) GatewayApiRouteArrayOutput {
-	return o
-}
-
-func (o GatewayApiRouteArrayOutput) Index(i pulumi.IntInput) GatewayApiRouteOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayApiRoute {
-		return vs[0].([]GatewayApiRoute)[vs[1].(int)]
-	}).(GatewayApiRouteOutput)
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayApiRouteResponse struct {
-	// A description, will be applied to methods in the generated OpenAPI documentation.
-	Description *string `pulumi:"description"`
-	// To modify the request before sending it to the target endpoint, or the received response.
-	Filters []string `pulumi:"filters"`
-	// Route processing order.
-	Order *int `pulumi:"order"`
-	// A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-	Predicates []string `pulumi:"predicates"`
-	// Enable sso validation.
-	SsoEnabled *bool `pulumi:"ssoEnabled"`
-	// Classification tags, will be applied to methods in the generated OpenAPI documentation.
-	Tags []string `pulumi:"tags"`
-	// A title, will be applied to methods in the generated OpenAPI documentation.
-	Title *string `pulumi:"title"`
-	// Pass currently-authenticated user's identity token to application service, default is 'false'
-	TokenRelay *bool `pulumi:"tokenRelay"`
-	// Full uri, will override `appName`.
-	Uri *string `pulumi:"uri"`
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayApiRouteResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiRouteResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiRouteResponse)(nil)).Elem()
-}
-
-func (o GatewayApiRouteResponseOutput) ToGatewayApiRouteResponseOutput() GatewayApiRouteResponseOutput {
-	return o
-}
-
-func (o GatewayApiRouteResponseOutput) ToGatewayApiRouteResponseOutputWithContext(ctx context.Context) GatewayApiRouteResponseOutput {
-	return o
-}
-
-// A description, will be applied to methods in the generated OpenAPI documentation.
-func (o GatewayApiRouteResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// To modify the request before sending it to the target endpoint, or the received response.
-func (o GatewayApiRouteResponseOutput) Filters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) []string { return v.Filters }).(pulumi.StringArrayOutput)
-}
-
-// Route processing order.
-func (o GatewayApiRouteResponseOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
-}
-
-// A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-func (o GatewayApiRouteResponseOutput) Predicates() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) []string { return v.Predicates }).(pulumi.StringArrayOutput)
-}
-
-// Enable sso validation.
-func (o GatewayApiRouteResponseOutput) SsoEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) *bool { return v.SsoEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Classification tags, will be applied to methods in the generated OpenAPI documentation.
-func (o GatewayApiRouteResponseOutput) Tags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) []string { return v.Tags }).(pulumi.StringArrayOutput)
-}
-
-// A title, will be applied to methods in the generated OpenAPI documentation.
-func (o GatewayApiRouteResponseOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// Pass currently-authenticated user's identity token to application service, default is 'false'
-func (o GatewayApiRouteResponseOutput) TokenRelay() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) *bool { return v.TokenRelay }).(pulumi.BoolPtrOutput)
-}
-
-// Full uri, will override `appName`.
-func (o GatewayApiRouteResponseOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayApiRouteResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type GatewayApiRouteResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (GatewayApiRouteResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayApiRouteResponse)(nil)).Elem()
-}
-
-func (o GatewayApiRouteResponseArrayOutput) ToGatewayApiRouteResponseArrayOutput() GatewayApiRouteResponseArrayOutput {
-	return o
-}
-
-func (o GatewayApiRouteResponseArrayOutput) ToGatewayApiRouteResponseArrayOutputWithContext(ctx context.Context) GatewayApiRouteResponseArrayOutput {
-	return o
-}
-
-func (o GatewayApiRouteResponseArrayOutput) Index(i pulumi.IntInput) GatewayApiRouteResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayApiRouteResponse {
-		return vs[0].([]GatewayApiRouteResponse)[vs[1].(int)]
-	}).(GatewayApiRouteResponseOutput)
-}
-
-// Cross-Origin Resource Sharing property
-type GatewayCorsProperties struct {
-	// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-	AllowCredentials *bool `pulumi:"allowCredentials"`
-	// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// HTTP response headers to expose for cross-site requests.
-	ExposedHeaders []string `pulumi:"exposedHeaders"`
-	// How long, in seconds, the response from a pre-flight request can be cached by clients.
-	MaxAge *int `pulumi:"maxAge"`
-}
-
-// GatewayCorsPropertiesInput is an input type that accepts GatewayCorsPropertiesArgs and GatewayCorsPropertiesOutput values.
-// You can construct a concrete instance of `GatewayCorsPropertiesInput` via:
-//
-//          GatewayCorsPropertiesArgs{...}
-type GatewayCorsPropertiesInput interface {
-	pulumi.Input
-
-	ToGatewayCorsPropertiesOutput() GatewayCorsPropertiesOutput
-	ToGatewayCorsPropertiesOutputWithContext(context.Context) GatewayCorsPropertiesOutput
-}
-
-// Cross-Origin Resource Sharing property
-type GatewayCorsPropertiesArgs struct {
-	// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
-	// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	// HTTP response headers to expose for cross-site requests.
-	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	// How long, in seconds, the response from a pre-flight request can be cached by clients.
-	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
-}
-
-func (GatewayCorsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCorsProperties)(nil)).Elem()
-}
-
-func (i GatewayCorsPropertiesArgs) ToGatewayCorsPropertiesOutput() GatewayCorsPropertiesOutput {
-	return i.ToGatewayCorsPropertiesOutputWithContext(context.Background())
-}
-
-func (i GatewayCorsPropertiesArgs) ToGatewayCorsPropertiesOutputWithContext(ctx context.Context) GatewayCorsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayCorsPropertiesOutput)
-}
-
-func (i GatewayCorsPropertiesArgs) ToGatewayCorsPropertiesPtrOutput() GatewayCorsPropertiesPtrOutput {
-	return i.ToGatewayCorsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayCorsPropertiesArgs) ToGatewayCorsPropertiesPtrOutputWithContext(ctx context.Context) GatewayCorsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayCorsPropertiesOutput).ToGatewayCorsPropertiesPtrOutputWithContext(ctx)
-}
-
-// GatewayCorsPropertiesPtrInput is an input type that accepts GatewayCorsPropertiesArgs, GatewayCorsPropertiesPtr and GatewayCorsPropertiesPtrOutput values.
-// You can construct a concrete instance of `GatewayCorsPropertiesPtrInput` via:
-//
-//          GatewayCorsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayCorsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToGatewayCorsPropertiesPtrOutput() GatewayCorsPropertiesPtrOutput
-	ToGatewayCorsPropertiesPtrOutputWithContext(context.Context) GatewayCorsPropertiesPtrOutput
-}
-
-type gatewayCorsPropertiesPtrType GatewayCorsPropertiesArgs
-
-func GatewayCorsPropertiesPtr(v *GatewayCorsPropertiesArgs) GatewayCorsPropertiesPtrInput {
-	return (*gatewayCorsPropertiesPtrType)(v)
-}
-
-func (*gatewayCorsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayCorsProperties)(nil)).Elem()
-}
-
-func (i *gatewayCorsPropertiesPtrType) ToGatewayCorsPropertiesPtrOutput() GatewayCorsPropertiesPtrOutput {
-	return i.ToGatewayCorsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayCorsPropertiesPtrType) ToGatewayCorsPropertiesPtrOutputWithContext(ctx context.Context) GatewayCorsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayCorsPropertiesPtrOutput)
-}
-
-// Cross-Origin Resource Sharing property
-type GatewayCorsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GatewayCorsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCorsProperties)(nil)).Elem()
-}
-
-func (o GatewayCorsPropertiesOutput) ToGatewayCorsPropertiesOutput() GatewayCorsPropertiesOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesOutput) ToGatewayCorsPropertiesOutputWithContext(ctx context.Context) GatewayCorsPropertiesOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesOutput) ToGatewayCorsPropertiesPtrOutput() GatewayCorsPropertiesPtrOutput {
-	return o.ToGatewayCorsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayCorsPropertiesOutput) ToGatewayCorsPropertiesPtrOutputWithContext(ctx context.Context) GatewayCorsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayCorsProperties) *GatewayCorsProperties {
-		return &v
-	}).(GatewayCorsPropertiesPtrOutput)
-}
-
-// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-func (o GatewayCorsPropertiesOutput) AllowCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayCorsProperties) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
-}
-
-// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-func (o GatewayCorsPropertiesOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsProperties) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
-}
-
-// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-func (o GatewayCorsPropertiesOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsProperties) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
-}
-
-// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-func (o GatewayCorsPropertiesOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsProperties) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
-}
-
-// HTTP response headers to expose for cross-site requests.
-func (o GatewayCorsPropertiesOutput) ExposedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsProperties) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
-}
-
-// How long, in seconds, the response from a pre-flight request can be cached by clients.
-func (o GatewayCorsPropertiesOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewayCorsProperties) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
-}
-
-type GatewayCorsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayCorsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayCorsProperties)(nil)).Elem()
-}
-
-func (o GatewayCorsPropertiesPtrOutput) ToGatewayCorsPropertiesPtrOutput() GatewayCorsPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesPtrOutput) ToGatewayCorsPropertiesPtrOutputWithContext(ctx context.Context) GatewayCorsPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesPtrOutput) Elem() GatewayCorsPropertiesOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) GatewayCorsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayCorsProperties
-		return ret
-	}).(GatewayCorsPropertiesOutput)
-}
-
-// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-func (o GatewayCorsPropertiesPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowCredentials
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-func (o GatewayCorsPropertiesPtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-func (o GatewayCorsPropertiesPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-func (o GatewayCorsPropertiesPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedOrigins
-	}).(pulumi.StringArrayOutput)
-}
-
-// HTTP response headers to expose for cross-site requests.
-func (o GatewayCorsPropertiesPtrOutput) ExposedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExposedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-// How long, in seconds, the response from a pre-flight request can be cached by clients.
-func (o GatewayCorsPropertiesPtrOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewayCorsProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxAge
-	}).(pulumi.IntPtrOutput)
-}
-
-// Cross-Origin Resource Sharing property
-type GatewayCorsPropertiesResponse struct {
-	// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-	AllowCredentials *bool `pulumi:"allowCredentials"`
-	// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// HTTP response headers to expose for cross-site requests.
-	ExposedHeaders []string `pulumi:"exposedHeaders"`
-	// How long, in seconds, the response from a pre-flight request can be cached by clients.
-	MaxAge *int `pulumi:"maxAge"`
-}
-
-// Cross-Origin Resource Sharing property
-type GatewayCorsPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayCorsPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCorsPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayCorsPropertiesResponseOutput) ToGatewayCorsPropertiesResponseOutput() GatewayCorsPropertiesResponseOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesResponseOutput) ToGatewayCorsPropertiesResponseOutputWithContext(ctx context.Context) GatewayCorsPropertiesResponseOutput {
-	return o
-}
-
-// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-func (o GatewayCorsPropertiesResponseOutput) AllowCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayCorsPropertiesResponse) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
-}
-
-// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-func (o GatewayCorsPropertiesResponseOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsPropertiesResponse) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
-}
-
-// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-func (o GatewayCorsPropertiesResponseOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsPropertiesResponse) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
-}
-
-// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-func (o GatewayCorsPropertiesResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsPropertiesResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
-}
-
-// HTTP response headers to expose for cross-site requests.
-func (o GatewayCorsPropertiesResponseOutput) ExposedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayCorsPropertiesResponse) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
-}
-
-// How long, in seconds, the response from a pre-flight request can be cached by clients.
-func (o GatewayCorsPropertiesResponseOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewayCorsPropertiesResponse) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
-}
-
-type GatewayCorsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayCorsPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayCorsPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayCorsPropertiesResponsePtrOutput) ToGatewayCorsPropertiesResponsePtrOutput() GatewayCorsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesResponsePtrOutput) ToGatewayCorsPropertiesResponsePtrOutputWithContext(ctx context.Context) GatewayCorsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GatewayCorsPropertiesResponsePtrOutput) Elem() GatewayCorsPropertiesResponseOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) GatewayCorsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayCorsPropertiesResponse
-		return ret
-	}).(GatewayCorsPropertiesResponseOutput)
-}
-
-// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-func (o GatewayCorsPropertiesResponsePtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowCredentials
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-func (o GatewayCorsPropertiesResponsePtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-func (o GatewayCorsPropertiesResponsePtrOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-// Allowed origins to make cross-site requests. The special value `*` allows all domains.
-func (o GatewayCorsPropertiesResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedOrigins
-	}).(pulumi.StringArrayOutput)
-}
-
-// HTTP response headers to expose for cross-site requests.
-func (o GatewayCorsPropertiesResponsePtrOutput) ExposedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExposedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-// How long, in seconds, the response from a pre-flight request can be cached by clients.
-func (o GatewayCorsPropertiesResponsePtrOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewayCorsPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxAge
-	}).(pulumi.IntPtrOutput)
-}
-
-// The properties of custom domain for Spring Cloud Gateway
-type GatewayCustomDomainProperties struct {
-	// The thumbprint of bound certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
-}
-
-// GatewayCustomDomainPropertiesInput is an input type that accepts GatewayCustomDomainPropertiesArgs and GatewayCustomDomainPropertiesOutput values.
-// You can construct a concrete instance of `GatewayCustomDomainPropertiesInput` via:
-//
-//          GatewayCustomDomainPropertiesArgs{...}
-type GatewayCustomDomainPropertiesInput interface {
-	pulumi.Input
-
-	ToGatewayCustomDomainPropertiesOutput() GatewayCustomDomainPropertiesOutput
-	ToGatewayCustomDomainPropertiesOutputWithContext(context.Context) GatewayCustomDomainPropertiesOutput
-}
-
-// The properties of custom domain for Spring Cloud Gateway
-type GatewayCustomDomainPropertiesArgs struct {
-	// The thumbprint of bound certificate.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (GatewayCustomDomainPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCustomDomainProperties)(nil)).Elem()
-}
-
-func (i GatewayCustomDomainPropertiesArgs) ToGatewayCustomDomainPropertiesOutput() GatewayCustomDomainPropertiesOutput {
-	return i.ToGatewayCustomDomainPropertiesOutputWithContext(context.Background())
-}
-
-func (i GatewayCustomDomainPropertiesArgs) ToGatewayCustomDomainPropertiesOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayCustomDomainPropertiesOutput)
-}
-
-func (i GatewayCustomDomainPropertiesArgs) ToGatewayCustomDomainPropertiesPtrOutput() GatewayCustomDomainPropertiesPtrOutput {
-	return i.ToGatewayCustomDomainPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayCustomDomainPropertiesArgs) ToGatewayCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayCustomDomainPropertiesOutput).ToGatewayCustomDomainPropertiesPtrOutputWithContext(ctx)
-}
-
-// GatewayCustomDomainPropertiesPtrInput is an input type that accepts GatewayCustomDomainPropertiesArgs, GatewayCustomDomainPropertiesPtr and GatewayCustomDomainPropertiesPtrOutput values.
-// You can construct a concrete instance of `GatewayCustomDomainPropertiesPtrInput` via:
-//
-//          GatewayCustomDomainPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayCustomDomainPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToGatewayCustomDomainPropertiesPtrOutput() GatewayCustomDomainPropertiesPtrOutput
-	ToGatewayCustomDomainPropertiesPtrOutputWithContext(context.Context) GatewayCustomDomainPropertiesPtrOutput
-}
-
-type gatewayCustomDomainPropertiesPtrType GatewayCustomDomainPropertiesArgs
-
-func GatewayCustomDomainPropertiesPtr(v *GatewayCustomDomainPropertiesArgs) GatewayCustomDomainPropertiesPtrInput {
-	return (*gatewayCustomDomainPropertiesPtrType)(v)
-}
-
-func (*gatewayCustomDomainPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayCustomDomainProperties)(nil)).Elem()
-}
-
-func (i *gatewayCustomDomainPropertiesPtrType) ToGatewayCustomDomainPropertiesPtrOutput() GatewayCustomDomainPropertiesPtrOutput {
-	return i.ToGatewayCustomDomainPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayCustomDomainPropertiesPtrType) ToGatewayCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayCustomDomainPropertiesPtrOutput)
-}
-
-// The properties of custom domain for Spring Cloud Gateway
-type GatewayCustomDomainPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GatewayCustomDomainPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCustomDomainProperties)(nil)).Elem()
-}
-
-func (o GatewayCustomDomainPropertiesOutput) ToGatewayCustomDomainPropertiesOutput() GatewayCustomDomainPropertiesOutput {
-	return o
-}
-
-func (o GatewayCustomDomainPropertiesOutput) ToGatewayCustomDomainPropertiesOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesOutput {
-	return o
-}
-
-func (o GatewayCustomDomainPropertiesOutput) ToGatewayCustomDomainPropertiesPtrOutput() GatewayCustomDomainPropertiesPtrOutput {
-	return o.ToGatewayCustomDomainPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayCustomDomainPropertiesOutput) ToGatewayCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayCustomDomainProperties) *GatewayCustomDomainProperties {
-		return &v
-	}).(GatewayCustomDomainPropertiesPtrOutput)
-}
-
-// The thumbprint of bound certificate.
-func (o GatewayCustomDomainPropertiesOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayCustomDomainProperties) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type GatewayCustomDomainPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayCustomDomainPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayCustomDomainProperties)(nil)).Elem()
-}
-
-func (o GatewayCustomDomainPropertiesPtrOutput) ToGatewayCustomDomainPropertiesPtrOutput() GatewayCustomDomainPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayCustomDomainPropertiesPtrOutput) ToGatewayCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayCustomDomainPropertiesPtrOutput) Elem() GatewayCustomDomainPropertiesOutput {
-	return o.ApplyT(func(v *GatewayCustomDomainProperties) GatewayCustomDomainProperties {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayCustomDomainProperties
-		return ret
-	}).(GatewayCustomDomainPropertiesOutput)
-}
-
-// The thumbprint of bound certificate.
-func (o GatewayCustomDomainPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayCustomDomainProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of custom domain for Spring Cloud Gateway
-type GatewayCustomDomainPropertiesResponse struct {
-	// The thumbprint of bound certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
-}
-
-// The properties of custom domain for Spring Cloud Gateway
-type GatewayCustomDomainPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayCustomDomainPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCustomDomainPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayCustomDomainPropertiesResponseOutput) ToGatewayCustomDomainPropertiesResponseOutput() GatewayCustomDomainPropertiesResponseOutput {
-	return o
-}
-
-func (o GatewayCustomDomainPropertiesResponseOutput) ToGatewayCustomDomainPropertiesResponseOutputWithContext(ctx context.Context) GatewayCustomDomainPropertiesResponseOutput {
-	return o
-}
-
-// The thumbprint of bound certificate.
-func (o GatewayCustomDomainPropertiesResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayCustomDomainPropertiesResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// Collection of instances belong to the Spring Cloud Gateway
-type GatewayInstanceResponse struct {
-	// Name of the Spring Cloud Gateway instance
-	Name string `pulumi:"name"`
-	// Status of the Spring Cloud Gateway instance
-	Status string `pulumi:"status"`
-}
-
-// Collection of instances belong to the Spring Cloud Gateway
-type GatewayInstanceResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayInstanceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayInstanceResponse)(nil)).Elem()
-}
-
-func (o GatewayInstanceResponseOutput) ToGatewayInstanceResponseOutput() GatewayInstanceResponseOutput {
-	return o
-}
-
-func (o GatewayInstanceResponseOutput) ToGatewayInstanceResponseOutputWithContext(ctx context.Context) GatewayInstanceResponseOutput {
-	return o
-}
-
-// Name of the Spring Cloud Gateway instance
-func (o GatewayInstanceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Status of the Spring Cloud Gateway instance
-func (o GatewayInstanceResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type GatewayInstanceResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (GatewayInstanceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayInstanceResponse)(nil)).Elem()
-}
-
-func (o GatewayInstanceResponseArrayOutput) ToGatewayInstanceResponseArrayOutput() GatewayInstanceResponseArrayOutput {
-	return o
-}
-
-func (o GatewayInstanceResponseArrayOutput) ToGatewayInstanceResponseArrayOutputWithContext(ctx context.Context) GatewayInstanceResponseArrayOutput {
-	return o
-}
-
-func (o GatewayInstanceResponseArrayOutput) Index(i pulumi.IntInput) GatewayInstanceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayInstanceResponse {
-		return vs[0].([]GatewayInstanceResponse)[vs[1].(int)]
-	}).(GatewayInstanceResponseOutput)
-}
-
-// Properties of the Spring Cloud Gateway Operator.
-type GatewayOperatorPropertiesResponse struct {
-	// Collection of instances belong to Spring Cloud Gateway operator.
-	Instances []GatewayInstanceResponse `pulumi:"instances"`
-	// The requested resource quantity for required CPU and Memory.
-	ResourceRequests GatewayOperatorResourceRequestsResponse `pulumi:"resourceRequests"`
-}
-
-// Properties of the Spring Cloud Gateway Operator.
-type GatewayOperatorPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayOperatorPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayOperatorPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayOperatorPropertiesResponseOutput) ToGatewayOperatorPropertiesResponseOutput() GatewayOperatorPropertiesResponseOutput {
-	return o
-}
-
-func (o GatewayOperatorPropertiesResponseOutput) ToGatewayOperatorPropertiesResponseOutputWithContext(ctx context.Context) GatewayOperatorPropertiesResponseOutput {
-	return o
-}
-
-// Collection of instances belong to Spring Cloud Gateway operator.
-func (o GatewayOperatorPropertiesResponseOutput) Instances() GatewayInstanceResponseArrayOutput {
-	return o.ApplyT(func(v GatewayOperatorPropertiesResponse) []GatewayInstanceResponse { return v.Instances }).(GatewayInstanceResponseArrayOutput)
-}
-
-// The requested resource quantity for required CPU and Memory.
-func (o GatewayOperatorPropertiesResponseOutput) ResourceRequests() GatewayOperatorResourceRequestsResponseOutput {
-	return o.ApplyT(func(v GatewayOperatorPropertiesResponse) GatewayOperatorResourceRequestsResponse {
-		return v.ResourceRequests
-	}).(GatewayOperatorResourceRequestsResponseOutput)
-}
-
-// Properties of the Spring Cloud Gateway Operator.
-type GatewayOperatorResourceRequestsResponse struct {
-	// Cpu allocated to each Spring Cloud Gateway Operator instance.
-	Cpu string `pulumi:"cpu"`
-	// Instance count of the Spring Cloud Gateway Operator.
-	InstanceCount int `pulumi:"instanceCount"`
-	// Memory allocated to each Spring Cloud Gateway Operator instance.
-	Memory string `pulumi:"memory"`
-}
-
-// Properties of the Spring Cloud Gateway Operator.
-type GatewayOperatorResourceRequestsResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayOperatorResourceRequestsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayOperatorResourceRequestsResponse)(nil)).Elem()
-}
-
-func (o GatewayOperatorResourceRequestsResponseOutput) ToGatewayOperatorResourceRequestsResponseOutput() GatewayOperatorResourceRequestsResponseOutput {
-	return o
-}
-
-func (o GatewayOperatorResourceRequestsResponseOutput) ToGatewayOperatorResourceRequestsResponseOutputWithContext(ctx context.Context) GatewayOperatorResourceRequestsResponseOutput {
-	return o
-}
-
-// Cpu allocated to each Spring Cloud Gateway Operator instance.
-func (o GatewayOperatorResourceRequestsResponseOutput) Cpu() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayOperatorResourceRequestsResponse) string { return v.Cpu }).(pulumi.StringOutput)
-}
-
-// Instance count of the Spring Cloud Gateway Operator.
-func (o GatewayOperatorResourceRequestsResponseOutput) InstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GatewayOperatorResourceRequestsResponse) int { return v.InstanceCount }).(pulumi.IntOutput)
-}
-
-// Memory allocated to each Spring Cloud Gateway Operator instance.
-func (o GatewayOperatorResourceRequestsResponseOutput) Memory() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayOperatorResourceRequestsResponse) string { return v.Memory }).(pulumi.StringOutput)
-}
-
-// Spring Cloud Gateway properties payload
-type GatewayProperties struct {
-	// API metadata property for Spring Cloud Gateway
-	ApiMetadataProperties *GatewayApiMetadataProperties `pulumi:"apiMetadataProperties"`
-	// Cross-Origin Resource Sharing property
-	CorsProperties *GatewayCorsProperties `pulumi:"corsProperties"`
-	// Indicate if only https is allowed.
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Indicates whether the Spring Cloud Gateway exposes endpoint.
-	Public *bool `pulumi:"public"`
-	// The requested resource quantity for required CPU and Memory.
-	ResourceRequests *GatewayResourceRequests `pulumi:"resourceRequests"`
-	// Single sign-on related configuration
-	SsoProperties *SsoProperties `pulumi:"ssoProperties"`
-}
-
-// Defaults sets the appropriate defaults for GatewayProperties
-func (val *GatewayProperties) Defaults() *GatewayProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.HttpsOnly) {
-		httpsOnly_ := false
-		tmp.HttpsOnly = &httpsOnly_
-	}
-	if isZero(tmp.Public) {
-		public_ := false
-		tmp.Public = &public_
-	}
-	return &tmp
-}
-
-// GatewayPropertiesInput is an input type that accepts GatewayPropertiesArgs and GatewayPropertiesOutput values.
-// You can construct a concrete instance of `GatewayPropertiesInput` via:
-//
-//          GatewayPropertiesArgs{...}
-type GatewayPropertiesInput interface {
-	pulumi.Input
-
-	ToGatewayPropertiesOutput() GatewayPropertiesOutput
-	ToGatewayPropertiesOutputWithContext(context.Context) GatewayPropertiesOutput
-}
-
-// Spring Cloud Gateway properties payload
-type GatewayPropertiesArgs struct {
-	// API metadata property for Spring Cloud Gateway
-	ApiMetadataProperties GatewayApiMetadataPropertiesPtrInput `pulumi:"apiMetadataProperties"`
-	// Cross-Origin Resource Sharing property
-	CorsProperties GatewayCorsPropertiesPtrInput `pulumi:"corsProperties"`
-	// Indicate if only https is allowed.
-	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
-	// Indicates whether the Spring Cloud Gateway exposes endpoint.
-	Public pulumi.BoolPtrInput `pulumi:"public"`
-	// The requested resource quantity for required CPU and Memory.
-	ResourceRequests GatewayResourceRequestsPtrInput `pulumi:"resourceRequests"`
-	// Single sign-on related configuration
-	SsoProperties SsoPropertiesPtrInput `pulumi:"ssoProperties"`
-}
-
-// Defaults sets the appropriate defaults for GatewayPropertiesArgs
-func (val *GatewayPropertiesArgs) Defaults() *GatewayPropertiesArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.HttpsOnly) {
-		tmp.HttpsOnly = pulumi.BoolPtr(false)
-	}
-	if isZero(tmp.Public) {
-		tmp.Public = pulumi.BoolPtr(false)
-	}
-	return &tmp
-}
-func (GatewayPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayProperties)(nil)).Elem()
-}
-
-func (i GatewayPropertiesArgs) ToGatewayPropertiesOutput() GatewayPropertiesOutput {
-	return i.ToGatewayPropertiesOutputWithContext(context.Background())
-}
-
-func (i GatewayPropertiesArgs) ToGatewayPropertiesOutputWithContext(ctx context.Context) GatewayPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayPropertiesOutput)
-}
-
-func (i GatewayPropertiesArgs) ToGatewayPropertiesPtrOutput() GatewayPropertiesPtrOutput {
-	return i.ToGatewayPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayPropertiesArgs) ToGatewayPropertiesPtrOutputWithContext(ctx context.Context) GatewayPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayPropertiesOutput).ToGatewayPropertiesPtrOutputWithContext(ctx)
-}
-
-// GatewayPropertiesPtrInput is an input type that accepts GatewayPropertiesArgs, GatewayPropertiesPtr and GatewayPropertiesPtrOutput values.
-// You can construct a concrete instance of `GatewayPropertiesPtrInput` via:
-//
-//          GatewayPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToGatewayPropertiesPtrOutput() GatewayPropertiesPtrOutput
-	ToGatewayPropertiesPtrOutputWithContext(context.Context) GatewayPropertiesPtrOutput
-}
-
-type gatewayPropertiesPtrType GatewayPropertiesArgs
-
-func GatewayPropertiesPtr(v *GatewayPropertiesArgs) GatewayPropertiesPtrInput {
-	return (*gatewayPropertiesPtrType)(v)
-}
-
-func (*gatewayPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayProperties)(nil)).Elem()
-}
-
-func (i *gatewayPropertiesPtrType) ToGatewayPropertiesPtrOutput() GatewayPropertiesPtrOutput {
-	return i.ToGatewayPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayPropertiesPtrType) ToGatewayPropertiesPtrOutputWithContext(ctx context.Context) GatewayPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayPropertiesPtrOutput)
-}
-
-// Spring Cloud Gateway properties payload
-type GatewayPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GatewayPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayProperties)(nil)).Elem()
-}
-
-func (o GatewayPropertiesOutput) ToGatewayPropertiesOutput() GatewayPropertiesOutput {
-	return o
-}
-
-func (o GatewayPropertiesOutput) ToGatewayPropertiesOutputWithContext(ctx context.Context) GatewayPropertiesOutput {
-	return o
-}
-
-func (o GatewayPropertiesOutput) ToGatewayPropertiesPtrOutput() GatewayPropertiesPtrOutput {
-	return o.ToGatewayPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayPropertiesOutput) ToGatewayPropertiesPtrOutputWithContext(ctx context.Context) GatewayPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayProperties) *GatewayProperties {
-		return &v
-	}).(GatewayPropertiesPtrOutput)
-}
-
-// API metadata property for Spring Cloud Gateway
-func (o GatewayPropertiesOutput) ApiMetadataProperties() GatewayApiMetadataPropertiesPtrOutput {
-	return o.ApplyT(func(v GatewayProperties) *GatewayApiMetadataProperties { return v.ApiMetadataProperties }).(GatewayApiMetadataPropertiesPtrOutput)
-}
-
-// Cross-Origin Resource Sharing property
-func (o GatewayPropertiesOutput) CorsProperties() GatewayCorsPropertiesPtrOutput {
-	return o.ApplyT(func(v GatewayProperties) *GatewayCorsProperties { return v.CorsProperties }).(GatewayCorsPropertiesPtrOutput)
-}
-
-// Indicate if only https is allowed.
-func (o GatewayPropertiesOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayProperties) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether the Spring Cloud Gateway exposes endpoint.
-func (o GatewayPropertiesOutput) Public() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayProperties) *bool { return v.Public }).(pulumi.BoolPtrOutput)
-}
-
-// The requested resource quantity for required CPU and Memory.
-func (o GatewayPropertiesOutput) ResourceRequests() GatewayResourceRequestsPtrOutput {
-	return o.ApplyT(func(v GatewayProperties) *GatewayResourceRequests { return v.ResourceRequests }).(GatewayResourceRequestsPtrOutput)
-}
-
-// Single sign-on related configuration
-func (o GatewayPropertiesOutput) SsoProperties() SsoPropertiesPtrOutput {
-	return o.ApplyT(func(v GatewayProperties) *SsoProperties { return v.SsoProperties }).(SsoPropertiesPtrOutput)
-}
-
-type GatewayPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayProperties)(nil)).Elem()
-}
-
-func (o GatewayPropertiesPtrOutput) ToGatewayPropertiesPtrOutput() GatewayPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayPropertiesPtrOutput) ToGatewayPropertiesPtrOutputWithContext(ctx context.Context) GatewayPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayPropertiesPtrOutput) Elem() GatewayPropertiesOutput {
-	return o.ApplyT(func(v *GatewayProperties) GatewayProperties {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayProperties
-		return ret
-	}).(GatewayPropertiesOutput)
-}
-
-// API metadata property for Spring Cloud Gateway
-func (o GatewayPropertiesPtrOutput) ApiMetadataProperties() GatewayApiMetadataPropertiesPtrOutput {
-	return o.ApplyT(func(v *GatewayProperties) *GatewayApiMetadataProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ApiMetadataProperties
-	}).(GatewayApiMetadataPropertiesPtrOutput)
-}
-
-// Cross-Origin Resource Sharing property
-func (o GatewayPropertiesPtrOutput) CorsProperties() GatewayCorsPropertiesPtrOutput {
-	return o.ApplyT(func(v *GatewayProperties) *GatewayCorsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.CorsProperties
-	}).(GatewayCorsPropertiesPtrOutput)
-}
-
-// Indicate if only https is allowed.
-func (o GatewayPropertiesPtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GatewayProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether the Spring Cloud Gateway exposes endpoint.
-func (o GatewayPropertiesPtrOutput) Public() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GatewayProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Public
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The requested resource quantity for required CPU and Memory.
-func (o GatewayPropertiesPtrOutput) ResourceRequests() GatewayResourceRequestsPtrOutput {
-	return o.ApplyT(func(v *GatewayProperties) *GatewayResourceRequests {
+// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+func (o DeploymentSettingsResponsePtrOutput) ResourceRequests() ResourceRequestsResponsePtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsResponse) *ResourceRequestsResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ResourceRequests
-	}).(GatewayResourceRequestsPtrOutput)
+	}).(ResourceRequestsResponsePtrOutput)
 }
 
-// Single sign-on related configuration
-func (o GatewayPropertiesPtrOutput) SsoProperties() SsoPropertiesPtrOutput {
-	return o.ApplyT(func(v *GatewayProperties) *SsoProperties {
-		if v == nil {
-			return nil
-		}
-		return v.SsoProperties
-	}).(SsoPropertiesPtrOutput)
+// Uploaded Jar binary for a deployment
+type JarUploadedUserSourceInfo struct {
+	// JVM parameter
+	JvmOptions *string `pulumi:"jvmOptions"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Runtime version of the Jar file
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// Type of the source uploaded
+	// Expected value is 'Jar'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
 }
 
-// Spring Cloud Gateway properties payload
-type GatewayPropertiesResponse struct {
-	// API metadata property for Spring Cloud Gateway
-	ApiMetadataProperties *GatewayApiMetadataPropertiesResponse `pulumi:"apiMetadataProperties"`
-	// Cross-Origin Resource Sharing property
-	CorsProperties *GatewayCorsPropertiesResponse `pulumi:"corsProperties"`
-	// Indicate if only https is allowed.
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Collection of instances belong to Spring Cloud Gateway.
-	Instances []GatewayInstanceResponse `pulumi:"instances"`
-	// Properties of the Spring Cloud Gateway Operator.
-	OperatorProperties GatewayOperatorPropertiesResponse `pulumi:"operatorProperties"`
-	// State of the Spring Cloud Gateway.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether the Spring Cloud Gateway exposes endpoint.
-	Public *bool `pulumi:"public"`
-	// The requested resource quantity for required CPU and Memory.
-	ResourceRequests *GatewayResourceRequestsResponse `pulumi:"resourceRequests"`
-	// Single sign-on related configuration
-	SsoProperties *SsoPropertiesResponse `pulumi:"ssoProperties"`
-	// URL of the Spring Cloud Gateway, exposed when 'public' is true.
-	Url string `pulumi:"url"`
+// Uploaded Jar binary for a deployment
+type JarUploadedUserSourceInfoResponse struct {
+	// JVM parameter
+	JvmOptions *string `pulumi:"jvmOptions"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Runtime version of the Jar file
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// Type of the source uploaded
+	// Expected value is 'Jar'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
 }
 
-// Defaults sets the appropriate defaults for GatewayPropertiesResponse
-func (val *GatewayPropertiesResponse) Defaults() *GatewayPropertiesResponse {
+// Properties of certificate imported from key vault.
+type KeyVaultCertificateProperties struct {
+	// The certificate version of key vault.
+	CertVersion *string `pulumi:"certVersion"`
+	// Optional. If set to true, it will not import private key from key vault.
+	ExcludePrivateKey *bool `pulumi:"excludePrivateKey"`
+	// The certificate name of key vault.
+	KeyVaultCertName string `pulumi:"keyVaultCertName"`
+	// The type of the certificate source.
+	// Expected value is 'KeyVaultCertificate'.
+	Type string `pulumi:"type"`
+	// The vault uri of user key vault.
+	VaultUri string `pulumi:"vaultUri"`
+}
+
+// Defaults sets the appropriate defaults for KeyVaultCertificateProperties
+func (val *KeyVaultCertificateProperties) Defaults() *KeyVaultCertificateProperties {
 	if val == nil {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.HttpsOnly) {
-		httpsOnly_ := false
-		tmp.HttpsOnly = &httpsOnly_
-	}
-	if isZero(tmp.Public) {
-		public_ := false
-		tmp.Public = &public_
+	if isZero(tmp.ExcludePrivateKey) {
+		excludePrivateKey_ := false
+		tmp.ExcludePrivateKey = &excludePrivateKey_
 	}
 	return &tmp
 }
 
-// Spring Cloud Gateway properties payload
-type GatewayPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayPropertiesResponse)(nil)).Elem()
+// Properties of certificate imported from key vault.
+type KeyVaultCertificatePropertiesResponse struct {
+	// The activate date of certificate.
+	ActivateDate string `pulumi:"activateDate"`
+	// The certificate version of key vault.
+	CertVersion *string `pulumi:"certVersion"`
+	// The domain list of certificate.
+	DnsNames []string `pulumi:"dnsNames"`
+	// Optional. If set to true, it will not import private key from key vault.
+	ExcludePrivateKey *bool `pulumi:"excludePrivateKey"`
+	// The expiration date of certificate.
+	ExpirationDate string `pulumi:"expirationDate"`
+	// The issue date of certificate.
+	IssuedDate string `pulumi:"issuedDate"`
+	// The issuer of certificate.
+	Issuer string `pulumi:"issuer"`
+	// The certificate name of key vault.
+	KeyVaultCertName string `pulumi:"keyVaultCertName"`
+	// The subject name of certificate.
+	SubjectName string `pulumi:"subjectName"`
+	// The thumbprint of certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The type of the certificate source.
+	// Expected value is 'KeyVaultCertificate'.
+	Type string `pulumi:"type"`
+	// The vault uri of user key vault.
+	VaultUri string `pulumi:"vaultUri"`
 }
 
-func (o GatewayPropertiesResponseOutput) ToGatewayPropertiesResponseOutput() GatewayPropertiesResponseOutput {
-	return o
+// Defaults sets the appropriate defaults for KeyVaultCertificatePropertiesResponse
+func (val *KeyVaultCertificatePropertiesResponse) Defaults() *KeyVaultCertificatePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExcludePrivateKey) {
+		excludePrivateKey_ := false
+		tmp.ExcludePrivateKey = &excludePrivateKey_
+	}
+	return &tmp
 }
 
-func (o GatewayPropertiesResponseOutput) ToGatewayPropertiesResponseOutputWithContext(ctx context.Context) GatewayPropertiesResponseOutput {
-	return o
+// Loaded certificate payload
+type LoadedCertificate struct {
+	// Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+	LoadTrustStore *bool `pulumi:"loadTrustStore"`
+	// Resource Id of loaded certificate
+	ResourceId string `pulumi:"resourceId"`
 }
 
-// API metadata property for Spring Cloud Gateway
-func (o GatewayPropertiesResponseOutput) ApiMetadataProperties() GatewayApiMetadataPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) *GatewayApiMetadataPropertiesResponse {
-		return v.ApiMetadataProperties
-	}).(GatewayApiMetadataPropertiesResponsePtrOutput)
+// Defaults sets the appropriate defaults for LoadedCertificate
+func (val *LoadedCertificate) Defaults() *LoadedCertificate {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LoadTrustStore) {
+		loadTrustStore_ := false
+		tmp.LoadTrustStore = &loadTrustStore_
+	}
+	return &tmp
 }
 
-// Cross-Origin Resource Sharing property
-func (o GatewayPropertiesResponseOutput) CorsProperties() GatewayCorsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) *GatewayCorsPropertiesResponse { return v.CorsProperties }).(GatewayCorsPropertiesResponsePtrOutput)
-}
-
-// Indicate if only https is allowed.
-func (o GatewayPropertiesResponseOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
-}
-
-// Collection of instances belong to Spring Cloud Gateway.
-func (o GatewayPropertiesResponseOutput) Instances() GatewayInstanceResponseArrayOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) []GatewayInstanceResponse { return v.Instances }).(GatewayInstanceResponseArrayOutput)
-}
-
-// Properties of the Spring Cloud Gateway Operator.
-func (o GatewayPropertiesResponseOutput) OperatorProperties() GatewayOperatorPropertiesResponseOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) GatewayOperatorPropertiesResponse { return v.OperatorProperties }).(GatewayOperatorPropertiesResponseOutput)
-}
-
-// State of the Spring Cloud Gateway.
-func (o GatewayPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Indicates whether the Spring Cloud Gateway exposes endpoint.
-func (o GatewayPropertiesResponseOutput) Public() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) *bool { return v.Public }).(pulumi.BoolPtrOutput)
-}
-
-// The requested resource quantity for required CPU and Memory.
-func (o GatewayPropertiesResponseOutput) ResourceRequests() GatewayResourceRequestsResponsePtrOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) *GatewayResourceRequestsResponse { return v.ResourceRequests }).(GatewayResourceRequestsResponsePtrOutput)
-}
-
-// Single sign-on related configuration
-func (o GatewayPropertiesResponseOutput) SsoProperties() SsoPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) *SsoPropertiesResponse { return v.SsoProperties }).(SsoPropertiesResponsePtrOutput)
-}
-
-// URL of the Spring Cloud Gateway, exposed when 'public' is true.
-func (o GatewayPropertiesResponseOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayPropertiesResponse) string { return v.Url }).(pulumi.StringOutput)
-}
-
-// Resource request payload of Spring Cloud Gateway.
-type GatewayResourceRequests struct {
-	// Cpu allocated to each Spring Cloud Gateway instance.
-	Cpu *string `pulumi:"cpu"`
-	// Memory allocated to each Spring Cloud Gateway instance.
-	Memory *string `pulumi:"memory"`
-}
-
-// GatewayResourceRequestsInput is an input type that accepts GatewayResourceRequestsArgs and GatewayResourceRequestsOutput values.
-// You can construct a concrete instance of `GatewayResourceRequestsInput` via:
+// LoadedCertificateInput is an input type that accepts LoadedCertificateArgs and LoadedCertificateOutput values.
+// You can construct a concrete instance of `LoadedCertificateInput` via:
 //
-//          GatewayResourceRequestsArgs{...}
-type GatewayResourceRequestsInput interface {
+//          LoadedCertificateArgs{...}
+type LoadedCertificateInput interface {
 	pulumi.Input
 
-	ToGatewayResourceRequestsOutput() GatewayResourceRequestsOutput
-	ToGatewayResourceRequestsOutputWithContext(context.Context) GatewayResourceRequestsOutput
+	ToLoadedCertificateOutput() LoadedCertificateOutput
+	ToLoadedCertificateOutputWithContext(context.Context) LoadedCertificateOutput
 }
 
-// Resource request payload of Spring Cloud Gateway.
-type GatewayResourceRequestsArgs struct {
-	// Cpu allocated to each Spring Cloud Gateway instance.
-	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
-	// Memory allocated to each Spring Cloud Gateway instance.
-	Memory pulumi.StringPtrInput `pulumi:"memory"`
+// Loaded certificate payload
+type LoadedCertificateArgs struct {
+	// Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+	LoadTrustStore pulumi.BoolPtrInput `pulumi:"loadTrustStore"`
+	// Resource Id of loaded certificate
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
-func (GatewayResourceRequestsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayResourceRequests)(nil)).Elem()
+// Defaults sets the appropriate defaults for LoadedCertificateArgs
+func (val *LoadedCertificateArgs) Defaults() *LoadedCertificateArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LoadTrustStore) {
+		tmp.LoadTrustStore = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
+func (LoadedCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadedCertificate)(nil)).Elem()
 }
 
-func (i GatewayResourceRequestsArgs) ToGatewayResourceRequestsOutput() GatewayResourceRequestsOutput {
-	return i.ToGatewayResourceRequestsOutputWithContext(context.Background())
+func (i LoadedCertificateArgs) ToLoadedCertificateOutput() LoadedCertificateOutput {
+	return i.ToLoadedCertificateOutputWithContext(context.Background())
 }
 
-func (i GatewayResourceRequestsArgs) ToGatewayResourceRequestsOutputWithContext(ctx context.Context) GatewayResourceRequestsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayResourceRequestsOutput)
+func (i LoadedCertificateArgs) ToLoadedCertificateOutputWithContext(ctx context.Context) LoadedCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadedCertificateOutput)
 }
 
-func (i GatewayResourceRequestsArgs) ToGatewayResourceRequestsPtrOutput() GatewayResourceRequestsPtrOutput {
-	return i.ToGatewayResourceRequestsPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayResourceRequestsArgs) ToGatewayResourceRequestsPtrOutputWithContext(ctx context.Context) GatewayResourceRequestsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayResourceRequestsOutput).ToGatewayResourceRequestsPtrOutputWithContext(ctx)
-}
-
-// GatewayResourceRequestsPtrInput is an input type that accepts GatewayResourceRequestsArgs, GatewayResourceRequestsPtr and GatewayResourceRequestsPtrOutput values.
-// You can construct a concrete instance of `GatewayResourceRequestsPtrInput` via:
+// LoadedCertificateArrayInput is an input type that accepts LoadedCertificateArray and LoadedCertificateArrayOutput values.
+// You can construct a concrete instance of `LoadedCertificateArrayInput` via:
 //
-//          GatewayResourceRequestsArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayResourceRequestsPtrInput interface {
+//          LoadedCertificateArray{ LoadedCertificateArgs{...} }
+type LoadedCertificateArrayInput interface {
 	pulumi.Input
 
-	ToGatewayResourceRequestsPtrOutput() GatewayResourceRequestsPtrOutput
-	ToGatewayResourceRequestsPtrOutputWithContext(context.Context) GatewayResourceRequestsPtrOutput
+	ToLoadedCertificateArrayOutput() LoadedCertificateArrayOutput
+	ToLoadedCertificateArrayOutputWithContext(context.Context) LoadedCertificateArrayOutput
 }
 
-type gatewayResourceRequestsPtrType GatewayResourceRequestsArgs
+type LoadedCertificateArray []LoadedCertificateInput
 
-func GatewayResourceRequestsPtr(v *GatewayResourceRequestsArgs) GatewayResourceRequestsPtrInput {
-	return (*gatewayResourceRequestsPtrType)(v)
+func (LoadedCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadedCertificate)(nil)).Elem()
 }
 
-func (*gatewayResourceRequestsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayResourceRequests)(nil)).Elem()
+func (i LoadedCertificateArray) ToLoadedCertificateArrayOutput() LoadedCertificateArrayOutput {
+	return i.ToLoadedCertificateArrayOutputWithContext(context.Background())
 }
 
-func (i *gatewayResourceRequestsPtrType) ToGatewayResourceRequestsPtrOutput() GatewayResourceRequestsPtrOutput {
-	return i.ToGatewayResourceRequestsPtrOutputWithContext(context.Background())
+func (i LoadedCertificateArray) ToLoadedCertificateArrayOutputWithContext(ctx context.Context) LoadedCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadedCertificateArrayOutput)
 }
 
-func (i *gatewayResourceRequestsPtrType) ToGatewayResourceRequestsPtrOutputWithContext(ctx context.Context) GatewayResourceRequestsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayResourceRequestsPtrOutput)
+// Loaded certificate payload
+type LoadedCertificateOutput struct{ *pulumi.OutputState }
+
+func (LoadedCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadedCertificate)(nil)).Elem()
 }
 
-// Resource request payload of Spring Cloud Gateway.
-type GatewayResourceRequestsOutput struct{ *pulumi.OutputState }
-
-func (GatewayResourceRequestsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayResourceRequests)(nil)).Elem()
-}
-
-func (o GatewayResourceRequestsOutput) ToGatewayResourceRequestsOutput() GatewayResourceRequestsOutput {
+func (o LoadedCertificateOutput) ToLoadedCertificateOutput() LoadedCertificateOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsOutput) ToGatewayResourceRequestsOutputWithContext(ctx context.Context) GatewayResourceRequestsOutput {
+func (o LoadedCertificateOutput) ToLoadedCertificateOutputWithContext(ctx context.Context) LoadedCertificateOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsOutput) ToGatewayResourceRequestsPtrOutput() GatewayResourceRequestsPtrOutput {
-	return o.ToGatewayResourceRequestsPtrOutputWithContext(context.Background())
+// Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+func (o LoadedCertificateOutput) LoadTrustStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadedCertificate) *bool { return v.LoadTrustStore }).(pulumi.BoolPtrOutput)
 }
 
-func (o GatewayResourceRequestsOutput) ToGatewayResourceRequestsPtrOutputWithContext(ctx context.Context) GatewayResourceRequestsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayResourceRequests) *GatewayResourceRequests {
-		return &v
-	}).(GatewayResourceRequestsPtrOutput)
+// Resource Id of loaded certificate
+func (o LoadedCertificateOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadedCertificate) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Cpu allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsOutput) Cpu() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayResourceRequests) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+type LoadedCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadedCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadedCertificate)(nil)).Elem()
 }
 
-// Memory allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsOutput) Memory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayResourceRequests) *string { return v.Memory }).(pulumi.StringPtrOutput)
-}
-
-type GatewayResourceRequestsPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayResourceRequestsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayResourceRequests)(nil)).Elem()
-}
-
-func (o GatewayResourceRequestsPtrOutput) ToGatewayResourceRequestsPtrOutput() GatewayResourceRequestsPtrOutput {
+func (o LoadedCertificateArrayOutput) ToLoadedCertificateArrayOutput() LoadedCertificateArrayOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsPtrOutput) ToGatewayResourceRequestsPtrOutputWithContext(ctx context.Context) GatewayResourceRequestsPtrOutput {
+func (o LoadedCertificateArrayOutput) ToLoadedCertificateArrayOutputWithContext(ctx context.Context) LoadedCertificateArrayOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsPtrOutput) Elem() GatewayResourceRequestsOutput {
-	return o.ApplyT(func(v *GatewayResourceRequests) GatewayResourceRequests {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayResourceRequests
-		return ret
-	}).(GatewayResourceRequestsOutput)
+func (o LoadedCertificateArrayOutput) Index(i pulumi.IntInput) LoadedCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadedCertificate {
+		return vs[0].([]LoadedCertificate)[vs[1].(int)]
+	}).(LoadedCertificateOutput)
 }
 
-// Cpu allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsPtrOutput) Cpu() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayResourceRequests) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Cpu
-	}).(pulumi.StringPtrOutput)
+// Loaded certificate payload
+type LoadedCertificateResponse struct {
+	// Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+	LoadTrustStore *bool `pulumi:"loadTrustStore"`
+	// Resource Id of loaded certificate
+	ResourceId string `pulumi:"resourceId"`
 }
 
-// Memory allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsPtrOutput) Memory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayResourceRequests) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Memory
-	}).(pulumi.StringPtrOutput)
+// Defaults sets the appropriate defaults for LoadedCertificateResponse
+func (val *LoadedCertificateResponse) Defaults() *LoadedCertificateResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LoadTrustStore) {
+		loadTrustStore_ := false
+		tmp.LoadTrustStore = &loadTrustStore_
+	}
+	return &tmp
 }
 
-// Resource request payload of Spring Cloud Gateway.
-type GatewayResourceRequestsResponse struct {
-	// Cpu allocated to each Spring Cloud Gateway instance.
-	Cpu *string `pulumi:"cpu"`
-	// Memory allocated to each Spring Cloud Gateway instance.
-	Memory *string `pulumi:"memory"`
+// Loaded certificate payload
+type LoadedCertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadedCertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadedCertificateResponse)(nil)).Elem()
 }
 
-// Resource request payload of Spring Cloud Gateway.
-type GatewayResourceRequestsResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayResourceRequestsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayResourceRequestsResponse)(nil)).Elem()
-}
-
-func (o GatewayResourceRequestsResponseOutput) ToGatewayResourceRequestsResponseOutput() GatewayResourceRequestsResponseOutput {
+func (o LoadedCertificateResponseOutput) ToLoadedCertificateResponseOutput() LoadedCertificateResponseOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsResponseOutput) ToGatewayResourceRequestsResponseOutputWithContext(ctx context.Context) GatewayResourceRequestsResponseOutput {
+func (o LoadedCertificateResponseOutput) ToLoadedCertificateResponseOutputWithContext(ctx context.Context) LoadedCertificateResponseOutput {
 	return o
 }
 
-// Cpu allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsResponseOutput) Cpu() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayResourceRequestsResponse) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+// Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+func (o LoadedCertificateResponseOutput) LoadTrustStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadedCertificateResponse) *bool { return v.LoadTrustStore }).(pulumi.BoolPtrOutput)
 }
 
-// Memory allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsResponseOutput) Memory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayResourceRequestsResponse) *string { return v.Memory }).(pulumi.StringPtrOutput)
+// Resource Id of loaded certificate
+func (o LoadedCertificateResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadedCertificateResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-type GatewayResourceRequestsResponsePtrOutput struct{ *pulumi.OutputState }
+type LoadedCertificateResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (GatewayResourceRequestsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayResourceRequestsResponse)(nil)).Elem()
+func (LoadedCertificateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadedCertificateResponse)(nil)).Elem()
 }
 
-func (o GatewayResourceRequestsResponsePtrOutput) ToGatewayResourceRequestsResponsePtrOutput() GatewayResourceRequestsResponsePtrOutput {
+func (o LoadedCertificateResponseArrayOutput) ToLoadedCertificateResponseArrayOutput() LoadedCertificateResponseArrayOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsResponsePtrOutput) ToGatewayResourceRequestsResponsePtrOutputWithContext(ctx context.Context) GatewayResourceRequestsResponsePtrOutput {
+func (o LoadedCertificateResponseArrayOutput) ToLoadedCertificateResponseArrayOutputWithContext(ctx context.Context) LoadedCertificateResponseArrayOutput {
 	return o
 }
 
-func (o GatewayResourceRequestsResponsePtrOutput) Elem() GatewayResourceRequestsResponseOutput {
-	return o.ApplyT(func(v *GatewayResourceRequestsResponse) GatewayResourceRequestsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayResourceRequestsResponse
-		return ret
-	}).(GatewayResourceRequestsResponseOutput)
-}
-
-// Cpu allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsResponsePtrOutput) Cpu() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayResourceRequestsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Cpu
-	}).(pulumi.StringPtrOutput)
-}
-
-// Memory allocated to each Spring Cloud Gateway instance.
-func (o GatewayResourceRequestsResponsePtrOutput) Memory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayResourceRequestsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Memory
-	}).(pulumi.StringPtrOutput)
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayRouteConfigProperties struct {
-	// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-	AppResourceId *string `pulumi:"appResourceId"`
-	// Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-	Routes []GatewayApiRoute `pulumi:"routes"`
-}
-
-// GatewayRouteConfigPropertiesInput is an input type that accepts GatewayRouteConfigPropertiesArgs and GatewayRouteConfigPropertiesOutput values.
-// You can construct a concrete instance of `GatewayRouteConfigPropertiesInput` via:
-//
-//          GatewayRouteConfigPropertiesArgs{...}
-type GatewayRouteConfigPropertiesInput interface {
-	pulumi.Input
-
-	ToGatewayRouteConfigPropertiesOutput() GatewayRouteConfigPropertiesOutput
-	ToGatewayRouteConfigPropertiesOutputWithContext(context.Context) GatewayRouteConfigPropertiesOutput
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayRouteConfigPropertiesArgs struct {
-	// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-	AppResourceId pulumi.StringPtrInput `pulumi:"appResourceId"`
-	// Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-	Routes GatewayApiRouteArrayInput `pulumi:"routes"`
-}
-
-func (GatewayRouteConfigPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteConfigProperties)(nil)).Elem()
-}
-
-func (i GatewayRouteConfigPropertiesArgs) ToGatewayRouteConfigPropertiesOutput() GatewayRouteConfigPropertiesOutput {
-	return i.ToGatewayRouteConfigPropertiesOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteConfigPropertiesArgs) ToGatewayRouteConfigPropertiesOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteConfigPropertiesOutput)
-}
-
-func (i GatewayRouteConfigPropertiesArgs) ToGatewayRouteConfigPropertiesPtrOutput() GatewayRouteConfigPropertiesPtrOutput {
-	return i.ToGatewayRouteConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteConfigPropertiesArgs) ToGatewayRouteConfigPropertiesPtrOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteConfigPropertiesOutput).ToGatewayRouteConfigPropertiesPtrOutputWithContext(ctx)
-}
-
-// GatewayRouteConfigPropertiesPtrInput is an input type that accepts GatewayRouteConfigPropertiesArgs, GatewayRouteConfigPropertiesPtr and GatewayRouteConfigPropertiesPtrOutput values.
-// You can construct a concrete instance of `GatewayRouteConfigPropertiesPtrInput` via:
-//
-//          GatewayRouteConfigPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteConfigPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteConfigPropertiesPtrOutput() GatewayRouteConfigPropertiesPtrOutput
-	ToGatewayRouteConfigPropertiesPtrOutputWithContext(context.Context) GatewayRouteConfigPropertiesPtrOutput
-}
-
-type gatewayRouteConfigPropertiesPtrType GatewayRouteConfigPropertiesArgs
-
-func GatewayRouteConfigPropertiesPtr(v *GatewayRouteConfigPropertiesArgs) GatewayRouteConfigPropertiesPtrInput {
-	return (*gatewayRouteConfigPropertiesPtrType)(v)
-}
-
-func (*gatewayRouteConfigPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteConfigProperties)(nil)).Elem()
-}
-
-func (i *gatewayRouteConfigPropertiesPtrType) ToGatewayRouteConfigPropertiesPtrOutput() GatewayRouteConfigPropertiesPtrOutput {
-	return i.ToGatewayRouteConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteConfigPropertiesPtrType) ToGatewayRouteConfigPropertiesPtrOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteConfigPropertiesPtrOutput)
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayRouteConfigPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteConfigPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteConfigProperties)(nil)).Elem()
-}
-
-func (o GatewayRouteConfigPropertiesOutput) ToGatewayRouteConfigPropertiesOutput() GatewayRouteConfigPropertiesOutput {
-	return o
-}
-
-func (o GatewayRouteConfigPropertiesOutput) ToGatewayRouteConfigPropertiesOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesOutput {
-	return o
-}
-
-func (o GatewayRouteConfigPropertiesOutput) ToGatewayRouteConfigPropertiesPtrOutput() GatewayRouteConfigPropertiesPtrOutput {
-	return o.ToGatewayRouteConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteConfigPropertiesOutput) ToGatewayRouteConfigPropertiesPtrOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteConfigProperties) *GatewayRouteConfigProperties {
-		return &v
-	}).(GatewayRouteConfigPropertiesPtrOutput)
-}
-
-// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-func (o GatewayRouteConfigPropertiesOutput) AppResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteConfigProperties) *string { return v.AppResourceId }).(pulumi.StringPtrOutput)
-}
-
-// Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-func (o GatewayRouteConfigPropertiesOutput) Routes() GatewayApiRouteArrayOutput {
-	return o.ApplyT(func(v GatewayRouteConfigProperties) []GatewayApiRoute { return v.Routes }).(GatewayApiRouteArrayOutput)
-}
-
-type GatewayRouteConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteConfigPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteConfigProperties)(nil)).Elem()
-}
-
-func (o GatewayRouteConfigPropertiesPtrOutput) ToGatewayRouteConfigPropertiesPtrOutput() GatewayRouteConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayRouteConfigPropertiesPtrOutput) ToGatewayRouteConfigPropertiesPtrOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o GatewayRouteConfigPropertiesPtrOutput) Elem() GatewayRouteConfigPropertiesOutput {
-	return o.ApplyT(func(v *GatewayRouteConfigProperties) GatewayRouteConfigProperties {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteConfigProperties
-		return ret
-	}).(GatewayRouteConfigPropertiesOutput)
-}
-
-// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-func (o GatewayRouteConfigPropertiesPtrOutput) AppResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AppResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-func (o GatewayRouteConfigPropertiesPtrOutput) Routes() GatewayApiRouteArrayOutput {
-	return o.ApplyT(func(v *GatewayRouteConfigProperties) []GatewayApiRoute {
-		if v == nil {
-			return nil
-		}
-		return v.Routes
-	}).(GatewayApiRouteArrayOutput)
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayRouteConfigPropertiesResponse struct {
-	// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-	AppResourceId *string `pulumi:"appResourceId"`
-	// State of the Spring Cloud Gateway route config.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-	Routes []GatewayApiRouteResponse `pulumi:"routes"`
-}
-
-// API route config of the Spring Cloud Gateway
-type GatewayRouteConfigPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteConfigPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteConfigPropertiesResponse)(nil)).Elem()
-}
-
-func (o GatewayRouteConfigPropertiesResponseOutput) ToGatewayRouteConfigPropertiesResponseOutput() GatewayRouteConfigPropertiesResponseOutput {
-	return o
-}
-
-func (o GatewayRouteConfigPropertiesResponseOutput) ToGatewayRouteConfigPropertiesResponseOutputWithContext(ctx context.Context) GatewayRouteConfigPropertiesResponseOutput {
-	return o
-}
-
-// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
-func (o GatewayRouteConfigPropertiesResponseOutput) AppResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteConfigPropertiesResponse) *string { return v.AppResourceId }).(pulumi.StringPtrOutput)
-}
-
-// State of the Spring Cloud Gateway route config.
-func (o GatewayRouteConfigPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayRouteConfigPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-func (o GatewayRouteConfigPropertiesResponseOutput) Routes() GatewayApiRouteResponseArrayOutput {
-	return o.ApplyT(func(v GatewayRouteConfigPropertiesResponse) []GatewayApiRouteResponse { return v.Routes }).(GatewayApiRouteResponseArrayOutput)
+func (o LoadedCertificateResponseArrayOutput) Index(i pulumi.IntInput) LoadedCertificateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadedCertificateResponse {
+		return vs[0].([]LoadedCertificateResponse)[vs[1].(int)]
+	}).(LoadedCertificateResponseOutput)
 }
 
 // Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityProperties struct {
-	// Principal Id
+	// Principal Id of system-assigned managed identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// Tenant Id
+	// Tenant Id of system-assigned managed identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Type of the managed identity
 	Type *string `pulumi:"type"`
@@ -6715,9 +4034,9 @@ type ManagedIdentityPropertiesInput interface {
 
 // Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesArgs struct {
-	// Principal Id
+	// Principal Id of system-assigned managed identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Tenant Id
+	// Tenant Id of system-assigned managed identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Type of the managed identity
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -6801,12 +4120,12 @@ func (o ManagedIdentityPropertiesOutput) ToManagedIdentityPropertiesPtrOutputWit
 	}).(ManagedIdentityPropertiesPtrOutput)
 }
 
-// Principal Id
+// Principal Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
+// Tenant Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -6840,7 +4159,7 @@ func (o ManagedIdentityPropertiesPtrOutput) Elem() ManagedIdentityPropertiesOutp
 	}).(ManagedIdentityPropertiesOutput)
 }
 
-// Principal Id
+// Principal Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentityProperties) *string {
 		if v == nil {
@@ -6850,7 +4169,7 @@ func (o ManagedIdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
+// Tenant Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentityProperties) *string {
 		if v == nil {
@@ -6872,9 +4191,9 @@ func (o ManagedIdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 
 // Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponse struct {
-	// Principal Id
+	// Principal Id of system-assigned managed identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// Tenant Id
+	// Tenant Id of system-assigned managed identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Type of the managed identity
 	Type *string `pulumi:"type"`
@@ -6895,12 +4214,12 @@ func (o ManagedIdentityPropertiesResponseOutput) ToManagedIdentityPropertiesResp
 	return o
 }
 
-// Principal Id
+// Principal Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
+// Tenant Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityPropertiesResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -6934,7 +4253,7 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) Elem() ManagedIdentityProper
 	}).(ManagedIdentityPropertiesResponseOutput)
 }
 
-// Principal Id
+// Principal Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentityPropertiesResponse) *string {
 		if v == nil {
@@ -6944,7 +4263,7 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
+// Tenant Id of system-assigned managed identity.
 func (o ManagedIdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentityPropertiesResponse) *string {
 		if v == nil {
@@ -6964,17 +4283,47 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Uploaded Jar binary for a deployment
+type NetCoreZipUploadedUserSourceInfo struct {
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Runtime version of the .Net file
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// Type of the source uploaded
+	// Expected value is 'NetCoreZip'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
+}
+
+// Uploaded Jar binary for a deployment
+type NetCoreZipUploadedUserSourceInfoResponse struct {
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Runtime version of the .Net file
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// Type of the source uploaded
+	// Expected value is 'NetCoreZip'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
+}
+
 // Service network profile payload
 type NetworkProfile struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
+	// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+	// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 	AppSubnetId *string `pulumi:"appSubnetId"`
-	// Azure Spring Cloud service reserved CIDR
+	// Azure Spring Apps service reserved CIDR
 	ServiceCidr *string `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+	// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 	ServiceRuntimeSubnetId *string `pulumi:"serviceRuntimeSubnetId"`
 }
 
@@ -6991,15 +4340,15 @@ type NetworkProfileInput interface {
 
 // Service network profile payload
 type NetworkProfileArgs struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
+	// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+	// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 	AppSubnetId pulumi.StringPtrInput `pulumi:"appSubnetId"`
-	// Azure Spring Cloud service reserved CIDR
+	// Azure Spring Apps service reserved CIDR
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+	// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 	ServiceRuntimeSubnetId pulumi.StringPtrInput `pulumi:"serviceRuntimeSubnetId"`
 }
 
@@ -7081,27 +4430,27 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.C
 	}).(NetworkProfilePtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
+// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 func (o NetworkProfileOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.AppNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 func (o NetworkProfileOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.AppSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
+// Azure Spring Apps service reserved CIDR
 func (o NetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 func (o NetworkProfileOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 func (o NetworkProfileOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceRuntimeSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -7130,7 +4479,7 @@ func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
 	}).(NetworkProfileOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
+// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 func (o NetworkProfilePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -7140,7 +4489,7 @@ func (o NetworkProfilePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 func (o NetworkProfilePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -7150,7 +4499,7 @@ func (o NetworkProfilePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
+// Azure Spring Apps service reserved CIDR
 func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -7160,7 +4509,7 @@ func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 func (o NetworkProfilePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -7170,7 +4519,7 @@ func (o NetworkProfilePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 func (o NetworkProfilePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -7182,19 +4531,19 @@ func (o NetworkProfilePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput
 
 // Service network profile payload
 type NetworkProfileResponse struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
+	// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+	// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 	AppSubnetId *string `pulumi:"appSubnetId"`
-	// Desired outbound IP resources for Azure Spring Cloud instance.
+	// Desired outbound IP resources for Azure Spring Apps resource.
 	OutboundIPs NetworkProfileResponseOutboundIPs `pulumi:"outboundIPs"`
-	// Required inbound or outbound traffics for Azure Spring Cloud instance.
+	// Required inbound or outbound traffics for Azure Spring Apps resource.
 	RequiredTraffics []RequiredTrafficResponse `pulumi:"requiredTraffics"`
-	// Azure Spring Cloud service reserved CIDR
+	// Azure Spring Apps service reserved CIDR
 	ServiceCidr *string `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+	// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 	ServiceRuntimeSubnetId *string `pulumi:"serviceRuntimeSubnetId"`
 }
 
@@ -7213,37 +4562,37 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponseOutputWithContext(
 	return o
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
+// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 func (o NetworkProfileResponseOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.AppNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 func (o NetworkProfileResponseOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.AppSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
+// Desired outbound IP resources for Azure Spring Apps resource.
 func (o NetworkProfileResponseOutput) OutboundIPs() NetworkProfileResponseOutboundIPsOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) NetworkProfileResponseOutboundIPs { return v.OutboundIPs }).(NetworkProfileResponseOutboundIPsOutput)
 }
 
-// Required inbound or outbound traffics for Azure Spring Cloud instance.
+// Required inbound or outbound traffics for Azure Spring Apps resource.
 func (o NetworkProfileResponseOutput) RequiredTraffics() RequiredTrafficResponseArrayOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) []RequiredTrafficResponse { return v.RequiredTraffics }).(RequiredTrafficResponseArrayOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
+// Azure Spring Apps service reserved CIDR
 func (o NetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 func (o NetworkProfileResponseOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 func (o NetworkProfileResponseOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceRuntimeSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -7272,7 +4621,7 @@ func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
 	}).(NetworkProfileResponseOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
+// Name of the resource group containing network resources for customer apps in Azure Spring Apps
 func (o NetworkProfileResponsePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -7282,7 +4631,7 @@ func (o NetworkProfileResponsePtrOutput) AppNetworkResourceGroup() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
 func (o NetworkProfileResponsePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -7292,7 +4641,7 @@ func (o NetworkProfileResponsePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
+// Desired outbound IP resources for Azure Spring Apps resource.
 func (o NetworkProfileResponsePtrOutput) OutboundIPs() NetworkProfileResponseOutboundIPsPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *NetworkProfileResponseOutboundIPs {
 		if v == nil {
@@ -7302,7 +4651,7 @@ func (o NetworkProfileResponsePtrOutput) OutboundIPs() NetworkProfileResponseOut
 	}).(NetworkProfileResponseOutboundIPsPtrOutput)
 }
 
-// Required inbound or outbound traffics for Azure Spring Cloud instance.
+// Required inbound or outbound traffics for Azure Spring Apps resource.
 func (o NetworkProfileResponsePtrOutput) RequiredTraffics() RequiredTrafficResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) []RequiredTrafficResponse {
 		if v == nil {
@@ -7312,7 +4661,7 @@ func (o NetworkProfileResponsePtrOutput) RequiredTraffics() RequiredTrafficRespo
 	}).(RequiredTrafficResponseArrayOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
+// Azure Spring Apps service reserved CIDR
 func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -7322,7 +4671,7 @@ func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
 func (o NetworkProfileResponsePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -7332,7 +4681,7 @@ func (o NetworkProfileResponsePtrOutput) ServiceRuntimeNetworkResourceGroup() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
 func (o NetworkProfileResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -7342,13 +4691,13 @@ func (o NetworkProfileResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
+// Desired outbound IP resources for Azure Spring Apps resource.
 type NetworkProfileResponseOutboundIPs struct {
 	// A list of public IP addresses.
 	PublicIPs []string `pulumi:"publicIPs"`
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
+// Desired outbound IP resources for Azure Spring Apps resource.
 type NetworkProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
@@ -7655,7 +5004,7 @@ func (o PersistentDiskResponsePtrOutput) UsedInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
+// Required inbound or outbound traffic for Azure Spring Apps resource.
 type RequiredTrafficResponse struct {
 	// The direction of required traffic
 	Direction string `pulumi:"direction"`
@@ -7669,7 +5018,7 @@ type RequiredTrafficResponse struct {
 	Protocol string `pulumi:"protocol"`
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
+// Required inbound or outbound traffic for Azure Spring Apps resource.
 type RequiredTrafficResponseOutput struct{ *pulumi.OutputState }
 
 func (RequiredTrafficResponseOutput) ElementType() reflect.Type {
@@ -7727,6 +5076,242 @@ func (o RequiredTrafficResponseArrayOutput) Index(i pulumi.IntInput) RequiredTra
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequiredTrafficResponse {
 		return vs[0].([]RequiredTrafficResponse)[vs[1].(int)]
 	}).(RequiredTrafficResponseOutput)
+}
+
+// Deployment resource request payload
+type ResourceRequests struct {
+	// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+	Cpu *string `pulumi:"cpu"`
+	// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+	Memory *string `pulumi:"memory"`
+}
+
+// ResourceRequestsInput is an input type that accepts ResourceRequestsArgs and ResourceRequestsOutput values.
+// You can construct a concrete instance of `ResourceRequestsInput` via:
+//
+//          ResourceRequestsArgs{...}
+type ResourceRequestsInput interface {
+	pulumi.Input
+
+	ToResourceRequestsOutput() ResourceRequestsOutput
+	ToResourceRequestsOutputWithContext(context.Context) ResourceRequestsOutput
+}
+
+// Deployment resource request payload
+type ResourceRequestsArgs struct {
+	// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
+	// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+	Memory pulumi.StringPtrInput `pulumi:"memory"`
+}
+
+func (ResourceRequestsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequests)(nil)).Elem()
+}
+
+func (i ResourceRequestsArgs) ToResourceRequestsOutput() ResourceRequestsOutput {
+	return i.ToResourceRequestsOutputWithContext(context.Background())
+}
+
+func (i ResourceRequestsArgs) ToResourceRequestsOutputWithContext(ctx context.Context) ResourceRequestsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequestsOutput)
+}
+
+func (i ResourceRequestsArgs) ToResourceRequestsPtrOutput() ResourceRequestsPtrOutput {
+	return i.ToResourceRequestsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceRequestsArgs) ToResourceRequestsPtrOutputWithContext(ctx context.Context) ResourceRequestsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequestsOutput).ToResourceRequestsPtrOutputWithContext(ctx)
+}
+
+// ResourceRequestsPtrInput is an input type that accepts ResourceRequestsArgs, ResourceRequestsPtr and ResourceRequestsPtrOutput values.
+// You can construct a concrete instance of `ResourceRequestsPtrInput` via:
+//
+//          ResourceRequestsArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceRequestsPtrInput interface {
+	pulumi.Input
+
+	ToResourceRequestsPtrOutput() ResourceRequestsPtrOutput
+	ToResourceRequestsPtrOutputWithContext(context.Context) ResourceRequestsPtrOutput
+}
+
+type resourceRequestsPtrType ResourceRequestsArgs
+
+func ResourceRequestsPtr(v *ResourceRequestsArgs) ResourceRequestsPtrInput {
+	return (*resourceRequestsPtrType)(v)
+}
+
+func (*resourceRequestsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceRequests)(nil)).Elem()
+}
+
+func (i *resourceRequestsPtrType) ToResourceRequestsPtrOutput() ResourceRequestsPtrOutput {
+	return i.ToResourceRequestsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceRequestsPtrType) ToResourceRequestsPtrOutputWithContext(ctx context.Context) ResourceRequestsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequestsPtrOutput)
+}
+
+// Deployment resource request payload
+type ResourceRequestsOutput struct{ *pulumi.OutputState }
+
+func (ResourceRequestsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequests)(nil)).Elem()
+}
+
+func (o ResourceRequestsOutput) ToResourceRequestsOutput() ResourceRequestsOutput {
+	return o
+}
+
+func (o ResourceRequestsOutput) ToResourceRequestsOutputWithContext(ctx context.Context) ResourceRequestsOutput {
+	return o
+}
+
+func (o ResourceRequestsOutput) ToResourceRequestsPtrOutput() ResourceRequestsPtrOutput {
+	return o.ToResourceRequestsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceRequestsOutput) ToResourceRequestsPtrOutputWithContext(ctx context.Context) ResourceRequestsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceRequests) *ResourceRequests {
+		return &v
+	}).(ResourceRequestsPtrOutput)
+}
+
+// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+func (o ResourceRequestsOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceRequests) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+func (o ResourceRequestsOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceRequests) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+type ResourceRequestsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceRequestsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceRequests)(nil)).Elem()
+}
+
+func (o ResourceRequestsPtrOutput) ToResourceRequestsPtrOutput() ResourceRequestsPtrOutput {
+	return o
+}
+
+func (o ResourceRequestsPtrOutput) ToResourceRequestsPtrOutputWithContext(ctx context.Context) ResourceRequestsPtrOutput {
+	return o
+}
+
+func (o ResourceRequestsPtrOutput) Elem() ResourceRequestsOutput {
+	return o.ApplyT(func(v *ResourceRequests) ResourceRequests {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceRequests
+		return ret
+	}).(ResourceRequestsOutput)
+}
+
+// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+func (o ResourceRequestsPtrOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceRequests) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+func (o ResourceRequestsPtrOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceRequests) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deployment resource request payload
+type ResourceRequestsResponse struct {
+	// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+	Cpu *string `pulumi:"cpu"`
+	// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+	Memory *string `pulumi:"memory"`
+}
+
+// Deployment resource request payload
+type ResourceRequestsResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceRequestsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequestsResponse)(nil)).Elem()
+}
+
+func (o ResourceRequestsResponseOutput) ToResourceRequestsResponseOutput() ResourceRequestsResponseOutput {
+	return o
+}
+
+func (o ResourceRequestsResponseOutput) ToResourceRequestsResponseOutputWithContext(ctx context.Context) ResourceRequestsResponseOutput {
+	return o
+}
+
+// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+func (o ResourceRequestsResponseOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceRequestsResponse) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+func (o ResourceRequestsResponseOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceRequestsResponse) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+type ResourceRequestsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceRequestsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceRequestsResponse)(nil)).Elem()
+}
+
+func (o ResourceRequestsResponsePtrOutput) ToResourceRequestsResponsePtrOutput() ResourceRequestsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceRequestsResponsePtrOutput) ToResourceRequestsResponsePtrOutputWithContext(ctx context.Context) ResourceRequestsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceRequestsResponsePtrOutput) Elem() ResourceRequestsResponseOutput {
+	return o.ApplyT(func(v *ResourceRequestsResponse) ResourceRequestsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceRequestsResponse
+		return ret
+	}).(ResourceRequestsResponseOutput)
+}
+
+// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+func (o ResourceRequestsResponsePtrOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceRequestsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+func (o ResourceRequestsResponsePtrOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceRequestsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.StringPtrOutput)
 }
 
 // Collection of instances belong to the Service Registry
@@ -7864,7 +5449,7 @@ func (o ServiceRegistryResourceRequestsResponseOutput) Memory() pulumi.StringOut
 	return o.ApplyT(func(v ServiceRegistryResourceRequestsResponse) string { return v.Memory }).(pulumi.StringOutput)
 }
 
-// Sku of Azure Spring Cloud
+// Sku of Azure Spring Apps
 type Sku struct {
 	// Current capacity of the target resource
 	Capacity *int `pulumi:"capacity"`
@@ -7872,6 +5457,23 @@ type Sku struct {
 	Name *string `pulumi:"name"`
 	// Tier of the Sku
 	Tier *string `pulumi:"tier"`
+}
+
+// Defaults sets the appropriate defaults for Sku
+func (val *Sku) Defaults() *Sku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		name_ := "S0"
+		tmp.Name = &name_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Standard"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -7885,7 +5487,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku of Azure Spring Cloud
+// Sku of Azure Spring Apps
 type SkuArgs struct {
 	// Current capacity of the target resource
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
@@ -7895,6 +5497,20 @@ type SkuArgs struct {
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for SkuArgs
+func (val *SkuArgs) Defaults() *SkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		tmp.Name = pulumi.StringPtr("S0")
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = pulumi.StringPtr("Standard")
+	}
+	return &tmp
+}
 func (SkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Sku)(nil)).Elem()
 }
@@ -7948,7 +5564,7 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku of Azure Spring Cloud
+// Sku of Azure Spring Apps
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -8042,7 +5658,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku of Azure Spring Cloud
+// Sku of Azure Spring Apps
 type SkuResponse struct {
 	// Current capacity of the target resource
 	Capacity *int `pulumi:"capacity"`
@@ -8052,7 +5668,24 @@ type SkuResponse struct {
 	Tier *string `pulumi:"tier"`
 }
 
-// Sku of Azure Spring Cloud
+// Defaults sets the appropriate defaults for SkuResponse
+func (val *SkuResponse) Defaults() *SkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		name_ := "S0"
+		tmp.Name = &name_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Standard"
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+// Sku of Azure Spring Apps
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -8136,312 +5769,36 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Single sign-on related configuration
-type SsoProperties struct {
-	// The public identifier for the application
-	ClientId *string `pulumi:"clientId"`
-	// The secret known only to the application and the authorization server
-	ClientSecret *string `pulumi:"clientSecret"`
-	// The URI of Issuer Identifier
-	IssuerUri *string `pulumi:"issuerUri"`
-	// It defines the specific actions applications can be allowed to do on a user's behalf
-	Scope []string `pulumi:"scope"`
+// Uploaded Java source code binary for a deployment
+type SourceUploadedUserSourceInfo struct {
+	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
+	// the relative path to the target module/project.
+	ArtifactSelector *string `pulumi:"artifactSelector"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Runtime version of the source file
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// Type of the source uploaded
+	// Expected value is 'Source'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
 }
 
-// SsoPropertiesInput is an input type that accepts SsoPropertiesArgs and SsoPropertiesOutput values.
-// You can construct a concrete instance of `SsoPropertiesInput` via:
-//
-//          SsoPropertiesArgs{...}
-type SsoPropertiesInput interface {
-	pulumi.Input
-
-	ToSsoPropertiesOutput() SsoPropertiesOutput
-	ToSsoPropertiesOutputWithContext(context.Context) SsoPropertiesOutput
-}
-
-// Single sign-on related configuration
-type SsoPropertiesArgs struct {
-	// The public identifier for the application
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The secret known only to the application and the authorization server
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// The URI of Issuer Identifier
-	IssuerUri pulumi.StringPtrInput `pulumi:"issuerUri"`
-	// It defines the specific actions applications can be allowed to do on a user's behalf
-	Scope pulumi.StringArrayInput `pulumi:"scope"`
-}
-
-func (SsoPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SsoProperties)(nil)).Elem()
-}
-
-func (i SsoPropertiesArgs) ToSsoPropertiesOutput() SsoPropertiesOutput {
-	return i.ToSsoPropertiesOutputWithContext(context.Background())
-}
-
-func (i SsoPropertiesArgs) ToSsoPropertiesOutputWithContext(ctx context.Context) SsoPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SsoPropertiesOutput)
-}
-
-func (i SsoPropertiesArgs) ToSsoPropertiesPtrOutput() SsoPropertiesPtrOutput {
-	return i.ToSsoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SsoPropertiesArgs) ToSsoPropertiesPtrOutputWithContext(ctx context.Context) SsoPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SsoPropertiesOutput).ToSsoPropertiesPtrOutputWithContext(ctx)
-}
-
-// SsoPropertiesPtrInput is an input type that accepts SsoPropertiesArgs, SsoPropertiesPtr and SsoPropertiesPtrOutput values.
-// You can construct a concrete instance of `SsoPropertiesPtrInput` via:
-//
-//          SsoPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SsoPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSsoPropertiesPtrOutput() SsoPropertiesPtrOutput
-	ToSsoPropertiesPtrOutputWithContext(context.Context) SsoPropertiesPtrOutput
-}
-
-type ssoPropertiesPtrType SsoPropertiesArgs
-
-func SsoPropertiesPtr(v *SsoPropertiesArgs) SsoPropertiesPtrInput {
-	return (*ssoPropertiesPtrType)(v)
-}
-
-func (*ssoPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SsoProperties)(nil)).Elem()
-}
-
-func (i *ssoPropertiesPtrType) ToSsoPropertiesPtrOutput() SsoPropertiesPtrOutput {
-	return i.ToSsoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ssoPropertiesPtrType) ToSsoPropertiesPtrOutputWithContext(ctx context.Context) SsoPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SsoPropertiesPtrOutput)
-}
-
-// Single sign-on related configuration
-type SsoPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SsoPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SsoProperties)(nil)).Elem()
-}
-
-func (o SsoPropertiesOutput) ToSsoPropertiesOutput() SsoPropertiesOutput {
-	return o
-}
-
-func (o SsoPropertiesOutput) ToSsoPropertiesOutputWithContext(ctx context.Context) SsoPropertiesOutput {
-	return o
-}
-
-func (o SsoPropertiesOutput) ToSsoPropertiesPtrOutput() SsoPropertiesPtrOutput {
-	return o.ToSsoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SsoPropertiesOutput) ToSsoPropertiesPtrOutputWithContext(ctx context.Context) SsoPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SsoProperties) *SsoProperties {
-		return &v
-	}).(SsoPropertiesPtrOutput)
-}
-
-// The public identifier for the application
-func (o SsoPropertiesOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SsoProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The secret known only to the application and the authorization server
-func (o SsoPropertiesOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SsoProperties) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-// The URI of Issuer Identifier
-func (o SsoPropertiesOutput) IssuerUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SsoProperties) *string { return v.IssuerUri }).(pulumi.StringPtrOutput)
-}
-
-// It defines the specific actions applications can be allowed to do on a user's behalf
-func (o SsoPropertiesOutput) Scope() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SsoProperties) []string { return v.Scope }).(pulumi.StringArrayOutput)
-}
-
-type SsoPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SsoPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SsoProperties)(nil)).Elem()
-}
-
-func (o SsoPropertiesPtrOutput) ToSsoPropertiesPtrOutput() SsoPropertiesPtrOutput {
-	return o
-}
-
-func (o SsoPropertiesPtrOutput) ToSsoPropertiesPtrOutputWithContext(ctx context.Context) SsoPropertiesPtrOutput {
-	return o
-}
-
-func (o SsoPropertiesPtrOutput) Elem() SsoPropertiesOutput {
-	return o.ApplyT(func(v *SsoProperties) SsoProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SsoProperties
-		return ret
-	}).(SsoPropertiesOutput)
-}
-
-// The public identifier for the application
-func (o SsoPropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SsoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secret known only to the application and the authorization server
-func (o SsoPropertiesPtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SsoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URI of Issuer Identifier
-func (o SsoPropertiesPtrOutput) IssuerUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SsoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IssuerUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// It defines the specific actions applications can be allowed to do on a user's behalf
-func (o SsoPropertiesPtrOutput) Scope() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SsoProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringArrayOutput)
-}
-
-// Single sign-on related configuration
-type SsoPropertiesResponse struct {
-	// The public identifier for the application
-	ClientId *string `pulumi:"clientId"`
-	// The secret known only to the application and the authorization server
-	ClientSecret *string `pulumi:"clientSecret"`
-	// The URI of Issuer Identifier
-	IssuerUri *string `pulumi:"issuerUri"`
-	// It defines the specific actions applications can be allowed to do on a user's behalf
-	Scope []string `pulumi:"scope"`
-}
-
-// Single sign-on related configuration
-type SsoPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (SsoPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SsoPropertiesResponse)(nil)).Elem()
-}
-
-func (o SsoPropertiesResponseOutput) ToSsoPropertiesResponseOutput() SsoPropertiesResponseOutput {
-	return o
-}
-
-func (o SsoPropertiesResponseOutput) ToSsoPropertiesResponseOutputWithContext(ctx context.Context) SsoPropertiesResponseOutput {
-	return o
-}
-
-// The public identifier for the application
-func (o SsoPropertiesResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SsoPropertiesResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The secret known only to the application and the authorization server
-func (o SsoPropertiesResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SsoPropertiesResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-// The URI of Issuer Identifier
-func (o SsoPropertiesResponseOutput) IssuerUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SsoPropertiesResponse) *string { return v.IssuerUri }).(pulumi.StringPtrOutput)
-}
-
-// It defines the specific actions applications can be allowed to do on a user's behalf
-func (o SsoPropertiesResponseOutput) Scope() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SsoPropertiesResponse) []string { return v.Scope }).(pulumi.StringArrayOutput)
-}
-
-type SsoPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SsoPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SsoPropertiesResponse)(nil)).Elem()
-}
-
-func (o SsoPropertiesResponsePtrOutput) ToSsoPropertiesResponsePtrOutput() SsoPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SsoPropertiesResponsePtrOutput) ToSsoPropertiesResponsePtrOutputWithContext(ctx context.Context) SsoPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SsoPropertiesResponsePtrOutput) Elem() SsoPropertiesResponseOutput {
-	return o.ApplyT(func(v *SsoPropertiesResponse) SsoPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SsoPropertiesResponse
-		return ret
-	}).(SsoPropertiesResponseOutput)
-}
-
-// The public identifier for the application
-func (o SsoPropertiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SsoPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secret known only to the application and the authorization server
-func (o SsoPropertiesResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SsoPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URI of Issuer Identifier
-func (o SsoPropertiesResponsePtrOutput) IssuerUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SsoPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IssuerUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// It defines the specific actions applications can be allowed to do on a user's behalf
-func (o SsoPropertiesResponsePtrOutput) Scope() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SsoPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringArrayOutput)
+// Uploaded Java source code binary for a deployment
+type SourceUploadedUserSourceInfoResponse struct {
+	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
+	// the relative path to the target module/project.
+	ArtifactSelector *string `pulumi:"artifactSelector"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Runtime version of the source file
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// Type of the source uploaded
+	// Expected value is 'Source'.
+	Type string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
 }
 
 // KPack ClusterStack properties payload
@@ -8680,223 +6037,6 @@ func (o StackPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// storage resource of type Azure Storage Account.
-type StorageAccount struct {
-	// The account key of the Azure Storage Account.
-	AccountKey string `pulumi:"accountKey"`
-	// The account name of the Azure Storage Account.
-	AccountName string `pulumi:"accountName"`
-	// The type of the storage.
-	// Expected value is 'StorageAccount'.
-	StorageType string `pulumi:"storageType"`
-}
-
-// StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
-// You can construct a concrete instance of `StorageAccountInput` via:
-//
-//          StorageAccountArgs{...}
-type StorageAccountInput interface {
-	pulumi.Input
-
-	ToStorageAccountOutput() StorageAccountOutput
-	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
-}
-
-// storage resource of type Azure Storage Account.
-type StorageAccountArgs struct {
-	// The account key of the Azure Storage Account.
-	AccountKey pulumi.StringInput `pulumi:"accountKey"`
-	// The account name of the Azure Storage Account.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The type of the storage.
-	// Expected value is 'StorageAccount'.
-	StorageType pulumi.StringInput `pulumi:"storageType"`
-}
-
-func (StorageAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
-}
-
-func (i StorageAccountArgs) ToStorageAccountOutput() StorageAccountOutput {
-	return i.ToStorageAccountOutputWithContext(context.Background())
-}
-
-func (i StorageAccountArgs) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
-}
-
-func (i StorageAccountArgs) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
-	return i.ToStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i StorageAccountArgs) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput).ToStorageAccountPtrOutputWithContext(ctx)
-}
-
-// StorageAccountPtrInput is an input type that accepts StorageAccountArgs, StorageAccountPtr and StorageAccountPtrOutput values.
-// You can construct a concrete instance of `StorageAccountPtrInput` via:
-//
-//          StorageAccountArgs{...}
-//
-//  or:
-//
-//          nil
-type StorageAccountPtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountPtrOutput() StorageAccountPtrOutput
-	ToStorageAccountPtrOutputWithContext(context.Context) StorageAccountPtrOutput
-}
-
-type storageAccountPtrType StorageAccountArgs
-
-func StorageAccountPtr(v *StorageAccountArgs) StorageAccountPtrInput {
-	return (*storageAccountPtrType)(v)
-}
-
-func (*storageAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
-}
-
-func (i *storageAccountPtrType) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
-	return i.ToStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *storageAccountPtrType) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPtrOutput)
-}
-
-// storage resource of type Azure Storage Account.
-type StorageAccountOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
-}
-
-func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {
-	return o
-}
-
-func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
-	return o
-}
-
-func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
-	return o.ToStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
-		return &v
-	}).(StorageAccountPtrOutput)
-}
-
-// The account key of the Azure Storage Account.
-func (o StorageAccountOutput) AccountKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccount) string { return v.AccountKey }).(pulumi.StringOutput)
-}
-
-// The account name of the Azure Storage Account.
-func (o StorageAccountOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
-}
-
-// The type of the storage.
-// Expected value is 'StorageAccount'.
-func (o StorageAccountOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccount) string { return v.StorageType }).(pulumi.StringOutput)
-}
-
-type StorageAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
-}
-
-func (o StorageAccountPtrOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
-	return o
-}
-
-func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o
-}
-
-func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
-	return o.ApplyT(func(v *StorageAccount) StorageAccount {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccount
-		return ret
-	}).(StorageAccountOutput)
-}
-
-// The account key of the Azure Storage Account.
-func (o StorageAccountPtrOutput) AccountKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The account name of the Azure Storage Account.
-func (o StorageAccountPtrOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the storage.
-// Expected value is 'StorageAccount'.
-func (o StorageAccountPtrOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageType
-	}).(pulumi.StringPtrOutput)
-}
-
-// storage resource of type Azure Storage Account.
-type StorageAccountResponse struct {
-	// The account name of the Azure Storage Account.
-	AccountName string `pulumi:"accountName"`
-	// The type of the storage.
-	// Expected value is 'StorageAccount'.
-	StorageType string `pulumi:"storageType"`
-}
-
-// storage resource of type Azure Storage Account.
-type StorageAccountResponseOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
-}
-
-func (o StorageAccountResponseOutput) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
-	return o
-}
-
-func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
-	return o
-}
-
-// The account name of the Azure Storage Account.
-func (o StorageAccountResponseOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountResponse) string { return v.AccountName }).(pulumi.StringOutput)
-}
-
-// The type of the storage.
-// Expected value is 'StorageAccount'.
-func (o StorageAccountResponseOutput) StorageType() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountResponse) string { return v.StorageType }).(pulumi.StringOutput)
-}
-
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -8905,7 +6045,7 @@ type SystemDataResponse struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
+	// The timestamp of resource modification (UTC).
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
 	// The identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
@@ -8943,7 +6083,7 @@ func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
+// The timestamp of resource modification (UTC).
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
@@ -9231,331 +6371,29 @@ func (o TemporaryDiskResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Source information for a deployment
-type UserSourceInfo struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
-	ArtifactSelector *string `pulumi:"artifactSelector"`
+// Source with uploaded location
+type UploadedUserSourceInfo struct {
 	// Relative path of the storage which stores the source
 	RelativePath *string `pulumi:"relativePath"`
 	// Type of the source uploaded
-	Type *string `pulumi:"type"`
+	// Expected value is 'UploadedUserSourceInfo'.
+	Type string `pulumi:"type"`
 	// Version of the source
 	Version *string `pulumi:"version"`
 }
 
-// UserSourceInfoInput is an input type that accepts UserSourceInfoArgs and UserSourceInfoOutput values.
-// You can construct a concrete instance of `UserSourceInfoInput` via:
-//
-//          UserSourceInfoArgs{...}
-type UserSourceInfoInput interface {
-	pulumi.Input
-
-	ToUserSourceInfoOutput() UserSourceInfoOutput
-	ToUserSourceInfoOutputWithContext(context.Context) UserSourceInfoOutput
-}
-
-// Source information for a deployment
-type UserSourceInfoArgs struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
-	ArtifactSelector pulumi.StringPtrInput `pulumi:"artifactSelector"`
-	// Relative path of the storage which stores the source
-	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
-	// Type of the source uploaded
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Version of the source
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (UserSourceInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSourceInfo)(nil)).Elem()
-}
-
-func (i UserSourceInfoArgs) ToUserSourceInfoOutput() UserSourceInfoOutput {
-	return i.ToUserSourceInfoOutputWithContext(context.Background())
-}
-
-func (i UserSourceInfoArgs) ToUserSourceInfoOutputWithContext(ctx context.Context) UserSourceInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoOutput)
-}
-
-func (i UserSourceInfoArgs) ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutput {
-	return i.ToUserSourceInfoPtrOutputWithContext(context.Background())
-}
-
-func (i UserSourceInfoArgs) ToUserSourceInfoPtrOutputWithContext(ctx context.Context) UserSourceInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoOutput).ToUserSourceInfoPtrOutputWithContext(ctx)
-}
-
-// UserSourceInfoPtrInput is an input type that accepts UserSourceInfoArgs, UserSourceInfoPtr and UserSourceInfoPtrOutput values.
-// You can construct a concrete instance of `UserSourceInfoPtrInput` via:
-//
-//          UserSourceInfoArgs{...}
-//
-//  or:
-//
-//          nil
-type UserSourceInfoPtrInput interface {
-	pulumi.Input
-
-	ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutput
-	ToUserSourceInfoPtrOutputWithContext(context.Context) UserSourceInfoPtrOutput
-}
-
-type userSourceInfoPtrType UserSourceInfoArgs
-
-func UserSourceInfoPtr(v *UserSourceInfoArgs) UserSourceInfoPtrInput {
-	return (*userSourceInfoPtrType)(v)
-}
-
-func (*userSourceInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSourceInfo)(nil)).Elem()
-}
-
-func (i *userSourceInfoPtrType) ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutput {
-	return i.ToUserSourceInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *userSourceInfoPtrType) ToUserSourceInfoPtrOutputWithContext(ctx context.Context) UserSourceInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoPtrOutput)
-}
-
-// Source information for a deployment
-type UserSourceInfoOutput struct{ *pulumi.OutputState }
-
-func (UserSourceInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSourceInfo)(nil)).Elem()
-}
-
-func (o UserSourceInfoOutput) ToUserSourceInfoOutput() UserSourceInfoOutput {
-	return o
-}
-
-func (o UserSourceInfoOutput) ToUserSourceInfoOutputWithContext(ctx context.Context) UserSourceInfoOutput {
-	return o
-}
-
-func (o UserSourceInfoOutput) ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutput {
-	return o.ToUserSourceInfoPtrOutputWithContext(context.Background())
-}
-
-func (o UserSourceInfoOutput) ToUserSourceInfoPtrOutputWithContext(ctx context.Context) UserSourceInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSourceInfo) *UserSourceInfo {
-		return &v
-	}).(UserSourceInfoPtrOutput)
-}
-
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
-func (o UserSourceInfoOutput) ArtifactSelector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfo) *string { return v.ArtifactSelector }).(pulumi.StringPtrOutput)
-}
-
-// Relative path of the storage which stores the source
-func (o UserSourceInfoOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfo) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
-}
-
-// Type of the source uploaded
-func (o UserSourceInfoOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Version of the source
-func (o UserSourceInfoOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfo) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type UserSourceInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (UserSourceInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSourceInfo)(nil)).Elem()
-}
-
-func (o UserSourceInfoPtrOutput) ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutput {
-	return o
-}
-
-func (o UserSourceInfoPtrOutput) ToUserSourceInfoPtrOutputWithContext(ctx context.Context) UserSourceInfoPtrOutput {
-	return o
-}
-
-func (o UserSourceInfoPtrOutput) Elem() UserSourceInfoOutput {
-	return o.ApplyT(func(v *UserSourceInfo) UserSourceInfo {
-		if v != nil {
-			return *v
-		}
-		var ret UserSourceInfo
-		return ret
-	}).(UserSourceInfoOutput)
-}
-
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
-func (o UserSourceInfoPtrOutput) ArtifactSelector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactSelector
-	}).(pulumi.StringPtrOutput)
-}
-
-// Relative path of the storage which stores the source
-func (o UserSourceInfoPtrOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RelativePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of the source uploaded
-func (o UserSourceInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of the source
-func (o UserSourceInfoPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// Source information for a deployment
-type UserSourceInfoResponse struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
-	ArtifactSelector *string `pulumi:"artifactSelector"`
+// Source with uploaded location
+type UploadedUserSourceInfoResponse struct {
 	// Relative path of the storage which stores the source
 	RelativePath *string `pulumi:"relativePath"`
 	// Type of the source uploaded
-	Type *string `pulumi:"type"`
+	// Expected value is 'UploadedUserSourceInfo'.
+	Type string `pulumi:"type"`
 	// Version of the source
 	Version *string `pulumi:"version"`
-}
-
-// Source information for a deployment
-type UserSourceInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (UserSourceInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSourceInfoResponse)(nil)).Elem()
-}
-
-func (o UserSourceInfoResponseOutput) ToUserSourceInfoResponseOutput() UserSourceInfoResponseOutput {
-	return o
-}
-
-func (o UserSourceInfoResponseOutput) ToUserSourceInfoResponseOutputWithContext(ctx context.Context) UserSourceInfoResponseOutput {
-	return o
-}
-
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
-func (o UserSourceInfoResponseOutput) ArtifactSelector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.ArtifactSelector }).(pulumi.StringPtrOutput)
-}
-
-// Relative path of the storage which stores the source
-func (o UserSourceInfoResponseOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
-}
-
-// Type of the source uploaded
-func (o UserSourceInfoResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Version of the source
-func (o UserSourceInfoResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type UserSourceInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UserSourceInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSourceInfoResponse)(nil)).Elem()
-}
-
-func (o UserSourceInfoResponsePtrOutput) ToUserSourceInfoResponsePtrOutput() UserSourceInfoResponsePtrOutput {
-	return o
-}
-
-func (o UserSourceInfoResponsePtrOutput) ToUserSourceInfoResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoResponsePtrOutput {
-	return o
-}
-
-func (o UserSourceInfoResponsePtrOutput) Elem() UserSourceInfoResponseOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) UserSourceInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserSourceInfoResponse
-		return ret
-	}).(UserSourceInfoResponseOutput)
-}
-
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
-func (o UserSourceInfoResponsePtrOutput) ArtifactSelector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactSelector
-	}).(pulumi.StringPtrOutput)
-}
-
-// Relative path of the storage which stores the source
-func (o UserSourceInfoResponsePtrOutput) RelativePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RelativePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of the source uploaded
-func (o UserSourceInfoResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of the source
-func (o UserSourceInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApiPortalCustomDomainPropertiesOutput{})
-	pulumi.RegisterOutputType(ApiPortalCustomDomainPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ApiPortalCustomDomainPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApiPortalInstanceResponseOutput{})
-	pulumi.RegisterOutputType(ApiPortalInstanceResponseArrayOutput{})
-	pulumi.RegisterOutputType(ApiPortalPropertiesOutput{})
-	pulumi.RegisterOutputType(ApiPortalPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ApiPortalPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApiPortalResourceRequestsResponseOutput{})
 	pulumi.RegisterOutputType(AppResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(AppResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppResourcePropertiesResponseOutput{})
@@ -9580,9 +6418,6 @@ func init() {
 	pulumi.RegisterOutputType(BuildpacksGroupPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(BuildpacksGroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BuildpacksGroupPropertiesResponseArrayOutput{})
-	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
-	pulumi.RegisterOutputType(CertificatePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesResponseOutput{})
@@ -9616,35 +6451,10 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(GatewayApiMetadataPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayApiMetadataPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GatewayApiMetadataPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GatewayApiMetadataPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GatewayApiRouteOutput{})
-	pulumi.RegisterOutputType(GatewayApiRouteArrayOutput{})
-	pulumi.RegisterOutputType(GatewayApiRouteResponseOutput{})
-	pulumi.RegisterOutputType(GatewayApiRouteResponseArrayOutput{})
-	pulumi.RegisterOutputType(GatewayCorsPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayCorsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GatewayCorsPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GatewayCorsPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GatewayCustomDomainPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayCustomDomainPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GatewayCustomDomainPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GatewayInstanceResponseOutput{})
-	pulumi.RegisterOutputType(GatewayInstanceResponseArrayOutput{})
-	pulumi.RegisterOutputType(GatewayOperatorPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GatewayOperatorResourceRequestsResponseOutput{})
-	pulumi.RegisterOutputType(GatewayPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GatewayPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GatewayResourceRequestsOutput{})
-	pulumi.RegisterOutputType(GatewayResourceRequestsPtrOutput{})
-	pulumi.RegisterOutputType(GatewayResourceRequestsResponseOutput{})
-	pulumi.RegisterOutputType(GatewayResourceRequestsResponsePtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteConfigPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayRouteConfigPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteConfigPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(LoadedCertificateOutput{})
+	pulumi.RegisterOutputType(LoadedCertificateArrayOutput{})
+	pulumi.RegisterOutputType(LoadedCertificateResponseOutput{})
+	pulumi.RegisterOutputType(LoadedCertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesResponseOutput{})
@@ -9661,6 +6471,10 @@ func init() {
 	pulumi.RegisterOutputType(PersistentDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(RequiredTrafficResponseOutput{})
 	pulumi.RegisterOutputType(RequiredTrafficResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceRequestsOutput{})
+	pulumi.RegisterOutputType(ResourceRequestsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceRequestsResponseOutput{})
+	pulumi.RegisterOutputType(ResourceRequestsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegistryInstanceResponseOutput{})
 	pulumi.RegisterOutputType(ServiceRegistryInstanceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceRegistryPropertiesResponseOutput{})
@@ -9669,24 +6483,13 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SsoPropertiesOutput{})
-	pulumi.RegisterOutputType(SsoPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SsoPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SsoPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StackPropertiesOutput{})
 	pulumi.RegisterOutputType(StackPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StackPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StackPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountOutput{})
-	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskPtrOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskResponseOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskResponsePtrOutput{})
-	pulumi.RegisterOutputType(UserSourceInfoOutput{})
-	pulumi.RegisterOutputType(UserSourceInfoPtrOutput{})
-	pulumi.RegisterOutputType(UserSourceInfoResponseOutput{})
-	pulumi.RegisterOutputType(UserSourceInfoResponsePtrOutput{})
 }

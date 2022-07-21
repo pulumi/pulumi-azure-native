@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of credential result response.
-// API Version: 2021-03-01.
+// The list credential result response.
+// API Version: 2022-04-01.
 func ListManagedClusterUserCredentials(ctx *pulumi.Context, args *ListManagedClusterUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterUserCredentialsResult, error) {
 	var rv ListManagedClusterUserCredentialsResult
 	err := ctx.Invoke("azure-native:containerservice:listManagedClusterUserCredentials", args, &rv, opts...)
@@ -22,13 +22,17 @@ func ListManagedClusterUserCredentials(ctx *pulumi.Context, args *ListManagedClu
 }
 
 type ListManagedClusterUserCredentialsArgs struct {
-	// The name of the resource group.
+	// Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+	Format *string `pulumi:"format"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
+	// server fqdn type for credentials to be returned
+	ServerFqdn *string `pulumi:"serverFqdn"`
 }
 
-// The list of credential result response.
+// The list credential result response.
 type ListManagedClusterUserCredentialsResult struct {
 	// Base64-encoded Kubernetes configuration file.
 	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
@@ -48,17 +52,21 @@ func ListManagedClusterUserCredentialsOutput(ctx *pulumi.Context, args ListManag
 }
 
 type ListManagedClusterUserCredentialsOutputArgs struct {
-	// The name of the resource group.
+	// Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// server fqdn type for credentials to be returned
+	ServerFqdn pulumi.StringPtrInput `pulumi:"serverFqdn"`
 }
 
 func (ListManagedClusterUserCredentialsOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListManagedClusterUserCredentialsArgs)(nil)).Elem()
 }
 
-// The list of credential result response.
+// The list credential result response.
 type ListManagedClusterUserCredentialsResultOutput struct{ *pulumi.OutputState }
 
 func (ListManagedClusterUserCredentialsResultOutput) ElementType() reflect.Type {

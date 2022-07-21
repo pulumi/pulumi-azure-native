@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network slice resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
     if (!opts) {
@@ -89,6 +89,10 @@ export interface GetSliceResult {
      * The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
      */
     readonly snssai: outputs.mobilenetwork.SnssaiResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // A file resource
-// API Version: 2018-07-15-preview.
+// API Version: 2021-06-30.
 type File struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type File struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Custom file properties
 	Properties ProjectFilePropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -168,6 +170,11 @@ func (o FileOutput) Name() pulumi.StringOutput {
 // Custom file properties
 func (o FileOutput) Properties() ProjectFilePropertiesResponseOutput {
 	return o.ApplyT(func(v *File) ProjectFilePropertiesResponseOutput { return v.Properties }).(ProjectFilePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o FileOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *File) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.

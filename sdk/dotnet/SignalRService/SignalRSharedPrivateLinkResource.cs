@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// Describes a Shared Private Link Resource
-    /// API Version: 2021-04-01-preview.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRSharedPrivateLinkResource")]
     public partial class SignalRSharedPrivateLinkResource : Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the shared private link resource
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

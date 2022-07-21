@@ -11,7 +11,7 @@ import (
 )
 
 // The HDInsight cluster.
-// API Version: 2018-06-01-preview.
+// API Version: 2021-06-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:hdinsight:getCluster", args, &rv, opts...)
@@ -32,20 +32,24 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// The ETag for the resource
 	Etag *string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.
 	Identity *ClusterIdentityResponse `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of the cluster.
 	Properties ClusterGetPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+	// The availability zones.
+	Zones []string `pulumi:"zones"`
 }
 
 // Defaults sets the appropriate defaults for LookupClusterResult
@@ -103,7 +107,7 @@ func (o LookupClusterResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id for the resource.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -113,9 +117,9 @@ func (o LookupClusterResultOutput) Identity() ClusterIdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterIdentityResponse { return v.Identity }).(ClusterIdentityResponsePtrOutput)
 }
 
-// The Azure Region where the resource lives
-func (o LookupClusterResultOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+// The geo-location where the resource lives
+func (o LookupClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the resource
@@ -128,14 +132,24 @@ func (o LookupClusterResultOutput) Properties() ClusterGetPropertiesResponseOutp
 	return o.ApplyT(func(v LookupClusterResult) ClusterGetPropertiesResponse { return v.Properties }).(ClusterGetPropertiesResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupClusterResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupClusterResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Resource tags.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupClusterResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The availability zones.
+func (o LookupClusterResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

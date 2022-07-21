@@ -6,14 +6,12 @@ from enum import Enum
 
 __all__ = [
     'Access',
-    'AccessRuleDirection',
     'ActionType',
-    'AddressPrefixType',
-    'AdminRuleKind',
     'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
+    'ApplicationGatewayLoadDistributionAlgorithm',
     'ApplicationGatewayProtocol',
     'ApplicationGatewayRedirectType',
     'ApplicationGatewayRequestRoutingRuleType',
@@ -23,7 +21,6 @@ __all__ = [
     'ApplicationGatewaySslPolicyType',
     'ApplicationGatewaySslProtocol',
     'ApplicationGatewayTier',
-    'AssociationAccessMode',
     'AuthorizationUseStatus',
     'AzureFirewallApplicationRuleProtocolType',
     'AzureFirewallNatRCActionType',
@@ -33,19 +30,17 @@ __all__ = [
     'AzureFirewallSkuTier',
     'AzureFirewallThreatIntelMode',
     'BackendEnabledState',
+    'BastionHostSkuName',
     'CommissionedState',
-    'ConfigurationType',
     'ConnectionMonitorEndpointFilterItemType',
     'ConnectionMonitorEndpointFilterType',
     'ConnectionMonitorTestConfigurationProtocol',
-    'ConnectivityTopology',
     'CoverageLevel',
     'CustomRuleEnabledState',
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
     'DdosSettingsProtectionCoverage',
-    'DeleteExistingNSGs',
-    'DeleteExistingPeering',
+    'DeleteOptions',
     'DestinationPortBehavior',
     'DhGroup',
     'DynamicCompressionEnabled',
@@ -79,7 +74,6 @@ __all__ = [
     'FirewallPolicyRuleType',
     'FirewallPolicySkuTier',
     'FlowLogFormatType',
-    'ForwardingRuleState',
     'FrontDoorEnabledState',
     'FrontDoorForwardingProtocol',
     'FrontDoorHealthProbeMethod',
@@ -88,19 +82,20 @@ __all__ = [
     'FrontDoorQuery',
     'FrontDoorRedirectProtocol',
     'FrontDoorRedirectType',
-    'GroupConnectivity',
+    'GatewayLoadBalancerTunnelInterfaceType',
+    'GatewayLoadBalancerTunnelProtocol',
     'HTTPConfigurationMethod',
     'HeaderActionType',
     'HealthProbeEnabled',
+    'HubRoutingPreference',
     'IPAllocationMethod',
     'IPVersion',
     'IkeEncryption',
     'IkeIntegrity',
-    'IpAllocationMethod',
     'IpAllocationType',
     'IpsecEncryption',
     'IpsecIntegrity',
-    'IsGlobal',
+    'LoadBalancerBackendAddressAdminState',
     'LoadBalancerOutboundRuleProtocol',
     'LoadBalancerSkuName',
     'LoadBalancerSkuTier',
@@ -112,6 +107,7 @@ __all__ = [
     'MatchProcessingBehavior',
     'MonitorProtocol',
     'NatGatewaySkuName',
+    'NetworkInterfaceAuxiliaryMode',
     'NetworkInterfaceMigrationPhase',
     'NetworkInterfaceNicType',
     'Operator',
@@ -124,6 +120,7 @@ __all__ = [
     'PolicyMode',
     'PolicyRequestBodyCheck',
     'PreferredIPVersion',
+    'PreferredRoutingGateway',
     'ProbeProtocol',
     'ProfileMonitorStatus',
     'ProfileStatus',
@@ -140,14 +137,10 @@ __all__ = [
     'RuleType',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
-    'SecurityConfigurationRuleAccess',
-    'SecurityConfigurationRuleDirection',
-    'SecurityConfigurationRuleProtocol',
     'SecurityProviderName',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
-    'SecurityType',
     'ServiceProviderProvisioningState',
     'SessionAffinityEnabledState',
     'SkuName',
@@ -157,14 +150,14 @@ __all__ = [
     'Transform',
     'TransformType',
     'TransportProtocol',
-    'UseHubGateway',
-    'UserRuleKind',
+    'VirtualNetworkEncryptionEnforcement',
     'VirtualNetworkGatewayConnectionMode',
     'VirtualNetworkGatewayConnectionProtocol',
     'VirtualNetworkGatewayConnectionType',
     'VirtualNetworkGatewaySkuName',
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
+    'VirtualNetworkPeeringLevel',
     'VirtualNetworkPeeringState',
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
@@ -196,14 +189,6 @@ class Access(str, Enum):
     DENY = "Deny"
 
 
-class AccessRuleDirection(str, Enum):
-    """
-    Direction that specifies whether the access rules is inbound/outbound.
-    """
-    INBOUND = "Inbound"
-    OUTBOUND = "Outbound"
-
-
 class ActionType(str, Enum):
     """
     Describes the override action to be applied when rule matches.
@@ -212,22 +197,6 @@ class ActionType(str, Enum):
     BLOCK = "Block"
     LOG = "Log"
     REDIRECT = "Redirect"
-
-
-class AddressPrefixType(str, Enum):
-    """
-    Address prefix type.
-    """
-    IP_PREFIX = "IPPrefix"
-    SERVICE_TAG = "ServiceTag"
-
-
-class AdminRuleKind(str, Enum):
-    """
-    Whether the rule is custom or default.
-    """
-    CUSTOM = "Custom"
-    DEFAULT = "Default"
 
 
 class AllowedEndpointRecordType(str, Enum):
@@ -264,12 +233,23 @@ class ApplicationGatewayFirewallMode(str, Enum):
     PREVENTION = "Prevention"
 
 
+class ApplicationGatewayLoadDistributionAlgorithm(str, Enum):
+    """
+    Load Distribution Targets resource of an application gateway.
+    """
+    ROUND_ROBIN = "RoundRobin"
+    LEAST_CONNECTIONS = "LeastConnections"
+    IP_HASH = "IpHash"
+
+
 class ApplicationGatewayProtocol(str, Enum):
     """
     The protocol used for the probe.
     """
     HTTP = "Http"
     HTTPS = "Https"
+    TCP = "Tcp"
+    TLS = "Tls"
 
 
 class ApplicationGatewayRedirectType(str, Enum):
@@ -373,15 +353,6 @@ class ApplicationGatewayTier(str, Enum):
     WA_F_V2 = "WAF_v2"
 
 
-class AssociationAccessMode(str, Enum):
-    """
-    Access mode on the association.
-    """
-    LEARNING = "Learning"
-    ENFORCED = "Enforced"
-    AUDIT = "Audit"
-
-
 class AuthorizationUseStatus(str, Enum):
     """
     The authorization use status.
@@ -439,6 +410,7 @@ class AzureFirewallSkuTier(str, Enum):
     """
     STANDARD = "Standard"
     PREMIUM = "Premium"
+    BASIC = "Basic"
 
 
 class AzureFirewallThreatIntelMode(str, Enum):
@@ -458,6 +430,14 @@ class BackendEnabledState(str, Enum):
     DISABLED = "Disabled"
 
 
+class BastionHostSkuName(str, Enum):
+    """
+    The name of this Bastion Host.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+
+
 class CommissionedState(str, Enum):
     """
     The commissioned state of the Custom IP Prefix.
@@ -468,15 +448,6 @@ class CommissionedState(str, Enum):
     COMMISSIONED = "Commissioned"
     DECOMMISSIONING = "Decommissioning"
     DEPROVISIONING = "Deprovisioning"
-
-
-class ConfigurationType(str, Enum):
-    """
-    Configuration Deployment Type.
-    """
-    SECURITY_ADMIN = "SecurityAdmin"
-    SECURITY_USER = "SecurityUser"
-    CONNECTIVITY = "Connectivity"
 
 
 class ConnectionMonitorEndpointFilterItemType(str, Enum):
@@ -500,14 +471,6 @@ class ConnectionMonitorTestConfigurationProtocol(str, Enum):
     TCP = "Tcp"
     HTTP = "Http"
     ICMP = "Icmp"
-
-
-class ConnectivityTopology(str, Enum):
-    """
-    Connectivity topology type.
-    """
-    HUB_AND_SPOKE = "HubAndSpoke"
-    MESH = "Mesh"
 
 
 class CoverageLevel(str, Enum):
@@ -557,20 +520,12 @@ class DdosSettingsProtectionCoverage(str, Enum):
     STANDARD = "Standard"
 
 
-class DeleteExistingNSGs(str, Enum):
+class DeleteOptions(str, Enum):
     """
-    Flag if need to delete existing network security groups.
+    Specify what happens to the public IP address when the VM using it is deleted
     """
-    FALSE = "False"
-    TRUE = "True"
-
-
-class DeleteExistingPeering(str, Enum):
-    """
-    Flag if need to remove current existing peerings.
-    """
-    FALSE = "False"
-    TRUE = "True"
+    DELETE = "Delete"
+    DETACH = "Detach"
 
 
 class DestinationPortBehavior(str, Enum):
@@ -851,6 +806,7 @@ class FirewallPolicySkuTier(str, Enum):
     """
     STANDARD = "Standard"
     PREMIUM = "Premium"
+    BASIC = "Basic"
 
 
 class FlowLogFormatType(str, Enum):
@@ -858,14 +814,6 @@ class FlowLogFormatType(str, Enum):
     The file type of flow log.
     """
     JSON = "JSON"
-
-
-class ForwardingRuleState(str, Enum):
-    """
-    The state of forwarding rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class FrontDoorEnabledState(str, Enum):
@@ -945,12 +893,22 @@ class FrontDoorRedirectType(str, Enum):
     PERMANENT_REDIRECT = "PermanentRedirect"
 
 
-class GroupConnectivity(str, Enum):
+class GatewayLoadBalancerTunnelInterfaceType(str, Enum):
     """
-    Group connectivity type.
+    Traffic type of gateway load balancer tunnel interface.
     """
     NONE = "None"
-    DIRECTLY_CONNECTED = "DirectlyConnected"
+    INTERNAL = "Internal"
+    EXTERNAL = "External"
+
+
+class GatewayLoadBalancerTunnelProtocol(str, Enum):
+    """
+    Protocol of gateway load balancer tunnel interface.
+    """
+    NONE = "None"
+    NATIVE = "Native"
+    VXLAN = "VXLAN"
 
 
 class HTTPConfigurationMethod(str, Enum):
@@ -976,6 +934,15 @@ class HealthProbeEnabled(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class HubRoutingPreference(str, Enum):
+    """
+    The hubRoutingPreference of this VirtualHub.
+    """
+    EXPRESS_ROUTE = "ExpressRoute"
+    VPN_GATEWAY = "VpnGateway"
+    AS_PATH = "ASPath"
 
 
 class IPAllocationMethod(str, Enum):
@@ -1019,14 +986,6 @@ class IkeIntegrity(str, Enum):
     GCMAES128 = "GCMAES128"
 
 
-class IpAllocationMethod(str, Enum):
-    """
-    Private IP address allocation method.
-    """
-    STATIC = "Static"
-    DYNAMIC = "Dynamic"
-
-
 class IpAllocationType(str, Enum):
     """
     The type for the IpAllocation.
@@ -1062,12 +1021,14 @@ class IpsecIntegrity(str, Enum):
     GCMAES256 = "GCMAES256"
 
 
-class IsGlobal(str, Enum):
+class LoadBalancerBackendAddressAdminState(str, Enum):
     """
-    Flag if global mesh is supported.
+    A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
     """
-    FALSE = "False"
-    TRUE = "True"
+    NONE = "None"
+    UP = "Up"
+    DOWN = "Down"
+    DRAIN = "Drain"
 
 
 class LoadBalancerOutboundRuleProtocol(str, Enum):
@@ -1085,6 +1046,7 @@ class LoadBalancerSkuName(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+    GATEWAY = "Gateway"
 
 
 class LoadBalancerSkuTier(str, Enum):
@@ -1135,7 +1097,7 @@ class ManagedRuleExclusionSelectorMatchOperator(str, Enum):
 
 class ManagedRuleSetActionType(str, Enum):
     """
-    Defines the action to take when a managed rule set score threshold is met.
+    Defines the rule set action.
     """
     BLOCK = "Block"
     LOG = "Log"
@@ -1164,6 +1126,15 @@ class NatGatewaySkuName(str, Enum):
     Name of Nat Gateway SKU.
     """
     STANDARD = "Standard"
+
+
+class NetworkInterfaceAuxiliaryMode(str, Enum):
+    """
+    Auxiliary mode of Network Interface resource.
+    """
+    NONE = "None"
+    MAX_CONNECTIONS = "MaxConnections"
+    FLOATING = "Floating"
 
 
 class NetworkInterfaceMigrationPhase(str, Enum):
@@ -1217,6 +1188,12 @@ class OwaspCrsExclusionEntryMatchVariable(str, Enum):
     REQUEST_HEADER_NAMES = "RequestHeaderNames"
     REQUEST_COOKIE_NAMES = "RequestCookieNames"
     REQUEST_ARG_NAMES = "RequestArgNames"
+    REQUEST_HEADER_KEYS = "RequestHeaderKeys"
+    REQUEST_HEADER_VALUES = "RequestHeaderValues"
+    REQUEST_COOKIE_KEYS = "RequestCookieKeys"
+    REQUEST_COOKIE_VALUES = "RequestCookieValues"
+    REQUEST_ARG_KEYS = "RequestArgKeys"
+    REQUEST_ARG_VALUES = "RequestArgValues"
 
 
 class OwaspCrsExclusionEntrySelectorMatchOperator(str, Enum):
@@ -1284,6 +1261,15 @@ class PreferredIPVersion(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class PreferredRoutingGateway(str, Enum):
+    """
+    The preferred gateway to route on-prem traffic
+    """
+    EXPRESS_ROUTE = "ExpressRoute"
+    VPN_GATEWAY = "VpnGateway"
+    NONE = "None"
 
 
 class ProbeProtocol(str, Enum):
@@ -1450,35 +1436,6 @@ class RulesEngineOperator(str, Enum):
     ENDS_WITH = "EndsWith"
 
 
-class SecurityConfigurationRuleAccess(str, Enum):
-    """
-    Indicates the access allowed for this particular rule
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-    ALWAYS_ALLOW = "AlwaysAllow"
-
-
-class SecurityConfigurationRuleDirection(str, Enum):
-    """
-    Indicates if the traffic matched against the rule in inbound or outbound.
-    """
-    INBOUND = "Inbound"
-    OUTBOUND = "Outbound"
-
-
-class SecurityConfigurationRuleProtocol(str, Enum):
-    """
-    Network protocol this rule applies to.
-    """
-    TCP = "Tcp"
-    UDP = "Udp"
-    ICMP = "Icmp"
-    ESP = "Esp"
-    ANY = "Any"
-    AH = "Ah"
-
-
 class SecurityProviderName(str, Enum):
     """
     The security provider name.
@@ -1514,14 +1471,6 @@ class SecurityRuleProtocol(str, Enum):
     ESP = "Esp"
     ASTERISK = "*"
     AH = "Ah"
-
-
-class SecurityType(str, Enum):
-    """
-    Security Type.
-    """
-    ADMIN_POLICY = "AdminPolicy"
-    USER_POLICY = "UserPolicy"
 
 
 class ServiceProviderProvisioningState(str, Enum):
@@ -1612,20 +1561,12 @@ class TransportProtocol(str, Enum):
     ALL = "All"
 
 
-class UseHubGateway(str, Enum):
+class VirtualNetworkEncryptionEnforcement(str, Enum):
     """
-    Flag if need to use hub gateway.
+    If the encrypted VNet allows VM that does not support encryption
     """
-    FALSE = "False"
-    TRUE = "True"
-
-
-class UserRuleKind(str, Enum):
-    """
-    Whether the rule is custom or default.
-    """
-    CUSTOM = "Custom"
-    DEFAULT = "Default"
+    DROP_UNENCRYPTED = "DropUnencrypted"
+    ALLOW_UNENCRYPTED = "AllowUnencrypted"
 
 
 class VirtualNetworkGatewayConnectionMode(str, Enum):
@@ -1708,6 +1649,16 @@ class VirtualNetworkGatewayType(str, Enum):
     VPN = "Vpn"
     EXPRESS_ROUTE = "ExpressRoute"
     LOCAL_GATEWAY = "LocalGateway"
+
+
+class VirtualNetworkPeeringLevel(str, Enum):
+    """
+    The peering sync status of the virtual network peering.
+    """
+    FULLY_IN_SYNC = "FullyInSync"
+    REMOTE_NOT_IN_SYNC = "RemoteNotInSync"
+    LOCAL_NOT_IN_SYNC = "LocalNotInSync"
+    LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
 
 
 class VirtualNetworkPeeringState(str, Enum):

@@ -132,7 +132,7 @@ def get_partner_configuration(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerConfigurationResult:
     """
     Partner configuration information
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -161,7 +161,7 @@ def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerConfigurationResult]:
     """
     Partner configuration information
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

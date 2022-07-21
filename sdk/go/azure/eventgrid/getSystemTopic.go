@@ -11,7 +11,7 @@ import (
 )
 
 // EventGrid System Topic.
-// API Version: 2021-06-01-preview.
+// API Version: 2022-06-15.
 func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicResult, error) {
 	var rv LookupSystemTopicResult
 	err := ctx.Invoke("azure-native:eventgrid:getSystemTopic", args, &rv, opts...)

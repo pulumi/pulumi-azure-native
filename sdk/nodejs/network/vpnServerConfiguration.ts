@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfiguration Resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      * The set of aad vpn authentication parameters.
      */
     public readonly aadAuthenticationParameters!: pulumi.Output<outputs.network.AadAuthenticationParametersResponse | undefined>;
+    /**
+     * List of all VpnServerConfigurationPolicyGroups.
+     */
+    public readonly configurationPolicyGroups!: pulumi.Output<outputs.network.VpnServerConfigurationPolicyGroupResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -124,6 +128,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
+            resourceInputs["configurationPolicyGroups"] = args ? args.configurationPolicyGroups : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -146,6 +151,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aadAuthenticationParameters"] = undefined /*out*/;
+            resourceInputs["configurationPolicyGroups"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -179,6 +185,10 @@ export interface VpnServerConfigurationArgs {
      * The set of aad vpn authentication parameters.
      */
     aadAuthenticationParameters?: pulumi.Input<inputs.network.AadAuthenticationParametersArgs>;
+    /**
+     * List of all VpnServerConfigurationPolicyGroups.
+     */
+    configurationPolicyGroups?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupArgs>[]>;
     /**
      * Resource ID.
      */

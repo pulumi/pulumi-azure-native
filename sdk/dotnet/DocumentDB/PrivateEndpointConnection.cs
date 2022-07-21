@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-03-15.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource

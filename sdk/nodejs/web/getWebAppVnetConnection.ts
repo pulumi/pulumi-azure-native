@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Virtual Network information contract.
- * API Version: 2020-12-01.
+ * Virtual Network information ARM resource.
+ * API Version: 2021-03-01.
  */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
     if (!opts) {
@@ -38,7 +38,7 @@ export interface GetWebAppVnetConnectionArgs {
 }
 
 /**
- * Virtual Network information contract.
+ * Virtual Network information ARM resource.
  */
 export interface GetWebAppVnetConnectionResult {
     /**

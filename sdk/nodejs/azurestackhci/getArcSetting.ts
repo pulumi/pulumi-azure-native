@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ArcSetting details.
- * API Version: 2021-01-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
     if (!opts) {
@@ -46,9 +46,29 @@ export interface GetArcSettingResult {
      */
     readonly aggregateState: string;
     /**
+     * App id of arc AAD identity.
+     */
+    readonly arcApplicationClientId?: string;
+    /**
+     * Object id of arc AAD identity.
+     */
+    readonly arcApplicationObjectId?: string;
+    /**
+     * Tenant id of arc AAD identity.
+     */
+    readonly arcApplicationTenantId?: string;
+    /**
      * The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
      */
-    readonly arcInstanceResourceGroup: string;
+    readonly arcInstanceResourceGroup?: string;
+    /**
+     * Object id of arc AAD service principal.
+     */
+    readonly arcServicePrincipalObjectId?: string;
+    /**
+     * contains connectivity related configuration for ARC resources
+     */
+    readonly connectivityProperties?: outputs.azurestackhci.ArcConnectivityPropertiesResponse[];
     /**
      * The timestamp of resource creation (UTC).
      */

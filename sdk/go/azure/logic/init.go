@@ -43,12 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationServiceEnvironment{}
 	case "azure-native:logic:IntegrationServiceEnvironmentManagedApi":
 		r = &IntegrationServiceEnvironmentManagedApi{}
-	case "azure-native:logic:RosettaNetProcessConfiguration":
-		r = &RosettaNetProcessConfiguration{}
 	case "azure-native:logic:Workflow":
 		r = &Workflow{}
-	case "azure-native:logic:WorkflowAccessKey":
-		r = &WorkflowAccessKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

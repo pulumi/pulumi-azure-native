@@ -12,7 +12,7 @@ import (
 )
 
 // A budget resource.
-// API Version: 2019-10-01.
+// API Version: 2021-10-01.
 type Budget struct {
 	pulumi.CustomResourceState
 

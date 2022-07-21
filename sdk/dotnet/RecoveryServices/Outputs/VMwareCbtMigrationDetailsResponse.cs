@@ -11,20 +11,36 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
     /// <summary>
-    /// VMwareCbt provider specific settings
+    /// VMwareCbt provider specific settings.
     /// </summary>
     [OutputType]
     public sealed class VMwareCbtMigrationDetailsResponse
     {
         /// <summary>
-        /// The data mover RunAs account Id.
+        /// The data mover run as account Id.
         /// </summary>
         public readonly string DataMoverRunAsAccountId;
+        /// <summary>
+        /// The firmware type.
+        /// </summary>
+        public readonly string FirmwareType;
+        /// <summary>
+        /// The initial seeding progress percentage.
+        /// </summary>
+        public readonly int InitialSeedingProgressPercentage;
+        /// <summary>
+        /// The initial seeding retry count.
+        /// </summary>
+        public readonly double InitialSeedingRetryCount;
         /// <summary>
         /// Gets the instance type.
         /// Expected value is 'VMwareCbt'.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// The last recovery point Id.
+        /// </summary>
+        public readonly string LastRecoveryPointId;
         /// <summary>
         /// The last recovery point received time.
         /// </summary>
@@ -34,6 +50,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
+        /// The migration progress percentage.
+        /// </summary>
+        public readonly int MigrationProgressPercentage;
+        /// <summary>
         /// The recovery point Id to which the VM was migrated.
         /// </summary>
         public readonly string MigrationRecoveryPointId;
@@ -42,21 +62,61 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string OsType;
         /// <summary>
+        /// A value indicating whether auto resync is to be done.
+        /// </summary>
+        public readonly string? PerformAutoResync;
+        /// <summary>
         /// The list of protected disks.
         /// </summary>
         public readonly ImmutableArray<Outputs.VMwareCbtProtectedDiskDetailsResponse> ProtectedDisks;
         /// <summary>
-        /// The snapshot RunAs account Id.
+        /// The resync progress percentage.
+        /// </summary>
+        public readonly int ResyncProgressPercentage;
+        /// <summary>
+        /// A value indicating whether resync is required.
+        /// </summary>
+        public readonly string ResyncRequired;
+        /// <summary>
+        /// The resync retry count.
+        /// </summary>
+        public readonly double ResyncRetryCount;
+        /// <summary>
+        /// The resync state.
+        /// </summary>
+        public readonly string ResyncState;
+        /// <summary>
+        /// The tags for the seed disks.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? SeedDiskTags;
+        /// <summary>
+        /// The snapshot run as account Id.
         /// </summary>
         public readonly string SnapshotRunAsAccountId;
+        /// <summary>
+        /// The SQL Server license type.
+        /// </summary>
+        public readonly string? SqlServerLicenseType;
         /// <summary>
         /// The target availability set Id.
         /// </summary>
         public readonly string? TargetAvailabilitySetId;
         /// <summary>
+        /// The target availability zone.
+        /// </summary>
+        public readonly string? TargetAvailabilityZone;
+        /// <summary>
         /// The target boot diagnostics storage account ARM Id.
         /// </summary>
         public readonly string? TargetBootDiagnosticsStorageAccountId;
+        /// <summary>
+        /// The tags for the target disks.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TargetDiskTags;
+        /// <summary>
+        /// The target generation.
+        /// </summary>
+        public readonly string TargetGeneration;
         /// <summary>
         /// The target location.
         /// </summary>
@@ -65,6 +125,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The target network Id.
         /// </summary>
         public readonly string? TargetNetworkId;
+        /// <summary>
+        /// The tags for the target NICs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TargetNicTags;
+        /// <summary>
+        /// The target proximity placement group Id.
+        /// </summary>
+        public readonly string? TargetProximityPlacementGroupId;
         /// <summary>
         /// The target resource group Id.
         /// </summary>
@@ -78,6 +146,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TargetVmSize;
         /// <summary>
+        /// The target VM tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TargetVmTags;
+        /// <summary>
         /// The network details.
         /// </summary>
         public readonly ImmutableArray<Outputs.VMwareCbtNicDetailsResponse> VmNics;
@@ -90,27 +162,61 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         private VMwareCbtMigrationDetailsResponse(
             string dataMoverRunAsAccountId,
 
+            string firmwareType,
+
+            int initialSeedingProgressPercentage,
+
+            double initialSeedingRetryCount,
+
             string instanceType,
+
+            string lastRecoveryPointId,
 
             string lastRecoveryPointReceived,
 
             string? licenseType,
 
+            int migrationProgressPercentage,
+
             string migrationRecoveryPointId,
 
             string osType,
 
+            string? performAutoResync,
+
             ImmutableArray<Outputs.VMwareCbtProtectedDiskDetailsResponse> protectedDisks,
+
+            int resyncProgressPercentage,
+
+            string resyncRequired,
+
+            double resyncRetryCount,
+
+            string resyncState,
+
+            ImmutableDictionary<string, string>? seedDiskTags,
 
             string snapshotRunAsAccountId,
 
+            string? sqlServerLicenseType,
+
             string? targetAvailabilitySetId,
 
+            string? targetAvailabilityZone,
+
             string? targetBootDiagnosticsStorageAccountId,
+
+            ImmutableDictionary<string, string>? targetDiskTags,
+
+            string targetGeneration,
 
             string targetLocation,
 
             string? targetNetworkId,
+
+            ImmutableDictionary<string, string>? targetNicTags,
+
+            string? targetProximityPlacementGroupId,
 
             string? targetResourceGroupId,
 
@@ -118,25 +224,45 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? targetVmSize,
 
+            ImmutableDictionary<string, string>? targetVmTags,
+
             ImmutableArray<Outputs.VMwareCbtNicDetailsResponse> vmNics,
 
             string vmwareMachineId)
         {
             DataMoverRunAsAccountId = dataMoverRunAsAccountId;
+            FirmwareType = firmwareType;
+            InitialSeedingProgressPercentage = initialSeedingProgressPercentage;
+            InitialSeedingRetryCount = initialSeedingRetryCount;
             InstanceType = instanceType;
+            LastRecoveryPointId = lastRecoveryPointId;
             LastRecoveryPointReceived = lastRecoveryPointReceived;
             LicenseType = licenseType;
+            MigrationProgressPercentage = migrationProgressPercentage;
             MigrationRecoveryPointId = migrationRecoveryPointId;
             OsType = osType;
+            PerformAutoResync = performAutoResync;
             ProtectedDisks = protectedDisks;
+            ResyncProgressPercentage = resyncProgressPercentage;
+            ResyncRequired = resyncRequired;
+            ResyncRetryCount = resyncRetryCount;
+            ResyncState = resyncState;
+            SeedDiskTags = seedDiskTags;
             SnapshotRunAsAccountId = snapshotRunAsAccountId;
+            SqlServerLicenseType = sqlServerLicenseType;
             TargetAvailabilitySetId = targetAvailabilitySetId;
+            TargetAvailabilityZone = targetAvailabilityZone;
             TargetBootDiagnosticsStorageAccountId = targetBootDiagnosticsStorageAccountId;
+            TargetDiskTags = targetDiskTags;
+            TargetGeneration = targetGeneration;
             TargetLocation = targetLocation;
             TargetNetworkId = targetNetworkId;
+            TargetNicTags = targetNicTags;
+            TargetProximityPlacementGroupId = targetProximityPlacementGroupId;
             TargetResourceGroupId = targetResourceGroupId;
             TargetVmName = targetVmName;
             TargetVmSize = targetVmSize;
+            TargetVmTags = targetVmTags;
             VmNics = vmNics;
             VmwareMachineId = vmwareMachineId;
         }

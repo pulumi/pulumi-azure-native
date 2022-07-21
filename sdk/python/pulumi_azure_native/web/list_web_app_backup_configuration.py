@@ -145,7 +145,7 @@ def list_web_app_backup_configuration(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationResult:
     """
     Description of a backup which will be performed.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -178,7 +178,7 @@ def list_web_app_backup_configuration_output(name: Optional[pulumi.Input[str]] =
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupConfigurationResult]:
     """
     Description of a backup which will be performed.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

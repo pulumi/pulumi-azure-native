@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX Segment
- * API Version: 2020-07-17-preview.
+ * API Version: 2021-12-01.
  */
 export function getWorkloadNetworkSegment(args: GetWorkloadNetworkSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkSegmentResult> {
     if (!opts) {

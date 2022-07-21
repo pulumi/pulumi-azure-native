@@ -11,7 +11,7 @@ import (
 )
 
 // Customer subscription which can use a sku.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkuPreviewResult, error) {
 	var rv LookupVendorSkuPreviewResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getVendorSkuPreview", args, &rv, opts...)
@@ -36,6 +36,10 @@ type LookupVendorSkuPreviewResult struct {
 	Id string `pulumi:"id"`
 	// The preview subscription ID.
 	Name string `pulumi:"name"`
+	// The provisioning state of the PreviewSubscription resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -89,6 +93,16 @@ func (o LookupVendorSkuPreviewResultOutput) Id() pulumi.StringOutput {
 // The preview subscription ID.
 func (o LookupVendorSkuPreviewResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVendorSkuPreviewResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the PreviewSubscription resource.
+func (o LookupVendorSkuPreviewResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVendorSkuPreviewResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupVendorSkuPreviewResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupVendorSkuPreviewResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

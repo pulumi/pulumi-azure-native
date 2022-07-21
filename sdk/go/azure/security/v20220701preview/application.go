@@ -37,12 +37,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.SourceResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceResourceType'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:Application"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Application
 	err := ctx.RegisterResource("azure-native:security/v20220701preview:Application", name, args, &resource, opts...)
 	if err != nil {

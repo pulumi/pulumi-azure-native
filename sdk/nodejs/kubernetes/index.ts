@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 export * from "./connectedCluster";
 export * from "./getConnectedCluster";
 export * from "./listConnectedClusterUserCredential";
-export * from "./listConnectedClusterUserCredentials";
 
 // Export enums:
 export * from "../types/enums/kubernetes";

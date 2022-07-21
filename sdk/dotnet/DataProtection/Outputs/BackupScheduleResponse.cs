@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// ISO 8601 repeating time interval format
         /// </summary>
         public readonly ImmutableArray<string> RepeatingTimeIntervals;
+        /// <summary>
+        /// Time zone for a schedule. Example: Pacific Standard Time
+        /// </summary>
+        public readonly string? TimeZone;
 
         [OutputConstructor]
-        private BackupScheduleResponse(ImmutableArray<string> repeatingTimeIntervals)
+        private BackupScheduleResponse(
+            ImmutableArray<string> repeatingTimeIntervals,
+
+            string? timeZone)
         {
             RepeatingTimeIntervals = repeatingTimeIntervals;
+            TimeZone = timeZone;
         }
     }
 }

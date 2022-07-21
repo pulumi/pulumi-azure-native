@@ -12,20 +12,22 @@ import (
 )
 
 // Contains information about an Azure Batch account.
-// API Version: 2021-01-01.
+// API Version: 2022-06-01.
 type BatchAccount struct {
 	pulumi.CustomResourceState
 
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint              pulumi.StringOutput `pulumi:"accountEndpoint"`
 	ActiveJobAndJobScheduleQuota pulumi.IntOutput    `pulumi:"activeJobAndJobScheduleQuota"`
+	// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+	AllowedAuthenticationModes pulumi.StringArrayOutput `pulumi:"allowedAuthenticationModes"`
 	// Contains information about the auto-storage account associated with a Batch account.
 	AutoStorage AutoStoragePropertiesResponseOutput `pulumi:"autoStorage"`
 	// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
 	DedicatedCoreQuota pulumi.IntOutput `pulumi:"dedicatedCoreQuota"`
 	// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
 	DedicatedCoreQuotaPerVMFamily VirtualMachineFamilyCoreQuotaResponseArrayOutput `pulumi:"dedicatedCoreQuotaPerVMFamily"`
-	// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+	// If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
 	DedicatedCoreQuotaPerVMFamilyEnforced pulumi.BoolOutput `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
 	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 	Encryption EncryptionPropertiesResponseOutput `pulumi:"encryption"`
@@ -39,6 +41,10 @@ type BatchAccount struct {
 	LowPriorityCoreQuota pulumi.IntOutput `pulumi:"lowPriorityCoreQuota"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The network profile only takes effect when publicNetworkAccess is enabled.
+	NetworkProfile NetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
+	// The endpoint used by compute node to connect to the Batch node management service.
+	NodeManagementEndpoint pulumi.StringOutput `pulumi:"nodeManagementEndpoint"`
 	// The allocation mode for creating pools in the Batch account.
 	PoolAllocationMode pulumi.StringOutput `pulumi:"poolAllocationMode"`
 	PoolQuota          pulumi.IntOutput    `pulumi:"poolQuota"`
@@ -47,7 +53,7 @@ type BatchAccount struct {
 	// The provisioned state of the resource
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -63,6 +69,9 @@ func NewBatchAccount(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.AutoStorage != nil {
+		args.AutoStorage = args.AutoStorage.ToAutoStorageBasePropertiesPtrOutput().ApplyT(func(v *AutoStorageBaseProperties) *AutoStorageBaseProperties { return v.Defaults() }).(AutoStorageBasePropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -143,6 +152,8 @@ func (BatchAccountState) ElementType() reflect.Type {
 type batchAccountArgs struct {
 	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
 	AccountName *string `pulumi:"accountName"`
+	// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+	AllowedAuthenticationModes []AuthenticationMode `pulumi:"allowedAuthenticationModes"`
 	// The properties related to the auto-storage account.
 	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
 	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
@@ -153,6 +164,8 @@ type batchAccountArgs struct {
 	KeyVaultReference *KeyVaultReference `pulumi:"keyVaultReference"`
 	// The region in which to create the account.
 	Location *string `pulumi:"location"`
+	// The network profile only takes effect when publicNetworkAccess is enabled.
+	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 	PoolAllocationMode *PoolAllocationMode `pulumi:"poolAllocationMode"`
 	// If not specified, the default value is 'enabled'.
@@ -167,6 +180,8 @@ type batchAccountArgs struct {
 type BatchAccountArgs struct {
 	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
 	AccountName pulumi.StringPtrInput
+	// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+	AllowedAuthenticationModes AuthenticationModeArrayInput
 	// The properties related to the auto-storage account.
 	AutoStorage AutoStorageBasePropertiesPtrInput
 	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
@@ -177,6 +192,8 @@ type BatchAccountArgs struct {
 	KeyVaultReference KeyVaultReferencePtrInput
 	// The region in which to create the account.
 	Location pulumi.StringPtrInput
+	// The network profile only takes effect when publicNetworkAccess is enabled.
+	NetworkProfile NetworkProfilePtrInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 	PoolAllocationMode PoolAllocationModePtrInput
 	// If not specified, the default value is 'enabled'.
@@ -233,6 +250,11 @@ func (o BatchAccountOutput) ActiveJobAndJobScheduleQuota() pulumi.IntOutput {
 	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.ActiveJobAndJobScheduleQuota }).(pulumi.IntOutput)
 }
 
+// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+func (o BatchAccountOutput) AllowedAuthenticationModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringArrayOutput { return v.AllowedAuthenticationModes }).(pulumi.StringArrayOutput)
+}
+
 // Contains information about the auto-storage account associated with a Batch account.
 func (o BatchAccountOutput) AutoStorage() AutoStoragePropertiesResponseOutput {
 	return o.ApplyT(func(v *BatchAccount) AutoStoragePropertiesResponseOutput { return v.AutoStorage }).(AutoStoragePropertiesResponseOutput)
@@ -250,7 +272,7 @@ func (o BatchAccountOutput) DedicatedCoreQuotaPerVMFamily() VirtualMachineFamily
 	}).(VirtualMachineFamilyCoreQuotaResponseArrayOutput)
 }
 
-// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+// If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
 func (o BatchAccountOutput) DedicatedCoreQuotaPerVMFamilyEnforced() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BatchAccount) pulumi.BoolOutput { return v.DedicatedCoreQuotaPerVMFamilyEnforced }).(pulumi.BoolOutput)
 }
@@ -285,6 +307,16 @@ func (o BatchAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The network profile only takes effect when publicNetworkAccess is enabled.
+func (o BatchAccountOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *BatchAccount) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// The endpoint used by compute node to connect to the Batch node management service.
+func (o BatchAccountOutput) NodeManagementEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.NodeManagementEndpoint }).(pulumi.StringOutput)
+}
+
 // The allocation mode for creating pools in the Batch account.
 func (o BatchAccountOutput) PoolAllocationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.PoolAllocationMode }).(pulumi.StringOutput)
@@ -307,8 +339,8 @@ func (o BatchAccountOutput) ProvisioningState() pulumi.StringOutput {
 }
 
 // If not specified, the default value is 'enabled'.
-func (o BatchAccountOutput) PublicNetworkAccess() pulumi.StringOutput {
-	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+func (o BatchAccountOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The tags of the resource.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -41,9 +41,13 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The Azure Active Directory identity of the server.
+     * The Azure Active Directory administrator of the server.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
+    /**
+     * The Client id used for cross tenant CMK scenario
+     */
+    public readonly federatedClientId!: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of the server.
      */
@@ -85,6 +89,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
+     * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    public readonly restrictOutboundNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The state of the server.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -122,6 +130,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             resourceInputs["administrators"] = args ? args.administrators : undefined;
+            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyId"] = args ? args.keyId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -129,6 +138,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restrictOutboundNetworkAccess"] = args ? args.restrictOutboundNetworkAccess : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -142,6 +152,7 @@ export class Server extends pulumi.CustomResource {
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["administrators"] = undefined /*out*/;
+            resourceInputs["federatedClientId"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
@@ -152,6 +163,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["primaryUserAssignedIdentityId"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["restrictOutboundNetworkAccess"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -178,9 +190,13 @@ export interface ServerArgs {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * The Azure Active Directory identity of the server.
+     * The Azure Active Directory administrator of the server.
      */
     administrators?: pulumi.Input<inputs.sql.ServerExternalAdministratorArgs>;
+    /**
+     * The Client id used for cross tenant CMK scenario
+     */
+    federatedClientId?: pulumi.Input<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
@@ -204,11 +220,15 @@ export interface ServerArgs {
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerPublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    restrictOutboundNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
     /**
      * The name of the server.
      */

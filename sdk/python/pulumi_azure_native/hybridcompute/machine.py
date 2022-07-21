@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MachineArgs', 'Machine']
@@ -16,44 +17,37 @@ __all__ = ['MachineArgs', 'Machine']
 class MachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 client_public_key: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['MachineIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_id: Optional[pulumi.Input[str]] = None):
+                 machine_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['MachinePropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Machine resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['LocationDataArgs'] location_data: Metadata pertaining to the geographic location of the resource.
-        :param pulumi.Input[str] name: The name of the hybrid machine.
+        :param pulumi.Input[str] machine_name: The name of the hybrid machine.
+        :param pulumi.Input['MachinePropertiesArgs'] properties: Hybrid Compute Machine properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if client_public_key is not None:
-            pulumi.set(__self__, "client_public_key", client_public_key)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if location_data is not None:
-            pulumi.set(__self__, "location_data", location_data)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        if machine_name is not None:
+            pulumi.set(__self__, "machine_name", machine_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -62,24 +56,15 @@ class MachineArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="clientPublicKey")
-    def client_public_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Public Key that the client provides to be used during initial resource onboarding
-        """
-        return pulumi.get(self, "client_public_key")
-
-    @client_public_key.setter
-    def client_public_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_public_key", value)
-
-    @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MachineIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        Identity for the resource.
+        """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MachineIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -95,28 +80,28 @@ class MachineArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional[pulumi.Input['LocationDataArgs']]:
-        """
-        Metadata pertaining to the geographic location of the resource.
-        """
-        return pulumi.get(self, "location_data")
-
-    @location_data.setter
-    def location_data(self, value: Optional[pulumi.Input['LocationDataArgs']]):
-        pulumi.set(self, "location_data", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the hybrid machine.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "machine_name")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @machine_name.setter
+    def machine_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['MachinePropertiesArgs']]:
+        """
+        Hybrid Compute Machine properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['MachinePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -130,46 +115,31 @@ class MachineArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="vmId")
-    def vm_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the hybrid machine unique ID.
-        """
-        return pulumi.get(self, "vm_id")
-
-    @vm_id.setter
-    def vm_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_id", value)
-
 
 class Machine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_public_key: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 machine_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MachinePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Describes a hybrid machine.
-        API Version: 2020-08-02.
+        API Version: 2022-03-10.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['LocationDataArgs']] location_data: Metadata pertaining to the geographic location of the resource.
-        :param pulumi.Input[str] name: The name of the hybrid machine.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] machine_name: The name of the hybrid machine.
+        :param pulumi.Input[pulumi.InputType['MachinePropertiesArgs']] properties: Hybrid Compute Machine properties
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
         ...
     @overload
@@ -179,7 +149,7 @@ class Machine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a hybrid machine.
-        API Version: 2020-08-02.
+        API Version: 2022-03-10.
 
         :param str resource_name: The name of the resource.
         :param MachineArgs args: The arguments to use to populate this resource's properties.
@@ -196,14 +166,12 @@ class Machine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_public_key: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 machine_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MachinePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -216,33 +184,17 @@ class Machine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MachineArgs.__new__(MachineArgs)
 
-            __props__.__dict__["client_public_key"] = client_public_key
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["location_data"] = location_data
-            __props__.__dict__["name"] = name
+            __props__.__dict__["machine_name"] = machine_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["vm_id"] = vm_id
-            __props__.__dict__["ad_fqdn"] = None
-            __props__.__dict__["agent_version"] = None
-            __props__.__dict__["display_name"] = None
-            __props__.__dict__["dns_fqdn"] = None
-            __props__.__dict__["domain_name"] = None
-            __props__.__dict__["error_details"] = None
-            __props__.__dict__["extensions"] = None
-            __props__.__dict__["last_status_change"] = None
-            __props__.__dict__["machine_fqdn"] = None
-            __props__.__dict__["os_name"] = None
-            __props__.__dict__["os_profile"] = None
-            __props__.__dict__["os_sku"] = None
-            __props__.__dict__["os_version"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["vm_uuid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20190318preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:Machine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Machine, __self__).__init__(
@@ -267,108 +219,22 @@ class Machine(pulumi.CustomResource):
 
         __props__ = MachineArgs.__new__(MachineArgs)
 
-        __props__.__dict__["ad_fqdn"] = None
-        __props__.__dict__["agent_version"] = None
-        __props__.__dict__["client_public_key"] = None
-        __props__.__dict__["display_name"] = None
-        __props__.__dict__["dns_fqdn"] = None
-        __props__.__dict__["domain_name"] = None
-        __props__.__dict__["error_details"] = None
-        __props__.__dict__["extensions"] = None
         __props__.__dict__["identity"] = None
-        __props__.__dict__["last_status_change"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["location_data"] = None
-        __props__.__dict__["machine_fqdn"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["os_name"] = None
-        __props__.__dict__["os_profile"] = None
-        __props__.__dict__["os_sku"] = None
-        __props__.__dict__["os_version"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["status"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["vm_id"] = None
-        __props__.__dict__["vm_uuid"] = None
         return Machine(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="adFqdn")
-    def ad_fqdn(self) -> pulumi.Output[str]:
-        """
-        Specifies the AD fully qualified display name.
-        """
-        return pulumi.get(self, "ad_fqdn")
-
-    @property
-    @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> pulumi.Output[str]:
-        """
-        The hybrid machine agent full version.
-        """
-        return pulumi.get(self, "agent_version")
-
-    @property
-    @pulumi.getter(name="clientPublicKey")
-    def client_public_key(self) -> pulumi.Output[Optional[str]]:
-        """
-        Public Key that the client provides to be used during initial resource onboarding
-        """
-        return pulumi.get(self, "client_public_key")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the hybrid machine display name.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="dnsFqdn")
-    def dns_fqdn(self) -> pulumi.Output[str]:
-        """
-        Specifies the DNS fully qualified display name.
-        """
-        return pulumi.get(self, "dns_fqdn")
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the Windows domain name.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @property
-    @pulumi.getter(name="errorDetails")
-    def error_details(self) -> pulumi.Output[Sequence['outputs.ErrorDetailResponse']]:
-        """
-        Details about the error state.
-        """
-        return pulumi.get(self, "error_details")
-
-    @property
     @pulumi.getter
-    def extensions(self) -> pulumi.Output[Sequence['outputs.MachineExtensionInstanceViewResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
-        Machine Extensions information
+        Identity for the resource.
         """
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.MachineResponseIdentity']]:
         return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="lastStatusChange")
-    def last_status_change(self) -> pulumi.Output[str]:
-        """
-        The time of the last status change.
-        """
-        return pulumi.get(self, "last_status_change")
 
     @property
     @pulumi.getter
@@ -379,22 +245,6 @@ class Machine(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="locationData")
-    def location_data(self) -> pulumi.Output[Optional['outputs.LocationDataResponse']]:
-        """
-        Metadata pertaining to the geographic location of the resource.
-        """
-        return pulumi.get(self, "location_data")
-
-    @property
-    @pulumi.getter(name="machineFqdn")
-    def machine_fqdn(self) -> pulumi.Output[str]:
-        """
-        Specifies the hybrid machine FQDN.
-        """
-        return pulumi.get(self, "machine_fqdn")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -403,52 +253,20 @@ class Machine(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="osName")
-    def os_name(self) -> pulumi.Output[str]:
-        """
-        The Operating System running on the hybrid machine.
-        """
-        return pulumi.get(self, "os_name")
-
-    @property
-    @pulumi.getter(name="osProfile")
-    def os_profile(self) -> pulumi.Output[Optional['outputs.MachinePropertiesResponseOsProfile']]:
-        """
-        Specifies the operating system settings for the hybrid machine.
-        """
-        return pulumi.get(self, "os_profile")
-
-    @property
-    @pulumi.getter(name="osSku")
-    def os_sku(self) -> pulumi.Output[str]:
-        """
-        Specifies the Operating System product SKU.
-        """
-        return pulumi.get(self, "os_sku")
-
-    @property
-    @pulumi.getter(name="osVersion")
-    def os_version(self) -> pulumi.Output[str]:
-        """
-        The version of Operating System running on the hybrid machine.
-        """
-        return pulumi.get(self, "os_version")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state, which only appears in the response.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.MachinePropertiesResponse']:
         """
-        The status of the hybrid machine agent.
+        Hybrid Compute Machine properties
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -465,20 +283,4 @@ class Machine(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmId")
-    def vm_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the hybrid machine unique ID.
-        """
-        return pulumi.get(self, "vm_id")
-
-    @property
-    @pulumi.getter(name="vmUuid")
-    def vm_uuid(self) -> pulumi.Output[str]:
-        """
-        Specifies the Arc Machine's unique SMBIOS ID
-        """
-        return pulumi.get(self, "vm_uuid")
 

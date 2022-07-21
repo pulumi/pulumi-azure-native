@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a container registry.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -45,6 +45,22 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
+     * Enable a single data endpoint per region for serving data.
+     */
+    public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of host names that will serve data when dataEndpointEnabled is true.
+     */
+    public /*out*/ readonly dataEndpointHostNames!: pulumi.Output<string[]>;
+    /**
+     * The encryption settings of container registry.
+     */
+    public readonly encryption!: pulumi.Output<outputs.containerregistry.EncryptionPropertyResponse | undefined>;
+    /**
+     * The identity of the container registry.
+     */
+    public readonly identity!: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -57,6 +73,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Whether to allow trusted Azure services to access a network restricted registry.
+     */
+    public readonly networkRuleBypassOptions!: pulumi.Output<string | undefined>;
+    /**
      * The network rule set for a container registry.
      */
     public readonly networkRuleSet!: pulumi.Output<outputs.containerregistry.NetworkRuleSetResponse | undefined>;
@@ -65,9 +85,17 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly policies!: pulumi.Output<outputs.containerregistry.PoliciesResponse | undefined>;
     /**
+     * List of private endpoint connections for a container registry.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.containerregistry.PrivateEndpointConnectionResponse[]>;
+    /**
      * The provisioning state of the container registry at the time the operation was called.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for the container registry.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The SKU of the container registry.
      */
@@ -77,9 +105,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.StatusResponse>;
     /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    public readonly storageAccount!: pulumi.Output<outputs.containerregistry.StorageAccountPropertiesResponse | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The tags of the resource.
      */
@@ -88,6 +116,10 @@ export class Registry extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry
+     */
+    public readonly zoneRedundancy!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -107,34 +139,50 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) ?? false;
+            resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkRuleBypassOptions"] = (args ? args.networkRuleBypassOptions : undefined) ?? "AzureServices";
             resourceInputs["networkRuleSet"] = args ? (args.networkRuleSet ? pulumi.output(args.networkRuleSet).apply(inputs.containerregistry.networkRuleSetArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["policies"] = args ? (args.policies ? pulumi.output(args.policies).apply(inputs.containerregistry.policiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
             resourceInputs["loginServer"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["adminUserEnabled"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dataEndpointEnabled"] = undefined /*out*/;
+            resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["loginServer"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkRuleBypassOptions"] = undefined /*out*/;
             resourceInputs["networkRuleSet"] = undefined /*out*/;
             resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["storageAccount"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20160627preview:Registry" }, { type: "azure-native:containerregistry/v20170301:Registry" }, { type: "azure-native:containerregistry/v20170601preview:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20191201preview:Registry" }, { type: "azure-native:containerregistry/v20201101preview:Registry" }, { type: "azure-native:containerregistry/v20210601preview:Registry" }, { type: "azure-native:containerregistry/v20210801preview:Registry" }, { type: "azure-native:containerregistry/v20210901:Registry" }, { type: "azure-native:containerregistry/v20211201preview:Registry" }, { type: "azure-native:containerregistry/v20220201preview:Registry" }] };
@@ -152,9 +200,25 @@ export interface RegistryArgs {
      */
     adminUserEnabled?: pulumi.Input<boolean>;
     /**
+     * Enable a single data endpoint per region for serving data.
+     */
+    dataEndpointEnabled?: pulumi.Input<boolean>;
+    /**
+     * The encryption settings of container registry.
+     */
+    encryption?: pulumi.Input<inputs.containerregistry.EncryptionPropertyArgs>;
+    /**
+     * The identity of the container registry.
+     */
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted registry.
+     */
+    networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.NetworkRuleBypassOptions>;
     /**
      * The network rule set for a container registry.
      */
@@ -163,6 +227,10 @@ export interface RegistryArgs {
      * The policies for a container registry.
      */
     policies?: pulumi.Input<inputs.containerregistry.PoliciesArgs>;
+    /**
+     * Whether or not public network access is allowed for the container registry.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.containerregistry.PublicNetworkAccess>;
     /**
      * The name of the container registry.
      */
@@ -176,11 +244,11 @@ export interface RegistryArgs {
      */
     sku: pulumi.Input<inputs.containerregistry.SkuArgs>;
     /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    storageAccount?: pulumi.Input<inputs.containerregistry.StorageAccountPropertiesArgs>;
-    /**
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry
+     */
+    zoneRedundancy?: pulumi.Input<string | enums.containerregistry.ZoneRedundancy>;
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of a storage account’s Table service.
-    /// API Version: 2021-02-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource

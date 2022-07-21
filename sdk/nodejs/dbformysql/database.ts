@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents a Database.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -48,6 +49,10 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,15 +80,17 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["charset"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Database" }, { type: "azure-native:dbformysql/v20171201preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20211201preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

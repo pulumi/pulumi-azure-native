@@ -12,30 +12,46 @@ import (
 )
 
 // Description of a namespace resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// The time the namespace was created.
+	// Alternate name for namespace
+	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
+	// The time the namespace was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// This property disables SAS authentication for the Service Bus namespace.
+	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Identifier for Azure Insights metrics
 	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of private endpoint connections.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the namespace.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
-	// Properties of Sku
+	// Properties of SKU
 	Sku SBSkuResponsePtrOutput `pulumi:"sku"`
+	// Status of the namespace.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -47,6 +63,9 @@ func NewNamespace(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Encryption != nil {
+		args.Encryption = args.Encryption.ToEncryptionPtrOutput().ApplyT(func(v *Encryption) *Encryption { return v.Defaults() }).(EncryptionPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -107,30 +126,54 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// Alternate name for namespace
+	AlternateName *string `pulumi:"alternateName"`
+	// This property disables SAS authentication for the Service Bus namespace.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Properties of BYOK Encryption description
+	Encryption *Encryption `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *Identity `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The namespace name.
 	NamespaceName *string `pulumi:"namespaceName"`
+	// List of private endpoint connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Properties of Sku
+	// Properties of SKU
 	Sku *SBSku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// Alternate name for namespace
+	AlternateName pulumi.StringPtrInput
+	// This property disables SAS authentication for the Service Bus namespace.
+	DisableLocalAuth pulumi.BoolPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionPtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityPtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The namespace name.
 	NamespaceName pulumi.StringPtrInput
+	// List of private endpoint connections.
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Properties of Sku
+	// Properties of SKU
 	Sku SBSkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -170,9 +213,29 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// The time the namespace was created.
+// Alternate name for namespace
+func (o NamespaceOutput) AlternateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AlternateName }).(pulumi.StringPtrOutput)
+}
+
+// The time the namespace was created
 func (o NamespaceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// This property disables SAS authentication for the Service Bus namespace.
+func (o NamespaceOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Properties of BYOK Encryption description
+func (o NamespaceOutput) Encryption() EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *Namespace) EncryptionResponsePtrOutput { return v.Encryption }).(EncryptionResponsePtrOutput)
+}
+
+// Properties of BYOK Identity description
+func (o NamespaceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Namespace) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The Geo-location where the resource lives
@@ -190,6 +253,11 @@ func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of private endpoint connections.
+func (o NamespaceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Namespace) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // Provisioning state of the namespace.
 func (o NamespaceOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -200,9 +268,19 @@ func (o NamespaceOutput) ServiceBusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ServiceBusEndpoint }).(pulumi.StringOutput)
 }
 
-// Properties of Sku
+// Properties of SKU
 func (o NamespaceOutput) Sku() SBSkuResponsePtrOutput {
 	return o.ApplyT(func(v *Namespace) SBSkuResponsePtrOutput { return v.Sku }).(SBSkuResponsePtrOutput)
+}
+
+// Status of the namespace.
+func (o NamespaceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o NamespaceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Namespace) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags
@@ -218,6 +296,11 @@ func (o NamespaceOutput) Type() pulumi.StringOutput {
 // The time the namespace was updated.
 func (o NamespaceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+func (o NamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

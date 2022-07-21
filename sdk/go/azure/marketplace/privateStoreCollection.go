@@ -12,10 +12,14 @@ import (
 )
 
 // The Collection data structure.
-// API Version: 2021-12-01.
+// API Version: 2022-03-01.
 type PrivateStoreCollection struct {
 	pulumi.CustomResourceState
 
+	// Indicating whether all items are approved for this collection (=true) or not (=false).
+	AllItemsApproved pulumi.BoolOutput `pulumi:"allItemsApproved"`
+	// Gets the modified date of all items approved.
+	AllItemsApprovedModifiedAt pulumi.StringOutput `pulumi:"allItemsApprovedModifiedAt"`
 	// Indicating whether all subscriptions are selected (=true) or not (=false).
 	AllSubscriptions pulumi.BoolPtrOutput `pulumi:"allSubscriptions"`
 	// Gets or sets the association with Commercial's Billing Account.
@@ -161,6 +165,16 @@ func (o PrivateStoreCollectionOutput) ToPrivateStoreCollectionOutput() PrivateSt
 
 func (o PrivateStoreCollectionOutput) ToPrivateStoreCollectionOutputWithContext(ctx context.Context) PrivateStoreCollectionOutput {
 	return o
+}
+
+// Indicating whether all items are approved for this collection (=true) or not (=false).
+func (o PrivateStoreCollectionOutput) AllItemsApproved() pulumi.BoolOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.BoolOutput { return v.AllItemsApproved }).(pulumi.BoolOutput)
+}
+
+// Gets the modified date of all items approved.
+func (o PrivateStoreCollectionOutput) AllItemsApprovedModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringOutput { return v.AllItemsApprovedModifiedAt }).(pulumi.StringOutput)
 }
 
 // Indicating whether all subscriptions are selected (=true) or not (=false).

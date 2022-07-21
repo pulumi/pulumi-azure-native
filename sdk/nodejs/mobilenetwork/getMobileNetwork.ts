@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Mobile network resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getMobileNetwork(args: GetMobileNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetMobileNetworkResult> {
     if (!opts) {
@@ -84,6 +84,10 @@ export interface GetMobileNetworkResult {
      * The mobile network resource identifier
      */
     readonly serviceKey: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

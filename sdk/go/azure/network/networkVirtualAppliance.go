@@ -12,7 +12,7 @@ import (
 )
 
 // NetworkVirtualAppliance Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type NetworkVirtualAppliance struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type NetworkVirtualAppliance struct {
 	NvaSku VirtualApplianceSkuPropertiesResponsePtrOutput `pulumi:"nvaSku"`
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Public key for SSH login.
+	SshPublicKey pulumi.StringPtrOutput `pulumi:"sshPublicKey"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -154,6 +156,8 @@ type networkVirtualApplianceArgs struct {
 	NvaSku *VirtualApplianceSkuProperties `pulumi:"nvaSku"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Public key for SSH login.
+	SshPublicKey *string `pulumi:"sshPublicKey"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// VirtualAppliance ASN.
@@ -182,6 +186,8 @@ type NetworkVirtualApplianceArgs struct {
 	NvaSku VirtualApplianceSkuPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Public key for SSH login.
+	SshPublicKey pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// VirtualAppliance ASN.
@@ -280,6 +286,11 @@ func (o NetworkVirtualApplianceOutput) NvaSku() VirtualApplianceSkuPropertiesRes
 // The provisioning state of the resource.
 func (o NetworkVirtualApplianceOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkVirtualAppliance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Public key for SSH login.
+func (o NetworkVirtualApplianceOutput) SshPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkVirtualAppliance) pulumi.StringPtrOutput { return v.SshPublicKey }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags.

@@ -11,7 +11,7 @@ import (
 )
 
 // Managed cluster.
-// API Version: 2021-03-01.
+// API Version: 2022-04-01.
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
 	err := ctx.Invoke("azure-native:containerservice:getManagedCluster", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, o
 }
 
 type LookupManagedClusterArgs struct {
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
@@ -30,25 +30,27 @@ type LookupManagedClusterArgs struct {
 
 // Managed cluster.
 type LookupManagedClusterResult struct {
-	// Profile of Azure Active Directory configuration.
+	// The Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
-	// Profile of managed cluster add-on.
+	// The profile of managed cluster add-on.
 	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
-	// Properties of the agent pool.
+	// The agent pool properties.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Access profile for managed cluster API server.
+	// The access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
-	// Profile of auto upgrade configuration.
+	// The auto upgrade configuration.
 	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
-	// FQDN for the master pool which used by proxy config.
+	// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
 	AzurePortalFQDN string `pulumi:"azurePortalFQDN"`
-	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	// If kubernetesVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If kubernetesVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used.
+	CurrentKubernetesVersion string `pulumi:"currentKubernetesVersion"`
+	// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 	DisableLocalAccounts *bool `pulumi:"disableLocalAccounts"`
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
-	// DNS prefix specified when creating the managed cluster.
+	// This cannot be updated once the Managed Cluster has been created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
@@ -56,51 +58,59 @@ type LookupManagedClusterResult struct {
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// The extended location of the Virtual Machine.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// FQDN for the master pool.
+	// The FQDN of the master pool.
 	Fqdn string `pulumi:"fqdn"`
-	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	// This cannot be updated once the Managed Cluster has been created.
 	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
 	// Configurations for provisioning the cluster with HTTP proxy servers.
 	HttpProxyConfig *ManagedClusterHTTPProxyConfigResponse `pulumi:"httpProxyConfig"`
-	// Resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]ManagedClusterPropertiesResponseIdentityProfile `pulumi:"identityProfile"`
-	// Version of Kubernetes specified when creating the managed cluster.
+	IdentityProfile map[string]UserAssignedIdentityResponse `pulumi:"identityProfile"`
+	// Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
-	// Profile for Linux VMs in the container service cluster.
+	// The profile for Linux VMs in the Managed Cluster.
 	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The max number of agent pools for the managed cluster.
 	MaxAgentPools int `pulumi:"maxAgentPools"`
-	// Resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Profile of network configuration.
+	// The network configuration profile.
 	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
-	// Name of the resource group containing agent pool nodes.
+	// The name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Profile of managed cluster pod identity.
+	// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 	PodIdentityProfile *ManagedClusterPodIdentityProfileResponse `pulumi:"podIdentityProfile"`
-	// Represents the Power State of the cluster
+	// The Power State of the cluster.
 	PowerState PowerStateResponse `pulumi:"powerState"`
-	// FQDN of private cluster.
+	// The FQDN of private cluster.
 	PrivateFQDN string `pulumi:"privateFQDN"`
 	// Private link resources associated with the cluster.
 	PrivateLinkResources []PrivateLinkResourceResponse `pulumi:"privateLinkResources"`
-	// The current deployment or provisioning state, which only appears in the response.
+	// The current provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Allow or deny public network access for AKS
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Security profile for the managed cluster.
+	SecurityProfile *ManagedClusterSecurityProfileResponse `pulumi:"securityProfile"`
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 	ServicePrincipalProfile *ManagedClusterServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// The managed cluster SKU.
 	Sku *ManagedClusterSKUResponse `pulumi:"sku"`
-	// Resource tags
+	// Storage profile for the managed cluster.
+	StorageProfile *ManagedClusterStorageProfileResponse `pulumi:"storageProfile"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
-	// Profile for Windows VMs in the container service cluster.
+	// The profile for Windows VMs in the Managed Cluster.
 	WindowsProfile *ManagedClusterWindowsProfileResponse `pulumi:"windowsProfile"`
 }
 
@@ -129,7 +139,7 @@ func LookupManagedClusterOutput(ctx *pulumi.Context, args LookupManagedClusterOu
 }
 
 type LookupManagedClusterOutputArgs struct {
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput `pulumi:"resourceName"`
@@ -154,26 +164,26 @@ func (o LookupManagedClusterResultOutput) ToLookupManagedClusterResultOutputWith
 	return o
 }
 
-// Profile of Azure Active Directory configuration.
+// The Azure Active Directory configuration.
 func (o LookupManagedClusterResultOutput) AadProfile() ManagedClusterAADProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterAADProfileResponse { return v.AadProfile }).(ManagedClusterAADProfileResponsePtrOutput)
 }
 
-// Profile of managed cluster add-on.
+// The profile of managed cluster add-on.
 func (o LookupManagedClusterResultOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) map[string]ManagedClusterAddonProfileResponse {
 		return v.AddonProfiles
 	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
-// Properties of the agent pool.
+// The agent pool properties.
 func (o LookupManagedClusterResultOutput) AgentPoolProfiles() ManagedClusterAgentPoolProfileResponseArrayOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) []ManagedClusterAgentPoolProfileResponse {
 		return v.AgentPoolProfiles
 	}).(ManagedClusterAgentPoolProfileResponseArrayOutput)
 }
 
-// Access profile for managed cluster API server.
+// The access profile for managed cluster API server.
 func (o LookupManagedClusterResultOutput) ApiServerAccessProfile() ManagedClusterAPIServerAccessProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterAPIServerAccessProfileResponse {
 		return v.ApiServerAccessProfile
@@ -187,29 +197,34 @@ func (o LookupManagedClusterResultOutput) AutoScalerProfile() ManagedClusterProp
 	}).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
 }
 
-// Profile of auto upgrade configuration.
+// The auto upgrade configuration.
 func (o LookupManagedClusterResultOutput) AutoUpgradeProfile() ManagedClusterAutoUpgradeProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterAutoUpgradeProfileResponse {
 		return v.AutoUpgradeProfile
 	}).(ManagedClusterAutoUpgradeProfileResponsePtrOutput)
 }
 
-// FQDN for the master pool which used by proxy config.
+// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
 func (o LookupManagedClusterResultOutput) AzurePortalFQDN() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.AzurePortalFQDN }).(pulumi.StringOutput)
 }
 
-// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+// If kubernetesVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If kubernetesVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used.
+func (o LookupManagedClusterResultOutput) CurrentKubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
+}
+
+// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 func (o LookupManagedClusterResultOutput) DisableLocalAccounts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *bool { return v.DisableLocalAccounts }).(pulumi.BoolPtrOutput)
 }
 
-// ResourceId of the disk encryption set to use for enabling encryption at rest.
+// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 func (o LookupManagedClusterResultOutput) DiskEncryptionSetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.DiskEncryptionSetID }).(pulumi.StringPtrOutput)
 }
 
-// DNS prefix specified when creating the managed cluster.
+// This cannot be updated once the Managed Cluster has been created.
 func (o LookupManagedClusterResultOutput) DnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.DnsPrefix }).(pulumi.StringPtrOutput)
 }
@@ -229,12 +244,12 @@ func (o LookupManagedClusterResultOutput) ExtendedLocation() ExtendedLocationRes
 	return o.ApplyT(func(v LookupManagedClusterResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
 }
 
-// FQDN for the master pool.
+// The FQDN of the master pool.
 func (o LookupManagedClusterResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// FQDN subdomain specified when creating private cluster with custom private dns zone.
+// This cannot be updated once the Managed Cluster has been created.
 func (o LookupManagedClusterResultOutput) FqdnSubdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.FqdnSubdomain }).(pulumi.StringPtrOutput)
 }
@@ -244,7 +259,7 @@ func (o LookupManagedClusterResultOutput) HttpProxyConfig() ManagedClusterHTTPPr
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterHTTPProxyConfigResponse { return v.HttpProxyConfig }).(ManagedClusterHTTPProxyConfigResponsePtrOutput)
 }
 
-// Resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupManagedClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -255,23 +270,21 @@ func (o LookupManagedClusterResultOutput) Identity() ManagedClusterIdentityRespo
 }
 
 // Identities associated with the cluster.
-func (o LookupManagedClusterResultOutput) IdentityProfile() ManagedClusterPropertiesResponseIdentityProfileMapOutput {
-	return o.ApplyT(func(v LookupManagedClusterResult) map[string]ManagedClusterPropertiesResponseIdentityProfile {
-		return v.IdentityProfile
-	}).(ManagedClusterPropertiesResponseIdentityProfileMapOutput)
+func (o LookupManagedClusterResultOutput) IdentityProfile() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) map[string]UserAssignedIdentityResponse { return v.IdentityProfile }).(UserAssignedIdentityResponseMapOutput)
 }
 
-// Version of Kubernetes specified when creating the managed cluster.
+// Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 func (o LookupManagedClusterResultOutput) KubernetesVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
+// The profile for Linux VMs in the Managed Cluster.
 func (o LookupManagedClusterResultOutput) LinuxProfile() ContainerServiceLinuxProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ContainerServiceLinuxProfileResponse { return v.LinuxProfile }).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// Resource location
+// The geo-location where the resource lives
 func (o LookupManagedClusterResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -281,34 +294,34 @@ func (o LookupManagedClusterResultOutput) MaxAgentPools() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) int { return v.MaxAgentPools }).(pulumi.IntOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o LookupManagedClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Profile of network configuration.
+// The network configuration profile.
 func (o LookupManagedClusterResultOutput) NetworkProfile() ContainerServiceNetworkProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ContainerServiceNetworkProfileResponse { return v.NetworkProfile }).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
 
-// Name of the resource group containing agent pool nodes.
+// The name of the resource group containing agent pool nodes.
 func (o LookupManagedClusterResultOutput) NodeResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.NodeResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Profile of managed cluster pod identity.
+// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 func (o LookupManagedClusterResultOutput) PodIdentityProfile() ManagedClusterPodIdentityProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterPodIdentityProfileResponse {
 		return v.PodIdentityProfile
 	}).(ManagedClusterPodIdentityProfileResponsePtrOutput)
 }
 
-// Represents the Power State of the cluster
+// The Power State of the cluster.
 func (o LookupManagedClusterResultOutput) PowerState() PowerStateResponseOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) PowerStateResponse { return v.PowerState }).(PowerStateResponseOutput)
 }
 
-// FQDN of private cluster.
+// The FQDN of private cluster.
 func (o LookupManagedClusterResultOutput) PrivateFQDN() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.PrivateFQDN }).(pulumi.StringOutput)
 }
@@ -318,9 +331,19 @@ func (o LookupManagedClusterResultOutput) PrivateLinkResources() PrivateLinkReso
 	return o.ApplyT(func(v LookupManagedClusterResult) []PrivateLinkResourceResponse { return v.PrivateLinkResources }).(PrivateLinkResourceResponseArrayOutput)
 }
 
-// The current deployment or provisioning state, which only appears in the response.
+// The current provisioning state.
 func (o LookupManagedClusterResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Allow or deny public network access for AKS
+func (o LookupManagedClusterResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Security profile for the managed cluster.
+func (o LookupManagedClusterResultOutput) SecurityProfile() ManagedClusterSecurityProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterSecurityProfileResponse { return v.SecurityProfile }).(ManagedClusterSecurityProfileResponsePtrOutput)
 }
 
 // Information about a service principal identity for the cluster to use for manipulating Azure APIs.
@@ -335,17 +358,27 @@ func (o LookupManagedClusterResultOutput) Sku() ManagedClusterSKUResponsePtrOutp
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterSKUResponse { return v.Sku }).(ManagedClusterSKUResponsePtrOutput)
 }
 
-// Resource tags
+// Storage profile for the managed cluster.
+func (o LookupManagedClusterResultOutput) StorageProfile() ManagedClusterStorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterStorageProfileResponse { return v.StorageProfile }).(ManagedClusterStorageProfileResponsePtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupManagedClusterResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupManagedClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupManagedClusterResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
+// The profile for Windows VMs in the Managed Cluster.
 func (o LookupManagedClusterResultOutput) WindowsProfile() ManagedClusterWindowsProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedClusterResult) *ManagedClusterWindowsProfileResponse { return v.WindowsProfile }).(ManagedClusterWindowsProfileResponsePtrOutput)
 }

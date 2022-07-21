@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FunctionInitArgs', 'Function']
@@ -19,14 +20,14 @@ class FunctionInitArgs:
                  resource_group_name: pulumi.Input[str],
                  function_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] function_name: The name of the function.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input['ScalarFunctionPropertiesArgs'] properties: The properties that are associated with a function.
+        :param pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
         """
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -53,7 +54,7 @@ class FunctionInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -87,14 +88,14 @@ class FunctionInitArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]:
         """
         The properties that are associated with a function.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -106,20 +107,20 @@ class Function(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AggregateFunctionPropertiesArgs'], pulumi.InputType['ScalarFunctionPropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-        API Version: 2016-03-01.
+        API Version: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: The name of the function.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[Union[pulumi.InputType['AggregateFunctionPropertiesArgs'], pulumi.InputType['ScalarFunctionPropertiesArgs']]] properties: The properties that are associated with a function.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -129,7 +130,7 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-        API Version: 2016-03-01.
+        API Version: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FunctionInitArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +150,7 @@ class Function(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AggregateFunctionPropertiesArgs'], pulumi.InputType['ScalarFunctionPropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -212,7 +213,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ScalarFunctionPropertiesResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         The properties that are associated with a function.
         """

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// An array of references to interface endpoints 
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InterfaceEndpointResponse> InterfaceEndpoints;
+        /// <summary>
         /// Array of IpAllocation which reference this subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
@@ -123,6 +127,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? id,
 
+            ImmutableArray<Outputs.InterfaceEndpointResponse> interfaceEndpoints,
+
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
             ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Delegations = delegations;
             Etag = etag;
             Id = id;
+            InterfaceEndpoints = interfaceEndpoints;
             IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;

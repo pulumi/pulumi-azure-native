@@ -11,7 +11,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-// API Version: 2016-04-01.
+// API Version: 2019-10-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:machinelearning:getWorkspace", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupWorkspaceResult struct {
 	Name string `pulumi:"name"`
 	// The email id of the owner for this workspace.
 	OwnerEmail string `pulumi:"ownerEmail"`
+	// The sku of the workspace.
+	Sku *SkuResponse `pulumi:"sku"`
 	// The regional endpoint for the machine learning studio service which hosts this workspace.
 	StudioEndpoint string `pulumi:"studioEndpoint"`
 	// The tags of the resource.
@@ -125,6 +127,11 @@ func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
 // The email id of the owner for this workspace.
 func (o LookupWorkspaceResultOutput) OwnerEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.OwnerEmail }).(pulumi.StringOutput)
+}
+
+// The sku of the workspace.
+func (o LookupWorkspaceResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
 // The regional endpoint for the machine learning studio service which hosts this workspace.

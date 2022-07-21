@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
- * API Version: 2020-05-15.
+ * API Version: 2021-06-30-preview.
  */
 export function getGen1Environment(args: GetGen1EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen1EnvironmentResult> {
     if (!opts) {
@@ -94,6 +94,10 @@ export interface GetGen1EnvironmentResult {
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
     readonly storageLimitExceededBehavior?: string;
+    /**
+     * Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+     */
+    readonly supportsCustomerManagedKey: boolean;
     /**
      * Resource tags
      */

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// An instance of a script executed by a user - custom or AVS
-        /// API Version: 2021-06-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetScriptExecutionLogsResult> InvokeAsync(GetScriptExecutionLogsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsArgs(), options.WithDefaults());
 
         /// <summary>
         /// An instance of a script executed by a user - custom or AVS
-        /// API Version: 2021-06-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetScriptExecutionLogsResult> Invoke(GetScriptExecutionLogsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsInvokeArgs(), options.WithDefaults());

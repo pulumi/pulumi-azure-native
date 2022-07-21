@@ -11,7 +11,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
 	err := ctx.Invoke("azure-native:storage:getFileShare", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pul
 type LookupFileShareArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
-	// Optional, used to expand the properties within share's properties.
+	// Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
 	Expand *string `pulumi:"expand"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -52,6 +52,12 @@ type LookupFileShareResult struct {
 	Id string `pulumi:"id"`
 	// Returns the date and time the share was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+	LeaseDuration string `pulumi:"leaseDuration"`
+	// Lease state of the share.
+	LeaseState string `pulumi:"leaseState"`
+	// The lease status of the share.
+	LeaseStatus string `pulumi:"leaseStatus"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
@@ -64,6 +70,8 @@ type LookupFileShareResult struct {
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes float64 `pulumi:"shareUsageBytes"`
+	// List of stored access policies specified on the share.
+	SignedIdentifiers []SignedIdentifierResponse `pulumi:"signedIdentifiers"`
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime string `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -88,7 +96,7 @@ func LookupFileShareOutput(ctx *pulumi.Context, args LookupFileShareOutputArgs, 
 type LookupFileShareOutputArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Optional, used to expand the properties within share's properties.
+	// Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
 	Expand pulumi.StringPtrInput `pulumi:"expand"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -160,6 +168,21 @@ func (o LookupFileShareResultOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileShareResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+func (o LookupFileShareResultOutput) LeaseDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileShareResult) string { return v.LeaseDuration }).(pulumi.StringOutput)
+}
+
+// Lease state of the share.
+func (o LookupFileShareResultOutput) LeaseState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileShareResult) string { return v.LeaseState }).(pulumi.StringOutput)
+}
+
+// The lease status of the share.
+func (o LookupFileShareResultOutput) LeaseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileShareResult) string { return v.LeaseStatus }).(pulumi.StringOutput)
+}
+
 // A name-value pair to associate with the share as metadata.
 func (o LookupFileShareResultOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFileShareResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
@@ -188,6 +211,11 @@ func (o LookupFileShareResultOutput) ShareQuota() pulumi.IntPtrOutput {
 // The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 func (o LookupFileShareResultOutput) ShareUsageBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupFileShareResult) float64 { return v.ShareUsageBytes }).(pulumi.Float64Output)
+}
+
+// List of stored access policies specified on the share.
+func (o LookupFileShareResultOutput) SignedIdentifiers() SignedIdentifierResponseArrayOutput {
+	return o.ApplyT(func(v LookupFileShareResult) []SignedIdentifierResponse { return v.SignedIdentifiers }).(SignedIdentifierResponseArrayOutput)
 }
 
 // Creation time of share snapshot returned in the response of list shares with expand param "snapshots".

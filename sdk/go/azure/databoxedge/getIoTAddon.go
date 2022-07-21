@@ -11,7 +11,7 @@ import (
 )
 
 // IoT Addon.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupIoTAddon(ctx *pulumi.Context, args *LookupIoTAddonArgs, opts ...pulumi.InvokeOption) (*LookupIoTAddonResult, error) {
 	var rv LookupIoTAddonResult
 	err := ctx.Invoke("azure-native:databoxedge:getIoTAddon", args, &rv, opts...)
@@ -51,7 +51,7 @@ type LookupIoTAddonResult struct {
 	Name string `pulumi:"name"`
 	// Addon Provisioning State
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Addon type
+	// Metadata pertaining to creation and last modification of Addon
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -143,7 +143,7 @@ func (o LookupIoTAddonResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIoTAddonResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Addon type
+// Metadata pertaining to creation and last modification of Addon
 func (o LookupIoTAddonResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupIoTAddonResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

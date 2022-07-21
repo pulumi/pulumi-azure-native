@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStack
     {
         /// <summary>
         /// Product information.
-        /// API Version: 2017-06-01.
+        /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:azurestack:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Product information.
-        /// API Version: 2017-06-01.
+        /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azurestack:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
@@ -162,6 +162,10 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Type of Resource.
         /// </summary>
         public readonly string Type;
@@ -212,6 +216,8 @@ namespace Pulumi.AzureNative.AzureStack
 
             string? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? vmExtensionType)
@@ -236,6 +242,7 @@ namespace Pulumi.AzureNative.AzureStack
             PublisherDisplayName = publisherDisplayName;
             PublisherIdentifier = publisherIdentifier;
             Sku = sku;
+            SystemData = systemData;
             Type = type;
             VmExtensionType = vmExtensionType;
         }

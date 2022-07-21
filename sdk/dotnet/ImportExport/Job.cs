@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ImportExport
 {
     /// <summary>
     /// Contains the job information.
-    /// API Version: 2020-08-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:importexport:Job")]
     public partial class Job : Pulumi.CustomResource

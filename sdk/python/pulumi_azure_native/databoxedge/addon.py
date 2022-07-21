@@ -114,7 +114,7 @@ class Addon(pulumi.CustomResource):
                  __props__=None):
         """
         Role Addon
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class Addon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role Addon
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +233,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Addon type
+        Metadata pertaining to creation and last modification of Addon
         """
         return pulumi.get(self, "system_data")
 

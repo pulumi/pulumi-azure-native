@@ -11,7 +11,7 @@ import (
 )
 
 // The set of available keys for this server.
-// API Version: 2021-03-12-preview.
+// API Version: 2022-05-26.
 func GetFluidRelayServerKeys(ctx *pulumi.Context, args *GetFluidRelayServerKeysArgs, opts ...pulumi.InvokeOption) (*GetFluidRelayServerKeysResult, error) {
 	var rv GetFluidRelayServerKeysResult
 	err := ctx.Invoke("azure-native:fluidrelay:getFluidRelayServerKeys", args, &rv, opts...)
@@ -22,8 +22,8 @@ func GetFluidRelayServerKeys(ctx *pulumi.Context, args *GetFluidRelayServerKeysA
 }
 
 type GetFluidRelayServerKeysArgs struct {
-	// The resource name.
-	Name string `pulumi:"name"`
+	// The Fluid Relay server resource name.
+	FluidRelayServerName string `pulumi:"fluidRelayServerName"`
 	// The resource group containing the resource.
 	ResourceGroup string `pulumi:"resourceGroup"`
 }
@@ -50,8 +50,8 @@ func GetFluidRelayServerKeysOutput(ctx *pulumi.Context, args GetFluidRelayServer
 }
 
 type GetFluidRelayServerKeysOutputArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
+	// The Fluid Relay server resource name.
+	FluidRelayServerName pulumi.StringInput `pulumi:"fluidRelayServerName"`
 	// The resource group containing the resource.
 	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the capacity reservation.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservation")]
     public partial class CapacityReservation : Pulumi.CustomResource
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the time at which the Capacity Reservation resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

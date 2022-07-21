@@ -21,7 +21,7 @@ class GetQueueResult:
     """
     Description of queue Resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, location=None, lock_duration=None, max_delivery_count=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, system_data=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -61,12 +61,18 @@ class GetQueueResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if lock_duration and not isinstance(lock_duration, str):
             raise TypeError("Expected argument 'lock_duration' to be a str")
         pulumi.set(__self__, "lock_duration", lock_duration)
         if max_delivery_count and not isinstance(max_delivery_count, int):
             raise TypeError("Expected argument 'max_delivery_count' to be a int")
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+        if max_message_size_in_kilobytes and not isinstance(max_message_size_in_kilobytes, float):
+            raise TypeError("Expected argument 'max_message_size_in_kilobytes' to be a float")
+        pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
             raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
@@ -88,6 +94,9 @@ class GetQueueResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -195,9 +204,17 @@ class GetQueueResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="lockDuration")
@@ -214,6 +231,14 @@ class GetQueueResult:
         The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
         """
         return pulumi.get(self, "max_delivery_count")
+
+    @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[float]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
@@ -235,7 +260,7 @@ class GetQueueResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -272,10 +297,18 @@ class GetQueueResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 
@@ -307,8 +340,10 @@ class AwaitableGetQueueResult(GetQueueResult):
             forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
             forward_to=self.forward_to,
             id=self.id,
+            location=self.location,
             lock_duration=self.lock_duration,
             max_delivery_count=self.max_delivery_count,
+            max_message_size_in_kilobytes=self.max_message_size_in_kilobytes,
             max_size_in_megabytes=self.max_size_in_megabytes,
             message_count=self.message_count,
             name=self.name,
@@ -316,6 +351,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             requires_session=self.requires_session,
             size_in_bytes=self.size_in_bytes,
             status=self.status,
+            system_data=self.system_data,
             type=self.type,
             updated_at=self.updated_at)
 
@@ -326,7 +362,7 @@ def get_queue(namespace_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
     Description of queue Resource.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name
@@ -357,8 +393,10 @@ def get_queue(namespace_name: Optional[str] = None,
         forward_dead_lettered_messages_to=__ret__.forward_dead_lettered_messages_to,
         forward_to=__ret__.forward_to,
         id=__ret__.id,
+        location=__ret__.location,
         lock_duration=__ret__.lock_duration,
         max_delivery_count=__ret__.max_delivery_count,
+        max_message_size_in_kilobytes=__ret__.max_message_size_in_kilobytes,
         max_size_in_megabytes=__ret__.max_size_in_megabytes,
         message_count=__ret__.message_count,
         name=__ret__.name,
@@ -366,6 +404,7 @@ def get_queue(namespace_name: Optional[str] = None,
         requires_session=__ret__.requires_session,
         size_in_bytes=__ret__.size_in_bytes,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
 
@@ -377,7 +416,7 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
     Description of queue Resource.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name

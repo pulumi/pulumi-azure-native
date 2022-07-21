@@ -11,7 +11,7 @@ import (
 )
 
 // BackupInstance Resource
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 func LookupBackupInstance(ctx *pulumi.Context, args *LookupBackupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupBackupInstanceResult, error) {
 	var rv LookupBackupInstanceResult
 	err := ctx.Invoke("azure-native:dataprotection:getBackupInstance", args, &rv, opts...)
@@ -32,15 +32,17 @@ type LookupBackupInstanceArgs struct {
 
 // BackupInstance Resource
 type LookupBackupInstanceResult struct {
-	// Resource Id represents the complete path to the resource.
+	// Proxy Resource Id represents the complete path to the resource.
 	Id string `pulumi:"id"`
-	// Resource name associated with the resource.
+	// Proxy Resource name associated with the resource.
 	Name string `pulumi:"name"`
 	// BackupInstanceResource properties
 	Properties BackupInstanceResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	// Proxy Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type string `pulumi:"type"`
 }
 
@@ -85,12 +87,12 @@ func (o LookupBackupInstanceResultOutput) ToLookupBackupInstanceResultOutputWith
 	return o
 }
 
-// Resource Id represents the complete path to the resource.
+// Proxy Resource Id represents the complete path to the resource.
 func (o LookupBackupInstanceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupInstanceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name associated with the resource.
+// Proxy Resource name associated with the resource.
 func (o LookupBackupInstanceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupInstanceResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -105,7 +107,12 @@ func (o LookupBackupInstanceResultOutput) SystemData() SystemDataResponseOutput 
 	return o.ApplyT(func(v LookupBackupInstanceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+// Proxy Resource tags.
+func (o LookupBackupInstanceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBackupInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 func (o LookupBackupInstanceResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupInstanceResult) string { return v.Type }).(pulumi.StringOutput)
 }

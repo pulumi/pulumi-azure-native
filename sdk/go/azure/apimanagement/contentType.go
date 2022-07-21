@@ -12,17 +12,17 @@ import (
 )
 
 // Content type contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ContentType struct {
 	pulumi.CustomResourceState
 
 	// Content type description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Content type schema.
 	Schema pulumi.AnyOutput `pulumi:"schema"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Content type version.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -157,7 +157,7 @@ func (o ContentTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o ContentTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContentType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -167,7 +167,7 @@ func (o ContentTypeOutput) Schema() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ContentType) pulumi.AnyOutput { return v.Schema }).(pulumi.AnyOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ContentTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContentType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

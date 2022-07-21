@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a container registry.
-    /// API Version: 2019-05-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Registry")]
     public partial class Registry : Pulumi.CustomResource
@@ -27,6 +27,30 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable a single data endpoint per region for serving data.
+        /// </summary>
+        [Output("dataEndpointEnabled")]
+        public Output<bool?> DataEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// List of host names that will serve data when dataEndpointEnabled is true.
+        /// </summary>
+        [Output("dataEndpointHostNames")]
+        public Output<ImmutableArray<string>> DataEndpointHostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption settings of container registry.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the container registry.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -47,6 +71,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted registry.
+        /// </summary>
+        [Output("networkRuleBypassOptions")]
+        public Output<string?> NetworkRuleBypassOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
         [Output("networkRuleSet")]
@@ -59,10 +89,22 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Output<Outputs.PoliciesResponse?> Policies { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections for a container registry.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the container registry.
@@ -77,10 +119,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -93,6 +135,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not zone redundancy is enabled for this container registry
+        /// </summary>
+        [Output("zoneRedundancy")]
+        public Output<string?> ZoneRedundancy { get; private set; } = null!;
 
 
         /// <summary>
@@ -161,10 +209,34 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<bool>? AdminUserEnabled { get; set; }
 
         /// <summary>
+        /// Enable a single data endpoint per region for serving data.
+        /// </summary>
+        [Input("dataEndpointEnabled")]
+        public Input<bool>? DataEndpointEnabled { get; set; }
+
+        /// <summary>
+        /// The encryption settings of container registry.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertyArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// The identity of the container registry.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted registry.
+        /// </summary>
+        [Input("networkRuleBypassOptions")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.NetworkRuleBypassOptions>? NetworkRuleBypassOptions { get; set; }
 
         /// <summary>
         /// The network rule set for a container registry.
@@ -177,6 +249,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Input("policies")]
         public Input<Inputs.PoliciesArgs>? Policies { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -196,12 +274,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
-        /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        [Input("storageAccount")]
-        public Input<Inputs.StorageAccountPropertiesArgs>? StorageAccount { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -214,9 +286,18 @@ namespace Pulumi.AzureNative.ContainerRegistry
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether or not zone redundancy is enabled for this container registry
+        /// </summary>
+        [Input("zoneRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.ZoneRedundancy>? ZoneRedundancy { get; set; }
+
         public RegistryArgs()
         {
             AdminUserEnabled = false;
+            NetworkRuleBypassOptions = "AzureServices";
+            PublicNetworkAccess = "Enabled";
+            ZoneRedundancy = "Disabled";
         }
     }
 }

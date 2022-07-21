@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// LogAnalytics operation status response
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithDefaults());
 
         /// <summary>
         /// LogAnalytics operation status response
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetLogAnalyticExportRequestRateByIntervalResult> Invoke(GetLogAnalyticExportRequestRateByIntervalInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalInvokeArgs(), options.WithDefaults());

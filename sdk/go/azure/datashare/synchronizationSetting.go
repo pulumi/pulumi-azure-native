@@ -12,7 +12,7 @@ import (
 )
 
 // A Synchronization Setting data transfer object.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 //
 // Deprecated: Please use one of the variants: ScheduledSynchronizationSetting.
 type SynchronizationSetting struct {

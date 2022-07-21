@@ -11,7 +11,7 @@ import (
 )
 
 // Event Subscription
-// API Version: 2020-04-01-preview.
+// API Version: 2022-06-15.
 func LookupSystemTopicEventSubscription(ctx *pulumi.Context, args *LookupSystemTopicEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicEventSubscriptionResult, error) {
 	var rv LookupSystemTopicEventSubscriptionResult
 	err := ctx.Invoke("azure-native:eventgrid:getSystemTopicEventSubscription", args, &rv, opts...)

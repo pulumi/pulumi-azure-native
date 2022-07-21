@@ -14,7 +14,6 @@ __all__ = [
     'AppliancePropertiesResponseInfrastructureConfig',
     'HybridConnectionConfigResponse',
     'IdentityResponse',
-    'SSHKeyResponse',
     'SystemDataResponse',
 ]
 
@@ -191,41 +190,6 @@ class IdentityResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class SSHKeyResponse(dict):
-    """
-    Appliance SSHKey definition.
-    """
-    def __init__(__self__, *,
-                 private_key: Optional[str] = None,
-                 public_key: Optional[str] = None):
-        """
-        Appliance SSHKey definition.
-        :param str private_key: User Private Key.
-        :param str public_key: User Public Key.
-        """
-        if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
-        if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[str]:
-        """
-        User Private Key.
-        """
-        return pulumi.get(self, "private_key")
-
-    @property
-    @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[str]:
-        """
-        User Public Key.
-        """
-        return pulumi.get(self, "public_key")
 
 
 @pulumi.output_type

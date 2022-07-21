@@ -12,7 +12,7 @@ import (
 )
 
 // NSX DNS Zone
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 type WorkloadNetworkDnsZone struct {
 	pulumi.CustomResourceState
 

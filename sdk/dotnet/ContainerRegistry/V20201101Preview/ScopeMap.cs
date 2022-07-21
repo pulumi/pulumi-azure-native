@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:ScopeMap"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:ScopeMap"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ScopeMap"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ScopeMap"},

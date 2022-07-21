@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a CommunicationService resource.
- * API Version: 2020-08-20.
+ * API Version: 2021-10-01-preview.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
     if (!opts) {
@@ -53,9 +53,13 @@ export interface GetCommunicationServiceResult {
      */
     readonly immutableResourceId: string;
     /**
-     * The Azure location where the CommunicationService is running.
+     * List of email Domain resource Ids.
      */
-    readonly location?: string;
+    readonly linkedDomains?: string[];
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
     /**
      * The name of the resource
      */
@@ -69,11 +73,11 @@ export interface GetCommunicationServiceResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.communication.SystemDataResponse;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**

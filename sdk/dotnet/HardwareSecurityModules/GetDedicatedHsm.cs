@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     {
         /// <summary>
         /// Resource information with extended details.
-        /// API Version: 2018-10-31-preview.
+        /// API Version: 2021-11-30.
         /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information with extended details.
-        /// API Version: 2018-10-31-preview.
+        /// API Version: 2021-11-30.
         /// </summary>
         public static Output<GetDedicatedHsmResult> Invoke(GetDedicatedHsmInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmInvokeArgs(), options.WithDefaults());
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Specifies the management network interfaces of the dedicated hsm.
+        /// </summary>
+        public readonly Outputs.NetworkProfileResponse? ManagementNetworkProfile;
+        /// <summary>
         /// The name of the dedicated HSM.
         /// </summary>
         public readonly string Name;
@@ -102,6 +106,10 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         public readonly string StatusMessage;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -120,6 +128,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 
             string location,
 
+            Outputs.NetworkProfileResponse? managementNetworkProfile,
+
             string name,
 
             Outputs.NetworkProfileResponse? networkProfile,
@@ -132,6 +142,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 
             string statusMessage,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -140,12 +152,14 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         {
             Id = id;
             Location = location;
+            ManagementNetworkProfile = managementNetworkProfile;
             Name = name;
             NetworkProfile = networkProfile;
             ProvisioningState = provisioningState;
             Sku = sku;
             StampId = stampId;
             StatusMessage = statusMessage;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Zones = zones;

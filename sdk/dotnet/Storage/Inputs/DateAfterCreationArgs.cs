@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
 {
 
     /// <summary>
-    /// Object to define the number of days after creation.
+    /// Object to define snapshot and version action conditions.
     /// </summary>
     public sealed class DateAfterCreationArgs : Pulumi.ResourceArgs
     {
@@ -20,6 +20,12 @@ namespace Pulumi.AzureNative.Storage.Inputs
         /// </summary>
         [Input("daysAfterCreationGreaterThan", required: true)]
         public Input<double> DaysAfterCreationGreaterThan { get; set; } = null!;
+
+        /// <summary>
+        /// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+        /// </summary>
+        [Input("daysAfterLastTierChangeGreaterThan")]
+        public Input<double>? DaysAfterLastTierChangeGreaterThan { get; set; }
 
         public DateAfterCreationArgs()
         {

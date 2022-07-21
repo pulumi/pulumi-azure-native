@@ -12,7 +12,7 @@ import (
 )
 
 // Private link service resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type PrivateLinkService struct {
 	pulumi.CustomResourceState
 

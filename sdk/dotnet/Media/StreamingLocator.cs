@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Streaming Locator resource
-    /// API Version: 2020-05-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:StreamingLocator")]
     public partial class StreamingLocator : Pulumi.CustomResource

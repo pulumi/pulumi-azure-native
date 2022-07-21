@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
- * API Version: 2020-09-01.
+ * A profile is a logical grouping of endpoints that share the same settings.
+ * API Version: 2021-06-01.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -39,7 +39,11 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The Id of the frontdoor.
      */
-    public /*out*/ readonly frontdoorId!: pulumi.Output<string>;
+    public /*out*/ readonly frontDoorId!: pulumi.Output<string>;
+    /**
+     * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -49,6 +53,10 @@ export class Profile extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+     */
+    public readonly originResponseTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
      * Provisioning status of the profile.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -57,7 +65,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
-     * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+     * The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
      */
     public readonly sku!: pulumi.Output<outputs.cdn.SkuResponse>;
     /**
@@ -91,20 +99,24 @@ export class Profile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["frontdoorId"] = undefined /*out*/;
+            resourceInputs["frontDoorId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["frontdoorId"] = undefined /*out*/;
+            resourceInputs["frontDoorId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originResponseTimeoutSeconds"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -128,7 +140,11 @@ export interface ProfileArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+     */
+    originResponseTimeoutSeconds?: pulumi.Input<number>;
+    /**
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName?: pulumi.Input<string>;
     /**
@@ -136,7 +152,7 @@ export interface ProfileArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+     * The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
      */
     sku: pulumi.Input<inputs.cdn.SkuArgs>;
     /**

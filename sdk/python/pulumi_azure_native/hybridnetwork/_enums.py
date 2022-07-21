@@ -10,6 +10,7 @@ __all__ = [
     'IPAllocationMethod',
     'IPVersion',
     'NetworkFunctionRoleConfigurationType',
+    'NetworkFunctionType',
     'OperatingSystemTypes',
     'SkuDeploymentMode',
     'SkuType',
@@ -57,6 +58,15 @@ class NetworkFunctionRoleConfigurationType(str, Enum):
     """
     UNKNOWN = "Unknown"
     VIRTUAL_MACHINE = "VirtualMachine"
+
+
+class NetworkFunctionType(str, Enum):
+    """
+    The network function type.
+    """
+    UNKNOWN = "Unknown"
+    VIRTUAL_NETWORK_FUNCTION = "VirtualNetworkFunction"
+    CONTAINERIZED_NETWORK_FUNCTION = "ContainerizedNetworkFunction"
 
 
 class OperatingSystemTypes(str, Enum):

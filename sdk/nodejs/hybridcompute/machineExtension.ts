@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Machine Extension.
- * API Version: 2020-08-02.
+ * API Version: 2022-03-10.
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**
@@ -37,41 +37,21 @@ export class MachineExtension extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-     */
-    public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
-    /**
-     * How the extension handler should be forced to update even if the extension configuration has not changed.
-     */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
-    /**
-     * The machine extension instance view.
-     */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.hybridcompute.MachineExtensionPropertiesResponseInstanceView | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+     * Describes Machine Extension Properties.
      */
-    public readonly protectedSettings!: pulumi.Output<any | undefined>;
+    public readonly properties!: pulumi.Output<outputs.hybridcompute.MachineExtensionPropertiesResponse>;
     /**
-     * The provisioning state, which only appears in the response.
+     * The system meta data relating to this resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The name of the extension handler publisher.
-     */
-    public readonly publisher!: pulumi.Output<string | undefined>;
-    /**
-     * Json formatted public settings for the extension.
-     */
-    public readonly settings!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -79,11 +59,7 @@ export class MachineExtension extends pulumi.CustomResource {
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
-    /**
-     * Specifies the version of the script handler.
-     */
-    public readonly typeHandlerVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a MachineExtension resource with the given unique name, arguments, and options.
@@ -96,39 +72,28 @@ export class MachineExtension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
+            if ((!args || args.machineName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'machineName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             resourceInputs["extensionName"] = args ? args.extensionName : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["machineName"] = args ? args.machineName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            resourceInputs["instanceView"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
-            resourceInputs["forceUpdateTag"] = undefined /*out*/;
-            resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["protectedSettings"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publisher"] = undefined /*out*/;
-            resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20191212:MachineExtension" }, { type: "azure-native:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200802:MachineExtension" }, { type: "azure-native:hybridcompute/v20200815preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210128preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210325preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210422preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210517preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210520:MachineExtension" }, { type: "azure-native:hybridcompute/v20210610preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20211210preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20220310:MachineExtension" }, { type: "azure-native:hybridcompute/v20220510preview:MachineExtension" }] };
@@ -142,17 +107,9 @@ export class MachineExtension extends pulumi.CustomResource {
  */
 export interface MachineExtensionArgs {
     /**
-     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-     */
-    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
-    /**
      * The name of the machine extension.
      */
     extensionName?: pulumi.Input<string>;
-    /**
-     * How the extension handler should be forced to update even if the extension configuration has not changed.
-     */
-    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -160,33 +117,17 @@ export interface MachineExtensionArgs {
     /**
      * The name of the machine where the extension should be created or updated.
      */
-    name: pulumi.Input<string>;
+    machineName: pulumi.Input<string>;
     /**
-     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+     * Describes Machine Extension Properties.
      */
-    protectedSettings?: any;
+    properties?: pulumi.Input<inputs.hybridcompute.MachineExtensionPropertiesArgs>;
     /**
-     * The name of the extension handler publisher.
-     */
-    publisher?: pulumi.Input<string>;
-    /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Json formatted public settings for the extension.
-     */
-    settings?: any;
     /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the type of the extension; an example is "CustomScriptExtension".
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Specifies the version of the script handler.
-     */
-    typeHandlerVersion?: pulumi.Input<string>;
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a replication for a container registry.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export class Replication extends pulumi.CustomResource {
     /**
@@ -49,9 +49,17 @@ export class Replication extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    public readonly regionEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The status of the replication at the time the operation was called.
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.StatusResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The tags of the resource.
      */
@@ -60,6 +68,10 @@ export class Replication extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry replication
+     */
+    public readonly zoneRedundancy!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Replication resource with the given unique name, arguments, and options.
@@ -79,21 +91,27 @@ export class Replication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["regionEndpointEnabled"] = (args ? args.regionEndpointEnabled : undefined) ?? true;
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["replicationName"] = args ? args.replicationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["regionEndpointEnabled"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20170601preview:Replication" }, { type: "azure-native:containerregistry/v20171001:Replication" }, { type: "azure-native:containerregistry/v20190501:Replication" }, { type: "azure-native:containerregistry/v20191201preview:Replication" }, { type: "azure-native:containerregistry/v20201101preview:Replication" }, { type: "azure-native:containerregistry/v20210601preview:Replication" }, { type: "azure-native:containerregistry/v20210801preview:Replication" }, { type: "azure-native:containerregistry/v20210901:Replication" }, { type: "azure-native:containerregistry/v20211201preview:Replication" }, { type: "azure-native:containerregistry/v20220201preview:Replication" }] };
@@ -111,6 +129,10 @@ export interface ReplicationArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    regionEndpointEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the container registry.
      */
     registryName: pulumi.Input<string>;
@@ -126,4 +148,8 @@ export interface ReplicationArgs {
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry replication
+     */
+    zoneRedundancy?: pulumi.Input<string | enums.containerregistry.ZoneRedundancy>;
 }

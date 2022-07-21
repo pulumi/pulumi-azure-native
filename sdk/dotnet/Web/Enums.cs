@@ -441,6 +441,39 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnterpriseGradeCdnStatus : IEquatable<EnterpriseGradeCdnStatus>
+    {
+        private readonly string _value;
+
+        private EnterpriseGradeCdnStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnterpriseGradeCdnStatus Enabled { get; } = new EnterpriseGradeCdnStatus("Enabled");
+        public static EnterpriseGradeCdnStatus Enabling { get; } = new EnterpriseGradeCdnStatus("Enabling");
+        public static EnterpriseGradeCdnStatus Disabled { get; } = new EnterpriseGradeCdnStatus("Disabled");
+        public static EnterpriseGradeCdnStatus Disabling { get; } = new EnterpriseGradeCdnStatus("Disabling");
+
+        public static bool operator ==(EnterpriseGradeCdnStatus left, EnterpriseGradeCdnStatus right) => left.Equals(right);
+        public static bool operator !=(EnterpriseGradeCdnStatus left, EnterpriseGradeCdnStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EnterpriseGradeCdnStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnterpriseGradeCdnStatus other && Equals(other);
+        public bool Equals(EnterpriseGradeCdnStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The convention used to determine the url of the request made.
     /// </summary>
     [EnumType]

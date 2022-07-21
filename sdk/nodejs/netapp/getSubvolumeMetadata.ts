@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Result of the post subvolume and action is to get metadata of the subvolume.
- * API Version: 2021-10-01.
+ * API Version: 2022-01-01.
  */
 export function getSubvolumeMetadata(args: GetSubvolumeMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeMetadataResult> {
     if (!opts) {

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? AutomationAccountArmId;
         /// <summary>
+        /// A value indicating the type authentication to use for automation Account.
+        /// </summary>
+        public readonly string? AutomationAccountAuthenticationType;
+        /// <summary>
         /// Gets the class type. Overridden in derived classes.
         /// Expected value is 'A2A'.
         /// </summary>
@@ -44,6 +48,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? automationAccountArmId,
 
+            string? automationAccountAuthenticationType,
+
             string instanceType,
 
             string? jobScheduleName,
@@ -52,6 +58,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         {
             AgentAutoUpdateStatus = agentAutoUpdateStatus;
             AutomationAccountArmId = automationAccountArmId;
+            AutomationAccountAuthenticationType = automationAccountAuthenticationType;
             InstanceType = instanceType;
             JobScheduleName = jobScheduleName;
             ScheduleName = scheduleName;

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoute Circuit Authorization
- * API Version: 2020-03-20.
+ * API Version: 2021-12-01.
  */
 export class Authorization extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class Authorization extends pulumi.CustomResource {
      */
     public /*out*/ readonly expressRouteAuthorizationKey!: pulumi.Output<string>;
     /**
+     * The ID of the ExpressRoute Circuit
+     */
+    public readonly expressRouteId!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -74,6 +78,7 @@ export class Authorization extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
+            resourceInputs["expressRouteId"] = args ? args.expressRouteId : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["expressRouteAuthorizationId"] = undefined /*out*/;
@@ -84,6 +89,7 @@ export class Authorization extends pulumi.CustomResource {
         } else {
             resourceInputs["expressRouteAuthorizationId"] = undefined /*out*/;
             resourceInputs["expressRouteAuthorizationKey"] = undefined /*out*/;
+            resourceInputs["expressRouteId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -103,6 +109,10 @@ export interface AuthorizationArgs {
      * Name of the ExpressRoute Circuit Authorization in the private cloud
      */
     authorizationName?: pulumi.Input<string>;
+    /**
+     * The ID of the ExpressRoute Circuit
+     */
+    expressRouteId?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */

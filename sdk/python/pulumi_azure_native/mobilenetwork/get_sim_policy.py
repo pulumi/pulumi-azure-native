@@ -21,7 +21,7 @@ class GetSimPolicyResult:
     """
     Sim policy resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, default_slice=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, slice_configurations=None, tags=None, type=None, ue_ambr=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, default_slice=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, slice_configurations=None, system_data=None, tags=None, type=None, ue_ambr=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -64,6 +64,9 @@ class GetSimPolicyResult:
         if slice_configurations and not isinstance(slice_configurations, list):
             raise TypeError("Expected argument 'slice_configurations' to be a list")
         pulumi.set(__self__, "slice_configurations", slice_configurations)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -187,6 +190,14 @@ class GetSimPolicyResult:
         return pulumi.get(self, "slice_configurations")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -231,6 +242,7 @@ class AwaitableGetSimPolicyResult(GetSimPolicyResult):
             registration_timer=self.registration_timer,
             rfsp_index=self.rfsp_index,
             slice_configurations=self.slice_configurations,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             ue_ambr=self.ue_ambr)
@@ -242,7 +254,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimPolicyResult:
     """
     Sim policy resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -274,6 +286,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
         registration_timer=__ret__.registration_timer,
         rfsp_index=__ret__.rfsp_index,
         slice_configurations=__ret__.slice_configurations,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         ue_ambr=__ret__.ue_ambr)
@@ -286,7 +299,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimPolicyResult]:
     """
     Sim policy resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.

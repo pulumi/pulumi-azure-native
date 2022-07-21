@@ -11,7 +11,7 @@ import (
 )
 
 // disk encryption set resource.
-// API Version: 2020-12-01.
+// API Version: 2021-12-01.
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	var rv LookupDiskEncryptionSetResult
 	err := ctx.Invoke("azure-native:compute:getDiskEncryptionSet", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetA
 }
 
 type LookupDiskEncryptionSetArgs struct {
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskEncryptionSetName string `pulumi:"diskEncryptionSetName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -32,6 +32,8 @@ type LookupDiskEncryptionSetArgs struct {
 type LookupDiskEncryptionSetResult struct {
 	// The key vault key which is currently used by this disk encryption set.
 	ActiveKey *KeyForDiskEncryptionSetResponse `pulumi:"activeKey"`
+	// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+	AutoKeyRotationError ApiErrorResponse `pulumi:"autoKeyRotationError"`
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Resource Id
@@ -70,7 +72,7 @@ func LookupDiskEncryptionSetOutput(ctx *pulumi.Context, args LookupDiskEncryptio
 }
 
 type LookupDiskEncryptionSetOutputArgs struct {
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskEncryptionSetName pulumi.StringInput `pulumi:"diskEncryptionSetName"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -98,6 +100,11 @@ func (o LookupDiskEncryptionSetResultOutput) ToLookupDiskEncryptionSetResultOutp
 // The key vault key which is currently used by this disk encryption set.
 func (o LookupDiskEncryptionSetResultOutput) ActiveKey() KeyForDiskEncryptionSetResponsePtrOutput {
 	return o.ApplyT(func(v LookupDiskEncryptionSetResult) *KeyForDiskEncryptionSetResponse { return v.ActiveKey }).(KeyForDiskEncryptionSetResponsePtrOutput)
+}
+
+// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+func (o LookupDiskEncryptionSetResultOutput) AutoKeyRotationError() ApiErrorResponseOutput {
+	return o.ApplyT(func(v LookupDiskEncryptionSetResult) ApiErrorResponse { return v.AutoKeyRotationError }).(ApiErrorResponseOutput)
 }
 
 // The type of key used to encrypt the data of the disk.

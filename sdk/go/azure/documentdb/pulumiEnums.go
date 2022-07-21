@@ -10,6 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Describes the types of schema for analytical storage.
+type AnalyticalStorageSchemaType string
+
+const (
+	AnalyticalStorageSchemaTypeWellDefined  = AnalyticalStorageSchemaType("WellDefined")
+	AnalyticalStorageSchemaTypeFullFidelity = AnalyticalStorageSchemaType("FullFidelity")
+)
+
 // Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
 type AuthenticationMethod string
 
@@ -18,12 +26,31 @@ const (
 	AuthenticationMethodCassandra = AuthenticationMethod("Cassandra")
 )
 
+// Describes the status of migration between backup policy types.
+type BackupPolicyMigrationStatus string
+
+const (
+	BackupPolicyMigrationStatusInvalid    = BackupPolicyMigrationStatus("Invalid")
+	BackupPolicyMigrationStatusInProgress = BackupPolicyMigrationStatus("InProgress")
+	BackupPolicyMigrationStatusCompleted  = BackupPolicyMigrationStatus("Completed")
+	BackupPolicyMigrationStatusFailed     = BackupPolicyMigrationStatus("Failed")
+)
+
 // Describes the mode of backups.
 type BackupPolicyType string
 
 const (
 	BackupPolicyTypePeriodic   = BackupPolicyType("Periodic")
 	BackupPolicyTypeContinuous = BackupPolicyType("Continuous")
+)
+
+// Enum to indicate type of backup residency
+type BackupStorageRedundancy string
+
+const (
+	BackupStorageRedundancyGeo   = BackupStorageRedundancy("Geo")
+	BackupStorageRedundancyLocal = BackupStorageRedundancy("Local")
+	BackupStorageRedundancyZone  = BackupStorageRedundancy("Zone")
 )
 
 // Sort order for composite paths.
@@ -47,6 +74,14 @@ type ConnectorOffer string
 
 const (
 	ConnectorOfferSmall = ConnectorOffer("Small")
+)
+
+// Enum to indicate the mode of account creation.
+type CreateMode string
+
+const (
+	CreateModeDefault = CreateMode("Default")
+	CreateModeRestore = CreateMode("Restore")
 )
 
 // The datatype for which the indexing behavior is applied to.
@@ -432,170 +467,13 @@ const (
 	ManagedCassandraProvisioningStateCanceled  = ManagedCassandraProvisioningState("Canceled")
 )
 
-// Indicates whether the Role Definition was built-in or user created.
-type MongoRoleDefinitionType string
+// The type of the resource.
+type ManagedCassandraResourceIdentityType string
 
 const (
-	MongoRoleDefinitionTypeBuiltInRole = MongoRoleDefinitionType("BuiltInRole")
-	MongoRoleDefinitionTypeCustomRole  = MongoRoleDefinitionType("CustomRole")
+	ManagedCassandraResourceIdentityTypeSystemAssigned = ManagedCassandraResourceIdentityType("SystemAssigned")
+	ManagedCassandraResourceIdentityTypeNone           = ManagedCassandraResourceIdentityType("None")
 )
-
-func (MongoRoleDefinitionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoRoleDefinitionType)(nil)).Elem()
-}
-
-func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypeOutput() MongoRoleDefinitionTypeOutput {
-	return pulumi.ToOutput(e).(MongoRoleDefinitionTypeOutput)
-}
-
-func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypeOutputWithContext(ctx context.Context) MongoRoleDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MongoRoleDefinitionTypeOutput)
-}
-
-func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
-	return e.ToMongoRoleDefinitionTypePtrOutputWithContext(context.Background())
-}
-
-func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
-	return MongoRoleDefinitionType(e).ToMongoRoleDefinitionTypeOutputWithContext(ctx).ToMongoRoleDefinitionTypePtrOutputWithContext(ctx)
-}
-
-func (e MongoRoleDefinitionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MongoRoleDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MongoRoleDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MongoRoleDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type MongoRoleDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (MongoRoleDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoRoleDefinitionType)(nil)).Elem()
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypeOutput() MongoRoleDefinitionTypeOutput {
-	return o
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypeOutputWithContext(ctx context.Context) MongoRoleDefinitionTypeOutput {
-	return o
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
-	return o.ToMongoRoleDefinitionTypePtrOutputWithContext(context.Background())
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoRoleDefinitionType) *MongoRoleDefinitionType {
-		return &v
-	}).(MongoRoleDefinitionTypePtrOutput)
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MongoRoleDefinitionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MongoRoleDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MongoRoleDefinitionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MongoRoleDefinitionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (MongoRoleDefinitionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MongoRoleDefinitionType)(nil)).Elem()
-}
-
-func (o MongoRoleDefinitionTypePtrOutput) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
-	return o
-}
-
-func (o MongoRoleDefinitionTypePtrOutput) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
-	return o
-}
-
-func (o MongoRoleDefinitionTypePtrOutput) Elem() MongoRoleDefinitionTypeOutput {
-	return o.ApplyT(func(v *MongoRoleDefinitionType) MongoRoleDefinitionType {
-		if v != nil {
-			return *v
-		}
-		var ret MongoRoleDefinitionType
-		return ret
-	}).(MongoRoleDefinitionTypeOutput)
-}
-
-func (o MongoRoleDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MongoRoleDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MongoRoleDefinitionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MongoRoleDefinitionTypeInput is an input type that accepts MongoRoleDefinitionTypeArgs and MongoRoleDefinitionTypeOutput values.
-// You can construct a concrete instance of `MongoRoleDefinitionTypeInput` via:
-//
-//          MongoRoleDefinitionTypeArgs{...}
-type MongoRoleDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToMongoRoleDefinitionTypeOutput() MongoRoleDefinitionTypeOutput
-	ToMongoRoleDefinitionTypeOutputWithContext(context.Context) MongoRoleDefinitionTypeOutput
-}
-
-var mongoRoleDefinitionTypePtrType = reflect.TypeOf((**MongoRoleDefinitionType)(nil)).Elem()
-
-type MongoRoleDefinitionTypePtrInput interface {
-	pulumi.Input
-
-	ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput
-	ToMongoRoleDefinitionTypePtrOutputWithContext(context.Context) MongoRoleDefinitionTypePtrOutput
-}
-
-type mongoRoleDefinitionTypePtr string
-
-func MongoRoleDefinitionTypePtr(v string) MongoRoleDefinitionTypePtrInput {
-	return (*mongoRoleDefinitionTypePtr)(&v)
-}
-
-func (*mongoRoleDefinitionTypePtr) ElementType() reflect.Type {
-	return mongoRoleDefinitionTypePtrType
-}
-
-func (in *mongoRoleDefinitionTypePtr) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
-	return pulumi.ToOutput(in).(MongoRoleDefinitionTypePtrOutput)
-}
-
-func (in *mongoRoleDefinitionTypePtr) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MongoRoleDefinitionTypePtrOutput)
-}
 
 // Indicates what services are allowed to bypass firewall checks.
 type NetworkAclBypass string
@@ -946,6 +824,13 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
+// Describes the mode of the restore.
+type RestoreMode string
+
+const (
+	RestoreModePointInTime = RestoreMode("PointInTime")
+)
+
 // Indicates whether the Role Definition was built-in or user created.
 type RoleDefinitionType string
 
@@ -1118,23 +1003,7 @@ const (
 	ServerVersion_3_2 = ServerVersion("3.2")
 	ServerVersion_3_6 = ServerVersion("3.6")
 	ServerVersion_4_0 = ServerVersion("4.0")
-)
-
-// Instance type for the service.
-type ServiceSize string
-
-const (
-	ServiceSize_Cosmos_D4s  = ServiceSize("Cosmos.D4s")
-	ServiceSize_Cosmos_D8s  = ServiceSize("Cosmos.D8s")
-	ServiceSize_Cosmos_D16s = ServiceSize("Cosmos.D16s")
-)
-
-// ServiceType for the service.
-type ServiceType string
-
-const (
-	ServiceTypeSqlDedicatedGateway = ServiceType("SqlDedicatedGateway")
-	ServiceTypeDataTransfer        = ServiceType("DataTransfer")
+	ServerVersion_4_2 = ServerVersion("4.2")
 )
 
 // Indicates the spatial type of index.
@@ -1171,8 +1040,6 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseAccountOfferTypePtrOutput{})
 	pulumi.RegisterOutputType(DefaultConsistencyLevelOutput{})
 	pulumi.RegisterOutputType(DefaultConsistencyLevelPtrOutput{})
-	pulumi.RegisterOutputType(MongoRoleDefinitionTypeOutput{})
-	pulumi.RegisterOutputType(MongoRoleDefinitionTypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclBypassOutput{})
 	pulumi.RegisterOutputType(NetworkAclBypassPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

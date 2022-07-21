@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
-    /// API Version: 2021-02-01.
+    /// API Version: 2021-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Queue")]
     public partial class Queue : Pulumi.CustomResource

@@ -10,6 +10,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AzureKeyVaultPropertiesArgs',
+    'AzureResourceArgs',
+    'ConfluentBootstrapServerArgs',
+    'ConfluentSchemaRegistryArgs',
+    'KeyVaultSecretReferenceSecretInfoArgs',
+    'KeyVaultSecretUriSecretInfoArgs',
     'SecretAuthInfoArgs',
     'SecretStoreArgs',
     'ServicePrincipalCertificateAuthInfoArgs',
@@ -17,26 +23,305 @@ __all__ = [
     'SystemAssignedIdentityAuthInfoArgs',
     'UserAssignedIdentityAuthInfoArgs',
     'VNetSolutionArgs',
+    'ValueSecretInfoArgs',
 ]
+
+@pulumi.input_type
+class AzureKeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 connect_as_kubernetes_csi_driver: Optional[pulumi.Input[bool]] = None):
+        """
+        The resource properties when type is Azure Key Vault
+        :param pulumi.Input[str] type: The azure resource type.
+               Expected value is 'KeyVault'.
+        :param pulumi.Input[bool] connect_as_kubernetes_csi_driver: True if connect via Kubernetes CSI Driver.
+        """
+        pulumi.set(__self__, "type", 'KeyVault')
+        if connect_as_kubernetes_csi_driver is not None:
+            pulumi.set(__self__, "connect_as_kubernetes_csi_driver", connect_as_kubernetes_csi_driver)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The azure resource type.
+        Expected value is 'KeyVault'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="connectAsKubernetesCsiDriver")
+    def connect_as_kubernetes_csi_driver(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if connect via Kubernetes CSI Driver.
+        """
+        return pulumi.get(self, "connect_as_kubernetes_csi_driver")
+
+    @connect_as_kubernetes_csi_driver.setter
+    def connect_as_kubernetes_csi_driver(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connect_as_kubernetes_csi_driver", value)
+
+
+@pulumi.input_type
+class AzureResourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 resource_properties: Optional[pulumi.Input['AzureKeyVaultPropertiesArgs']] = None):
+        """
+        The azure resource info when target service type is AzureResource
+        :param pulumi.Input[str] type: The target service type.
+               Expected value is 'AzureResource'.
+        :param pulumi.Input[str] id: The Id of azure resource.
+        :param pulumi.Input['AzureKeyVaultPropertiesArgs'] resource_properties: The azure resource connection related properties.
+        """
+        pulumi.set(__self__, "type", 'AzureResource')
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if resource_properties is not None:
+            pulumi.set(__self__, "resource_properties", resource_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The target service type.
+        Expected value is 'AzureResource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Id of azure resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="resourceProperties")
+    def resource_properties(self) -> Optional[pulumi.Input['AzureKeyVaultPropertiesArgs']]:
+        """
+        The azure resource connection related properties.
+        """
+        return pulumi.get(self, "resource_properties")
+
+    @resource_properties.setter
+    def resource_properties(self, value: Optional[pulumi.Input['AzureKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "resource_properties", value)
+
+
+@pulumi.input_type
+class ConfluentBootstrapServerArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        The service properties when target service type is ConfluentBootstrapServer
+        :param pulumi.Input[str] type: The target service type.
+               Expected value is 'ConfluentBootstrapServer'.
+        :param pulumi.Input[str] endpoint: The endpoint of service.
+        """
+        pulumi.set(__self__, "type", 'ConfluentBootstrapServer')
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The target service type.
+        Expected value is 'ConfluentBootstrapServer'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint of service.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+
+@pulumi.input_type
+class ConfluentSchemaRegistryArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        The service properties when target service type is ConfluentSchemaRegistry
+        :param pulumi.Input[str] type: The target service type.
+               Expected value is 'ConfluentSchemaRegistry'.
+        :param pulumi.Input[str] endpoint: The endpoint of service.
+        """
+        pulumi.set(__self__, "type", 'ConfluentSchemaRegistry')
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The target service type.
+        Expected value is 'ConfluentSchemaRegistry'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint of service.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+
+@pulumi.input_type
+class KeyVaultSecretReferenceSecretInfoArgs:
+    def __init__(__self__, *,
+                 secret_type: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
+        :param pulumi.Input[str] secret_type: The secret type.
+               Expected value is 'keyVaultSecretReference'.
+        :param pulumi.Input[str] name: Name of the Key Vault secret.
+        :param pulumi.Input[str] version: Version of the Key Vault secret.
+        """
+        pulumi.set(__self__, "secret_type", 'keyVaultSecretReference')
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> pulumi.Input[str]:
+        """
+        The secret type.
+        Expected value is 'keyVaultSecretReference'.
+        """
+        return pulumi.get(self, "secret_type")
+
+    @secret_type.setter
+    def secret_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Key Vault secret.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the Key Vault secret.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class KeyVaultSecretUriSecretInfoArgs:
+    def __init__(__self__, *,
+                 secret_type: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
+        :param pulumi.Input[str] secret_type: The secret type.
+               Expected value is 'keyVaultSecretUri'.
+        :param pulumi.Input[str] value: URI to the keyvault secret
+        """
+        pulumi.set(__self__, "secret_type", 'keyVaultSecretUri')
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> pulumi.Input[str]:
+        """
+        The secret type.
+        Expected value is 'keyVaultSecretUri'.
+        """
+        return pulumi.get(self, "secret_type")
+
+    @secret_type.setter
+    def secret_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI to the keyvault secret
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class SecretAuthInfoArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret_info: Optional[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']]] = None):
         """
         The authentication info when authType is secret
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'secret'.
         :param pulumi.Input[str] name: Username or account name for secret auth.
-        :param pulumi.Input[str] secret: Password or account key for secret auth.
+        :param pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']] secret_info: Password or key vault secret for secret auth.
         """
         pulumi.set(__self__, "auth_type", 'secret')
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+        if secret_info is not None:
+            pulumi.set(__self__, "secret_info", secret_info)
 
     @property
     @pulumi.getter(name="authType")
@@ -64,16 +349,16 @@ class SecretAuthInfoArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="secretInfo")
+    def secret_info(self) -> Optional[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']]]:
         """
-        Password or account key for secret auth.
+        Password or key vault secret for secret auth.
         """
-        return pulumi.get(self, "secret")
+        return pulumi.get(self, "secret_info")
 
-    @secret.setter
-    def secret(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret", value)
+    @secret_info.setter
+    def secret_info(self, value: Optional[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']]]):
+        pulumi.set(self, "secret_info", value)
 
 
 @pulumi.input_type
@@ -269,8 +554,8 @@ class SystemAssignedIdentityAuthInfoArgs:
 class UserAssignedIdentityAuthInfoArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
-                 client_id: pulumi.Input[str],
-                 subscription_id: pulumi.Input[str]):
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
         """
         The authentication info when authType is userAssignedIdentity
         :param pulumi.Input[str] auth_type: The authentication type.
@@ -279,8 +564,10 @@ class UserAssignedIdentityAuthInfoArgs:
         :param pulumi.Input[str] subscription_id: Subscription id for userAssignedIdentity.
         """
         pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="authType")
@@ -297,26 +584,26 @@ class UserAssignedIdentityAuthInfoArgs:
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[str]:
+    def client_id(self) -> Optional[pulumi.Input[str]]:
         """
         Client Id for userAssignedIdentity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: pulumi.Input[str]):
+    def client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[str]:
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
         Subscription id for userAssignedIdentity.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[str]):
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -342,5 +629,46 @@ class VNetSolutionArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'VNetSolutionType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ValueSecretInfoArgs:
+    def __init__(__self__, *,
+                 secret_type: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The secret info when type is rawValue. It's for scenarios that user input the secret.
+        :param pulumi.Input[str] secret_type: The secret type.
+               Expected value is 'rawValue'.
+        :param pulumi.Input[str] value: The actual value of the secret.
+        """
+        pulumi.set(__self__, "secret_type", 'rawValue')
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> pulumi.Input[str]:
+        """
+        The secret type.
+        Expected value is 'rawValue'.
+        """
+        return pulumi.get(self, "secret_type")
+
+    @secret_type.setter
+    def secret_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The actual value of the secret.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

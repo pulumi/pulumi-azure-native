@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Workspace resource container.
- * API Version: 2020-10-01.
+ * API Version: 2021-06-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -45,9 +45,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly customerId!: pulumi.Output<string>;
     /**
-     * The ETag of the workspace.
+     * The etag of the workspace.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Workspace features.
      */
@@ -119,7 +119,6 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -134,6 +133,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["modifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
@@ -141,7 +141,7 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;
-            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["features"] = undefined /*out*/;
             resourceInputs["forceCmkForQuery"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -168,10 +168,6 @@ export class Workspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
-    /**
-     * The ETag of the workspace.
-     */
-    eTag?: pulumi.Input<string>;
     /**
      * Workspace features.
      */

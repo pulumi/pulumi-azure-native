@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly ImmutableArray<Outputs.ShareAccessRightResponse> ShareAccessRights;
         /// <summary>
-        /// User in DataBoxEdge Resource
+        /// Metadata pertaining to creation and last modification of User
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

@@ -11,7 +11,7 @@ import (
 )
 
 // Service resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getService", args, &rv, opts...)
@@ -58,6 +58,8 @@ type LookupServiceResult struct {
 	ServicePrecedence int `pulumi:"servicePrecedence"`
 	// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
 	ServiceQosPolicy *QosPolicyResponse `pulumi:"serviceQosPolicy"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -179,6 +181,11 @@ func (o LookupServiceResultOutput) ServicePrecedence() pulumi.IntOutput {
 // The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
 func (o LookupServiceResultOutput) ServiceQosPolicy() QosPolicyResponsePtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *QosPolicyResponse { return v.ServiceQosPolicy }).(QosPolicyResponsePtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

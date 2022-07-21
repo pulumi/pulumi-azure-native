@@ -11,41 +11,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a lab.
-// API Version: 2018-10-15.
+// The lab resource.
+// API Version: 2021-11-15-preview.
 type Lab struct {
 	pulumi.CustomResourceState
 
-	// Object id of the user that created the lab.
-	CreatedByObjectId pulumi.StringOutput `pulumi:"createdByObjectId"`
-	// Lab creator name
-	CreatedByUserPrincipalName pulumi.StringOutput `pulumi:"createdByUserPrincipalName"`
-	// Creation date for the lab
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Invitation code that users can use to join a lab.
-	InvitationCode pulumi.StringOutput `pulumi:"invitationCode"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Maximum number of users allowed in the lab.
-	MaxUsersInLab pulumi.IntPtrOutput `pulumi:"maxUsersInLab"`
-	// The name of the resource.
+	// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+	AutoShutdownProfile AutoShutdownProfileResponseOutput `pulumi:"autoShutdownProfile"`
+	// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+	ConnectionProfile ConnectionProfileResponseOutput `pulumi:"connectionProfile"`
+	// The description of the lab.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+	LabPlanId pulumi.StringPtrOutput `pulumi:"labPlanId"`
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
+	// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+	NetworkProfile LabNetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
+	// Current provisioning state of the lab.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The lab user list management profile.
+	RosterProfile RosterProfileResponsePtrOutput `pulumi:"rosterProfile"`
+	// The lab security profile.
+	SecurityProfile SecurityProfileResponseOutput `pulumi:"securityProfile"`
+	// The lab state.
+	State pulumi.StringOutput `pulumi:"state"`
+	// Metadata pertaining to creation and last modification of the lab.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
+	// The title of the lab.
+	Title pulumi.StringPtrOutput `pulumi:"title"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
-	// Maximum duration a user can use an environment for in the lab.
-	UsageQuota pulumi.StringPtrOutput `pulumi:"usageQuota"`
-	// Lab user access mode (open to all vs. restricted to those listed on the lab).
-	UserAccessMode pulumi.StringPtrOutput `pulumi:"userAccessMode"`
-	// Maximum value MaxUsersInLab can be set to, as specified by the service
-	UserQuota pulumi.IntOutput `pulumi:"userQuota"`
+	// The profile used for creating lab virtual machines.
+	VirtualMachineProfile VirtualMachineProfileResponseOutput `pulumi:"virtualMachineProfile"`
 }
 
 // NewLab registers a new resource with the given unique name, arguments, and options.
@@ -55,15 +57,30 @@ func NewLab(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LabAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'LabAccountName'")
+	if args.AutoShutdownProfile == nil {
+		return nil, errors.New("invalid value for required argument 'AutoShutdownProfile'")
+	}
+	if args.ConnectionProfile == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionProfile'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.SecurityProfile == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityProfile'")
+	}
+	if args.VirtualMachineProfile == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineProfile'")
+	}
+	args.AutoShutdownProfile = args.AutoShutdownProfile.ToAutoShutdownProfileOutput().ApplyT(func(v AutoShutdownProfile) AutoShutdownProfile { return *v.Defaults() }).(AutoShutdownProfileOutput)
+	args.ConnectionProfile = args.ConnectionProfile.ToConnectionProfileOutput().ApplyT(func(v ConnectionProfile) ConnectionProfile { return *v.Defaults() }).(ConnectionProfileOutput)
+	args.VirtualMachineProfile = args.VirtualMachineProfile.ToVirtualMachineProfileOutput().ApplyT(func(v VirtualMachineProfile) VirtualMachineProfile { return *v.Defaults() }).(VirtualMachineProfileOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:labservices/v20181015:Lab"),
+			Type: pulumi.String("azure-native:labservices/v20211001preview:Lab"),
+		},
+		{
+			Type: pulumi.String("azure-native:labservices/v20211115preview:Lab"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -99,50 +116,62 @@ func (LabState) ElementType() reflect.Type {
 }
 
 type labArgs struct {
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
+	// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+	AutoShutdownProfile AutoShutdownProfile `pulumi:"autoShutdownProfile"`
+	// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+	ConnectionProfile ConnectionProfile `pulumi:"connectionProfile"`
+	// The description of the lab.
+	Description *string `pulumi:"description"`
+	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
 	LabName *string `pulumi:"labName"`
-	// The location of the resource.
+	// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+	LabPlanId *string `pulumi:"labPlanId"`
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Maximum number of users allowed in the lab.
-	MaxUsersInLab *int `pulumi:"maxUsersInLab"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
+	// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+	NetworkProfile *LabNetworkProfile `pulumi:"networkProfile"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
+	// The lab user list management profile.
+	RosterProfile *RosterProfile `pulumi:"rosterProfile"`
+	// The lab security profile.
+	SecurityProfile SecurityProfile `pulumi:"securityProfile"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// Maximum duration a user can use an environment for in the lab.
-	UsageQuota *string `pulumi:"usageQuota"`
-	// Lab user access mode (open to all vs. restricted to those listed on the lab).
-	UserAccessMode *string `pulumi:"userAccessMode"`
+	// The title of the lab.
+	Title *string `pulumi:"title"`
+	// The profile used for creating lab virtual machines.
+	VirtualMachineProfile VirtualMachineProfile `pulumi:"virtualMachineProfile"`
 }
 
 // The set of arguments for constructing a Lab resource.
 type LabArgs struct {
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The name of the lab.
+	// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+	AutoShutdownProfile AutoShutdownProfileInput
+	// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+	ConnectionProfile ConnectionProfileInput
+	// The description of the lab.
+	Description pulumi.StringPtrInput
+	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
 	LabName pulumi.StringPtrInput
-	// The location of the resource.
+	// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+	LabPlanId pulumi.StringPtrInput
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Maximum number of users allowed in the lab.
-	MaxUsersInLab pulumi.IntPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
+	// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+	NetworkProfile LabNetworkProfilePtrInput
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
+	// The lab user list management profile.
+	RosterProfile RosterProfilePtrInput
+	// The lab security profile.
+	SecurityProfile SecurityProfileInput
+	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
-	// Maximum duration a user can use an environment for in the lab.
-	UsageQuota pulumi.StringPtrInput
-	// Lab user access mode (open to all vs. restricted to those listed on the lab).
-	UserAccessMode pulumi.StringPtrInput
+	// The title of the lab.
+	Title pulumi.StringPtrInput
+	// The profile used for creating lab virtual machines.
+	VirtualMachineProfile VirtualMachineProfileInput
 }
 
 func (LabArgs) ElementType() reflect.Type {
@@ -182,79 +211,84 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
-// Object id of the user that created the lab.
-func (o LabOutput) CreatedByObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedByObjectId }).(pulumi.StringOutput)
+// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+func (o LabOutput) AutoShutdownProfile() AutoShutdownProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) AutoShutdownProfileResponseOutput { return v.AutoShutdownProfile }).(AutoShutdownProfileResponseOutput)
 }
 
-// Lab creator name
-func (o LabOutput) CreatedByUserPrincipalName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedByUserPrincipalName }).(pulumi.StringOutput)
+// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+func (o LabOutput) ConnectionProfile() ConnectionProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) ConnectionProfileResponseOutput { return v.ConnectionProfile }).(ConnectionProfileResponseOutput)
 }
 
-// Creation date for the lab
-func (o LabOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+// The description of the lab.
+func (o LabOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Invitation code that users can use to join a lab.
-func (o LabOutput) InvitationCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.InvitationCode }).(pulumi.StringOutput)
+// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+func (o LabOutput) LabPlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.LabPlanId }).(pulumi.StringPtrOutput)
 }
 
-// The details of the latest operation. ex: status, error
-func (o LabOutput) LatestOperationResult() LatestOperationResultResponseOutput {
-	return o.ApplyT(func(v *Lab) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+// The geo-location where the resource lives
+func (o LabOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The location of the resource.
-func (o LabOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Maximum number of users allowed in the lab.
-func (o LabOutput) MaxUsersInLab() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Lab) pulumi.IntPtrOutput { return v.MaxUsersInLab }).(pulumi.IntPtrOutput)
-}
-
-// The name of the resource.
+// The name of the resource
 func (o LabOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The provisioning status of the resource.
-func (o LabOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+func (o LabOutput) NetworkProfile() LabNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Lab) LabNetworkProfileResponsePtrOutput { return v.NetworkProfile }).(LabNetworkProfileResponsePtrOutput)
 }
 
-// The tags of the resource.
+// Current provisioning state of the lab.
+func (o LabOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The lab user list management profile.
+func (o LabOutput) RosterProfile() RosterProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Lab) RosterProfileResponsePtrOutput { return v.RosterProfile }).(RosterProfileResponsePtrOutput)
+}
+
+// The lab security profile.
+func (o LabOutput) SecurityProfile() SecurityProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) SecurityProfileResponseOutput { return v.SecurityProfile }).(SecurityProfileResponseOutput)
+}
+
+// The lab state.
+func (o LabOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the lab.
+func (o LabOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Lab) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LabOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Lab) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the resource.
+// The title of the lab.
+func (o LabOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LabOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The unique immutable identifier of a resource (Guid).
-func (o LabOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// Maximum duration a user can use an environment for in the lab.
-func (o LabOutput) UsageQuota() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UsageQuota }).(pulumi.StringPtrOutput)
-}
-
-// Lab user access mode (open to all vs. restricted to those listed on the lab).
-func (o LabOutput) UserAccessMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UserAccessMode }).(pulumi.StringPtrOutput)
-}
-
-// Maximum value MaxUsersInLab can be set to, as specified by the service
-func (o LabOutput) UserQuota() pulumi.IntOutput {
-	return o.ApplyT(func(v *Lab) pulumi.IntOutput { return v.UserQuota }).(pulumi.IntOutput)
+// The profile used for creating lab virtual machines.
+func (o LabOutput) VirtualMachineProfile() VirtualMachineProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) VirtualMachineProfileResponseOutput { return v.VirtualMachineProfile }).(VirtualMachineProfileResponseOutput)
 }
 
 func init() {

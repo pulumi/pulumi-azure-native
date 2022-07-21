@@ -11,7 +11,7 @@ import (
 )
 
 // Custom Locations definition.
-// API Version: 2021-03-15-preview.
+// API Version: 2021-08-15.
 func LookupCustomLocation(ctx *pulumi.Context, args *LookupCustomLocationArgs, opts ...pulumi.InvokeOption) (*LookupCustomLocationResult, error) {
 	var rv LookupCustomLocationResult
 	err := ctx.Invoke("azure-native:extendedlocation:getCustomLocation", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupCustomLocationResult struct {
 	HostType *string `pulumi:"hostType"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// Identity for the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
@@ -127,6 +129,11 @@ func (o LookupCustomLocationResultOutput) HostType() pulumi.StringPtrOutput {
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupCustomLocationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomLocationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o LookupCustomLocationResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives

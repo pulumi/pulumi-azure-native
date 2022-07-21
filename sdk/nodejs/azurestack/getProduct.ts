@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Product information.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     if (!opts) {
@@ -121,6 +121,10 @@ export interface GetProductResult {
      * The product SKU.
      */
     readonly sku?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.azurestack.SystemDataResponse;
     /**
      * Type of Resource.
      */

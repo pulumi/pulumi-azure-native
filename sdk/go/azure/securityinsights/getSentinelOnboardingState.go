@@ -11,7 +11,7 @@ import (
 )
 
 // Sentinel onboarding state
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 func LookupSentinelOnboardingState(ctx *pulumi.Context, args *LookupSentinelOnboardingStateArgs, opts ...pulumi.InvokeOption) (*LookupSentinelOnboardingStateResult, error) {
 	var rv LookupSentinelOnboardingStateResult
 	err := ctx.Invoke("azure-native:securityinsights:getSentinelOnboardingState", args, &rv, opts...)
@@ -22,8 +22,6 @@ func LookupSentinelOnboardingState(ctx *pulumi.Context, args *LookupSentinelOnbo
 }
 
 type LookupSentinelOnboardingStateArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Sentinel onboarding state name. Supports - default
@@ -38,13 +36,13 @@ type LookupSentinelOnboardingStateResult struct {
 	CustomerManagedKey *bool `pulumi:"customerManagedKey"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -62,8 +60,6 @@ func LookupSentinelOnboardingStateOutput(ctx *pulumi.Context, args LookupSentine
 }
 
 type LookupSentinelOnboardingStateOutputArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Sentinel onboarding state name. Supports - default
@@ -101,12 +97,12 @@ func (o LookupSentinelOnboardingStateResultOutput) Etag() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupSentinelOnboardingStateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupSentinelOnboardingStateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -116,7 +112,7 @@ func (o LookupSentinelOnboardingStateResultOutput) SystemData() SystemDataRespon
 	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupSentinelOnboardingStateResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) string { return v.Type }).(pulumi.StringOutput)
 }

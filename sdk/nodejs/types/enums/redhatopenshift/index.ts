@@ -9,3 +9,33 @@ export {
     v20210901preview,
     v20220401,
 };
+
+export const EncryptionAtHost = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Whether master virtual machines are encrypted at host.
+ */
+export type EncryptionAtHost = (typeof EncryptionAtHost)[keyof typeof EncryptionAtHost];
+
+export const FipsValidatedModules = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * If FIPS validated crypto modules are used
+ */
+export type FipsValidatedModules = (typeof FipsValidatedModules)[keyof typeof FipsValidatedModules];
+
+export const Visibility = {
+    Private: "Private",
+    Public: "Public",
+} as const;
+
+/**
+ * Ingress visibility.
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];

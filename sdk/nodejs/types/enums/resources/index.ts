@@ -78,6 +78,15 @@ export const ExpressionEvaluationOptionsScopeType = {
  */
 export type ExpressionEvaluationOptionsScopeType = (typeof ExpressionEvaluationOptionsScopeType)[keyof typeof ExpressionEvaluationOptionsScopeType];
 
+export const ExtendedLocationType = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The extended location type.
+ */
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
+
 export const ManagedServiceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;

@@ -9,6 +9,7 @@ __all__ = [
     'ClusteringPolicy',
     'DayOfWeek',
     'EvictionPolicy',
+    'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
     'Protocol',
     'PublicNetworkAccess',
@@ -63,6 +64,16 @@ class EvictionPolicy(str, Enum):
     VOLATILE_TTL = "VolatileTTL"
     VOLATILE_RANDOM = "VolatileRandom"
     NO_EVICTION = "NoEviction"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

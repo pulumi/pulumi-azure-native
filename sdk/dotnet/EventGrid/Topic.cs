@@ -11,16 +11,34 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid Topic
-    /// API Version: 2020-06-01.
+    /// API Version: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Data Residency Boundary of the resource.
+        /// </summary>
+        [Output("dataResidencyBoundary")]
+        public Output<string?> DataResidencyBoundary { get; private set; } = null!;
+
+        /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
         /// Endpoint for the topic.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityInfoResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
@@ -156,6 +174,24 @@ namespace Pulumi.AzureNative.EventGrid
 
     public sealed class TopicArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Data Residency Boundary of the resource.
+        /// </summary>
+        [Input("dataResidencyBoundary")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.DataResidencyBoundary>? DataResidencyBoundary { get; set; }
+
+        /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityInfoArgs>? Identity { get; set; }
+
         [Input("inboundIpRules")]
         private InputList<Inputs.InboundIpRuleArgs>? _inboundIpRules;
 
@@ -219,6 +255,7 @@ namespace Pulumi.AzureNative.EventGrid
 
         public TopicArgs()
         {
+            DisableLocalAuth = false;
             InputSchema = "EventGridSchema";
             PublicNetworkAccess = "Enabled";
         }

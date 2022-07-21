@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a VMSS VM Extension.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
@@ -61,6 +61,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      */
     public readonly protectedSettings!: pulumi.Output<any | undefined>;
     /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<any | undefined>;
+    /**
      * The provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -72,6 +76,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * Json formatted public settings for the extension.
      */
     public readonly settings!: pulumi.Output<any | undefined>;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    public readonly suppressFailures!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type
      */
@@ -107,9 +115,11 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["instanceView"] = args ? args.instanceView : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["suppressFailures"] = args ? args.suppressFailures : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["vmExtensionName"] = args ? args.vmExtensionName : undefined;
@@ -123,9 +133,11 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;
+            resourceInputs["protectedSettingsFromKeyVault"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["suppressFailures"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
@@ -165,6 +177,10 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      */
     protectedSettings?: any;
     /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    protectedSettingsFromKeyVault?: any;
+    /**
      * The name of the extension handler publisher.
      */
     publisher?: pulumi.Input<string>;
@@ -176,6 +192,10 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      * Json formatted public settings for the extension.
      */
     settings?: any;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    suppressFailures?: pulumi.Input<boolean>;
     /**
      * Specifies the type of the extension; an example is "CustomScriptExtension".
      */

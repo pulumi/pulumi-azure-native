@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Sql pool transparent data encryption configuration.
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export interface SqlPoolTransparentDataEncryptionArgs {
      */
     transparentDataEncryptionName?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

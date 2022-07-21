@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Network function resource response.
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network function resource response.
-        /// API Version: 2020-01-01-preview.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetNetworkFunctionResult
     {
         /// <summary>
-        /// The reference to the device resource.
+        /// The reference to the device resource. Once set, it cannot be updated.
         /// </summary>
         public readonly Outputs.SubResourceResponse? Device;
         /// <summary>
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The network function container configurations from the user.
+        /// </summary>
+        public readonly object? NetworkFunctionContainerConfigurations;
+        /// <summary>
         /// The network function configurations from the user.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse> NetworkFunctionUserConfigurations;
@@ -110,13 +114,17 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string ServiceKey;
         /// <summary>
-        /// The sku name for the network function.
+        /// The sku name for the network function. Once set, it cannot be updated.
         /// </summary>
         public readonly string? SkuName;
         /// <summary>
         /// The sku type for the network function.
         /// </summary>
         public readonly string SkuType;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -126,7 +134,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The vendor name for the network function.
+        /// The vendor name for the network function. Once set, it cannot be updated.
         /// </summary>
         public readonly string? VendorName;
         /// <summary>
@@ -150,6 +158,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string name,
 
+            object? networkFunctionContainerConfigurations,
+
             ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse> networkFunctionUserConfigurations,
 
             string provisioningState,
@@ -159,6 +169,8 @@ namespace Pulumi.AzureNative.HybridNetwork
             string? skuName,
 
             string skuType,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -175,11 +187,13 @@ namespace Pulumi.AzureNative.HybridNetwork
             ManagedApplication = managedApplication;
             ManagedApplicationParameters = managedApplicationParameters;
             Name = name;
+            NetworkFunctionContainerConfigurations = networkFunctionContainerConfigurations;
             NetworkFunctionUserConfigurations = networkFunctionUserConfigurations;
             ProvisioningState = provisioningState;
             ServiceKey = serviceKey;
             SkuName = skuName;
             SkuType = skuType;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VendorName = vendorName;

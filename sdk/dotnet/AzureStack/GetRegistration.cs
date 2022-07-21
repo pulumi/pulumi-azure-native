@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStack
     {
         /// <summary>
         /// Registration information.
-        /// API Version: 2017-06-01.
+        /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registration information.
-        /// API Version: 2017-06-01.
+        /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The kind of the resource.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -97,6 +101,10 @@ namespace Pulumi.AzureNative.AzureStack
         /// The object identifier associated with the Azure Stack connecting to Azure.
         /// </summary>
         public readonly string? ObjectId;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Custom tags for the resource.
         /// </summary>
@@ -116,11 +124,15 @@ namespace Pulumi.AzureNative.AzureStack
 
             string id,
 
+            string kind,
+
             string location,
 
             string name,
 
             string? objectId,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -130,9 +142,11 @@ namespace Pulumi.AzureNative.AzureStack
             CloudId = cloudId;
             Etag = etag;
             Id = id;
+            Kind = kind;
             Location = location;
             Name = name;
             ObjectId = objectId;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

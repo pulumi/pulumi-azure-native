@@ -16,6 +16,7 @@ __all__ = [
     'AdhocBasedTriggerContextResponse',
     'AzureBackupParamsResponse',
     'AzureBackupRuleResponse',
+    'AzureMonitorAlertSettingsResponse',
     'AzureOperationalStoreParametersResponse',
     'AzureRetentionRuleResponse',
     'BackupInstanceResponse',
@@ -31,14 +32,18 @@ __all__ = [
     'DppIdentityDetailsResponse',
     'ImmediateCopyOptionResponse',
     'InnerErrorResponse',
+    'MonitoringSettingsResponse',
     'PolicyInfoResponse',
     'PolicyParametersResponse',
     'ProtectionStatusDetailsResponse',
     'ResourceGuardOperationResponse',
     'ResourceGuardResponse',
+    'ResourceMoveDetailsResponse',
     'RetentionTagResponse',
     'ScheduleBasedBackupCriteriaResponse',
     'ScheduleBasedTriggerContextResponse',
+    'SecretStoreBasedAuthCredentialsResponse',
+    'SecretStoreResourceResponse',
     'SourceLifeCycleResponse',
     'StorageSettingResponse',
     'SystemDataResponse',
@@ -334,6 +339,42 @@ class AzureBackupRuleResponse(dict):
 
 
 @pulumi.output_type
+class AzureMonitorAlertSettingsResponse(dict):
+    """
+    Settings for Azure Monitor based alerts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertsForAllJobFailures":
+            suggest = "alerts_for_all_job_failures"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorAlertSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorAlertSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorAlertSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts_for_all_job_failures: Optional[str] = None):
+        """
+        Settings for Azure Monitor based alerts
+        """
+        if alerts_for_all_job_failures is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures", alerts_for_all_job_failures)
+
+    @property
+    @pulumi.getter(name="alertsForAllJobFailures")
+    def alerts_for_all_job_failures(self) -> Optional[str]:
+        return pulumi.get(self, "alerts_for_all_job_failures")
+
+
+@pulumi.output_type
 class AzureOperationalStoreParametersResponse(dict):
     """
     Parameters for Operational-Tier DataStore
@@ -490,8 +531,12 @@ class BackupInstanceResponse(dict):
             suggest = "provisioning_state"
         elif key == "dataSourceSetInfo":
             suggest = "data_source_set_info"
+        elif key == "datasourceAuthCredentials":
+            suggest = "datasource_auth_credentials"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "validationType":
+            suggest = "validation_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupInstanceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -513,7 +558,9 @@ class BackupInstanceResponse(dict):
                  protection_status: 'outputs.ProtectionStatusDetailsResponse',
                  provisioning_state: str,
                  data_source_set_info: Optional['outputs.DatasourceSetResponse'] = None,
-                 friendly_name: Optional[str] = None):
+                 datasource_auth_credentials: Optional['outputs.SecretStoreBasedAuthCredentialsResponse'] = None,
+                 friendly_name: Optional[str] = None,
+                 validation_type: Optional[str] = None):
         """
         Backup Instance
         :param str current_protection_state: Specifies the current protection state of the resource
@@ -523,7 +570,9 @@ class BackupInstanceResponse(dict):
         :param 'ProtectionStatusDetailsResponse' protection_status: Specifies the protection status of the resource
         :param str provisioning_state: Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
         :param 'DatasourceSetResponse' data_source_set_info: Gets or sets the data source set information.
+        :param 'SecretStoreBasedAuthCredentialsResponse' datasource_auth_credentials: Credentials to use to authenticate with data source provider.
         :param str friendly_name: Gets or sets the Backup Instance friendly name.
+        :param str validation_type: Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
         """
         pulumi.set(__self__, "current_protection_state", current_protection_state)
         pulumi.set(__self__, "data_source_info", data_source_info)
@@ -534,8 +583,12 @@ class BackupInstanceResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if data_source_set_info is not None:
             pulumi.set(__self__, "data_source_set_info", data_source_set_info)
+        if datasource_auth_credentials is not None:
+            pulumi.set(__self__, "datasource_auth_credentials", datasource_auth_credentials)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if validation_type is not None:
+            pulumi.set(__self__, "validation_type", validation_type)
 
     @property
     @pulumi.getter(name="currentProtectionState")
@@ -599,12 +652,28 @@ class BackupInstanceResponse(dict):
         return pulumi.get(self, "data_source_set_info")
 
     @property
+    @pulumi.getter(name="datasourceAuthCredentials")
+    def datasource_auth_credentials(self) -> Optional['outputs.SecretStoreBasedAuthCredentialsResponse']:
+        """
+        Credentials to use to authenticate with data source provider.
+        """
+        return pulumi.get(self, "datasource_auth_credentials")
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[str]:
         """
         Gets or sets the Backup Instance friendly name.
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="validationType")
+    def validation_type(self) -> Optional[str]:
+        """
+        Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+        """
+        return pulumi.get(self, "validation_type")
 
 
 @pulumi.output_type
@@ -684,6 +753,8 @@ class BackupScheduleResponse(dict):
         suggest = None
         if key == "repeatingTimeIntervals":
             suggest = "repeating_time_intervals"
+        elif key == "timeZone":
+            suggest = "time_zone"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupScheduleResponse. Access the value via the '{suggest}' property getter instead.")
@@ -697,12 +768,16 @@ class BackupScheduleResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 repeating_time_intervals: Sequence[str]):
+                 repeating_time_intervals: Sequence[str],
+                 time_zone: Optional[str] = None):
         """
         Schedule for backup
         :param Sequence[str] repeating_time_intervals: ISO 8601 repeating time interval format
+        :param str time_zone: Time zone for a schedule. Example: Pacific Standard Time
         """
         pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="repeatingTimeIntervals")
@@ -711,6 +786,14 @@ class BackupScheduleResponse(dict):
         ISO 8601 repeating time interval format
         """
         return pulumi.get(self, "repeating_time_intervals")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        Time zone for a schedule. Example: Pacific Standard Time
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -723,8 +806,14 @@ class BackupVaultResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "resourceMoveDetails":
+            suggest = "resource_move_details"
+        elif key == "resourceMoveState":
+            suggest = "resource_move_state"
         elif key == "storageSettings":
             suggest = "storage_settings"
+        elif key == "monitoringSettings":
+            suggest = "monitoring_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupVaultResponse. Access the value via the '{suggest}' property getter instead.")
@@ -739,14 +828,24 @@ class BackupVaultResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: str,
-                 storage_settings: Sequence['outputs.StorageSettingResponse']):
+                 resource_move_details: 'outputs.ResourceMoveDetailsResponse',
+                 resource_move_state: str,
+                 storage_settings: Sequence['outputs.StorageSettingResponse'],
+                 monitoring_settings: Optional['outputs.MonitoringSettingsResponse'] = None):
         """
         Backup Vault
         :param str provisioning_state: Provisioning state of the BackupVault resource
+        :param 'ResourceMoveDetailsResponse' resource_move_details: Resource move details for backup vault
+        :param str resource_move_state: Resource move state for backup vault
         :param Sequence['StorageSettingResponse'] storage_settings: Storage Settings
+        :param 'MonitoringSettingsResponse' monitoring_settings: Monitoring Settings
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_move_details", resource_move_details)
+        pulumi.set(__self__, "resource_move_state", resource_move_state)
         pulumi.set(__self__, "storage_settings", storage_settings)
+        if monitoring_settings is not None:
+            pulumi.set(__self__, "monitoring_settings", monitoring_settings)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -757,12 +856,36 @@ class BackupVaultResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceMoveDetails")
+    def resource_move_details(self) -> 'outputs.ResourceMoveDetailsResponse':
+        """
+        Resource move details for backup vault
+        """
+        return pulumi.get(self, "resource_move_details")
+
+    @property
+    @pulumi.getter(name="resourceMoveState")
+    def resource_move_state(self) -> str:
+        """
+        Resource move state for backup vault
+        """
+        return pulumi.get(self, "resource_move_state")
+
+    @property
     @pulumi.getter(name="storageSettings")
     def storage_settings(self) -> Sequence['outputs.StorageSettingResponse']:
         """
         Storage Settings
         """
         return pulumi.get(self, "storage_settings")
+
+    @property
+    @pulumi.getter(name="monitoringSettings")
+    def monitoring_settings(self) -> Optional['outputs.MonitoringSettingsResponse']:
+        """
+        Monitoring Settings
+        """
+        return pulumi.get(self, "monitoring_settings")
 
 
 @pulumi.output_type
@@ -1381,6 +1504,46 @@ class InnerErrorResponse(dict):
 
 
 @pulumi.output_type
+class MonitoringSettingsResponse(dict):
+    """
+    Monitoring Settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureMonitorAlertSettings":
+            suggest = "azure_monitor_alert_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_monitor_alert_settings: Optional['outputs.AzureMonitorAlertSettingsResponse'] = None):
+        """
+        Monitoring Settings
+        :param 'AzureMonitorAlertSettingsResponse' azure_monitor_alert_settings: Settings for Azure Monitor based alerts
+        """
+        if azure_monitor_alert_settings is not None:
+            pulumi.set(__self__, "azure_monitor_alert_settings", azure_monitor_alert_settings)
+
+    @property
+    @pulumi.getter(name="azureMonitorAlertSettings")
+    def azure_monitor_alert_settings(self) -> Optional['outputs.AzureMonitorAlertSettingsResponse']:
+        """
+        Settings for Azure Monitor based alerts
+        """
+        return pulumi.get(self, "azure_monitor_alert_settings")
+
+
+@pulumi.output_type
 class PolicyInfoResponse(dict):
     """
     Policy Info in backupInstance
@@ -1612,7 +1775,7 @@ class ResourceGuardResponse(dict):
                  description: str,
                  provisioning_state: str,
                  resource_guard_operations: Sequence['outputs.ResourceGuardOperationResponse'],
-                 vault_critical_operation_exclusion_list: Sequence[str]):
+                 vault_critical_operation_exclusion_list: Optional[Sequence[str]] = None):
         """
         :param bool allow_auto_approvals: This flag indicates whether auto approval is allowed or not.
         :param str description: Description about the pre-req steps to perform all the critical operations.
@@ -1624,7 +1787,8 @@ class ResourceGuardResponse(dict):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "resource_guard_operations", resource_guard_operations)
-        pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
+        if vault_critical_operation_exclusion_list is not None:
+            pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
 
     @property
     @pulumi.getter(name="allowAutoApprovals")
@@ -1660,11 +1824,107 @@ class ResourceGuardResponse(dict):
 
     @property
     @pulumi.getter(name="vaultCriticalOperationExclusionList")
-    def vault_critical_operation_exclusion_list(self) -> Sequence[str]:
+    def vault_critical_operation_exclusion_list(self) -> Optional[Sequence[str]]:
         """
         List of critical operations which are not protected by this resourceGuard
         """
         return pulumi.get(self, "vault_critical_operation_exclusion_list")
+
+
+@pulumi.output_type
+class ResourceMoveDetailsResponse(dict):
+    """
+    ResourceMoveDetails will be returned in response to GetResource call from ARM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completionTimeUtc":
+            suggest = "completion_time_utc"
+        elif key == "operationId":
+            suggest = "operation_id"
+        elif key == "sourceResourcePath":
+            suggest = "source_resource_path"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "targetResourcePath":
+            suggest = "target_resource_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceMoveDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceMoveDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceMoveDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completion_time_utc: Optional[str] = None,
+                 operation_id: Optional[str] = None,
+                 source_resource_path: Optional[str] = None,
+                 start_time_utc: Optional[str] = None,
+                 target_resource_path: Optional[str] = None):
+        """
+        ResourceMoveDetails will be returned in response to GetResource call from ARM
+        :param str completion_time_utc: Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+        :param str operation_id: CorrelationId of latest ResourceMove operation attempted
+        :param str source_resource_path: ARM resource path of source resource
+        :param str start_time_utc: Start time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+        :param str target_resource_path: ARM resource path of target resource used in latest ResourceMove operation
+        """
+        if completion_time_utc is not None:
+            pulumi.set(__self__, "completion_time_utc", completion_time_utc)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if source_resource_path is not None:
+            pulumi.set(__self__, "source_resource_path", source_resource_path)
+        if start_time_utc is not None:
+            pulumi.set(__self__, "start_time_utc", start_time_utc)
+        if target_resource_path is not None:
+            pulumi.set(__self__, "target_resource_path", target_resource_path)
+
+    @property
+    @pulumi.getter(name="completionTimeUtc")
+    def completion_time_utc(self) -> Optional[str]:
+        """
+        Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+        """
+        return pulumi.get(self, "completion_time_utc")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[str]:
+        """
+        CorrelationId of latest ResourceMove operation attempted
+        """
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter(name="sourceResourcePath")
+    def source_resource_path(self) -> Optional[str]:
+        """
+        ARM resource path of source resource
+        """
+        return pulumi.get(self, "source_resource_path")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> Optional[str]:
+        """
+        Start time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter(name="targetResourcePath")
+    def target_resource_path(self) -> Optional[str]:
+        """
+        ARM resource path of target resource used in latest ResourceMove operation
+        """
+        return pulumi.get(self, "target_resource_path")
 
 
 @pulumi.output_type
@@ -1920,6 +2180,124 @@ class ScheduleBasedTriggerContextResponse(dict):
         List of tags that can be applicable for given schedule.
         """
         return pulumi.get(self, "tagging_criteria")
+
+
+@pulumi.output_type
+class SecretStoreBasedAuthCredentialsResponse(dict):
+    """
+    Secret store based authentication credentials.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "secretStoreResource":
+            suggest = "secret_store_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretStoreBasedAuthCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretStoreBasedAuthCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretStoreBasedAuthCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 secret_store_resource: Optional['outputs.SecretStoreResourceResponse'] = None):
+        """
+        Secret store based authentication credentials.
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'SecretStoreBasedAuthCredentials'.
+        :param 'SecretStoreResourceResponse' secret_store_resource: Secret store resource
+        """
+        pulumi.set(__self__, "object_type", 'SecretStoreBasedAuthCredentials')
+        if secret_store_resource is not None:
+            pulumi.set(__self__, "secret_store_resource", secret_store_resource)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'SecretStoreBasedAuthCredentials'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="secretStoreResource")
+    def secret_store_resource(self) -> Optional['outputs.SecretStoreResourceResponse']:
+        """
+        Secret store resource
+        """
+        return pulumi.get(self, "secret_store_resource")
+
+
+@pulumi.output_type
+class SecretStoreResourceResponse(dict):
+    """
+    Class representing a secret store resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretStoreType":
+            suggest = "secret_store_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretStoreResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretStoreResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretStoreResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_store_type: str,
+                 uri: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Class representing a secret store resource.
+        :param str secret_store_type: Gets or sets the type of secret store
+        :param str uri: Uri to get to the resource
+        :param str value: Gets or sets value stored in secret store resource
+        """
+        pulumi.set(__self__, "secret_store_type", secret_store_type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="secretStoreType")
+    def secret_store_type(self) -> str:
+        """
+        Gets or sets the type of secret store
+        """
+        return pulumi.get(self, "secret_store_type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Uri to get to the resource
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Gets or sets value stored in secret store resource
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

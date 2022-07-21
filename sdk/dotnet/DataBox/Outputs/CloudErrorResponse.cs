@@ -11,29 +11,29 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
     /// <summary>
-    /// Cloud error.
+    /// Provides additional information about an http error response.
     /// </summary>
     [OutputType]
     public sealed class CloudErrorResponse
     {
         /// <summary>
-        /// Cloud error additional info.
+        /// Gets or sets additional error info.
         /// </summary>
         public readonly ImmutableArray<Outputs.AdditionalErrorInfoResponse> AdditionalInfo;
         /// <summary>
-        /// Cloud error code.
+        /// Error code.
         /// </summary>
         public readonly string? Code;
         /// <summary>
-        /// Cloud error details.
+        /// Gets or sets details for the error.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudErrorResponse> Details;
         /// <summary>
-        /// Cloud error message.
+        /// The error message parsed from the body of the http error response.
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// Cloud error target.
+        /// Gets or sets the target of the error.
         /// </summary>
         public readonly string? Target;
 

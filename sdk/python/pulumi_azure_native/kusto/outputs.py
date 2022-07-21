@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AcceptedAudiencesResponse',
     'AzureSkuResponse',
     'DatabasePrincipalResponse',
     'DatabaseStatisticsResponse',
@@ -21,6 +22,7 @@ __all__ = [
     'LanguageExtensionResponse',
     'LanguageExtensionsListResponse',
     'OptimizedAutoscaleResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
     'SystemDataResponse',
@@ -28,6 +30,29 @@ __all__ = [
     'TrustedExternalTenantResponse',
     'VirtualNetworkConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AcceptedAudiencesResponse(dict):
+    """
+    Represents an accepted audience trusted by the cluster.
+    """
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        Represents an accepted audience trusted by the cluster.
+        :param str value: GUID or valid URL representing an accepted audience.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        GUID or valid URL representing an accepted audience.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AzureSkuResponse(dict):
@@ -386,8 +411,8 @@ class KeyVaultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_name: str,
-                 key_vault_uri: str,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
                  key_version: Optional[str] = None,
                  user_identity: Optional[str] = None):
         """
@@ -397,8 +422,10 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_version: The version of the key vault key.
         :param str user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
         if user_identity is not None:
@@ -406,7 +433,7 @@ class KeyVaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> Optional[str]:
         """
         The name of the key vault key.
         """
@@ -414,7 +441,7 @@ class KeyVaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> str:
+    def key_vault_uri(self) -> Optional[str]:
         """
         The Uri of the key vault.
         """
@@ -570,6 +597,130 @@ class OptimizedAutoscaleResponse(dict):
         The version of the template defined, for instance 1.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    A private endpoint connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 id: str,
+                 name: str,
+                 private_endpoint: 'outputs.PrivateEndpointPropertyResponse',
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStatePropertyResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str):
+        """
+        A private endpoint connection
+        :param str group_id: Group id of the private endpoint.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        :param str provisioning_state: Provisioning state of the private endpoint.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        Group id of the private endpoint.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointPropertyResponse':
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStatePropertyResponse':
+        """
+        Connection State of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

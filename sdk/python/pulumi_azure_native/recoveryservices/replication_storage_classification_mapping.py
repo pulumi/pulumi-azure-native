@@ -126,7 +126,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
                  __props__=None):
         """
         Storage mapping object.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage mapping object.
-        API Version: 2018-07-10.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationStorageClassificationMappingArgs args: The arguments to use to populate this resource's properties.

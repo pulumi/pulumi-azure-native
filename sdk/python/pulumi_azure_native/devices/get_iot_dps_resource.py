@@ -21,7 +21,7 @@ class GetIotDpsResourceResult:
     """
     The description of the provisioning service.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -40,6 +40,9 @@ class GetIotDpsResourceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -96,6 +99,14 @@ class GetIotDpsResourceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -124,6 +135,7 @@ class AwaitableGetIotDpsResourceResult(GetIotDpsResourceResult):
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -133,7 +145,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotDpsResourceResult:
     """
     The description of the provisioning service.
-    API Version: 2020-03-01.
+    API Version: 2022-02-05.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
@@ -155,6 +167,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -165,7 +178,7 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourceResult]:
     """
     The description of the provisioning service.
-    API Version: 2020-03-01.
+    API Version: 2022-02-05.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.

@@ -11,7 +11,7 @@ import (
 )
 
 // AzureStorageInfo dictionary resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppAzureStorageAccountsSlot(ctx *pulumi.Context, args *ListWebAppAzureStorageAccountsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAzureStorageAccountsSlotResult, error) {
 	var rv ListWebAppAzureStorageAccountsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)

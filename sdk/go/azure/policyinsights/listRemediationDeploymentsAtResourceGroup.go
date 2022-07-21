@@ -11,7 +11,7 @@ import (
 )
 
 // List of deployments for a remediation.
-// API Version: 2019-07-01.
+// API Version: 2021-10-01.
 func ListRemediationDeploymentsAtResourceGroup(ctx *pulumi.Context, args *ListRemediationDeploymentsAtResourceGroupArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtResourceGroupResult, error) {
 	var rv ListRemediationDeploymentsAtResourceGroupResult
 	err := ctx.Invoke("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args, &rv, opts...)

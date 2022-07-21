@@ -12,13 +12,13 @@ import (
 )
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
 	// Certificate parameters for securing custom HTTPS
 	CustomHttpsParameters pulumi.AnyOutput `pulumi:"customHttpsParameters"`
-	// Provisioning status of Custom Https of the custom domain.
+	// Provisioning status of the custom domain.
 	CustomHttpsProvisioningState pulumi.StringOutput `pulumi:"customHttpsProvisioningState"`
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
 	CustomHttpsProvisioningSubstate pulumi.StringOutput `pulumi:"customHttpsProvisioningSubstate"`
@@ -26,7 +26,7 @@ type CustomDomain struct {
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status of the custom domain.
+	// Provisioning status of Custom Https of the custom domain.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
@@ -199,7 +199,7 @@ func (o CustomDomainOutput) CustomHttpsParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.AnyOutput { return v.CustomHttpsParameters }).(pulumi.AnyOutput)
 }
 
-// Provisioning status of Custom Https of the custom domain.
+// Provisioning status of the custom domain.
 func (o CustomDomainOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
 }
@@ -219,7 +219,7 @@ func (o CustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provisioning status of the custom domain.
+// Provisioning status of Custom Https of the custom domain.
 func (o CustomDomainOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }

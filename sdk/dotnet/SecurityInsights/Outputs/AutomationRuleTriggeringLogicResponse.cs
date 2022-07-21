@@ -19,27 +19,21 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// The conditions to evaluate to determine if the automation rule should be triggered on a given object
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationRulePropertyValuesConditionResponse> Conditions;
+        public readonly ImmutableArray<Outputs.PropertyConditionPropertiesResponse> Conditions;
         /// <summary>
         /// Determines when the automation rule should automatically expire and be disabled.
         /// </summary>
         public readonly string? ExpirationTimeUtc;
         /// <summary>
-        /// Determines whether the automation rule is enabled or disabled.
+        /// Determines whether the automation rule is enabled or disabled
         /// </summary>
         public readonly bool IsEnabled;
-        /// <summary>
-        /// The type of object the automation rule triggers on
-        /// </summary>
         public readonly string TriggersOn;
-        /// <summary>
-        /// The type of event the automation rule triggers on
-        /// </summary>
         public readonly string TriggersWhen;
 
         [OutputConstructor]
         private AutomationRuleTriggeringLogicResponse(
-            ImmutableArray<Outputs.AutomationRulePropertyValuesConditionResponse> conditions,
+            ImmutableArray<Outputs.PropertyConditionPropertiesResponse> conditions,
 
             string? expirationTimeUtc,
 

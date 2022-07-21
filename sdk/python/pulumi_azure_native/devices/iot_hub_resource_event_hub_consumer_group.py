@@ -15,25 +15,24 @@ __all__ = ['IotHubResourceEventHubConsumerGroupArgs', 'IotHubResourceEventHubCon
 class IotHubResourceEventHubConsumerGroupArgs:
     def __init__(__self__, *,
                  event_hub_endpoint_name: pulumi.Input[str],
+                 properties: pulumi.Input['EventHubConsumerGroupNameArgs'],
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['EventHubConsumerGroupNameArgs']] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IotHubResourceEventHubConsumerGroup resource.
         :param pulumi.Input[str] event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
+        :param pulumi.Input['EventHubConsumerGroupNameArgs'] properties: The EventHub consumer group name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resource_name: The name of the IoT hub.
         :param pulumi.Input[str] name: The name of the consumer group to add.
-        :param pulumi.Input['EventHubConsumerGroupNameArgs'] properties: The EventHub consumer group name.
         """
         pulumi.set(__self__, "event_hub_endpoint_name", event_hub_endpoint_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="eventHubEndpointName")
@@ -46,6 +45,18 @@ class IotHubResourceEventHubConsumerGroupArgs:
     @event_hub_endpoint_name.setter
     def event_hub_endpoint_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "event_hub_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['EventHubConsumerGroupNameArgs']:
+        """
+        The EventHub consumer group name.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['EventHubConsumerGroupNameArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +94,6 @@ class IotHubResourceEventHubConsumerGroupArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['EventHubConsumerGroupNameArgs']]:
-        """
-        The EventHub consumer group name.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['EventHubConsumerGroupNameArgs']]):
-        pulumi.set(self, "properties", value)
-
 
 class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
     @overload
@@ -109,7 +108,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The properties of the EventHubConsumerGroupInfo object.
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of the EventHubConsumerGroupInfo object.
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceEventHubConsumerGroupArgs args: The arguments to use to populate this resource's properties.
@@ -165,6 +164,8 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_hub_endpoint_name'")
             __props__.__dict__["event_hub_endpoint_name"] = event_hub_endpoint_name
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -222,7 +223,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Mapping[str, str]]:
+    def properties(self) -> pulumi.Output[Any]:
         """
         The tags.
         """

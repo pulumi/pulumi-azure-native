@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlManagedInstance.
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
     if (!opts) {
@@ -41,7 +41,7 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly extendedLocation?: outputs.azurearcdata.ExtendedLocationResponse;
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -61,7 +61,7 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly sku?: outputs.azurearcdata.SqlManagedInstanceSkuResponse;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.azurearcdata.SystemDataResponse;
     /**
@@ -69,7 +69,7 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

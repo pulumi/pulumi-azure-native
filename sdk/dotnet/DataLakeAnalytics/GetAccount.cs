@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     {
         /// <summary>
         /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-        /// API Version: 2016-11-01.
+        /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datalakeanalytics:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-        /// API Version: 2016-11-01.
+        /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// The default Data Lake Store account associated with this account.
         /// </summary>
         public readonly string DefaultDataLakeStoreAccount;
+        /// <summary>
+        /// The type of the default Data Lake Store account associated with this account.
+        /// </summary>
+        public readonly string DefaultDataLakeStoreAccountType;
         /// <summary>
         /// The full CName endpoint for this account.
         /// </summary>
@@ -222,6 +226,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 
             string defaultDataLakeStoreAccount,
 
+            string defaultDataLakeStoreAccountType,
+
             string endpoint,
 
             string? firewallAllowAzureIps,
@@ -283,6 +289,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
             DataLakeStoreAccounts = dataLakeStoreAccounts;
             DebugDataAccessLevel = debugDataAccessLevel;
             DefaultDataLakeStoreAccount = defaultDataLakeStoreAccount;
+            DefaultDataLakeStoreAccountType = defaultDataLakeStoreAccountType;
             Endpoint = endpoint;
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;

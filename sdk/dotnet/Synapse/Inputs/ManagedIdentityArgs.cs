@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         [Input("type")]
         public Input<Pulumi.AzureNative.Synapse.ResourceIdentityType>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The user assigned managed identities.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
+        }
+
         public ManagedIdentityArgs()
         {
         }

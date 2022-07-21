@@ -11,7 +11,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupIoTRole(ctx *pulumi.Context, args *LookupIoTRoleArgs, opts ...pulumi.InvokeOption) (*LookupIoTRoleResult, error) {
 	var rv LookupIoTRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getIoTRole", args, &rv, opts...)
@@ -55,7 +55,7 @@ type LookupIoTRoleResult struct {
 	RoleStatus string `pulumi:"roleStatus"`
 	// Mount points of shares in role(s).
 	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
-	// Role configured on ASE resource
+	// Metadata pertaining to creation and last modification of Role
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -158,7 +158,7 @@ func (o LookupIoTRoleResultOutput) ShareMappings() MountPointMapResponseArrayOut
 	return o.ApplyT(func(v LookupIoTRoleResult) []MountPointMapResponse { return v.ShareMappings }).(MountPointMapResponseArrayOutput)
 }
 
-// Role configured on ASE resource
+// Metadata pertaining to creation and last modification of Role
 func (o LookupIoTRoleResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupIoTRoleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

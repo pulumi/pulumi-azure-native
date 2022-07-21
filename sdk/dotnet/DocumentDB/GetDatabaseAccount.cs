@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB database account.
-        /// API Version: 2021-03-15.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Task<GetDatabaseAccountResult> InvokeAsync(GetDatabaseAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB database account.
-        /// API Version: 2021-03-15.
+        /// API Version: 2021-10-15.
         /// </summary>
         public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithDefaults());
@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.DocumentDB
     public sealed class GetDatabaseAccountResult
     {
         /// <summary>
+        /// Analytical storage specific properties.
+        /// </summary>
+        public readonly Outputs.AnalyticalStorageConfigurationResponse? AnalyticalStorageConfiguration;
+        /// <summary>
         /// API specific properties.
         /// </summary>
         public readonly Outputs.ApiPropertiesResponse? ApiProperties;
@@ -81,6 +85,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// List of Cosmos DB capabilities for the account
         /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityResponse> Capabilities;
+        /// <summary>
+        /// The object that represents all properties related to capacity enforcement on an account.
+        /// </summary>
+        public readonly Outputs.CapacityResponse? Capacity;
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
@@ -94,6 +102,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public readonly ImmutableArray<Outputs.CorsPolicyResponse> Cors;
         /// <summary>
+        /// Enum to indicate the mode of account creation.
+        /// </summary>
+        public readonly string? CreateMode;
+        /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         public readonly string DatabaseAccountOfferType;
@@ -105,6 +117,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
         /// </summary>
         public readonly bool? DisableKeyBasedMetadataWriteAccess;
+        /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
         /// <summary>
         /// The connection endpoint for the Cosmos DB database account.
         /// </summary>
@@ -141,6 +157,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// A unique identifier assigned to the database account
+        /// </summary>
+        public readonly string InstanceId;
         /// <summary>
         /// List of IpRules.
         /// </summary>
@@ -194,6 +214,14 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public readonly ImmutableArray<Outputs.LocationResponse> ReadLocations;
         /// <summary>
+        /// Parameters to indicate the information about the restore.
+        /// </summary>
+        public readonly Outputs.RestoreParametersResponse? RestoreParameters;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -212,11 +240,15 @@ namespace Pulumi.AzureNative.DocumentDB
 
         [OutputConstructor]
         private GetDatabaseAccountResult(
+            Outputs.AnalyticalStorageConfigurationResponse? analyticalStorageConfiguration,
+
             Outputs.ApiPropertiesResponse? apiProperties,
 
             Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>? backupPolicy,
 
             ImmutableArray<Outputs.CapabilityResponse> capabilities,
+
+            Outputs.CapacityResponse? capacity,
 
             string? connectorOffer,
 
@@ -224,11 +256,15 @@ namespace Pulumi.AzureNative.DocumentDB
 
             ImmutableArray<Outputs.CorsPolicyResponse> cors,
 
+            string? createMode,
+
             string databaseAccountOfferType,
 
             string? defaultIdentity,
 
             bool? disableKeyBasedMetadataWriteAccess,
+
+            bool? disableLocalAuth,
 
             string documentEndpoint,
 
@@ -247,6 +283,8 @@ namespace Pulumi.AzureNative.DocumentDB
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
+
+            string instanceId,
 
             ImmutableArray<Outputs.IpAddressOrRangeResponse> ipRules,
 
@@ -274,6 +312,10 @@ namespace Pulumi.AzureNative.DocumentDB
 
             ImmutableArray<Outputs.LocationResponse> readLocations,
 
+            Outputs.RestoreParametersResponse? restoreParameters,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -282,15 +324,19 @@ namespace Pulumi.AzureNative.DocumentDB
 
             ImmutableArray<Outputs.LocationResponse> writeLocations)
         {
+            AnalyticalStorageConfiguration = analyticalStorageConfiguration;
             ApiProperties = apiProperties;
             BackupPolicy = backupPolicy;
             Capabilities = capabilities;
+            Capacity = capacity;
             ConnectorOffer = connectorOffer;
             ConsistencyPolicy = consistencyPolicy;
             Cors = cors;
+            CreateMode = createMode;
             DatabaseAccountOfferType = databaseAccountOfferType;
             DefaultIdentity = defaultIdentity;
             DisableKeyBasedMetadataWriteAccess = disableKeyBasedMetadataWriteAccess;
+            DisableLocalAuth = disableLocalAuth;
             DocumentEndpoint = documentEndpoint;
             EnableAnalyticalStorage = enableAnalyticalStorage;
             EnableAutomaticFailover = enableAutomaticFailover;
@@ -300,6 +346,7 @@ namespace Pulumi.AzureNative.DocumentDB
             FailoverPolicies = failoverPolicies;
             Id = id;
             Identity = identity;
+            InstanceId = instanceId;
             IpRules = ipRules;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             KeyVaultKeyUri = keyVaultKeyUri;
@@ -313,6 +360,8 @@ namespace Pulumi.AzureNative.DocumentDB
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             ReadLocations = readLocations;
+            RestoreParameters = restoreParameters;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VirtualNetworkRules = virtualNetworkRules;

@@ -37,17 +37,6 @@ export const HostingModel = {
  */
 export type HostingModel = (typeof HostingModel)[keyof typeof HostingModel];
 
-export const IdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-} as const;
-
-/**
- * Type of managed service identity.
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
 export const KeySource = {
     Microsoft_CognitiveServices: "Microsoft.CognitiveServices",
     Microsoft_KeyVault: "Microsoft.KeyVault",
@@ -72,7 +61,6 @@ export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
     Rejected: "Rejected",
-    Disconnected: "Disconnected",
 } as const;
 
 /**
@@ -86,6 +74,31 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ * Whether or not public endpoint access is allowed for this account.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const ResourceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SkuTier = {
+    Free: "Free",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+    Enterprise: "Enterprise",
+} as const;
+
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

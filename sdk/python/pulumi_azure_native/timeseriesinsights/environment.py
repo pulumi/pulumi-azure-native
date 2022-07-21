@@ -133,7 +133,7 @@ class Environment(pulumi.CustomResource):
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-        API Version: 2020-05-15.
+        API Version: 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

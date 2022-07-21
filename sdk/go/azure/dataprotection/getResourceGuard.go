@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-10-01-preview.
+// API Version: 2022-05-01.
 func LookupResourceGuard(ctx *pulumi.Context, args *LookupResourceGuardArgs, opts ...pulumi.InvokeOption) (*LookupResourceGuardResult, error) {
 	var rv LookupResourceGuardResult
 	err := ctx.Invoke("azure-native:dataprotection:getResourceGuard", args, &rv, opts...)

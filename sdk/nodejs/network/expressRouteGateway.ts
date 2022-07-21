@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoute gateway resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
@@ -47,7 +47,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
      */
-    public /*out*/ readonly expressRouteConnections!: pulumi.Output<outputs.network.ExpressRouteConnectionResponse[]>;
+    public readonly expressRouteConnections!: pulumi.Output<outputs.network.ExpressRouteConnectionResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -91,6 +91,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualHub'");
             }
             resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
+            resourceInputs["expressRouteConnections"] = args ? args.expressRouteConnections : undefined;
             resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -98,7 +99,6 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["expressRouteConnections"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -128,6 +128,10 @@ export interface ExpressRouteGatewayArgs {
      * Configuration for auto scaling.
      */
     autoScaleConfiguration?: pulumi.Input<inputs.network.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>;
+    /**
+     * List of ExpressRoute connections to the ExpressRoute gateway.
+     */
+    expressRouteConnections?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteConnectionArgs>[]>;
     /**
      * The name of the ExpressRoute gateway.
      */

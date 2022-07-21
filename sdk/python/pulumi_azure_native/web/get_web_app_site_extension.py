@@ -322,7 +322,7 @@ def get_web_app_site_extension(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionResult:
     """
     Site Extension Information.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Site name.
@@ -373,7 +373,7 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
     """
     Site Extension Information.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str name: Site name.

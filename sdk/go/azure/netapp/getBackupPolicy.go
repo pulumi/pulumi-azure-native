@@ -11,7 +11,7 @@ import (
 )
 
 // Backup policy information
-// API Version: 2020-12-01.
+// API Version: 2022-01-01.
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
 	err := ctx.Invoke("azure-native:netapp:getBackupPolicy", args, &rv, opts...)
@@ -32,32 +32,36 @@ type LookupBackupPolicyArgs struct {
 
 // Backup policy information
 type LookupBackupPolicyResult struct {
+	// Backup Policy Resource ID
+	BackupPolicyId string `pulumi:"backupPolicyId"`
 	// Daily backups count to keep
 	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Monthly backups count to keep
 	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
-	// Name of backup policy
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// A list of volumes assigned to this policy
 	VolumeBackups []VolumeBackupsResponse `pulumi:"volumeBackups"`
 	// Volumes using current backup policy
-	VolumesAssigned *int `pulumi:"volumesAssigned"`
+	VolumesAssigned int `pulumi:"volumesAssigned"`
 	// Weekly backups count to keep
 	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
-	// Yearly backups count to keep
-	YearlyBackupsToKeep *int `pulumi:"yearlyBackupsToKeep"`
 }
 
 func LookupBackupPolicyOutput(ctx *pulumi.Context, args LookupBackupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBackupPolicyResultOutput {
@@ -101,6 +105,11 @@ func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutputWithCont
 	return o
 }
 
+// Backup Policy Resource ID
+func (o LookupBackupPolicyResultOutput) BackupPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.BackupPolicyId }).(pulumi.StringOutput)
+}
+
 // Daily backups count to keep
 func (o LookupBackupPolicyResultOutput) DailyBackupsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.DailyBackupsToKeep }).(pulumi.IntPtrOutput)
@@ -111,12 +120,17 @@ func (o LookupBackupPolicyResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupBackupPolicyResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupBackupPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource location
+// The geo-location where the resource lives
 func (o LookupBackupPolicyResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -126,7 +140,7 @@ func (o LookupBackupPolicyResultOutput) MonthlyBackupsToKeep() pulumi.IntPtrOutp
 	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.MonthlyBackupsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Name of backup policy
+// The name of the resource
 func (o LookupBackupPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -136,12 +150,17 @@ func (o LookupBackupPolicyResultOutput) ProvisioningState() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Resource tags
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupBackupPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupBackupPolicyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupBackupPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -152,18 +171,13 @@ func (o LookupBackupPolicyResultOutput) VolumeBackups() VolumeBackupsResponseArr
 }
 
 // Volumes using current backup policy
-func (o LookupBackupPolicyResultOutput) VolumesAssigned() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.VolumesAssigned }).(pulumi.IntPtrOutput)
+func (o LookupBackupPolicyResultOutput) VolumesAssigned() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) int { return v.VolumesAssigned }).(pulumi.IntOutput)
 }
 
 // Weekly backups count to keep
 func (o LookupBackupPolicyResultOutput) WeeklyBackupsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.WeeklyBackupsToKeep }).(pulumi.IntPtrOutput)
-}
-
-// Yearly backups count to keep
-func (o LookupBackupPolicyResultOutput) YearlyBackupsToKeep() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.YearlyBackupsToKeep }).(pulumi.IntPtrOutput)
 }
 
 func init() {

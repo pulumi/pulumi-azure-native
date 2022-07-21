@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
-    /// API Version: 2021-10-01-preview.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:ResourceGuard")]
     public partial class ResourceGuard : Pulumi.CustomResource
@@ -137,6 +137,12 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// ResourceGuardResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ResourceGuardArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the backup vault is present.

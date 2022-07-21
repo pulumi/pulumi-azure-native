@@ -29,26 +29,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly object? Distribution;
         /// <summary>
-        /// The ARM resource ID of the Environment specification for the job.
+        /// [Required] The ARM resource ID of the Environment specification for the job.
         /// </summary>
-        public readonly string? EnvironmentId;
+        public readonly string EnvironmentId;
         /// <summary>
         /// Environment variables included in the job.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// Mapping of input data bindings used in the job.
+        /// Compute Resource configuration for the job.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.InputDataBindingResponse>? InputDataBindings;
-        /// <summary>
-        /// Mapping of output data bindings used in the job.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.OutputDataBindingResponse>? OutputDataBindings;
-        /// <summary>
-        /// The max run duration in ISO 8601 format, after which the trial component will be cancelled.
-        /// Only supports duration with precision as low as Seconds.
-        /// </summary>
-        public readonly string? Timeout;
+        public readonly Outputs.ResourceConfigurationResponse? Resources;
 
         [OutputConstructor]
         private TrialComponentResponse(
@@ -58,24 +49,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             object? distribution,
 
-            string? environmentId,
+            string environmentId,
 
             ImmutableDictionary<string, string>? environmentVariables,
 
-            ImmutableDictionary<string, Outputs.InputDataBindingResponse>? inputDataBindings,
-
-            ImmutableDictionary<string, Outputs.OutputDataBindingResponse>? outputDataBindings,
-
-            string? timeout)
+            Outputs.ResourceConfigurationResponse? resources)
         {
             CodeId = codeId;
             Command = command;
             Distribution = distribution;
             EnvironmentId = environmentId;
             EnvironmentVariables = environmentVariables;
-            InputDataBindings = inputDataBindings;
-            OutputDataBindings = outputDataBindings;
-            Timeout = timeout;
+            Resources = resources;
         }
     }
 }

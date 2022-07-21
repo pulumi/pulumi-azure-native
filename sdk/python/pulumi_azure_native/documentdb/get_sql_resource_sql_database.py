@@ -116,7 +116,7 @@ def get_sql_resource_sql_database(account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlDatabaseResult:
     """
     An Azure Cosmos DB SQL database.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -150,7 +150,7 @@ def get_sql_resource_sql_database_output(account_name: Optional[pulumi.Input[str
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlDatabaseResult]:
     """
     An Azure Cosmos DB SQL database.
-    API Version: 2021-03-15.
+    API Version: 2021-10-15.
 
 
     :param str account_name: Cosmos DB database account name.

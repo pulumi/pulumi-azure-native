@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Subscription
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerTopicEventSubscription")]
     public partial class PartnerTopicEventSubscription : Pulumi.CustomResource

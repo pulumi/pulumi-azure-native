@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy that determines how a video can be accessed.
-// API Version: 2021-05-01-preview.
+// Access policies help define the authentication rules, and control access to specific video resources.
+// API Version: 2021-11-01-preview.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type AccessPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Defines the access level granted by this policy.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The system metadata relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -82,7 +82,7 @@ func (AccessPolicyState) ElementType() reflect.Type {
 }
 
 type accessPolicyArgs struct {
-	// The name of the access policy to create or update.
+	// The Access Policy name.
 	AccessPolicyName *string `pulumi:"accessPolicyName"`
 	// The Azure Video Analyzer account name.
 	AccountName string `pulumi:"accountName"`
@@ -96,7 +96,7 @@ type accessPolicyArgs struct {
 
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
-	// The name of the access policy to create or update.
+	// The Access Policy name.
 	AccessPolicyName pulumi.StringPtrInput
 	// The Azure Video Analyzer account name.
 	AccountName pulumi.StringInput
@@ -160,7 +160,7 @@ func (o AccessPolicyOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicy) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o AccessPolicyOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *AccessPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

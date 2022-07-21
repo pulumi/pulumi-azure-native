@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> BackendIPConfigurations;
         /// <summary>
+        /// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        /// </summary>
+        public readonly int? DrainPeriodInSeconds;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -29,6 +33,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// An array of references to inbound NAT rules that use this backend address pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> InboundNatRules;
+        /// <summary>
         /// An array of backend addresses.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerBackendAddressResponse> LoadBalancerBackendAddresses;
@@ -36,6 +44,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// An array of references to load balancing rules that use this backend address pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> LoadBalancingRules;
+        /// <summary>
+        /// The location of the backend address pool.
+        /// </summary>
+        public readonly string? Location;
         /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
@@ -53,6 +65,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// An array of gateway load balancer tunnel interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> TunnelInterfaces;
+        /// <summary>
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
@@ -61,13 +77,19 @@ namespace Pulumi.AzureNative.Network.Outputs
         private BackendAddressPoolResponse(
             ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> backendIPConfigurations,
 
+            int? drainPeriodInSeconds,
+
             string etag,
 
             string? id,
 
+            ImmutableArray<Outputs.SubResourceResponse> inboundNatRules,
+
             ImmutableArray<Outputs.LoadBalancerBackendAddressResponse> loadBalancerBackendAddresses,
 
             ImmutableArray<Outputs.SubResourceResponse> loadBalancingRules,
+
+            string? location,
 
             string? name,
 
@@ -77,17 +99,23 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
+            ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> tunnelInterfaces,
+
             string type)
         {
             BackendIPConfigurations = backendIPConfigurations;
+            DrainPeriodInSeconds = drainPeriodInSeconds;
             Etag = etag;
             Id = id;
+            InboundNatRules = inboundNatRules;
             LoadBalancerBackendAddresses = loadBalancerBackendAddresses;
             LoadBalancingRules = loadBalancingRules;
+            Location = location;
             Name = name;
             OutboundRule = outboundRule;
             OutboundRules = outboundRules;
             ProvisioningState = provisioningState;
+            TunnelInterfaces = tunnelInterfaces;
             Type = type;
         }
     }

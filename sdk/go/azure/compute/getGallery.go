@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
-// API Version: 2020-09-30.
+// API Version: 2021-10-01.
 func LookupGallery(ctx *pulumi.Context, args *LookupGalleryArgs, opts ...pulumi.InvokeOption) (*LookupGalleryResult, error) {
 	var rv LookupGalleryResult
 	err := ctx.Invoke("azure-native:compute:getGallery", args, &rv, opts...)
@@ -22,6 +22,8 @@ func LookupGallery(ctx *pulumi.Context, args *LookupGalleryArgs, opts ...pulumi.
 }
 
 type LookupGalleryArgs struct {
+	// The expand query option to apply on the operation.
+	Expand *string `pulumi:"expand"`
 	// The name of the Shared Image Gallery.
 	GalleryName string `pulumi:"galleryName"`
 	// The name of the resource group.
@@ -46,6 +48,10 @@ type LookupGalleryResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Profile for gallery sharing to subscription or tenant
 	SharingProfile *SharingProfileResponse `pulumi:"sharingProfile"`
+	// Sharing status of current gallery.
+	SharingStatus SharingStatusResponse `pulumi:"sharingStatus"`
+	// Contains information about the soft deletion policy of the gallery.
+	SoftDeletePolicy *SoftDeletePolicyResponse `pulumi:"softDeletePolicy"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -66,6 +72,8 @@ func LookupGalleryOutput(ctx *pulumi.Context, args LookupGalleryOutputArgs, opts
 }
 
 type LookupGalleryOutputArgs struct {
+	// The expand query option to apply on the operation.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
 	// The name of the Shared Image Gallery.
 	GalleryName pulumi.StringInput `pulumi:"galleryName"`
 	// The name of the resource group.
@@ -126,6 +134,16 @@ func (o LookupGalleryResultOutput) ProvisioningState() pulumi.StringOutput {
 // Profile for gallery sharing to subscription or tenant
 func (o LookupGalleryResultOutput) SharingProfile() SharingProfileResponsePtrOutput {
 	return o.ApplyT(func(v LookupGalleryResult) *SharingProfileResponse { return v.SharingProfile }).(SharingProfileResponsePtrOutput)
+}
+
+// Sharing status of current gallery.
+func (o LookupGalleryResultOutput) SharingStatus() SharingStatusResponseOutput {
+	return o.ApplyT(func(v LookupGalleryResult) SharingStatusResponse { return v.SharingStatus }).(SharingStatusResponseOutput)
+}
+
+// Contains information about the soft deletion policy of the gallery.
+func (o LookupGalleryResultOutput) SoftDeletePolicy() SoftDeletePolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupGalleryResult) *SoftDeletePolicyResponse { return v.SoftDeletePolicy }).(SoftDeletePolicyResponsePtrOutput)
 }
 
 // Resource tags

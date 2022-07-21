@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection to SignalR resource
- * API Version: 2020-05-01.
+ * A private endpoint connection to an azure resource
+ * API Version: 2022-02-01.
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -37,21 +37,29 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Group IDs
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     public readonly privateEndpoint!: pulumi.Output<outputs.signalrservice.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.signalrservice.PrivateLinkServiceConnectionStateResponse | undefined>;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.signalrservice.SystemDataResponse>;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
@@ -79,14 +87,18 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -101,15 +113,15 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface SignalRPrivateEndpointConnectionArgs {
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     privateEndpoint?: pulumi.Input<inputs.signalrservice.PrivateEndpointArgs>;
     /**
-     * The name of the private endpoint connection associated with the SignalR resource.
+     * The name of the private endpoint connection
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.PrivateLinkServiceConnectionStateArgs>;
     /**
@@ -117,7 +129,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
 }

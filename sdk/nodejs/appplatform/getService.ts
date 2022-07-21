@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service resource
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
@@ -56,6 +56,10 @@ export interface GetServiceResult {
      * Sku of the Service resource
      */
     readonly sku?: outputs.appplatform.SkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */

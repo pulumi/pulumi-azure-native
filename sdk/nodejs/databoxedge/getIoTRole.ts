@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Compute role.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
     if (!opts) {
@@ -87,7 +87,7 @@ export interface GetIoTRoleResult {
      */
     readonly shareMappings?: outputs.databoxedge.MountPointMapResponse[];
     /**
-     * Role configured on ASE resource
+     * Metadata pertaining to creation and last modification of Role
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

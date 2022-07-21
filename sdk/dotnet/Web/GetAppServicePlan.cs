@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// App Service plan.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// App Service plan.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
@@ -69,6 +69,14 @@ namespace Pulumi.AzureNative.Web
     [OutputType]
     public sealed class GetAppServicePlanResult
     {
+        /// <summary>
+        /// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        /// </summary>
+        public readonly bool? ElasticScaleEnabled;
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// The time when the server farm free offer expires.
         /// </summary>
@@ -178,9 +186,18 @@ namespace Pulumi.AzureNative.Web
         /// Target worker tier assigned to the App Service plan.
         /// </summary>
         public readonly string? WorkerTierName;
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan will perform availability zone balancing.
+        /// If &lt;code&gt;false&lt;/code&gt;, this App Service Plan will not perform availability zone balancing.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetAppServicePlanResult(
+            bool? elasticScaleEnabled,
+
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? freeOfferExpirationTime,
 
             string geoRegion,
@@ -233,8 +250,12 @@ namespace Pulumi.AzureNative.Web
 
             string type,
 
-            string? workerTierName)
+            string? workerTierName,
+
+            bool? zoneRedundant)
         {
+            ElasticScaleEnabled = elasticScaleEnabled;
+            ExtendedLocation = extendedLocation;
             FreeOfferExpirationTime = freeOfferExpirationTime;
             GeoRegion = geoRegion;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
@@ -262,6 +283,7 @@ namespace Pulumi.AzureNative.Web
             TargetWorkerSizeId = targetWorkerSizeId;
             Type = type;
             WorkerTierName = workerTierName;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

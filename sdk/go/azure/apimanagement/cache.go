@@ -12,7 +12,7 @@ import (
 )
 
 // Cache details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -20,11 +20,11 @@ type Cache struct {
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// Cache description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Original uri of entity in external system cache points to
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
 	UseFromLocation pulumi.StringOutput `pulumi:"useFromLocation"`
@@ -195,7 +195,7 @@ func (o CacheOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o CacheOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -205,7 +205,7 @@ func (o CacheOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o CacheOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

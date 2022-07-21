@@ -21,16 +21,16 @@ class GetWorkspaceResult:
     """
     The top level Workspace resource container.
     """
-    def __init__(__self__, created_date=None, customer_id=None, e_tag=None, features=None, force_cmk_for_query=None, id=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
+    def __init__(__self__, created_date=None, customer_id=None, etag=None, features=None, force_cmk_for_query=None, id=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
         pulumi.set(__self__, "customer_id", customer_id)
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        pulumi.set(__self__, "e_tag", e_tag)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if features and not isinstance(features, dict):
             raise TypeError("Expected argument 'features' to be a dict")
         pulumi.set(__self__, "features", features)
@@ -94,12 +94,12 @@ class GetWorkspaceResult:
         return pulumi.get(self, "customer_id")
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
-        The ETag of the workspace.
+        The etag of the workspace.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -230,7 +230,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         return GetWorkspaceResult(
             created_date=self.created_date,
             customer_id=self.customer_id,
-            e_tag=self.e_tag,
+            etag=self.etag,
             features=self.features,
             force_cmk_for_query=self.force_cmk_for_query,
             id=self.id,
@@ -253,7 +253,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     The top level Workspace resource container.
-    API Version: 2020-10-01.
+    API Version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -271,7 +271,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceResult(
         created_date=__ret__.created_date,
         customer_id=__ret__.customer_id,
-        e_tag=__ret__.e_tag,
+        etag=__ret__.etag,
         features=__ret__.features,
         force_cmk_for_query=__ret__.force_cmk_for_query,
         id=__ret__.id,
@@ -295,7 +295,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     The top level Workspace resource container.
-    API Version: 2020-10-01.
+    API Version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

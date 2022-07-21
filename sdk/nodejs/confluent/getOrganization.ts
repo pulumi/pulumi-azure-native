@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Organization resource.
- * API Version: 2020-03-01.
+ * API Version: 2021-12-01.
  */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
     if (!opts) {
@@ -55,7 +55,7 @@ export interface GetOrganizationResult {
     /**
      * Confluent offer detail
      */
-    readonly offerDetail?: outputs.confluent.OrganizationResourcePropertiesResponseOfferDetail;
+    readonly offerDetail: outputs.confluent.OfferDetailResponse;
     /**
      * Id of the Confluent organization.
      */
@@ -69,6 +69,10 @@ export interface GetOrganizationResult {
      */
     readonly ssoUrl: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource
+     */
+    readonly systemData: outputs.confluent.SystemDataResponse;
+    /**
      * Organization resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -79,7 +83,7 @@ export interface GetOrganizationResult {
     /**
      * Subscriber detail
      */
-    readonly userDetail?: outputs.confluent.OrganizationResourcePropertiesResponseUserDetail;
+    readonly userDetail: outputs.confluent.UserDetailResponse;
 }
 
 export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {

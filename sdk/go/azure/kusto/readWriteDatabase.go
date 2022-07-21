@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a read write database.
-// API Version: 2021-01-01.
+// API Version: 2022-02-01.
 type ReadWriteDatabase struct {
 	pulumi.CustomResourceState
 

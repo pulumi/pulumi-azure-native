@@ -17,19 +17,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// Specifies the resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Specifies the name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Specifies the type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private PrivateEndpointConnectionResponse(
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 

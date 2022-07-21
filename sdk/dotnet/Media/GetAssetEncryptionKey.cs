@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Data needed to decrypt asset files encrypted with legacy storage encryption.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-native:media:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data needed to decrypt asset files encrypted with legacy storage encryption.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetAssetEncryptionKeyResult> Invoke(GetAssetEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssetEncryptionKeyResult>("azure-native:media:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyInvokeArgs(), options.WithDefaults());

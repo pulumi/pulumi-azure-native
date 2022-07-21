@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiVersionSetResult:
     """
-    Api Version Set Contract details.
+    API Version Set Contract details.
     """
     def __init__(__self__, description=None, display_name=None, id=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
         if description and not isinstance(description, str):
@@ -66,7 +66,7 @@ class GetApiVersionSetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -74,7 +74,7 @@ class GetApiVersionSetResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +82,7 @@ class GetApiVersionSetResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -132,8 +132,8 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
                         version_set_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
-    Api Version Set Contract details.
-    API Version: 2020-12-01.
+    API Version Set Contract details.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -167,8 +167,8 @@ def get_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] 
                                version_set_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionSetResult]:
     """
-    Api Version Set Contract details.
-    API Version: 2020-12-01.
+    API Version Set Contract details.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

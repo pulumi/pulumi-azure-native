@@ -11,7 +11,7 @@ import (
 )
 
 // Represents ASC (Azure Security Center) data connector.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 func LookupASCDataConnector(ctx *pulumi.Context, args *LookupASCDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupASCDataConnectorResult, error) {
 	var rv LookupASCDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights:getASCDataConnector", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupASCDataConnector(ctx *pulumi.Context, args *LookupASCDataConnectorArg
 type LookupASCDataConnectorArgs struct {
 	// Connector ID
 	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -36,16 +36,18 @@ type LookupASCDataConnectorResult struct {
 	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The kind of the data connector
 	// Expected value is 'AzureSecurityCenter'.
 	Kind string `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The subscription id to connect to, and get the data from.
 	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Azure resource type
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -65,7 +67,7 @@ func LookupASCDataConnectorOutput(ctx *pulumi.Context, args LookupASCDataConnect
 type LookupASCDataConnectorOutputArgs struct {
 	// Connector ID
 	DataConnectorId pulumi.StringInput `pulumi:"dataConnectorId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -100,7 +102,7 @@ func (o LookupASCDataConnectorResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupASCDataConnectorResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupASCDataConnectorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -111,7 +113,7 @@ func (o LookupASCDataConnectorResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o LookupASCDataConnectorResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -121,7 +123,12 @@ func (o LookupASCDataConnectorResultOutput) SubscriptionId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupASCDataConnectorResult) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupASCDataConnectorResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupASCDataConnectorResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents Fusion alert rule.
- * API Version: 2020-01-01.
+ * API Version: 2021-10-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
     if (!opts) {
@@ -23,7 +24,7 @@ export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.I
 
 export interface GetFusionAlertRuleArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -61,7 +62,7 @@ export interface GetFusionAlertRuleResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -74,7 +75,7 @@ export interface GetFusionAlertRuleResult {
      */
     readonly lastModifiedUtc: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -82,11 +83,15 @@ export interface GetFusionAlertRuleResult {
      */
     readonly severity: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
      * The tactics of the alert rule
      */
     readonly tactics: string[];
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -97,7 +102,7 @@ export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opt
 
 export interface GetFusionAlertRuleOutputArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

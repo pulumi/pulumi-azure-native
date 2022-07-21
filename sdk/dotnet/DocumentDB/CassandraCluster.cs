@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Representation of a managed Cassandra cluster.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraCluster")]
     public partial class CassandraCluster : Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedCassandraManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedCassandraManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

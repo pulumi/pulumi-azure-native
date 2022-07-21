@@ -184,7 +184,7 @@ def get_sql_db_table_data_set_mapping(account_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDBTableDataSetMappingResult:
     """
     A SQL DB Table data set mapping.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -226,7 +226,7 @@ def get_sql_db_table_data_set_mapping_output(account_name: Optional[pulumi.Input
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDBTableDataSetMappingResult]:
     """
     A SQL DB Table data set mapping.
-    API Version: 2020-09-01.
+    API Version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

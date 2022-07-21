@@ -254,10 +254,6 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

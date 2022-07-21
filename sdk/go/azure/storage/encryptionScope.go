@@ -12,7 +12,7 @@ import (
 )
 
 // The Encryption Scope resource.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 type EncryptionScope struct {
 	pulumi.CustomResourceState
 

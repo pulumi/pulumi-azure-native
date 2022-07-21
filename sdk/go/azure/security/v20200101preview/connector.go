@@ -31,12 +31,6 @@ func NewConnector(ctx *pulumi.Context,
 		args = &ConnectorArgs{}
 	}
 
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:Connector"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Connector
 	err := ctx.RegisterResource("azure-native:security/v20200101preview:Connector", name, args, &resource, opts...)
 	if err != nil {

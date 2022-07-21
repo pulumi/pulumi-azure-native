@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Security
     public static class GetAssessment
     {
         /// <summary>
-        /// Security assessment on a resource
-        /// API Version: 2020-01-01.
+        /// Security assessment on a resource - response format
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security assessment on a resource
-        /// API Version: 2020-01-01.
+        /// Security assessment on a resource - response format
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The result of the assessment
         /// </summary>
-        public readonly Outputs.AssessmentStatusResponse Status;
+        public readonly Outputs.AssessmentStatusResponseResponse Status;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Security
 
             object resourceDetails,
 
-            Outputs.AssessmentStatusResponse status,
+            Outputs.AssessmentStatusResponseResponse status,
 
             string type)
         {

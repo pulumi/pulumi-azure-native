@@ -21,10 +21,13 @@ class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource.
     """
-    def __init__(__self__, allow_classic_operations=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
+    def __init__(__self__, allow_classic_operations=None, authorization_key=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
         if allow_classic_operations and not isinstance(allow_classic_operations, bool):
             raise TypeError("Expected argument 'allow_classic_operations' to be a bool")
         pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if authorization_key and not isinstance(authorization_key, str):
+            raise TypeError("Expected argument 'authorization_key' to be a str")
+        pulumi.set(__self__, "authorization_key", authorization_key)
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
@@ -93,6 +96,14 @@ class GetExpressRouteCircuitResult:
         Allow classic operations.
         """
         return pulumi.get(self, "allow_classic_operations")
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[str]:
+        """
+        The authorizationKey.
+        """
+        return pulumi.get(self, "authorization_key")
 
     @property
     @pulumi.getter
@@ -262,6 +273,7 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             yield self
         return GetExpressRouteCircuitResult(
             allow_classic_operations=self.allow_classic_operations,
+            authorization_key=self.authorization_key,
             authorizations=self.authorizations,
             bandwidth_in_gbps=self.bandwidth_in_gbps,
             circuit_provisioning_state=self.circuit_provisioning_state,
@@ -289,7 +301,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str circuit_name: The name of express route circuit.
@@ -306,6 +318,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
 
     return AwaitableGetExpressRouteCircuitResult(
         allow_classic_operations=__ret__.allow_classic_operations,
+        authorization_key=__ret__.authorization_key,
         authorizations=__ret__.authorizations,
         bandwidth_in_gbps=__ret__.bandwidth_in_gbps,
         circuit_provisioning_state=__ret__.circuit_provisioning_state,
@@ -334,7 +347,7 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
     ExpressRouteCircuit resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str circuit_name: The name of express route circuit.

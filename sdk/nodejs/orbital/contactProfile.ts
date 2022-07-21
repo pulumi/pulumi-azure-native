@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export class ContactProfile extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class ContactProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Auto track configuration.
+     * Auto-tracking configuration.
      */
     public readonly autoTrackingConfiguration!: pulumi.Output<string | undefined>;
     /**
@@ -45,11 +45,11 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The URI of the Event Hub used for telemetry
+     * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
     public readonly eventHubUri!: pulumi.Output<string | undefined>;
     /**
-     * Links of the Contact Profile
+     * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
     public readonly links!: pulumi.Output<outputs.orbital.ContactProfileLinkResponse[]>;
     /**
@@ -57,17 +57,21 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Minimum viable elevation for the contact in decimal degrees.
+     * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     public readonly minimumElevationDegrees!: pulumi.Output<number | undefined>;
     /**
-     * Minimum viable contact duration in ISO 8601 format.
+     * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     public readonly minimumViableContactDuration!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Network configuration of customer virtual network.
+     */
+    public readonly networkConfiguration!: pulumi.Output<outputs.orbital.ContactProfilesPropertiesResponseNetworkConfiguration>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -95,6 +99,9 @@ export class ContactProfile extends pulumi.CustomResource {
             if ((!args || args.links === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
+            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'networkConfiguration'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,6 +112,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
             resourceInputs["minimumViableContactDuration"] = args ? args.minimumViableContactDuration : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
@@ -120,6 +128,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["minimumElevationDegrees"] = undefined /*out*/;
             resourceInputs["minimumViableContactDuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -136,19 +145,19 @@ export class ContactProfile extends pulumi.CustomResource {
  */
 export interface ContactProfileArgs {
     /**
-     * Auto track configuration.
+     * Auto-tracking configuration.
      */
     autoTrackingConfiguration?: pulumi.Input<enums.orbital.AutoTrackingConfiguration>;
     /**
-     * Contact Profile Name
+     * Contact Profile name.
      */
     contactProfileName?: pulumi.Input<string>;
     /**
-     * The URI of the Event Hub used for telemetry
+     * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
     eventHubUri?: pulumi.Input<string>;
     /**
-     * Links of the Contact Profile
+     * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
     links: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLinkArgs>[]>;
     /**
@@ -156,13 +165,17 @@ export interface ContactProfileArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Minimum viable elevation for the contact in decimal degrees.
+     * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     minimumElevationDegrees?: pulumi.Input<number>;
     /**
-     * Minimum viable contact duration in ISO 8601 format.
+     * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     minimumViableContactDuration?: pulumi.Input<string>;
+    /**
+     * Network configuration of customer virtual network.
+     */
+    networkConfiguration: pulumi.Input<inputs.orbital.ContactProfilesPropertiesNetworkConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

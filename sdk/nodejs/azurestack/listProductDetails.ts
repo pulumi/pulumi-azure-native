@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Extended description about the product required for installing it into Azure Stack.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
     if (!opts) {

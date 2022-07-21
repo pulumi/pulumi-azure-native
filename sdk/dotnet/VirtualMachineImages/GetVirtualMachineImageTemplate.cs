@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     {
         /// <summary>
         /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        /// API Version: 2020-02-14.
+        /// API Version: 2022-02-14.
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        /// API Version: 2020-02-14.
+        /// API Version: 2022-02-14.
         /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     public sealed class GetVirtualMachineImageTemplateResult
     {
         /// <summary>
-        /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        /// Maximum duration to wait while building the image template (includes all customizations, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         /// </summary>
         public readonly int? BuildTimeoutInMinutes;
         /// <summary>
@@ -82,7 +82,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         public readonly ImmutableArray<object> Distribute;
         /// <summary>
-        /// Resource Id
+        /// The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
+        /// </summary>
+        public readonly string ExactStagingResourceGroup;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -94,11 +98,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -114,13 +118,25 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         public readonly object Source;
         /// <summary>
-        /// Resource tags
+        /// The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        /// </summary>
+        public readonly string? StagingResourceGroup;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Configuration options and list of validations to be performed on the resulting image.
+        /// </summary>
+        public readonly Outputs.ImageTemplatePropertiesResponseValidate? Validate;
         /// <summary>
         /// Describes how virtual machine is set up to build images
         /// </summary>
@@ -133,6 +149,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages
             ImmutableArray<object> customize,
 
             ImmutableArray<object> distribute,
+
+            string exactStagingResourceGroup,
 
             string id,
 
@@ -150,15 +168,22 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 
             object source,
 
+            string? stagingResourceGroup,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
+
+            Outputs.ImageTemplatePropertiesResponseValidate? validate,
 
             Outputs.ImageTemplateVmProfileResponse? vmProfile)
         {
             BuildTimeoutInMinutes = buildTimeoutInMinutes;
             Customize = customize;
             Distribute = distribute;
+            ExactStagingResourceGroup = exactStagingResourceGroup;
             Id = id;
             Identity = identity;
             LastRunStatus = lastRunStatus;
@@ -167,8 +192,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages
             ProvisioningError = provisioningError;
             ProvisioningState = provisioningState;
             Source = source;
+            StagingResourceGroup = stagingResourceGroup;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
+            Validate = validate;
             VmProfile = vmProfile;
         }
     }

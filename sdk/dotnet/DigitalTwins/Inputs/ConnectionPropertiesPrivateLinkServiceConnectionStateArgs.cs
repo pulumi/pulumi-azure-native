@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Inputs
 {
 
+    /// <summary>
+    /// The connection state.
+    /// </summary>
     public sealed class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>

@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetWebAppVnetConnectionResult:
     """
-    Virtual Network information contract.
+    Virtual Network information ARM resource.
     """
     def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
         if cert_blob and not isinstance(cert_blob, str):
@@ -170,8 +170,8 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
                                 vnet_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionResult:
     """
-    Virtual Network information contract.
-    API Version: 2020-12-01.
+    Virtual Network information ARM resource.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.
@@ -208,8 +208,8 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
                                        vnet_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
     """
-    Virtual Network information contract.
-    API Version: 2020-12-01.
+    Virtual Network information ARM resource.
+    API Version: 2021-03-01.
 
 
     :param str name: Name of the app.

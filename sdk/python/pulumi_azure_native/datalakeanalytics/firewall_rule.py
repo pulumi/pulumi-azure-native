@@ -107,7 +107,7 @@ class FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         Data Lake Analytics firewall rule information.
-        API Version: 2016-11-01.
+        API Version: 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +125,7 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data Lake Analytics firewall rule information.
-        API Version: 2016-11-01.
+        API Version: 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

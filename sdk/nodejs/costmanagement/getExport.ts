@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An export resource.
- * API Version: 2020-06-01.
+ * API Version: 2021-10-01.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     if (!opts) {
@@ -69,6 +69,10 @@ export interface GetExportResult {
      * If the export has an active schedule, provides an estimate of the next execution time.
      */
     readonly nextRunTimeEstimate: string;
+    /**
+     * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
+     */
+    readonly partitionData?: boolean;
     /**
      * If requested, has the most recent execution history for the export.
      */

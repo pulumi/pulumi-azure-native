@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of queue Resource.
-    /// API Version: 2017-04-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Queue")]
     public partial class Queue : Pulumi.CustomResource
@@ -89,6 +89,12 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string?> ForwardTo { get; private set; } = null!;
 
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         /// </summary>
         [Output("lockDuration")]
@@ -99,6 +105,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("maxDeliveryCount")]
         public Output<int?> MaxDeliveryCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        /// </summary>
+        [Output("maxMessageSizeInKilobytes")]
+        public Output<double?> MaxMessageSizeInKilobytes { get; private set; } = null!;
 
         /// <summary>
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
@@ -113,7 +125,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<double> MessageCount { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,7 +155,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -275,6 +293,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Input("maxDeliveryCount")]
         public Input<int>? MaxDeliveryCount { get; set; }
+
+        /// <summary>
+        /// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        /// </summary>
+        [Input("maxMessageSizeInKilobytes")]
+        public Input<double>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.

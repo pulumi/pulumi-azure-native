@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response from the ListKeys operation.
- * API Version: 2021-02-01.
+ * API Version: 2021-09-01.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
     if (!opts) {

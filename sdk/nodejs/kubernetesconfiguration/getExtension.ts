@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The Extension Instance object.
- * API Version: 2020-07-01-preview.
+ * The Extension object.
+ * API Version: 2022-07-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
     if (!opts) {
@@ -19,7 +19,7 @@ export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,
         "clusterRp": args.clusterRp,
-        "extensionInstanceName": args.extensionInstanceName,
+        "extensionName": args.extensionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -30,97 +30,101 @@ export interface GetExtensionArgs {
      */
     clusterName: string;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: string;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: string;
     /**
-     * Name of an instance of the Extension.
+     * Name of the Extension.
      */
-    extensionInstanceName: string;
+    extensionName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * The Extension Instance object.
+ * The Extension object.
  */
 export interface GetExtensionResult {
     /**
-     * Flag to note if this instance participates in auto upgrade of minor version, or not.
+     * Identity of the Extension resource in an AKS cluster
+     */
+    readonly aksAssignedIdentity?: outputs.kubernetesconfiguration.ExtensionResponseAksAssignedIdentity;
+    /**
+     * Flag to note if this extension participates in auto upgrade of minor version, or not.
      */
     readonly autoUpgradeMinorVersion?: boolean;
     /**
-     * Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+     * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
     readonly configurationProtectedSettings?: {[key: string]: string};
     /**
-     * Configuration settings, as name-value pairs for configuring this instance of the extension.
+     * Configuration settings, as name-value pairs for configuring this extension.
      */
     readonly configurationSettings?: {[key: string]: string};
     /**
-     * DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
+     * Custom Location settings properties.
      */
-    readonly creationTime: string;
+    readonly customLocationSettings: {[key: string]: string};
     /**
      * Error information from the Agent - e.g. errors during installation.
      */
-    readonly errorInfo: outputs.kubernetesconfiguration.ErrorDefinitionResponse;
+    readonly errorInfo: outputs.kubernetesconfiguration.ErrorDetailResponse;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
     readonly extensionType?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The identity of the configuration.
+     * Identity of the Extension resource
      */
-    readonly identity?: outputs.kubernetesconfiguration.ConfigurationIdentityResponse;
+    readonly identity?: outputs.kubernetesconfiguration.IdentityResponse;
     /**
-     * Status of installation of this instance of the extension.
+     * Installed version of the extension.
      */
-    readonly installState: string;
+    readonly installedVersion: string;
     /**
-     * DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
-     */
-    readonly lastModifiedTime: string;
-    /**
-     * DateLiteral (per ISO8601) noting the time of last status from the agent.
-     */
-    readonly lastStatusTime: string;
-    /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+     * Uri of the Helm package
+     */
+    readonly packageUri: string;
+    /**
+     * Status of installation of this extension.
+     */
+    readonly provisioningState: string;
+    /**
+     * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
     readonly releaseTrain?: string;
     /**
-     * Scope at which the extension instance is installed.
+     * Scope at which the extension is installed.
      */
     readonly scope?: outputs.kubernetesconfiguration.ScopeResponse;
     /**
-     * Status from this instance of the extension.
+     * Status from this extension.
      */
     readonly statuses?: outputs.kubernetesconfiguration.ExtensionStatusResponse[];
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    readonly systemData?: outputs.kubernetesconfiguration.SystemDataResponse;
+    readonly systemData: outputs.kubernetesconfiguration.SystemDataResponse;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+     * User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
      */
     readonly version?: string;
 }
@@ -135,19 +139,19 @@ export interface GetExtensionOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: pulumi.Input<string>;
     /**
-     * Name of an instance of the Extension.
+     * Name of the Extension.
      */
-    extensionInstanceName: pulumi.Input<string>;
+    extensionName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

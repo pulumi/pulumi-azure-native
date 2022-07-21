@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// A Big Data pool
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Big Data pool
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Synapse
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
-        public readonly string? CreationDate;
+        public readonly string CreationDate;
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Spark configuration file to specify additional properties
         /// </summary>
-        public readonly Outputs.LibraryRequirementsResponse? SparkConfigProperties;
+        public readonly Outputs.SparkConfigPropertiesResponse? SparkConfigProperties;
         /// <summary>
         /// The Spark events folder
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.Synapse
 
             int? cacheSize,
 
-            string? creationDate,
+            string creationDate,
 
             ImmutableArray<Outputs.LibraryInfoResponse> customLibraries,
 
@@ -212,7 +212,7 @@ namespace Pulumi.AzureNative.Synapse
 
             bool? sessionLevelPackagesEnabled,
 
-            Outputs.LibraryRequirementsResponse? sparkConfigProperties,
+            Outputs.SparkConfigPropertiesResponse? sparkConfigProperties,
 
             string? sparkEventsFolder,
 

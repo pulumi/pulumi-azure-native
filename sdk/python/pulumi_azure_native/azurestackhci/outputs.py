@@ -11,11 +11,90 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ArcConnectivityPropertiesResponse',
+    'ClusterDesiredPropertiesResponse',
     'ClusterNodeResponse',
     'ClusterReportedPropertiesResponse',
     'PerNodeExtensionStateResponse',
     'PerNodeStateResponse',
 ]
+
+@pulumi.output_type
+class ArcConnectivityPropertiesResponse(dict):
+    """
+    Connectivity related configuration required by arc server.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Connectivity related configuration required by arc server.
+        :param bool enabled: True indicates ARC connectivity is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True indicates ARC connectivity is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterDesiredPropertiesResponse(dict):
+    """
+    Desired properties of the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diagnosticLevel":
+            suggest = "diagnostic_level"
+        elif key == "windowsServerSubscription":
+            suggest = "windows_server_subscription"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterDesiredPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterDesiredPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterDesiredPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 diagnostic_level: Optional[str] = None,
+                 windows_server_subscription: Optional[str] = None):
+        """
+        Desired properties of the cluster.
+        :param str diagnostic_level: Desired level of diagnostic data emitted by the cluster.
+        :param str windows_server_subscription: Desired state of Windows Server Subscription.
+        """
+        if diagnostic_level is not None:
+            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+        if windows_server_subscription is not None:
+            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+
+    @property
+    @pulumi.getter(name="diagnosticLevel")
+    def diagnostic_level(self) -> Optional[str]:
+        """
+        Desired level of diagnostic data emitted by the cluster.
+        """
+        return pulumi.get(self, "diagnostic_level")
+
+    @property
+    @pulumi.getter(name="windowsServerSubscription")
+    def windows_server_subscription(self) -> Optional[str]:
+        """
+        Desired state of Windows Server Subscription.
+        """
+        return pulumi.get(self, "windows_server_subscription")
+
 
 @pulumi.output_type
 class ClusterNodeResponse(dict):
@@ -35,6 +114,8 @@ class ClusterNodeResponse(dict):
             suggest = "os_version"
         elif key == "serialNumber":
             suggest = "serial_number"
+        elif key == "windowsServerSubscription":
+            suggest = "windows_server_subscription"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterNodeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -56,7 +137,8 @@ class ClusterNodeResponse(dict):
                  name: str,
                  os_name: str,
                  os_version: str,
-                 serial_number: str):
+                 serial_number: str,
+                 windows_server_subscription: str):
         """
         Cluster node details.
         :param float core_count: Number of physical cores on the cluster node.
@@ -68,6 +150,7 @@ class ClusterNodeResponse(dict):
         :param str os_name: Operating system running on the cluster node.
         :param str os_version: Version of the operating system running on the cluster node.
         :param str serial_number: Immutable id of the cluster node.
+        :param str windows_server_subscription: State of Windows Server Subscription.
         """
         pulumi.set(__self__, "core_count", core_count)
         pulumi.set(__self__, "id", id)
@@ -78,6 +161,7 @@ class ClusterNodeResponse(dict):
         pulumi.set(__self__, "os_name", os_name)
         pulumi.set(__self__, "os_version", os_version)
         pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="coreCount")
@@ -151,6 +235,14 @@ class ClusterNodeResponse(dict):
         """
         return pulumi.get(self, "serial_number")
 
+    @property
+    @pulumi.getter(name="windowsServerSubscription")
+    def windows_server_subscription(self) -> str:
+        """
+        State of Windows Server Subscription.
+        """
+        return pulumi.get(self, "windows_server_subscription")
+
 
 @pulumi.output_type
 class ClusterReportedPropertiesResponse(dict):
@@ -166,8 +258,12 @@ class ClusterReportedPropertiesResponse(dict):
             suggest = "cluster_name"
         elif key == "clusterVersion":
             suggest = "cluster_version"
+        elif key == "imdsAttestation":
+            suggest = "imds_attestation"
         elif key == "lastUpdated":
             suggest = "last_updated"
+        elif key == "diagnosticLevel":
+            suggest = "diagnostic_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -184,21 +280,28 @@ class ClusterReportedPropertiesResponse(dict):
                  cluster_id: str,
                  cluster_name: str,
                  cluster_version: str,
+                 imds_attestation: str,
                  last_updated: str,
-                 nodes: Sequence['outputs.ClusterNodeResponse']):
+                 nodes: Sequence['outputs.ClusterNodeResponse'],
+                 diagnostic_level: Optional[str] = None):
         """
         Properties reported by cluster agent.
         :param str cluster_id: Unique id generated by the on-prem cluster.
         :param str cluster_name: Name of the on-prem cluster connected to this resource.
         :param str cluster_version: Version of the cluster software.
+        :param str imds_attestation: IMDS attestation status of the cluster.
         :param str last_updated: Last time the cluster reported the data.
         :param Sequence['ClusterNodeResponse'] nodes: List of nodes reported by the cluster.
+        :param str diagnostic_level: Level of diagnostic data emitted by the cluster.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "imds_attestation", imds_attestation)
         pulumi.set(__self__, "last_updated", last_updated)
         pulumi.set(__self__, "nodes", nodes)
+        if diagnostic_level is not None:
+            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -225,6 +328,14 @@ class ClusterReportedPropertiesResponse(dict):
         return pulumi.get(self, "cluster_version")
 
     @property
+    @pulumi.getter(name="imdsAttestation")
+    def imds_attestation(self) -> str:
+        """
+        IMDS attestation status of the cluster.
+        """
+        return pulumi.get(self, "imds_attestation")
+
+    @property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> str:
         """
@@ -239,6 +350,14 @@ class ClusterReportedPropertiesResponse(dict):
         List of nodes reported by the cluster.
         """
         return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="diagnosticLevel")
+    def diagnostic_level(self) -> Optional[str]:
+        """
+        Level of diagnostic data emitted by the cluster.
+        """
+        return pulumi.get(self, "diagnostic_level")
 
 
 @pulumi.output_type

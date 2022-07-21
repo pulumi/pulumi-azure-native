@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of an IotHub
- * API Version: 2020-08-31.
+ * API Version: 2021-07-02.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -62,7 +62,7 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopLevelDomainAgreementsResult:
     """
     Collection of top-level domain legal agreements.
-    API Version: 2020-10-01.
+    API Version: 2021-03-01.
 
 
     :param bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
@@ -91,7 +91,7 @@ def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopLevelDomainAgreementsResult]:
     """
     Collection of top-level domain legal agreements.
-    API Version: 2020-10-01.
+    API Version: 2021-03-01.
 
 
     :param bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.

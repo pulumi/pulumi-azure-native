@@ -11,7 +11,7 @@ import (
 )
 
 // Network slice resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 func LookupSlice(ctx *pulumi.Context, args *LookupSliceArgs, opts ...pulumi.InvokeOption) (*LookupSliceResult, error) {
 	var rv LookupSliceResult
 	err := ctx.Invoke("azure-native:mobilenetwork:getSlice", args, &rv, opts...)
@@ -56,6 +56,8 @@ type LookupSliceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
 	Snssai SnssaiResponse `pulumi:"snssai"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -161,6 +163,11 @@ func (o LookupSliceResultOutput) ProvisioningState() pulumi.StringOutput {
 // The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
 func (o LookupSliceResultOutput) Snssai() SnssaiResponseOutput {
 	return o.ApplyT(func(v LookupSliceResult) SnssaiResponse { return v.Snssai }).(SnssaiResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSliceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSliceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

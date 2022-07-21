@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A cloud link resource
-    /// API Version: 2021-06-01.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:CloudLink")]
     public partial class CloudLink : Pulumi.CustomResource

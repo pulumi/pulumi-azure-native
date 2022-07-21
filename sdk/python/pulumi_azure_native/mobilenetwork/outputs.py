@@ -35,6 +35,7 @@ __all__ = [
     'SliceResourceIdResponse',
     'SnssaiResponse',
     'SubResourceResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -300,13 +301,46 @@ class InterfacePropertiesResponse(dict):
     """
     Interface properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Address":
+            suggest = "ipv4_address"
+        elif key == "ipv4Gateway":
+            suggest = "ipv4_gateway"
+        elif key == "ipv4Subnet":
+            suggest = "ipv4_subnet"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InterfacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InterfacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InterfacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 name: str):
+                 name: str,
+                 ipv4_address: Optional[str] = None,
+                 ipv4_gateway: Optional[str] = None,
+                 ipv4_subnet: Optional[str] = None):
         """
         Interface properties
         :param str name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
+        :param str ipv4_address: The IPv4 address.
+        :param str ipv4_gateway: The default IPv4 gateway (router).
+        :param str ipv4_subnet: The IPv4 subnet.
         """
         pulumi.set(__self__, "name", name)
+        if ipv4_address is not None:
+            pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if ipv4_gateway is not None:
+            pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
+        if ipv4_subnet is not None:
+            pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
 
     @property
     @pulumi.getter
@@ -315,6 +349,30 @@ class InterfacePropertiesResponse(dict):
         The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> Optional[str]:
+        """
+        The IPv4 address.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @property
+    @pulumi.getter(name="ipv4Gateway")
+    def ipv4_gateway(self) -> Optional[str]:
+        """
+        The default IPv4 gateway (router).
+        """
+        return pulumi.get(self, "ipv4_gateway")
+
+    @property
+    @pulumi.getter(name="ipv4Subnet")
+    def ipv4_subnet(self) -> Optional[str]:
+        """
+        The IPv4 subnet.
+        """
+        return pulumi.get(self, "ipv4_subnet")
 
 
 @pulumi.output_type
@@ -1312,5 +1370,115 @@ class SubResourceResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 

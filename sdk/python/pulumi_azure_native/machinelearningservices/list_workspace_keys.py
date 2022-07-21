@@ -78,10 +78,10 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    API Version: 2021-01-01.
+    API Version: 2022-05-01.
 
 
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
@@ -106,10 +106,10 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
-    API Version: 2021-01-01.
+    API Version: 2022-05-01.
 
 
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     ...

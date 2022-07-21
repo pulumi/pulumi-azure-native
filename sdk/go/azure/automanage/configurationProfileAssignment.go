@@ -12,14 +12,18 @@ import (
 )
 
 // Configuration profile assignment is an association between a VM and automanage profile configuration.
-// API Version: 2020-06-30-preview.
+// API Version: 2022-05-04.
 type ConfigurationProfileAssignment struct {
 	pulumi.CustomResourceState
 
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponseOutput `pulumi:"properties"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -140,6 +144,11 @@ func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOu
 	return o
 }
 
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o ConfigurationProfileAssignmentOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignment) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
 // The name of the resource
 func (o ConfigurationProfileAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -150,6 +159,11 @@ func (o ConfigurationProfileAssignmentOutput) Properties() ConfigurationProfileA
 	return o.ApplyT(func(v *ConfigurationProfileAssignment) ConfigurationProfileAssignmentPropertiesResponseOutput {
 		return v.Properties
 	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ConfigurationProfileAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

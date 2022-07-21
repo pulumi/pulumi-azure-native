@@ -3,22 +3,6 @@
 
 package security
 
-import (
-	"context"
-	"reflect"
-
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-// The type of the action that will be triggered by the Automation
-type ActionType string
-
-const (
-	ActionTypeLogicApp  = ActionType("LogicApp")
-	ActionTypeEventHub  = ActionType("EventHub")
-	ActionTypeWorkspace = ActionType("Workspace")
-)
-
 // Data types sent to workspace.
 type AdditionalWorkspaceDataType string
 
@@ -32,14 +16,6 @@ type AdditionalWorkspaceType string
 
 const (
 	AdditionalWorkspaceTypeSentinel = AdditionalWorkspaceType("Sentinel")
-)
-
-// The application source, what it affects, e.g. Assessments
-type ApplicationSourceResourceType string
-
-const (
-	// The source of the application is assessments
-	ApplicationSourceResourceTypeAssessments = ApplicationSourceResourceType("Assessments")
 )
 
 // Programmatic code for the status of the assessment
@@ -68,28 +44,6 @@ const (
 	AssessmentTypeVerifiedPartner = AssessmentType("VerifiedPartner")
 )
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-type AuthenticationType string
-
-const (
-	// AWS cloud account connector user credentials authentication
-	AuthenticationTypeAwsCreds = AuthenticationType("awsCreds")
-	// AWS account connector assume role authentication
-	AuthenticationTypeAwsAssumeRole = AuthenticationType("awsAssumeRole")
-	// GCP account connector service to service authentication
-	AuthenticationTypeGcpCredentials = AuthenticationType("gcpCredentials")
-)
-
-// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-type AutoProvision string
-
-const (
-	// Install missing Azure Arc agents on machines automatically
-	AutoProvisionOn = AutoProvision("On")
-	// Do not install Azure Arc agent on the machines automatically
-	AutoProvisionOff = AutoProvision("Off")
-)
-
 // The categories of resource that is at risk when the assessment is unhealthy
 type Categories string
 
@@ -101,37 +55,11 @@ const (
 	CategoriesIoT               = Categories("IoT")
 )
 
-// The multi cloud resource's cloud name.
-type CloudName string
-
-const (
-	CloudNameAzure = CloudName("Azure")
-	CloudNameAWS   = CloudName("AWS")
-	CloudNameGCP   = CloudName("GCP")
-)
-
 type DataSource string
 
 const (
 	// Devices twin data
 	DataSourceTwinData = DataSource("TwinData")
-)
-
-// A valid event source type.
-type EventSource string
-
-const (
-	EventSourceAssessments                            = EventSource("Assessments")
-	EventSourceAssessmentsSnapshot                    = EventSource("AssessmentsSnapshot")
-	EventSourceSubAssessments                         = EventSource("SubAssessments")
-	EventSourceSubAssessmentsSnapshot                 = EventSource("SubAssessmentsSnapshot")
-	EventSourceAlerts                                 = EventSource("Alerts")
-	EventSourceSecureScores                           = EventSource("SecureScores")
-	EventSourceSecureScoresSnapshot                   = EventSource("SecureScoresSnapshot")
-	EventSourceSecureScoreControls                    = EventSource("SecureScoreControls")
-	EventSourceSecureScoreControlsSnapshot            = EventSource("SecureScoreControlsSnapshot")
-	EventSourceRegulatoryComplianceAssessment         = EventSource("RegulatoryComplianceAssessment")
-	EventSourceRegulatoryComplianceAssessmentSnapshot = EventSource("RegulatoryComplianceAssessmentSnapshot")
 )
 
 type ExportData string
@@ -148,70 +76,6 @@ const (
 	ImplementationEffortLow      = ImplementationEffort("Low")
 	ImplementationEffortModerate = ImplementationEffort("Moderate")
 	ImplementationEffortHigh     = ImplementationEffort("High")
-)
-
-// Defines the minimal alert severity which will be sent as email notifications
-type MinimalSeverity string
-
-const (
-	// Get notifications on new alerts with High severity
-	MinimalSeverityHigh = MinimalSeverity("High")
-	// Get notifications on new alerts with medium or high severity
-	MinimalSeverityMedium = MinimalSeverity("Medium")
-	// Don't get notifications on new alerts with low, medium or high severity
-	MinimalSeverityLow = MinimalSeverity("Low")
-)
-
-// The type of the security offering.
-type OfferingType string
-
-const (
-	OfferingTypeCspmMonitorAws           = OfferingType("CspmMonitorAws")
-	OfferingTypeDefenderForContainersAws = OfferingType("DefenderForContainersAws")
-	OfferingTypeDefenderForServersAws    = OfferingType("DefenderForServersAws")
-	OfferingTypeInformationProtectionAws = OfferingType("InformationProtectionAws")
-)
-
-// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-type Operator string
-
-const (
-	// Applies for decimal and non-decimal operands
-	OperatorEquals = Operator("Equals")
-	// Applies only for decimal operands
-	OperatorGreaterThan = Operator("GreaterThan")
-	// Applies only for decimal operands
-	OperatorGreaterThanOrEqualTo = Operator("GreaterThanOrEqualTo")
-	// Applies only for decimal operands
-	OperatorLesserThan = Operator("LesserThan")
-	// Applies only for decimal operands
-	OperatorLesserThanOrEqualTo = Operator("LesserThanOrEqualTo")
-	// Applies  for decimal and non-decimal operands
-	OperatorNotEquals = Operator("NotEquals")
-	// Applies only for non-decimal operands
-	OperatorContains = Operator("Contains")
-	// Applies only for non-decimal operands
-	OperatorStartsWith = Operator("StartsWith")
-	// Applies only for non-decimal operands
-	OperatorEndsWith = Operator("EndsWith")
-)
-
-// The multi cloud account's membership type in the organization
-type OrganizationMembershipType string
-
-const (
-	OrganizationMembershipTypeMember       = OrganizationMembershipType("Member")
-	OrganizationMembershipTypeOrganization = OrganizationMembershipType("Organization")
-)
-
-// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-type PropertyType string
-
-const (
-	PropertyTypeString  = PropertyType("String")
-	PropertyTypeInteger = PropertyType("Integer")
-	PropertyTypeNumber  = PropertyType("Number")
-	PropertyTypeBoolean = PropertyType("Boolean")
 )
 
 type Protocol string
@@ -268,29 +132,6 @@ const (
 	RecommendationType_IoT_VulnerableTLSCipherSuite = RecommendationType("IoT_VulnerableTLSCipherSuite")
 )
 
-// A possible role to configure sending security notification alerts to
-type Roles string
-
-const (
-	// If enabled, send notification on new alerts to the account admins
-	RolesAccountAdmin = Roles("AccountAdmin")
-	// If enabled, send notification on new alerts to the service admins
-	RolesServiceAdmin = Roles("ServiceAdmin")
-	// If enabled, send notification on new alerts to the subscription owners
-	RolesOwner = Roles("Owner")
-	// If enabled, send notification on new alerts to the subscription contributors
-	RolesContributor = Roles("Contributor")
-)
-
-// Possible states of the rule
-type RuleState string
-
-const (
-	RuleStateEnabled  = RuleState("Enabled")
-	RuleStateDisabled = RuleState("Disabled")
-	RuleStateExpired  = RuleState("Expired")
-)
-
 // Status of the IoT Security solution.
 type SecuritySolutionStatus string
 
@@ -308,15 +149,6 @@ const (
 	SeverityHigh   = Severity("High")
 )
 
-// The severity to relate to the assessments generated by this assessment automation.
-type SeverityEnum string
-
-const (
-	SeverityEnumHigh   = SeverityEnum("High")
-	SeverityEnumMedium = SeverityEnum("Medium")
-	SeverityEnumLow    = SeverityEnum("Low")
-)
-
 // The platform where the assessed resource resides
 type Source string
 
@@ -327,226 +159,6 @@ const (
 	SourceOnPremise = Source("OnPremise")
 	// SQL Resource in an on premise machine connected to Azure cloud
 	SourceOnPremiseSql = Source("OnPremiseSql")
-)
-
-// The cloud that the standard is supported on.
-type StandardSupportedClouds string
-
-const (
-	StandardSupportedCloudsAWS = StandardSupportedClouds("AWS")
-	StandardSupportedCloudsGCP = StandardSupportedClouds("GCP")
-)
-
-func (StandardSupportedClouds) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardSupportedClouds)(nil)).Elem()
-}
-
-func (e StandardSupportedClouds) ToStandardSupportedCloudsOutput() StandardSupportedCloudsOutput {
-	return pulumi.ToOutput(e).(StandardSupportedCloudsOutput)
-}
-
-func (e StandardSupportedClouds) ToStandardSupportedCloudsOutputWithContext(ctx context.Context) StandardSupportedCloudsOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StandardSupportedCloudsOutput)
-}
-
-func (e StandardSupportedClouds) ToStandardSupportedCloudsPtrOutput() StandardSupportedCloudsPtrOutput {
-	return e.ToStandardSupportedCloudsPtrOutputWithContext(context.Background())
-}
-
-func (e StandardSupportedClouds) ToStandardSupportedCloudsPtrOutputWithContext(ctx context.Context) StandardSupportedCloudsPtrOutput {
-	return StandardSupportedClouds(e).ToStandardSupportedCloudsOutputWithContext(ctx).ToStandardSupportedCloudsPtrOutputWithContext(ctx)
-}
-
-func (e StandardSupportedClouds) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e StandardSupportedClouds) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e StandardSupportedClouds) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e StandardSupportedClouds) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type StandardSupportedCloudsOutput struct{ *pulumi.OutputState }
-
-func (StandardSupportedCloudsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardSupportedClouds)(nil)).Elem()
-}
-
-func (o StandardSupportedCloudsOutput) ToStandardSupportedCloudsOutput() StandardSupportedCloudsOutput {
-	return o
-}
-
-func (o StandardSupportedCloudsOutput) ToStandardSupportedCloudsOutputWithContext(ctx context.Context) StandardSupportedCloudsOutput {
-	return o
-}
-
-func (o StandardSupportedCloudsOutput) ToStandardSupportedCloudsPtrOutput() StandardSupportedCloudsPtrOutput {
-	return o.ToStandardSupportedCloudsPtrOutputWithContext(context.Background())
-}
-
-func (o StandardSupportedCloudsOutput) ToStandardSupportedCloudsPtrOutputWithContext(ctx context.Context) StandardSupportedCloudsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSupportedClouds) *StandardSupportedClouds {
-		return &v
-	}).(StandardSupportedCloudsPtrOutput)
-}
-
-func (o StandardSupportedCloudsOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StandardSupportedCloudsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StandardSupportedClouds) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StandardSupportedCloudsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StandardSupportedCloudsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StandardSupportedClouds) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StandardSupportedCloudsPtrOutput struct{ *pulumi.OutputState }
-
-func (StandardSupportedCloudsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StandardSupportedClouds)(nil)).Elem()
-}
-
-func (o StandardSupportedCloudsPtrOutput) ToStandardSupportedCloudsPtrOutput() StandardSupportedCloudsPtrOutput {
-	return o
-}
-
-func (o StandardSupportedCloudsPtrOutput) ToStandardSupportedCloudsPtrOutputWithContext(ctx context.Context) StandardSupportedCloudsPtrOutput {
-	return o
-}
-
-func (o StandardSupportedCloudsPtrOutput) Elem() StandardSupportedCloudsOutput {
-	return o.ApplyT(func(v *StandardSupportedClouds) StandardSupportedClouds {
-		if v != nil {
-			return *v
-		}
-		var ret StandardSupportedClouds
-		return ret
-	}).(StandardSupportedCloudsOutput)
-}
-
-func (o StandardSupportedCloudsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StandardSupportedCloudsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StandardSupportedClouds) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// StandardSupportedCloudsInput is an input type that accepts StandardSupportedCloudsArgs and StandardSupportedCloudsOutput values.
-// You can construct a concrete instance of `StandardSupportedCloudsInput` via:
-//
-//          StandardSupportedCloudsArgs{...}
-type StandardSupportedCloudsInput interface {
-	pulumi.Input
-
-	ToStandardSupportedCloudsOutput() StandardSupportedCloudsOutput
-	ToStandardSupportedCloudsOutputWithContext(context.Context) StandardSupportedCloudsOutput
-}
-
-var standardSupportedCloudsPtrType = reflect.TypeOf((**StandardSupportedClouds)(nil)).Elem()
-
-type StandardSupportedCloudsPtrInput interface {
-	pulumi.Input
-
-	ToStandardSupportedCloudsPtrOutput() StandardSupportedCloudsPtrOutput
-	ToStandardSupportedCloudsPtrOutputWithContext(context.Context) StandardSupportedCloudsPtrOutput
-}
-
-type standardSupportedCloudsPtr string
-
-func StandardSupportedCloudsPtr(v string) StandardSupportedCloudsPtrInput {
-	return (*standardSupportedCloudsPtr)(&v)
-}
-
-func (*standardSupportedCloudsPtr) ElementType() reflect.Type {
-	return standardSupportedCloudsPtrType
-}
-
-func (in *standardSupportedCloudsPtr) ToStandardSupportedCloudsPtrOutput() StandardSupportedCloudsPtrOutput {
-	return pulumi.ToOutput(in).(StandardSupportedCloudsPtrOutput)
-}
-
-func (in *standardSupportedCloudsPtr) ToStandardSupportedCloudsPtrOutputWithContext(ctx context.Context) StandardSupportedCloudsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StandardSupportedCloudsPtrOutput)
-}
-
-// StandardSupportedCloudsArrayInput is an input type that accepts StandardSupportedCloudsArray and StandardSupportedCloudsArrayOutput values.
-// You can construct a concrete instance of `StandardSupportedCloudsArrayInput` via:
-//
-//          StandardSupportedCloudsArray{ StandardSupportedCloudsArgs{...} }
-type StandardSupportedCloudsArrayInput interface {
-	pulumi.Input
-
-	ToStandardSupportedCloudsArrayOutput() StandardSupportedCloudsArrayOutput
-	ToStandardSupportedCloudsArrayOutputWithContext(context.Context) StandardSupportedCloudsArrayOutput
-}
-
-type StandardSupportedCloudsArray []StandardSupportedClouds
-
-func (StandardSupportedCloudsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StandardSupportedClouds)(nil)).Elem()
-}
-
-func (i StandardSupportedCloudsArray) ToStandardSupportedCloudsArrayOutput() StandardSupportedCloudsArrayOutput {
-	return i.ToStandardSupportedCloudsArrayOutputWithContext(context.Background())
-}
-
-func (i StandardSupportedCloudsArray) ToStandardSupportedCloudsArrayOutputWithContext(ctx context.Context) StandardSupportedCloudsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardSupportedCloudsArrayOutput)
-}
-
-type StandardSupportedCloudsArrayOutput struct{ *pulumi.OutputState }
-
-func (StandardSupportedCloudsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StandardSupportedClouds)(nil)).Elem()
-}
-
-func (o StandardSupportedCloudsArrayOutput) ToStandardSupportedCloudsArrayOutput() StandardSupportedCloudsArrayOutput {
-	return o
-}
-
-func (o StandardSupportedCloudsArrayOutput) ToStandardSupportedCloudsArrayOutputWithContext(ctx context.Context) StandardSupportedCloudsArrayOutput {
-	return o
-}
-
-func (o StandardSupportedCloudsArrayOutput) Index(i pulumi.IntInput) StandardSupportedCloudsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardSupportedClouds {
-		return vs[0].([]StandardSupportedClouds)[vs[1].(int)]
-	}).(StandardSupportedCloudsOutput)
-}
-
-// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-type State string
-
-const (
-	// Send notification on new alerts to the subscription's admins
-	StateOn = State("On")
-	// Don't send notification on new alerts to the subscription's admins
-	StateOff = State("Off")
 )
 
 // The status of the port
@@ -566,12 +178,134 @@ const (
 	StatusReasonNewerRequestInitiated = StatusReason("NewerRequestInitiated")
 )
 
-// Relevant cloud for the custom assessment automation.
-type SupportedCloudEnum string
+// Tactic of the assessment
+type Tactics string
 
 const (
-	SupportedCloudEnumAWS = SupportedCloudEnum("AWS")
-	SupportedCloudEnumGCP = SupportedCloudEnum("GCP")
+	TacticsReconnaissance        = Tactics("Reconnaissance")
+	Tactics_Resource_Development = Tactics("Resource Development")
+	Tactics_Initial_Access       = Tactics("Initial Access")
+	TacticsExecution             = Tactics("Execution")
+	TacticsPersistence           = Tactics("Persistence")
+	Tactics_Privilege_Escalation = Tactics("Privilege Escalation")
+	Tactics_Defense_Evasion      = Tactics("Defense Evasion")
+	Tactics_Credential_Access    = Tactics("Credential Access")
+	TacticsDiscovery             = Tactics("Discovery")
+	Tactics_Lateral_Movement     = Tactics("Lateral Movement")
+	TacticsCollection            = Tactics("Collection")
+	Tactics_Command_and_Control  = Tactics("Command and Control")
+	TacticsExfiltration          = Tactics("Exfiltration")
+	TacticsImpact                = Tactics("Impact")
+)
+
+// Techniques of the assessment
+type Techniques string
+
+const (
+	Techniques_Abuse_Elevation_Control_Mechanism           = Techniques("Abuse Elevation Control Mechanism")
+	Techniques_Access_Token_Manipulation                   = Techniques("Access Token Manipulation")
+	Techniques_Account_Discovery                           = Techniques("Account Discovery")
+	Techniques_Account_Manipulation                        = Techniques("Account Manipulation")
+	Techniques_Active_Scanning                             = Techniques("Active Scanning")
+	Techniques_Application_Layer_Protocol                  = Techniques("Application Layer Protocol")
+	Techniques_Audio_Capture                               = Techniques("Audio Capture")
+	Techniques_Boot_or_Logon_Autostart_Execution           = Techniques("Boot or Logon Autostart Execution")
+	Techniques_Boot_or_Logon_Initialization_Scripts        = Techniques("Boot or Logon Initialization Scripts")
+	Techniques_Brute_Force                                 = Techniques("Brute Force")
+	Techniques_Cloud_Infrastructure_Discovery              = Techniques("Cloud Infrastructure Discovery")
+	Techniques_Cloud_Service_Dashboard                     = Techniques("Cloud Service Dashboard")
+	Techniques_Cloud_Service_Discovery                     = Techniques("Cloud Service Discovery")
+	Techniques_Command_and_Scripting_Interpreter           = Techniques("Command and Scripting Interpreter")
+	Techniques_Compromise_Client_Software_Binary           = Techniques("Compromise Client Software Binary")
+	Techniques_Compromise_Infrastructure                   = Techniques("Compromise Infrastructure")
+	Techniques_Container_and_Resource_Discovery            = Techniques("Container and Resource Discovery")
+	Techniques_Create_Account                              = Techniques("Create Account")
+	Techniques_Create_or_Modify_System_Process             = Techniques("Create or Modify System Process")
+	Techniques_Credentials_from_Password_Stores            = Techniques("Credentials from Password Stores")
+	Techniques_Data_Destruction                            = Techniques("Data Destruction")
+	Techniques_Data_Encrypted_for_Impact                   = Techniques("Data Encrypted for Impact")
+	Techniques_Data_from_Cloud_Storage_Object              = Techniques("Data from Cloud Storage Object")
+	Techniques_Data_from_Configuration_Repository          = Techniques("Data from Configuration Repository")
+	Techniques_Data_from_Information_Repositories          = Techniques("Data from Information Repositories")
+	Techniques_Data_from_Local_System                      = Techniques("Data from Local System")
+	Techniques_Data_Manipulation                           = Techniques("Data Manipulation")
+	Techniques_Data_Staged                                 = Techniques("Data Staged")
+	TechniquesDefacement                                   = Techniques("Defacement")
+	Techniques_Deobfuscate_Decode_Files_or_Information     = Techniques("Deobfuscate/Decode Files or Information")
+	Techniques_Disk_Wipe                                   = Techniques("Disk Wipe")
+	Techniques_Domain_Trust_Discovery                      = Techniques("Domain Trust Discovery")
+	Techniques_Drive_by_Compromise                         = Techniques("Drive-by Compromise")
+	Techniques_Dynamic_Resolution                          = Techniques("Dynamic Resolution")
+	Techniques_Endpoint_Denial_of_Service                  = Techniques("Endpoint Denial of Service")
+	Techniques_Event_Triggered_Execution                   = Techniques("Event Triggered Execution")
+	Techniques_Exfiltration_Over_Alternative_Protocol      = Techniques("Exfiltration Over Alternative Protocol")
+	Techniques_Exploit_Public_Facing_Application           = Techniques("Exploit Public-Facing Application")
+	Techniques_Exploitation_for_Client_Execution           = Techniques("Exploitation for Client Execution")
+	Techniques_Exploitation_for_Credential_Access          = Techniques("Exploitation for Credential Access")
+	Techniques_Exploitation_for_Defense_Evasion            = Techniques("Exploitation for Defense Evasion")
+	Techniques_Exploitation_for_Privilege_Escalation       = Techniques("Exploitation for Privilege Escalation")
+	Techniques_Exploitation_of_Remote_Services             = Techniques("Exploitation of Remote Services")
+	Techniques_External_Remote_Services                    = Techniques("External Remote Services")
+	Techniques_Fallback_Channels                           = Techniques("Fallback Channels")
+	Techniques_File_and_Directory_Discovery                = Techniques("File and Directory Discovery")
+	Techniques_Gather_Victim_Network_Information           = Techniques("Gather Victim Network Information")
+	Techniques_Hide_Artifacts                              = Techniques("Hide Artifacts")
+	Techniques_Hijack_Execution_Flow                       = Techniques("Hijack Execution Flow")
+	Techniques_Impair_Defenses                             = Techniques("Impair Defenses")
+	Techniques_Implant_Container_Image                     = Techniques("Implant Container Image")
+	Techniques_Indicator_Removal_on_Host                   = Techniques("Indicator Removal on Host")
+	Techniques_Indirect_Command_Execution                  = Techniques("Indirect Command Execution")
+	Techniques_Ingress_Tool_Transfer                       = Techniques("Ingress Tool Transfer")
+	Techniques_Input_Capture                               = Techniques("Input Capture")
+	Techniques_Inter_Process_Communication                 = Techniques("Inter-Process Communication")
+	Techniques_Lateral_Tool_Transfer                       = Techniques("Lateral Tool Transfer")
+	Techniques_Man_in_the_Middle                           = Techniques("Man-in-the-Middle")
+	TechniquesMasquerading                                 = Techniques("Masquerading")
+	Techniques_Modify_Authentication_Process               = Techniques("Modify Authentication Process")
+	Techniques_Modify_Registry                             = Techniques("Modify Registry")
+	Techniques_Network_Denial_of_Service                   = Techniques("Network Denial of Service")
+	Techniques_Network_Service_Scanning                    = Techniques("Network Service Scanning")
+	Techniques_Network_Sniffing                            = Techniques("Network Sniffing")
+	Techniques_Non_Application_Layer_Protocol              = Techniques("Non-Application Layer Protocol")
+	Techniques_Non_Standard_Port                           = Techniques("Non-Standard Port")
+	Techniques_Obtain_Capabilities                         = Techniques("Obtain Capabilities")
+	Techniques_Obfuscated_Files_or_Information             = Techniques("Obfuscated Files or Information")
+	Techniques_Office_Application_Startup                  = Techniques("Office Application Startup")
+	Techniques_OS_Credential_Dumping                       = Techniques("OS Credential Dumping")
+	Techniques_Permission_Groups_Discovery                 = Techniques("Permission Groups Discovery")
+	TechniquesPhishing                                     = Techniques("Phishing")
+	Techniques_Pre_OS_Boot                                 = Techniques("Pre-OS Boot")
+	Techniques_Process_Discovery                           = Techniques("Process Discovery")
+	Techniques_Process_Injection                           = Techniques("Process Injection")
+	Techniques_Protocol_Tunneling                          = Techniques("Protocol Tunneling")
+	TechniquesProxy                                        = Techniques("Proxy")
+	Techniques_Query_Registry                              = Techniques("Query Registry")
+	Techniques_Remote_Access_Software                      = Techniques("Remote Access Software")
+	Techniques_Remote_Service_Session_Hijacking            = Techniques("Remote Service Session Hijacking")
+	Techniques_Remote_Services                             = Techniques("Remote Services")
+	Techniques_Remote_System_Discovery                     = Techniques("Remote System Discovery")
+	Techniques_Resource_Hijacking                          = Techniques("Resource Hijacking")
+	Techniques_Scheduled_Task_Job                          = Techniques("Scheduled Task/Job")
+	Techniques_Screen_Capture                              = Techniques("Screen Capture")
+	Techniques_Search_Victim_Owned_Websites                = Techniques("Search Victim-Owned Websites")
+	Techniques_Server_Software_Component                   = Techniques("Server Software Component")
+	Techniques_Service_Stop                                = Techniques("Service Stop")
+	Techniques_Signed_Binary_Proxy_Execution               = Techniques("Signed Binary Proxy Execution")
+	Techniques_Software_Deployment_Tools                   = Techniques("Software Deployment Tools")
+	Techniques_SQL_Stored_Procedures                       = Techniques("SQL Stored Procedures")
+	Techniques_Steal_or_Forge_Kerberos_Tickets             = Techniques("Steal or Forge Kerberos Tickets")
+	Techniques_Subvert_Trust_Controls                      = Techniques("Subvert Trust Controls")
+	Techniques_Supply_Chain_Compromise                     = Techniques("Supply Chain Compromise")
+	Techniques_System_Information_Discovery                = Techniques("System Information Discovery")
+	Techniques_Taint_Shared_Content                        = Techniques("Taint Shared Content")
+	Techniques_Traffic_Signaling                           = Techniques("Traffic Signaling")
+	Techniques_Transfer_Data_to_Cloud_Account              = Techniques("Transfer Data to Cloud Account")
+	Techniques_Trusted_Relationship                        = Techniques("Trusted Relationship")
+	Techniques_Unsecured_Credentials                       = Techniques("Unsecured Credentials")
+	Techniques_User_Execution                              = Techniques("User Execution")
+	Techniques_Valid_Accounts                              = Techniques("Valid Accounts")
+	Techniques_Windows_Management_Instrumentation          = Techniques("Windows Management Instrumentation")
+	Techniques_File_and_Directory_Permissions_Modification = Techniques("File and Directory Permissions Modification")
 )
 
 // Threats impact of the assessment
@@ -608,7 +342,4 @@ const (
 )
 
 func init() {
-	pulumi.RegisterOutputType(StandardSupportedCloudsOutput{})
-	pulumi.RegisterOutputType(StandardSupportedCloudsPtrOutput{})
-	pulumi.RegisterOutputType(StandardSupportedCloudsArrayOutput{})
 }

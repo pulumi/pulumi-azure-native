@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Representation of a managed Cassandra cluster.
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-15.
  */
 export class CassandraCluster extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class CassandraCluster extends pulumi.CustomResource {
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.documentdb.ManagedServiceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.documentdb.ManagedCassandraManagedServiceIdentityResponse | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -109,7 +109,7 @@ export interface CassandraClusterArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.documentdb.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.documentdb.ManagedCassandraManagedServiceIdentityArgs>;
     /**
      * The location of the resource group to which the resource belongs.
      */

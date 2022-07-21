@@ -11,21 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-03-01-preview.
+// API Version: 2022-05-01.
 type BatchEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Service identity associated with a resource.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	// [Required] Additional attributes of the entity.
+	BatchEndpointProperties BatchEndpointResponseOutput `pulumi:"batchEndpointProperties"`
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// [Required] Additional attributes of the entity.
-	Properties BatchEndpointResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
+	// Sku details required for ARM contract for Autoscaling.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -40,8 +42,8 @@ func NewBatchEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
+	if args.BatchEndpointProperties == nil {
+		return nil, errors.New("invalid value for required argument 'BatchEndpointProperties'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -93,18 +95,20 @@ func (BatchEndpointState) ElementType() reflect.Type {
 }
 
 type batchEndpointArgs struct {
+	// [Required] Additional attributes of the entity.
+	BatchEndpointProperties BatchEndpointType `pulumi:"batchEndpointProperties"`
 	// Name for the Batch inference endpoint.
 	EndpointName *string `pulumi:"endpointName"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentity `pulumi:"identity"`
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// [Required] Additional attributes of the entity.
-	Properties BatchEndpointType `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sku details required for ARM contract for Autoscaling.
+	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of Azure Machine Learning workspace.
@@ -113,18 +117,20 @@ type batchEndpointArgs struct {
 
 // The set of arguments for constructing a BatchEndpoint resource.
 type BatchEndpointArgs struct {
+	// [Required] Additional attributes of the entity.
+	BatchEndpointProperties BatchEndpointTypeInput
 	// Name for the Batch inference endpoint.
 	EndpointName pulumi.StringPtrInput
-	// Service identity associated with a resource.
-	Identity ResourceIdentityPtrInput
+	// Managed service identity (system assigned and/or user assigned identities)
+	Identity ManagedServiceIdentityPtrInput
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
 	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// [Required] Additional attributes of the entity.
-	Properties BatchEndpointTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Sku details required for ARM contract for Autoscaling.
+	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Name of Azure Machine Learning workspace.
@@ -168,9 +174,14 @@ func (o BatchEndpointOutput) ToBatchEndpointOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Service identity associated with a resource.
-func (o BatchEndpointOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *BatchEndpoint) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+// [Required] Additional attributes of the entity.
+func (o BatchEndpointOutput) BatchEndpointProperties() BatchEndpointResponseOutput {
+	return o.ApplyT(func(v *BatchEndpoint) BatchEndpointResponseOutput { return v.BatchEndpointProperties }).(BatchEndpointResponseOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+func (o BatchEndpointOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *BatchEndpoint) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -188,12 +199,12 @@ func (o BatchEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BatchEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Required] Additional attributes of the entity.
-func (o BatchEndpointOutput) Properties() BatchEndpointResponseOutput {
-	return o.ApplyT(func(v *BatchEndpoint) BatchEndpointResponseOutput { return v.Properties }).(BatchEndpointResponseOutput)
+// Sku details required for ARM contract for Autoscaling.
+func (o BatchEndpointOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *BatchEndpoint) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// System data associated with resource provider
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o BatchEndpointOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *BatchEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

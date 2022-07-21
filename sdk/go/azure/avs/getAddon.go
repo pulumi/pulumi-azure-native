@@ -11,7 +11,7 @@ import (
 )
 
 // An addon resource
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
 	err := ctx.Invoke("azure-native:avs:getAddon", args, &rv, opts...)
@@ -32,16 +32,12 @@ type LookupAddonArgs struct {
 
 // An addon resource
 type LookupAddonResult struct {
-	// The type of private cloud addon
-	AddonType *string `pulumi:"addonType"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// The SRM license
-	LicenseKey *string `pulumi:"licenseKey"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The state of the addon provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
+	// The properties of an addon resource
+	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -87,19 +83,9 @@ func (o LookupAddonResultOutput) ToLookupAddonResultOutputWithContext(ctx contex
 	return o
 }
 
-// The type of private cloud addon
-func (o LookupAddonResultOutput) AddonType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAddonResult) *string { return v.AddonType }).(pulumi.StringPtrOutput)
-}
-
 // Resource ID.
 func (o LookupAddonResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The SRM license
-func (o LookupAddonResultOutput) LicenseKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAddonResult) *string { return v.LicenseKey }).(pulumi.StringPtrOutput)
 }
 
 // Resource name.
@@ -107,9 +93,9 @@ func (o LookupAddonResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The state of the addon provisioning
-func (o LookupAddonResultOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAddonResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+// The properties of an addon resource
+func (o LookupAddonResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupAddonResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Resource type.

@@ -11,7 +11,7 @@ import (
 )
 
 // A SQL virtual machine group.
-// API Version: 2017-03-01-preview.
+// API Version: 2022-02-01.
 func LookupSqlVirtualMachineGroup(ctx *pulumi.Context, args *LookupSqlVirtualMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupSqlVirtualMachineGroupResult, error) {
 	var rv LookupSqlVirtualMachineGroupResult
 	err := ctx.Invoke("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args, &rv, opts...)
@@ -48,6 +48,8 @@ type LookupSqlVirtualMachineGroupResult struct {
 	SqlImageOffer *string `pulumi:"sqlImageOffer"`
 	// SQL image sku.
 	SqlImageSku *string `pulumi:"sqlImageSku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -138,6 +140,11 @@ func (o LookupSqlVirtualMachineGroupResultOutput) SqlImageOffer() pulumi.StringP
 // SQL image sku.
 func (o LookupSqlVirtualMachineGroupResultOutput) SqlImageSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSqlVirtualMachineGroupResult) *string { return v.SqlImageSku }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupSqlVirtualMachineGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

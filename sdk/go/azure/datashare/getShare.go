@@ -11,7 +11,7 @@ import (
 )
 
 // A share data transfer object.
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	var rv LookupShareResult
 	err := ctx.Invoke("azure-native:datashare:getShare", args, &rv, opts...)

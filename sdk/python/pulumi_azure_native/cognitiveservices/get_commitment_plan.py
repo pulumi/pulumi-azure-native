@@ -110,7 +110,7 @@ def get_commitment_plan(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
     Cognitive Services account commitment plan.
-    API Version: 2021-10-01.
+    API Version: 2022-03-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -143,7 +143,7 @@ def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
     Cognitive Services account commitment plan.
-    API Version: 2021-10-01.
+    API Version: 2022-03-01.
 
 
     :param str account_name: The name of Cognitive Services account.

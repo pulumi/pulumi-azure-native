@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// BackupInstance Resource
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupInstance")]
     public partial class BackupInstance : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name associated with the resource.
+        /// Proxy Resource name associated with the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,7 +35,13 @@ namespace Pulumi.AzureNative.DataProtection
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        /// Proxy Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -117,6 +123,18 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Proxy Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the backup vault.

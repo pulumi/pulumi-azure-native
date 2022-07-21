@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2019-09-01.
+ * API Version: 2021-10-01.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     if (!opts) {

@@ -7,8 +7,10 @@ package mobilenetwork
 type CoreNetworkType string
 
 const (
+	// 5G core
 	CoreNetworkType_5GC = CoreNetworkType("5GC")
-	CoreNetworkTypeEPC  = CoreNetworkType("EPC")
+	// EPC / 4G core
+	CoreNetworkTypeEPC = CoreNetworkType("EPC")
 )
 
 // The type of identity that last modified the resource.
@@ -25,7 +27,9 @@ const (
 type NaptEnabled string
 
 const (
-	NaptEnabledEnabled  = NaptEnabled("Enabled")
+	// NAPT is enabled
+	NaptEnabledEnabled = NaptEnabled("Enabled")
+	// NAPT is disabled
 	NaptEnabledDisabled = NaptEnabled("Disabled")
 )
 
@@ -41,7 +45,9 @@ const (
 type PreemptionCapability string
 
 const (
+	// Cannot preempt
 	PreemptionCapabilityNotPreempt = PreemptionCapability("NotPreempt")
+	// May preempt
 	PreemptionCapabilityMayPreempt = PreemptionCapability("MayPreempt")
 )
 
@@ -49,16 +55,21 @@ const (
 type PreemptionVulnerability string
 
 const (
+	// Cannot be preempted
 	PreemptionVulnerabilityNotPreemptable = PreemptionVulnerability("NotPreemptable")
-	PreemptionVulnerabilityPreemptable    = PreemptionVulnerability("Preemptable")
+	// May be preempted
+	PreemptionVulnerabilityPreemptable = PreemptionVulnerability("Preemptable")
 )
 
 // The direction of this flow.
 type SdfDirection string
 
 const (
-	SdfDirectionUplink        = SdfDirection("Uplink")
-	SdfDirectionDownlink      = SdfDirection("Downlink")
+	// Traffic flowing from the UE to the data network.
+	SdfDirectionUplink = SdfDirection("Uplink")
+	// Traffic flowing from the data network to the UE.
+	SdfDirectionDownlink = SdfDirection("Downlink")
+	// Traffic flowing both to and from the UE.
 	SdfDirectionBidirectional = SdfDirection("Bidirectional")
 )
 
@@ -66,7 +77,9 @@ const (
 type TrafficControlPermission string
 
 const (
+	// Traffic matching this rule is allowed to flow.
 	TrafficControlPermissionEnabled = TrafficControlPermission("Enabled")
+	// Traffic matching this rule is not allowed to flow.
 	TrafficControlPermissionBlocked = TrafficControlPermission("Blocked")
 )
 

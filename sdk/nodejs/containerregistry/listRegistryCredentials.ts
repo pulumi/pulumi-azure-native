@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response from the ListCredentials operation.
- * API Version: 2019-05-01.
+ * API Version: 2021-09-01.
  */
 export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryCredentialsResult> {
     if (!opts) {

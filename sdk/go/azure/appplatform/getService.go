@@ -11,14 +11,14 @@ import (
 )
 
 // Service resource
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:appplatform:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServiceArgs struct {
@@ -40,10 +40,25 @@ type LookupServiceResult struct {
 	Properties ClusterResourcePropertiesResponse `pulumi:"properties"`
 	// Sku of the Service resource
 	Sku *SkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupServiceResult
+func (val *LookupServiceResult) Defaults() *LookupServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -108,6 +123,11 @@ func (o LookupServiceResultOutput) Properties() ClusterResourcePropertiesRespons
 // Sku of the Service resource
 func (o LookupServiceResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tags of the service which is a list of key value pairs that describe the resource.

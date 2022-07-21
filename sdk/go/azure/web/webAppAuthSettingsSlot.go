@@ -12,7 +12,7 @@ import (
 )
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type WebAppAuthSettingsSlot struct {
 	pulumi.CustomResourceState
 

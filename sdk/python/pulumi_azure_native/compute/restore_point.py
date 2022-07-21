@@ -19,6 +19,7 @@ class RestorePointArgs:
                  restore_point_collection_name: pulumi.Input[str],
                  exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
+                 source_restore_point: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
                  time_created: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
@@ -26,6 +27,7 @@ class RestorePointArgs:
         :param pulumi.Input[str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         :param pulumi.Input[str] restore_point_name: The name of the restore point.
+        :param pulumi.Input['ApiEntityReferenceArgs'] source_restore_point: Resource Id of the source restore point from which a copy needs to be created.
         :param pulumi.Input[str] time_created: Gets the creation time of the restore point.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -34,6 +36,8 @@ class RestorePointArgs:
             pulumi.set(__self__, "exclude_disks", exclude_disks)
         if restore_point_name is not None:
             pulumi.set(__self__, "restore_point_name", restore_point_name)
+        if source_restore_point is not None:
+            pulumi.set(__self__, "source_restore_point", source_restore_point)
         if time_created is not None:
             pulumi.set(__self__, "time_created", time_created)
 
@@ -86,6 +90,18 @@ class RestorePointArgs:
         pulumi.set(self, "restore_point_name", value)
 
     @property
+    @pulumi.getter(name="sourceRestorePoint")
+    def source_restore_point(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
+        """
+        Resource Id of the source restore point from which a copy needs to be created.
+        """
+        return pulumi.get(self, "source_restore_point")
+
+    @source_restore_point.setter
+    def source_restore_point(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
+        pulumi.set(self, "source_restore_point", value)
+
+    @property
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> Optional[pulumi.Input[str]]:
         """
@@ -107,11 +123,12 @@ class RestorePoint(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
+                 source_restore_point: Optional[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]] = None,
                  time_created: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Restore Point details.
-        API Version: 2021-03-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,6 +136,7 @@ class RestorePoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[str] restore_point_name: The name of the restore point.
+        :param pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']] source_restore_point: Resource Id of the source restore point from which a copy needs to be created.
         :param pulumi.Input[str] time_created: Gets the creation time of the restore point.
         """
         ...
@@ -129,7 +147,7 @@ class RestorePoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Restore Point details.
-        API Version: 2021-03-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param RestorePointArgs args: The arguments to use to populate this resource's properties.
@@ -150,6 +168,7 @@ class RestorePoint(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
+                 source_restore_point: Optional[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]] = None,
                  time_created: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -171,8 +190,10 @@ class RestorePoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'restore_point_collection_name'")
             __props__.__dict__["restore_point_collection_name"] = restore_point_collection_name
             __props__.__dict__["restore_point_name"] = restore_point_name
+            __props__.__dict__["source_restore_point"] = source_restore_point
             __props__.__dict__["time_created"] = time_created
             __props__.__dict__["consistency_mode"] = None
+            __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["source_metadata"] = None
@@ -203,9 +224,11 @@ class RestorePoint(pulumi.CustomResource):
 
         __props__.__dict__["consistency_mode"] = None
         __props__.__dict__["exclude_disks"] = None
+        __props__.__dict__["instance_view"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source_metadata"] = None
+        __props__.__dict__["source_restore_point"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         return RestorePoint(resource_name, opts=opts, __props__=__props__)
@@ -225,6 +248,14 @@ class RestorePoint(pulumi.CustomResource):
         List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         """
         return pulumi.get(self, "exclude_disks")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> pulumi.Output['outputs.RestorePointInstanceViewResponse']:
+        """
+        The restore point instance view.
+        """
+        return pulumi.get(self, "instance_view")
 
     @property
     @pulumi.getter
@@ -249,6 +280,14 @@ class RestorePoint(pulumi.CustomResource):
         Gets the details of the VM captured at the time of the restore point creation.
         """
         return pulumi.get(self, "source_metadata")
+
+    @property
+    @pulumi.getter(name="sourceRestorePoint")
+    def source_restore_point(self) -> pulumi.Output[Optional['outputs.ApiEntityReferenceResponse']]:
+        """
+        Resource Id of the source restore point from which a copy needs to be created.
+        """
+        return pulumi.get(self, "source_restore_point")
 
     @property
     @pulumi.getter(name="timeCreated")

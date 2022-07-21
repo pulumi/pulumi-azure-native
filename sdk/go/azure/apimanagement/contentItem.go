@@ -12,15 +12,15 @@ import (
 )
 
 // Content type contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 type ContentItem struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the content item.
 	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -155,7 +155,7 @@ func (o ContentItemOutput) ToContentItemOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Resource name.
+// The name of the resource
 func (o ContentItemOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContentItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -165,7 +165,7 @@ func (o ContentItemOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ContentItem) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ContentItemOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContentItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Description of NetworkRuleSet resource.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:servicebus:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of NetworkRuleSet resource.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:servicebus:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -82,11 +82,27 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly ImmutableArray<Outputs.NWRuleSetIpRulesResponse> IpRules;
         /// <summary>
-        /// Resource name
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        public readonly bool? TrustedServiceAccessEnabled;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -102,7 +118,15 @@ namespace Pulumi.AzureNative.ServiceBus
 
             ImmutableArray<Outputs.NWRuleSetIpRulesResponse> ipRules,
 
+            string location,
+
             string name,
+
+            string? publicNetworkAccess,
+
+            Outputs.SystemDataResponse systemData,
+
+            bool? trustedServiceAccessEnabled,
 
             string type,
 
@@ -111,7 +135,11 @@ namespace Pulumi.AzureNative.ServiceBus
             DefaultAction = defaultAction;
             Id = id;
             IpRules = ipRules;
+            Location = location;
             Name = name;
+            PublicNetworkAccess = publicNetworkAccess;
+            SystemData = systemData;
+            TrustedServiceAccessEnabled = trustedServiceAccessEnabled;
             Type = type;
             VirtualNetworkRules = virtualNetworkRules;
         }

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a scaling plan definition.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-07-12.
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
@@ -40,8 +40,6 @@ type ScalingPlan struct {
 	// ObjectId of scaling plan. (internal use)
 	ObjectId pulumi.StringOutput                                      `pulumi:"objectId"`
 	Plan     ResourceModelWithAllowedPropertySetResponsePlanPtrOutput `pulumi:"plan"`
-	// The ring number of scaling plan.
-	Ring pulumi.IntPtrOutput `pulumi:"ring"`
 	// List of ScalingSchedule definitions.
 	Schedules ScalingScheduleResponseArrayOutput                      `pulumi:"schedules"`
 	Sku       ResourceModelWithAllowedPropertySetResponseSkuPtrOutput `pulumi:"sku"`
@@ -145,8 +143,6 @@ type scalingPlanArgs struct {
 	Plan      *ResourceModelWithAllowedPropertySetPlan `pulumi:"plan"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ring number of scaling plan.
-	Ring *int `pulumi:"ring"`
 	// The name of the scaling plan.
 	ScalingPlanName *string `pulumi:"scalingPlanName"`
 	// List of ScalingSchedule definitions.
@@ -180,8 +176,6 @@ type ScalingPlanArgs struct {
 	Plan      ResourceModelWithAllowedPropertySetPlanPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The ring number of scaling plan.
-	Ring pulumi.IntPtrInput
 	// The name of the scaling plan.
 	ScalingPlanName pulumi.StringPtrInput
 	// List of ScalingSchedule definitions.
@@ -291,11 +285,6 @@ func (o ScalingPlanOutput) ObjectId() pulumi.StringOutput {
 
 func (o ScalingPlanOutput) Plan() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
 	return o.ApplyT(func(v *ScalingPlan) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput { return v.Plan }).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
-}
-
-// The ring number of scaling plan.
-func (o ScalingPlanOutput) Ring() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScalingPlan) pulumi.IntPtrOutput { return v.Ring }).(pulumi.IntPtrOutput)
 }
 
 // List of ScalingSchedule definitions.

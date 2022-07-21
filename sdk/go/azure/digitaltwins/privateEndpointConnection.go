@@ -12,13 +12,16 @@ import (
 )
 
 // The private endpoint connection of a Digital Twin.
-// API Version: 2020-12-01.
+// API Version: 2022-05-31.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
 	// The resource name.
-	Name       pulumi.StringOutput                               `pulumi:"name"`
-	Properties PrivateEndpointConnectionResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The connection properties.
+	Properties ConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the private endpoint connection.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -84,8 +87,9 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName *string                             `pulumi:"privateEndpointConnectionName"`
-	Properties                    PrivateEndpointConnectionProperties `pulumi:"properties"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
+	// The connection properties.
+	Properties ConnectionProperties `pulumi:"properties"`
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the DigitalTwinsInstance.
@@ -96,7 +100,8 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	Properties                    PrivateEndpointConnectionPropertiesInput
+	// The connection properties.
+	Properties ConnectionPropertiesInput
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the DigitalTwinsInstance.
@@ -145,10 +150,14 @@ func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionResponsePropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointConnectionResponsePropertiesOutput {
-		return v.Properties
-	}).(PrivateEndpointConnectionResponsePropertiesOutput)
+// The connection properties.
+func (o PrivateEndpointConnectionOutput) Properties() ConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) ConnectionPropertiesResponseOutput { return v.Properties }).(ConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the private endpoint connection.
+func (o PrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type.

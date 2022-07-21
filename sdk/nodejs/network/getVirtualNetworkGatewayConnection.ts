@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
     if (!opts) {
@@ -65,6 +65,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly egressBytesTransferred: number;
     /**
+     * List of egress NatRules.
+     */
+    readonly egressNatRules?: outputs.network.SubResourceResponse[];
+    /**
      * EnableBgp flag.
      */
     readonly enableBgp?: boolean;
@@ -77,6 +81,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly expressRouteGatewayBypass?: boolean;
     /**
+     * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+     */
+    readonly gatewayCustomBgpIpAddresses?: outputs.network.GatewayCustomBgpIpAddressIpConfigurationResponse[];
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -84,6 +92,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      * The ingress bytes transferred in this connection.
      */
     readonly ingressBytesTransferred: number;
+    /**
+     * List of ingress NatRules.
+     */
+    readonly ingressNatRules?: outputs.network.SubResourceResponse[];
     /**
      * The IPSec Policies to be considered by this connection.
      */

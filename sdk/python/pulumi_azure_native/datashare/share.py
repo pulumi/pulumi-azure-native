@@ -128,7 +128,7 @@ class Share(pulumi.CustomResource):
                  __props__=None):
         """
         A share data transfer object.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class Share(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A share data transfer object.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.

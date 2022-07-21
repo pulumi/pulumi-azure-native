@@ -15,6 +15,7 @@ __all__ = [
     'ContactDetailResponse',
     'DirectConnectionResponse',
     'ExchangeConnectionResponse',
+    'LogAnalyticsWorkspacePropertiesResponse',
     'PeeringPropertiesDirectResponse',
     'PeeringPropertiesExchangeResponse',
     'PeeringServicePrefixEventResponse',
@@ -505,6 +506,69 @@ class ExchangeConnectionResponse(dict):
 
 
 @pulumi.output_type
+class LogAnalyticsWorkspacePropertiesResponse(dict):
+    """
+    The properties that define a Log Analytics Workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectedAgents":
+            suggest = "connected_agents"
+        elif key == "workspaceID":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAnalyticsWorkspacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAnalyticsWorkspacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAnalyticsWorkspacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connected_agents: Sequence[str],
+                 key: str,
+                 workspace_id: str):
+        """
+        The properties that define a Log Analytics Workspace.
+        :param Sequence[str] connected_agents: The list of connected agents.
+        :param str key: The Workspace Key.
+        :param str workspace_id: The Workspace ID.
+        """
+        pulumi.set(__self__, "connected_agents", connected_agents)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="connectedAgents")
+    def connected_agents(self) -> Sequence[str]:
+        """
+        The list of connected agents.
+        """
+        return pulumi.get(self, "connected_agents")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Workspace Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="workspaceID")
+    def workspace_id(self) -> str:
+        """
+        The Workspace ID.
+        """
+        return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
 class PeeringPropertiesDirectResponse(dict):
     """
     The properties that define a direct peering.
@@ -755,33 +819,46 @@ class PeeringSkuResponse(dict):
     The SKU that defines the tier and kind of the peering.
     """
     def __init__(__self__, *,
-                 family: Optional[str] = None,
-                 name: Optional[str] = None,
-                 size: Optional[str] = None,
-                 tier: Optional[str] = None):
+                 family: str,
+                 size: str,
+                 tier: str,
+                 name: Optional[str] = None):
         """
         The SKU that defines the tier and kind of the peering.
         :param str family: The family of the peering SKU.
-        :param str name: The name of the peering SKU.
         :param str size: The size of the peering SKU.
         :param str tier: The tier of the peering SKU.
+        :param str name: The name of the peering SKU.
         """
-        if family is not None:
-            pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "tier", tier)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
-    def family(self) -> Optional[str]:
+    def family(self) -> str:
         """
         The family of the peering SKU.
         """
         return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> str:
+        """
+        The size of the peering SKU.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The tier of the peering SKU.
+        """
+        return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter
@@ -790,22 +867,6 @@ class PeeringSkuResponse(dict):
         The name of the peering SKU.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[str]:
-        """
-        The size of the peering SKU.
-        """
-        return pulumi.get(self, "size")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        The tier of the peering SKU.
-        """
-        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

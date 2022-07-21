@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./appServiceEnvironment";
-export * from "./appServiceEnvironmentAseCustomDnsSuffixConfiguration";
 export * from "./appServiceEnvironmentPrivateEndpointConnection";
 export * from "./appServicePlan";
 export * from "./appServicePlanRouteForVnet";
@@ -16,7 +15,6 @@ export * from "./connectionGateway";
 export * from "./containerApp";
 export * from "./customApi";
 export * from "./getAppServiceEnvironment";
-export * from "./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration";
 export * from "./getAppServiceEnvironmentPrivateEndpointConnection";
 export * from "./getAppServicePlan";
 export * from "./getCertificate";
@@ -27,8 +25,6 @@ export * from "./getCustomApi";
 export * from "./getKubeEnvironment";
 export * from "./getStaticSite";
 export * from "./getStaticSiteCustomDomain";
-export * from "./getStaticSiteLinkedBackend";
-export * from "./getStaticSiteLinkedBackendForBuild";
 export * from "./getStaticSitePrivateEndpointConnection";
 export * from "./getStaticSiteUserProvidedFunctionAppForStaticSite";
 export * from "./getStaticSiteUserProvidedFunctionAppForStaticSiteBuild";
@@ -65,7 +61,6 @@ export * from "./getWebAppVnetConnectionSlot";
 export * from "./kubeEnvironment";
 export * from "./listAppServicePlanHybridConnectionKeys";
 export * from "./listConnectionConsentLinks";
-export * from "./listConnectionKeys";
 export * from "./listContainerAppSecrets";
 export * from "./listCustomApiWsdlInterfaces";
 export * from "./listSiteIdentifiersAssignedToHostName";
@@ -106,13 +101,8 @@ export * from "./listWebAppSitePushSettings";
 export * from "./listWebAppSitePushSettingsSlot";
 export * from "./listWebAppSyncFunctionTriggers";
 export * from "./listWebAppSyncFunctionTriggersSlot";
-export * from "./listWorkflowRunActionExpressionTraces";
-export * from "./listWorkflowRunActionRepetitionExpressionTraces";
-export * from "./listWorkflowTriggerCallbackUrl";
 export * from "./staticSite";
 export * from "./staticSiteCustomDomain";
-export * from "./staticSiteLinkedBackend";
-export * from "./staticSiteLinkedBackendForBuild";
 export * from "./staticSitePrivateEndpointConnection";
 export * from "./staticSiteUserProvidedFunctionAppForStaticSite";
 export * from "./staticSiteUserProvidedFunctionAppForStaticSiteBuild";
@@ -209,7 +199,6 @@ export {
 
 // Import resources to register:
 import { AppServiceEnvironment } from "./appServiceEnvironment";
-import { AppServiceEnvironmentAseCustomDnsSuffixConfiguration } from "./appServiceEnvironmentAseCustomDnsSuffixConfiguration";
 import { AppServiceEnvironmentPrivateEndpointConnection } from "./appServiceEnvironmentPrivateEndpointConnection";
 import { AppServicePlan } from "./appServicePlan";
 import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
@@ -221,8 +210,6 @@ import { CustomApi } from "./customApi";
 import { KubeEnvironment } from "./kubeEnvironment";
 import { StaticSite } from "./staticSite";
 import { StaticSiteCustomDomain } from "./staticSiteCustomDomain";
-import { StaticSiteLinkedBackend } from "./staticSiteLinkedBackend";
-import { StaticSiteLinkedBackendForBuild } from "./staticSiteLinkedBackendForBuild";
 import { StaticSitePrivateEndpointConnection } from "./staticSitePrivateEndpointConnection";
 import { StaticSiteUserProvidedFunctionAppForStaticSite } from "./staticSiteUserProvidedFunctionAppForStaticSite";
 import { StaticSiteUserProvidedFunctionAppForStaticSiteBuild } from "./staticSiteUserProvidedFunctionAppForStaticSiteBuild";
@@ -279,8 +266,6 @@ const _module = {
         switch (type) {
             case "azure-native:web:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
-            case "azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration":
-                return new AppServiceEnvironmentAseCustomDnsSuffixConfiguration(name, <any>undefined, { urn })
             case "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection":
                 return new AppServiceEnvironmentPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:web:AppServicePlan":
@@ -303,10 +288,6 @@ const _module = {
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteCustomDomain":
                 return new StaticSiteCustomDomain(name, <any>undefined, { urn })
-            case "azure-native:web:StaticSiteLinkedBackend":
-                return new StaticSiteLinkedBackend(name, <any>undefined, { urn })
-            case "azure-native:web:StaticSiteLinkedBackendForBuild":
-                return new StaticSiteLinkedBackendForBuild(name, <any>undefined, { urn })
             case "azure-native:web:StaticSitePrivateEndpointConnection":
                 return new StaticSitePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite":

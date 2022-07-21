@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.EventHub.Inputs
         /// <summary>
         /// Resource ID of Virtual Network Subnet
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public SubnetArgs()
         {

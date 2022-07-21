@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
- * API Version: 2020-12-01.
+ * API Version: 2021-11-01.
  */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
     if (!opts) {
@@ -24,7 +24,7 @@ export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pu
 
 export interface GetDedicatedHostGroupArgs {
     /**
-     * The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
      */
     expand?: string;
     /**
@@ -89,7 +89,7 @@ export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArg
 
 export interface GetDedicatedHostGroupOutputArgs {
     /**
-     * The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
      */
     expand?: pulumi.Input<string>;
     /**

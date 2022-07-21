@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 /** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
@@ -56,7 +56,7 @@ export interface GetTriggerResult {
      */
     readonly name: string;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

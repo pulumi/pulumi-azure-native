@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
     /// <summary>
-    /// Configurations for provisioning the cluster with HTTP proxy servers.
+    /// Cluster HTTP proxy configuration.
     /// </summary>
     [OutputType]
     public sealed class ManagedClusterHTTPProxyConfigResponse
     {
         /// <summary>
-        /// HTTP proxy server endpoint to use.
+        /// The HTTP proxy server endpoint to use.
         /// </summary>
         public readonly string? HttpProxy;
         /// <summary>
-        /// HTTPS proxy server endpoint to use.
+        /// The HTTPS proxy server endpoint to use.
         /// </summary>
         public readonly string? HttpsProxy;
         /// <summary>
-        /// Endpoints that should not go through proxy.
+        /// The endpoints that should not go through proxy.
         /// </summary>
         public readonly ImmutableArray<string> NoProxy;
         /// <summary>

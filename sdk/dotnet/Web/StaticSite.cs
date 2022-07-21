@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Static Site ARM resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSite")]
     public partial class StaticSite : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
+        /// State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+        /// </summary>
+        [Output("enterpriseGradeCdnStatus")]
+        public Output<string?> EnterpriseGradeCdnStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Managed service identity.
         /// </summary>
         [Output("identity")]
@@ -92,7 +98,7 @@ namespace Pulumi.AzureNative.Web
         /// The provider that submitted the last deployment to the primary environment of the static site.
         /// </summary>
         [Output("provider")]
-        public Output<string> Provider { get; private set; } = null!;
+        public Output<string?> Provider { get; private set; } = null!;
 
         /// <summary>
         /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -219,6 +225,12 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.StaticSiteBuildPropertiesArgs>? BuildProperties { get; set; }
 
         /// <summary>
+        /// State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+        /// </summary>
+        [Input("enterpriseGradeCdnStatus")]
+        public InputUnion<string, Pulumi.AzureNative.Web.EnterpriseGradeCdnStatus>? EnterpriseGradeCdnStatus { get; set; }
+
+        /// <summary>
         /// Managed service identity.
         /// </summary>
         [Input("identity")]
@@ -241,6 +253,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The provider that submitted the last deployment to the primary environment of the static site.
+        /// </summary>
+        [Input("provider")]
+        public Input<string>? Provider { get; set; }
 
         /// <summary>
         /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.

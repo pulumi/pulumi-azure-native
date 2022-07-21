@@ -11,7 +11,7 @@ import (
 )
 
 // Subscription keys.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func ListSubscriptionSecrets(ctx *pulumi.Context, args *ListSubscriptionSecretsArgs, opts ...pulumi.InvokeOption) (*ListSubscriptionSecretsResult, error) {
 	var rv ListSubscriptionSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listSubscriptionSecrets", args, &rv, opts...)

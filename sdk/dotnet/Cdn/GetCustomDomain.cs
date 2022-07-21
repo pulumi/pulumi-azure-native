@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>? CustomHttpsParameters;
         /// <summary>
-        /// Provisioning status of Custom Https of the custom domain.
+        /// Provisioning status of the custom domain.
         /// </summary>
         public readonly string CustomHttpsProvisioningState;
         /// <summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning status of the custom domain.
+        /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
-    /// Represents an automation rule.
-    /// API Version: 2019-01-01-preview.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AutomationRule")]
     public partial class AutomationRule : Pulumi.CustomResource
@@ -23,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<ImmutableArray<Union<Outputs.AutomationRuleModifyPropertiesActionResponse, Outputs.AutomationRuleRunPlaybookActionResponse>>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the client that created the automation rule
+        /// Information on the client (user or application) that made some action
         /// </summary>
         [Output("createdBy")]
         public Output<Outputs.ClientInfoResponse> CreatedBy { get; private set; } = null!;
@@ -35,7 +34,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> CreatedTimeUtc { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the automation  rule
+        /// The display name of the automation rule
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -47,7 +46,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the client that last updated the automation rule
+        /// Information on the client (user or application) that made some action
         /// </summary>
         [Output("lastModifiedBy")]
         public Output<Outputs.ClientInfoResponse> LastModifiedBy { get; private set; } = null!;
@@ -59,7 +58,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -71,13 +70,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<int> Order { get; private set; } = null!;
 
         /// <summary>
-        /// The triggering logic of the automation rule
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes automation rule triggering logic
         /// </summary>
         [Output("triggeringLogic")]
         public Output<Outputs.AutomationRuleTriggeringLogicResponse> TriggeringLogic { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -158,16 +163,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? AutomationRuleId { get; set; }
 
         /// <summary>
-        /// The display name of the automation  rule
+        /// The display name of the automation rule
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The order of execution of the automation rule
@@ -176,13 +175,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<int> Order { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The triggering logic of the automation rule
+        /// Describes automation rule triggering logic
         /// </summary>
         [Input("triggeringLogic", required: true)]
         public Input<Inputs.AutomationRuleTriggeringLogicArgs> TriggeringLogic { get; set; } = null!;

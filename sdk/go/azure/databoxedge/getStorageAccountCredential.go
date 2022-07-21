@@ -11,7 +11,7 @@ import (
 )
 
 // The storage account credential.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupStorageAccountCredential(ctx *pulumi.Context, args *LookupStorageAccountCredentialArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountCredentialResult, error) {
 	var rv LookupStorageAccountCredentialResult
 	err := ctx.Invoke("azure-native:databoxedge:getStorageAccountCredential", args, &rv, opts...)
@@ -50,7 +50,7 @@ type LookupStorageAccountCredentialResult struct {
 	SslStatus string `pulumi:"sslStatus"`
 	// Id of the storage account.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// StorageAccountCredential object
+	// Metadata pertaining to creation and last modification of StorageAccountCredential
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -144,7 +144,7 @@ func (o LookupStorageAccountCredentialResultOutput) StorageAccountId() pulumi.St
 	return o.ApplyT(func(v LookupStorageAccountCredentialResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// StorageAccountCredential object
+// Metadata pertaining to creation and last modification of StorageAccountCredential
 func (o LookupStorageAccountCredentialResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupStorageAccountCredentialResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

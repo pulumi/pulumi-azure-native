@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
     if (!opts) {

@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
@@ -28,10 +28,14 @@ type VirtualNetwork struct {
 	EnableDdosProtection pulumi.BoolPtrOutput `pulumi:"enableDdosProtection"`
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection pulumi.BoolPtrOutput `pulumi:"enableVmProtection"`
+	// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+	Encryption VirtualNetworkEncryptionResponsePtrOutput `pulumi:"encryption"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The extended location of the virtual network.
 	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
+	// The FlowTimeout value (in minutes) for the Virtual Network
+	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations SubResourceResponseArrayOutput `pulumi:"ipAllocations"`
 	// Resource location.
@@ -238,8 +242,12 @@ type virtualNetworkArgs struct {
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
+	// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+	Encryption *VirtualNetworkEncryption `pulumi:"encryption"`
 	// The extended location of the virtual network.
 	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
+	// The FlowTimeout value (in minutes) for the Virtual Network
+	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.
@@ -272,8 +280,12 @@ type VirtualNetworkArgs struct {
 	EnableDdosProtection pulumi.BoolPtrInput
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection pulumi.BoolPtrInput
+	// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+	Encryption VirtualNetworkEncryptionPtrInput
 	// The extended location of the virtual network.
 	ExtendedLocation ExtendedLocationPtrInput
+	// The FlowTimeout value (in minutes) for the Virtual Network
+	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Array of IpAllocation which reference this VNET.
@@ -359,6 +371,11 @@ func (o VirtualNetworkOutput) EnableVmProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.BoolPtrOutput { return v.EnableVmProtection }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+func (o VirtualNetworkOutput) Encryption() VirtualNetworkEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkEncryptionResponsePtrOutput { return v.Encryption }).(VirtualNetworkEncryptionResponsePtrOutput)
+}
+
 // A unique read-only string that changes whenever the resource is updated.
 func (o VirtualNetworkOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
@@ -367,6 +384,11 @@ func (o VirtualNetworkOutput) Etag() pulumi.StringOutput {
 // The extended location of the virtual network.
 func (o VirtualNetworkOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The FlowTimeout value (in minutes) for the Virtual Network
+func (o VirtualNetworkOutput) FlowTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.IntPtrOutput { return v.FlowTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Array of IpAllocation which reference this VNET.

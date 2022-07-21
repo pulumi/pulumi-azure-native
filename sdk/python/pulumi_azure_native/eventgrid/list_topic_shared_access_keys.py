@@ -60,7 +60,7 @@ def list_topic_shared_access_keys(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicSharedAccessKeysResult:
     """
     Shared access keys of the Topic
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -86,7 +86,7 @@ def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
     """
     Shared access keys of the Topic
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

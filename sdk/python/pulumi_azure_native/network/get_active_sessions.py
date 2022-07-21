@@ -61,7 +61,7 @@ def get_active_sessions(bastion_host_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveSessionsResult:
     """
     Response for GetActiveSessions.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -87,7 +87,7 @@ def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[str]] = 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveSessionsResult]:
     """
     Response for GetActiveSessions.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

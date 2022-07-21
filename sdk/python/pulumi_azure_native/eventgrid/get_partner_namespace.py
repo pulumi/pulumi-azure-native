@@ -21,7 +21,7 @@ class GetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
     """
-    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, name=None, partner_registration_fully_qualified_id=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, name=None, partner_registration_fully_qualified_id=None, partner_topic_routing_mode=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if disable_local_auth and not isinstance(disable_local_auth, bool):
             raise TypeError("Expected argument 'disable_local_auth' to be a bool")
         pulumi.set(__self__, "disable_local_auth", disable_local_auth)
@@ -43,6 +43,9 @@ class GetPartnerNamespaceResult:
         if partner_registration_fully_qualified_id and not isinstance(partner_registration_fully_qualified_id, str):
             raise TypeError("Expected argument 'partner_registration_fully_qualified_id' to be a str")
         pulumi.set(__self__, "partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
+        if partner_topic_routing_mode and not isinstance(partner_topic_routing_mode, str):
+            raise TypeError("Expected argument 'partner_topic_routing_mode' to be a str")
+        pulumi.set(__self__, "partner_topic_routing_mode", partner_topic_routing_mode)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -120,6 +123,15 @@ class GetPartnerNamespaceResult:
         return pulumi.get(self, "partner_registration_fully_qualified_id")
 
     @property
+    @pulumi.getter(name="partnerTopicRoutingMode")
+    def partner_topic_routing_mode(self) -> Optional[str]:
+        """
+        This determines if events published to this partner namespace should use the source attribute in the event payload
+        or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+        """
+        return pulumi.get(self, "partner_topic_routing_mode")
+
+    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         return pulumi.get(self, "private_endpoint_connections")
@@ -179,6 +191,7 @@ class AwaitableGetPartnerNamespaceResult(GetPartnerNamespaceResult):
             location=self.location,
             name=self.name,
             partner_registration_fully_qualified_id=self.partner_registration_fully_qualified_id,
+            partner_topic_routing_mode=self.partner_topic_routing_mode,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
@@ -192,7 +205,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -215,6 +228,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         partner_registration_fully_qualified_id=__ret__.partner_registration_fully_qualified_id,
+        partner_topic_routing_mode=__ret__.partner_topic_routing_mode,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
@@ -229,7 +243,7 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
     """
     EventGrid Partner Namespace.
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

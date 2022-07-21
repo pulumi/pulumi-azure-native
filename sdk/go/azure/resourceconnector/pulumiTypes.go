@@ -544,59 +544,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Appliance SSHKey definition.
-type SSHKeyResponse struct {
-	// User Private Key.
-	PrivateKey *string `pulumi:"privateKey"`
-	// User Public Key.
-	PublicKey *string `pulumi:"publicKey"`
-}
-
-// Appliance SSHKey definition.
-type SSHKeyResponseOutput struct{ *pulumi.OutputState }
-
-func (SSHKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SSHKeyResponse)(nil)).Elem()
-}
-
-func (o SSHKeyResponseOutput) ToSSHKeyResponseOutput() SSHKeyResponseOutput {
-	return o
-}
-
-func (o SSHKeyResponseOutput) ToSSHKeyResponseOutputWithContext(ctx context.Context) SSHKeyResponseOutput {
-	return o
-}
-
-// User Private Key.
-func (o SSHKeyResponseOutput) PrivateKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SSHKeyResponse) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
-}
-
-// User Public Key.
-func (o SSHKeyResponseOutput) PublicKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SSHKeyResponse) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
-}
-
-type SSHKeyResponseMapOutput struct{ *pulumi.OutputState }
-
-func (SSHKeyResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SSHKeyResponse)(nil)).Elem()
-}
-
-func (o SSHKeyResponseMapOutput) ToSSHKeyResponseMapOutput() SSHKeyResponseMapOutput {
-	return o
-}
-
-func (o SSHKeyResponseMapOutput) ToSSHKeyResponseMapOutputWithContext(ctx context.Context) SSHKeyResponseMapOutput {
-	return o
-}
-
-func (o SSHKeyResponseMapOutput) MapIndex(k pulumi.StringInput) SSHKeyResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSHKeyResponse {
-		return vs[0].(map[string]SSHKeyResponse)[vs[1].(string)]
-	}).(SSHKeyResponseOutput)
-}
-
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -670,7 +617,5 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(SSHKeyResponseOutput{})
-	pulumi.RegisterOutputType(SSHKeyResponseMapOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

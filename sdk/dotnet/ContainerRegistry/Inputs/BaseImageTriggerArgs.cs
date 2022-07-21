@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         [Input("status")]
         public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.TriggerStatus>? Status { get; set; }
 
-        /// <summary>
-        /// The endpoint URL for receiving update triggers.
-        /// </summary>
-        [Input("updateTriggerEndpoint")]
-        public Input<string>? UpdateTriggerEndpoint { get; set; }
-
-        /// <summary>
-        /// Type of Payload body for Base image update triggers.
-        /// </summary>
-        [Input("updateTriggerPayloadType")]
-        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.UpdateTriggerPayloadType>? UpdateTriggerPayloadType { get; set; }
-
         public BaseImageTriggerArgs()
         {
             Status = "Enabled";

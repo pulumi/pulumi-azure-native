@@ -26,7 +26,7 @@ class AADDataConnectorArgs:
         The set of arguments for constructing a AADDataConnector resource.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'AzureActiveDirectory'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['AlertsDataTypeOfDataConnectorArgs'] data_types: The available data types for the connector.
@@ -59,7 +59,7 @@ class AADDataConnectorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -130,7 +130,7 @@ class AADDataConnector(pulumi.CustomResource):
                  __props__=None):
         """
         Represents AAD (Azure Active Directory) data connector.
-        API Version: 2020-01-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class AADDataConnector(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']] data_types: The available data types for the connector.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'AzureActiveDirectory'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -150,7 +150,7 @@ class AADDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents AAD (Azure Active Directory) data connector.
-        API Version: 2020-01-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param AADDataConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -199,6 +199,7 @@ class AADDataConnector(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AADDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -228,6 +229,7 @@ class AADDataConnector(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return AADDataConnector(resource_name, opts=opts, __props__=__props__)
@@ -261,9 +263,17 @@ class AADDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")
@@ -277,7 +287,7 @@ class AADDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

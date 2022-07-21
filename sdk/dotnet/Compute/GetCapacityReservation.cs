@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Specifies information about the capacity reservation.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("azure-native:compute:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the capacity reservation.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("azure-native:compute:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());
@@ -130,6 +130,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Specifies the time at which the Capacity Reservation resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        public readonly string TimeCreated;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableDictionary<string, string>? tags,
 
+            string timeCreated,
+
             string type,
 
             ImmutableArray<Outputs.SubResourceReadOnlyResponse> virtualMachinesAssociated,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.Compute
             ReservationId = reservationId;
             Sku = sku;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
             VirtualMachinesAssociated = virtualMachinesAssociated;
             Zones = zones;

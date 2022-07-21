@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Attached data network resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetAttachedDataNetworkResult> InvokeAsync(GetAttachedDataNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDataNetworkResult>("azure-native:mobilenetwork:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Attached data network resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetAttachedDataNetworkResult> Invoke(GetAttachedDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAttachedDataNetworkResult>("azure-native:mobilenetwork:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkInvokeArgs(), options.WithDefaults());
@@ -139,6 +139,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             Name = name;
             NaptConfiguration = naptConfiguration;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UserEquipmentAddressPoolPrefix = userEquipmentAddressPoolPrefix;

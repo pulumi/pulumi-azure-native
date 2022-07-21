@@ -12,12 +12,22 @@ import (
 )
 
 // Bastion Host resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
+	// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+	DisableCopyPaste pulumi.BoolPtrOutput `pulumi:"disableCopyPaste"`
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
+	// Enable/Disable File Copy feature of the Bastion Host resource.
+	EnableFileCopy pulumi.BoolPtrOutput `pulumi:"enableFileCopy"`
+	// Enable/Disable IP Connect feature of the Bastion Host resource.
+	EnableIpConnect pulumi.BoolPtrOutput `pulumi:"enableIpConnect"`
+	// Enable/Disable Shareable Link of the Bastion Host resource.
+	EnableShareableLink pulumi.BoolPtrOutput `pulumi:"enableShareableLink"`
+	// Enable/Disable Tunneling feature of the Bastion Host resource.
+	EnableTunneling pulumi.BoolPtrOutput `pulumi:"enableTunneling"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// IP configuration of the Bastion Host resource.
@@ -28,6 +38,10 @@ type BastionHost struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the bastion host resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The scale units for the Bastion Host resource.
+	ScaleUnits pulumi.IntPtrOutput `pulumi:"scaleUnits"`
+	// The sku of this Bastion Host.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -43,6 +57,21 @@ func NewBastionHost(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if isZero(args.DisableCopyPaste) {
+		args.DisableCopyPaste = pulumi.BoolPtr(false)
+	}
+	if isZero(args.EnableFileCopy) {
+		args.EnableFileCopy = pulumi.BoolPtr(false)
+	}
+	if isZero(args.EnableIpConnect) {
+		args.EnableIpConnect = pulumi.BoolPtr(false)
+	}
+	if isZero(args.EnableShareableLink) {
+		args.EnableShareableLink = pulumi.BoolPtr(false)
+	}
+	if isZero(args.EnableTunneling) {
+		args.EnableTunneling = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -138,8 +167,18 @@ func (BastionHostState) ElementType() reflect.Type {
 type bastionHostArgs struct {
 	// The name of the Bastion Host.
 	BastionHostName *string `pulumi:"bastionHostName"`
+	// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+	DisableCopyPaste *bool `pulumi:"disableCopyPaste"`
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName *string `pulumi:"dnsName"`
+	// Enable/Disable File Copy feature of the Bastion Host resource.
+	EnableFileCopy *bool `pulumi:"enableFileCopy"`
+	// Enable/Disable IP Connect feature of the Bastion Host resource.
+	EnableIpConnect *bool `pulumi:"enableIpConnect"`
+	// Enable/Disable Shareable Link of the Bastion Host resource.
+	EnableShareableLink *bool `pulumi:"enableShareableLink"`
+	// Enable/Disable Tunneling feature of the Bastion Host resource.
+	EnableTunneling *bool `pulumi:"enableTunneling"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// IP configuration of the Bastion Host resource.
@@ -148,6 +187,10 @@ type bastionHostArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The scale units for the Bastion Host resource.
+	ScaleUnits *int `pulumi:"scaleUnits"`
+	// The sku of this Bastion Host.
+	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -156,8 +199,18 @@ type bastionHostArgs struct {
 type BastionHostArgs struct {
 	// The name of the Bastion Host.
 	BastionHostName pulumi.StringPtrInput
+	// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+	DisableCopyPaste pulumi.BoolPtrInput
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName pulumi.StringPtrInput
+	// Enable/Disable File Copy feature of the Bastion Host resource.
+	EnableFileCopy pulumi.BoolPtrInput
+	// Enable/Disable IP Connect feature of the Bastion Host resource.
+	EnableIpConnect pulumi.BoolPtrInput
+	// Enable/Disable Shareable Link of the Bastion Host resource.
+	EnableShareableLink pulumi.BoolPtrInput
+	// Enable/Disable Tunneling feature of the Bastion Host resource.
+	EnableTunneling pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// IP configuration of the Bastion Host resource.
@@ -166,6 +219,10 @@ type BastionHostArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The scale units for the Bastion Host resource.
+	ScaleUnits pulumi.IntPtrInput
+	// The sku of this Bastion Host.
+	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }
@@ -207,9 +264,34 @@ func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+func (o BastionHostOutput) DisableCopyPaste() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.DisableCopyPaste }).(pulumi.BoolPtrOutput)
+}
+
 // FQDN for the endpoint on which bastion host is accessible.
 func (o BastionHostOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// Enable/Disable File Copy feature of the Bastion Host resource.
+func (o BastionHostOutput) EnableFileCopy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.EnableFileCopy }).(pulumi.BoolPtrOutput)
+}
+
+// Enable/Disable IP Connect feature of the Bastion Host resource.
+func (o BastionHostOutput) EnableIpConnect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.EnableIpConnect }).(pulumi.BoolPtrOutput)
+}
+
+// Enable/Disable Shareable Link of the Bastion Host resource.
+func (o BastionHostOutput) EnableShareableLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.EnableShareableLink }).(pulumi.BoolPtrOutput)
+}
+
+// Enable/Disable Tunneling feature of the Bastion Host resource.
+func (o BastionHostOutput) EnableTunneling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.EnableTunneling }).(pulumi.BoolPtrOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.
@@ -235,6 +317,16 @@ func (o BastionHostOutput) Name() pulumi.StringOutput {
 // The provisioning state of the bastion host resource.
 func (o BastionHostOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The scale units for the Bastion Host resource.
+func (o BastionHostOutput) ScaleUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.IntPtrOutput { return v.ScaleUnits }).(pulumi.IntPtrOutput)
+}
+
+// The sku of this Bastion Host.
+func (o BastionHostOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *BastionHost) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
 }
 
 // Resource tags.

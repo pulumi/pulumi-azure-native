@@ -11,7 +11,7 @@ import (
 )
 
 // Response for all the Bastion Shareable Link endpoints.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func GetBastionShareableLink(ctx *pulumi.Context, args *GetBastionShareableLinkArgs, opts ...pulumi.InvokeOption) (*GetBastionShareableLinkResult, error) {
 	var rv GetBastionShareableLinkResult
 	err := ctx.Invoke("azure-native:network:getBastionShareableLink", args, &rv, opts...)

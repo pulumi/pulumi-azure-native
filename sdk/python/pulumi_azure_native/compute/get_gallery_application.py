@@ -169,7 +169,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationResult:
     """
     Specifies information about the gallery Application Definition that you want to create or update.
-    API Version: 2020-09-30.
+    API Version: 2021-10-01.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
@@ -207,7 +207,7 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationResult]:
     """
     Specifies information about the gallery Application Definition that you want to create or update.
-    API Version: 2020-09-30.
+    API Version: 2021-10-01.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.

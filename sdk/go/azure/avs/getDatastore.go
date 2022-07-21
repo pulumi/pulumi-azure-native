@@ -11,14 +11,14 @@ import (
 )
 
 // A datastore resource
-// API Version: 2021-01-01-preview.
+// API Version: 2021-12-01.
 func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupDatastoreResult, error) {
 	var rv LookupDatastoreResult
 	err := ctx.Invoke("azure-native:avs:getDatastore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDatastoreArgs struct {
@@ -44,8 +44,21 @@ type LookupDatastoreResult struct {
 	NetAppVolume *NetAppVolumeResponse `pulumi:"netAppVolume"`
 	// The state of the datastore provisioning
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The operational status of the datastore
+	Status string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupDatastoreResult
+func (val *LookupDatastoreResult) Defaults() *LookupDatastoreResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DiskPoolVolume = tmp.DiskPoolVolume.Defaults()
+
+	return &tmp
 }
 
 func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupDatastoreResultOutput {
@@ -114,6 +127,11 @@ func (o LookupDatastoreResultOutput) NetAppVolume() NetAppVolumeResponsePtrOutpu
 // The state of the datastore provisioning
 func (o LookupDatastoreResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The operational status of the datastore
+func (o LookupDatastoreResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Resource type.

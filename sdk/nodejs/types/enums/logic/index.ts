@@ -251,67 +251,6 @@ export const RecurrenceFrequency = {
  */
 export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
 
-export const RosettaNetActionType = {
-    NotSpecified: "NotSpecified",
-    SingleAction: "SingleAction",
-    DoubleAction: "DoubleAction",
-} as const;
-
-/**
- * The value indicating whether the RosettaNet PIP is used for a single action.
- */
-export type RosettaNetActionType = (typeof RosettaNetActionType)[keyof typeof RosettaNetActionType];
-
-export const RosettaNetPipActivityType = {
-    NotSpecified: "NotSpecified",
-    InformationDistribution: "InformationDistribution",
-    BusinessTransaction: "BusinessTransaction",
-    Notification: "Notification",
-    QueryResponse: "QueryResponse",
-    RequestConfirm: "RequestConfirm",
-    RequestResponse: "RequestResponse",
-} as const;
-
-/**
- * The RosettaNet ProcessConfiguration activity type.
- */
-export type RosettaNetPipActivityType = (typeof RosettaNetPipActivityType)[keyof typeof RosettaNetPipActivityType];
-
-export const RosettaNetPipConfidentialityScope = {
-    NotSpecified: "NotSpecified",
-    None: "None",
-    Payload: "Payload",
-    PayloadContainer: "PayloadContainer",
-} as const;
-
-/**
- * The persistent confidentiality encryption scope.
- */
-export type RosettaNetPipConfidentialityScope = (typeof RosettaNetPipConfidentialityScope)[keyof typeof RosettaNetPipConfidentialityScope];
-
-export const RosettaNetPipRoleType = {
-    NotSpecified: "NotSpecified",
-    Functional: "Functional",
-    Organizational: "Organizational",
-    Employee: "Employee",
-} as const;
-
-/**
- * The RosettaNet ProcessConfiguration role type.
- */
-export type RosettaNetPipRoleType = (typeof RosettaNetPipRoleType)[keyof typeof RosettaNetPipRoleType];
-
-export const RosettaNetResponseType = {
-    NotSpecified: "NotSpecified",
-    Sync: "Sync",
-    Async: "Async",
-} as const;
-
-/**
- * The value indicating whether the RosettaNet PIP communication is synchronous.
- */
-export type RosettaNetResponseType = (typeof RosettaNetResponseType)[keyof typeof RosettaNetResponseType];
-
 export const SchemaType = {
     NotSpecified: "NotSpecified",
     Xml: "Xml",

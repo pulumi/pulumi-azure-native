@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Test keys payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
     if (!opts) {

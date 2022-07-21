@@ -1154,6 +1154,8 @@ func (o CacheDirectorySettingsResponsePtrOutput) UsernameDownload() CacheUsernam
 type CacheEncryptionSettings struct {
 	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey *KeyVaultKeyReference `pulumi:"keyEncryptionKey"`
+	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 // CacheEncryptionSettingsInput is an input type that accepts CacheEncryptionSettingsArgs and CacheEncryptionSettingsOutput values.
@@ -1171,6 +1173,8 @@ type CacheEncryptionSettingsInput interface {
 type CacheEncryptionSettingsArgs struct {
 	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey KeyVaultKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
+	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 func (CacheEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -1256,6 +1260,11 @@ func (o CacheEncryptionSettingsOutput) KeyEncryptionKey() KeyVaultKeyReferencePt
 	return o.ApplyT(func(v CacheEncryptionSettings) *KeyVaultKeyReference { return v.KeyEncryptionKey }).(KeyVaultKeyReferencePtrOutput)
 }
 
+// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+func (o CacheEncryptionSettingsOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheEncryptionSettings) *bool { return v.RotationToLatestKeyVersionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type CacheEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (CacheEncryptionSettingsPtrOutput) ElementType() reflect.Type {
@@ -1290,10 +1299,22 @@ func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferenc
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
+// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+func (o CacheEncryptionSettingsPtrOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheEncryptionSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RotationToLatestKeyVersionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Cache encryption settings.
 type CacheEncryptionSettingsResponse struct {
 	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
+	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 // Cache encryption settings.
@@ -1314,6 +1335,11 @@ func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponse
 // Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsResponseOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse { return v.KeyEncryptionKey }).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+func (o CacheEncryptionSettingsResponseOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *bool { return v.RotationToLatestKeyVersionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type CacheEncryptionSettingsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1348,6 +1374,16 @@ func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKey
 		}
 		return v.KeyEncryptionKey
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+func (o CacheEncryptionSettingsResponsePtrOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RotationToLatestKeyVersionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // An indication of Cache health. Gives more information about health than just that related to provisioning.
@@ -1394,6 +1430,8 @@ func (o CacheHealthResponseOutput) StatusDescription() pulumi.StringPtrOutput {
 type CacheIdentity struct {
 	// The type of identity used for the cache
 	Type *CacheIdentityType `pulumi:"type"`
+	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
@@ -1411,6 +1449,8 @@ type CacheIdentityInput interface {
 type CacheIdentityArgs struct {
 	// The type of identity used for the cache
 	Type CacheIdentityTypePtrInput `pulumi:"type"`
+	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {
@@ -1496,6 +1536,11 @@ func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
 	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
 }
 
+// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+func (o CacheIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
 type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (CacheIdentityPtrOutput) ElementType() reflect.Type {
@@ -1530,14 +1575,26 @@ func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
 	}).(CacheIdentityTypePtrOutput)
 }
 
+// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+func (o CacheIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
 // Cache identity properties.
 type CacheIdentityResponse struct {
-	// The principal id of the cache.
+	// The principal ID for the system-assigned identity of the cache.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the cache.
+	// The tenant ID associated with the cache.
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the cache
 	Type *string `pulumi:"type"`
+	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+	UserAssignedIdentities map[string]CacheIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // Cache identity properties.
@@ -1555,12 +1612,12 @@ func (o CacheIdentityResponseOutput) ToCacheIdentityResponseOutputWithContext(ct
 	return o
 }
 
-// The principal id of the cache.
+// The principal ID for the system-assigned identity of the cache.
 func (o CacheIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the cache.
+// The tenant ID associated with the cache.
 func (o CacheIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -1568,6 +1625,13 @@ func (o CacheIdentityResponseOutput) TenantId() pulumi.StringOutput {
 // The type of identity used for the cache
 func (o CacheIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+func (o CacheIdentityResponseOutput) UserAssignedIdentities() CacheIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v CacheIdentityResponse) map[string]CacheIdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(CacheIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type CacheIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1594,7 +1658,7 @@ func (o CacheIdentityResponsePtrOutput) Elem() CacheIdentityResponseOutput {
 	}).(CacheIdentityResponseOutput)
 }
 
-// The principal id of the cache.
+// The principal ID for the system-assigned identity of the cache.
 func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -1604,7 +1668,7 @@ func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the cache.
+// The tenant ID associated with the cache.
 func (o CacheIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -1622,6 +1686,67 @@ func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+func (o CacheIdentityResponsePtrOutput) UserAssignedIdentities() CacheIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *CacheIdentityResponse) map[string]CacheIdentityResponseUserAssignedIdentities {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(CacheIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type CacheIdentityResponseUserAssignedIdentities struct {
+	// The client ID of the user-assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type CacheIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o CacheIdentityResponseUserAssignedIdentitiesOutput) ToCacheIdentityResponseUserAssignedIdentitiesOutput() CacheIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o CacheIdentityResponseUserAssignedIdentitiesOutput) ToCacheIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) CacheIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The client ID of the user-assigned identity.
+func (o CacheIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the user-assigned identity.
+func (o CacheIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type CacheIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CacheIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o CacheIdentityResponseUserAssignedIdentitiesMapOutput) ToCacheIdentityResponseUserAssignedIdentitiesMapOutput() CacheIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o CacheIdentityResponseUserAssignedIdentitiesMapOutput) ToCacheIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) CacheIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o CacheIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) CacheIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CacheIdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]CacheIdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(CacheIdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Cache network settings.
@@ -2397,6 +2522,242 @@ func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Cache Upgrade Settings.
+type CacheUpgradeSettings struct {
+	// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+	ScheduledTime *string `pulumi:"scheduledTime"`
+	// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	UpgradeScheduleEnabled *bool `pulumi:"upgradeScheduleEnabled"`
+}
+
+// CacheUpgradeSettingsInput is an input type that accepts CacheUpgradeSettingsArgs and CacheUpgradeSettingsOutput values.
+// You can construct a concrete instance of `CacheUpgradeSettingsInput` via:
+//
+//          CacheUpgradeSettingsArgs{...}
+type CacheUpgradeSettingsInput interface {
+	pulumi.Input
+
+	ToCacheUpgradeSettingsOutput() CacheUpgradeSettingsOutput
+	ToCacheUpgradeSettingsOutputWithContext(context.Context) CacheUpgradeSettingsOutput
+}
+
+// Cache Upgrade Settings.
+type CacheUpgradeSettingsArgs struct {
+	// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+	ScheduledTime pulumi.StringPtrInput `pulumi:"scheduledTime"`
+	// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	UpgradeScheduleEnabled pulumi.BoolPtrInput `pulumi:"upgradeScheduleEnabled"`
+}
+
+func (CacheUpgradeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeSettings)(nil)).Elem()
+}
+
+func (i CacheUpgradeSettingsArgs) ToCacheUpgradeSettingsOutput() CacheUpgradeSettingsOutput {
+	return i.ToCacheUpgradeSettingsOutputWithContext(context.Background())
+}
+
+func (i CacheUpgradeSettingsArgs) ToCacheUpgradeSettingsOutputWithContext(ctx context.Context) CacheUpgradeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeSettingsOutput)
+}
+
+func (i CacheUpgradeSettingsArgs) ToCacheUpgradeSettingsPtrOutput() CacheUpgradeSettingsPtrOutput {
+	return i.ToCacheUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheUpgradeSettingsArgs) ToCacheUpgradeSettingsPtrOutputWithContext(ctx context.Context) CacheUpgradeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeSettingsOutput).ToCacheUpgradeSettingsPtrOutputWithContext(ctx)
+}
+
+// CacheUpgradeSettingsPtrInput is an input type that accepts CacheUpgradeSettingsArgs, CacheUpgradeSettingsPtr and CacheUpgradeSettingsPtrOutput values.
+// You can construct a concrete instance of `CacheUpgradeSettingsPtrInput` via:
+//
+//          CacheUpgradeSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUpgradeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheUpgradeSettingsPtrOutput() CacheUpgradeSettingsPtrOutput
+	ToCacheUpgradeSettingsPtrOutputWithContext(context.Context) CacheUpgradeSettingsPtrOutput
+}
+
+type cacheUpgradeSettingsPtrType CacheUpgradeSettingsArgs
+
+func CacheUpgradeSettingsPtr(v *CacheUpgradeSettingsArgs) CacheUpgradeSettingsPtrInput {
+	return (*cacheUpgradeSettingsPtrType)(v)
+}
+
+func (*cacheUpgradeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUpgradeSettings)(nil)).Elem()
+}
+
+func (i *cacheUpgradeSettingsPtrType) ToCacheUpgradeSettingsPtrOutput() CacheUpgradeSettingsPtrOutput {
+	return i.ToCacheUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUpgradeSettingsPtrType) ToCacheUpgradeSettingsPtrOutputWithContext(ctx context.Context) CacheUpgradeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeSettingsPtrOutput)
+}
+
+// Cache Upgrade Settings.
+type CacheUpgradeSettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeSettings)(nil)).Elem()
+}
+
+func (o CacheUpgradeSettingsOutput) ToCacheUpgradeSettingsOutput() CacheUpgradeSettingsOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsOutput) ToCacheUpgradeSettingsOutputWithContext(ctx context.Context) CacheUpgradeSettingsOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsOutput) ToCacheUpgradeSettingsPtrOutput() CacheUpgradeSettingsPtrOutput {
+	return o.ToCacheUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheUpgradeSettingsOutput) ToCacheUpgradeSettingsPtrOutputWithContext(ctx context.Context) CacheUpgradeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeSettings) *CacheUpgradeSettings {
+		return &v
+	}).(CacheUpgradeSettingsPtrOutput)
+}
+
+// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+func (o CacheUpgradeSettingsOutput) ScheduledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUpgradeSettings) *string { return v.ScheduledTime }).(pulumi.StringPtrOutput)
+}
+
+// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+func (o CacheUpgradeSettingsOutput) UpgradeScheduleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUpgradeSettings) *bool { return v.UpgradeScheduleEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type CacheUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUpgradeSettings)(nil)).Elem()
+}
+
+func (o CacheUpgradeSettingsPtrOutput) ToCacheUpgradeSettingsPtrOutput() CacheUpgradeSettingsPtrOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsPtrOutput) ToCacheUpgradeSettingsPtrOutputWithContext(ctx context.Context) CacheUpgradeSettingsPtrOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsPtrOutput) Elem() CacheUpgradeSettingsOutput {
+	return o.ApplyT(func(v *CacheUpgradeSettings) CacheUpgradeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeSettings
+		return ret
+	}).(CacheUpgradeSettingsOutput)
+}
+
+// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+func (o CacheUpgradeSettingsPtrOutput) ScheduledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+func (o CacheUpgradeSettingsPtrOutput) UpgradeScheduleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeScheduleEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Cache Upgrade Settings.
+type CacheUpgradeSettingsResponse struct {
+	// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+	ScheduledTime *string `pulumi:"scheduledTime"`
+	// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	UpgradeScheduleEnabled *bool `pulumi:"upgradeScheduleEnabled"`
+}
+
+// Cache Upgrade Settings.
+type CacheUpgradeSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheUpgradeSettingsResponseOutput) ToCacheUpgradeSettingsResponseOutput() CacheUpgradeSettingsResponseOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsResponseOutput) ToCacheUpgradeSettingsResponseOutputWithContext(ctx context.Context) CacheUpgradeSettingsResponseOutput {
+	return o
+}
+
+// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+func (o CacheUpgradeSettingsResponseOutput) ScheduledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUpgradeSettingsResponse) *string { return v.ScheduledTime }).(pulumi.StringPtrOutput)
+}
+
+// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+func (o CacheUpgradeSettingsResponseOutput) UpgradeScheduleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUpgradeSettingsResponse) *bool { return v.UpgradeScheduleEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type CacheUpgradeSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUpgradeSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheUpgradeSettingsResponsePtrOutput) ToCacheUpgradeSettingsResponsePtrOutput() CacheUpgradeSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsResponsePtrOutput) ToCacheUpgradeSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheUpgradeSettingsResponsePtrOutput) Elem() CacheUpgradeSettingsResponseOutput {
+	return o.ApplyT(func(v *CacheUpgradeSettingsResponse) CacheUpgradeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeSettingsResponse
+		return ret
+	}).(CacheUpgradeSettingsResponseOutput)
+}
+
+// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+func (o CacheUpgradeSettingsResponsePtrOutput) ScheduledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+func (o CacheUpgradeSettingsResponsePtrOutput) UpgradeScheduleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeScheduleEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponse struct {
 	// Version string of the firmware currently installed on this Cache.
@@ -2449,80 +2810,6 @@ func (o CacheUpgradeStatusResponseOutput) LastFirmwareUpdate() pulumi.StringOutp
 // When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
-}
-
-type CacheUpgradeStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CacheUpgradeStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheUpgradeStatusResponse)(nil)).Elem()
-}
-
-func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutput() CacheUpgradeStatusResponsePtrOutput {
-	return o
-}
-
-func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o
-}
-
-func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheUpgradeStatusResponse
-		return ret
-	}).(CacheUpgradeStatusResponseOutput)
-}
-
-// Version string of the firmware currently installed on this Cache.
-func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CurrentFirmwareVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Time at which the pending firmware update will automatically be installed on the Cache.
-func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FirmwareUpdateDeadline
-	}).(pulumi.StringPtrOutput)
-}
-
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FirmwareUpdateStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Time of the last successful firmware update.
-func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastFirmwareUpdate
-	}).(pulumi.StringPtrOutput)
-}
-
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
-func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PendingFirmwareVersion
-	}).(pulumi.StringPtrOutput)
 }
 
 // Settings for Extended Groups username and group download.
@@ -4953,6 +5240,140 @@ func (o NfsAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessRule
 	}).(NfsAccessRuleResponseOutput)
 }
 
+// A priming job instance.
+type PrimingJobResponse struct {
+	// The job details or error information if any.
+	PrimingJobDetails string `pulumi:"primingJobDetails"`
+	// The unique identifier of the priming job.
+	PrimingJobId string `pulumi:"primingJobId"`
+	// The priming job name.
+	PrimingJobName string `pulumi:"primingJobName"`
+	// The current progress of the priming job, as a percentage.
+	PrimingJobPercentComplete float64 `pulumi:"primingJobPercentComplete"`
+	// The state of the priming operation.
+	PrimingJobState string `pulumi:"primingJobState"`
+	// The status code of the priming job.
+	PrimingJobStatus string `pulumi:"primingJobStatus"`
+}
+
+// A priming job instance.
+type PrimingJobResponseOutput struct{ *pulumi.OutputState }
+
+func (PrimingJobResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrimingJobResponse)(nil)).Elem()
+}
+
+func (o PrimingJobResponseOutput) ToPrimingJobResponseOutput() PrimingJobResponseOutput {
+	return o
+}
+
+func (o PrimingJobResponseOutput) ToPrimingJobResponseOutputWithContext(ctx context.Context) PrimingJobResponseOutput {
+	return o
+}
+
+// The job details or error information if any.
+func (o PrimingJobResponseOutput) PrimingJobDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v PrimingJobResponse) string { return v.PrimingJobDetails }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the priming job.
+func (o PrimingJobResponseOutput) PrimingJobId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrimingJobResponse) string { return v.PrimingJobId }).(pulumi.StringOutput)
+}
+
+// The priming job name.
+func (o PrimingJobResponseOutput) PrimingJobName() pulumi.StringOutput {
+	return o.ApplyT(func(v PrimingJobResponse) string { return v.PrimingJobName }).(pulumi.StringOutput)
+}
+
+// The current progress of the priming job, as a percentage.
+func (o PrimingJobResponseOutput) PrimingJobPercentComplete() pulumi.Float64Output {
+	return o.ApplyT(func(v PrimingJobResponse) float64 { return v.PrimingJobPercentComplete }).(pulumi.Float64Output)
+}
+
+// The state of the priming operation.
+func (o PrimingJobResponseOutput) PrimingJobState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrimingJobResponse) string { return v.PrimingJobState }).(pulumi.StringOutput)
+}
+
+// The status code of the priming job.
+func (o PrimingJobResponseOutput) PrimingJobStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v PrimingJobResponse) string { return v.PrimingJobStatus }).(pulumi.StringOutput)
+}
+
+type PrimingJobResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrimingJobResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrimingJobResponse)(nil)).Elem()
+}
+
+func (o PrimingJobResponseArrayOutput) ToPrimingJobResponseArrayOutput() PrimingJobResponseArrayOutput {
+	return o
+}
+
+func (o PrimingJobResponseArrayOutput) ToPrimingJobResponseArrayOutputWithContext(ctx context.Context) PrimingJobResponseArrayOutput {
+	return o
+}
+
+func (o PrimingJobResponseArrayOutput) Index(i pulumi.IntInput) PrimingJobResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrimingJobResponse {
+		return vs[0].([]PrimingJobResponse)[vs[1].(int)]
+	}).(PrimingJobResponseOutput)
+}
+
+// Storage Target space allocation properties.
+type StorageTargetSpaceAllocationResponse struct {
+	// The percentage of cache space allocated for this storage target
+	AllocationPercentage *int `pulumi:"allocationPercentage"`
+	// Name of the storage target.
+	Name *string `pulumi:"name"`
+}
+
+// Storage Target space allocation properties.
+type StorageTargetSpaceAllocationResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageTargetSpaceAllocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTargetSpaceAllocationResponse)(nil)).Elem()
+}
+
+func (o StorageTargetSpaceAllocationResponseOutput) ToStorageTargetSpaceAllocationResponseOutput() StorageTargetSpaceAllocationResponseOutput {
+	return o
+}
+
+func (o StorageTargetSpaceAllocationResponseOutput) ToStorageTargetSpaceAllocationResponseOutputWithContext(ctx context.Context) StorageTargetSpaceAllocationResponseOutput {
+	return o
+}
+
+// The percentage of cache space allocated for this storage target
+func (o StorageTargetSpaceAllocationResponseOutput) AllocationPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageTargetSpaceAllocationResponse) *int { return v.AllocationPercentage }).(pulumi.IntPtrOutput)
+}
+
+// Name of the storage target.
+func (o StorageTargetSpaceAllocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageTargetSpaceAllocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type StorageTargetSpaceAllocationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageTargetSpaceAllocationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageTargetSpaceAllocationResponse)(nil)).Elem()
+}
+
+func (o StorageTargetSpaceAllocationResponseArrayOutput) ToStorageTargetSpaceAllocationResponseArrayOutput() StorageTargetSpaceAllocationResponseArrayOutput {
+	return o
+}
+
+func (o StorageTargetSpaceAllocationResponseArrayOutput) ToStorageTargetSpaceAllocationResponseArrayOutputWithContext(ctx context.Context) StorageTargetSpaceAllocationResponseArrayOutput {
+	return o
+}
+
+func (o StorageTargetSpaceAllocationResponseArrayOutput) Index(i pulumi.IntInput) StorageTargetSpaceAllocationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageTargetSpaceAllocationResponse {
+		return vs[0].([]StorageTargetSpaceAllocationResponse)[vs[1].(int)]
+	}).(StorageTargetSpaceAllocationResponseOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -5240,6 +5661,8 @@ func init() {
 	pulumi.RegisterOutputType(CacheIdentityPtrOutput{})
 	pulumi.RegisterOutputType(CacheIdentityResponseOutput{})
 	pulumi.RegisterOutputType(CacheIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheIdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(CacheIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsResponseOutput{})
@@ -5252,8 +5675,11 @@ func init() {
 	pulumi.RegisterOutputType(CacheSecuritySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheSkuOutput{})
 	pulumi.RegisterOutputType(CacheSkuPtrOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeSettingsOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeSettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponseOutput{})
-	pulumi.RegisterOutputType(CacheUpgradeStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsCredentialsOutput{})
@@ -5292,6 +5718,10 @@ func init() {
 	pulumi.RegisterOutputType(NfsAccessRuleArrayOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleResponseOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrimingJobResponseOutput{})
+	pulumi.RegisterOutputType(PrimingJobResponseArrayOutput{})
+	pulumi.RegisterOutputType(StorageTargetSpaceAllocationResponseOutput{})
+	pulumi.RegisterOutputType(StorageTargetSpaceAllocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(UnknownTargetOutput{})
 	pulumi.RegisterOutputType(UnknownTargetPtrOutput{})

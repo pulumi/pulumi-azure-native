@@ -158,7 +158,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
     Information about packet capture session.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -195,7 +195,7 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCaptureResult]:
     """
     Information about packet capture session.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str network_watcher_name: The name of the network watcher.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Grid Partner Topic.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
     if (!opts) {

@@ -5694,7 +5694,7 @@ type ManagedClusterIdentity struct {
 	// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
 	Type *ResourceIdentityType `pulumi:"type"`
 	// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedClusterIdentityInput is an input type that accepts ManagedClusterIdentityArgs and ManagedClusterIdentityOutput values.
@@ -5713,7 +5713,7 @@ type ManagedClusterIdentityArgs struct {
 	// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedClusterIdentityArgs) ElementType() reflect.Type {
@@ -5800,8 +5800,8 @@ func (o ManagedClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedClusterIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedClusterIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedClusterIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -5839,13 +5839,13 @@ func (o ManagedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 }
 
 // The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) map[string]interface{} {
+func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Identity for the managed cluster.

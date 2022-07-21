@@ -40,12 +40,6 @@ func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:eventhub:NamespaceIpFilterRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource NamespaceIpFilterRule
 	err := ctx.RegisterResource("azure-native:eventhub/v20180101preview:NamespaceIpFilterRule", name, args, &resource, opts...)
 	if err != nil {

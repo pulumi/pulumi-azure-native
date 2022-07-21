@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pulumi.InvokeOption) (*LookupContainerResult, error) {
 	var rv LookupContainerResult
 	err := ctx.Invoke("azure-native:databoxedge:getContainer", args, &rv, opts...)
@@ -46,7 +46,7 @@ type LookupContainerResult struct {
 	Name string `pulumi:"name"`
 	// Details of the refresh job on this container.
 	RefreshDetails RefreshDetailsResponse `pulumi:"refreshDetails"`
-	// Container in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of Container
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -125,7 +125,7 @@ func (o LookupContainerResultOutput) RefreshDetails() RefreshDetailsResponseOutp
 	return o.ApplyT(func(v LookupContainerResult) RefreshDetailsResponse { return v.RefreshDetails }).(RefreshDetailsResponseOutput)
 }
 
-// Container in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of Container
 func (o LookupContainerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupContainerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

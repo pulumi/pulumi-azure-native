@@ -12,7 +12,7 @@ import (
 )
 
 // Represents AAD (Azure Active Directory) data connector.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 type AADDataConnector struct {
 	pulumi.CustomResourceState
 
@@ -23,11 +23,13 @@ type AADDataConnector struct {
 	// The kind of the data connector
 	// Expected value is 'AzureActiveDirectory'.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tenant id to connect to, and get the data from.
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -123,7 +125,7 @@ type aaddataConnectorArgs struct {
 	// The kind of the data connector
 	// Expected value is 'AzureActiveDirectory'.
 	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tenant id to connect to, and get the data from.
 	TenantId *string `pulumi:"tenantId"`
@@ -140,7 +142,7 @@ type AADDataConnectorArgs struct {
 	// The kind of the data connector
 	// Expected value is 'AzureActiveDirectory'.
 	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The tenant id to connect to, and get the data from.
 	TenantId pulumi.StringPtrInput
@@ -201,9 +203,14 @@ func (o AADDataConnectorOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *AADDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o AADDataConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AADDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AADDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AADDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The tenant id to connect to, and get the data from.
@@ -211,7 +218,7 @@ func (o AADDataConnectorOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AADDataConnector) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o AADDataConnectorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AADDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

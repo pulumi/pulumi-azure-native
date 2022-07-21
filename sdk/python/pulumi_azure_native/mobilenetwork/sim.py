@@ -333,7 +333,7 @@ class Sim(pulumi.CustomResource):
                  __props__=None):
         """
         Sim resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,7 +364,7 @@ class Sim(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sim resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SimArgs args: The arguments to use to populate this resource's properties.
@@ -433,9 +433,10 @@ class Sim(pulumi.CustomResource):
             __props__.__dict__["sim_policy"] = sim_policy
             __props__.__dict__["static_ip_configuration"] = static_ip_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sim_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Sim")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -461,7 +462,6 @@ class Sim(pulumi.CustomResource):
 
         __props__ = SimArgs.__new__(SimArgs)
 
-        __props__.__dict__["configuration_state"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_by_type"] = None
@@ -476,18 +476,12 @@ class Sim(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sim_policy"] = None
+        __props__.__dict__["sim_state"] = None
         __props__.__dict__["static_ip_configuration"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Sim(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="configurationState")
-    def configuration_state(self) -> pulumi.Output[str]:
-        """
-        The configuration state of the sim resource - complete or incomplete.
-        """
-        return pulumi.get(self, "configuration_state")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -602,12 +596,28 @@ class Sim(pulumi.CustomResource):
         return pulumi.get(self, "sim_policy")
 
     @property
+    @pulumi.getter(name="simState")
+    def sim_state(self) -> pulumi.Output[str]:
+        """
+        The state of the sim resource.
+        """
+        return pulumi.get(self, "sim_state")
+
+    @property
     @pulumi.getter(name="staticIpConfiguration")
     def static_ip_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.SimStaticIpPropertiesResponse']]]:
         """
         A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         return pulumi.get(self, "static_ip_configuration")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

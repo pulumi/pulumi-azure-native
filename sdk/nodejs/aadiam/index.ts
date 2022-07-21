@@ -5,11 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./azureADMetric";
 export * from "./diagnosticSetting";
 export * from "./getDiagnosticSetting";
 export * from "./getPrivateEndpointConnection";
-export * from "./getazureADMetric";
 export * from "./getprivateLinkForAzureAd";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkForAzureAd";
@@ -35,7 +33,6 @@ export {
 // Import resources to register:
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { AzureADMetric } from "./azureADMetric";
 import { PrivateLinkForAzureAd } from "./privateLinkForAzureAd";
 
 const _module = {
@@ -46,8 +43,6 @@ const _module = {
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:aadiam:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:aadiam:azureADMetric":
-                return new AzureADMetric(name, <any>undefined, { urn })
             case "azure-native:aadiam:privateLinkForAzureAd":
                 return new PrivateLinkForAzureAd(name, <any>undefined, { urn })
             default:

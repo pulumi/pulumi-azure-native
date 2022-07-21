@@ -111,7 +111,7 @@ def get_event_source(environment_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSourceResult:
     """
     An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -145,7 +145,7 @@ def get_event_source_output(environment_name: Optional[pulumi.Input[str]] = None
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceResult]:
     """
     An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

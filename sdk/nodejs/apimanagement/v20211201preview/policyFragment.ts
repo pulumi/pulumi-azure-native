@@ -92,8 +92,6 @@ export class PolicyFragment extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:PolicyFragment" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyFragment.__pulumiType, name, resourceInputs, opts);
     }
 }

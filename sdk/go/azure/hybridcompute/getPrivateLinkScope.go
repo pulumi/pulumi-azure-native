@@ -11,7 +11,7 @@ import (
 )
 
 // An Azure Arc PrivateLinkScope definition.
-// API Version: 2021-03-25-preview.
+// API Version: 2022-03-10.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
 	err := ctx.Invoke("azure-native:hybridcompute:getPrivateLinkScope", args, &rv, opts...)

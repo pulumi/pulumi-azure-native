@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Static Site ARM resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Static Site ARM resource.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string DefaultHostname;
         /// <summary>
+        /// State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+        /// </summary>
+        public readonly string? EnterpriseGradeCdnStatus;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -124,7 +128,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The provider that submitted the last deployment to the primary environment of the static site.
         /// </summary>
-        public readonly string Provider;
+        public readonly string? Provider;
         /// <summary>
         /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         /// </summary>
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNative.Web
 
             string defaultHostname,
 
+            string? enterpriseGradeCdnStatus,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -186,7 +192,7 @@ namespace Pulumi.AzureNative.Web
 
             ImmutableArray<Outputs.ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse> privateEndpointConnections,
 
-            string provider,
+            string? provider,
 
             string? repositoryToken,
 
@@ -210,6 +216,7 @@ namespace Pulumi.AzureNative.Web
             ContentDistributionEndpoint = contentDistributionEndpoint;
             CustomDomains = customDomains;
             DefaultHostname = defaultHostname;
+            EnterpriseGradeCdnStatus = enterpriseGradeCdnStatus;
             Id = id;
             Identity = identity;
             KeyVaultReferenceIdentity = keyVaultReferenceIdentity;

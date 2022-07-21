@@ -25,46 +25,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdaptiveApplicationControl{}
 	case "azure-native:security:AdvancedThreatProtection":
 		r = &AdvancedThreatProtection{}
-	case "azure-native:security:AlertsSuppressionRule":
-		r = &AlertsSuppressionRule{}
-	case "azure-native:security:Application":
-		r = &Application{}
 	case "azure-native:security:Assessment":
 		r = &Assessment{}
 	case "azure-native:security:AssessmentMetadataInSubscription":
 		r = &AssessmentMetadataInSubscription{}
-	case "azure-native:security:Assignment":
-		r = &Assignment{}
-	case "azure-native:security:Automation":
-		r = &Automation{}
-	case "azure-native:security:Connector":
-		r = &Connector{}
-	case "azure-native:security:CustomAssessmentAutomation":
-		r = &CustomAssessmentAutomation{}
-	case "azure-native:security:CustomEntityStoreAssignment":
-		r = &CustomEntityStoreAssignment{}
 	case "azure-native:security:DeviceSecurityGroup":
 		r = &DeviceSecurityGroup{}
-	case "azure-native:security:IngestionSetting":
-		r = &IngestionSetting{}
 	case "azure-native:security:IotSecuritySolution":
 		r = &IotSecuritySolution{}
 	case "azure-native:security:JitNetworkAccessPolicy":
 		r = &JitNetworkAccessPolicy{}
-	case "azure-native:security:SecurityConnector":
-		r = &SecurityConnector{}
-	case "azure-native:security:SecurityConnectorApplication":
-		r = &SecurityConnectorApplication{}
-	case "azure-native:security:SecurityContact":
-		r = &SecurityContact{}
 	case "azure-native:security:ServerVulnerabilityAssessment":
 		r = &ServerVulnerabilityAssessment{}
-	case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
-		r = &SqlVulnerabilityAssessmentBaselineRule{}
-	case "azure-native:security:Standard":
-		r = &Standard{}
-	case "azure-native:security:WorkspaceSetting":
-		r = &WorkspaceSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

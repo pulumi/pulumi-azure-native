@@ -40,12 +40,6 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	if args.ResourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:insights:GuestDiagnosticsSettingsAssociation"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource GuestDiagnosticsSettingsAssociation
 	err := ctx.RegisterResource("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, args, &resource, opts...)
 	if err != nil {

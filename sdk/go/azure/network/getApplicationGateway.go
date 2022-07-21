@@ -11,7 +11,7 @@ import (
 )
 
 // Application gateway resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	var rv LookupApplicationGatewayResult
 	err := ctx.Invoke("azure-native:network:getApplicationGateway", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupApplicationGatewayResult struct {
 	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
 	// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
+	// Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendSettingsCollection []ApplicationGatewayBackendSettingsResponse `pulumi:"backendSettingsCollection"`
 	// Custom error configurations of the application gateway resource.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorResponse `pulumi:"customErrorConfigurations"`
 	// Whether FIPS is enabled on the application gateway resource.
@@ -56,12 +58,18 @@ type LookupApplicationGatewayResult struct {
 	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
 	// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
+	// Global Configuration.
+	GlobalConfiguration *ApplicationGatewayGlobalConfigurationResponse `pulumi:"globalConfiguration"`
 	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of the application gateway, if configured.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	Listeners []ApplicationGatewayListenerResponse `pulumi:"listeners"`
+	// Load distribution policies of the application gateway resource.
+	LoadDistributionPolicies []ApplicationGatewayLoadDistributionPolicyResponse `pulumi:"loadDistributionPolicies"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -84,6 +92,8 @@ type LookupApplicationGatewayResult struct {
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Rewrite rules for the application gateway resource.
 	RewriteRuleSets []ApplicationGatewayRewriteRuleSetResponse `pulumi:"rewriteRuleSets"`
+	// Routing rules of the application gateway resource.
+	RoutingRules []ApplicationGatewayRoutingRuleResponse `pulumi:"routingRules"`
 	// SKU of the application gateway resource.
 	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
 	// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
@@ -175,6 +185,13 @@ func (o LookupApplicationGatewayResultOutput) BackendHttpSettingsCollection() Ap
 	}).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
 }
 
+// Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o LookupApplicationGatewayResultOutput) BackendSettingsCollection() ApplicationGatewayBackendSettingsResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayBackendSettingsResponse {
+		return v.BackendSettingsCollection
+	}).(ApplicationGatewayBackendSettingsResponseArrayOutput)
+}
+
 // Custom error configurations of the application gateway resource.
 func (o LookupApplicationGatewayResultOutput) CustomErrorConfigurations() ApplicationGatewayCustomErrorResponseArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayCustomErrorResponse {
@@ -228,6 +245,13 @@ func (o LookupApplicationGatewayResultOutput) GatewayIPConfigurations() Applicat
 	}).(ApplicationGatewayIPConfigurationResponseArrayOutput)
 }
 
+// Global Configuration.
+func (o LookupApplicationGatewayResultOutput) GlobalConfiguration() ApplicationGatewayGlobalConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *ApplicationGatewayGlobalConfigurationResponse {
+		return v.GlobalConfiguration
+	}).(ApplicationGatewayGlobalConfigurationResponsePtrOutput)
+}
+
 // Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 func (o LookupApplicationGatewayResultOutput) HttpListeners() ApplicationGatewayHttpListenerResponseArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayHttpListenerResponse {
@@ -243,6 +267,18 @@ func (o LookupApplicationGatewayResultOutput) Id() pulumi.StringPtrOutput {
 // The identity of the application gateway, if configured.
 func (o LookupApplicationGatewayResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o LookupApplicationGatewayResultOutput) Listeners() ApplicationGatewayListenerResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayListenerResponse { return v.Listeners }).(ApplicationGatewayListenerResponseArrayOutput)
+}
+
+// Load distribution policies of the application gateway resource.
+func (o LookupApplicationGatewayResultOutput) LoadDistributionPolicies() ApplicationGatewayLoadDistributionPolicyResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayLoadDistributionPolicyResponse {
+		return v.LoadDistributionPolicies
+	}).(ApplicationGatewayLoadDistributionPolicyResponseArrayOutput)
 }
 
 // Resource location.
@@ -308,6 +344,11 @@ func (o LookupApplicationGatewayResultOutput) RewriteRuleSets() ApplicationGatew
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayRewriteRuleSetResponse {
 		return v.RewriteRuleSets
 	}).(ApplicationGatewayRewriteRuleSetResponseArrayOutput)
+}
+
+// Routing rules of the application gateway resource.
+func (o LookupApplicationGatewayResultOutput) RoutingRules() ApplicationGatewayRoutingRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayRoutingRuleResponse { return v.RoutingRules }).(ApplicationGatewayRoutingRuleResponseArrayOutput)
 }
 
 // SKU of the application gateway resource.

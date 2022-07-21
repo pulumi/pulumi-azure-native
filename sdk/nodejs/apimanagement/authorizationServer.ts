@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * External OAuth authorization server settings.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**
@@ -81,7 +81,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      */
     public readonly grantTypes!: pulumi.Output<string[]>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      */
     public readonly tokenEndpoint!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

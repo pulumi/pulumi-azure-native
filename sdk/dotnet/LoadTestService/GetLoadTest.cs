@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LoadTestService
     {
         /// <summary>
         /// LoadTest details
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2022-04-15-preview.
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// LoadTest details
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2022-04-15-preview.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
@@ -78,13 +78,17 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// CMK Encryption property.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponse? Encryption;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The type of identity used for the resource.
         /// </summary>
-        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -116,9 +120,11 @@ namespace Pulumi.AzureNative.LoadTestService
 
             string? description,
 
+            Outputs.EncryptionPropertiesResponse? encryption,
+
             string id,
 
-            Outputs.SystemAssignedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNative.LoadTestService
         {
             DataPlaneURI = dataPlaneURI;
             Description = description;
+            Encryption = encryption;
             Id = id;
             Identity = identity;
             Location = location;

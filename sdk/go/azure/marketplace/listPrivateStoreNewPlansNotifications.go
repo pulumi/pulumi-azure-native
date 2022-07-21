@@ -11,7 +11,7 @@ import (
 )
 
 // List of all new plans notifications for public offers
-// API Version: 2021-12-01.
+// API Version: 2022-03-01.
 func ListPrivateStoreNewPlansNotifications(ctx *pulumi.Context, args *ListPrivateStoreNewPlansNotificationsArgs, opts ...pulumi.InvokeOption) (*ListPrivateStoreNewPlansNotificationsResult, error) {
 	var rv ListPrivateStoreNewPlansNotificationsResult
 	err := ctx.Invoke("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args, &rv, opts...)

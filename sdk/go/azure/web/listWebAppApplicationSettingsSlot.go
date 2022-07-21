@@ -11,7 +11,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppApplicationSettingsSlot(ctx *pulumi.Context, args *ListWebAppApplicationSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsSlotResult, error) {
 	var rv ListWebAppApplicationSettingsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppApplicationSettingsSlot", args, &rv, opts...)

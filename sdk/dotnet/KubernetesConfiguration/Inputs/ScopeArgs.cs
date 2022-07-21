@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
 {
 
     /// <summary>
-    /// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+    /// Scope of the extension. It can be either Cluster or Namespace; but not both.
     /// </summary>
     public sealed class ScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies that the scope of the extensionInstance is Cluster
+        /// Specifies that the scope of the extension is Cluster
         /// </summary>
         [Input("cluster")]
         public Input<Inputs.ScopeClusterArgs>? Cluster { get; set; }
 
         /// <summary>
-        /// Specifies that the scope of the extensionInstance is Namespace
+        /// Specifies that the scope of the extension is Namespace
         /// </summary>
         [Input("namespace")]
         public Input<Inputs.ScopeNamespaceArgs>? Namespace { get; set; }

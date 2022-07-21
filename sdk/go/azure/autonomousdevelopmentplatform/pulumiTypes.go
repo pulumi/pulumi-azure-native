@@ -324,6 +324,10 @@ type DataPoolLocation struct {
 	Encryption *DataPoolEncryption `pulumi:"encryption"`
 	// The location name
 	Name string `pulumi:"name"`
+	// The amount of storage accounts provisioned per Data Pool. Default: 5
+	StorageAccountCount *int `pulumi:"storageAccountCount"`
+	// The Storage SKU. Default: Standard_ZRS.
+	StorageSku *StorageSku `pulumi:"storageSku"`
 }
 
 // DataPoolLocationInput is an input type that accepts DataPoolLocationArgs and DataPoolLocationOutput values.
@@ -343,6 +347,10 @@ type DataPoolLocationArgs struct {
 	Encryption DataPoolEncryptionPtrInput `pulumi:"encryption"`
 	// The location name
 	Name pulumi.StringInput `pulumi:"name"`
+	// The amount of storage accounts provisioned per Data Pool. Default: 5
+	StorageAccountCount pulumi.IntPtrInput `pulumi:"storageAccountCount"`
+	// The Storage SKU. Default: Standard_ZRS.
+	StorageSku StorageSkuPtrInput `pulumi:"storageSku"`
 }
 
 func (DataPoolLocationArgs) ElementType() reflect.Type {
@@ -407,6 +415,16 @@ func (o DataPoolLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolLocation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The amount of storage accounts provisioned per Data Pool. Default: 5
+func (o DataPoolLocationOutput) StorageAccountCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataPoolLocation) *int { return v.StorageAccountCount }).(pulumi.IntPtrOutput)
+}
+
+// The Storage SKU. Default: Standard_ZRS.
+func (o DataPoolLocationOutput) StorageSku() StorageSkuPtrOutput {
+	return o.ApplyT(func(v DataPoolLocation) *StorageSku { return v.StorageSku }).(StorageSkuPtrOutput)
+}
+
 type DataPoolLocationArrayOutput struct{ *pulumi.OutputState }
 
 func (DataPoolLocationArrayOutput) ElementType() reflect.Type {
@@ -433,6 +451,10 @@ type DataPoolLocationResponse struct {
 	Encryption *DataPoolEncryptionResponse `pulumi:"encryption"`
 	// The location name
 	Name string `pulumi:"name"`
+	// The amount of storage accounts provisioned per Data Pool. Default: 5
+	StorageAccountCount *int `pulumi:"storageAccountCount"`
+	// The Storage SKU. Default: Standard_ZRS.
+	StorageSku *StorageSkuResponse `pulumi:"storageSku"`
 }
 
 // Location of a Data Pool
@@ -460,6 +482,16 @@ func (o DataPoolLocationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolLocationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The amount of storage accounts provisioned per Data Pool. Default: 5
+func (o DataPoolLocationResponseOutput) StorageAccountCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataPoolLocationResponse) *int { return v.StorageAccountCount }).(pulumi.IntPtrOutput)
+}
+
+// The Storage SKU. Default: Standard_ZRS.
+func (o DataPoolLocationResponseOutput) StorageSku() StorageSkuResponsePtrOutput {
+	return o.ApplyT(func(v DataPoolLocationResponse) *StorageSkuResponse { return v.StorageSku }).(StorageSkuResponsePtrOutput)
+}
+
 type DataPoolLocationResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (DataPoolLocationResponseArrayOutput) ElementType() reflect.Type {
@@ -478,6 +510,206 @@ func (o DataPoolLocationResponseArrayOutput) Index(i pulumi.IntInput) DataPoolLo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataPoolLocationResponse {
 		return vs[0].([]DataPoolLocationResponse)[vs[1].(int)]
 	}).(DataPoolLocationResponseOutput)
+}
+
+// The Storage SKU.
+type StorageSku struct {
+	// The SKU name
+	Name string `pulumi:"name"`
+}
+
+// StorageSkuInput is an input type that accepts StorageSkuArgs and StorageSkuOutput values.
+// You can construct a concrete instance of `StorageSkuInput` via:
+//
+//          StorageSkuArgs{...}
+type StorageSkuInput interface {
+	pulumi.Input
+
+	ToStorageSkuOutput() StorageSkuOutput
+	ToStorageSkuOutputWithContext(context.Context) StorageSkuOutput
+}
+
+// The Storage SKU.
+type StorageSkuArgs struct {
+	// The SKU name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (StorageSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSku)(nil)).Elem()
+}
+
+func (i StorageSkuArgs) ToStorageSkuOutput() StorageSkuOutput {
+	return i.ToStorageSkuOutputWithContext(context.Background())
+}
+
+func (i StorageSkuArgs) ToStorageSkuOutputWithContext(ctx context.Context) StorageSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSkuOutput)
+}
+
+func (i StorageSkuArgs) ToStorageSkuPtrOutput() StorageSkuPtrOutput {
+	return i.ToStorageSkuPtrOutputWithContext(context.Background())
+}
+
+func (i StorageSkuArgs) ToStorageSkuPtrOutputWithContext(ctx context.Context) StorageSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSkuOutput).ToStorageSkuPtrOutputWithContext(ctx)
+}
+
+// StorageSkuPtrInput is an input type that accepts StorageSkuArgs, StorageSkuPtr and StorageSkuPtrOutput values.
+// You can construct a concrete instance of `StorageSkuPtrInput` via:
+//
+//          StorageSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageSkuPtrInput interface {
+	pulumi.Input
+
+	ToStorageSkuPtrOutput() StorageSkuPtrOutput
+	ToStorageSkuPtrOutputWithContext(context.Context) StorageSkuPtrOutput
+}
+
+type storageSkuPtrType StorageSkuArgs
+
+func StorageSkuPtr(v *StorageSkuArgs) StorageSkuPtrInput {
+	return (*storageSkuPtrType)(v)
+}
+
+func (*storageSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSku)(nil)).Elem()
+}
+
+func (i *storageSkuPtrType) ToStorageSkuPtrOutput() StorageSkuPtrOutput {
+	return i.ToStorageSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *storageSkuPtrType) ToStorageSkuPtrOutputWithContext(ctx context.Context) StorageSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSkuPtrOutput)
+}
+
+// The Storage SKU.
+type StorageSkuOutput struct{ *pulumi.OutputState }
+
+func (StorageSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSku)(nil)).Elem()
+}
+
+func (o StorageSkuOutput) ToStorageSkuOutput() StorageSkuOutput {
+	return o
+}
+
+func (o StorageSkuOutput) ToStorageSkuOutputWithContext(ctx context.Context) StorageSkuOutput {
+	return o
+}
+
+func (o StorageSkuOutput) ToStorageSkuPtrOutput() StorageSkuPtrOutput {
+	return o.ToStorageSkuPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSkuOutput) ToStorageSkuPtrOutputWithContext(ctx context.Context) StorageSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageSku) *StorageSku {
+		return &v
+	}).(StorageSkuPtrOutput)
+}
+
+// The SKU name
+func (o StorageSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type StorageSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSku)(nil)).Elem()
+}
+
+func (o StorageSkuPtrOutput) ToStorageSkuPtrOutput() StorageSkuPtrOutput {
+	return o
+}
+
+func (o StorageSkuPtrOutput) ToStorageSkuPtrOutputWithContext(ctx context.Context) StorageSkuPtrOutput {
+	return o
+}
+
+func (o StorageSkuPtrOutput) Elem() StorageSkuOutput {
+	return o.ApplyT(func(v *StorageSku) StorageSku {
+		if v != nil {
+			return *v
+		}
+		var ret StorageSku
+		return ret
+	}).(StorageSkuOutput)
+}
+
+// The SKU name
+func (o StorageSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Storage SKU.
+type StorageSkuResponse struct {
+	// The SKU name
+	Name string `pulumi:"name"`
+}
+
+// The Storage SKU.
+type StorageSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSkuResponse)(nil)).Elem()
+}
+
+func (o StorageSkuResponseOutput) ToStorageSkuResponseOutput() StorageSkuResponseOutput {
+	return o
+}
+
+func (o StorageSkuResponseOutput) ToStorageSkuResponseOutputWithContext(ctx context.Context) StorageSkuResponseOutput {
+	return o
+}
+
+// The SKU name
+func (o StorageSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type StorageSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSkuResponse)(nil)).Elem()
+}
+
+func (o StorageSkuResponsePtrOutput) ToStorageSkuResponsePtrOutput() StorageSkuResponsePtrOutput {
+	return o
+}
+
+func (o StorageSkuResponsePtrOutput) ToStorageSkuResponsePtrOutputWithContext(ctx context.Context) StorageSkuResponsePtrOutput {
+	return o
+}
+
+func (o StorageSkuResponsePtrOutput) Elem() StorageSkuResponseOutput {
+	return o.ApplyT(func(v *StorageSkuResponse) StorageSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageSkuResponse
+		return ret
+	}).(StorageSkuResponseOutput)
+}
+
+// The SKU name
+func (o StorageSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -550,5 +782,9 @@ func init() {
 	pulumi.RegisterOutputType(DataPoolLocationArrayOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationResponseOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationResponseArrayOutput{})
+	pulumi.RegisterOutputType(StorageSkuOutput{})
+	pulumi.RegisterOutputType(StorageSkuPtrOutput{})
+	pulumi.RegisterOutputType(StorageSkuResponseOutput{})
+	pulumi.RegisterOutputType(StorageSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

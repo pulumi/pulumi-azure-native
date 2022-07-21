@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response to an extension resource GET request.
- * API Version: 2014-04-01-preview.
+ * API Version: 2017-11-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
     if (!opts) {

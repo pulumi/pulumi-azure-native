@@ -29,9 +29,17 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? CustomRoutes;
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        public readonly bool? DisableIPSecReplayProtection;
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         public readonly bool? EnableBgp;
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        public readonly bool? EnableBgpRouteTranslationForNat;
         /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
@@ -77,6 +85,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> NatRules;
+        /// <summary>
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -121,7 +133,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.AddressSpaceResponse? customRoutes,
 
+            bool? disableIPSecReplayProtection,
+
             bool? enableBgp,
+
+            bool? enableBgpRouteTranslationForNat,
 
             bool? enableDnsForwarding,
 
@@ -145,6 +161,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string name,
 
+            ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
+
             string provisioningState,
 
             string resourceGuid,
@@ -166,7 +184,9 @@ namespace Pulumi.AzureNative.Network.Outputs
             ActiveActive = activeActive;
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
+            DisableIPSecReplayProtection = disableIPSecReplayProtection;
             EnableBgp = enableBgp;
+            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
@@ -178,6 +198,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
+            NatRules = natRules;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Sku = sku;

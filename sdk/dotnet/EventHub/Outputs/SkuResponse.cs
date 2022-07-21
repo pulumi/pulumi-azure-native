@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.EventHub.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        /// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         /// </summary>
         public readonly int? Capacity;
         /// <summary>

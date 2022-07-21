@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-10-01-preview.
+ * API Version: 2022-05-01.
  */
 export class ResourceGuard extends pulumi.CustomResource {
     /**
@@ -54,7 +54,7 @@ export class ResourceGuard extends pulumi.CustomResource {
     /**
      * ResourceGuardResource properties
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dataprotection.ResourceGuardResponse>;
+    public readonly properties!: pulumi.Output<outputs.dataprotection.ResourceGuardResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -85,11 +85,11 @@ export class ResourceGuard extends pulumi.CustomResource {
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceGuardsName"] = args ? args.resourceGuardsName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -125,6 +125,10 @@ export interface ResourceGuardArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * ResourceGuardResource properties
+     */
+    properties?: pulumi.Input<inputs.dataprotection.ResourceGuardArgs>;
     /**
      * The name of the resource group where the backup vault is present.
      */

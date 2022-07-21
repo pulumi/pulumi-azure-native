@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
- * API Version: 2020-06-01.
+ * API Version: 2022-05-01.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
     if (!opts) {
@@ -41,6 +41,14 @@ export interface GetConfigurationStoreResult {
      */
     readonly creationDate: string;
     /**
+     * Disables all authentication methods other than AAD authentication.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Property specifying whether protection against purge is enabled for this configuration store.
+     */
+    readonly enablePurgeProtection?: boolean;
+    /**
      * The encryption settings of the configuration store.
      */
     readonly encryption?: outputs.appconfiguration.EncryptionPropertiesResponse;
@@ -49,7 +57,7 @@ export interface GetConfigurationStoreResult {
      */
     readonly endpoint: string;
     /**
-     * The resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -57,11 +65,11 @@ export interface GetConfigurationStoreResult {
      */
     readonly identity?: outputs.appconfiguration.ResourceIdentityResponse;
     /**
-     * The location of the resource. This cannot be changed after the resource is created.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -81,11 +89,19 @@ export interface GetConfigurationStoreResult {
      */
     readonly sku: outputs.appconfiguration.SkuResponse;
     /**
-     * The tags of the resource.
+     * The amount of time in days that the configuration store will be retained when it is soft deleted.
+     */
+    readonly softDeleteRetentionInDays?: number;
+    /**
+     * Resource system metadata.
+     */
+    readonly systemData: outputs.appconfiguration.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

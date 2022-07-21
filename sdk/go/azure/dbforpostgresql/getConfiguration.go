@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a Configuration.
-// API Version: 2017-12-01.
+// API Version: 2021-06-01.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("azure-native:dbforpostgresql:getConfiguration", args, &rv, opts...)
@@ -40,14 +40,26 @@ type LookupConfigurationResult struct {
 	DefaultValue string `pulumi:"defaultValue"`
 	// Description of the configuration.
 	Description string `pulumi:"description"`
+	// Configuration documentation link.
+	DocumentationLink string `pulumi:"documentationLink"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// Configuration is pending restart or not.
+	IsConfigPendingRestart bool `pulumi:"isConfigPendingRestart"`
+	// Configuration dynamic or static.
+	IsDynamicConfig bool `pulumi:"isDynamicConfig"`
+	// Configuration read-only or not.
+	IsReadOnly bool `pulumi:"isReadOnly"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Source of the configuration.
 	Source *string `pulumi:"source"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+	// Configuration unit.
+	Unit string `pulumi:"unit"`
 	// Value of the configuration.
 	Value *string `pulumi:"value"`
 }
@@ -113,9 +125,29 @@ func (o LookupConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Configuration documentation link.
+func (o LookupConfigurationResultOutput) DocumentationLink() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.DocumentationLink }).(pulumi.StringOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Configuration is pending restart or not.
+func (o LookupConfigurationResultOutput) IsConfigPendingRestart() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) bool { return v.IsConfigPendingRestart }).(pulumi.BoolOutput)
+}
+
+// Configuration dynamic or static.
+func (o LookupConfigurationResultOutput) IsDynamicConfig() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) bool { return v.IsDynamicConfig }).(pulumi.BoolOutput)
+}
+
+// Configuration read-only or not.
+func (o LookupConfigurationResultOutput) IsReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) bool { return v.IsReadOnly }).(pulumi.BoolOutput)
 }
 
 // The name of the resource
@@ -128,9 +160,19 @@ func (o LookupConfigurationResultOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
+// The system metadata relating to this resource.
+func (o LookupConfigurationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupConfigurationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration unit.
+func (o LookupConfigurationResultOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Unit }).(pulumi.StringOutput)
 }
 
 // Value of the configuration.

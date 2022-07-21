@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// NetApp account resource
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// NetApp account resource
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -78,15 +78,19 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly Outputs.AccountEncryptionResponse? Encryption;
         /// <summary>
-        /// Resource Id
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -94,15 +98,15 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNative.NetApp
             ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
 
             Outputs.AccountEncryptionResponse? encryption,
+
+            string etag,
 
             string id,
 
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNative.NetApp
         {
             ActiveDirectories = activeDirectories;
             Encryption = encryption;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed database resource.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export class ManagedDatabase extends pulumi.CustomResource {
     /**

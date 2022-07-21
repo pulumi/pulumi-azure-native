@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.Inputs
     public sealed class AzureBlobFileSystemConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property is mutually exclusive with sasKey and one must be specified.
+        /// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
         /// </summary>
         [Input("accountKey")]
         public Input<string>? AccountKey { get; set; }
@@ -31,13 +31,19 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
+        /// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+        /// </summary>
+        [Input("identityReference")]
+        public Input<Inputs.ComputeNodeIdentityReferenceArgs>? IdentityReference { get; set; }
+
+        /// <summary>
         /// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         /// </summary>
         [Input("relativeMountPath", required: true)]
         public Input<string> RelativeMountPath { get; set; } = null!;
 
         /// <summary>
-        /// This property is mutually exclusive with accountKey and one must be specified.
+        /// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
         /// </summary>
         [Input("sasKey")]
         public Input<string>? SasKey { get; set; }

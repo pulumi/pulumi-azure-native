@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['FluidRelayServerArgs', 'FluidRelayServer']
 
@@ -16,25 +17,37 @@ __all__ = ['FluidRelayServerArgs', 'FluidRelayServer']
 class FluidRelayServerArgs:
     def __init__(__self__, *,
                  resource_group: pulumi.Input[str],
+                 encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+                 fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 storagesku: Optional[pulumi.Input[Union[str, 'StorageSKU']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FluidRelayServer resource.
         :param pulumi.Input[str] resource_group: The resource group containing the resource.
+        :param pulumi.Input['EncryptionPropertiesArgs'] encryption: All encryption configuration for a resource.
+        :param pulumi.Input[str] fluid_relay_server_name: The Fluid Relay server resource name.
+        :param pulumi.Input['IdentityArgs'] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provision states for FluidRelay RP
+        :param pulumi.Input[Union[str, 'StorageSKU']] storagesku: Sku of the storage associated with the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group", resource_group)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if fluid_relay_server_name is not None:
+            pulumi.set(__self__, "fluid_relay_server_name", fluid_relay_server_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storagesku is not None:
+            pulumi.set(__self__, "storagesku", storagesku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -52,6 +65,42 @@ class FluidRelayServerArgs:
 
     @property
     @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+        """
+        All encryption configuration for a resource.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="fluidRelayServerName")
+    def fluid_relay_server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Fluid Relay server resource name.
+        """
+        return pulumi.get(self, "fluid_relay_server_name")
+
+    @fluid_relay_server_name.setter
+    def fluid_relay_server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fluid_relay_server_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -61,18 +110,6 @@ class FluidRelayServerArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -85,6 +122,18 @@ class FluidRelayServerArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def storagesku(self) -> Optional[pulumi.Input[Union[str, 'StorageSKU']]]:
+        """
+        Sku of the storage associated with the resource
+        """
+        return pulumi.get(self, "storagesku")
+
+    @storagesku.setter
+    def storagesku(self, value: Optional[pulumi.Input[Union[str, 'StorageSKU']]]):
+        pulumi.set(self, "storagesku", value)
 
     @property
     @pulumi.getter
@@ -104,22 +153,28 @@ class FluidRelayServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
+                 fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 storagesku: Optional[pulumi.Input[Union[str, 'StorageSKU']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A FluidRelay Server.
-        API Version: 2021-03-12-preview.
+        API Version: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: All encryption configuration for a resource.
+        :param pulumi.Input[str] fluid_relay_server_name: The Fluid Relay server resource name.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provision states for FluidRelay RP
         :param pulumi.Input[str] resource_group: The resource group containing the resource.
+        :param pulumi.Input[Union[str, 'StorageSKU']] storagesku: Sku of the storage associated with the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -130,7 +185,7 @@ class FluidRelayServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A FluidRelay Server.
-        API Version: 2021-03-12-preview.
+        API Version: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param FluidRelayServerArgs args: The arguments to use to populate this resource's properties.
@@ -147,10 +202,13 @@ class FluidRelayServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
+                 fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 storagesku: Optional[pulumi.Input[Union[str, 'StorageSKU']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -164,15 +222,19 @@ class FluidRelayServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluidRelayServerArgs.__new__(FluidRelayServerArgs)
 
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["fluid_relay_server_name"] = fluid_relay_server_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__.__dict__["resource_group"] = resource_group
+            __props__.__dict__["storagesku"] = storagesku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["fluid_relay_endpoints"] = None
             __props__.__dict__["frs_tenant_id"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:fluidrelay/v20210312preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210615preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210830preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210910preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20220215:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20220421:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20220511:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20220526:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20220601:FluidRelayServer")])
@@ -199,15 +261,26 @@ class FluidRelayServer(pulumi.CustomResource):
 
         __props__ = FluidRelayServerArgs.__new__(FluidRelayServerArgs)
 
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["fluid_relay_endpoints"] = None
         __props__.__dict__["frs_tenant_id"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["storagesku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return FluidRelayServer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionPropertiesResponse']]:
+        """
+        All encryption configuration for a resource.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="fluidRelayEndpoints")
@@ -224,6 +297,14 @@ class FluidRelayServer(pulumi.CustomResource):
         The Fluid tenantId for this server
         """
         return pulumi.get(self, "frs_tenant_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -248,6 +329,14 @@ class FluidRelayServer(pulumi.CustomResource):
         Provision states for FluidRelay RP
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def storagesku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sku of the storage associated with the resource
+        """
+        return pulumi.get(self, "storagesku")
 
     @property
     @pulumi.getter(name="systemData")

@@ -21,7 +21,7 @@ class GetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     """
-    def __init__(__self__, datasource=None, diagnostics=None, etag=None, id=None, name=None, serialization=None, type=None):
+    def __init__(__self__, datasource=None, diagnostics=None, etag=None, id=None, last_output_event_timestamps=None, name=None, serialization=None, size_window=None, time_window=None, type=None, watermark_settings=None):
         if datasource and not isinstance(datasource, dict):
             raise TypeError("Expected argument 'datasource' to be a dict")
         pulumi.set(__self__, "datasource", datasource)
@@ -34,15 +34,27 @@ class GetOutputResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_output_event_timestamps and not isinstance(last_output_event_timestamps, list):
+            raise TypeError("Expected argument 'last_output_event_timestamps' to be a list")
+        pulumi.set(__self__, "last_output_event_timestamps", last_output_event_timestamps)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if serialization and not isinstance(serialization, dict):
             raise TypeError("Expected argument 'serialization' to be a dict")
         pulumi.set(__self__, "serialization", serialization)
+        if size_window and not isinstance(size_window, float):
+            raise TypeError("Expected argument 'size_window' to be a float")
+        pulumi.set(__self__, "size_window", size_window)
+        if time_window and not isinstance(time_window, str):
+            raise TypeError("Expected argument 'time_window' to be a str")
+        pulumi.set(__self__, "time_window", time_window)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if watermark_settings and not isinstance(watermark_settings, dict):
+            raise TypeError("Expected argument 'watermark_settings' to be a dict")
+        pulumi.set(__self__, "watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter
@@ -77,6 +89,14 @@ class GetOutputResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="lastOutputEventTimestamps")
+    def last_output_event_timestamps(self) -> Sequence['outputs.LastOutputEventTimestampResponse']:
+        """
+        A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+        """
+        return pulumi.get(self, "last_output_event_timestamps")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -93,12 +113,36 @@ class GetOutputResult:
         return pulumi.get(self, "serialization")
 
     @property
+    @pulumi.getter(name="sizeWindow")
+    def size_window(self) -> Optional[float]:
+        """
+        The size window to constrain a Stream Analytics output to.
+        """
+        return pulumi.get(self, "size_window")
+
+    @property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> Optional[str]:
+        """
+        The time frame for filtering Stream Analytics job outputs.
+        """
+        return pulumi.get(self, "time_window")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> Optional['outputs.OutputWatermarkPropertiesResponse']:
+        """
+        Settings which determine whether to send watermarks to downstream.
+        """
+        return pulumi.get(self, "watermark_settings")
 
 
 class AwaitableGetOutputResult(GetOutputResult):
@@ -111,9 +155,13 @@ class AwaitableGetOutputResult(GetOutputResult):
             diagnostics=self.diagnostics,
             etag=self.etag,
             id=self.id,
+            last_output_event_timestamps=self.last_output_event_timestamps,
             name=self.name,
             serialization=self.serialization,
-            type=self.type)
+            size_window=self.size_window,
+            time_window=self.time_window,
+            type=self.type,
+            watermark_settings=self.watermark_settings)
 
 
 def get_output(job_name: Optional[str] = None,
@@ -122,12 +170,12 @@ def get_output(job_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-    API Version: 2016-03-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str job_name: The name of the streaming job.
     :param str output_name: The name of the output.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['jobName'] = job_name
@@ -144,9 +192,13 @@ def get_output(job_name: Optional[str] = None,
         diagnostics=__ret__.diagnostics,
         etag=__ret__.etag,
         id=__ret__.id,
+        last_output_event_timestamps=__ret__.last_output_event_timestamps,
         name=__ret__.name,
         serialization=__ret__.serialization,
-        type=__ret__.type)
+        size_window=__ret__.size_window,
+        time_window=__ret__.time_window,
+        type=__ret__.type,
+        watermark_settings=__ret__.watermark_settings)
 
 
 @_utilities.lift_output_func(get_output)
@@ -156,11 +208,11 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutputResult]:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-    API Version: 2016-03-01.
+    API Version: 2021-10-01-preview.
 
 
     :param str job_name: The name of the streaming job.
     :param str output_name: The name of the output.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// ExpressRouteConnection resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetExpressRouteConnectionResult> InvokeAsync(GetExpressRouteConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-native:network:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRouteConnection resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetExpressRouteConnectionResult> Invoke(GetExpressRouteConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExpressRouteConnectionResult>("azure-native:network:getExpressRouteConnection", args ?? new GetExpressRouteConnectionInvokeArgs(), options.WithDefaults());

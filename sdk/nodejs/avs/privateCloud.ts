@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private cloud resource
- * API Version: 2020-03-20.
+ * API Version: 2021-12-01.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**
@@ -37,13 +37,29 @@ export class PrivateCloud extends pulumi.CustomResource {
     }
 
     /**
+     * Properties describing how the cloud is distributed across availability zones
+     */
+    public readonly availability!: pulumi.Output<outputs.avs.AvailabilityPropertiesResponse | undefined>;
+    /**
      * An ExpressRoute Circuit
      */
     public /*out*/ readonly circuit!: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
     /**
+     * Customer managed key encryption, can be enabled or disabled
+     */
+    public readonly encryption!: pulumi.Output<outputs.avs.EncryptionResponse | undefined>;
+    /**
      * The endpoints
      */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.avs.EndpointsResponse>;
+    /**
+     * Array of cloud link IDs from other clouds that connect to this one
+     */
+    public /*out*/ readonly externalCloudLinks!: pulumi.Output<string[]>;
+    /**
+     * The identity of the private cloud, if configured.
+     */
+    public readonly identity!: pulumi.Output<outputs.avs.PrivateCloudIdentityResponse | undefined>;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -88,6 +104,10 @@ export class PrivateCloud extends pulumi.CustomResource {
      * The provisioning state
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+     */
+    public /*out*/ readonly secondaryCircuit!: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
     /**
      * The private cloud SKU
      */
@@ -136,6 +156,9 @@ export class PrivateCloud extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["availability"] = args ? args.availability : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["identitySources"] = args ? args.identitySources : undefined;
             resourceInputs["internet"] = (args ? args.internet : undefined) ?? "Disabled";
             resourceInputs["location"] = args ? args.location : undefined;
@@ -149,17 +172,23 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
             resourceInputs["circuit"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["externalCloudLinks"] = undefined /*out*/;
             resourceInputs["managementNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nsxtCertificateThumbprint"] = undefined /*out*/;
             resourceInputs["provisioningNetwork"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryCircuit"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vcenterCertificateThumbprint"] = undefined /*out*/;
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         } else {
+            resourceInputs["availability"] = undefined /*out*/;
             resourceInputs["circuit"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["externalCloudLinks"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["identitySources"] = undefined /*out*/;
             resourceInputs["internet"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -171,6 +200,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["nsxtPassword"] = undefined /*out*/;
             resourceInputs["provisioningNetwork"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryCircuit"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -189,6 +219,18 @@ export class PrivateCloud extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateCloud resource.
  */
 export interface PrivateCloudArgs {
+    /**
+     * Properties describing how the cloud is distributed across availability zones
+     */
+    availability?: pulumi.Input<inputs.avs.AvailabilityPropertiesArgs>;
+    /**
+     * Customer managed key encryption, can be enabled or disabled
+     */
+    encryption?: pulumi.Input<inputs.avs.EncryptionArgs>;
+    /**
+     * The identity of the private cloud, if configured.
+     */
+    identity?: pulumi.Input<inputs.avs.PrivateCloudIdentityArgs>;
     /**
      * vCenter Single Sign On Identity Sources
      */

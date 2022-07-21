@@ -11,7 +11,7 @@ import (
 )
 
 // User credentials used for publishing activity.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func ListWebAppPublishingCredentialsSlot(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsSlotResult, error) {
 	var rv ListWebAppPublishingCredentialsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppPublishingCredentialsSlot", args, &rv, opts...)

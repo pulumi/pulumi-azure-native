@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An event source that receives its data from an Azure EventHub.
- * API Version: 2020-05-15.
+ * API Version: 2021-06-30-preview.
  */
 export function getEventHubEventSource(args: GetEventHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubEventSourceResult> {
     if (!opts) {

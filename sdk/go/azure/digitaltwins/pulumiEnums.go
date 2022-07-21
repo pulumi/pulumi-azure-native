@@ -3,7 +3,7 @@
 
 package digitaltwins
 
-// Specifies the authentication type being used for connecting to the endpoint.
+// Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
 type AuthenticationType string
 
 const (

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * LogAnalytics operation status response
- * API Version: 2020-12-01.
+ * API Version: 2021-11-01.
  */
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
     if (!opts) {

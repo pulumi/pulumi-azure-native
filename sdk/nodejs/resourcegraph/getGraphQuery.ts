@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Graph Query entity definition.
- * API Version: 2018-09-01-preview.
+ * API Version: 2020-04-01-preview.
  */
 export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQueryResult> {
     if (!opts) {
@@ -40,7 +41,7 @@ export interface GetGraphQueryResult {
      */
     readonly description?: string;
     /**
-     * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+     * This will be used to handle Optimistic Concurrency.
      */
     readonly etag?: string;
     /**
@@ -50,7 +51,7 @@ export interface GetGraphQueryResult {
     /**
      * The location of the resource
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * Azure resource name. This is GUID value. The display name should be assigned within properties field.
      */
@@ -63,6 +64,10 @@ export interface GetGraphQueryResult {
      * Enum indicating a type of graph query.
      */
     readonly resultKind: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.resourcegraph.SystemDataResponse;
     /**
      * Resource tags
      */

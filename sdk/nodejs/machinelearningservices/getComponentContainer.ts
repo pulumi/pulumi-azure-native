@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getComponentContainer(args: GetComponentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentContainerResult> {
     if (!opts) {
@@ -44,7 +44,7 @@ export interface GetComponentContainerResult {
     /**
      * [Required] Additional attributes of the entity.
      */
-    readonly componentContainerDetails: outputs.machinelearningservices.ComponentContainerResponse;
+    readonly componentContainerProperties: outputs.machinelearningservices.ComponentContainerResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

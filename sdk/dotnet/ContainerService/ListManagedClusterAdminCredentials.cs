@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ContainerService
     public static class ListManagedClusterAdminCredentials
     {
         /// <summary>
-        /// The list of credential result response.
-        /// API Version: 2021-03-01.
+        /// The list credential result response.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<ListManagedClusterAdminCredentialsResult> InvokeAsync(ListManagedClusterAdminCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of credential result response.
-        /// API Version: 2021-03-01.
+        /// The list credential result response.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<ListManagedClusterAdminCredentialsResult> Invoke(ListManagedClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ListManagedClusterAdminCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.ContainerService
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public string? ServerFqdn { get; set; }
+
         public ListManagedClusterAdminCredentialsArgs()
         {
         }
@@ -49,7 +55,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ListManagedClusterAdminCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -59,6 +65,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public Input<string>? ServerFqdn { get; set; }
 
         public ListManagedClusterAdminCredentialsInvokeArgs()
         {

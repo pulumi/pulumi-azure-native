@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class EventHubStreamInputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         /// </summary>
         public readonly string? ConsumerGroupName;
@@ -24,6 +28,14 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? EventHubName;
+        /// <summary>
+        /// The partition count of the event hub data source. Range 1 - 256.
+        /// </summary>
+        public readonly int? PartitionCount;
+        /// <summary>
+        /// The number of messages that the message receiver can simultaneously request.
+        /// </summary>
+        public readonly int? PrefetchCount;
         /// <summary>
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         /// </summary>
@@ -44,9 +56,15 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private EventHubStreamInputDataSourceResponse(
+            string? authenticationMode,
+
             string? consumerGroupName,
 
             string? eventHubName,
+
+            int? partitionCount,
+
+            int? prefetchCount,
 
             string? serviceBusNamespace,
 
@@ -56,8 +74,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string type)
         {
+            AuthenticationMode = authenticationMode;
             ConsumerGroupName = consumerGroupName;
             EventHubName = eventHubName;
+            PartitionCount = partitionCount;
+            PrefetchCount = prefetchCount;
             ServiceBusNamespace = serviceBusNamespace;
             SharedAccessPolicyKey = sharedAccessPolicyKey;
             SharedAccessPolicyName = sharedAccessPolicyName;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of all new plans notifications for public offers
- * API Version: 2021-12-01.
+ * API Version: 2022-03-01.
  */
 export function listPrivateStoreNewPlansNotifications(args: ListPrivateStoreNewPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreNewPlansNotificationsResult> {
     if (!opts) {

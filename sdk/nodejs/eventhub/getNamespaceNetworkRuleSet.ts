@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Description of NetworkRuleSet resource.
- * API Version: 2017-04-01.
+ * Description of topic resource.
+ * API Version: 2021-11-01.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
     if (!opts) {
@@ -33,7 +33,7 @@ export interface GetNamespaceNetworkRuleSetArgs {
 }
 
 /**
- * Description of NetworkRuleSet resource.
+ * Description of topic resource.
  */
 export interface GetNamespaceNetworkRuleSetResult {
     /**
@@ -49,11 +49,27 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly ipRules?: outputs.eventhub.NWRuleSetIpRulesResponse[];
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    readonly trustedServiceAccessEnabled?: boolean;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**

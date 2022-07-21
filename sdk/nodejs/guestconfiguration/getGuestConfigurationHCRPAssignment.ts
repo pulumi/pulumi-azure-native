@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
- * API Version: 2020-06-25.
+ * API Version: 2022-01-25.
  */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
     if (!opts) {
@@ -57,6 +57,10 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
      * Properties of the Guest configuration assignment.
      */
     readonly properties: outputs.guestconfiguration.GuestConfigurationAssignmentPropertiesResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.guestconfiguration.SystemDataResponse;
     /**
      * The type of the resource.
      */

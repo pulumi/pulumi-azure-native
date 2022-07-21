@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A cloud link resource
- * API Version: 2021-06-01.
+ * API Version: 2021-12-01.
  */
 export class CloudLink extends pulumi.CustomResource {
     /**

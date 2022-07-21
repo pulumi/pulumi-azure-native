@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlot")]
     public partial class WebAppSlot : Pulumi.CustomResource
@@ -85,6 +85,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("enabledHostNames")]
         public Output<ImmutableArray<string>> EnabledHostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
@@ -419,6 +425,12 @@ namespace Pulumi.AzureNative.Web
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
         [Input("hostNameSslStates")]
         private InputList<Inputs.HostNameSslStateArgs>? _hostNameSslStates;
 
@@ -530,7 +542,7 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.SiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
-        /// Name of the deployment slot to create or update. The name 'production' is reserved.
+        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         /// </summary>
         [Input("slot")]
         public Input<string>? Slot { get; set; }

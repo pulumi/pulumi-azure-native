@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Streaming Locator resource
- * API Version: 2020-05-01.
+ * API Version: 2021-11-01.
  */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
     if (!opts) {

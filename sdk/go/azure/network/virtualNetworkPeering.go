@@ -12,7 +12,7 @@ import (
 )
 
 // Peerings in a virtual network resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 
@@ -30,14 +30,20 @@ type VirtualNetworkPeering struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The status of the virtual network peering.
 	PeeringState pulumi.StringPtrOutput `pulumi:"peeringState"`
+	// The peering sync status of the virtual network peering.
+	PeeringSyncLevel pulumi.StringPtrOutput `pulumi:"peeringSyncLevel"`
 	// The provisioning state of the virtual network peering resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The reference to the remote virtual network address space.
+	// The reference to the address space peered with the remote virtual network.
 	RemoteAddressSpace AddressSpaceResponsePtrOutput `pulumi:"remoteAddressSpace"`
 	// The reference to the remote virtual network's Bgp Communities.
 	RemoteBgpCommunities VirtualNetworkBgpCommunitiesResponsePtrOutput `pulumi:"remoteBgpCommunities"`
 	// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 	RemoteVirtualNetwork SubResourceResponsePtrOutput `pulumi:"remoteVirtualNetwork"`
+	// The reference to the current address space of the remote virtual network.
+	RemoteVirtualNetworkAddressSpace AddressSpaceResponsePtrOutput `pulumi:"remoteVirtualNetworkAddressSpace"`
+	// The reference to the remote virtual network's encryption
+	RemoteVirtualNetworkEncryption VirtualNetworkEncryptionResponseOutput `pulumi:"remoteVirtualNetworkEncryption"`
 	// The resourceGuid property of the Virtual Network peering resource.
 	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Resource type.
@@ -222,14 +228,20 @@ type virtualNetworkPeeringArgs struct {
 	Name *string `pulumi:"name"`
 	// The status of the virtual network peering.
 	PeeringState *string `pulumi:"peeringState"`
-	// The reference to the remote virtual network address space.
+	// The peering sync status of the virtual network peering.
+	PeeringSyncLevel *string `pulumi:"peeringSyncLevel"`
+	// The reference to the address space peered with the remote virtual network.
 	RemoteAddressSpace *AddressSpace `pulumi:"remoteAddressSpace"`
 	// The reference to the remote virtual network's Bgp Communities.
 	RemoteBgpCommunities *VirtualNetworkBgpCommunities `pulumi:"remoteBgpCommunities"`
 	// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 	RemoteVirtualNetwork *SubResource `pulumi:"remoteVirtualNetwork"`
+	// The reference to the current address space of the remote virtual network.
+	RemoteVirtualNetworkAddressSpace *AddressSpace `pulumi:"remoteVirtualNetworkAddressSpace"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
+	SyncRemoteAddressSpace *string `pulumi:"syncRemoteAddressSpace"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -256,14 +268,20 @@ type VirtualNetworkPeeringArgs struct {
 	Name pulumi.StringPtrInput
 	// The status of the virtual network peering.
 	PeeringState pulumi.StringPtrInput
-	// The reference to the remote virtual network address space.
+	// The peering sync status of the virtual network peering.
+	PeeringSyncLevel pulumi.StringPtrInput
+	// The reference to the address space peered with the remote virtual network.
 	RemoteAddressSpace AddressSpacePtrInput
 	// The reference to the remote virtual network's Bgp Communities.
 	RemoteBgpCommunities VirtualNetworkBgpCommunitiesPtrInput
 	// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 	RemoteVirtualNetwork SubResourcePtrInput
+	// The reference to the current address space of the remote virtual network.
+	RemoteVirtualNetworkAddressSpace AddressSpacePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
+	SyncRemoteAddressSpace pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -346,12 +364,17 @@ func (o VirtualNetworkPeeringOutput) PeeringState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringPtrOutput { return v.PeeringState }).(pulumi.StringPtrOutput)
 }
 
+// The peering sync status of the virtual network peering.
+func (o VirtualNetworkPeeringOutput) PeeringSyncLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringPtrOutput { return v.PeeringSyncLevel }).(pulumi.StringPtrOutput)
+}
+
 // The provisioning state of the virtual network peering resource.
 func (o VirtualNetworkPeeringOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The reference to the remote virtual network address space.
+// The reference to the address space peered with the remote virtual network.
 func (o VirtualNetworkPeeringOutput) RemoteAddressSpace() AddressSpaceResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) AddressSpaceResponsePtrOutput { return v.RemoteAddressSpace }).(AddressSpaceResponsePtrOutput)
 }
@@ -366,6 +389,20 @@ func (o VirtualNetworkPeeringOutput) RemoteBgpCommunities() VirtualNetworkBgpCom
 // The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 func (o VirtualNetworkPeeringOutput) RemoteVirtualNetwork() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) SubResourceResponsePtrOutput { return v.RemoteVirtualNetwork }).(SubResourceResponsePtrOutput)
+}
+
+// The reference to the current address space of the remote virtual network.
+func (o VirtualNetworkPeeringOutput) RemoteVirtualNetworkAddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) AddressSpaceResponsePtrOutput {
+		return v.RemoteVirtualNetworkAddressSpace
+	}).(AddressSpaceResponsePtrOutput)
+}
+
+// The reference to the remote virtual network's encryption
+func (o VirtualNetworkPeeringOutput) RemoteVirtualNetworkEncryption() VirtualNetworkEncryptionResponseOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) VirtualNetworkEncryptionResponseOutput {
+		return v.RemoteVirtualNetworkEncryption
+	}).(VirtualNetworkEncryptionResponseOutput)
 }
 
 // The resourceGuid property of the Virtual Network peering resource.

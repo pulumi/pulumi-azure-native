@@ -11,7 +11,7 @@ import (
 )
 
 // An Account Filter.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupAccountFilter(ctx *pulumi.Context, args *LookupAccountFilterArgs, opts ...pulumi.InvokeOption) (*LookupAccountFilterResult, error) {
 	var rv LookupAccountFilterResult
 	err := ctx.Invoke("azure-native:media:getAccountFilter", args, &rv, opts...)

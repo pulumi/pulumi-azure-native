@@ -11,7 +11,7 @@ import (
 )
 
 // Cognitive Services account deployment.
-// API Version: 2021-10-01.
+// API Version: 2022-03-01.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("azure-native:cognitiveservices:getDeployment", args, &rv, opts...)

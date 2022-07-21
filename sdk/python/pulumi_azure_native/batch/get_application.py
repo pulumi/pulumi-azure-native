@@ -121,7 +121,7 @@ def get_application(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Contains information about an application in a Batch account.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -155,7 +155,7 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Contains information about an application in a Batch account.
-    API Version: 2021-01-01.
+    API Version: 2022-06-01.
 
 
     :param str account_name: The name of the Batch account.

@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScopedResource"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScopedResource"},
                 },
             };

@@ -11,7 +11,7 @@ import (
 )
 
 // The Asset Storage container SAS URLs.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func ListAssetContainerSas(ctx *pulumi.Context, args *ListAssetContainerSasArgs, opts ...pulumi.InvokeOption) (*ListAssetContainerSasResult, error) {
 	var rv ListAssetContainerSasResult
 	err := ctx.Invoke("azure-native:media:listAssetContainerSas", args, &rv, opts...)

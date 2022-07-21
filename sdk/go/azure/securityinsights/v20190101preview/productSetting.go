@@ -48,9 +48,6 @@ func NewProductSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:securityinsights:ProductSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:ProductSetting"),
 		},
 		{

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Issue Attachment Contract details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export class ApiIssueAttachment extends pulumi.CustomResource {
     /**
@@ -44,7 +44,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
      */
     public readonly contentFormat!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -52,7 +52,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

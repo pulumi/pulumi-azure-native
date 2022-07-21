@@ -12,7 +12,7 @@ import (
 )
 
 // A long term retention policy.
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 type LongTermRetentionPolicy struct {
 	pulumi.CustomResourceState
 

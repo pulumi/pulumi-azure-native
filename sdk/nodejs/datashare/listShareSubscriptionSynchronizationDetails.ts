@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * details of synchronization
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function listShareSubscriptionSynchronizationDetails(args: ListShareSubscriptionSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationDetailsResult> {
     if (!opts) {

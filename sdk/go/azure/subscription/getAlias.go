@@ -11,7 +11,7 @@ import (
 )
 
 // Subscription Information with the alias.
-// API Version: 2020-09-01.
+// API Version: 2021-10-01.
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	var rv LookupAliasResult
 	err := ctx.Invoke("azure-native:subscription:getAlias", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 }
 
 type LookupAliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+	// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName string `pulumi:"aliasName"`
 }
 
@@ -32,8 +32,10 @@ type LookupAliasResult struct {
 	Id string `pulumi:"id"`
 	// Alias ID.
 	Name string `pulumi:"name"`
-	// Put Alias response properties.
-	Properties PutAliasResponsePropertiesResponse `pulumi:"properties"`
+	// Subscription Alias response properties.
+	Properties SubscriptionAliasResponsePropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type, Microsoft.Subscription/aliases.
 	Type string `pulumi:"type"`
 }
@@ -52,7 +54,7 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 }
 
 type LookupAliasOutputArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+	// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName pulumi.StringInput `pulumi:"aliasName"`
 }
 
@@ -85,9 +87,14 @@ func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Put Alias response properties.
-func (o LookupAliasResultOutput) Properties() PutAliasResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v LookupAliasResult) PutAliasResponsePropertiesResponse { return v.Properties }).(PutAliasResponsePropertiesResponseOutput)
+// Subscription Alias response properties.
+func (o LookupAliasResultOutput) Properties() SubscriptionAliasResponsePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupAliasResult) SubscriptionAliasResponsePropertiesResponse { return v.Properties }).(SubscriptionAliasResponsePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupAliasResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAliasResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type, Microsoft.Subscription/aliases.

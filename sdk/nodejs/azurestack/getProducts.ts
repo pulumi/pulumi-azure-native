@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pageable list of products.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions): Promise<GetProductsResult> {
     if (!opts) {

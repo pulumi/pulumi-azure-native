@@ -94,7 +94,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The private endpoint connection of a provisioning service
-        API Version: 2020-03-01.
+        API Version: 2022-02-05.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of a provisioning service
-        API Version: 2020-03-01.
+        API Version: 2022-02-05.
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourcePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -182,6 +183,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return IotDpsResourcePrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -200,6 +202,14 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
         The properties of a private endpoint connection
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

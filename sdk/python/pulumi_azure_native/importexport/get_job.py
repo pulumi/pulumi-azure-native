@@ -133,7 +133,7 @@ def get_job(job_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Contains the job information.
-    API Version: 2020-08-01.
+    API Version: 2021-01-01.
 
 
     :param str job_name: The name of the import/export job.
@@ -165,7 +165,7 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Contains the job information.
-    API Version: 2020-08-01.
+    API Version: 2021-01-01.
 
 
     :param str job_name: The name of the import/export job.

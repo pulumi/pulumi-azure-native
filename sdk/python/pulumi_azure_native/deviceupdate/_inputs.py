@@ -134,20 +134,12 @@ class GroupConnectivityInformationArgs:
 @pulumi.input_type
 class IotHubSettingsArgs:
     def __init__(__self__, *,
-                 resource_id: pulumi.Input[str],
-                 event_hub_connection_string: Optional[pulumi.Input[str]] = None,
-                 io_t_hub_connection_string: Optional[pulumi.Input[str]] = None):
+                 resource_id: pulumi.Input[str]):
         """
         Device Update account integration with IoT Hub settings.
         :param pulumi.Input[str] resource_id: IoTHub resource ID
-        :param pulumi.Input[str] event_hub_connection_string: EventHub connection string.
-        :param pulumi.Input[str] io_t_hub_connection_string: IoTHub connection string.
         """
         pulumi.set(__self__, "resource_id", resource_id)
-        if event_hub_connection_string is not None:
-            pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
-        if io_t_hub_connection_string is not None:
-            pulumi.set(__self__, "io_t_hub_connection_string", io_t_hub_connection_string)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -161,40 +153,16 @@ class IotHubSettingsArgs:
     def resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_id", value)
 
-    @property
-    @pulumi.getter(name="eventHubConnectionString")
-    def event_hub_connection_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        EventHub connection string.
-        """
-        return pulumi.get(self, "event_hub_connection_string")
-
-    @event_hub_connection_string.setter
-    def event_hub_connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "event_hub_connection_string", value)
-
-    @property
-    @pulumi.getter(name="ioTHubConnectionString")
-    def io_t_hub_connection_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        IoTHub connection string.
-        """
-        return pulumi.get(self, "io_t_hub_connection_string")
-
-    @io_t_hub_connection_string.setter
-    def io_t_hub_connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "io_t_hub_connection_string", value)
-
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -214,14 +182,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
-    /// Default action when no other rule matches
+    /// Azure Networking ACL Action.
     /// </summary>
     [EnumType]
     public readonly struct ACLAction : IEquatable<ACLAction>
@@ -39,43 +39,7 @@ namespace Pulumi.AzureNative.WebPubSub
     }
 
     /// <summary>
-    /// FeatureFlags is the supported features of Azure SignalR service.
-    ///  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-    ///  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-    ///  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-    ///  
-    /// </summary>
-    [EnumType]
-    public readonly struct FeatureFlags : IEquatable<FeatureFlags>
-    {
-        private readonly string _value;
-
-        private FeatureFlags(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FeatureFlags EnableConnectivityLogs { get; } = new FeatureFlags("EnableConnectivityLogs");
-        public static FeatureFlags EnableMessagingLogs { get; } = new FeatureFlags("EnableMessagingLogs");
-        public static FeatureFlags EnableLiveTrace { get; } = new FeatureFlags("EnableLiveTrace");
-
-        public static bool operator ==(FeatureFlags left, FeatureFlags right) => left.Equals(right);
-        public static bool operator !=(FeatureFlags left, FeatureFlags right) => !left.Equals(right);
-
-        public static explicit operator string(FeatureFlags value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FeatureFlags other && Equals(other);
-        public bool Equals(FeatureFlags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Represent the identity type: systemAssigned, userAssigned, None
+    /// Represents the identity type: systemAssigned, userAssigned, None
     /// </summary>
     [EnumType]
     public readonly struct ManagedIdentityType : IEquatable<ManagedIdentityType>
@@ -171,7 +135,7 @@ namespace Pulumi.AzureNative.WebPubSub
     }
 
     /// <summary>
-    /// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    /// The incoming request type to the service
     /// </summary>
     [EnumType]
     public readonly struct WebPubSubRequestType : IEquatable<WebPubSubRequestType>

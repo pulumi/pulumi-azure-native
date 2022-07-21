@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetContactProfileResult> InvokeAsync(GetContactProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Profile Name
+        /// Contact Profile name.
         /// </summary>
         [Input("contactProfileName", required: true)]
         public string ContactProfileName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactProfileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Profile Name
+        /// Contact Profile name.
         /// </summary>
         [Input("contactProfileName", required: true)]
         public Input<string> ContactProfileName { get; set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactProfileResult
     {
         /// <summary>
-        /// Auto track configuration.
+        /// Auto-tracking configuration.
         /// </summary>
         public readonly string? AutoTrackingConfiguration;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The URI of the Event Hub used for telemetry
+        /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         public readonly string? EventHubUri;
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Links of the Contact Profile
+        /// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactProfileLinkResponse> Links;
         /// <summary>
@@ -94,17 +94,21 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Minimum viable elevation for the contact in decimal degrees.
+        /// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         public readonly double? MinimumElevationDegrees;
         /// <summary>
-        /// Minimum viable contact duration in ISO 8601 format.
+        /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         public readonly string? MinimumViableContactDuration;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Network configuration of customer virtual network.
+        /// </summary>
+        public readonly Outputs.ContactProfilesPropertiesResponseNetworkConfiguration NetworkConfiguration;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Orbital
 
             string name,
 
+            Outputs.ContactProfilesPropertiesResponseNetworkConfiguration networkConfiguration,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Orbital
             MinimumElevationDegrees = minimumElevationDegrees;
             MinimumViableContactDuration = minimumViableContactDuration;
             Name = name;
+            NetworkConfiguration = networkConfiguration;
             SystemData = systemData;
             Tags = tags;
             Type = type;

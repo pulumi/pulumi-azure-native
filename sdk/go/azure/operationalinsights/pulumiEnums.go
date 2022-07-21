@@ -25,34 +25,6 @@ const (
 	ClusterSkuNameEnumCapacityReservation = ClusterSkuNameEnum("CapacityReservation")
 )
 
-// Column data type logical hint.
-type ColumnDataTypeHintEnum string
-
-const (
-	// A string that matches the pattern of a URI, for example, scheme://username:password@host:1234/this/is/a/path?k1=v1&k2=v2#fragment
-	ColumnDataTypeHintEnumUri = ColumnDataTypeHintEnum("uri")
-	// A standard 128-bit GUID following the standard shape, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-	ColumnDataTypeHintEnumGuid = ColumnDataTypeHintEnum("guid")
-	// An Azure Resource Model (ARM) path: /subscriptions/{...}/resourceGroups/{...}/providers/Microsoft.{...}/{...}/{...}/{...}...
-	ColumnDataTypeHintEnumArmPath = ColumnDataTypeHintEnum("armPath")
-	// A standard V4/V6 ip address following the standard shape, x.x.x.x/y:y:y:y:y:y:y:y
-	ColumnDataTypeHintEnumIp = ColumnDataTypeHintEnum("ip")
-)
-
-// Column data type.
-type ColumnTypeEnum string
-
-const (
-	ColumnTypeEnumString   = ColumnTypeEnum("string")
-	ColumnTypeEnumInt      = ColumnTypeEnum("int")
-	ColumnTypeEnumLong     = ColumnTypeEnum("long")
-	ColumnTypeEnumReal     = ColumnTypeEnum("real")
-	ColumnTypeEnumBoolean  = ColumnTypeEnum("boolean")
-	ColumnTypeEnumDateTime = ColumnTypeEnum("dateTime")
-	ColumnTypeEnumGuid     = ColumnTypeEnum("guid")
-	ColumnTypeEnumDynamic  = ColumnTypeEnum("dynamic")
-)
-
 // The kind of the DataSource.
 type DataSourceKind string
 
@@ -268,17 +240,6 @@ const (
 	LinkedServiceEntityStatusUpdating            = LinkedServiceEntityStatus("Updating")
 )
 
-// Type of the machine group
-type MachineGroupType string
-
-const (
-	MachineGroupTypeUnknown      = MachineGroupType("unknown")
-	MachineGroupType_Azure_cs    = MachineGroupType("azure-cs")
-	MachineGroupType_Azure_sf    = MachineGroupType("azure-sf")
-	MachineGroupType_Azure_vmss  = MachineGroupType("azure-vmss")
-	MachineGroupType_User_static = MachineGroupType("user-static")
-)
-
 // The network access type for accessing Log Analytics query.
 type PublicNetworkAccessType string
 
@@ -287,16 +248,6 @@ const (
 	PublicNetworkAccessTypeEnabled = PublicNetworkAccessType("Enabled")
 	// Disables public connectivity to Log Analytics through public DNS.
 	PublicNetworkAccessTypeDisabled = PublicNetworkAccessType("Disabled")
-)
-
-// Instruct the system how to handle and charge the logs ingested to this table.
-type TablePlanEnum string
-
-const (
-	// Logs  that are adjusted to support high volume low value verbose logs.
-	TablePlanEnumBasic = TablePlanEnum("Basic")
-	// Logs  that allow monitoring and analytics.
-	TablePlanEnumAnalytics = TablePlanEnum("Analytics")
 )
 
 // The provisioning state of the workspace.

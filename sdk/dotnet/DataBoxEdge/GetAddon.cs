@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Role Addon
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:databoxedge:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Role Addon
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:databoxedge:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Addon type
+        /// Metadata pertaining to creation and last modification of Addon
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

@@ -11,7 +11,7 @@ import (
 )
 
 // Binding resource payload
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.InvokeOption) (*LookupBindingResult, error) {
 	var rv LookupBindingResult
 	err := ctx.Invoke("azure-native:appplatform:getBinding", args, &rv, opts...)
@@ -40,6 +40,8 @@ type LookupBindingResult struct {
 	Name string `pulumi:"name"`
 	// Properties of the Binding resource
 	Properties BindingResourcePropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -100,6 +102,11 @@ func (o LookupBindingResultOutput) Name() pulumi.StringOutput {
 // Properties of the Binding resource
 func (o LookupBindingResultOutput) Properties() BindingResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupBindingResult) BindingResourcePropertiesResponse { return v.Properties }).(BindingResourcePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupBindingResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupBindingResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

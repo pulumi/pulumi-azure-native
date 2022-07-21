@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a ApplicationGroup definition.
-// API Version: 2021-02-01-preview.
+// API Version: 2021-07-12.
 type ApplicationGroup struct {
 	pulumi.CustomResourceState
 

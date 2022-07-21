@@ -11,7 +11,7 @@ import (
 )
 
 // Result of the post subvolume and action is to get metadata of the subvolume.
-// API Version: 2021-10-01.
+// API Version: 2022-01-01.
 func GetSubvolumeMetadata(ctx *pulumi.Context, args *GetSubvolumeMetadataArgs, opts ...pulumi.InvokeOption) (*GetSubvolumeMetadataResult, error) {
 	var rv GetSubvolumeMetadataResult
 	err := ctx.Invoke("azure-native:netapp:getSubvolumeMetadata", args, &rv, opts...)

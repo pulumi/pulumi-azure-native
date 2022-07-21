@@ -22,15 +22,26 @@ class VolumeArgs:
                  resource_group_name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  usage_threshold: pulumi.Input[float],
+                 avs_data_store: Optional[pulumi.Input[Union[str, 'AvsDataStore']]] = None,
                  backup_id: Optional[pulumi.Input[str]] = None,
+                 capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
+                 cool_access: Optional[pulumi.Input[bool]] = None,
+                 coolness_period: Optional[pulumi.Input[int]] = None,
                  data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
-                 encryption_key_source: Optional[pulumi.Input[str]] = None,
+                 default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]] = None,
                  export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
+                 is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
+                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proximity_placement_group: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[Union[str, 'SecurityStyle']]] = None,
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
                  smb_continuously_available: Optional[pulumi.Input[bool]] = None,
@@ -39,8 +50,11 @@ class VolumeArgs:
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
+                 unix_permissions: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None):
+                 volume_spec_name: Optional[pulumi.Input[str]] = None,
+                 volume_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -49,24 +63,38 @@ class VolumeArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
+        :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
+        :param pulumi.Input[bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
+        :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input[str] encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        :param pulumi.Input[Union[str, 'EnableSubvolumes']] enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
+        :param pulumi.Input[Union[str, 'EncryptionKeySource']] encryption_key_source: Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         :param pulumi.Input['VolumePropertiesExportPolicyArgs'] export_policy: Set of export policy rules
+        :param pulumi.Input[bool] is_default_quota_enabled: Specifies if default quota is enabled for the volume.
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[bool] ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: Basic network, or Standard features available to the volume.
+        :param pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]] placement_rules: Application specific placement rules for the particular volume
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
+        :param pulumi.Input[str] proximity_placement_group: Proximity placement group associated with the volume
         :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param pulumi.Input[str] volume_name: The name of the volume
-        :param pulumi.Input[str] volume_type: What type of volume is this
+        :param pulumi.Input[str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "creation_token", creation_token)
@@ -76,14 +104,44 @@ class VolumeArgs:
         if usage_threshold is None:
             usage_threshold = 107374182400
         pulumi.set(__self__, "usage_threshold", usage_threshold)
+        if avs_data_store is None:
+            avs_data_store = 'Disabled'
+        if avs_data_store is not None:
+            pulumi.set(__self__, "avs_data_store", avs_data_store)
         if backup_id is not None:
             pulumi.set(__self__, "backup_id", backup_id)
+        if capacity_pool_resource_id is not None:
+            pulumi.set(__self__, "capacity_pool_resource_id", capacity_pool_resource_id)
+        if cool_access is None:
+            cool_access = False
+        if cool_access is not None:
+            pulumi.set(__self__, "cool_access", cool_access)
+        if coolness_period is not None:
+            pulumi.set(__self__, "coolness_period", coolness_period)
         if data_protection is not None:
             pulumi.set(__self__, "data_protection", data_protection)
+        if default_group_quota_in_ki_bs is None:
+            default_group_quota_in_ki_bs = 0
+        if default_group_quota_in_ki_bs is not None:
+            pulumi.set(__self__, "default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
+        if default_user_quota_in_ki_bs is None:
+            default_user_quota_in_ki_bs = 0
+        if default_user_quota_in_ki_bs is not None:
+            pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
+        if enable_subvolumes is None:
+            enable_subvolumes = 'Disabled'
+        if enable_subvolumes is not None:
+            pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+        if encryption_key_source is None:
+            encryption_key_source = 'Microsoft.NetApp'
         if encryption_key_source is not None:
             pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy is not None:
             pulumi.set(__self__, "export_policy", export_policy)
+        if is_default_quota_enabled is None:
+            is_default_quota_enabled = False
+        if is_default_quota_enabled is not None:
+            pulumi.set(__self__, "is_default_quota_enabled", is_default_quota_enabled)
         if is_restoring is not None:
             pulumi.set(__self__, "is_restoring", is_restoring)
         if kerberos_enabled is None:
@@ -96,14 +154,20 @@ class VolumeArgs:
             pulumi.set(__self__, "ldap_enabled", ldap_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_features is None:
+            network_features = 'Basic'
+        if network_features is not None:
+            pulumi.set(__self__, "network_features", network_features)
+        if placement_rules is not None:
+            pulumi.set(__self__, "placement_rules", placement_rules)
         if protocol_types is not None:
             pulumi.set(__self__, "protocol_types", protocol_types)
+        if proximity_placement_group is not None:
+            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
         if security_style is None:
             security_style = 'unix'
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
-        if service_level is None:
-            service_level = 'Premium'
         if service_level is not None:
             pulumi.set(__self__, "service_level", service_level)
         if smb_continuously_available is None:
@@ -122,14 +186,20 @@ class VolumeArgs:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if throughput_mibps is None:
-            throughput_mibps = 0
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
+        if unix_permissions is None:
+            unix_permissions = '0770'
+        if unix_permissions is not None:
+            pulumi.set(__self__, "unix_permissions", unix_permissions)
         if volume_name is not None:
             pulumi.set(__self__, "volume_name", volume_name)
+        if volume_spec_name is not None:
+            pulumi.set(__self__, "volume_spec_name", volume_spec_name)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="accountName")
@@ -204,6 +274,18 @@ class VolumeArgs:
         pulumi.set(self, "usage_threshold", value)
 
     @property
+    @pulumi.getter(name="avsDataStore")
+    def avs_data_store(self) -> Optional[pulumi.Input[Union[str, 'AvsDataStore']]]:
+        """
+        Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        """
+        return pulumi.get(self, "avs_data_store")
+
+    @avs_data_store.setter
+    def avs_data_store(self, value: Optional[pulumi.Input[Union[str, 'AvsDataStore']]]):
+        pulumi.set(self, "avs_data_store", value)
+
+    @property
     @pulumi.getter(name="backupId")
     def backup_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -214,6 +296,42 @@ class VolumeArgs:
     @backup_id.setter
     def backup_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backup_id", value)
+
+    @property
+    @pulumi.getter(name="capacityPoolResourceId")
+    def capacity_pool_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pool Resource Id used in case of creating a volume through volume group
+        """
+        return pulumi.get(self, "capacity_pool_resource_id")
+
+    @capacity_pool_resource_id.setter
+    def capacity_pool_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_pool_resource_id", value)
+
+    @property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Cool Access(tiering) is enabled for the volume.
+        """
+        return pulumi.get(self, "cool_access")
+
+    @cool_access.setter
+    def cool_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cool_access", value)
+
+    @property
+    @pulumi.getter(name="coolnessPeriod")
+    def coolness_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days after which data that is not accessed by clients will be tiered.
+        """
+        return pulumi.get(self, "coolness_period")
+
+    @coolness_period.setter
+    def coolness_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "coolness_period", value)
 
     @property
     @pulumi.getter(name="dataProtection")
@@ -228,15 +346,51 @@ class VolumeArgs:
         pulumi.set(self, "data_protection", value)
 
     @property
-    @pulumi.getter(name="encryptionKeySource")
-    def encryption_key_source(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="defaultGroupQuotaInKiBs")
+    def default_group_quota_in_ki_bs(self) -> Optional[pulumi.Input[float]]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        """
+        return pulumi.get(self, "default_group_quota_in_ki_bs")
+
+    @default_group_quota_in_ki_bs.setter
+    def default_group_quota_in_ki_bs(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "default_group_quota_in_ki_bs", value)
+
+    @property
+    @pulumi.getter(name="defaultUserQuotaInKiBs")
+    def default_user_quota_in_ki_bs(self) -> Optional[pulumi.Input[float]]:
+        """
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        """
+        return pulumi.get(self, "default_user_quota_in_ki_bs")
+
+    @default_user_quota_in_ki_bs.setter
+    def default_user_quota_in_ki_bs(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "default_user_quota_in_ki_bs", value)
+
+    @property
+    @pulumi.getter(name="enableSubvolumes")
+    def enable_subvolumes(self) -> Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]]:
+        """
+        Flag indicating whether subvolume operations are enabled on the volume
+        """
+        return pulumi.get(self, "enable_subvolumes")
+
+    @enable_subvolumes.setter
+    def enable_subvolumes(self, value: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]]):
+        pulumi.set(self, "enable_subvolumes", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]]:
+        """
+        Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         """
         return pulumi.get(self, "encryption_key_source")
 
     @encryption_key_source.setter
-    def encryption_key_source(self, value: Optional[pulumi.Input[str]]):
+    def encryption_key_source(self, value: Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]]):
         pulumi.set(self, "encryption_key_source", value)
 
     @property
@@ -250,6 +404,18 @@ class VolumeArgs:
     @export_policy.setter
     def export_policy(self, value: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]):
         pulumi.set(self, "export_policy", value)
+
+    @property
+    @pulumi.getter(name="isDefaultQuotaEnabled")
+    def is_default_quota_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if default quota is enabled for the volume.
+        """
+        return pulumi.get(self, "is_default_quota_enabled")
+
+    @is_default_quota_enabled.setter
+    def is_default_quota_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default_quota_enabled", value)
 
     @property
     @pulumi.getter(name="isRestoring")
@@ -291,13 +457,37 @@ class VolumeArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> Optional[pulumi.Input[Union[str, 'NetworkFeatures']]]:
+        """
+        Basic network, or Standard features available to the volume.
+        """
+        return pulumi.get(self, "network_features")
+
+    @network_features.setter
+    def network_features(self, value: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]]):
+        pulumi.set(self, "network_features", value)
+
+    @property
+    @pulumi.getter(name="placementRules")
+    def placement_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
+        """
+        Application specific placement rules for the particular volume
+        """
+        return pulumi.get(self, "placement_rules")
+
+    @placement_rules.setter
+    def placement_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
+        pulumi.set(self, "placement_rules", value)
 
     @property
     @pulumi.getter(name="protocolTypes")
@@ -310,6 +500,18 @@ class VolumeArgs:
     @protocol_types.setter
     def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "protocol_types", value)
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroup")
+    def proximity_placement_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proximity placement group associated with the volume
+        """
+        return pulumi.get(self, "proximity_placement_group")
+
+    @proximity_placement_group.setter
+    def proximity_placement_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proximity_placement_group", value)
 
     @property
     @pulumi.getter(name="securityStyle")
@@ -387,7 +589,7 @@ class VolumeArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -405,6 +607,18 @@ class VolumeArgs:
         pulumi.set(self, "throughput_mibps", value)
 
     @property
+    @pulumi.getter(name="unixPermissions")
+    def unix_permissions(self) -> Optional[pulumi.Input[str]]:
+        """
+        UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+        """
+        return pulumi.get(self, "unix_permissions")
+
+    @unix_permissions.setter
+    def unix_permissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unix_permissions", value)
+
+    @property
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -417,16 +631,40 @@ class VolumeArgs:
         pulumi.set(self, "volume_name", value)
 
     @property
+    @pulumi.getter(name="volumeSpecName")
+    def volume_spec_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        """
+        return pulumi.get(self, "volume_spec_name")
+
+    @volume_spec_name.setter
+    def volume_spec_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_spec_name", value)
+
+    @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        What type of volume is this
+        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
     def volume_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_type", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Availability Zone
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 class Volume(pulumi.CustomResource):
@@ -435,17 +673,28 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 avs_data_store: Optional[pulumi.Input[Union[str, 'AvsDataStore']]] = None,
                  backup_id: Optional[pulumi.Input[str]] = None,
+                 capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
+                 cool_access: Optional[pulumi.Input[bool]] = None,
+                 coolness_period: Optional[pulumi.Input[int]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
                  data_protection: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[str]] = None,
+                 default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]] = None,
                  export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
+                 is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
+                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlacementKeyValuePairsArgs']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proximity_placement_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[Union[str, 'SecurityStyle']]] = None,
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
@@ -456,28 +705,42 @@ class Volume(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
+                 unix_permissions: Optional[pulumi.Input[str]] = None,
                  usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
+                 volume_spec_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Volume resource
-        API Version: 2020-12-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
+        :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
+        :param pulumi.Input[bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
+        :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']] data_protection: DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input[str] encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        :param pulumi.Input[Union[str, 'EnableSubvolumes']] enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
+        :param pulumi.Input[Union[str, 'EncryptionKeySource']] encryption_key_source: Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
+        :param pulumi.Input[bool] is_default_quota_enabled: Specifies if default quota is enabled for the volume.
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[bool] ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: Basic network, or Standard features available to the volume.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlacementKeyValuePairsArgs']]]] placement_rules: Application specific placement rules for the particular volume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
+        :param pulumi.Input[str] proximity_placement_group: Proximity placement group associated with the volume
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
@@ -486,10 +749,13 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
-        :param pulumi.Input[str] volume_type: What type of volume is this
+        :param pulumi.Input[str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone
         """
         ...
     @overload
@@ -499,7 +765,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Volume resource
-        API Version: 2020-12-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -517,17 +783,28 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 avs_data_store: Optional[pulumi.Input[Union[str, 'AvsDataStore']]] = None,
                  backup_id: Optional[pulumi.Input[str]] = None,
+                 capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
+                 cool_access: Optional[pulumi.Input[bool]] = None,
+                 coolness_period: Optional[pulumi.Input[int]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
                  data_protection: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[str]] = None,
+                 default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]] = None,
                  export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
+                 is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
+                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlacementKeyValuePairsArgs']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proximity_placement_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[Union[str, 'SecurityStyle']]] = None,
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
@@ -538,9 +815,12 @@ class Volume(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
+                 unix_permissions: Optional[pulumi.Input[str]] = None,
                  usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
+                 volume_spec_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -556,13 +836,35 @@ class Volume(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if avs_data_store is None:
+                avs_data_store = 'Disabled'
+            __props__.__dict__["avs_data_store"] = avs_data_store
             __props__.__dict__["backup_id"] = backup_id
+            __props__.__dict__["capacity_pool_resource_id"] = capacity_pool_resource_id
+            if cool_access is None:
+                cool_access = False
+            __props__.__dict__["cool_access"] = cool_access
+            __props__.__dict__["coolness_period"] = coolness_period
             if creation_token is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_token'")
             __props__.__dict__["creation_token"] = creation_token
             __props__.__dict__["data_protection"] = data_protection
+            if default_group_quota_in_ki_bs is None:
+                default_group_quota_in_ki_bs = 0
+            __props__.__dict__["default_group_quota_in_ki_bs"] = default_group_quota_in_ki_bs
+            if default_user_quota_in_ki_bs is None:
+                default_user_quota_in_ki_bs = 0
+            __props__.__dict__["default_user_quota_in_ki_bs"] = default_user_quota_in_ki_bs
+            if enable_subvolumes is None:
+                enable_subvolumes = 'Disabled'
+            __props__.__dict__["enable_subvolumes"] = enable_subvolumes
+            if encryption_key_source is None:
+                encryption_key_source = 'Microsoft.NetApp'
             __props__.__dict__["encryption_key_source"] = encryption_key_source
             __props__.__dict__["export_policy"] = export_policy
+            if is_default_quota_enabled is None:
+                is_default_quota_enabled = False
+            __props__.__dict__["is_default_quota_enabled"] = is_default_quota_enabled
             __props__.__dict__["is_restoring"] = is_restoring
             if kerberos_enabled is None:
                 kerberos_enabled = False
@@ -571,18 +873,21 @@ class Volume(pulumi.CustomResource):
                 ldap_enabled = False
             __props__.__dict__["ldap_enabled"] = ldap_enabled
             __props__.__dict__["location"] = location
+            if network_features is None:
+                network_features = 'Basic'
+            __props__.__dict__["network_features"] = network_features
+            __props__.__dict__["placement_rules"] = placement_rules
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
             __props__.__dict__["protocol_types"] = protocol_types
+            __props__.__dict__["proximity_placement_group"] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if security_style is None:
                 security_style = 'unix'
             __props__.__dict__["security_style"] = security_style
-            if service_level is None:
-                service_level = 'Premium'
             __props__.__dict__["service_level"] = service_level
             if smb_continuously_available is None:
                 smb_continuously_available = False
@@ -598,22 +903,34 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            if throughput_mibps is None:
-                throughput_mibps = 0
             __props__.__dict__["throughput_mibps"] = throughput_mibps
+            if unix_permissions is None:
+                unix_permissions = '0770'
+            __props__.__dict__["unix_permissions"] = unix_permissions
             if usage_threshold is None:
                 usage_threshold = 107374182400
             if usage_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_threshold'")
             __props__.__dict__["usage_threshold"] = usage_threshold
             __props__.__dict__["volume_name"] = volume_name
+            __props__.__dict__["volume_spec_name"] = volume_spec_name
             __props__.__dict__["volume_type"] = volume_type
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["baremetal_tenant_id"] = None
+            __props__.__dict__["clone_progress"] = None
+            __props__.__dict__["encrypted"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["file_system_id"] = None
+            __props__.__dict__["maximum_number_of_files"] = None
             __props__.__dict__["mount_targets"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["network_sibling_set_id"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["storage_to_network_proximity"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["t2_network"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["volume_group_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
@@ -638,34 +955,65 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
+        __props__.__dict__["avs_data_store"] = None
         __props__.__dict__["backup_id"] = None
         __props__.__dict__["baremetal_tenant_id"] = None
+        __props__.__dict__["capacity_pool_resource_id"] = None
+        __props__.__dict__["clone_progress"] = None
+        __props__.__dict__["cool_access"] = None
+        __props__.__dict__["coolness_period"] = None
         __props__.__dict__["creation_token"] = None
         __props__.__dict__["data_protection"] = None
+        __props__.__dict__["default_group_quota_in_ki_bs"] = None
+        __props__.__dict__["default_user_quota_in_ki_bs"] = None
+        __props__.__dict__["enable_subvolumes"] = None
+        __props__.__dict__["encrypted"] = None
         __props__.__dict__["encryption_key_source"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["export_policy"] = None
         __props__.__dict__["file_system_id"] = None
+        __props__.__dict__["is_default_quota_enabled"] = None
         __props__.__dict__["is_restoring"] = None
         __props__.__dict__["kerberos_enabled"] = None
         __props__.__dict__["ldap_enabled"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["maximum_number_of_files"] = None
         __props__.__dict__["mount_targets"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_features"] = None
+        __props__.__dict__["network_sibling_set_id"] = None
+        __props__.__dict__["placement_rules"] = None
         __props__.__dict__["protocol_types"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["proximity_placement_group"] = None
         __props__.__dict__["security_style"] = None
         __props__.__dict__["service_level"] = None
         __props__.__dict__["smb_continuously_available"] = None
         __props__.__dict__["smb_encryption"] = None
         __props__.__dict__["snapshot_directory_visible"] = None
         __props__.__dict__["snapshot_id"] = None
+        __props__.__dict__["storage_to_network_proximity"] = None
         __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["t2_network"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["throughput_mibps"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["unix_permissions"] = None
         __props__.__dict__["usage_threshold"] = None
+        __props__.__dict__["volume_group_name"] = None
+        __props__.__dict__["volume_spec_name"] = None
         __props__.__dict__["volume_type"] = None
+        __props__.__dict__["zones"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="avsDataStore")
+    def avs_data_store(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        """
+        return pulumi.get(self, "avs_data_store")
 
     @property
     @pulumi.getter(name="backupId")
@@ -684,6 +1032,38 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "baremetal_tenant_id")
 
     @property
+    @pulumi.getter(name="capacityPoolResourceId")
+    def capacity_pool_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Pool Resource Id used in case of creating a volume through volume group
+        """
+        return pulumi.get(self, "capacity_pool_resource_id")
+
+    @property
+    @pulumi.getter(name="cloneProgress")
+    def clone_progress(self) -> pulumi.Output[int]:
+        """
+        When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+        """
+        return pulumi.get(self, "clone_progress")
+
+    @property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether Cool Access(tiering) is enabled for the volume.
+        """
+        return pulumi.get(self, "cool_access")
+
+    @property
+    @pulumi.getter(name="coolnessPeriod")
+    def coolness_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of days after which data that is not accessed by clients will be tiered.
+        """
+        return pulumi.get(self, "coolness_period")
+
+    @property
     @pulumi.getter(name="creationToken")
     def creation_token(self) -> pulumi.Output[str]:
         """
@@ -700,12 +1080,52 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "data_protection")
 
     @property
+    @pulumi.getter(name="defaultGroupQuotaInKiBs")
+    def default_group_quota_in_ki_bs(self) -> pulumi.Output[Optional[float]]:
+        """
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        """
+        return pulumi.get(self, "default_group_quota_in_ki_bs")
+
+    @property
+    @pulumi.getter(name="defaultUserQuotaInKiBs")
+    def default_user_quota_in_ki_bs(self) -> pulumi.Output[Optional[float]]:
+        """
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        """
+        return pulumi.get(self, "default_user_quota_in_ki_bs")
+
+    @property
+    @pulumi.getter(name="enableSubvolumes")
+    def enable_subvolumes(self) -> pulumi.Output[Optional[str]]:
+        """
+        Flag indicating whether subvolume operations are enabled on the volume
+        """
+        return pulumi.get(self, "enable_subvolumes")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
     @pulumi.getter(name="encryptionKeySource")
     def encryption_key_source(self) -> pulumi.Output[Optional[str]]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
         """
         return pulumi.get(self, "encryption_key_source")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="exportPolicy")
@@ -722,6 +1142,14 @@ class Volume(pulumi.CustomResource):
         Unique FileSystem Identifier.
         """
         return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="isDefaultQuotaEnabled")
+    def is_default_quota_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if default quota is enabled for the volume.
+        """
+        return pulumi.get(self, "is_default_quota_enabled")
 
     @property
     @pulumi.getter(name="isRestoring")
@@ -751,9 +1179,17 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfFiles")
+    def maximum_number_of_files(self) -> pulumi.Output[float]:
+        """
+        Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+        """
+        return pulumi.get(self, "maximum_number_of_files")
 
     @property
     @pulumi.getter(name="mountTargets")
@@ -767,9 +1203,33 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> pulumi.Output[Optional[str]]:
+        """
+        Basic network, or Standard features available to the volume.
+        """
+        return pulumi.get(self, "network_features")
+
+    @property
+    @pulumi.getter(name="networkSiblingSetId")
+    def network_sibling_set_id(self) -> pulumi.Output[str]:
+        """
+        Network Sibling Set ID for the the group of volumes sharing networking resources.
+        """
+        return pulumi.get(self, "network_sibling_set_id")
+
+    @property
+    @pulumi.getter(name="placementRules")
+    def placement_rules(self) -> pulumi.Output[Optional[Sequence['outputs.PlacementKeyValuePairsResponse']]]:
+        """
+        Application specific placement rules for the particular volume
+        """
+        return pulumi.get(self, "placement_rules")
 
     @property
     @pulumi.getter(name="protocolTypes")
@@ -786,6 +1246,14 @@ class Volume(pulumi.CustomResource):
         Azure lifecycle management
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroup")
+    def proximity_placement_group(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proximity placement group associated with the volume
+        """
+        return pulumi.get(self, "proximity_placement_group")
 
     @property
     @pulumi.getter(name="securityStyle")
@@ -836,6 +1304,14 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter(name="storageToNetworkProximity")
+    def storage_to_network_proximity(self) -> pulumi.Output[str]:
+        """
+        Provides storage to network proximity information for the volume.
+        """
+        return pulumi.get(self, "storage_to_network_proximity")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
@@ -844,10 +1320,26 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "subnet_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="t2Network")
+    def t2_network(self) -> pulumi.Output[str]:
+        """
+        T2 network information
+        """
+        return pulumi.get(self, "t2_network")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -860,9 +1352,17 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="unixPermissions")
+    def unix_permissions(self) -> pulumi.Output[Optional[str]]:
+        """
+        UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+        """
+        return pulumi.get(self, "unix_permissions")
 
     @property
     @pulumi.getter(name="usageThreshold")
@@ -873,10 +1373,34 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "usage_threshold")
 
     @property
+    @pulumi.getter(name="volumeGroupName")
+    def volume_group_name(self) -> pulumi.Output[str]:
+        """
+        Volume Group Name
+        """
+        return pulumi.get(self, "volume_group_name")
+
+    @property
+    @pulumi.getter(name="volumeSpecName")
+    def volume_spec_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        """
+        return pulumi.get(self, "volume_spec_name")
+
+    @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional[str]]:
         """
-        What type of volume is this
+        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
         return pulumi.get(self, "volume_type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Availability Zone
+        """
+        return pulumi.get(self, "zones")
 

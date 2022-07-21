@@ -28,16 +28,15 @@ export {
     v20220701,
 };
 
-export const KustomizationValidationType = {
-    None: "none",
-    Client: "client",
-    Server: "server",
+export const AKSIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
 } as const;
 
 /**
- * Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+ * The identity type.
  */
-export type KustomizationValidationType = (typeof KustomizationValidationType)[keyof typeof KustomizationValidationType];
+export type AKSIdentityType = (typeof AKSIdentityType)[keyof typeof AKSIdentityType];
 
 export const LevelType = {
     Error: "Error",
@@ -69,40 +68,12 @@ export const OperatorType = {
  */
 export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
-export const PrivateEndpointServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
-
-export const PublicNetworkAccessType = {
-    /**
-     * Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-     */
-    Enabled: "Enabled",
-    /**
-     * Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-     */
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
- */
-export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
-
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
-    None: "None",
 } as const;
 
 /**
- * The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+ * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
@@ -118,6 +89,8 @@ export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 
 export const SourceKindType = {
     GitRepository: "GitRepository",
+    Bucket: "Bucket",
+    AzureBlob: "AzureBlob",
 } as const;
 
 /**

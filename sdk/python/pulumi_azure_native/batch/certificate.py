@@ -161,7 +161,7 @@ class Certificate(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about a certificate.
-        API Version: 2021-01-01.
+        API Version: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +182,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about a certificate.
-        API Version: 2021-01-01.
+        API Version: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

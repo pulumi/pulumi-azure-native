@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class HDInsightArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Location for the underlying compute
-        /// </summary>
-        [Input("computeLocation")]
-        public Input<string>? ComputeLocation { get; set; }
-
-        /// <summary>
         /// The type of compute
         /// Expected value is 'HDInsight'.
         /// </summary>
@@ -34,6 +28,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// HDInsight compute properties
+        /// </summary>
         [Input("properties")]
         public Input<Inputs.HDInsightPropertiesArgs>? Properties { get; set; }
 

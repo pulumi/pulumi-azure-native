@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
- * API Version: 2016-11-01.
+ * API Version: 2019-11-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -64,6 +64,10 @@ export class Account extends pulumi.CustomResource {
      * The default Data Lake Store account associated with this account.
      */
     public readonly defaultDataLakeStoreAccount!: pulumi.Output<string>;
+    /**
+     * The type of the default Data Lake Store account associated with this account.
+     */
+    public /*out*/ readonly defaultDataLakeStoreAccountType!: pulumi.Output<string>;
     /**
      * The full CName endpoint for this account.
      */
@@ -210,6 +214,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentTier"] = undefined /*out*/;
             resourceInputs["debugDataAccessLevel"] = undefined /*out*/;
+            resourceInputs["defaultDataLakeStoreAccountType"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["hiveMetastores"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
@@ -232,6 +237,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dataLakeStoreAccounts"] = undefined /*out*/;
             resourceInputs["debugDataAccessLevel"] = undefined /*out*/;
             resourceInputs["defaultDataLakeStoreAccount"] = undefined /*out*/;
+            resourceInputs["defaultDataLakeStoreAccountType"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["firewallAllowAzureIps"] = undefined /*out*/;
             resourceInputs["firewallRules"] = undefined /*out*/;

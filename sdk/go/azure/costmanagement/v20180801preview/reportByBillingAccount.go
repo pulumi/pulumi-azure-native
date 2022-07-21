@@ -47,12 +47,6 @@ func NewReportByBillingAccount(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:costmanagement:ReportByBillingAccount"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ReportByBillingAccount
 	err := ctx.RegisterResource("azure-native:costmanagement/v20180801preview:ReportByBillingAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Class of response for listContentKeys action
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<ListStreamingLocatorContentKeysResult> InvokeAsync(ListStreamingLocatorContentKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-native:media:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class of response for listContentKeys action
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<ListStreamingLocatorContentKeysResult> Invoke(ListStreamingLocatorContentKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorContentKeysResult>("azure-native:media:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysInvokeArgs(), options.WithDefaults());

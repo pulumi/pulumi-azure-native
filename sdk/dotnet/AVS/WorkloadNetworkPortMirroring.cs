@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX Port Mirroring
-    /// API Version: 2020-07-17-preview.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkPortMirroring")]
     public partial class WorkloadNetworkPortMirroring : Pulumi.CustomResource

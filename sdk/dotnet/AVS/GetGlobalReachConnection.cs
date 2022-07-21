@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A global reach connection resource
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A global reach connection resource
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string CircuitConnectionStatus;
         /// <summary>
+        /// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        /// </summary>
+        public readonly string? ExpressRouteId;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.AVS
 
             string circuitConnectionStatus,
 
+            string? expressRouteId,
+
             string id,
 
             string name,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.AVS
             AddressPrefix = addressPrefix;
             AuthorizationKey = authorizationKey;
             CircuitConnectionStatus = circuitConnectionStatus;
+            ExpressRouteId = expressRouteId;
             Id = id;
             Name = name;
             PeerExpressRouteCircuit = peerExpressRouteCircuit;

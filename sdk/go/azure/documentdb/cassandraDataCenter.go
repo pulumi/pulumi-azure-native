@@ -12,7 +12,7 @@ import (
 )
 
 // A managed Cassandra data center.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-15.
 type CassandraDataCenter struct {
 	pulumi.CustomResourceState
 

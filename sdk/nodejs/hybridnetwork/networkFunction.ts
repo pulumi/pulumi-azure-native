@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network function resource response.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export class NetworkFunction extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class NetworkFunction extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to the device resource.
+     * The reference to the device resource. Once set, it cannot be updated.
      */
     public readonly device!: pulumi.Output<outputs.hybridnetwork.SubResourceResponse | undefined>;
     /**
@@ -61,6 +61,10 @@ export class NetworkFunction extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The network function container configurations from the user.
+     */
+    public readonly networkFunctionContainerConfigurations!: pulumi.Output<any | undefined>;
+    /**
      * The network function configurations from the user.
      */
     public readonly networkFunctionUserConfigurations!: pulumi.Output<outputs.hybridnetwork.NetworkFunctionUserConfigurationResponse[] | undefined>;
@@ -73,13 +77,17 @@ export class NetworkFunction extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceKey!: pulumi.Output<string>;
     /**
-     * The sku name for the network function.
+     * The sku name for the network function. Once set, it cannot be updated.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
      * The sku type for the network function.
      */
     public /*out*/ readonly skuType!: pulumi.Output<string>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -89,7 +97,7 @@ export class NetworkFunction extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The vendor name for the network function.
+     * The vendor name for the network function. Once set, it cannot be updated.
      */
     public readonly vendorName!: pulumi.Output<string | undefined>;
     /**
@@ -114,6 +122,7 @@ export class NetworkFunction extends pulumi.CustomResource {
             resourceInputs["device"] = args ? args.device : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
+            resourceInputs["networkFunctionContainerConfigurations"] = args ? args.networkFunctionContainerConfigurations : undefined;
             resourceInputs["networkFunctionName"] = args ? args.networkFunctionName : undefined;
             resourceInputs["networkFunctionUserConfigurations"] = args ? args.networkFunctionUserConfigurations : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -126,6 +135,7 @@ export class NetworkFunction extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceKey"] = undefined /*out*/;
             resourceInputs["skuType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vendorProvisioningState"] = undefined /*out*/;
         } else {
@@ -135,11 +145,13 @@ export class NetworkFunction extends pulumi.CustomResource {
             resourceInputs["managedApplication"] = undefined /*out*/;
             resourceInputs["managedApplicationParameters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkFunctionContainerConfigurations"] = undefined /*out*/;
             resourceInputs["networkFunctionUserConfigurations"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceKey"] = undefined /*out*/;
             resourceInputs["skuName"] = undefined /*out*/;
             resourceInputs["skuType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vendorName"] = undefined /*out*/;
@@ -157,7 +169,7 @@ export class NetworkFunction extends pulumi.CustomResource {
  */
 export interface NetworkFunctionArgs {
     /**
-     * The reference to the device resource.
+     * The reference to the device resource. Once set, it cannot be updated.
      */
     device?: pulumi.Input<inputs.hybridnetwork.SubResourceArgs>;
     /**
@@ -168,6 +180,10 @@ export interface NetworkFunctionArgs {
      * The parameters for the managed application.
      */
     managedApplicationParameters?: any;
+    /**
+     * The network function container configurations from the user.
+     */
+    networkFunctionContainerConfigurations?: any;
     /**
      * Resource name for the network function resource.
      */
@@ -181,7 +197,7 @@ export interface NetworkFunctionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku name for the network function.
+     * The sku name for the network function. Once set, it cannot be updated.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -189,7 +205,7 @@ export interface NetworkFunctionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The vendor name for the network function.
+     * The vendor name for the network function. Once set, it cannot be updated.
      */
     vendorName?: pulumi.Input<string>;
 }

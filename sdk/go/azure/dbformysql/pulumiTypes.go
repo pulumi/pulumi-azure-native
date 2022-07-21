@@ -10,6 +10,1687 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Storage Profile properties of a server
+type Backup struct {
+	// Backup retention days for the server.
+	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// Whether or not geo redundant backup is enabled.
+	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+}
+
+// BackupInput is an input type that accepts BackupArgs and BackupOutput values.
+// You can construct a concrete instance of `BackupInput` via:
+//
+//          BackupArgs{...}
+type BackupInput interface {
+	pulumi.Input
+
+	ToBackupOutput() BackupOutput
+	ToBackupOutputWithContext(context.Context) BackupOutput
+}
+
+// Storage Profile properties of a server
+type BackupArgs struct {
+	// Backup retention days for the server.
+	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
+	// Whether or not geo redundant backup is enabled.
+	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+}
+
+func (BackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Backup)(nil)).Elem()
+}
+
+func (i BackupArgs) ToBackupOutput() BackupOutput {
+	return i.ToBackupOutputWithContext(context.Background())
+}
+
+func (i BackupArgs) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
+}
+
+func (i BackupArgs) ToBackupPtrOutput() BackupPtrOutput {
+	return i.ToBackupPtrOutputWithContext(context.Background())
+}
+
+func (i BackupArgs) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput).ToBackupPtrOutputWithContext(ctx)
+}
+
+// BackupPtrInput is an input type that accepts BackupArgs, BackupPtr and BackupPtrOutput values.
+// You can construct a concrete instance of `BackupPtrInput` via:
+//
+//          BackupArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupPtrInput interface {
+	pulumi.Input
+
+	ToBackupPtrOutput() BackupPtrOutput
+	ToBackupPtrOutputWithContext(context.Context) BackupPtrOutput
+}
+
+type backupPtrType BackupArgs
+
+func BackupPtr(v *BackupArgs) BackupPtrInput {
+	return (*backupPtrType)(v)
+}
+
+func (*backupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Backup)(nil)).Elem()
+}
+
+func (i *backupPtrType) ToBackupPtrOutput() BackupPtrOutput {
+	return i.ToBackupPtrOutputWithContext(context.Background())
+}
+
+func (i *backupPtrType) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPtrOutput)
+}
+
+// Storage Profile properties of a server
+type BackupOutput struct{ *pulumi.OutputState }
+
+func (BackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Backup)(nil)).Elem()
+}
+
+func (o BackupOutput) ToBackupOutput() BackupOutput {
+	return o
+}
+
+func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
+	return o
+}
+
+func (o BackupOutput) ToBackupPtrOutput() BackupPtrOutput {
+	return o.ToBackupPtrOutputWithContext(context.Background())
+}
+
+func (o BackupOutput) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Backup) *Backup {
+		return &v
+	}).(BackupPtrOutput)
+}
+
+// Backup retention days for the server.
+func (o BackupOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Backup) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not geo redundant backup is enabled.
+func (o BackupOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Backup) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+}
+
+type BackupPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Backup)(nil)).Elem()
+}
+
+func (o BackupPtrOutput) ToBackupPtrOutput() BackupPtrOutput {
+	return o
+}
+
+func (o BackupPtrOutput) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
+	return o
+}
+
+func (o BackupPtrOutput) Elem() BackupOutput {
+	return o.ApplyT(func(v *Backup) Backup {
+		if v != nil {
+			return *v
+		}
+		var ret Backup
+		return ret
+	}).(BackupOutput)
+}
+
+// Backup retention days for the server.
+func (o BackupPtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Backup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether or not geo redundant backup is enabled.
+func (o BackupPtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Backup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRedundantBackup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Storage Profile properties of a server
+type BackupResponse struct {
+	// Backup retention days for the server.
+	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// Earliest restore point creation time (ISO8601 format)
+	EarliestRestoreDate string `pulumi:"earliestRestoreDate"`
+	// Whether or not geo redundant backup is enabled.
+	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+}
+
+// Storage Profile properties of a server
+type BackupResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupResponse)(nil)).Elem()
+}
+
+func (o BackupResponseOutput) ToBackupResponseOutput() BackupResponseOutput {
+	return o
+}
+
+func (o BackupResponseOutput) ToBackupResponseOutputWithContext(ctx context.Context) BackupResponseOutput {
+	return o
+}
+
+// Backup retention days for the server.
+func (o BackupResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Earliest restore point creation time (ISO8601 format)
+func (o BackupResponseOutput) EarliestRestoreDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupResponse) string { return v.EarliestRestoreDate }).(pulumi.StringOutput)
+}
+
+// Whether or not geo redundant backup is enabled.
+func (o BackupResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+}
+
+type BackupResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupResponse)(nil)).Elem()
+}
+
+func (o BackupResponsePtrOutput) ToBackupResponsePtrOutput() BackupResponsePtrOutput {
+	return o
+}
+
+func (o BackupResponsePtrOutput) ToBackupResponsePtrOutputWithContext(ctx context.Context) BackupResponsePtrOutput {
+	return o
+}
+
+func (o BackupResponsePtrOutput) Elem() BackupResponseOutput {
+	return o.ApplyT(func(v *BackupResponse) BackupResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupResponse
+		return ret
+	}).(BackupResponseOutput)
+}
+
+// Backup retention days for the server.
+func (o BackupResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Earliest restore point creation time (ISO8601 format)
+func (o BackupResponsePtrOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EarliestRestoreDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not geo redundant backup is enabled.
+func (o BackupResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRedundantBackup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date encryption for cmk.
+type DataEncryption struct {
+	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+	GeoBackupKeyUri *string `pulumi:"geoBackupKeyUri"`
+	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
+	// Primary key uri
+	PrimaryKeyUri *string `pulumi:"primaryKeyUri"`
+	// Primary user identity resource id
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
+	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+	Type *DataEncryptionType `pulumi:"type"`
+}
+
+// DataEncryptionInput is an input type that accepts DataEncryptionArgs and DataEncryptionOutput values.
+// You can construct a concrete instance of `DataEncryptionInput` via:
+//
+//          DataEncryptionArgs{...}
+type DataEncryptionInput interface {
+	pulumi.Input
+
+	ToDataEncryptionOutput() DataEncryptionOutput
+	ToDataEncryptionOutputWithContext(context.Context) DataEncryptionOutput
+}
+
+// The date encryption for cmk.
+type DataEncryptionArgs struct {
+	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+	GeoBackupKeyUri pulumi.StringPtrInput `pulumi:"geoBackupKeyUri"`
+	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
+	// Primary key uri
+	PrimaryKeyUri pulumi.StringPtrInput `pulumi:"primaryKeyUri"`
+	// Primary user identity resource id
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
+	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+	Type DataEncryptionTypePtrInput `pulumi:"type"`
+}
+
+func (DataEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataEncryption)(nil)).Elem()
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionOutput() DataEncryptionOutput {
+	return i.ToDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionOutputWithContext(ctx context.Context) DataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataEncryptionOutput)
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return i.ToDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataEncryptionOutput).ToDataEncryptionPtrOutputWithContext(ctx)
+}
+
+// DataEncryptionPtrInput is an input type that accepts DataEncryptionArgs, DataEncryptionPtr and DataEncryptionPtrOutput values.
+// You can construct a concrete instance of `DataEncryptionPtrInput` via:
+//
+//          DataEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToDataEncryptionPtrOutput() DataEncryptionPtrOutput
+	ToDataEncryptionPtrOutputWithContext(context.Context) DataEncryptionPtrOutput
+}
+
+type dataEncryptionPtrType DataEncryptionArgs
+
+func DataEncryptionPtr(v *DataEncryptionArgs) DataEncryptionPtrInput {
+	return (*dataEncryptionPtrType)(v)
+}
+
+func (*dataEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataEncryption)(nil)).Elem()
+}
+
+func (i *dataEncryptionPtrType) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return i.ToDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataEncryptionPtrType) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataEncryptionPtrOutput)
+}
+
+// The date encryption for cmk.
+type DataEncryptionOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataEncryption)(nil)).Elem()
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionOutput() DataEncryptionOutput {
+	return o
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionOutputWithContext(ctx context.Context) DataEncryptionOutput {
+	return o
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return o.ToDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataEncryption) *DataEncryption {
+		return &v
+	}).(DataEncryptionPtrOutput)
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.GeoBackupKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.PrimaryKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionOutput) Type() DataEncryptionTypePtrOutput {
+	return o.ApplyT(func(v DataEncryption) *DataEncryptionType { return v.Type }).(DataEncryptionTypePtrOutput)
+}
+
+type DataEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataEncryption)(nil)).Elem()
+}
+
+func (o DataEncryptionPtrOutput) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return o
+}
+
+func (o DataEncryptionPtrOutput) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return o
+}
+
+func (o DataEncryptionPtrOutput) Elem() DataEncryptionOutput {
+	return o.ApplyT(func(v *DataEncryption) DataEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret DataEncryption
+		return ret
+	}).(DataEncryptionOutput)
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionPtrOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionPtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionPtrOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionPtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionPtrOutput) Type() DataEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *DataEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(DataEncryptionTypePtrOutput)
+}
+
+// The date encryption for cmk.
+type DataEncryptionResponse struct {
+	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+	GeoBackupKeyUri *string `pulumi:"geoBackupKeyUri"`
+	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
+	// Primary key uri
+	PrimaryKeyUri *string `pulumi:"primaryKeyUri"`
+	// Primary user identity resource id
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
+	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+	Type *string `pulumi:"type"`
+}
+
+// The date encryption for cmk.
+type DataEncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataEncryptionResponse)(nil)).Elem()
+}
+
+func (o DataEncryptionResponseOutput) ToDataEncryptionResponseOutput() DataEncryptionResponseOutput {
+	return o
+}
+
+func (o DataEncryptionResponseOutput) ToDataEncryptionResponseOutputWithContext(ctx context.Context) DataEncryptionResponseOutput {
+	return o
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionResponseOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.GeoBackupKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionResponseOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionResponseOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.PrimaryKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionResponseOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DataEncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataEncryptionResponse)(nil)).Elem()
+}
+
+func (o DataEncryptionResponsePtrOutput) ToDataEncryptionResponsePtrOutput() DataEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o DataEncryptionResponsePtrOutput) ToDataEncryptionResponsePtrOutputWithContext(ctx context.Context) DataEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o DataEncryptionResponsePtrOutput) Elem() DataEncryptionResponseOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) DataEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataEncryptionResponse
+		return ret
+	}).(DataEncryptionResponseOutput)
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionResponsePtrOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionResponsePtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionResponsePtrOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionResponsePtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network related properties of a server
+type HighAvailability struct {
+	// High availability mode for a server.
+	Mode *string `pulumi:"mode"`
+	// Availability zone of the standby server.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+}
+
+// HighAvailabilityInput is an input type that accepts HighAvailabilityArgs and HighAvailabilityOutput values.
+// You can construct a concrete instance of `HighAvailabilityInput` via:
+//
+//          HighAvailabilityArgs{...}
+type HighAvailabilityInput interface {
+	pulumi.Input
+
+	ToHighAvailabilityOutput() HighAvailabilityOutput
+	ToHighAvailabilityOutputWithContext(context.Context) HighAvailabilityOutput
+}
+
+// Network related properties of a server
+type HighAvailabilityArgs struct {
+	// High availability mode for a server.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// Availability zone of the standby server.
+	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
+}
+
+func (HighAvailabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HighAvailability)(nil)).Elem()
+}
+
+func (i HighAvailabilityArgs) ToHighAvailabilityOutput() HighAvailabilityOutput {
+	return i.ToHighAvailabilityOutputWithContext(context.Background())
+}
+
+func (i HighAvailabilityArgs) ToHighAvailabilityOutputWithContext(ctx context.Context) HighAvailabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HighAvailabilityOutput)
+}
+
+func (i HighAvailabilityArgs) ToHighAvailabilityPtrOutput() HighAvailabilityPtrOutput {
+	return i.ToHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (i HighAvailabilityArgs) ToHighAvailabilityPtrOutputWithContext(ctx context.Context) HighAvailabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HighAvailabilityOutput).ToHighAvailabilityPtrOutputWithContext(ctx)
+}
+
+// HighAvailabilityPtrInput is an input type that accepts HighAvailabilityArgs, HighAvailabilityPtr and HighAvailabilityPtrOutput values.
+// You can construct a concrete instance of `HighAvailabilityPtrInput` via:
+//
+//          HighAvailabilityArgs{...}
+//
+//  or:
+//
+//          nil
+type HighAvailabilityPtrInput interface {
+	pulumi.Input
+
+	ToHighAvailabilityPtrOutput() HighAvailabilityPtrOutput
+	ToHighAvailabilityPtrOutputWithContext(context.Context) HighAvailabilityPtrOutput
+}
+
+type highAvailabilityPtrType HighAvailabilityArgs
+
+func HighAvailabilityPtr(v *HighAvailabilityArgs) HighAvailabilityPtrInput {
+	return (*highAvailabilityPtrType)(v)
+}
+
+func (*highAvailabilityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HighAvailability)(nil)).Elem()
+}
+
+func (i *highAvailabilityPtrType) ToHighAvailabilityPtrOutput() HighAvailabilityPtrOutput {
+	return i.ToHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (i *highAvailabilityPtrType) ToHighAvailabilityPtrOutputWithContext(ctx context.Context) HighAvailabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HighAvailabilityPtrOutput)
+}
+
+// Network related properties of a server
+type HighAvailabilityOutput struct{ *pulumi.OutputState }
+
+func (HighAvailabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HighAvailability)(nil)).Elem()
+}
+
+func (o HighAvailabilityOutput) ToHighAvailabilityOutput() HighAvailabilityOutput {
+	return o
+}
+
+func (o HighAvailabilityOutput) ToHighAvailabilityOutputWithContext(ctx context.Context) HighAvailabilityOutput {
+	return o
+}
+
+func (o HighAvailabilityOutput) ToHighAvailabilityPtrOutput() HighAvailabilityPtrOutput {
+	return o.ToHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (o HighAvailabilityOutput) ToHighAvailabilityPtrOutputWithContext(ctx context.Context) HighAvailabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HighAvailability) *HighAvailability {
+		return &v
+	}).(HighAvailabilityPtrOutput)
+}
+
+// High availability mode for a server.
+func (o HighAvailabilityOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HighAvailability) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Availability zone of the standby server.
+func (o HighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+type HighAvailabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (HighAvailabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HighAvailability)(nil)).Elem()
+}
+
+func (o HighAvailabilityPtrOutput) ToHighAvailabilityPtrOutput() HighAvailabilityPtrOutput {
+	return o
+}
+
+func (o HighAvailabilityPtrOutput) ToHighAvailabilityPtrOutputWithContext(ctx context.Context) HighAvailabilityPtrOutput {
+	return o
+}
+
+func (o HighAvailabilityPtrOutput) Elem() HighAvailabilityOutput {
+	return o.ApplyT(func(v *HighAvailability) HighAvailability {
+		if v != nil {
+			return *v
+		}
+		var ret HighAvailability
+		return ret
+	}).(HighAvailabilityOutput)
+}
+
+// High availability mode for a server.
+func (o HighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Availability zone of the standby server.
+func (o HighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network related properties of a server
+type HighAvailabilityResponse struct {
+	// High availability mode for a server.
+	Mode *string `pulumi:"mode"`
+	// Availability zone of the standby server.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+	// The state of server high availability.
+	State string `pulumi:"state"`
+}
+
+// Network related properties of a server
+type HighAvailabilityResponseOutput struct{ *pulumi.OutputState }
+
+func (HighAvailabilityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HighAvailabilityResponse)(nil)).Elem()
+}
+
+func (o HighAvailabilityResponseOutput) ToHighAvailabilityResponseOutput() HighAvailabilityResponseOutput {
+	return o
+}
+
+func (o HighAvailabilityResponseOutput) ToHighAvailabilityResponseOutputWithContext(ctx context.Context) HighAvailabilityResponseOutput {
+	return o
+}
+
+// High availability mode for a server.
+func (o HighAvailabilityResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HighAvailabilityResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Availability zone of the standby server.
+func (o HighAvailabilityResponseOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HighAvailabilityResponse) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The state of server high availability.
+func (o HighAvailabilityResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v HighAvailabilityResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type HighAvailabilityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (HighAvailabilityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HighAvailabilityResponse)(nil)).Elem()
+}
+
+func (o HighAvailabilityResponsePtrOutput) ToHighAvailabilityResponsePtrOutput() HighAvailabilityResponsePtrOutput {
+	return o
+}
+
+func (o HighAvailabilityResponsePtrOutput) ToHighAvailabilityResponsePtrOutputWithContext(ctx context.Context) HighAvailabilityResponsePtrOutput {
+	return o
+}
+
+func (o HighAvailabilityResponsePtrOutput) Elem() HighAvailabilityResponseOutput {
+	return o.ApplyT(func(v *HighAvailabilityResponse) HighAvailabilityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HighAvailabilityResponse
+		return ret
+	}).(HighAvailabilityResponseOutput)
+}
+
+// High availability mode for a server.
+func (o HighAvailabilityResponsePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HighAvailabilityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Availability zone of the standby server.
+func (o HighAvailabilityResponsePtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HighAvailabilityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of server high availability.
+func (o HighAvailabilityResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HighAvailabilityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type Identity struct {
+	// Type of managed service identity.
+	Type *ManagedServiceIdentityType `pulumi:"type"`
+	// Metadata of user assigned identity.
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
+//
+//          IdentityArgs{...}
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityArgs struct {
+	// Type of managed service identity.
+	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	// Metadata of user assigned identity.
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
+}
+
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
+//
+//          IdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
+}
+
+type identityPtrType IdentityArgs
+
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
+}
+
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityOutput struct{ *pulumi.OutputState }
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+		return &v
+	}).(IdentityPtrOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Identity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+}
+
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ManagedServiceIdentityType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ManagedServiceIdentityTypePtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Identity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponse struct {
+	// ObjectId from the KeyVault
+	PrincipalId string `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId string `pulumi:"tenantId"`
+	// Type of managed service identity.
+	Type *string `pulumi:"type"`
+	// Metadata of user assigned identity.
+	UserAssignedIdentities map[string][]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseArrayMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string][]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseArrayMapOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseArrayMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string][]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseArrayMapOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindow struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow *string `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour *int `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
+// You can construct a concrete instance of `MaintenanceWindowInput` via:
+//
+//          MaintenanceWindowArgs{...}
+type MaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowOutput() MaintenanceWindowOutput
+	ToMaintenanceWindowOutputWithContext(context.Context) MaintenanceWindowOutput
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowArgs struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (MaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindow)(nil)).Elem()
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowOutput() MaintenanceWindowOutput {
+	return i.ToMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowOutputWithContext(ctx context.Context) MaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput)
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return i.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput).ToMaintenanceWindowPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowPtrInput is an input type that accepts MaintenanceWindowArgs, MaintenanceWindowPtr and MaintenanceWindowPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowPtrInput` via:
+//
+//          MaintenanceWindowArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput
+	ToMaintenanceWindowPtrOutputWithContext(context.Context) MaintenanceWindowPtrOutput
+}
+
+type maintenanceWindowPtrType MaintenanceWindowArgs
+
+func MaintenanceWindowPtr(v *MaintenanceWindowArgs) MaintenanceWindowPtrInput {
+	return (*maintenanceWindowPtrType)(v)
+}
+
+func (*maintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindow)(nil)).Elem()
+}
+
+func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return i.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindow)(nil)).Elem()
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowOutput() MaintenanceWindowOutput {
+	return o
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx context.Context) MaintenanceWindowOutput {
+	return o
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return o.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindow) *MaintenanceWindow {
+		return &v
+	}).(MaintenanceWindowPtrOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindow)(nil)).Elem()
+}
+
+func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowPtrOutput) Elem() MaintenanceWindowOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindow
+		return ret
+	}).(MaintenanceWindowOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowResponse struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow *string `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour *int `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowResponseOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowResponse)(nil)).Elem()
+}
+
+func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponseOutput() MaintenanceWindowResponseOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponseOutputWithContext(ctx context.Context) MaintenanceWindowResponseOutput {
+	return o
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowResponseOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowResponseOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowResponseOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowResponse)(nil)).Elem()
+}
+
+func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutput() MaintenanceWindowResponsePtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponsePtrOutput) Elem() MaintenanceWindowResponseOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowResponse
+		return ret
+	}).(MaintenanceWindowResponseOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Network related properties of a server
+type Network struct {
+	// Delegated subnet resource id used to setup vnet for a server.
+	DelegatedSubnetResourceId *string `pulumi:"delegatedSubnetResourceId"`
+	// Private DNS zone resource id.
+	PrivateDnsZoneResourceId *string `pulumi:"privateDnsZoneResourceId"`
+}
+
+// NetworkInput is an input type that accepts NetworkArgs and NetworkOutput values.
+// You can construct a concrete instance of `NetworkInput` via:
+//
+//          NetworkArgs{...}
+type NetworkInput interface {
+	pulumi.Input
+
+	ToNetworkOutput() NetworkOutput
+	ToNetworkOutputWithContext(context.Context) NetworkOutput
+}
+
+// Network related properties of a server
+type NetworkArgs struct {
+	// Delegated subnet resource id used to setup vnet for a server.
+	DelegatedSubnetResourceId pulumi.StringPtrInput `pulumi:"delegatedSubnetResourceId"`
+	// Private DNS zone resource id.
+	PrivateDnsZoneResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneResourceId"`
+}
+
+func (NetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Network)(nil)).Elem()
+}
+
+func (i NetworkArgs) ToNetworkOutput() NetworkOutput {
+	return i.ToNetworkOutputWithContext(context.Background())
+}
+
+func (i NetworkArgs) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkOutput)
+}
+
+func (i NetworkArgs) ToNetworkPtrOutput() NetworkPtrOutput {
+	return i.ToNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkArgs) ToNetworkPtrOutputWithContext(ctx context.Context) NetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkOutput).ToNetworkPtrOutputWithContext(ctx)
+}
+
+// NetworkPtrInput is an input type that accepts NetworkArgs, NetworkPtr and NetworkPtrOutput values.
+// You can construct a concrete instance of `NetworkPtrInput` via:
+//
+//          NetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkPtrInput interface {
+	pulumi.Input
+
+	ToNetworkPtrOutput() NetworkPtrOutput
+	ToNetworkPtrOutputWithContext(context.Context) NetworkPtrOutput
+}
+
+type networkPtrType NetworkArgs
+
+func NetworkPtr(v *NetworkArgs) NetworkPtrInput {
+	return (*networkPtrType)(v)
+}
+
+func (*networkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Network)(nil)).Elem()
+}
+
+func (i *networkPtrType) ToNetworkPtrOutput() NetworkPtrOutput {
+	return i.ToNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *networkPtrType) ToNetworkPtrOutputWithContext(ctx context.Context) NetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPtrOutput)
+}
+
+// Network related properties of a server
+type NetworkOutput struct{ *pulumi.OutputState }
+
+func (NetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Network)(nil)).Elem()
+}
+
+func (o NetworkOutput) ToNetworkOutput() NetworkOutput {
+	return o
+}
+
+func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput {
+	return o
+}
+
+func (o NetworkOutput) ToNetworkPtrOutput() NetworkPtrOutput {
+	return o.ToNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkOutput) ToNetworkPtrOutputWithContext(ctx context.Context) NetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Network) *Network {
+		return &v
+	}).(NetworkPtrOutput)
+}
+
+// Delegated subnet resource id used to setup vnet for a server.
+func (o NetworkOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Network) *string { return v.DelegatedSubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Private DNS zone resource id.
+func (o NetworkOutput) PrivateDnsZoneResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Network) *string { return v.PrivateDnsZoneResourceId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Network)(nil)).Elem()
+}
+
+func (o NetworkPtrOutput) ToNetworkPtrOutput() NetworkPtrOutput {
+	return o
+}
+
+func (o NetworkPtrOutput) ToNetworkPtrOutputWithContext(ctx context.Context) NetworkPtrOutput {
+	return o
+}
+
+func (o NetworkPtrOutput) Elem() NetworkOutput {
+	return o.ApplyT(func(v *Network) Network {
+		if v != nil {
+			return *v
+		}
+		var ret Network
+		return ret
+	}).(NetworkOutput)
+}
+
+// Delegated subnet resource id used to setup vnet for a server.
+func (o NetworkPtrOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Network) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DelegatedSubnetResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private DNS zone resource id.
+func (o NetworkPtrOutput) PrivateDnsZoneResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Network) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network related properties of a server
+type NetworkResponse struct {
+	// Delegated subnet resource id used to setup vnet for a server.
+	DelegatedSubnetResourceId *string `pulumi:"delegatedSubnetResourceId"`
+	// Private DNS zone resource id.
+	PrivateDnsZoneResourceId *string `pulumi:"privateDnsZoneResourceId"`
+	// Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+}
+
+// Network related properties of a server
+type NetworkResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkResponse)(nil)).Elem()
+}
+
+func (o NetworkResponseOutput) ToNetworkResponseOutput() NetworkResponseOutput {
+	return o
+}
+
+func (o NetworkResponseOutput) ToNetworkResponseOutputWithContext(ctx context.Context) NetworkResponseOutput {
+	return o
+}
+
+// Delegated subnet resource id used to setup vnet for a server.
+func (o NetworkResponseOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkResponse) *string { return v.DelegatedSubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Private DNS zone resource id.
+func (o NetworkResponseOutput) PrivateDnsZoneResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkResponse) *string { return v.PrivateDnsZoneResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
+func (o NetworkResponseOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkResponse) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+type NetworkResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkResponse)(nil)).Elem()
+}
+
+func (o NetworkResponsePtrOutput) ToNetworkResponsePtrOutput() NetworkResponsePtrOutput {
+	return o
+}
+
+func (o NetworkResponsePtrOutput) ToNetworkResponsePtrOutputWithContext(ctx context.Context) NetworkResponsePtrOutput {
+	return o
+}
+
+func (o NetworkResponsePtrOutput) Elem() NetworkResponseOutput {
+	return o.ApplyT(func(v *NetworkResponse) NetworkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkResponse
+		return ret
+	}).(NetworkResponseOutput)
+}
+
+// Delegated subnet resource id used to setup vnet for a server.
+func (o NetworkResponsePtrOutput) DelegatedSubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DelegatedSubnetResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private DNS zone resource id.
+func (o NetworkResponsePtrOutput) PrivateDnsZoneResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
+func (o NetworkResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 type PrivateEndpointProperty struct {
 	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
@@ -453,531 +2134,12 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
-type ResourceIdentity struct {
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type *string `pulumi:"type"`
-}
-
-// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
-// You can construct a concrete instance of `ResourceIdentityInput` via:
-//
-//          ResourceIdentityArgs{...}
-type ResourceIdentityInput interface {
-	pulumi.Input
-
-	ToResourceIdentityOutput() ResourceIdentityOutput
-	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
-}
-
-// Azure Active Directory identity configuration for a resource.
-type ResourceIdentityArgs struct {
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ResourceIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
-	return i.ToResourceIdentityOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
-}
-
-// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
-// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
-//
-//          ResourceIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceIdentityPtrInput interface {
-	pulumi.Input
-
-	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
-	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
-}
-
-type resourceIdentityPtrType ResourceIdentityArgs
-
-func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
-	return (*resourceIdentityPtrType)(v)
-}
-
-func (*resourceIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
-}
-
-func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
-}
-
-// Azure Active Directory identity configuration for a resource.
-type ResourceIdentityOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
-	return o
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
-	return o
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
-		return &v
-	}).(ResourceIdentityPtrOutput)
-}
-
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
-}
-
-func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
-	return o
-}
-
-func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o
-}
-
-func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentity
-		return ret
-	}).(ResourceIdentityOutput)
-}
-
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure Active Directory identity configuration for a resource.
-type ResourceIdentityResponse struct {
-	// The Azure Active Directory principal id.
-	PrincipalId string `pulumi:"principalId"`
-	// The Azure Active Directory tenant id.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type *string `pulumi:"type"`
-}
-
-// Azure Active Directory identity configuration for a resource.
-type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
-	return o
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
-	return o
-}
-
-// The Azure Active Directory principal id.
-func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-// The Azure Active Directory tenant id.
-func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentityResponse
-		return ret
-	}).(ResourceIdentityResponseOutput)
-}
-
-// The Azure Active Directory principal id.
-func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure Active Directory tenant id.
-func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of a private endpoint connection.
-type ServerPrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState *ServerPrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-// Properties of a private endpoint connection.
-type ServerPrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ToServerPrivateEndpointConnectionPropertiesResponseOutput() ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ToServerPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return o
-}
-
-// Private endpoint which the connection belongs to.
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPropertyResponsePtrOutput)
-}
-
-// Connection state of the private endpoint connection.
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) *ServerPrivateLinkServiceConnectionStatePropertyResponse {
-		return v.PrivateLinkServiceConnectionState
-	}).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
-}
-
-// State of the private endpoint connection.
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// A private endpoint connection under a server
-type ServerPrivateEndpointConnectionResponse struct {
-	// Resource Id of the private endpoint connection.
-	Id string `pulumi:"id"`
-	// Private endpoint connection properties
-	Properties ServerPrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-}
-
-// A private endpoint connection under a server
-type ServerPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-// Resource Id of the private endpoint connection.
-func (o ServerPrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Private endpoint connection properties
-func (o ServerPrivateEndpointConnectionResponseOutput) Properties() ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) ServerPrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(ServerPrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-type ServerPrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateEndpointConnectionResponseArrayOutput) ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionResponseArrayOutput) ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) ServerPrivateEndpointConnectionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerPrivateEndpointConnectionResponse {
-		return vs[0].([]ServerPrivateEndpointConnectionResponse)[vs[1].(int)]
-	}).(ServerPrivateEndpointConnectionResponseOutput)
-}
-
-type ServerPrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
-	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
-}
-
-type ServerPrivateLinkServiceConnectionStatePropertyResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponseOutput() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return o
-}
-
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return o
-}
-
-// The actions required for private link service connection.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
-}
-
-// The private link service connection description.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// The private link service connection status.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o
-}
-
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o
-}
-
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) ServerPrivateLinkServiceConnectionStatePropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerPrivateLinkServiceConnectionStatePropertyResponse
-		return ret
-	}).(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput)
-}
-
-// The actions required for private link service connection.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ActionsRequired
-	}).(pulumi.StringPtrOutput)
-}
-
-// The private link service connection description.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The private link service connection status.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties used to create a new server.
-type ServerPropertiesForDefaultCreate struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
-	AdministratorLogin string `pulumi:"administratorLogin"`
-	// The password of the administrator login.
-	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
-	// The mode to create a new server.
-	// Expected value is 'Default'.
-	CreateMode string `pulumi:"createMode"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
-}
-
-// The properties used to create a new server by restoring to a different region from a geo replicated backup.
-type ServerPropertiesForGeoRestore struct {
-	// The mode to create a new server.
-	// Expected value is 'GeoRestore'.
-	CreateMode string `pulumi:"createMode"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The source server id to restore from.
-	SourceServerId string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
-}
-
-// The properties to create a new replica.
-type ServerPropertiesForReplica struct {
-	// The mode to create a new server.
-	// Expected value is 'Replica'.
-	CreateMode string `pulumi:"createMode"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The master server id to create replica from.
-	SourceServerId string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
-}
-
-// The properties used to create a new server by restoring from a backup.
-type ServerPropertiesForRestore struct {
-	// The mode to create a new server.
-	// Expected value is 'PointInTimeRestore'.
-	CreateMode string `pulumi:"createMode"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime string `pulumi:"restorePointInTime"`
-	// The source server id to restore from.
-	SourceServerId string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfile `pulumi:"storageProfile"`
-	// Server version.
-	Version *string `pulumi:"version"`
-}
-
 // Billing information related properties of a server.
 type Sku struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity *int `pulumi:"capacity"`
-	// The family of hardware.
-	Family *string `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+	// The name of the sku, e.g. Standard_D32s_v3.
 	Name string `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size *string `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier *string `pulumi:"tier"`
+	// The tier of the particular SKU, e.g. GeneralPurpose.
+	Tier string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -993,16 +2155,10 @@ type SkuInput interface {
 
 // Billing information related properties of a server.
 type SkuArgs struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The family of hardware.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+	// The name of the sku, e.g. Standard_D32s_v3.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	// The tier of the particular SKU, e.g. GeneralPurpose.
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1083,29 +2239,14 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The family of hardware.
-func (o SkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
-func (o SkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// The tier of the particular SKU, e.g. Basic.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+// The tier of the particular SKU, e.g. GeneralPurpose.
+func (o SkuOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1132,27 +2273,7 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The family of hardware.
-func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1162,38 +2283,22 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
-func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// The tier of the particular SKU, e.g. Basic.
+// The tier of the particular SKU, e.g. GeneralPurpose.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
+		return &v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
 // Billing information related properties of a server.
 type SkuResponse struct {
-	// The scale up/out capacity, representing server's compute units.
-	Capacity *int `pulumi:"capacity"`
-	// The family of hardware.
-	Family *string `pulumi:"family"`
-	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+	// The name of the sku, e.g. Standard_D32s_v3.
 	Name string `pulumi:"name"`
-	// The size code, to be interpreted by resource as appropriate.
-	Size *string `pulumi:"size"`
-	// The tier of the particular SKU, e.g. Basic.
-	Tier *string `pulumi:"tier"`
+	// The tier of the particular SKU, e.g. GeneralPurpose.
+	Tier string `pulumi:"tier"`
 }
 
 // Billing information related properties of a server.
@@ -1211,29 +2316,14 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The scale up/out capacity, representing server's compute units.
-func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The family of hardware.
-func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
-func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// The tier of the particular SKU, e.g. Basic.
-func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+// The tier of the particular SKU, e.g. GeneralPurpose.
+func (o SkuResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type SkuResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1260,27 +2350,7 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	}).(SkuResponseOutput)
 }
 
-// The scale up/out capacity, representing server's compute units.
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The family of hardware.
-func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1290,150 +2360,464 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size code, to be interpreted by resource as appropriate.
-func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// The tier of the particular SKU, e.g. Basic.
+// The tier of the particular SKU, e.g. GeneralPurpose.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
+		return &v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
 // Storage Profile properties of a server
-type StorageProfile struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow *string `pulumi:"storageAutogrow"`
-	// Max storage allowed for a server.
-	StorageMB *int `pulumi:"storageMB"`
+type Storage struct {
+	// Enable Storage Auto Grow or not.
+	AutoGrow *string `pulumi:"autoGrow"`
+	// Storage IOPS for a server.
+	Iops *int `pulumi:"iops"`
+	// Max storage size allowed for a server.
+	StorageSizeGB *int `pulumi:"storageSizeGB"`
+}
+
+// StorageInput is an input type that accepts StorageArgs and StorageOutput values.
+// You can construct a concrete instance of `StorageInput` via:
+//
+//          StorageArgs{...}
+type StorageInput interface {
+	pulumi.Input
+
+	ToStorageOutput() StorageOutput
+	ToStorageOutputWithContext(context.Context) StorageOutput
 }
 
 // Storage Profile properties of a server
-type StorageProfileResponse struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow *string `pulumi:"storageAutogrow"`
-	// Max storage allowed for a server.
-	StorageMB *int `pulumi:"storageMB"`
+type StorageArgs struct {
+	// Enable Storage Auto Grow or not.
+	AutoGrow pulumi.StringPtrInput `pulumi:"autoGrow"`
+	// Storage IOPS for a server.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Max storage size allowed for a server.
+	StorageSizeGB pulumi.IntPtrInput `pulumi:"storageSizeGB"`
+}
+
+func (StorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Storage)(nil)).Elem()
+}
+
+func (i StorageArgs) ToStorageOutput() StorageOutput {
+	return i.ToStorageOutputWithContext(context.Background())
+}
+
+func (i StorageArgs) ToStorageOutputWithContext(ctx context.Context) StorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageOutput)
+}
+
+func (i StorageArgs) ToStoragePtrOutput() StoragePtrOutput {
+	return i.ToStoragePtrOutputWithContext(context.Background())
+}
+
+func (i StorageArgs) ToStoragePtrOutputWithContext(ctx context.Context) StoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageOutput).ToStoragePtrOutputWithContext(ctx)
+}
+
+// StoragePtrInput is an input type that accepts StorageArgs, StoragePtr and StoragePtrOutput values.
+// You can construct a concrete instance of `StoragePtrInput` via:
+//
+//          StorageArgs{...}
+//
+//  or:
+//
+//          nil
+type StoragePtrInput interface {
+	pulumi.Input
+
+	ToStoragePtrOutput() StoragePtrOutput
+	ToStoragePtrOutputWithContext(context.Context) StoragePtrOutput
+}
+
+type storagePtrType StorageArgs
+
+func StoragePtr(v *StorageArgs) StoragePtrInput {
+	return (*storagePtrType)(v)
+}
+
+func (*storagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Storage)(nil)).Elem()
+}
+
+func (i *storagePtrType) ToStoragePtrOutput() StoragePtrOutput {
+	return i.ToStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *storagePtrType) ToStoragePtrOutputWithContext(ctx context.Context) StoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoragePtrOutput)
 }
 
 // Storage Profile properties of a server
-type StorageProfileResponseOutput struct{ *pulumi.OutputState }
+type StorageOutput struct{ *pulumi.OutputState }
 
-func (StorageProfileResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageProfileResponse)(nil)).Elem()
+func (StorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Storage)(nil)).Elem()
 }
 
-func (o StorageProfileResponseOutput) ToStorageProfileResponseOutput() StorageProfileResponseOutput {
+func (o StorageOutput) ToStorageOutput() StorageOutput {
 	return o
 }
 
-func (o StorageProfileResponseOutput) ToStorageProfileResponseOutputWithContext(ctx context.Context) StorageProfileResponseOutput {
+func (o StorageOutput) ToStorageOutputWithContext(ctx context.Context) StorageOutput {
 	return o
 }
 
-// Backup retention days for the server.
-func (o StorageProfileResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+func (o StorageOutput) ToStoragePtrOutput() StoragePtrOutput {
+	return o.ToStoragePtrOutputWithContext(context.Background())
 }
 
-// Enable Geo-redundant or not for server backup.
-func (o StorageProfileResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+func (o StorageOutput) ToStoragePtrOutputWithContext(ctx context.Context) StoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Storage) *Storage {
+		return &v
+	}).(StoragePtrOutput)
 }
 
-// Enable Storage Auto Grow.
-func (o StorageProfileResponseOutput) StorageAutogrow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
+// Enable Storage Auto Grow or not.
+func (o StorageOutput) AutoGrow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Storage) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server.
-func (o StorageProfileResponseOutput) StorageMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
+// Storage IOPS for a server.
+func (o StorageOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Storage) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-type StorageProfileResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (StorageProfileResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageProfileResponse)(nil)).Elem()
+// Max storage size allowed for a server.
+func (o StorageOutput) StorageSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Storage) *int { return v.StorageSizeGB }).(pulumi.IntPtrOutput)
 }
 
-func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutput() StorageProfileResponsePtrOutput {
+type StoragePtrOutput struct{ *pulumi.OutputState }
+
+func (StoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Storage)(nil)).Elem()
+}
+
+func (o StoragePtrOutput) ToStoragePtrOutput() StoragePtrOutput {
 	return o
 }
 
-func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
+func (o StoragePtrOutput) ToStoragePtrOutputWithContext(ctx context.Context) StoragePtrOutput {
 	return o
 }
 
-func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+func (o StoragePtrOutput) Elem() StorageOutput {
+	return o.ApplyT(func(v *Storage) Storage {
 		if v != nil {
 			return *v
 		}
-		var ret StorageProfileResponse
+		var ret Storage
 		return ret
-	}).(StorageProfileResponseOutput)
+	}).(StorageOutput)
 }
 
-// Backup retention days for the server.
-func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) *int {
+// Enable Storage Auto Grow or not.
+func (o StoragePtrOutput) AutoGrow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Storage) *string {
 		if v == nil {
 			return nil
 		}
-		return v.BackupRetentionDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// Enable Geo-redundant or not for server backup.
-func (o StorageProfileResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GeoRedundantBackup
+		return v.AutoGrow
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable Storage Auto Grow.
-func (o StorageProfileResponsePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) *string {
+// Storage IOPS for a server.
+func (o StoragePtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Storage) *int {
 		if v == nil {
 			return nil
 		}
-		return v.StorageAutogrow
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Max storage size allowed for a server.
+func (o StoragePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Storage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageSizeGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Storage Profile properties of a server
+type StorageResponse struct {
+	// Enable Storage Auto Grow or not.
+	AutoGrow *string `pulumi:"autoGrow"`
+	// Storage IOPS for a server.
+	Iops *int `pulumi:"iops"`
+	// Max storage size allowed for a server.
+	StorageSizeGB *int `pulumi:"storageSizeGB"`
+	// The sku name of the server storage.
+	StorageSku string `pulumi:"storageSku"`
+}
+
+// Storage Profile properties of a server
+type StorageResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageResponse)(nil)).Elem()
+}
+
+func (o StorageResponseOutput) ToStorageResponseOutput() StorageResponseOutput {
+	return o
+}
+
+func (o StorageResponseOutput) ToStorageResponseOutputWithContext(ctx context.Context) StorageResponseOutput {
+	return o
+}
+
+// Enable Storage Auto Grow or not.
+func (o StorageResponseOutput) AutoGrow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageResponse) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
+}
+
+// Storage IOPS for a server.
+func (o StorageResponseOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageResponse) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Max storage size allowed for a server.
+func (o StorageResponseOutput) StorageSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageResponse) *int { return v.StorageSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The sku name of the server storage.
+func (o StorageResponseOutput) StorageSku() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageResponse) string { return v.StorageSku }).(pulumi.StringOutput)
+}
+
+type StorageResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageResponse)(nil)).Elem()
+}
+
+func (o StorageResponsePtrOutput) ToStorageResponsePtrOutput() StorageResponsePtrOutput {
+	return o
+}
+
+func (o StorageResponsePtrOutput) ToStorageResponsePtrOutputWithContext(ctx context.Context) StorageResponsePtrOutput {
+	return o
+}
+
+func (o StorageResponsePtrOutput) Elem() StorageResponseOutput {
+	return o.ApplyT(func(v *StorageResponse) StorageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageResponse
+		return ret
+	}).(StorageResponseOutput)
+}
+
+// Enable Storage Auto Grow or not.
+func (o StorageResponsePtrOutput) AutoGrow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoGrow
 	}).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server.
-func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) *int {
+// Storage IOPS for a server.
+func (o StorageResponsePtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return v.StorageMB
+		return v.Iops
 	}).(pulumi.IntPtrOutput)
+}
+
+// Max storage size allowed for a server.
+func (o StorageResponsePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageSizeGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sku name of the server storage.
+func (o StorageResponsePtrOutput) StorageSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageSku
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Metadata of user assigned identity.
+type UserAssignedIdentityResponse struct {
+	// Client Id of user assigned identity
+	ClientId string `pulumi:"clientId"`
+	// Principal Id of user assigned identity
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// Metadata of user assigned identity.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// Client Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseArrayOutput) ToUserAssignedIdentityResponseArrayOutput() UserAssignedIdentityResponseArrayOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayOutput) ToUserAssignedIdentityResponseArrayOutputWithContext(ctx context.Context) UserAssignedIdentityResponseArrayOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayOutput) Index(i pulumi.IntInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].([]UserAssignedIdentityResponse)[vs[1].(int)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
+type UserAssignedIdentityResponseArrayMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseArrayMapOutput) ToUserAssignedIdentityResponseArrayMapOutput() UserAssignedIdentityResponseArrayMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayMapOutput) ToUserAssignedIdentityResponseArrayMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseArrayMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []UserAssignedIdentityResponse {
+		return vs[0].(map[string][]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseArrayOutput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(BackupOutput{})
+	pulumi.RegisterOutputType(BackupPtrOutput{})
+	pulumi.RegisterOutputType(BackupResponseOutput{})
+	pulumi.RegisterOutputType(BackupResponsePtrOutput{})
+	pulumi.RegisterOutputType(DataEncryptionOutput{})
+	pulumi.RegisterOutputType(DataEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DataEncryptionResponseOutput{})
+	pulumi.RegisterOutputType(DataEncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(HighAvailabilityOutput{})
+	pulumi.RegisterOutputType(HighAvailabilityPtrOutput{})
+	pulumi.RegisterOutputType(HighAvailabilityResponseOutput{})
+	pulumi.RegisterOutputType(HighAvailabilityResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowResponseOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkOutput{})
+	pulumi.RegisterOutputType(NetworkPtrOutput{})
+	pulumi.RegisterOutputType(NetworkResponseOutput{})
+	pulumi.RegisterOutputType(NetworkResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
@@ -1442,19 +2826,16 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseOutput{})
-	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput{})
-	pulumi.RegisterOutputType(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
-	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageOutput{})
+	pulumi.RegisterOutputType(StoragePtrOutput{})
+	pulumi.RegisterOutputType(StorageResponseOutput{})
+	pulumi.RegisterOutputType(StorageResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseArrayMapOutput{})
 }

@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:EntityAnalytics"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EntityAnalytics"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EntityAnalytics"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EntityAnalytics"},

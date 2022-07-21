@@ -11,7 +11,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2021-01-01.
+// API Version: 2022-05-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getPrivateEndpointConnection", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 type LookupPrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection associated with the workspace
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// Name of the resource group in which workspace is located.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -32,13 +32,13 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // The Private Endpoint Connection resource.
 type LookupPrivateEndpointConnectionResult struct {
-	// Specifies the resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -48,11 +48,11 @@ type LookupPrivateEndpointConnectionResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Read only system data
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -72,7 +72,7 @@ func LookupPrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupPriva
 type LookupPrivateEndpointConnectionOutputArgs struct {
 	// The name of the private endpoint connection associated with the workspace
 	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
-	// Name of the resource group in which workspace is located.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
@@ -97,14 +97,14 @@ func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConn
 	return o
 }
 
-// Specifies the resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The identity of the resource.
-func (o LookupPrivateEndpointConnectionResultOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+func (o LookupPrivateEndpointConnectionResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Specifies the location of the resource.
@@ -112,7 +112,7 @@ func (o LookupPrivateEndpointConnectionResultOutput) Location() pulumi.StringPtr
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the resource.
+// The name of the resource
 func (o LookupPrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -139,7 +139,7 @@ func (o LookupPrivateEndpointConnectionResultOutput) Sku() SkuResponsePtrOutput 
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
-// Read only system data
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o LookupPrivateEndpointConnectionResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
@@ -149,7 +149,7 @@ func (o LookupPrivateEndpointConnectionResultOutput) Tags() pulumi.StringMapOutp
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the type of the resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupPrivateEndpointConnectionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Type }).(pulumi.StringOutput)
 }

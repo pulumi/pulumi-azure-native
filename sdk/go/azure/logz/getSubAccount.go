@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2020-10-01.
+// API Version: 2022-01-01-preview.
 func LookupSubAccount(ctx *pulumi.Context, args *LookupSubAccountArgs, opts ...pulumi.InvokeOption) (*LookupSubAccountResult, error) {
 	var rv LookupSubAccountResult
 	err := ctx.Invoke("azure-native:logz:getSubAccount", args, &rv, opts...)

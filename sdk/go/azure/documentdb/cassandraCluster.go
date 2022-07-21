@@ -12,12 +12,12 @@ import (
 )
 
 // Representation of a managed Cassandra cluster.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-15.
 type CassandraCluster struct {
 	pulumi.CustomResourceState
 
 	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity ManagedCassandraManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
@@ -105,7 +105,7 @@ type cassandraClusterArgs struct {
 	// Managed Cassandra cluster name.
 	ClusterName *string `pulumi:"clusterName"`
 	// Identity for the resource.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
+	Identity *ManagedCassandraManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// Properties of a managed Cassandra cluster.
@@ -121,7 +121,7 @@ type CassandraClusterArgs struct {
 	// Managed Cassandra cluster name.
 	ClusterName pulumi.StringPtrInput
 	// Identity for the resource.
-	Identity ManagedServiceIdentityPtrInput
+	Identity ManagedCassandraManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// Properties of a managed Cassandra cluster.
@@ -170,8 +170,8 @@ func (o CassandraClusterOutput) ToCassandraClusterOutputWithContext(ctx context.
 }
 
 // Identity for the resource.
-func (o CassandraClusterOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *CassandraCluster) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+func (o CassandraClusterOutput) Identity() ManagedCassandraManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) ManagedCassandraManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedCassandraManagedServiceIdentityResponsePtrOutput)
 }
 
 // The location of the resource group to which the resource belongs.

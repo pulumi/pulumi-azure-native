@@ -21,7 +21,7 @@ class GetSqlVirtualMachineGroupResult:
     """
     A SQL virtual machine group.
     """
-    def __init__(__self__, cluster_configuration=None, cluster_manager_type=None, id=None, location=None, name=None, provisioning_state=None, scale_type=None, sql_image_offer=None, sql_image_sku=None, tags=None, type=None, wsfc_domain_profile=None):
+    def __init__(__self__, cluster_configuration=None, cluster_manager_type=None, id=None, location=None, name=None, provisioning_state=None, scale_type=None, sql_image_offer=None, sql_image_sku=None, system_data=None, tags=None, type=None, wsfc_domain_profile=None):
         if cluster_configuration and not isinstance(cluster_configuration, str):
             raise TypeError("Expected argument 'cluster_configuration' to be a str")
         pulumi.set(__self__, "cluster_configuration", cluster_configuration)
@@ -49,6 +49,9 @@ class GetSqlVirtualMachineGroupResult:
         if sql_image_sku and not isinstance(sql_image_sku, str):
             raise TypeError("Expected argument 'sql_image_sku' to be a str")
         pulumi.set(__self__, "sql_image_sku", sql_image_sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -132,6 +135,14 @@ class GetSqlVirtualMachineGroupResult:
         return pulumi.get(self, "sql_image_sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -171,6 +182,7 @@ class AwaitableGetSqlVirtualMachineGroupResult(GetSqlVirtualMachineGroupResult):
             scale_type=self.scale_type,
             sql_image_offer=self.sql_image_offer,
             sql_image_sku=self.sql_image_sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             wsfc_domain_profile=self.wsfc_domain_profile)
@@ -181,7 +193,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineGroupResult:
     """
     A SQL virtual machine group.
-    API Version: 2017-03-01-preview.
+    API Version: 2022-02-01.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -206,6 +218,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
         scale_type=__ret__.scale_type,
         sql_image_offer=__ret__.sql_image_offer,
         sql_image_sku=__ret__.sql_image_sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         wsfc_domain_profile=__ret__.wsfc_domain_profile)
@@ -217,7 +230,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
     A SQL virtual machine group.
-    API Version: 2017-03-01-preview.
+    API Version: 2022-02-01.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

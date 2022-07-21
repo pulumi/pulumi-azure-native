@@ -11,7 +11,7 @@ import (
 )
 
 // ExpressRoutePort Authorization resource definition.
-// API Version: 2022-01-01.
+// API Version: 2021-08-01.
 func LookupExpressRoutePortAuthorization(ctx *pulumi.Context, args *LookupExpressRoutePortAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupExpressRoutePortAuthorizationResult, error) {
 	var rv LookupExpressRoutePortAuthorizationResult
 	err := ctx.Invoke("azure-native:network:getExpressRoutePortAuthorization", args, &rv, opts...)

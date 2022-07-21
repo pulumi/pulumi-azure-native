@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application.
- * API Version: 2019-07-01.
+ * API Version: 2021-07-01.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
@@ -124,6 +124,10 @@ export interface GetApplicationResult {
      * The read-only support URLs property that is retrieved from the application package.
      */
     readonly supportUrls: outputs.solutions.ApplicationPackageSupportUrlsResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.solutions.SystemDataResponse;
     /**
      * Resource tags
      */

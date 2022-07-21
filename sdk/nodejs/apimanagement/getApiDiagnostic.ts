@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Diagnostic details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getApiDiagnostic(args: GetApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDiagnosticResult> {
     if (!opts) {
@@ -63,7 +63,7 @@ export interface GetApiDiagnosticResult {
      */
     readonly httpCorrelationProtocol?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -75,7 +75,7 @@ export interface GetApiDiagnosticResult {
      */
     readonly loggerId: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -87,7 +87,7 @@ export interface GetApiDiagnosticResult {
      */
     readonly sampling?: outputs.apimanagement.SamplingSettingsResponse;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

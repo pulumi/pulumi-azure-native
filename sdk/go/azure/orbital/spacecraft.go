@@ -12,17 +12,13 @@ import (
 )
 
 // Customer creates a spacecraft resource to schedule a contact.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 type Spacecraft struct {
 	pulumi.CustomResourceState
 
-	// Authorization status of spacecraft.
-	AuthorizationStatus pulumi.StringOutput `pulumi:"authorizationStatus"`
-	// Details of the authorization status.
-	AuthorizationStatusExtended pulumi.StringOutput `pulumi:"authorizationStatusExtended"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Links of the Spacecraft
+	// Immutable list of Spacecraft links.
 	Links SpacecraftLinkResponseArrayOutput `pulumi:"links"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -34,11 +30,11 @@ type Spacecraft struct {
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Title line of Two Line Element (TLE).
+	// Title line of the two-line element set (TLE).
 	TitleLine pulumi.StringPtrOutput `pulumi:"titleLine"`
-	// Line 1 of Two Line Element (TLE).
+	// Line 1 of the two-line element set (TLE).
 	TleLine1 pulumi.StringPtrOutput `pulumi:"tleLine1"`
-	// Line 2 of Two Line Element (TLE).
+	// Line 2 of the two-line element set (TLE).
 	TleLine2 pulumi.StringPtrOutput `pulumi:"tleLine2"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -98,7 +94,7 @@ func (SpacecraftState) ElementType() reflect.Type {
 }
 
 type spacecraftArgs struct {
-	// Links of the Spacecraft
+	// Immutable list of Spacecraft links.
 	Links []SpacecraftLink `pulumi:"links"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -106,21 +102,21 @@ type spacecraftArgs struct {
 	NoradId string `pulumi:"noradId"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName *string `pulumi:"spacecraftName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Title line of Two Line Element (TLE).
+	// Title line of the two-line element set (TLE).
 	TitleLine *string `pulumi:"titleLine"`
-	// Line 1 of Two Line Element (TLE).
+	// Line 1 of the two-line element set (TLE).
 	TleLine1 *string `pulumi:"tleLine1"`
-	// Line 2 of Two Line Element (TLE).
+	// Line 2 of the two-line element set (TLE).
 	TleLine2 *string `pulumi:"tleLine2"`
 }
 
 // The set of arguments for constructing a Spacecraft resource.
 type SpacecraftArgs struct {
-	// Links of the Spacecraft
+	// Immutable list of Spacecraft links.
 	Links SpacecraftLinkArrayInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
@@ -128,15 +124,15 @@ type SpacecraftArgs struct {
 	NoradId pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Title line of Two Line Element (TLE).
+	// Title line of the two-line element set (TLE).
 	TitleLine pulumi.StringPtrInput
-	// Line 1 of Two Line Element (TLE).
+	// Line 1 of the two-line element set (TLE).
 	TleLine1 pulumi.StringPtrInput
-	// Line 2 of Two Line Element (TLE).
+	// Line 2 of the two-line element set (TLE).
 	TleLine2 pulumi.StringPtrInput
 }
 
@@ -177,22 +173,12 @@ func (o SpacecraftOutput) ToSpacecraftOutputWithContext(ctx context.Context) Spa
 	return o
 }
 
-// Authorization status of spacecraft.
-func (o SpacecraftOutput) AuthorizationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.AuthorizationStatus }).(pulumi.StringOutput)
-}
-
-// Details of the authorization status.
-func (o SpacecraftOutput) AuthorizationStatusExtended() pulumi.StringOutput {
-	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.AuthorizationStatusExtended }).(pulumi.StringOutput)
-}
-
 // A unique read-only string that changes whenever the resource is updated.
 func (o SpacecraftOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Links of the Spacecraft
+// Immutable list of Spacecraft links.
 func (o SpacecraftOutput) Links() SpacecraftLinkResponseArrayOutput {
 	return o.ApplyT(func(v *Spacecraft) SpacecraftLinkResponseArrayOutput { return v.Links }).(SpacecraftLinkResponseArrayOutput)
 }
@@ -222,17 +208,17 @@ func (o SpacecraftOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Title line of Two Line Element (TLE).
+// Title line of the two-line element set (TLE).
 func (o SpacecraftOutput) TitleLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringPtrOutput { return v.TitleLine }).(pulumi.StringPtrOutput)
 }
 
-// Line 1 of Two Line Element (TLE).
+// Line 1 of the two-line element set (TLE).
 func (o SpacecraftOutput) TleLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringPtrOutput { return v.TleLine1 }).(pulumi.StringPtrOutput)
 }
 
-// Line 2 of Two Line Element (TLE).
+// Line 2 of the two-line element set (TLE).
 func (o SpacecraftOutput) TleLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringPtrOutput { return v.TleLine2 }).(pulumi.StringPtrOutput)
 }

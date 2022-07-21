@@ -12,26 +12,36 @@ import (
 )
 
 // Represents scheduled alert rule.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 type ScheduledAlertRule struct {
 	pulumi.CustomResourceState
 
+	// The alert details override settings
+	AlertDetailsOverride AlertDetailsOverrideResponsePtrOutput `pulumi:"alertDetailsOverride"`
 	// The Name of the alert rule template used to create this rule.
 	AlertRuleTemplateName pulumi.StringPtrOutput `pulumi:"alertRuleTemplateName"`
+	// Dictionary of string key-value pairs of columns to be attached to the alert
+	CustomDetails pulumi.StringMapOutput `pulumi:"customDetails"`
 	// The description of the alert rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name for alerts created by this alert rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// Array of the entity mappings of the alert rule
+	EntityMappings EntityMappingResponseArrayOutput `pulumi:"entityMappings"`
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The event grouping settings.
+	EventGroupingSettings EventGroupingSettingsResponsePtrOutput `pulumi:"eventGroupingSettings"`
+	// The settings of the incidents that created from alerts triggered by this analytics rule
+	IncidentConfiguration IncidentConfigurationResponsePtrOutput `pulumi:"incidentConfiguration"`
 	// The kind of the alert rule
 	// Expected value is 'Scheduled'.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The last time that this alert rule has been modified.
 	LastModifiedUtc pulumi.StringOutput `pulumi:"lastModifiedUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The query that creates alerts for this rule.
 	Query pulumi.StringOutput `pulumi:"query"`
@@ -45,13 +55,17 @@ type ScheduledAlertRule struct {
 	SuppressionDuration pulumi.StringOutput `pulumi:"suppressionDuration"`
 	// Determines whether the suppression for this alert rule is enabled or disabled.
 	SuppressionEnabled pulumi.BoolOutput `pulumi:"suppressionEnabled"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tactics of the alert rule
 	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
+	// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+	TemplateVersion pulumi.StringPtrOutput `pulumi:"templateVersion"`
 	// The operation against the threshold that triggers alert rule.
 	TriggerOperator pulumi.StringOutput `pulumi:"triggerOperator"`
 	// The threshold triggers this alert rule.
 	TriggerThreshold pulumi.IntOutput `pulumi:"triggerThreshold"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -170,14 +184,24 @@ func (ScheduledAlertRuleState) ElementType() reflect.Type {
 }
 
 type scheduledAlertRuleArgs struct {
+	// The alert details override settings
+	AlertDetailsOverride *AlertDetailsOverride `pulumi:"alertDetailsOverride"`
 	// The Name of the alert rule template used to create this rule.
 	AlertRuleTemplateName *string `pulumi:"alertRuleTemplateName"`
+	// Dictionary of string key-value pairs of columns to be attached to the alert
+	CustomDetails map[string]string `pulumi:"customDetails"`
 	// The description of the alert rule.
 	Description *string `pulumi:"description"`
 	// The display name for alerts created by this alert rule.
 	DisplayName string `pulumi:"displayName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
+	// Array of the entity mappings of the alert rule
+	EntityMappings []EntityMapping `pulumi:"entityMappings"`
+	// The event grouping settings.
+	EventGroupingSettings *EventGroupingSettings `pulumi:"eventGroupingSettings"`
+	// The settings of the incidents that created from alerts triggered by this analytics rule
+	IncidentConfiguration *IncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The kind of the alert rule
 	// Expected value is 'Scheduled'.
 	Kind string `pulumi:"kind"`
@@ -187,7 +211,7 @@ type scheduledAlertRuleArgs struct {
 	QueryFrequency string `pulumi:"queryFrequency"`
 	// The period (in ISO 8601 duration format) that this alert rule looks at.
 	QueryPeriod string `pulumi:"queryPeriod"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId *string `pulumi:"ruleId"`
@@ -199,6 +223,8 @@ type scheduledAlertRuleArgs struct {
 	SuppressionEnabled bool `pulumi:"suppressionEnabled"`
 	// The tactics of the alert rule
 	Tactics []string `pulumi:"tactics"`
+	// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+	TemplateVersion *string `pulumi:"templateVersion"`
 	// The operation against the threshold that triggers alert rule.
 	TriggerOperator TriggerOperator `pulumi:"triggerOperator"`
 	// The threshold triggers this alert rule.
@@ -209,14 +235,24 @@ type scheduledAlertRuleArgs struct {
 
 // The set of arguments for constructing a ScheduledAlertRule resource.
 type ScheduledAlertRuleArgs struct {
+	// The alert details override settings
+	AlertDetailsOverride AlertDetailsOverridePtrInput
 	// The Name of the alert rule template used to create this rule.
 	AlertRuleTemplateName pulumi.StringPtrInput
+	// Dictionary of string key-value pairs of columns to be attached to the alert
+	CustomDetails pulumi.StringMapInput
 	// The description of the alert rule.
 	Description pulumi.StringPtrInput
 	// The display name for alerts created by this alert rule.
 	DisplayName pulumi.StringInput
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolInput
+	// Array of the entity mappings of the alert rule
+	EntityMappings EntityMappingArrayInput
+	// The event grouping settings.
+	EventGroupingSettings EventGroupingSettingsPtrInput
+	// The settings of the incidents that created from alerts triggered by this analytics rule
+	IncidentConfiguration IncidentConfigurationPtrInput
 	// The kind of the alert rule
 	// Expected value is 'Scheduled'.
 	Kind pulumi.StringInput
@@ -226,7 +262,7 @@ type ScheduledAlertRuleArgs struct {
 	QueryFrequency pulumi.StringInput
 	// The period (in ISO 8601 duration format) that this alert rule looks at.
 	QueryPeriod pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Alert rule ID
 	RuleId pulumi.StringPtrInput
@@ -238,6 +274,8 @@ type ScheduledAlertRuleArgs struct {
 	SuppressionEnabled pulumi.BoolInput
 	// The tactics of the alert rule
 	Tactics pulumi.StringArrayInput
+	// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+	TemplateVersion pulumi.StringPtrInput
 	// The operation against the threshold that triggers alert rule.
 	TriggerOperator TriggerOperatorInput
 	// The threshold triggers this alert rule.
@@ -283,9 +321,19 @@ func (o ScheduledAlertRuleOutput) ToScheduledAlertRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The alert details override settings
+func (o ScheduledAlertRuleOutput) AlertDetailsOverride() AlertDetailsOverrideResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) AlertDetailsOverrideResponsePtrOutput { return v.AlertDetailsOverride }).(AlertDetailsOverrideResponsePtrOutput)
+}
+
 // The Name of the alert rule template used to create this rule.
 func (o ScheduledAlertRuleOutput) AlertRuleTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringPtrOutput { return v.AlertRuleTemplateName }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of string key-value pairs of columns to be attached to the alert
+func (o ScheduledAlertRuleOutput) CustomDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringMapOutput { return v.CustomDetails }).(pulumi.StringMapOutput)
 }
 
 // The description of the alert rule.
@@ -303,9 +351,24 @@ func (o ScheduledAlertRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Array of the entity mappings of the alert rule
+func (o ScheduledAlertRuleOutput) EntityMappings() EntityMappingResponseArrayOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) EntityMappingResponseArrayOutput { return v.EntityMappings }).(EntityMappingResponseArrayOutput)
+}
+
 // Etag of the azure resource
 func (o ScheduledAlertRuleOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The event grouping settings.
+func (o ScheduledAlertRuleOutput) EventGroupingSettings() EventGroupingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) EventGroupingSettingsResponsePtrOutput { return v.EventGroupingSettings }).(EventGroupingSettingsResponsePtrOutput)
+}
+
+// The settings of the incidents that created from alerts triggered by this analytics rule
+func (o ScheduledAlertRuleOutput) IncidentConfiguration() IncidentConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) IncidentConfigurationResponsePtrOutput { return v.IncidentConfiguration }).(IncidentConfigurationResponsePtrOutput)
 }
 
 // The kind of the alert rule
@@ -319,7 +382,7 @@ func (o ScheduledAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o ScheduledAlertRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -354,9 +417,19 @@ func (o ScheduledAlertRuleOutput) SuppressionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.BoolOutput { return v.SuppressionEnabled }).(pulumi.BoolOutput)
 }
 
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ScheduledAlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The tactics of the alert rule
 func (o ScheduledAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+func (o ScheduledAlertRuleOutput) TemplateVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringPtrOutput { return v.TemplateVersion }).(pulumi.StringPtrOutput)
 }
 
 // The operation against the threshold that triggers alert rule.
@@ -369,7 +442,7 @@ func (o ScheduledAlertRuleOutput) TriggerThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.IntOutput { return v.TriggerThreshold }).(pulumi.IntOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ScheduledAlertRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

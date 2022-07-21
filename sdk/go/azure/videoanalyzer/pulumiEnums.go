@@ -94,6 +94,16 @@ const (
 	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
 )
 
+// Whether or not public network access is allowed for resources under the Video Analyzer account.
+type PublicNetworkAccess string
+
+const (
+	// Public network access is enabled.
+	PublicNetworkAccessEnabled = PublicNetworkAccess("Enabled")
+	// Public network access is disabled.
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
 // Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
 type RtspTransport string
 

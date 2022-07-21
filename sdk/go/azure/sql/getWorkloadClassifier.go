@@ -11,7 +11,7 @@ import (
 )
 
 // Workload classifier operations for a data warehouse
-// API Version: 2020-11-01-preview.
+// API Version: 2021-11-01-preview.
 func LookupWorkloadClassifier(ctx *pulumi.Context, args *LookupWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadClassifierResult, error) {
 	var rv LookupWorkloadClassifierResult
 	err := ctx.Invoke("azure-native:sql:getWorkloadClassifier", args, &rv, opts...)

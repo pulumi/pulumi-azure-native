@@ -155,7 +155,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20201101preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20210601preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20210801preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20211201preview:ConnectedRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20201101preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20210601preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20210801preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20211201preview:ConnectedRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedRegistry.__pulumiType, name, resourceInputs, opts);
     }

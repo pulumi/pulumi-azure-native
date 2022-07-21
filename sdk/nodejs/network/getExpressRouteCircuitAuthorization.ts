@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Authorization in an ExpressRouteCircuit resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
     if (!opts) {

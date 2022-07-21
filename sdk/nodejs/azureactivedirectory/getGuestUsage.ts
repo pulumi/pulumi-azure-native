@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Guest Usages Resource
- * API Version: 2020-05-01-preview.
+ * API Version: 2021-04-01.
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
     if (!opts) {
@@ -26,7 +27,7 @@ export interface GetGuestUsageArgs {
      */
     resourceGroupName: string;
     /**
-     * The initial domain name of the AAD tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName: string;
 }
@@ -47,6 +48,10 @@ export interface GetGuestUsageResult {
      * The name of the Guest Usages resource.
      */
     readonly name: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.azureactivedirectory.SystemDataResponse;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
@@ -71,7 +76,7 @@ export interface GetGuestUsageOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The initial domain name of the AAD tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName: pulumi.Input<string>;
 }

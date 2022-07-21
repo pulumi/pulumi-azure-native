@@ -135,7 +135,7 @@ class GetStorageAccountCredentialResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        StorageAccountCredential object
+        Metadata pertaining to creation and last modification of StorageAccountCredential
         """
         return pulumi.get(self, "system_data")
 
@@ -182,7 +182,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
     The storage account credential.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -221,7 +221,7 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
     The storage account credential.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

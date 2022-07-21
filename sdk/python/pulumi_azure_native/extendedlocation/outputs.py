@@ -11,7 +11,7 @@ from ._enums import *
 
 __all__ = [
     'CustomLocationPropertiesResponseAuthentication',
-    'ResourceSyncRulePropertiesResponseSelector',
+    'IdentityResponse',
     'SystemDataResponse',
 ]
 
@@ -39,43 +39,67 @@ class CustomLocationPropertiesResponseAuthentication(dict):
 
 
 @pulumi.output_type
-class ResourceSyncRulePropertiesResponseSelector(dict):
+class IdentityResponse(dict):
     """
-    A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+    Identity for the resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "matchLabels":
-            suggest = "match_labels"
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceSyncRulePropertiesResponseSelector. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceSyncRulePropertiesResponseSelector.__key_warning(key)
+        IdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceSyncRulePropertiesResponseSelector.__key_warning(key)
+        IdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_labels: Optional[Mapping[str, str]] = None):
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
         """
-        A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
-        :param Mapping[str, str] match_labels: MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
         """
-        if match_labels is not None:
-            pulumi.set(__self__, "match_labels", match_labels)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> Optional[Mapping[str, str]]:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
-        MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+        The principal ID of resource identity.
         """
-        return pulumi.get(self, "match_labels")
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

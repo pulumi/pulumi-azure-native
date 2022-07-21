@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the RedisEnterprise cluster
- * API Version: 2021-03-01.
+ * API Version: 2022-01-01.
  */
 export class RedisEnterprise extends pulumi.CustomResource {
     /**

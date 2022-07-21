@@ -18,6 +18,8 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  creation_data: pulumi.Input['CreationDataArgs'],
                  resource_group_name: pulumi.Input[str],
+                 completion_percent: Optional[pulumi.Input[float]] = None,
+                 data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
@@ -28,15 +30,20 @@ class SnapshotArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  purchase_plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
+                 security_profile: Optional[pulumi.Input['DiskSecurityProfileArgs']] = None,
                  sku: Optional[pulumi.Input['SnapshotSkuArgs']] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
+                 supported_capabilities: Optional[pulumi.Input['SupportedCapabilitiesArgs']] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input['CreationDataArgs'] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        :param pulumi.Input[Union[str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
@@ -47,14 +54,21 @@ class SnapshotArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
         :param pulumi.Input['PurchasePlanArgs'] purchase_plan: Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        :param pulumi.Input['DiskSecurityProfileArgs'] security_profile: Contains the security related information for the resource.
         :param pulumi.Input['SnapshotSkuArgs'] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
-        :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
+        :param pulumi.Input['SupportedCapabilitiesArgs'] supported_capabilities: List of supported capabilities for the image from which the source disk from the snapshot was originally created.
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a snapshot supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "creation_data", creation_data)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if completion_percent is not None:
+            pulumi.set(__self__, "completion_percent", completion_percent)
+        if data_access_auth_mode is not None:
+            pulumi.set(__self__, "data_access_auth_mode", data_access_auth_mode)
         if disk_access_id is not None:
             pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_size_gb is not None:
@@ -75,12 +89,18 @@ class SnapshotArgs:
             pulumi.set(__self__, "network_access_policy", network_access_policy)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if purchase_plan is not None:
             pulumi.set(__self__, "purchase_plan", purchase_plan)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if snapshot_name is not None:
             pulumi.set(__self__, "snapshot_name", snapshot_name)
+        if supported_capabilities is not None:
+            pulumi.set(__self__, "supported_capabilities", supported_capabilities)
         if supports_hibernation is not None:
             pulumi.set(__self__, "supports_hibernation", supports_hibernation)
         if tags is not None:
@@ -109,6 +129,30 @@ class SnapshotArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="completionPercent")
+    def completion_percent(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        """
+        return pulumi.get(self, "completion_percent")
+
+    @completion_percent.setter
+    def completion_percent(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "completion_percent", value)
+
+    @property
+    @pulumi.getter(name="dataAccessAuthMode")
+    def data_access_auth_mode(self) -> Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]]:
+        """
+        Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        """
+        return pulumi.get(self, "data_access_auth_mode")
+
+    @data_access_auth_mode.setter
+    def data_access_auth_mode(self, value: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]]):
+        pulumi.set(self, "data_access_auth_mode", value)
 
     @property
     @pulumi.getter(name="diskAccessId")
@@ -231,6 +275,18 @@ class SnapshotArgs:
         pulumi.set(self, "os_type", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Policy for controlling export on the disk.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> Optional[pulumi.Input['PurchasePlanArgs']]:
         """
@@ -241,6 +297,18 @@ class SnapshotArgs:
     @purchase_plan.setter
     def purchase_plan(self, value: Optional[pulumi.Input['PurchasePlanArgs']]):
         pulumi.set(self, "purchase_plan", value)
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['DiskSecurityProfileArgs']]:
+        """
+        Contains the security related information for the resource.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['DiskSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
 
     @property
     @pulumi.getter
@@ -258,13 +326,25 @@ class SnapshotArgs:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
     def snapshot_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_name", value)
+
+    @property
+    @pulumi.getter(name="supportedCapabilities")
+    def supported_capabilities(self) -> Optional[pulumi.Input['SupportedCapabilitiesArgs']]:
+        """
+        List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        """
+        return pulumi.get(self, "supported_capabilities")
+
+    @supported_capabilities.setter
+    def supported_capabilities(self, value: Optional[pulumi.Input['SupportedCapabilitiesArgs']]):
+        pulumi.set(self, "supported_capabilities", value)
 
     @property
     @pulumi.getter(name="supportsHibernation")
@@ -296,7 +376,9 @@ class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 completion_percent: Optional[pulumi.Input[float]] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
@@ -307,20 +389,25 @@ class Snapshot(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
+                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Snapshot resource.
-        API Version: 2020-12-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[Union[str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
@@ -331,10 +418,13 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
         :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the image from which the source disk for the snapshot was originally created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']] security_profile: Contains the security related information for the resource.
         :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
-        :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
+        :param pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']] supported_capabilities: List of supported capabilities for the image from which the source disk from the snapshot was originally created.
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a snapshot supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -346,7 +436,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Snapshot resource.
-        API Version: 2020-12-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.
@@ -363,7 +453,9 @@ class Snapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 completion_percent: Optional[pulumi.Input[float]] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
@@ -374,10 +466,13 @@ class Snapshot(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
+                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -392,9 +487,11 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
+            __props__.__dict__["completion_percent"] = completion_percent
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
             __props__.__dict__["creation_data"] = creation_data
+            __props__.__dict__["data_access_auth_mode"] = data_access_auth_mode
             __props__.__dict__["disk_access_id"] = disk_access_id
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["encryption"] = encryption
@@ -405,12 +502,15 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["network_access_policy"] = network_access_policy
             __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["purchase_plan"] = purchase_plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["sku"] = sku
             __props__.__dict__["snapshot_name"] = snapshot_name
+            __props__.__dict__["supported_capabilities"] = supported_capabilities
             __props__.__dict__["supports_hibernation"] = supports_hibernation
             __props__.__dict__["tags"] = tags
             __props__.__dict__["disk_size_bytes"] = None
@@ -445,7 +545,9 @@ class Snapshot(pulumi.CustomResource):
 
         __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
+        __props__.__dict__["completion_percent"] = None
         __props__.__dict__["creation_data"] = None
+        __props__.__dict__["data_access_auth_mode"] = None
         __props__.__dict__["disk_access_id"] = None
         __props__.__dict__["disk_size_bytes"] = None
         __props__.__dict__["disk_size_gb"] = None
@@ -461,8 +563,11 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["network_access_policy"] = None
         __props__.__dict__["os_type"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["purchase_plan"] = None
+        __props__.__dict__["security_profile"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["supported_capabilities"] = None
         __props__.__dict__["supports_hibernation"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
@@ -471,12 +576,28 @@ class Snapshot(pulumi.CustomResource):
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="completionPercent")
+    def completion_percent(self) -> pulumi.Output[Optional[float]]:
+        """
+        Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        """
+        return pulumi.get(self, "completion_percent")
+
+    @property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> pulumi.Output['outputs.CreationDataResponse']:
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
         return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="dataAccessAuthMode")
+    def data_access_auth_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        """
+        return pulumi.get(self, "data_access_auth_mode")
 
     @property
     @pulumi.getter(name="diskAccessId")
@@ -599,6 +720,14 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Policy for controlling export on the disk.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> pulumi.Output[Optional['outputs.PurchasePlanResponse']]:
         """
@@ -607,12 +736,28 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "purchase_plan")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.DiskSecurityProfileResponse']]:
+        """
+        Contains the security related information for the resource.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SnapshotSkuResponse']]:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportedCapabilities")
+    def supported_capabilities(self) -> pulumi.Output[Optional['outputs.SupportedCapabilitiesResponse']]:
+        """
+        List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        """
+        return pulumi.get(self, "supported_capabilities")
 
     @property
     @pulumi.getter(name="supportsHibernation")

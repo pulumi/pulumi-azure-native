@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// An extended server blob auditing policy.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetExtendedServerBlobAuditingPolicyResult> InvokeAsync(GetExtendedServerBlobAuditingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// An extended server blob auditing policy.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetExtendedServerBlobAuditingPolicyResult> Invoke(GetExtendedServerBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.Sql
         /// USER_CHANGE_PASSWORD_GROUP
         /// BATCH_STARTED_GROUP
         /// BATCH_COMPLETED_GROUP
+        /// DBCC_GROUP
+        /// DATABASE_OWNERSHIP_CHANGE_GROUP
+        /// DATABASE_CHANGE_GROUP
+        /// LEDGER_OPERATION_GROUP
         /// 
         /// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         /// 
@@ -173,6 +177,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool? IsDevopsAuditEnabled;
         /// <summary>
+        /// Specifies whether Managed Identity is used to access blob storage
+        /// </summary>
+        public readonly bool? IsManagedIdentityInUse;
+        /// <summary>
         /// Specifies whether storageAccountAccessKey value is the storage's secondary key.
         /// </summary>
         public readonly bool? IsStorageSecondaryKeyInUse;
@@ -220,6 +228,8 @@ namespace Pulumi.AzureNative.Sql
 
             bool? isDevopsAuditEnabled,
 
+            bool? isManagedIdentityInUse,
+
             bool? isStorageSecondaryKeyInUse,
 
             string name,
@@ -242,6 +252,7 @@ namespace Pulumi.AzureNative.Sql
             Id = id;
             IsAzureMonitorTargetEnabled = isAzureMonitorTargetEnabled;
             IsDevopsAuditEnabled = isDevopsAuditEnabled;
+            IsManagedIdentityInUse = isManagedIdentityInUse;
             IsStorageSecondaryKeyInUse = isStorageSecondaryKeyInUse;
             Name = name;
             PredicateExpression = predicateExpression;

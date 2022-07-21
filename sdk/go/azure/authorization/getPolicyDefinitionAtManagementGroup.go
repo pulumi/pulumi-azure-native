@@ -11,7 +11,7 @@ import (
 )
 
 // The policy definition.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func LookupPolicyDefinitionAtManagementGroup(ctx *pulumi.Context, args *LookupPolicyDefinitionAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPolicyDefinitionAtManagementGroupResult, error) {
 	var rv LookupPolicyDefinitionAtManagementGroupResult
 	err := ctx.Invoke("azure-native:authorization:getPolicyDefinitionAtManagementGroup", args, &rv, opts...)
@@ -48,6 +48,8 @@ type LookupPolicyDefinitionAtManagementGroupResult struct {
 	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type string `pulumi:"type"`
 }
@@ -149,6 +151,11 @@ func (o LookupPolicyDefinitionAtManagementGroupResultOutput) PolicyRule() pulumi
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 func (o LookupPolicyDefinitionAtManagementGroupResultOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource (Microsoft.Authorization/policyDefinitions).

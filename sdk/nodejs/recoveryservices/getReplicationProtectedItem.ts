@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Replication protected item.
- * API Version: 2018-07-10.
+ * API Version: 2022-03-01.
  */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
     if (!opts) {

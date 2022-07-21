@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
     if (!opts) {
@@ -67,7 +67,7 @@ export interface GetFileEventTriggerResult {
      */
     readonly sourceInfo: outputs.databoxedge.FileSourceInfoResponse;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

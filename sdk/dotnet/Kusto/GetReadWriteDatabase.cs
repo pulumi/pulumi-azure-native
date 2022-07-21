@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing a read write database.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetReadWriteDatabaseResult> InvokeAsync(GetReadWriteDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a read write database.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetReadWriteDatabaseResult> Invoke(GetReadWriteDatabaseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseInvokeArgs(), options.WithDefaults());

@@ -10,12 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
-    /// Schema Contract details.
-    /// API Version: 2020-12-01.
+    /// API Schema Contract details.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiSchema")]
     public partial class ApiSchema : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+        /// </summary>
+        [Output("components")]
+        public Output<object?> Components { get; private set; } = null!;
+
         /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
@@ -23,19 +29,19 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         /// </summary>
         [Output("definitions")]
         public Output<object?> Definitions { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -113,13 +119,19 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+        /// </summary>
+        [Input("components")]
+        public Input<object>? Components { get; set; }
+
+        /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         /// </summary>
         [Input("definitions")]
         public Input<object>? Definitions { get; set; }
@@ -131,7 +143,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }

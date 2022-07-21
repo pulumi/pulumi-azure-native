@@ -110,7 +110,7 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceTapConfigurationResult:
     """
     Tap configuration in a Network Interface.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str network_interface_name: The name of the network interface.
@@ -143,7 +143,7 @@ def get_network_interface_tap_configuration_output(network_interface_name: Optio
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceTapConfigurationResult]:
     """
     Tap configuration in a Network Interface.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str network_interface_name: The name of the network interface.

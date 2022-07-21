@@ -12,7 +12,7 @@ import (
 )
 
 // Information about managed application definition.
-// API Version: 2019-07-01.
+// API Version: 2021-07-01.
 type ApplicationDefinition struct {
 	pulumi.CustomResourceState
 
@@ -50,8 +50,14 @@ type ApplicationDefinition struct {
 	PackageFileUri pulumi.StringPtrOutput `pulumi:"packageFileUri"`
 	// The managed application provider policies.
 	Policies ApplicationPolicyResponseArrayOutput `pulumi:"policies"`
+	// Provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -162,6 +168,8 @@ type applicationDefinitionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
 	Sku *Sku `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -206,6 +214,8 @@ type ApplicationDefinitionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.
 	Sku SkuPtrInput
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }
@@ -336,9 +346,24 @@ func (o ApplicationDefinitionOutput) Policies() ApplicationPolicyResponseArrayOu
 	return o.ApplyT(func(v *ApplicationDefinition) ApplicationPolicyResponseArrayOutput { return v.Policies }).(ApplicationPolicyResponseArrayOutput)
 }
 
+// Provisioning state.
+func (o ApplicationDefinitionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 // The SKU of the resource.
 func (o ApplicationDefinitionOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicationDefinition) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The storage account id for bring your own storage scenario.
+func (o ApplicationDefinitionOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ApplicationDefinitionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

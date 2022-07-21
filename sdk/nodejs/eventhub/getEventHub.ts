@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Event Hub operation
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
     if (!opts) {
@@ -54,6 +54,10 @@ export interface GetEventHubResult {
      */
     readonly id: string;
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */
     readonly messageRetentionInDays?: number;
@@ -74,7 +78,11 @@ export interface GetEventHubResult {
      */
     readonly status?: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**

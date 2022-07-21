@@ -12,18 +12,26 @@ import (
 )
 
 // A Stream Analytics Cluster object
-// API Version: 2020-03-01-preview.
+// API Version: 2020-03-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// Represents the number of streaming units currently being used on the cluster.
+	CapacityAllocated pulumi.IntOutput `pulumi:"capacityAllocated"`
+	// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+	CapacityAssigned pulumi.IntOutput `pulumi:"capacityAssigned"`
+	// Unique identifier for the cluster.
+	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+	// The date this cluster was created.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with a Stream Analytics cluster.
-	Properties ClusterPropertiesResponseOutput `pulumi:"properties"`
+	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 	Sku ClusterSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
@@ -146,6 +154,26 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// Represents the number of streaming units currently being used on the cluster.
+func (o ClusterOutput) CapacityAllocated() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.CapacityAllocated }).(pulumi.IntOutput)
+}
+
+// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+func (o ClusterOutput) CapacityAssigned() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.CapacityAssigned }).(pulumi.IntOutput)
+}
+
+// Unique identifier for the cluster.
+func (o ClusterOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The date this cluster was created.
+func (o ClusterOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
 // The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 func (o ClusterOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
@@ -161,9 +189,9 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties associated with a Stream Analytics cluster.
-func (o ClusterOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v *Cluster) ClusterPropertiesResponseOutput { return v.Properties }).(ClusterPropertiesResponseOutput)
+// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.

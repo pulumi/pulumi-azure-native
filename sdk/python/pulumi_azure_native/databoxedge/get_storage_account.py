@@ -121,7 +121,7 @@ class GetStorageAccountResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        StorageAccount object on ASE device
+        Metadata pertaining to creation and last modification of StorageAccount
         """
         return pulumi.get(self, "system_data")
 
@@ -158,7 +158,7 @@ def get_storage_account(device_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -195,7 +195,7 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

@@ -163,7 +163,7 @@ class StreamingPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A Streaming Policy resource
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +184,7 @@ class StreamingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Streaming Policy resource
-        API Version: 2020-05-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param StreamingPolicyArgs args: The arguments to use to populate this resource's properties.

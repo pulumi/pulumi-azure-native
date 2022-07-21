@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Contains information about a certificate.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:batch:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about a certificate.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:batch:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

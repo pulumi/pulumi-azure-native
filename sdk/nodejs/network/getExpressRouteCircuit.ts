@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRouteCircuit resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
     if (!opts) {
@@ -40,6 +40,10 @@ export interface GetExpressRouteCircuitResult {
      * Allow classic operations.
      */
     readonly allowClassicOperations?: boolean;
+    /**
+     * The authorizationKey.
+     */
+    readonly authorizationKey?: string;
     /**
      * The list of authorizations.
      */

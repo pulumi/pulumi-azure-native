@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NodeTypeArgs', 'NodeType']
@@ -16,61 +17,122 @@ __all__ = ['NodeTypeArgs', 'NodeType']
 class NodeTypeArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
-                 data_disk_size_gb: pulumi.Input[int],
                  is_primary: pulumi.Input[bool],
                  resource_group_name: pulumi.Input[str],
                  vm_instance_count: pulumi.Input[int],
+                 additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]] = None,
                  application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_disk_letter: Optional[pulumi.Input[str]] = None,
+                 data_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+                 enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
                  ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
+                 frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]] = None,
+                 is_stateless: Optional[pulumi.Input[bool]] = None,
+                 multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 sku: Optional[pulumi.Input['NodeTypeSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+                 use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
+                 vm_managed_identity: Optional[pulumi.Input['VmManagedIdentityArgs']] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NodeType resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[int] data_disk_size_gb: Disk size for each vm in the node type in GBs.
-        :param pulumi.Input[bool] is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        :param pulumi.Input[bool] is_primary: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        :param pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]] additional_data_disks: Additional managed data disks.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+        :param pulumi.Input[str] data_disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+        :param pulumi.Input[int] data_disk_size_gb: Disk size for the managed disk attached to the vms on the node type in GBs.
+        :param pulumi.Input[Union[str, 'DiskType']] data_disk_type: Managed data disk type. Specifies the storage account type for the managed disk
+        :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
+        :param pulumi.Input[bool] enable_encryption_at_host: Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        :param pulumi.Input[bool] enable_over_provisioning: Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]] frontend_configurations: Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
+        :param pulumi.Input[bool] multiple_placement_groups: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+        :param pulumi.Input['NodeTypeSkuArgs'] sku: The node type sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[bool] use_default_public_load_balancer: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         :param pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+        :param pulumi.Input['VmManagedIdentityArgs'] vm_managed_identity: Identities to assign to the virtual machine scale set under the node type.
         :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
         pulumi.set(__self__, "is_primary", is_primary)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_instance_count", vm_instance_count)
+        if additional_data_disks is not None:
+            pulumi.set(__self__, "additional_data_disks", additional_data_disks)
         if application_ports is not None:
             pulumi.set(__self__, "application_ports", application_ports)
         if capacities is not None:
             pulumi.set(__self__, "capacities", capacities)
+        if data_disk_letter is not None:
+            pulumi.set(__self__, "data_disk_letter", data_disk_letter)
+        if data_disk_size_gb is not None:
+            pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
+        if data_disk_type is not None:
+            pulumi.set(__self__, "data_disk_type", data_disk_type)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_encryption_at_host is None:
+            enable_encryption_at_host = False
+        if enable_encryption_at_host is not None:
+            pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
+        if enable_over_provisioning is not None:
+            pulumi.set(__self__, "enable_over_provisioning", enable_over_provisioning)
         if ephemeral_ports is not None:
             pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+        if frontend_configurations is not None:
+            pulumi.set(__self__, "frontend_configurations", frontend_configurations)
+        if is_stateless is None:
+            is_stateless = False
+        if is_stateless is not None:
+            pulumi.set(__self__, "is_stateless", is_stateless)
+        if multiple_placement_groups is None:
+            multiple_placement_groups = False
+        if multiple_placement_groups is not None:
+            pulumi.set(__self__, "multiple_placement_groups", multiple_placement_groups)
+        if network_security_rules is not None:
+            pulumi.set(__self__, "network_security_rules", network_security_rules)
         if node_type_name is not None:
             pulumi.set(__self__, "node_type_name", node_type_name)
         if placement_properties is not None:
             pulumi.set(__self__, "placement_properties", placement_properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_default_public_load_balancer is not None:
+            pulumi.set(__self__, "use_default_public_load_balancer", use_default_public_load_balancer)
+        if use_temp_data_disk is not None:
+            pulumi.set(__self__, "use_temp_data_disk", use_temp_data_disk)
         if vm_extensions is not None:
             pulumi.set(__self__, "vm_extensions", vm_extensions)
         if vm_image_offer is not None:
@@ -81,6 +143,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "vm_image_sku", vm_image_sku)
         if vm_image_version is not None:
             pulumi.set(__self__, "vm_image_version", vm_image_version)
+        if vm_managed_identity is not None:
+            pulumi.set(__self__, "vm_managed_identity", vm_managed_identity)
         if vm_secrets is not None:
             pulumi.set(__self__, "vm_secrets", vm_secrets)
         if vm_size is not None:
@@ -99,22 +163,10 @@ class NodeTypeArgs:
         pulumi.set(self, "cluster_name", value)
 
     @property
-    @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> pulumi.Input[int]:
-        """
-        Disk size for each vm in the node type in GBs.
-        """
-        return pulumi.get(self, "data_disk_size_gb")
-
-    @data_disk_size_gb.setter
-    def data_disk_size_gb(self, value: pulumi.Input[int]):
-        pulumi.set(self, "data_disk_size_gb", value)
-
-    @property
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> pulumi.Input[bool]:
         """
-        The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         """
         return pulumi.get(self, "is_primary")
 
@@ -138,13 +190,25 @@ class NodeTypeArgs:
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> pulumi.Input[int]:
         """
-        The number of nodes in the node type.
+        The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
         """
         return pulumi.get(self, "vm_instance_count")
 
     @vm_instance_count.setter
     def vm_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "vm_instance_count", value)
+
+    @property
+    @pulumi.getter(name="additionalDataDisks")
+    def additional_data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]]:
+        """
+        Additional managed data disks.
+        """
+        return pulumi.get(self, "additional_data_disks")
+
+    @additional_data_disks.setter
+    def additional_data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]]):
+        pulumi.set(self, "additional_data_disks", value)
 
     @property
     @pulumi.getter(name="applicationPorts")
@@ -171,6 +235,78 @@ class NodeTypeArgs:
         pulumi.set(self, "capacities", value)
 
     @property
+    @pulumi.getter(name="dataDiskLetter")
+    def data_disk_letter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+        """
+        return pulumi.get(self, "data_disk_letter")
+
+    @data_disk_letter.setter
+    def data_disk_letter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_disk_letter", value)
+
+    @property
+    @pulumi.getter(name="dataDiskSizeGB")
+    def data_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Disk size for the managed disk attached to the vms on the node type in GBs.
+        """
+        return pulumi.get(self, "data_disk_size_gb")
+
+    @data_disk_size_gb.setter
+    def data_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="dataDiskType")
+    def data_disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskType']]]:
+        """
+        Managed data disk type. Specifies the storage account type for the managed disk
+        """
+        return pulumi.get(self, "data_disk_type")
+
+    @data_disk_type.setter
+    def data_disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskType']]]):
+        pulumi.set(self, "data_disk_type", value)
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @enable_accelerated_networking.setter
+    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_accelerated_networking", value)
+
+    @property
+    @pulumi.getter(name="enableEncryptionAtHost")
+    def enable_encryption_at_host(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        """
+        return pulumi.get(self, "enable_encryption_at_host")
+
+    @enable_encryption_at_host.setter
+    def enable_encryption_at_host(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_encryption_at_host", value)
+
+    @property
+    @pulumi.getter(name="enableOverProvisioning")
+    def enable_over_provisioning(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "enable_over_provisioning")
+
+    @enable_over_provisioning.setter
+    def enable_over_provisioning(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_over_provisioning", value)
+
+    @property
     @pulumi.getter(name="ephemeralPorts")
     def ephemeral_ports(self) -> Optional[pulumi.Input['EndpointRangeDescriptionArgs']]:
         """
@@ -181,6 +317,54 @@ class NodeTypeArgs:
     @ephemeral_ports.setter
     def ephemeral_ports(self, value: Optional[pulumi.Input['EndpointRangeDescriptionArgs']]):
         pulumi.set(self, "ephemeral_ports", value)
+
+    @property
+    @pulumi.getter(name="frontendConfigurations")
+    def frontend_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]]:
+        """
+        Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        """
+        return pulumi.get(self, "frontend_configurations")
+
+    @frontend_configurations.setter
+    def frontend_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]]):
+        pulumi.set(self, "frontend_configurations", value)
+
+    @property
+    @pulumi.getter(name="isStateless")
+    def is_stateless(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the node type can only host Stateless workloads.
+        """
+        return pulumi.get(self, "is_stateless")
+
+    @is_stateless.setter
+    def is_stateless(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_stateless", value)
+
+    @property
+    @pulumi.getter(name="multiplePlacementGroups")
+    def multiple_placement_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        """
+        return pulumi.get(self, "multiple_placement_groups")
+
+    @multiple_placement_groups.setter
+    def multiple_placement_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multiple_placement_groups", value)
+
+    @property
+    @pulumi.getter(name="networkSecurityRules")
+    def network_security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
+        """
+        The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+        """
+        return pulumi.get(self, "network_security_rules")
+
+    @network_security_rules.setter
+    def network_security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
+        pulumi.set(self, "network_security_rules", value)
 
     @property
     @pulumi.getter(name="nodeTypeName")
@@ -208,6 +392,18 @@ class NodeTypeArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['NodeTypeSkuArgs']]:
+        """
+        The node type sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['NodeTypeSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Azure resource tags.
@@ -217,6 +413,30 @@ class NodeTypeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="useDefaultPublicLoadBalancer")
+    def use_default_public_load_balancer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        """
+        return pulumi.get(self, "use_default_public_load_balancer")
+
+    @use_default_public_load_balancer.setter
+    def use_default_public_load_balancer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_default_public_load_balancer", value)
+
+    @property
+    @pulumi.getter(name="useTempDataDisk")
+    def use_temp_data_disk(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "use_temp_data_disk")
+
+    @use_temp_data_disk.setter
+    def use_temp_data_disk(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_temp_data_disk", value)
 
     @property
     @pulumi.getter(name="vmExtensions")
@@ -279,6 +499,18 @@ class NodeTypeArgs:
         pulumi.set(self, "vm_image_version", value)
 
     @property
+    @pulumi.getter(name="vmManagedIdentity")
+    def vm_managed_identity(self) -> Optional[pulumi.Input['VmManagedIdentityArgs']]:
+        """
+        Identities to assign to the virtual machine scale set under the node type.
+        """
+        return pulumi.get(self, "vm_managed_identity")
+
+    @vm_managed_identity.setter
+    def vm_managed_identity(self, value: Optional[pulumi.Input['VmManagedIdentityArgs']]):
+        pulumi.set(self, "vm_managed_identity", value)
+
+    @property
     @pulumi.getter(name="vmSecrets")
     def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]:
         """
@@ -308,47 +540,75 @@ class NodeType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmssDataDiskArgs']]]]] = None,
                  application_ports: Optional[pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']]] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_disk_letter: Optional[pulumi.Input[str]] = None,
                  data_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+                 enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
                  ephemeral_ports: Optional[pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']]] = None,
+                 frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendConfigurationArgs']]]]] = None,
                  is_primary: Optional[pulumi.Input[bool]] = None,
+                 is_stateless: Optional[pulumi.Input[bool]] = None,
+                 multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['NodeTypeSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+                 use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
                  vm_instance_count: Optional[pulumi.Input[int]] = None,
+                 vm_managed_identity: Optional[pulumi.Input[pulumi.InputType['VmManagedIdentityArgs']]] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        API Version: 2020-01-01-preview.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmssDataDiskArgs']]]] additional_data_disks: Additional managed data disks.
         :param pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[int] data_disk_size_gb: Disk size for each vm in the node type in GBs.
+        :param pulumi.Input[str] data_disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+        :param pulumi.Input[int] data_disk_size_gb: Disk size for the managed disk attached to the vms on the node type in GBs.
+        :param pulumi.Input[Union[str, 'DiskType']] data_disk_type: Managed data disk type. Specifies the storage account type for the managed disk
+        :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
+        :param pulumi.Input[bool] enable_encryption_at_host: Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        :param pulumi.Input[bool] enable_over_provisioning: Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
         :param pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
-        :param pulumi.Input[bool] is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendConfigurationArgs']]]] frontend_configurations: Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        :param pulumi.Input[bool] is_primary: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
+        :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
+        :param pulumi.Input[bool] multiple_placement_groups: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['NodeTypeSkuArgs']] sku: The node type sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[bool] use_default_public_load_balancer: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        :param pulumi.Input[pulumi.InputType['VmManagedIdentityArgs']] vm_managed_identity: Identities to assign to the virtual machine scale set under the node type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
@@ -360,7 +620,7 @@ class NodeType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        API Version: 2020-01-01-preview.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param NodeTypeArgs args: The arguments to use to populate this resource's properties.
@@ -377,22 +637,36 @@ class NodeType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmssDataDiskArgs']]]]] = None,
                  application_ports: Optional[pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']]] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_disk_letter: Optional[pulumi.Input[str]] = None,
                  data_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+                 enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
                  ephemeral_ports: Optional[pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']]] = None,
+                 frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendConfigurationArgs']]]]] = None,
                  is_primary: Optional[pulumi.Input[bool]] = None,
+                 is_stateless: Optional[pulumi.Input[bool]] = None,
+                 multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['NodeTypeSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+                 use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
                  vm_instance_count: Optional[pulumi.Input[int]] = None,
+                 vm_managed_identity: Optional[pulumi.Input[pulumi.InputType['VmManagedIdentityArgs']]] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -407,24 +681,41 @@ class NodeType(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
+            __props__.__dict__["additional_data_disks"] = additional_data_disks
             __props__.__dict__["application_ports"] = application_ports
             __props__.__dict__["capacities"] = capacities
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if data_disk_size_gb is None and not opts.urn:
-                raise TypeError("Missing required property 'data_disk_size_gb'")
+            __props__.__dict__["data_disk_letter"] = data_disk_letter
             __props__.__dict__["data_disk_size_gb"] = data_disk_size_gb
+            __props__.__dict__["data_disk_type"] = data_disk_type
+            __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
+            if enable_encryption_at_host is None:
+                enable_encryption_at_host = False
+            __props__.__dict__["enable_encryption_at_host"] = enable_encryption_at_host
+            __props__.__dict__["enable_over_provisioning"] = enable_over_provisioning
             __props__.__dict__["ephemeral_ports"] = ephemeral_ports
+            __props__.__dict__["frontend_configurations"] = frontend_configurations
             if is_primary is None and not opts.urn:
                 raise TypeError("Missing required property 'is_primary'")
             __props__.__dict__["is_primary"] = is_primary
+            if is_stateless is None:
+                is_stateless = False
+            __props__.__dict__["is_stateless"] = is_stateless
+            if multiple_placement_groups is None:
+                multiple_placement_groups = False
+            __props__.__dict__["multiple_placement_groups"] = multiple_placement_groups
+            __props__.__dict__["network_security_rules"] = network_security_rules
             __props__.__dict__["node_type_name"] = node_type_name
             __props__.__dict__["placement_properties"] = placement_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_default_public_load_balancer"] = use_default_public_load_balancer
+            __props__.__dict__["use_temp_data_disk"] = use_temp_data_disk
             __props__.__dict__["vm_extensions"] = vm_extensions
             __props__.__dict__["vm_image_offer"] = vm_image_offer
             __props__.__dict__["vm_image_publisher"] = vm_image_publisher
@@ -433,10 +724,12 @@ class NodeType(pulumi.CustomResource):
             if vm_instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_instance_count'")
             __props__.__dict__["vm_instance_count"] = vm_instance_count
+            __props__.__dict__["vm_managed_identity"] = vm_managed_identity
             __props__.__dict__["vm_secrets"] = vm_secrets
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:NodeType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -462,25 +755,48 @@ class NodeType(pulumi.CustomResource):
 
         __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
+        __props__.__dict__["additional_data_disks"] = None
         __props__.__dict__["application_ports"] = None
         __props__.__dict__["capacities"] = None
+        __props__.__dict__["data_disk_letter"] = None
         __props__.__dict__["data_disk_size_gb"] = None
+        __props__.__dict__["data_disk_type"] = None
+        __props__.__dict__["enable_accelerated_networking"] = None
+        __props__.__dict__["enable_encryption_at_host"] = None
+        __props__.__dict__["enable_over_provisioning"] = None
         __props__.__dict__["ephemeral_ports"] = None
+        __props__.__dict__["frontend_configurations"] = None
         __props__.__dict__["is_primary"] = None
+        __props__.__dict__["is_stateless"] = None
+        __props__.__dict__["multiple_placement_groups"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_security_rules"] = None
         __props__.__dict__["placement_properties"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["use_default_public_load_balancer"] = None
+        __props__.__dict__["use_temp_data_disk"] = None
         __props__.__dict__["vm_extensions"] = None
         __props__.__dict__["vm_image_offer"] = None
         __props__.__dict__["vm_image_publisher"] = None
         __props__.__dict__["vm_image_sku"] = None
         __props__.__dict__["vm_image_version"] = None
         __props__.__dict__["vm_instance_count"] = None
+        __props__.__dict__["vm_managed_identity"] = None
         __props__.__dict__["vm_secrets"] = None
         __props__.__dict__["vm_size"] = None
         return NodeType(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalDataDisks")
+    def additional_data_disks(self) -> pulumi.Output[Optional[Sequence['outputs.VmssDataDiskResponse']]]:
+        """
+        Additional managed data disks.
+        """
+        return pulumi.get(self, "additional_data_disks")
 
     @property
     @pulumi.getter(name="applicationPorts")
@@ -499,12 +815,52 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "capacities")
 
     @property
-    @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> pulumi.Output[int]:
+    @pulumi.getter(name="dataDiskLetter")
+    def data_disk_letter(self) -> pulumi.Output[Optional[str]]:
         """
-        Disk size for each vm in the node type in GBs.
+        Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+        """
+        return pulumi.get(self, "data_disk_letter")
+
+    @property
+    @pulumi.getter(name="dataDiskSizeGB")
+    def data_disk_size_gb(self) -> pulumi.Output[Optional[int]]:
+        """
+        Disk size for the managed disk attached to the vms on the node type in GBs.
         """
         return pulumi.get(self, "data_disk_size_gb")
+
+    @property
+    @pulumi.getter(name="dataDiskType")
+    def data_disk_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Managed data disk type. Specifies the storage account type for the managed disk
+        """
+        return pulumi.get(self, "data_disk_type")
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @property
+    @pulumi.getter(name="enableEncryptionAtHost")
+    def enable_encryption_at_host(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        """
+        return pulumi.get(self, "enable_encryption_at_host")
+
+    @property
+    @pulumi.getter(name="enableOverProvisioning")
+    def enable_over_provisioning(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "enable_over_provisioning")
 
     @property
     @pulumi.getter(name="ephemeralPorts")
@@ -515,12 +871,36 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "ephemeral_ports")
 
     @property
+    @pulumi.getter(name="frontendConfigurations")
+    def frontend_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.FrontendConfigurationResponse']]]:
+        """
+        Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        """
+        return pulumi.get(self, "frontend_configurations")
+
+    @property
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> pulumi.Output[bool]:
         """
-        The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         """
         return pulumi.get(self, "is_primary")
+
+    @property
+    @pulumi.getter(name="isStateless")
+    def is_stateless(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates if the node type can only host Stateless workloads.
+        """
+        return pulumi.get(self, "is_stateless")
+
+    @property
+    @pulumi.getter(name="multiplePlacementGroups")
+    def multiple_placement_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        """
+        return pulumi.get(self, "multiple_placement_groups")
 
     @property
     @pulumi.getter
@@ -529,6 +909,14 @@ class NodeType(pulumi.CustomResource):
         Azure resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityRules")
+    def network_security_rules(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkSecurityRuleResponse']]]:
+        """
+        The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+        """
+        return pulumi.get(self, "network_security_rules")
 
     @property
     @pulumi.getter(name="placementProperties")
@@ -542,9 +930,25 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the managed cluster resource.
+        The provisioning state of the node type resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.NodeTypeSkuResponse']]:
+        """
+        The node type sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -561,6 +965,22 @@ class NodeType(pulumi.CustomResource):
         Azure resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useDefaultPublicLoadBalancer")
+    def use_default_public_load_balancer(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        """
+        return pulumi.get(self, "use_default_public_load_balancer")
+
+    @property
+    @pulumi.getter(name="useTempDataDisk")
+    def use_temp_data_disk(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "use_temp_data_disk")
 
     @property
     @pulumi.getter(name="vmExtensions")
@@ -606,9 +1026,17 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> pulumi.Output[int]:
         """
-        The number of nodes in the node type.
+        The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
         """
         return pulumi.get(self, "vm_instance_count")
+
+    @property
+    @pulumi.getter(name="vmManagedIdentity")
+    def vm_managed_identity(self) -> pulumi.Output[Optional['outputs.VmManagedIdentityResponse']]:
+        """
+        Identities to assign to the virtual machine scale set under the node type.
+        """
+        return pulumi.get(self, "vm_managed_identity")
 
     @property
     @pulumi.getter(name="vmSecrets")

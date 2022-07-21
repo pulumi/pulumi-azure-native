@@ -11,7 +11,7 @@ import (
 )
 
 // Content type contract details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ...pulumi.InvokeOption) (*LookupContentItemResult, error) {
 	var rv LookupContentItemResult
 	err := ctx.Invoke("azure-native:apimanagement:getContentItem", args, &rv, opts...)
@@ -34,13 +34,13 @@ type LookupContentItemArgs struct {
 
 // Content type contract details.
 type LookupContentItemResult struct {
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the content item.
 	Properties interface{} `pulumi:"properties"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -87,12 +87,12 @@ func (o LookupContentItemResultOutput) ToLookupContentItemResultOutputWithContex
 	return o
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupContentItemResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContentItemResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupContentItemResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContentItemResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -102,7 +102,7 @@ func (o LookupContentItemResultOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupContentItemResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupContentItemResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContentItemResult) string { return v.Type }).(pulumi.StringOutput)
 }

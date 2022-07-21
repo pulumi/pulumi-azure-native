@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-    /// API Version: 2020-05-15.
+    /// API Version: 2021-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:Gen2Environment")]
     public partial class Gen2Environment : Pulumi.CustomResource
@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         [Output("storageConfiguration")]
         public Output<Outputs.Gen2StorageConfigurationOutputResponse> StorageConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+        /// </summary>
+        [Output("supportsCustomerManagedKey")]
+        public Output<bool> SupportsCustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

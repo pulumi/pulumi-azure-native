@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Defines web application firewall policy.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:network:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines web application firewall policy.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:network:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

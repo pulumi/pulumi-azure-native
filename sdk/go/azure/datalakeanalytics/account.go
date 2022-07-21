@@ -12,7 +12,7 @@ import (
 )
 
 // A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-// API Version: 2016-11-01.
+// API Version: 2019-11-01-preview.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +30,8 @@ type Account struct {
 	DebugDataAccessLevel pulumi.StringOutput `pulumi:"debugDataAccessLevel"`
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount pulumi.StringOutput `pulumi:"defaultDataLakeStoreAccount"`
+	// The type of the default Data Lake Store account associated with this account.
+	DefaultDataLakeStoreAccountType pulumi.StringOutput `pulumi:"defaultDataLakeStoreAccountType"`
 	// The full CName endpoint for this account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
@@ -309,6 +311,11 @@ func (o AccountOutput) DebugDataAccessLevel() pulumi.StringOutput {
 // The default Data Lake Store account associated with this account.
 func (o AccountOutput) DefaultDataLakeStoreAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DefaultDataLakeStoreAccount }).(pulumi.StringOutput)
+}
+
+// The type of the default Data Lake Store account associated with this account.
+func (o AccountOutput) DefaultDataLakeStoreAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DefaultDataLakeStoreAccountType }).(pulumi.StringOutput)
 }
 
 // The full CName endpoint for this account.

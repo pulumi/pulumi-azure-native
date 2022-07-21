@@ -32,7 +32,7 @@ class SmartDetectorAlertRuleArgs:
         The set of arguments for constructing a SmartDetectorAlertRule resource.
         :param pulumi.Input['ActionGroupsInformationArgs'] action_groups: The alert rule actions.
         :param pulumi.Input['DetectorArgs'] detector: The alert rule's detector.
-        :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope: The alert rule resources scope.
         :param pulumi.Input[Union[str, 'Severity']] severity: The alert rule severity.
@@ -91,7 +91,7 @@ class SmartDetectorAlertRuleArgs:
     @pulumi.getter
     def frequency(self) -> pulumi.Input[str]:
         """
-        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         """
         return pulumi.get(self, "frequency")
 
@@ -228,7 +228,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  __props__=None):
         """
         The alert rule information
-        API Version: 2019-06-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +236,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] alert_rule_name: The name of the alert rule.
         :param pulumi.Input[str] description: The alert rule description.
         :param pulumi.Input[pulumi.InputType['DetectorArgs']] detector: The alert rule's detector.
-        :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope: The alert rule resources scope.
@@ -253,7 +253,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The alert rule information
-        API Version: 2019-06-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.
@@ -390,7 +390,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     @pulumi.getter
     def frequency(self) -> pulumi.Output[str]:
         """
-        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         """
         return pulumi.get(self, "frequency")
 

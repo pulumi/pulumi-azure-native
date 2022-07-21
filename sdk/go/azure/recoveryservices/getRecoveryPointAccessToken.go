@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2018-12-20.
+// API Version: 2021-11-15.
 func GetRecoveryPointAccessToken(ctx *pulumi.Context, args *GetRecoveryPointAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetRecoveryPointAccessTokenResult, error) {
 	var rv GetRecoveryPointAccessTokenResult
 	err := ctx.Invoke("azure-native:recoveryservices:getRecoveryPointAccessToken", args, &rv, opts...)

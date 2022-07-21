@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// A common class for general resource information.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// A common class for general resource information.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResult> Invoke(GetVirtualNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayInvokeArgs(), options.WithDefaults());
@@ -82,9 +82,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? CustomRoutes;
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        public readonly bool? DisableIPSecReplayProtection;
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         public readonly bool? EnableBgp;
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        public readonly bool? EnableBgpRouteTranslationForNat;
         /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
@@ -130,6 +138,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> NatRules;
+        /// <summary>
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -174,7 +186,11 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.AddressSpaceResponse? customRoutes,
 
+            bool? disableIPSecReplayProtection,
+
             bool? enableBgp,
+
+            bool? enableBgpRouteTranslationForNat,
 
             bool? enableDnsForwarding,
 
@@ -198,6 +214,8 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
+            ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
+
             string provisioningState,
 
             string resourceGuid,
@@ -219,7 +237,9 @@ namespace Pulumi.AzureNative.Network
             ActiveActive = activeActive;
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
+            DisableIPSecReplayProtection = disableIPSecReplayProtection;
             EnableBgp = enableBgp;
+            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
@@ -231,6 +251,7 @@ namespace Pulumi.AzureNative.Network
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
+            NatRules = natRules;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Sku = sku;

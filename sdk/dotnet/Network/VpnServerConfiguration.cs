@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnServerConfiguration Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnServerConfiguration")]
     public partial class VpnServerConfiguration : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("aadAuthenticationParameters")]
         public Output<Outputs.AadAuthenticationParametersResponse?> AadAuthenticationParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all VpnServerConfigurationPolicyGroups.
+        /// </summary>
+        [Output("configurationPolicyGroups")]
+        public Output<ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse>> ConfigurationPolicyGroups { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -193,6 +199,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("aadAuthenticationParameters")]
         public Input<Inputs.AadAuthenticationParametersArgs>? AadAuthenticationParameters { get; set; }
+
+        [Input("configurationPolicyGroups")]
+        private InputList<Inputs.VpnServerConfigurationPolicyGroupArgs>? _configurationPolicyGroups;
+
+        /// <summary>
+        /// List of all VpnServerConfigurationPolicyGroups.
+        /// </summary>
+        public InputList<Inputs.VpnServerConfigurationPolicyGroupArgs> ConfigurationPolicyGroups
+        {
+            get => _configurationPolicyGroups ?? (_configurationPolicyGroups = new InputList<Inputs.VpnServerConfigurationPolicyGroupArgs>());
+            set => _configurationPolicyGroups = value;
+        }
 
         /// <summary>
         /// Resource ID.

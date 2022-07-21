@@ -12,7 +12,7 @@ import (
 )
 
 // Contains information about an application in a Batch account.
-// API Version: 2021-01-01.
+// API Version: 2022-06-01.
 type Application struct {
 	pulumi.CustomResourceState
 

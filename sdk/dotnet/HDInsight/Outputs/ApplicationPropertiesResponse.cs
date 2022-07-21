@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         /// </summary>
         public readonly string MarketplaceIdentifier;
         /// <summary>
+        /// The private link configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateLinkConfigurationResponse> PrivateLinkConfigurations;
+        /// <summary>
         /// The provisioning state of the application.
         /// </summary>
         public readonly string ProvisioningState;
@@ -79,6 +83,8 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
 
             string marketplaceIdentifier,
 
+            ImmutableArray<Outputs.PrivateLinkConfigurationResponse> privateLinkConfigurations,
+
             string provisioningState,
 
             ImmutableArray<Outputs.ApplicationGetEndpointResponse> sshEndpoints,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
             HttpsEndpoints = httpsEndpoints;
             InstallScriptActions = installScriptActions;
             MarketplaceIdentifier = marketplaceIdentifier;
+            PrivateLinkConfigurations = privateLinkConfigurations;
             ProvisioningState = provisioningState;
             SshEndpoints = sshEndpoints;
             UninstallScriptActions = uninstallScriptActions;

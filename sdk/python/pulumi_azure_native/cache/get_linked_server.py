@@ -47,7 +47,7 @@ class GetLinkedServerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -71,7 +71,7 @@ class GetLinkedServerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -95,7 +95,7 @@ class GetLinkedServerResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -121,7 +121,7 @@ def get_linked_server(linked_server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServerResult:
     """
     Response to put/get linked server (with properties) for Redis cache.
-    API Version: 2020-06-01.
+    API Version: 2021-06-01.
 
 
     :param str linked_server_name: The name of the linked server.
@@ -155,7 +155,7 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServerResult]:
     """
     Response to put/get linked server (with properties) for Redis cache.
-    API Version: 2020-06-01.
+    API Version: 2021-06-01.
 
 
     :param str linked_server_name: The name of the linked server.

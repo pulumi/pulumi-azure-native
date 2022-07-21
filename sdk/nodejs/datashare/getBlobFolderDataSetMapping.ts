@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Blob folder data set mapping.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getBlobFolderDataSetMapping(args: GetBlobFolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetMappingResult> {
     if (!opts) {

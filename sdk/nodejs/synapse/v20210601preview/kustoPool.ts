@@ -164,7 +164,7 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["workspaceUID"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:KustoPool" }, { type: "azure-native:synapse/v20210401preview:KustoPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:KustoPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPool.__pulumiType, name, resourceInputs, opts);
     }

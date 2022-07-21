@@ -8628,7 +8628,7 @@ type ManagedIdentityProperties struct {
 	// Type of the managed identity
 	Type *string `pulumi:"type"`
 	// Properties of user-assigned managed identities
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityPropertiesInput is an input type that accepts ManagedIdentityPropertiesArgs and ManagedIdentityPropertiesOutput values.
@@ -8651,7 +8651,7 @@ type ManagedIdentityPropertiesArgs struct {
 	// Type of the managed identity
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Properties of user-assigned managed identities
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityPropertiesArgs) ElementType() reflect.Type {
@@ -8748,8 +8748,8 @@ func (o ManagedIdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Properties of user-assigned managed identities
-func (o ManagedIdentityPropertiesOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagedIdentityProperties) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ManagedIdentityPropertiesOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedIdentityProperties) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ManagedIdentityPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -8807,13 +8807,13 @@ func (o ManagedIdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Properties of user-assigned managed identities
-func (o ManagedIdentityPropertiesPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagedIdentityProperties) map[string]interface{} {
+func (o ManagedIdentityPropertiesPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedIdentityProperties) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Managed identity properties retrieved from ARM request headers.

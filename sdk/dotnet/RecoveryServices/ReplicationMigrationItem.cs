@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Migration item.
-    /// API Version: 2018-07-10.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : Pulumi.CustomResource

@@ -15,6 +15,24 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class DelegationArgs : Pulumi.ResourceArgs
     {
+        [Input("actions")]
+        private InputList<string>? _actions;
+
+        /// <summary>
+        /// Describes the actions permitted to the service upon delegation
+        /// </summary>
+        public InputList<string> Actions
+        {
+            get => _actions ?? (_actions = new InputList<string>());
+            set => _actions = value;
+        }
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
         /// <summary>
         /// Resource ID.
         /// </summary>

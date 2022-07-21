@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a CommunicationService resource.
- * API Version: 2020-08-20.
+ * API Version: 2021-10-01-preview.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**
@@ -49,9 +49,13 @@ export class CommunicationService extends pulumi.CustomResource {
      */
     public /*out*/ readonly immutableResourceId!: pulumi.Output<string>;
     /**
-     * The Azure location where the CommunicationService is running.
+     * List of email Domain resource Ids.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly linkedDomains!: pulumi.Output<string[] | undefined>;
+    /**
+     * The geo-location where the resource lives
+     */
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -65,11 +69,11 @@ export class CommunicationService extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.communication.SystemDataResponse>;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -100,6 +104,7 @@ export class CommunicationService extends pulumi.CustomResource {
             }
             resourceInputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;
             resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
+            resourceInputs["linkedDomains"] = args ? args.linkedDomains : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -115,6 +120,7 @@ export class CommunicationService extends pulumi.CustomResource {
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["immutableResourceId"] = undefined /*out*/;
+            resourceInputs["linkedDomains"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notificationHubId"] = undefined /*out*/;
@@ -144,7 +150,11 @@ export interface CommunicationServiceArgs {
      */
     dataLocation: pulumi.Input<string>;
     /**
-     * The Azure location where the CommunicationService is running.
+     * List of email Domain resource Ids.
+     */
+    linkedDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -152,7 +162,7 @@ export interface CommunicationServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -29,6 +29,11 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string DeviceProvisioningHostName;
         /// <summary>
+        /// Optional.
+        /// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+        /// </summary>
+        public readonly bool? EnableDataResidency;
+        /// <summary>
         /// Unique identifier of this provisioning service.
         /// </summary>
         public readonly string IdScope;
@@ -69,6 +74,8 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string deviceProvisioningHostName,
 
+            bool? enableDataResidency,
+
             string idScope,
 
             ImmutableArray<Outputs.IotHubDefinitionDescriptionResponse> iotHubs,
@@ -88,6 +95,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
             AllocationPolicy = allocationPolicy;
             AuthorizationPolicies = authorizationPolicies;
             DeviceProvisioningHostName = deviceProvisioningHostName;
+            EnableDataResidency = enableDataResidency;
             IdScope = idScope;
             IotHubs = iotHubs;
             IpFilterRules = ipFilterRules;

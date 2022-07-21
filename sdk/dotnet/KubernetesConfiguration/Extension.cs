@@ -10,41 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
-    /// The Extension Instance object.
-    /// API Version: 2020-07-01-preview.
+    /// The Extension object.
+    /// API Version: 2022-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:Extension")]
     public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>
-        /// Flag to note if this instance participates in auto upgrade of minor version, or not.
+        /// Identity of the Extension resource in an AKS cluster
+        /// </summary>
+        [Output("aksAssignedIdentity")]
+        public Output<Outputs.ExtensionResponseAksAssignedIdentity?> AksAssignedIdentity { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to note if this extension participates in auto upgrade of minor version, or not.
         /// </summary>
         [Output("autoUpgradeMinorVersion")]
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+        /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         /// </summary>
         [Output("configurationProtectedSettings")]
         public Output<ImmutableDictionary<string, string>?> ConfigurationProtectedSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration settings, as name-value pairs for configuring this instance of the extension.
+        /// Configuration settings, as name-value pairs for configuring this extension.
         /// </summary>
         [Output("configurationSettings")]
         public Output<ImmutableDictionary<string, string>?> ConfigurationSettings { get; private set; } = null!;
 
         /// <summary>
-        /// DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
+        /// Custom Location settings properties.
         /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        [Output("customLocationSettings")]
+        public Output<ImmutableDictionary<string, string>> CustomLocationSettings { get; private set; } = null!;
 
         /// <summary>
         /// Error information from the Agent - e.g. errors during installation.
         /// </summary>
         [Output("errorInfo")]
-        public Output<Outputs.ErrorDefinitionResponse> ErrorInfo { get; private set; } = null!;
+        public Output<Outputs.ErrorDetailResponse> ErrorInfo { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
@@ -53,49 +59,49 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Output<string?> ExtensionType { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the configuration.
+        /// Identity of the Extension resource
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ConfigurationIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Status of installation of this instance of the extension.
+        /// Installed version of the extension.
         /// </summary>
-        [Output("installState")]
-        public Output<string> InstallState { get; private set; } = null!;
+        [Output("installedVersion")]
+        public Output<string> InstalledVersion { get; private set; } = null!;
 
         /// <summary>
-        /// DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
-        /// </summary>
-        [Output("lastModifiedTime")]
-        public Output<string> LastModifiedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// DateLiteral (per ISO8601) noting the time of last status from the agent.
-        /// </summary>
-        [Output("lastStatusTime")]
-        public Output<string> LastStatusTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+        /// Uri of the Helm package
+        /// </summary>
+        [Output("packageUri")]
+        public Output<string> PackageUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of installation of this extension.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         /// </summary>
         [Output("releaseTrain")]
         public Output<string?> ReleaseTrain { get; private set; } = null!;
 
         /// <summary>
-        /// Scope at which the extension instance is installed.
+        /// Scope at which the extension is installed.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.ScopeResponse?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Status from this instance of the extension.
+        /// Status from this extension.
         /// </summary>
         [Output("statuses")]
         public Output<ImmutableArray<Outputs.ExtensionStatusResponse>> Statuses { get; private set; } = null!;
@@ -104,16 +110,16 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+        /// User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -175,7 +181,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public sealed class ExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag to note if this instance participates in auto upgrade of minor version, or not.
+        /// Identity of the Extension resource in an AKS cluster
+        /// </summary>
+        [Input("aksAssignedIdentity")]
+        public Input<Inputs.ExtensionAksAssignedIdentityArgs>? AksAssignedIdentity { get; set; }
+
+        /// <summary>
+        /// Flag to note if this extension participates in auto upgrade of minor version, or not.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
@@ -187,13 +199,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public Input<string> ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public Input<string> ClusterRp { get; set; } = null!;
@@ -202,7 +214,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         private InputMap<string>? _configurationProtectedSettings;
 
         /// <summary>
-        /// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+        /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         /// </summary>
         public InputMap<string> ConfigurationProtectedSettings
         {
@@ -214,7 +226,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         private InputMap<string>? _configurationSettings;
 
         /// <summary>
-        /// Configuration settings, as name-value pairs for configuring this instance of the extension.
+        /// Configuration settings, as name-value pairs for configuring this extension.
         /// </summary>
         public InputMap<string> ConfigurationSettings
         {
@@ -223,10 +235,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         }
 
         /// <summary>
-        /// Name of an instance of the Extension.
+        /// Name of the Extension.
         /// </summary>
-        [Input("extensionInstanceName")]
-        public Input<string>? ExtensionInstanceName { get; set; }
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
@@ -235,25 +247,25 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string>? ExtensionType { get; set; }
 
         /// <summary>
-        /// The identity of the configuration.
+        /// Identity of the Extension resource
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ConfigurationIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+        /// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         /// </summary>
         [Input("releaseTrain")]
         public Input<string>? ReleaseTrain { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Scope at which the extension instance is installed.
+        /// Scope at which the extension is installed.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.ScopeArgs>? Scope { get; set; }
@@ -262,7 +274,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         private InputList<Inputs.ExtensionStatusArgs>? _statuses;
 
         /// <summary>
-        /// Status from this instance of the extension.
+        /// Status from this extension.
         /// </summary>
         public InputList<Inputs.ExtensionStatusArgs> Statuses
         {
@@ -271,13 +283,15 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         }
 
         /// <summary>
-        /// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+        /// User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
         public ExtensionArgs()
         {
+            AutoUpgradeMinorVersion = true;
+            ReleaseTrain = "Stable";
         }
     }
 }

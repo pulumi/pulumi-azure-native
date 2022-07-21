@@ -12,7 +12,7 @@ import (
 )
 
 // Describes the RedisEnterprise cluster
-// API Version: 2021-03-01.
+// API Version: 2022-01-01.
 type RedisEnterprise struct {
 	pulumi.CustomResourceState
 

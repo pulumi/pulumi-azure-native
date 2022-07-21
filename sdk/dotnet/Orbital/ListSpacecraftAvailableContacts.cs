@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Response for the ListAvailableContacts API service call.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListSpacecraftAvailableContactsResult> InvokeAsync(ListSpacecraftAvailableContactsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for the ListAvailableContacts API service call.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListSpacecraftAvailableContactsResult> Invoke(ListSpacecraftAvailableContactsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListSpacecraftAvailableContactsResult>("azure-native:orbital:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsInvokeArgs(), options.WithDefaults());
@@ -33,10 +33,10 @@ namespace Pulumi.AzureNative.Orbital
         /// The reference to the contact profile resource.
         /// </summary>
         [Input("contactProfile", required: true)]
-        public Inputs.ResourceReference ContactProfile { get; set; } = null!;
+        public Inputs.ContactParametersContactProfile ContactProfile { get; set; } = null!;
 
         /// <summary>
-        /// End time of a contact.
+        /// End time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("endTime", required: true)]
         public string EndTime { get; set; } = null!;
@@ -54,13 +54,13 @@ namespace Pulumi.AzureNative.Orbital
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public string SpacecraftName { get; set; } = null!;
 
         /// <summary>
-        /// Start time of a contact.
+        /// Start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("startTime", required: true)]
         public string StartTime { get; set; } = null!;
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.Orbital
         /// The reference to the contact profile resource.
         /// </summary>
         [Input("contactProfile", required: true)]
-        public Input<Inputs.ResourceReferenceArgs> ContactProfile { get; set; } = null!;
+        public Input<Inputs.ContactParametersContactProfileArgs> ContactProfile { get; set; } = null!;
 
         /// <summary>
-        /// End time of a contact.
+        /// End time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
@@ -97,13 +97,13 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;
 
         /// <summary>
-        /// Start time of a contact.
+        /// Start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string NextLink;
         /// <summary>
-        /// A list of available contacts
+        /// A list of available contacts.
         /// </summary>
         public readonly ImmutableArray<Outputs.AvailableContactsResponse> Value;
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Service resource
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:appplatform:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service resource
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:appplatform:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.AppPlatform
 
             Outputs.SkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNative.AppPlatform
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

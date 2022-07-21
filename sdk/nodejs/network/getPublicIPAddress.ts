@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public IP address resource.
- * API Version: 2020-11-01.
+ * API Version: 2021-08-01.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
     if (!opts) {
@@ -45,6 +45,10 @@ export interface GetPublicIPAddressResult {
      * The DDoS protection custom policy associated with the public IP address.
      */
     readonly ddosSettings?: outputs.network.DdosSettingsResponse;
+    /**
+     * Specify what happens to the public IP address when the VM using it is deleted
+     */
+    readonly deleteOption?: string;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */

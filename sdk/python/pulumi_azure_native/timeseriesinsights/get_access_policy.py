@@ -109,7 +109,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.
@@ -142,7 +142,7 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-    API Version: 2020-05-15.
+    API Version: 2021-06-30-preview.
 
 
     :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.

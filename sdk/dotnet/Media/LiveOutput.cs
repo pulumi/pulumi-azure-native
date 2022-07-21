@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// The Live Output.
-    /// API Version: 2020-05-01.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:LiveOutput")]
     public partial class LiveOutput : Pulumi.CustomResource
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

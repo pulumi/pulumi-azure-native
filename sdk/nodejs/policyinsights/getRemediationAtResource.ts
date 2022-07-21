@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The remediation definition.
- * API Version: 2019-07-01.
+ * API Version: 2021-10-01.
  */
 export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceResult> {
     if (!opts) {
@@ -37,6 +37,10 @@ export interface GetRemediationAtResourceArgs {
  */
 export interface GetRemediationAtResourceResult {
     /**
+     * The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
+     */
+    readonly correlationId: string;
+    /**
      * The time at which the remediation was created.
      */
     readonly createdOn: string;
@@ -44,6 +48,10 @@ export interface GetRemediationAtResourceResult {
      * The deployment status summary for all deployments created by the remediation.
      */
     readonly deploymentStatus: outputs.policyinsights.RemediationDeploymentSummaryResponse;
+    /**
+     * The remediation failure threshold settings
+     */
+    readonly failureThreshold?: outputs.policyinsights.RemediationPropertiesResponseFailureThreshold;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
@@ -61,6 +69,10 @@ export interface GetRemediationAtResourceResult {
      */
     readonly name: string;
     /**
+     * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     */
+    readonly parallelDeployments?: number;
+    /**
      * The resource ID of the policy assignment that should be remediated.
      */
     readonly policyAssignmentId?: string;
@@ -73,9 +85,21 @@ export interface GetRemediationAtResourceResult {
      */
     readonly provisioningState: string;
     /**
+     * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     */
+    readonly resourceCount?: number;
+    /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
     readonly resourceDiscoveryMode?: string;
+    /**
+     * The remediation status message. Provides additional details regarding the state of the remediation.
+     */
+    readonly statusMessage: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.policyinsights.SystemDataResponse;
     /**
      * The type of the remediation.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // Site REST Resource.
-// API Version: 2020-01-01.
+// API Version: 2020-07-07.
 type HyperVSite struct {
 	pulumi.CustomResourceState
 
@@ -24,7 +24,9 @@ type HyperVSite struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Nested properties of Hyper-V site.
 	Properties SitePropertiesResponseOutput `pulumi:"properties"`
-	Tags       pulumi.StringMapOutput       `pulumi:"tags"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
 	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -167,6 +169,11 @@ func (o HyperVSiteOutput) Name() pulumi.StringPtrOutput {
 // Nested properties of Hyper-V site.
 func (o HyperVSiteOutput) Properties() SitePropertiesResponseOutput {
 	return o.ApplyT(func(v *HyperVSite) SitePropertiesResponseOutput { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o HyperVSiteOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *HyperVSite) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o HyperVSiteOutput) Tags() pulumi.StringMapOutput {

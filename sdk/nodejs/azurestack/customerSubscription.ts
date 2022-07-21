@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Customer subscription.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export class CustomerSubscription extends pulumi.CustomResource {
     /**
@@ -44,6 +45,10 @@ export class CustomerSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestack.SystemDataResponse>;
+    /**
      * Tenant Id.
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
@@ -75,10 +80,12 @@ export class CustomerSubscription extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

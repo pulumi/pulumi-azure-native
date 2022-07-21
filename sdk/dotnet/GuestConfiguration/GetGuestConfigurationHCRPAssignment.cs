@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.GuestConfiguration
     {
         /// <summary>
         /// Guest configuration assignment is an association between a machine and guest configuration.
-        /// API Version: 2020-06-25.
+        /// API Version: 2022-01-25.
         /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Guest configuration assignment is an association between a machine and guest configuration.
-        /// API Version: 2020-06-25.
+        /// API Version: 2022-01-25.
         /// </summary>
         public static Output<GetGuestConfigurationHCRPAssignmentResult> Invoke(GetGuestConfigurationHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentInvokeArgs(), options.WithDefaults());
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// </summary>
         public readonly Outputs.GuestConfigurationAssignmentPropertiesResponse Properties;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -112,12 +116,15 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
             Outputs.GuestConfigurationAssignmentPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

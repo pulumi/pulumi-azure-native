@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The restore point instance view.
+        /// </summary>
+        public readonly Outputs.RestorePointInstanceViewResponse InstanceView;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -40,6 +44,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
         public readonly Outputs.RestorePointSourceMetadataResponse SourceMetadata;
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        public readonly Outputs.ApiEntityReferenceResponse? SourceRestorePoint;
         /// <summary>
         /// Gets the creation time of the restore point.
         /// </summary>
@@ -57,11 +65,15 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string id,
 
+            Outputs.RestorePointInstanceViewResponse instanceView,
+
             string name,
 
             string provisioningState,
 
             Outputs.RestorePointSourceMetadataResponse sourceMetadata,
+
+            Outputs.ApiEntityReferenceResponse? sourceRestorePoint,
 
             string? timeCreated,
 
@@ -70,9 +82,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
             ConsistencyMode = consistencyMode;
             ExcludeDisks = excludeDisks;
             Id = id;
+            InstanceView = instanceView;
             Name = name;
             ProvisioningState = provisioningState;
             SourceMetadata = sourceMetadata;
+            SourceRestorePoint = sourceRestorePoint;
             TimeCreated = timeCreated;
             Type = type;
         }

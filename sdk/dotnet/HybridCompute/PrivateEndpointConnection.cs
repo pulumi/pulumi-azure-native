@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-03-25-preview.
+    /// API Version: 2022-03-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource

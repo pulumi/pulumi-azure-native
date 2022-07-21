@@ -11,7 +11,7 @@ import (
 )
 
 // Deployment information.
-// API Version: 2021-01-01.
+// API Version: 2021-04-01.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("azure-native:resources:getDeployment", args, &rv, opts...)

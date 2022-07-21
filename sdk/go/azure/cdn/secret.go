@@ -12,7 +12,7 @@ import (
 )
 
 // Friendly Secret name mapping to the any Secret or secret related information.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type Secret struct {
 	pulumi.CustomResourceState
 
@@ -21,6 +21,8 @@ type Secret struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// object which contains secret parameters
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	// The name of the profile which holds the secret.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Read only system data
@@ -85,7 +87,7 @@ func (SecretState) ElementType() reflect.Type {
 type secretArgs struct {
 	// object which contains secret parameters
 	Parameters interface{} `pulumi:"parameters"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -97,7 +99,7 @@ type secretArgs struct {
 type SecretArgs struct {
 	// object which contains secret parameters
 	Parameters pulumi.Input
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
@@ -154,6 +156,11 @@ func (o SecretOutput) Name() pulumi.StringOutput {
 // object which contains secret parameters
 func (o SecretOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Secret) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The name of the profile which holds the secret.
+func (o SecretOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // Provisioning status

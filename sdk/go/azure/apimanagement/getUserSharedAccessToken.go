@@ -11,7 +11,7 @@ import (
 )
 
 // Get User Token response details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func GetUserSharedAccessToken(ctx *pulumi.Context, args *GetUserSharedAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetUserSharedAccessTokenResult, error) {
 	var rv GetUserSharedAccessTokenResult
 	err := ctx.Invoke("azure-native:apimanagement:getUserSharedAccessToken", args.Defaults(), &rv, opts...)

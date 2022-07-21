@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A managed Cassandra data center.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2021-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraDataCenter")]
     public partial class CassandraDataCenter : Pulumi.CustomResource

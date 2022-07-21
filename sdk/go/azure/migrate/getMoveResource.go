@@ -11,7 +11,7 @@ import (
 )
 
 // Defines the move resource.
-// API Version: 2021-01-01.
+// API Version: 2021-08-01.
 func LookupMoveResource(ctx *pulumi.Context, args *LookupMoveResourceArgs, opts ...pulumi.InvokeOption) (*LookupMoveResourceResult, error) {
 	var rv LookupMoveResourceResult
 	err := ctx.Invoke("azure-native:migrate:getMoveResource", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupMoveResourceResult struct {
 	Name string `pulumi:"name"`
 	// Defines the move resource properties.
 	Properties MoveResourcePropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -96,6 +98,11 @@ func (o LookupMoveResourceResultOutput) Name() pulumi.StringOutput {
 // Defines the move resource properties.
 func (o LookupMoveResourceResultOutput) Properties() MoveResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupMoveResourceResult) MoveResourcePropertiesResponse { return v.Properties }).(MoveResourcePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupMoveResourceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMoveResourceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

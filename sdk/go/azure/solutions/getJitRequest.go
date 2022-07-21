@@ -11,7 +11,7 @@ import (
 )
 
 // Information about JIT request definition.
-// API Version: 2019-07-01.
+// API Version: 2021-07-01.
 func LookupJitRequest(ctx *pulumi.Context, args *LookupJitRequestArgs, opts ...pulumi.InvokeOption) (*LookupJitRequestResult, error) {
 	var rv LookupJitRequestResult
 	err := ctx.Invoke("azure-native:solutions:getJitRequest", args, &rv, opts...)
@@ -50,6 +50,8 @@ type LookupJitRequestResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The publisher tenant id.
 	PublisherTenantId string `pulumi:"publisherTenantId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -145,6 +147,11 @@ func (o LookupJitRequestResultOutput) ProvisioningState() pulumi.StringOutput {
 // The publisher tenant id.
 func (o LookupJitRequestResultOutput) PublisherTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJitRequestResult) string { return v.PublisherTenantId }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupJitRequestResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

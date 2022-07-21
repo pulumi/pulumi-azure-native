@@ -21,7 +21,7 @@ class GetOrganizationResult:
     """
     Organization resource.
     """
-    def __init__(__self__, created_time=None, id=None, location=None, name=None, offer_detail=None, organization_id=None, provisioning_state=None, sso_url=None, tags=None, type=None, user_detail=None):
+    def __init__(__self__, created_time=None, id=None, location=None, name=None, offer_detail=None, organization_id=None, provisioning_state=None, sso_url=None, system_data=None, tags=None, type=None, user_detail=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -46,6 +46,9 @@ class GetOrganizationResult:
         if sso_url and not isinstance(sso_url, str):
             raise TypeError("Expected argument 'sso_url' to be a str")
         pulumi.set(__self__, "sso_url", sso_url)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -90,7 +93,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> Optional['outputs.OrganizationResourcePropertiesResponseOfferDetail']:
+    def offer_detail(self) -> 'outputs.OfferDetailResponse':
         """
         Confluent offer detail
         """
@@ -121,6 +124,14 @@ class GetOrganizationResult:
         return pulumi.get(self, "sso_url")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -138,7 +149,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="userDetail")
-    def user_detail(self) -> Optional['outputs.OrganizationResourcePropertiesResponseUserDetail']:
+    def user_detail(self) -> 'outputs.UserDetailResponse':
         """
         Subscriber detail
         """
@@ -159,6 +170,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             organization_id=self.organization_id,
             provisioning_state=self.provisioning_state,
             sso_url=self.sso_url,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             user_detail=self.user_detail)
@@ -169,7 +181,7 @@ def get_organization(organization_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
     Organization resource.
-    API Version: 2020-03-01.
+    API Version: 2021-12-01.
 
 
     :param str organization_name: Organization resource name
@@ -193,6 +205,7 @@ def get_organization(organization_name: Optional[str] = None,
         organization_id=__ret__.organization_id,
         provisioning_state=__ret__.provisioning_state,
         sso_url=__ret__.sso_url,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         user_detail=__ret__.user_detail)
@@ -204,7 +217,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Organization resource.
-    API Version: 2020-03-01.
+    API Version: 2021-12-01.
 
 
     :param str organization_name: Organization resource name

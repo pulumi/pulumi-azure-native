@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of a Digital Twin.
- * API Version: 2020-12-01.
+ * API Version: 2022-05-31.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -49,7 +49,14 @@ export interface GetPrivateEndpointConnectionResult {
      * The resource name.
      */
     readonly name: string;
-    readonly properties: outputs.digitaltwins.PrivateEndpointConnectionResponseProperties;
+    /**
+     * The connection properties.
+     */
+    readonly properties: outputs.digitaltwins.ConnectionPropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the private endpoint connection.
+     */
+    readonly systemData: outputs.digitaltwins.SystemDataResponse;
     /**
      * The resource type.
      */

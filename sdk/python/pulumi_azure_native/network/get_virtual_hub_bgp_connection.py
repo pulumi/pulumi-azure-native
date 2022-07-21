@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetVirtualHubBgpConnectionResult',
@@ -20,13 +21,16 @@ class GetVirtualHubBgpConnectionResult:
     """
     Virtual Appliance Site resource.
     """
-    def __init__(__self__, connection_state=None, etag=None, id=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
+    def __init__(__self__, connection_state=None, etag=None, hub_virtual_network_connection=None, id=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
         if connection_state and not isinstance(connection_state, str):
             raise TypeError("Expected argument 'connection_state' to be a str")
         pulumi.set(__self__, "connection_state", connection_state)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if hub_virtual_network_connection and not isinstance(hub_virtual_network_connection, dict):
+            raise TypeError("Expected argument 'hub_virtual_network_connection' to be a dict")
+        pulumi.set(__self__, "hub_virtual_network_connection", hub_virtual_network_connection)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -61,6 +65,14 @@ class GetVirtualHubBgpConnectionResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hubVirtualNetworkConnection")
+    def hub_virtual_network_connection(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to the HubVirtualNetworkConnection resource.
+        """
+        return pulumi.get(self, "hub_virtual_network_connection")
 
     @property
     @pulumi.getter
@@ -119,6 +131,7 @@ class AwaitableGetVirtualHubBgpConnectionResult(GetVirtualHubBgpConnectionResult
         return GetVirtualHubBgpConnectionResult(
             connection_state=self.connection_state,
             etag=self.etag,
+            hub_virtual_network_connection=self.hub_virtual_network_connection,
             id=self.id,
             name=self.name,
             peer_asn=self.peer_asn,
@@ -133,7 +146,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
     Virtual Appliance Site resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str connection_name: The name of the connection.
@@ -153,6 +166,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
     return AwaitableGetVirtualHubBgpConnectionResult(
         connection_state=__ret__.connection_state,
         etag=__ret__.etag,
+        hub_virtual_network_connection=__ret__.hub_virtual_network_connection,
         id=__ret__.id,
         name=__ret__.name,
         peer_asn=__ret__.peer_asn,
@@ -168,7 +182,7 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubBgpConnectionResult]:
     """
     Virtual Appliance Site resource.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str connection_name: The name of the connection.

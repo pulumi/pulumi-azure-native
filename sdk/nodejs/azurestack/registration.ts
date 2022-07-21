@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Registration information.
- * API Version: 2017-06-01.
+ * API Version: 2020-06-01-preview.
  */
 export class Registration extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class Registration extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * The kind of the resource.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
      * Location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -60,6 +64,10 @@ export class Registration extends pulumi.CustomResource {
      * The object identifier associated with the Azure Stack connecting to Azure.
      */
     public /*out*/ readonly objectId!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestack.SystemDataResponse>;
     /**
      * Custom tags for the resource.
      */
@@ -93,17 +101,21 @@ export class Registration extends pulumi.CustomResource {
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

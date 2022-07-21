@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.Devices.Inputs
     public sealed class CertificatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The certificate content
+        /// base-64 representation of X509 certificate .cer file or just .pem file content.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
+
+        /// <summary>
+        /// Determines whether certificate has been verified.
+        /// </summary>
+        [Input("isVerified")]
+        public Input<bool>? IsVerified { get; set; }
 
         public CertificatePropertiesArgs()
         {

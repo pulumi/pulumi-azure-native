@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**
@@ -84,6 +84,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      * the app is not served on those hostnames.
      */
     public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
+    /**
+     * Extended Location.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
@@ -255,6 +259,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["customDomainVerificationId"] = args ? args.customDomainVerificationId : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
             resourceInputs["hostNamesDisabled"] = args ? args.hostNamesDisabled : undefined;
             resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
@@ -307,6 +312,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["defaultHostName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["enabledHostNames"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hostNameSslStates"] = undefined /*out*/;
             resourceInputs["hostNames"] = undefined /*out*/;
             resourceInputs["hostNamesDisabled"] = undefined /*out*/;
@@ -394,6 +400,10 @@ export interface WebAppSlotArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * Extended Location.
+     */
+    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
+    /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
     hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.HostNameSslStateArgs>[]>;
@@ -464,7 +474,7 @@ export interface WebAppSlotArgs {
      */
     siteConfig?: pulumi.Input<inputs.web.SiteConfigArgs>;
     /**
-     * Name of the deployment slot to create or update. The name 'production' is reserved.
+     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
      */
     slot?: pulumi.Input<string>;
     /**

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An HCX Enterprise Site resource
- * API Version: 2020-03-20.
+ * API Version: 2021-12-01.
  */
 export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**

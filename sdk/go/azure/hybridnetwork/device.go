@@ -12,7 +12,7 @@ import (
 )
 
 // Device resource.
-// API Version: 2020-01-01-preview.
+// API Version: 2021-05-01.
 type Device struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type Device struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The current device status.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -182,6 +184,11 @@ func (o DeviceOutput) ProvisioningState() pulumi.StringOutput {
 // The current device status.
 func (o DeviceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o DeviceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Device) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

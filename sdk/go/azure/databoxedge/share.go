@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a share on the  Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 type Share struct {
 	pulumi.CustomResourceState
 
@@ -36,7 +36,7 @@ type Share struct {
 	ShareMappings MountPointMapResponseArrayOutput `pulumi:"shareMappings"`
 	// Current status of the share.
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// Share on ASE device
+	// Metadata pertaining to creation and last modification of Share
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -281,7 +281,7 @@ func (o ShareOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// Share on ASE device
+// Metadata pertaining to creation and last modification of Share
 func (o ShareOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Share) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -11,7 +11,7 @@ import (
 )
 
 // The streaming endpoint.
-// API Version: 2020-05-01.
+// API Version: 2021-11-01.
 func LookupStreamingEndpoint(ctx *pulumi.Context, args *LookupStreamingEndpointArgs, opts ...pulumi.InvokeOption) (*LookupStreamingEndpointResult, error) {
 	var rv LookupStreamingEndpointResult
 	err := ctx.Invoke("azure-native:media:getStreamingEndpoint", args, &rv, opts...)
@@ -70,6 +70,8 @@ type LookupStreamingEndpointResult struct {
 	ResourceState string `pulumi:"resourceState"`
 	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits int `pulumi:"scaleUnits"`
+	// The streaming endpoint sku.
+	Sku *ArmStreamingEndpointCurrentSkuResponse `pulumi:"sku"`
 	// The system metadata relating to this resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -214,6 +216,11 @@ func (o LookupStreamingEndpointResultOutput) ResourceState() pulumi.StringOutput
 // The number of scale units. Use the Scale operation to adjust this value.
 func (o LookupStreamingEndpointResultOutput) ScaleUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupStreamingEndpointResult) int { return v.ScaleUnits }).(pulumi.IntOutput)
+}
+
+// The streaming endpoint sku.
+func (o LookupStreamingEndpointResultOutput) Sku() ArmStreamingEndpointCurrentSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *ArmStreamingEndpointCurrentSkuResponse { return v.Sku }).(ArmStreamingEndpointCurrentSkuResponsePtrOutput)
 }
 
 // The system metadata relating to this resource.

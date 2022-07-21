@@ -114,8 +114,6 @@ export class NspAssociationsProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NspAssociationsProxy" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NspAssociationsProxy.__pulumiType, name, resourceInputs, opts);
     }
 }

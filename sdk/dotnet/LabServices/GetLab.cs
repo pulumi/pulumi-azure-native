@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.LabServices
     public static class GetLab
     {
         /// <summary>
-        /// Represents a lab.
-        /// API Version: 2018-10-15.
+        /// The lab resource.
+        /// API Version: 2021-11-15-preview.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a lab.
-        /// API Version: 2018-10-15.
+        /// The lab resource.
+        /// API Version: 2021-11-15-preview.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
@@ -30,25 +30,13 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetLabArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
-        /// </summary>
-        [Input("expand")]
-        public string? Expand { get; set; }
-
-        /// <summary>
-        /// The name of the lab Account.
-        /// </summary>
-        [Input("labAccountName", required: true)]
-        public string LabAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the lab.
+        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -61,25 +49,13 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
-        /// </summary>
-        [Input("expand")]
-        public Input<string>? Expand { get; set; }
-
-        /// <summary>
-        /// The name of the lab Account.
-        /// </summary>
-        [Input("labAccountName", required: true)]
-        public Input<string> LabAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the lab.
+        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -94,120 +70,127 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetLabResult
     {
         /// <summary>
-        /// Object id of the user that created the lab.
+        /// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         /// </summary>
-        public readonly string CreatedByObjectId;
+        public readonly Outputs.AutoShutdownProfileResponse AutoShutdownProfile;
         /// <summary>
-        /// Lab creator name
+        /// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
         /// </summary>
-        public readonly string CreatedByUserPrincipalName;
+        public readonly Outputs.ConnectionProfileResponse ConnectionProfile;
         /// <summary>
-        /// Creation date for the lab
+        /// The description of the lab.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? Description;
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Invitation code that users can use to join a lab.
+        /// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
         /// </summary>
-        public readonly string InvitationCode;
+        public readonly string? LabPlanId;
         /// <summary>
-        /// The details of the latest operation. ex: status, error
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
+        public readonly string Location;
         /// <summary>
-        /// The location of the resource.
-        /// </summary>
-        public readonly string? Location;
-        /// <summary>
-        /// Maximum number of users allowed in the lab.
-        /// </summary>
-        public readonly int? MaxUsersInLab;
-        /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.LabNetworkProfileResponse? NetworkProfile;
         /// <summary>
-        /// The tags of the resource.
+        /// Current provisioning state of the lab.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The lab user list management profile.
+        /// </summary>
+        public readonly Outputs.RosterProfileResponse? RosterProfile;
+        /// <summary>
+        /// The lab security profile.
+        /// </summary>
+        public readonly Outputs.SecurityProfileResponse SecurityProfile;
+        /// <summary>
+        /// The lab state.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the lab.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The title of the lab.
+        /// </summary>
+        public readonly string? Title;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
+        /// The profile used for creating lab virtual machines.
         /// </summary>
-        public readonly string? UniqueIdentifier;
-        /// <summary>
-        /// Maximum duration a user can use an environment for in the lab.
-        /// </summary>
-        public readonly string? UsageQuota;
-        /// <summary>
-        /// Lab user access mode (open to all vs. restricted to those listed on the lab).
-        /// </summary>
-        public readonly string? UserAccessMode;
-        /// <summary>
-        /// Maximum value MaxUsersInLab can be set to, as specified by the service
-        /// </summary>
-        public readonly int UserQuota;
+        public readonly Outputs.VirtualMachineProfileResponse VirtualMachineProfile;
 
         [OutputConstructor]
         private GetLabResult(
-            string createdByObjectId,
+            Outputs.AutoShutdownProfileResponse autoShutdownProfile,
 
-            string createdByUserPrincipalName,
+            Outputs.ConnectionProfileResponse connectionProfile,
 
-            string createdDate,
+            string? description,
 
             string id,
 
-            string invitationCode,
+            string? labPlanId,
 
-            Outputs.LatestOperationResultResponse latestOperationResult,
-
-            string? location,
-
-            int? maxUsersInLab,
+            string location,
 
             string name,
 
-            string? provisioningState,
+            Outputs.LabNetworkProfileResponse? networkProfile,
+
+            string provisioningState,
+
+            Outputs.RosterProfileResponse? rosterProfile,
+
+            Outputs.SecurityProfileResponse securityProfile,
+
+            string state,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? title,
+
             string type,
 
-            string? uniqueIdentifier,
-
-            string? usageQuota,
-
-            string? userAccessMode,
-
-            int userQuota)
+            Outputs.VirtualMachineProfileResponse virtualMachineProfile)
         {
-            CreatedByObjectId = createdByObjectId;
-            CreatedByUserPrincipalName = createdByUserPrincipalName;
-            CreatedDate = createdDate;
+            AutoShutdownProfile = autoShutdownProfile;
+            ConnectionProfile = connectionProfile;
+            Description = description;
             Id = id;
-            InvitationCode = invitationCode;
-            LatestOperationResult = latestOperationResult;
+            LabPlanId = labPlanId;
             Location = location;
-            MaxUsersInLab = maxUsersInLab;
             Name = name;
+            NetworkProfile = networkProfile;
             ProvisioningState = provisioningState;
+            RosterProfile = rosterProfile;
+            SecurityProfile = securityProfile;
+            State = state;
+            SystemData = systemData;
             Tags = tags;
+            Title = title;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
-            UsageQuota = usageQuota;
-            UserAccessMode = userAccessMode;
-            UserQuota = userQuota;
+            VirtualMachineProfile = virtualMachineProfile;
         }
     }
 }

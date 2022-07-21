@@ -26,6 +26,8 @@ export {
 
 export const CacheIdentityType = {
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
     None: "None",
 } as const;
 
@@ -56,19 +58,17 @@ export const NfsAccessRuleScope = {
  */
 export type NfsAccessRuleScope = (typeof NfsAccessRuleScope)[keyof typeof NfsAccessRuleScope];
 
-export const ProvisioningStateType = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Cancelled: "Cancelled",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Updating: "Updating",
+export const OperationalStateType = {
+    Ready: "Ready",
+    Busy: "Busy",
+    Suspended: "Suspended",
+    Flushing: "Flushing",
 } as const;
 
 /**
- * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+ * Storage target operational state.
  */
-export type ProvisioningStateType = (typeof ProvisioningStateType)[keyof typeof ProvisioningStateType];
+export type OperationalStateType = (typeof OperationalStateType)[keyof typeof OperationalStateType];
 
 export const StorageTargetType = {
     Nfs3: "nfs3",

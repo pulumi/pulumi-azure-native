@@ -38,12 +38,6 @@ func NewWorkspaceSetting(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:WorkspaceSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource WorkspaceSetting
 	err := ctx.RegisterResource("azure-native:security/v20170801preview:WorkspaceSetting", name, args, &resource, opts...)
 	if err != nil {

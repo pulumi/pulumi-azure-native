@@ -12,7 +12,7 @@ import (
 )
 
 // A type of trigger based on schedule
-// API Version: 2020-09-01.
+// API Version: 2021-08-01.
 type ScheduledTrigger struct {
 	pulumi.CustomResourceState
 

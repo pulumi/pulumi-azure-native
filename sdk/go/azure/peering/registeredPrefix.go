@@ -12,7 +12,7 @@ import (
 )
 
 // The customer's prefix that is registered by the peering service provider.
-// API Version: 2021-01-01.
+// API Version: 2022-01-01.
 type RegisteredPrefix struct {
 	pulumi.CustomResourceState
 

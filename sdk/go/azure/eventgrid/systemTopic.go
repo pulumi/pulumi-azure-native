@@ -12,7 +12,7 @@ import (
 )
 
 // EventGrid System Topic.
-// API Version: 2021-06-01-preview.
+// API Version: 2022-06-15.
 type SystemTopic struct {
 	pulumi.CustomResourceState
 

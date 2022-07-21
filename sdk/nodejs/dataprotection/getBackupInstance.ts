@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * BackupInstance Resource
- * API Version: 2021-01-01.
+ * API Version: 2022-05-01.
  */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
     if (!opts) {
@@ -42,11 +42,11 @@ export interface GetBackupInstanceArgs {
  */
 export interface GetBackupInstanceResult {
     /**
-     * Resource Id represents the complete path to the resource.
+     * Proxy Resource Id represents the complete path to the resource.
      */
     readonly id: string;
     /**
-     * Resource name associated with the resource.
+     * Proxy Resource name associated with the resource.
      */
     readonly name: string;
     /**
@@ -58,7 +58,11 @@ export interface GetBackupInstanceResult {
      */
     readonly systemData: outputs.dataprotection.SystemDataResponse;
     /**
-     * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+     * Proxy Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
     readonly type: string;
 }

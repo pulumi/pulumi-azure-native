@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information.
- * API Version: 2019-05-01.
+ * API Version: 2021-04-01.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     if (!opts) {
@@ -51,6 +51,10 @@ export interface GetResourceArgs {
  * Resource information.
  */
 export interface GetResourceResult {
+    /**
+     * Resource extended location.
+     */
+    readonly extendedLocation?: outputs.resources.ExtendedLocationResponse;
     /**
      * Resource ID
      */

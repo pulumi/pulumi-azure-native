@@ -11,7 +11,7 @@ import (
 )
 
 // Description of queue Resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	var rv LookupQueueResult
 	err := ctx.Invoke("azure-native:servicebus:getQueue", args, &rv, opts...)
@@ -56,17 +56,21 @@ type LookupQueueResult struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo *string `pulumi:"forwardTo"`
-	// Resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
 	MessageCount float64 `pulumi:"messageCount"`
-	// Resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// A value indicating if this queue requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
@@ -76,7 +80,9 @@ type LookupQueueResult struct {
 	SizeInBytes float64 `pulumi:"sizeInBytes"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
-	// Resource type
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -183,9 +189,14 @@ func (o LookupQueueResultOutput) ForwardTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.ForwardTo }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupQueueResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
@@ -198,6 +209,11 @@ func (o LookupQueueResultOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
+// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+func (o LookupQueueResultOutput) MaxMessageSizeInKilobytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *float64 { return v.MaxMessageSizeInKilobytes }).(pulumi.Float64PtrOutput)
+}
+
 // The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 func (o LookupQueueResultOutput) MaxSizeInMegabytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *int { return v.MaxSizeInMegabytes }).(pulumi.IntPtrOutput)
@@ -208,7 +224,7 @@ func (o LookupQueueResultOutput) MessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupQueueResult) float64 { return v.MessageCount }).(pulumi.Float64Output)
 }
 
-// Resource name
+// The name of the resource
 func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -233,7 +249,12 @@ func (o LookupQueueResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Resource type
+// The system meta data relating to this resource.
+func (o LookupQueueResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupQueueResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupQueueResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Type }).(pulumi.StringOutput)
 }

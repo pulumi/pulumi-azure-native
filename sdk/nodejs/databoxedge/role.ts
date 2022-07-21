@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Compute role.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  *
  * @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
  */
@@ -48,7 +48,7 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Role configured on ASE resource
+     * Metadata pertaining to creation and last modification of Role
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

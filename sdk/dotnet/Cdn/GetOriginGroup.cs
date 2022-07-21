@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());

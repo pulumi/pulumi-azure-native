@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
-    /// Description of NetworkRuleSet resource.
-    /// API Version: 2017-04-01.
+    /// Description of topic resource.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
@@ -29,13 +29,37 @@ namespace Pulumi.AzureNative.EventHub
         public Output<ImmutableArray<Outputs.NWRuleSetIpRulesResponse>> IpRules { get; private set; } = null!;
 
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        [Output("trustedServiceAccessEnabled")]
+        public Output<bool?> TrustedServiceAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -125,10 +149,22 @@ namespace Pulumi.AzureNative.EventHub
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.EventHub.PublicNetworkAccessFlag>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        [Input("trustedServiceAccessEnabled")]
+        public Input<bool>? TrustedServiceAccessEnabled { get; set; }
 
         [Input("virtualNetworkRules")]
         private InputList<Inputs.NWRuleSetVirtualNetworkRulesArgs>? _virtualNetworkRules;
@@ -144,6 +180,7 @@ namespace Pulumi.AzureNative.EventHub
 
         public NamespaceNetworkRuleSetArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

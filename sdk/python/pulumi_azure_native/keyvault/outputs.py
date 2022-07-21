@@ -137,7 +137,7 @@ class IPRuleResponse(dict):
 @pulumi.output_type
 class KeyAttributesResponse(dict):
     """
-    The attributes of the key.
+    The object attributes managed by the Azure Key Vault service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -164,14 +164,16 @@ class KeyAttributesResponse(dict):
                  updated: float,
                  enabled: Optional[bool] = None,
                  expires: Optional[float] = None,
+                 exportable: Optional[bool] = None,
                  not_before: Optional[float] = None):
         """
-        The attributes of the key.
+        The object attributes managed by the Azure Key Vault service.
         :param float created: Creation time in seconds since 1970-01-01T00:00:00Z.
         :param str recovery_level: The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
         :param float updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
         :param bool enabled: Determines whether or not the object is enabled.
         :param float expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param bool exportable: Indicates if the private key can be exported.
         :param float not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         pulumi.set(__self__, "created", created)
@@ -181,6 +183,8 @@ class KeyAttributesResponse(dict):
             pulumi.set(__self__, "enabled", enabled)
         if expires is not None:
             pulumi.set(__self__, "expires", expires)
+        if exportable is not None:
+            pulumi.set(__self__, "exportable", exportable)
         if not_before is not None:
             pulumi.set(__self__, "not_before", not_before)
 
@@ -223,6 +227,14 @@ class KeyAttributesResponse(dict):
         Expiry date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "expires")
+
+    @property
+    @pulumi.getter
+    def exportable(self) -> Optional[bool]:
+        """
+        Indicates if the private key can be exported.
+        """
+        return pulumi.get(self, "exportable")
 
     @property
     @pulumi.getter(name="notBefore")
@@ -1419,6 +1431,8 @@ class VaultPropertiesResponse(dict):
             suggest = "network_acls"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
         elif key == "softDeleteRetentionInDays":
             suggest = "soft_delete_retention_in_days"
         elif key == "vaultUri":
@@ -1449,6 +1463,7 @@ class VaultPropertiesResponse(dict):
                  enabled_for_template_deployment: Optional[bool] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
                  provisioning_state: Optional[str] = None,
+                 public_network_access: Optional[str] = None,
                  soft_delete_retention_in_days: Optional[int] = None,
                  vault_uri: Optional[str] = None):
         """
@@ -1466,8 +1481,9 @@ class VaultPropertiesResponse(dict):
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param 'NetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param str provisioning_state: Provisioning state of the vault.
+        :param str public_network_access: Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
-        :param str vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly
+        :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
         pulumi.set(__self__, "hsm_pool_resource_id", hsm_pool_resource_id)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -1495,6 +1511,10 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "network_acls", network_acls)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access is None:
+            public_network_access = 'enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -1607,6 +1627,14 @@ class VaultPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="softDeleteRetentionInDays")
     def soft_delete_retention_in_days(self) -> Optional[int]:
         """
@@ -1618,7 +1646,7 @@ class VaultPropertiesResponse(dict):
     @pulumi.getter(name="vaultUri")
     def vault_uri(self) -> Optional[str]:
         """
-        The URI of the vault for performing operations on keys and secrets. This property is readonly
+        The URI of the vault for performing operations on keys and secrets.
         """
         return pulumi.get(self, "vault_uri")
 

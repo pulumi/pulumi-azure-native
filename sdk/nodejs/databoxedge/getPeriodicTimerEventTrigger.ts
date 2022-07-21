@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
     if (!opts) {
@@ -67,7 +67,7 @@ export interface GetPeriodicTimerEventTriggerResult {
      */
     readonly sourceInfo: outputs.databoxedge.PeriodicTimerSourceInfoResponse;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**

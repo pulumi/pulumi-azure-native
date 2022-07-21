@@ -12,8 +12,8 @@ import (
 
 type ArmIdentity struct {
 	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   *ResourceIdentityType  `pulumi:"type"`
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	Type                   *ResourceIdentityType `pulumi:"type"`
+	UserAssignedIdentities []string              `pulumi:"userAssignedIdentities"`
 }
 
 // ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
@@ -30,7 +30,7 @@ type ArmIdentityInput interface {
 type ArmIdentityArgs struct {
 	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
-	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.StringArrayInput      `pulumi:"userAssignedIdentities"`
 }
 
 func (ArmIdentityArgs) ElementType() reflect.Type {
@@ -115,8 +115,8 @@ func (o ArmIdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v ArmIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ArmIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArmIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
 }
 
 type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -153,13 +153,13 @@ func (o ArmIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
-func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ArmIdentity) map[string]interface{} {
+func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArmIdentity) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type ArmIdentityResponse struct {

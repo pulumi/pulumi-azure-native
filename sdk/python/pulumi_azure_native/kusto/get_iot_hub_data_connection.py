@@ -20,13 +20,16 @@ class GetIotHubDataConnectionResult:
     """
     Class representing an iot hub data connection.
     """
-    def __init__(__self__, consumer_group=None, data_format=None, event_system_properties=None, id=None, iot_hub_resource_id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, shared_access_policy_name=None, table_name=None, type=None):
+    def __init__(__self__, consumer_group=None, data_format=None, database_routing=None, event_system_properties=None, id=None, iot_hub_resource_id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, shared_access_policy_name=None, table_name=None, type=None):
         if consumer_group and not isinstance(consumer_group, str):
             raise TypeError("Expected argument 'consumer_group' to be a str")
         pulumi.set(__self__, "consumer_group", consumer_group)
         if data_format and not isinstance(data_format, str):
             raise TypeError("Expected argument 'data_format' to be a str")
         pulumi.set(__self__, "data_format", data_format)
+        if database_routing and not isinstance(database_routing, str):
+            raise TypeError("Expected argument 'database_routing' to be a str")
+        pulumi.set(__self__, "database_routing", database_routing)
         if event_system_properties and not isinstance(event_system_properties, list):
             raise TypeError("Expected argument 'event_system_properties' to be a list")
         pulumi.set(__self__, "event_system_properties", event_system_properties)
@@ -76,6 +79,14 @@ class GetIotHubDataConnectionResult:
         The data format of the message. Optionally the data format can be added to each message.
         """
         return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[str]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
 
     @property
     @pulumi.getter(name="eventSystemProperties")
@@ -175,6 +186,7 @@ class AwaitableGetIotHubDataConnectionResult(GetIotHubDataConnectionResult):
         return GetIotHubDataConnectionResult(
             consumer_group=self.consumer_group,
             data_format=self.data_format,
+            database_routing=self.database_routing,
             event_system_properties=self.event_system_properties,
             id=self.id,
             iot_hub_resource_id=self.iot_hub_resource_id,
@@ -195,7 +207,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubDataConnectionResult:
     """
     Class representing an iot hub data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -217,6 +229,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
     return AwaitableGetIotHubDataConnectionResult(
         consumer_group=__ret__.consumer_group,
         data_format=__ret__.data_format,
+        database_routing=__ret__.database_routing,
         event_system_properties=__ret__.event_system_properties,
         id=__ret__.id,
         iot_hub_resource_id=__ret__.iot_hub_resource_id,
@@ -238,7 +251,7 @@ def get_iot_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
     """
     Class representing an iot hub data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

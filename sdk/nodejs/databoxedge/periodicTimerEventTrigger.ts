@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
     /**
@@ -58,7 +58,7 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
      */
     public readonly sourceInfo!: pulumi.Output<outputs.databoxedge.PeriodicTimerSourceInfoResponse>;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

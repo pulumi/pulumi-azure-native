@@ -12,7 +12,7 @@ import (
 )
 
 // Provider details.
-// API Version: 2018-07-10.
+// API Version: 2022-03-01.
 type ReplicationRecoveryServicesProvider struct {
 	pulumi.CustomResourceState
 

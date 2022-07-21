@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Cloud Endpoint object.
-        /// API Version: 2020-03-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cloud Endpoint object.
-        /// API Version: 2020-03-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string BackupEnabled;
         /// <summary>
+        /// Cloud endpoint change enumeration status
+        /// </summary>
+        public readonly Outputs.CloudEndpointChangeEnumerationStatusResponse ChangeEnumerationStatus;
+        /// <summary>
         /// Friendly Name
         /// </summary>
         public readonly string? FriendlyName;
@@ -138,6 +142,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? StorageAccountTenantId;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -147,6 +155,8 @@ namespace Pulumi.AzureNative.StorageSync
             string? azureFileShareName,
 
             string backupEnabled,
+
+            Outputs.CloudEndpointChangeEnumerationStatusResponse changeEnumerationStatus,
 
             string? friendlyName,
 
@@ -166,10 +176,13 @@ namespace Pulumi.AzureNative.StorageSync
 
             string? storageAccountTenantId,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureFileShareName = azureFileShareName;
             BackupEnabled = backupEnabled;
+            ChangeEnumerationStatus = changeEnumerationStatus;
             FriendlyName = friendlyName;
             Id = id;
             LastOperationName = lastOperationName;
@@ -179,6 +192,7 @@ namespace Pulumi.AzureNative.StorageSync
             ProvisioningState = provisioningState;
             StorageAccountResourceId = storageAccountResourceId;
             StorageAccountTenantId = storageAccountTenantId;
+            SystemData = systemData;
             Type = type;
         }
     }

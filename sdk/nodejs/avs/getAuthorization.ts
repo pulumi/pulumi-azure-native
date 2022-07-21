@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoute Circuit Authorization
- * API Version: 2020-03-20.
+ * API Version: 2021-12-01.
  */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
     if (!opts) {
@@ -48,6 +48,10 @@ export interface GetAuthorizationResult {
      * The key of the ExpressRoute Circuit Authorization
      */
     readonly expressRouteAuthorizationKey: string;
+    /**
+     * The ID of the ExpressRoute Circuit
+     */
+    readonly expressRouteId?: string;
     /**
      * Resource ID.
      */

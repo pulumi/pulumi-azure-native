@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a share on the  Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	var rv LookupShareResult
 	err := ctx.Invoke("azure-native:databoxedge:getShare", args, &rv, opts...)
@@ -54,7 +54,7 @@ type LookupShareResult struct {
 	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
 	// Current status of the share.
 	ShareStatus string `pulumi:"shareStatus"`
-	// Share on ASE device
+	// Metadata pertaining to creation and last modification of Share
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -158,7 +158,7 @@ func (o LookupShareResultOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupShareResult) string { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// Share on ASE device
+// Metadata pertaining to creation and last modification of Share
 func (o LookupShareResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupShareResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
-    /// Azure VM managed disk input details.
+    /// A2A managed disk input details.
     /// </summary>
     public sealed class A2AVmManagedDiskInputDetailsArgs : Pulumi.ResourceArgs
     {
@@ -24,14 +24,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The disk Id.
         /// </summary>
-        [Input("diskId")]
-        public Input<string>? DiskId { get; set; }
+        [Input("diskId", required: true)]
+        public Input<string> DiskId { get; set; } = null!;
 
         /// <summary>
         /// The primary staging storage account Arm Id.
         /// </summary>
-        [Input("primaryStagingAzureStorageAccountId")]
-        public Input<string>? PrimaryStagingAzureStorageAccountId { get; set; }
+        [Input("primaryStagingAzureStorageAccountId", required: true)]
+        public Input<string> PrimaryStagingAzureStorageAccountId { get; set; } = null!;
 
         /// <summary>
         /// The recovery disk encryption set Id.
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The target resource group Arm Id.
         /// </summary>
-        [Input("recoveryResourceGroupId")]
-        public Input<string>? RecoveryResourceGroupId { get; set; }
+        [Input("recoveryResourceGroupId", required: true)]
+        public Input<string> RecoveryResourceGroupId { get; set; } = null!;
 
         /// <summary>
         /// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.

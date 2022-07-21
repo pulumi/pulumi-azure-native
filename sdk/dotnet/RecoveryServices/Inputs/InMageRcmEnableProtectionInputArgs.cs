@@ -36,15 +36,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The ARM Id of discovered machine.
         /// </summary>
-        [Input("fabricDiscoveryMachineId")]
-        public Input<string>? FabricDiscoveryMachineId { get; set; }
+        [Input("fabricDiscoveryMachineId", required: true)]
+        public Input<string> FabricDiscoveryMachineId { get; set; } = null!;
 
         /// <summary>
         /// The class type.
         /// Expected value is 'InMageRcm'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// The license type.
@@ -61,8 +61,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The process server Id.
         /// </summary>
-        [Input("processServerId")]
-        public Input<string>? ProcessServerId { get; set; }
+        [Input("processServerId", required: true)]
+        public Input<string> ProcessServerId { get; set; } = null!;
 
         /// <summary>
         /// The run-as account Id.
@@ -103,8 +103,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The target resource group ARM Id.
         /// </summary>
-        [Input("targetResourceGroupId")]
-        public Input<string>? TargetResourceGroupId { get; set; }
+        [Input("targetResourceGroupId", required: true)]
+        public Input<string> TargetResourceGroupId { get; set; } = null!;
 
         /// <summary>
         /// The selected target subnet name.

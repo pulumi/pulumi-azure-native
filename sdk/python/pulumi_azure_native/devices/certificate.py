@@ -94,7 +94,7 @@ class Certificate(pulumi.CustomResource):
                  __props__=None):
         """
         The X509 Certificate.
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The X509 Certificate.
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

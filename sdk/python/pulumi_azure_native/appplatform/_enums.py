@@ -7,9 +7,6 @@ from enum import Enum
 __all__ = [
     'BindingType',
     'ManagedIdentityType',
-    'RuntimeVersion',
-    'StorageType',
-    'UserSourceType',
 ]
 
 
@@ -33,28 +30,3 @@ class ManagedIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-
-
-class RuntimeVersion(str, Enum):
-    """
-    Runtime version
-    """
-    JAVA_8 = "Java_8"
-    JAVA_11 = "Java_11"
-    NET_CORE_31 = "NetCore_31"
-
-
-class StorageType(str, Enum):
-    """
-    The type of the storage.
-    """
-    STORAGE_ACCOUNT = "StorageAccount"
-
-
-class UserSourceType(str, Enum):
-    """
-    Type of the source uploaded
-    """
-    JAR = "Jar"
-    NET_CORE_ZIP = "NetCoreZip"
-    SOURCE = "Source"

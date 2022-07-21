@@ -12,7 +12,7 @@ import (
 )
 
 // Sentinel onboarding state
-// API Version: 2021-03-01-preview.
+// API Version: 2021-10-01.
 type SentinelOnboardingState struct {
 	pulumi.CustomResourceState
 
@@ -20,11 +20,11 @@ type SentinelOnboardingState struct {
 	CustomerManagedKey pulumi.BoolPtrOutput `pulumi:"customerManagedKey"`
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -35,9 +35,6 @@ func NewSentinelOnboardingState(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,8 +105,6 @@ func (SentinelOnboardingStateState) ElementType() reflect.Type {
 type sentinelOnboardingStateArgs struct {
 	// Flag that indicates the status of the CMK setting
 	CustomerManagedKey *bool `pulumi:"customerManagedKey"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Sentinel onboarding state name. Supports - default
@@ -122,8 +117,6 @@ type sentinelOnboardingStateArgs struct {
 type SentinelOnboardingStateArgs struct {
 	// Flag that indicates the status of the CMK setting
 	CustomerManagedKey pulumi.BoolPtrInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The Sentinel onboarding state name. Supports - default
@@ -179,7 +172,7 @@ func (o SentinelOnboardingStateOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o SentinelOnboardingStateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -189,7 +182,7 @@ func (o SentinelOnboardingStateOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *SentinelOnboardingState) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o SentinelOnboardingStateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

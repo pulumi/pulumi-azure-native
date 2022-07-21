@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class InMageRcmDisksDefaultInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The disk encryption set ARM Id.
+        /// The DiskEncryptionSet ARM Id.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -24,14 +24,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The disk type.
         /// </summary>
-        [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType>? DiskType { get; set; }
+        [Input("diskType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType> DiskType { get; set; } = null!;
 
         /// <summary>
         /// The log storage account ARM Id.
         /// </summary>
-        [Input("logStorageAccountId")]
-        public Input<string>? LogStorageAccountId { get; set; }
+        [Input("logStorageAccountId", required: true)]
+        public Input<string> LogStorageAccountId { get; set; } = null!;
 
         public InMageRcmDisksDefaultInputArgs()
         {

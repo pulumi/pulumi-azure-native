@@ -472,7 +472,7 @@ class HostPool(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a HostPool definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2021-07-12.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -509,7 +509,7 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a HostPool definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2021-07-12.
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.

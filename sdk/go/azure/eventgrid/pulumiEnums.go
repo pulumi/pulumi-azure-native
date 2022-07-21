@@ -32,20 +32,28 @@ const (
 type ChannelProvisioningState string
 
 const (
-	ChannelProvisioningStateCreating  = ChannelProvisioningState("Creating")
-	ChannelProvisioningStateUpdating  = ChannelProvisioningState("Updating")
-	ChannelProvisioningStateDeleting  = ChannelProvisioningState("Deleting")
-	ChannelProvisioningStateSucceeded = ChannelProvisioningState("Succeeded")
-	ChannelProvisioningStateCanceled  = ChannelProvisioningState("Canceled")
-	ChannelProvisioningStateFailed    = ChannelProvisioningState("Failed")
+	ChannelProvisioningStateCreating                              = ChannelProvisioningState("Creating")
+	ChannelProvisioningStateUpdating                              = ChannelProvisioningState("Updating")
+	ChannelProvisioningStateDeleting                              = ChannelProvisioningState("Deleting")
+	ChannelProvisioningStateSucceeded                             = ChannelProvisioningState("Succeeded")
+	ChannelProvisioningStateCanceled                              = ChannelProvisioningState("Canceled")
+	ChannelProvisioningStateFailed                                = ChannelProvisioningState("Failed")
+	ChannelProvisioningStateIdleDueToMirroredPartnerTopicDeletion = ChannelProvisioningState("IdleDueToMirroredPartnerTopicDeletion")
 )
 
-// The type of the event channel which represents the  direction flow of events.
+// The type of the event channel which represents the direction flow of events.
 type ChannelType string
 
 const (
-	ChannelTypePartnerTopic       = ChannelType("PartnerTopic")
-	ChannelTypePartnerDestination = ChannelType("PartnerDestination")
+	ChannelTypePartnerTopic = ChannelType("PartnerTopic")
+)
+
+// Data Residency Boundary of the resource.
+type DataResidencyBoundary string
+
+const (
+	DataResidencyBoundaryWithinGeopair = DataResidencyBoundary("WithinGeopair")
+	DataResidencyBoundaryWithinRegion  = DataResidencyBoundary("WithinRegion")
 )
 
 // Type of the endpoint for the dead letter destination
@@ -67,14 +75,13 @@ const (
 type EndpointType string
 
 const (
-	EndpointTypeWebHook            = EndpointType("WebHook")
-	EndpointTypeEventHub           = EndpointType("EventHub")
-	EndpointTypeStorageQueue       = EndpointType("StorageQueue")
-	EndpointTypeHybridConnection   = EndpointType("HybridConnection")
-	EndpointTypeServiceBusQueue    = EndpointType("ServiceBusQueue")
-	EndpointTypeServiceBusTopic    = EndpointType("ServiceBusTopic")
-	EndpointTypeAzureFunction      = EndpointType("AzureFunction")
-	EndpointTypePartnerDestination = EndpointType("PartnerDestination")
+	EndpointTypeWebHook          = EndpointType("WebHook")
+	EndpointTypeEventHub         = EndpointType("EventHub")
+	EndpointTypeStorageQueue     = EndpointType("StorageQueue")
+	EndpointTypeHybridConnection = EndpointType("HybridConnection")
+	EndpointTypeServiceBusQueue  = EndpointType("ServiceBusQueue")
+	EndpointTypeServiceBusTopic  = EndpointType("ServiceBusTopic")
+	EndpointTypeAzureFunction    = EndpointType("AzureFunction")
 )
 
 // The kind of event type used.
@@ -134,13 +141,6 @@ const (
 	IpActionTypeAllow = IpActionType("Allow")
 )
 
-// Type of client authentication
-type PartnerClientAuthenticationType string
-
-const (
-	PartnerClientAuthenticationTypeAzureAD = PartnerClientAuthenticationType("AzureAD")
-)
-
 // Provisioning state of the partner configuration.
 type PartnerConfigurationProvisioningState string
 
@@ -153,42 +153,6 @@ const (
 	PartnerConfigurationProvisioningStateFailed    = PartnerConfigurationProvisioningState("Failed")
 )
 
-// Activation state of the partner destination.
-type PartnerDestinationActivationState string
-
-const (
-	PartnerDestinationActivationStateNeverActivated = PartnerDestinationActivationState("NeverActivated")
-	PartnerDestinationActivationStateActivated      = PartnerDestinationActivationState("Activated")
-)
-
-// Provisioning state of the partner destination.
-type PartnerDestinationProvisioningState string
-
-const (
-	PartnerDestinationProvisioningStateCreating  = PartnerDestinationProvisioningState("Creating")
-	PartnerDestinationProvisioningStateUpdating  = PartnerDestinationProvisioningState("Updating")
-	PartnerDestinationProvisioningStateDeleting  = PartnerDestinationProvisioningState("Deleting")
-	PartnerDestinationProvisioningStateSucceeded = PartnerDestinationProvisioningState("Succeeded")
-	PartnerDestinationProvisioningStateCanceled  = PartnerDestinationProvisioningState("Canceled")
-	PartnerDestinationProvisioningStateFailed    = PartnerDestinationProvisioningState("Failed")
-)
-
-// Type of the endpoint for the partner destination
-type PartnerEndpointType string
-
-const (
-	PartnerEndpointTypeWebHook = PartnerEndpointType("WebHook")
-)
-
-// Visibility state of the partner registration.
-type PartnerRegistrationVisibilityState string
-
-const (
-	PartnerRegistrationVisibilityStateHidden             = PartnerRegistrationVisibilityState("Hidden")
-	PartnerRegistrationVisibilityStatePublicPreview      = PartnerRegistrationVisibilityState("PublicPreview")
-	PartnerRegistrationVisibilityStateGenerallyAvailable = PartnerRegistrationVisibilityState("GenerallyAvailable")
-)
-
 // Activation state of the partner topic.
 type PartnerTopicActivationState string
 
@@ -196,6 +160,15 @@ const (
 	PartnerTopicActivationStateNeverActivated = PartnerTopicActivationState("NeverActivated")
 	PartnerTopicActivationStateActivated      = PartnerTopicActivationState("Activated")
 	PartnerTopicActivationStateDeactivated    = PartnerTopicActivationState("Deactivated")
+)
+
+// This determines if events published to this partner namespace should use the source attribute in the event payload
+// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+type PartnerTopicRoutingMode string
+
+const (
+	PartnerTopicRoutingModeSourceEventAttribute = PartnerTopicRoutingMode("SourceEventAttribute")
+	PartnerTopicRoutingModeChannelNameHeader    = PartnerTopicRoutingMode("ChannelNameHeader")
 )
 
 // Status of the connection.

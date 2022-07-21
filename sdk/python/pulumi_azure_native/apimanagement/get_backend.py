@@ -79,7 +79,7 @@ class GetBackendResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -87,7 +87,7 @@ class GetBackendResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -119,7 +119,7 @@ class GetBackendResult:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
-        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         """
         return pulumi.get(self, "resource_id")
 
@@ -143,7 +143,7 @@ class GetBackendResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -182,7 +182,7 @@ def get_backend(backend_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
     Backend details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -221,7 +221,7 @@ def get_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackendResult]:
     """
     Backend details.
-    API Version: 2020-12-01.
+    API Version: 2021-08-01.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.

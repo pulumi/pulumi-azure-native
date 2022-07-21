@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * API Version: 2021-03-01.
+ * API Version: 2021-10-01.
  */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
     if (!opts) {
@@ -85,10 +85,6 @@ export interface GetContainerGroupResult {
      */
     readonly name: string;
     /**
-     * The network profile information for a container group.
-     */
-    readonly networkProfile?: outputs.containerinstance.ContainerGroupNetworkProfileResponse;
-    /**
      * The operating system type required by the containers in the container group.
      */
     readonly osType: string;
@@ -108,6 +104,10 @@ export interface GetContainerGroupResult {
      */
     readonly sku?: string;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    readonly subnetIds?: outputs.containerinstance.ContainerGroupSubnetIdResponse[];
+    /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -119,6 +119,10 @@ export interface GetContainerGroupResult {
      * The list of volumes that can be mounted by containers in this container group.
      */
     readonly volumes?: outputs.containerinstance.VolumeResponse[];
+    /**
+     * The zones for the container group.
+     */
+    readonly zones?: string[];
 }
 
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {

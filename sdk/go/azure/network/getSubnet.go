@@ -11,7 +11,7 @@ import (
 )
 
 // Subnet in a virtual network resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("azure-native:network:getSubnet", args, &rv, opts...)

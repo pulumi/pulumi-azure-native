@@ -12,7 +12,7 @@ import (
 )
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-// API Version: 2016-03-01.
+// API Version: 2021-10-01-preview.
 type Output struct {
 	pulumi.CustomResourceState
 
@@ -22,12 +22,20 @@ type Output struct {
 	Diagnostics DiagnosticsResponseOutput `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+	LastOutputEventTimestamps LastOutputEventTimestampResponseArrayOutput `pulumi:"lastOutputEventTimestamps"`
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization pulumi.AnyOutput `pulumi:"serialization"`
+	// The size window to constrain a Stream Analytics output to.
+	SizeWindow pulumi.Float64PtrOutput `pulumi:"sizeWindow"`
+	// The time frame for filtering Stream Analytics job outputs.
+	TimeWindow pulumi.StringPtrOutput `pulumi:"timeWindow"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings OutputWatermarkPropertiesResponsePtrOutput `pulumi:"watermarkSettings"`
 }
 
 // NewOutput registers a new resource with the given unique name, arguments, and options.
@@ -98,10 +106,16 @@ type outputArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the output.
 	OutputName *string `pulumi:"outputName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization interface{} `pulumi:"serialization"`
+	// The size window to constrain a Stream Analytics output to.
+	SizeWindow *float64 `pulumi:"sizeWindow"`
+	// The time frame for filtering Stream Analytics job outputs.
+	TimeWindow *string `pulumi:"timeWindow"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings *OutputWatermarkProperties `pulumi:"watermarkSettings"`
 }
 
 // The set of arguments for constructing a Output resource.
@@ -114,10 +128,16 @@ type OutputArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the output.
 	OutputName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
 	Serialization pulumi.Input
+	// The size window to constrain a Stream Analytics output to.
+	SizeWindow pulumi.Float64PtrInput
+	// The time frame for filtering Stream Analytics job outputs.
+	TimeWindow pulumi.StringPtrInput
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings OutputWatermarkPropertiesPtrInput
 }
 
 func (OutputArgs) ElementType() reflect.Type {
@@ -172,6 +192,11 @@ func (o OutputOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Output) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+func (o OutputOutput) LastOutputEventTimestamps() LastOutputEventTimestampResponseArrayOutput {
+	return o.ApplyT(func(v *Output) LastOutputEventTimestampResponseArrayOutput { return v.LastOutputEventTimestamps }).(LastOutputEventTimestampResponseArrayOutput)
+}
+
 // Resource name
 func (o OutputOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Output) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
@@ -182,9 +207,24 @@ func (o OutputOutput) Serialization() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Output) pulumi.AnyOutput { return v.Serialization }).(pulumi.AnyOutput)
 }
 
+// The size window to constrain a Stream Analytics output to.
+func (o OutputOutput) SizeWindow() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Output) pulumi.Float64PtrOutput { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+}
+
+// The time frame for filtering Stream Analytics job outputs.
+func (o OutputOutput) TimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Output) pulumi.StringPtrOutput { return v.TimeWindow }).(pulumi.StringPtrOutput)
+}
+
 // Resource type
 func (o OutputOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Output) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Settings which determine whether to send watermarks to downstream.
+func (o OutputOutput) WatermarkSettings() OutputWatermarkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Output) OutputWatermarkPropertiesResponsePtrOutput { return v.WatermarkSettings }).(OutputWatermarkPropertiesResponsePtrOutput)
 }
 
 func init() {

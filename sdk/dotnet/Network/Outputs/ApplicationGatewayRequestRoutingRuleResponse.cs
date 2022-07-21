@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Load Distribution Policy resource of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? LoadDistributionPolicy;
+        /// <summary>
         /// Name of the request routing rule that is unique within an Application Gateway.
         /// </summary>
         public readonly string? Name;
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? id,
 
+            Outputs.SubResourceResponse? loadDistributionPolicy,
+
             string? name,
 
             int? priority,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Etag = etag;
             HttpListener = httpListener;
             Id = id;
+            LoadDistributionPolicy = loadDistributionPolicy;
             Name = name;
             Priority = priority;
             ProvisioningState = provisioningState;

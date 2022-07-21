@@ -11,7 +11,7 @@ import (
 )
 
 // The key-value resource along with all resource properties.
-// API Version: 2020-07-01-preview.
+// API Version: 2022-05-01.
 func LookupKeyValue(ctx *pulumi.Context, args *LookupKeyValueArgs, opts ...pulumi.InvokeOption) (*LookupKeyValueResult, error) {
 	var rv LookupKeyValueResult
 	err := ctx.Invoke("azure-native:appconfiguration:getKeyValue", args, &rv, opts...)

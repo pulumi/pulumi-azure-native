@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Create or update Restore Point collection parameters.
- * API Version: 2021-03-01.
+ * API Version: 2021-11-01.
  */
 export function getRestorePointCollection(args: GetRestorePointCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointCollectionResult> {
     if (!opts) {

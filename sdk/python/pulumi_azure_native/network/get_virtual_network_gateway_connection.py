@@ -21,7 +21,7 @@ class GetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, authorization_key=None, connection_mode=None, connection_protocol=None, connection_status=None, connection_type=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, tunnel_connection_status=None, type=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
+    def __init__(__self__, authorization_key=None, connection_mode=None, connection_protocol=None, connection_status=None, connection_type=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, egress_nat_rules=None, enable_bgp=None, etag=None, express_route_gateway_bypass=None, gateway_custom_bgp_ip_addresses=None, id=None, ingress_bytes_transferred=None, ingress_nat_rules=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, tunnel_connection_status=None, type=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
@@ -43,6 +43,9 @@ class GetVirtualNetworkGatewayConnectionResult:
         if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
             raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        if egress_nat_rules and not isinstance(egress_nat_rules, list):
+            raise TypeError("Expected argument 'egress_nat_rules' to be a list")
+        pulumi.set(__self__, "egress_nat_rules", egress_nat_rules)
         if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError("Expected argument 'enable_bgp' to be a bool")
         pulumi.set(__self__, "enable_bgp", enable_bgp)
@@ -52,12 +55,18 @@ class GetVirtualNetworkGatewayConnectionResult:
         if express_route_gateway_bypass and not isinstance(express_route_gateway_bypass, bool):
             raise TypeError("Expected argument 'express_route_gateway_bypass' to be a bool")
         pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if gateway_custom_bgp_ip_addresses and not isinstance(gateway_custom_bgp_ip_addresses, list):
+            raise TypeError("Expected argument 'gateway_custom_bgp_ip_addresses' to be a list")
+        pulumi.set(__self__, "gateway_custom_bgp_ip_addresses", gateway_custom_bgp_ip_addresses)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
             raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        if ingress_nat_rules and not isinstance(ingress_nat_rules, list):
+            raise TypeError("Expected argument 'ingress_nat_rules' to be a list")
+        pulumi.set(__self__, "ingress_nat_rules", ingress_nat_rules)
         if ipsec_policies and not isinstance(ipsec_policies, list):
             raise TypeError("Expected argument 'ipsec_policies' to be a list")
         pulumi.set(__self__, "ipsec_policies", ipsec_policies)
@@ -167,6 +176,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         return pulumi.get(self, "egress_bytes_transferred")
 
     @property
+    @pulumi.getter(name="egressNatRules")
+    def egress_nat_rules(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of egress NatRules.
+        """
+        return pulumi.get(self, "egress_nat_rules")
+
+    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[bool]:
         """
@@ -191,6 +208,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         return pulumi.get(self, "express_route_gateway_bypass")
 
     @property
+    @pulumi.getter(name="gatewayCustomBgpIpAddresses")
+    def gateway_custom_bgp_ip_addresses(self) -> Optional[Sequence['outputs.GatewayCustomBgpIpAddressIpConfigurationResponse']]:
+        """
+        GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+        """
+        return pulumi.get(self, "gateway_custom_bgp_ip_addresses")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -205,6 +230,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         The ingress bytes transferred in this connection.
         """
         return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="ingressNatRules")
+    def ingress_nat_rules(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of ingress NatRules.
+        """
+        return pulumi.get(self, "ingress_nat_rules")
 
     @property
     @pulumi.getter(name="ipsecPolicies")
@@ -356,11 +389,14 @@ class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGateway
             connection_type=self.connection_type,
             dpd_timeout_seconds=self.dpd_timeout_seconds,
             egress_bytes_transferred=self.egress_bytes_transferred,
+            egress_nat_rules=self.egress_nat_rules,
             enable_bgp=self.enable_bgp,
             etag=self.etag,
             express_route_gateway_bypass=self.express_route_gateway_bypass,
+            gateway_custom_bgp_ip_addresses=self.gateway_custom_bgp_ip_addresses,
             id=self.id,
             ingress_bytes_transferred=self.ingress_bytes_transferred,
+            ingress_nat_rules=self.ingress_nat_rules,
             ipsec_policies=self.ipsec_policies,
             local_network_gateway2=self.local_network_gateway2,
             location=self.location,
@@ -385,7 +421,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -408,11 +444,14 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
         connection_type=__ret__.connection_type,
         dpd_timeout_seconds=__ret__.dpd_timeout_seconds,
         egress_bytes_transferred=__ret__.egress_bytes_transferred,
+        egress_nat_rules=__ret__.egress_nat_rules,
         enable_bgp=__ret__.enable_bgp,
         etag=__ret__.etag,
         express_route_gateway_bypass=__ret__.express_route_gateway_bypass,
+        gateway_custom_bgp_ip_addresses=__ret__.gateway_custom_bgp_ip_addresses,
         id=__ret__.id,
         ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
+        ingress_nat_rules=__ret__.ingress_nat_rules,
         ipsec_policies=__ret__.ipsec_policies,
         local_network_gateway2=__ret__.local_network_gateway2,
         location=__ret__.location,
@@ -438,7 +477,7 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionResult]:
     """
     A common class for general resource information.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

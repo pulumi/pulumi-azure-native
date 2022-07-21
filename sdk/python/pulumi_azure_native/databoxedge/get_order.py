@@ -21,7 +21,7 @@ class GetOrderResult:
     """
     The order details.
     """
-    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, type=None):
+    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, kind=None, name=None, order_history=None, order_id=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, system_data=None, type=None):
         if contact_information and not isinstance(contact_information, dict):
             raise TypeError("Expected argument 'contact_information' to be a dict")
         pulumi.set(__self__, "contact_information", contact_information)
@@ -34,12 +34,18 @@ class GetOrderResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if order_history and not isinstance(order_history, list):
             raise TypeError("Expected argument 'order_history' to be a list")
         pulumi.set(__self__, "order_history", order_history)
+        if order_id and not isinstance(order_id, str):
+            raise TypeError("Expected argument 'order_id' to be a str")
+        pulumi.set(__self__, "order_id", order_id)
         if return_tracking_info and not isinstance(return_tracking_info, list):
             raise TypeError("Expected argument 'return_tracking_info' to be a list")
         pulumi.set(__self__, "return_tracking_info", return_tracking_info)
@@ -52,6 +58,9 @@ class GetOrderResult:
         if shipping_address and not isinstance(shipping_address, dict):
             raise TypeError("Expected argument 'shipping_address' to be a dict")
         pulumi.set(__self__, "shipping_address", shipping_address)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -90,6 +99,14 @@ class GetOrderResult:
 
     @property
     @pulumi.getter
+    def kind(self) -> str:
+        """
+        It specify the order api version.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The object name.
@@ -103,6 +120,14 @@ class GetOrderResult:
         List of status changes in the order.
         """
         return pulumi.get(self, "order_history")
+
+    @property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> str:
+        """
+        It specify the order resource id.
+        """
+        return pulumi.get(self, "order_id")
 
     @property
     @pulumi.getter(name="returnTrackingInfo")
@@ -137,6 +162,14 @@ class GetOrderResult:
         return pulumi.get(self, "shipping_address")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of Order
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -155,12 +188,15 @@ class AwaitableGetOrderResult(GetOrderResult):
             current_status=self.current_status,
             delivery_tracking_info=self.delivery_tracking_info,
             id=self.id,
+            kind=self.kind,
             name=self.name,
             order_history=self.order_history,
+            order_id=self.order_id,
             return_tracking_info=self.return_tracking_info,
             serial_number=self.serial_number,
             shipment_type=self.shipment_type,
             shipping_address=self.shipping_address,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -169,7 +205,7 @@ def get_order(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderResult:
     """
     The order details.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -189,12 +225,15 @@ def get_order(device_name: Optional[str] = None,
         current_status=__ret__.current_status,
         delivery_tracking_info=__ret__.delivery_tracking_info,
         id=__ret__.id,
+        kind=__ret__.kind,
         name=__ret__.name,
         order_history=__ret__.order_history,
+        order_id=__ret__.order_id,
         return_tracking_info=__ret__.return_tracking_info,
         serial_number=__ret__.serial_number,
         shipment_type=__ret__.shipment_type,
         shipping_address=__ret__.shipping_address,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -204,7 +243,7 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderResult]:
     """
     The order details.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

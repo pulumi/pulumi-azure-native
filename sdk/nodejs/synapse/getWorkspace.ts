@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -27,7 +27,7 @@ export interface GetWorkspaceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -41,9 +41,17 @@ export interface GetWorkspaceResult {
      */
     readonly adlaResourceId: string;
     /**
+     * Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+     */
+    readonly azureADOnlyAuthentication?: boolean;
+    /**
      * Connectivity endpoints
      */
     readonly connectivityEndpoints?: {[key: string]: string};
+    /**
+     * Initial workspace AAD admin properties for a CSP subscription
+     */
+    readonly cspWorkspaceAdminProperties?: outputs.synapse.CspWorkspaceAdminPropertiesResponse;
     /**
      * Workspace default data lake storage account details
      */
@@ -101,6 +109,10 @@ export interface GetWorkspaceResult {
      */
     readonly purviewConfiguration?: outputs.synapse.PurviewConfigurationResponse;
     /**
+     * Workspace settings
+     */
+    readonly settings: {[key: string]: any};
+    /**
      * Login for workspace SQL active directory administrator
      */
     readonly sqlAdministratorLogin?: string;
@@ -112,6 +124,10 @@ export interface GetWorkspaceResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Is trustedServiceBypassEnabled for the workspace
+     */
+    readonly trustedServiceBypassEnabled?: boolean;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -140,7 +156,7 @@ export interface GetWorkspaceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

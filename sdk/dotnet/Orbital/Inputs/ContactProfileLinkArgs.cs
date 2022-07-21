@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital.Inputs
 {
 
     /// <summary>
-    /// Contact Profile link
+    /// Contact Profile Link.
     /// </summary>
     public sealed class ContactProfileLinkArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         private InputList<Inputs.ContactProfileLinkChannelArgs>? _channels;
 
         /// <summary>
-        /// Contact Profile Link Channel
+        /// Contact Profile Link Channel.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkChannelArgs> Channels
         {
@@ -28,25 +28,31 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         }
 
         /// <summary>
-        /// Direction (uplink or downlink)
+        /// Direction (uplink or downlink).
         /// </summary>
         [Input("direction", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Orbital.Direction> Direction { get; set; } = null!;
 
         /// <summary>
-        /// Effective Isotropic Radiated Power (EIRP) in dBW.
+        /// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
         /// </summary>
         [Input("eirpdBW")]
         public Input<double>? EirpdBW { get; set; }
 
         /// <summary>
-        /// Gain To Noise Temperature in db/K.
+        /// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         /// </summary>
         [Input("gainOverTemperature")]
         public Input<double>? GainOverTemperature { get; set; }
 
         /// <summary>
-        /// polarization. eg (RHCP, LHCP)
+        /// Link name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Polarization. e.g. (RHCP, LHCP).
         /// </summary>
         [Input("polarization", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Orbital.Polarization> Polarization { get; set; } = null!;

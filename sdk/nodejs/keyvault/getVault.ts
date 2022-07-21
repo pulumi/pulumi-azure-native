@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2019-09-01.
+ * API Version: 2021-10-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     if (!opts) {
@@ -52,6 +52,10 @@ export interface GetVaultResult {
      * Properties of the vault
      */
     readonly properties: outputs.keyvault.VaultPropertiesResponse;
+    /**
+     * System metadata for the key vault.
+     */
+    readonly systemData: outputs.keyvault.SystemDataResponse;
     /**
      * Tags assigned to the key vault resource.
      */

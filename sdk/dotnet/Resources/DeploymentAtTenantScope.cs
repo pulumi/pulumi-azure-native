@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Deployment information.
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtTenantScope")]
     public partial class DeploymentAtTenantScope : Pulumi.CustomResource

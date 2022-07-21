@@ -211,7 +211,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  __props__=None):
         """
         The storage account credential.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account credential.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -403,7 +403,7 @@ class StorageAccountCredential(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        StorageAccountCredential object
+        Metadata pertaining to creation and last modification of StorageAccountCredential
         """
         return pulumi.get(self, "system_data")
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Represent the identity type: systemAssigned, userAssigned, None
+        /// Represents the identity type: systemAssigned, userAssigned, None
         /// </summary>
         public readonly string? Type;
         /// <summary>

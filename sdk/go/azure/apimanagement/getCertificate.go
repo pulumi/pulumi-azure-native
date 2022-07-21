@@ -11,7 +11,7 @@ import (
 )
 
 // Certificate details.
-// API Version: 2020-12-01.
+// API Version: 2021-08-01.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:apimanagement:getCertificate", args, &rv, opts...)
@@ -34,17 +34,17 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate string `pulumi:"expirationDate"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// KeyVault location details of the certificate.
 	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Subject attribute of the certificate.
 	Subject string `pulumi:"subject"`
 	// Thumbprint of the certificate.
 	Thumbprint string `pulumi:"thumbprint"`
-	// Resource type for API Management resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -94,7 +94,7 @@ func (o LookupCertificateResultOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -104,7 +104,7 @@ func (o LookupCertificateResultOutput) KeyVault() KeyVaultContractPropertiesResp
 	return o.ApplyT(func(v LookupCertificateResult) *KeyVaultContractPropertiesResponse { return v.KeyVault }).(KeyVaultContractPropertiesResponsePtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -119,7 +119,7 @@ func (o LookupCertificateResultOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-// Resource type for API Management resource.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupCertificateResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Type }).(pulumi.StringOutput)
 }

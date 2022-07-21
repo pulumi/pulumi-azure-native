@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an Event Grid data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-02-01.
  */
 export class EventGridDataConnection extends pulumi.CustomResource {
     /**
@@ -49,6 +49,14 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    public readonly databaseRouting!: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    public readonly eventGridResourceId!: pulumi.Output<string | undefined>;
+    /**
      * The resource ID where the event grid is configured to send events.
      */
     public readonly eventHubResourceId!: pulumi.Output<string>;
@@ -65,6 +73,14 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The object ID of managedIdentityResourceId
+     */
+    public /*out*/ readonly managedIdentityObjectId!: pulumi.Output<string>;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
@@ -128,14 +144,18 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRouting"] = (args ? args.databaseRouting : undefined) ?? "Single";
+            resourceInputs["eventGridResourceId"] = args ? args.eventGridResourceId : undefined;
             resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
             resourceInputs["ignoreFirstRecord"] = args ? args.ignoreFirstRecord : undefined;
             resourceInputs["kind"] = "EventGrid";
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -143,10 +163,14 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["blobStorageEventType"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["databaseRouting"] = undefined /*out*/;
+            resourceInputs["eventGridResourceId"] = undefined /*out*/;
             resourceInputs["eventHubResourceId"] = undefined /*out*/;
             resourceInputs["ignoreFirstRecord"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
+            resourceInputs["managedIdentityResourceId"] = undefined /*out*/;
             resourceInputs["mappingRuleName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -190,6 +214,14 @@ export interface EventGridDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    eventGridResourceId?: pulumi.Input<string>;
+    /**
      * The resource ID where the event grid is configured to send events.
      */
     eventHubResourceId: pulumi.Input<string>;
@@ -206,6 +238,10 @@ export interface EventGridDataConnectionArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    managedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */

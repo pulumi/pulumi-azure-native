@@ -83,9 +83,6 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:servicefabric:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Cluster"),
 		},
 		{

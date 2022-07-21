@@ -12,12 +12,14 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 type Table struct {
 	pulumi.CustomResourceState
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of stored access policies specified on the table.
+	SignedIdentifiers TableSignedIdentifierResponseArrayOutput `pulumi:"signedIdentifiers"`
 	// Table name under the specified account
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -100,6 +102,8 @@ type tableArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// List of stored access policies specified on the table.
+	SignedIdentifiers []TableSignedIdentifier `pulumi:"signedIdentifiers"`
 	// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
 	TableName *string `pulumi:"tableName"`
 }
@@ -110,6 +114,8 @@ type TableArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// List of stored access policies specified on the table.
+	SignedIdentifiers TableSignedIdentifierArrayInput
 	// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
 	TableName pulumi.StringPtrInput
 }
@@ -154,6 +160,11 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 // The name of the resource
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of stored access policies specified on the table.
+func (o TableOutput) SignedIdentifiers() TableSignedIdentifierResponseArrayOutput {
+	return o.ApplyT(func(v *Table) TableSignedIdentifierResponseArrayOutput { return v.SignedIdentifiers }).(TableSignedIdentifierResponseArrayOutput)
 }
 
 // Table name under the specified account

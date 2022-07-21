@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about an application in a Batch account.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Application")]
     public partial class Application : Pulumi.CustomResource

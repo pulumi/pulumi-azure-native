@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-    /// API Version: 2016-03-01.
+    /// API Version: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Output")]
     public partial class Output : Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+        /// </summary>
+        [Output("lastOutputEventTimestamps")]
+        public Output<ImmutableArray<Outputs.LastOutputEventTimestampResponse>> LastOutputEventTimestamps { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
@@ -47,10 +53,28 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<object?> Serialization { get; private set; } = null!;
 
         /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        [Output("sizeWindow")]
+        public Output<double?> SizeWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        [Output("timeWindow")]
+        public Output<string?> TimeWindow { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings which determine whether to send watermarks to downstream.
+        /// </summary>
+        [Output("watermarkSettings")]
+        public Output<Outputs.OutputWatermarkPropertiesResponse?> WatermarkSettings { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,7 +153,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Input<string>? OutputName { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -139,6 +163,24 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         [Input("serialization")]
         public object? Serialization { get; set; }
+
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        [Input("sizeWindow")]
+        public Input<double>? SizeWindow { get; set; }
+
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        [Input("timeWindow")]
+        public Input<string>? TimeWindow { get; set; }
+
+        /// <summary>
+        /// Settings which determine whether to send watermarks to downstream.
+        /// </summary>
+        [Input("watermarkSettings")]
+        public Input<Inputs.OutputWatermarkPropertiesArgs>? WatermarkSettings { get; set; }
 
         public OutputArgs()
         {

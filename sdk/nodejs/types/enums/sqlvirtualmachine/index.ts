@@ -14,6 +14,33 @@ export {
     v20220201preview,
 };
 
+export const AssessmentDayOfWeek = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+/**
+ * Day of the week to run assessment.
+ */
+export type AssessmentDayOfWeek = (typeof AssessmentDayOfWeek)[keyof typeof AssessmentDayOfWeek];
+
+export const AutoBackupDaysOfWeek = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+export type AutoBackupDaysOfWeek = (typeof AutoBackupDaysOfWeek)[keyof typeof AutoBackupDaysOfWeek];
+
 export const BackupScheduleType = {
     Manual: "Manual",
     Automated: "Automated",
@@ -23,6 +50,26 @@ export const BackupScheduleType = {
  * Backup schedule type.
  */
 export type BackupScheduleType = (typeof BackupScheduleType)[keyof typeof BackupScheduleType];
+
+export const ClusterSubnetType = {
+    SingleSubnet: "SingleSubnet",
+    MultiSubnet: "MultiSubnet",
+} as const;
+
+/**
+ * Cluster subnet type.
+ */
+export type ClusterSubnetType = (typeof ClusterSubnetType)[keyof typeof ClusterSubnetType];
+
+export const Commit = {
+    SYNCHRONOUS_COMMIT: "SYNCHRONOUS_COMMIT",
+    ASYNCHRONOUS_COMMIT: "ASYNCHRONOUS_COMMIT",
+} as const;
+
+/**
+ * Replica commit mode in availability group.
+ */
+export type Commit = (typeof Commit)[keyof typeof Commit];
 
 export const ConnectivityType = {
     LOCAL: "LOCAL",
@@ -36,6 +83,7 @@ export const ConnectivityType = {
 export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
 
 export const DayOfWeek = {
+    Everyday: "Everyday",
     Monday: "Monday",
     Tuesday: "Tuesday",
     Wednesday: "Wednesday",
@@ -61,6 +109,16 @@ export const DiskConfigurationType = {
  */
 export type DiskConfigurationType = (typeof DiskConfigurationType)[keyof typeof DiskConfigurationType];
 
+export const Failover = {
+    AUTOMATIC: "AUTOMATIC",
+    MANUAL: "MANUAL",
+} as const;
+
+/**
+ * Replica failover mode in availability group.
+ */
+export type Failover = (typeof Failover)[keyof typeof Failover];
+
 export const FullBackupFrequencyType = {
     Daily: "Daily",
     Weekly: "Weekly",
@@ -72,6 +130,7 @@ export const FullBackupFrequencyType = {
 export type FullBackupFrequencyType = (typeof FullBackupFrequencyType)[keyof typeof FullBackupFrequencyType];
 
 export const IdentityType = {
+    None: "None",
     SystemAssigned: "SystemAssigned",
 } as const;
 
@@ -79,6 +138,27 @@ export const IdentityType = {
  * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const ReadableSecondary = {
+    NO: "NO",
+    ALL: "ALL",
+    READ_ONLY: "READ_ONLY",
+} as const;
+
+/**
+ * Replica readable secondary mode in availability group.
+ */
+export type ReadableSecondary = (typeof ReadableSecondary)[keyof typeof ReadableSecondary];
+
+export const Role = {
+    PRIMARY: "PRIMARY",
+    SECONDARY: "SECONDARY",
+} as const;
+
+/**
+ * Replica Role in availability group.
+ */
+export type Role = (typeof Role)[keyof typeof Role];
 
 export const SqlImageSku = {
     Developer: "Developer",

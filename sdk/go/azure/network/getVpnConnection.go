@@ -11,7 +11,7 @@ import (
 )
 
 // VpnConnection Resource.
-// API Version: 2020-11-01.
+// API Version: 2021-08-01.
 func LookupVpnConnection(ctx *pulumi.Context, args *LookupVpnConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpnConnectionResult, error) {
 	var rv LookupVpnConnectionResult
 	err := ctx.Invoke("azure-native:network:getVpnConnection", args, &rv, opts...)

@@ -128,7 +128,7 @@ class FileServiceProperties(pulumi.CustomResource):
                  __props__=None):
         """
         The properties of File services in storage account.
-        API Version: 2021-02-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class FileServiceProperties(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of File services in storage account.
-        API Version: 2021-02-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param FileServicePropertiesArgs args: The arguments to use to populate this resource's properties.

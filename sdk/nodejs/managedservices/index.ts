@@ -10,6 +10,9 @@ export * from "./getRegistrationDefinition";
 export * from "./registrationAssignment";
 export * from "./registrationDefinition";
 
+// Export enums:
+export * from "../types/enums/managedservices";
+
 // Export sub-modules:
 import * as v20180601preview from "./v20180601preview";
 import * as v20190401preview from "./v20190401preview";

@@ -11,7 +11,7 @@ import (
 )
 
 // The lock information.
-// API Version: 2017-04-01.
+// API Version: 2020-05-01.
 func LookupManagementLockAtSubscriptionLevel(ctx *pulumi.Context, args *LookupManagementLockAtSubscriptionLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtSubscriptionLevelResult, error) {
 	var rv LookupManagementLockAtSubscriptionLevelResult
 	err := ctx.Invoke("azure-native:authorization:getManagementLockAtSubscriptionLevel", args, &rv, opts...)
@@ -38,6 +38,8 @@ type LookupManagementLockAtSubscriptionLevelResult struct {
 	Notes *string `pulumi:"notes"`
 	// The owners of the lock.
 	Owners []ManagementLockOwnerResponse `pulumi:"owners"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type string `pulumi:"type"`
 }
@@ -102,6 +104,11 @@ func (o LookupManagementLockAtSubscriptionLevelResultOutput) Notes() pulumi.Stri
 // The owners of the lock.
 func (o LookupManagementLockAtSubscriptionLevelResultOutput) Owners() ManagementLockOwnerResponseArrayOutput {
 	return o.ApplyT(func(v LookupManagementLockAtSubscriptionLevelResult) []ManagementLockOwnerResponse { return v.Owners }).(ManagementLockOwnerResponseArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupManagementLockAtSubscriptionLevelResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupManagementLockAtSubscriptionLevelResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type of the lock - Microsoft.Authorization/locks.

@@ -11,7 +11,7 @@ import (
 )
 
 // A single Redis item in List or Get Operation.
-// API Version: 2020-06-01.
+// API Version: 2021-06-01.
 func LookupRedis(ctx *pulumi.Context, args *LookupRedisArgs, opts ...pulumi.InvokeOption) (*LookupRedisResult, error) {
 	var rv LookupRedisResult
 	err := ctx.Invoke("azure-native:cache:getRedis", args, &rv, opts...)
@@ -36,8 +36,10 @@ type LookupRedisResult struct {
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Redis host name.
 	HostName string `pulumi:"hostName"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The identity of the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// List of the Redis instances associated with the cache
 	Instances []RedisInstanceDetailsResponse `pulumi:"instances"`
 	// List of the linked servers associated with the cache
@@ -46,7 +48,7 @@ type LookupRedisResult struct {
 	Location string `pulumi:"location"`
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Redis non-SSL port.
 	Port int `pulumi:"port"`
@@ -58,10 +60,12 @@ type LookupRedisResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration *RedisCommonPropertiesResponseRedisConfiguration `pulumi:"redisConfiguration"`
-	// Redis version.
-	RedisVersion string `pulumi:"redisVersion"`
-	// The number of replicas to be created per master.
+	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+	RedisVersion *string `pulumi:"redisVersion"`
+	// The number of replicas to be created per primary.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
+	// The number of replicas to be created per primary.
+	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
@@ -76,7 +80,7 @@ type LookupRedisResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A dictionary of tenant settings
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
-	// Resource type.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`
@@ -153,9 +157,14 @@ func (o LookupRedisResultOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRedisResult) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupRedisResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRedisResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o LookupRedisResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // List of the Redis instances associated with the cache
@@ -178,7 +187,7 @@ func (o LookupRedisResultOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRedisResult) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Resource name.
+// The name of the resource
 func (o LookupRedisResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRedisResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -210,14 +219,19 @@ func (o LookupRedisResultOutput) RedisConfiguration() RedisCommonPropertiesRespo
 	}).(RedisCommonPropertiesResponseRedisConfigurationPtrOutput)
 }
 
-// Redis version.
-func (o LookupRedisResultOutput) RedisVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRedisResult) string { return v.RedisVersion }).(pulumi.StringOutput)
+// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+func (o LookupRedisResultOutput) RedisVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *string { return v.RedisVersion }).(pulumi.StringPtrOutput)
 }
 
-// The number of replicas to be created per master.
+// The number of replicas to be created per primary.
 func (o LookupRedisResultOutput) ReplicasPerMaster() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRedisResult) *int { return v.ReplicasPerMaster }).(pulumi.IntPtrOutput)
+}
+
+// The number of replicas to be created per primary.
+func (o LookupRedisResultOutput) ReplicasPerPrimary() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *int { return v.ReplicasPerPrimary }).(pulumi.IntPtrOutput)
 }
 
 // The number of shards to be created on a Premium Cluster Cache.
@@ -255,7 +269,7 @@ func (o LookupRedisResultOutput) TenantSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRedisResult) map[string]string { return v.TenantSettings }).(pulumi.StringMapOutput)
 }
 
-// Resource type.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupRedisResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRedisResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -11,7 +11,7 @@ import (
 )
 
 // NSX DHCP
-// API Version: 2020-07-17-preview.
+// API Version: 2021-12-01.
 func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkDhcpArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDhcpResult, error) {
 	var rv LookupWorkloadNetworkDhcpResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkDhcp", args, &rv, opts...)
@@ -32,20 +32,12 @@ type LookupWorkloadNetworkDhcpArgs struct {
 
 // NSX DHCP
 type LookupWorkloadNetworkDhcpResult struct {
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments []string `pulumi:"segments"`
+	// DHCP properties.
+	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -91,16 +83,6 @@ func (o LookupWorkloadNetworkDhcpResultOutput) ToLookupWorkloadNetworkDhcpResult
 	return o
 }
 
-// Type of DHCP: SERVER or RELAY.
-func (o LookupWorkloadNetworkDhcpResultOutput) DhcpType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.DhcpType }).(pulumi.StringOutput)
-}
-
-// Display name of the DHCP entity.
-func (o LookupWorkloadNetworkDhcpResultOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
 // Resource ID.
 func (o LookupWorkloadNetworkDhcpResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.Id }).(pulumi.StringOutput)
@@ -111,19 +93,9 @@ func (o LookupWorkloadNetworkDhcpResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The provisioning state
-func (o LookupWorkloadNetworkDhcpResultOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// NSX revision number.
-func (o LookupWorkloadNetworkDhcpResultOutput) Revision() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) *float64 { return v.Revision }).(pulumi.Float64PtrOutput)
-}
-
-// NSX Segments consuming DHCP.
-func (o LookupWorkloadNetworkDhcpResultOutput) Segments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) []string { return v.Segments }).(pulumi.StringArrayOutput)
+// DHCP properties.
+func (o LookupWorkloadNetworkDhcpResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Resource type.

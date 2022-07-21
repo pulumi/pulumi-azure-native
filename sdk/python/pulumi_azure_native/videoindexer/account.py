@@ -27,7 +27,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] account_id: The account's data-plane ID. This can be set only when connecting an existing classic account
-        :param pulumi.Input[str] account_name: The name of the Azure Video Analyzer for Media account.
+        :param pulumi.Input[str] account_name: The name of the Azure Video Indexer account.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MediaServicesForPutRequestArgs'] media_services: The media services details
@@ -77,7 +77,7 @@ class AccountArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Azure Video Analyzer for Media account.
+        The name of the Azure Video Indexer account.
         """
         return pulumi.get(self, "account_name")
 
@@ -148,13 +148,13 @@ class Account(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        An Azure Video Analyzer for Media account.
-        API Version: 2021-10-18-preview.
+        An Azure Video Indexer account.
+        API Version: 2022-04-13-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account's data-plane ID. This can be set only when connecting an existing classic account
-        :param pulumi.Input[str] account_name: The name of the Azure Video Analyzer for Media account.
+        :param pulumi.Input[str] account_name: The name of the Azure Video Indexer account.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MediaServicesForPutRequestArgs']] media_services: The media services details
@@ -168,8 +168,8 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An Azure Video Analyzer for Media account.
-        API Version: 2021-10-18-preview.
+        An Azure Video Indexer account.
+        API Version: 2022-04-13-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +220,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["total_seconds_indexed"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoindexer/v20211018preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211027preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211110preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20220413preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -255,6 +256,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["total_seconds_indexed"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -337,6 +339,14 @@ class Account(pulumi.CustomResource):
         The account's tenant id
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="totalSecondsIndexed")
+    def total_seconds_indexed(self) -> pulumi.Output[int]:
+        """
+        An integer representing the total seconds that have been indexed on the account
+        """
+        return pulumi.get(self, "total_seconds_indexed")
 
     @property
     @pulumi.getter

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datamigration:ServiceTask"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:ServiceTask"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:ServiceTask"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:ServiceTask"},

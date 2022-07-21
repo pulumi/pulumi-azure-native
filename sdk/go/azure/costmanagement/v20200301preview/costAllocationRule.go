@@ -33,12 +33,6 @@ func NewCostAllocationRule(ctx *pulumi.Context,
 	if args.BillingAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'BillingAccountId'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:costmanagement:CostAllocationRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource CostAllocationRule
 	err := ctx.RegisterResource("azure-native:costmanagement/v20200301preview:CostAllocationRule", name, args, &resource, opts...)
 	if err != nil {

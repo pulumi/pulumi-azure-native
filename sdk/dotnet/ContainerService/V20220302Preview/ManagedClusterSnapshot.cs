@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:ManagedClusterSnapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:ManagedClusterSnapshot"},

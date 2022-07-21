@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetFusionAlertRuleResult',
@@ -20,7 +21,7 @@ class GetFusionAlertRuleResult:
     """
     Represents Fusion alert rule.
     """
-    def __init__(__self__, alert_rule_template_name=None, description=None, display_name=None, enabled=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, severity=None, tactics=None, type=None):
+    def __init__(__self__, alert_rule_template_name=None, description=None, display_name=None, enabled=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, severity=None, system_data=None, tactics=None, type=None):
         if alert_rule_template_name and not isinstance(alert_rule_template_name, str):
             raise TypeError("Expected argument 'alert_rule_template_name' to be a str")
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
@@ -51,6 +52,9 @@ class GetFusionAlertRuleResult:
         if severity and not isinstance(severity, str):
             raise TypeError("Expected argument 'severity' to be a str")
         pulumi.set(__self__, "severity", severity)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tactics and not isinstance(tactics, list):
             raise TypeError("Expected argument 'tactics' to be a list")
         pulumi.set(__self__, "tactics", tactics)
@@ -102,7 +106,7 @@ class GetFusionAlertRuleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -127,7 +131,7 @@ class GetFusionAlertRuleResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -138,6 +142,14 @@ class GetFusionAlertRuleResult:
         The severity for alerts created by this alert rule.
         """
         return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -151,7 +163,7 @@ class GetFusionAlertRuleResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -172,6 +184,7 @@ class AwaitableGetFusionAlertRuleResult(GetFusionAlertRuleResult):
             last_modified_utc=self.last_modified_utc,
             name=self.name,
             severity=self.severity,
+            system_data=self.system_data,
             tactics=self.tactics,
             type=self.type)
 
@@ -182,10 +195,10 @@ def get_fusion_alert_rule(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFusionAlertRuleResult:
     """
     Represents Fusion alert rule.
-    API Version: 2020-01-01.
+    API Version: 2021-10-01.
 
 
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
@@ -210,6 +223,7 @@ def get_fusion_alert_rule(resource_group_name: Optional[str] = None,
         last_modified_utc=__ret__.last_modified_utc,
         name=__ret__.name,
         severity=__ret__.severity,
+        system_data=__ret__.system_data,
         tactics=__ret__.tactics,
         type=__ret__.type)
 
@@ -221,10 +235,10 @@ def get_fusion_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
     """
     Represents Fusion alert rule.
-    API Version: 2020-01-01.
+    API Version: 2021-10-01.
 
 
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """

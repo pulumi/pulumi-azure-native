@@ -57,7 +57,8 @@ const (
 type ThresholdType string
 
 const (
-	ThresholdTypeActual = ThresholdType("Actual")
+	ThresholdTypeActual     = ThresholdType("Actual")
+	ThresholdTypeForecasted = ThresholdType("Forecasted")
 )
 
 // The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers

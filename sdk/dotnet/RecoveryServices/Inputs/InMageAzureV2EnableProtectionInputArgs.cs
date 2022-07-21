@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class InMageAzureV2EnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DiskEncryptionSet ARM ID.
+        /// The DiskEncryptionSet ARM Id.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         }
 
         /// <summary>
-        /// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+        /// The selected option to enable RDP\SSH on target VM after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         /// </summary>
         [Input("enableRdpOnTargetOption")]
         public Input<string>? EnableRdpOnTargetOption { get; set; }
@@ -49,8 +49,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The class type.
         /// Expected value is 'InMageAzureV2'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
+
+        /// <summary>
+        /// License type.
+        /// </summary>
+        [Input("licenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// The storage account to be used for logging during replication.
@@ -65,13 +71,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? MasterTargetId { get; set; }
 
         /// <summary>
-        /// The multi vm group Id.
+        /// The multi VM group Id.
         /// </summary>
         [Input("multiVmGroupId")]
         public Input<string>? MultiVmGroupId { get; set; }
 
         /// <summary>
-        /// The multi vm group name.
+        /// The multi VM group name.
         /// </summary>
         [Input("multiVmGroupName")]
         public Input<string>? MultiVmGroupName { get; set; }
@@ -88,14 +94,32 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("runAsAccountId")]
         public Input<string>? RunAsAccountId { get; set; }
 
+        [Input("seedManagedDiskTags")]
+        private InputMap<string>? _seedManagedDiskTags;
+
         /// <summary>
-        /// The storage account name.
+        /// The tags for the seed managed disks.
+        /// </summary>
+        public InputMap<string> SeedManagedDiskTags
+        {
+            get => _seedManagedDiskTags ?? (_seedManagedDiskTags = new InputMap<string>());
+            set => _seedManagedDiskTags = value;
+        }
+
+        /// <summary>
+        /// The SQL Server license type.
+        /// </summary>
+        [Input("sqlServerLicenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
+
+        /// <summary>
+        /// The storage account Id.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
-        /// The availability set ARM Id.
+        /// The target availability set ARM Id for resource manager deployment.
         /// </summary>
         [Input("targetAvailabilitySetId")]
         public Input<string>? TargetAvailabilitySetId { get; set; }
@@ -131,10 +155,34 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TargetAzureV2ResourceGroupId { get; set; }
 
         /// <summary>
-        /// The target azure Vm Name.
+        /// The target azure VM Name.
         /// </summary>
         [Input("targetAzureVmName")]
         public Input<string>? TargetAzureVmName { get; set; }
+
+        [Input("targetManagedDiskTags")]
+        private InputMap<string>? _targetManagedDiskTags;
+
+        /// <summary>
+        /// The tags for the target managed disks.
+        /// </summary>
+        public InputMap<string> TargetManagedDiskTags
+        {
+            get => _targetManagedDiskTags ?? (_targetManagedDiskTags = new InputMap<string>());
+            set => _targetManagedDiskTags = value;
+        }
+
+        [Input("targetNicTags")]
+        private InputMap<string>? _targetNicTags;
+
+        /// <summary>
+        /// The tags for the target NICs.
+        /// </summary>
+        public InputMap<string> TargetNicTags
+        {
+            get => _targetNicTags ?? (_targetNicTags = new InputMap<string>());
+            set => _targetNicTags = value;
+        }
 
         /// <summary>
         /// The proximity placement group ARM Id.
@@ -147,6 +195,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("targetVmSize")]
         public Input<string>? TargetVmSize { get; set; }
+
+        [Input("targetVmTags")]
+        private InputMap<string>? _targetVmTags;
+
+        /// <summary>
+        /// The target VM tags.
+        /// </summary>
+        public InputMap<string> TargetVmTags
+        {
+            get => _targetVmTags ?? (_targetVmTags = new InputMap<string>());
+            set => _targetVmTags = value;
+        }
 
         public InMageAzureV2EnableProtectionInputArgs()
         {

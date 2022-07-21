@@ -147,7 +147,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL virtual machine group.
-        API Version: 2017-03-01-preview.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL virtual machine group.
-        API Version: 2017-03-01-preview.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineGroupArgs args: The arguments to use to populate this resource's properties.
@@ -217,6 +217,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["scale_type"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -250,6 +251,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         __props__.__dict__["scale_type"] = None
         __props__.__dict__["sql_image_offer"] = None
         __props__.__dict__["sql_image_sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["wsfc_domain_profile"] = None
@@ -318,6 +320,14 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         SQL image sku.
         """
         return pulumi.get(self, "sql_image_sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

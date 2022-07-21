@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Anomalies"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Anomalies"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Anomalies"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Anomalies"},

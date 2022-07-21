@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// NetworkVirtualAppliance Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// NetworkVirtualAppliance Resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
@@ -130,6 +130,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        public readonly string? SshPublicKey;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string? sshPublicKey,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.Network
             Name = name;
             NvaSku = nvaSku;
             ProvisioningState = provisioningState;
+            SshPublicKey = sshPublicKey;
             Tags = tags;
             Type = type;
             VirtualApplianceAsn = virtualApplianceAsn;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sentinel onboarding state
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-10-01.
  */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
     if (!opts) {
@@ -16,7 +16,6 @@ export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs,
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getSentinelOnboardingState", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "sentinelOnboardingStateName": args.sentinelOnboardingStateName,
         "workspaceName": args.workspaceName,
@@ -24,10 +23,6 @@ export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs,
 }
 
 export interface GetSentinelOnboardingStateArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -55,11 +50,11 @@ export interface GetSentinelOnboardingStateResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -67,7 +62,7 @@ export interface GetSentinelOnboardingStateResult {
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -77,10 +72,6 @@ export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStat
 }
 
 export interface GetSentinelOnboardingStateOutputArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

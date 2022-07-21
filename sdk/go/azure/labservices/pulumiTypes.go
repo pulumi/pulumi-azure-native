@@ -827,6 +827,225 @@ func (o ConnectionProfileResponsePtrOutput) WebSshAccess() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Credentials for a user on a lab VM.
+type Credentials struct {
+	// The password for the user. This is required for the TemplateVM createOption.
+	Password *string `pulumi:"password"`
+	// The username to use when signing in to lab VMs.
+	Username string `pulumi:"username"`
+}
+
+// CredentialsInput is an input type that accepts CredentialsArgs and CredentialsOutput values.
+// You can construct a concrete instance of `CredentialsInput` via:
+//
+//          CredentialsArgs{...}
+type CredentialsInput interface {
+	pulumi.Input
+
+	ToCredentialsOutput() CredentialsOutput
+	ToCredentialsOutputWithContext(context.Context) CredentialsOutput
+}
+
+// Credentials for a user on a lab VM.
+type CredentialsArgs struct {
+	// The password for the user. This is required for the TemplateVM createOption.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The username to use when signing in to lab VMs.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (CredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Credentials)(nil)).Elem()
+}
+
+func (i CredentialsArgs) ToCredentialsOutput() CredentialsOutput {
+	return i.ToCredentialsOutputWithContext(context.Background())
+}
+
+func (i CredentialsArgs) ToCredentialsOutputWithContext(ctx context.Context) CredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsOutput)
+}
+
+func (i CredentialsArgs) ToCredentialsPtrOutput() CredentialsPtrOutput {
+	return i.ToCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CredentialsArgs) ToCredentialsPtrOutputWithContext(ctx context.Context) CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsOutput).ToCredentialsPtrOutputWithContext(ctx)
+}
+
+// CredentialsPtrInput is an input type that accepts CredentialsArgs, CredentialsPtr and CredentialsPtrOutput values.
+// You can construct a concrete instance of `CredentialsPtrInput` via:
+//
+//          CredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCredentialsPtrOutput() CredentialsPtrOutput
+	ToCredentialsPtrOutputWithContext(context.Context) CredentialsPtrOutput
+}
+
+type credentialsPtrType CredentialsArgs
+
+func CredentialsPtr(v *CredentialsArgs) CredentialsPtrInput {
+	return (*credentialsPtrType)(v)
+}
+
+func (*credentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Credentials)(nil)).Elem()
+}
+
+func (i *credentialsPtrType) ToCredentialsPtrOutput() CredentialsPtrOutput {
+	return i.ToCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *credentialsPtrType) ToCredentialsPtrOutputWithContext(ctx context.Context) CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPtrOutput)
+}
+
+// Credentials for a user on a lab VM.
+type CredentialsOutput struct{ *pulumi.OutputState }
+
+func (CredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Credentials)(nil)).Elem()
+}
+
+func (o CredentialsOutput) ToCredentialsOutput() CredentialsOutput {
+	return o
+}
+
+func (o CredentialsOutput) ToCredentialsOutputWithContext(ctx context.Context) CredentialsOutput {
+	return o
+}
+
+func (o CredentialsOutput) ToCredentialsPtrOutput() CredentialsPtrOutput {
+	return o.ToCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CredentialsOutput) ToCredentialsPtrOutputWithContext(ctx context.Context) CredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Credentials) *Credentials {
+		return &v
+	}).(CredentialsPtrOutput)
+}
+
+// The password for the user. This is required for the TemplateVM createOption.
+func (o CredentialsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Credentials) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The username to use when signing in to lab VMs.
+func (o CredentialsOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v Credentials) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type CredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Credentials)(nil)).Elem()
+}
+
+func (o CredentialsPtrOutput) ToCredentialsPtrOutput() CredentialsPtrOutput {
+	return o
+}
+
+func (o CredentialsPtrOutput) ToCredentialsPtrOutputWithContext(ctx context.Context) CredentialsPtrOutput {
+	return o
+}
+
+func (o CredentialsPtrOutput) Elem() CredentialsOutput {
+	return o.ApplyT(func(v *Credentials) Credentials {
+		if v != nil {
+			return *v
+		}
+		var ret Credentials
+		return ret
+	}).(CredentialsOutput)
+}
+
+// The password for the user. This is required for the TemplateVM createOption.
+func (o CredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username to use when signing in to lab VMs.
+func (o CredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Credentials for a user on a lab VM.
+type CredentialsResponse struct {
+	// The username to use when signing in to lab VMs.
+	Username string `pulumi:"username"`
+}
+
+// Credentials for a user on a lab VM.
+type CredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (CredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialsResponse)(nil)).Elem()
+}
+
+func (o CredentialsResponseOutput) ToCredentialsResponseOutput() CredentialsResponseOutput {
+	return o
+}
+
+func (o CredentialsResponseOutput) ToCredentialsResponseOutputWithContext(ctx context.Context) CredentialsResponseOutput {
+	return o
+}
+
+// The username to use when signing in to lab VMs.
+func (o CredentialsResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialsResponse) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type CredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialsResponse)(nil)).Elem()
+}
+
+func (o CredentialsResponsePtrOutput) ToCredentialsResponsePtrOutput() CredentialsResponsePtrOutput {
+	return o
+}
+
+func (o CredentialsResponsePtrOutput) ToCredentialsResponsePtrOutputWithContext(ctx context.Context) CredentialsResponsePtrOutput {
+	return o
+}
+
+func (o CredentialsResponsePtrOutput) Elem() CredentialsResponseOutput {
+	return o.ApplyT(func(v *CredentialsResponse) CredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CredentialsResponse
+		return ret
+	}).(CredentialsResponseOutput)
+}
+
+// The username to use when signing in to lab VMs.
+func (o CredentialsResponsePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 // This represents the details about a User's environment and its state.
 type EnvironmentDetailsResponse struct {
 	// Description of the Environment
@@ -1057,6 +1276,158 @@ func (o GalleryImageReferenceResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageReferenceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
+// Image reference information. Used in the virtual machine profile.
+type ImageReference struct {
+	// Image resource ID
+	Id *string `pulumi:"id"`
+	// The image offer if applicable.
+	Offer *string `pulumi:"offer"`
+	// The image publisher
+	Publisher *string `pulumi:"publisher"`
+	// The image SKU
+	Sku *string `pulumi:"sku"`
+	// The image version specified on creation.
+	Version *string `pulumi:"version"`
+}
+
+// ImageReferenceInput is an input type that accepts ImageReferenceArgs and ImageReferenceOutput values.
+// You can construct a concrete instance of `ImageReferenceInput` via:
+//
+//          ImageReferenceArgs{...}
+type ImageReferenceInput interface {
+	pulumi.Input
+
+	ToImageReferenceOutput() ImageReferenceOutput
+	ToImageReferenceOutputWithContext(context.Context) ImageReferenceOutput
+}
+
+// Image reference information. Used in the virtual machine profile.
+type ImageReferenceArgs struct {
+	// Image resource ID
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The image offer if applicable.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The image publisher
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// The image SKU
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// The image version specified on creation.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageReference)(nil)).Elem()
+}
+
+func (i ImageReferenceArgs) ToImageReferenceOutput() ImageReferenceOutput {
+	return i.ToImageReferenceOutputWithContext(context.Background())
+}
+
+func (i ImageReferenceArgs) ToImageReferenceOutputWithContext(ctx context.Context) ImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageReferenceOutput)
+}
+
+// Image reference information. Used in the virtual machine profile.
+type ImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (ImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageReference)(nil)).Elem()
+}
+
+func (o ImageReferenceOutput) ToImageReferenceOutput() ImageReferenceOutput {
+	return o
+}
+
+func (o ImageReferenceOutput) ToImageReferenceOutputWithContext(ctx context.Context) ImageReferenceOutput {
+	return o
+}
+
+// Image resource ID
+func (o ImageReferenceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The image offer if applicable.
+func (o ImageReferenceOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The image publisher
+func (o ImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The image SKU
+func (o ImageReferenceOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The image version specified on creation.
+func (o ImageReferenceOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Image reference information. Used in the virtual machine profile.
+type ImageReferenceResponse struct {
+	// The actual version of the image after use.
+	ExactVersion string `pulumi:"exactVersion"`
+	// Image resource ID
+	Id *string `pulumi:"id"`
+	// The image offer if applicable.
+	Offer *string `pulumi:"offer"`
+	// The image publisher
+	Publisher *string `pulumi:"publisher"`
+	// The image SKU
+	Sku *string `pulumi:"sku"`
+	// The image version specified on creation.
+	Version *string `pulumi:"version"`
+}
+
+// Image reference information. Used in the virtual machine profile.
+type ImageReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageReferenceResponse)(nil)).Elem()
+}
+
+func (o ImageReferenceResponseOutput) ToImageReferenceResponseOutput() ImageReferenceResponseOutput {
+	return o
+}
+
+func (o ImageReferenceResponseOutput) ToImageReferenceResponseOutputWithContext(ctx context.Context) ImageReferenceResponseOutput {
+	return o
+}
+
+// The actual version of the image after use.
+func (o ImageReferenceResponseOutput) ExactVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageReferenceResponse) string { return v.ExactVersion }).(pulumi.StringOutput)
+}
+
+// Image resource ID
+func (o ImageReferenceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The image offer if applicable.
+func (o ImageReferenceResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The image publisher
+func (o ImageReferenceResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The image SKU
+func (o ImageReferenceResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The image version specified on creation.
+func (o ImageReferenceResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 // This represents the details about a lab that the User is in, and its state.
 type LabDetailsResponse struct {
 	// The Id of the lab.
@@ -1122,6 +1493,278 @@ func (o LabDetailsResponseArrayOutput) Index(i pulumi.IntInput) LabDetailsRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabDetailsResponse {
 		return vs[0].([]LabDetailsResponse)[vs[1].(int)]
 	}).(LabDetailsResponseOutput)
+}
+
+// Profile for how to handle networking for Labs.
+type LabNetworkProfile struct {
+	// The external load balancer resource id
+	LoadBalancerId *string `pulumi:"loadBalancerId"`
+	// The external public IP resource id
+	PublicIpId *string `pulumi:"publicIpId"`
+	// The external subnet resource id
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// LabNetworkProfileInput is an input type that accepts LabNetworkProfileArgs and LabNetworkProfileOutput values.
+// You can construct a concrete instance of `LabNetworkProfileInput` via:
+//
+//          LabNetworkProfileArgs{...}
+type LabNetworkProfileInput interface {
+	pulumi.Input
+
+	ToLabNetworkProfileOutput() LabNetworkProfileOutput
+	ToLabNetworkProfileOutputWithContext(context.Context) LabNetworkProfileOutput
+}
+
+// Profile for how to handle networking for Labs.
+type LabNetworkProfileArgs struct {
+	// The external load balancer resource id
+	LoadBalancerId pulumi.StringPtrInput `pulumi:"loadBalancerId"`
+	// The external public IP resource id
+	PublicIpId pulumi.StringPtrInput `pulumi:"publicIpId"`
+	// The external subnet resource id
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (LabNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabNetworkProfile)(nil)).Elem()
+}
+
+func (i LabNetworkProfileArgs) ToLabNetworkProfileOutput() LabNetworkProfileOutput {
+	return i.ToLabNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i LabNetworkProfileArgs) ToLabNetworkProfileOutputWithContext(ctx context.Context) LabNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabNetworkProfileOutput)
+}
+
+func (i LabNetworkProfileArgs) ToLabNetworkProfilePtrOutput() LabNetworkProfilePtrOutput {
+	return i.ToLabNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i LabNetworkProfileArgs) ToLabNetworkProfilePtrOutputWithContext(ctx context.Context) LabNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabNetworkProfileOutput).ToLabNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// LabNetworkProfilePtrInput is an input type that accepts LabNetworkProfileArgs, LabNetworkProfilePtr and LabNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `LabNetworkProfilePtrInput` via:
+//
+//          LabNetworkProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type LabNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToLabNetworkProfilePtrOutput() LabNetworkProfilePtrOutput
+	ToLabNetworkProfilePtrOutputWithContext(context.Context) LabNetworkProfilePtrOutput
+}
+
+type labNetworkProfilePtrType LabNetworkProfileArgs
+
+func LabNetworkProfilePtr(v *LabNetworkProfileArgs) LabNetworkProfilePtrInput {
+	return (*labNetworkProfilePtrType)(v)
+}
+
+func (*labNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabNetworkProfile)(nil)).Elem()
+}
+
+func (i *labNetworkProfilePtrType) ToLabNetworkProfilePtrOutput() LabNetworkProfilePtrOutput {
+	return i.ToLabNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *labNetworkProfilePtrType) ToLabNetworkProfilePtrOutputWithContext(ctx context.Context) LabNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabNetworkProfilePtrOutput)
+}
+
+// Profile for how to handle networking for Labs.
+type LabNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (LabNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabNetworkProfile)(nil)).Elem()
+}
+
+func (o LabNetworkProfileOutput) ToLabNetworkProfileOutput() LabNetworkProfileOutput {
+	return o
+}
+
+func (o LabNetworkProfileOutput) ToLabNetworkProfileOutputWithContext(ctx context.Context) LabNetworkProfileOutput {
+	return o
+}
+
+func (o LabNetworkProfileOutput) ToLabNetworkProfilePtrOutput() LabNetworkProfilePtrOutput {
+	return o.ToLabNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o LabNetworkProfileOutput) ToLabNetworkProfilePtrOutputWithContext(ctx context.Context) LabNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabNetworkProfile) *LabNetworkProfile {
+		return &v
+	}).(LabNetworkProfilePtrOutput)
+}
+
+// The external load balancer resource id
+func (o LabNetworkProfileOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetworkProfile) *string { return v.LoadBalancerId }).(pulumi.StringPtrOutput)
+}
+
+// The external public IP resource id
+func (o LabNetworkProfileOutput) PublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetworkProfile) *string { return v.PublicIpId }).(pulumi.StringPtrOutput)
+}
+
+// The external subnet resource id
+func (o LabNetworkProfileOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetworkProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LabNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (LabNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabNetworkProfile)(nil)).Elem()
+}
+
+func (o LabNetworkProfilePtrOutput) ToLabNetworkProfilePtrOutput() LabNetworkProfilePtrOutput {
+	return o
+}
+
+func (o LabNetworkProfilePtrOutput) ToLabNetworkProfilePtrOutputWithContext(ctx context.Context) LabNetworkProfilePtrOutput {
+	return o
+}
+
+func (o LabNetworkProfilePtrOutput) Elem() LabNetworkProfileOutput {
+	return o.ApplyT(func(v *LabNetworkProfile) LabNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret LabNetworkProfile
+		return ret
+	}).(LabNetworkProfileOutput)
+}
+
+// The external load balancer resource id
+func (o LabNetworkProfilePtrOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external public IP resource id
+func (o LabNetworkProfilePtrOutput) PublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external subnet resource id
+func (o LabNetworkProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Profile for how to handle networking for Labs.
+type LabNetworkProfileResponse struct {
+	// The external load balancer resource id
+	LoadBalancerId *string `pulumi:"loadBalancerId"`
+	// The external public IP resource id
+	PublicIpId *string `pulumi:"publicIpId"`
+	// The external subnet resource id
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// Profile for how to handle networking for Labs.
+type LabNetworkProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (LabNetworkProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabNetworkProfileResponse)(nil)).Elem()
+}
+
+func (o LabNetworkProfileResponseOutput) ToLabNetworkProfileResponseOutput() LabNetworkProfileResponseOutput {
+	return o
+}
+
+func (o LabNetworkProfileResponseOutput) ToLabNetworkProfileResponseOutputWithContext(ctx context.Context) LabNetworkProfileResponseOutput {
+	return o
+}
+
+// The external load balancer resource id
+func (o LabNetworkProfileResponseOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetworkProfileResponse) *string { return v.LoadBalancerId }).(pulumi.StringPtrOutput)
+}
+
+// The external public IP resource id
+func (o LabNetworkProfileResponseOutput) PublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetworkProfileResponse) *string { return v.PublicIpId }).(pulumi.StringPtrOutput)
+}
+
+// The external subnet resource id
+func (o LabNetworkProfileResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetworkProfileResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LabNetworkProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LabNetworkProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabNetworkProfileResponse)(nil)).Elem()
+}
+
+func (o LabNetworkProfileResponsePtrOutput) ToLabNetworkProfileResponsePtrOutput() LabNetworkProfileResponsePtrOutput {
+	return o
+}
+
+func (o LabNetworkProfileResponsePtrOutput) ToLabNetworkProfileResponsePtrOutputWithContext(ctx context.Context) LabNetworkProfileResponsePtrOutput {
+	return o
+}
+
+func (o LabNetworkProfileResponsePtrOutput) Elem() LabNetworkProfileResponseOutput {
+	return o.ApplyT(func(v *LabNetworkProfileResponse) LabNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LabNetworkProfileResponse
+		return ret
+	}).(LabNetworkProfileResponseOutput)
+}
+
+// The external load balancer resource id
+func (o LabNetworkProfileResponsePtrOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetworkProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external public IP resource id
+func (o LabNetworkProfileResponsePtrOutput) PublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetworkProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external subnet resource id
+func (o LabNetworkProfileResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetworkProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Profile for how to handle networking for Lab Plans.
@@ -2327,6 +2970,438 @@ func (o ResourceSettingsResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSettingsResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
+// The lab user list management profile.
+type RosterProfile struct {
+	// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+	ActiveDirectoryGroupId *string `pulumi:"activeDirectoryGroupId"`
+	// The base URI identifying the lms instance.
+	LmsInstance *string `pulumi:"lmsInstance"`
+	// The unique id of the azure lab services tool in the lms.
+	LtiClientId *string `pulumi:"ltiClientId"`
+	// The unique context identifier for the lab in the lms.
+	LtiContextId *string `pulumi:"ltiContextId"`
+	// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+	LtiRosterEndpoint *string `pulumi:"ltiRosterEndpoint"`
+}
+
+// RosterProfileInput is an input type that accepts RosterProfileArgs and RosterProfileOutput values.
+// You can construct a concrete instance of `RosterProfileInput` via:
+//
+//          RosterProfileArgs{...}
+type RosterProfileInput interface {
+	pulumi.Input
+
+	ToRosterProfileOutput() RosterProfileOutput
+	ToRosterProfileOutputWithContext(context.Context) RosterProfileOutput
+}
+
+// The lab user list management profile.
+type RosterProfileArgs struct {
+	// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+	ActiveDirectoryGroupId pulumi.StringPtrInput `pulumi:"activeDirectoryGroupId"`
+	// The base URI identifying the lms instance.
+	LmsInstance pulumi.StringPtrInput `pulumi:"lmsInstance"`
+	// The unique id of the azure lab services tool in the lms.
+	LtiClientId pulumi.StringPtrInput `pulumi:"ltiClientId"`
+	// The unique context identifier for the lab in the lms.
+	LtiContextId pulumi.StringPtrInput `pulumi:"ltiContextId"`
+	// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+	LtiRosterEndpoint pulumi.StringPtrInput `pulumi:"ltiRosterEndpoint"`
+}
+
+func (RosterProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RosterProfile)(nil)).Elem()
+}
+
+func (i RosterProfileArgs) ToRosterProfileOutput() RosterProfileOutput {
+	return i.ToRosterProfileOutputWithContext(context.Background())
+}
+
+func (i RosterProfileArgs) ToRosterProfileOutputWithContext(ctx context.Context) RosterProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RosterProfileOutput)
+}
+
+func (i RosterProfileArgs) ToRosterProfilePtrOutput() RosterProfilePtrOutput {
+	return i.ToRosterProfilePtrOutputWithContext(context.Background())
+}
+
+func (i RosterProfileArgs) ToRosterProfilePtrOutputWithContext(ctx context.Context) RosterProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RosterProfileOutput).ToRosterProfilePtrOutputWithContext(ctx)
+}
+
+// RosterProfilePtrInput is an input type that accepts RosterProfileArgs, RosterProfilePtr and RosterProfilePtrOutput values.
+// You can construct a concrete instance of `RosterProfilePtrInput` via:
+//
+//          RosterProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type RosterProfilePtrInput interface {
+	pulumi.Input
+
+	ToRosterProfilePtrOutput() RosterProfilePtrOutput
+	ToRosterProfilePtrOutputWithContext(context.Context) RosterProfilePtrOutput
+}
+
+type rosterProfilePtrType RosterProfileArgs
+
+func RosterProfilePtr(v *RosterProfileArgs) RosterProfilePtrInput {
+	return (*rosterProfilePtrType)(v)
+}
+
+func (*rosterProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RosterProfile)(nil)).Elem()
+}
+
+func (i *rosterProfilePtrType) ToRosterProfilePtrOutput() RosterProfilePtrOutput {
+	return i.ToRosterProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *rosterProfilePtrType) ToRosterProfilePtrOutputWithContext(ctx context.Context) RosterProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RosterProfilePtrOutput)
+}
+
+// The lab user list management profile.
+type RosterProfileOutput struct{ *pulumi.OutputState }
+
+func (RosterProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RosterProfile)(nil)).Elem()
+}
+
+func (o RosterProfileOutput) ToRosterProfileOutput() RosterProfileOutput {
+	return o
+}
+
+func (o RosterProfileOutput) ToRosterProfileOutputWithContext(ctx context.Context) RosterProfileOutput {
+	return o
+}
+
+func (o RosterProfileOutput) ToRosterProfilePtrOutput() RosterProfilePtrOutput {
+	return o.ToRosterProfilePtrOutputWithContext(context.Background())
+}
+
+func (o RosterProfileOutput) ToRosterProfilePtrOutputWithContext(ctx context.Context) RosterProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RosterProfile) *RosterProfile {
+		return &v
+	}).(RosterProfilePtrOutput)
+}
+
+// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+func (o RosterProfileOutput) ActiveDirectoryGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfile) *string { return v.ActiveDirectoryGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The base URI identifying the lms instance.
+func (o RosterProfileOutput) LmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfile) *string { return v.LmsInstance }).(pulumi.StringPtrOutput)
+}
+
+// The unique id of the azure lab services tool in the lms.
+func (o RosterProfileOutput) LtiClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfile) *string { return v.LtiClientId }).(pulumi.StringPtrOutput)
+}
+
+// The unique context identifier for the lab in the lms.
+func (o RosterProfileOutput) LtiContextId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfile) *string { return v.LtiContextId }).(pulumi.StringPtrOutput)
+}
+
+// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+func (o RosterProfileOutput) LtiRosterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfile) *string { return v.LtiRosterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type RosterProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (RosterProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RosterProfile)(nil)).Elem()
+}
+
+func (o RosterProfilePtrOutput) ToRosterProfilePtrOutput() RosterProfilePtrOutput {
+	return o
+}
+
+func (o RosterProfilePtrOutput) ToRosterProfilePtrOutputWithContext(ctx context.Context) RosterProfilePtrOutput {
+	return o
+}
+
+func (o RosterProfilePtrOutput) Elem() RosterProfileOutput {
+	return o.ApplyT(func(v *RosterProfile) RosterProfile {
+		if v != nil {
+			return *v
+		}
+		var ret RosterProfile
+		return ret
+	}).(RosterProfileOutput)
+}
+
+// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+func (o RosterProfilePtrOutput) ActiveDirectoryGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base URI identifying the lms instance.
+func (o RosterProfilePtrOutput) LmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LmsInstance
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique id of the azure lab services tool in the lms.
+func (o RosterProfilePtrOutput) LtiClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique context identifier for the lab in the lms.
+func (o RosterProfilePtrOutput) LtiContextId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiContextId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+func (o RosterProfilePtrOutput) LtiRosterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiRosterEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lab user list management profile.
+type RosterProfileResponse struct {
+	// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+	ActiveDirectoryGroupId *string `pulumi:"activeDirectoryGroupId"`
+	// The base URI identifying the lms instance.
+	LmsInstance *string `pulumi:"lmsInstance"`
+	// The unique id of the azure lab services tool in the lms.
+	LtiClientId *string `pulumi:"ltiClientId"`
+	// The unique context identifier for the lab in the lms.
+	LtiContextId *string `pulumi:"ltiContextId"`
+	// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+	LtiRosterEndpoint *string `pulumi:"ltiRosterEndpoint"`
+}
+
+// The lab user list management profile.
+type RosterProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (RosterProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RosterProfileResponse)(nil)).Elem()
+}
+
+func (o RosterProfileResponseOutput) ToRosterProfileResponseOutput() RosterProfileResponseOutput {
+	return o
+}
+
+func (o RosterProfileResponseOutput) ToRosterProfileResponseOutputWithContext(ctx context.Context) RosterProfileResponseOutput {
+	return o
+}
+
+// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+func (o RosterProfileResponseOutput) ActiveDirectoryGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfileResponse) *string { return v.ActiveDirectoryGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The base URI identifying the lms instance.
+func (o RosterProfileResponseOutput) LmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfileResponse) *string { return v.LmsInstance }).(pulumi.StringPtrOutput)
+}
+
+// The unique id of the azure lab services tool in the lms.
+func (o RosterProfileResponseOutput) LtiClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfileResponse) *string { return v.LtiClientId }).(pulumi.StringPtrOutput)
+}
+
+// The unique context identifier for the lab in the lms.
+func (o RosterProfileResponseOutput) LtiContextId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfileResponse) *string { return v.LtiContextId }).(pulumi.StringPtrOutput)
+}
+
+// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+func (o RosterProfileResponseOutput) LtiRosterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RosterProfileResponse) *string { return v.LtiRosterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type RosterProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RosterProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RosterProfileResponse)(nil)).Elem()
+}
+
+func (o RosterProfileResponsePtrOutput) ToRosterProfileResponsePtrOutput() RosterProfileResponsePtrOutput {
+	return o
+}
+
+func (o RosterProfileResponsePtrOutput) ToRosterProfileResponsePtrOutputWithContext(ctx context.Context) RosterProfileResponsePtrOutput {
+	return o
+}
+
+func (o RosterProfileResponsePtrOutput) Elem() RosterProfileResponseOutput {
+	return o.ApplyT(func(v *RosterProfileResponse) RosterProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RosterProfileResponse
+		return ret
+	}).(RosterProfileResponseOutput)
+}
+
+// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+func (o RosterProfileResponsePtrOutput) ActiveDirectoryGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base URI identifying the lms instance.
+func (o RosterProfileResponsePtrOutput) LmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LmsInstance
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique id of the azure lab services tool in the lms.
+func (o RosterProfileResponsePtrOutput) LtiClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique context identifier for the lab in the lms.
+func (o RosterProfileResponsePtrOutput) LtiContextId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiContextId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+func (o RosterProfileResponsePtrOutput) LtiRosterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiRosterEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lab security profile.
+type SecurityProfile struct {
+	// Whether any user or only specified users can register to a lab.
+	OpenAccess *EnableState `pulumi:"openAccess"`
+}
+
+// SecurityProfileInput is an input type that accepts SecurityProfileArgs and SecurityProfileOutput values.
+// You can construct a concrete instance of `SecurityProfileInput` via:
+//
+//          SecurityProfileArgs{...}
+type SecurityProfileInput interface {
+	pulumi.Input
+
+	ToSecurityProfileOutput() SecurityProfileOutput
+	ToSecurityProfileOutputWithContext(context.Context) SecurityProfileOutput
+}
+
+// The lab security profile.
+type SecurityProfileArgs struct {
+	// Whether any user or only specified users can register to a lab.
+	OpenAccess EnableStatePtrInput `pulumi:"openAccess"`
+}
+
+func (SecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfile)(nil)).Elem()
+}
+
+func (i SecurityProfileArgs) ToSecurityProfileOutput() SecurityProfileOutput {
+	return i.ToSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileArgs) ToSecurityProfileOutputWithContext(ctx context.Context) SecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileOutput)
+}
+
+// The lab security profile.
+type SecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfile)(nil)).Elem()
+}
+
+func (o SecurityProfileOutput) ToSecurityProfileOutput() SecurityProfileOutput {
+	return o
+}
+
+func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Context) SecurityProfileOutput {
+	return o
+}
+
+// Whether any user or only specified users can register to a lab.
+func (o SecurityProfileOutput) OpenAccess() EnableStatePtrOutput {
+	return o.ApplyT(func(v SecurityProfile) *EnableState { return v.OpenAccess }).(EnableStatePtrOutput)
+}
+
+// The lab security profile.
+type SecurityProfileResponse struct {
+	// Whether any user or only specified users can register to a lab.
+	OpenAccess *string `pulumi:"openAccess"`
+	// The registration code for the lab.
+	RegistrationCode string `pulumi:"registrationCode"`
+}
+
+// The lab security profile.
+type SecurityProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileResponse)(nil)).Elem()
+}
+
+func (o SecurityProfileResponseOutput) ToSecurityProfileResponseOutput() SecurityProfileResponseOutput {
+	return o
+}
+
+func (o SecurityProfileResponseOutput) ToSecurityProfileResponseOutputWithContext(ctx context.Context) SecurityProfileResponseOutput {
+	return o
+}
+
+// Whether any user or only specified users can register to a lab.
+func (o SecurityProfileResponseOutput) OpenAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfileResponse) *string { return v.OpenAccess }).(pulumi.StringPtrOutput)
+}
+
+// The registration code for the lab.
+func (o SecurityProfileResponseOutput) RegistrationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileResponse) string { return v.RegistrationCode }).(pulumi.StringOutput)
+}
+
 // Represents the size information
 type SizeAvailabilityResponse struct {
 	// Whether or not this size category is available
@@ -2471,6 +3546,151 @@ func (o SizeInfoResponseArrayOutput) Index(i pulumi.IntInput) SizeInfoResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeInfoResponse {
 		return vs[0].([]SizeInfoResponse)[vs[1].(int)]
 	}).(SizeInfoResponseOutput)
+}
+
+// The resource model definition representing SKU
+type Sku struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name string `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier *SkuTier `pulumi:"tier"`
+}
+
+// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
+// You can construct a concrete instance of `SkuInput` via:
+//
+//          SkuArgs{...}
+type SkuInput interface {
+	pulumi.Input
+
+	ToSkuOutput() SkuOutput
+	ToSkuOutputWithContext(context.Context) SkuOutput
+}
+
+// The resource model definition representing SKU
+type SkuArgs struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier SkuTierPtrInput `pulumi:"tier"`
+}
+
+func (SkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (i SkuArgs) ToSkuOutput() SkuOutput {
+	return i.ToSkuOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
+}
+
+// The resource model definition representing SKU
+type SkuOutput struct{ *pulumi.OutputState }
+
+func (SkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (o SkuOutput) ToSkuOutput() SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return o
+}
+
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o SkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o SkuOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v Sku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
+}
+
+// The resource model definition representing SKU
+type SkuResponse struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name string `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier *string `pulumi:"tier"`
+}
+
+// The resource model definition representing SKU
+type SkuResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return o
+}
+
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // Support contact information and instructions.
@@ -2842,6 +4062,243 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// The additional capabilities for a lab VM.
+type VirtualMachineAdditionalCapabilities struct {
+	// Flag to pre-install dedicated GPU drivers.
+	InstallGpuDrivers *EnableState `pulumi:"installGpuDrivers"`
+}
+
+// Defaults sets the appropriate defaults for VirtualMachineAdditionalCapabilities
+func (val *VirtualMachineAdditionalCapabilities) Defaults() *VirtualMachineAdditionalCapabilities {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstallGpuDrivers) {
+		installGpuDrivers_ := EnableState("Disabled")
+		tmp.InstallGpuDrivers = &installGpuDrivers_
+	}
+	return &tmp
+}
+
+// VirtualMachineAdditionalCapabilitiesInput is an input type that accepts VirtualMachineAdditionalCapabilitiesArgs and VirtualMachineAdditionalCapabilitiesOutput values.
+// You can construct a concrete instance of `VirtualMachineAdditionalCapabilitiesInput` via:
+//
+//          VirtualMachineAdditionalCapabilitiesArgs{...}
+type VirtualMachineAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAdditionalCapabilitiesOutput() VirtualMachineAdditionalCapabilitiesOutput
+	ToVirtualMachineAdditionalCapabilitiesOutputWithContext(context.Context) VirtualMachineAdditionalCapabilitiesOutput
+}
+
+// The additional capabilities for a lab VM.
+type VirtualMachineAdditionalCapabilitiesArgs struct {
+	// Flag to pre-install dedicated GPU drivers.
+	InstallGpuDrivers EnableStatePtrInput `pulumi:"installGpuDrivers"`
+}
+
+// Defaults sets the appropriate defaults for VirtualMachineAdditionalCapabilitiesArgs
+func (val *VirtualMachineAdditionalCapabilitiesArgs) Defaults() *VirtualMachineAdditionalCapabilitiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstallGpuDrivers) {
+		tmp.InstallGpuDrivers = EnableState("Disabled")
+	}
+	return &tmp
+}
+func (VirtualMachineAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapabilitiesOutput() VirtualMachineAdditionalCapabilitiesOutput {
+	return i.ToVirtualMachineAdditionalCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAdditionalCapabilitiesOutput)
+}
+
+func (i VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapabilitiesPtrOutput() VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return i.ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAdditionalCapabilitiesOutput).ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineAdditionalCapabilitiesPtrInput is an input type that accepts VirtualMachineAdditionalCapabilitiesArgs, VirtualMachineAdditionalCapabilitiesPtr and VirtualMachineAdditionalCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineAdditionalCapabilitiesPtrInput` via:
+//
+//          VirtualMachineAdditionalCapabilitiesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineAdditionalCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAdditionalCapabilitiesPtrOutput() VirtualMachineAdditionalCapabilitiesPtrOutput
+	ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Context) VirtualMachineAdditionalCapabilitiesPtrOutput
+}
+
+type virtualMachineAdditionalCapabilitiesPtrType VirtualMachineAdditionalCapabilitiesArgs
+
+func VirtualMachineAdditionalCapabilitiesPtr(v *VirtualMachineAdditionalCapabilitiesArgs) VirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*virtualMachineAdditionalCapabilitiesPtrType)(v)
+}
+
+func (*virtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i *virtualMachineAdditionalCapabilitiesPtrType) ToVirtualMachineAdditionalCapabilitiesPtrOutput() VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return i.ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAdditionalCapabilitiesPtrType) ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+
+// The additional capabilities for a lab VM.
+type VirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesOutput() VirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesPtrOutput() VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAdditionalCapabilities) *VirtualMachineAdditionalCapabilities {
+		return &v
+	}).(VirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+
+// Flag to pre-install dedicated GPU drivers.
+func (o VirtualMachineAdditionalCapabilitiesOutput) InstallGpuDrivers() EnableStatePtrOutput {
+	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) *EnableState { return v.InstallGpuDrivers }).(EnableStatePtrOutput)
+}
+
+type VirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o VirtualMachineAdditionalCapabilitiesPtrOutput) ToVirtualMachineAdditionalCapabilitiesPtrOutput() VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesPtrOutput) ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesPtrOutput) Elem() VirtualMachineAdditionalCapabilitiesOutput {
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAdditionalCapabilities
+		return ret
+	}).(VirtualMachineAdditionalCapabilitiesOutput)
+}
+
+// Flag to pre-install dedicated GPU drivers.
+func (o VirtualMachineAdditionalCapabilitiesPtrOutput) InstallGpuDrivers() EnableStatePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) *EnableState {
+		if v == nil {
+			return nil
+		}
+		return v.InstallGpuDrivers
+	}).(EnableStatePtrOutput)
+}
+
+// The additional capabilities for a lab VM.
+type VirtualMachineAdditionalCapabilitiesResponse struct {
+	// Flag to pre-install dedicated GPU drivers.
+	InstallGpuDrivers *string `pulumi:"installGpuDrivers"`
+}
+
+// Defaults sets the appropriate defaults for VirtualMachineAdditionalCapabilitiesResponse
+func (val *VirtualMachineAdditionalCapabilitiesResponse) Defaults() *VirtualMachineAdditionalCapabilitiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstallGpuDrivers) {
+		installGpuDrivers_ := "Disabled"
+		tmp.InstallGpuDrivers = &installGpuDrivers_
+	}
+	return &tmp
+}
+
+// The additional capabilities for a lab VM.
+type VirtualMachineAdditionalCapabilitiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAdditionalCapabilitiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAdditionalCapabilitiesResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineAdditionalCapabilitiesResponseOutput) ToVirtualMachineAdditionalCapabilitiesResponseOutput() VirtualMachineAdditionalCapabilitiesResponseOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesResponseOutput) ToVirtualMachineAdditionalCapabilitiesResponseOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesResponseOutput {
+	return o
+}
+
+// Flag to pre-install dedicated GPU drivers.
+func (o VirtualMachineAdditionalCapabilitiesResponseOutput) InstallGpuDrivers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAdditionalCapabilitiesResponse) *string { return v.InstallGpuDrivers }).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineAdditionalCapabilitiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAdditionalCapabilitiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAdditionalCapabilitiesResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineAdditionalCapabilitiesResponsePtrOutput) ToVirtualMachineAdditionalCapabilitiesResponsePtrOutput() VirtualMachineAdditionalCapabilitiesResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesResponsePtrOutput) ToVirtualMachineAdditionalCapabilitiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesResponsePtrOutput) Elem() VirtualMachineAdditionalCapabilitiesResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilitiesResponse) VirtualMachineAdditionalCapabilitiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAdditionalCapabilitiesResponse
+		return ret
+	}).(VirtualMachineAdditionalCapabilitiesResponseOutput)
+}
+
+// Flag to pre-install dedicated GPU drivers.
+func (o VirtualMachineAdditionalCapabilitiesResponsePtrOutput) InstallGpuDrivers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilitiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstallGpuDrivers
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the backing virtual machine.
 type VirtualMachineDetailsResponse struct {
 	// Last known compute power state captured in DTL
@@ -2903,6 +4360,250 @@ func (o VirtualMachineDetailsResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
 
+// The base virtual machine configuration for a lab.
+type VirtualMachineProfile struct {
+	// Additional VM capabilities.
+	AdditionalCapabilities *VirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
+	// Credentials for the admin user on the VM.
+	AdminUser Credentials `pulumi:"adminUser"`
+	// Indicates what lab virtual machines are created from.
+	CreateOption CreateOption `pulumi:"createOption"`
+	// The image configuration for lab virtual machines.
+	ImageReference ImageReference `pulumi:"imageReference"`
+	// Credentials for the non-admin user on the VM, if one exists.
+	NonAdminUser *Credentials `pulumi:"nonAdminUser"`
+	// The SKU for the lab. Defines the type of virtual machines used in the lab.
+	Sku Sku `pulumi:"sku"`
+	// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+	UsageQuota string `pulumi:"usageQuota"`
+	// Enabling this option will use the same password for all user VMs.
+	UseSharedPassword *EnableState `pulumi:"useSharedPassword"`
+}
+
+// Defaults sets the appropriate defaults for VirtualMachineProfile
+func (val *VirtualMachineProfile) Defaults() *VirtualMachineProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AdditionalCapabilities = tmp.AdditionalCapabilities.Defaults()
+
+	if isZero(tmp.UseSharedPassword) {
+		useSharedPassword_ := EnableState("Disabled")
+		tmp.UseSharedPassword = &useSharedPassword_
+	}
+	return &tmp
+}
+
+// VirtualMachineProfileInput is an input type that accepts VirtualMachineProfileArgs and VirtualMachineProfileOutput values.
+// You can construct a concrete instance of `VirtualMachineProfileInput` via:
+//
+//          VirtualMachineProfileArgs{...}
+type VirtualMachineProfileInput interface {
+	pulumi.Input
+
+	ToVirtualMachineProfileOutput() VirtualMachineProfileOutput
+	ToVirtualMachineProfileOutputWithContext(context.Context) VirtualMachineProfileOutput
+}
+
+// The base virtual machine configuration for a lab.
+type VirtualMachineProfileArgs struct {
+	// Additional VM capabilities.
+	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesPtrInput `pulumi:"additionalCapabilities"`
+	// Credentials for the admin user on the VM.
+	AdminUser CredentialsInput `pulumi:"adminUser"`
+	// Indicates what lab virtual machines are created from.
+	CreateOption CreateOptionInput `pulumi:"createOption"`
+	// The image configuration for lab virtual machines.
+	ImageReference ImageReferenceInput `pulumi:"imageReference"`
+	// Credentials for the non-admin user on the VM, if one exists.
+	NonAdminUser CredentialsPtrInput `pulumi:"nonAdminUser"`
+	// The SKU for the lab. Defines the type of virtual machines used in the lab.
+	Sku SkuInput `pulumi:"sku"`
+	// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+	UsageQuota pulumi.StringInput `pulumi:"usageQuota"`
+	// Enabling this option will use the same password for all user VMs.
+	UseSharedPassword EnableStatePtrInput `pulumi:"useSharedPassword"`
+}
+
+// Defaults sets the appropriate defaults for VirtualMachineProfileArgs
+func (val *VirtualMachineProfileArgs) Defaults() *VirtualMachineProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.UseSharedPassword) {
+		tmp.UseSharedPassword = EnableState("Disabled")
+	}
+	return &tmp
+}
+func (VirtualMachineProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineProfile)(nil)).Elem()
+}
+
+func (i VirtualMachineProfileArgs) ToVirtualMachineProfileOutput() VirtualMachineProfileOutput {
+	return i.ToVirtualMachineProfileOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineProfileArgs) ToVirtualMachineProfileOutputWithContext(ctx context.Context) VirtualMachineProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineProfileOutput)
+}
+
+// The base virtual machine configuration for a lab.
+type VirtualMachineProfileOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineProfile)(nil)).Elem()
+}
+
+func (o VirtualMachineProfileOutput) ToVirtualMachineProfileOutput() VirtualMachineProfileOutput {
+	return o
+}
+
+func (o VirtualMachineProfileOutput) ToVirtualMachineProfileOutputWithContext(ctx context.Context) VirtualMachineProfileOutput {
+	return o
+}
+
+// Additional VM capabilities.
+func (o VirtualMachineProfileOutput) AdditionalCapabilities() VirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) *VirtualMachineAdditionalCapabilities { return v.AdditionalCapabilities }).(VirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+
+// Credentials for the admin user on the VM.
+func (o VirtualMachineProfileOutput) AdminUser() CredentialsOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) Credentials { return v.AdminUser }).(CredentialsOutput)
+}
+
+// Indicates what lab virtual machines are created from.
+func (o VirtualMachineProfileOutput) CreateOption() CreateOptionOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) CreateOption { return v.CreateOption }).(CreateOptionOutput)
+}
+
+// The image configuration for lab virtual machines.
+func (o VirtualMachineProfileOutput) ImageReference() ImageReferenceOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) ImageReference { return v.ImageReference }).(ImageReferenceOutput)
+}
+
+// Credentials for the non-admin user on the VM, if one exists.
+func (o VirtualMachineProfileOutput) NonAdminUser() CredentialsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) *Credentials { return v.NonAdminUser }).(CredentialsPtrOutput)
+}
+
+// The SKU for the lab. Defines the type of virtual machines used in the lab.
+func (o VirtualMachineProfileOutput) Sku() SkuOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) Sku { return v.Sku }).(SkuOutput)
+}
+
+// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+func (o VirtualMachineProfileOutput) UsageQuota() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) string { return v.UsageQuota }).(pulumi.StringOutput)
+}
+
+// Enabling this option will use the same password for all user VMs.
+func (o VirtualMachineProfileOutput) UseSharedPassword() EnableStatePtrOutput {
+	return o.ApplyT(func(v VirtualMachineProfile) *EnableState { return v.UseSharedPassword }).(EnableStatePtrOutput)
+}
+
+// The base virtual machine configuration for a lab.
+type VirtualMachineProfileResponse struct {
+	// Additional VM capabilities.
+	AdditionalCapabilities *VirtualMachineAdditionalCapabilitiesResponse `pulumi:"additionalCapabilities"`
+	// Credentials for the admin user on the VM.
+	AdminUser CredentialsResponse `pulumi:"adminUser"`
+	// Indicates what lab virtual machines are created from.
+	CreateOption string `pulumi:"createOption"`
+	// The image configuration for lab virtual machines.
+	ImageReference ImageReferenceResponse `pulumi:"imageReference"`
+	// Credentials for the non-admin user on the VM, if one exists.
+	NonAdminUser *CredentialsResponse `pulumi:"nonAdminUser"`
+	// The OS type of the image
+	OsType string `pulumi:"osType"`
+	// The SKU for the lab. Defines the type of virtual machines used in the lab.
+	Sku SkuResponse `pulumi:"sku"`
+	// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+	UsageQuota string `pulumi:"usageQuota"`
+	// Enabling this option will use the same password for all user VMs.
+	UseSharedPassword *string `pulumi:"useSharedPassword"`
+}
+
+// Defaults sets the appropriate defaults for VirtualMachineProfileResponse
+func (val *VirtualMachineProfileResponse) Defaults() *VirtualMachineProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AdditionalCapabilities = tmp.AdditionalCapabilities.Defaults()
+
+	if isZero(tmp.UseSharedPassword) {
+		useSharedPassword_ := "Disabled"
+		tmp.UseSharedPassword = &useSharedPassword_
+	}
+	return &tmp
+}
+
+// The base virtual machine configuration for a lab.
+type VirtualMachineProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineProfileResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineProfileResponseOutput) ToVirtualMachineProfileResponseOutput() VirtualMachineProfileResponseOutput {
+	return o
+}
+
+func (o VirtualMachineProfileResponseOutput) ToVirtualMachineProfileResponseOutputWithContext(ctx context.Context) VirtualMachineProfileResponseOutput {
+	return o
+}
+
+// Additional VM capabilities.
+func (o VirtualMachineProfileResponseOutput) AdditionalCapabilities() VirtualMachineAdditionalCapabilitiesResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) *VirtualMachineAdditionalCapabilitiesResponse {
+		return v.AdditionalCapabilities
+	}).(VirtualMachineAdditionalCapabilitiesResponsePtrOutput)
+}
+
+// Credentials for the admin user on the VM.
+func (o VirtualMachineProfileResponseOutput) AdminUser() CredentialsResponseOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) CredentialsResponse { return v.AdminUser }).(CredentialsResponseOutput)
+}
+
+// Indicates what lab virtual machines are created from.
+func (o VirtualMachineProfileResponseOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// The image configuration for lab virtual machines.
+func (o VirtualMachineProfileResponseOutput) ImageReference() ImageReferenceResponseOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) ImageReferenceResponse { return v.ImageReference }).(ImageReferenceResponseOutput)
+}
+
+// Credentials for the non-admin user on the VM, if one exists.
+func (o VirtualMachineProfileResponseOutput) NonAdminUser() CredentialsResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) *CredentialsResponse { return v.NonAdminUser }).(CredentialsResponsePtrOutput)
+}
+
+// The OS type of the image
+func (o VirtualMachineProfileResponseOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The SKU for the lab. Defines the type of virtual machines used in the lab.
+func (o VirtualMachineProfileResponseOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+func (o VirtualMachineProfileResponseOutput) UsageQuota() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) string { return v.UsageQuota }).(pulumi.StringOutput)
+}
+
+// Enabling this option will use the same password for all user VMs.
+func (o VirtualMachineProfileResponseOutput) UseSharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineProfileResponse) *string { return v.UseSharedPassword }).(pulumi.StringPtrOutput)
+}
+
 // Details about the state of the reference virtual machine.
 type VmStateDetailsResponse struct {
 	// Last known compute power state captured in DTL
@@ -2959,13 +4660,23 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionProfileResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(CredentialsOutput{})
+	pulumi.RegisterOutputType(CredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CredentialsResponseOutput{})
+	pulumi.RegisterOutputType(CredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
+	pulumi.RegisterOutputType(ImageReferenceOutput{})
+	pulumi.RegisterOutputType(ImageReferenceResponseOutput{})
 	pulumi.RegisterOutputType(LabDetailsResponseOutput{})
 	pulumi.RegisterOutputType(LabDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(LabNetworkProfileOutput{})
+	pulumi.RegisterOutputType(LabNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(LabNetworkProfileResponseOutput{})
+	pulumi.RegisterOutputType(LabNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfileOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfileResponseOutput{})
@@ -2988,16 +4699,30 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSetResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsResponseOutput{})
+	pulumi.RegisterOutputType(RosterProfileOutput{})
+	pulumi.RegisterOutputType(RosterProfilePtrOutput{})
+	pulumi.RegisterOutputType(RosterProfileResponseOutput{})
+	pulumi.RegisterOutputType(RosterProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfileOutput{})
+	pulumi.RegisterOutputType(SecurityProfileResponseOutput{})
 	pulumi.RegisterOutputType(SizeAvailabilityResponseOutput{})
 	pulumi.RegisterOutputType(SizeAvailabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(SkuOutput{})
+	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SupportInfoOutput{})
 	pulumi.RegisterOutputType(SupportInfoPtrOutput{})
 	pulumi.RegisterOutputType(SupportInfoResponseOutput{})
 	pulumi.RegisterOutputType(SupportInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAdditionalCapabilitiesOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAdditionalCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAdditionalCapabilitiesResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAdditionalCapabilitiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineDetailsResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachineProfileOutput{})
+	pulumi.RegisterOutputType(VirtualMachineProfileResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponseOutput{})
 }

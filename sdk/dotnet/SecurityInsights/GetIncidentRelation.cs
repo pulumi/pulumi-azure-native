@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Represents a relation between two resources
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a relation between two resources
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("incidentId", required: true)]
         public string IncidentId { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// Relation Name
@@ -73,12 +67,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> IncidentId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// Relation Name
         /// </summary>
         [Input("relationName", required: true)]
@@ -110,11 +98,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -138,7 +126,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

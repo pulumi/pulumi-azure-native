@@ -11,7 +11,7 @@ import (
 )
 
 // The Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("azure-native:databoxedge:getDevice", args, &rv, opts...)
@@ -35,7 +35,9 @@ type LookupDeviceResult struct {
 	// The Data Box Edge/Gateway device culture.
 	Culture string `pulumi:"culture"`
 	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
+	DataBoxEdgeDeviceStatus string `pulumi:"dataBoxEdgeDeviceStatus"`
+	// The details of data-residency related properties for this resource
+	DataResidency *DataResidencyResponse `pulumi:"dataResidency"`
 	// The Description of the Data Box Edge/Gateway device.
 	Description string `pulumi:"description"`
 	// The device software version number of the device (eg: 1.2.18105.6).
@@ -58,7 +60,7 @@ type LookupDeviceResult struct {
 	Id string `pulumi:"id"`
 	// Msi identity of the resource
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The etag for the devices.
+	// The kind of the device.
 	Kind string `pulumi:"kind"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
@@ -134,8 +136,13 @@ func (o LookupDeviceResultOutput) Culture() pulumi.StringOutput {
 }
 
 // The status of the Data Box Edge/Gateway device.
-func (o LookupDeviceResultOutput) DataBoxEdgeDeviceStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDeviceResult) *string { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringPtrOutput)
+func (o LookupDeviceResultOutput) DataBoxEdgeDeviceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeviceResult) string { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringOutput)
+}
+
+// The details of data-residency related properties for this resource
+func (o LookupDeviceResultOutput) DataResidency() DataResidencyResponsePtrOutput {
+	return o.ApplyT(func(v LookupDeviceResult) *DataResidencyResponse { return v.DataResidency }).(DataResidencyResponsePtrOutput)
 }
 
 // The Description of the Data Box Edge/Gateway device.
@@ -193,7 +200,7 @@ func (o LookupDeviceResultOutput) Identity() ResourceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupDeviceResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
 }
 
-// The etag for the devices.
+// The kind of the device.
 func (o LookupDeviceResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Kind }).(pulumi.StringOutput)
 }

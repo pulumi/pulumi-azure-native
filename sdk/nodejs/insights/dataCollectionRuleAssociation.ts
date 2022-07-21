@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Definition of generic ARM proxy resource.
- * API Version: 2019-11-01-preview.
+ * API Version: 2021-04-01.
  */
 export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
@@ -36,6 +37,10 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The resource ID of the data collection endpoint that is to be associated.
+     */
+    public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
+    /**
      * The resource ID of the data collection rule that is to be associated.
      */
     public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
@@ -56,6 +61,10 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,19 +84,23 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceUri'");
             }
             resourceInputs["associationName"] = args ? args.associationName : undefined;
+            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
             resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["dataCollectionEndpointId"] = undefined /*out*/;
             resourceInputs["dataCollectionRuleId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -105,6 +118,10 @@ export interface DataCollectionRuleAssociationArgs {
      * The name of the association. The name is case insensitive.
      */
     associationName?: pulumi.Input<string>;
+    /**
+     * The resource ID of the data collection endpoint that is to be associated.
+     */
+    dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection rule that is to be associated.
      */

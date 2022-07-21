@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetCodeVersionResult> InvokeAsync(GetCodeVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodeVersionResult>("azure-native:machinelearningservices:getCodeVersion", args ?? new GetCodeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetCodeVersionResult> Invoke(GetCodeVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCodeVersionResult>("azure-native:machinelearningservices:getCodeVersion", args ?? new GetCodeVersionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetCodeVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Version identifier.
+        /// Version identifier. This is case-sensitive.
         /// </summary>
         [Input("version", required: true)]
         public string Version { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetCodeVersionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Version identifier.
+        /// Version identifier. This is case-sensitive.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetCodeVersionResult
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.CodeVersionResponse CodeVersionProperties;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -102,11 +106,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.CodeVersionResponse Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -116,19 +116,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetCodeVersionResult(
+            Outputs.CodeVersionResponse codeVersionProperties,
+
             string id,
 
             string name,
-
-            Outputs.CodeVersionResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            CodeVersionProperties = codeVersionProperties;
             Id = id;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

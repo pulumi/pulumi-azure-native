@@ -28,6 +28,18 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public Input<int> FrontendPort { get; set; } = null!;
 
         /// <summary>
+        /// The load distribution policy for this rule.
+        /// </summary>
+        [Input("loadDistribution")]
+        public Input<string>? LoadDistribution { get; set; }
+
+        /// <summary>
+        /// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+        /// </summary>
+        [Input("probePort")]
+        public Input<int>? ProbePort { get; set; }
+
+        /// <summary>
         /// the reference to the load balancer probe used by the load balancing rule.
         /// </summary>
         [Input("probeProtocol", required: true)]

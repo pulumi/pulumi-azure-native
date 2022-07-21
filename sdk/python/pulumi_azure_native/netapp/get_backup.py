@@ -20,7 +20,7 @@ class GetBackupResult:
     """
     Backup of a Volume
     """
-    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None, volume_name=None):
+    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None, use_existing_snapshot=None, volume_name=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -54,6 +54,9 @@ class GetBackupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_existing_snapshot and not isinstance(use_existing_snapshot, bool):
+            raise TypeError("Expected argument 'use_existing_snapshot' to be a bool")
+        pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
         if volume_name and not isinstance(volume_name, str):
             raise TypeError("Expected argument 'volume_name' to be a str")
         pulumi.set(__self__, "volume_name", volume_name)
@@ -147,6 +150,14 @@ class GetBackupResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> Optional[bool]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
+
+    @property
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> str:
         """
@@ -172,6 +183,7 @@ class AwaitableGetBackupResult(GetBackupResult):
             provisioning_state=self.provisioning_state,
             size=self.size,
             type=self.type,
+            use_existing_snapshot=self.use_existing_snapshot,
             volume_name=self.volume_name)
 
 
@@ -183,7 +195,7 @@ def get_backup(account_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
     Backup of a Volume
-    API Version: 2020-12-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -216,6 +228,7 @@ def get_backup(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         size=__ret__.size,
         type=__ret__.type,
+        use_existing_snapshot=__ret__.use_existing_snapshot,
         volume_name=__ret__.volume_name)
 
 
@@ -228,7 +241,7 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupResult]:
     """
     Backup of a Volume
-    API Version: 2020-12-01.
+    API Version: 2022-01-01.
 
 
     :param str account_name: The name of the NetApp account

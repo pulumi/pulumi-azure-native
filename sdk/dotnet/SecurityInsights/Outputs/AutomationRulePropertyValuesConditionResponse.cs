@@ -10,30 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
-    /// <summary>
-    /// Describes an automation rule condition that evaluates a property's value
-    /// </summary>
     [OutputType]
     public sealed class AutomationRulePropertyValuesConditionResponse
     {
+        public readonly string? Operator;
         /// <summary>
-        /// The configuration of the automation rule condition
+        /// The property to evaluate in an automation rule property condition
         /// </summary>
-        public readonly Outputs.AutomationRulePropertyValuesConditionResponseConditionProperties ConditionProperties;
-        /// <summary>
-        /// The type of the automation rule condition
-        /// Expected value is 'Property'.
-        /// </summary>
-        public readonly string ConditionType;
+        public readonly string? PropertyName;
+        public readonly ImmutableArray<string> PropertyValues;
 
         [OutputConstructor]
         private AutomationRulePropertyValuesConditionResponse(
-            Outputs.AutomationRulePropertyValuesConditionResponseConditionProperties conditionProperties,
+            string? @operator,
 
-            string conditionType)
+            string? propertyName,
+
+            ImmutableArray<string> propertyValues)
         {
-            ConditionProperties = conditionProperties;
-            ConditionType = conditionType;
+            Operator = @operator;
+            PropertyName = propertyName;
+            PropertyValues = propertyValues;
         }
     }
 }

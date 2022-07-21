@@ -60,7 +60,7 @@ class TagAtScope(pulumi.CustomResource):
                  __props__=None):
         """
         Wrapper resource for tags API requests and responses.
-        API Version: 2019-10-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,7 +75,7 @@ class TagAtScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Wrapper resource for tags API requests and responses.
-        API Version: 2019-10-01.
+        API Version: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param TagAtScopeArgs args: The arguments to use to populate this resource's properties.

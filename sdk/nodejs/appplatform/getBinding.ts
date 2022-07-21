@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Binding resource payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
     if (!opts) {
@@ -58,6 +58,10 @@ export interface GetBindingResult {
      * Properties of the Binding resource
      */
     readonly properties: outputs.appplatform.BindingResourcePropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
     /**
      * The type of the resource.
      */

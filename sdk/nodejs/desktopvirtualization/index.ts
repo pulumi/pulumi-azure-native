@@ -11,17 +11,11 @@ export * from "./getApplication";
 export * from "./getApplicationGroup";
 export * from "./getHostPool";
 export * from "./getMSIXPackage";
-export * from "./getPrivateEndpointConnectionByHostPool";
-export * from "./getPrivateEndpointConnectionByWorkspace";
 export * from "./getScalingPlan";
-export * from "./getScalingPlanPooledSchedule";
 export * from "./getWorkspace";
 export * from "./hostPool";
 export * from "./msixpackage";
-export * from "./privateEndpointConnectionByHostPool";
-export * from "./privateEndpointConnectionByWorkspace";
 export * from "./scalingPlan";
-export * from "./scalingPlanPooledSchedule";
 export * from "./workspace";
 
 // Export enums:
@@ -67,10 +61,7 @@ import { Application } from "./application";
 import { ApplicationGroup } from "./applicationGroup";
 import { HostPool } from "./hostPool";
 import { MSIXPackage } from "./msixpackage";
-import { PrivateEndpointConnectionByHostPool } from "./privateEndpointConnectionByHostPool";
-import { PrivateEndpointConnectionByWorkspace } from "./privateEndpointConnectionByWorkspace";
 import { ScalingPlan } from "./scalingPlan";
-import { ScalingPlanPooledSchedule } from "./scalingPlanPooledSchedule";
 import { Workspace } from "./workspace";
 
 const _module = {
@@ -85,14 +76,8 @@ const _module = {
                 return new HostPool(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:MSIXPackage":
                 return new MSIXPackage(name, <any>undefined, { urn })
-            case "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool":
-                return new PrivateEndpointConnectionByHostPool(name, <any>undefined, { urn })
-            case "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace":
-                return new PrivateEndpointConnectionByWorkspace(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
-            case "azure-native:desktopvirtualization:ScalingPlanPooledSchedule":
-                return new ScalingPlanPooledSchedule(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

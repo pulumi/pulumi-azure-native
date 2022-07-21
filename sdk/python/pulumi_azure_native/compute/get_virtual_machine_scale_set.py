@@ -21,7 +21,7 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_vms=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, scale_in_policy=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_vms=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, scale_in_policy=None, single_placement_group=None, sku=None, spot_restore_policy=None, tags=None, time_created=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -76,9 +76,15 @@ class GetVirtualMachineScaleSetResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if spot_restore_policy and not isinstance(spot_restore_policy, dict):
+            raise TypeError("Expected argument 'spot_restore_policy' to be a dict")
+        pulumi.set(__self__, "spot_restore_policy", spot_restore_policy)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -222,7 +228,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> Optional['outputs.ScaleInPolicyResponse']:
         """
-        Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+        Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         """
         return pulumi.get(self, "scale_in_policy")
 
@@ -243,12 +249,28 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="spotRestorePolicy")
+    def spot_restore_policy(self) -> Optional['outputs.SpotRestorePolicyResponse']:
+        """
+        Specifies the Spot Restore properties for the virtual machine scale set.
+        """
+        return pulumi.get(self, "spot_restore_policy")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter
@@ -286,7 +308,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[bool]:
         """
-        Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         """
         return pulumi.get(self, "zone_balance")
 
@@ -323,7 +345,9 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             scale_in_policy=self.scale_in_policy,
             single_placement_group=self.single_placement_group,
             sku=self.sku,
+            spot_restore_policy=self.spot_restore_policy,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
             unique_id=self.unique_id,
             upgrade_policy=self.upgrade_policy,
@@ -338,7 +362,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
-    API Version: 2021-03-01.
+    API Version: 2021-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -374,7 +398,9 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
         scale_in_policy=__ret__.scale_in_policy,
         single_placement_group=__ret__.single_placement_group,
         sku=__ret__.sku,
+        spot_restore_policy=__ret__.spot_restore_policy,
         tags=__ret__.tags,
+        time_created=__ret__.time_created,
         type=__ret__.type,
         unique_id=__ret__.unique_id,
         upgrade_policy=__ret__.upgrade_policy,
@@ -390,7 +416,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
     Describes a Virtual Machine Scale Set.
-    API Version: 2021-03-01.
+    API Version: 2021-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation

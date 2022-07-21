@@ -49,9 +49,6 @@ func NewStaticMember(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network:StaticMember"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501preview:StaticMember"),
 		},
 		{

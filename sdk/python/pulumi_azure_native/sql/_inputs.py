@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DatabaseIdentityArgs',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
     'ElasticPoolPerDatabaseSettingsArgs',
     'FailoverGroupReadOnlyEndpointArgs',
@@ -32,12 +33,53 @@ __all__ = [
     'ResourceIdentityArgs',
     'ServerExternalAdministratorArgs',
     'ServerInfoArgs',
+    'ServicePrincipalArgs',
     'SkuArgs',
     'SyncGroupSchemaTableColumnArgs',
     'SyncGroupSchemaTableArgs',
     'SyncGroupSchemaArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
 ]
+
+@pulumi.input_type
+class DatabaseIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param pulumi.Input[Union[str, 'DatabaseIdentityType']] type: The identity type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]]:
+        """
+        The identity type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
@@ -1051,11 +1093,11 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 class ResourceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1076,14 +1118,14 @@ class ResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1212,6 +1254,30 @@ class ServerInfoArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
+
+
+@pulumi.input_type
+class ServicePrincipalArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]] = None):
+        """
+        The managed instance's service principal configuration for a resource.
+        :param pulumi.Input[Union[str, 'ServicePrincipalType']] type: Service principal type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]]:
+        """
+        Service principal type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

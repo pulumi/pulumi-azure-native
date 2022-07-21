@@ -63,6 +63,18 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
             set => _installScriptActions = value;
         }
 
+        [Input("privateLinkConfigurations")]
+        private InputList<Inputs.PrivateLinkConfigurationArgs>? _privateLinkConfigurations;
+
+        /// <summary>
+        /// The private link configurations.
+        /// </summary>
+        public InputList<Inputs.PrivateLinkConfigurationArgs> PrivateLinkConfigurations
+        {
+            get => _privateLinkConfigurations ?? (_privateLinkConfigurations = new InputList<Inputs.PrivateLinkConfigurationArgs>());
+            set => _privateLinkConfigurations = value;
+        }
+
         [Input("sshEndpoints")]
         private InputList<Inputs.ApplicationGetEndpointArgs>? _sshEndpoints;
 

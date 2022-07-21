@@ -11,7 +11,7 @@ import (
 )
 
 // Friendly Rules name mapping to the any Rules or secret related information.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
 	err := ctx.Invoke("azure-native:cdn:getRule", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 }
 
 type LookupRuleArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -49,6 +49,8 @@ type LookupRuleResult struct {
 	Order int `pulumi:"order"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The name of the rule set containing the rule.
+	RuleSetName string `pulumi:"ruleSetName"`
 	// Read only system data
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
@@ -69,7 +71,7 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 }
 
 type LookupRuleOutputArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -135,6 +137,11 @@ func (o LookupRuleResultOutput) Order() pulumi.IntOutput {
 // Provisioning status
 func (o LookupRuleResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the rule set containing the rule.
+func (o LookupRuleResultOutput) RuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.RuleSetName }).(pulumi.StringOutput)
 }
 
 // Read only system data

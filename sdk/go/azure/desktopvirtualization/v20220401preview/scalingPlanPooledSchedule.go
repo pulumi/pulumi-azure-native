@@ -70,12 +70,6 @@ func NewScalingPlanPooledSchedule(ctx *pulumi.Context,
 	if args.ScalingPlanName == nil {
 		return nil, errors.New("invalid value for required argument 'ScalingPlanName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization:ScalingPlanPooledSchedule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ScalingPlanPooledSchedule
 	err := ctx.RegisterResource("azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule", name, args, &resource, opts...)
 	if err != nil {

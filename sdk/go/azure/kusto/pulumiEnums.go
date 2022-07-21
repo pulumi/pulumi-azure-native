@@ -7,20 +7,24 @@ package kusto
 type AzureSkuName string
 
 const (
+	AzureSkuName_Dev_No_SLA_Standard_D11_v2 = AzureSkuName("Dev(No SLA)_Standard_D11_v2")
+	AzureSkuName_Dev_No_SLA_Standard_E2a_v4 = AzureSkuName("Dev(No SLA)_Standard_E2a_v4")
+	AzureSkuName_Standard_D11_v2            = AzureSkuName("Standard_D11_v2")
+	AzureSkuName_Standard_D12_v2            = AzureSkuName("Standard_D12_v2")
+	AzureSkuName_Standard_D13_v2            = AzureSkuName("Standard_D13_v2")
+	AzureSkuName_Standard_D14_v2            = AzureSkuName("Standard_D14_v2")
+	AzureSkuName_Standard_D32d_v4           = AzureSkuName("Standard_D32d_v4")
+	AzureSkuName_Standard_D16d_v5           = AzureSkuName("Standard_D16d_v5")
+	AzureSkuName_Standard_D32d_v5           = AzureSkuName("Standard_D32d_v5")
 	AzureSkuName_Standard_DS13_v2_1TB_PS    = AzureSkuName("Standard_DS13_v2+1TB_PS")
 	AzureSkuName_Standard_DS13_v2_2TB_PS    = AzureSkuName("Standard_DS13_v2+2TB_PS")
 	AzureSkuName_Standard_DS14_v2_3TB_PS    = AzureSkuName("Standard_DS14_v2+3TB_PS")
 	AzureSkuName_Standard_DS14_v2_4TB_PS    = AzureSkuName("Standard_DS14_v2+4TB_PS")
-	AzureSkuName_Standard_D13_v2            = AzureSkuName("Standard_D13_v2")
-	AzureSkuName_Standard_D14_v2            = AzureSkuName("Standard_D14_v2")
+	AzureSkuName_Standard_L4s               = AzureSkuName("Standard_L4s")
 	AzureSkuName_Standard_L8s               = AzureSkuName("Standard_L8s")
 	AzureSkuName_Standard_L16s              = AzureSkuName("Standard_L16s")
 	AzureSkuName_Standard_L8s_v2            = AzureSkuName("Standard_L8s_v2")
 	AzureSkuName_Standard_L16s_v2           = AzureSkuName("Standard_L16s_v2")
-	AzureSkuName_Standard_D11_v2            = AzureSkuName("Standard_D11_v2")
-	AzureSkuName_Standard_D12_v2            = AzureSkuName("Standard_D12_v2")
-	AzureSkuName_Standard_L4s               = AzureSkuName("Standard_L4s")
-	AzureSkuName_Dev_No_SLA_Standard_D11_v2 = AzureSkuName("Dev(No SLA)_Standard_D11_v2")
 	AzureSkuName_Standard_E64i_v3           = AzureSkuName("Standard_E64i_v3")
 	AzureSkuName_Standard_E80ids_v4         = AzureSkuName("Standard_E80ids_v4")
 	AzureSkuName_Standard_E2a_v4            = AzureSkuName("Standard_E2a_v4")
@@ -31,7 +35,22 @@ const (
 	AzureSkuName_Standard_E8as_v4_2TB_PS    = AzureSkuName("Standard_E8as_v4+2TB_PS")
 	AzureSkuName_Standard_E16as_v4_3TB_PS   = AzureSkuName("Standard_E16as_v4+3TB_PS")
 	AzureSkuName_Standard_E16as_v4_4TB_PS   = AzureSkuName("Standard_E16as_v4+4TB_PS")
-	AzureSkuName_Dev_No_SLA_Standard_E2a_v4 = AzureSkuName("Dev(No SLA)_Standard_E2a_v4")
+	AzureSkuName_Standard_E8as_v5_1TB_PS    = AzureSkuName("Standard_E8as_v5+1TB_PS")
+	AzureSkuName_Standard_E8as_v5_2TB_PS    = AzureSkuName("Standard_E8as_v5+2TB_PS")
+	AzureSkuName_Standard_E16as_v5_3TB_PS   = AzureSkuName("Standard_E16as_v5+3TB_PS")
+	AzureSkuName_Standard_E16as_v5_4TB_PS   = AzureSkuName("Standard_E16as_v5+4TB_PS")
+	AzureSkuName_Standard_E2ads_v5          = AzureSkuName("Standard_E2ads_v5")
+	AzureSkuName_Standard_E4ads_v5          = AzureSkuName("Standard_E4ads_v5")
+	AzureSkuName_Standard_E8ads_v5          = AzureSkuName("Standard_E8ads_v5")
+	AzureSkuName_Standard_E16ads_v5         = AzureSkuName("Standard_E16ads_v5")
+	AzureSkuName_Standard_E8s_v4_1TB_PS     = AzureSkuName("Standard_E8s_v4+1TB_PS")
+	AzureSkuName_Standard_E8s_v4_2TB_PS     = AzureSkuName("Standard_E8s_v4+2TB_PS")
+	AzureSkuName_Standard_E16s_v4_3TB_PS    = AzureSkuName("Standard_E16s_v4+3TB_PS")
+	AzureSkuName_Standard_E16s_v4_4TB_PS    = AzureSkuName("Standard_E16s_v4+4TB_PS")
+	AzureSkuName_Standard_E8s_v5_1TB_PS     = AzureSkuName("Standard_E8s_v5+1TB_PS")
+	AzureSkuName_Standard_E8s_v5_2TB_PS     = AzureSkuName("Standard_E8s_v5+2TB_PS")
+	AzureSkuName_Standard_E16s_v5_3TB_PS    = AzureSkuName("Standard_E16s_v5+3TB_PS")
+	AzureSkuName_Standard_E16s_v5_4TB_PS    = AzureSkuName("Standard_E16s_v5+4TB_PS")
 )
 
 // SKU tier.
@@ -48,6 +67,14 @@ type BlobStorageEventType string
 const (
 	BlobStorageEventType_Microsoft_Storage_BlobCreated = BlobStorageEventType("Microsoft.Storage.BlobCreated")
 	BlobStorageEventType_Microsoft_Storage_BlobRenamed = BlobStorageEventType("Microsoft.Storage.BlobRenamed")
+)
+
+// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+type ClusterNetworkAccessFlag string
+
+const (
+	ClusterNetworkAccessFlagEnabled  = ClusterNetworkAccessFlag("Enabled")
+	ClusterNetworkAccessFlagDisabled = ClusterNetworkAccessFlag("Disabled")
 )
 
 // Cluster principal role.
@@ -75,15 +102,6 @@ const (
 	DataConnectionKindIotHub    = DataConnectionKind("IotHub")
 )
 
-// The data format of the message. Optionally the data format can be added to each message.
-type DataFormat string
-
-const (
-	DataFormatMULTIJSON = DataFormat("MULTIJSON")
-	DataFormatJSON      = DataFormat("JSON")
-	DataFormatCSV       = DataFormat("CSV")
-)
-
 // Database principal role.
 type DatabasePrincipalRole string
 
@@ -94,6 +112,14 @@ const (
 	DatabasePrincipalRoleUser               = DatabasePrincipalRole("User")
 	DatabasePrincipalRoleUnrestrictedViewer = DatabasePrincipalRole("UnrestrictedViewer")
 	DatabasePrincipalRoleViewer             = DatabasePrincipalRole("Viewer")
+)
+
+// Indication for database routing information from the data connection, by default only database routing information is allowed
+type DatabaseRouting string
+
+const (
+	DatabaseRoutingSingle = DatabaseRouting("Single")
+	DatabaseRoutingMulti  = DatabaseRouting("Multi")
 )
 
 // The default principals modification kind
@@ -204,6 +230,22 @@ const (
 	PrincipalTypeApp   = PrincipalType("App")
 	PrincipalTypeGroup = PrincipalType("Group")
 	PrincipalTypeUser  = PrincipalType("User")
+)
+
+// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+type PublicIPType string
+
+const (
+	PublicIPTypeIPv4      = PublicIPType("IPv4")
+	PublicIPTypeDualStack = PublicIPType("DualStack")
+)
+
+// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+type PublicNetworkAccess string
+
+const (
+	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
 )
 
 func init() {

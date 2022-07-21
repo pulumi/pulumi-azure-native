@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// An Azure resource which represents access to a suite of Maps REST APIs.
-        /// API Version: 2018-05-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure resource which represents access to a suite of Maps REST APIs.
-        /// API Version: 2018-05-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Maps
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Maps
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -70,15 +70,19 @@ namespace Pulumi.AzureNative.Maps
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The fully qualified Maps Account resource identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of the resource.
+        /// Get or Set Kind property.
+        /// </summary>
+        public readonly string? Kind;
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the Maps Account, which is unique within a Resource Group.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -90,17 +94,23 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// The system meta data relating to this resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type.
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAccountResult(
             string id,
+
+            string? kind,
 
             string location,
 
@@ -110,15 +120,19 @@ namespace Pulumi.AzureNative.Maps
 
             Outputs.SkuResponse sku,
 
-            ImmutableDictionary<string, string> tags,
+            Outputs.SystemDataResponse systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Id = id;
+            Kind = kind;
             Location = location;
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

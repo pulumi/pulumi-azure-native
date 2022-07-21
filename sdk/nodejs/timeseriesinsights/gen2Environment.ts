@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
- * API Version: 2020-05-15.
+ * API Version: 2021-06-30-preview.
  */
 export class Gen2Environment extends pulumi.CustomResource {
     /**
@@ -78,6 +78,10 @@ export class Gen2Environment extends pulumi.CustomResource {
      */
     public readonly storageConfiguration!: pulumi.Output<outputs.timeseriesinsights.Gen2StorageConfigurationOutputResponse>;
     /**
+     * Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
+     */
+    public /*out*/ readonly supportsCustomerManagedKey!: pulumi.Output<boolean>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -135,6 +139,7 @@ export class Gen2Environment extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["supportsCustomerManagedKey"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -147,6 +152,7 @@ export class Gen2Environment extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["storageConfiguration"] = undefined /*out*/;
+            resourceInputs["supportsCustomerManagedKey"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeSeriesIdProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

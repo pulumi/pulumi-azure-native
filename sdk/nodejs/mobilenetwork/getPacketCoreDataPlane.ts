@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Packet core data plane resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01-preview.
  */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
     if (!opts) {
@@ -81,6 +81,10 @@ export interface GetPacketCoreDataPlaneResult {
      * The provisioning state of the packet core data plane resource.
      */
     readonly provisioningState: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

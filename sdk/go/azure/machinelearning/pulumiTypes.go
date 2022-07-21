@@ -715,232 +715,143 @@ func (o ColumnSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) Col
 }
 
 // Information about the machine learning commitment plan associated with the web service.
-type CommitmentPlanType struct {
+type CommitmentPlan struct {
 	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 	Id string `pulumi:"id"`
 }
 
-// CommitmentPlanTypeInput is an input type that accepts CommitmentPlanTypeArgs and CommitmentPlanTypeOutput values.
-// You can construct a concrete instance of `CommitmentPlanTypeInput` via:
+// CommitmentPlanInput is an input type that accepts CommitmentPlanArgs and CommitmentPlanOutput values.
+// You can construct a concrete instance of `CommitmentPlanInput` via:
 //
-//          CommitmentPlanTypeArgs{...}
-type CommitmentPlanTypeInput interface {
+//          CommitmentPlanArgs{...}
+type CommitmentPlanInput interface {
 	pulumi.Input
 
-	ToCommitmentPlanTypeOutput() CommitmentPlanTypeOutput
-	ToCommitmentPlanTypeOutputWithContext(context.Context) CommitmentPlanTypeOutput
+	ToCommitmentPlanOutput() CommitmentPlanOutput
+	ToCommitmentPlanOutputWithContext(context.Context) CommitmentPlanOutput
 }
 
 // Information about the machine learning commitment plan associated with the web service.
-type CommitmentPlanTypeArgs struct {
+type CommitmentPlanArgs struct {
 	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (CommitmentPlanTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlanType)(nil)).Elem()
+func (CommitmentPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlan)(nil)).Elem()
 }
 
-func (i CommitmentPlanTypeArgs) ToCommitmentPlanTypeOutput() CommitmentPlanTypeOutput {
-	return i.ToCommitmentPlanTypeOutputWithContext(context.Background())
+func (i CommitmentPlanArgs) ToCommitmentPlanOutput() CommitmentPlanOutput {
+	return i.ToCommitmentPlanOutputWithContext(context.Background())
 }
 
-func (i CommitmentPlanTypeArgs) ToCommitmentPlanTypeOutputWithContext(ctx context.Context) CommitmentPlanTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanTypeOutput)
+func (i CommitmentPlanArgs) ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanOutput)
 }
 
-func (i CommitmentPlanTypeArgs) ToCommitmentPlanTypePtrOutput() CommitmentPlanTypePtrOutput {
-	return i.ToCommitmentPlanTypePtrOutputWithContext(context.Background())
+func (i CommitmentPlanArgs) ToCommitmentPlanPtrOutput() CommitmentPlanPtrOutput {
+	return i.ToCommitmentPlanPtrOutputWithContext(context.Background())
 }
 
-func (i CommitmentPlanTypeArgs) ToCommitmentPlanTypePtrOutputWithContext(ctx context.Context) CommitmentPlanTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanTypeOutput).ToCommitmentPlanTypePtrOutputWithContext(ctx)
+func (i CommitmentPlanArgs) ToCommitmentPlanPtrOutputWithContext(ctx context.Context) CommitmentPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanOutput).ToCommitmentPlanPtrOutputWithContext(ctx)
 }
 
-// CommitmentPlanTypePtrInput is an input type that accepts CommitmentPlanTypeArgs, CommitmentPlanTypePtr and CommitmentPlanTypePtrOutput values.
-// You can construct a concrete instance of `CommitmentPlanTypePtrInput` via:
+// CommitmentPlanPtrInput is an input type that accepts CommitmentPlanArgs, CommitmentPlanPtr and CommitmentPlanPtrOutput values.
+// You can construct a concrete instance of `CommitmentPlanPtrInput` via:
 //
-//          CommitmentPlanTypeArgs{...}
+//          CommitmentPlanArgs{...}
 //
 //  or:
 //
 //          nil
-type CommitmentPlanTypePtrInput interface {
+type CommitmentPlanPtrInput interface {
 	pulumi.Input
 
-	ToCommitmentPlanTypePtrOutput() CommitmentPlanTypePtrOutput
-	ToCommitmentPlanTypePtrOutputWithContext(context.Context) CommitmentPlanTypePtrOutput
+	ToCommitmentPlanPtrOutput() CommitmentPlanPtrOutput
+	ToCommitmentPlanPtrOutputWithContext(context.Context) CommitmentPlanPtrOutput
 }
 
-type commitmentPlanTypePtrType CommitmentPlanTypeArgs
+type commitmentPlanPtrType CommitmentPlanArgs
 
-func CommitmentPlanTypePtr(v *CommitmentPlanTypeArgs) CommitmentPlanTypePtrInput {
-	return (*commitmentPlanTypePtrType)(v)
+func CommitmentPlanPtr(v *CommitmentPlanArgs) CommitmentPlanPtrInput {
+	return (*commitmentPlanPtrType)(v)
 }
 
-func (*commitmentPlanTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CommitmentPlanType)(nil)).Elem()
+func (*commitmentPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlan)(nil)).Elem()
 }
 
-func (i *commitmentPlanTypePtrType) ToCommitmentPlanTypePtrOutput() CommitmentPlanTypePtrOutput {
-	return i.ToCommitmentPlanTypePtrOutputWithContext(context.Background())
+func (i *commitmentPlanPtrType) ToCommitmentPlanPtrOutput() CommitmentPlanPtrOutput {
+	return i.ToCommitmentPlanPtrOutputWithContext(context.Background())
 }
 
-func (i *commitmentPlanTypePtrType) ToCommitmentPlanTypePtrOutputWithContext(ctx context.Context) CommitmentPlanTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanTypePtrOutput)
+func (i *commitmentPlanPtrType) ToCommitmentPlanPtrOutputWithContext(ctx context.Context) CommitmentPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPtrOutput)
 }
 
 // Information about the machine learning commitment plan associated with the web service.
-type CommitmentPlanTypeOutput struct{ *pulumi.OutputState }
+type CommitmentPlanOutput struct{ *pulumi.OutputState }
 
-func (CommitmentPlanTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlanType)(nil)).Elem()
+func (CommitmentPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlan)(nil)).Elem()
 }
 
-func (o CommitmentPlanTypeOutput) ToCommitmentPlanTypeOutput() CommitmentPlanTypeOutput {
+func (o CommitmentPlanOutput) ToCommitmentPlanOutput() CommitmentPlanOutput {
 	return o
 }
 
-func (o CommitmentPlanTypeOutput) ToCommitmentPlanTypeOutputWithContext(ctx context.Context) CommitmentPlanTypeOutput {
+func (o CommitmentPlanOutput) ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput {
 	return o
 }
 
-func (o CommitmentPlanTypeOutput) ToCommitmentPlanTypePtrOutput() CommitmentPlanTypePtrOutput {
-	return o.ToCommitmentPlanTypePtrOutputWithContext(context.Background())
+func (o CommitmentPlanOutput) ToCommitmentPlanPtrOutput() CommitmentPlanPtrOutput {
+	return o.ToCommitmentPlanPtrOutputWithContext(context.Background())
 }
 
-func (o CommitmentPlanTypeOutput) ToCommitmentPlanTypePtrOutputWithContext(ctx context.Context) CommitmentPlanTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanType) *CommitmentPlanType {
+func (o CommitmentPlanOutput) ToCommitmentPlanPtrOutputWithContext(ctx context.Context) CommitmentPlanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlan) *CommitmentPlan {
 		return &v
-	}).(CommitmentPlanTypePtrOutput)
+	}).(CommitmentPlanPtrOutput)
 }
 
 // Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
-func (o CommitmentPlanTypeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v CommitmentPlanType) string { return v.Id }).(pulumi.StringOutput)
+func (o CommitmentPlanOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CommitmentPlan) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type CommitmentPlanTypePtrOutput struct{ *pulumi.OutputState }
+type CommitmentPlanPtrOutput struct{ *pulumi.OutputState }
 
-func (CommitmentPlanTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CommitmentPlanType)(nil)).Elem()
+func (CommitmentPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlan)(nil)).Elem()
 }
 
-func (o CommitmentPlanTypePtrOutput) ToCommitmentPlanTypePtrOutput() CommitmentPlanTypePtrOutput {
+func (o CommitmentPlanPtrOutput) ToCommitmentPlanPtrOutput() CommitmentPlanPtrOutput {
 	return o
 }
 
-func (o CommitmentPlanTypePtrOutput) ToCommitmentPlanTypePtrOutputWithContext(ctx context.Context) CommitmentPlanTypePtrOutput {
+func (o CommitmentPlanPtrOutput) ToCommitmentPlanPtrOutputWithContext(ctx context.Context) CommitmentPlanPtrOutput {
 	return o
 }
 
-func (o CommitmentPlanTypePtrOutput) Elem() CommitmentPlanTypeOutput {
-	return o.ApplyT(func(v *CommitmentPlanType) CommitmentPlanType {
+func (o CommitmentPlanPtrOutput) Elem() CommitmentPlanOutput {
+	return o.ApplyT(func(v *CommitmentPlan) CommitmentPlan {
 		if v != nil {
 			return *v
 		}
-		var ret CommitmentPlanType
+		var ret CommitmentPlan
 		return ret
-	}).(CommitmentPlanTypeOutput)
+	}).(CommitmentPlanOutput)
 }
 
 // Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
-func (o CommitmentPlanTypePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CommitmentPlanType) *string {
+func (o CommitmentPlanPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlan) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of an Azure ML commitment plan.
-type CommitmentPlanPropertiesResponse struct {
-	// Indicates whether usage beyond the commitment plan's included quantities will be charged.
-	ChargeForOverage bool `pulumi:"chargeForOverage"`
-	// Indicates whether the commitment plan will incur a charge.
-	ChargeForPlan bool `pulumi:"chargeForPlan"`
-	// The date at which this commitment plan was created, in ISO 8601 format.
-	CreationDate string `pulumi:"creationDate"`
-	// The included resource quantities this plan gives you.
-	IncludedQuantities map[string]PlanQuantityResponse `pulumi:"includedQuantities"`
-	// The maximum number of commitment associations that can be children of this commitment plan.
-	MaxAssociationLimit int `pulumi:"maxAssociationLimit"`
-	// The maximum scale-out capacity for this commitment plan.
-	MaxCapacityLimit int `pulumi:"maxCapacityLimit"`
-	// The minimum scale-out capacity for this commitment plan.
-	MinCapacityLimit int `pulumi:"minCapacityLimit"`
-	// The Azure meter which will be used to charge for this commitment plan.
-	PlanMeter string `pulumi:"planMeter"`
-	// The frequency at which this commitment plan's included quantities are refilled.
-	RefillFrequencyInDays int `pulumi:"refillFrequencyInDays"`
-	// Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
-	SuspendPlanOnOverage bool `pulumi:"suspendPlanOnOverage"`
-}
-
-// Properties of an Azure ML commitment plan.
-type CommitmentPlanPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (CommitmentPlanPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlanPropertiesResponse)(nil)).Elem()
-}
-
-func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponseOutput() CommitmentPlanPropertiesResponseOutput {
-	return o
-}
-
-func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponseOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponseOutput {
-	return o
-}
-
-// Indicates whether usage beyond the commitment plan's included quantities will be charged.
-func (o CommitmentPlanPropertiesResponseOutput) ChargeForOverage() pulumi.BoolOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) bool { return v.ChargeForOverage }).(pulumi.BoolOutput)
-}
-
-// Indicates whether the commitment plan will incur a charge.
-func (o CommitmentPlanPropertiesResponseOutput) ChargeForPlan() pulumi.BoolOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) bool { return v.ChargeForPlan }).(pulumi.BoolOutput)
-}
-
-// The date at which this commitment plan was created, in ISO 8601 format.
-func (o CommitmentPlanPropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// The included resource quantities this plan gives you.
-func (o CommitmentPlanPropertiesResponseOutput) IncludedQuantities() PlanQuantityResponseMapOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) map[string]PlanQuantityResponse { return v.IncludedQuantities }).(PlanQuantityResponseMapOutput)
-}
-
-// The maximum number of commitment associations that can be children of this commitment plan.
-func (o CommitmentPlanPropertiesResponseOutput) MaxAssociationLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) int { return v.MaxAssociationLimit }).(pulumi.IntOutput)
-}
-
-// The maximum scale-out capacity for this commitment plan.
-func (o CommitmentPlanPropertiesResponseOutput) MaxCapacityLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) int { return v.MaxCapacityLimit }).(pulumi.IntOutput)
-}
-
-// The minimum scale-out capacity for this commitment plan.
-func (o CommitmentPlanPropertiesResponseOutput) MinCapacityLimit() pulumi.IntOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) int { return v.MinCapacityLimit }).(pulumi.IntOutput)
-}
-
-// The Azure meter which will be used to charge for this commitment plan.
-func (o CommitmentPlanPropertiesResponseOutput) PlanMeter() pulumi.StringOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) string { return v.PlanMeter }).(pulumi.StringOutput)
-}
-
-// The frequency at which this commitment plan's included quantities are refilled.
-func (o CommitmentPlanPropertiesResponseOutput) RefillFrequencyInDays() pulumi.IntOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) int { return v.RefillFrequencyInDays }).(pulumi.IntOutput)
-}
-
-// Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
-func (o CommitmentPlanPropertiesResponseOutput) SuspendPlanOnOverage() pulumi.BoolOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) bool { return v.SuspendPlanOnOverage }).(pulumi.BoolOutput)
 }
 
 // Information about the machine learning commitment plan associated with the web service.
@@ -3381,73 +3292,6 @@ func (o OutputPortResponseMapOutput) MapIndex(k pulumi.StringInput) OutputPortRe
 	}).(OutputPortResponseOutput)
 }
 
-// Represents the quantity a commitment plan provides of a metered resource.
-type PlanQuantityResponse struct {
-	// The quantity added to the commitment plan at an interval specified by its allowance frequency.
-	Allowance float64 `pulumi:"allowance"`
-	// The quantity available to the plan the last time usage was calculated.
-	Amount float64 `pulumi:"amount"`
-	// The Azure meter for usage against included quantities.
-	IncludedQuantityMeter string `pulumi:"includedQuantityMeter"`
-	// The Azure meter for usage which exceeds included quantities.
-	OverageMeter string `pulumi:"overageMeter"`
-}
-
-// Represents the quantity a commitment plan provides of a metered resource.
-type PlanQuantityResponseOutput struct{ *pulumi.OutputState }
-
-func (PlanQuantityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlanQuantityResponse)(nil)).Elem()
-}
-
-func (o PlanQuantityResponseOutput) ToPlanQuantityResponseOutput() PlanQuantityResponseOutput {
-	return o
-}
-
-func (o PlanQuantityResponseOutput) ToPlanQuantityResponseOutputWithContext(ctx context.Context) PlanQuantityResponseOutput {
-	return o
-}
-
-// The quantity added to the commitment plan at an interval specified by its allowance frequency.
-func (o PlanQuantityResponseOutput) Allowance() pulumi.Float64Output {
-	return o.ApplyT(func(v PlanQuantityResponse) float64 { return v.Allowance }).(pulumi.Float64Output)
-}
-
-// The quantity available to the plan the last time usage was calculated.
-func (o PlanQuantityResponseOutput) Amount() pulumi.Float64Output {
-	return o.ApplyT(func(v PlanQuantityResponse) float64 { return v.Amount }).(pulumi.Float64Output)
-}
-
-// The Azure meter for usage against included quantities.
-func (o PlanQuantityResponseOutput) IncludedQuantityMeter() pulumi.StringOutput {
-	return o.ApplyT(func(v PlanQuantityResponse) string { return v.IncludedQuantityMeter }).(pulumi.StringOutput)
-}
-
-// The Azure meter for usage which exceeds included quantities.
-func (o PlanQuantityResponseOutput) OverageMeter() pulumi.StringOutput {
-	return o.ApplyT(func(v PlanQuantityResponse) string { return v.OverageMeter }).(pulumi.StringOutput)
-}
-
-type PlanQuantityResponseMapOutput struct{ *pulumi.OutputState }
-
-func (PlanQuantityResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PlanQuantityResponse)(nil)).Elem()
-}
-
-func (o PlanQuantityResponseMapOutput) ToPlanQuantityResponseMapOutput() PlanQuantityResponseMapOutput {
-	return o
-}
-
-func (o PlanQuantityResponseMapOutput) ToPlanQuantityResponseMapOutputWithContext(ctx context.Context) PlanQuantityResponseMapOutput {
-	return o
-}
-
-func (o PlanQuantityResponseMapOutput) MapIndex(k pulumi.StringInput) PlanQuantityResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PlanQuantityResponse {
-		return vs[0].(map[string]PlanQuantityResponse)[vs[1].(string)]
-	}).(PlanQuantityResponseOutput)
-}
-
 // Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfiguration struct {
 	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
@@ -3646,278 +3490,6 @@ func (o RealtimeConfigurationResponsePtrOutput) MaxConcurrentCalls() pulumi.IntP
 		}
 		return v.MaxConcurrentCalls
 	}).(pulumi.IntPtrOutput)
-}
-
-// The SKU of a resource.
-type ResourceSku struct {
-	// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-	Capacity *int `pulumi:"capacity"`
-	// The SKU name. Along with tier, uniquely identifies the SKU.
-	Name *string `pulumi:"name"`
-	// The SKU tier. Along with name, uniquely identifies the SKU.
-	Tier *string `pulumi:"tier"`
-}
-
-// ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
-// You can construct a concrete instance of `ResourceSkuInput` via:
-//
-//          ResourceSkuArgs{...}
-type ResourceSkuInput interface {
-	pulumi.Input
-
-	ToResourceSkuOutput() ResourceSkuOutput
-	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
-}
-
-// The SKU of a resource.
-type ResourceSkuArgs struct {
-	// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The SKU name. Along with tier, uniquely identifies the SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The SKU tier. Along with name, uniquely identifies the SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (ResourceSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSku)(nil)).Elem()
-}
-
-func (i ResourceSkuArgs) ToResourceSkuOutput() ResourceSkuOutput {
-	return i.ToResourceSkuOutputWithContext(context.Background())
-}
-
-func (i ResourceSkuArgs) ToResourceSkuOutputWithContext(ctx context.Context) ResourceSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuOutput)
-}
-
-func (i ResourceSkuArgs) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
-	return i.ToResourceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuOutput).ToResourceSkuPtrOutputWithContext(ctx)
-}
-
-// ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
-// You can construct a concrete instance of `ResourceSkuPtrInput` via:
-//
-//          ResourceSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceSkuPtrInput interface {
-	pulumi.Input
-
-	ToResourceSkuPtrOutput() ResourceSkuPtrOutput
-	ToResourceSkuPtrOutputWithContext(context.Context) ResourceSkuPtrOutput
-}
-
-type resourceSkuPtrType ResourceSkuArgs
-
-func ResourceSkuPtr(v *ResourceSkuArgs) ResourceSkuPtrInput {
-	return (*resourceSkuPtrType)(v)
-}
-
-func (*resourceSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSku)(nil)).Elem()
-}
-
-func (i *resourceSkuPtrType) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
-	return i.ToResourceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
-}
-
-// The SKU of a resource.
-type ResourceSkuOutput struct{ *pulumi.OutputState }
-
-func (ResourceSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSku)(nil)).Elem()
-}
-
-func (o ResourceSkuOutput) ToResourceSkuOutput() ResourceSkuOutput {
-	return o
-}
-
-func (o ResourceSkuOutput) ToResourceSkuOutputWithContext(ctx context.Context) ResourceSkuOutput {
-	return o
-}
-
-func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
-	return o.ToResourceSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
-		return &v
-	}).(ResourceSkuPtrOutput)
-}
-
-// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The SKU name. Along with tier, uniquely identifies the SKU.
-func (o ResourceSkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The SKU tier. Along with name, uniquely identifies the SKU.
-func (o ResourceSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type ResourceSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSku)(nil)).Elem()
-}
-
-func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
-	return o
-}
-
-func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o
-}
-
-func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSku
-		return ret
-	}).(ResourceSkuOutput)
-}
-
-// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ResourceSku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The SKU name. Along with tier, uniquely identifies the SKU.
-func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU tier. Along with name, uniquely identifies the SKU.
-func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU of a resource.
-type ResourceSkuResponse struct {
-	// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-	Capacity *int `pulumi:"capacity"`
-	// The SKU name. Along with tier, uniquely identifies the SKU.
-	Name *string `pulumi:"name"`
-	// The SKU tier. Along with name, uniquely identifies the SKU.
-	Tier *string `pulumi:"tier"`
-}
-
-// The SKU of a resource.
-type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceSkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSkuResponse)(nil)).Elem()
-}
-
-func (o ResourceSkuResponseOutput) ToResourceSkuResponseOutput() ResourceSkuResponseOutput {
-	return o
-}
-
-func (o ResourceSkuResponseOutput) ToResourceSkuResponseOutputWithContext(ctx context.Context) ResourceSkuResponseOutput {
-	return o
-}
-
-// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The SKU name. Along with tier, uniquely identifies the SKU.
-func (o ResourceSkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The SKU tier. Along with name, uniquely identifies the SKU.
-func (o ResourceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type ResourceSkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceSkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSkuResponse)(nil)).Elem()
-}
-
-func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutput() ResourceSkuResponsePtrOutput {
-	return o
-}
-
-func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o
-}
-
-func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSkuResponse
-		return ret
-	}).(ResourceSkuResponseOutput)
-}
-
-// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The SKU name. Along with tier, uniquely identifies the SKU.
-func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU tier. Along with name, uniquely identifies the SKU.
-func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
 }
 
 // The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
@@ -4262,6 +3834,242 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) Type() pulumi.StringPt
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sku of the resource
+type Sku struct {
+	// Name of the sku
+	Name *string `pulumi:"name"`
+	// Tier of the sku like Basic or Enterprise
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
+// You can construct a concrete instance of `SkuInput` via:
+//
+//          SkuArgs{...}
+type SkuInput interface {
+	pulumi.Input
+
+	ToSkuOutput() SkuOutput
+	ToSkuOutputWithContext(context.Context) SkuOutput
+}
+
+// Sku of the resource
+type SkuArgs struct {
+	// Name of the sku
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tier of the sku like Basic or Enterprise
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (i SkuArgs) ToSkuOutput() SkuOutput {
+	return i.ToSkuOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
+}
+
+func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
+}
+
+// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
+// You can construct a concrete instance of `SkuPtrInput` via:
+//
+//          SkuArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuPtrInput interface {
+	pulumi.Input
+
+	ToSkuPtrOutput() SkuPtrOutput
+	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
+}
+
+type skuPtrType SkuArgs
+
+func SkuPtr(v *SkuArgs) SkuPtrInput {
+	return (*skuPtrType)(v)
+}
+
+func (*skuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
+}
+
+// Sku of the resource
+type SkuOutput struct{ *pulumi.OutputState }
+
+func (SkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (o SkuOutput) ToSkuOutput() SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+		return &v
+	}).(SkuPtrOutput)
+}
+
+// Name of the sku
+func (o SkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Tier of the sku like Basic or Enterprise
+func (o SkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SkuPtrOutput struct{ *pulumi.OutputState }
+
+func (SkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) Elem() SkuOutput {
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
+}
+
+// Name of the sku
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tier of the sku like Basic or Enterprise
+func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sku of the resource
+type SkuResponse struct {
+	// Name of the sku
+	Name *string `pulumi:"name"`
+	// Tier of the sku like Basic or Enterprise
+	Tier *string `pulumi:"tier"`
+}
+
+// Sku of the resource
+type SkuResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return o
+}
+
+// Name of the sku
+func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Tier of the sku like Basic or Enterprise
+func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
+}
+
+// Name of the sku
+func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tier of the sku like Basic or Enterprise
+func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5149,7 +4957,7 @@ type WebServicePropertiesForGraph struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets map[string]AssetItem `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-	CommitmentPlan *CommitmentPlanType `pulumi:"commitmentPlan"`
+	CommitmentPlan *CommitmentPlan `pulumi:"commitmentPlan"`
 	// The description of the web service.
 	Description *string `pulumi:"description"`
 	// Settings controlling the diagnostics traces collection for the web service.
@@ -5216,7 +5024,7 @@ type WebServicePropertiesForGraphArgs struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets AssetItemMapInput `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-	CommitmentPlan CommitmentPlanTypePtrInput `pulumi:"commitmentPlan"`
+	CommitmentPlan CommitmentPlanPtrInput `pulumi:"commitmentPlan"`
 	// The description of the web service.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Settings controlling the diagnostics traces collection for the web service.
@@ -5296,8 +5104,8 @@ func (o WebServicePropertiesForGraphOutput) Assets() AssetItemMapOutput {
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-func (o WebServicePropertiesForGraphOutput) CommitmentPlan() CommitmentPlanTypePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesForGraph) *CommitmentPlanType { return v.CommitmentPlan }).(CommitmentPlanTypePtrOutput)
+func (o WebServicePropertiesForGraphOutput) CommitmentPlan() CommitmentPlanPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *CommitmentPlan { return v.CommitmentPlan }).(CommitmentPlanPtrOutput)
 }
 
 // The description of the web service.
@@ -5600,9 +5408,8 @@ func init() {
 	pulumi.RegisterOutputType(ColumnSpecificationMapOutput{})
 	pulumi.RegisterOutputType(ColumnSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(ColumnSpecificationResponseMapOutput{})
-	pulumi.RegisterOutputType(CommitmentPlanTypeOutput{})
-	pulumi.RegisterOutputType(CommitmentPlanTypePtrOutput{})
-	pulumi.RegisterOutputType(CommitmentPlanPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanPtrOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanResponseOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsConfigurationOutput{})
@@ -5653,20 +5460,18 @@ func init() {
 	pulumi.RegisterOutputType(OutputPortMapOutput{})
 	pulumi.RegisterOutputType(OutputPortResponseOutput{})
 	pulumi.RegisterOutputType(OutputPortResponseMapOutput{})
-	pulumi.RegisterOutputType(PlanQuantityResponseOutput{})
-	pulumi.RegisterOutputType(PlanQuantityResponseMapOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ResourceSkuOutput{})
-	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
-	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
-	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationResponsePtrOutput{})
+	pulumi.RegisterOutputType(SkuOutput{})
+	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})

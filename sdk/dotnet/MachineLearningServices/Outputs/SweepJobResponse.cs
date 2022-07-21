@@ -17,19 +17,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class SweepJobResponse
     {
         /// <summary>
-        /// [Required] Type of the hyperparameter sampling algorithms
+        /// ARM resource ID of the compute resource.
         /// </summary>
-        public readonly string Algorithm;
-        /// <summary>
-        /// [Required] Compute binding for the job.
-        /// </summary>
-        public readonly Outputs.ComputeConfigurationResponse Compute;
+        public readonly string? ComputeId;
         /// <summary>
         /// The asset description text.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Early termination policies enable canceling poor-performing runs before they complete.
+        /// Display name of job.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Early termination policies enable canceling poor-performing runs before they complete
         /// </summary>
         public readonly object? EarlyTermination;
         /// <summary>
@@ -37,55 +37,54 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? ExperimentName;
         /// <summary>
-        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
         /// Defaults to AmlToken if null.
         /// </summary>
-        public readonly Union<Outputs.AmlTokenResponse, Outputs.ManagedIdentityResponse>? Identity;
+        public readonly object? Identity;
         /// <summary>
-        /// List of JobEndpoints.
-        /// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        /// Mapping of input data bindings used in the job.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.JobEndpointResponse> InteractionEndpoints;
+        public readonly ImmutableDictionary<string, object>? Inputs;
+        /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        public readonly bool? IsArchived;
         /// <summary>
         /// Enum to determine the type of job.
         /// Expected value is 'Sweep'.
         /// </summary>
         public readonly string JobType;
         /// <summary>
-        /// An upper bound on the number of trials performed in parallel.
+        /// Sweep Job limit.
         /// </summary>
-        public readonly int? MaxConcurrentTrials;
-        /// <summary>
-        /// An upper bound on the number of trials to perform.
-        /// </summary>
-        public readonly int? MaxTotalTrials;
+        public readonly Outputs.SweepJobLimitsResponse? Limits;
         /// <summary>
         /// [Required] Optimization objective.
         /// </summary>
         public readonly Outputs.ObjectiveResponse Objective;
         /// <summary>
-        /// Location of the job output logs and artifacts.
+        /// Mapping of output data bindings used in the job.
         /// </summary>
-        public readonly Outputs.JobOutputResponse Output;
-        /// <summary>
-        /// Job priority for scheduling policy. Only applies to AMLCompute.
-        /// Private preview feature and only available to users on the allow list.
-        /// </summary>
-        public readonly int? Priority;
+        public readonly ImmutableDictionary<string, object>? Outputs;
         /// <summary>
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// Specifies the job provisioning state.
+        /// [Required] The hyperparameter sampling algorithm
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly object SamplingAlgorithm;
         /// <summary>
         /// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SearchSpace;
+        public readonly object SearchSpace;
         /// <summary>
-        /// The status of a job.
+        /// List of JobEndpoints.
+        /// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.JobServiceResponse>? Services;
+        /// <summary>
+        /// Status of the job.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -93,75 +92,68 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+        /// [Required] Trial component definition.
         /// </summary>
-        public readonly string? Timeout;
-        /// <summary>
-        /// Trial component definition.
-        /// </summary>
-        public readonly Outputs.TrialComponentResponse? Trial;
+        public readonly Outputs.TrialComponentResponse Trial;
 
         [OutputConstructor]
         private SweepJobResponse(
-            string algorithm,
-
-            Outputs.ComputeConfigurationResponse compute,
+            string? computeId,
 
             string? description,
+
+            string? displayName,
 
             object? earlyTermination,
 
             string? experimentName,
 
-            Union<Outputs.AmlTokenResponse, Outputs.ManagedIdentityResponse>? identity,
+            object? identity,
 
-            ImmutableDictionary<string, Outputs.JobEndpointResponse> interactionEndpoints,
+            ImmutableDictionary<string, object>? inputs,
+
+            bool? isArchived,
 
             string jobType,
 
-            int? maxConcurrentTrials,
-
-            int? maxTotalTrials,
+            Outputs.SweepJobLimitsResponse? limits,
 
             Outputs.ObjectiveResponse objective,
 
-            Outputs.JobOutputResponse output,
-
-            int? priority,
+            ImmutableDictionary<string, object>? outputs,
 
             ImmutableDictionary<string, string>? properties,
 
-            string provisioningState,
+            object samplingAlgorithm,
 
-            ImmutableDictionary<string, object> searchSpace,
+            object searchSpace,
+
+            ImmutableDictionary<string, Outputs.JobServiceResponse>? services,
 
             string status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? timeout,
-
-            Outputs.TrialComponentResponse? trial)
+            Outputs.TrialComponentResponse trial)
         {
-            Algorithm = algorithm;
-            Compute = compute;
+            ComputeId = computeId;
             Description = description;
+            DisplayName = displayName;
             EarlyTermination = earlyTermination;
             ExperimentName = experimentName;
             Identity = identity;
-            InteractionEndpoints = interactionEndpoints;
+            Inputs = inputs;
+            IsArchived = isArchived;
             JobType = jobType;
-            MaxConcurrentTrials = maxConcurrentTrials;
-            MaxTotalTrials = maxTotalTrials;
+            Limits = limits;
             Objective = objective;
-            Output = output;
-            Priority = priority;
+            Outputs = outputs;
             Properties = properties;
-            ProvisioningState = provisioningState;
+            SamplingAlgorithm = samplingAlgorithm;
             SearchSpace = searchSpace;
+            Services = services;
             Status = status;
             Tags = tags;
-            Timeout = timeout;
             Trial = trial;
         }
     }

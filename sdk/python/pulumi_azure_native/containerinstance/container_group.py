@@ -28,11 +28,12 @@ class ContainerGroupArgs:
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
                  ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input['ContainerGroupNetworkProfileArgs']] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None):
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ContainerGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
@@ -47,14 +48,15 @@ class ContainerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]] init_containers: The init containers for a container group.
         :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input['ContainerGroupNetworkProfileArgs'] network_profile: The network profile information for a container group.
         :param pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
         :param pulumi.Input[Union[str, 'ContainerGroupSku']] sku: The SKU for a container group.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]] subnet_ids: The subnet resource IDs for a container group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The zones for the container group.
         """
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "os_type", os_type)
@@ -77,16 +79,18 @@ class ContainerGroupArgs:
             pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -233,18 +237,6 @@ class ContainerGroupArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['ContainerGroupNetworkProfileArgs']]:
-        """
-        The network profile information for a container group.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['ContainerGroupNetworkProfileArgs']]):
-        pulumi.set(self, "network_profile", value)
-
-    @property
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]]:
         """
@@ -272,6 +264,18 @@ class ContainerGroupArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -295,6 +299,18 @@ class ContainerGroupArgs:
     def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The zones for the container group.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class ContainerGroup(pulumi.CustomResource):
     @overload
@@ -311,17 +327,18 @@ class ContainerGroup(pulumi.CustomResource):
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InitContainerDefinitionArgs']]]]] = None,
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerGroupSubnetIdArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A container group.
-        API Version: 2021-03-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,7 +352,6 @@ class ContainerGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InitContainerDefinitionArgs']]]] init_containers: The init containers for a container group.
         :param pulumi.Input[pulumi.InputType['IpAddressArgs']] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']] network_profile: The network profile information for a container group.
         :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
@@ -343,8 +359,10 @@ class ContainerGroup(pulumi.CustomResource):
                - `OnFailure` Restart on failure
                - `Never` Never restart
         :param pulumi.Input[Union[str, 'ContainerGroupSku']] sku: The SKU for a container group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerGroupSubnetIdArgs']]]] subnet_ids: The subnet resource IDs for a container group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]] volumes: The list of volumes that can be mounted by containers in this container group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The zones for the container group.
         """
         ...
     @overload
@@ -354,7 +372,7 @@ class ContainerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container group.
-        API Version: 2021-03-01.
+        API Version: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupArgs args: The arguments to use to populate this resource's properties.
@@ -381,13 +399,14 @@ class ContainerGroup(pulumi.CustomResource):
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InitContainerDefinitionArgs']]]]] = None,
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerGroupSubnetIdArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -412,7 +431,6 @@ class ContainerGroup(pulumi.CustomResource):
             __props__.__dict__["init_containers"] = init_containers
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["location"] = location
-            __props__.__dict__["network_profile"] = network_profile
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
@@ -421,8 +439,10 @@ class ContainerGroup(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restart_policy"] = restart_policy
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volumes"] = volumes
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -462,14 +482,15 @@ class ContainerGroup(pulumi.CustomResource):
         __props__.__dict__["ip_address"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["network_profile"] = None
         __props__.__dict__["os_type"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["restart_policy"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volumes"] = None
+        __props__.__dict__["zones"] = None
         return ContainerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -561,14 +582,6 @@ class ContainerGroup(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> pulumi.Output[Optional['outputs.ContainerGroupNetworkProfileResponse']]:
-        """
-        The network profile information for a container group.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[str]:
         """
@@ -604,6 +617,14 @@ class ContainerGroup(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Output[Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']]]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -626,4 +647,12 @@ class ContainerGroup(pulumi.CustomResource):
         The list of volumes that can be mounted by containers in this container group.
         """
         return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The zones for the container group.
+        """
+        return pulumi.get(self, "zones")
 

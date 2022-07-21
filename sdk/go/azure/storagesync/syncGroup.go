@@ -12,7 +12,7 @@ import (
 )
 
 // Sync Group object.
-// API Version: 2020-03-01.
+// API Version: 2020-09-01.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type SyncGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sync group status
 	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Unique Id
@@ -167,6 +169,11 @@ func (o SyncGroupOutput) Name() pulumi.StringOutput {
 // Sync group status
 func (o SyncGroupOutput) SyncGroupStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.SyncGroupStatus }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SyncGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SyncGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

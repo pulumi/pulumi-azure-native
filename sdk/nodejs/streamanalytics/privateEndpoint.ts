@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Complete information about the private endpoint.
- * API Version: 2020-03-01-preview.
+ * API Version: 2020-03-01.
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -37,17 +37,21 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The date when this private endpoint was created.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
      * Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * A list of connections to the remote resource. Immutable after it is set.
+     */
+    public readonly manualPrivateLinkServiceConnections!: pulumi.Output<outputs.streamanalytics.PrivateLinkServiceConnectionResponse[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The properties associated with a private endpoint.
-     */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.PrivateEndpointPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -71,16 +75,18 @@ export class PrivateEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
             resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["manualPrivateLinkServiceConnections"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,13 +105,13 @@ export interface PrivateEndpointArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
+     * A list of connections to the remote resource. Immutable after it is set.
+     */
+    manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.streamanalytics.PrivateLinkServiceConnectionArgs>[]>;
+    /**
      * The name of the private endpoint.
      */
     privateEndpointName?: pulumi.Input<string>;
-    /**
-     * The properties associated with a private endpoint.
-     */
-    properties?: pulumi.Input<inputs.streamanalytics.PrivateEndpointPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

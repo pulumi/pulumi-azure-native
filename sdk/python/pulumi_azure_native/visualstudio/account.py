@@ -145,7 +145,7 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         The response to an account resource GET request.
-        API Version: 2014-04-01-preview.
+        API Version: 2017-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The response to an account resource GET request.
-        API Version: 2014-04-01-preview.
+        API Version: 2017-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

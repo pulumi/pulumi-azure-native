@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['BlobContainerArgs', 'BlobContainer']
 
@@ -20,6 +21,9 @@ class BlobContainerArgs:
                  container_name: Optional[pulumi.Input[str]] = None,
                  default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3_all_squash: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3_root_squash: Optional[pulumi.Input[bool]] = None,
+                 immutable_storage_with_versioning: Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_access: Optional[pulumi.Input['PublicAccess']] = None):
         """
@@ -29,6 +33,9 @@ class BlobContainerArgs:
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] default_encryption_scope: Default the container to use specified encryption scope for all writes.
         :param pulumi.Input[bool] deny_encryption_scope_override: Block override of encryption scope from the container default.
+        :param pulumi.Input[bool] enable_nfs_v3_all_squash: Enable NFSv3 all squash on blob container.
+        :param pulumi.Input[bool] enable_nfs_v3_root_squash: Enable NFSv3 root squash on blob container.
+        :param pulumi.Input['ImmutableStorageWithVersioningArgs'] immutable_storage_with_versioning: The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the container as metadata.
         :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         """
@@ -40,6 +47,12 @@ class BlobContainerArgs:
             pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
         if deny_encryption_scope_override is not None:
             pulumi.set(__self__, "deny_encryption_scope_override", deny_encryption_scope_override)
+        if enable_nfs_v3_all_squash is not None:
+            pulumi.set(__self__, "enable_nfs_v3_all_squash", enable_nfs_v3_all_squash)
+        if enable_nfs_v3_root_squash is not None:
+            pulumi.set(__self__, "enable_nfs_v3_root_squash", enable_nfs_v3_root_squash)
+        if immutable_storage_with_versioning is not None:
+            pulumi.set(__self__, "immutable_storage_with_versioning", immutable_storage_with_versioning)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if public_access is not None:
@@ -106,6 +119,42 @@ class BlobContainerArgs:
         pulumi.set(self, "deny_encryption_scope_override", value)
 
     @property
+    @pulumi.getter(name="enableNfsV3AllSquash")
+    def enable_nfs_v3_all_squash(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable NFSv3 all squash on blob container.
+        """
+        return pulumi.get(self, "enable_nfs_v3_all_squash")
+
+    @enable_nfs_v3_all_squash.setter
+    def enable_nfs_v3_all_squash(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_nfs_v3_all_squash", value)
+
+    @property
+    @pulumi.getter(name="enableNfsV3RootSquash")
+    def enable_nfs_v3_root_squash(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable NFSv3 root squash on blob container.
+        """
+        return pulumi.get(self, "enable_nfs_v3_root_squash")
+
+    @enable_nfs_v3_root_squash.setter
+    def enable_nfs_v3_root_squash(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_nfs_v3_root_squash", value)
+
+    @property
+    @pulumi.getter(name="immutableStorageWithVersioning")
+    def immutable_storage_with_versioning(self) -> Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']]:
+        """
+        The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+        """
+        return pulumi.get(self, "immutable_storage_with_versioning")
+
+    @immutable_storage_with_versioning.setter
+    def immutable_storage_with_versioning(self, value: Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']]):
+        pulumi.set(self, "immutable_storage_with_versioning", value)
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -139,13 +188,16 @@ class BlobContainer(pulumi.CustomResource):
                  container_name: Optional[pulumi.Input[str]] = None,
                  default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3_all_squash: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3_root_squash: Optional[pulumi.Input[bool]] = None,
+                 immutable_storage_with_versioning: Optional[pulumi.Input[pulumi.InputType['ImmutableStorageWithVersioningArgs']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_access: Optional[pulumi.Input['PublicAccess']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
-        API Version: 2021-02-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,6 +205,9 @@ class BlobContainer(pulumi.CustomResource):
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] default_encryption_scope: Default the container to use specified encryption scope for all writes.
         :param pulumi.Input[bool] deny_encryption_scope_override: Block override of encryption scope from the container default.
+        :param pulumi.Input[bool] enable_nfs_v3_all_squash: Enable NFSv3 all squash on blob container.
+        :param pulumi.Input[bool] enable_nfs_v3_root_squash: Enable NFSv3 root squash on blob container.
+        :param pulumi.Input[pulumi.InputType['ImmutableStorageWithVersioningArgs']] immutable_storage_with_versioning: The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the container as metadata.
         :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -165,7 +220,7 @@ class BlobContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
-        API Version: 2021-02-01.
+        API Version: 2021-09-01.
 
         :param str resource_name: The name of the resource.
         :param BlobContainerArgs args: The arguments to use to populate this resource's properties.
@@ -186,6 +241,9 @@ class BlobContainer(pulumi.CustomResource):
                  container_name: Optional[pulumi.Input[str]] = None,
                  default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3_all_squash: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3_root_squash: Optional[pulumi.Input[bool]] = None,
+                 immutable_storage_with_versioning: Optional[pulumi.Input[pulumi.InputType['ImmutableStorageWithVersioningArgs']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_access: Optional[pulumi.Input['PublicAccess']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -207,6 +265,9 @@ class BlobContainer(pulumi.CustomResource):
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["default_encryption_scope"] = default_encryption_scope
             __props__.__dict__["deny_encryption_scope_override"] = deny_encryption_scope_override
+            __props__.__dict__["enable_nfs_v3_all_squash"] = enable_nfs_v3_all_squash
+            __props__.__dict__["enable_nfs_v3_root_squash"] = enable_nfs_v3_root_squash
+            __props__.__dict__["immutable_storage_with_versioning"] = immutable_storage_with_versioning
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["public_access"] = public_access
             if resource_group_name is None and not opts.urn:
@@ -255,10 +316,13 @@ class BlobContainer(pulumi.CustomResource):
         __props__.__dict__["deleted"] = None
         __props__.__dict__["deleted_time"] = None
         __props__.__dict__["deny_encryption_scope_override"] = None
+        __props__.__dict__["enable_nfs_v3_all_squash"] = None
+        __props__.__dict__["enable_nfs_v3_root_squash"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["has_immutability_policy"] = None
         __props__.__dict__["has_legal_hold"] = None
         __props__.__dict__["immutability_policy"] = None
+        __props__.__dict__["immutable_storage_with_versioning"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["lease_duration"] = None
         __props__.__dict__["lease_state"] = None
@@ -305,6 +369,22 @@ class BlobContainer(pulumi.CustomResource):
         return pulumi.get(self, "deny_encryption_scope_override")
 
     @property
+    @pulumi.getter(name="enableNfsV3AllSquash")
+    def enable_nfs_v3_all_squash(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable NFSv3 all squash on blob container.
+        """
+        return pulumi.get(self, "enable_nfs_v3_all_squash")
+
+    @property
+    @pulumi.getter(name="enableNfsV3RootSquash")
+    def enable_nfs_v3_root_squash(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable NFSv3 root squash on blob container.
+        """
+        return pulumi.get(self, "enable_nfs_v3_root_squash")
+
+    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
@@ -335,6 +415,14 @@ class BlobContainer(pulumi.CustomResource):
         The ImmutabilityPolicy property of the container.
         """
         return pulumi.get(self, "immutability_policy")
+
+    @property
+    @pulumi.getter(name="immutableStorageWithVersioning")
+    def immutable_storage_with_versioning(self) -> pulumi.Output[Optional['outputs.ImmutableStorageWithVersioningResponse']]:
+        """
+        The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+        """
+        return pulumi.get(self, "immutable_storage_with_versioning")
 
     @property
     @pulumi.getter(name="lastModifiedTime")

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The X509 Certificate.
- * API Version: 2020-03-01.
+ * API Version: 2022-02-05.
  */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
     if (!opts) {
@@ -57,6 +57,10 @@ export interface GetDpsCertificateResult {
      * properties of a certificate
      */
     readonly properties: outputs.devices.CertificatePropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
     /**
      * The resource type.
      */

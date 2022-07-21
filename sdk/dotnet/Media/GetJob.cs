@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

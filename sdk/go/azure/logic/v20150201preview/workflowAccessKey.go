@@ -37,12 +37,6 @@ func NewWorkflowAccessKey(ctx *pulumi.Context,
 	if args.WorkflowName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkflowName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:logic:WorkflowAccessKey"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource WorkflowAccessKey
 	err := ctx.RegisterResource("azure-native:logic/v20150201preview:WorkflowAccessKey", name, args, &resource, opts...)
 	if err != nil {

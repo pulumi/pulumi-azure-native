@@ -12,14 +12,14 @@ import (
 )
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-// API Version: 2016-03-01.
+// API Version: 2021-10-01-preview.
 type Function struct {
 	pulumi.CustomResourceState
 
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -91,8 +91,8 @@ type functionArgs struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties *ScalarFunctionProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Properties interface{} `pulumi:"properties"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -105,8 +105,8 @@ type FunctionArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Properties pulumi.Input
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -153,8 +153,8 @@ func (o FunctionOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The properties that are associated with a function.
-func (o FunctionOutput) Properties() ScalarFunctionPropertiesResponseOutput {
-	return o.ApplyT(func(v *Function) ScalarFunctionPropertiesResponseOutput { return v.Properties }).(ScalarFunctionPropertiesResponseOutput)
+func (o FunctionOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Function) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Resource type

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a domain.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
@@ -106,10 +106,6 @@ export interface GetDomainResult {
      * Domain registration status.
      */
     readonly registrationStatus: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.domainregistration.SystemDataResponse;
     /**
      * Resource tags.
      */

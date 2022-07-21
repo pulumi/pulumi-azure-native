@@ -7,19 +7,20 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Subscription Information with the alias.
-// API Version: 2020-09-01.
+// API Version: 2021-10-01.
 type Alias struct {
 	pulumi.CustomResourceState
 
 	// Alias ID.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Put Alias response properties.
-	Properties PutAliasResponsePropertiesResponseOutput `pulumi:"properties"`
+	// Subscription Alias response properties.
+	Properties SubscriptionAliasResponsePropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type, Microsoft.Subscription/aliases.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -28,12 +29,9 @@ type Alias struct {
 func NewAlias(ctx *pulumi.Context,
 	name string, args *AliasArgs, opts ...pulumi.ResourceOption) (*Alias, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AliasArgs{}
 	}
 
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:subscription/v20191001preview:Alias"),
@@ -78,18 +76,18 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+	// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName *string `pulumi:"aliasName"`
 	// Put alias request properties.
-	Properties PutAliasRequestProperties `pulumi:"properties"`
+	Properties *PutAliasRequestProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+	// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName pulumi.StringPtrInput
 	// Put alias request properties.
-	Properties PutAliasRequestPropertiesInput
+	Properties PutAliasRequestPropertiesPtrInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {
@@ -134,9 +132,14 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Put Alias response properties.
-func (o AliasOutput) Properties() PutAliasResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v *Alias) PutAliasResponsePropertiesResponseOutput { return v.Properties }).(PutAliasResponsePropertiesResponseOutput)
+// Subscription Alias response properties.
+func (o AliasOutput) Properties() SubscriptionAliasResponsePropertiesResponseOutput {
+	return o.ApplyT(func(v *Alias) SubscriptionAliasResponsePropertiesResponseOutput { return v.Properties }).(SubscriptionAliasResponsePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o AliasOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Alias) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type, Microsoft.Subscription/aliases.

@@ -103,6 +103,34 @@ export const EnableSubvolumes = {
  */
 export type EnableSubvolumes = (typeof EnableSubvolumes)[keyof typeof EnableSubvolumes];
 
+export const EncryptionKeySource = {
+    /**
+     * Microsoft-managed key encryption
+     */
+    Microsoft_NetApp: "Microsoft.NetApp",
+} as const;
+
+/**
+ * Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'
+ */
+export type EncryptionKeySource = (typeof EncryptionKeySource)[keyof typeof EncryptionKeySource];
+
+export const EncryptionType = {
+    /**
+     * EncryptionType Single, volumes will use single encryption at rest
+     */
+    Single: "Single",
+    /**
+     * EncryptionType Double, volumes will use double encryption at rest
+     */
+    Double: "Double",
+} as const;
+
+/**
+ * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
 export const EndpointType = {
     Src: "src",
     Dst: "dst",

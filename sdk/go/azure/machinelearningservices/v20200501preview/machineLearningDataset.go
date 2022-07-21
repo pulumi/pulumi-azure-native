@@ -57,12 +57,6 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 	if isZero(args.SkipValidation) {
 		args.SkipValidation = pulumi.BoolPtr(false)
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:machinelearningservices:MachineLearningDataset"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource MachineLearningDataset
 	err := ctx.RegisterResource("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset", name, args, &resource, opts...)
 	if err != nil {

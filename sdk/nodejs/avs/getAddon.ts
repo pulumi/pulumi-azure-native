@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * An addon resource
- * API Version: 2020-07-17-preview.
+ * API Version: 2021-12-01.
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     if (!opts) {
@@ -41,25 +42,17 @@ export interface GetAddonArgs {
  */
 export interface GetAddonResult {
     /**
-     * The type of private cloud addon
-     */
-    readonly addonType?: string;
-    /**
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * The SRM license
-     */
-    readonly licenseKey?: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The state of the addon provisioning
+     * The properties of an addon resource
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse;
     /**
      * Resource type.
      */

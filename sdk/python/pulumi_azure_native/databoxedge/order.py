@@ -111,7 +111,7 @@ class Order(pulumi.CustomResource):
                  __props__=None):
         """
         The order details.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class Order(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The order details.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param OrderArgs args: The arguments to use to populate this resource's properties.
@@ -176,10 +176,13 @@ class Order(pulumi.CustomResource):
             __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["current_status"] = None
             __props__.__dict__["delivery_tracking_info"] = None
+            __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["order_history"] = None
+            __props__.__dict__["order_id"] = None
             __props__.__dict__["return_tracking_info"] = None
             __props__.__dict__["serial_number"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Order")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -208,12 +211,15 @@ class Order(pulumi.CustomResource):
         __props__.__dict__["contact_information"] = None
         __props__.__dict__["current_status"] = None
         __props__.__dict__["delivery_tracking_info"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["order_history"] = None
+        __props__.__dict__["order_id"] = None
         __props__.__dict__["return_tracking_info"] = None
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["shipment_type"] = None
         __props__.__dict__["shipping_address"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Order(resource_name, opts=opts, __props__=__props__)
 
@@ -243,6 +249,14 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        It specify the order api version.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The object name.
@@ -256,6 +270,14 @@ class Order(pulumi.CustomResource):
         List of status changes in the order.
         """
         return pulumi.get(self, "order_history")
+
+    @property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> pulumi.Output[str]:
+        """
+        It specify the order resource id.
+        """
+        return pulumi.get(self, "order_id")
 
     @property
     @pulumi.getter(name="returnTrackingInfo")
@@ -288,6 +310,14 @@ class Order(pulumi.CustomResource):
         The shipping address.
         """
         return pulumi.get(self, "shipping_address")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of Order
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

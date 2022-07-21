@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['CustomerSubscriptionArgs', 'CustomerSubscription']
 
@@ -92,7 +93,7 @@ class CustomerSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Customer subscription.
-        API Version: 2017-06-01.
+        API Version: 2020-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +110,7 @@ class CustomerSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer subscription.
-        API Version: 2017-06-01.
+        API Version: 2020-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomerSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -152,6 +153,7 @@ class CustomerSubscription(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestack/v20170601:CustomerSubscription"), pulumi.Alias(type_="azure-native:azurestack/v20200601preview:CustomerSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -179,6 +181,7 @@ class CustomerSubscription(pulumi.CustomResource):
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return CustomerSubscription(resource_name, opts=opts, __props__=__props__)
@@ -198,6 +201,14 @@ class CustomerSubscription(pulumi.CustomResource):
         Name of the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")

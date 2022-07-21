@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Compute Platform Version running the service.
+        /// </summary>
+        public readonly string PlatformVersion;
+        /// <summary>
         /// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         /// </summary>
         public readonly ImmutableArray<string> PrivateIPAddresses;
@@ -36,6 +40,10 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIPAddresses;
+        /// <summary>
+        /// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        /// </summary>
+        public readonly string? PublicIpAddressId;
         /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
@@ -57,9 +65,13 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
 
             string location,
 
+            string platformVersion,
+
             ImmutableArray<string> privateIPAddresses,
 
             ImmutableArray<string> publicIPAddresses,
+
+            string? publicIpAddressId,
 
             Outputs.ApiManagementServiceSkuPropertiesResponse sku,
 
@@ -70,8 +82,10 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
             DisableGateway = disableGateway;
             GatewayRegionalUrl = gatewayRegionalUrl;
             Location = location;
+            PlatformVersion = platformVersion;
             PrivateIPAddresses = privateIPAddresses;
             PublicIPAddresses = publicIPAddresses;
+            PublicIpAddressId = publicIpAddressId;
             Sku = sku;
             VirtualNetworkConfiguration = virtualNetworkConfiguration;
             Zones = zones;

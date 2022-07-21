@@ -51,9 +51,6 @@ func NewSecurityConnector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:security:SecurityConnector"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20210701preview:SecurityConnector"),
 		},
 		{

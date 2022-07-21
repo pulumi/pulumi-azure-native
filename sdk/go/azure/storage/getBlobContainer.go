@@ -11,7 +11,7 @@ import (
 )
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-02-01.
+// API Version: 2021-09-01.
 func LookupBlobContainer(ctx *pulumi.Context, args *LookupBlobContainerArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerResult, error) {
 	var rv LookupBlobContainerResult
 	err := ctx.Invoke("azure-native:storage:getBlobContainer", args, &rv, opts...)
@@ -40,6 +40,10 @@ type LookupBlobContainerResult struct {
 	DeletedTime string `pulumi:"deletedTime"`
 	// Block override of encryption scope from the container default.
 	DenyEncryptionScopeOverride *bool `pulumi:"denyEncryptionScopeOverride"`
+	// Enable NFSv3 all squash on blob container.
+	EnableNfsV3AllSquash *bool `pulumi:"enableNfsV3AllSquash"`
+	// Enable NFSv3 root squash on blob container.
+	EnableNfsV3RootSquash *bool `pulumi:"enableNfsV3RootSquash"`
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
 	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
@@ -50,6 +54,8 @@ type LookupBlobContainerResult struct {
 	Id string `pulumi:"id"`
 	// The ImmutabilityPolicy property of the container.
 	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
+	// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+	ImmutableStorageWithVersioning *ImmutableStorageWithVersioningResponse `pulumi:"immutableStorageWithVersioning"`
 	// Returns the date and time the container was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
@@ -135,6 +141,16 @@ func (o LookupBlobContainerResultOutput) DenyEncryptionScopeOverride() pulumi.Bo
 	return o.ApplyT(func(v LookupBlobContainerResult) *bool { return v.DenyEncryptionScopeOverride }).(pulumi.BoolPtrOutput)
 }
 
+// Enable NFSv3 all squash on blob container.
+func (o LookupBlobContainerResultOutput) EnableNfsV3AllSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) *bool { return v.EnableNfsV3AllSquash }).(pulumi.BoolPtrOutput)
+}
+
+// Enable NFSv3 root squash on blob container.
+func (o LookupBlobContainerResultOutput) EnableNfsV3RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) *bool { return v.EnableNfsV3RootSquash }).(pulumi.BoolPtrOutput)
+}
+
 // Resource Etag.
 func (o LookupBlobContainerResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.Etag }).(pulumi.StringOutput)
@@ -158,6 +174,13 @@ func (o LookupBlobContainerResultOutput) Id() pulumi.StringOutput {
 // The ImmutabilityPolicy property of the container.
 func (o LookupBlobContainerResultOutput) ImmutabilityPolicy() ImmutabilityPolicyPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupBlobContainerResult) ImmutabilityPolicyPropertiesResponse { return v.ImmutabilityPolicy }).(ImmutabilityPolicyPropertiesResponseOutput)
+}
+
+// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+func (o LookupBlobContainerResultOutput) ImmutableStorageWithVersioning() ImmutableStorageWithVersioningResponsePtrOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) *ImmutableStorageWithVersioningResponse {
+		return v.ImmutableStorageWithVersioning
+	}).(ImmutableStorageWithVersioningResponsePtrOutput)
 }
 
 // Returns the date and time the container was last modified.

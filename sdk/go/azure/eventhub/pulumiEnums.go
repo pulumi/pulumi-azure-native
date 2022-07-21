@@ -18,13 +18,6 @@ const (
 	AccessRightsListen = AccessRights("Listen")
 )
 
-// Application Group Policy types
-type ApplicationGroupPolicyType string
-
-const (
-	ApplicationGroupPolicyTypeThrottlingPolicy = ApplicationGroupPolicyType("ThrottlingPolicy")
-)
-
 // Name of this SKU.
 type ClusterSkuName string
 
@@ -389,23 +382,336 @@ func (in *entityStatusPtr) ToEntityStatusPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EntityStatusPtrOutput)
 }
 
-// The IP Filter Action
-type IPAction string
+// Enumerates the possible value of keySource for Encryption
+type KeySource string
 
 const (
-	IPActionAccept = IPAction("Accept")
-	IPActionReject = IPAction("Reject")
+	KeySource_Microsoft_KeyVault = KeySource("Microsoft.KeyVault")
 )
 
-// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
-type MetricId string
+func (KeySource) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeySource)(nil)).Elem()
+}
+
+func (e KeySource) ToKeySourceOutput() KeySourceOutput {
+	return pulumi.ToOutput(e).(KeySourceOutput)
+}
+
+func (e KeySource) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeySourceOutput)
+}
+
+func (e KeySource) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return e.ToKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (e KeySource) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return KeySource(e).ToKeySourceOutputWithContext(ctx).ToKeySourcePtrOutputWithContext(ctx)
+}
+
+func (e KeySource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeySource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeySource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeySource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeySourceOutput struct{ *pulumi.OutputState }
+
+func (KeySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeySource)(nil)).Elem()
+}
+
+func (o KeySourceOutput) ToKeySourceOutput() KeySourceOutput {
+	return o
+}
+
+func (o KeySourceOutput) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
+	return o
+}
+
+func (o KeySourceOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return o.ToKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (o KeySourceOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeySource) *KeySource {
+		return &v
+	}).(KeySourcePtrOutput)
+}
+
+func (o KeySourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeySourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeySourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeySourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (KeySourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeySource)(nil)).Elem()
+}
+
+func (o KeySourcePtrOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return o
+}
+
+func (o KeySourcePtrOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return o
+}
+
+func (o KeySourcePtrOutput) Elem() KeySourceOutput {
+	return o.ApplyT(func(v *KeySource) KeySource {
+		if v != nil {
+			return *v
+		}
+		var ret KeySource
+		return ret
+	}).(KeySourceOutput)
+}
+
+func (o KeySourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeySource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeySourceInput is an input type that accepts KeySourceArgs and KeySourceOutput values.
+// You can construct a concrete instance of `KeySourceInput` via:
+//
+//          KeySourceArgs{...}
+type KeySourceInput interface {
+	pulumi.Input
+
+	ToKeySourceOutput() KeySourceOutput
+	ToKeySourceOutputWithContext(context.Context) KeySourceOutput
+}
+
+var keySourcePtrType = reflect.TypeOf((**KeySource)(nil)).Elem()
+
+type KeySourcePtrInput interface {
+	pulumi.Input
+
+	ToKeySourcePtrOutput() KeySourcePtrOutput
+	ToKeySourcePtrOutputWithContext(context.Context) KeySourcePtrOutput
+}
+
+type keySourcePtr string
+
+func KeySourcePtr(v string) KeySourcePtrInput {
+	return (*keySourcePtr)(&v)
+}
+
+func (*keySourcePtr) ElementType() reflect.Type {
+	return keySourcePtrType
+}
+
+func (in *keySourcePtr) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return pulumi.ToOutput(in).(KeySourcePtrOutput)
+}
+
+func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
+}
+
+// Type of managed service identity.
+type ManagedServiceIdentityType string
 
 const (
-	MetricIdIncomingBytes    = MetricId("IncomingBytes")
-	MetricIdOutgoingBytes    = MetricId("OutgoingBytes")
-	MetricIdIncomingMessages = MetricId("IncomingMessages")
-	MetricIdOutgoingMessages = MetricId("OutgoingMessages")
+	ManagedServiceIdentityTypeSystemAssigned               = ManagedServiceIdentityType("SystemAssigned")
+	ManagedServiceIdentityTypeUserAssigned                 = ManagedServiceIdentityType("UserAssigned")
+	ManagedServiceIdentityType_SystemAssigned_UserAssigned = ManagedServiceIdentityType("SystemAssigned, UserAssigned")
+	ManagedServiceIdentityTypeNone                         = ManagedServiceIdentityType("None")
 )
+
+func (ManagedServiceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityType)(nil)).Elem()
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypeOutput() ManagedServiceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ManagedServiceIdentityTypeOutput)
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypeOutputWithContext(ctx context.Context) ManagedServiceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedServiceIdentityTypeOutput)
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return e.ToManagedServiceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return ManagedServiceIdentityType(e).ToManagedServiceIdentityTypeOutputWithContext(ctx).ToManagedServiceIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e ManagedServiceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedServiceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedServiceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ManagedServiceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ManagedServiceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityType)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypeOutput() ManagedServiceIdentityTypeOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypeOutputWithContext(ctx context.Context) ManagedServiceIdentityTypeOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return o.ToManagedServiceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityType) *ManagedServiceIdentityType {
+		return &v
+	}).(ManagedServiceIdentityTypePtrOutput)
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedServiceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedServiceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedServiceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityType)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) Elem() ManagedServiceIdentityTypeOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityType) ManagedServiceIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityType
+		return ret
+	}).(ManagedServiceIdentityTypeOutput)
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedServiceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ManagedServiceIdentityTypeInput is an input type that accepts ManagedServiceIdentityTypeArgs and ManagedServiceIdentityTypeOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityTypeInput` via:
+//
+//          ManagedServiceIdentityTypeArgs{...}
+type ManagedServiceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityTypeOutput() ManagedServiceIdentityTypeOutput
+	ToManagedServiceIdentityTypeOutputWithContext(context.Context) ManagedServiceIdentityTypeOutput
+}
+
+var managedServiceIdentityTypePtrType = reflect.TypeOf((**ManagedServiceIdentityType)(nil)).Elem()
+
+type ManagedServiceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput
+	ToManagedServiceIdentityTypePtrOutputWithContext(context.Context) ManagedServiceIdentityTypePtrOutput
+}
+
+type managedServiceIdentityTypePtr string
+
+func ManagedServiceIdentityTypePtr(v string) ManagedServiceIdentityTypePtrInput {
+	return (*managedServiceIdentityTypePtr)(&v)
+}
+
+func (*managedServiceIdentityTypePtr) ElementType() reflect.Type {
+	return managedServiceIdentityTypePtrType
+}
+
+func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ManagedServiceIdentityTypePtrOutput)
+}
+
+func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedServiceIdentityTypePtrOutput)
+}
 
 // The IP Filter Action
 type NetworkRuleIPAction string
@@ -422,6 +728,14 @@ const (
 	PrivateLinkConnectionStatusApproved     = PrivateLinkConnectionStatus("Approved")
 	PrivateLinkConnectionStatusRejected     = PrivateLinkConnectionStatus("Rejected")
 	PrivateLinkConnectionStatusDisconnected = PrivateLinkConnectionStatus("Disconnected")
+)
+
+// This determines if traffic is allowed over public network. By default it is enabled.
+type PublicNetworkAccessFlag string
+
+const (
+	PublicNetworkAccessFlagEnabled  = PublicNetworkAccessFlag("Enabled")
+	PublicNetworkAccessFlagDisabled = PublicNetworkAccessFlag("Disabled")
 )
 
 type SchemaCompatibility string
@@ -445,6 +759,7 @@ type SkuName string
 const (
 	SkuNameBasic    = SkuName("Basic")
 	SkuNameStandard = SkuName("Standard")
+	SkuNamePremium  = SkuName("Premium")
 )
 
 // The billing tier of this particular SKU.
@@ -453,6 +768,7 @@ type SkuTier string
 const (
 	SkuTierBasic    = SkuTier("Basic")
 	SkuTierStandard = SkuTier("Standard")
+	SkuTierPremium  = SkuTier("Premium")
 )
 
 func init() {
@@ -460,4 +776,8 @@ func init() {
 	pulumi.RegisterOutputType(EncodingCaptureDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EntityStatusOutput{})
 	pulumi.RegisterOutputType(EntityStatusPtrOutput{})
+	pulumi.RegisterOutputType(KeySourceOutput{})
+	pulumi.RegisterOutputType(KeySourcePtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityTypePtrOutput{})
 }

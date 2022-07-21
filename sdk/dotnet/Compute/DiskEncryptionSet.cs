@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk encryption set resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("activeKey")]
         public Output<Outputs.KeyForDiskEncryptionSetResponse?> ActiveKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+        /// </summary>
+        [Output("autoKeyRotationError")]
+        public Output<Outputs.ApiErrorResponse> AutoKeyRotationError { get; private set; } = null!;
 
         /// <summary>
         /// The type of key used to encrypt the data of the disk.
@@ -146,7 +152,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.KeyForDiskEncryptionSetArgs>? ActiveKey { get; set; }
 
         /// <summary>
-        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskEncryptionSetName")]
         public Input<string>? DiskEncryptionSetName { get; set; }

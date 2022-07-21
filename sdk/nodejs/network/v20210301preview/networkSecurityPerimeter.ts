@@ -103,7 +103,7 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20210201preview:NetworkSecurityPerimeter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeter.__pulumiType, name, resourceInputs, opts);
     }

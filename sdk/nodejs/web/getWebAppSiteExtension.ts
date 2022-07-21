@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site Extension Information.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionResult> {
     if (!opts) {

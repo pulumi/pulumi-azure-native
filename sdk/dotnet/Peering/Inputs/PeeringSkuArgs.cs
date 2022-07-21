@@ -16,28 +16,10 @@ namespace Pulumi.AzureNative.Peering.Inputs
     public sealed class PeeringSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The family of the peering SKU.
-        /// </summary>
-        [Input("family")]
-        public InputUnion<string, Pulumi.AzureNative.Peering.Family>? Family { get; set; }
-
-        /// <summary>
         /// The name of the peering SKU.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The size of the peering SKU.
-        /// </summary>
-        [Input("size")]
-        public InputUnion<string, Pulumi.AzureNative.Peering.Size>? Size { get; set; }
-
-        /// <summary>
-        /// The tier of the peering SKU.
-        /// </summary>
-        [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.Peering.Tier>? Tier { get; set; }
 
         public PeeringSkuArgs()
         {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a managed private endpoint.
- * API Version: 2021-08-27.
+ * API Version: 2022-02-01.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
     if (!opts) {

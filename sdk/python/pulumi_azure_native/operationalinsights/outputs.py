@@ -14,16 +14,10 @@ __all__ = [
     'AssociatedWorkspaceResponse',
     'CapacityReservationPropertiesResponse',
     'ClusterSkuResponse',
-    'ColumnResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
     'LogAnalyticsQueryPackQueryPropertiesResponseRelated',
-    'MachineReferenceWithHintsResponse',
     'PrivateLinkScopedResourceResponse',
-    'RestoredLogsResponse',
-    'ResultStatisticsResponse',
-    'SchemaResponse',
-    'SearchResultsResponse',
     'StorageAccountResponse',
     'StorageInsightStatusResponse',
     'SystemDataResponse',
@@ -197,122 +191,6 @@ class ClusterSkuResponse(dict):
         The name of the SKU.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class ColumnResponse(dict):
-    """
-    Table column.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isDefaultDisplay":
-            suggest = "is_default_display"
-        elif key == "isHidden":
-            suggest = "is_hidden"
-        elif key == "dataTypeHint":
-            suggest = "data_type_hint"
-        elif key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ColumnResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ColumnResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ColumnResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_default_display: bool,
-                 is_hidden: bool,
-                 data_type_hint: Optional[str] = None,
-                 description: Optional[str] = None,
-                 display_name: Optional[str] = None,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        Table column.
-        :param bool is_default_display: Is displayed by default.
-        :param bool is_hidden: Is column hidden.
-        :param str data_type_hint: Column data type logical hint.
-        :param str description: Column description.
-        :param str display_name: Column display name.
-        :param str name: Column name.
-        :param str type: Column data type.
-        """
-        pulumi.set(__self__, "is_default_display", is_default_display)
-        pulumi.set(__self__, "is_hidden", is_hidden)
-        if data_type_hint is not None:
-            pulumi.set(__self__, "data_type_hint", data_type_hint)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="isDefaultDisplay")
-    def is_default_display(self) -> bool:
-        """
-        Is displayed by default.
-        """
-        return pulumi.get(self, "is_default_display")
-
-    @property
-    @pulumi.getter(name="isHidden")
-    def is_hidden(self) -> bool:
-        """
-        Is column hidden.
-        """
-        return pulumi.get(self, "is_hidden")
-
-    @property
-    @pulumi.getter(name="dataTypeHint")
-    def data_type_hint(self) -> Optional[str]:
-        """
-        Column data type logical hint.
-        """
-        return pulumi.get(self, "data_type_hint")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Column description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        Column display name.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Column name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Column data type.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -539,104 +417,6 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
 
 
 @pulumi.output_type
-class MachineReferenceWithHintsResponse(dict):
-    """
-    A machine reference with a hint of the machine's name and operating system.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayNameHint":
-            suggest = "display_name_hint"
-        elif key == "osFamilyHint":
-            suggest = "os_family_hint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MachineReferenceWithHintsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MachineReferenceWithHintsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MachineReferenceWithHintsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 display_name_hint: str,
-                 id: str,
-                 kind: str,
-                 name: str,
-                 os_family_hint: str,
-                 type: str):
-        """
-        A machine reference with a hint of the machine's name and operating system.
-        :param str display_name_hint: Last known display name.
-        :param str id: Resource URI.
-        :param str kind: Specifies the sub-class of the reference.
-               Expected value is 'ref:machinewithhints'.
-        :param str name: Resource name.
-        :param str os_family_hint: Last known operating system family.
-        :param str type: Resource type qualifier.
-        """
-        pulumi.set(__self__, "display_name_hint", display_name_hint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", 'ref:machinewithhints')
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "os_family_hint", os_family_hint)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="displayNameHint")
-    def display_name_hint(self) -> str:
-        """
-        Last known display name.
-        """
-        return pulumi.get(self, "display_name_hint")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource URI.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        Specifies the sub-class of the reference.
-        Expected value is 'ref:machinewithhints'.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="osFamilyHint")
-    def os_family_hint(self) -> str:
-        """
-        Last known operating system family.
-        """
-        return pulumi.get(self, "os_family_hint")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type qualifier.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class PrivateLinkScopedResourceResponse(dict):
     """
     The private link scope resource reference.
@@ -688,412 +468,6 @@ class PrivateLinkScopedResourceResponse(dict):
         The private link scope unique Identifier.
         """
         return pulumi.get(self, "scope_id")
-
-
-@pulumi.output_type
-class RestoredLogsResponse(dict):
-    """
-    Restore parameters.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endRestoreTime":
-            suggest = "end_restore_time"
-        elif key == "sourceTable":
-            suggest = "source_table"
-        elif key == "startRestoreTime":
-            suggest = "start_restore_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RestoredLogsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RestoredLogsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RestoredLogsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 end_restore_time: Optional[str] = None,
-                 source_table: Optional[str] = None,
-                 start_restore_time: Optional[str] = None):
-        """
-        Restore parameters.
-        :param str end_restore_time: The timestamp to end the restore by (UTC).
-        :param str source_table: The table to restore data from.
-        :param str start_restore_time: The timestamp to start the restore from (UTC).
-        """
-        if end_restore_time is not None:
-            pulumi.set(__self__, "end_restore_time", end_restore_time)
-        if source_table is not None:
-            pulumi.set(__self__, "source_table", source_table)
-        if start_restore_time is not None:
-            pulumi.set(__self__, "start_restore_time", start_restore_time)
-
-    @property
-    @pulumi.getter(name="endRestoreTime")
-    def end_restore_time(self) -> Optional[str]:
-        """
-        The timestamp to end the restore by (UTC).
-        """
-        return pulumi.get(self, "end_restore_time")
-
-    @property
-    @pulumi.getter(name="sourceTable")
-    def source_table(self) -> Optional[str]:
-        """
-        The table to restore data from.
-        """
-        return pulumi.get(self, "source_table")
-
-    @property
-    @pulumi.getter(name="startRestoreTime")
-    def start_restore_time(self) -> Optional[str]:
-        """
-        The timestamp to start the restore from (UTC).
-        """
-        return pulumi.get(self, "start_restore_time")
-
-
-@pulumi.output_type
-class ResultStatisticsResponse(dict):
-    """
-    Search job execution statistics.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ingestedRecords":
-            suggest = "ingested_records"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResultStatisticsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResultStatisticsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResultStatisticsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ingested_records: int,
-                 progress: float):
-        """
-        Search job execution statistics.
-        :param int ingested_records: The number of rows that were returned by the search job.
-        :param float progress: Search job completion percentage.
-        """
-        pulumi.set(__self__, "ingested_records", ingested_records)
-        pulumi.set(__self__, "progress", progress)
-
-    @property
-    @pulumi.getter(name="ingestedRecords")
-    def ingested_records(self) -> int:
-        """
-        The number of rows that were returned by the search job.
-        """
-        return pulumi.get(self, "ingested_records")
-
-    @property
-    @pulumi.getter
-    def progress(self) -> float:
-        """
-        Search job completion percentage.
-        """
-        return pulumi.get(self, "progress")
-
-
-@pulumi.output_type
-class SchemaResponse(dict):
-    """
-    Table's schema.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "restoredLogs":
-            suggest = "restored_logs"
-        elif key == "searchResults":
-            suggest = "search_results"
-        elif key == "standardColumns":
-            suggest = "standard_columns"
-        elif key == "tableSubType":
-            suggest = "table_sub_type"
-        elif key == "tableType":
-            suggest = "table_type"
-        elif key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SchemaResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SchemaResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SchemaResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 categories: Sequence[str],
-                 labels: Sequence[str],
-                 restored_logs: 'outputs.RestoredLogsResponse',
-                 search_results: 'outputs.SearchResultsResponse',
-                 solutions: Sequence[str],
-                 source: str,
-                 standard_columns: Sequence['outputs.ColumnResponse'],
-                 table_sub_type: str,
-                 table_type: str,
-                 columns: Optional[Sequence['outputs.ColumnResponse']] = None,
-                 description: Optional[str] = None,
-                 display_name: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        Table's schema.
-        :param Sequence[str] categories: Table category.
-        :param Sequence[str] labels: Table labels.
-        :param 'RestoredLogsResponse' restored_logs: Parameters of the restore operation that initiated this table.
-        :param 'SearchResultsResponse' search_results: Parameters of the search job that initiated this table.
-        :param Sequence[str] solutions: List of solutions the table is affiliated with
-        :param str source: Table's creator.
-        :param Sequence['ColumnResponse'] standard_columns: A list of table standard columns.
-        :param str table_sub_type: The subtype describes what APIs can be used to interact with the table, and what features are available against it.
-        :param str table_type: Table's creator.
-        :param Sequence['ColumnResponse'] columns: A list of table custom columns.
-        :param str description: Table description.
-        :param str display_name: Table display name.
-        :param str name: Table name.
-        """
-        pulumi.set(__self__, "categories", categories)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "restored_logs", restored_logs)
-        pulumi.set(__self__, "search_results", search_results)
-        pulumi.set(__self__, "solutions", solutions)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "standard_columns", standard_columns)
-        pulumi.set(__self__, "table_sub_type", table_sub_type)
-        pulumi.set(__self__, "table_type", table_type)
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def categories(self) -> Sequence[str]:
-        """
-        Table category.
-        """
-        return pulumi.get(self, "categories")
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Sequence[str]:
-        """
-        Table labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @property
-    @pulumi.getter(name="restoredLogs")
-    def restored_logs(self) -> 'outputs.RestoredLogsResponse':
-        """
-        Parameters of the restore operation that initiated this table.
-        """
-        return pulumi.get(self, "restored_logs")
-
-    @property
-    @pulumi.getter(name="searchResults")
-    def search_results(self) -> 'outputs.SearchResultsResponse':
-        """
-        Parameters of the search job that initiated this table.
-        """
-        return pulumi.get(self, "search_results")
-
-    @property
-    @pulumi.getter
-    def solutions(self) -> Sequence[str]:
-        """
-        List of solutions the table is affiliated with
-        """
-        return pulumi.get(self, "solutions")
-
-    @property
-    @pulumi.getter
-    def source(self) -> str:
-        """
-        Table's creator.
-        """
-        return pulumi.get(self, "source")
-
-    @property
-    @pulumi.getter(name="standardColumns")
-    def standard_columns(self) -> Sequence['outputs.ColumnResponse']:
-        """
-        A list of table standard columns.
-        """
-        return pulumi.get(self, "standard_columns")
-
-    @property
-    @pulumi.getter(name="tableSubType")
-    def table_sub_type(self) -> str:
-        """
-        The subtype describes what APIs can be used to interact with the table, and what features are available against it.
-        """
-        return pulumi.get(self, "table_sub_type")
-
-    @property
-    @pulumi.getter(name="tableType")
-    def table_type(self) -> str:
-        """
-        Table's creator.
-        """
-        return pulumi.get(self, "table_type")
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[Sequence['outputs.ColumnResponse']]:
-        """
-        A list of table custom columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Table description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        Table display name.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Table name.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class SearchResultsResponse(dict):
-    """
-    Parameters of the search job that initiated this table.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceTable":
-            suggest = "source_table"
-        elif key == "endSearchTime":
-            suggest = "end_search_time"
-        elif key == "startSearchTime":
-            suggest = "start_search_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SearchResultsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SearchResultsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SearchResultsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_table: str,
-                 description: Optional[str] = None,
-                 end_search_time: Optional[str] = None,
-                 limit: Optional[int] = None,
-                 query: Optional[str] = None,
-                 start_search_time: Optional[str] = None):
-        """
-        Parameters of the search job that initiated this table.
-        :param str source_table: The table used in the search job.
-        :param str description: Search job Description.
-        :param str end_search_time: The timestamp to end the search by (UTC)
-        :param int limit: Limit the search job to return up to specified number of rows.
-        :param str query: Search job query.
-        :param str start_search_time: The timestamp to start the search from (UTC)
-        """
-        pulumi.set(__self__, "source_table", source_table)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if end_search_time is not None:
-            pulumi.set(__self__, "end_search_time", end_search_time)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if query is not None:
-            pulumi.set(__self__, "query", query)
-        if start_search_time is not None:
-            pulumi.set(__self__, "start_search_time", start_search_time)
-
-    @property
-    @pulumi.getter(name="sourceTable")
-    def source_table(self) -> str:
-        """
-        The table used in the search job.
-        """
-        return pulumi.get(self, "source_table")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Search job Description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="endSearchTime")
-    def end_search_time(self) -> Optional[str]:
-        """
-        The timestamp to end the search by (UTC)
-        """
-        return pulumi.get(self, "end_search_time")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        """
-        Limit the search job to return up to specified number of rows.
-        """
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def query(self) -> Optional[str]:
-        """
-        Search job query.
-        """
-        return pulumi.get(self, "query")
-
-    @property
-    @pulumi.getter(name="startSearchTime")
-    def start_search_time(self) -> Optional[str]:
-        """
-        The timestamp to start the search from (UTC)
-        """
-        return pulumi.get(self, "start_search_time")
 
 
 @pulumi.output_type
@@ -1166,7 +540,7 @@ class StorageInsightStatusResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
-    Metadata pertaining to creation and last modification of the resource.
+    Read only system data
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1203,13 +577,13 @@ class SystemDataResponse(dict):
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
         """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
+        Read only system data
+        :param str created_at: The timestamp of resource creation (UTC)
+        :param str created_by: An identifier for the identity that created the resource
+        :param str created_by_type: The type of identity that created the resource
         :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
+        :param str last_modified_by: An identifier for the identity that last modified the resource
+        :param str last_modified_by_type: The type of identity that last modified the resource
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -1228,7 +602,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The timestamp of resource creation (UTC).
+        The timestamp of resource creation (UTC)
         """
         return pulumi.get(self, "created_at")
 
@@ -1236,7 +610,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
         """
-        The identity that created the resource.
+        An identifier for the identity that created the resource
         """
         return pulumi.get(self, "created_by")
 
@@ -1244,7 +618,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[str]:
         """
-        The type of identity that created the resource.
+        The type of identity that created the resource
         """
         return pulumi.get(self, "created_by_type")
 
@@ -1260,7 +634,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[str]:
         """
-        The identity that last modified the resource.
+        An identifier for the identity that last modified the resource
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -1268,7 +642,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource.
+        The type of identity that last modified the resource
         """
         return pulumi.get(self, "last_modified_by_type")
 
@@ -1552,7 +926,7 @@ class WorkspaceSkuResponse(dict):
         The SKU (tier) of a workspace.
         :param str last_sku_update: The last time when the sku was updated.
         :param str name: The name of the SKU.
-        :param int capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param int capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "name", name)
@@ -1579,7 +953,7 @@ class WorkspaceSkuResponse(dict):
     @pulumi.getter(name="capacityReservationLevel")
     def capacity_reservation_level(self) -> Optional[int]:
         """
-        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 

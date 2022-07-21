@@ -11,7 +11,7 @@ import (
 )
 
 // The configuration of service URI and custom headers for the webhook.
-// API Version: 2019-05-01.
+// API Version: 2021-09-01.
 func GetWebhookCallbackConfig(ctx *pulumi.Context, args *GetWebhookCallbackConfigArgs, opts ...pulumi.InvokeOption) (*GetWebhookCallbackConfigResult, error) {
 	var rv GetWebhookCallbackConfigResult
 	err := ctx.Invoke("azure-native:containerregistry:getWebhookCallbackConfig", args, &rv, opts...)

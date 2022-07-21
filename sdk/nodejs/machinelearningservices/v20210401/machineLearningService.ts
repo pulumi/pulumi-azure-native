@@ -120,7 +120,7 @@ export class MachineLearningService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20210101:MachineLearningService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20210101:MachineLearningService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineLearningService.__pulumiType, name, resourceInputs, opts);
     }

@@ -17,21 +17,21 @@ class PrivateEndpointArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 private_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['PrivateEndpointPropertiesArgs']] = None):
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpoint resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
-        :param pulumi.Input['PrivateEndpointPropertiesArgs'] properties: The properties associated with a private endpoint.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if manual_private_link_service_connections is not None:
+            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
         if private_endpoint_name is not None:
             pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -58,6 +58,18 @@ class PrivateEndpointArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+        """
+        A list of connections to the remote resource. Immutable after it is set.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @manual_private_link_service_connections.setter
+    def manual_private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+        pulumi.set(self, "manual_private_link_service_connections", value)
+
+    @property
     @pulumi.getter(name="privateEndpointName")
     def private_endpoint_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -69,18 +81,6 @@ class PrivateEndpointArgs:
     def private_endpoint_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_endpoint_name", value)
 
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PrivateEndpointPropertiesArgs']]:
-        """
-        The properties associated with a private endpoint.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PrivateEndpointPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
 
 class PrivateEndpoint(pulumi.CustomResource):
     @overload
@@ -88,19 +88,19 @@ class PrivateEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Complete information about the private endpoint.
-        API Version: 2020-03-01-preview.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointPropertiesArgs']] properties: The properties associated with a private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -111,7 +111,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Complete information about the private endpoint.
-        API Version: 2020-03-01-preview.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -129,8 +129,8 @@ class PrivateEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -147,11 +147,12 @@ class PrivateEndpoint(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["manual_private_link_service_connections"] = manual_private_link_service_connections
             __props__.__dict__["private_endpoint_name"] = private_endpoint_name
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["created_date"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -179,11 +180,20 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         __props__ = PrivateEndpointArgs.__new__(PrivateEndpointArgs)
 
+        __props__.__dict__["created_date"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["manual_private_link_service_connections"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> pulumi.Output[str]:
+        """
+        The date when this private endpoint was created.
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -194,20 +204,20 @@ class PrivateEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]]:
+        """
+        A list of connections to the remote resource. Immutable after it is set.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.PrivateEndpointPropertiesResponse']:
-        """
-        The properties associated with a private endpoint.
-        """
-        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

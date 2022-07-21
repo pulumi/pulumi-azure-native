@@ -12,7 +12,7 @@ import (
 )
 
 // Represents an incident in Azure Security Insights.
-// API Version: 2020-01-01.
+// API Version: 2021-10-01.
 type Incident struct {
 	pulumi.CustomResourceState
 
@@ -42,7 +42,7 @@ type Incident struct {
 	LastActivityTimeUtc pulumi.StringPtrOutput `pulumi:"lastActivityTimeUtc"`
 	// The last time the incident was updated
 	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
-	// Azure resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes a user that the incident is assigned to
 	Owner IncidentOwnerInfoResponsePtrOutput `pulumi:"owner"`
@@ -52,9 +52,11 @@ type Incident struct {
 	Severity pulumi.StringOutput `pulumi:"severity"`
 	// The status of the incident
 	Status pulumi.StringOutput `pulumi:"status"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The title of the incident
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Azure resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -169,7 +171,7 @@ type incidentArgs struct {
 	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
 	// Describes a user that the incident is assigned to
 	Owner *IncidentOwnerInfo `pulumi:"owner"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The severity of the incident
 	Severity string `pulumi:"severity"`
@@ -201,7 +203,7 @@ type IncidentArgs struct {
 	LastActivityTimeUtc pulumi.StringPtrInput
 	// Describes a user that the incident is assigned to
 	Owner IncidentOwnerInfoPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The severity of the incident
 	Severity pulumi.StringInput
@@ -315,7 +317,7 @@ func (o IncidentOutput) LastModifiedTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
 }
 
-// Azure resource name
+// The name of the resource
 func (o IncidentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -340,12 +342,17 @@ func (o IncidentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o IncidentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Incident) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The title of the incident
 func (o IncidentOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// Azure resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o IncidentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfigurationPolicyGroup Resource.
- * API Version: 2022-01-01.
+ * API Version: 2021-08-01.
  */
 export function getConfigurationPolicyGroup(args: GetConfigurationPolicyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyGroupResult> {
     if (!opts) {

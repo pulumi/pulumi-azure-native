@@ -10,16 +10,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AzureADPartnerClientAuthenticationArgs',
     'AzureFunctionEventSubscriptionDestinationArgs',
     'BoolEqualsAdvancedFilterArgs',
     'ConnectionStateArgs',
     'DeadLetterWithResourceIdentityArgs',
     'DeliveryWithResourceIdentityArgs',
     'DynamicDeliveryAttributeMappingArgs',
-    'EventChannelDestinationArgs',
-    'EventChannelFilterArgs',
-    'EventChannelSourceArgs',
     'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
     'EventSubscriptionIdentityArgs',
@@ -42,11 +38,9 @@ __all__ = [
     'NumberNotInAdvancedFilterArgs',
     'NumberNotInRangeAdvancedFilterArgs',
     'PartnerAuthorizationArgs',
-    'PartnerEventSubscriptionDestinationArgs',
     'PartnerTopicInfoArgs',
     'PartnerArgs',
     'PrivateEndpointArgs',
-    'ResourceMoveChangeHistoryArgs',
     'RetryPolicyArgs',
     'ServiceBusQueueEventSubscriptionDestinationArgs',
     'ServiceBusTopicEventSubscriptionDestinationArgs',
@@ -63,67 +57,7 @@ __all__ = [
     'StringNotInAdvancedFilterArgs',
     'UserIdentityPropertiesArgs',
     'WebHookEventSubscriptionDestinationArgs',
-    'WebhookPartnerDestinationInfoArgs',
 ]
-
-@pulumi.input_type
-class AzureADPartnerClientAuthenticationArgs:
-    def __init__(__self__, *,
-                 client_authentication_type: pulumi.Input[str],
-                 azure_active_directory_application_id_or_uri: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory_tenant_id: Optional[pulumi.Input[str]] = None):
-        """
-        Azure Active Directory Partner Client Authentication
-        :param pulumi.Input[str] client_authentication_type: Type of client authentication
-               Expected value is 'AzureAD'.
-        :param pulumi.Input[str] azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-        :param pulumi.Input[str] azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-        """
-        if client_authentication_type is None:
-            client_authentication_type = 'AzureAD'
-        pulumi.set(__self__, "client_authentication_type", 'AzureAD')
-        if azure_active_directory_application_id_or_uri is not None:
-            pulumi.set(__self__, "azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
-        if azure_active_directory_tenant_id is not None:
-            pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
-
-    @property
-    @pulumi.getter(name="clientAuthenticationType")
-    def client_authentication_type(self) -> pulumi.Input[str]:
-        """
-        Type of client authentication
-        Expected value is 'AzureAD'.
-        """
-        return pulumi.get(self, "client_authentication_type")
-
-    @client_authentication_type.setter
-    def client_authentication_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_authentication_type", value)
-
-    @property
-    @pulumi.getter(name="azureActiveDirectoryApplicationIdOrUri")
-    def azure_active_directory_application_id_or_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-        """
-        return pulumi.get(self, "azure_active_directory_application_id_or_uri")
-
-    @azure_active_directory_application_id_or_uri.setter
-    def azure_active_directory_application_id_or_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_active_directory_application_id_or_uri", value)
-
-    @property
-    @pulumi.getter(name="azureActiveDirectoryTenantId")
-    def azure_active_directory_tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-        """
-        return pulumi.get(self, "azure_active_directory_tenant_id")
-
-    @azure_active_directory_tenant_id.setter
-    def azure_active_directory_tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_active_directory_tenant_id", value)
-
 
 @pulumi.input_type
 class AzureFunctionEventSubscriptionDestinationArgs:
@@ -376,11 +310,11 @@ class DeadLetterWithResourceIdentityArgs:
 @pulumi.input_type
 class DeliveryWithResourceIdentityArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'PartnerEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
                  identity: Optional[pulumi.Input['EventSubscriptionIdentityArgs']] = None):
         """
         Information about the delivery for an event subscription with resource identity.
-        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'PartnerEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when delivering events.
         """
@@ -391,7 +325,7 @@ class DeliveryWithResourceIdentityArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'PartnerEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
+    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -399,7 +333,7 @@ class DeliveryWithResourceIdentityArgs:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'PartnerEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
+    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
         pulumi.set(self, "destination", value)
 
     @property
@@ -470,134 +404,6 @@ class DynamicDeliveryAttributeMappingArgs:
     @source_field.setter
     def source_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_field", value)
-
-
-@pulumi.input_type
-class EventChannelDestinationArgs:
-    def __init__(__self__, *,
-                 azure_subscription_id: Optional[pulumi.Input[str]] = None,
-                 partner_topic_name: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of the destination of an event channel.
-        :param pulumi.Input[str] azure_subscription_id: Azure subscription ID of the customer creating the event channel. The partner topic
-               associated with the event channel will be created under this Azure subscription.
-        :param pulumi.Input[str] partner_topic_name: Name of the partner topic associated with the event channel.
-        :param pulumi.Input[str] resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
-               associated with the event channel will be created under this resource group.
-        """
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if partner_topic_name is not None:
-            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
-        if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure subscription ID of the customer creating the event channel. The partner topic
-        associated with the event channel will be created under this Azure subscription.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @azure_subscription_id.setter
-    def azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_subscription_id", value)
-
-    @property
-    @pulumi.getter(name="partnerTopicName")
-    def partner_topic_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the partner topic associated with the event channel.
-        """
-        return pulumi.get(self, "partner_topic_name")
-
-    @partner_topic_name.setter
-    def partner_topic_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "partner_topic_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Resource Group of the customer creating the event channel. The partner topic
-        associated with the event channel will be created under this resource group.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group", value)
-
-
-@pulumi.input_type
-class EventChannelFilterArgs:
-    def __init__(__self__, *,
-                 advanced_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None,
-                 enable_advanced_filtering_on_arrays: Optional[pulumi.Input[bool]] = None):
-        """
-        Filter for the Event Channel.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event channels.
-        :param pulumi.Input[bool] enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
-        """
-        if advanced_filters is not None:
-            pulumi.set(__self__, "advanced_filters", advanced_filters)
-        if enable_advanced_filtering_on_arrays is None:
-            enable_advanced_filtering_on_arrays = False
-        if enable_advanced_filtering_on_arrays is not None:
-            pulumi.set(__self__, "enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
-
-    @property
-    @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
-        """
-        An array of advanced filters that are used for filtering event channels.
-        """
-        return pulumi.get(self, "advanced_filters")
-
-    @advanced_filters.setter
-    def advanced_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
-        pulumi.set(self, "advanced_filters", value)
-
-    @property
-    @pulumi.getter(name="enableAdvancedFilteringOnArrays")
-    def enable_advanced_filtering_on_arrays(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
-        """
-        return pulumi.get(self, "enable_advanced_filtering_on_arrays")
-
-    @enable_advanced_filtering_on_arrays.setter
-    def enable_advanced_filtering_on_arrays(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_advanced_filtering_on_arrays", value)
-
-
-@pulumi.input_type
-class EventChannelSourceArgs:
-    def __init__(__self__, *,
-                 source: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of the source of an event channel.
-        :param pulumi.Input[str] source: The identifier of the resource that's the source of the events.
-               This represents a unique resource in the partner's resource model.
-        """
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the resource that's the source of the events.
-        This represents a unique resource in the partner's resource model.
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
@@ -1032,17 +838,21 @@ class InlineEventPropertiesArgs:
     def __init__(__self__, *,
                  data_schema_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  documentation_url: Optional[pulumi.Input[str]] = None):
         """
         Additional information about every inline event.
         :param pulumi.Input[str] data_schema_url: The dataSchemaUrl for the inline event.
         :param pulumi.Input[str] description: The description for the inline event.
+        :param pulumi.Input[str] display_name: The displayName for the inline event.
         :param pulumi.Input[str] documentation_url: The documentationUrl for the inline event.
         """
         if data_schema_url is not None:
             pulumi.set(__self__, "data_schema_url", data_schema_url)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if documentation_url is not None:
             pulumi.set(__self__, "documentation_url", documentation_url)
 
@@ -1069,6 +879,18 @@ class InlineEventPropertiesArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The displayName for the inline event.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter(name="documentationUrl")
@@ -1852,46 +1674,6 @@ class PartnerAuthorizationArgs:
 
 
 @pulumi.input_type
-class PartnerEventSubscriptionDestinationArgs:
-    def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str],
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
-               Expected value is 'PartnerDestination'.
-        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
-        """
-        pulumi.set(__self__, "endpoint_type", 'PartnerDestination')
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Input[str]:
-        """
-        Type of the endpoint for the event subscription destination.
-        Expected value is 'PartnerDestination'.
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @endpoint_type.setter
-    def endpoint_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "endpoint_type", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
 class PartnerTopicInfoArgs:
     def __init__(__self__, *,
                  azure_subscription_id: Optional[pulumi.Input[str]] = None,
@@ -2071,62 +1853,6 @@ class PrivateEndpointArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class ResourceMoveChangeHistoryArgs:
-    def __init__(__self__, *,
-                 azure_subscription_id: Optional[pulumi.Input[str]] = None,
-                 changed_time_utc: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
-        """
-        The change history of the resource move.
-        :param pulumi.Input[str] azure_subscription_id: Azure subscription ID of the resource.
-        :param pulumi.Input[str] changed_time_utc: UTC timestamp of when the resource was changed.
-        :param pulumi.Input[str] resource_group_name: Azure Resource Group of the resource.
-        """
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if changed_time_utc is not None:
-            pulumi.set(__self__, "changed_time_utc", changed_time_utc)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure subscription ID of the resource.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @azure_subscription_id.setter
-    def azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_subscription_id", value)
-
-    @property
-    @pulumi.getter(name="changedTimeUtc")
-    def changed_time_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        UTC timestamp of when the resource was changed.
-        """
-        return pulumi.get(self, "changed_time_utc")
-
-    @changed_time_utc.setter
-    def changed_time_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "changed_time_utc", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Resource Group of the resource.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
 
 @pulumi.input_type
@@ -3111,164 +2837,5 @@ class WebHookEventSubscriptionDestinationArgs:
     @preferred_batch_size_in_kilobytes.setter
     def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
-
-
-@pulumi.input_type
-class WebhookPartnerDestinationInfoArgs:
-    def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str],
-                 azure_subscription_id: Optional[pulumi.Input[str]] = None,
-                 client_authentication: Optional[pulumi.Input['AzureADPartnerClientAuthenticationArgs']] = None,
-                 endpoint_base_url: Optional[pulumi.Input[str]] = None,
-                 endpoint_service_context: Optional[pulumi.Input[str]] = None,
-                 endpoint_url: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_move_change_history: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMoveChangeHistoryArgs']]]] = None):
-        """
-        Information about the WebHook of the partner destination.
-        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the partner destination
-               Expected value is 'WebHook'.
-        :param pulumi.Input[str] azure_subscription_id: Azure subscription ID of the subscriber. The partner destination associated with the channel will be
-               created under this Azure subscription.
-        :param pulumi.Input['AzureADPartnerClientAuthenticationArgs'] client_authentication: Partner client authentication
-        :param pulumi.Input[str] endpoint_base_url: The base URL that represents the endpoint of the partner destination.
-        :param pulumi.Input[str] endpoint_service_context: Additional context of the partner destination endpoint.
-        :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the partner destination.
-        :param pulumi.Input[str] name: Name of the partner destination associated with the channel.
-        :param pulumi.Input[str] resource_group_name: Azure Resource Group of the subscriber. The partner destination associated with the channel will be
-               created under this resource group.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceMoveChangeHistoryArgs']]] resource_move_change_history: Change history of the resource move.
-        """
-        if endpoint_type is None:
-            endpoint_type = 'WebHook'
-        pulumi.set(__self__, "endpoint_type", 'WebHook')
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if client_authentication is not None:
-            pulumi.set(__self__, "client_authentication", client_authentication)
-        if endpoint_base_url is not None:
-            pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
-        if endpoint_service_context is not None:
-            pulumi.set(__self__, "endpoint_service_context", endpoint_service_context)
-        if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if resource_move_change_history is not None:
-            pulumi.set(__self__, "resource_move_change_history", resource_move_change_history)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Input[str]:
-        """
-        Type of the endpoint for the partner destination
-        Expected value is 'WebHook'.
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @endpoint_type.setter
-    def endpoint_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "endpoint_type", value)
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure subscription ID of the subscriber. The partner destination associated with the channel will be
-        created under this Azure subscription.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @azure_subscription_id.setter
-    def azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_subscription_id", value)
-
-    @property
-    @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional[pulumi.Input['AzureADPartnerClientAuthenticationArgs']]:
-        """
-        Partner client authentication
-        """
-        return pulumi.get(self, "client_authentication")
-
-    @client_authentication.setter
-    def client_authentication(self, value: Optional[pulumi.Input['AzureADPartnerClientAuthenticationArgs']]):
-        pulumi.set(self, "client_authentication", value)
-
-    @property
-    @pulumi.getter(name="endpointBaseUrl")
-    def endpoint_base_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The base URL that represents the endpoint of the partner destination.
-        """
-        return pulumi.get(self, "endpoint_base_url")
-
-    @endpoint_base_url.setter
-    def endpoint_base_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint_base_url", value)
-
-    @property
-    @pulumi.getter(name="endpointServiceContext")
-    def endpoint_service_context(self) -> Optional[pulumi.Input[str]]:
-        """
-        Additional context of the partner destination endpoint.
-        """
-        return pulumi.get(self, "endpoint_service_context")
-
-    @endpoint_service_context.setter
-    def endpoint_service_context(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint_service_context", value)
-
-    @property
-    @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL that represents the endpoint of the partner destination.
-        """
-        return pulumi.get(self, "endpoint_url")
-
-    @endpoint_url.setter
-    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint_url", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the partner destination associated with the channel.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Resource Group of the subscriber. The partner destination associated with the channel will be
-        created under this resource group.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="resourceMoveChangeHistory")
-    def resource_move_change_history(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMoveChangeHistoryArgs']]]]:
-        """
-        Change history of the resource move.
-        """
-        return pulumi.get(self, "resource_move_change_history")
-
-    @resource_move_change_history.setter
-    def resource_move_change_history(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMoveChangeHistoryArgs']]]]):
-        pulumi.set(self, "resource_move_change_history", value)
 
 

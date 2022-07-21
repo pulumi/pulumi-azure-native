@@ -11,7 +11,7 @@ import (
 )
 
 // Deployment resource payload
-// API Version: 2020-07-01.
+// API Version: 2022-04-01.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("azure-native:appplatform:getDeployment", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupDeploymentResult struct {
 	Properties DeploymentResourcePropertiesResponse `pulumi:"properties"`
 	// Sku of the Deployment resource
 	Sku *SkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }
@@ -52,7 +54,7 @@ func (val *LookupDeploymentResult) Defaults() *LookupDeploymentResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Properties = *tmp.Properties.Defaults()
+	tmp.Sku = tmp.Sku.Defaults()
 
 	return &tmp
 }
@@ -118,6 +120,11 @@ func (o LookupDeploymentResultOutput) Properties() DeploymentResourcePropertiesR
 // Sku of the Deployment resource
 func (o LookupDeploymentResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupDeploymentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

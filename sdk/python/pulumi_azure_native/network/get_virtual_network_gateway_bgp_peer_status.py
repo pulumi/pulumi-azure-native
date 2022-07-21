@@ -50,7 +50,7 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayBgpPeerStatusResult:
     """
     Response for list BGP peer status API service call.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str peer: The IP address of the peer to retrieve the status of.
@@ -78,7 +78,7 @@ def get_virtual_network_gateway_bgp_peer_status_output(peer: Optional[pulumi.Inp
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayBgpPeerStatusResult]:
     """
     Response for list BGP peer status API service call.
-    API Version: 2020-11-01.
+    API Version: 2021-08-01.
 
 
     :param str peer: The IP address of the peer to retrieve the status of.

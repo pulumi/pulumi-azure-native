@@ -11,7 +11,7 @@ import (
 )
 
 // A class representing the access keys of a CommunicationService.
-// API Version: 2020-08-20.
+// API Version: 2021-10-01-preview.
 func ListCommunicationServiceKeys(ctx *pulumi.Context, args *ListCommunicationServiceKeysArgs, opts ...pulumi.InvokeOption) (*ListCommunicationServiceKeysResult, error) {
 	var rv ListCommunicationServiceKeysResult
 	err := ctx.Invoke("azure-native:communication:listCommunicationServiceKeys", args, &rv, opts...)

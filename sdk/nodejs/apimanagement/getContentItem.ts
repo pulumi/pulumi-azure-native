@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Content type contract details.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
     if (!opts) {
@@ -46,11 +46,11 @@ export interface GetContentItemArgs {
  */
 export interface GetContentItemResult {
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -58,7 +58,7 @@ export interface GetContentItemResult {
      */
     readonly properties: any;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

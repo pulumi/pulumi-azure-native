@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Description of a namespace authorization rule.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
     if (!opts) {
@@ -46,11 +47,15 @@ export interface GetTopicAuthorizationRuleArgs {
  */
 export interface GetTopicAuthorizationRuleResult {
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -58,7 +63,11 @@ export interface GetTopicAuthorizationRuleResult {
      */
     readonly rights: string[];
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }

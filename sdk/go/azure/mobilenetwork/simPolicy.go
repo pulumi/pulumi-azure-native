@@ -12,7 +12,7 @@ import (
 )
 
 // Sim policy resource.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01-preview.
 type SimPolicy struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +42,8 @@ type SimPolicy struct {
 	RfspIndex pulumi.IntPtrOutput `pulumi:"rfspIndex"`
 	// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
 	SliceConfigurations SliceConfigurationResponseArrayOutput `pulumi:"sliceConfigurations"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -286,6 +288,11 @@ func (o SimPolicyOutput) RfspIndex() pulumi.IntPtrOutput {
 // The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
 func (o SimPolicyOutput) SliceConfigurations() SliceConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *SimPolicy) SliceConfigurationResponseArrayOutput { return v.SliceConfigurations }).(SliceConfigurationResponseArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SimPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SimPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags.

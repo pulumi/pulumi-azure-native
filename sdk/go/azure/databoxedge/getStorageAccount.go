@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
 	err := ctx.Invoke("azure-native:databoxedge:getStorageAccount", args, &rv, opts...)
@@ -48,7 +48,7 @@ type LookupStorageAccountResult struct {
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
 	// Current status of the storage account
 	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
-	// StorageAccount object on ASE device
+	// Metadata pertaining to creation and last modification of StorageAccount
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -135,7 +135,7 @@ func (o LookupStorageAccountResultOutput) StorageAccountStatus() pulumi.StringPt
 	return o.ApplyT(func(v LookupStorageAccountResult) *string { return v.StorageAccountStatus }).(pulumi.StringPtrOutput)
 }
 
-// StorageAccount object on ASE device
+// Metadata pertaining to creation and last modification of StorageAccount
 func (o LookupStorageAccountResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupStorageAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

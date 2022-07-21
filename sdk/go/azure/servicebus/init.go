@@ -29,12 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Namespace{}
 	case "azure-native:servicebus:NamespaceAuthorizationRule":
 		r = &NamespaceAuthorizationRule{}
-	case "azure-native:servicebus:NamespaceIpFilterRule":
-		r = &NamespaceIpFilterRule{}
 	case "azure-native:servicebus:NamespaceNetworkRuleSet":
 		r = &NamespaceNetworkRuleSet{}
-	case "azure-native:servicebus:NamespaceVirtualNetworkRule":
-		r = &NamespaceVirtualNetworkRule{}
 	case "azure-native:servicebus:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:servicebus:Queue":

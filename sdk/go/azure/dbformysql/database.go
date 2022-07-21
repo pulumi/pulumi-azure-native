@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Database.
-// API Version: 2017-12-01.
+// API Version: 2021-05-01.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type Database struct {
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -41,10 +43,19 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:dbformysql/v20171201:Database"),
+			Type: pulumi.String("azure-native:dbformysql/v20200701preview:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/v20171201preview:Database"),
+			Type: pulumi.String("azure-native:dbformysql/v20200701privatepreview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20210501:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20210501preview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20211201preview:Database"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -156,6 +167,11 @@ func (o DatabaseOutput) Collation() pulumi.StringPtrOutput {
 // The name of the resource
 func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o DatabaseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Database) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

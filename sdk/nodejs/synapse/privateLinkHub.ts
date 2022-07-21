@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A privateLinkHub
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export class PrivateLinkHub extends pulumi.CustomResource {
     /**

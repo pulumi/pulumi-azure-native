@@ -16,15 +16,64 @@ export {
     v20220301preview,
 };
 
-export const AccountProvisioningMode = {
-    Automatic: "automatic",
-    Manual: "manual",
+export const ArcSqlManagedInstanceLicenseType = {
+    BasePrice: "BasePrice",
+    LicenseIncluded: "LicenseIncluded",
+    DisasterRecovery: "DisasterRecovery",
 } as const;
 
 /**
- * The service account provisioning mode for this Active Directory connector.
+ * The license type to apply for this managed instance.
  */
-export type AccountProvisioningMode = (typeof AccountProvisioningMode)[keyof typeof AccountProvisioningMode];
+export type ArcSqlManagedInstanceLicenseType = (typeof ArcSqlManagedInstanceLicenseType)[keyof typeof ArcSqlManagedInstanceLicenseType];
+
+export const ArcSqlServerLicenseType = {
+    Paid: "Paid",
+    Free: "Free",
+    HADR: "HADR",
+    Undefined: "Undefined",
+} as const;
+
+/**
+ * SQL Server license type.
+ */
+export type ArcSqlServerLicenseType = (typeof ArcSqlServerLicenseType)[keyof typeof ArcSqlServerLicenseType];
+
+export const ConnectionStatus = {
+    Connected: "Connected",
+    Disconnected: "Disconnected",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * The cloud connectivity status.
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+export const DefenderStatus = {
+    Protected: "Protected",
+    Unprotected: "Unprotected",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * Status of Azure Defender.
+ */
+export type DefenderStatus = (typeof DefenderStatus)[keyof typeof DefenderStatus];
+
+export const EditionType = {
+    Evaluation: "Evaluation",
+    Enterprise: "Enterprise",
+    Standard: "Standard",
+    Web: "Web",
+    Developer: "Developer",
+    Express: "Express",
+} as const;
+
+/**
+ * SQL Server edition.
+ */
+export type EditionType = (typeof EditionType)[keyof typeof EditionType];
 
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
@@ -35,14 +84,19 @@ export const ExtendedLocationTypes = {
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
-export const PostgresInstanceSkuTier = {
-    Hyperscale: "Hyperscale",
+export const Infrastructure = {
+    Azure: "azure",
+    Gcp: "gcp",
+    Aws: "aws",
+    Alibaba: "alibaba",
+    Onpremises: "onpremises",
+    Other: "other",
 } as const;
 
 /**
- * This field is required to be implemented by the Resource Provider if the service has more than one tier.
+ * The infrastructure the data controller is running on.
  */
-export type PostgresInstanceSkuTier = (typeof PostgresInstanceSkuTier)[keyof typeof PostgresInstanceSkuTier];
+export type Infrastructure = (typeof Infrastructure)[keyof typeof Infrastructure];
 
 export const SqlManagedInstanceSkuTier = {
     GeneralPurpose: "GeneralPurpose",
@@ -50,6 +104,17 @@ export const SqlManagedInstanceSkuTier = {
 } as const;
 
 /**
- * This field is required to be implemented by the Resource Provider if the service has more than one tier.
+ * The pricing tier for the instance.
  */
 export type SqlManagedInstanceSkuTier = (typeof SqlManagedInstanceSkuTier)[keyof typeof SqlManagedInstanceSkuTier];
+
+export const SqlVersion = {
+    SQL_Server_2019: "SQL Server 2019",
+    SQL_Server_2017: "SQL Server 2017",
+    SQL_Server_2016: "SQL Server 2016",
+} as const;
+
+/**
+ * SQL Server version.
+ */
+export type SqlVersion = (typeof SqlVersion)[keyof typeof SqlVersion];

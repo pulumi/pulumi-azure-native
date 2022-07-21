@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.PolicyInsights
 {
     /// <summary>
     /// The remediation definition.
-    /// API Version: 2019-07-01.
+    /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:RemediationAtSubscription")]
     public partial class RemediationAtSubscription : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
+        /// </summary>
+        [Output("correlationId")]
+        public Output<string> CorrelationId { get; private set; } = null!;
+
         /// <summary>
         /// The time at which the remediation was created.
         /// </summary>
@@ -27,6 +33,12 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         [Output("deploymentStatus")]
         public Output<Outputs.RemediationDeploymentSummaryResponse> DeploymentStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The remediation failure threshold settings
+        /// </summary>
+        [Output("failureThreshold")]
+        public Output<Outputs.RemediationPropertiesResponseFailureThreshold?> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
@@ -47,6 +59,12 @@ namespace Pulumi.AzureNative.PolicyInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        /// </summary>
+        [Output("parallelDeployments")]
+        public Output<int?> ParallelDeployments { get; private set; } = null!;
+
+        /// <summary>
         /// The resource ID of the policy assignment that should be remediated.
         /// </summary>
         [Output("policyAssignmentId")]
@@ -65,10 +83,28 @@ namespace Pulumi.AzureNative.PolicyInsights
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        /// </summary>
+        [Output("resourceCount")]
+        public Output<int?> ResourceCount { get; private set; } = null!;
+
+        /// <summary>
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         /// </summary>
         [Output("resourceDiscoveryMode")]
         public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The remediation status message. Provides additional details regarding the state of the remediation.
+        /// </summary>
+        [Output("statusMessage")]
+        public Output<string> StatusMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the remediation.
@@ -128,10 +164,22 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class RemediationAtSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The remediation failure threshold settings
+        /// </summary>
+        [Input("failureThreshold")]
+        public Input<Inputs.RemediationPropertiesFailureThresholdArgs>? FailureThreshold { get; set; }
+
+        /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
         /// </summary>
         [Input("filters")]
         public Input<Inputs.RemediationFiltersArgs>? Filters { get; set; }
+
+        /// <summary>
+        /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        /// </summary>
+        [Input("parallelDeployments")]
+        public Input<int>? ParallelDeployments { get; set; }
 
         /// <summary>
         /// The resource ID of the policy assignment that should be remediated.
@@ -150,6 +198,12 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         [Input("remediationName")]
         public Input<string>? RemediationName { get; set; }
+
+        /// <summary>
+        /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        /// </summary>
+        [Input("resourceCount")]
+        public Input<int>? ResourceCount { get; set; }
 
         /// <summary>
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.

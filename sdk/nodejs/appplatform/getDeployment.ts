@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment resource payload
- * API Version: 2020-07-01.
+ * API Version: 2022-04-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     if (!opts) {
@@ -62,6 +62,10 @@ export interface GetDeploymentResult {
      * Sku of the Deployment resource
      */
     readonly sku?: outputs.appplatform.SkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
     /**
      * The type of the resource.
      */

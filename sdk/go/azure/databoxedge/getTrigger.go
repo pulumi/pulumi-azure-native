@@ -11,7 +11,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2020-12-01.
+// API Version: 2022-03-01.
 //
 // Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
@@ -40,7 +40,7 @@ type LookupTriggerResult struct {
 	Kind string `pulumi:"kind"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// Trigger in DataBoxEdge Resource
+	// Metadata pertaining to creation and last modification of Trigger
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
@@ -102,7 +102,7 @@ func (o LookupTriggerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTriggerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Trigger in DataBoxEdge Resource
+// Metadata pertaining to creation and last modification of Trigger
 func (o LookupTriggerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupTriggerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }

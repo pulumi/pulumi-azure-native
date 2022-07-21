@@ -19,6 +19,7 @@ __all__ = [
     'CacheNetworkSettingsArgs',
     'CacheSecuritySettingsArgs',
     'CacheSkuArgs',
+    'CacheUpgradeSettingsArgs',
     'CacheUsernameDownloadSettingsCredentialsArgs',
     'CacheUsernameDownloadSettingsArgs',
     'ClfsTargetArgs',
@@ -252,13 +253,17 @@ class CacheDirectorySettingsArgs:
 @pulumi.input_type
 class CacheEncryptionSettingsArgs:
     def __init__(__self__, *,
-                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None):
+                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
+                 rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Cache encryption settings.
         :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -272,17 +277,33 @@ class CacheEncryptionSettingsArgs:
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
+
+    @rotation_to_latest_key_version_enabled.setter
+    def rotation_to_latest_key_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
+
 
 @pulumi.input_type
 class CacheIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['CacheIdentityType']] = None):
+                 type: Optional[pulumi.Input['CacheIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Cache identity properties.
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -295,6 +316,18 @@ class CacheIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['CacheIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -419,6 +452,46 @@ class CacheSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CacheUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 scheduled_time: Optional[pulumi.Input[str]] = None,
+                 upgrade_schedule_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Cache Upgrade Settings.
+        :param pulumi.Input[str] scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        :param pulumi.Input[bool] upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        if scheduled_time is not None:
+            pulumi.set(__self__, "scheduled_time", scheduled_time)
+        if upgrade_schedule_enabled is not None:
+            pulumi.set(__self__, "upgrade_schedule_enabled", upgrade_schedule_enabled)
+
+    @property
+    @pulumi.getter(name="scheduledTime")
+    def scheduled_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        """
+        return pulumi.get(self, "scheduled_time")
+
+    @scheduled_time.setter
+    def scheduled_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduled_time", value)
+
+    @property
+    @pulumi.getter(name="upgradeScheduleEnabled")
+    def upgrade_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        return pulumi.get(self, "upgrade_schedule_enabled")
+
+    @upgrade_schedule_enabled.setter
+    def upgrade_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_schedule_enabled", value)
 
 
 @pulumi.input_type

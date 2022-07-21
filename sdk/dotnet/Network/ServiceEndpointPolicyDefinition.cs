@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Service Endpoint policy definitions.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ServiceEndpointPolicyDefinition")]
     public partial class ServiceEndpointPolicyDefinition : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("serviceResources")]
         public Output<ImmutableArray<string>> ServiceResources { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -178,6 +184,12 @@ namespace Pulumi.AzureNative.Network
             get => _serviceResources ?? (_serviceResources = new InputList<string>());
             set => _serviceResources = value;
         }
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceEndpointPolicyDefinitionArgs()
         {

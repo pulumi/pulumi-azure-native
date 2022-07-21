@@ -111,7 +111,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-        API Version: 2021-04-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-        API Version: 2021-04-01.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationGroupArgs args: The arguments to use to populate this resource's properties.

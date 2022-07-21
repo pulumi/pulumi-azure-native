@@ -49,7 +49,7 @@ def list_cluster_language_extensions(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterLanguageExtensionsResult:
     """
     The list of language extension objects.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -74,7 +74,7 @@ def list_cluster_language_extensions_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterLanguageExtensionsResult]:
     """
     The list of language extension objects.
-    API Version: 2021-01-01.
+    API Version: 2022-02-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
